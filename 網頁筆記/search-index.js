@@ -90,5 +90,68 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案",
     snippet: "涵蓋本週各章節重點的練習題（是非題／選擇題／簡答題），點擊即可顯示答案與解析。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "overview", sectionName: "縫線材質總論",
+    keywords: "suture material 理想縫線特性 absorbable non-absorbable 可吸收 不可吸收 minimal tissue reaction",
+    snippet: "理想縫線需組織反應最小、不利細菌生長、打結牢固；可吸收縫線水解分解，不可吸收縫線需維持張力強度 60 天以上。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "structure", sectionName: "縫線結構",
+    keywords: "multifilament monofilament 多股 單股 編織 braided twisted harbor bacteria capillarity",
+    snippet: "多股編織線容易藏匿細菌加重感染；單股合成線組織反應與毛細作用較低。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "materials", sectionName: "材質比較表",
+    keywords: "surgical gut polyglycolic acid dexon polyglactin 910 vicryl vicryl rapide polydioxanone PDS maxon polyglyconate 材質比較",
+    snippet: "常見縫線材質比較：手術腸線、Dexon、Vicryl、Vicryl Rapide、PDS II、PDS Plus、Maxon 的成分與優缺點。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "choice", sectionName: "縫線的選擇",
+    keywords: "choice of suture material crystalloid bladder urinary calculus infected wound chromic gut braided bacterial harboring 結晶尿 尿路結石 感染傷口",
+    snippet: "膀胱等結晶尿部位需留意縫線是否誘發尿路結石；感染傷口應避免編織／多股線，Chromic gut 具局部吞噬細胞活性。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "size", sectionName: "縫線尺寸",
+    keywords: "size does matter 縫線號數 gauge 最小直徑 tensile strength 張力強度",
+    snippet: "使用足以固定組織的最小直徑縫線；縫線張力強度不應超過組織本身的張力強度。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "needle", sectionName: "縫合針",
+    keywords: "needle conventional cutting reverse cutting taper point taper cut special K 針尖 circle 弧度 point body swag",
+    snippet: "Taper point 圓針創傷最小適合腸胃道；Reverse cutting 是目前皮膚縫合最常用的切割針。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "label", sectionName: "判讀縫線包裝",
+    keywords: "suture packaging label 縫線包裝標示 suture size suture type suture needle",
+    snippet: "縫線包裝標示須核對尺寸、種類、編織/單股、天然/合成、可吸收/不可吸收與縫合針型號。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "patterns", sectionName: "縫合模式",
+    keywords: "simple interrupted simple continuous horizontal mattress vertical mattress lambert cushing purse string transfix ligature 單純間斷 單純連續 水平褥式 垂直褥式 荷包縫合 貫穿結紮",
+    snippet: "單純間斷縫合最常用；水平褥式減張效果最佳但影響血液供應；垂直褥式血液循環較佳；Transfix ligature 防止滑脫。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案",
+    snippet: "涵蓋縫線材質、縫合針與縫合模式重點的練習題，點擊即可顯示答案與解析。"
   }
 ];

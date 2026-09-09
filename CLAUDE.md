@@ -30,19 +30,25 @@
   ├── index.html            ← 總覽首頁，依學期列出所有科目卡片，含跨科目/跨週次搜尋框
   ├── search-index.js       ← 跨頁搜尋索引（SEARCH_INDEX 陣列），每新增/修改一週筆記務必同步更新
   ├── assets/
-  │   ├── style.css         ← 全站共用樣式（總覽頁與週次筆記頁都載入）
-  │   ├── site.js            ← 共用基礎腳本：主題切換、週次頁分節導覽、頁內搜尋、#section-xxx 錨點路由
-  │   └── global-search.js  ← 跨頁搜尋邏輯，讀取 search-index.js 的 SEARCH_INDEX
+  │   ├── style.css         ← 共用樣式，只給「總覽頁」（頂層 index.html／各科目 index.html）載入
+  │   ├── site.js            ← 共用基礎腳本（主題切換等），只給總覽頁載入
+  │   └── global-search.js  ← 跨頁搜尋邏輯，讀取 search-index.js 的 SEARCH_INDEX，只給總覽頁載入
   ├── 大四上/<科目名稱>/
-  │   ├── index.html         ← 該科目總覽頁（週次卡片，未整理的週次顯示灰色佔位卡）
-  │   └── week01_<主題>.html ← 各週筆記，檔名格式 weekNN_主題
+  │   ├── index.html                    ← 該科目總覽頁（週次卡片，未整理的週次顯示灰色佔位卡）
+  │   └── week01_<主題>.html            ← 各週筆記，檔名格式 weekNN_主題
+  │       （同一週若有多份文件，例如「課堂」+「實習」，檔名各自加主題區分，
+  │         如 week01_術前考量與麻醉.html、week01_縫合材料與結紮技術.html）
   └── 大三/<科目名稱>/        ← 大三科目不分上下學期，統一放同一層
       ├── index.html
       └── ...（依實際筆記類型命名，不一定有週次概念）
   ```
+  - **兩種頁面的樣式來源不同**：
+    - 總覽頁（頂層 `index.html`、各科目 `index.html`）：外部引用 `assets/style.css`／`assets/site.js`／`assets/global-search.js` + `search-index.js`，元件包含 `.subject-card`、`.week-card`（`.week-card.multi` + `.week-doc-link` 用於同一週有多份文件的情況）。
+    - **週次筆記頁**（`weekNN_主題.html`）：延續原本單檔自包含風格，**整份 CSS／JS 都是 inline，不載入 `assets/` 底下任何檔案**，側邊欄 nav 用 `showSection(id)` 切換分節（非捲動）。新增時直接複製一份既有週次筆記（例如 `大四上/大動物外科手術及實習/week01_術前考量與麻醉.html`）當模板整份複製修改，包含：CSS 全部 token/元件（`.card`/`.table-wrap`/`.alert-*`/`.tag-*`/`.step`/`.flow`/`.quiz-*` 等）、`<script>` 內的 `toggleTheme`/`showSection`/hash 路由（讓跨頁搜尋結果的 `#section-xxx` 連結可直接跳轉）/`SECTION_NAMES`/`doSearch`（頁內搜尋）。
+    - 練習題一律用 `<details class="quiz-reveal"><summary></summary>...</details>` 樣式，答案預設隱藏、點擊展開，不要用固定顯示的答案。
   - 目前科目：大四上＝大動物外科手術及實習（16 週）、禽病學、豬病學、反芻動物疾病學、伴侶動物復健及物理治療學、水產動物疾病學、獸醫臨床及影像診斷學；大三＝獸醫病理學及實習、獸醫臨床病理學及實習、獸醫藥理學、獸醫針灸學、獸醫麻醉學及實習、獸醫公共衛生。
-  - **新增一週筆記時**：(1) 在對應科目資料夾建立 `weekNN_主題.html`（載入 `../../assets/style.css`、`../../assets/site.js`，用 `<div class="section" id="section-xxx">` 分節＋左側 nav 導覽，比照 `大四上/大動物外科手術及實習/week01_術前考量與麻醉.html` 的寫法）；(2) 更新該科目 `index.html` 把對應週次卡片從「尚未整理」改成連結；(3) 在 `search-index.js` 補上該週各分節的搜尋條目（subject/semester/week/weekTitle/url/section/sectionName/keywords/snippet）。
-  - 舊有「單檔自包含」風格的頁面（不屬於課程週次）維持原樣即可，不用套用這套多檔架構。
+  - **新增一週筆記時**：(1) 複製既有週次筆記當模板建立 `weekNN_主題.html`（自包含 inline 風格，見上）；(2) 更新該科目 `index.html`：若該週第一份文件，把週次卡片從 `.week-card.pending` 改成連結；若是該週第二份（或更多）文件，改成 `.week-card.multi` 並用多個 `.week-doc-link` 列出；(3) 在 `search-index.js` 補上該份文件各分節的搜尋條目（subject/semester/week/weekTitle/url/section/sectionName/keywords/snippet）。
+  - 舊有「單檔自包含」風格的一次性主題頁（不屬於課程週次）維持原樣即可，不用套用這套多檔架構。
 
 ## 環境與工具
 - 這個資料夾已是獨立的 git repository（與其他資料夾分開版控），`.gitignore` 已排除病例相關的大型圖片/影片/PDF 資料夾與 `.venv/`（那些由 iCloud 同步即可，不進 git）
