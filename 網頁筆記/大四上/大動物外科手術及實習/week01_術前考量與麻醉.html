@@ -465,6 +465,14 @@
 
   <main id="mainContent">
 
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a>
+      <span class="sep">›</span>
+      <a href="index.html">大動物外科手術及實習</a>
+      <span class="sep">›</span>
+      <span class="current">第 1 週・術前考量與麻醉</span>
+    </div>
+
     <!-- HISTORY -->
     <div class="section active" id="section-history">
       <h2>動物外科學簡史 History of Animal Surgery</h2>
@@ -901,6 +909,14 @@ function showSection(id) {
   document.getElementById('section-' + id).classList.add('active');
   document.getElementById('nav-' + id).classList.add('active');
 }
+
+// 支援從總覽首頁的跨頁搜尋結果連結（例如 ...html#section-sedation）直接跳到對應分節
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
 
 // ── GLOBAL SEARCH ──
 const SECTION_NAMES = {
