@@ -83,5 +83,12 @@ const SEARCH_INDEX = [
     section: "summary", sectionName: "學習重點整理",
     keywords: "複習 重點整理 考試",
     snippet: "本週學習重點整理：手術分類、抗生素時機、反芻動物麻醉機轉鏈、xylazine 懷孕禁忌、局麻藥選擇邏輯等九項重點。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "術前考量與麻醉",
+    url: "大四上/大動物外科手術及實習/week01_術前考量與麻醉.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案",
+    snippet: "涵蓋本週各章節重點的練習題（是非題／選擇題／簡答題），點擊即可顯示答案與解析。"
   }
 ];

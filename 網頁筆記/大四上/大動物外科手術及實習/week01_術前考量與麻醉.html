@@ -381,6 +381,41 @@
   .flow-node.danger { background: var(--red-bg); color: var(--red); border-color: color-mix(in srgb, var(--red) 30%, transparent); }
   .flow-arrow { color: var(--text4); font-size: 13px; }
 
+  /* ── QUIZ / 練習題 ── */
+  .quiz-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+  .quiz-type {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: .3px;
+    margin-bottom: 8px;
+  }
+  .quiz-type-tf   { background: var(--accent-bg); color: var(--accent); }
+  .quiz-type-mcq  { background: var(--purple-bg); color: var(--purple); }
+  .quiz-type-saq  { background: var(--amber-bg);  color: var(--amber); }
+  .quiz-q { font-size: 13px; color: var(--text); font-weight: 600; margin-bottom: 8px; line-height: 1.6; }
+  .quiz-options { list-style: none; padding: 0; margin: 0 0 8px; }
+  .quiz-options li { font-size: 12.5px; color: var(--text2); padding: 3px 0 3px 4px; margin-bottom: 0; }
+  .quiz-reveal { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 12.5px; }
+  .quiz-reveal summary { cursor: pointer; font-weight: 700; color: var(--accent); list-style: none; }
+  .quiz-reveal summary::-webkit-details-marker { display: none; }
+  .quiz-reveal summary::before { content: "▸ 顯示答案"; }
+  .quiz-reveal[open] summary::before { content: "▾ 隱藏答案"; }
+  .quiz-reveal[open] summary { margin-bottom: 8px; }
+  .quiz-answer { font-weight: 700; margin-bottom: 4px; }
+  .quiz-answer.correct { color: var(--green); }
+  .quiz-answer.false { color: var(--red); }
+  .quiz-explain { color: var(--text2); line-height: 1.6; margin: 0; }
+
   mark { background: color-mix(in srgb, var(--amber) 30%, transparent); color: var(--amber); border-radius: 2px; padding: 0 1px; }
 
   ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -460,6 +495,9 @@
     <div class="section-label" style="margin-top:8px;">複習</div>
     <a onclick="showSection('summary')" id="nav-summary">
       <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
     </a>
   </nav>
 
@@ -882,6 +920,128 @@
       </footer>
     </div>
 
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <h2>練習題 Practice Quiz</h2>
+      <p class="section-desc">涵蓋本週各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q1. 只要是擇期手術（非緊急），術前實驗室檢查的項目與範圍都有固定標準流程，外科醫師不需自行判斷。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">理學檢查適用於所有病患，但實驗室檢查該做到什麼程度屬於外科醫師的臨床判斷，並非固定流程；不過特定情境（如右側皺胃疾病、酮症、colic）有明確建議加做的項目。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 皺胃移位固定術（abomasopexy）屬於 Contaminated-dirty 手術分類。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Abomasopexy 有進入消化道但無內容物外漏，屬於 Clean-contaminated；Contaminated-dirty 的範例是傷口、膿瘍、失活腸道、瘤胃切開術等有明顯內容物外漏或急性發炎的情況。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. Bupivacaine 因為作用時間長、起效較慢，臨床上可經任何途徑（含大範圍浸潤）自由使用。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Bupivacaine 心血管毒性較高，經血管快速吸收風險高，臨床上僅限於硬膜外（epidural）或神經周圍（perineural）給藥；Lidocaine 與 Mepivacaine 才是各種途徑皆可使用。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 牛隻全身麻醉下長時間躺臥，最終可能導致低血氧、高碳酸血症與呼吸性酸中毒，其主要機轉是？</div>
+        <ul class="quiz-options">
+          <li>(A) 瘤胃壓迫橫膈，造成換氣不足（hypoventilation）</li>
+          <li>(B) 麻醉藥物直接抑制心肌收縮力</li>
+          <li>(C) 瘤胃微生物大量死亡釋放內毒素</li>
+          <li>(D) 唾液分泌過多阻塞上呼吸道</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">長時間躺臥時巨大的瘤胃會壓迫橫膈運動，導致換氣不足，進而造成低血氧、高碳酸血症與呼吸性酸中毒；這與脹氣／逆流導致吸入性肺炎是兩條並行但機轉不同的風險路徑。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 關於 Xylazine 用於懷孕母牛的敘述，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) Xylazine 對子宮平滑肌完全沒有作用，懷孕牛可安全使用</li>
+          <li>(B) Xylazine 有類似催產素的作用，可能誘發子宮收縮，增加流產風險</li>
+          <li>(C) Xylazine 僅在懷孕後期（近產期）才需要謹慎使用</li>
+          <li>(D) 只有 IM 給藥才有此風險，IV 給藥則無</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Xylazine 在早期妊娠母牛已被報告有類似催產素（oxytocin-like）的作用，會誘發子宮收縮，因此懷孕牛（尤其早期妊娠）使用需特別謹慎，不限特定給藥途徑或懷孕階段。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 一頭 600 kg 成牛，術前欲使用 2% lidocaine 做局部浸潤麻醉，下列何者最接近其安全總劑量上限？</div>
+        <ul class="quiz-options">
+          <li>(A) 約 15–30 mL</li>
+          <li>(B) 約 90–150 mL</li>
+          <li>(C) 約 300–450 mL</li>
+          <li>(D) 沒有上限，依手術範圍調整即可</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Lidocaine 安全總劑量為 3–5 mg/kg，600 kg 牛約需 1800–3000 mg，換算 2% lidocaine（20 mg/mL）約為 90–150 mL，單次注射不可超過此劑量。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 倒 L 型阻斷（Inverted L Block）主要阻斷下列哪些神經支配的區域？</div>
+        <ul class="quiz-options">
+          <li>(A) 第 13 胸神經（T13）與第 1、2 腰神經（L1、L2）</li>
+          <li>(B) 第 1–5 腰神經（L1–L5）</li>
+          <li>(C) 薦神經叢（Sacral plexus）</li>
+          <li>(D) 迷走神經（Vagus nerve）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">倒 L 型阻斷沿水平線（距腰椎橫突腹側約 10 cm）與垂直線（距最後一根肋骨後方 5–10 cm）注射，主要阻斷 T13、L1、L2 神經支配區域，適用於剖腹產與瘤胃造口術。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q8. 牛的腹壁浸潤麻醉為什麼需要麻醉「兩層肌肉」？這兩層分別是什麼，臨床操作上的難點在哪裡？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">牛腹壁由多層肌肉構成，僅麻醉單一層無法完全阻斷手術範圍的感覺神經。第一層通常可確認為腹外斜肌（external abdominal oblique），較好辨認；第二層較難分辨界線，可能包含腹內斜肌（internal oblique）、腹橫肌（transversus abdominis）與腹膜（peritoneum）。臨床操作難點在於第二層邊界不清楚，容易注射深度不足導致麻醉不全，但也要避免將大量局麻藥直接注入腹腔，因為快速血管吸收可能導致中毒。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q9. 為什麼「抗生素不能用來彌補手術技術上的缺失」？請結合手術分類與感染管制的概念說明。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">手術部位感染的四大決定因子是宿主防禦力、生理狀態失衡、細菌污染風險與手術時間過長，這些主要透過良好的無菌操作、正確的手術分類判斷與縮短手術時間來控制；抗生素只是輔助的感染控制手段之一，無法逆轉因操作不當造成的組織創傷、污染或延長的手術時間。若依賴抗生素掩蓋技術缺失，除了感染風險仍然存在，也可能助長抗藥性問題，因此預防性抗生素只能作為完整無菌流程的補充，而非替代。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本週筆記各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
   </main>
 </div>
 
@@ -929,7 +1089,8 @@ const SECTION_NAMES = {
   sedation: '鎮靜用藥',
   local: '局部／區域麻醉',
   invertedl: '倒 L 型阻斷',
-  summary: '學習重點整理'
+  summary: '學習重點整理',
+  quiz: '練習題'
 };
 
 document.addEventListener('click', function(e) {
@@ -961,7 +1122,7 @@ function doSearch(q) {
     const sectionId = section.id.replace('section-', '');
     const sectionName = SECTION_NAMES[sectionId] || sectionId;
 
-    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title').forEach(el => {
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain').forEach(el => {
       if (!el.closest('script') && !el.closest('style')) {
         const text = el.textContent.trim();
         reg.lastIndex = 0;
