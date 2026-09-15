@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主題名稱 - 上群AH</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群AH" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="外科"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">上群AH 首頁</a><span class="sep">›</span><a href="index.html">科別</a><span class="sep">›</span><span class="current">主題名稱</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">主題名稱</h1>
+      <p class="page-subtitle">一句話說這頁在講什麼。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科別</div><div class="meta-value">科別</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">—</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">草稿</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 概述</a>
+    <div class="section-label">內容</div>
+    <a onclick="showSection('part1')" id="nav-part1"><span class="nav-icon">📋</span> 第一部分</a>
+    <a onclick="showSection('part2')" id="nav-part2"><span class="nav-icon">🔧</span> 第二部分</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>概述</h2></div>
+      <p class="section-desc">這一節在講什麼，一兩句。</p>
+      <p>內文。</p>
+      <div class="alert alert-info"><div class="alert-label">重點</div><p>值得標出來的一句話。</p></div>
+    </div>
+
+    <div class="section" id="section-part1">
+      <div class="section-head"><div class="section-num">2</div><h2>第一部分</h2></div>
+      <h3>小標題</h3>
+      <div class="flow"><span class="flow-node">步驟 A</span><span class="flow-arrow">→</span><span class="flow-node">步驟 B</span><span class="flow-arrow">→</span><span class="flow-node danger">危險點</span></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>第一步。</strong>說明。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">第二步。</div></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>容易出錯的地方。</p></div>
+      <div class="alert alert-danger"><div class="alert-label">禁忌</div><p>絕對不能做的事。</p></div>
+    </div>
+
+    <div class="section" id="section-part2">
+      <div class="section-head"><div class="section-num">3</div><h2>第二部分</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>正常值</th><th>異常時代表</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>—</td><td><span class="dose">0.1 mg/kg</span></td><td><span class="route">IV</span></td><td></td></tr>
+            <tr><td>—</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure">
+        <img src="../assets/img/範例.jpg" alt="圖片說明">
+        <div class="figure-caption">圖說。</div>
+        <div class="figure-source">來源：—</div>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">卡片一</div><p>內容。</p></div>
+        <div class="card"><div class="card-title">卡片二</div><p>內容。</p></div>
+      </div>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">4</div><h2>練習題</h2></div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非</span>
+        <div class="quiz-q">題目。</div>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer correct">正確</div>
+          <p class="quiz-explain">解釋。</p>
+        </details>
+      </div>
+    </div>
+
+    <footer class="note-footer">本頁為醫院住院醫師訓練整理資料，僅供院內學習與討論使用，不作為正式診斷或用藥依據。</footer>
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+// 支援從總覽首頁的跨頁搜尋結果連結（例如 ...html#section-part1）直接跳到對應分節
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+// ── 頁內搜尋：SECTION_NAMES 要跟左側目錄、各 section id 對齊，複製本檔時記得改 ──
+const SECTION_NAMES = {
+  overview: '概述',
+  part1: '第一部分',
+  part2: '第二部分',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

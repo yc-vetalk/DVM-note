@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>皮下輸尿管繞道系統（SUB）手術指南</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<style>
+  :root {
+    --bg:        #f5f6f8;
+    --bg2:       #ffffff;
+    --bg3:       #f0f2f5;
+    --bg4:       #e8ebf0;
+    --border:    #dde1e9;
+    --border2:   #c8cdd8;
+    --text:      #111827;
+    --text2:     #374151;
+    --text3:     #6b7280;
+    --text4:     #9ca3af;
+    /* accent 取自「上群AH」院徽本身的顏色（見 assets/logo.svg 的 #756057／#dad800），
+       不用預設藍，深淺主題各自調整明度以維持可讀對比 */
+    --accent:    #6b5645;
+    --accent-bg: #f1ece6;
+    --accent-lt: #8a6d59;
+    --signal:    #8a8a00;
+    --green:     #0e7a4a;
+    --green-bg:  #e6f5ee;
+    --amber:     #92520e;
+    --amber-bg:  #fdf3e3;
+    --red:       #b91c1c;
+    --red-bg:    #fef2f2;
+    --purple:    #5b21b6;
+    --purple-bg: #f0edfb;
+    --nav-w:     220px;
+    --header-h:  56px;
+    --radius:    8px;
+    --shadow:    0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  }
+  [data-theme="dark"] {
+    --bg:        #0d1117;
+    --bg2:       #161b22;
+    --bg3:       #1c2230;
+    --bg4:       #232c3d;
+    --border:    #2a3347;
+    --border2:   #3a4a63;
+    --text:      #e6edf3;
+    --text2:     #b0bec9;
+    --text3:     #7a8fa6;
+    --text4:     #4e6070;
+    --accent:    #cba789;
+    --accent-bg: #241d16;
+    --accent-lt: #dabca3;
+    --signal:    #dad800;
+    --green:     #3ecf8e;
+    --green-bg:  #0d2d1f;
+    --amber:     #f0a940;
+    --amber-bg:  #2a1f0c;
+    --red:       #f87171;
+    --red-bg:    #2d1212;
+    --purple:    #a78bfa;
+    --purple-bg: #1e1535;
+    --shadow:    0 1px 3px rgba(0,0,0,.4);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    height: var(--header-h);
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: var(--shadow);
+  }
+  .header-brand { display: flex; align-items: center; text-decoration: none; }
+  .header-brand img.brand-logo { height: 30px; width: auto; display: block; }
+  .badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .header-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+
+  .search-wrap { position: relative; }
+  .search-wrap input {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 12px 6px 30px;
+    border-radius: var(--radius);
+    font-size: 12.5px;
+    width: 220px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .search-wrap input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent); }
+  .search-wrap input::placeholder { color: var(--text4); }
+  .search-icon { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 12px; pointer-events: none; }
+  .search-wrap input.has-results { border-radius: var(--radius) var(--radius) 0 0; border-bottom-color: transparent; }
+
+  .search-results {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 380px;
+    max-height: 440px;
+    overflow-y: auto;
+    background: var(--bg2);
+    border: 1px solid var(--accent);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    z-index: 300;
+    text-align: left;
+  }
+  .search-results.open { display: block; }
+  .sr-header { padding: 8px 12px 5px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text3); background: var(--bg3); border-bottom: 1px solid var(--border); position: sticky; top: 0; }
+  .sr-item { display: flex; flex-direction: column; gap: 2px; padding: 8px 12px; border-bottom: 1px solid var(--border); cursor: pointer; text-decoration: none; transition: background 0.1s; }
+  .sr-item:last-child { border-bottom: none; }
+  .sr-item:hover { background: var(--bg3); }
+  .sr-section { font-size: 10px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .sr-text { font-size: 12.5px; color: var(--text2); line-height: 1.5; }
+  .sr-text mark { background: color-mix(in srgb, var(--amber) 25%, transparent); color: var(--amber); border-radius: 2px; padding: 0 2px; font-weight: 700; }
+  .sr-empty { padding: 16px 12px; font-size: 13px; color: var(--text3); text-align: center; }
+  .sr-count { padding: 6px 12px; font-size: 11px; color: var(--text3); background: var(--bg3); border-top: 1px solid var(--border); text-align: right; position: sticky; bottom: 0; }
+
+  .theme-btn {
+    width: 32px; height: 32px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg3);
+    color: var(--text2);
+    font-size: 15px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+  }
+  .theme-btn:hover { background: var(--bg4); border-color: var(--border2); }
+
+  .container { display: flex; height: calc(100vh - var(--header-h)); }
+
+  nav {
+    width: var(--nav-w);
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    padding: 10px 0 16px;
+    flex-shrink: 0;
+    overflow-y: auto;
+  }
+  nav .section-label { font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 1.1px; padding: 12px 16px 5px; }
+  nav a { display: flex; align-items: center; gap: 8px; padding: 7px 16px 7px 14px; color: var(--text3); text-decoration: none; font-size: 12.5px; cursor: pointer; border-left: 2.5px solid transparent; border-radius: 0 6px 6px 0; margin: 1px 8px 1px 0; transition: all 0.12s; }
+  nav a:hover { background: var(--bg3); color: var(--text2); border-left-color: var(--border2); }
+  nav a.active { background: var(--accent-bg); color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+  nav a .nav-icon { font-size: 13px; width: 16px; text-align: center; flex-shrink: 0; }
+
+  main { flex: 1; overflow-y: auto; padding: 24px 28px; max-width: 1100px; }
+  .section { display: none; }
+  .section.active { display: block; animation: fadeIn 0.18s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  h2 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 4px; letter-spacing: -0.3px; }
+  h3 { font-size: 13px; font-weight: 700; color: var(--text2); margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.6px; }
+  h4 { font-size: 12.5px; font-weight: 600; color: var(--text2); margin: 14px 0 6px; }
+  p { color: var(--text2); margin-bottom: 8px; font-size: 13px; }
+  .section-desc { color: var(--text3); font-size: 12.5px; margin-bottom: 20px; line-height: 1.7; }
+  ul, ol { color: var(--text2); font-size: 13px; padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  li strong { color: var(--text); }
+
+  .breadcrumb { font-size: 11.5px; color: var(--text3); margin-bottom: 16px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb .sep { color: var(--text4); }
+  .breadcrumb .current { color: var(--text2); font-weight: 600; }
+
+  /* ── 頁首：標題＋副標＋文件屬性列（比照參考站的 doc-header 排版） ── */
+  .page-head { padding: 2px 0 4px; }
+  .page-title { font-size: 23px; font-weight: 800; letter-spacing: -0.4px; color: var(--text); margin-bottom: 6px; }
+  .page-subtitle { font-size: 13px; color: var(--text3); max-width: 64ch; margin-bottom: 0; }
+
+  .meta-bar { display: flex; flex-wrap: wrap; gap: 26px; padding: 16px 0 18px; margin-bottom: 22px; border-bottom: 1px solid var(--border); }
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .meta-item .meta-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text4); }
+  .meta-item .meta-value { font-size: 12.5px; color: var(--text2); }
+
+  /* ── 編號分節標題 ── */
+  .section-head { display: flex; gap: 14px; align-items: baseline; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .section-num { font-size: 25px; font-weight: 800; color: var(--accent); line-height: 1; flex-shrink: 0; min-width: 30px; }
+  .section-head h2 { margin-bottom: 0; }
+
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 14px; box-shadow: var(--shadow); }
+  .card-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+  .table-wrap { overflow-x: auto; margin: 6px 0 14px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  thead tr { background: var(--bg3); }
+  th { color: var(--text3); font-weight: 700; text-align: left; padding: 8px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.7px; white-space: nowrap; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; line-height: 1.55; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--bg3); }
+  td strong { color: var(--text); font-weight: 600; }
+
+  .dose { display: inline-block; color: var(--green); font-family: 'SF Mono', 'Cascadia Code', monospace; font-size: 11.5px; background: var(--green-bg); padding: 1px 6px; border-radius: 4px; border: 1px solid color-mix(in srgb, var(--green) 25%, transparent); line-height: 1.7; }
+  .route { display: inline-block; color: var(--amber); font-size: 11px; background: var(--amber-bg); padding: 1px 6px; border-radius: 4px; border: 1px solid color-mix(in srgb, var(--amber) 25%, transparent); font-weight: 700; letter-spacing: 0.3px; }
+
+  .alert { background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid var(--border2); border-radius: 0 var(--radius) var(--radius) 0; padding: 12px 16px; margin: 14px 0; box-shadow: var(--shadow); }
+  .alert-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+  .alert p, .alert-text { font-size: 12.5px; color: var(--text2); line-height: 1.65; margin: 0; }
+  .alert-warn   { border-left-color: var(--amber); }
+  .alert-warn   .alert-label { color: var(--amber); }
+  .alert-danger { border-left-color: var(--red); }
+  .alert-danger .alert-label { color: var(--red); }
+  .alert-info   { border-left-color: var(--accent); }
+  .alert-info   .alert-label { color: var(--accent); }
+  .alert-success{ border-left-color: var(--green); }
+  .alert-success .alert-label { color: var(--green); }
+
+  .tag { display: inline-block; font-size: 10.5px; padding: 2px 7px; border-radius: 20px; font-weight: 600; margin: 1px; letter-spacing: 0.2px; }
+  .tag-cattle { background: var(--accent-bg); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); }
+  .tag-small  { background: var(--green-bg);  color: var(--green);  border: 1px solid color-mix(in srgb, var(--green) 25%, transparent); }
+  .tag-exam   { background: var(--red-bg);    color: var(--red);    border: 1px solid color-mix(in srgb, var(--red) 25%, transparent); }
+
+  .step { display: flex; gap: 12px; background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 11px 14px; margin-bottom: 8px; box-shadow: var(--shadow); }
+  .step-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .step-text { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
+  .step-text strong { color: var(--text); }
+
+  .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow); margin: 10px 0 14px; }
+  .flow-node { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 12px; color: var(--text); font-weight: 600; }
+  .flow-node.danger { background: var(--red-bg); color: var(--red); border-color: color-mix(in srgb, var(--red) 30%, transparent); }
+  .flow-arrow { color: var(--text4); font-size: 13px; }
+
+  .figure { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; margin: 10px 0 18px; box-shadow: var(--shadow); text-align: center; }
+  .figure img { max-width: 100%; height: auto; border-radius: 6px; display: block; margin: 0 auto; }
+  .figure svg { max-width: 100%; height: auto; display: block; margin: 0 auto; color: var(--text); }
+  .figure svg text { fill: currentColor; font-family: inherit; }
+  .figure-caption { font-size: 11.5px; color: var(--text2); margin-top: 10px; line-height: 1.6; text-align: left; }
+  .figure-source { font-size: 10px; color: var(--text4); margin-top: 3px; text-align: left; }
+
+  .quiz-item { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 12px; box-shadow: var(--shadow); }
+  .quiz-type { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; letter-spacing: .3px; margin-bottom: 8px; }
+  .quiz-type-tf   { background: var(--accent-bg); color: var(--accent); }
+  .quiz-type-mcq  { background: var(--purple-bg); color: var(--purple); }
+  .quiz-type-saq  { background: var(--amber-bg);  color: var(--amber); }
+  .quiz-q { font-size: 13px; color: var(--text); font-weight: 600; margin-bottom: 8px; line-height: 1.6; }
+  .quiz-options { list-style: none; padding: 0; margin: 0 0 8px; }
+  .quiz-options li { font-size: 12.5px; color: var(--text2); padding: 3px 0 3px 4px; margin-bottom: 0; }
+  .quiz-reveal { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 12.5px; }
+  .quiz-reveal summary { cursor: pointer; font-weight: 700; color: var(--accent); list-style: none; }
+  .quiz-reveal summary::-webkit-details-marker { display: none; }
+  .quiz-reveal summary::before { content: "▸ 顯示答案"; }
+  .quiz-reveal[open] summary::before { content: "▾ 隱藏答案"; }
+  .quiz-reveal[open] summary { margin-bottom: 8px; }
+  .quiz-answer { font-weight: 700; margin-bottom: 4px; }
+  .quiz-answer.correct { color: var(--green); }
+  .quiz-answer.false { color: var(--red); }
+  .quiz-explain { color: var(--text2); line-height: 1.6; margin: 0; }
+
+  mark { background: color-mix(in srgb, var(--amber) 30%, transparent); color: var(--amber); border-radius: 2px; padding: 0 1px; }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+  footer.note-footer { margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text4); line-height: 1.7; }
+
+  @media (max-width: 720px) {
+    nav { display: none; }
+    main { padding: 16px; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .search-wrap input { width: 140px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群AH" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="外科"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<div class="container">
+  <nav>
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview">
+      <span class="nav-icon">📖</span> SUB 系統總覽
+    </a>
+    <div class="section-label" style="margin-top:8px;">術前</div>
+    <a onclick="showSection('prep')" id="nav-prep">
+      <span class="nav-icon">📋</span> 適應症與器材準備
+    </a>
+    <div class="section-label" style="margin-top:8px;">手術</div>
+    <a onclick="showSection('procedure')" id="nav-procedure">
+      <span class="nav-icon">🔧</span> 手術步驟
+    </a>
+    <div class="section-label" style="margin-top:8px;">術後</div>
+    <a onclick="showSection('flushing')" id="nav-flushing">
+      <span class="nav-icon">💉</span> 術後沖洗與照護
+    </a>
+    <a onclick="showSection('complications')" id="nav-complications">
+      <span class="nav-icon">⚠️</span> 併發症與預後
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main id="mainContent">
+
+    <div class="breadcrumb">
+      <a href="../index.html">上群AH 首頁</a>
+      <span class="sep">›</span>
+      <a href="index.html">外科</a>
+      <span class="sep">›</span>
+      <span class="current">皮下輸尿管繞道系統（SUB）</span>
+    </div>
+
+    <div class="page-head">
+      <h1 class="page-title">皮下輸尿管繞道系統（SUB™）</h1>
+      <p class="page-subtitle">貓／犬輸尿管阻塞的手術繞道裝置：原理、置放步驟、術後沖洗與併發症整理，供住院醫師查詢複習。</p>
+    </div>
+
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科別</div><div class="meta-value">外科</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">Norfolk Vet Products《SUB™ 3.0 A Surgical Guide》</div></div>
+      <div class="meta-item"><div class="meta-label">裝置版本</div><div class="meta-value">SUB 3.0（2019 年起）</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整整理，含自繪機制圖與實物照</div></div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="section active" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>SUB 系統總覽</h2></div>
+      <p class="section-desc">資料整理自 Norfolk Vet Products 原廠手術指南《SUB™ 3.0 A Surgical Guide》（Drs. Allyson Berent, DACVIM 與 Chick Weisse, DACVS 提供）。SUB 是治療貓（少數犬）輸尿管阻塞的介入性裝置，2009 年開發至今已用於數千例貓病患，此頁整理裝置原理、適應症、手術步驟與術後照護重點，供住院醫師參考，實際置放需經原廠訓練或有經驗術者指導。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意事項</div>
+        <p><strong>置放前務必完成適當訓練。</strong>原廠建議新手術者先於大體或 3D 列印矽膠模型上練習，並建議置放前先觀看原廠教學影片或與作者聯繫（可透過 <strong>allyson.berent@gmail.com</strong> 或 <strong>chick.weisse@gmail.com</strong>）。技術操作不熟練是併發症的主要原因。</p>
+      </div>
+
+      <h3>裝置是什麼</h3>
+      <p>SUB 是一套<strong>留置式皮下輸尿管繞道系統</strong>，利用 3 條導管＋1 個皮下注射座（SwirlPort），在腎臟與膀胱之間建立一條「人工輸尿管」，繞過阻塞的自然輸尿管：</p>
+
+      <div class="grid-3">
+        <div class="card"><div class="card-title">① 腎造廔導管<br><span style="font-weight:400;color:var(--text3);">Nephrostomy / Locking-loop catheter</span></div><p style="margin:0;">6.5F 導管，末端可鎖成 pigtail 固定於腎盂內；腎盂 &lt;8mm 時改為不鎖環的「輸尿管造廔導管」，沿輸尿管走向放置。</p></div>
+        <div class="card"><div class="card-title">② 膀胱造廔導管<br><span style="font-weight:400;color:var(--text3);">Cystostomy catheter</span></div><p style="margin:0;">7F 直型導管，固定於膀胱頂端（apex），Dacron 盤縫合固定於漿膜面。</p></div>
+        <div class="card"><div class="card-title">③ 皮下注射座<br><span style="font-weight:400;color:var(--text3);">SwirlPort</span></div><p style="margin:0;">縫合固定於腹壁皮下，經 Huber 針穿刺可沖洗系統、採尿檢體，不需手術即可長期維護通暢。</p></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-node">腎盂（腎造廔導管）</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">Y／X 接頭</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">膀胱（膀胱造廔導管）</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">皮下注射座 SwirlPort</div>
+        <div class="flow-arrow">↔</div>
+        <div class="flow-node">連接管（actuating tubing）</div>
+        <div class="flow-arrow">↔</div>
+        <div class="flow-node">Y／X 接頭</div>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">單側阻塞用 3-way「Y-connector」；雙側阻塞可用 4-way「X-connector」單一注射座，或兩組獨立 Y-connector＋兩個注射座。</p>
+
+      <figure class="figure">
+        <svg viewBox="0 0 800 360" role="img" aria-label="SUB 裝置機制圖：腎臟與膀胱各自的導管在腹腔內經 Y 接頭匯流，只有連接管一條管路穿過腹壁到皮下注射座">
+          <defs>
+            <marker id="subArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+            </marker>
+            <marker id="subArrowSignal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" style="fill:var(--signal)"/>
+            </marker>
+          </defs>
+
+          <!-- 分區標籤 -->
+          <text x="20" y="22" font-size="11" font-weight="700" letter-spacing="1" fill="currentColor" opacity="0.55">腹腔內 INTRA-ABDOMINAL</text>
+          <text x="576" y="22" font-size="11" font-weight="700" letter-spacing="1" fill="currentColor" opacity="0.55">皮下 SUBCUTANEOUS</text>
+
+          <!-- 腹壁分隔線 -->
+          <line x1="560" y1="20" x2="560" y2="330" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5 5"/>
+          <text x="568" y="345" font-size="11" fill="currentColor" opacity="0.6">腹壁 body wall</text>
+
+          <!-- 腎臟 -->
+          <rect x="40" y="40" width="160" height="90" rx="12" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="150" cy="90" r="20" fill="var(--accent-bg)" stroke="var(--accent)" stroke-width="1.5"/>
+          <path d="M141,90 q4.5,-11 9,0 q4.5,11 9,0" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+          <text x="120" y="152" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">腎臟 Kidney</text>
+          <text x="120" y="167" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7">腎盂內鎖環固定 pigtail</text>
+
+          <!-- 膀胱 -->
+          <rect x="40" y="220" width="160" height="90" rx="12" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="120" y1="220" x2="120" y2="204" stroke="var(--accent)" stroke-width="3"/>
+          <circle cx="120" cy="204" r="6" fill="var(--accent)"/>
+          <text x="120" y="332" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">膀胱 Bladder</text>
+          <text x="120" y="347" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7">Dacron 盤縫合固定於頂端</text>
+
+          <!-- Y-connector -->
+          <circle cx="300" cy="170" r="26" fill="var(--bg2)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="300" y="174" font-size="11" font-weight="700" text-anchor="middle" fill="currentColor">Y</text>
+          <text x="300" y="214" font-size="11.5" font-weight="700" text-anchor="middle" fill="currentColor">Y-connector</text>
+          <text x="300" y="228" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.7">雙側用 4-way X-connector</text>
+
+          <!-- 腎臟→Y（尿液來源） -->
+          <polyline points="200,85 250,85 250,158 276,160" fill="none" stroke="currentColor" stroke-width="2"/>
+          <!-- Y→膀胱（尿液引流，標箭頭） -->
+          <polyline points="277,182 250,182 250,255 200,255" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#subArrow)"/>
+
+          <!-- 連接管（唯一穿腹壁的管路，訊號色） -->
+          <line x1="326" y1="170" x2="668" y2="170" style="stroke:var(--signal)" stroke-width="4" marker-end="url(#subArrowSignal)"/>
+          <text x="497" y="156" font-size="11.5" font-weight="700" text-anchor="middle" style="fill:var(--signal)">連接管 actuating tubing</text>
+          <text x="497" y="188" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.65">全站唯一穿過腹壁的管路</text>
+
+          <!-- SwirlPort -->
+          <circle cx="700" cy="170" r="34" fill="var(--bg2)" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="700" cy="170" r="14" fill="var(--bg3)" stroke="currentColor" stroke-width="1"/>
+          <line x1="672" y1="132" x2="696" y2="158" stroke="currentColor" stroke-width="2" marker-end="url(#subArrow)"/>
+          <text x="700" y="222" font-size="11.5" font-weight="700" text-anchor="middle" fill="currentColor">SwirlPort</text>
+          <text x="700" y="236" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.7">皮下注射座</text>
+          <text x="670" y="122" font-size="10" text-anchor="end" fill="currentColor" opacity="0.7">Huber 針：沖洗／採尿</text>
+        </svg>
+        <figcaption class="figure-caption">SUB 裝置機制圖：腎導管與膀胱導管在<strong>腹腔內</strong>經 Y-connector 相連，形成繞過阻塞輸尿管的通路；<strong>只有連接管這一條管路穿過腹壁</strong>接到皮下注射座，供術後經 Huber 針沖洗、採尿。這是 SUB 3.0 與舊版最核心的設計差異，見下方版本比較圖。</figcaption>
+        <div class="figure-source">本圖依原廠 Figure 1（p.2）概念重繪，非文件掃描</div>
+      </figure>
+
+      <div class="figure">
+        <img src="img/SUB皮下輸尿管繞道系統/sub_xray_p1.jpg" alt="SUB 裝置植入後的側位螢光透視／X光影像">
+        <div class="figure-caption">實際植入後的側位影像：可以看到上圖示意的每個構造——腎盂內鎖環成 pigtail 的腎造廔導管、Y-connector、膀胱內的膀胱導管，以及皮下的 SwirlPort（畫面右下圓盤狀構造）。</div>
+        <div class="figure-source">來源：Norfolk Vet Products《SUB™ 3.0 A Surgical Guide》封面影像, p.1</div>
+      </div>
+
+      <h3>版本演進：為什麼是 3.0</h3>
+      <p>舊版（1.0／2.0）注射座直接固定在腹壁上，腎導管與膀胱導管必須<strong>各自</strong>穿出腹壁去接注射座；SUB 3.0 把兩條導管都留在腹腔內、改成單一連接管穿腹壁。少一條管路穿腹壁，就少一個容易扭結的地方：</p>
+
+      <figure class="figure">
+        <svg viewBox="0 0 820 280" role="img" aria-label="比較圖：SUB 1.0/2.0 有兩條導管穿過腹壁，各是一個扭結風險點；SUB 3.0 只有一條連接管穿過腹壁">
+          <defs>
+            <marker id="subArrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+            </marker>
+          </defs>
+
+          <!-- 左：1.0/2.0 -->
+          <text x="20" y="26" font-size="13" font-weight="700" fill="currentColor">SUB 1.0 / 2.0</text>
+          <text x="20" y="42" font-size="10.5" fill="currentColor" opacity="0.65">2 條導管各自穿過腹壁</text>
+
+          <rect x="20" y="60" width="80" height="42" rx="8" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="60" y="85" font-size="10.5" text-anchor="middle" fill="currentColor">腎臟</text>
+          <rect x="20" y="150" width="80" height="42" rx="8" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="60" y="175" font-size="10.5" text-anchor="middle" fill="currentColor">膀胱</text>
+
+          <line x1="220" y1="18" x2="220" y2="230" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+          <circle cx="300" cy="130" r="26" fill="var(--bg2)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="300" y="150" font-size="9.5" text-anchor="middle" fill="currentColor">Port</text>
+
+          <path d="M100,81 L220,90" fill="none" stroke="var(--red)" stroke-width="2.5" marker-end="url(#subArrow2)"/>
+          <path d="M100,171 L220,140" fill="none" stroke="var(--red)" stroke-width="2.5" marker-end="url(#subArrow2)"/>
+          <path d="M232,95 L276,120" fill="none" stroke="var(--red)" stroke-width="2.5"/>
+          <path d="M232,135 L276,135" fill="none" stroke="var(--red)" stroke-width="2.5"/>
+          <circle cx="220" cy="93" r="7" fill="var(--red-bg)" stroke="var(--red)" stroke-width="1.5"/>
+          <circle cx="220" cy="137" r="7" fill="var(--red-bg)" stroke="var(--red)" stroke-width="1.5"/>
+          <text x="230" y="55" font-size="20" text-anchor="middle" fill="var(--red)">✕2</text>
+          <text x="230" y="70" font-size="10" text-anchor="middle" fill="var(--red)">扭結風險點</text>
+
+          <text x="150" y="255" font-size="12" text-anchor="middle" fill="var(--red)" font-weight="700">扭結率最高 15%</text>
+
+          <!-- 右：3.0 -->
+          <text x="460" y="26" font-size="13" font-weight="700" fill="currentColor">SUB 3.0</text>
+          <text x="460" y="42" font-size="10.5" fill="currentColor" opacity="0.65">只有連接管穿過腹壁</text>
+
+          <rect x="460" y="60" width="80" height="42" rx="8" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="500" y="85" font-size="10.5" text-anchor="middle" fill="currentColor">腎臟</text>
+          <rect x="460" y="150" width="80" height="42" rx="8" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="500" y="175" font-size="10.5" text-anchor="middle" fill="currentColor">膀胱</text>
+
+          <circle cx="600" cy="130" r="22" fill="var(--bg2)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="600" y="134" font-size="9.5" text-anchor="middle" fill="currentColor">Y</text>
+
+          <path d="M540,81 L578,120" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M540,171 L578,140" fill="none" stroke="currentColor" stroke-width="2"/>
+
+          <line x1="660" y1="18" x2="660" y2="230" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+          <line x1="622" y1="130" x2="716" y2="130" style="stroke:var(--signal)" stroke-width="3" marker-end="url(#subArrow2)"/>
+          <circle cx="660" cy="130" r="7" fill="var(--green-bg)" stroke="var(--green)" stroke-width="1.5"/>
+          <text x="660" y="55" font-size="20" text-anchor="middle" fill="var(--green)">✓1</text>
+          <text x="660" y="70" font-size="10" text-anchor="middle" fill="var(--green)">唯一穿腹壁處</text>
+
+          <circle cx="750" cy="130" r="24" fill="var(--bg2)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="750" y="150" font-size="9.5" text-anchor="middle" fill="currentColor">Port</text>
+
+          <text x="590" y="255" font-size="12" text-anchor="middle" fill="var(--green)" font-weight="700">扭結率 0%</text>
+        </svg>
+        <figcaption class="figure-caption">腎導管／膀胱導管穿腹壁的次數，決定扭結風險點的數量：1.0／2.0 各自穿出腹壁（2 個風險點，扭結率最高 15%），3.0 把兩者留在腹腔內、僅連接管穿出（1 個風險點，扭結率 0%）。滲漏、感染、礦化等其他併發症則與此設計變更無關。</figcaption>
+        <div class="figure-source">依《SUB™ 3.0 A Surgical Guide》內文與 Table 1（p.17）數據繪製，非原廠圖表</div>
+      </figure>
+
+      <h3>物種與臨床定位</h3>
+      <p>
+        <span class="tag tag-small">貓</span> 文獻與經驗最豐富，長期留置紀錄最長達 <strong>9 年</strong>；
+        <span class="tag tag-cattle">犬</span> 病例數較少，作者的臨床實務上<strong>犬仍優先考慮輸尿管支架（ureteral stent）</strong>，SUB 為替代選項。
+      </p>
+      <p>逾 <strong>85%</strong> 貓輸尿管阻塞合併腎結石，每側輸尿管中位數石頭數 <strong>4 顆</strong>，多發性、多節段阻塞或腫瘤造成的阻塞都是 SUB 的良好適應症，因為 SUB 不需要精準定位單一阻塞點即可繞道。</p>
+    </div>
+
+    <!-- PREP -->
+    <div class="section" id="section-prep">
+      <div class="section-head"><div class="section-num">2</div><h2>適應症與器材準備</h2></div>
+      <p class="section-desc">確認適應症、選對套組型號、術前把所有元件都用生理食鹽水預浸排空氣，是手術能否順利的第一步。</p>
+
+      <h3>適應症</h3>
+      <ul>
+        <li>貓、犬<strong>功能性輸尿管阻塞</strong>：結石、狹窄（stricture）、腫瘤，不論阻塞位置、大小或數量</li>
+        <li>單側或雙側皆可（雙側需 X-connector 或兩組 Y-connector＋雙注射座）</li>
+        <li>腎盂週腎盂積水明顯擴張、傳統輸尿管切開術／支架失敗或風險過高的病例</li>
+      </ul>
+
+      <div class="alert alert-info">
+        <div class="alert-label">補充說明</div>
+        <p>人醫已將類似繞道裝置用於泌尿道惡性腫瘤、腎移植後輸尿管狹窄、支架效果不佳或傳統手術禁忌的病患，原理相通。</p>
+      </div>
+
+      <h3>SUB 3.0 套組型號選擇</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>型號</th><th>適用</th><th>與標準組差異</th></tr></thead>
+          <tbody>
+            <tr><td><strong>SUB3-2001K</strong></td><td>貓與小型犬</td><td>6.5F×20cm 腎導管、7F×23.1cm 膀胱導管、3-way Y-connector</td></tr>
+            <tr><td><strong>SUB3-2002K</strong></td><td>大型犬</td><td>同上但導管加長（6.5F×35cm／7F×38.1cm）</td></tr>
+            <tr><td><strong>SUB3-3001K</strong></td><td>雙側阻塞／阻塞性腫瘤</td><td>2 條腎導管＋4-way X-connector（單一注射座接雙側）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>套組內容物（以 SUB3-2001K 為例）</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">導管與接頭</div>
+          <ul style="margin:0;">
+            <li>6.5F×20cm 腎造廔（locking-loop）導管＋硬化套管</li>
+            <li>7F×23.1cm 膀胱導管＋硬化套管</li>
+            <li>7F×30cm 聚氨酯連接管</li>
+            <li>低矮型 SwirlPort</li>
+            <li>3-way「Y」接頭（雙側組為 4-way「X」接頭）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">置放器材</div>
+          <ul style="margin:0;">
+            <li>18G×1.25" 靜脈留置針</li>
+            <li>0.035" J 型導絲</li>
+            <li>5×藍色 boot 導管接頭套</li>
+            <li>2×22G×0.75" Huber 針（無芯針）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意事項</div>
+        <p><strong>套組不含</strong>：無菌氰基丙烯酸酯組織膠（Cat. No. GLU，用於固定 Dacron 盤）、SUB Flush Kit（術後沖洗用，Cat. No. SFK-22 / SFK-20）。腎盂 &lt;8mm 需改走輸尿管時，還需<strong>0.035"／0.018" 親水血管導絲</strong>（angle-tipped hydrophilic guidewire，套組亦不含）。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/SUB皮下輸尿管繞道系統/sub_p4.jpg" alt="SUB 3.0 套組內容物照片">
+        <div class="figure-caption">SUB 3.0 單側（Y-connector）與雙側（X-connector）套組內容物；注意 pigtail 腎導管與直型膀胱導管的差異。</div>
+        <div class="figure-source">來源：Norfolk Vet Products《SUB™ 3.0 A Surgical Guide》Figure 3, p.4</div>
+      </div>
+
+      <h3>術前準備</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">所有導管、導絲、注射座先用無菌生理食鹽水沖洗排氣，確保通暢並保持濕潤；導管需拉直套在硬化套管上備用。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">剖腹前確認影像（超音波／X 光）已定位阻塞側，並備妥螢光透視（fluoroscopy）——本術式強烈建議在<strong>螢光透視導引</strong>下進行，可大幅降低併發症。</div></div>
+    </div>
+
+    <!-- PROCEDURE -->
+    <div class="section" id="section-procedure">
+      <div class="section-head"><div class="section-num">3</div><h2>手術步驟</h2></div>
+      <p class="section-desc">整體流程：剖腹 → 放置腎造廔導管 → 放置膀胱造廔導管 → 腹腔內連接 Y/X 接頭並測漏 → 連接管穿腹壁接注射座 → 全系統測漏（DSA）→ 關腹。以下步驟以貓為例，犬原理相同。</p>
+
+      <h3>1. 剖腹與腎臟顯露</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">腹白線剖腹，顯露膀胱頂端與患側腎臟。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">輕柔鈍性剝離腎臟尾極周圍脂肪，顯露約 1–2 cm 腎被膜（renal capsule）範圍。</div></div>
+
+      <h3>2. 放置腎造廔導管（改良式 Seldinger 技術）</h3>
+      <p style="font-size:12px;color:var(--text3);">前提：腎盂 &gt;8mm。腎盂 &lt;8mm 的處理方式見下方警示框。</p>
+
+      <div class="figure">
+        <img src="img/SUB皮下輸尿管繞道系統/sub_p5.jpg" alt="腎造廔（locking-loop）導管實物照，展示拉直到成環三個階段">
+        <div class="figure-caption">腎造廔導管本體（實物照）：A) 拉直前，導管末端已預帶顯影標記，標示 pigtail 最後一個側孔的位置；B) 硬化套管推進使導管拉直，套在 0.035" 導絲上；C) 移除硬化套管、拉緊鎖繩，導管末端在遠端捲成 pigtail 並鎖定。下面步驟 3–4 操作的就是這條導管。</div>
+        <div class="figure-source">來源：Norfolk Vet Products《SUB™ 3.0 A Surgical Guide》p.5</div>
+      </div>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text">以 <strong>18G 留置針</strong>由腎臟尾極穿刺腎盂，見尿液回流後拔除針芯，接 T 接頭＋3-way 三通與 2 支 3mL 空針（1 支留空、1 支裝 50% 對比劑：生理食鹽水），進行<strong>腎盂穿刺採尿（pyelocentesis，送尿液培養）</strong>與<strong>順行性腎盂輸尿管攝影（antegrade pyeloureterogram）</strong>，於螢光下確認阻塞位置與程度（部分／完全阻塞）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">經留置針送入 <strong>0.035" J 型導絲</strong>，於腎盂內盤繞成圈，注意避免刺穿腎盂或輸尿管；以止血鉗固定導絲於腎被膜處，拔除留置針。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">將 6.5F 腎造廔導管（含硬化套管）沿導絲推進入腎實質、進入腎盂，邊推進邊間歇透視確認，避免腎臟被推離。<strong>確認導管上的顯影標記（radiopaque marker）已完全進入腎盂</strong>——此標記代表 pigtail 最後一個側孔的位置，絕不能留在腎實質內。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">邊輕輕旋轉、邊推進導管使其在腎盂內捲成 pigtail；輕拉鎖繩使環圈收緊（<strong>勿過緊</strong>，以免在側孔處造成扭結），以止血鉗夾住「鎖繩與導管交界處」固定張力（<strong>切勿夾住導管本體</strong>）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">將 Dacron 環與矽膠套沿導管推進至腎被膜處使其貼合固定；經硬化套管注入對比劑確認腎盂填充、排空皆正常、無滲漏後，移除硬化套管，於 Dacron 環與腎被膜間塗上<strong>無菌氰基丙烯酸酯組織膠</strong>加強固定、防止滲漏。</div></div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意事項</div>
+        <p><strong>腎盂 &lt;8mm（改走輸尿管，不鎖環）：</strong>剪去鎖繩，導管不鎖環而是沿輸尿管弧度自然放置（此時變成「輸尿管造廔導管 ureterostomy catheter」）。穿刺點改為更外側／尾外側（左側 5 點鐘、右側 7 點鐘方向，而非正尾極 6 點鐘），需用 <strong>0.035"（腎盂&lt;8mm 用 0.018"）親水血管導絲（套組不含）</strong>沿輸尿管方向置入後再交換導管，全程須在透視下小心操作以避免輸尿管或腎盞穿孔。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/SUB皮下輸尿管繞道系統/sub_p6.jpg" alt="腎造廔導管放置術中照片">
+        <div class="figure-caption">左側 SUB 裝置置放術中連續影像：A) 18G 留置針穿刺腎盂；B) 腎盂穿刺採尿與順行性攝影；C) 導絲盤入腎盂並移除留置針；D-F) 腎造廔導管沿導絲推進入腎盂；G) Dacron 環以組織膠固定於腎被膜；H) 矽膠套貼合腎被膜。</div>
+        <div class="figure-source">來源：Norfolk Vet Products《SUB™ 3.0 A Surgical Guide》Figure 4, p.6</div>
+      </div>
+
+      <h3>3. 放置膀胱造廔導管</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">於膀胱頂端（apex）以 3-0 Monocryl 做<strong>荷包縫合（purse-string）</strong>；雙側置放時兩側導管需偏離正中線，避免互相干擾。荷包位置不可太靠近膀胱腹側（尿囊管殘跡處），以免刺激膀胱。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">以電燒於荷包中心燒穿膀胱黏膜製造小孔——用電燒可降低術後血尿、避免血塊堵住導管尖端。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">膀胱導管（含硬化套管）經此孔送入膀胱腔內，推進至 Dacron 盤貼合漿膜面，收緊並打結荷包縫線；經硬化套管接生理食鹽水維持膀胱充盈以利後續縫合操作。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">以無菌組織膠加強固定 Dacron 盤於膀胱漿膜面，再以 3-0 Monocryl 縫合 3–4 針（<strong>穿過矽膠環與深層 Dacron 盤、全層膀胱壁</strong>）；經硬化套管灌注生理食鹽水做漏測，確認無滲漏後移除硬化套管，膀胱會自然排空。</div></div>
+
+      <div class="figure">
+        <img src="img/SUB皮下輸尿管繞道系統/sub_p9.jpg" alt="膀胱造廔導管放置術中照片">
+        <div class="figure-caption">膀胱造廔導管放置：A) 膀胱頂端荷包縫合；B) 電燒製孔；C) 導管送入並收緊荷包；D-E) 組織膠固定 Dacron 盤於膀胱漿膜面；F) 以 Monocryl 縫合固定矽膠環與 Dacron 盤。</div>
+        <div class="figure-source">來源：Norfolk Vet Products《SUB™ 3.0 A Surgical Guide》Figure 7, p.9</div>
+      </div>
+
+      <h3>4. 腹腔內連接 Y/X 接頭</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">三條導管（腎導管、膀胱導管、連接至注射座的連接管）分別套上藍色 boot 接頭（<strong>錐形端朝近端</strong>），依序套入 Y-connector 的三個分支（Y 的兩臂朝尾側接腎導管與連接管、朝顱側的一臂接膀胱導管），並將導管完全推進至接頭金屬倒鉤的最後一階，確保接合牢固。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">若腎導管保留鎖環設計：將鎖繩夾在接頭第一個倒鉤與導管之間以維持鎖定，以 <strong>#11 刀片將鎖繩齊平導管末端剪斷</strong>——<strong>鎖繩外露是最常見的滲漏原因</strong>，務必剪齊。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">於患側腹壁（與阻塞腎臟同側）穿刺一開口，將連接管經腹壁牽出，依貓咪腹圍修剪長度（通常 15–20cm），接上第 4 個藍色 boot 接頭。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>腹腔內測漏</strong>：經連接管以 Huber 針接 T 接頭＋3-way 三通與對比劑／空針，注入生理食鹽水的同時用手指分別壓住 Y-connector 處的腎導管與膀胱導管，確認 Y-connector 接合處無滲漏；再壓住連接管於注射座端，確認連接管與注射座接合處無滲漏。</div></div>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">重要警示</div>
+        <p><strong>鎖繩不可外露於接頭連接處之外</strong>——這會造成密封不完整、成為滲漏點。</p>
+      </div>
+
+      <h3>5. 放置皮下注射座並最終測漏</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">於患側腹側皮下、腹白線旁最小限度剝離脂肪，位置約在<strong>劍突與恥骨連線中點</strong>；以止血鉗於此區尾側穿破腹壁，夾住連接管牽出接上注射座。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">連接管穿腹壁處與注射座之間應保留約 <strong>2–3 指寬（約 4cm）</strong>間距，形成緩和弧度，避免管路扭結。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">以 <strong>3-0 Prolene（不可吸收縫線）</strong>經注射座 4 個縫合孔固定於腹直肌鞘皮下腔內。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">最終以<strong>數位減影血管攝影（DSA）</strong>經注射座注入對比劑，確認由注射座 → 連接管 → Y-connector → 腎盂／膀胱全程通暢、無滲漏、無扭結；分別檢查腎被膜穿入處、膀胱頂端穿入處、注射座兩端接合處。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">確認通暢後抽出對比劑，溫生理食鹽水沖洗腹腔，大網膜覆蓋腎臟與膀胱導管進入點，常規關腹。關腹後於 VD 與 Lateral（含後肢伸展與屈曲兩種姿勢）透視確認無扭結、導管位置良好。</div></div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">補充說明</div>
+        <p>皮下注射座周圍可局部注射 bupivacaine 提供額外術後止痛。</p>
+      </div>
+    </div>
+
+    <!-- FLUSHING -->
+    <div class="section" id="section-flushing">
+      <div class="section-head"><div class="section-num">4</div><h2>術後沖洗與長期照護</h2></div>
+      <p class="section-desc">SUB 裝置需要<strong>終生定期沖洗</strong>以維持通暢、預防礦化與感染，是門診追蹤與衛教的重點。</p>
+
+      <h3>沖洗時程</h3>
+      <div class="flow">
+        <div class="flow-node">出院前</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">術後 1 週</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">術後 1 個月</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">之後每 3 個月一次</div>
+      </div>
+      <p>高風險病例（高血鈣、曾有裝置礦化或感染病史）可視情況增加沖洗頻率。</p>
+
+      <h3>SUB Flush Kit 內容物</h3>
+      <ul>
+        <li>T-port 接頭 ×1、3-way 三通 ×1、20 或 22G Huber 針 ×1</li>
+        <li>空針 3mL ×2（1 支棄置樣本用、1 支採尿樣本用）</li>
+        <li>3mL 空針含 2.5mL 無菌生理食鹽水 ×1</li>
+        <li><strong>T-FloLoc™（2mL 四鈉乙二胺四乙酸 t-EDTA）</strong>裝於 12mL 空針 ×1</li>
+      </ul>
+
+      <div class="figure">
+        <img src="img/SUB皮下輸尿管繞道系統/sub_p13.jpg" alt="SUB Flush Kit 組裝照片">
+        <div class="figure-caption">SUB Flush Kit 組裝：T-port 接頭、3-way 三通、Huber 針、空針、生理食鹽水與 T-FloLoc（t-EDTA）連接完成備用。</div>
+        <div class="figure-source">來源：Norfolk Vet Products《SUB™ 3.0 A Surgical Guide》Figure 13, p.14</div>
+      </div>
+
+      <h3>超音波導引沖洗步驟（通常不需鎮靜）</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">背臥保定，剪毛、無菌消毒注射座部位皮膚。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">觸診定位注射座，Huber 針<strong>垂直</strong>經皮穿入矽膠隔膜，直到觸及金屬底座確認針尖在注射座內。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">先抽取 <strong>0.5–1.0mL 棄置樣本</strong>（此段液體滯留於連接管內，不具代表性），接著抽取 1–2mL 尿液送檢驗／培養。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">以 <strong>0.25–0.5mL／次</strong>的小量脈衝方式注入生理食鹽水，超音波同時監測腎盂與膀胱，確認氣泡進入代表通暢；每次注入後<strong>暫停讓液體引流</strong>再注入下一脈衝，避免過度擴張。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">確認雙側（腎盂、膀胱）通暢後，改以同樣脈衝方式注入 <strong>T-FloLoc（t-EDTA）</strong>，全程監測腎盂大小；若每次脈衝後腎盂持續縮小，可完整注入 2mL；<strong>若腎盂未縮小，則停止注入，讓管路內保留 t-EDTA 即可</strong>，不強行灌注。</div></div>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">重要警示</div>
+        <p><strong>沖洗全程務必以超音波（或透視）監測腎盂，絕對不可過度擴張腎盂。</strong>若腎盂出現擴張，先暫停注入；數秒內未緩解則<strong>立即停止沖洗</strong>。</p>
+      </div>
+
+      <h3>t-EDTA（T-FloLoc）的效益</h3>
+      <p>常規使用 t-EDTA 沖洗可預防結石／生物膜堆積造成的阻塞，並清除既有的輕度礦化或感染生物膜。原廠長期追蹤資料顯示：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">裝置礦化（阻塞）</div><p style="margin:0;">24.5% → 使用 t-EDTA 後降至 <strong>12.7%</strong>（其中僅 4.5% 需更換裝置）</p></div>
+        <div class="card"><div class="card-title">慢性泌尿道感染</div><p style="margin:0;">8% → 使用 t-EDTA 後降至 <strong>0%</strong>，是目前最顯著的改善項目</p></div>
+      </div>
+    </div>
+
+    <!-- COMPLICATIONS -->
+    <div class="section" id="section-complications">
+      <div class="section-head"><div class="section-num">5</div><h2>併發症與預後</h2></div>
+      <p class="section-desc">整理自原廠彙整 2009–2020 年 SUB 1.0/2.0/3.0 的大型病例回顧（174 顆 SUB，134 隻貓，2009–2015；後續加上 t-EDTA 常規沖洗世代的追蹤資料）。</p>
+
+      <div class="grid-3">
+        <div class="card" style="text-align:center;"><div class="card-title">存活出院率</div><p style="margin:0;font-size:20px;font-weight:700;color:var(--green);">&gt;93%</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">急性減壓成功率</div><p style="margin:0;font-size:20px;font-weight:700;color:var(--green);">&gt;98%</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">最終死於腎病</div><p style="margin:0;font-size:20px;font-weight:700;color:var(--amber);">&lt;25%</p></div>
+      </div>
+
+      <p>中位追蹤 827 天（範圍 1–2397 天）。Creatinine 中位數由術前 <strong>6.8 mg/dL</strong> 降至出院前 <strong>2.6 mg/dL</strong>、首次回診時 <strong>2.1 mg/dL</strong>。</p>
+
+      <h3>併發症比較（SUB 2.0 vs. 3.0，常規 t-EDTA 沖洗世代）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>併發症</th><th>2.0 + t-EDTA<br>（69 SUB, 55 貓）</th><th>3.0 + t-EDTA<br>（42 SUB, 38 貓）</th><th>2.0＋3.0 合計<br>（111 SUB, 73 貓）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>滲漏</strong></td><td>1.5%</td><td>0%</td><td>1%</td></tr>
+            <tr><td><strong>扭結（kinking）</strong></td><td>15%</td><td><strong>0%</strong></td><td>11%</td></tr>
+            <tr><td><strong>裝置內血塊</strong></td><td>11.6%</td><td>4.7%</td><td>9%</td></tr>
+            <tr><td><strong>裝置礦化</strong></td><td>16%</td><td>7%</td><td>12.7%</td></tr>
+            <tr><td><strong>因礦化需更換裝置</strong></td><td>7%</td><td>0%</td><td>4.5%</td></tr>
+            <tr><td><strong>排尿困難（dysuria）</strong></td><td>9%</td><td>5%</td><td>6.8%</td></tr>
+            <tr><td><strong>慢性泌尿道感染</strong></td><td>0%</td><td>0%</td><td>0%</td></tr>
+            <tr><td><strong>出院前死亡</strong></td><td>5.5%</td><td>5.2%</td><td>5.5%</td></tr>
+            <tr><td>中位追蹤天數</td><td>276 天</td><td>204 天</td><td>244 天</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11px;color:var(--text4);">資料來源：Table 1, Norfolk Vet Products《SUB™ 3.0 A Surgical Guide》p.17（原始數據整合自 Berent et al. JAVMA 2018;253:1309-1327 及後續原廠追蹤）。</p>
+
+      <h3>重點併發症說明</h3>
+      <div class="card">
+        <div class="card-title">滲漏（Leakage）</div>
+        <p style="margin:0;">幾乎都與<strong>鎖繩未剪齊、外露於接頭之外</strong>有關，SUB 2.0／3.0 因設計改良（Dacron 環固定）已大幅降低發生率。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">扭結（Kinking）</div>
+        <p style="margin:0;">舊版最高達 15%，<strong>SUB 3.0 因三管完全留置腹腔內，扭結率降至 0%</strong>。舊版扭結多為技術性錯誤——連接管穿腹壁處與藍色接頭末端距離不夠，尤其在病患姿勢改變（蹲伏 vs. 伸展）時更明顯。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">裝置內血塊阻塞</div>
+        <p style="margin:0;">術後中位 3.5 天內發生，約 8% 病例；半數可經注射座灌注 <strong>1mL 組織胞漿素原活化劑（TPA）</strong>解決，另一半需要再次手術更換導管（延長住院約 1 天）。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">裝置礦化</div>
+        <p style="margin:0;">長期追蹤中位 463 天時發生率 24.5%（未用 t-EDTA 世代），其中一半僅表現為通暢輸尿管而不需更換、另一半需更換裝置（中位住院 2 天，存活率 100%）。<strong>常規 t-EDTA 沖洗後降至 12.7%</strong>。</p>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">補充說明</div>
+        <p>整體而言，SUB 被視為目前貓輸尿管阻塞治療選項中<strong>短期與長期併發症相對最少</strong>的介入方式之一，前提是術者受過適當訓練、並落實螢光透視導引置放與規律沖洗追蹤。</p>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">6</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋裝置原理、器材、手術步驟與併發症重點，先自行作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q1. SUB 3.0 相較於 1.0／2.0 版本，扭結（kinking）發生率由最高 15% 降至 0%，主要原因是連接管改用更粗的管徑。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">扭結率下降的主因是設計改變——腎導管與膀胱導管完全留置腹腔內，只有第三條連接管穿腹壁接注射座，而非管徑改變。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 腎盂大小小於多少 mm 時，建議改採「不鎖環的輸尿管造廔導管」放置方式？</div>
+        <ul class="quiz-options">
+          <li>(A) 4mm</li>
+          <li>(B) 8mm</li>
+          <li>(C) 12mm</li>
+          <li>(D) 15mm</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B) 8mm</div>
+          <p class="quiz-explain">腎盂 &lt;8mm 時改由更外側（5 點鐘／7 點鐘方向）穿刺，導管不鎖環而是沿輸尿管弧度放置；腎盂 &lt;5mm 則需先用 0.018" 導絲再交換。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q3. 為什麼原廠特別強調「鎖繩必須剪齊導管末端、不可外露於接頭之外」？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">鎖繩外露會使接頭與導管之間的密封不完整，是裝置<strong>最常見的滲漏（leakage）原因</strong>；剪繩時需以 #11 刀片齊平接頭金屬倒鉤處修剪，確保接合牢固無空隙。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 膀胱造廔導管固定時，使用電燒（cautery）在荷包縫合中心穿孔的主要目的是？</div>
+        <ul class="quiz-options">
+          <li>(A) 加快手術時間</li>
+          <li>(B) 降低術後血尿、避免血塊堵塞導管尖端</li>
+          <li>(C) 減少膀胱穿孔範圍</li>
+          <li>(D) 幫助定位膀胱頂端</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">電燒穿孔可減少出血，避免術後血塊卡在膀胱導管尖端造成阻塞。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 術後沖洗時，若超音波監測發現腎盂持續擴張，應加快注入速度盡快完成沖洗。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">應立即暫停注入；若數秒內腎盂擴張未緩解，須<strong>直接停止沖洗</strong>，絕對避免腎盂過度擴張造成腎損傷。沖洗全程需以 0.25–0.5mL 小脈衝方式進行並持續監測。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 常規使用 t-EDTA（T-FloLoc）沖洗後，下列哪一項併發症的下降幅度最顯著？</div>
+        <ul class="quiz-options">
+          <li>(A) 排尿困難</li>
+          <li>(B) 裝置內血塊</li>
+          <li>(C) 慢性泌尿道感染（8% → 0%）</li>
+          <li>(D) 出院前死亡率</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">慢性 UTI 由 8% 降至 0%，是原廠資料中 t-EDTA 常規沖洗效果最顯著的項目；裝置礦化也有下降（24.5% → 12.7%）但幅度較小。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q7. 裝置內血塊造成阻塞時，第一線的處置方式是什麼？若無效呢？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">第一線可經注射座灌注 <strong>1mL 組織胞漿素原活化劑（TPA）</strong>溶解血塊；若無效則需再次手術更換導管，通常會延長住院約 1 天。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        本頁內容整理自原廠《SUB™ 3.0 A Surgical Guide》，僅供住院醫師教學複習使用，實際置放需經完整訓練並在有經驗術者指導下進行，不作為單獨操作依據。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ── THEME ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+  const btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+})();
+
+// ── NAV ──
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  document.getElementById('nav-' + id).classList.add('active');
+}
+
+// 支援從總覽首頁的跨頁搜尋結果連結（例如 ...html#section-procedure）直接跳到對應分節
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+// ── IN-PAGE SEARCH ──
+const SECTION_NAMES = {
+  overview: 'SUB 系統總覽',
+  prep: '適應症與器材準備',
+  procedure: '手術步驟',
+  flushing: '術後沖洗與照護',
+  complications: '併發症與預後',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.search-wrap')) {
+    closeSearch();
+  }
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) {
+    closeSearch();
+    resultsBox.innerHTML = '';
+    return;
+  }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (!el.closest('script') && !el.closest('style')) {
+        const text = el.textContent.trim();
+        reg.lastIndex = 0;
+        if (text && reg.test(text)) {
+          reg.lastIndex = 0;
+          const idx = text.search(reg);
+          const start = Math.max(0, idx - 30);
+          const end = Math.min(text.length, idx + 60);
+          let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+          snippet = snippet.replace(reg, '<mark>$1</mark>');
+          results.push({ sectionId, sectionName, snippet });
+          reg.lastIndex = 0;
+        }
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

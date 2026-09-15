@@ -1,0 +1,77 @@
+/* ══════════════════════════════════════════════════════
+   上群AH — 頂列導覽選單（科別分類 + 下拉主題卡片）
+   總覽頁／科別頁／主題筆記頁都載入此檔案，維持導覽一致。
+   用固定的品牌棕／黃綠當強調色，不吃各頁自訂的 --accent，
+   這樣主題頁換了配色，導覽列的視覺識別仍然一致。
+   ══════════════════════════════════════════════════════ */
+
+:root {
+  --nav-accent:    #6b5645;
+  --nav-accent-bg: #f1ece6;
+}
+[data-theme="dark"] {
+  --nav-accent:    #cba789;
+  --nav-accent-bg: #241d16;
+}
+
+.site-nav { display: flex; align-items: stretch; gap: 2px; margin-left: 10px; height: 100%; }
+.site-nav-tab {
+  display: flex; align-items: center; gap: 4px;
+  padding: 0 10px;
+  font-size: 12.5px; font-weight: 600;
+  color: var(--text2, #374151);
+  text-decoration: none;
+  cursor: pointer;
+  border: none; background: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color .12s, border-color .12s;
+}
+.site-nav-tab:hover { color: var(--nav-accent); }
+.site-nav-tab.is-current { color: var(--nav-accent); border-bottom-color: var(--nav-accent); }
+.site-nav-tab.is-open { color: var(--nav-accent); }
+.site-nav-tab .chev { font-size: 9px; opacity: .55; transition: transform .15s; }
+.site-nav-tab.is-open .chev { transform: rotate(180deg); }
+
+.nav-panel {
+  position: fixed;
+  left: 0; right: 0;
+  top: var(--header-h, 56px);
+  z-index: 250;
+  display: none;
+  background: var(--bg2, #fff);
+  border-bottom: 1px solid var(--border, #dde1e9);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+.nav-panel.open { display: block; }
+.nav-panel-inner { max-width: 1240px; margin: 0 auto; padding: 20px 28px 24px; }
+.nav-panel-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border, #dde1e9); }
+.nav-panel-head h3 { font-size: 13px; font-weight: 700; color: var(--text, #111827); text-transform: none; letter-spacing: 0; margin: 0; }
+.nav-panel-head a { font-size: 11.5px; color: var(--nav-accent); text-decoration: none; font-weight: 600; }
+.nav-panel-head a:hover { text-decoration: underline; }
+
+.nav-panel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 20px; }
+.nav-panel-card {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .12s;
+}
+.nav-panel-card:hover { background: var(--nav-accent-bg); }
+.nav-panel-card .icon {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 7px;
+  background: var(--nav-accent-bg); color: var(--nav-accent);
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.nav-panel-card .txt h4 { margin: 0 0 2px; font-size: 12.5px; font-weight: 700; color: var(--text, #111827); }
+.nav-panel-card .txt p { margin: 0; font-size: 11px; color: var(--text3, #6b7280); line-height: 1.5; }
+
+.nav-panel-empty { font-size: 12.5px; color: var(--text3, #6b7280); padding: 6px 8px 4px; }
+
+.nav-overlay { position: fixed; inset: 0; z-index: 240; display: none; }
+.nav-overlay.open { display: block; }
+
+@media (max-width: 900px) {
+  .site-nav { display: none; }
+}
