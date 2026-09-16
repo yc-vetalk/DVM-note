@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：單胃動物消化生理學 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">單胃動物消化生理學</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">單胃動物消化生理學</h1>
+      <p class="page-subtitle">Monogastric Digestion &amp; Postabsorptive Nutrient Utilization — 消化道調控系統、蠕動與分泌、三大營養素消化吸收機轉、吸收期與吸收後期燃料代謝。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">2025學年度《Monogastric Digestion》＋113學年度《Postabsorptive Nutrient Utilization》，林辰璽老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總論</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">🐕</span> 消化道總論與調控系統</a>
+    <a onclick="showSection('motility')" id="nav-motility"><span class="nav-icon">🔄</span> 胃腸道蠕動型態</a>
+    <div class="section-label" style="margin-top:8px;">分泌</div>
+    <a onclick="showSection('saliva')" id="nav-saliva"><span class="nav-icon">💧</span> 唾液分泌</a>
+    <a onclick="showSection('gastric')" id="nav-gastric"><span class="nav-icon">🧪</span> 胃液分泌</a>
+    <a onclick="showSection('pancreas')" id="nav-pancreas"><span class="nav-icon">🫙</span> 胰臟外分泌</a>
+    <a onclick="showSection('liver')" id="nav-liver"><span class="nav-icon">🫘</span> 肝臟膽汁與腸肝循環</a>
+    <div class="section-label" style="margin-top:8px;">消化與吸收</div>
+    <a onclick="showSection('carb')" id="nav-carb"><span class="nav-icon">🌾</span> 醣類消化吸收</a>
+    <a onclick="showSection('protein')" id="nav-protein"><span class="nav-icon">🥩</span> 蛋白質消化吸收</a>
+    <a onclick="showSection('fat')" id="nav-fat"><span class="nav-icon">🧈</span> 脂肪消化吸收</a>
+    <a onclick="showSection('electrolyte')" id="nav-electrolyte"><span class="nav-icon">🧂</span> 水分與電解質吸收</a>
+    <a onclick="showSection('neonate')" id="nav-neonate"><span class="nav-icon">🍼</span> 新生兒消化特殊性</a>
+    <div class="section-label" style="margin-top:8px;">吸收後代謝</div>
+    <a onclick="showSection('fuel')" id="nav-fuel"><span class="nav-icon">🔥</span> 燃料恆定總論</a>
+    <a onclick="showSection('absorptive')" id="nav-absorptive"><span class="nav-icon">📥</span> 吸收期代謝</a>
+    <a onclick="showSection('postabsorptive')" id="nav-postabsorptive"><span class="nav-icon">📤</span> 吸收後期代謝</a>
+    <a onclick="showSection('ruminantfuel')" id="nav-ruminantfuel"><span class="nav-icon">🐄</span> 反芻動物燃料代謝比較</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>消化道總論與調控系統</h2></div>
+      <p class="section-desc">單胃動物（如犬貓）的消化系統由消化道主體與附屬腺體共同組成，整體功能受兩層調控系統精密協調，理解此調控架構是理解後續所有分泌與蠕動章節的基礎。</p>
+
+      <div class="figure">
+        <img src="img/單胃動物消化生理學/mono_p6.png" alt="犬消化系統總覽：口腔、食道、胃、肝膽胰、小腸、大腸各器官功能標示">
+        <div class="figure-caption">犬消化系統總覽：唾液腺（潤滑＋起始消化）→口腔牙齒（物理破碎）→咽／食道（推送）→胃（化學＋物理分解）→肝臟（分泌膽汁、儲存營養、生成血漿蛋白與凝血因子、解毒吞噬）／膽囊（儲存濃縮膽汁）／胰臟（外分泌酵素緩衝液＋內分泌激素）→小腸（酵素消化＋吸收）→大腸（水電解質再吸收、不可消化物脫水壓實）。</div>
+        <div class="figure-source">來源：2025學年度《Monogastric Digestion》課程講義</div>
+      </div>
+
+      <h3>消化道的五大基本功能</h3>
+      <p>攝取（ingestion）→蠕動（peristalsis）→消化（digestion，物理＋化學）→吸收（absorption）→排便（defecation），加上貫穿全程的<strong>蠕動、儲存、分泌</strong>三大調控目標。</p>
+
+      <h3>腸道壁的四層構造</h3>
+      <p>由內而外：<strong>黏膜層（mucosa，含上皮細胞、固有層、黏膜肌層）→黏膜下層（submucosa）→肌肉層（muscularis，內環肌＋外縱肌）→漿膜層（serosa）</strong>。</p>
+
+      <h3>兩層調控系統：內在 vs 外在</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>內在系統（腸壁內）</th><th>外在系統（腸壁外）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>神經</strong></td><td>腸神經系統（Enteric Nervous System, ENS）——常被稱為「小腦」</td><td>迷走神經、內臟神經（splanchnic）</td></tr>
+            <tr><td><strong>內分泌</strong></td><td>腸道激素：Secretin、Gastrin、CCK、GIP、Motilin</td><td>醛固酮（Aldosterone）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>腸神經系統（ENS）：兩套神經叢</h3>
+      <p><strong>肌間神經叢（myenteric/Auerbach plexus）</strong>位於環肌與縱肌之間，主要調控蠕動；<strong>黏膜下神經叢（submucosal/Meissner plexus）</strong>位於黏膜下層，主要調控分泌與局部血流。兩套神經叢彼此透過中間神經元溝通，並經迷走／內臟／骨盆神經與中樞神經系統連結。ENS含感覺（化學／機械受器）、運動（支配血管平滑肌、腸道肌肉、腺體）神經元；<strong>卡哈爾間質細胞（Interstitial Cell of Cajal, ICC）</strong>是特化的平滑肌細胞，具節律點（pacemaker）活性，調控腸道肌肉收縮與蠕動節律。</p>
+
+      <h3>腸道激素總表</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>激素</th><th>分泌細胞／位置</th><th>刺激因子</th><th>主要功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>secretin</strong></td><td>十二指腸/空腸上段S細胞</td><td>脂肪、蛋白質、胃酸、膽酸</td><td>抑制胃酸分泌與胃蠕動；刺激胰臟/膽道分泌水與碳酸氫鹽</td></tr>
+            <tr><td><strong>gastrin</strong></td><td>胃幽門/十二指腸G細胞</td><td>蛋白質、胃擴張</td><td>刺激胃酸分泌（直接＋經ECL細胞釋放組織胺間接）</td></tr>
+            <tr><td><strong>CCK</strong>（膽囊收縮素）</td><td>十二指腸/空腸I細胞</td><td>脂肪、蛋白質</td><td>刺激膽囊收縮與胰酵素分泌；抑制胃排空與食慾</td></tr>
+            <tr><td><strong>GIP</strong></td><td>近端小腸K細胞</td><td>脂肪、葡萄糖</td><td>抑制胃酸分泌與胃蠕動；刺激胰島素分泌（incretin效應）</td></tr>
+            <tr><td><strong>motilin</strong></td><td>十二指腸M細胞</td><td>禁食期間週期性上升</td><td>啟動遷移性運動複合波（MMC），調控空腹期蠕動</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>「腸道激素」的判定標準：須由腸道某處細胞分泌、經血液運送、影響另一處細胞、其分泌須受食物刺激。這與旁分泌（paracrine，如組織胺、體制素）、神經傳導物（neurocrine）不同——後兩者調控GI功能但<strong>不經血液運送至遠端</strong>。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-motility">
+      <div class="section-head"><div class="section-num">2</div><h2>胃腸道蠕動型態</h2></div>
+      <p class="section-desc">腸胃道運動的四大目的：推進食糜、滯留食糜以利消化吸收、物理破碎並混合消化液、使食糜與吸收表面充分接觸。理解「推進性運動↑縮短通過時間、滯留性運動↑延長通過時間」的對比，是理解止瀉藥物設計邏輯（↑滯留性、↓推進性）的基礎。</p>
+
+      <h3>胃的運動：近端儲存、遠端研磨</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">近端胃（賁門/胃底/部分胃體）</div>
+          <p><strong>容受性舒張（receptive relaxation）</strong>：由副交感神經經腸神經叢介導（NO與血清素放鬆平滑肌），配合吞嚥中樞協調，使胃容積大幅增加而壓力僅小幅上升，作為食物暫存槽以控制食糜進入小腸的速率</p>
+        </div>
+        <div class="card">
+          <div class="card-title">遠端胃（幽門/大部分胃體）</div>
+          <p>強力蠕動波研磨混合食糜，每次蠕動波僅將少量食糜推入十二指腸，多數內容物被推回胃體以達混合效果——胃兼具「儲存槽」與「研磨機」雙重角色</p>
+        </div>
+      </div>
+
+      <h3>胃排空的雙向調控</h3>
+      <p><strong>促進胃排空</strong>：迷走神經刺激遠端胃（經ACh）致強力蠕動；胃泌素增強胃蠕動；胃擴張與未消化蛋白/酒精。<strong>抑制胃排空（腸胃反射 enterogastric reflex）</strong>：十二指腸偵測到低pH、高滲透壓、脂肪或未消化蛋白時，經CCK（脂肪）、secretin（低pH）、GIP（醣類/脂肪）反射性抑制胃蠕動與排空——這是「十二指腸內容物品質決定胃排空速率」的核心機轉，確保小腸不會被超出其消化能力的食糜淹沒。</p>
+
+      <h3>小腸運動：消化期 vs 空腹期</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">消化期：分節收縮 Segmentation</div>
+          <p>雙向、非推進性為主的局部收縮，將食糜與消化液混合、使食糜反覆接觸吸收表面，每次約3–4公分範圍</p>
+        </div>
+        <div class="card">
+          <div class="card-title">空腹期：遷移性運動複合波 MMC</div>
+          <p>強力蠕動波緩慢掃過一大段腸道（有時可達迴腸末端），一個週期約75–120分鐘，由motilin濃度上升啟動；具「腸道清道夫」功能——清除未消化殘渣、防止上段腸道細菌過度增生</p>
+        </div>
+      </div>
+
+      <h3>迴盲瓣與大腸運動</h3>
+      <p><strong>迴盲瓣（ileocecal sphincter）</strong>平時維持收縮，迴腸蠕動時放鬆使內容物進入結腸，結腸壓力升高時則反射性收縮更緊，防止結腸內容物逆流。大腸功能因物種而異：<strong>馬與兔的結腸大而複雜（發酵功能顯著，見「反芻動物消化生理學」章節後腸發酵比較）；犬貓結腸相對單純，主要功能為水電解質吸收與糞便儲存</strong>。大腸運動包括分節收縮（形成袋狀haustra，助混合與吸收/發酵）與逆蠕動（antiperistalsis，助儲存與吸收功能），同樣由ICC節律點驅動，節律點位置可能隨情況改變、不固定於單一部位。</p>
+    </div>
+
+    <div class="section" id="section-saliva">
+      <div class="section-head"><div class="section-num">3</div><h2>唾液分泌</h2></div>
+      <p class="section-desc">唾液具潤滑、抗菌、部分消化與體溫調節四大功能，是消化道最上游的分泌液，其調控方式也是消化腺體中的特例。</p>
+
+      <h3>唾液的四大功能</h3>
+      <ul>
+        <li><strong>潤滑與濕潤食物</strong>，利於吞嚥</li>
+        <li><strong>抗菌</strong>：含抗體與抗菌酵素（溶菌酶lysozyme）</li>
+        <li><strong>部分消化</strong>：唾液澱粉酶（雜食動物有，肉食動物無；在微鹼性環境下、主要於近端胃作用而非口腔）；舌脂酶（幼年動物才有，成年後消失）</li>
+        <li><strong>蒸發散熱</strong>：犬貓經喘氣散熱依賴唾液蒸發，是重要的體溫調節途徑之一（見「體液電解質與體溫調節」章節）</li>
+      </ul>
+
+      <h3>唾液的調控：純神經性、唯一無內分泌調控的消化腺</h3>
+      <p>唾液腺主要受<strong>副交感神經（顏面神經與舌咽神經，經膽鹼受體）</strong>調控，咀嚼與味蕾刺激是主要傳入訊號；<strong>交感神經（經β腎上腺素受體）</strong>也可刺激唾液分泌，與肉食動物準備攻擊時的流涎反應相關，與正常消化功能關聯較小。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">經典實驗：巴夫洛夫的制約反射</div>
+        <p>巴夫洛夫（Ivan Pavlov）訓練狗聽到鈴聲即分泌唾液（制約反射，conditional reflex），是史上首次證明<strong>中樞神經系統可調控消化功能</strong>的經典實驗，也說明唾液腺是消化腺體中<strong>唯一完全沒有內分泌調控成分</strong>的特例——全部由神經直接調控。</p>
+      </div>
+
+      <p>反芻動物唾液成分與單胃動物截然不同：<strong>等張、富含碳酸氫鹽與磷酸鹽緩衝液、pH偏高</strong>，每日分泌量可達100–200公升（約等同全身細胞外液總量），核心功能是中和瘤胃發酵產生的酸（見「反芻動物消化生理學」章節）。</p>
+    </div>
+
+    <div class="section" id="section-gastric">
+      <div class="section-head"><div class="section-num">4</div><h2>胃液分泌</h2></div>
+      <p class="section-desc">胃腺體由多種特化細胞構成，分泌強酸性胃液進行化學消化，其分泌受三個時期的訊號精密調控。</p>
+
+      <div class="figure">
+        <img src="img/單胃動物消化生理學/mono_p70.png" alt="胃腺體各類細胞分泌產物與功能總表">
+        <div class="figure-caption">胃腺體細胞總表：表面黏液細胞（厚黏液＋碳酸氫鹽，保護胃壁）、黏液頸細胞（薄黏液，同時是胃黏膜的祖細胞）、壁細胞（HCl殺菌／活化胃蛋白酶原／維持胃蛋白酶作用pH；內在因子助維生素B12吸收）、主細胞（胃蛋白酶原，胃蛋白酶前驅物）、腸內分泌細胞/嗜銀細胞（胃泌素，刺激胃酸與胃蛋白酶原分泌、促食道括約肌收縮、增加胃蠕動、放鬆幽門括約肌）。</div>
+        <div class="figure-source">來源：2025學年度《Monogastric Digestion》課程講義</div>
+      </div>
+
+      <h3>胃酸的三大生理功能</h3>
+      <ol>
+        <li>使攝入蛋白質變性（三級構形改變），提高可消化性</li>
+        <li>移除抑制性片段，釋放完全活化的胃蛋白酶</li>
+        <li>提供胃蛋白酶最適作用環境（最適pH約2）</li>
+      </ol>
+
+      <h3>壁細胞胃酸分泌的四個輸入訊號</h3>
+      <p>胃泌素、組織胺（經ECL嗜鉻樣細胞，受胃泌素與ACh刺激釋放）、乙醯膽鹼三者<strong>同時作用時對壁細胞產生最大刺激效果</strong>；<strong>體制素（somatostatin）</strong>則為抑制性訊號——胃內pH降至2時開始負回饋抑制胃泌素分泌，降至1時完全抑制，是防止胃酸過度分泌的自我保護機制。</p>
+
+      <h3>胃酸分泌的三個時期</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>時期</th><th>觸發訊號</th><th>路徑</th></tr></thead>
+          <tbody>
+            <tr><td><strong>頭期 Cephalic</strong></td><td>看、聞、嚐、想像食物</td><td>大腦皮質／下視丘攝食中樞→延腦→迷走神經→胃腺（ACh、胜肽）→HCl/胃蛋白酶/胃泌素</td></tr>
+            <tr><td><strong>胃期 Gastric</strong></td><td>食物進入胃：機械（胃壁擴張）＋化學（pH上升、胺基酸、酒精）</td><td>局部Meissner神經叢反射＋迷走神經→胃泌素分泌→HCl/胃蛋白酶</td></tr>
+            <tr><td><strong>腸期 Intestinal</strong></td><td>未消化蛋白進入十二指腸</td><td>腸胃泌素（enteric gastrin）輕度刺激胃液分泌；隨後轉為抑制（見下方）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>腸期後段：抑制性反射</h3>
+      <p>十二指腸擴張、未消化蛋白/脂肪/酸/高低滲液體會經<strong>腸胃反射（enterogastric reflex）</strong>與secretin/CCK/GIP，抑制胃液分泌並降低胃蠕動——與前段「抑制胃排空」機轉共用同一組訊號與激素，是同一套保護性負回饋系統的兩種表現。</p>
+
+      <h3>鹼潮 Alkaline Tide</h3>
+      <p>壁細胞分泌H⁺進入胃腔的同時，會以HCO₃⁻的形式將等量鹼基釋入血液（碳酸酐酶催化），造成餐後短暫的血液鹼化，稱鹼潮，是消化生理學中常被忽略但概念上重要的酸鹼調節現象。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p><strong>胃黏膜萎縮</strong>（慢性胃炎或自體免疫）可導致<strong>胃酸缺乏（achlorhydria）</strong>，胃蛋白酶原即使分泌也因無酸無法活化，消化功能喪失；同時因壁細胞內在因子分泌不足，<strong>維生素B12吸收障礙</strong>（B12須先與內在因子結合、於迴腸吸收）導致<strong>惡性貧血（pernicious anemia）</strong>——胃切除或迴腸切除動物皆可能出現此併發症。<strong>消化性潰瘍</strong>常見病因包括胃酸過多、迷走神經過度刺激、幽門螺旋桿菌感染、藥物刺激（NSAIDs）、胃泌素瘤（Zollinger-Ellison症候群）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-pancreas">
+      <div class="section-head"><div class="section-num">5</div><h2>胰臟外分泌</h2></div>
+      <p class="section-desc">胰臟兼具內分泌（約1%，胰島）與外分泌（約99%，腺泡組織）雙重功能，外分泌部分是小腸消化最主要的酵素來源。</p>
+
+      <h3>胰臟外分泌的兩種細胞</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">腺泡細胞 Acinar Cells</div><p>分泌超過10種不同消化酵素（蛋白酶、澱粉酶、脂肪酶等），多數以無活性酵素原（zymogen）形式分泌，避免胰臟自我消化</p></div>
+        <div class="card"><div class="card-title">中心腺泡細胞 Centroacinar Cells</div><p>分泌大量碳酸氫鈉，中和自胃進入十二指腸的酸性食糜，為胰酵素創造最適作用環境</p></div>
+      </div>
+
+      <h3>胰蛋白酶原活化級聯</h3>
+      <div class="figure">
+        <img src="img/單胃動物消化生理學/mono_p109.png" alt="胰臟酵素原活化級聯：腸激酶活化胰蛋白酶原為胰蛋白酶，再活化其他酵素原">
+        <div class="figure-caption">十二指腸黏膜分泌的腸激酶（enterokinase）將胰蛋白酶原（trypsinogen）活化為胰蛋白酶（trypsin）；胰蛋白酶接著自我催化活化更多胰蛋白酶原，同時活化其餘酵素原：糜蛋白酶原→糜蛋白酶、前彈性蛋白酶原→彈性蛋白酶、前羧肽酶A/B→羧肽酶A/B——是一個由單一起始酵素觸發的放大級聯反應。</div>
+        <div class="figure-source">來源：2025學年度《Monogastric Digestion》課程講義</div>
+      </div>
+
+      <p>這種<strong>以無活性酵素原形式分泌、於腸腔內才活化</strong>的設計，是消化道保護自身組織不被自身消化酵素破壞的關鍵安全機制——與「胃液分泌」章節胃蛋白酶原經胃酸活化的邏輯一致。</p>
+
+      <h3>胰臟分泌的調控</h3>
+      <p>受神經（頭期、胃期）與體液雙重調控：<strong>低pH食糜刺激十二指腸釋放secretin→刺激胰液中水與碳酸氫鹽的分泌</strong>（中和酸）；<strong>胜肽與脂肪刺激CCK釋放→刺激胰酵素分泌</strong>（消化蛋白質與脂肪）——兩種主要刺激因子分別對應胰液的兩大功能成分（緩衝液 vs 消化酵素），是重要的考試對比記憶點。</p>
+    </div>
+
+    <div class="section" id="section-liver">
+      <div class="section-head"><div class="section-num">6</div><h2>肝臟膽汁與腸肝循環</h2></div>
+      <p class="section-desc">肝臟是全身代謝的樞紐器官，具消化、內分泌、凝血、血漿蛋白合成、有機物代謝、排泄解毒等多重功能，本節聚焦其消化相關的膽汁分泌功能。</p>
+
+      <h3>肝臟功能總覽（消化相關為主）</h3>
+      <ul>
+        <li><strong>外分泌（消化）功能</strong>：合成分泌膽鹽，助脂肪消化吸收；分泌富含碳酸氫鹽的膽汁，中和十二指腸酸性</li>
+        <li><strong>內分泌功能</strong>：分泌IGF-1、活化維生素D、T4、血管收縮素原</li>
+        <li><strong>凝血功能</strong>：合成凝血酶原與纖維蛋白原</li>
+        <li><strong>血漿蛋白合成</strong>：白蛋白、急性期蛋白</li>
+        <li><strong>排泄解毒功能</strong>：分泌膽紅素等膽色素、經膽汁排除內外源性有機物與重金屬、生物轉化代謝異物、清除老化紅血球</li>
+      </ul>
+
+      <h3>膽酸與膽色素</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">膽酸 Bile Acids</div>
+          <p>肝細胞滑面內質網合成，通常以鈉鹽形式分泌，具親水／親脂雙重性質，能溶解細胞膜成分（磷脂、膽固醇）——是脂肪消化「乳化」的關鍵成分（見「脂肪消化吸收」章節）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">膽色素 Bile Pigments</div>
+          <p>血紅素卟啉的分解產物，主要為<strong>膽紅素（綠色）</strong>，是紅血球正常代謝週轉的產物；於腸腔內經細菌轉為<strong>尿膽素原（urobilinogen）</strong>，是糞便呈現顏色的來源；本身不具消化功能，純屬代謝廢物</p>
+        </div>
+      </div>
+
+      <h3>膽囊與腸肝循環</h3>
+      <p>膽囊負責<strong>儲存與濃縮</strong>膽汁（經再吸收Na⁺/Cl⁻/HCO₃⁻，水分被動跟隨），由<strong>歐蒂氏括約肌（Sphincter of Oddi）</strong>控制膽汁排放；<strong>馬與大鼠沒有膽囊</strong>，是重要的物種比較考點。食糜（尤其脂肪）進入十二指腸刺激CCK釋放，引發膽囊收縮排出膽汁；<strong>膽酸在迴腸經鈉共同運輸被大量再吸收，經門靜脈送回肝臟</strong>——此再吸收會正回饋刺激肝臟合成更多膽汁，形成<strong>腸肝循環（enterohepatic circulation）</strong>，使有限的膽酸池能反覆高效利用，而非每次消化都需從頭合成。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：膽結石與黃疸</div>
+        <p><strong>膽結石</strong>（約80%為膽固醇結石、20%為色素性結石）成因包括膽鹽不足、卵磷脂不足或膽固醇過剩；大結石阻塞總膽管會造成脂肪吸收障礙（脂肪痢steatorrhea）與阻塞性黃疸，若同時阻塞胰管可併發胰臟炎。<strong>黃疸</strong>分兩類：<strong>溶血性黃疸</strong>（紅血球破壞增加，膽紅素生成超過肝臟處理能力）與<strong>阻塞性黃疸</strong>（膽管阻塞，膽紅素無法排出），兩者病因與處置方向截然不同，是黃疸動物臨床鑑別診斷的核心分類。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-carb">
+      <div class="section-head"><div class="section-num">7</div><h2>醣類消化吸收</h2></div>
+      <p class="section-desc">醣類消化分「管腔期（不完全水解）」與「膜期（完全水解）」兩階段，理解此分期架構同樣適用於蛋白質消化（見下節）。</p>
+
+      <h3>醣類消化的兩階段</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">管腔期 Luminal Phase</div><p>唾液澱粉酶（口腔/近端胃，雜食動物）與胰澱粉酶（十二指腸）將澱粉水解為麥芽糖、異麥芽糖、麥芽三糖等寡糖，屬<strong>不完全水解</strong></p></div>
+        <div class="card"><div class="card-title">膜期 Membranous Phase</div><p>腸上皮細胞刷狀緣上的雙醣酶（乳糖酶、蔗糖酶、麥芽糖酶等）將寡糖與雙醣完全水解為單醣（葡萄糖、半乳糖、果糖），屬<strong>完全水解</strong>，是唯一能被吸收的型式</p></div>
+      </div>
+
+      <h3>單醣的吸收機轉</h3>
+      <p><strong>葡萄糖與半乳糖</strong>經<strong>次級主動運輸（Na⁺共同運輸蛋白SGLT）</strong>吸收，利用Na⁺/K⁺-ATPase建立的Na⁺梯度驅動；<strong>果糖</strong>則經<strong>促進性擴散（GLUT5）</strong>吸收，不需Na⁺梯度。吸收進入腸上皮細胞後，皆經基底外側膜的GLUT2以促進性擴散方式進入微血管，經門靜脈送往肝臟。</p>
+    </div>
+
+    <div class="section" id="section-protein">
+      <div class="section-head"><div class="section-num">8</div><h2>蛋白質消化吸收</h2></div>
+      <p class="section-desc">蛋白質消化涉及的酵素種類遠多於醣類消化，因蛋白質分子結構複雜，需要多種切位不同的酵素協同作用才能完全水解。</p>
+
+      <h3>兩類蛋白質分解酵素</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">內肽酶 Endopeptidase</div><p>切斷胜肽鏈內部（非末端）的胜肽鍵。代表：胃蛋白酶（pepsin）、胰蛋白酶（trypsin）、糜蛋白酶（chymotrypsin）、彈性蛋白酶（elastase）</p></div>
+        <div class="card"><div class="card-title">外肽酶 Exopeptidase</div><p>從胜肽鏈末端切下單一胺基酸。代表：羧肽酶A/B（carboxypeptidase A/B，胰臟分泌）</p></div>
+      </div>
+      <p>所有這些蛋白酶皆<strong>以無活性酵素原形式由胃腺或胰臟分泌</strong>（見「胃液分泌」與「胰臟外分泌」章節活化機轉），是防止消化道自我消化的關鍵安全設計。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>胃的蛋白質消化作用重要但<strong>非必要</strong>——缺乏胃（如胃切除）的動物，只要胰臟功能正常、並採取少量多餐的軟質濕食餵食策略，仍能完整消化蛋白質，這是理解胃與胰臟在蛋白質消化中相對重要性的關鍵概念。</p>
+      </div>
+
+      <h3>胺基酸的吸收與運輸</h3>
+      <p>蛋白質最終水解為胺基酸、雙胜肽、三胜肽，皆可被腸上皮細胞吸收：<strong>胺基酸經Na⁺共同運輸的次級主動運輸吸收</strong>；<strong>雙/三胜肽</strong>則經另一套H⁺共同運輸機轉吸收後，於細胞內被胞內肽酶進一步水解為胺基酸，再經基底外側膜擴散或主動運輸進入微血管、經門靜脈送往肝臟。</p>
+    </div>
+
+    <div class="section" id="section-fat">
+      <div class="section-head"><div class="section-num">9</div><h2>脂肪消化吸收</h2></div>
+      <p class="section-desc">脂肪消化面臨的根本問題是「脂溶性物質必須在水性腸腔環境中被水溶性酵素消化」，因此脂肪消化吸收流程遠比醣類/蛋白質複雜，多一道「乳化」與「微胞形成」的步驟。</p>
+
+      <h3>脂肪消化吸收的四階段</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>乳化 Emulsification</strong>：胃部溫熱、劇烈攪拌研磨先將脂肪初步分散；小腸內膽酸與磷脂的清潔劑作用將脂肪滴進一步縮小、穩定分散於水性環境中，大幅增加脂肪與水溶性脂肪酶的接觸表面積。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>水解 Hydrolysis</strong>：胰脂肪酶（lipase）搭配輔脂肪酶（co-lipase，先「打開一條路徑」穿透膽酸包覆層使脂肪酶得以接觸三酸甘油酯）將三酸甘油酯水解為2個游離脂肪酸＋1個單酸甘油酯；膽固醇酯酶與磷脂酶分別水解膽固醇酯與磷脂。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>微胞形成 Micelle Formation</strong>：膽酸與水解後的脂質分子聚集形成水溶性的微小聚集體（微胞），得以擴散穿越腸腔的靜水層並貼近腸上皮頂端膜。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>吸收 Absorption</strong>：微胞成分經醣萼擴散，由特化脂肪酸結合蛋白攜入腸上皮細胞；膽酸本身則留在腸腔內，隨後於迴腸經鈉共同運輸被吸收（回歸腸肝循環，見「肝臟膽汁」章節）。</div></div>
+
+      <h3>短鏈脂肪酸 vs 長鏈脂肪酸的吸收路徑分歧</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">短鏈脂肪酸</div>
+          <p>水溶性較高，可直接擴散通過腸上皮，經<strong>門靜脈</strong>直接送往肝臟（與醣類/胺基酸吸收路徑相同）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">長鏈脂肪酸與單酸甘油酯</div>
+          <p>於腸上皮細胞滑面內質網<strong>重新酯化為三酸甘油酯</strong>，與膽固醇、磷脂、蛋白質組裝形成<strong>乳糜微粒（chylomicron）</strong>——因體積過大無法穿過微血管基底膜，改經<strong>淋巴管</strong>運送</p>
+        </div>
+      </div>
+
+      <div class="figure">
+        <img src="img/單胃動物消化生理學/mono_p115.png" alt="長鏈脂肪酸與單酸甘油酯的完整吸收路徑：微胞形成到乳糜微粒經淋巴系統進入血液循環">
+        <div class="figure-caption">長鏈脂肪酸吸收完整路徑：微胞攜帶膽固醇/脂肪酸/三酸甘油酯/脂溶性維生素進入腸上皮細胞→滑面內質網重新酯化組裝為乳糜微粒→淋巴竇→淋巴管→胸管→鎖骨下靜脈→心臟→（經肝動脈）肝臟；膽酸則另經腸肝循環回收。</div>
+        <div class="figure-source">來源：2025學年度《Monogastric Digestion》課程講義</div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：餐後脂血症</div>
+        <p>大量乳糜微粒進入血液循環會使血漿暫時呈現乳白色混濁，稱<strong>餐後脂血症（postprandial lipemia）</strong>，通常於餐後1–2小時出現，屬正常生理現象；但若持續存在或程度異常，需考慮糖尿病、肝脂沉積症或甲狀腺機能低下等病理性脂血症的可能，餐後脂血症本身也是心血管疾病的風險因子之一。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-electrolyte">
+      <div class="section-head"><div class="section-num">10</div><h2>水分與電解質吸收</h2></div>
+      <p class="section-desc">維持體內水分與電解質（尤其Na⁺、K⁺、Cl⁻、HCO₃⁻）供給是延續生命的高優先事項，腸道吸收機轉隨腸道節段而異，理解此分布規律有助於理解不同腸道疾病造成的電解質失衡型態。</p>
+
+      <h3>鈉、氯、鉀的吸收機轉</h3>
+      <ul>
+        <li><strong>鈉</strong>：迴腸與結腸吸收活性最高，經多種機轉（Na⁺共同運輸、Na⁺/H⁺交換等）主動吸收</li>
+        <li><strong>氯</strong>：主要機轉是與Na⁺偶聯的葡萄糖/胺基酸共同運輸（電中性伴隨吸收），也可經Cl⁻-HCO₃⁻交換</li>
+        <li><strong>鉀</strong>：飲食通常富含鉀，腸腔內濃度高，主要經<strong>細胞旁路徑被動吸收</strong>（隨水分吸收而濃縮）；遠端結腸另有H⁺/K⁺-ATPase主動調控</li>
+      </ul>
+
+      <h3>電解質吸收機轉隨腸道節段的分布規律</h3>
+      <p>整體趨勢：<strong>鈉共同運輸機轉在十二指腸/空腸最活躍，往遠端遞減</strong>；相對地，<strong>氯偶聯鈉吸收、氯-碳酸氫根交換、碳酸氫根吸收、鉀吸收機轉則在結腸（尤其下段）最活躍</strong>——這代表小腸上段主要負責吸收營養物質偶聯的電解質，遠端結腸則負責更精細的水電解質最終調節，此規律與「腎臟生理學基礎」章節腎小管「近端大量吸收、遠端精細調節」的分工邏輯遙相呼應。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：腹瀉與霍亂</div>
+        <p><strong>腹瀉</strong>本質是食糜通過小腸、糞便通過大腸的速度過快，來不及進行正常的吸收作用；腸胃道感染是最常見病因，受感染部位分泌速度大增、腸道運動活性也增加數倍，這其實是腸道沖洗感染源的重要防禦機制。<strong>霍亂</strong>由霍亂弧菌毒素引起，刺激迴腸與結腸過度分泌電解質與液體（並增強Cl⁻-HCO₃⁻交換，導致大量碳酸氫鈉分泌入小腸），治療核心是及時補充流失的水分與電解質，適當治療下霍亂致死率極低，未治療則致死率超過50%。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-neonate">
+      <div class="section-head"><div class="section-num">11</div><h2>新生兒消化特殊性</h2></div>
+      <p class="section-desc">新生兒消化系統在出生後最初數小時至數週，具備成年動物所沒有的特殊功能，核心目的是使新生兒得以完整吸收初乳中的抗體蛋白質，是「生殖生理學」章節被動免疫轉移的消化生理基礎。</p>
+
+      <h3>完整蛋白質吸收的窗口期</h3>
+      <p>多數物種的消化功能核心之一是分解蛋白質以獲取胺基酸營養，但在<strong>馬、牛、羊、豬</strong>等胎盤無法傳輸抗體的物種（見「妊娠、分娩與泌乳生理」章節胎盤分類），新生兒必須能<strong>完整吸收</strong>初乳中的免疫球蛋白才能獲得被動免疫。為達成此目的，新生兒消化系統出生後數日內出現特殊調適：</p>
+      <ul>
+        <li><strong>胃酸分泌延遲數日</strong>，避免蛋白質被過早變性</li>
+        <li><strong>胰臟功能發育同樣延遲</strong>，避免胰蛋白酶消化作用過早成熟</li>
+        <li>出生時特有的<strong>特化腸上皮細胞</strong>能將腸腔內完整的可溶性蛋白質胞吞（engulf），並釋放至細胞側邊空間進入循環——此特化細胞於出生後約24小時內開始消失</li>
+      </ul>
+
+      <h3>雙醣酶活性的成熟轉換：乳糖酶→麥芽糖酶</h3>
+      <p>新生兒期腸道<strong>乳糖酶活性極高</strong>（乳汁中乳糖是新生兒主要醣類來源），<strong>麥芽糖酶活性則微弱或缺乏</strong>（出生後數週才發育成熟，用以消化澱粉水解產物）；<strong>多數成年動物的乳糖酶活性則幾乎完全消失</strong>——這是成年動物（包含人類多數族群）飲用大量乳製品易腹瀉（乳糖不耐symptom）的生理基礎，也是斷奶時機需考量消化酵素發育進程的重要概念。</p>
+    </div>
+
+    <div class="section" id="section-fuel">
+      <div class="section-head"><div class="section-num">12</div><h2>燃料恆定總論</h2></div>
+      <p class="section-desc">從本節開始進入「吸收後營養代謝」主題：食物並非持續進入體內，但細胞卻需要不間斷的能量供應，身體必須有一套精密系統緩衝「進食-空腹」週期，維持燃料供需平衡（fuel homeostasis）。</p>
+
+      <h3>燃料恆定的核心矛盾與解方</h3>
+      <p>腸道並非儲存庫，消化吸收速率取決於食物本身的化學組成，而<strong>不會依動物當下的能量需求調節</strong>；因此身體須有獨立於消化系統之外的緩衝機制，於進食後儲存過剩燃料、於空腹期動員儲存燃料釋出，維持血液中燃料濃度（尤其血糖）的相對穩定。此恆定機制由<strong>胰島素-升糖素軸、下視丘-腦垂體軸、中樞神經系統</strong>共同協調，核心激素包括胰島素、升糖素、腎上腺素、糖皮質素、生長激素。</p>
+
+      <h3>四大主要代謝燃料</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>燃料</th><th>特性</th></tr></thead>
+          <tbody>
+            <tr><td><strong>葡萄糖 Glucose</strong></td><td>多數動物（如犬）進食後的基礎燃料；<strong>中樞神經系統在多數情況下唯一能利用的燃料</strong>，維持穩定血糖供應對存活至關重要</td></tr>
+            <tr><td><strong>胺基酸 Amino Acids</strong></td><td>除作為蛋白質建構單元外，也是重要能量來源，吸收期供應肝細胞大部分能量需求</td></tr>
+            <tr><td><strong>脂肪酸 Fatty Acids</strong></td><td>體內最主要的能量儲存形式（以三酸甘油酯儲存於脂肪組織）</td></tr>
+            <tr><td><strong>酮體 Ketone Bodies</strong></td><td>脂肪衍生、水溶性代謝物，可作為葡萄糖的替代燃料，能通過血腦障壁供應中樞神經系統於長期缺乏飲食能量時使用</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>TCA循環：燃料的共同終點爐</h3>
+      <p>TCA（Krebs）循環是幾乎所有身體燃料最終被完全氧化為CO₂與H₂O、釋出能量（以ATP形式捕捉）的共同路徑；除完全氧化功能外，TCA循環中間產物也是不同燃料間<strong>相互轉換</strong>的樞紐（如胺基酸轉換為葡萄糖的糖質新生路徑即經此），TCA循環活性存在於幾乎所有組織（<strong>紅血球除外，因缺乏粒線體</strong>，僅能依賴糖解與磷酸戊糖路徑）。</p>
+    </div>
+
+    <div class="section" id="section-absorptive">
+      <div class="section-head"><div class="section-num">13</div><h2>吸收期代謝</h2></div>
+      <p class="section-desc">進食後的吸收期，肝臟與周邊組織的代謝活動協調一致地將吸收進來的營養物質導向儲存分子與儲存位置，核心驅動激素是<strong>胰島素</strong>。</p>
+
+      <h3>葡萄糖：肝臟優先儲存為肝醣，過剩者轉為脂肪</h3>
+      <p>甚至在葡萄糖尚未被大量吸收前，腸道激素（如GIP）即已開始刺激胰島素分泌，預先使肝臟與其他組織「整裝待發」；門靜脈血流經肝臟時，大部分吸收的葡萄糖被肝臟攝取，於胰島素作用下合成肝醣（<strong>肝醣生成 glycogenesis</strong>）——此過程調節了葡萄糖從腸道流向全身循環的速度，避免餐後血糖過度飆升。然而<strong>肝臟肝醣儲存量有限（通常不超過肝重10%）</strong>，無法容納全部吸收的葡萄糖，過剩葡萄糖經<strong>脂肪酸新生（FA synthesis）</strong>轉化為脂肪，經<strong>極低密度脂蛋白（VLDL）</strong>運送出肝臟至脂肪組織儲存或肌肉直接利用。</p>
+
+      <h3>胺基酸：肝臟大量攝取，用於合成血漿蛋白或轉為醣類/脂肪</h3>
+      <p>飲食中的麩胺酸與大部分天冬胺酸於吸收時即被腸上皮細胞代謝、轉為丙胺酸（故門靜脈血中麩胺酸極少）；胺基酸與TCA循環中間產物（α-酮戊二酸、草醯乙酸）結構相似，經<strong>轉胺酶（transaminase）</strong>可與酮酸互相轉換，是體內非必需胺基酸合成與胺基酸間氮平衡調節的基礎。肝臟攝取多數胺基酸後，經<strong>去胺作用</strong>轉為酮酸類似物，進入醣類代謝路徑——可完全氧化產能、轉為葡萄糖/肝醣、或轉入脂肪酸合成路徑；但<strong>支鏈胺基酸（BCAA）較不易被肝臟攝取</strong>（周邊血中濃度相對較高），主要留待肌肉利用（見下節空腹期肌肉代謝）。多數<strong>血漿蛋白（白蛋白、凝血因子等）皆由肝臟合成</strong>，是胺基酸的重要去路之一。</p>
+
+      <h3>脂肪：雙路徑堆積於脂肪組織</h3>
+      <p>脂肪組織於吸收期經兩種機轉累積三酸甘油酯：<strong>(1) 攝取乳糜微粒（來自腸道）與VLDL（來自肝臟）中的脂肪酸</strong>，由微血管內皮表面的<strong>脂蛋白脂酶（LPL）</strong>水解後轉入脂肪細胞——LPL對胰島素的敏感度依組織而異，脂肪組織LPL受胰島素刺激活化；<strong>(2) 直接以葡萄糖為原料進行脂肪酸從頭合成</strong>，同樣受胰島素促進。</p>
+
+      <h3>肌肉：胰島素促進肝醣合成與蛋白質合成</h3>
+      <p>胰島素同樣促進肌肉攝取葡萄糖與胺基酸；肌肉攝取的葡萄糖同樣合成肝醣，但<strong>肌肉肝醣無法直接釋放葡萄糖回血液（缺乏glucose-6-phosphatase）</strong>，僅供肌肉自身代謝使用，與肝醣可調節全身血糖的功能截然不同；肌肉蛋白質除運動/姿勢維持功能外，也是體內最大的<strong>胺基酸儲存庫</strong>，吸收期蛋白質合成大於分解，胺基酸池呈淨增加。</p>
+    </div>
+
+    <div class="section" id="section-postabsorptive">
+      <div class="section-head"><div class="section-num">14</div><h2>吸收後期代謝</h2></div>
+      <p class="section-desc">餐間空腹期（通常數小時），身體代謝模式由「儲存」切換為「動員釋出」，核心驅動力是<strong>胰島素濃度下降、升糖素濃度相對上升</strong>，胰島素/升糖素比值的變化比兩者絕對濃度更重要。</p>
+
+      <h3>調控燃料利用/生成的關鍵酵素邏輯</h3>
+      <p><strong>促進燃料動員與利用的酵素經磷酸化而活化</strong>（升糖素促進磷酸化）；<strong>促進燃料儲存的酵素則經磷酸化而失活</strong>（胰島素則抑制磷酸化、促進去磷酸化）。四個關鍵酵素：肝醣合成酶（儲存，被磷酸化抑制）vs 肝醣磷酸化酶（分解，被磷酸化活化）；磷酸果糖激酶（糖解，被磷酸化抑制）vs 果糖-1,6-雙磷酸酶（糖質新生，被磷酸化活化）。</p>
+
+      <h3>肝臟：由葡萄糖利用轉為葡萄糖生成</h3>
+      <p>肝醣分解（glycogenolysis）在<strong>輕度運動下可支撐血糖需求約6–12小時，劇烈運動下僅約20分鐘</strong>即耗盡；隨後肝臟轉而依賴<strong>糖質新生（gluconeogenesis，僅發生於肝臟，腎臟僅具有限能力）</strong>，以丙酮酸或TCA循環中間產物為原料生成葡萄糖——胺基酸（來自肌肉分解）是糖質新生最主要的前驅物庫存來源，升糖素整體效果是將肝臟轉變為「葡萄糖生產工廠」。</p>
+
+      <h3>肌肉：胺基酸動員與丙胺酸循環</h3>
+      <p>胰島素下降使肌肉細胞對葡萄糖與胺基酸的攝取減少，肌肉蛋白質分解增加以維持胺基酸池、供應能量所需；<strong>支鏈胺基酸（占肌肉胺基酸約三分之一）是空腹期肌肉細胞最主要的能量來源</strong>，其代謝產生的α-酮酸經轉胺作用形成丙胺酸釋出，經血液送往肝臟進行糖質新生（<strong>丙胺酸循環</strong>）——因BCAA本身不易被肝臟直接攝取利用，須先轉為丙胺酸才能有效轉運至肝臟；肝臟接收胺基酸脫胺後產生的<strong>尿素</strong>（肝臟是體內唯一能合成尿素的器官）經血液送往腎臟排除。<strong>糖皮質素（cortisol）</strong>同樣促進肌肉蛋白質分解與胺基酸動員，並刺激肝臟糖質新生，整體效果是升高血糖（見「內分泌生理II」章節）；升糖素在正常生理狀況下對肌肉組織無直接作用，主要作用標的是肝臟。</p>
+
+      <h3>脂肪組織：荷爾蒙敏感性脂肪酶動員游離脂肪酸</h3>
+      <p><strong>兒茶酚胺（腎上腺素、正腎上腺素）</strong>經脂肪細胞β腎上腺素受體→G蛋白→cAMP→PKA路徑（見「細胞訊息傳遞」章節）活化<strong>荷爾蒙敏感性脂肪酶（Hormone-Sensitive Lipase, HSL）</strong>，水解三酸甘油酯釋出游離脂肪酸與甘油；<strong>胰島素透過促進HSL去磷酸化而抑制此作用，是調控脂肪動員最重要的負向調節因子</strong>；升糖素對脂肪組織也有部分促進HSL磷酸化的作用，但重要性遠不及對肝臟的作用。釋出的脂肪酸與白蛋白可逆結合，稱<strong>非酯化脂肪酸（NEFA）</strong>，可直接供多數組織利用，大部分則被肝臟攝取用於酮體生成或重新合成VLDL。</p>
+
+      <h3>飢餓與長期能量剝奪：酮體生成</h3>
+      <p>長期禁食或能量嚴重不足時，身體優先保留葡萄糖與胺基酸（避免過度消耗肌肉），轉而大量依賴脂肪與酮體供能。NEFA進入肝臟後有三條路徑：小部分完全氧化產能、部分經酯化重新形成三酸甘油酯、<strong>大部分在低胰島素/升糖素比值、低血糖、脂肪酸供應充足的條件下轉為酮體生成</strong>。酮體生成速率由<strong>肉鹼棕櫚醯轉移酶I（CPT-I）</strong>活性決定——CPT-I將脂肪酸（先與肉鹼結合）運入粒線體，是酮體生成的限速步驟；CPT-I活性受<strong>丙二醯輔酶A（malonyl-CoA，脂肪酸合成路徑中間產物）</strong>抑制：高胰島素/升糖素比值時malonyl-CoA濃度高、CPT-I受抑制（此時葡萄糖正被導向脂肪合成，不宜同時大量生酮）；低胰島素/升糖素比值時malonyl-CoA濃度低、CPT-I活性高，酮體大量生成。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：糖尿病酮酸中毒</div>
+        <p>糖尿病（胰臟無法分泌胰島素）動物的胰島素/升糖素比值持續處於極低狀態：脂肪組織HSL無法被胰島素抑制（NEFA大量釋出）、肝臟malonyl-CoA濃度低使CPT-I完全活化——即使血糖濃度已經很高，脂肪動員與酮體生成仍不受控制地全速進行，導致<strong>糖尿病酮酸中毒（Diabetic Ketoacidosis, DKA）</strong>，是「高血糖同時併發嚴重酮酸血症」這個看似矛盾現象的完整生理機轉解釋。</p>
+      </div>
+
+      <h3>脂肪酸無法淨轉換為葡萄糖</h3>
+      <p>脂肪酸經β氧化產生的乙醯輔酶A（2個碳）雖可進入TCA循環，但循環消耗乙醯輔酶A的同時<strong>不會有淨草醯乙酸生成</strong>（乙醯輔酶A進入循環時消耗一個草醯乙酸、循環一圈後又重新生成一個，淨增量為零），因此<strong>脂肪酸無法作為糖質新生的淨碳源</strong>，這與胺基酸（碳骨架可直接以草醯乙酸等中間產物淨進入循環）形成鮮明對比，是重要的生化基礎概念。</p>
+
+      <h3>生長激素在長期能量剝奪下的角色</h3>
+      <p>多物種在長期能量剝奪下血中生長激素（GH）濃度上升，GH與胰島素作用相互拮抗，即使胰島素濃度正常也能促使血糖上升；GH也具保留蛋白質、促進脂肪動員的直接效果，整體將周邊組織燃料利用型態從葡萄糖/胺基酸導向酮體/脂肪酸，是長期飢餓狀態下保護肌肉蛋白質的重要輔助機轉（見「內分泌生理I」章節GH調控回顧）。</p>
+    </div>
+
+    <div class="section" id="section-ruminantfuel">
+      <div class="section-head"><div class="section-num">15</div><h2>反芻動物燃料代謝比較</h2></div>
+      <p class="section-desc">反芻動物因獨特的前胃發酵消化模式（見「反芻動物消化生理學」章節），其燃料代謝呈現與單胃動物截然不同的特殊型態，是重要的跨章節整合比較考點。</p>
+
+      <h3>反芻動物處於「永久性糖質新生」狀態</h3>
+      <p>反芻動物飲食中的醣類幾乎完全在前胃經微生物發酵為VFA，幾乎沒有可消化醣類以葡萄糖形式進入小腸被直接吸收；因此<strong>反芻動物幾乎所有可利用葡萄糖皆須經糖質新生生成</strong>，與單胃動物「進食後直接大量吸收葡萄糖」的模式形成鮮明對比，反芻動物可謂持續處於類似單胃動物「空腹期」的糖質新生代謝狀態。</p>
+
+      <h3>丙酸是反芻動物最重要的糖質新生前驅物</h3>
+      <p>三大VFA中，<strong>僅丙酸（propionate）能進入TCA循環的琥珀酸階段、淨生成草醯乙酸，成為糖質新生的有效原料</strong>；乙酸與丁酸則皆以乙醯輔酶A形式進入TCA循環（與單胃動物脂肪酸代謝相同邏輯），<strong>無法淨轉換為葡萄糖</strong>。丙酸供應量因此直接決定反芻動物的葡萄糖供應能力，是反芻動物營養學中極重要的核心概念。</p>
+
+      <h3>脂肪酸合成的原料與部位皆與單胃動物不同</h3>
+      <p>反芻動物脂肪酸<strong>從乙酸（而非葡萄糖）合成</strong>；且合成部位<strong>僅限於脂肪組織</strong>（不同於部分單胃動物物種肝臟也是脂肪酸合成的重要場所），肝臟角色相對次要。哺乳動物乳腺合成乳脂肪所需的脂肪酸，來源同樣是<strong>乙酸或酮體，而非葡萄糖</strong>——葡萄糖在反芻動物體內唯一直接用於乳脂肪合成的角色，僅是提供三酸甘油酯骨架的甘油部分。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>「VFA佔比乙酸最高但無法生糖、丙酸佔比較低卻是唯一有效生糖前驅物」的反差，是反芻動物營養學中一個常考且容易混淆的核心對比——飼糧調控丙酸相對比例（如提高精料比例）對乳牛泌乳期血糖與能量供應具直接臨床意義（見「反芻動物消化生理學」章節VFA比例與飼糧關係）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">16</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章橫跨消化道調控、分泌、三大營養素消化吸收與吸收後代謝四大主題，核心是「食糜依序經歷腔內不完全水解→膜上完全水解→特定吸收機轉」與「胰島素/升糖素比值切換儲存/動員代謝模式」兩條主軸。考題常考「腸道激素刺激因子與功能配對」「三大營養素吸收路徑差異」「酮體生成調控（CPT-1/malonyl-CoA）」「反芻動物VFA生糖能力」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>唾液腺是唯一無內分泌調控的消化腺</strong>，純受神經（副交感為主）調控，巴夫洛夫制約反射是首次證明中樞可調控消化功能的經典實驗。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>胃酸分泌受gastrin/histamine/ACh協同刺激，somatostatin負回饋抑制</strong>；十二指腸的CCK/secretin/GIP同時抑制胃排空與胃液分泌，是同一套保護性反射的兩種表現。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>所有蛋白酶皆以無活性酵素原分泌，於腸腔內活化</strong>（腸激酶活化胰蛋白酶原，胰蛋白酶再活化其餘酵素原），防止消化道自我消化。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>膽酸經腸肝循環於迴腸大量回收再利用</strong>，馬與大鼠無膽囊；脂肪消化需經乳化→水解→微胞形成→吸收四階段，長鏈脂肪酸重新酯化為乳糜微粒經淋巴系統運送。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>葡萄糖/半乳糖經SGLT主動吸收，果糖經GLUT5促進性擴散</strong>；胺基酸與雙/三胜肽分別經Na⁺與H⁺共同運輸吸收。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>新生兒出生後數日內延遲胃酸/胰酵素發育，特化腸上皮完整吞吸收初乳抗體</strong>；乳糖酶活性隨成熟由高轉低，麥芽糖酶則相反。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>吸收期（胰島素主導）：肝醣生成、脂肪酸合成、蛋白質合成</strong>；<strong>吸收後期（升糖素/胰島素比值上升）：肝醣分解、糖質新生、HSL促脂肪動員、BCAA經丙胺酸循環供應肝臟生糖原料</strong>。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>CPT-1活性受malonyl-CoA抑制，是酮體生成的限速步驟</strong>；脂肪酸經乙醯輔酶A進入TCA循環無淨草醯乙酸生成，故無法淨轉換為葡萄糖，與胺基酸形成對比。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>反芻動物幾乎全部葡萄糖來自糖質新生，僅丙酸可淨生糖</strong>，乙酸與丁酸皆走乙醯輔酶A路徑無法生糖；反芻動物脂肪酸合成僅發生於脂肪組織，原料為乙酸而非葡萄糖。</div></div>
+
+      <footer class="note-footer">
+        資料來源：2025學年度《Monogastric Digestion》＋113學年度《Postabsorptive Nutrient Utilization》，林辰璽老師，內容參照 Cunningham's Textbook of Veterinary Physiology、Dukes' Physiology of Domestic Animals 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">17</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋消化道調控、分泌機轉、三大營養素消化吸收、吸收後代謝等章節重點，題型參照國考與轉學考命題方向（含機轉推理題），先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪一種消化腺完全不受內分泌系統調控，僅由神經直接調控其分泌？</div>
+        <ul class="quiz-options">
+          <li>(A) 胃腺</li>
+          <li>(B) 胰臟</li>
+          <li>(C) 唾液腺</li>
+          <li>(D) 肝臟</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">唾液腺主要受副交感神經（顏面神經與舌咽神經）調控，也接受交感神經影響（與肉食動物攻擊前流涎相關），是消化腺體中唯一完全沒有內分泌調控成分的特例，巴夫洛夫的制約反射實驗即以唾液分泌證明中樞神經系統可調控消化功能。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 十二指腸偵測到高脂肪食糜時，主要經由哪一種腸道激素抑制胃排空？</div>
+        <ul class="quiz-options">
+          <li>(A) gastrin</li>
+          <li>(B) CCK</li>
+          <li>(C) motilin</li>
+          <li>(D) 醛固酮</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">CCK由十二指腸/空腸I細胞分泌，主要受脂肪與蛋白質刺激，功能包括抑制胃排空與食慾，同時刺激膽囊收縮與胰酵素分泌；secretin主要對應低pH刺激，GIP對應脂肪與葡萄糖，gastrin則是刺激胃酸分泌而非抑制胃排空，motilin則啟動空腹期MMC。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. 胃部的蛋白質消化功能是動物完整消化蛋白質所絕對必要的，胃切除的動物無法消化蛋白質。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">胃的蛋白質消化作用重要但非必要，缺乏胃的動物只要胰臟功能正常，並採取少量多餐的軟質濕食餵食策略，仍能完整消化蛋白質；這也解釋了為何酸與胰蛋白酶消化在演化上具有一定的功能重疊與備援設計。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 長鏈脂肪酸與短鏈脂肪酸經腸道吸收後，兩者最終進入血液循環的路徑有何不同？</div>
+        <ul class="quiz-options">
+          <li>(A) 兩者皆直接經門靜脈進入血液</li>
+          <li>(B) 短鏈脂肪酸經門靜脈，長鏈脂肪酸重新酯化組裝成乳糜微粒經淋巴系統運送</li>
+          <li>(C) 兩者皆須經淋巴系統運送</li>
+          <li>(D) 長鏈脂肪酸經門靜脈，短鏈脂肪酸經淋巴系統</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">短鏈脂肪酸水溶性較高，可直接擴散通過腸上皮進入微血管、經門靜脈送往肝臟，與醣類/胺基酸吸收路徑相同；長鏈脂肪酸與單酸甘油酯則須先在腸上皮細胞滑面內質網重新酯化為三酸甘油酯，與膽固醇、磷脂、蛋白質組裝成乳糜微粒，因體積過大無法穿過微血管基底膜，須改經淋巴管、胸管，最終由鎖骨下靜脈進入體循環。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 吸收後期（空腹期），肌肉細胞分解支鏈胺基酸（BCAA）後，主要以下列何種型式釋出至血液、運送至肝臟進行糖質新生？</div>
+        <ul class="quiz-options">
+          <li>(A) 直接以BCAA原型釋出</li>
+          <li>(B) 轉為丙胺酸釋出（丙胺酸循環）</li>
+          <li>(C) 直接轉為葡萄糖後釋出</li>
+          <li>(D) 轉為酮體釋出</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">BCAA因不易被肝臟直接攝取利用（周邊血中濃度相對較高），肌肉細胞會先將BCAA代謝產生的α-酮酸經轉胺作用形成丙胺酸，再釋出至血液運送至肝臟進行糖質新生，此機制稱丙胺酸循環，是肌肉蛋白質分解產物有效轉運至肝臟合成葡萄糖的關鍵路徑。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 請解釋為何糖尿病（第一型，胰島素絕對缺乏）動物即使血糖濃度已經很高，仍會出現嚴重的酮酸中毒（DKA），並說明CPT-1與malonyl-CoA在此機轉中扮演的角色。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">正常生理狀態下，脂肪動員（經HSL）與酮體生成（經CPT-1）主要受胰島素/升糖素比值調控：胰島素能抑制HSL活性（減少脂肪酸釋出）、也能透過促進脂肪酸合成使malonyl-CoA濃度上升，進而抑制CPT-1活性、減少脂肪酸進入粒線體生酮。糖尿病動物因胰臟無法分泌胰島素，胰島素/升糖素比值持續處於極低狀態：脂肪組織的HSL無法被胰島素抑制，導致大量游離脂肪酸（NEFA）從脂肪組織釋出；同時肝臟因缺乏胰島素刺激的脂肪酸合成路徑，malonyl-CoA濃度低，對CPT-1的抑制解除，CPT-1完全活化，使大量脂肪酸得以進入粒線體轉為酮體。這兩個環節同時失控，導致即使血糖濃度已經很高（因葡萄糖無法有效進入細胞利用），肝臟仍持續大量生成酮體，最終造成嚴重的酮酸中毒，這正是「高血糖」與「酮酸中毒」兩個看似矛盾的現象能同時出現在糖尿病患者身上的完整生理機轉。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 反芻動物的三大VFA（乙酸、丙酸、丁酸）中，何者能作為糖質新生的有效碳源？</div>
+        <ul class="quiz-options">
+          <li>(A) 乙酸</li>
+          <li>(B) 丙酸</li>
+          <li>(C) 丁酸</li>
+          <li>(D) 三者皆可</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">丙酸進入TCA循環時是從琥珀酸階段進入，能淨生成草醯乙酸（糖質新生的起始代謝物），因此是三大VFA中唯一能有效支持葡萄糖生成的前驅物；乙酸與丁酸則皆以乙醯輔酶A形式進入TCA循環，如同單胃動物的脂肪酸代謝一樣，循環一圈後沒有淨草醯乙酸生成，因此無法淨轉換為葡萄糖，這是反芻動物營養學極重要的核心概念，也是丙酸相對比例對乳牛泌乳期血糖供應具直接臨床意義的原因。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '消化道總論與調控系統',
+  motility: '胃腸道蠕動型態',
+  saliva: '唾液分泌',
+  gastric: '胃液分泌',
+  pancreas: '胰臟外分泌',
+  liver: '肝臟膽汁與腸肝循環',
+  carb: '醣類消化吸收',
+  protein: '蛋白質消化吸收',
+  fat: '脂肪消化吸收',
+  electrolyte: '水分與電解質吸收',
+  neonate: '新生兒消化特殊性',
+  fuel: '燃料恆定總論',
+  absorptive: '吸收期代謝',
+  postabsorptive: '吸收後期代謝',
+  ruminantfuel: '反芻動物燃料代謝比較',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

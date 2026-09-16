@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：心臟生理學 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">心臟生理學</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">心臟生理學</h1>
+      <p class="page-subtitle">Cardiac Physiology — 心臟傳導系統、節律點自動性、ECG判讀、心動週期、心輸出量與Frank-Starling機轉、心音與雜音。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-2 學年度《Circulation I - Heart》，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">解剖與細胞基礎</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">🫀</span> 循環系統總覽與心臟構造</a>
+    <a onclick="showSection('ecc')" id="nav-ecc"><span class="nav-icon">🔗</span> 心肌興奮收縮偶聯</a>
+    <div class="section-label" style="margin-top:8px;">電生理</div>
+    <a onclick="showSection('conduction')" id="nav-conduction"><span class="nav-icon">⚡</span> 傳導系統與節律點自動性</a>
+    <a onclick="showSection('innervation')" id="nav-innervation"><span class="nav-icon">🧠</span> 自主神經對心臟的調控</a>
+    <a onclick="showSection('ecg')" id="nav-ecg"><span class="nav-icon">📈</span> 心電圖 ECG</a>
+    <a onclick="showSection('arrhythmia')" id="nav-arrhythmia"><span class="nav-icon">💔</span> 心律不整與傳導阻滯</a>
+    <div class="section-label" style="margin-top:8px;">機械功能</div>
+    <a onclick="showSection('cycle')" id="nav-cycle"><span class="nav-icon">🔄</span> 心動週期</a>
+    <a onclick="showSection('output')" id="nav-output"><span class="nav-icon">📊</span> 心輸出量、每搏量與Frank-Starling</a>
+    <a onclick="showSection('sounds')" id="nav-sounds"><span class="nav-icon">🔊</span> 心音與雜音</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>循環系統總覽與心臟構造</h2></div>
+      <p class="section-desc">循環系統由心臟（幫浦）、血管（管路）、血液（輸送介質）三大元件組成，並受內分泌、神經、腎臟系統共同調節；系統性循環與肺循環構成一個封閉迴路。</p>
+
+      <h3>兩大循環迴路</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">肺循環 Pulmonary Loop</div><p>將缺氧血自右心室送至肺臟進行氣體交換，含氧血再返回左心房</p></div>
+        <div class="card"><div class="card-title">系統循環 Systemic Loop</div><p>將含氧血自左心室送至全身組織，缺氧血再返回右心房</p></div>
+      </div>
+
+      <h3>心臟三層構造</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層次</th><th>組成</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>心外膜 Epicardium</strong></td><td>漿膜性心包臟層</td><td>最表層保護</td></tr>
+            <tr><td><strong>心肌層 Myocardium</strong></td><td>心肌細胞為主，構成心臟主體</td><td>負責收縮泵血</td></tr>
+            <tr><td><strong>心內膜 Endocardium</strong></td><td>內皮＋薄結締組織</td><td>與進出心臟的血管內膜相連續</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>冠狀動脈血流</h3>
+      <p>心腔內流動的血液<strong>不會直接與心肌細胞進行養分交換</strong>；心肌本身的血液供應來自主動脈瓣後方分出的<strong>冠狀動脈</strong>，形成類似其他器官的動脈-微血管-靜脈網絡，多數心靜脈血匯入<strong>冠狀竇</strong>後注入右心房。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：反芻動物創傷性心包炎</div>
+        <p>牛因採食習慣易誤食尖銳異物（釘子、鐵絲），異物可能穿過網胃壁與橫膈，最終刺穿心包造成<strong>創傷性心包炎（traumatic pericarditis）</strong>，是反芻動物臨床上需特別警覺的心臟解剖鄰接病因。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/心臟生理學/heart_p6.png" alt="心臟解剖構造：四腔室、瓣膜與大血管">
+        <div class="figure-caption">心臟四腔室、瓣膜（三尖瓣／二尖瓣／主動脈瓣／肺動脈瓣）與大血管的解剖關係，血流方向以箭頭標示。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation I - Heart》課程講義</div>
+      </div>
+    </div>
+
+    <div class="section" id="section-ecc">
+      <div class="section-head"><div class="section-num">2</div><h2>心肌興奮收縮偶聯</h2></div>
+      <p class="section-desc">心肌細胞排列成層層緊密包覆心腔的構造，收縮時如握拳般擠壓腔內血液；每次心跳每個心肌細胞都要收縮，且心肌細胞更新能力極有限（每年僅約1%被替換），這是心肌梗塞後心肌細胞死亡難以修復的細胞生理基礎。</p>
+
+      <h3>心肌EC Coupling回顧</h3>
+      <p>心肌興奮收縮偶聯的核心蛋白與骨骼肌相同（DHP受體、RyR、SERCA幫浦、肌鈣蛋白TnI/TnC/TnT），但機轉不同——心肌屬於<strong>鈣誘發鈣釋放（CICR）</strong>：DHP受體本身即是功能性L型Ca²⁺通道，其Ca²⁺內流觸發RyR2大量釋放肌漿網儲存的Ca²⁺，因此心肌收縮力受細胞外Ca²⁺濃度影響（完整機轉比較見「肌肉生理學」章節）。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：心肌肌鈣蛋白 cTnI</div>
+        <p>心臟特異性肌鈣蛋白I（cTnI）與T（cTnT）是廣泛應用的心肌損傷生化指標。臨床案例：一隻年輕米克斯犬車禍送診，外觀無明顯骨折但胸腹撞擊力道大，抽血發現cTnI升高，即為心肌鈍傷（挫傷）證據；研究顯示此類急診犬隻若cTnI升高，未來12–24小時內發生顯著心律不整的風險提高，需加強監控。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-conduction">
+      <div class="section-head"><div class="section-num">3</div><h2>傳導系統與節律點自動性</h2></div>
+      <p class="section-desc">約1%的心肌細胞（節律細胞）不參與收縮，而是特化為傳導系統，經間隙接合與一般心肌細胞電性相連，負責啟動並快速傳播每次心跳的興奮訊號。</p>
+
+      <h3>心臟傳導系統路徑</h3>
+      <div class="flow">
+        <div class="flow-node accent">竇房結 SA node（正常節律點，約每分鐘75次）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">房內傳導路徑（經間隙接合）→ 房室結 AV node（延遲約0.1秒，讓心房收縮完成、心室充分充血）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">房室束（希氏束 Bundle of His）→ 蒲金氏纖維 Purkinje fibers（先到心室中隔尖端，再向上傳播）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">心室肌興奮收縮；蒲金氏纖維也支配乳突肌，使其略早於心室其餘部位收縮，協助防止房室瓣逆流</div>
+      </div>
+
+      <div class="figure">
+        <img src="img/心臟生理學/heart_p21.png" alt="心臟傳導系統：SA結、AV結、希氏束、蒲金氏纖維">
+        <div class="figure-caption">傳導系統四級構造依序標號：1.SA結（竇房結）→2.AV結（房室結）→3.希氏束與左右束支→4.蒲金氏纖維。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation I - Heart》課程講義</div>
+      </div>
+
+      <h3>竇房結節律點電位（Pacemaker Potential）機轉</h3>
+      <p>竇房結細胞<strong>沒有穩定的靜止膜電位</strong>，而是持續自發去極化，其節律點電位由五步驟構成：</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">K⁺通透性漸進下降，膜電位開始緩慢上升。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">F型通道（funny channel）開啟，Na⁺內流，持續推升膜電位。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">短暫型（T型）Ca²⁺通道開啟，將膜電位推升超過閾值。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">L型Ca²⁺通道開啟造成真正的去極化（動作電位上升支）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">K⁺通道開啟、K⁺外流，膜電位回復至負電位，準備啟動下一輪節律點電位。</div></div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>竇房結節律點電位由<strong>F型通道＋T型Ca²⁺通道</strong>共同驅動膜電位緩慢爬升至閾值，這與一般神經元／骨骼肌依賴突觸輸入才去極化的機制截然不同——竇房結細胞的「自動性（automaticity）」正是源自於此持續自發的節律點電位循環。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-innervation">
+      <div class="section-head"><div class="section-num">4</div><h2>自主神經對心臟的調控</h2></div>
+      <p class="section-desc">心臟同時受交感與副交感神經支配，兩者作用相反，共同微調基礎心率與收縮力，是理解心臟藥理學（β受體致效劑／拮抗劑、抗膽鹼藥物）的生理基礎。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>交感神經 SNS</th><th>副交感神經 PSNS</th></tr></thead>
+          <tbody>
+            <tr><td><strong>支配範圍</strong></td><td>整個心肌與節律細胞</td><td>主要支配節律細胞（尤其SA/AV結）</td></tr>
+            <tr><td><strong>傳導物質</strong></td><td>正腎上腺素 NE</td><td>乙醯膽鹼 ACh</td></tr>
+            <tr><td><strong>受體</strong></td><td>β腎上腺素受體（腎上腺髓質的腎上腺素也作用於同一受體）</td><td>蕈毒鹼型受體 Muscarinic</td></tr>
+            <tr><td><strong>心率效果</strong></td><td>正性變時（增加心率）</td><td>負性變時（降低心率）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>增加心率的因子稱<strong>正性變時因子（positive chronotropic factor）</strong>，降低心率者稱<strong>負性變時因子</strong>；正常靜息狀態下，心臟受副交感神經張力持續些微抑制（迷走張力）。</p>
+    </div>
+
+    <div class="section" id="section-ecg">
+      <div class="section-head"><div class="section-num">5</div><h2>心電圖 ECG</h2></div>
+      <p class="section-desc">心電圖是記錄心臟整體電活動的圖形，反映的是全心去極化與再極化波前形成的電偶極（dipole）在體表投影的總和，而非單一動作電位。</p>
+
+      <h3>ECG波形對應的生理事件</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>波形</th><th>對應生理事件</th></tr></thead>
+          <tbody>
+            <tr><td><strong>P波</strong></td><td>心房去極化（自SA結傳向AV結）；P波起始後約0.1秒心房開始收縮</td></tr>
+            <tr><td><strong>QRS複合波</strong></td><td>心室去極化，先於心室收縮發生；此時心房再極化訊號被QRS波掩蓋</td></tr>
+            <tr><td><strong>T波</strong></td><td>心室再極化</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>平均電軸 Mean Electrical Axis (MEA)</h3>
+      <p>將心臟電流投射至360度平面，求得的平均總電流方向即為平均電軸，臨床上MEA偏移可提示心室肥大或傳導路徑異常等結構性變化。</p>
+
+      <div class="figure">
+        <img src="img/心臟生理學/heart_p36.png" alt="ECG波形與心臟去極化再極化序列對照圖">
+        <div class="figure-caption">左：P-QRS-T波與P-R間期／S-T段／Q-T間期定義。中：心房與心室動作電位時序（心室動作電位平原期長，對應絕對不反應期）。右：去極化（黃）與再極化（紅）在心臟各部位的傳播序列，與ECG波形逐步對照。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation I - Heart》課程講義</div>
+      </div>
+    </div>
+
+    <div class="section" id="section-arrhythmia">
+      <div class="section-head"><div class="section-num">6</div><h2>心律不整與傳導阻滯</h2></div>
+      <p class="section-desc">傳導系統任一環節故障皆可能導致心律不整，理解正常傳導路徑是判讀異常心電圖的基礎。</p>
+
+      <h3>顫動 Fibrillation</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">心房顫動 Atrial Fibrillation</div><p>SA結不再主導心率，心房快速不規則收縮，可能導致血栓形成與心室充盈效率下降</p></div>
+        <div class="card"><div class="card-title">心室顫動 Ventricular Fibrillation</div><p>更危及生命：心室僅顫動而無有效充盈與泵血，若未快速恢復規律節律將導致循環停止、腦死；<strong>電擊去顫（defibrillation）</strong>可重建SA結主導的正常節律，慢性病例需植入心律調節器</p></div>
+      </div>
+
+      <h3>異位節律點與傳導阻滯</h3>
+      <p><strong>異位節律點（ectopic pacemaker）</strong>指傳導系統中原本非主節律點的細胞取代SA結主導興奮；若SA結受損，AV結可接手（約60次/分，仍足以維持循環）。<strong>房室傳導阻滯（heart block）</strong>依嚴重度分級：部分阻滯訊號變慢但仍能通過；完全阻滯時心室僅依賴蒲金氏纖維自身極慢的固有節律（過慢無法維持有效循環），需植入心律調節器治療。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：犬心律不整性右心室心肌病變 ARVC</div>
+        <p>拳師犬（Boxer）好發的ARVC，因心室肌肉出現異常脂肪或纖維脂肪浸潤病變（以右心室最嚴重），造成心肌多處異常放電、嚴重心律不整、低血壓、無力、反覆癱軟。臨床常用<strong>Sotalol（Class III抗心律不整藥，延長心肌動作電位有效不反應期）</strong>或<strong>Mexiletine（Class I抗心律不整藥，減緩傳導、降低自動性與興奮性，屬膜穩定藥物）</strong>控制病情。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-cycle">
+      <div class="section-head"><div class="section-num">7</div><h2>心動週期</h2></div>
+      <p class="section-desc">心動週期涵蓋一次心跳中血液流經心臟的所有機械事件，可分收縮期（systole）與舒張期（diastole）兩大階段，各自再細分數個子階段。</p>
+
+      <h3>心動週期的機械子階段</h3>
+      <p>心室收縮期始於<strong>等容收縮（isovolumetric ventricular contraction）</strong>——心室開始收縮、壓力上升，但房室瓣與半月瓣皆關閉，容積不變；壓力超過動脈壓後半月瓣開啟進入射血期。舒張期則始於<strong>等容舒張（isovolumetric ventricular relaxation）</strong>——心室開始放鬆、壓力下降，但兩組瓣膜仍關閉，容積不變，直到壓力低於心房壓後房室瓣開啟進入充盈期。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">臨床連結：心臟超音波IVRT</div>
+        <p>等容舒張所需時間（isovolumetric relaxation time, IVRT）是評估心臟舒張功能的重要超音波指標，過長或過短皆提示舒張功能異常；正確測量時間點是主動脈瓣／肺動脈瓣關閉後、房室瓣尚未開啟前的這段間隔。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/心臟生理學/heart_p45.png" alt="心動週期收縮期與舒張期各階段瓣膜開闔狀態">
+        <div class="figure-caption">收縮期（等容收縮→射血）與舒張期（等容舒張→心室充盈→心房收縮）各階段的房室瓣與主動脈/肺動脈瓣開闔狀態對照表，紅框標示兩組瓣膜同時關閉的等容期。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation I - Heart》課程講義</div>
+      </div>
+    </div>
+
+    <div class="section" id="section-output">
+      <div class="section-head"><div class="section-num">8</div><h2>心輸出量、每搏量與Frank-Starling</h2></div>
+      <p class="section-desc">心輸出量是評估心臟整體幫浦功能的核心指標，其決定因子（心率×每搏量）與每搏量本身的調控機轉（前負荷、後負荷、收縮力）是心臟生理學的核心整合概念。</p>
+
+      <h3>核心公式與定義</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>指標</th><th>定義／公式</th></tr></thead>
+          <tbody>
+            <tr><td><strong>每搏量 Stroke Volume (SV)</strong></td><td>SV = EDV − ESV（每次收縮心室排出的血量，約為心室內血量的60%）</td></tr>
+            <tr><td><strong>心輸出量 Cardiac Output (CO)</strong></td><td>CO = HR × SV（每分鐘單一心室輸出的血量）</td></tr>
+            <tr><td><strong>射出分率 Ejection Fraction (EF)</strong></td><td>EF = SV / EDV，靜息狀態正常約50–75%，收縮力增加時EF上升</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>前負荷與Frank-Starling機轉</h3>
+      <p><strong>前負荷（preload）</strong>是心肌細胞收縮前被拉伸的程度，主要由靜脈回流量（決定EDV）決定；依「長度-張力關係」（見「肌肉生理學」章節最佳長度概念），適度拉伸可提升收縮力，過度拉伸則效率下降。<strong>Frank-Starling定律</strong>指出：控制每搏量的關鍵因子是前負荷——EDV增加（如運動時靜脈回流增加、或心跳變慢使充盈時間延長）會使每搏量隨之增加，這是心臟能自動因應靜脈回流變化而調整輸出量、維持左右心輸出平衡的核心機轉，不需額外神經訊號介入。</p>
+
+      <div class="figure">
+        <img src="img/心臟生理學/heart_p53.png" alt="Frank-Starling機轉曲線：心室舒張末期容積與每搏量關係">
+        <div class="figure-caption">Frank-Starling曲線：X軸為心室舒張末期容積（EDV，反映前負荷），Y軸為每搏量；靜脈回流增加使EDV上升，每搏量隨之增加，曲線末端漸趨平緩（過度拉伸效率下降）。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation I - Heart》課程講義</div>
+      </div>
+
+      <h3>後負荷 Afterload</h3>
+      <p>心室必須克服才能推開主動脈瓣／肺動脈瓣的壓力，任何提高系統性或肺動脈壓力的因素（如高血壓）皆會增加後負荷，長期後負荷過高會促使心室代償性肥大。</p>
+
+      <h3>收縮力的外在調控</h3>
+      <p>除前負荷外，<strong>交感神經（NE作用於β1受體）與激素（甲狀腺素可增強收縮力）</strong>也能獨立於前負荷之外提升收縮力（正性變力作用，positive inotropic effect），使同樣EDV下能射出更多血量、提升EF。</p>
+
+      <h3>心房利鈉肽 ANP</h3>
+      <p>心房特定細胞在心房壁過度伸張（血容量過高）時分泌<strong>心房利鈉肽（ANP）</strong>，作用包括增加腎絲球過濾率、增加腎臟排鈉排水、造成血管舒張，是心臟對血容量過高的代償性回饋機制之一（詳見「血管生理學」章節ANP作用）。</p>
+    </div>
+
+    <div class="section" id="section-sounds">
+      <div class="section-head"><div class="section-num">9</div><h2>心音與雜音</h2></div>
+      <p class="section-desc">正常血流平順流動時應是無聲的，異常聲音（雜音）多提示血流遭遇阻礙產生亂流，是臨床心臟聽診判讀的生理基礎。</p>
+
+      <h3>心臟雜音 Heart Murmur</h3>
+      <p>血流碰到阻礙物時由層流轉為<strong>亂流（turbulent flow）</strong>，產生可用聽診器聽到的聲音；多數雜音成因為瓣膜異常：<strong>瓣膜閉鎖不全（incompetent，關閉不完全）</strong>產生逆流的「咻咻聲」；<strong>瓣膜狹窄（stenotic）</strong>產生高頻的「喀嚓聲」或尖銳音。</p>
+
+      <h3>心臟功能的臨床測量方法</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">心臟超音波 Echocardiography</div><p>非侵入性超音波技術，可偵測瓣膜異常功能或心壁收縮異常，也可用於測量射出分率</p></div>
+        <div class="card"><div class="card-title">心血管攝影 Cardiac Angiography</div><p>經導管注入顯影劑並配合高速X光攝影，用於評估心臟功能與辨識狹窄的冠狀動脈</p></div>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章的核心是理解心臟如何自主產生節律、如何傳導、以及如何將電興奮轉換為有效率的機械泵血。考題常考「傳導路徑順序」「竇房結節律點電位機轉」「Frank-Starling機轉」「ECG波形對應事件」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>心肌EC coupling屬鈣誘發鈣釋放（CICR）</strong>：DHP受體本身是功能性L型Ca²⁺通道，其內流的Ca²⁺觸發RyR2釋放肌漿網Ca²⁺，因此收縮力受細胞外Ca²⁺濃度影響；cTnI/cTnT是重要的心肌損傷生化指標。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>傳導路徑：SA結→房內路徑→AV結（延遲0.1秒）→希氏束→蒲金氏纖維</strong>；竇房結節律點電位由F型通道＋T型Ca²⁺通道驅動自發去極化，賦予其自動性。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>交感神經（NE，β受體）加速心率，副交感神經（ACh，蕈毒鹼受體）減緩心率</strong>，兩者拮抗共同微調基礎心率。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>ECG：P波＝心房去極化，QRS複合波＝心室去極化，T波＝心室再極化</strong>；心房再極化被QRS波掩蓋。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>心動週期分等容收縮期與等容舒張期（兩瓣膜皆關閉，容積不變）</strong>；IVRT是評估舒張功能的重要超音波指標。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Frank-Starling機轉：前負荷（EDV）決定每搏量，不需神經訊號介入</strong>，是心臟自動因應靜脈回流變化的核心機制；交感神經與甲狀腺素則獨立於前負荷之外提升收縮力。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>心臟雜音源自血流亂流</strong>：瓣膜閉鎖不全（逆流咻咻聲）vs瓣膜狹窄（高頻喀嚓聲）。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-2學年度《Circulation I - Heart》，王家琪老師，內容參照 Human Physiology (Fox SI)、Vander's Human Physiology 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋心臟傳導、ECG判讀、心動週期、心輸出量調控、心律不整等章節重點，題型參照國考與轉學考命題方向（含計算題與臨床病例題），先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 心臟興奮傳導的正常路徑順序為何？</div>
+        <ul class="quiz-options">
+          <li>(A) AV結→SA結→希氏束→蒲金氏纖維</li>
+          <li>(B) SA結→AV結→希氏束→蒲金氏纖維</li>
+          <li>(C) 希氏束→SA結→AV結→蒲金氏纖維</li>
+          <li>(D) 蒲金氏纖維→希氏束→AV結→SA結</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">正常興奮由竇房結（SA node）發起，經房內傳導路徑到達房室結（AV node，此處有約0.1秒延遲讓心房收縮完成），再經希氏束（房室束）傳至蒲金氏纖維，最終興奮心室肌。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Frank-Starling機轉指出，控制每搏量的關鍵因子是前負荷（心室充盈時的伸張程度），且此調控不需要額外神經訊號介入。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer true">答案：TRUE</div>
+          <p class="quiz-explain">Frank-Starling定律指出，前負荷（由靜脈回流量決定的心室舒張末期容積EDV）是控制每搏量的關鍵因子，EDV增加會使每搏量隨之增加，此機轉是心肌本身的長度-張力特性所致，不需要額外的神經訊號介入，使心臟能自動因應靜脈回流變化維持左右心輸出平衡。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 心電圖上的QRS複合波主要對應下列哪一個生理事件？</div>
+        <ul class="quiz-options">
+          <li>(A) 心房去極化</li>
+          <li>(B) 心室去極化</li>
+          <li>(C) 心室再極化</li>
+          <li>(D) 心房再極化</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">QRS複合波是心室去極化的結果，且發生在心室收縮之前；此時心房再極化的訊號因幅度小且時間點重疊，被QRS波掩蓋而無法在心電圖上單獨辨識。T波才是心室再極化的訊號。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明竇房結（SA node）細胞為何具有「自動性（automaticity）」，其節律點電位的驅動機轉為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">竇房結細胞不像一般心肌細胞或神經元擁有穩定的靜止膜電位，而是持續自發性地緩慢去極化。此節律點電位由多個離子通道依序作用構成：首先K⁺通透性漸進下降使膜電位緩慢上升；接著F型通道（funny channel）開啟使Na⁺內流，持續推升膜電位；隨後短暫型（T型）Ca²⁺通道開啟，將膜電位推升超過閾值；此時L型Ca²⁺通道開啟造成真正的去極化（動作電位上升支）；最後K⁺通道開啟、K⁺外流使膜電位回復負值，準備進入下一輪循環。正是這個不依賴外部突觸輸入、能自發持續循環的節律點電位機轉，賦予竇房結細胞自動產生規律動作電位的「自動性」，使其成為心臟正常的節律點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 瓣膜狹窄（stenotic）與瓣膜閉鎖不全（incompetent）所產生的心雜音特徵分別為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 狹窄產生咻咻聲，閉鎖不全產生高頻喀嚓聲</li>
+          <li>(B) 狹窄產生高頻喀嚓聲或尖銳音，閉鎖不全（逆流）產生咻咻聲</li>
+          <li>(C) 兩者聲音特徵完全相同，無法區分</li>
+          <li>(D) 兩者都不會產生可聽診的聲音</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">正常血流平順無聲；瓣膜狹窄使血流通過時受阻形成高速噴射的亂流，產生高頻喀嚓聲或尖銳音；瓣膜閉鎖不全（關閉不完全）則使血液逆流，產生咻咻聲（swishing sound）。兩者的聲音特徵與發生時機（收縮期/舒張期）是臨床心臟聽診鑑別瓣膜疾病種類的重要依據。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 心肌絕對不反應期遠長於骨骼肌，且幾乎與整個收縮期重疊，其最主要的生理意義為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 增加心肌收縮力</li>
+          <li>(B) 防止心肌發生強直收縮，確保心臟有規律的舒張充盈期</li>
+          <li>(C) 加快傳導速度</li>
+          <li>(D) 減少ATP消耗</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">心肌動作電位有延長的去極化平原期（見ECG波形圖中的心室動作電位），使絕對不反應期幾乎與收縮期等長，此設計確保下一個興奮無法在前一次收縮完全結束前提早發生，因此心肌不會像骨骼肌一樣發生強直收縮。若心肌強直，心臟將失去規律的舒張充盈期，無法有效泵血，是致命的生理狀態，此為國考常考的骨骼肌vs心肌關鍵差異考點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 承接心動週期，在「等容收縮期（isovolumetric ventricular contraction）」期間，房室瓣與主動脈/肺動脈瓣的開闔狀態為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 房室瓣開啟，半月瓣關閉</li>
+          <li>(B) 房室瓣關閉，半月瓣開啟</li>
+          <li>(C) 房室瓣與半月瓣皆關閉</li>
+          <li>(D) 房室瓣與半月瓣皆開啟</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">等容收縮期是心室已開始收縮、壓力上升，但尚未超過動脈壓，因此房室瓣（已因心室壓力上升而關閉）與主動脈/肺動脈瓣（尚未被推開）皆處於關閉狀態，心室容積在此期間維持不變（故稱「等容」），直到心室壓力超過動脈壓後半月瓣才開啟進入射血期。等容舒張期則是相反狀況下的另一組瓣膜全關閉時期。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 副交感神經對心臟的作用機轉與交感神經有何不同？</div>
+        <ul class="quiz-options">
+          <li>(A) 副交感神經釋放正腎上腺素作用於β受體，交感神經釋放乙醯膽鹼作用於蕈毒鹼受體</li>
+          <li>(B) 副交感神經主要支配節律細胞、釋放ACh作用於蕈毒鹼受體使心率減慢；交感神經支配整個心肌、釋放NE作用於β受體使心率加快</li>
+          <li>(C) 兩者皆釋放乙醯膽鹼，只是作用受體不同</li>
+          <li>(D) 副交感神經支配整個心肌，交感神經僅支配節律細胞</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">交感神經支配整個心肌與節律細胞，釋放正腎上腺素（NE）作用於β腎上腺素受體，屬正性變時因子（增加心率）；腎上腺髓質釋放的腎上腺素也作用於同一受體、產生相同效果。副交感神經主要支配節律細胞（尤其SA/AV結），釋放乙醯膽鹼作用於蕈毒鹼型受體，屬負性變時因子（降低心率）。此組合是理解β受體阻斷劑（如propranolol）與抗膽鹼藥物（如atropine）心臟藥理作用的基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 若某犬心臟的心室舒張末期容積（EDV）為60 mL，射出分率（EF）為60%，則其每搏量（SV）約為多少？</div>
+        <ul class="quiz-options">
+          <li>(A) 12 mL</li>
+          <li>(B) 24 mL</li>
+          <li>(C) 36 mL</li>
+          <li>(D) 48 mL</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">EF = SV / EDV，故 SV = EF × EDV = 0.6 × 60 mL = 36 mL。這類數值代換題是國考與轉學考常見的計算題型，務必熟記 SV = EDV − ESV、EF = SV/EDV、CO = HR × SV 三個核心公式間的關係，才能靈活應對不同已知條件的計算題。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q10. 心肌與骨骼肌的興奮收縮偶聯機轉完全相同，因此心肌收縮力不會受到細胞外鈣離子濃度影響。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">心肌與骨骼肌的EC coupling核心蛋白雖相同（DHP受體、RyR、SERCA、肌鈣蛋白），但機轉不同：骨骼肌是DHP受體與RyR1的直接機械偶聯，不需細胞外Ca²⁺流入；心肌則是鈣誘發鈣釋放（CICR），DHP受體本身是功能性L型Ca²⁺通道，其Ca²⁺內流觸發RyR2大量釋放，因此心肌收縮力會直接受細胞外Ca²⁺濃度影響——這也是鈣離子通道阻斷劑（如diltiazem）能降低心肌收縮力的藥理基礎，是動物生理學與獸醫藥理學跨科整合的常見考點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 完全房室傳導阻滯（total AV block）時，心室仍能以極慢的固有節律跳動，此時心室興奮的來源最可能是下列何者？</div>
+        <ul class="quiz-options">
+          <li>(A) 竇房結持續正常主導</li>
+          <li>(B) 房室結接手成為新節律點，速率約60次/分</li>
+          <li>(C) 蒲金氏纖維自身的固有節律，速率過慢不足以維持有效循環</li>
+          <li>(D) 心房肌細胞直接興奮心室肌</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">房室結是心房與心室間唯一的正常電性溝通路徑，完全阻滯時心房訊號完全無法傳至心室，此時心室僅能依賴蒲金氏纖維本身的固有自動性維持跳動，但其固有速率過慢，通常不足以維持有效血液循環，臨床上需植入心律調節器治療。若僅SA結受損（而非AV結），AV結才能以約60次/分的速率接手，仍足以維持基本循環——這是分辨「SA結受損」與「AV結受損（心臟傳導阻滯）」臨床後果差異的關鍵考點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q12. 一隻拳師犬（Boxer）因反覆癱軟、低血壓就診，心電圖顯示嚴重心室性心律不整，懷疑為ARVC。請簡述此疾病的病理機轉，以及為何Sotalol與Mexiletine能改善其心律不整症狀。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">犬心律不整性右心室心肌病變（ARVC）好發於拳師犬，病理機轉是心室肌肉（尤其右心室最嚴重）發生異常的脂肪或纖維脂肪浸潤，破壞正常心肌細胞間的電性連結與傳導路徑，導致心肌多處出現異常自發放電（異位節律點），引發嚴重心室性心律不整，進而造成低血壓、虛弱、反覆癱軟等臨床症狀。Sotalol屬於第三類抗心律不整藥物，作用是延長心肌動作電位的有效不反應期，使異常放電更不易引發連續性的異常興奮傳導；Mexiletine屬於第一類抗心律不整藥物（膜穩定藥物），作用是減緩傳導速度並降低心肌細胞的自動性與興奮性，兩者透過不同機轉共同抑制病灶處的異常放電與異常傳導，達到控制心律不整的效果。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '循環系統總覽與心臟構造',
+  ecc: '心肌興奮收縮偶聯',
+  conduction: '傳導系統與節律點自動性',
+  innervation: '自主神經對心臟的調控',
+  ecg: '心電圖 ECG',
+  arrhythmia: '心律不整與傳導阻滯',
+  cycle: '心動週期',
+  output: '心輸出量、每搏量與Frank-Starling',
+  sounds: '心音與雜音',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

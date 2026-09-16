@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：細胞生理學與膜運輸 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">細胞生理學與膜運輸</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">細胞生理學與膜運輸</h1>
+      <p class="page-subtitle">Cellular Physiology &amp; Membrane Transport — 細胞構造、膜接合、蛋白質代謝、配體結合特性、跨膜運輸機轉、滲透壓與上皮運輸。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-1 課程講義《Cellular Physiology》《Cellular Physiology (II)：Cellular function》，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">構造與蛋白質</div>
+    <a class="active" onclick="showSection('structure')" id="nav-structure"><span class="nav-icon">🔬</span> 細胞構造總覽</a>
+    <a onclick="showSection('junction')" id="nav-junction"><span class="nav-icon">🔗</span> 細胞膜與膜接合構造</a>
+    <a onclick="showSection('protein')" id="nav-protein"><span class="nav-icon">🧬</span> 蛋白質合成、分泌與降解</a>
+    <a onclick="showSection('binding')" id="nav-binding"><span class="nav-icon">🎯</span> 配體結合特性與酵素動力學</a>
+    <div class="section-label" style="margin-top:8px;">跨膜運輸</div>
+    <a onclick="showSection('diffusion')" id="nav-diffusion"><span class="nav-icon">💨</span> 擴散與離子通道</a>
+    <a onclick="showSection('transport')" id="nav-transport"><span class="nav-icon">⚙️</span> 媒介性運輸與主動運輸</a>
+    <a onclick="showSection('osmosis')" id="nav-osmosis"><span class="nav-icon">💧</span> 滲透壓、張力與上皮運輸</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-structure">
+      <div class="section-head"><div class="section-num">1</div><h2>細胞構造總覽</h2></div>
+      <p class="section-desc">細胞是生命最基本的功能單位，本節整理細胞質基本分區與主要胞器的功能，是理解後續蛋白質代謝與跨膜運輸的構造基礎。</p>
+
+      <h3>細胞質基本分區</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>名詞</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>細胞質 Cytoplasm</strong></td><td>細胞核以外的區域＝細胞液＋胞器</td></tr>
+            <tr><td><strong>細胞液 Cytosol</strong></td><td>細胞質中排除胞器之外的液態部分</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>主要胞器功能一覽</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>胞器</th><th>主要功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>細胞核 Nucleus</strong></td><td>細胞的控制中心，儲存遺傳物質（DNA）</td></tr>
+            <tr><td><strong>粗糙內質網 Rough ER</strong></td><td>表面附著核糖體，負責包裝將分泌或送往其他胞器的蛋白質</td></tr>
+            <tr><td><strong>平滑內質網 Smooth ER</strong></td><td>無核糖體；合成脂質、參與疏水性分子解毒、儲存與釋放鈣離子</td></tr>
+            <tr><td><strong>高基氏體 Golgi apparatus</strong></td><td>修飾（如醣化）粗糙內質網送來的蛋白質，分類包裝進運輸小泡，送往胞器或細胞膜（分泌小泡）</td></tr>
+            <tr><td><strong>內體 Endosome</strong></td><td>位於細胞膜與高基氏體之間，負責分類、修飾與導向小泡運輸</td></tr>
+            <tr><td><strong>溶體 Lysosome</strong></td><td>含水解酵素，分解胞內外的大分子與受損胞器</td></tr>
+            <tr><td><strong>過氧化體 Peroxisome</strong></td><td>消耗氧氣進行氧化反應（產生 H₂O₂ 並加以分解）、參與脂肪酸 β氧化的部分步驟、解毒</td></tr>
+            <tr><td><strong>粒線體 Mitochondria</strong></td><td>細胞呼吸產生 ATP 的主要場所；外膜平滑、內膜摺疊成嵴（cristae），內部為基質（matrix）；代謝活躍細胞（如心肌、肝細胞）粒線體數量可達上千個</td></tr>
+            <tr><td><strong>細胞骨架 Cytoskeleton</strong></td><td>見下方專節</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>細胞骨架三大纖維系統</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">微絲 Actin filaments（microfilaments）</div>
+          <p>由 G-actin 單體聚合為 F-actin；可快速組裝／解聚。負責細胞形狀、變形蟲運動、細胞分裂、肌肉收縮。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">中間絲 Intermediate filaments</div>
+          <p>Keratin（第I型）、Desmin（第III型：心肌/骨骼肌/平滑肌）、Vimentin（第III型，廣泛分布）、Lamin（第V型）。組裝後較不易解聚，提供機械強度（如支撐橋粒 desmosome 周圍）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">微管 Microtubules</div>
+          <p>由 tubulin 組成的中空管狀構造（直徑約25 nm），是三者中最堅硬的一種；構成神經元長突起支架、由中心體（centrosome）延伸而出，細胞分裂時形成紡錘絲；也是纖毛（cilia）的骨架（如氣管纖毛運動排除異物）。</p>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>微絲與微管可快速組裝／解聚，讓細胞能因應需求改變骨架；中間絲一旦組裝則相對穩定，因此主要出現在承受機械應力的部位（如橋粒周圍、核膜內側的 lamin 層）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-junction">
+      <div class="section-head"><div class="section-num">2</div><h2>細胞膜與膜接合構造</h2></div>
+      <p class="section-desc">細胞膜以流體鑲嵌模型（fluid-mosaic model）為基礎，除了調控物質進出，也負責偵測化學訊息、將相鄰細胞連接在一起、錨定細胞於細胞外基質。本節整理三種細胞間接合構造。</p>
+
+      <h3>膜的四大功能</h3>
+      <ol>
+        <li>調控物質進出細胞、以及胞器與細胞液之間的物質移動</li>
+        <li>偵測到達細胞表面的化學訊息物質</li>
+        <li>藉由膜接合構造連接相鄰細胞</li>
+        <li>將細胞錨定於細胞外基質（extracellular matrix, ECM）</li>
+      </ol>
+
+      <h3>整合素 Integrins 與細胞外基質</h3>
+      <p><strong>整合素（integrin）</strong>是跨膜蛋白，結合細胞外基質中的特定蛋白，並將其與相鄰細胞的膜蛋白連結；整合素以 α／β 次單元組成異二聚體，辨識的常見結合位是<strong>精胺酸－甘胺酸－天門冬胺酸（RGD motif）</strong>序列。<strong>蛋白聚醣（proteoglycan）</strong>是細胞外基質的主要填充物質，由核心蛋白共價連接一至多條醣胺聚醣（GAG）鏈構成。</p>
+
+      <h3>三種細胞間接合構造</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>接合構造</th><th>構造特徵</th><th>功能／分布</th></tr></thead>
+          <tbody>
+            <tr><td><strong>緊密接合 Tight junction</strong></td><td>相鄰細胞膜的細胞外表面直接融合，環繞細胞全周形成帶狀封閉圈，不像橋粒僅限於盤狀區域</td><td>阻擋物質經細胞間隙通過，如腸道與膀胱上皮，是上皮細胞極性與屏障功能的基礎</td></tr>
+            <tr><td><strong>錨定接合 Anchoring junction（橋粒 desmosome）</strong></td><td>細胞質面有緻密斑塊蛋白聚集，作為鈣黏素（cadherin）的錨定點；鈣黏素延伸至細胞外與相鄰細胞的鈣黏素結合</td><td>將承受高度機械張力的相鄰細胞牢固連接，如皮膚、心肌、膀胱、腸胃道黏膜</td></tr>
+            <tr><td><strong>間隙接合 Gap junction</strong></td><td>由 connexin 蛋白組成細胞質間的通道（直徑約1.5 nm）</td><td>允許小分子與離子（如Na⁺、K⁺）直接在相鄰細胞質間交換，不允許大分子蛋白通過；心肌細胞間的間隙接合是電訊號快速傳導、達成同步收縮的關鍵構造</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-success">
+        <div class="alert-label">臨床連結</div>
+        <p>心肌細胞間的間隙接合使心臟得以視為一個「功能性合胞體（functional syncytium）」，動作電位可跨細胞快速傳播達成整體同步收縮；這也是理解後續心臟生理學章節傳導系統的重要前導概念。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-protein">
+      <div class="section-head"><div class="section-num">3</div><h2>蛋白質合成、分泌與降解</h2></div>
+      <p class="section-desc">蛋白質的生成到清除是一條完整的生命週期路徑：轉錄、轉譯、修飾、分泌，直到最終被標記降解，本節依序整理。</p>
+
+      <h3>蛋白質合成路徑</h3>
+      <div class="flow">
+        <div class="flow-node">DNA 轉錄 Transcription</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">mRNA（剪接 splicing）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">轉譯 Translation（核糖體）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">粗糙內質網加工</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">高基氏體修飾與分類</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">分泌小泡 → 胞吐</div>
+      </div>
+      <p>剪接體（spliceosome）負責從初級轉錄本中移除內含子（intron）、接合外顯子（exon）形成成熟 mRNA；蛋白質合成速率受多層次調控（轉錄、mRNA 穩定性、轉譯起始效率等）。</p>
+
+      <h3>蛋白質降解 Protein Degradation</h3>
+      <ul>
+        <li>不同蛋白質的降解速率不同；變性（denatured）蛋白比維持完整立體構形的蛋白更容易被降解。</li>
+        <li><strong>泛素標記路徑（ubiquitin-proteasome pathway）</strong>：小分子胜肽<strong>泛素（ubiquitin）</strong>共價接上目標蛋白，將其導向<strong>蛋白酶體（proteasome）</strong>——蛋白酶體使蛋白質去摺疊並分解成小胜肽片段。</li>
+        <li>膜蛋白的降解另有多條路徑：內質網相關降解（ERAD）、高基氏體相關降解路徑、內體分選複合體（ESCRT）路徑。</li>
+      </ul>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>DNA 因化學物質或游離輻射造成結構改變，可能導致核苷酸序列突變，進而改變蛋白質結構；蛋白質結構改變可能損害細胞功能甚至導致細胞死亡——這是理解致癌物、輻射傷害機轉的基礎細胞生理概念。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-binding">
+      <div class="section-head"><div class="section-num">4</div><h2>配體結合特性與酵素動力學</h2></div>
+      <p class="section-desc">蛋白質透過結合位（binding site）與配體（ligand）交互作用，這套原理同時適用於受體－訊息分子結合，以及酵素－受質（substrate）反應，是理解藥物學「受體理論」與「劑量效應曲線」的生理學根基。</p>
+
+      <h3>配體結合的四大特性</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>特性</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>化學專一性 Chemical specificity</strong></td><td>結合位僅能與特定形狀、化學結構相符的配體結合</td></tr>
+            <tr><td><strong>親和力 Affinity</strong></td><td>結合位與配體結合的強度／緊密程度</td></tr>
+            <tr><td><strong>飽和度 Saturation</strong></td><td>某一時刻已被配體佔據的結合位比例；取決於（1）溶液中未結合配體的濃度、（2）結合位對配體的親和力</td></tr>
+            <tr><td><strong>競爭 Competition</strong></td><td>兩個化學結構相似的配體競爭同一個結合位</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>調節蛋白活性的兩種模式</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">異位調節 Allosteric modulation</div>
+          <p>蛋白質具有兩個結合位：<strong>功能位（active site）</strong>執行生理功能，<strong>調節位（regulatory site）</strong>結合<strong>調節分子（modulator molecule）</strong>後，經由改變蛋白質立體構形而異位調控功能位的活性。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">共價調節 Covalent modulation</div>
+          <p>將帶電化學基團共價接上蛋白質的側鏈以改變其活性，最常見的形式是<strong>磷酸化（phosphorylation，接上磷酸根，由激酶 kinase 催化）</strong>與<strong>去磷酸化（dephosphorylation，由磷酸酶 phosphatase 催化）</strong>——兩者都需要酵素催化。</p>
+        </div>
+      </div>
+
+      <h3>影響化學反應速率的因子</h3>
+      <ul>
+        <li><strong>反應物濃度</strong>：濃度越高，反應速率越快</li>
+        <li><strong>活化能（activation energy）</strong>：活化能越高，反應速率越慢</li>
+        <li><strong>溫度</strong>：溫度越高，反應速率越快</li>
+        <li><strong>催化劑</strong>：有催化劑存在時反應速率加快</li>
+      </ul>
+
+      <h3>酵素 Enzymes</h3>
+      <p>酵素是蛋白質催化劑，需與反應物（受質）接觸才能催化反應，藉由<strong>降低活化能</strong>加快生物反應速率。酵素媒介反應主要受三項因素調控：<strong>受質濃度、酵素濃度、酵素活性</strong>。酵素活性可被異位調節或共價調節（如激酶／磷酸酶）改變。</p>
+      <p><strong>輔因子（cofactor）</strong>常為金屬離子；<strong>輔酶（coenzyme）</strong>則是源自維生素的有機分子，例如源自菸鹼酸（niacin）的 NAD⁺、源自核黃素（riboflavin）的 FAD，兩者都是能量代謝路徑中重要的電子攜帶者。</p>
+
+      <h3>細胞能量代謝總覽</h3>
+      <p>細胞代謝分為<strong>異化作用（catabolism，分解有機分子）</strong>與<strong>同化作用（anabolism，合成有機分子）</strong>，兩者皆透過多酵素路徑（multienzyme pathway）進行；典型例子是燃料分子分解釋放的能量轉移至 ATP 的過程（細胞呼吸、電子傳遞鏈與氧化磷酸化）。</p>
+    </div>
+
+    <div class="section" id="section-diffusion">
+      <div class="section-head"><div class="section-num">5</div><h2>擴散與離子通道</h2></div>
+      <p class="section-desc">擴散是物質順著濃度梯度移動、不需消耗能量的被動過程，是跨膜運輸最基礎的形式；本節同時整理離子通道的分類與閘門調控方式。</p>
+
+      <h3>擴散的基本原理</h3>
+      <ul>
+        <li><strong>通量（flux）</strong>：單位時間內通過某表面的物質量；<strong>淨通量（net flux）</strong>受溫度、分子質量（越大分子擴散越慢）、表面積（越大擴散越快）、介質種類（氣體中擴散比液體中快）影響。</li>
+        <li>擴散所需時間與擴散距離的<strong>平方</strong>成正比——因此擴散不適合長距離物質運輸，這也是為什麼身體需要循環系統做長距離的「批量運輸（bulk flow）」，而非單純仰賴擴散。</li>
+      </ul>
+
+      <h3>費克擴散定律 Fick's First Law</h3>
+      <div class="card">
+        <p style="font-size:1.1em; text-align:center; color:var(--accent-deep); font-weight:700;">J = P·A·(C₀ − Cᵢ)</p>
+        <p style="text-align:center;">淨通量(J) ＝ 通透係數(P) × 表面積(A) × 濃度梯度(C₀−Cᵢ)</p>
+      </div>
+      <p>細胞膜本身作為屏障會顯著減緩物質擴散速率；帶電或極性的有機代謝中間產物（常含離子化的磷酸根）因此容易被截留在細胞內，不易跨膜擴散流失。</p>
+
+      <h3>離子通道 Ion Channels</h3>
+      <p>Na⁺、K⁺、Cl⁻、Ca²⁺等離子皆透過特定的蛋白通道跨膜擴散；通道為橫跨脂雙層的整合膜蛋白，其專一性取決於孔洞大小、電荷與結合位。依調控機制分為三種閘門通道：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>閘門通道類型</th><th>開啟刺激</th><th>代表範例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>配體閘門 Ligand-gated</strong></td><td>特定化學配體（agonist）結合</td><td>菸鹼型乙醯膽鹼受體、GABA<sub>A</sub>受體、甘胺酸受體（抑制性）、5-HT₃受體</td></tr>
+            <tr><td><strong>電壓閘門 Voltage-gated</strong></td><td>膜電位變化</td><td>神經元動作電位的 Na⁺、K⁺通道</td></tr>
+            <tr><td><strong>機械閘門 Mechanically gated</strong></td><td>機械形變／牽張</td><td>觸覺與聽覺毛細胞的機械感受通道</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>配體閘門通道被 agonist 結合活化後，依所通透的離子種類造成<strong>去極化／過極化／胞內離子組成改變</strong>；此處是理解後續神經生理學「突觸傳遞」章節的重要先備知識。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p><strong>膜電位（membrane potential）</strong>是跨細胞膜存在的電荷分離現象，提供影響離子跨膜移動的電力（同性電荷相斥、異性電荷相吸），是後續神經與肌肉生理學「興奮性組織」章節的核心基礎概念。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-transport">
+      <div class="section-head"><div class="section-num">6</div><h2>媒介性運輸與主動運輸</h2></div>
+      <p class="section-desc">許多分子（如葡萄糖）體積大或帶電，無法自由跨膜擴散，需仰賴載體蛋白（transporter／carrier）協助；依是否需要能量，媒介性運輸再分為促進性擴散（被動）與主動運輸兩大類。</p>
+
+      <h3>媒介性運輸系統 Mediated-Transport Systems</h3>
+      <p>載體蛋白透過本身立體構形改變，將配體專一性地攜帶進出細胞；因涉及結合與構形轉換，載體運輸的分子通量遠低於通道運輸。決定溶質流量大小的四個因子：</p>
+      <ol>
+        <li>溶質濃度</li>
+        <li>載體對溶質的親和力</li>
+        <li>膜上載體的數量</li>
+        <li>載體蛋白構形改變的速率</li>
+      </ol>
+      <p><strong>促進性擴散（facilitated diffusion）</strong>：仍屬被動運輸（順濃度梯度、不耗能），但因載體數量有限，會出現<strong>飽和現象（saturation）</strong>——當所有載體都被佔據時，即使濃度梯度再增加，流量也不再上升。</p>
+
+      <h3>主動運輸 Active Transport</h3>
+      <p>主動運輸利用能量將分子逆濃度梯度移動，這類載體常被稱為「幫浦（pump）」，同樣可能出現飽和現象。依能量來源分為兩種：</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">初級主動運輸 Primary Active Transport</div>
+          <p>直接消耗 <strong>ATP</strong> 作為能量來源</p>
+        </div>
+        <div class="card">
+          <div class="card-title">次級主動運輸 Secondary Active Transport</div>
+          <p>利用跨膜<strong>電化學梯度</strong>（通常是 Na⁺梯度）驅動，本身不直接消耗 ATP，但該梯度是由初級主動運輸（如 Na⁺/K⁺-ATPase）預先建立與維持</p>
+        </div>
+      </div>
+
+      <h3>四大初級主動運輸蛋白</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>幫浦</th><th>分布</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Na⁺/K⁺-ATPase</strong></td><td>存在於所有細胞</td><td>建立並維持細胞膜電位（每消耗1個ATP，通常3個Na⁺出、2個K⁺入）</td></tr>
+            <tr><td><strong>Ca²⁺-ATPase</strong></td><td>細胞膜與胞器膜（如內質網）</td><td>將Ca²⁺由細胞液送往細胞外液或胞器內腔，使細胞液維持極低Ca²⁺濃度（約10⁻⁷ M，遠低於細胞外液的約10⁻³ M），是維持細胞內Ca²⁺恆定的關鍵</td></tr>
+            <tr><td><strong>H⁺-ATPase</strong></td><td>細胞膜與多種胞器膜（含粒線體內膜、溶體膜）</td><td>將代謝產生的H⁺送出細胞外，維持細胞內pH——所有酵素都需在狹窄的pH範圍才能發揮最適活性</td></tr>
+            <tr><td><strong>H⁺/K⁺-ATPase</strong></td><td>胃酸分泌細胞等多種細胞膜</td><td>每水解1分子ATP，送出1個H⁺、送入1個K⁺，進入胃腔的H⁺參與蛋白質消化</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">臨床連結</div>
+        <p>胃壁細胞（parietal cell）的 H⁺/K⁺-ATPase（俗稱質子幫浦）是制酸劑「質子幫浦抑制劑（PPI，如omeprazole）」的藥物作用標的；Na⁺/K⁺-ATPase 則是毛地黃類藥物（digoxin）作用的標的，透過抑制此幫浦間接影響心肌細胞內Ca²⁺濃度而增強心收縮力。</p>
+      </div>
+
+      <h3>次級主動運輸：共同運輸 vs. 反向運輸</h3>
+      <p>次級主動運輸的載體具有兩個結合位：一個結合驅動用的離子（通常為Na⁺），另一個結合被共同運送的分子（如葡萄糖）：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">共同運輸體 Cotransporter（Symporter）</div><p>驅動離子與目標分子朝<strong>相同方向</strong>移動，例如小腸與腎小管上皮的 Na⁺-glucose cotransporter（SGLT）</p></div>
+        <div class="card"><div class="card-title">反向運輸體 Countertransporter（Antiporter）</div><p>驅動離子與目標分子朝<strong>相反方向</strong>移動，例如 Na⁺/Ca²⁺交換體</p></div>
+      </div>
+    </div>
+
+    <div class="section" id="section-osmosis">
+      <div class="section-head"><div class="section-num">7</div><h2>滲透壓、張力與上皮運輸</h2></div>
+      <p class="section-desc">水分子跨膜移動的方向由滲透壓決定，理解張力（tonicity）的分類是判讀輸液種類、脫水／水腫等臨床問題的生理學基礎；本節同時整理上皮細胞如何整合多種運輸機制完成跨上皮物質淨移動。</p>
+
+      <h3>滲透與水通道</h3>
+      <p>1公升純水中水分子的濃度約為 1000(g)÷18(水分子量) ＝ <strong>55.5 M</strong>，是體液中濃度最高的分子；水分子可經由脂雙層直接通透，也可經由<strong>水通道蛋白（aquaporin）</strong>快速通透——不同細胞表現的 aquaporin 種類與數量不同，在<strong>腎臟</strong>尤其重要（與抗利尿激素 ADH 調控尿液濃縮密切相關，詳見腎臟生理學章節）。</p>
+
+      <h3>張力分類（以非穿透性溶質為準）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>張力</th><th>定義</th><th>對細胞的影響</th></tr></thead>
+          <tbody>
+            <tr><td><strong>等張 Isotonic</strong></td><td>非穿透性溶質濃度與正常細胞外液相同</td><td>細胞體積不變</td></tr>
+            <tr><td><strong>低張 Hypotonic</strong></td><td>非穿透性溶質濃度低於正常細胞外液</td><td>水進入細胞，細胞腫脹（嚴重時溶血／破裂）</td></tr>
+            <tr><td><strong>高張 Hypertonic</strong></td><td>非穿透性溶質濃度高於正常細胞外液</td><td>水流出細胞，細胞皺縮</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>「張力（tonicity）」只由<strong>非穿透性溶質</strong>決定，與「滲透壓（osmolarity，計算所有溶質）」不完全相同——一個溶液可以是等滲透壓但非等張（例如含有可自由穿透細胞膜的尿素），這是常見的混淆題型，須特別留意兩者定義的差異。</p>
+      </div>
+
+      <h3>上皮運輸的兩條路徑</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">細胞旁路徑 Paracellular pathway</div>
+          <p>物質經由相鄰上皮細胞之間的間隙擴散，其通透程度受<strong>緊密接合（tight junction）</strong>鬆緊程度限制；不同上皮組織的緊密接合鬆緊程度不同，因此細胞旁通透性差異很大（「漏」的上皮 vs.「緊」的上皮）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">跨細胞路徑 Transcellular pathway</div>
+          <p>物質先跨過細胞頂端膜（apical membrane）進入細胞質，再跨過基底外側膜（basolateral membrane）離開細胞——頂端膜與基底膜表現不同種類的運輸蛋白，是上皮細胞達成「方向性淨運輸」的基礎（如腎小管對Na⁺、有機溶質的再吸收，以及伴隨而來的滲透水分再吸收）。</p>
+        </div>
+      </div>
+      <p>上皮細胞正是憑藉頂端膜與基底膜運輸蛋白種類的不對稱分布，才能將 Na⁺、有機溶質（如葡萄糖、胺基酸）與水分朝單一方向做淨移動——這是後續「腎臟生理學」與「消化生理學」章節理解腎小管再吸收、腸道吸收機轉的共同原理骨幹。</p>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章是後續神經、肌肉、腎臟、消化等章節共用的細胞層級基礎，考試常考「辨識運輸方式」「計算/判斷張力」等情境題，務必熟悉下列重點。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>三種膜接合構造功能不同</strong>：緊密接合形成屏障、錨定接合（橋粒）抗機械張力、間隙接合允許小分子/離子直接細胞間交換（心肌同步收縮的構造基礎）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>配體結合四特性</strong>：專一性、親和力、飽和度、競爭——這套語言同時適用於受體藥理學與酵素動力學，務必能舉例區分。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>異位調節 vs. 共價調節</strong>：異位調節靠調節分子結合第二位點改變構形；共價調節（如磷酸化）需要激酶/磷酸酶催化，兩者都能改變蛋白質活性。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>擴散 vs. 媒介性運輸 vs. 主動運輸</strong>三者的判斷依據：是否需要載體蛋白（專一性、可飽和）、是否消耗能量（逆濃度梯度需要能量）。擴散不飽和；促進性擴散與主動運輸都會飽和（因載體數量有限）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>三種閘門離子通道</strong>：配體閘門（化學物質）、電壓閘門（膜電位變化）、機械閘門（形變/牽張），分別對應不同生理情境（突觸傳遞、動作電位、機械感覺）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>四大初級主動運輸幫浦</strong>：Na⁺/K⁺-ATPase（建立膜電位）、Ca²⁺-ATPase（維持胞內低鈣）、H⁺-ATPase（維持細胞pH）、H⁺/K⁺-ATPase（胃酸分泌），記住各自的分布與生理／藥理意義（PPI、毛地黃）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>次級主動運輸不直接耗ATP</strong>，而是借用初級主動運輸建立的電化學梯度（通常是Na⁺梯度）作為能量來源；依驅動離子與目標分子移動方向分為共同運輸體（同向）與反向運輸體（反向）。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>張力（tonicity）只看非穿透性溶質</strong>，與滲透壓（osmolarity，看所有溶質）不完全相同；上皮細胞靠頂端膜與基底膜運輸蛋白種類不對稱分布，達成方向性的淨物質運輸。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-1 獸醫生理學課程講義《Cellular Physiology》《Cellular Physiology (II)：Cellular function》，王家琪老師。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋細胞構造、膜接合、蛋白質代謝、配體結合、跨膜運輸、滲透壓等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 心肌細胞之間能快速傳遞電訊號、達成同步收縮，主要依賴下列哪一種細胞間接合構造？</div>
+        <ul class="quiz-options">
+          <li>(A) 緊密接合 Tight junction</li>
+          <li>(B) 橋粒 Desmosome</li>
+          <li>(C) 間隙接合 Gap junction</li>
+          <li>(D) 整合素 Integrin</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">間隙接合由connexin組成細胞質間的通道，允許離子（如Na⁺、K⁺）直接在相鄰細胞間快速交換，是心肌細胞形成「功能性合胞體」、達成同步收縮的構造基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 促進性擴散（facilitated diffusion）雖然使用載體蛋白，但仍屬於被動運輸，不需消耗ATP。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">促進性擴散順濃度梯度移動、不耗能，只是需要載體蛋白協助大分子或帶電分子跨膜，因載體數量有限而會出現飽和現象，但本質仍是被動運輸。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 下列哪一項屬於次級主動運輸（secondary active transport）的能量來源？</div>
+        <ul class="quiz-options">
+          <li>(A) 直接水解ATP</li>
+          <li>(B) 跨膜電化學梯度（通常是Na⁺梯度）</li>
+          <li>(C) 光能</li>
+          <li>(D) 濃度梯度本身不需要能量</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">次級主動運輸利用初級主動運輸（如Na⁺/K⁺-ATPase）預先建立的電化學梯度作為驅動力，本身不直接消耗ATP；直接水解ATP是初級主動運輸的特徵。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明「張力（tonicity）」與「滲透壓（osmolarity）」定義上的差異，並舉例說明為何一個溶液可能等滲透壓卻不等張。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">滲透壓計算溶液中「所有」溶質的莫耳濃度；張力只考慮「非穿透性溶質」（無法自由跨膜的溶質）。若溶液含有可自由穿透細胞膜的溶質（如尿素），該溶質雖貢獻滲透壓，卻不會造成細胞內外的水分淨移動（因為它本身能自由進出、無法維持濃度差），因此這種溶液可以與細胞質等滲透壓，但因非穿透性溶質濃度不同，實際上並非等張，仍會造成細胞體積改變。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. Na⁺/K⁺-ATPase 主要的生理功能是？</div>
+        <ul class="quiz-options">
+          <li>(A) 分泌胃酸</li>
+          <li>(B) 建立並維持細胞膜電位</li>
+          <li>(C) 維持細胞內pH</li>
+          <li>(D) 維持胞內極低鈣濃度</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Na⁺/K⁺-ATPase存在於所有細胞，透過消耗ATP將Na⁺送出、K⁺送入，建立並維持細胞膜電位；(A)是H⁺/K⁺-ATPase的功能、(C)是H⁺-ATPase的功能、(D)是Ca²⁺-ATPase的功能。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 上皮細胞如何利用頂端膜（apical membrane）與基底膜（basolateral membrane）達成物質的「方向性淨運輸」？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">上皮細胞的頂端膜與基底外側膜表現不同種類、不對稱分布的運輸蛋白（通道、載體、幫浦），物質先經由跨細胞路徑（transcellular pathway）跨過一側膜進入細胞質，再由另一側膜的不同運輸蛋白送出細胞，兩側膜運輸機制的差異使物質能朝單一方向做淨移動，而非只是在細胞兩側之間隨機擴散——這是腎小管再吸收、腸道吸收等生理過程共同的構造原理。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  structure: '細胞構造總覽',
+  junction: '細胞膜與膜接合構造',
+  protein: '蛋白質合成、分泌與降解',
+  binding: '配體結合特性與酵素動力學',
+  diffusion: '擴散與離子通道',
+  transport: '媒介性運輸與主動運輸',
+  osmosis: '滲透壓、張力與上皮運輸',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

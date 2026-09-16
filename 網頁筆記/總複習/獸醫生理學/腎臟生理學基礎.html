@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：腎臟生理學基礎 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">腎臟生理學基礎</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">腎臟生理學基礎</h1>
+      <p class="page-subtitle">Basic Renal Physiology — 腎元構造、腎絲球過濾、清除率概念、腎小管再吸收與分泌、對流倍增機轉與尿液濃縮、鈉鉀鈣磷調控、利尿劑、排尿反射。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-2 學年度《Physiology - Urinary System》Chapter 14，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">構造基礎</div>
+    <a class="active" onclick="showSection('nephron')" id="nav-nephron"><span class="nav-icon">🫘</span> 腎元構造</a>
+    <a onclick="showSection('jga')" id="nav-jga"><span class="nav-icon">🔬</span> 腎絲球旁器</a>
+    <div class="section-label" style="margin-top:8px;">腎絲球過濾</div>
+    <a onclick="showSection('filtration')" id="nav-filtration"><span class="nav-icon">💧</span> 腎絲球過濾與GFR</a>
+    <a onclick="showSection('autoregulation')" id="nav-autoregulation"><span class="nav-icon">⚙️</span> 腎臟自我調節</a>
+    <div class="section-label" style="margin-top:8px;">腎小管處理</div>
+    <a onclick="showSection('reabsorption')" id="nav-reabsorption"><span class="nav-icon">🔄</span> 再吸收與分泌基礎</a>
+    <a onclick="showSection('clearance')" id="nav-clearance"><span class="nav-icon">📐</span> 腎清除率</a>
+    <a onclick="showSection('concentration')" id="nav-concentration"><span class="nav-icon">🌊</span> 對流倍增與尿液濃縮</a>
+    <div class="section-label" style="margin-top:8px;">電解質調控</div>
+    <a onclick="showSection('sodium')" id="nav-sodium"><span class="nav-icon">🧂</span> 鈉與水的腎調控</a>
+    <a onclick="showSection('potassium')" id="nav-potassium"><span class="nav-icon">🍌</span> 鉀、鈣與磷的腎調控</a>
+    <a onclick="showSection('diuretics')" id="nav-diuretics"><span class="nav-icon">💊</span> 利尿劑分類</a>
+    <div class="section-label" style="margin-top:8px;">排尿</div>
+    <a onclick="showSection('micturition')" id="nav-micturition"><span class="nav-icon">🚽</span> 排尿反射</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-nephron">
+      <div class="section-head"><div class="section-num">1</div><h2>腎元構造</h2></div>
+      <p class="section-desc">腎元（nephron）是腎臟的結構與功能單位，每顆腎臟約含超過百萬個腎元，理解其構造分段是理解後續所有腎臟功能（過濾、再吸收、分泌、濃縮）的解剖基礎。</p>
+
+      <div class="figure">
+        <img src="img/腎臟生理學基礎/kid_p13.png" alt="腎元完整構造：皮質腎元與近髓腎元、腎小管各段流程圖">
+        <div class="figure-caption">左：皮質與髓質內腎元的血管與腎小管構造（含近髓腎元的長亨利氏環與直血管vasa recta）。右：腎小管流程圖——腎絲球→鮑氏囊→近曲小管→亨利氏環（下行/上行）→遠曲小管→集尿管系統→腎盂。</div>
+        <div class="figure-source">來源：113-2學年度《Physiology - Urinary System》課程講義</div>
+      </div>
+
+      <h3>皮質腎元 vs 近髓腎元</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">皮質腎元 Cortical Nephron</div>
+          <p>占多數，亨利氏環短，主要位於腎皮質</p>
+        </div>
+        <div class="card">
+          <div class="card-title">近髓腎元 Juxtamedullary Nephron</div>
+          <p>約占15%，亨利氏環長、深入腎髓質，是<strong>尿液濃縮機轉</strong>的主要貢獻者，位於皮質髓質交界處</p>
+        </div>
+      </div>
+
+      <h3>腎元的三大功能</h3>
+      <ol>
+        <li><strong>過濾 Ultrafiltration</strong>：血漿在腎絲球被過濾進入鮑氏囊</li>
+        <li><strong>再吸收 Reabsorption</strong>：物質從腎小管腔移回血液</li>
+        <li><strong>分泌 Secretion</strong>：物質從血液移入腎小管腔</li>
+      </ol>
+
+      <h3>兩套微血管系統</h3>
+      <p>腎元伴隨兩組功能不同的微血管：<strong>腎絲球微血管（glomerular capillaries）</strong>專司過濾，是全身唯一由兩條小動脈（入球小動脈與出球小動脈）分別餵入與導出的微血管床，此特殊解剖設計使腎絲球內壓維持極高，利於大量過濾；<strong>管周微血管（peritubular capillaries，近髓腎元則為直血管vasa recta）</strong>則負責接收腎小管再吸收回來的物質，並參與尿液濃縮的對流交換機轉（見「對流倍增」章節）。</p>
+    </div>
+
+    <div class="section" id="section-jga">
+      <div class="section-head"><div class="section-num">2</div><h2>腎絲球旁器</h2></div>
+      <p class="section-desc">腎絲球旁器（juxtaglomerular apparatus, JGA）是入球小動脈與遠曲小管起始段交會處的特化構造，是腎臟自我調節與RAAS系統啟動的關鍵感應站。</p>
+
+      <div class="figure">
+        <img src="img/腎臟生理學基礎/kid_p19.png" alt="腎絲球旁器構造：足細胞、系膜細胞、腎絲球旁細胞、緻密斑">
+        <div class="figure-caption">腎絲球旁器構造：足細胞（podocytes，構成過濾裂隙）、系膜細胞（mesangial cells，調控腎絲球血流並吞噬過濾殘留大分子）、腎絲球旁細胞（juxtaglomerular cells，入球小動脈壁的特化平滑肌，分泌腎素）、緻密斑（macula densa，遠曲小管起始段的化學感受細胞）。</div>
+        <div class="figure-source">來源：113-2學年度《Physiology - Urinary System》課程講義</div>
+      </div>
+
+      <h3>JGA的三種細胞角色</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">足細胞 Podocytes</div><p>鮑氏囊內層高度特化的分支狀上皮細胞，足突間形成過濾裂隙，是過濾液進入鮑氏囊腔的最終通道</p></div>
+        <div class="card"><div class="card-title">腎絲球旁細胞 JG Cells</div><p>入球小動脈壁特化的平滑肌細胞，本身是<strong>機械感受器</strong>（偵測血壓），並儲存分泌腎素（renin）的顆粒</p></div>
+        <div class="card"><div class="card-title">緻密斑 Macula Densa</div><p>遠曲小管起始段一群緊密排列的高柱狀細胞，是<strong>化學感受器</strong>，偵測濾液中NaCl濃度變化</p></div>
+      </div>
+      <p>JG細胞與緻密斑協同運作，是<strong>管絲反饋（tubuloglomerular feedback）</strong>與RAAS系統（見「心血管功能整合」章節）啟動的關鍵感應站——兩者共同構成血壓與體液調節的核心迴路。系膜細胞（mesangial cells）則類似平滑肌細胞，可收縮調節腎絲球內血流分布，並吞噬過濾過程中卡在濾過膜上的大分子殘留物，具局部清道夫功能。</p>
+    </div>
+
+    <div class="section" id="section-filtration">
+      <div class="section-head"><div class="section-num">3</div><h2>腎絲球過濾與GFR</h2></div>
+      <p class="section-desc">腎絲球過濾是被動過程，依賴淨過濾壓將血漿中的水與小分子溶質推入鮑氏囊，其效率遠高於身體其他微血管床。</p>
+
+      <h3>腎絲球為何是「超高效率」的過濾器</h3>
+      <ol>
+        <li>過濾膜表面積大，且對水與小分子溶質通透性極高</li>
+        <li>腎絲球內壓遠高於一般微血管（約55–60 mmHg vs 一般微血管約17 mmHg），是「雙小動脈」解剖設計的直接結果（見前節）</li>
+      </ol>
+      <p>正常情況下每日約產生<strong>180公升</strong>過濾液，遠高於其他微血管床每日形成的3–4公升組織液——這是腎臟「過濾龐大血量、再精確回收所需物質」策略的量化展現。過濾時必須將血漿蛋白留在血管內以維持膠體滲透壓；若尿液中出現蛋白質（蛋白尿，proteinuria）或血球，提示過濾膜受損，常見於糖尿病或高血壓造成的腎損傷，若未治療可能進展至末期腎病。</p>
+
+      <div class="figure">
+        <img src="img/腎臟生理學基礎/kid_p23.png" alt="腎絲球過濾的三種力：腎絲球微血管血壓、鮑氏囊液壓、血漿蛋白滲透壓">
+        <div class="figure-caption">腎絲球淨過濾壓的三種作用力範例數值：促進過濾的腎絲球微血管血壓（P<sub>GC</sub>=60 mmHg）減去對抗過濾的鮑氏囊液壓（P<sub>BS</sub>=15 mmHg）與血漿蛋白滲透壓（π<sub>GC</sub>=29 mmHg），淨過濾壓 = 60−15−29 = 16 mmHg。</div>
+        <div class="figure-source">來源：113-2學年度《Physiology - Urinary System》課程講義</div>
+      </div>
+
+      <h3>GFR的關鍵數值（常考）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>指標</th><th>正常值</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>腎絲球過濾率 GFR</strong></td><td>約125 mL/min</td><td>每分鐘形成的過濾液量</td></tr>
+            <tr><td><strong>腎血漿流量 RPF</strong></td><td>約650 mL/min</td><td>每分鐘流經腎臟的血漿量</td></tr>
+            <tr><td><strong>過濾分率 FF</strong></td><td>約19–20%</td><td>FF = GFR / RPF，表示流入腎絲球的血漿中被過濾的比例</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>GFR與淨過濾壓成正比，在無調控介入的情況下，全身血壓上升將直接使GFR上升；但腎臟具備強大的自我調節能力（見下節），使GFR在相當大的血壓波動範圍內維持穩定。影響GFR的三個直接因子：<strong>腎血流量（RBF）、入球小動脈收縮（降低GFR）、出球小動脈收縮（先升高後降低GFR，依收縮程度而定）</strong>。</p>
+    </div>
+
+    <div class="section" id="section-autoregulation">
+      <div class="section-head"><div class="section-num">4</div><h2>腎臟自我調節</h2></div>
+      <p class="section-desc">腎臟自我調節（renal autoregulation）使GFR在平均動脈壓70–180 mmHg（正常約100 mmHg）的寬廣範圍內維持相對穩定，涵蓋兩種互補機制。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">(1) 肌源性血管收縮機轉</div>
+          <p>入球小動脈平滑肌的機械感受器偵測到血壓上升、血管壁被動擴張時，細胞內Ca²⁺增加、刺激血管收縮，抵銷血壓上升對腎絲球內壓的影響——與「血管生理學」章節肌源性反應原理相同</p>
+        </div>
+        <div class="card">
+          <div class="card-title">(2) 管絲反饋 Tubuloglomerular Feedback</div>
+          <p>感受器是緻密斑：偵測到流至遠曲小管的NaCl與水流量增加（提示GFR過高）時，釋放ATP與腺苷等化學訊號，引發入球小動脈收縮，降低GFR回到正常範圍</p>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>兩種自我調節機轉皆屬<strong>局部（intrinsic）機制</strong>，不需外部神經或激素訊號介入，與「血管生理學」章節局部血流自我調節的整體邏輯一致；這也是為何在中度血壓波動範圍內，GFR能維持穩定、不隨全身血壓起伏而大幅波動的生理基礎。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-reabsorption">
+      <div class="section-head"><div class="section-num">5</div><h2>再吸收與分泌基礎</h2></div>
+      <p class="section-desc">腎小管對濾液的處理決定最終尿液的組成，再吸收與分泌兩種方向相反的運輸過程共同精細調控體液成分。</p>
+
+      <h3>再吸收 Reabsorption</h3>
+      <p>物質自腎小管腔移回血液，可經<strong>細胞旁路徑（paracellular，經細胞間隙，儘管有緊密接合仍可通透，主要用於離子）</strong>或<strong>跨細胞路徑（transcellular，經細胞本身）</strong>；可為主動（需ATP）或被動（不需ATP）。<strong>分工原則（division of labor）</strong>：近曲小管與亨利氏環負責絕大多數的再吸收（確保進入遠端小管的溶質與水量已大幅減少），遠端小管與集尿管系統則依當下生理需求進行精細調節（fine-tuning），決定最終尿液中排出的確切數量。</p>
+
+      <h3>分泌 Secretion</h3>
+      <p>物質自管周微血管移入腎小管腔，包括H⁺、K⁺、有機陰離子等。分泌功能的臨床意義：</p>
+      <ul>
+        <li>排除藥物及其代謝物（許多藥物經此路徑清除，是藥物劑量調整需考量腎功能的原因）</li>
+        <li>清除經被動再吸收又需排除的不需要物質（如尿素、尿酸）</li>
+        <li>移除過多的K⁺</li>
+        <li>調控血液pH（H⁺分泌，見「體液電解質與體溫調節」章節酸鹼恆定）</li>
+      </ul>
+
+      <h3>轉運極限 Transport Maximum</h3>
+      <p>多數主動再吸收路徑（如葡萄糖經SGLT共同運輸）具有<strong>轉運極限（Tm）</strong>——當濾液中的溶質濃度超過腎小管轉運蛋白的飽和能力，多餘的量將無法被完全再吸收、隨尿液排出。這是未妥善控制的糖尿病動物出現<strong>糖尿（glucosuria）</strong>的直接生理機轉：血糖過高使濾液中葡萄糖量超過近曲小管SGLT轉運蛋白的最大再吸收能力（Tm），多餘葡萄糖隨尿液流失。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>鈉離子的再吸收幾乎都是<strong>主動運輸（經Na⁺/K⁺-ATPase）</strong>，此主動運輸建立的電化學梯度，驅動許多其他物質（如葡萄糖、胺基酸）經<strong>次級主動運輸（secondary active transport，共同運輸）</strong>被動地隨鈉一起再吸收——這是理解近曲小管幾乎所有溶質再吸收機轉的核心概念，Na⁺可謂腎小管再吸收的「總開關」。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-clearance">
+      <div class="section-head"><div class="section-num">6</div><h2>腎清除率</h2></div>
+      <p class="section-desc">腎清除率（renal clearance）是評估腎臟功能的核心量化概念，理解不同物質清除率與GFR的相對大小關係，可反推該物質在腎小管中經歷再吸收或分泌的淨效果。</p>
+
+      <h3>清除率公式</h3>
+      <p><strong>C = UV/P</strong>，其中U為尿中該物質濃度、V為尿流速率（mL/min）、P為血漿中該物質濃度。清除率代表「每分鐘有多少毫升血漿被完全清除某物質」的等效體積。</p>
+
+      <h3>不同物質清除率與GFR的關係（重要比較）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物質</th><th>清除率</th><th>與GFR的關係</th><th>意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>菊糖 Inulin</strong></td><td>≈125 mL/min</td><td>C = GFR</td><td>自由過濾、不被再吸收也不被分泌，是測量GFR的黃金標準（肌酸酐creatinine可作替代，但因有少量分泌而略高估GFR，準確度較低）</td></tr>
+            <tr><td><strong>PAH（對胺基馬尿酸）</strong></td><td>≈670 mL/min</td><td>C &gt; GFR</td><td>自由過濾且被大量分泌，其清除率近似有效腎血漿流量（ERPF）</td></tr>
+            <tr><td><strong>葡萄糖 Glucose</strong></td><td>≈0 mL/min（正常）</td><td>C &lt; GFR</td><td>自由過濾，但正常濃度下幾乎完全被近曲小管再吸收</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點：判讀清除率的邏輯</div>
+        <p>「清除率 = GFR」代表該物質<strong>僅被過濾、不被腎小管處理</strong>（過濾多少、排出多少）；「清除率 &gt; GFR」代表該物質<strong>淨分泌大於再吸收</strong>；「清除率 &lt; GFR」代表該物質<strong>淨再吸收大於分泌</strong>。這個判讀邏輯是理解腎清除率概念、也是常見計算題的核心推理框架。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-concentration">
+      <div class="section-head"><div class="section-num">7</div><h2>對流倍增與尿液濃縮</h2></div>
+      <p class="section-desc">腎臟能將尿液濃縮至遠高於血漿滲透壓的程度（可達1200–1400 mOsm/L，血漿約300 mOsm/L），此驚人能力來自亨利氏環與直血管構成的對流倍增系統（countercurrent multiplier）。</p>
+
+      <h3>對流倍增的解剖基礎</h3>
+      <p>「對流（countercurrent）」指相鄰管道內液體流動方向相反，大幅增加兩者間的交換機會與表面積效率。亨利氏環<strong>下行支對水通透、對溶質相對不通透；上行支對溶質通透（可主動運輸NaCl）、但對水不通透</strong>——這組不對稱通透性差異正是建立腎髓質高滲透壓梯度的關鍵。</p>
+
+      <div class="figure">
+        <img src="img/腎臟生理學基礎/kid_p56.png" alt="對流倍增系統完整運作圖：亨利氏環各段NaCl主動運輸與水的被動移動，數值標示各段滲透壓">
+        <div class="figure-caption">對流倍增系統：上行支主動將NaCl運出（紅色箭頭，不透水），使周圍組織間液滲透壓逐級升高（由皮質300 mOsm漸增至髓質深部1400 mOsm）；下行支對水通透，水被動流出使管內液體漸趨濃縮；尿素於集尿管深部經促進性擴散（綠色箭頭）再循環進入髓質間質，進一步貢獻髓質高滲透壓梯度。</div>
+        <div class="figure-source">來源：113-2學年度《Physiology - Urinary System》課程講義</div>
+      </div>
+
+      <h3>直血管 Vasa Recta 的對流交換</h3>
+      <p>直血管與近髓腎元的亨利氏環平行伴行，血管壁具尿素運輸蛋白與水通道，對水、尿素、NaCl皆具高通透性；其功能是以<strong>對流交換（countercurrent exchange，而非主動倍增）</strong>的方式，將血流帶走多餘水分的同時，盡量維持髓質已建立的高滲透壓梯度不被血流「沖淡」——若無此特殊排列，持續血流將很快消除辛苦建立的滲透壓梯度。</p>
+
+      <h3>尿素再循環 Urea Recycling</h3>
+      <p>集尿管深部（受ADH刺激）尿素經促進性擴散進入髓質間質，貢獻髓質滲透壓梯度的一部分，隨後部分尿素再擴散回亨利氏環繼續循環，此機制稱尿素再循環，是對流倍增系統額外的效率放大器。</p>
+
+      <h3>ADH（Vasopressin）調控最終尿液濃縮</h3>
+      <p>集尿管管壁對水的通透性<strong>依賴ADH是否存在</strong>：ADH經V2受體活化cAMP路徑，促使<strong>水通道蛋白（aquaporin-2, AQP2）</strong>插入集尿管主細胞頂端膜，使原本對水不通透的集尿管變得可通透，水得以順著已建立的髓質高滲透壓梯度被動流出、回到血液，尿液因而被濃縮（詳見「心血管功能整合」章節ADH雙重效果）。此系統設計使腎臟得以依身體水分狀態，在寬廣範圍內彈性調整尿液濃縮程度，而非固定輸出同一滲透壓的尿液。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點：必要水分流失量計算</div>
+        <p>每日需排出的代謝廢物溶質總量約600 mOsm，若尿液最大濃縮能力為1400 mOsm/L，則<strong>最小必要尿量（obligatory water loss）= 600 mOsm ÷ 1400 mOsm/L ≈ 0.44 L/day</strong>——這代表即使嚴重脫水，仍必須排出此最低限度尿量以清除代謝廢物，是理解「脫水動物仍會持續排尿」生理現象與臨床輸液計算的重要基礎概念。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-sodium">
+      <div class="section-head"><div class="section-num">8</div><h2>鈉與水的腎調控</h2></div>
+      <p class="section-desc">鈉是細胞外液滲透壓的主要決定因子，其再吸收幾乎發生於除亨利氏環下行支與髓質集尿管外的所有腎小管節段，是身體體液容積調控的核心。</p>
+
+      <h3>短期與長期血壓/血容調控的整合回顧</h3>
+      <p>鈉與水的腎臟調控與「心血管功能整合」章節的RAAS、ADH機轉完全整合：<strong>壓力感受器</strong>經血壓變化間接調控全身鈉平衡（血壓上升經壓力感受反射降低交感張力，間接減少腎鈉再吸收）；<strong>RAAS系統</strong>（腎素→Angiotensin II→醛固酮）促進遠曲小管與皮質集尿管的Na⁺再吸收；<strong>心房利鈉肽（ANP）</strong>則在心房壁過度伸張時分泌，促進腎臟排鈉排水，與RAAS作用方向相反，是體液容積過高時的代償機制。</p>
+
+      <h3>大量流汗的代償反應</h3>
+      <p>嚴重流汗會同時流失水分與電解質，造成血容量下降與滲透壓變化（依流失比例而定），觸發ADH與RAAS系統代償性活化，促進腎臟保水保鈉，是運動或高溫環境下維持體液恆定的重要機轉，過度流汗未及時補充水分與電解質是熱衰竭的重要成因。</p>
+
+      <h3>口渴與鹽分食慾</h3>
+      <p>口渴中樞位於下視丘，主要受<strong>血漿滲透壓上升</strong>與<strong>血容量／血壓下降</strong>兩類訊號刺激；<strong>鹽分食慾（salt appetite）</strong>則是動物在體內鈉缺乏時主動尋求攝取鹽分的行為驅力，兩者共同構成攝取端（相對於腎臟保存端）的體液恆定調控。</p>
+    </div>
+
+    <div class="section" id="section-potassium">
+      <div class="section-head"><div class="section-num">9</div><h2>鉀、鈣與磷的腎調控</h2></div>
+      <p class="section-desc">除鈉與水外，腎臟也是鉀、鈣、磷等重要電解質恆定的主要調控器官，各自受不同激素系統主導。</p>
+
+      <h3>鉀離子調控</h3>
+      <p>鉀主要經<strong>醛固酮驅動的主動分泌</strong>於遠曲小管與集尿管排出（見「心血管功能整合」章節醛固酮機轉）：醛固酮促進主細胞頂端膜Na⁺再吸收與K⁺分泌的偶聯運輸，因此凡是刺激醛固酮分泌的因子（高血鉀本身、Angiotensin II）皆會促進K⁺排除，形成自我調節的負回饋迴路。</p>
+
+      <h3>鈣與磷調控</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">鈣 Calcium</div><p>副甲狀腺素（PTH）<strong>增加</strong>遠曲小管對鈣的再吸收，是PTH升高血鈣整體效果的一環（另見「內分泌生理II」章節PTH完整作用）</p></div>
+        <div class="card"><div class="card-title">磷 Phosphate</div><p>PTH<strong>減少</strong>腎小管對磷的再吸收（促進磷排出），與其對鈣的作用方向相反——這組相反效果共同維持血鈣血磷的適當比例，是常見考題重點</p></div>
+      </div>
+    </div>
+
+    <div class="section" id="section-diuretics">
+      <div class="section-head"><div class="section-num">10</div><h2>利尿劑分類</h2></div>
+      <p class="section-desc">利尿劑是促進鈉與水排出的藥物，依作用機轉與部位可分數大類，是臨床心衰竭、高血壓、水腫治療的核心藥物族群。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>代表藥物</th><th>作用機轉</th></tr></thead>
+          <tbody>
+            <tr><td><strong>滲透性利尿劑</strong></td><td>甘露醇 Mannitol</td><td>可被過濾但不被再吸收的醣類，藉滲透效應留住水分於管腔內，一併排出</td></tr>
+            <tr><td><strong>環利尿劑 Loop Diuretics</strong></td><td>furosemide（利尿劑Lasix）</td><td>抑制亨利氏環上行支的Na⁺再吸收，破壞髓質滲透壓梯度的建立，是效果最強的利尿劑類別</td></tr>
+            <tr><td><strong>Thiazide類</strong></td><td>hydrochlorothiazide</td><td>作用於遠曲小管，抑制Na⁺-Cl⁻共同運輸</td></tr>
+            <tr><td><strong>保鉀利尿劑</strong></td><td>spironolactone（醛固酮受體拮抗劑）</td><td>競爭性阻斷醛固酮作用，減少遠曲小管與集尿管的Na⁺-K⁺幫浦活性，因而減少K⁺排除（見「心血管功能整合」章節）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>此外，<strong>酒精（ethanol）也具利尿效果</strong>，機轉是抑制腦垂體後葉釋放ADH，使集尿管對水的再吸收減少——這是飲酒後頻尿現象的生理基礎，也是理解ADH調控尿液濃縮的臨床實例。</p>
+    </div>
+
+    <div class="section" id="section-micturition">
+      <div class="section-head"><div class="section-num">11</div><h2>排尿反射</h2></div>
+      <p class="section-desc">尿液自腎小管形成後，經腎盞、腎盂、輸尿管送達膀胱儲存，最終經排尿反射（micturition reflex）排出體外，此反射同時受自主與軀體神經雙重調控。</p>
+
+      <h3>尿液排出路徑</h3>
+      <p>腎小管→（大小）腎盞→腎盂→輸尿管→膀胱（儲存）→尿道→體外，排尿由神經反射啟動，使膀胱壁平滑肌（逼尿肌）收縮、將尿液排出。</p>
+
+      <h3>膀胱的三重神經支配</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">副交感神經</div><p>促進逼尿肌收縮，是排尿反射的主要驅動</p></div>
+        <div class="card"><div class="card-title">交感神經</div><p>促進膀胱儲尿（抑制逼尿肌收縮、收縮內尿道括約肌）</p></div>
+        <div class="card"><div class="card-title">軀體運動神經</div><p>支配外尿道括約肌（隨意控制），使排尿具備一定程度的意識調控能力</p></div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：尿失禁</div>
+        <p><strong>尿失禁（incontinence）</strong>指非自主性尿液滲漏，常見類型包括<strong>應力性尿失禁</strong>（因咳嗽、打噴嚏、運動等腹壓增加誘發）與<strong>急迫性尿失禁</strong>（伴隨強烈尿意，常因膀胱或尿道發炎刺激所致，如細菌性膀胱炎）。急迫性尿失禁可用拮抗副交感神經對逼尿肌作用的藥物治療；應力性尿失禁則可能需改善膀胱尿道支撐結構（如荷爾蒙療法改善局部組織張力，嚴重者需手術）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">12</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章的核心是「過濾大量、精細回收」的腎臟運作哲學，以及對流倍增系統如何建立髓質高滲透壓梯度。考題常考「GFR關鍵數值」「清除率與GFR大小關係判讀」「對流倍增亨利氏環通透性」「PTH對鈣磷相反效果」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>腎絲球是全身唯一由雙小動脈餵入導出的微血管床</strong>，賦予其異常高的過濾壓（約55–60 mmHg），每日過濾約180公升；近髓腎元亨利氏環長，是尿液濃縮的主要貢獻者。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>腎絲球旁器含JG細胞（機械感受器，分泌腎素）與緻密斑（化學感受器，偵測NaCl流量）</strong>，共同驅動管絲反饋與RAAS系統。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>GFR≈125 mL/min，RPF≈650 mL/min，FF≈19–20%</strong>；腎臟自我調節（肌源性反應＋管絲反饋）使GFR在血壓70–180 mmHg範圍內維持穩定，不需神經或激素介入。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>清除率判讀邏輯</strong>：C=GFR（僅過濾，如菊糖）、C&gt;GFR（淨分泌，如PAH）、C&lt;GFR（淨再吸收，如正常濃度下的葡萄糖）；Na⁺主動再吸收驅動多數其他溶質的次級主動運輸。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>對流倍增：亨利氏環下行支透水不透溶質，上行支透溶質（主動運輸NaCl）不透水</strong>，建立髓質滲透壓梯度（可達1400 mOsm）；直血管以對流交換維持此梯度不被血流沖淡；ADH經AQP2調控集尿管透水性，決定最終尿液濃縮程度。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>PTH對鈣（促再吸收）與磷（促排出）作用方向相反</strong>，共同維持血鈣血磷適當比例；醛固酮驅動遠曲小管/集尿管的Na⁺再吸收與K⁺分泌偶聯。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>利尿劑依作用部位分類</strong>：滲透性（甘露醇）、環利尿劑（furosemide，作用亨利氏環上行支，效果最強）、Thiazide（遠曲小管）、保鉀利尿劑（spironolactone，阻斷醛固酮）；排尿反射由副交感（收縮逼尿肌）、交感（促儲尿）、軀體神經（隨意控制外括約肌）三重調控。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-2學年度《Physiology - Urinary System》Chapter 14，王家琪老師，內容參照 Vander's Human Physiology、Human Physiology (Fox SI) 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋腎元構造、腎絲球過濾、清除率、對流倍增、電解質調控等章節重點，題型參照國考與轉學考命題方向（含計算題），先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 腎絲球之所以能維持異常高的過濾壓，最主要的解剖基礎為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 腎絲球微血管壁特別厚</li>
+          <li>(B) 腎絲球是全身唯一由兩條小動脈（入球與出球）分別餵入與導出的微血管床</li>
+          <li>(C) 腎絲球周圍沒有靜脈回流</li>
+          <li>(D) 腎絲球位於腎臟最外層</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">腎絲球微血管是全身唯一由兩條小動脈（入球小動脈餵入、出球小動脈導出）分別串聯的微血管床，這種特殊解剖設計使腎絲球內壓能維持在約55–60 mmHg（遠高於一般微血管床約17 mmHg），是腎臟每日能產生約180公升過濾液的關鍵解剖基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 已知某動物血漿肌酸酐濃度為1 mg/mL，尿液肌酸酐濃度為100 mg/mL，尿流速率為1.25 mL/min，其肌酸酐清除率為多少？此數值大致反映何種生理指標？</div>
+        <ul class="quiz-options">
+          <li>(A) 12.5 mL/min，反映腎血漿流量</li>
+          <li>(B) 125 mL/min，大致反映GFR</li>
+          <li>(C) 650 mL/min，反映腎血漿流量</li>
+          <li>(D) 1250 mL/min，反映有效腎血漿流量</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">C = UV/P = (100 × 1.25) / 1 = 125 mL/min。肌酸酐自由過濾、幾乎不被再吸收，僅有少量分泌，因此其清除率可作為GFR的臨床替代指標（雖準確度略低於菊糖，但因菊糖需外源注射，臨床上肌酸酐清除率或血漿肌酸酐濃度仍是最常用的腎功能評估指標）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. 若某物質的腎清除率大於GFR，代表該物質在腎小管中發生淨分泌大於再吸收的效果。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer true">答案：TRUE</div>
+          <p class="quiz-explain">清除率大於GFR，代表除了經腎絲球過濾進入尿液的部分外，腎小管還額外分泌了更多該物質進入濾液中，使最終尿液排出量超過單純過濾所能達到的量，PAH即是這類物質的典型範例，其清除率因此常被用來估算有效腎血漿流量（ERPF）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 亨利氏環下行支與上行支的通透性特性分別為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 下行支透水不透溶質；上行支透溶質不透水</li>
+          <li>(B) 下行支透溶質不透水；上行支透水不透溶質</li>
+          <li>(C) 下行支與上行支皆同時透水與透溶質</li>
+          <li>(D) 下行支與上行支皆不透水也不透溶質</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">亨利氏環下行支對水通透、對溶質相對不通透，因此管內液體隨下行深入髓質而逐漸被動濃縮（水被吸出）；上行支則相反，對溶質（尤其NaCl，可主動運輸）通透但對水不通透，NaCl被主動運出建立髓質間質高滲透壓梯度，這組不對稱通透性差異正是對流倍增系統建立髓質滲透壓梯度的核心機轉。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 副甲狀腺素（PTH）對腎臟鈣與磷再吸收的作用分別為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 同時增加鈣與磷的再吸收</li>
+          <li>(B) 同時減少鈣與磷的再吸收</li>
+          <li>(C) 增加鈣的再吸收，但減少磷的再吸收</li>
+          <li>(D) 減少鈣的再吸收，但增加磷的再吸收</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">PTH增加遠曲小管對鈣的再吸收（是PTH升高血鈣整體效果的一環），但同時減少腎小管對磷的再吸收（促進磷排出），兩者作用方向相反，共同維持血鈣與血磷之間的適當比例關係，是內分泌與腎臟生理學跨章節整合的常見考點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 請說明「轉運極限（transport maximum, Tm）」的概念，並以糖尿病動物出現糖尿（glucosuria）為例說明其臨床意義。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">轉運極限是指腎小管上皮細胞上負責主動再吸收特定溶質的轉運蛋白（如近曲小管的SGLT葡萄糖共同運輸蛋白），其單位時間內能處理的溶質總量存在生理上限；當濾液中該溶質的濃度超過此上限，多出的部分將無法被完全再吸收，會隨尿液排出體外。在未妥善控制血糖的糖尿病動物身上，血糖濃度過高導致濾液中的葡萄糖總量超過近曲小管SGLT轉運蛋白的轉運極限，使原本應被完全再吸收回血液的葡萄糖有部分無法及時處理、隨尿液流失，形成糖尿，這也是臨床上「驗尿糖」可作為篩檢糖尿病或評估血糖控制狀況的生理基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 環利尿劑（loop diuretics，如furosemide）之所以是利尿效果最強的一類藥物，主要原因為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 作用於腎絲球，直接增加GFR</li>
+          <li>(B) 抑制亨利氏環上行支的Na⁺再吸收，破壞髓質滲透壓梯度的建立</li>
+          <li>(C) 促進ADH分泌</li>
+          <li>(D) 直接阻斷腎絲球過濾</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">環利尿劑（如furosemide）抑制亨利氏環上行支對NaCl的主動再吸收，直接破壞對流倍增系統建立髓質高滲透壓梯度的能力，使集尿管即使在ADH作用下也無法有效將水再吸收回血液（因缺乏梯度驅動），因此利尿效果最為強大，臨床常用於急性心衰竭或嚴重水腫的快速利尿治療。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  nephron: '腎元構造',
+  jga: '腎絲球旁器',
+  filtration: '腎絲球過濾與GFR',
+  autoregulation: '腎臟自我調節',
+  reabsorption: '再吸收與分泌基礎',
+  clearance: '腎清除率',
+  concentration: '對流倍增與尿液濃縮',
+  sodium: '鈉與水的腎調控',
+  potassium: '鉀、鈣與磷的腎調控',
+  diuretics: '利尿劑分類',
+  micturition: '排尿反射',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

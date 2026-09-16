@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：生殖內分泌與動情週期 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">生殖內分泌與動情週期</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">生殖內分泌與動情週期</h1>
+      <p class="page-subtitle">HPG Axis, Reproductive Hormones, Puberty &amp; the Estrous Cycle — 下視丘－腦垂體－性腺軸調控、激素作用總表、青春期、動情週期各期與物種比較。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113 學年度《Reproductive Physiology of Animals》Ch4–6，廖泰慶老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">神經內分泌調控</div>
+    <a class="active" onclick="showSection('reflex')" id="nav-reflex"><span class="nav-icon">🔄</span> 神經反射 vs 神經內分泌反射</a>
+    <a onclick="showSection('hpgaxis')" id="nav-hpgaxis"><span class="nav-icon">🧠</span> HPG軸與回饋調控</a>
+    <a onclick="showSection('hormones')" id="nav-hormones"><span class="nav-icon">💊</span> 生殖激素作用總表</a>
+    <div class="section-label" style="margin-top:8px;">發育</div>
+    <a onclick="showSection('puberty')" id="nav-puberty"><span class="nav-icon">🌱</span> 青春期 Puberty</a>
+    <div class="section-label" style="margin-top:8px;">動情週期</div>
+    <a onclick="showSection('cycletypes')" id="nav-cycletypes"><span class="nav-icon">📅</span> 週期分類與階段</a>
+    <a onclick="showSection('follicular')" id="nav-follicular"><span class="nav-icon">🌊</span> 卵泡波與募集選拔</a>
+    <a onclick="showSection('luteolysis')" id="nav-luteolysis"><span class="nav-icon">📉</span> 黃體溶解機轉</a>
+    <a onclick="showSection('anestrus')" id="nav-anestrus"><span class="nav-icon">🚫</span> 乏情原因與物種比較</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-reflex">
+      <div class="section-head"><div class="section-num">1</div><h2>神經反射 vs 神經內分泌反射</h2></div>
+      <p class="section-desc">生殖生理的訊號傳遞可分兩大類反射路徑，理解兩者差異是理解整個HPG軸調控的基礎。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>神經反射 Neural reflex</th><th>神經內分泌反射 Neuroendocrine reflex</th></tr></thead>
+          <tbody>
+            <tr><td><strong>訊號傳遞</strong></td><td>神經元→神經元（突觸傳遞）</td><td>神經元→血液激素→標的細胞</td></tr>
+            <tr><td><strong>反應速度</strong></td><td>快（毫秒級）</td><td>較慢（秒～分鐘級）</td></tr>
+            <tr><td><strong>範例</strong></td><td>勃起、脊髓排出反射（見「生殖生理總論」章節）</td><td>GnRH脈衝分泌→LH/FSH釋放；吸吮反射→催產素／泌乳素釋放</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>生殖系統的核心調控多屬於神經內分泌反射：<strong>下視丘神經元本身就是「神經內分泌細胞」</strong>——接收神經訊號（光週期、氣味、觸覺、社會刺激）後，以激素（GnRH）的形式輸出訊號至腦垂體，是神經系統與內分泌系統的介面。</p>
+    </div>
+
+    <div class="section" id="section-hpgaxis">
+      <div class="section-head"><div class="section-num">2</div><h2>HPG軸與回饋調控</h2></div>
+      <p class="section-desc">下視丘－腦垂體－性腺軸（Hypothalamic-Pituitary-Gonadal axis）是生殖內分泌調控的核心骨架，理解「長迴路」「短迴路」「超短迴路」回饋是理解整個動情週期激素波動的關鍵。</p>
+
+      <div class="flow">
+        <div class="flow-node accent">下視丘：GnRH（脈衝式分泌）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">腦垂體前葉：LH、FSH</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">性腺（卵巢／睪丸）：性類固醇激素＋抑制素</div>
+      </div>
+
+      <h3>三種回饋迴路</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">長迴路 Long-loop</div><p>性腺激素（動情素、黃體素、睪固酮）回饋至下視丘與腦垂體，調控GnRH與LH/FSH分泌——多數時候為<strong>負回饋</strong>，但動情週期近排卵時<strong>動情素轉為正回饋</strong>，觸發LH surge</p></div>
+        <div class="card"><div class="card-title">短迴路 Short-loop</div><p>腦垂體激素（LH）回饋至下視丘，抑制GnRH分泌</p></div>
+        <div class="card"><div class="card-title">超短迴路 Ultrashort-loop</div><p>GnRH回饋抑制其自身於下視丘的分泌</p></div>
+      </div>
+
+      <h3>GnRH脈衝頻率決定LH/FSH的相對分泌比例</h3>
+      <p>GnRH以<strong>脈衝式（pulsatile）</strong>分泌，其頻率與振幅決定LH與FSH的相對釋放比例：<strong>高頻脈衝偏好刺激LH分泌</strong>（動情期前後，動情素正回饋增強GnRH脈衝頻率），<strong>低頻脈衝偏好刺激FSH分泌</strong>（黃體期，黃體素抑制脈衝頻率）。此原理是<strong>持續性（非脈衝）GnRH類似物可用於抑制生殖功能（去勢替代／腫瘤控制）</strong>的藥理基礎——持續刺激反而造成腦垂體受體去敏感化（down-regulation，見「內分泌生理I」章節受體去敏感化概念）。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>動情素對LH分泌具「雙重效果」：低濃度長期呈現負回饋，但近排卵前高濃度且持續一段時間的動情素會轉換為<strong>正回饋</strong>，觸發LH surge——這個「正負回饋轉換」正是動情週期能規律運作的關鍵設計，也是動情週期章節理解濾泡期激素動態的核心。</p>
+      </div>
+
+      <h3>抑制素與活化素</h3>
+      <p>卵巢顆粒細胞／睪丸賽托利氏細胞分泌<strong>抑制素（inhibin）</strong>，選擇性抑制FSH分泌（不影響LH）；<strong>活化素（activin）</strong>則促進FSH分泌，兩者皆屬TGF-β家族，是精細調控FSH（相對於LH）分泌獨立性的機制，解釋了為何臨床上LH與FSH濃度變化並非總是同步。</p>
+    </div>
+
+    <div class="section" id="section-hormones">
+      <div class="section-head"><div class="section-num">3</div><h2>生殖激素作用總表</h2></div>
+      <p class="section-desc">生殖生理牽涉的激素種類繁多，依化學結構可分胜肽類、類固醇類、脂肪酸衍生物三大類，作用機轉分別對應「細胞訊息傳遞」章節的膜受體路徑或核受體路徑。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>激素</th><th>分泌來源</th><th>化學類別</th><th>主要作用</th></tr></thead>
+          <tbody>
+            <tr><td><strong>GnRH</strong></td><td>下視丘</td><td>胜肽（10個胺基酸）</td><td>刺激腦垂體前葉釋放LH、FSH</td></tr>
+            <tr><td><strong>LH</strong></td><td>腦垂體前葉</td><td>醣蛋白</td><td>觸發排卵、刺激萊氏細胞／卵泡膜細胞合成雄性素、維持黃體功能</td></tr>
+            <tr><td><strong>FSH</strong></td><td>腦垂體前葉</td><td>醣蛋白</td><td>刺激卵泡生長發育、刺激顆粒細胞芳香酶活性（雄性素→動情素）、刺激精子生成</td></tr>
+            <tr><td><strong>泌乳素 PRL</strong></td><td>腦垂體前葉</td><td>蛋白質</td><td>促進乳腺發育與泌乳、部分物種參與黃體功能維持（見「內分泌生理I」章節）</td></tr>
+            <tr><td><strong>催產素 Oxytocin</strong></td><td>下視丘（經後葉釋放）</td><td>胜肽（9個胺基酸）</td><td>子宮收縮、排乳反射、部分物種參與黃體溶解訊號放大</td></tr>
+            <tr><td><strong>動情素 Estrogen</strong></td><td>卵泡顆粒細胞</td><td>類固醇</td><td>子宮內膜增生、動情期行為、子宮頸黏液稀薄化、對LH正／負回饋</td></tr>
+            <tr><td><strong>黃體素 Progesterone</strong></td><td>黃體</td><td>類固醇</td><td>維持妊娠、抑制GnRH脈衝頻率、子宮內膜分泌期轉化、抑制動情期行為</td></tr>
+            <tr><td><strong>雄性素 Androgen</strong></td><td>萊氏細胞／卵泡膜細胞</td><td>類固醇</td><td>男性化特徵、負回饋抑制GnRH/LH、作為動情素合成前驅物</td></tr>
+            <tr><td><strong>鬆弛素 Relaxin</strong></td><td>黃體／胎盤</td><td>胜肽</td><td>放鬆骨盆韌帶與子宮頸，利於分娩</td></tr>
+            <tr><td><strong>抑制素 Inhibin</strong></td><td>顆粒細胞／賽托利氏細胞</td><td>醣蛋白</td><td>選擇性抑制FSH分泌</td></tr>
+            <tr><td><strong>PGF2α</strong></td><td>子宮內膜</td><td>脂肪酸衍生物（花生四烯酸代謝物）</td><td>黃體溶解（luteolysis）</td></tr>
+            <tr><td><strong>PMSG/eCG</strong></td><td>馬子宮內膜杯（懷孕期）</td><td>醣蛋白</td><td>具LH與FSH雙重活性，臨床用於誘導超排卵</td></tr>
+            <tr><td><strong>hCG</strong></td><td>人胎盤滋養層</td><td>醣蛋白</td><td>維持早期妊娠黃體，具LH樣活性，臨床用於誘導排卵</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>激素作用機轉分類回顧</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">胜肽／醣蛋白激素</div>
+          <p>作用於細胞膜受體，經cAMP或Ca²⁺/IP₃第二訊息系統快速作用（GnRH、LH、FSH、PRL、催產素、PGF2α、抑制素），詳見「細胞訊息傳遞」章節</p>
+        </div>
+        <div class="card">
+          <div class="card-title">類固醇激素</div>
+          <p>脂溶性，可通過細胞膜，作用於細胞質／核受體，調控基因轉錄，起效較慢但作用持久（動情素、黃體素、雄性素），詳見「內分泌生理I」章節</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-puberty">
+      <div class="section-head"><div class="section-num">4</div><h2>青春期 Puberty</h2></div>
+      <p class="section-desc">青春期定義為個體首次能產生具功能性配子並表現完整生殖行為的時期，其生理基礎是下視丘GnRH脈衝式分泌系統的「解除抑制」。</p>
+
+      <h3>青春期的核心機轉：GnRH抑制解除</h3>
+      <p>胎兒期與幼年期，下視丘對性類固醇的<strong>負回饋極度敏感（gonadostat高度敏感）</strong>，即使極低濃度的性類固醇也能有效抑制GnRH分泌；青春期發動的核心變化是<strong>下視丘對負回饋的敏感度逐漸降低</strong>，使GnRH脈衝頻率與振幅得以上升，帶動LH/FSH上升、性腺發育成熟。</p>
+
+      <h3>性別二型性：緊張性 vs 週期性中樞</h3>
+      <p>下視丘GnRH分泌中樞在腦部發育過程中會依性別分化：</p>
+      <ul>
+        <li><strong>緊張性中樞（tonic center）</strong>：兩性皆有，負責基礎、持續性GnRH脈衝分泌</li>
+        <li><strong>週期性中樞（surge/cyclic center）</strong>：僅雌性保留功能，負責產生LH surge、觸發排卵；雄性因胎兒期或新生兒期睪固酮（經芳香酶轉為動情素）對腦部的「男性化（masculinization）」作用而失去此週期性分泌能力</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">重點</div>
+        <p>此性別分化發生於腦部發育的關鍵窗口期（胎兒期／新生兒早期，物種而異），並非出生時就已定型的解剖差異，而是<strong>激素依賴的功能性分化</strong>——這也是為何實驗上新生兒期去勢的公鼠成年後若給予動情素仍可能誘發LH surge的基礎。</p>
+      </div>
+
+      <h3>影響青春期發生的因素</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">內在因素</div><p>品種／基因、體型與生長速率（達到「臨界體重」）、營養狀態（能量負平衡延遲青春期）</p></div>
+        <div class="card"><div class="card-title">外在因素</div><p>光週期（季節性繁殖動物）、社會刺激（同群異性個體存在，如公畜效應boar/ram effect）、環境溫度、群體密度</p></div>
+      </div>
+
+      <h3>各物種青春期平均年齡（參考值，品種差異大）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>青春期平均年齡</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛（乳牛）</span></td><td>約8–12月齡</td></tr>
+            <tr><td>羊</td><td>約5–8月齡（依光週期／品種差異大）</td></tr>
+            <tr><td>豬</td><td>約5–7月齡</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span></td><td>約12–24月齡</td></tr>
+            <tr><td>犬</td><td>約6–12月齡（依品種體型差異大，大型犬較晚）</td></tr>
+            <tr><td>貓</td><td>約5–9月齡</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>公馬（stallion）青春期發動過程具代表性：新生兒期睪固酮短暫升高（micropuberty）後降至基礎值，接近青春期時LH脈衝頻率與振幅逐漸上升，帶動睪固酮持續上升，最終達到具生育能力的精子生成量與性行為表現，整個過程展現GnRH/LH脈衝逐步「解除抑制」的漸進特性，而非單一時間點的開關轉換。</p>
+    </div>
+
+    <div class="section" id="section-cycletypes">
+      <div class="section-head"><div class="section-num">5</div><h2>週期分類與階段</h2></div>
+      <p class="section-desc">動情週期（estrous cycle）是自排卵性動物重複出現的生殖生理循環，依年度發情頻率可分類，各週期又可分濾泡期與黃體期兩大階段、四個亞期。</p>
+
+      <h3>動情週期的年度分類</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">多情期動物 Polyestrous</div><p>全年多次週期性發情。代表：牛、豬（若無妊娠或哺乳中斷）</p></div>
+        <div class="card"><div class="card-title">季節性多情期 Seasonally polyestrous</div><p>特定季節內多次週期性發情，其餘季節進入乏情。代表：馬（長日照型）、羊（短日照型）</p></div>
+        <div class="card"><div class="card-title">單情期動物 Monoestrous</div><p>每年僅發情一次。代表：犬（約每6–12個月一次）、多數野生食肉目</p></div>
+      </div>
+
+      <h3>動情週期四階段（以家畜多情期動物為例）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階段</th><th>主要事件</th><th>主導激素</th><th>行為</th></tr></thead>
+          <tbody>
+            <tr><td><strong>動情前期 Proestrus</strong></td><td>卵泡快速生長、動情素上升</td><td>動情素↑，黃體素快速下降（前一週期黃體溶解後）</td><td>尚未接受交配</td></tr>
+            <tr><td><strong>動情期 Estrus</strong></td><td>性接受期，LH surge誘發排卵（多發生在動情期末或動情期後）</td><td>動情素高峰→LH surge</td><td>接受交配（standing heat）</td></tr>
+            <tr><td><strong>動情後期 Metestrus</strong></td><td>排卵後，黃體開始形成（黃體化）</td><td>黃體素開始上升</td><td>不接受交配</td></tr>
+            <tr><td><strong>動情間期 Diestrus</strong></td><td>黃體功能成熟活躍期（最長階段）</td><td>黃體素維持高原期</td><td>不接受交配</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>亦可用功能分類：<strong>濾泡期（follicular phase）</strong>＝動情前期＋動情期，動情素主導；<strong>黃體期（luteal phase）</strong>＝動情後期＋動情間期，黃體素主導。若未受孕，子宮於黃體期末釋出PGF2α引發黃體溶解，週期重新進入動情前期。</p>
+
+      <h3>各物種動情週期比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>週期長度</th><th>動情期長度</th><th>排卵時機</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛</span></td><td>約21天（18–24）</td><td>約12–18小時</td><td>動情期結束後約10–12小時（自發性排卵）</td></tr>
+            <tr><td>羊</td><td>約17天（14–19）</td><td>約24–36小時</td><td>動情期中後段</td></tr>
+            <tr><td>豬</td><td>約21天（18–24）</td><td>約48–72小時</td><td>動情期開始後約38–42小時</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span></td><td>約21–22天</td><td>約4–7天（範圍大）</td><td>動情期末，排卵前約24–48小時卵泡質地轉變可觸診偵測</td></tr>
+            <tr><td>犬</td><td>單情期，週期間隔約6–12個月</td><td>動情期約7–10天（可接受交配）</td><td>動情前期末至動情期初，排出的是初級卵母細胞（見「生殖生理總論」章節）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">物種差異</div>
+        <p>牛在動情期表現的性接受行為結束後才排卵（排卵發生在動情後期初），與其他多數物種「動情期中即排卵」不同，臨床配種時機規劃需特別注意（AI建議在動情表現後8–12小時進行，配合精子與卵母細胞在生殖道內的存活時間差）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-follicular">
+      <div class="section-head"><div class="section-num">6</div><h2>卵泡波與募集選拔</h2></div>
+      <p class="section-desc">卵巢卵泡並非單一線性發育，而是以「波」的形式反覆募集，此概念是理解超排卵誘導與卵泡監控（電腦斷層／超音波卵泡追蹤）技術的生理基礎。</p>
+
+      <h3>卵泡波三階段</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>募集 Recruitment</strong>：FSH短暫上升，刺激一群竇卵泡（antral follicles）同步開始生長。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>選拔 Selection</strong>：FSH隨後下降（受成長中卵泡分泌的抑制素與動情素負回饋），僅存活能適應低FSH環境、發展出LH受體的卵泡得以繼續生長。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>優勢化 Dominance</strong>：一個（或少數，依物種排卵數而定）「優勢卵泡（dominant follicle）」持續生長並分泌大量動情素／抑制素，主動抑制其餘卵泡（含同波次卵泡）的發育，使其走向閉鎖；若優勢卵泡未逢LH surge，最終自身也會閉鎖或黃體化，開啟下一波卵泡募集。</div></div>
+
+      <p>牛的動情週期典型有<strong>2–3個卵泡波</strong>，最後一波的優勢卵泡若逢黃體溶解、黃體素下降，即成為排卵卵泡；此現象是同期發情（estrus synchronization）與定時人工授精（timed AI, TAI）方案設計（如Ovsynch）的生理基礎——利用外源GnRH／PGF2α控制卵泡波起始時機。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>超排卵誘導（FSH治療）的原理即是在募集階段給予外源FSH、延緩其自然下降，使原本應被淘汰的次優卵泡也能持續生長至可排卵大小，一次週期產生多顆可用卵母細胞（見「生殖生理總論」章節濾泡終生消耗數量概念）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-luteolysis">
+      <div class="section-head"><div class="section-num">7</div><h2>黃體溶解機轉</h2></div>
+      <p class="section-desc">黃體溶解（luteolysis）是未受孕動情週期得以規律重複的關鍵事件，核心訊號為子宮內膜分泌的PGF2α，其遞送路徑具有精巧的解剖生理設計。</p>
+
+      <div class="flow">
+        <div class="flow-node">子宮內膜偵測到「無妊娠訊號」（見「妊娠、分娩與泌乳生理」章節）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">子宮內膜脈衝式釋放PGF2α</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">經子宮－卵巢血管逆流交換轉運至同側卵巢</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">PGF2α作用於黃體細胞，引發血管收縮＋黃體細胞凋亡</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">黃體素快速下降 → 週期進入動情前期</div>
+      </div>
+
+      <h3>子宮－卵巢逆流轉運（Counter-current Transfer）</h3>
+      <p>PGF2α半衰期極短（血液中僅數秒），若經全身循環幾乎完全被肺臟代謝失活，因此無法單純依賴全身性濃度作用於卵巢；子宮靜脈與卵巢動脈在解剖上緊密貼合（類似精索蔓狀靜脈叢的逆流熱交換設計，見「生殖生理總論」章節），使子宮靜脈血中的PGF2α得以直接擴散進入卵巢動脈血，<strong>局部高濃度、短距離、不經全身循環</strong>地送達同側卵巢，這是黃體溶解「側邊特異性（子宮某側決定該側卵巢黃體溶解）」的解剖基礎，也是歷史上「單側子宮切除實驗」證明子宮局部而非全身內分泌作用的經典證據。</p>
+
+      <h3>子宮全切除（hysterectomy）實驗的物種差異</h3>
+      <p>切除子宮後黃體是否持續存在，物種間差異是理解「子宮是否為黃體溶解必要條件」的經典證據：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>子宮切除後黃體命運</th><th>意義</th></tr></thead>
+          <tbody>
+            <tr><td>牛、羊、豬、馬</td><td>黃體持續存在（不溶解），週期延長</td><td>子宮是黃體溶解的必要來源</td></tr>
+            <tr><td>靈長類（人）</td><td>黃體仍會退化（週期性）</td><td>黃體溶解不完全依賴子宮，有自主凋亡機制</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>催產素在黃體溶解中的放大角色</h3>
+      <p>黃體本身也可分泌少量催產素，與子宮內膜催產素受體形成<strong>正回饋放大迴路</strong>：PGF2α刺激子宮內膜催產素受體表現量增加→催產素（來自黃體與下視丘）進一步刺激子宮釋放更多PGF2α脈衝→形成級聯放大，確保黃體溶解訊號足夠強烈且具脈衝節律性，而非單一連續訊號。</p>
+    </div>
+
+    <div class="section" id="section-anestrus">
+      <div class="section-head"><div class="section-num">8</div><h2>乏情原因與物種比較</h2></div>
+      <p class="section-desc">乏情（anestrus）指動情週期暫時停止的生理狀態，依成因可分類，是臨床評估「不發情」主訴時的重要鑑別診斷框架。</p>
+
+      <div class="grid-2">
+        <div class="card"><div class="card-title">季節性乏情 Seasonal anestrus</div><p>光週期驅動（經松果腺褪黑激素調控GnRH分泌），如馬、羊在特定季節外自然停止週期性活動</p></div>
+        <div class="card"><div class="card-title">妊娠性乏情 Gestational anestrus</div><p>妊娠期間黃體素（及部分物種胎盤激素）持續高濃度負回饋抑制GnRH，是妊娠期間週期停止的正常生理狀態</p></div>
+        <div class="card"><div class="card-title">泌乳性乏情 Lactational anestrus</div><p>哺乳（吸吮刺激）經下視丘機制抑制GnRH脈衝頻率，延遲產後週期恢復，程度依吸吮頻率與強度、營養狀態而異（見「妊娠、分娩與泌乳生理」章節）</p></div>
+        <div class="card"><div class="card-title">病理性／營養性乏情</div><p>能量負平衡（哺乳早期常見）、慢性疾病、卵巢囊腫、老齡濾泡庫耗竭等非生理性原因</p></div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床思路</div>
+        <p>臨床遇到「不發情」主訴，應先排除生理性乏情（是否妊娠？是否在泌乳期？是否處於乏情季節？）再考慮病理性原因，避免不必要的過度檢查或誤用催情藥物。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章的核心是HPG軸回饋機轉如何驅動動情週期規律運作，考題常考「回饋迴路種類」「動情週期各期激素變化」「黃體溶解機轉」「物種週期比較」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>GnRH以脈衝式分泌，頻率決定LH/FSH相對比例</strong>：高頻偏LH、低頻偏FSH，是持續性GnRH類似物可抑制生殖功能的藥理基礎。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>動情素對LH回饋具雙重性</strong>：平時負回饋，排卵前高濃度持續一段時間後轉為正回饋，觸發LH surge。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>青春期核心機轉是下視丘負回饋敏感度下降（非性腺本身成熟）</strong>，週期性GnRH中樞僅雌性保留功能（胎兒期睪固酮男性化雄性腦）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>動情週期四期</strong>：動情前期（動情素↑）→動情期（性接受，LH surge排卵）→動情後期（黃體形成）→動情間期（黃體素高原）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>卵泡波三階段：募集（FSH↑）→選拔（FSH↓，適者生存）→優勢化（優勢卵泡抑制其他卵泡）</strong>，牛典型2–3波，是超排卵誘導與同期發情方案的生理基礎。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>黃體溶解由子宮PGF2α經子宮-卵巢逆流轉運局部作用於同側卵巢</strong>（非全身循環，因肺臟快速代謝PGF2α），子宮切除後牛羊豬馬黃體持續存在，證明子宮為必要來源；催產素形成正回饋放大脈衝訊號。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>乏情分季節性／妊娠性／泌乳性／病理性</strong>，臨床評估「不發情」應先排除前三種生理性原因。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113學年度《Reproductive Physiology of Animals》Ch4–6，廖泰慶老師，內容參照 Senger《Pathways to Pregnancy and Parturition》教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋HPG軸回饋、青春期機轉、動情週期階段、黃體溶解等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列關於動情素對腦垂體LH分泌回饋作用的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 動情素永遠對LH分泌呈負回饋</li>
+          <li>(B) 動情素低濃度時呈負回饋，排卵前高濃度且持續一段時間後可轉為正回饋</li>
+          <li>(C) 動情素只作用於下視丘，不直接作用於腦垂體</li>
+          <li>(D) 動情素對LH分泌沒有回饋作用，只有黃體素才有</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">動情素對LH回饋具雙重性：平時（濾泡發育早期）呈負回饋抑制GnRH/LH；但排卵前優勢卵泡分泌的高濃度動情素持續一段時間後，會轉換為正回饋，觸發LH surge，這是動情週期得以規律排卵的關鍵設計。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 青春期發動的核心機轉是性腺本身發育成熟，與下視丘負回饋敏感度無關。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">青春期發動的核心機轉是下視丘對性類固醇負回饋的敏感度（gonadostat）逐漸降低，使GnRH脈衝頻率與振幅得以上升，進而帶動性腺發育成熟；並非性腺自發成熟後才反過來啟動下視丘。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 牛的動情週期典型有幾波卵泡波（follicular wave）？</div>
+        <ul class="quiz-options">
+          <li>(A) 1波</li>
+          <li>(B) 2–3波</li>
+          <li>(C) 5–6波</li>
+          <li>(D) 沒有波次概念，卵泡持續線性發育</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">牛動情週期典型有2–3個卵泡波，每波經募集、選拔、優勢化三階段，若最後一波優勢卵泡恰逢黃體溶解、黃體素下降，即成為排卵卵泡，此現象是超排卵誘導與定時人工授精方案設計的生理基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明為何PGF2α必須透過「子宮－卵巢逆流轉運」才能有效引發同側黃體溶解，而不能單純依賴全身血液循環？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">PGF2α在血液中的半衰期極短（僅數秒），經全身循環時幾乎會完全被肺臟代謝失活，若單純依賴全身性濃度將無法達到足以引發黃體溶解的有效濃度。子宮靜脈與卵巢動脈在解剖上緊密貼合，形成逆流熱／物質交換構造，使子宮靜脈血中的PGF2α得以直接局部擴散進入卵巢動脈血，不經過肺臟代謝，因此能以局部高濃度、短距離的方式有效送達同側卵巢，這也解釋了黃體溶解具有「側邊特異性」的現象。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 一隻乳牛產後仍在密集哺育犢牛，尚未恢復規律動情週期，最可能的原因為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 季節性乏情</li>
+          <li>(B) 妊娠性乏情</li>
+          <li>(C) 泌乳性乏情</li>
+          <li>(D) 卵巢囊腫</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">哺乳（吸吮刺激）會經下視丘機制抑制GnRH脈衝頻率，延遲產後動情週期恢復，稱為泌乳性乏情，其程度受吸吮頻率、強度與母畜營養狀態影響；臨床評估不發情時應先排除此類生理性原因。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  reflex: '神經反射 vs 神經內分泌反射',
+  hpgaxis: 'HPG軸與回饋調控',
+  hormones: '生殖激素作用總表',
+  puberty: '青春期 Puberty',
+  cycletypes: '週期分類與階段',
+  follicular: '卵泡波與募集選拔',
+  luteolysis: '黃體溶解機轉',
+  anestrus: '乏情原因與物種比較',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

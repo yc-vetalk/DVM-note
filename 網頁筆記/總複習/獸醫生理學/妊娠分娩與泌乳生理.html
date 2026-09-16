@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：妊娠、分娩與泌乳生理 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">妊娠、分娩與泌乳生理</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">妊娠、分娩與泌乳生理</h1>
+      <p class="page-subtitle">Pregnancy, Parturition &amp; Lactation Physiology — 妊娠辨識、胎盤分類、分娩機轉與階段、乳腺發育與泌乳反射、初乳。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113 學年度《Reproductive Physiology of Animals》Ch7–9，廖泰慶老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">妊娠</div>
+    <a class="active" onclick="showSection('recognition')" id="nav-recognition"><span class="nav-icon">🔔</span> 妊娠辨識（物種比較）</a>
+    <a onclick="showSection('implantation')" id="nav-implantation"><span class="nav-icon">🛏️</span> 著床時機</a>
+    <a onclick="showSection('placenta')" id="nav-placenta"><span class="nav-icon">🥮</span> 胎盤分類與功能</a>
+    <div class="section-label" style="margin-top:8px;">分娩</div>
+    <a onclick="showSection('parturitiontrigger')" id="nav-parturitiontrigger"><span class="nav-icon">🔥</span> 分娩觸發機轉</a>
+    <a onclick="showSection('stages')" id="nav-stages"><span class="nav-icon">⏱️</span> 分娩三階段</a>
+    <a onclick="showSection('postpartum')" id="nav-postpartum"><span class="nav-icon">🔙</span> 產後與子宮復舊</a>
+    <div class="section-label" style="margin-top:8px;">泌乳</div>
+    <a onclick="showSection('mammogenesis')" id="nav-mammogenesis"><span class="nav-icon">🌸</span> 乳腺發育 Mammogenesis</a>
+    <a onclick="showSection('lactation')" id="nav-lactation"><span class="nav-icon">🍼</span> 泌乳反射與排乳</a>
+    <a onclick="showSection('colostrum')" id="nav-colostrum"><span class="nav-icon">🛡️</span> 初乳與被動免疫</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-recognition">
+      <div class="section-head"><div class="section-num">1</div><h2>妊娠辨識（物種比較）</h2></div>
+      <p class="section-desc">妊娠母體辨識（maternal recognition of pregnancy, MRP）指胚胎必須主動向母體發出訊號，阻止動情週期末的黃體溶解（見「生殖內分泌與動情週期」章節），使黃體得以維持並繼續分泌黃體素支持妊娠。此訊號機制具高度物種專一性，是常考重點。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>辨識訊號</th><th>機轉</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛／羊</span></td><td>干擾素-τ IFN-tau</td><td>胚胎滋養層分泌IFN-tau，直接抑制子宮內膜催產素受體表現，阻斷PGF2α脈衝式釋放（見上一章節催產素正回饋放大迴路），黃體溶解無法啟動</td></tr>
+            <tr><td>豬</td><td>雌激素改變PGF2α分泌路徑</td><td>胚胎分泌雌激素，使子宮內膜將PGF2α從「向子宮靜脈釋放（內分泌途徑，導致黃體溶解）」改為「向子宮腔釋放（外分泌途徑，不進入循環）」，黃體因而不被溶解；豬需<strong>足夠數量胚胎（約4顆以上）</strong>才能產生足量訊號，這是「胚胎擁擠效應」需求的生理基礎</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span></td><td>胚胎移動（embryo mobility）</td><td>早期胚胎在子宮腔內持續移動（受精後約10–16天），物理接觸抑制局部PGF2α釋放範圍，直至約16天左右才固定於一側子宮角</td></tr>
+            <tr><td>人</td><td>hCG</td><td>滋養層分泌hCG，具LH樣活性，直接維持黃體功能（見「生殖內分泌與動情週期」章節hCG臨床應用）</td></tr>
+            <tr><td>犬／貓</td><td>不需特殊訊號</td><td>犬貓的黃體壽命原本就與妊娠期相近（假孕現象常見），黃體溶解機制本身較不依賴子宮訊號，妊娠與否對黃體週期影響較小</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>各物種妊娠辨識機轉的共通邏輯都是「阻止子宮內膜以正常方式釋放PGF2α引發黃體溶解」，只是達成方式不同（直接抑制受體 vs 改變釋放途徑 vs 物理干擾 vs 直接維持黃體）——理解這個共通邏輯比死背各物種細節更有效率。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-implantation">
+      <div class="section-head"><div class="section-num">2</div><h2>著床時機</h2></div>
+      <p class="section-desc">受精卵歷經卵裂、桑椹胚、囊胚（blastocyst）階段後，需先經<strong>孵化（hatching，脫離透明帶）</strong>才能與子宮內膜建立接觸並著床，各物種著床時機與方式差異大。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>著床時機（受精後）</th><th>著床方式</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛</span></td><td>約28–35天</td><td>中心性著床（centric），漂浮期長</td></tr>
+            <tr><td>豬</td><td>約12–14天（附著），約24天（真正著床）</td><td>瀰漫性附著（diffuse）</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span></td><td>約16天固定，35–40天著床</td><td>中心性著床，漂浮期最長</td></tr>
+            <tr><td>犬</td><td>約17–18天</td><td>偏心性著床（eccentric）</td></tr>
+            <tr><td>人</td><td>約6–10天</td><td>間質性著床（interstitial），最早最深</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>著床前的「漂浮期（preimplantation period）」長短與物種胎盤類型、妊娠辨識機轉密切相關（如馬的胚胎移動機轉即發生於此漂浮期）。</p>
+    </div>
+
+    <div class="section" id="section-placenta">
+      <div class="section-head"><div class="section-num">3</div><h2>胎盤分類與功能</h2></div>
+      <p class="section-desc">胎盤是母體與胎兒間物質交換的介面，可依<strong>外觀形狀</strong>與<strong>組織學上母子接觸的緊密程度</strong>兩種方式分類，兩套分類系統常混合出題，需能同時掌握。</p>
+
+      <h3>依外觀形狀分類</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">瀰漫性 Diffuse</div><p>絨毛膜絨毛均勻分佈於整個胎盤表面。代表：<span class="tag tag-horse">馬</span>、豬</p></div>
+        <div class="card"><div class="card-title">子葉性 Cotyledonary</div><p>絨毛膜絨毛集中於離散的胎盤子葉（cotyledons），對應母體子宮阜（caruncles），合稱「胎兒母體胎盤複合體（placentome）」。代表：<span class="tag tag-cattle">牛</span>、羊</p></div>
+        <div class="card"><div class="card-title">環帶性 Zonary</div><p>絨毛呈環帶狀環繞胎盤中段。代表：犬、貓</p></div>
+        <div class="card"><div class="card-title">盤狀 Discoid</div><p>絨毛集中於單一或雙盤狀區域。代表：人、囓齒類</p></div>
+      </div>
+
+      <h3>依組織學母子接觸層數分類</h3>
+      <p>母體血管與胎兒血管之間正常有6層組織相隔（母體：內皮、結締組織、上皮；胎兒：滋養層、結締組織、內皮），依妊娠過程中被侵蝕流失的層數分類，<strong>層數越少代表母子接觸越緊密、物質交換效率越高，但分娩時剝離出血風險也越高</strong>：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>流失層數</th><th>母子接觸介面</th><th>代表物種</th></tr></thead>
+          <tbody>
+            <tr><td><strong>上皮絨毛膜 Epitheliochorial</strong></td><td>0層（全部6層保留）</td><td>胎兒滋養層 vs 母體子宮上皮</td><td><span class="tag tag-horse">馬</span>、豬</td></tr>
+            <tr><td><strong>結合上皮絨毛膜 Synepitheliochorial</strong></td><td>0層（但有雙核細胞遷移融合母體上皮）</td><td>胎兒滋養層雙核細胞侵入並與母體上皮融合</td><td><span class="tag tag-cattle">牛</span>、羊</td></tr>
+            <tr><td><strong>內皮絨毛膜 Endotheliochorial</strong></td><td>4層（僅母體內皮保留）</td><td>胎兒滋養層 vs 母體血管內皮</td><td>犬、貓</td></tr>
+            <tr><td><strong>血絨毛膜 Hemochorial</strong></td><td>5層（母體組織全流失）</td><td>胎兒滋養層直接浸泡於母體血液中</td><td>人、囓齒類</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p>上皮絨毛膜／結合上皮絨毛膜胎盤（馬、豬、牛、羊）因母子組織層完整或僅局部融合，<strong>免疫球蛋白無法經胎盤傳輸給胎兒</strong>，新生兒完全依賴初乳被動免疫（見本頁後段「初乳與被動免疫」）；相對地，血絨毛膜胎盤（人）可經胎盤傳輸部分IgG，內皮絨毛膜（犬貓）則部分傳輸。這是「反芻動物與馬駒務必於出生後盡早（黃金12–24小時內）攝取足量初乳」臨床建議背後的生理基礎。</p>
+      </div>
+
+      <h3>胎盤功能</h3>
+      <ul>
+        <li>氣體交換（O₂/CO₂，經簡單擴散）</li>
+        <li>營養物質運輸（葡萄糖、胺基酸、脂肪酸，多為主動運輸）</li>
+        <li>代謝廢物排除</li>
+        <li>內分泌功能：分泌孕酮（部分物種）、雌激素、PMSG/eCG（馬）、胎盤泌乳素（placental lactogen）等，支持妊娠維持與胎兒生長</li>
+        <li>部分免疫球蛋白傳輸（依胎盤類型而異，見上）</li>
+        <li>物理性保護與屏障功能</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-parturitiontrigger">
+      <div class="section-head"><div class="section-num">4</div><h2>分娩觸發機轉</h2></div>
+      <p class="section-desc">分娩（parturition）觸發訊號的關鍵發動者是<strong>胎兒本身</strong>，而非母體，這是理解整個分娩級聯反應的核心概念——胎兒成熟度決定分娩時機。</p>
+
+      <div class="flow">
+        <div class="flow-node accent">胎兒下視丘－腦垂體－腎上腺軸成熟，胎兒壓力（如子宮空間受限、缺氧）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">胎兒腎上腺皮質分泌大量皮質醇 cortisol</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">作用於胎盤，誘導胎盤17α-羥化酶／C17,20-裂解酶活性，將黃體素合成路徑轉向雌激素合成</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">黃體素下降、雌激素上升</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">子宮內膜PGF2α釋放增加（雌激素促進）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">PGF2α引發黃體溶解（若黃體仍是黃體素主要來源）＋直接刺激子宮肌收縮</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">催產素分泌增加、子宮收縮蛋白（連接蛋白connexin構成間隙接合）表現增加，子宮收縮同步化 → 分娩發動</div>
+      </div>
+
+      <h3>雌激素／黃體素比值轉變的意義</h3>
+      <p>黃體素在妊娠期間持續抑制子宮收縮性（維持子宮「安靜」）；雌激素則促進子宮肌細胞間隙接合形成、增加催產素受體表現、促進PGF2α合成。<strong>分娩發動的本質即是雌激素／黃體素比值的逆轉</strong>，使子宮從「妊娠維持模式」切換為「收縮娩出模式」。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">重點</div>
+        <p>此機轉最早在羊隻研究中確立：切除胎羊腦垂體或腎上腺會導致妊娠期異常延長（無法正常分娩），直接證明<strong>分娩訊號的發動者是胎兒（而非母體）</strong>，胎兒經由自身HPA軸成熟度「決定」自己何時出生。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-stages">
+      <div class="section-head"><div class="section-num">5</div><h2>分娩三階段</h2></div>
+      <p class="section-desc">分娩過程依生理事件可分三個連續階段，各階段持續時間依物種差異極大，臨床評估是否為難產（dystocia）需以物種常態時間為基準。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>第一產程：子宮頸擴張期</strong>——子宮規律收縮開始、子宮頸軟化擴張、胎兒轉為娩出姿勢（前置縱向、頭前腳先露），母畜常表現不安、築巢行為；此階段結束於胎膜破裂（「破水」）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>第二產程：胎兒娩出期</strong>——強烈腹壓反射（Ferguson反射：胎兒/胎膜刺激子宮頸與陰道，經神經傳入下視丘，正回饋放大催產素釋放）加上子宮收縮，將胎兒娩出產道；此階段時間長短是難產判斷的主要依據。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>第三產程：胎盤娩出期</strong>——胎盤（胎膜）自子宮內膜剝離並排出，子宮開始收縮復舊；滯留胎盤（retained placenta）是常見產後併發症。</div></div>
+
+      <h3>各物種分娩階段時間參考</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>第一產程</th><th>第二產程</th><th>第三產程</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛</span></td><td>2–6小時</td><td>30分–2小時</td><td>6–12小時內</td></tr>
+            <tr><td>羊</td><td>2–6小時</td><td>30分–2小時</td><td>數小時內</td></tr>
+            <tr><td>豬（每胎多仔）</td><td>2–12小時</td><td>每仔間隔約15–20分，總產程2–6小時</td><td>與最後一仔娩出同時或稍後</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span></td><td>1–4小時</td><td>極短，通常&lt;30分（馬產程異常快速，超過1小時即視為異常）</td><td>1–3小時內（超過3小時視為滯留）</td></tr>
+            <tr><td>犬（每胎多仔）</td><td>6–12小時</td><td>每仔間隔通常&lt;1–2小時</td><td>通常與各仔娩出交替進行</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p>馬第二產程極短且對延遲極度敏感（超過1小時即為緊急狀況，因臍帶可能過早斷裂、胎盤過早分離導致胎兒缺氧），這與馬胎盤為瀰漫性上皮絨毛膜（母子接觸相對鬆散、交換效率較低，胎兒對缺氧耐受度較低）的構造特性相關，是馬產科急症判斷的重要生理依據。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-postpartum">
+      <div class="section-head"><div class="section-num">6</div><h2>產後與子宮復舊</h2></div>
+      <p class="section-desc">分娩後子宮需經歷一系列生理性復原過程，才能恢復正常動情週期，此階段長短直接影響下一次配種時機規劃。</p>
+
+      <h3>子宮復舊 Uterine Involution</h3>
+      <p>分娩後子宮體積與重量快速縮小、子宮內膜再生修復、殘留惡露排出，主要驅動力為持續的子宮收縮（催產素）與子宮血流減少；多數家畜復舊約需<strong>3–6週</strong>完成（牛約需30–40天，馬相對較快約2–3週）。</p>
+
+      <h3>產後動情週期恢復</h3>
+      <p>受泌乳性乏情（見「生殖內分泌與動情週期」章節）與子宮復舊進度雙重影響，恢復時間依物種、營養狀態、哺乳強度差異極大：乳牛未哺乳者常於產後30–50天內恢復排卵，但深受能量負平衡程度影響；哺乳中的肉牛／哺乳犬貓則明顯延遲。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>「產後首次配種時機」臨床決策需同時考量子宮復舊是否完成（避免子宮環境不良影響著床）與動情週期是否已恢復規律排卵，兩者常不同步，是酪農場生殖管理（繁殖效率指標如「產後至受孕天數」）的核心生理基礎。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-mammogenesis">
+      <div class="section-head"><div class="section-num">7</div><h2>乳腺發育 Mammogenesis</h2></div>
+      <p class="section-desc">乳腺組織的發育分四個時期，各期由不同激素組合主導，理解此激素時序是理解泌乳生理啟動時機的基礎。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>時期</th><th>主要變化</th><th>主導激素</th></tr></thead>
+          <tbody>
+            <tr><td><strong>胚胎期 Embryonic</strong></td><td>乳腺原基形成</td><td>基因調控為主，激素影響較少</td></tr>
+            <tr><td><strong>青春期前後 Pubertal</strong></td><td>導管系統分支延伸生長</td><td>雌激素、生長激素</td></tr>
+            <tr><td><strong>妊娠期 Pregnancy</strong></td><td>腺泡（alveoli）大量增生、分化為分泌上皮</td><td>雌激素＋黃體素（導管與腺泡生長）＋泌乳素＋胎盤泌乳素＋皮質醇＋生長激素（協同促進分化）</td></tr>
+            <tr><td><strong>泌乳期 Lactation</strong></td><td>腺泡上皮細胞主動分泌乳汁</td><td>泌乳素為主，催產素驅動排乳（見下段）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>啟動泌乳（Lactogenesis）：黃體素驟降是關鍵開關</h3>
+      <p>妊娠期間高濃度黃體素<strong>抑制</strong>泌乳素對乳腺的作用（雖然乳腺已充分發育，但尚未大量分泌乳汁）；分娩前後黃體素急遽下降（見前段分娩機轉），解除此抑制，泌乳素得以充分作用於已分化完成的腺泡上皮，正式啟動大量乳汁分泌——這是「妊娠期乳腺已發育完全但不分泌、分娩後才開始大量泌乳」現象背後的關鍵激素邏輯。</p>
+    </div>
+
+    <div class="section" id="section-lactation">
+      <div class="section-head"><div class="section-num">8</div><h2>泌乳反射與排乳</h2></div>
+      <p class="section-desc">泌乳期間，乳汁的「持續製造」與「排出（排乳，milk ejection）」是由兩套不同的神經內分泌反射分別掌管，此區分是理解「為何哺乳/擠乳頻率影響泌乳量」的核心。</p>
+
+      <h3>吸吮刺激的雙重反射</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">泌乳素反射（維持乳汁製造）</div>
+          <p>吸吮刺激乳頭感覺神經→傳入下視丘→抑制多巴胺（原本抑制泌乳素分泌）→腦垂體前葉釋放泌乳素↑→刺激腺泡上皮持續合成乳汁。此為經典<strong>神經內分泌反射</strong>（見「生殖內分泌與動情週期」章節分類）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">排乳反射 Milk-ejection reflex（快速排出既有乳汁）</div>
+          <p>吸吮刺激→傳入下視丘→腦垂體後葉釋放<strong>催產素</strong>→經血液作用於乳腺腺泡周圍的<strong>肌上皮細胞（myoepithelial cells）</strong>收縮→擠壓腺泡將乳汁排入乳管與乳池，供仔畜吸吮取用。</p>
+        </div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">重點</div>
+        <p>排乳反射（催產素路徑）可被<strong>恐懼、疼痛、環境緊迫（腎上腺素抑制平滑肌收縮反應）</strong>快速抑制，是臨床上緊迫動物「擠不出奶」或哺乳中斷的常見生理機轉；也可經<strong>制約反射（conditioned reflex）</strong>提前活化——如乳牛僅聽見擠乳器聲音、看見仔畜即開始排乳，屬於高階神經活動介入神經內分泌反射的例子。</p>
+      </div>
+
+      <h3>擠乳／哺乳頻率對泌乳量的影響</h3>
+      <p>乳腺腺泡內乳汁蓄積過度會經局部負回饋機制（乳汁內「泌乳抑制蛋白 FIL，feedback inhibitor of lactation」濃度累積）<strong>局部抑制</strong>該腺葉的持續分泌；因此<strong>頻繁且完整的排空乳房（哺乳或擠乳）可維持並提高整體泌乳量</strong>，這是酪農業「提高擠乳頻率以增加產乳量」管理措施的生理基礎，也是斷奶（drying off）技術（減少排空頻率促使FIL累積、逐步終止泌乳）的原理。</p>
+    </div>
+
+    <div class="section" id="section-colostrum">
+      <div class="section-head"><div class="section-num">9</div><h2>初乳與被動免疫</h2></div>
+      <p class="section-desc">初乳（colostrum）是分娩後最初數日分泌的乳汁，成分與常乳截然不同，對上皮絨毛膜／結合上皮絨毛膜胎盤物種（馬、豬、牛、羊，見前段胎盤分類）的新生兒尤其攸關生死，因其免疫球蛋白無法經胎盤傳輸。</p>
+
+      <h3>初乳成分特性</h3>
+      <ul>
+        <li><strong>高免疫球蛋白濃度</strong>（主要IgG，部分物種也含IgA/IgM），濃度可達常乳數十倍</li>
+        <li>高蛋白質、高脂肪、高礦物質（尤其鎂，有輕瀉作用助排出胎便）</li>
+        <li>富含生長因子（IGF-1等）促進腸道上皮發育成熟</li>
+        <li>低乳糖（相對於常乳）</li>
+      </ul>
+
+      <h3>免疫球蛋白吸收窗口 Gut Closure</h3>
+      <p>新生兒小腸上皮於出生後短時間內可經<strong>胞飲作用（pinocytosis）</strong>將初乳中完整的免疫球蛋白分子直接吸收進入淋巴／血液循環，此能力隨時間快速下降：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>最佳攝取時機</th><th>腸道關閉時間（gut closure）</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">犢牛</span></td><td>出生後越早越好（&lt;2小時內吸收效率最高）</td><td>約24小時（部分報告12–24小時內效率已大幅下降）</td></tr>
+            <tr><td><span class="tag tag-horse">馬駒</span></td><td>出生後盡快，建議1小時內站立吸吮</td><td>約12–24小時，效率下降更快</td></tr>
+            <tr><td>羔羊</td><td>出生後盡快</td><td>約24小時</td></tr>
+            <tr><td>仔豬</td><td>出生後盡快（豬仔沒有母源抗體經胎盤傳輸，且吸收窗口相對短）</td><td>約24–36小時</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p><strong>被動轉移失敗（Failure of Passive Transfer, FPT）</strong>是牛駒等新生畜最重要的可預防性死因之一，臨床評估標準包括初乳品質（比重計／布氏折射計測初乳IgG濃度）、攝取量是否足夠、攝取時機是否在窗口期內；犬貓因胎盤為內皮絨毛膜，部分IgG可經胎盤傳輸，對初乳依賴程度相對較低但仍建議盡早哺乳。</p>
+      </div>
+
+      <h3>各物種常乳組成比較（概略）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>脂肪%</th><th>蛋白質%</th><th>乳糖%</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛</span></td><td>約3.5–4%</td><td>約3.2%</td><td>約4.8%</td><td>—</td></tr>
+            <tr><td>羊</td><td>約6–7%</td><td>約5.5%</td><td>約4.5%</td><td>脂肪蛋白質含量較牛高</td></tr>
+            <tr><td>犬</td><td>約8–10%</td><td>約7–8%</td><td>約3–4%</td><td>高脂肪高蛋白，支持快速生長</td></tr>
+            <tr><td>人</td><td>約4%</td><td>約1%</td><td>約7%</td><td>低蛋白高乳糖，對比家畜乳明顯不同（支持腦部快速發育所需的乳糖能量）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章串起妊娠維持、分娩發動、到泌乳啟動的完整生理鏈，考題常考「妊娠辨識物種比較」「胎盤分類雙系統」「分娩觸發胎兒角色」「初乳吸收窗口」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>妊娠辨識的共通邏輯是阻止子宮正常釋放PGF2α引發黃體溶解</strong>：牛羊用IFN-tau抑制催產素受體，豬靠雌激素改變PGF2α分泌途徑（外分泌入子宮腔），馬靠胚胎移動的物理干擾，人靠hCG直接維持黃體。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>胎盤雙重分類系統</strong>：外觀（瀰漫性/子葉性/環帶性/盤狀）＋組織學接觸層數（上皮絨毛膜0層→血絨毛膜5層），層數越少交換效率越高但出血風險也越高；上皮絨毛膜/結合上皮絨毛膜胎盤（馬豬牛羊）免疫球蛋白無法經胎盤傳輸，新生兒完全依賴初乳。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>分娩由胎兒（非母體）發動</strong>：胎兒HPA軸成熟→皮質醇↑→胎盤黃體素轉雌激素合成→雌激素/黃體素比值逆轉→PGF2α↑→黃體溶解＋子宮收縮→催產素放大級聯。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>分娩三產程</strong>：子宮頸擴張期→胎兒娩出期（Ferguson反射正回饋放大催產素）→胎盤娩出期；馬第二產程極短，超過1小時即為緊急狀況。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>啟動泌乳的關鍵開關是分娩前後黃體素驟降</strong>，解除黃體素對泌乳素作用的抑制，已分化完成的腺泡上皮才開始大量分泌。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>泌乳素反射（製造乳汁）與排乳反射（催產素驅動肌上皮收縮排出乳汁）是兩套獨立的神經內分泌反射</strong>；排乳反射易受緊迫抑制，也可被制約反射提前活化；FIL局部負回饋機制解釋頻繁排空可提高泌乳量。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>初乳免疫球蛋白經胞飲作用吸收，窗口期極短（牛約24小時、馬更短約12–24小時且效率下降更快）</strong>，被動轉移失敗（FPT）是新生畜重要可預防死因。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113學年度《Reproductive Physiology of Animals》Ch7–9，廖泰慶老師，內容參照 Senger《Pathways to Pregnancy and Parturition》教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋妊娠辨識、胎盤分類、分娩機轉、泌乳生理等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 牛與羊的妊娠辨識訊號為何？</div>
+        <ul class="quiz-options">
+          <li>(A) hCG</li>
+          <li>(B) 干擾素-τ (IFN-tau)</li>
+          <li>(C) 胚胎移動</li>
+          <li>(D) PMSG</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">牛羊胚胎滋養層分泌IFN-tau，直接抑制子宮內膜催產素受體表現，阻斷PGF2α的脈衝式釋放，使黃體溶解無法啟動、黃體得以維持分泌黃體素支持妊娠。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 馬與豬的胎盤屬於上皮絨毛膜（epitheliochorial），母子組織層完整保留，免疫球蛋白無法經胎盤傳輸給胎兒。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer true">答案：TRUE</div>
+          <p class="quiz-explain">馬與豬的胎盤為上皮絨毛膜，母子間6層組織完整保留（0層流失），因此免疫球蛋白無法經胎盤直接傳輸，新生兒完全依賴出生後攝取初乳獲得被動免疫，這也是馬駒與仔豬需在出生後盡快、在腸道關閉前攝取足量初乳的關鍵原因。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 分娩觸發的關鍵發動者是下列何者？</div>
+        <ul class="quiz-options">
+          <li>(A) 母體下視丘</li>
+          <li>(B) 母體卵巢黃體</li>
+          <li>(C) 胎兒（經其HPA軸成熟與皮質醇分泌）</li>
+          <li>(D) 子宮內膜自發性收縮</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">分娩訊號的發動者是胎兒本身：胎兒下視丘-腦垂體-腎上腺軸成熟後分泌大量皮質醇，作用於胎盤將黃體素合成路徑轉向雌激素合成，進而啟動整個分娩級聯反應。羊隻研究中切除胎羊腦垂體或腎上腺會導致妊娠期異常延長，證實了此機轉。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明泌乳過程中「泌乳素反射」與「排乳反射」的差異，以及為何緊迫動物容易出現哺乳中斷的現象？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">泌乳素反射負責維持乳汁的持續製造：吸吮刺激經神經傳入下視丘，抑制多巴胺對泌乳素分泌的抑制作用，使腦垂體前葉釋放更多泌乳素，刺激腺泡上皮合成乳汁。排乳反射則負責將已製造好的乳汁快速排出：吸吮刺激經下視丘引發腦垂體後葉釋放催產素，作用於腺泡周圍的肌上皮細胞使其收縮，將乳汁擠入乳管供仔畜吸吮。排乳反射（催產素路徑）特別容易受恐懼、疼痛與環境緊迫抑制（腎上腺素會拮抗平滑肌收縮反應），因此緊迫動物即使乳腺內仍有乳汁、泌乳素分泌正常，也可能因排乳反射被抑制而表現出「擠不出奶」或哺乳中斷的現象。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 下列關於初乳免疫球蛋白吸收「腸道關閉（gut closure）」的敘述，何者最正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 各物種腸道關閉時間相同，皆為72小時</li>
+          <li>(B) 吸收能力隨時間快速下降，出生後越早攝取初乳效率越高，馬駒的窗口期比犢牛更短</li>
+          <li>(C) 腸道關閉後仍可持續有效吸收免疫球蛋白，時機並不重要</li>
+          <li>(D) 只有牛需要注意腸道關閉時機，其他物種不受影響</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">新生兒小腸上皮經胞飲作用吸收完整免疫球蛋白分子的能力隨出生後時間快速下降，各物種窗口期長短不同：犢牛約24小時（但2小時內效率最高），馬駒窗口期更短、效率下降更快（建議出生後1小時內即開始吸吮），因此臨床上強調「越早攝取初乳越好」，並將攝取時機與品質列為評估被動轉移失敗風險的關鍵指標。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  recognition: '妊娠辨識（物種比較）',
+  implantation: '著床時機',
+  placenta: '胎盤分類與功能',
+  parturitiontrigger: '分娩觸發機轉',
+  stages: '分娩三階段',
+  postpartum: '產後與子宮復舊',
+  mammogenesis: '乳腺發育 Mammogenesis',
+  lactation: '泌乳反射與排乳',
+  colostrum: '初乳與被動免疫',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：反芻動物消化生理學 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">反芻動物消化生理學</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">反芻動物消化生理學</h1>
+      <p class="page-subtitle">Fermentative Digestion — 前胃發酵微生物生態、揮發性脂肪酸（VFA）代謝、瘤胃蠕動與反芻、VFA吸收機轉、馬屬後腸發酵比較。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113學年度《Digestion: The Fermentative Processes》，廖泰慶老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總論</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">🐄</span> 發酵消化總論：前胃vs後腸</a>
+    <a onclick="showSection('microbes')" id="nav-microbes"><span class="nav-icon">🦠</span> 瘤胃微生物生態</a>
+    <div class="section-label" style="margin-top:8px;">受質與產物</div>
+    <a onclick="showSection('carbohydrate')" id="nav-carbohydrate"><span class="nav-icon">🌾</span> 醣類受質與細胞壁</a>
+    <a onclick="showSection('vfa')" id="nav-vfa"><span class="nav-icon">⚗️</span> VFA生成與代謝路徑</a>
+    <a onclick="showSection('protein')" id="nav-protein"><span class="nav-icon">🧬</span> 蛋白質發酵與尿素再循環</a>
+    <a onclick="showSection('requirements')" id="nav-requirements"><span class="nav-icon">🌡️</span> 發酵恆定條件</a>
+    <div class="section-label" style="margin-top:8px;">前胃功能</div>
+    <a onclick="showSection('motility')" id="nav-motility"><span class="nav-icon">🔄</span> 網胃瘤胃蠕動與反芻</a>
+    <a onclick="showSection('omasum')" id="nav-omasum"><span class="nav-icon">📖</span> 瓣胃與皺胃功能</a>
+    <a onclick="showSection('absorption')" id="nav-absorption"><span class="nav-icon">🧪</span> VFA吸收機轉</a>
+    <div class="section-label" style="margin-top:8px;">比較生理</div>
+    <a onclick="showSection('hindgut')" id="nav-hindgut"><span class="nav-icon">🐴</span> 馬屬後腸發酵比較</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>發酵消化總論：前胃vs後腸</h2></div>
+      <p class="section-desc">發酵消化的本質是微生物代謝作用，而非動物自身的酵素消化；理解發酵消化與一般腺體消化的根本差異，是理解反芻動物整套消化生理的起點。</p>
+
+      <h3>發酵消化 vs 一般腺體消化</h3>
+      <ul>
+        <li>發酵消化的反應速率遠慢於一般腺體消化</li>
+        <li>受質在發酵過程中被改變的程度遠大於一般消化</li>
+        <li>發酵消化的酵素<strong>由微生物產生，而非動物自身分泌</strong></li>
+      </ul>
+
+      <h3>發酵室的解剖分布：前胃 vs 後腸</h3>
+      <div class="figure">
+        <img src="img/反芻動物消化生理學/rum_p8.png" alt="牛的消化系統解剖圖：四腔室胃（瘤胃/網胃/瓣胃/皺胃）">
+        <div class="figure-caption">牛的消化系統：口腔→食道→四腔室胃（瘤胃Rumen、網胃Reticulum、瓣胃Omasum、皺胃Abomasum）→小腸→大腸。四腔室胃中，瘤胃／網胃／瓣胃合稱「前胃（forestomach）」，僅皺胃為真正的腺體胃（相當於單胃動物的胃）。</div>
+        <div class="figure-source">來源：113學年度《Digestion: The Fermentative Processes》課程講義</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>發酵室位置</th><th>解剖類型</th><th>代表物種</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>前胃 Forestomach</strong></td><td>四腔室胃</td><td><span class="tag tag-cattle">反芻獸（牛、羊）</span>、河馬</td></tr>
+            <tr><td>三腔室胃</td><td>駱駝科（駱馬、羊駝）</td></tr>
+            <tr><td>單腔室胃（但仍發酵）</td><td>疣猴科猴、樹懶</td></tr>
+            <tr><td rowspan="2"><strong>後腸 Hindgut</strong></td><td>單胃草食動物</td><td><span class="tag tag-horse">馬</span>、犀牛、貘（大型奇蹄目）</td></tr>
+            <tr><td>單胃草食動物</td><td>齧齒類（大鼠）、兔、無尾熊等小型動物</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>多數單胃動物的消化道（胃pH常低於5、小腸持續沖刷）並不利於微生物大量繁殖，因此發酵消化動物必須演化出特化的解剖構造（前胃或擴大的盲腸／結腸），刻意維持接近中性pH、適當濕度、離子強度與氧化還原環境，「培養並維持」龐大的共生微生物族群。本章聚焦牛（前胃發酵代表）與馬（後腸發酵代表）兩大類型。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-microbes">
+      <div class="section-head"><div class="section-num">2</div><h2>瘤胃微生物生態</h2></div>
+      <p class="section-desc">瘤胃內至少有28種以上功能重要的微生物物種，共同構成高度分工又相互依存的複雜生態系統。</p>
+
+      <h3>三大類微生物</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">細菌 Bacteria</div>
+          <p>每公克瘤胃內容物約含10–100億個細菌細胞，絕大多數為<strong>絕對厭氧菌</strong>，依所能分解的受質分為纖維分解菌、澱粉分解菌、蛋白分解菌、產甲烷菌等多種功能群</p>
+        </div>
+        <div class="card">
+          <div class="card-title">原蟲 Protozoa</div>
+          <p>每公克瘤胃內容物約含10萬–100萬個原蟲細胞，多屬纖毛蟲（Isotricha、Entodinium屬）；可<strong>吞噬並儲存澱粉與蛋白質顆粒</strong>於體內保護其免受細菌分解，因而減緩快速可發酵受質的分解速度；雖具消化能力，但<strong>並非瘤胃功能所必需</strong>（反芻動物可在無原蟲狀態下正常存活）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">真菌 Fungi</div>
+          <p>能分解部分木質素，在植物細胞壁的分解上可能扮演重要角色</p>
+        </div>
+      </div>
+
+      <h3>微生物間的協同分工（交叉餵養 Cross-feeding）</h3>
+      <p>不同功能菌種間存在密切的代謝依存關係，例如<strong>Ruminococcus albus（分解纖維素）</strong>與<strong>Bacteroides ruminicola（分解蛋白質）</strong>可交換代謝產物（氨、支鏈脂肪酸）互相利用，形成複雜的營養交換網絡；部分微生物能合成B群維生素供其他菌種利用，這也是反芻動物飼糧通常不需額外添加B群維生素的生理基礎（腸道微生物自行供應）。</p>
+    </div>
+
+    <div class="section" id="section-carbohydrate">
+      <div class="section-head"><div class="section-num">3</div><h2>醣類受質與細胞壁</h2></div>
+      <p class="section-desc">植物細胞壁是反芻動物飼糧中最主要的發酵受質，其複雜的醣類組成結構決定了微生物能分解的效率與速度。</p>
+
+      <h3>醣類的三大類型</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">糖 Sugars</div><p>植物體內的能量運輸分子，單體至三聚體，如葡萄糖、乳糖、麥芽糖</p></div>
+        <div class="card"><div class="card-title">澱粉 Starch</div><p>植物能量儲存型多聚醣類，如支鏈澱粉與直鏈澱粉，是雜食動物飲食中主要能量來源之一</p></div>
+        <div class="card"><div class="card-title">纖維 Fiber</div><p>由纖維素構成，是植物的結構組成部分（牧草／飼料），是草食動物最主要的能量來源</p></div>
+      </div>
+
+      <h3>植物細胞壁的結構類比</h3>
+      <p>植物細胞壁結構可類比動物結締組織：<strong>纖維素（長纖維狀分子，提供強度）</strong>類似<strong>膠原蛋白</strong>；<strong>半纖維素、果膠與木質素（將纖維素黏合固定）</strong>類似<strong>玻尿酸與軟骨素硫酸鹽</strong>——但木質素本身<strong>不屬於醣類</strong>，是一群異質性的酚類化合物。</p>
+
+      <h3>木質素的重要性（雙面刃）</h3>
+      <ul>
+        <li>木質素本身<strong>幾乎無法被消化</strong>（不論動物本身酵素或微生物酵素皆難以分解）</li>
+        <li><strong>包覆並保護</strong>細胞壁碳水化合物，使其免受細菌纖維素酶作用——木質素含量越高，飼料整體可消化率越低</li>
+        <li>木質素濃度<strong>隨植物成熟度與環境溫度上升而增加</strong>——因此幼嫩、涼季生長的牧草，可消化率高於成熟、熱季生長的牧草，此概念直接影響牧場的飼草管理與採收時機</li>
+      </ul>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>細胞壁醣類（纖維素、半纖維素、果膠）<strong>不能被動物自身的腺體消化酵素直接分解利用</strong>，必須先經微生物代謝分解，這是發酵消化存在的根本意義——將動物自身無法利用的植物結構性醣類，轉化為動物可吸收利用的能量形式（VFA，見下節）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-vfa">
+      <div class="section-head"><div class="section-num">4</div><h2>VFA生成與代謝路徑</h2></div>
+      <p class="section-desc">微生物酵素分解醣類產生的葡萄糖等單醣，並不會直接被宿主動物吸收利用，而是立即被微生物本身攝入進行厭氧代謝，最終產物即是反芻動物最重要的能量來源——揮發性脂肪酸（VFA）。</p>
+
+      <h3>VFA生成的代謝邏輯</h3>
+      <div class="flow">
+        <div class="flow-node">微生物酵素分解植物細胞壁醣類→葡萄糖等單醣（不直接被宿主吸收）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">微生物攝入單醣，經糖解路徑（與哺乳動物細胞相同的路徑）代謝為丙酮酸</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">瘤胃處於厭氧環境，丙酮酸<strong>不進入TCA循環</strong>，轉而經厭氧路徑代謝</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">產生VFA（微生物代謝的廢物）＋部分ATP／NADH供微生物本身生長維持所需</div>
+      </div>
+
+      <h3>主要與次要VFA</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">主要VFA（三大量）</div><p>乙酸（acetic acid）、丙酸（propionic acid）、丁酸（butyric acid）</p></div>
+        <div class="card"><div class="card-title">次要但代謝重要的VFA</div><p>戊酸（valeric acid）、異戊酸（isovaleric acid）、異丁酸（isobutyric acid）、2-甲基丁酸（2-methylbutyric acid），多由支鏈胺基酸代謝產生（見下節）</p></div>
+      </div>
+
+      <h3>VFA生成與甲烷生成的關聯</h3>
+      <p>厭氧代謝需要氧化態輔因子（NAD⁺）的再生，產甲烷菌經<strong>將CO₂還原為甲烷（CH₄）</strong>來達成此再生：<strong>乙酸生成與甲烷生成呈正相關</strong>（乙酸與丁酸生成過程皆會釋出還原態輔因子，需靠產甲烷反應消耗）；<strong>丙酸生成與甲烷生成呈負相關（互補關係）</strong>——丙酸生成路徑本身即可消耗還原態輔因子，故丙酸生成增加時，對產甲烷反應的需求相對減少。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">重點：高精料飼糧降低甲烷產生</div>
+        <p>過量精料攝取、使用細磨或製粒飼料、高澱粉/高穀物飼糧，皆會<strong>抑制對環境敏感的產甲烷菌</strong>，使甲烷生成減少，連帶<strong>降低乙酸生成比例、增加丙酸生成比例</strong>——這正是VFA比例會隨飼糧組成改變的分子機轉基礎，也是反芻動物營養學研究降低甲烷排放（溫室氣體管理）的重要切入點。</p>
+      </div>
+
+      <h3>飼糧組成對VFA比例的影響</h3>
+      <div class="figure">
+        <img src="img/反芻動物消化生理學/rum_p26.png" alt="高纖飼糧與高澱粉飼糧下乙酸丙酸丁酸比例的圓餅圖比較">
+        <div class="figure-caption">高纖維／牧草飼糧下瘤胃VFA比例約為乙酸:丙酸:丁酸 = 70:20:10；高澱粉／穀物飼糧則轉為約60:30:10（丙酸比例上升）；高澱粉飼糧產生的VFA總量遠高於高纖維飼糧，但纖維分解菌相對受抑制。</div>
+        <div class="figure-source">來源：113學年度《Digestion: The Fermentative Processes》課程講義</div>
+      </div>
+
+      <h3>VFA對宿主的能量意義</h3>
+      <p>VFA本質上是微生物厭氧代謝的「廢物」（類似需氧代謝產生的CO₂），但對反芻動物而言卻是<strong>供應約60–80%飲食能量</strong>的最重要能量基質，經瘤胃上皮直接吸收（見「VFA吸收機轉」章節）進入宿主代謝；若VFA未被及時吸收、在瘤胃內堆積，會降低瘤胃pH、抑制甚至終止發酵作用，因此VFA的有效吸收對維持正常瘤胃功能至關重要。</p>
+    </div>
+
+    <div class="section" id="section-protein">
+      <div class="section-head"><div class="section-num">5</div><h2>蛋白質發酵與尿素再循環</h2></div>
+      <p class="section-desc">蛋白質同樣是重要的發酵受質，其代謝路徑與微生物自身蛋白質合成緊密交織，並透過尿素再循環機制，使反芻動物具備利用非蛋白氮源合成蛋白質的獨特能力。</p>
+
+      <h3>蛋白質發酵的基本路徑</h3>
+      <p>飼糧蛋白質經微生物胞外蛋白酶（多為類胰蛋白酶的endopeptidase）分解為胜肽，胜肽被微生物攝入細胞內後可走兩條路徑：<strong>(A) 直接用於合成微生物自身蛋白質</strong>；<strong>(D) 進一步降解經VFA路徑產生能量</strong>（先脫氨產生氨與碳骨架，碳骨架多數可直接進入VFA代謝路徑，但三個支鏈胺基酸〔纈胺酸、白胺酸、異白胺酸〕須先轉換為對應的支鏈脂肪酸，是部分重要纖維分解菌合成支鏈胺基酸所需的必要生長因子）。</p>
+
+      <h3>微生物量是宿主蛋白質與能量的直接來源</h3>
+      <p>微生物本身的菌體質量（隨後被沖入瓣胃、皺胃並消化吸收）是宿主動物蛋白質與能量需求的主要直接來源，微生物生長速率取決於<strong>養分供應速率</strong>與<strong>微生物被沖出瘤胃的速率</strong>兩者間的平衡。</p>
+
+      <h3>醣類與蛋白質供應的匹配關係</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>情境</th><th>結果</th></tr></thead>
+          <tbody>
+            <tr><td>胜肽（蛋白質）與葡萄糖供應良好匹配</td><td>微生物生長↑、VFA↑，氨（NH₃）維持適當水平</td></tr>
+            <tr><td>葡萄糖（能量）相對過剩</td><td>VFA↑但微生物生長與氨相對受限（缺乏氮源合成更多菌體）</td></tr>
+            <tr><td>胜肽（蛋白質）相對過剩</td><td>氨大量堆積（↑↑）、VFA↑，但微生物生長受限（缺乏足夠可利用能量）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>尿素再循環 Urea Recycling</h3>
+      <p>若醣類供應充足，多數瘤胃微生物（即使原本能利用現成胜肽者）也能<strong>直接利用氨合成自身蛋白質</strong>——這代表蛋白質可經非蛋白氮源（如氨、硝酸鹽、尿素）在瘤胃內被合成出來。宿主肝臟將體內胺基酸脫胺代謝產生的尿素，可經兩條路徑送回瘤胃：<strong>(1) 血液尿素直接擴散進入瘤胃</strong>；<strong>(2) 經唾液分泌尿素進入瘤胃</strong>。進入瘤胃的尿素迅速被微生物尿素酶轉化為氨，再被微生物用於合成菌體蛋白——這個「肝臟生成尿素→瘤胃回收再利用」的循環機制，使反芻動物能有效節省並回收氮素，在低蛋白飼糧下仍能維持相對穩定的微生物蛋白質供應，是反芻動物營養代謝上一大優勢，也是尿素可作為反芻動物飼糧非蛋白氮補充來源的生理基礎。</p>
+    </div>
+
+    <div class="section" id="section-requirements">
+      <div class="section-head"><div class="section-num">6</div><h2>發酵恆定條件</h2></div>
+      <p class="section-desc">要維持宿主體內良好的發酵功能，需同時滿足多項生理條件，這些條件由宿主動物的恆定機制主動維持，理解這些數值範圍是重要的考試重點。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>條件</th><th>正常範圍</th><th>維持機轉</th></tr></thead>
+          <tbody>
+            <tr><td><strong>溫度</strong></td><td>約37°C</td><td>宿主體溫恆定</td></tr>
+            <tr><td><strong>滲透壓（離子強度）</strong></td><td>約300 mOsm</td><td>唾液與瘤胃上皮電解質交換</td></tr>
+            <tr><td><strong>氧化還原電位</strong></td><td>約−250 ～ −450 mV（強負值，維持厭氧）</td><td>宿主恆定機制主動排除氧氣</td></tr>
+            <tr><td><strong>pH</strong></td><td>應維持在5.7以上</td><td>大量唾液分泌（含碳酸氫鹽緩衝液）＋VFA吸收移除</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>此外，發酵功能正常運作還需要：持續供應可發酵受質（採食）、不可消化殘渣（如木質素）須被移除、微生物移除速率須與最適微生物的世代再生時間相容（過快沖出會使有益菌群流失）、以及發酵酸性產物（VFA）必須被緩衝或移除以維持pH。</p>
+    </div>
+
+    <div class="section" id="section-motility">
+      <div class="section-head"><div class="section-num">7</div><h2>網胃瘤胃蠕動與反芻</h2></div>
+      <p class="section-desc">網胃瘤胃（reticulorumen）的蠕動模式對發酵功能至關重要，核心目的是「選擇性滯留正在發酵的物質，同時排出不可發酵殘渣」，可分三種收縮型式，皆由迷走神經調控。</p>
+
+      <h3>三種收縮型式</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">混合（初級）收縮 Mixing</div>
+          <p>每分鐘1–3次，將內容物與瘤胃菌群充分混合以促進有效發酵；採食時頻率最高，深睡時完全消失；粗纖維飼料刺激最頻繁強烈的收縮</p>
+        </div>
+        <div class="card">
+          <div class="card-title">噯氣（二級）收縮 Eructation</div>
+          <p>將發酵產生的氣體（CO₂、少量CH₄，不含固形物）移送至賁門並排入食道；每次約需30秒，通常每3–5次混合收縮後發生一次；部分噯氣氣體會先吸入氣管肺臟、再隨呼氣排出，可能具有降低打嗝聲響、避免招來掠食者注意的演化意義</p>
+        </div>
+        <div class="card">
+          <div class="card-title">逆嘔（反芻）收縮 Regurgitation</div>
+          <p>將瘤胃內容物（不含氣體）逆送回口腔重新咀嚼，是反芻行為的起始動作</p>
+        </div>
+      </div>
+
+      <h3>瘤胃內容物的分層與流動</h3>
+      <p>瘤胃內容物依比重與消化程度分層：<strong>長纖維物質形成上層纖維墊（fibrous mat）</strong>，<strong>小顆粒懸浮於下層液態部分</strong>。初步咀嚼後的1–2公分顆粒經發酵進一步分解至2–3公釐後，才能通過網胃-瓣胃孔進入下一段消化道；粗大顆粒須先經反芻重新咀嚼、縮小顆粒大小、增加細菌附著表面積，才能有效被進一步分解。</p>
+
+      <h3>反芻 Rumination（Cud Chewing）</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">網胃額外收縮，同時賁門放鬆、胸廓吸氣式擴張（聲門關閉），胸腔產生負壓，將食團吸入食道。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">逆蠕動波將食團推送至口腔。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">重新咀嚼（remastication），時間長短依飼糧種類而定，高纖飼糧每日可長達約10小時，高穀物飼糧則近乎不需要反芻。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">舌與頰協助擠出食團中的水分與小顆粒，先行吞下；大顆粒則被送回瘤胃前段，達到依顆粒大小分離的效果。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">咀嚼過程刺激大量唾液分泌，有助於緩衝瘤胃pH。</div></div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">臨床連結：群體反芻比例的牧場管理意義</div>
+        <p>牛群休息時，理論上<strong>至少60%的牛應正在反芻</strong>；若反芻牛比例低於60%，往往提示飼糧纖維含量不足，是牧場營養管理上常用的群體行為觀察指標。</p>
+      </div>
+
+      <h3>神經調控</h3>
+      <p>網胃瘤胃蠕動由<strong>延腦迷走背核</strong>經迷走神經支配調控；迷走神經受損時，瘤胃肌肉活動初期完全停止，數日後雖可恢復但變得紊亂不協調、無法支持正常內容物流動——<strong>迷走神經被切除的反芻動物無法存活</strong>。重要傳入訊號包括：牽張受器（偵測擴張程度，中度擴張促進蠕動與反芻，嚴重擴張如病理性臌氣則抑制蠕動）、內容物質地受器（多汁飼料/穀物/細切飼料負回饋抑制蠕動，乾燥長莖乾草正回饋促進蠕動）、化學受器（偵測pH、VFA濃度、離子強度，pH低於5.0時蠕動嚴重受抑制）。</p>
+    </div>
+
+    <div class="section" id="section-omasum">
+      <div class="section-head"><div class="section-num">8</div><h2>瓣胃與皺胃功能</h2></div>
+      <p class="section-desc">瓣胃與皺胃分別扮演過濾/吸收與最終腺體消化的角色，是前胃系統銜接到腺體胃消化的最後兩個環節。</p>
+
+      <h3>瓣胃 Omasum</h3>
+      <p>由充滿肌肉葉片的「體（greater curvature）」與「管道（lesser curvature）」構成；網胃-瓣胃孔通常保持開啟（尤其網胃收縮第二期時擴張），但瓣胃管道收縮時會短暫關閉、將新進入的內容物擠入葉片間；瓣胃收縮時將內容物由體部推入管道再送往皺胃。瓣胃具龐大的黏膜表面積（葉片構造），推測具吸收功能（VFA與水分），可能在內容物進入皺胃前移除殘餘VFA與碳酸氫鹽，但確切機轉仍不完全清楚。瓣胃-網胃功能對前胃內容物順利排出至關重要，若因外傷損及網胃或瓣胃壁或迷走神經纖維，可能導致<strong>瓣胃輸送障礙與迷走神經性消化不良</strong>，治療困難。</p>
+
+      <h3>皺胃 Abomasum</h3>
+      <p>功能類似單胃動物的真胃，收縮將內容物與胃酸/酵素混合，並推送至小腸；瘤胃液中的CO₂在遇到皺胃酸性環境時會因低pH下溶解度降低而釋出，被推回瓣胃、瘤胃準備噯氣排出。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：皺胃移位</div>
+        <p><strong>皺胃移位（displaced abomasum, DA）</strong>：皺胃收縮力大幅降低時，可能因氣體積聚而漂浮至腹腔上方，常見於<strong>分娩後不久的乳牛</strong>，常與低纖維飼糧或誘發低血鈣（產乳熱milk fever）的飼糧管理相關，是乳牛生產獸醫學重要的代謝性疾病併發症。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-absorption">
+      <div class="section-head"><div class="section-num">9</div><h2>VFA吸收機轉</h2></div>
+      <p class="section-desc">VFA吸收對維持正常瘤胃功能至關重要，幾乎所有VFA皆直接經前胃上皮吸收，其構造與吸收機轉具有獨特性。</p>
+
+      <div class="figure">
+        <img src="img/反芻動物消化生理學/rum_p56.png" alt="瘤胃複層鱗狀上皮構造與小腸單層上皮的比較，標示緊密接合、細胞間通道與VFA/Na+運輸">
+        <div class="figure-caption">左：瘤胃複層鱗狀上皮（角質層stratum corneum→顆粒層granulosum→棘層spinosum→基底層basal），棘層與基底層細胞代謝活躍，角質層與顆粒層則已角質化、代謝不活躍；細胞間通道負責運輸VFA、電解質與水分至血液端（約150 mmol Na⁺）。右：對比小腸單層上皮構造。</div>
+        <div class="figure-source">來源：113學年度《Digestion: The Fermentative Processes》課程講義</div>
+      </div>
+
+      <h3>瘤胃上皮構造的特殊性</h3>
+      <p>瘤胃上皮是<strong>複層鱗狀上皮</strong>，結構上與小腸/結腸的單層吸收上皮截然不同，但功能上卻能達到類似小腸/結腸吸收上皮的高效吸收能力，是消化生理學上一個有趣的結構-功能對比案例。</p>
+
+      <h3>VFA吸收的分子機轉</h3>
+      <p>多數VFA在瘤胃液中以<strong>解離型式（Ac⁻）</strong>存在（HAc ⇌ H⁺ + Ac⁻）；解離型VFA須先與H⁺（來源：與Na⁺交換，或碳酸解離）結合形成<strong>未解離的游離VFA（HAc）</strong>，才能以簡單擴散方式穿越細胞膜進入上皮細胞（細胞膜對游離VFA具通透性）。</p>
+
+      <h3>VFA在上皮細胞內的後續代謝（三種VFA各異）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>VFA</th><th>上皮細胞內的處理方式</th></tr></thead>
+          <tbody>
+            <tr><td><strong>乙酸 Acetate</strong></td><td>部分於上皮細胞內完全氧化，其餘以原型吸收進入血液</td></tr>
+            <tr><td><strong>丙酸 Propionate</strong></td><td>多數以原型吸收，小部分於上皮細胞內轉為乳酸</td></tr>
+            <tr><td><strong>丁酸 Butyrate</strong></td><td>幾乎全數經β-羥丁酸去氫酶轉換為<strong>β-羥丁酸（β-hydroxybutyrate）</strong>才進入血液——是反芻動物重要的酮體來源</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>丁酸在瘤胃上皮細胞內幾乎完全被轉換為β-羥丁酸（一種酮體）才進入血液循環，這是反芻動物血液中酮體濃度天生就高於單胃動物的正常生理基礎，臨床評估反芻動物酮症（ketosis）時需將此正常生理背景值納入考量，而非直接套用單胃動物的酮體參考範圍。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-hindgut">
+      <div class="section-head"><div class="section-num">10</div><h2>馬屬後腸發酵比較</h2></div>
+      <p class="section-desc">馬屬動物的胃與小腸功能類似一般單胃動物，但盲腸與結腸（後腸）擴大特化為發酵室，執行與瘤胃類似的發酵功能，是理解「解剖上單胃、功能上部分似反芻獸」這個特殊分類的重點。</p>
+
+      <div class="figure">
+        <img src="img/反芻動物消化生理學/rum_p65.png" alt="馬屬後腸解剖構造：盲腸、腹側結腸、背側結腸、小結腸">
+        <div class="figure-caption">馬屬後腸功能上分四段：盲腸（cecum，含底部、體部、頂部）、腹側結腸（ventral colon）、背側結腸（dorsal colon）、小結腸（small colon）；骨盆曲（pelvic flexure）與大小結腸交界處（橫結腸）為腸徑縮小處，是腸阻塞好發部位。</div>
+        <div class="figure-source">來源：113學年度《Digestion: The Fermentative Processes》課程講義</div>
+      </div>
+
+      <h3>後腸發酵的受質來源</h3>
+      <p>馬的胃與小腸醣類消化效率不如典型單胃動物，即使高穀物飼糧下，<strong>高達29%的飼糧澱粉可能未被小腸消化、直接進入盲腸結腸</strong>成為後腸發酵的受質，前段胃與小腸的浸泡與酸性環境處理可能有助於增加後續微生物分解的可及性。</p>
+
+      <h3>後腸發酵與瘤胃發酵的關鍵差異</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>瘤胃發酵（牛）</th><th>後腸發酵（馬）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>發酵室相對消化道位置</strong></td><td>發酵在<strong>吸收之前</strong>（胃部位）</td><td>發酵在<strong>吸收之後</strong>（小腸後）</td></tr>
+            <tr><td><strong>微生物蛋白質利用</strong></td><td>微生物菌體隨後經皺胃/小腸消化吸收，是宿主重要蛋白質來源</td><td><strong>缺乏有效機制回收後腸合成的微生物蛋白</strong>，多數隨糞便排出，僅少量胺基酸可在盲腸/結腸被直接吸收</td></tr>
+            <tr><td><strong>氮素再循環</strong></td><td>尿素再循環供應微生物氮源</td><td>同樣具尿素再循環機制，供應後腸微生物氮源</td></tr>
+            <tr><td><strong>整體發酵效率</strong></td><td>效率較高</td><td>效率不及反芻動物，牧草的可消化能量值通常低於牛</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>盲腸與結腸的蠕動功能</h3>
+      <p>與瘤胃類似，馬後腸的解剖特徵與蠕動模式也致力於<strong>選擇性滯留長顆粒物質以利發酵</strong>：盲腸每3–4分鐘發生一次強力收縮，將內容物推送經盲結腸孔進入右腹側結腸；腹側結腸具三種蠕動型式——<strong>結腸袋分節（混合促進發酵）、順向蠕動（推進）、逆向蠕動（延遲通過、增加發酵時間、避免微生物被過快沖出）</strong>；<strong>骨盆曲的節律點（pacemaker）啟動逆蠕動活動</strong>。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：結腸阻塞</div>
+        <p>骨盆曲是馬結腸阻塞（colon impaction）的好發部位，因其解剖上腸徑縮小、且固態與液態內容物在此處流動速率不同，是馬屬動物腹痛（colic）臨床上重要的解剖學風險位置，理解此處的蠕動生理有助於理解阻塞好發的機轉。</p>
+      </div>
+
+      <h3>迴腸-盲腸分泌的緩衝功能</h3>
+      <p>迴腸分泌富含碳酸氫鹽與磷酸鹽的液體進入盲腸，功能類似反芻動物唾液對瘤胃的緩衝作用；結腸黏膜也會因應腔內高VFA濃度分泌含Na⁺、碳酸氫鹽與Cl⁻的液體以中和酸度，機轉與瘤胃VFA吸收機轉高度相似。</p>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章的核心是理解「微生物才是真正執行發酵消化的主角」，以及VFA如何從微生物代謝廢物轉化為宿主最重要的能量來源。考題常考「VFA比例隨飼糧變化」「反芻三種收縮型式」「VFA吸收與細胞內代謝差異」「瘤胃vs後腸發酵的關鍵差異」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>發酵消化由微生物酵素完成，反應慢、受質改變程度大</strong>；前胃發酵見於反芻獸/駱駝科，後腸發酵見於馬/兔/齧齒類等單胃草食動物。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>瘤胃細菌絕大多數為絕對厭氧菌，原蟲可吞噬澱粉蛋白但非瘤胃功能所必需</strong>；不同功能菌種間存在交叉餵養協同關係。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>木質素幾乎不可消化且包覆保護細胞壁醣類</strong>，隨植物成熟度與溫度上升而增加，是牧草可消化率的關鍵限制因子。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>微生物將葡萄糖經糖解代謝為丙酮酸，厭氧環境下轉為VFA（乙酸/丙酸/丁酸為主）</strong>；乙酸生成與產甲烷正相關，丙酸生成與產甲烷負相關；高精料飼糧抑制產甲烷菌、提升丙酸比例。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>VFA供應反芻動物60–80%飲食能量</strong>；尿素可經血液擴散或唾液分泌回收進入瘤胃、由微生物轉為氨合成菌體蛋白（尿素再循環），使反芻動物能有效利用非蛋白氮源。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>網胃瘤胃三種收縮：混合（發酵攪拌）、噯氣（排氣）、逆嘔（反芻起始）</strong>，皆受迷走神經調控，迷走神經切除動物無法存活；反芻牛群比例應≥60%，低於此提示飼糧纖維不足。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>VFA以游離型式（HAc）經簡單擴散穿越瘤胃複層鱗狀上皮吸收</strong>，丁酸幾乎完全轉為β-羥丁酸（酮體）才進入血液，是反芻動物酮體基礎值偏高的生理基礎。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>馬後腸發酵在吸收之後（小腸後），缺乏回收微生物蛋白的有效機制</strong>，多數隨糞便流失，整體發酵效率不及瘤胃；骨盆曲是結腸阻塞好發部位。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113學年度《Digestion: The Fermentative Processes》，廖泰慶老師，內容參照 Dukes' Physiology of Domestic Animals 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋瘤胃微生物、VFA代謝、瘤胃蠕動與反芻、VFA吸收機轉、後腸發酵比較等章節重點，題型參照國考與轉學考命題方向（含物種比較題），先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 瘤胃發酵產生的VFA，對宿主動物的意義為何？</div>
+        <ul class="quiz-options">
+          <li>(A) VFA是微生物代謝的廢物，對宿主完全無用，需盡快排出</li>
+          <li>(B) VFA是微生物代謝的廢物，但同時是反芻動物約60–80%飲食能量的來源</li>
+          <li>(C) VFA是宿主直接分泌的消化酵素</li>
+          <li>(D) VFA僅存在於瘤胃液中，不會被吸收利用</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">VFA本質上是瘤胃微生物厭氧代謝的廢物（類似需氧代謝產生CO₂），但對反芻動物而言卻是供應約60–80%飲食能量的最重要能量基質，經瘤胃上皮直接吸收進入宿主代謝，若未被及時吸收堆積則會抑制發酵，因此VFA兼具「微生物廢物」與「宿主關鍵能量來源」雙重身分。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 動物從高纖維牧草飼糧轉換為高穀物精料飼糧後，瘤胃VFA比例最可能出現下列哪種變化？</div>
+        <ul class="quiz-options">
+          <li>(A) 乙酸比例上升，丙酸比例下降</li>
+          <li>(B) 丙酸比例上升，乙酸比例相對下降，產甲烷量減少</li>
+          <li>(C) 丁酸比例大幅上升至50%以上</li>
+          <li>(D) VFA總產量不受飲食組成影響</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">高穀物精料飼糧會抑制對環境敏感的產甲烷菌，使甲烷生成減少；因乙酸生成與產甲烷正相關、丙酸生成與產甲烷負相關，甲烷減少會連帶降低乙酸比例、提升丙酸比例，瘤胃VFA比例由高纖飼糧的70:20:10（乙酸:丙酸:丁酸）轉向高穀物飼糧的60:30:10，同時VFA總產量會因高澱粉飼糧而增加。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. 瘤胃原蟲的消化能力對瘤胃的正常功能是絕對必要的，缺乏原蟲的反芻動物無法存活。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">雖然瘤胃原蟲具備消化能力，能吞噬儲存澱粉與蛋白質，但其功能並非瘤胃正常運作所必需——反芻動物在缺乏原蟲的狀態下仍能正常存活，這與迷走神經切除（動物無法存活）形成鮮明對比，是常見的易混淆考點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 丁酸（butyrate）經瘤胃上皮吸收後，於上皮細胞內主要被轉換為下列何種物質才進入血液？</div>
+        <ul class="quiz-options">
+          <li>(A) 乳酸</li>
+          <li>(B) 葡萄糖</li>
+          <li>(C) β-羥丁酸（β-hydroxybutyrate）</li>
+          <li>(D) 直接以原型進入血液，不經任何轉換</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">丁酸幾乎全數經β-羥丁酸去氫酶在瘤胃上皮細胞內轉換為β-羥丁酸（一種酮體）才進入血液循環，這與乙酸（部分氧化、部分以原型吸收）及丙酸（多數以原型吸收、小部分轉為乳酸）的處理方式明顯不同，也是反芻動物血液酮體基礎濃度天生高於單胃動物的正常生理基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 網胃瘤胃的「噯氣收縮（eructation）」主要功能為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 將瘤胃內容物送回口腔重新咀嚼</li>
+          <li>(B) 將發酵產生的氣體（CO2與少量CH4）排出，不含固形物</li>
+          <li>(C) 混合瘤胃內容物與細菌以促進發酵</li>
+          <li>(D) 將內容物推送進入瓣胃</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">噯氣收縮的功能是將發酵過程中持續產生的氣體（主要CO₂，少量CH₄，每分鐘約2公升）移送至賁門並排入食道、經口鼻排出，不含固形物，通常每3–5次混合收縮後發生一次；若此功能失效（如病理性臌氣），氣體無法排出將導致嚴重腹脹甚至危及生命。逆嘔收縮才是負責將內容物送回口腔的功能。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 請比較反芻動物瘤胃發酵與馬屬動物後腸發酵，在「宿主能否有效利用微生物合成蛋白質」這一點上的關鍵差異，並說明其解剖學原因。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">反芻動物的發酵室（瘤胃）位於消化道的前段，發酵作用發生在小腸吸收之前，因此瘤胃微生物利用飼糧蛋白質與非蛋白氮源（經尿素再循環）合成的自身菌體蛋白質，會隨瘤胃內容物流動，依序經瓣胃、皺胃的腺體消化與小腸吸收，成為宿主重要的蛋白質與能量來源，這是反芻動物營養代謝上的一大優勢。相對地，馬屬動物的發酵室（盲腸與結腸）位於消化道後段，發酵作用發生在小腸吸收之後，此時微生物合成的菌體蛋白質已無法再回到小腸被吸收利用，馬也缺乏其他有效機制回收後腸合成的微生物蛋白，因此絕大多數隨糞便排出體外流失，僅有少量胺基酸能直接由盲腸或結腸吸收，這也是馬後腸發酵整體效率不如反芻動物瘤胃發酵的重要原因之一。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '發酵消化總論：前胃vs後腸',
+  microbes: '瘤胃微生物生態',
+  carbohydrate: '醣類受質與細胞壁',
+  vfa: 'VFA生成與代謝路徑',
+  protein: '蛋白質發酵與尿素再循環',
+  requirements: '發酵恆定條件',
+  motility: '網胃瘤胃蠕動與反芻',
+  omasum: '瓣胃與皺胃功能',
+  absorption: 'VFA吸收機轉',
+  hindgut: '馬屬後腸發酵比較',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

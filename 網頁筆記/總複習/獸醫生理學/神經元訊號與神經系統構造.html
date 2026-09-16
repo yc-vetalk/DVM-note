@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：神經元訊號與神經系統構造 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">神經元訊號與神經系統構造</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">神經元訊號與神經系統構造</h1>
+      <p class="page-subtitle">Neuronal Signaling &amp; the Structure of the Nervous System — 靜止膜電位、動作電位、突觸傳遞、神經傳導物質、腦部構造、自主神經系統。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-1 課程講義《Chapter 6: Neuronal Signaling and the Structure of the Nervous System》，張芳嘉老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">神經組織</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📚</span> 神經系統總論與分類</a>
+    <a onclick="showSection('cells')" id="nav-cells"><span class="nav-icon">🧫</span> 神經元與神經膠細胞</a>
+    <div class="section-label" style="margin-top:8px;">電生理</div>
+    <a onclick="showSection('potential')" id="nav-potential"><span class="nav-icon">⚡</span> 靜止膜電位與動作電位</a>
+    <a onclick="showSection('synapse')" id="nav-synapse"><span class="nav-icon">🔗</span> 突觸傳遞</a>
+    <a onclick="showSection('neurotransmitter')" id="nav-neurotransmitter"><span class="nav-icon">💊</span> 神經傳導物質</a>
+    <div class="section-label" style="margin-top:8px;">巨觀構造</div>
+    <a onclick="showSection('brain')" id="nav-brain"><span class="nav-icon">🧠</span> 腦部構造與功能分區</a>
+    <a onclick="showSection('spinalans')" id="nav-spinalans"><span class="nav-icon">🦴</span> 脊髓與自主神經系統</a>
+    <a onclick="showSection('bbb')" id="nav-bbb"><span class="nav-icon">🛡️</span> 血腦障壁與腦脊髓液</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>神經系統總論與分類</h2></div>
+      <p class="section-desc">神經系統負責感知內外環境變化、控制與整合全身器官系統的功能活動。本節先建立解剖與功能兩套分類系統，是後續所有神經生理章節的架構基礎。</p>
+
+      <h3>解剖分類</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">中樞神經系統 CNS</div><p>腦（brain）與脊髓（spinal cord）</p></div>
+        <div class="card"><div class="card-title">周邊神經系統 PNS</div><p>腦神經、脊神經與周邊神經；特徵為含傳出（運動）與傳入（感覺）神經、神經節與特化神經末梢</p></div>
+      </div>
+
+      <h3>功能分類</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>系統</th><th>次分類</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>體神經系統 SNS</strong></td><td>—</td><td>支配骨骼肌，多為隨意控制</td></tr>
+            <tr><td rowspan="3"><strong>自主神經系統 ANS</strong></td><td>交感 Sympathetic</td><td>戰或逃反應</td></tr>
+            <tr><td>副交感 Parasympathetic</td><td>休息與消化反應</td></tr>
+            <tr><td>腸道神經系統 Enteric division</td><td>肌間神經叢（Auerbach's plexus）＋黏膜下神經叢（submucosal plexus），調控腸胃道運動、分泌、吸收、血流，並與膽囊、胰臟等器官交互作用</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>腸道神經系統（ENS）雖接受交感與副交感神經支配調節，本身卻具有相當程度的<strong>自主運作能力</strong>，可視為獨立於中樞神經系統之外、能局部完成反射的「腸腦（gut brain）」，這是理解消化生理學腸道蠕動調控的重要前導概念。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-cells">
+      <div class="section-head"><div class="section-num">2</div><h2>神經元與神經膠細胞</h2></div>
+      <p class="section-desc">神經組織由神經元（功能單位）與支持細胞（提供物理支持、電絕緣、代謝交換）組成。</p>
+
+      <h3>神經元依功能分類</h3>
+      <ul>
+        <li><strong>感覺神經元 Sensory neurons</strong>：體感覺傳入（somatic afferent）、內臟感覺傳入（visceral afferent）</li>
+        <li><strong>運動神經元 Motor neurons</strong>：體運動傳出（somatic efferent）、內臟運動傳出（visceral efferent）</li>
+        <li><strong>中間神經元 Interneurons</strong>：連接感覺與運動神經元，負責中樞內部整合</li>
+      </ul>
+
+      <h3>支持細胞（神經膠細胞）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>細胞</th><th>分布</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>寡突膠細胞 Oligodendrocyte</strong></td><td>CNS</td><td>形成CNS髓鞘</td></tr>
+            <tr><td><strong>星狀膠細胞 Astrocyte</strong></td><td>CNS</td><td>清除代謝廢物、調節細胞外離子濃度、維持血腦障壁緊密接合、覆蓋郎氏結與突觸的裸露區域（侷限神經傳導物質於突觸間隙並以胞飲作用清除多餘NT）、其足突延伸至軟腦膜基底層形成膠質界膜</td></tr>
+            <tr><td><strong>微膠細胞 Microglia</strong></td><td>CNS</td><td>具吞噬能力，CNS的常駐免疫細胞</td></tr>
+            <tr><td><strong>室管膜細胞 Ependymal cells</strong></td><td>CNS</td><td>襯於腦室與中央管內壁，參與腦脊髓液的生成與流動</td></tr>
+            <tr><td><strong>許旺細胞 Schwann cells</strong></td><td>PNS</td><td>形成PNS髓鞘</td></tr>
+            <tr><td><strong>衛星細胞 Satellite cells</strong></td><td>PNS（神經節）</td><td>包覆神經節內神經元細胞體，提供支持與代謝交換</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>軸突運輸 Axonal Transport</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">順行運輸 Anterograde</div><p>由細胞體往軸突末梢方向，由<strong>驅動蛋白（kinesin）</strong>驅動</p></div>
+        <div class="card"><div class="card-title">逆行運輸 Retrograde</div><p>由軸突末梢往細胞體方向，由<strong>動力蛋白（dynein）</strong>驅動；某些神經毒素與病毒（如狂犬病毒）會利用此路徑逆行入侵中樞神經系統</p></div>
+      </div>
+
+      <h3>神經損傷與再生</h3>
+      <p><strong>退化（順行性／Wallerian degeneration）</strong>：軸突損傷處遠端因失去細胞體營養供應而退化，髓鞘一併瓦解，細胞體本身出現染色質溶解（chromatolysis），碎片由巨噬細胞吞噬清除，其支配的肌肉隨之萎縮。<strong>再生</strong>：PNS中許旺細胞增生形成引導管，軸突以每日約0.5–3 mm的速度向遠端生長；若再生方向錯亂，可能形成<strong>創傷性神經瘤（traumatic neuroma）</strong>。CNS內的軸突再生能力遠不如PNS。</p>
+    </div>
+
+    <div class="section" id="section-potential">
+      <div class="section-head"><div class="section-num">3</div><h2>靜止膜電位與動作電位</h2></div>
+      <p class="section-desc">神經元是興奮性細胞，能以電訊號（膜電位變化）快速傳遞資訊，本節整理靜止膜電位的形成機轉，以及動作電位的產生與傳導原理。</p>
+
+      <h3>靜止膜電位 Resting Membrane Potential</h3>
+      <p>細胞膜對K⁺的通透性遠高於對Na⁺的通透性（靜止時K⁺漏電通道大量開啟），使靜止膜電位接近<strong>K⁺的平衡電位</strong>（多數哺乳類神經元約−70 mV）。以<strong>戈德曼方程式（Goldman equation）</strong>可同時納入多種離子的通透性與濃度差，較單純的能士特方程式（Nernst equation，僅計算單一離子平衡電位）更精確地預測實際靜止膜電位。Na⁺/K⁺-ATPase持續將Na⁺送出、K⁺送入細胞，抵消離子的被動漏電流，維持穩定的離子濃度梯度（見「細胞生理學與膜運輸」章節）。</p>
+
+      <h3>漸進電位 Graded Potentials</h3>
+      <p>刺激造成局部膜電位的漸進式改變，<strong>去極化（depolarizing）</strong>使膜電位趨近閾值、<strong>過極化（hyperpolarizing）</strong>使膜電位遠離閾值；漸進電位的<strong>振幅隨傳導距離而衰減</strong>（電緊張性傳導，decremental conduction），與動作電位「全有全無」的性質不同。當去極化漸進電位加總達到閾值，即可觸發動作電位。</p>
+
+      <h3>動作電位 Action Potential</h3>
+      <ul>
+        <li><strong>全有全無律（all-or-none）</strong>：一旦達到閾值即產生固定振幅的動作電位，與刺激強度無關；刺激強度是以「動作電位頻率」而非振幅來編碼。</li>
+        <li>電壓閘門Na⁺通道快速開啟造成去極化上升相，隨後Na⁺通道去活化、電壓閘門K⁺通道開啟造成再極化下降相（詳見「細胞生理學與膜運輸」章節的電壓閘門通道概念）。</li>
+        <li><strong>跳躍式傳導（saltatory conduction）</strong>：有髓鞘軸突的動作電位只在裸露的<strong>郎氏結（node of Ranvier）</strong>間跳躍式再生，大幅提升傳導速度並節省能量消耗，相較於無髓鞘軸突的連續傳導快上許多倍。</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p>局部麻醉藥（如lidocaine）透過阻斷電壓閘門Na⁺通道，抑制動作電位的產生與傳導，達成局部止痛效果；這也解釋了為何較細、無髓鞘的痛覺C型纖維常較粗、有髓鞘的觸覺Aβ纖維更早被局麻藥阻斷（相對麻醉敏感度差異）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-synapse">
+      <div class="section-head"><div class="section-num">4</div><h2>突觸傳遞</h2></div>
+      <p class="section-desc">突觸是神經元之間傳遞訊息的特化接點，本節整理突觸的構造分類與化學突觸傳遞的完整機轉。</p>
+
+      <h3>突觸的構造分類</h3>
+      <div class="grid-4">
+        <div class="card" style="text-align:center;"><div class="card-title">軸突－樹突</div><p>Axodendritic</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">軸突－細胞體</div><p>Axosomatic</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">軸突－軸突</div><p>Axoaxonic</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">樹突－樹突</div><p>Dendrodendritic</p></div>
+      </div>
+
+      <h3>化學突觸傳遞步驟</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">動作電位抵達突觸前終端，電壓閘門<strong>Ca²⁺通道</strong>開啟，Ca²⁺內流。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">突觸小泡經<strong>SNARE蛋白複合體</strong>（可溶性NSF附著受體）完成<strong>停泊（docking）→促發（priming）→融合（fusing）</strong>三階段，與突觸前膜融合；<strong>NSF（N-ethylmaleimide-sensitive fusion protein）</strong>是ATP結合蛋白，參與此融合機轉。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">神經傳導物質經胞吐釋放至突觸間隙，擴散並結合突觸後膜受體。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">突觸後膜產生<strong>興奮性突觸後電位（EPSP）</strong>或<strong>抑制性突觸後電位（IPSP）</strong>：EPSP使膜電位去極化（更接近閾值）、IPSP使膜電位過極化（更遠離閾值）。</div></div>
+
+      <h3>突觸整合與調節</h3>
+      <p>單一神經元可同時接收大量興奮性與抑制性突觸輸入，經<strong>空間加成（多個突觸同時輸入）</strong>與<strong>時間加成（同一突觸短時間內重複輸入）</strong>整合，決定是否達到閾值產生動作電位。<strong>軸突－軸突突觸</strong>可造成<strong>突觸前抑制（presynaptic inhibition）</strong>或<strong>突觸前促進（presynaptic facilitation）</strong>，調節突觸前終端神經傳導物質的釋放量，是比突觸後抑制更精細的訊號調控方式。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>藥物可作用於突觸傳遞的多個環節：影響NT合成、儲存、釋放、與受體結合（致效劑／拮抗劑）、或影響NT的清除（再回收抑制劑、分解酵素抑制劑）——這是理解神經藥理學作用機轉分類的共同架構。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-neurotransmitter">
+      <div class="section-head"><div class="section-num">5</div><h2>神經傳導物質</h2></div>
+      <p class="section-desc">神經傳導物質須符合特定判定準則，才能被確認為真正的傳訊分子；本節依化學分類整理臨床與生理學上最重要的幾種神經傳導物質。</p>
+
+      <h3>神經傳導物質判定準則</h3>
+      <ul>
+        <li>由神經元合成並釋放</li>
+        <li>以可辨識的化學/藥理形式由神經末梢釋放</li>
+        <li>外加該物質應能在突觸後細胞重現刺激突觸前神經元所觀察到的特定效應，且所需濃度應與神經刺激後實際釋放的濃度相當</li>
+        <li>其效應應能被競爭性拮抗劑以劑量依賴方式阻斷</li>
+        <li>須存在適當的機制終止其作用</li>
+      </ul>
+
+      <h3>乙醯膽鹼 Acetylcholine (ACh)</h3>
+      <p>由<strong>膽鹼＋乙醯輔酶A</strong>合成（膽鹼需由血漿攝取或膽鹼化合物代謝取得，神經元無法從頭合成膽鹼，此步驟是限速步驟）；作用終止依賴<strong>乙醯膽鹼酯酶（AChE）</strong>與<strong>丁醯膽鹼酯酶（BuChE）</strong>分解。膽鹼性受體分<strong>菸鹼型（nicotinic）</strong>與<strong>蕈毒鹼型（muscarinic）</strong>兩大類。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床連結</div>
+        <p><strong>沙林（sarin）</strong>等神經毒氣與有機磷農藥透過不可逆抑制AChE，造成ACh在突觸間隙過度累積，引發膽鹼性危象（過度流涎、瞳孔縮小、痙攣、呼吸衰竭），是獸醫臨床有機磷中毒的核心病理生理。</p>
+      </div>
+
+      <h3>兒茶酚胺類 Catecholamines</h3>
+      <p>生合成路徑：酪胺酸→多巴（限速步驟：酪胺酸羥化酶）→多巴胺（Dopa decarboxylase）→正腎上腺素（dopamine β-hydroxylase）→腎上腺素（僅嗜鉻細胞，PNMT）。分解主要經<strong>兒茶酚-O-甲基轉移酶（COMT）</strong>與單胺氧化酶（MAO）路徑。</p>
+
+      <h3>其他重要神經傳導物質</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>神經傳導物質</th><th>類別</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>血清素 Serotonin (5-HT)</strong></td><td>吲哚胺（indoleamine）</td><td>多種受體亞型，部分經自我受體（autoreceptor，多為Gi偶聯）負回饋調控自身釋放；LSD、選擇性血清素再吸收抑制劑（如paroxetine/Paxil）皆作用於此系統</td></tr>
+            <tr><td><strong>麩胺酸 Glutamate</strong></td><td>興奮性胺基酸</td><td>主要興奮性NT，受體含NMDA、AMPA等亞型，與<strong>長期增益作用（long-term potentiation, LTP）</strong>密切相關，是學習記憶的細胞生理基礎</td></tr>
+            <tr><td><strong>GABA（γ-胺基丁酸）</strong></td><td>抑制性胺基酸</td><td>由麩胺酸經<strong>麩胺酸去羧酶（GAD）</strong>合成，是CNS主要的抑制性神經傳導物質；麩胺酸與麩醯胺酸經麩醯胺酸合成酶／麩胺酸酶交互轉換，形成神經元與星狀膠細胞間的「麩胺酸-麩醯胺酸循環」</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-brain">
+      <div class="section-head"><div class="section-num">6</div><h2>腦部構造與功能分區</h2></div>
+      <p class="section-desc">大腦皮質依腦溝（sulcus）分為四大腦葉，各葉具有特化的功能分區；本節同時整理邊緣系統與小腦、腦幹的基本功能。</p>
+
+      <h3>大腦四大腦葉與功能分區</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>腦葉</th><th>重要功能分區</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>額葉 Frontal lobe</strong></td><td>初級運動皮質（中央前回）</td><td>下行運動路徑起點，發動隨意運動</td></tr>
+            <tr><td>Broca氏區</td><td>語言的產生（口說與書寫）</td></tr>
+            <tr><td>前額葉皮質</td><td>人格、洞察力與預見能力</td></tr>
+            <tr><td rowspan="2"><strong>頂葉 Parietal lobe</strong></td><td>初級體感覺皮質（中央後回）</td><td>觸覺與本體感覺的初級皮質處理</td></tr>
+            <tr><td>Wernicke氏區</td><td>語言理解</td></tr>
+            <tr><td rowspan="2"><strong>顳葉 Temporal lobe</strong></td><td>初級聽覺皮質</td><td>聽覺處理</td></tr>
+            <tr><td>海馬迴、海馬旁回（邊緣系統一部分）</td><td>學習與記憶</td></tr>
+            <tr><td><strong>枕葉 Occipital lobe</strong></td><td>初級視覺皮質（距狀溝周圍）</td><td>視覺處理與視覺聯絡區的高階視覺整合</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>邊緣系統 Limbic System</h3>
+      <p>由<strong>乳頭體、穹窿、杏仁核、扣帶回、海馬旁回、海馬迴</strong>等構造組成的功能網路，主要負責情緒調節、動機行為與記憶形成。</p>
+
+      <h3>小腦與腦幹</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">小腦 Cerebellum</div>
+          <p>功能：運動執行的協調、運動計畫、平衡與眼球運動調節；小腦病灶臨床上常表現共濟失調（ataxia）、意向性震顫。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">腦幹 Brainstem（延腦、橋腦、中腦）</div>
+          <p>內含<strong>網狀結構（reticular formation）</strong>，負責運動控制、感覺控制、內臟控制與意識狀態的調控——是後續「意識、腦與行為」章節的構造基礎。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-spinalans">
+      <div class="section-head"><div class="section-num">7</div><h2>脊髓與自主神經系統</h2></div>
+      <p class="section-desc">脊髓依節段支配相對應的身體區域，是周邊神經系統與中樞神經系統的橋樑；本節同時整理自主神經系統傳出路徑的解剖分類。</p>
+
+      <h3>脊髓節段與支配範圍（以犬為例）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>節段</th><th>範圍</th><th>支配區域</th></tr></thead>
+          <tbody>
+            <tr><td>頸髓 Cervical</td><td>C1–C8</td><td>頸部、肩部、前肢肌肉腺體與感覺傳入</td></tr>
+            <tr><td>胸髓 Thoracic</td><td>T1–T12</td><td>肩部、胸腔、上腹壁</td></tr>
+            <tr><td>腰髓 Lumbar</td><td>L1–L5</td><td>下腹壁、髖部、後肢</td></tr>
+            <tr><td>薦髓 Sacral</td><td>S1–S5</td><td>生殖器與下消化道</td></tr>
+            <tr><td>尾髓 Coccygeal</td><td>Co1</td><td>尾部</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>自主神經系統傳出路徑</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">交感神經 Sympathetic（胸腰系統 Thoracolumbar division）</div>
+          <p>節前神經元起於<strong>胸髓與腰髓</strong>側角，經<strong>交感幹（sympathetic trunk）</strong>或<strong>側支神經節（collateral ganglia）</strong>換神經元後支配標的器官；活化時呈現<strong>「戰或逃」反應</strong>（物理或心理壓力狀態下）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">副交感神經 Parasympathetic（顱薦系統 Craniosacral division）</div>
+          <p>節前神經元起於<strong>特定腦神經核（顱部）與薦髓</strong>，節後神經元多位於標的器官附近或器官壁內；活化時呈現<strong>「休息與消化」反應</strong>，屬於恆定維持功能。</p>
+        </div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">臨床連結</div>
+        <p>交感與副交感節前神經元皆釋放<strong>乙醯膽鹼（菸鹼型受體）</strong>；節後神經元則交感多釋放<strong>正腎上腺素（腎上腺素受體，汗腺例外為ACh）</strong>、副交感釋放<strong>乙醯膽鹼（蕈毒鹼型受體）</strong>——這套遞質-受體對應關係是自主神經藥理學（擬交感/擬副交感藥物、atropine等抗膽鹼藥）的生理基礎。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-bbb">
+      <div class="section-head"><div class="section-num">8</div><h2>血腦障壁與腦脊髓液</h2></div>
+      <p class="section-desc">中樞神經系統受到兩層重要的保護與環境調控機制：血腦障壁限制物質進出，腦脊髓液則提供緩衝與代謝交換介質。</p>
+
+      <h3>血腦障壁 Blood-Brain Barrier (BBB)</h3>
+      <p>由腦血管內皮細胞間的緊密接合（受星狀膠細胞維持誘導）構成，限制血液中特定物質進入中樞神經系統組織，保護神經元免受血中波動物質與毒素的直接影響；脂溶性小分子較易通透，多數水溶性與大分子物質則受限。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p>BBB的存在使許多藥物（尤其極性、大分子藥物）難以進入中樞神經系統發揮作用，是神經系統疾病用藥選擇的重要限制因素；發炎、腫瘤或感染狀態下BBB通透性可能改變，影響藥物滲透與病程。</p>
+      </div>
+
+      <h3>腦脊髓液 CSF</h3>
+      <p>由腦室脈絡叢（受室管膜細胞參與）產生，循環於腦室系統與蛛網膜下腔，提供機械緩衝保護與部分代謝交換功能；<strong>腦積水（hydrocephalus）</strong>是CSF循環或再吸收障礙、於腦室內異常積聚所致，可能造成腦室擴大、顱內壓上升，是幼齡犬（尤其吉娃娃等品種）常見的先天性神經系統疾病。</p>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章建立神經系統從分子（離子通道）到巨觀構造（腦葉、脊髓、自主神經）的完整層級，是後續感覺生理學、意識行為、運動控制等章節的共同骨幹。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>解剖分類（CNS/PNS）與功能分類（SNS/ANS）是兩套獨立座標</strong>；ANS再分交感、副交感、腸道神經系統，腸道神經系統具相當程度的自主運作能力。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>CNS髓鞘由寡突膠細胞形成、PNS髓鞘由許旺細胞形成</strong>——這是CNS與PNS神經再生能力差異（PNS較佳）的重要基礎。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>靜止膜電位主要由K⁺通透性決定</strong>（Goldman equation綜合多離子計算）；漸進電位會隨距離衰減、動作電位全有全無且不衰減；跳躍式傳導（郎氏結間跳躍）大幅提升有髓鞘軸突的傳導速度。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>化學突觸傳遞</strong>：Ca²⁺內流→SNARE蛋白媒介小泡融合→NT釋放→突觸後EPSP（去極化）或IPSP（過極化）；軸突-軸突突觸可產生突觸前抑制/促進，比突觸後機制更精細調控NT釋放量。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>ACh作用終止靠AChE分解</strong>（有機磷/沙林中毒機轉）；交感節後多用正腎上腺素，副交感節後用ACh（蕈毒鹼型受體），節前皆用ACh（菸鹼型受體）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>麩胺酸（興奮）與GABA（抑制）是CNS最主要的一對胺基酸類神經傳導物質</strong>；麩胺酸受體活化與長期增益作用（LTP）是學習記憶的細胞基礎。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>額葉（運動、語言產生、人格）、頂葉（體感覺、語言理解）、顳葉（聽覺、記憶）、枕葉（視覺）</strong>各有專責功能分區，邊緣系統負責情緒與記憶，小腦負責運動協調，腦幹網狀結構調控意識狀態。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>交感＝胸腰系統、副交感＝顱薦系統</strong>，是自主神經解剖分類的核心口訣；BBB限制物質進入CNS，是神經藥物選擇的重要限制因子。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-1 獸醫生理學課程講義《Chapter 6: Neuronal Signaling and the Structure of the Nervous System》，張芳嘉老師。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋神經細胞分類、電生理、突觸傳遞、神經傳導物質、腦部構造、自主神經系統等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪一種細胞負責形成中樞神經系統（CNS）的髓鞘？</div>
+        <ul class="quiz-options">
+          <li>(A) 許旺細胞 Schwann cell</li>
+          <li>(B) 寡突膠細胞 Oligodendrocyte</li>
+          <li>(C) 衛星細胞 Satellite cell</li>
+          <li>(D) 微膠細胞 Microglia</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">寡突膠細胞負責形成CNS的髓鞘；許旺細胞負責PNS的髓鞘；衛星細胞包覆PNS神經節內的神經元細胞體；微膠細胞是CNS的常駐免疫吞噬細胞。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 漸進電位（graded potential）的振幅隨傳導距離增加而衰減，動作電位則不會衰減。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">漸進電位以電緊張性方式傳導、振幅隨距離衰減；動作電位一旦產生即維持固定振幅（全有全無律），可沿軸突不衰減地傳導至終端。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 有機磷農藥中毒的核心病理生理機轉為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 阻斷電壓閘門Na⁺通道</li>
+          <li>(B) 不可逆抑制乙醯膽鹼酯酶（AChE），使ACh過度累積</li>
+          <li>(C) 抑制GABA受體</li>
+          <li>(D) 阻斷麩胺酸NMDA受體</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">有機磷與沙林等神經毒氣皆不可逆抑制乙醯膽鹼酯酶，使ACh無法被正常分解而在突觸間隙過度累積，引發膽鹼性危象（流涎、縮瞳、痙攣、呼吸衰竭）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明軸突－軸突突觸（axoaxonic synapse）造成的突觸前抑制，與一般突觸後抑制（IPSP）在調控機制上的差異。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">突觸後抑制（IPSP）是抑制性神經傳導物質直接作用於突觸「後」細胞的受體，使其膜電位過極化、更難達到閾值；突觸前抑制則是軸突-軸突突觸中，調節性神經元作用於另一神經元的突觸前終端，減少其Ca²⁺內流或神經傳導物質釋放量，從源頭降低該突觸對下游細胞的興奮性輸入，是比突觸後機制更精細、更具專一性（只影響特定突觸輸入而非整個突觸後細胞）的調控方式。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 犬的Broca氏區受損，最可能出現下列哪一項功能障礙？</div>
+        <ul class="quiz-options">
+          <li>(A) 初級視覺處理障礙</li>
+          <li>(B) 語言的產生（口說/書寫）障礙</li>
+          <li>(C) 平衡與協調障礙</li>
+          <li>(D) 觸覺初級處理障礙</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Broca氏區位於額葉，負責語言的產生（口說與書寫）；語言理解則是頂葉/顳葉交界的Wernicke氏區負責；平衡協調主要是小腦功能；觸覺初級處理是頂葉的初級體感覺皮質功能。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 副交感神經系統的節前與節後神經元分別起源於下列哪些部位？</div>
+        <ul class="quiz-options">
+          <li>(A) 胸髓與腰髓（胸腰系統）</li>
+          <li>(B) 特定腦神經核與薦髓（顱薦系統）</li>
+          <li>(C) 僅起源於延腦</li>
+          <li>(D) 僅起源於薦髓</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">副交感神經屬顱薦系統（craniosacral division），節前神經元起於特定腦神經核（顱部）與薦髓；交感神經則屬胸腰系統（thoracolumbar division），節前神經元起於胸髓與腰髓側角。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '神經系統總論與分類',
+  cells: '神經元與神經膠細胞',
+  potential: '靜止膜電位與動作電位',
+  synapse: '突觸傳遞',
+  neurotransmitter: '神經傳導物質',
+  brain: '腦部構造與功能分區',
+  spinalans: '脊髓與自主神經系統',
+  bbb: '血腦障壁與腦脊髓液',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

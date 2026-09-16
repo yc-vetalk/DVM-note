@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：意識、腦與行為 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">意識、腦與行為</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">意識、腦與行為</h1>
+      <p class="page-subtitle">Consciousness, the Brain, and Behavior — 意識狀態與EEG、睡眠分期概論、昏迷與腦死、注意力機制、邊緣系統情緒、大腦優勢半球與語言。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-1 課程講義《Chapter 8: Consciousness, the Brain, and Behavior》，張芳嘉老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">意識與腦波</div>
+    <a class="active" onclick="showSection('consciousness')" id="nav-consciousness"><span class="nav-icon">💭</span> 意識狀態的定義</a>
+    <a onclick="showSection('eeg')" id="nav-eeg"><span class="nav-icon">📈</span> 腦電圖 EEG</a>
+    <a onclick="showSection('sleep')" id="nav-sleep"><span class="nav-icon">😴</span> 睡眠分期概論</a>
+    <a onclick="showSection('coma')" id="nav-coma"><span class="nav-icon">🏥</span> 昏迷與腦死</a>
+    <div class="section-label" style="margin-top:8px;">行為與高階功能</div>
+    <a onclick="showSection('attention')" id="nav-attention"><span class="nav-icon">🎯</span> 注意力與意識經驗</a>
+    <a onclick="showSection('emotion')" id="nav-emotion"><span class="nav-icon">❤️</span> 邊緣系統與情緒行為</a>
+    <a onclick="showSection('psychiatric')" id="nav-psychiatric"><span class="nav-icon">🧩</span> 精神疾病與藥理連結</a>
+    <a onclick="showSection('dominance')" id="nav-dominance"><span class="nav-icon">🗣️</span> 大腦優勢半球與語言</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-consciousness">
+      <div class="section-head"><div class="section-num">1</div><h2>意識狀態的定義</h2></div>
+      <p class="section-desc">意識是大腦最複雜的整合功能之一，生理學上區分兩個層次的概念。</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">意識狀態 States of Consciousness</div><p>指個體是清醒、睡眠、昏沉等狀態，是可由外在行為觀察或以儀器（EEG）記錄的生理狀態。</p></div>
+        <div class="card"><div class="card-title">意識經驗 Conscious Experience</div><p>指個體在任一意識狀態下，對自身思緒、感受、知覺、想法、夢境、推理過程的覺察。</p></div>
+      </div>
+      <p>意識狀態的判定方式：<strong>依行為</strong>（由警覺到昏迷的連續光譜）、<strong>依腦活動模式</strong>（可用腦電圖客觀記錄）。</p>
+    </div>
+
+    <div class="section" id="section-eeg">
+      <div class="section-head"><div class="section-num">2</div><h2>腦電圖 EEG</h2></div>
+      <p class="section-desc">腦電圖記錄大腦皮質神經元同步活動所產生的電位變化，是評估意識狀態、診斷癲癇等神經疾病的重要工具。</p>
+
+      <h3>記錄方式</h3>
+      <p><strong>活動電極（active electrode）</strong>置於欲記錄的神經活動部位，<strong>參考電極（indifferent electrode）</strong>置於遠離活動部位處；電極標準命名依部位：Fp（額極）、F（額）、C（中央）、P（頂）、O（枕）、T（顳）、A（耳廓）、Cz（頭頂），EEG訊號可於時域（頻率）與空域（腦區分布）兩個面向分析。</p>
+
+      <h3>主要腦波型態（頻率1–30 Hz、振幅20–100 µV）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>波型</th><th>頻率</th><th>特徵情境</th></tr></thead>
+          <tbody>
+            <tr><td><strong>α波 Alpha</strong></td><td>8–13 Hz</td><td>放鬆清醒狀態，頂葉與枕葉為主（Berger rhythm）</td></tr>
+            <tr><td><strong>β波 Beta</strong></td><td>13–30 Hz</td><td>振幅最小，專注思考/高度心智活動，額葉為主</td></tr>
+            <tr><td><strong>θ波 Theta</strong></td><td>4–7 Hz</td><td>淺睡期</td></tr>
+            <tr><td><strong>δ波 Delta</strong></td><td>0.5–4 Hz</td><td>深睡期（慢波睡眠）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>感覺誘發電位（sensory evoked potential）</strong>：給予特定感覺刺激後記錄到的相對應腦波反應，可用於評估感覺傳導路徑的完整性；EEG也可用於記錄局部性癲癇發作與全身性癲癇發作時的異常放電模式，是癲癇診斷的重要工具。</p>
+    </div>
+
+    <div class="section" id="section-sleep">
+      <div class="section-head"><div class="section-num">3</div><h2>睡眠分期概論</h2></div>
+      <p class="section-desc">睡眠並非單一均質的狀態，而是呈現週期性交替的多個階段；本節先建立基本分期概念，深入的睡眠調控機轉與物種比較見「睡眠生理與腦波節律」章節。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階段</th><th>特徵</th></tr></thead>
+          <tbody>
+            <tr><td><strong>第一期</strong></td><td>入睡過渡期，持續1–5分鐘，約占整夜睡眠2–5%；失眠、睡眠呼吸中止症患者此期比例明顯增加</td></tr>
+            <tr><td><strong>第二期</strong></td><td>睡眠的「基準」階段，占整夜睡眠約45–60%，屬90分鐘週期的一部分</td></tr>
+            <tr><td><strong>第三、四期（慢波睡眠 Delta sleep）</strong></td><td>腦波由第二期的theta節律大幅減慢為每秒1–2次的delta節律、振幅顯著增加；是恢復性最強的「最深睡眠」階段（並非REM），幼齡動物此期占比可達40%</td></tr>
+            <tr><td><strong>快速動眼期 REM</strong></td><td>占整夜睡眠20–25%；呼吸、心跳、腦波活動加快，可能出現生動夢境，因眼球快速轉動而得名；REM結束後通常回到第二期</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>睡眠的演化保留性與調控</h3>
+      <p>睡眠在所有恆溫脊椎動物（哺乳類）中皆被演化保留，是最強烈的驅力之一——強迫大鼠長時間剝奪睡眠可致死，顯示睡眠具有不可或缺的生理功能。睡眠時序由兩套機制共同調控：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">恆定歷程 Process S</div><p>清醒時逐漸累積睡眠壓力（睡眠需求），睡眠時逐漸消退</p></div>
+        <div class="card"><div class="card-title">晝夜歷程 Process C</div><p>由生理時鐘決定清醒與REM睡眠時序的節律性調控</p></div>
+      </div>
+    </div>
+
+    <div class="section" id="section-coma">
+      <div class="section-head"><div class="section-num">4</div><h2>昏迷與腦死</h2></div>
+      <p class="section-desc">昏迷是意識狀態最嚴重的損傷型態，正確判斷其成因與可逆性，對臨床預後判斷與醫療決策至關重要。</p>
+
+      <h3>昏迷 Coma</h3>
+      <p>因大腦結構性、生理性或代謝性損傷造成嚴重心智功能低下，可能成因：大腦皮質廣泛損傷、腦幹喚醒機制受損、腦幹與皮質間連結中斷、代謝功能障礙、腦部感染、藥物過量（鎮靜劑、安眠藥、麻醉性止痛藥、酒精等）。特徵：即使給予強烈刺激也無法喚醒、無外顯行為反應、雙眼閉合、清醒-睡眠週期消失。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床連結</div>
+        <p><strong>不可逆昏迷可能進展為持續性植物人狀態</strong>；<strong>腦死（brain death）</strong>雖然其他器官仍可能存活，但已被醫學與法律廣泛接受為死亡的判定標準——這是臨床評估重症病患神經預後、討論安樂死或維生醫療決策時的重要生理學基礎。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-attention">
+      <div class="section-head"><div class="section-num">5</div><h2>注意力與意識經驗</h2></div>
+      <p class="section-desc">意識經驗的核心是「覺察」——覺察外在事件或內在想法；注意力是實現這種覺察的關鍵神經機制。</p>
+
+      <h3>選擇性注意力 Selective Attention</h3>
+      <p>指忽略無關刺激的干擾、同時聚焦於當下重要的刺激；行為上表現為<strong>定向反應（orienting response）</strong>，EEG可觀察到轉為β節律（警醒狀態）。神經機制包括：</p>
+      <ul>
+        <li><strong>藍斑核（locus ceruleus）</strong>：以正腎上腺素為神經傳導物質，參與選擇性注意力的神經調節</li>
+        <li><strong>腦幹神經元</strong>：媒介伴隨注意力朝向特定刺激的定向運動</li>
+        <li><strong>皮質多重感覺神經元</strong>：負責刺激的知覺處理</li>
+      </ul>
+
+      <h3>意識經驗的神經機制</h3>
+      <p>目前理論認為意識經驗對應一組<strong>暫時性神經元集合（temporary set of neurons）</strong>的同步活動，例如知覺一個視覺物體時，顏色、運動、空間位置、輪廓等不同屬性分別由視覺皮質的不同區域處理，再整合為統一的知覺經驗。<strong>感覺忽略（sensory neglect）</strong>是重要的臨床病灶定位線索：右側頂葉損傷可造成對側（左側）視野的單側忽略，患者對該側刺激缺乏覺察卻不自知。</p>
+    </div>
+
+    <div class="section" id="section-emotion">
+      <div class="section-head"><div class="section-num">6</div><h2>邊緣系統與情緒行為</h2></div>
+      <p class="section-desc">邊緣系統是情緒、動機與情感疾患的核心神經構造基礎，本節整理獎賞路徑與情緒調控的基本原理。</p>
+
+      <h3>中腦邊緣多巴胺路徑 Mesolimbic Dopamine Pathway</h3>
+      <p>評估誘因與增強物的可利用度（「這值得嗎？」），並將評估結果轉譯為行動——是動機行為與獎賞系統的核心神經迴路，<strong>自我刺激實驗（self-stimulation experiments）</strong>證實動物會主動尋求活化此路徑的行為，是理解成癮行為神經生物學基礎的重要模型。</p>
+      <p><strong>邊緣系統</strong>整體負責情緒、動機與情感性疾患的調控；不同情緒狀態（如悲傷）可對應特定的腦區活動模式改變，可透過功能性造影觀察。</p>
+    </div>
+
+    <div class="section" id="section-psychiatric">
+      <div class="section-head"><div class="section-num">7</div><h2>精神疾病與藥理連結</h2></div>
+      <p class="section-desc">本節簡要整理精神疾病的生理學基礎概念，重點在於神經傳導物質失衡與藥理作用機轉——這些原理同樣適用於獸醫臨床行為醫學與鎮靜/精神科用藥的作用機轉理解。</p>
+
+      <h3>情緒相關概念釐清</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">情緒 Mood</div><p>持續性的情緒狀態，屬於「症狀」——是病患主觀陳述的感受</p></div>
+        <div class="card"><div class="card-title">情感 Affect</div><p>當下、瞬間的情緒表現，屬於「徵候」——是可被觀察者客觀觀察到的表現</p></div>
+      </div>
+
+      <h3>思覺失調症與多巴胺假說</h3>
+      <p>思覺失調症（schizophrenia）以現實感喪失的精神病發作為特徵，常伴隨幻覺（hallucination，感受到不存在的知覺）、妄想（delusion，不真實的信念）、思考不連貫等症狀。<strong>抗精神病藥物</strong>透過阻斷<strong>多巴胺D2受體</strong>發揮療效，是目前思覺失調症藥物治療的核心藥理機轉；阻斷D2受體也常伴隨<strong>錐體外症候群（extrapyramidal side effects）</strong>等副作用。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">臨床連結</div>
+        <p>獸醫臨床常用的<strong>acepromazine（安寧）</strong>等吩噻𠯤類鎮靜劑，其鎮靜與制吐效果正是透過<strong>阻斷多巴胺D2受體</strong>達成，與人類抗精神病藥物享有相似的藥理基礎；止吐藥<strong>metoclopramide（滅吐靈）</strong>同樣經由中樞多巴胺受體拮抗作用發揮止吐效果。</p>
+      </div>
+
+      <h3>情感性疾患概論</h3>
+      <p><strong>單極憂鬱症</strong>特徵為持續數月的憂鬱情緒、失眠或嗜睡、食慾與體重改變、精神動作遲緩、注意力下降等；<strong>躁鬱症（雙極性情感疾患）</strong>則在憂鬱發作與躁狂發作（情緒高昂、活動量增加、睡眠需求減少、多話、判斷力下降）之間交替。這些疾患的藥理治療多涉及調控單胺類神經傳導物質（血清素、正腎上腺素、多巴胺）系統的濃度或受體活性。</p>
+
+      <h3>成癮與耐受性</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">依賴 Dependence</div><p><strong>心理依賴</strong>：渴求物質、無法自主停止使用；<strong>生理依賴</strong>：需持續使用以避免戒斷症狀</p></div>
+        <div class="card"><div class="card-title">耐受性 Tolerance</div><p>需要更高劑量才能達到相同效果，可能因受體數量/敏感度改變，或代謝酵素活性/數量改變所致</p></div>
+      </div>
+    </div>
+
+    <div class="section" id="section-dominance">
+      <div class="section-head"><div class="section-num">8</div><h2>大腦優勢半球與語言</h2></div>
+      <p class="section-desc">大腦兩側半球雖形態相似，功能上卻存在專門化分工，語言功能的側化現象是最經典的例子（人類語言相關研究成果，與「神經元訊號與神經系統構造」章節Broca/Wernicke氏區的解剖位置互為呼應）。</p>
+
+      <h3>失語症 Aphasia</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">接受性失語（Wernicke氏失語）</div>
+          <p>語言流暢但內容錯亂不正確，理解與複誦能力皆差——患者能流暢說話，但語句邏輯混亂、詞不達意。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">表達性失語（Broca氏失語）</div>
+          <p>言語內容幾乎只剩下具實質意義的關鍵詞，語法結構破碎、語句斷續不流暢，但理解能力相對保留。</p>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>兩種失語症的鑑別是神經解剖定位的經典教學範例：Broca氏區（額葉）受損→表達性失語（能理解、難以流暢表達）；Wernicke氏區（顳頂交界）受損→接受性失語（能流暢說話、但內容與理解力異常），務必掌握兩者定位與臨床表現的對應關係，不要混淆。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章整合意識、睡眠、情緒與高階認知功能的生理學原理，考題常考「EEG波型與狀態配對」「昏迷成因」「Broca/Wernicke失語症鑑別」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>意識狀態（清醒/睡眠程度，可觀察/可記錄）vs. 意識經驗（對思緒感受的主觀覺察）</strong>是兩個不同層次的概念。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>EEG四波型</strong>：α波（放鬆清醒）、β波（專注思考，振幅最小）、θ波（淺睡）、δ波（深睡，慢波睡眠）——依頻率由快到慢排列為β&gt;α&gt;θ&gt;δ。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>慢波睡眠（第三四期）才是恢復性最強的「最深」睡眠，並非REM</strong>——這是常見的迷思考點；REM睡眠則以生動夢境、生理指標加快、眼球快速轉動為特徵。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>睡眠時序由恆定歷程（process S，清醒時累積）與晝夜歷程（process C，生理時鐘調控）共同決定</strong>；睡眠在恆溫哺乳類演化上高度保留，長期剝奪可致命。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>昏迷成因多元</strong>（皮質廣泛損傷、腦幹喚醒機制受損、皮質-腦幹連結中斷、代謝異常、感染、藥物過量），不可逆昏迷可能進展為持續性植物人狀態；腦死是臨床與法律共同接受的死亡判定標準。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>選擇性注意力的神經機制核心是藍斑核（正腎上腺素）</strong>；感覺忽略（如右頂葉損傷造成左側忽略）是重要的病灶定位臨床線索。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>抗精神病藥物阻斷多巴胺D2受體</strong>；獸醫臨床acepromazine、metoclopramide等D2拮抗劑的鎮靜/止吐效果，與人類抗精神病藥物享有共同的藥理基礎，是重要的跨領域連結。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Broca氏失語（表達障礙，理解保留）vs. Wernicke氏失語（表達流暢但內容/理解異常）</strong>是語言側化與大腦定位的經典鑑別考題。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-1 獸醫生理學課程講義《Chapter 8: Consciousness, the Brain, and Behavior》，張芳嘉老師。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋意識狀態、EEG、睡眠、昏迷、注意力、精神疾病藥理、失語症等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪一種EEG波型振幅最小、常見於高度專注思考狀態？</div>
+        <ul class="quiz-options">
+          <li>(A) α波</li>
+          <li>(B) β波</li>
+          <li>(C) θ波</li>
+          <li>(D) δ波</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">β波頻率13–30 Hz、振幅最小，常見於額葉區、對應高度心智活動與專注思考；α波對應放鬆清醒狀態。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. REM睡眠是恢復性最強的「最深」睡眠階段。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">恢復性最強、真正「最深」的睡眠階段是第三、四期的慢波睡眠（delta sleep），並非REM；這是常見的睡眠生理迷思考點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 選擇性注意力（selective attention）的核心神經機制主要與下列哪一個腦區／神經傳導物質系統有關？</div>
+        <ul class="quiz-options">
+          <li>(A) 藍斑核，正腎上腺素</li>
+          <li>(B) 黑質，多巴胺</li>
+          <li>(C) 下視丘，組織胺</li>
+          <li>(D) 海馬迴，乙醯膽鹼</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">藍斑核以正腎上腺素為主要神經傳導物質，是選擇性注意力的重要神經調節機制之一，其活化伴隨EEG轉為β節律與定向反應。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 獸醫臨床常用的鎮靜劑acepromazine與止吐藥metoclopramide，其藥理作用與人類抗精神病藥物有何共同的神經生理學基礎？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">三者皆透過阻斷中樞多巴胺D2受體發揮作用：抗精神病藥物藉由阻斷邊緣系統多巴胺D2受體改善思覺失調症的精神病症狀；acepromazine作為吩噻𠯤類藥物，同樣阻斷D2受體達成鎮靜效果；metoclopramide則透過阻斷延腦嘔吐中樞（化學受體觸發區）的D2受體發揮止吐效果，三者共享相同的多巴胺受體拮抗藥理基礎，只是作用的腦區與臨床目的不同。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 患者說話流暢但內容錯亂、詞不達意，理解與複誦能力皆差，最可能是下列哪一區域受損？</div>
+        <ul class="quiz-options">
+          <li>(A) Broca氏區（額葉）</li>
+          <li>(B) Wernicke氏區（顳頂交界）</li>
+          <li>(C) 初級視覺皮質（枕葉）</li>
+          <li>(D) 小腦</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Wernicke氏區受損造成接受性失語：言語流暢但內容錯亂、理解與複誦能力差；Broca氏區受損則造成表達性失語：言語斷續、僅剩關鍵詞，但理解力相對保留。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 請說明「心理依賴」與「生理依賴」的差異，以及「耐受性」可能的機轉。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">心理依賴是對物質產生渴求、難以自主停止使用的心理狀態；生理依賴則是身體已適應該物質的持續存在，一旦停止使用會出現不適的戒斷症狀，必須持續使用才能避免。耐受性是指需要愈來愈高的劑量才能達到相同效果，可能的機轉包括受體數量下調或敏感度降低，以及代謝該物質的酵素數量或活性上升，使相同劑量的實際生物效應下降。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  consciousness: '意識狀態的定義',
+  eeg: '腦電圖 EEG',
+  sleep: '睡眠分期概論',
+  coma: '昏迷與腦死',
+  attention: '注意力與意識經驗',
+  emotion: '邊緣系統與情緒行為',
+  psychiatric: '精神疾病與藥理連結',
+  dominance: '大腦優勢半球與語言',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

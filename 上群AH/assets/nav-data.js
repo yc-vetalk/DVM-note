@@ -12,7 +12,18 @@ const SITE_NAV = [
     label: "內科",
     icon: "🩺",
     url: "內科/index.html",
-    topics: []
+    topics: [
+      {
+        title: "貓糖尿病照護指南",
+        url: "內科/貓糖尿病照護指南.html",
+        desc: "SGLT2 抑制劑時代的診斷、治療決策、居家監測與併發症整理"
+      },
+      {
+        title: "貓慢性腎病（CKD）照護指南",
+        url: "內科/貓慢性腎病CKD照護指南.html",
+        desc: "IRIS 分期系統、依分期治療原則、常見併發症與共病處置、居家照護與監測預後"
+      }
+    ]
   },
   {
     id: "外科",
@@ -68,5 +79,18 @@ const SITE_NAV = [
     icon: "🛠️",
     url: "技術操作與SOP/index.html",
     topics: []
+  },
+  {
+    id: "研討會",
+    label: "研討會",
+    icon: "📝",
+    url: "研討會/index.html",
+    topics: [
+      {
+        title: "犬淋巴瘤照護與診斷新趨勢",
+        url: "研討會/犬淋巴瘤照護與診斷新趨勢.html",
+        desc: "診斷工具比較、分期與分亞期預後、治療選擇與液態切片新工具整理"
+      }
+    ]
   }
 ];

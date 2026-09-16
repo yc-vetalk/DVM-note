@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：感覺生理學 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">感覺生理學</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">感覺生理學</h1>
+      <p class="page-subtitle">Sensory Physiology — 受器轉導機制、訊息編碼、上行路徑、痛覺、視覺／聽覺／前庭／味覺的生理轉導機轉。本頁聚焦「生理機轉」，構造細節請見解剖生理學「特殊感覺」章節。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-1 課程講義《Chapter 7: Sensory Physiology》，張芳嘉老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">感覺總論</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📚</span> 感覺受器與訊息編碼</a>
+    <a onclick="showSection('acuity')" id="nav-acuity"><span class="nav-icon">🔍</span> 感覺敏銳度與側抑制</a>
+    <a onclick="showSection('pathway')" id="nav-pathway"><span class="nav-icon">🛤️</span> 上行感覺路徑</a>
+    <a onclick="showSection('pain')" id="nav-pain"><span class="nav-icon">🩹</span> 痛覺與溫度覺生理</a>
+    <div class="section-label" style="margin-top:8px;">特殊感覺生理</div>
+    <a onclick="showSection('visionoptics')" id="nav-visionoptics"><span class="nav-icon">👓</span> 視覺：光學與屈光</a>
+    <a onclick="showSection('visiontransduction')" id="nav-visiontransduction"><span class="nav-icon">👁️</span> 視覺：光轉導與視網膜處理</a>
+    <a onclick="showSection('hearing')" id="nav-hearing"><span class="nav-icon">👂</span> 聽覺與前庭生理</a>
+    <a onclick="showSection('taste')" id="nav-taste"><span class="nav-icon">👅</span> 味覺轉導機制</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>感覺受器與訊息編碼</h2></div>
+      <p class="section-desc">感覺系統的核心任務是「編碼（coding）」：將外界刺激能量轉換為能傳遞相關訊息至中樞神經系統的神經訊號。</p>
+
+      <h3>感覺受器依刺激型態分類</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受器</th><th>感受刺激</th></tr></thead>
+          <tbody>
+            <tr><td><strong>機械受器 Mechanoreceptor</strong></td><td>壓力、牽張（如觸覺、血壓、肌肉張力）</td></tr>
+            <tr><td><strong>溫度受器 Thermoreceptor</strong></td><td>冷、暖</td></tr>
+            <tr><td><strong>光受器 Photoreceptor</strong></td><td>光波長</td></tr>
+            <tr><td><strong>化學受器 Chemoreceptor</strong></td><td>特定化學物質</td></tr>
+            <tr><td><strong>痛覺受器 Nociceptor</strong></td><td>痛刺激（如熱、組織損傷）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>感覺轉導與受器電位</h3>
+      <p>刺激使受器產生<strong>漸進性受器電位（receptor potential，屬graded potential）</strong>，其振幅與釋放的神經傳導物質量／傳入神經動作電位頻率相關；刺激持續存在時，多數受器會出現<strong>適應（adaptation）</strong>——反應隨時間逐漸減弱，依適應速度分為快適應（phasic，偵測變化）與慢適應（tonic，持續監測狀態）受器。</p>
+
+      <h3>編碼的四個關鍵刺激特性</h3>
+      <ol>
+        <li><strong>能量型態（modality）</strong>：特定刺激模式活化特定受器產生特定感覺；不同感覺模式的受器接受域可能重疊（如冰塊放在皮膚上同時引發觸覺與溫度覺）。</li>
+        <li><strong>強度（intensity）</strong>：以動作電位頻率編碼——刺激越強，傳入神經的放電頻率越高。</li>
+        <li><strong>部位（location）</strong>：由哪個感覺單元（sensory unit，一條傳入神經元及其所有周邊分支所涵蓋的受器）被活化來判斷。</li>
+        <li><strong>持續時間（duration）</strong>：受器適應速度快慢影響對刺激持續時間的判讀。</li>
+      </ol>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>單一傳入神經纖維無法精確判斷刺激的強度與位置——「中等強度但涵蓋範圍廣的刺激」與「強烈但範圍小的刺激」可能引發相同的放電頻率；精確的定位與強度判斷，需要<strong>多個感覺單元的族群反應模式</strong>共同提供資訊。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-acuity">
+      <div class="section-head"><div class="section-num">2</div><h2>感覺敏銳度與側抑制</h2></div>
+      <p class="section-desc">感覺敏銳度（acuity，精確度）取決於感受域的構造特性，側抑制則是提升對比與空間解析度的重要神經機制。</p>
+
+      <h3>決定感覺敏銳度的因素</h3>
+      <ul>
+        <li><strong>感受域大小（receptor field size）</strong>：感受域越小，敏銳度越高</li>
+        <li><strong>感覺單元密度</strong>：密度越高，敏銳度越高</li>
+        <li><strong>感受域重疊程度</strong>：具小感受域的密集感覺單元群，能提供更精確的定位（如指尖的兩點辨別能力遠優於背部）</li>
+      </ul>
+
+      <h3>側抑制 Lateral Inhibition</h3>
+      <p>當某一感覺單元受到強烈刺激而興奮時，會透過中間神經元<strong>抑制其相鄰感覺單元的傳入路徑</strong>，使受刺激中心與周邊的訊號對比增強。側抑制的生理意義：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">提高對比</div><p>凸顯刺激中心與周邊背景的差異，讓大腦更精確辨識刺激邊界</p></div>
+        <div class="card"><div class="card-title">提升空間解析力</div><p>縮小有效感受域範圍，讓大腦更精確定位刺激近似「感受域B的中心」而非模糊範圍</p></div>
+      </div>
+      <p>此外，較高層次的網狀結構與大腦皮質也可透過<strong>下行路徑</strong>控制傳入資訊的輸入強度，機制包含<strong>突觸前抑制</strong>；感覺傳入路徑上普遍存在<strong>聚合（convergence，多個一級神經元匯聚至單一二級神經元）</strong>與<strong>發散（divergence，單一神經元的訊號分散至多個下游神經元）</strong>現象，決定訊號放大或精確度的取捨。</p>
+    </div>
+
+    <div class="section" id="section-pathway">
+      <div class="section-head"><div class="section-num">3</div><h2>上行感覺路徑</h2></div>
+      <p class="section-desc">感覺訊息經由脊髓與腦幹上傳至大腦皮質，主要分為兩類具不同功能特性的上行路徑。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">專一性上行路徑 Specific Ascending Pathways</div>
+          <p>由特定感覺型態的神經元組成，交叉至<strong>對側</strong>後直接投射到大腦皮質特定感覺區，具高度<strong>辨別力</strong>（精確定位與強度判斷）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">非專一性上行路徑 Non-specific Ascending Pathways</div>
+          <p>由<strong>多重模式神經元（polymodal neurons）</strong>組成，可接受多種不同型態的刺激，辨別力低，主要投射至網狀結構，在<strong>維持警覺與喚醒狀態</strong>上扮演重要角色。</p>
+        </div>
+      </div>
+
+      <h3>嗅覺路徑的特殊性</h3>
+      <p>嗅覺訊息由嗅球傳至前嗅核、梨狀皮質、杏仁核、內嗅皮質，直接進入<strong>邊緣系統</strong>，不同於其他體感覺途徑須先經視丘中繼——這解釋了氣味與情緒/記憶的緊密連結。</p>
+
+      <h3>聯絡區與知覺整合</h3>
+      <p><strong>聯絡區（association area）</strong>並非感覺路徑的一部分，但參與傳入資訊的高階複雜分析，涉及情緒與動機；進一步的知覺處理還牽涉警覺、注意力、學習、記憶、語言、情緒，以及跨感覺型態資訊的比對整合（例如：聽到犬隻低吼聲、看到犬隻威嚇姿態、聽錄音播放的低吼聲，三者雖可能是相同聲音刺激，卻因伴隨資訊不同而產生截然不同的知覺與情緒反應）。</p>
+    </div>
+
+    <div class="section" id="section-pain">
+      <div class="section-head"><div class="section-num">4</div><h2>痛覺與溫度覺生理</h2></div>
+      <p class="section-desc">痛覺是獸醫臨床評估與動物福祉的核心議題，本節整理痛覺傳遞路徑、轉移痛機轉，以及閘門控制理論。</p>
+
+      <h3>溫度受器</h3>
+      <p>冷覺受器感受約0–35°C範圍、暖覺受器感受約30–50°C範圍，兩者透過活化<strong>非專一性陽離子通道</strong>產生受器電位；依適應速度組合出不同型態的溫度覺反應模式。</p>
+
+      <h3>痛覺傳遞</h3>
+      <p>痛覺初級傳入神經元的中樞端主要以<strong>麩胺酸（glutamate）</strong>作為神經傳導物質，將痛覺訊息傳給脊髓背角的二級神經元；體內存在<strong>下行抑制路徑（descending inhibitory pathway）</strong>，可由腦幹下行調控脊髓痛覺傳遞的強度，是內生鎮痛機制（如壓力誘發鎮痛）的生理基礎。</p>
+
+      <h3>轉移痛 Referred Pain</h3>
+      <p>內臟痛覺與特定體表區域共用相同的脊髓傳入路徑（匯聚），使大腦將內臟痛覺誤判為來自體表特定區域——典型例子為<strong>心肌梗塞／心絞痛</strong>常表現為左肩或左臂的疼痛。</p>
+
+      <h3>閘門控制理論 Gate Control Hypothesis</h3>
+      <p>粗大的觸覺傳入纖維（Aβ）活化可在脊髓背角抑制細痛覺纖維（Aδ、C）訊號的向上傳遞，如同「關閉閘門」減少痛覺訊息通過——此理論可解釋<strong>經皮神經電刺激（TENS）</strong>與<strong>針灸</strong>緩解疼痛的部分生理機轉（大量非痛覺傳入訊號競爭性地抑制痛覺傳遞）。</p>
+
+      <h3>兩條主要體感覺上行路徑</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>路徑</th><th>傳遞訊息</th><th>組成徑路</th></tr></thead>
+          <tbody>
+            <tr><td><strong>前外側系統 Anterolateral system</strong></td><td>痛覺與溫度覺</td><td>脊髓視丘徑、脊髓網狀徑、脊髓中腦徑</td></tr>
+            <tr><td><strong>背柱-內側蹄系系統 Dorsal column-medial lemniscal system</strong></td><td>觸覺與本體感覺</td><td>經背柱上行、於延腦交叉後經內側蹄系至視丘</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>大腦皮質體感覺區具有<strong>身體部位地形圖（somatotopic map）</strong>的空間對應排列，皮質區域大小與該部位的感覺敏銳度（感覺單元密度）成正比，而非與實際體表面積成正比（如唇部、指尖在人類地圖上佔比極大）。</p>
+    </div>
+
+    <div class="section" id="section-visionoptics">
+      <div class="section-head"><div class="section-num">5</div><h2>視覺：光學與屈光</h2></div>
+      <p class="section-desc">視覺始於光線經眼球屈光系統聚焦於視網膜，本節整理光學調節機轉與常見屈光異常，臨床意義重大。</p>
+
+      <h3>屈光系統與調節</h3>
+      <p>光線依序經<strong>角膜（主要屈光構造，固定屈光力）</strong>與<strong>水晶體（可調節屈光力）</strong>聚焦；水晶體形狀由<strong>睫狀肌</strong>控制（經懸韌帶張力調節），睫狀肌屬<strong>環狀肌</strong>並受<strong>副交感神經</strong>興奮性支配——副交感興奮使睫狀肌收縮、懸韌帶放鬆、水晶體變凸，達成<strong>調節作用（accommodation，看近物）</strong>。</p>
+
+      <h3>常見屈光與眼部病變</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>機轉</th></tr></thead>
+          <tbody>
+            <tr><td><strong>近視 Myopia</strong></td><td>影像聚焦於視網膜前方</td></tr>
+            <tr><td><strong>遠視 Hyperopia</strong></td><td>影像聚焦於視網膜後方</td></tr>
+            <tr><td><strong>老花 Presbyopia</strong></td><td>水晶體隨年齡增長失去彈性，調節能力下降，近點視力隨年齡遠離眼球</td></tr>
+            <tr><td><strong>白內障 Cataract</strong></td><td>水晶體隨老化出現混濁病變</td></tr>
+            <tr><td><strong>散光 Astigmatism</strong></td><td>角膜形狀呈橢圓不對稱（非正圓），導致光線無法聚焦於單一平面，影像模糊或扭曲</td></tr>
+            <tr><td><strong>青光眼 Glaucoma</strong></td><td>眼房液（aqueous humor）排出障礙使眼內壓上升，導致視神經損傷，造成漸進性、不可逆的視力喪失</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床連結</div>
+        <p>青光眼是犬貓急重症眼科疾病，眼內壓急遽上升會在短時間內造成不可逆視神經損傷，須立即降眼壓處置；部分犬種（如可卡犬、貴賓）具品種好發性，是臨床上須高度警覺的眼科急症。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-visiontransduction">
+      <div class="section-head"><div class="section-num">6</div><h2>視覺：光轉導與視網膜處理</h2></div>
+      <p class="section-desc">視網膜光受器將光訊號轉換為神經訊號的機轉相當獨特——是少數「暗處去極化、受光刺激反而過極化」的感覺系統，本節整理光轉導級聯反應與視網膜內的初步訊號處理。</p>
+
+      <h3>光轉導 Phototransduction</h3>
+      <p>光受器（桿狀細胞、錐狀細胞）內的視色素由<strong>視蛋白（opsin）</strong>結合發色團<strong>視黃醛（retinal）</strong>組成；不同視蛋白對視黃醛的結合方式不同，使各光受器對可見光譜不同波段最敏感（桿狀細胞：rhodopsin；錐狀細胞：LW/紅、MW/綠、SW1/紫、SW2/藍等視蛋白亞型）。</p>
+      <div class="flow">
+        <div class="flow-node amber">光線照射 → 視黃醛11-cis構形轉為all-trans</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">關閉 cGMP閘門 Na⁺通道</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">光受器過極化</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">谷胺酸釋放減少</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>與多數感覺受器相反，視網膜光受器在<strong>黑暗中處於去極化狀態</strong>（cGMP閘門Na⁺通道持續開啟，持續釋放麩胺酸）；<strong>受光刺激後轉為過極化</strong>，麩胺酸釋放減少——這是視覺系統獨特的「光→抑制」轉導邏輯，務必與其他感覺系統「刺激→興奮」的一般模式做區分記憶。</p>
+      </div>
+
+      <h3>視網膜內部訊號處理</h3>
+      <p>光受器將訊號傳給雙極細胞，依受器釋放麩胺酸減少後的反應分為：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">On-bipolar cell</div><p>麩胺酸經代謝型受體，光照（麩胺酸↓）時<strong>去極化</strong>（去抑制）</p></div>
+        <div class="card"><div class="card-title">Off-bipolar cell</div><p>麩胺酸經AMPA/kainate受體，光照（麩胺酸↓）時<strong>過極化</strong></p></div>
+      </div>
+      <p>此雙軌設計使視網膜能同時偵測「光開啟」與「光關閉」兩種訊號變化；視網膜細胞間存在高度<strong>聚合（convergence，可達60個光受器匯聚至單一神經節細胞）</strong>，並具有<strong>同心圓形式的感受域（on-center/off-surround 或 off-center/on-surround）</strong>，透過側抑制原理增進對比與敏銳度。</p>
+
+      <h3>明暗與色彩視覺</h3>
+      <p><strong>明亮光線下</strong>：錐狀細胞間的差異反應提供良好的色彩視覺；<strong>昏暗光線下</strong>：僅高敏感度的桿狀細胞能反應，雖然桿狀細胞對不同波長的敏感範圍與錐狀細胞重疊，卻缺乏區分不同波長的機制——這解釋了為何白天色彩鮮豔的物體在夜晚僅呈現灰階。<strong>色盲（color blindness）</strong>最常見為紅綠色覺缺陷。</p>
+
+      <h3>視覺路徑與眼球運動</h3>
+      <p>視覺訊息除主要路徑外，另有分支投射至<strong>視叉上核（suprachiasmatic nucleus，調控晝夜節律）</strong>與<strong>腦幹／小腦（協調眼手動作、凝視固定、瞳孔大小調節）</strong>。眼球運動分為<strong>快速運動（saccade，快速將中央窩轉向周邊新目標）</strong>與<strong>緩慢運動（pursuit movement，追蹤移動目標使影像維持於中央窩）</strong>。</p>
+    </div>
+
+    <div class="section" id="section-hearing">
+      <div class="section-head"><div class="section-num">7</div><h2>聽覺與前庭生理</h2></div>
+      <p class="section-desc">聽覺與前庭系統共用內耳的毛細胞轉導機制，本節聚焦生理轉導與臨床檢查原理（構造細節見解剖生理學「特殊感覺」章節）。</p>
+
+      <h3>聲波的物理特性</h3>
+      <p>可聽範圍約20–20,000 Hz（因物種而異）；低頻聲波振動較慢、高頻聲波振動較快，聲波以壓縮帶（compression）與稀疏帶（rarefaction）交替傳遞。</p>
+
+      <h3>耳蝸毛細胞轉導</h3>
+      <p>覆膜（tectorial membrane）相對基底膜的剪切運動使毛細胞纖毛偏折，靜纖毛偏折方向決定<strong>去極化（釋放麩胺酸增加）</strong>或<strong>過極化</strong>；訊號經耳蝸神經（前庭耳蝸神經CN VIII的耳蝸支）傳入，依序經上橄欖核、背側聽紋、下丘、視丘內側膝狀核到達聽覺皮質。</p>
+
+      <h3>前庭系統轉導</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">半規管（角加速度）</div>
+          <p>三個半規管互相垂直，各自感應不同方向的旋轉；毛細胞<strong>僅在旋轉速率變化時</strong>（角加速度，而非等速旋轉）受到刺激。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">耳石器官：橢圓囊與球狀囊（直線加速度）</div>
+          <p>耳石（otolith）提供慣性質量；<strong>橢圓囊</strong>毛細胞垂直排列，感受頭部偏離水平位置或水平面直線加速度；<strong>球狀囊</strong>毛細胞與橢圓囊呈直角排列，感受由臥到站姿勢改變或垂直方向加速度。</p>
+        </div>
+      </div>
+
+      <h3>前庭系統的功能</h3>
+      <ul>
+        <li>即使頭部位置改變，仍能將眼球固定於同一視覺目標（前庭眼反射）</li>
+        <li>維持身體直立姿勢的前庭反射</li>
+        <li>提供身體位置與加速度的意識覺察、空間知覺與空間記憶</li>
+      </ul>
+
+      <h3>眼球震顫與臨床檢查</h3>
+      <p><strong>眼球震顫（nystagmus）</strong>是前庭系統活化引發的特徵性眼球運動，包含視動性眼震（opticokinetic nystagmus）與旋轉後眼震（postrotatory nystagmus）。<strong>冷熱試驗（caloric reflex test）</strong>：以溫水或冷水灌入外耳道，溫水刺激使前庭傳入神經放電頻率增加，冷水則使放電頻率降低，可誘發特徵性眼震方向（臨床口訣COWS：Cold Opposite, Warm Same，眼震快相方向），用於評估前庭功能是否完整。</p>
+    </div>
+
+    <div class="section" id="section-taste">
+      <div class="section-head"><div class="section-num">8</div><h2>味覺轉導機制</h2></div>
+      <p class="section-desc">味覺受器分布於舌乳頭內的味蕾，五種基本味覺各自透過不同的轉導機制產生去極化訊號。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>味覺型態</th><th>刺激來源</th><th>轉導機制</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鹹味 Salty</strong></td><td>鈉離子</td><td>鈉離子直接經受器通道進入細胞，使膜去極化產生動作電位</td></tr>
+            <tr><td><strong>酸味 Sour</strong></td><td>氫離子</td><td>氫離子阻斷K⁺通道，使受器細胞去極化</td></tr>
+            <tr><td><strong>甜味 Sweet</strong></td><td>葡萄糖、糖精、阿斯巴甜</td><td>與受器細胞膜蛋白結合，活化G蛋白，阻斷K⁺通道，使細胞去極化</td></tr>
+            <tr><td><strong>苦味 Bitter</strong></td><td>植物生物鹼（如番木鱉鹼strychnine、砷）</td><td>活化G蛋白使細胞去極化</td></tr>
+            <tr><td><strong>鮮味 Umami</strong></td><td>麩胺酸鹽等胺基酸</td><td>活化G蛋白使細胞去極化</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>五種味覺中，<strong>鹹味與酸味透過離子直接作用於離子通道</strong>（較原始、快速的轉導機制）；<strong>甜味、苦味、鮮味則透過G蛋白偶聯受體</strong>路徑（與「細胞訊息傳遞」章節GPCR系統相同的訊號邏輯）——這組分類方式是常見的考試重點。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章聚焦感覺系統共通的生理原則與各特殊感覺獨特的轉導機轉，考題常考「視覺獨特的光→過極化邏輯」「味覺各模式轉導機制配對」「痛覺路徑與閘門理論」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>編碼四要素</strong>：能量型態、強度（動作電位頻率）、部位（感覺單元）、持續時間（適應速度）；單一傳入纖維無法同時精確判斷強度與位置，需多感覺單元族群反應共同提供資訊。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>側抑制提升對比與空間解析度</strong>，是視網膜同心圓感受域（on-center/off-surround）與體感覺兩點辨別能力的共同神經機制。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>專一性上行路徑（高辨別力、對側投射至皮質特定區）vs. 非專一性上行路徑（多重模式神經元、投射網狀結構、調控警覺喚醒）</strong>是理解感覺系統巨觀路徑分類的骨幹。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>轉移痛因內臟與體表痛覺傳入路徑於脊髓匯聚而產生</strong>；閘門控制理論（粗觸覺纖維抑制細痛覺纖維）是TENS與針灸止痛的生理基礎之一。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>前外側系統（痛溫覺）vs. 背柱-內側蹄系系統（觸覺本體感覺）</strong>是兩條組成不同、傳遞不同感覺型態的體感覺上行路徑。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>視網膜光受器在暗處去極化、受光刺激反而過極化</strong>，是視覺系統獨有、與其他感覺系統相反的轉導邏輯；青光眼（眼壓上升損傷視神經）是不可逆視力喪失的臨床急症。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>半規管偵測角加速度（僅速率變化時興奮）、耳石器官（橢圓囊/球狀囊）偵測直線加速度與重力位置</strong>；冷熱試驗（COWS口訣）是臨床評估前庭功能的重要工具。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>鹹味／酸味經離子通道直接轉導，甜味／苦味／鮮味經G蛋白偶聯受體轉導</strong>，是味覺五模式機轉分類的核心考點。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-1 獸醫生理學課程講義《Chapter 7: Sensory Physiology》，張芳嘉老師。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋感覺編碼、側抑制、上行路徑、痛覺、視覺、聽覺前庭、味覺等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q1. 刺激強度是以受器電位的傳導速度來編碼，而非動作電位頻率。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">刺激強度是以傳入神經「動作電位的放電頻率」來編碼——刺激越強，放電頻率越高，而非以傳導速度編碼。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 側抑制（lateral inhibition）在感覺系統中的主要生理意義為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 增加刺激的傳導速度</li>
+          <li>(B) 提高對比、提升空間解析度</li>
+          <li>(C) 延長受器的適應時間</li>
+          <li>(D) 降低感覺單元的密度</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">側抑制使受刺激中心的感覺單元抑制周邊感覺單元的傳入訊號，增強中心與周邊的對比、提升空間解析度，是視網膜與體感覺系統共通的神經機制。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q3. 為什麼心肌梗塞的疼痛常表現為左肩或左臂疼痛（轉移痛）？請說明其神經解剖基礎。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">內臟（如心臟）的痛覺傳入神經纖維與特定體表區域（如左肩/左臂）的痛覺傳入纖維，在脊髓背角匯聚到相同的二級神經元／相同的脊髓節段，大腦無法區分訊號真正來源是內臟還是體表，因而將內臟痛覺誤判為來自體表對應的區域，此現象稱為轉移痛。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 視網膜光受器（桿狀/錐狀細胞）在完全黑暗環境中處於什麼狀態？</div>
+        <ul class="quiz-options">
+          <li>(A) 過極化，持續釋放麩胺酸</li>
+          <li>(B) 去極化，持續釋放麩胺酸</li>
+          <li>(C) 去極化，完全不釋放麩胺酸</li>
+          <li>(D) 電位與一般細胞無異，不釋放任何物質</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">黑暗中cGMP閘門Na⁺通道持續開啟，光受器處於去極化狀態並持續釋放麩胺酸；受光刺激後視黃醛構形改變使通道關閉，受器轉為過極化、麩胺酸釋放減少，這與多數其他感覺系統「刺激→興奮」的邏輯相反。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 半規管（semicircular canal）內的毛細胞主要在下列哪一種情況下受到刺激？</div>
+        <ul class="quiz-options">
+          <li>(A) 頭部維持等速旋轉時</li>
+          <li>(B) 頭部旋轉速率發生變化時（角加速度）</li>
+          <li>(C) 頭部完全靜止時</li>
+          <li>(D) 頭部做直線加速運動時</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">半規管毛細胞僅在旋轉速率「變化」（角加速度）時受到刺激，等速旋轉時內淋巴液不再相對滯後流動，毛細胞不再持續興奮；直線加速度則由耳石器官（橢圓囊、球狀囊）負責感受。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 下列哪一組味覺的轉導機制是「直接經由離子通道」而非G蛋白偶聯受體？</div>
+        <ul class="quiz-options">
+          <li>(A) 甜味與苦味</li>
+          <li>(B) 苦味與鮮味</li>
+          <li>(C) 鹹味與酸味</li>
+          <li>(D) 甜味與鮮味</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">鹹味（Na⁺直接進入細胞）與酸味（H⁺阻斷K⁺通道）都是離子直接作用於離子通道的轉導機制；甜味、苦味、鮮味則都經由G蛋白偶聯受體路徑轉導。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '感覺受器與訊息編碼',
+  acuity: '感覺敏銳度與側抑制',
+  pathway: '上行感覺路徑',
+  pain: '痛覺與溫度覺生理',
+  visionoptics: '視覺：光學與屈光',
+  visiontransduction: '視覺：光轉導與視網膜處理',
+  hearing: '聽覺與前庭生理',
+  taste: '味覺轉導機制',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

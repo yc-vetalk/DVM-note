@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：細胞訊息傳遞 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">細胞訊息傳遞</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">細胞訊息傳遞</h1>
+      <p class="page-subtitle">Signal Transduction — 受體種類與親和特性、膜受體訊號路徑、主要第二訊息傳遞物質、訊號終止機制。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-1 課程講義《Cellular Physiology (III)：Signal transduction》，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">受體</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📡</span> 受體總論與親和特性</a>
+    <a onclick="showSection('membrane')" id="nav-membrane"><span class="nav-icon">🧲</span> 水溶性訊息與膜受體家族</a>
+    <a onclick="showSection('nuclear')" id="nav-nuclear"><span class="nav-icon">🧬</span> 脂溶性訊息與核內受體</a>
+    <div class="section-label" style="margin-top:8px;">第二訊息傳遞路徑</div>
+    <a onclick="showSection('gprotein')" id="nav-gprotein"><span class="nav-icon">🔀</span> G蛋白偶聯受體總論</a>
+    <a onclick="showSection('camp')" id="nav-camp"><span class="nav-icon">⚡</span> cAMP／PKA路徑</a>
+    <a onclick="showSection('ip3')" id="nav-ip3"><span class="nav-icon">💥</span> IP₃／DAG／PKC路徑與Ca²⁺</a>
+    <a onclick="showSection('cgmp')" id="nav-cgmp"><span class="nav-icon">🔵</span> cGMP／PKG路徑</a>
+    <a onclick="showSection('termination')" id="nav-termination"><span class="nav-icon">⏹️</span> 訊號終止與路徑交互作用</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>受體總論與親和特性</h2></div>
+      <p class="section-desc">化學訊息分子（第一訊息傳遞物質，first messenger）必須與細胞上的<strong>受體（receptor）</strong>結合才能引發細胞反應。依訊息分子的溶解特性，受體位置分為兩大類，決定了後續整條訊號路徑的走向。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">水溶性訊息分子</div>
+          <p>大多數化學訊息分子（如胜肽類激素、神經傳導物質）為水溶性，<strong>無法穿透細胞膜</strong>，受體位於<strong>細胞膜表面</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">脂溶性訊息分子</div>
+          <p>類固醇激素等脂溶性訊息分子可直接穿透細胞膜，受體位於<strong>細胞質或細胞核內</strong>。</p>
+        </div>
+      </div>
+
+      <h3>受體專一性與細胞反應的多樣性</h3>
+      <p>並非所有細胞都表現相同種類的受體，這種選擇性表現造就了訊息系統的專一性；即使不同細胞表現相同受體，其反應仍可能因<strong>細胞種類、胞內訊號路徑偶聯方式、同時接收到的其他訊號</strong>而有所不同——這解釋了為何同一種激素（如腎上腺素）在不同組織（脂肪細胞、肝細胞）可誘發完全不同的細胞反應。</p>
+
+      <h3>受體親和力與生理意義</h3>
+      <p>受體對配體的<strong>親和力（affinity）</strong>決定其在多低濃度下仍能有效反應；具有本質酪胺酸激酶活性（intrinsic tyrosine kinase activity）的受體，其配體通常影響細胞增殖與分化，因此常被稱為「生長因子（growth factor）」受體。</p>
+    </div>
+
+    <div class="section" id="section-membrane">
+      <div class="section-head"><div class="section-num">2</div><h2>水溶性訊息與膜受體家族</h2></div>
+      <p class="section-desc">水溶性訊息分子結合膜受體後啟動胞內訊號路徑，特點是<strong>反應快、但持續時間較短（半衰期短）</strong>，與脂溶性訊息經核內受體調控基因轉錄的「慢而持久」形成對比。膜受體主要分為四大家族：</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體家族</th><th>作用機轉</th><th>代表例子</th></tr></thead>
+          <tbody>
+            <tr><td><strong>配體閘門離子通道</strong><br>Ligand-gated ion channels</td><td>配體結合直接開啟離子通道，快速改變膜電位或胞內離子組成</td><td>菸鹼型乙醯膽鹼受體</td></tr>
+            <tr><td><strong>G蛋白偶聯受體</strong><br>GPCRs</td><td>經G蛋白活化下游效應蛋白（酵素或離子通道），產生第二訊息傳遞物質</td><td>腎上腺素受體、多數胜肽激素受體</td></tr>
+            <tr><td><strong>本質激酶活性受體</strong><br>Receptors with intrinsic kinase activity</td><td>受體本身即為酵素，配體結合後啟動其激酶活性，磷酸化胞內蛋白</td><td>胰島素受體、表皮生長因子受體（EGFR）</td></tr>
+            <tr><td><strong>酵素偶聯受體</strong><br>Enzyme-coupled receptor（含細胞激素受體）</td><td>受體本身無酵素活性，但結合後徵召胞內激酶（如JAK）進行磷酸化級聯反應</td><td>細胞激素受體（cytokine receptor）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>本質酪胺酸激酶受體 Receptor Tyrosine Kinase</h3>
+      <p>部分受體（如胰島素受體）本身具有酵素活性，多數為<strong>蛋白激酶</strong>，專一性地將受質蛋白的<strong>酪胺酸（tyrosine）</strong>磷酸化。這類路徑的共通點是都涉及胞質蛋白經磷酸化而被活化。<strong>表皮生長因子受體（EGFR）</strong>是重要的臨床標的，其過度活化與多種腫瘤（如非小細胞肺癌NSCLC）相關，同家族的 ERBB2（HER2/Neu）、VEGFR 也是腫瘤標靶藥物的作用受體。</p>
+
+      <h3>JAK-STAT 路徑</h3>
+      <p><strong>Janus激酶（JAK）</strong>是一組共4個成員的胞質酪胺酸激酶家族，在體內不同組織有差異性表現；不同受體結合不同的JAK成員，磷酸化不同的目標蛋白，其中許多目標蛋白本身即為轉錄因子，稱為<strong>STAT（signal transducers and activators of transcription）</strong>。此路徑的最終結果是合成新蛋白質，作為細胞對第一訊息傳遞物質的反應。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p><strong>細胞激素（cytokine）</strong>是免疫系統細胞分泌、在免疫防禦中扮演關鍵角色的蛋白質，其訊號傳遞主要透過與JAK激酶偶聯的受體進行；生長激素（GH）、泌乳素（PRL）等內分泌激素的受體訊號路徑也屬於JAK-STAT系統，是理解後續內分泌生理學的重要銜接概念。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-nuclear">
+      <div class="section-head"><div class="section-num">3</div><h2>脂溶性訊息與核內受體</h2></div>
+      <p class="section-desc">類固醇激素等脂溶性訊息分子直接穿越細胞膜，與細胞質或細胞核內的受體結合，這類受體本身就是<strong>轉錄因子（transcription factor）</strong>，結合配體後直接調控基因表現。</p>
+
+      <h3>雌激素受體為例</h3>
+      <p>雌激素受體（estrogen receptor, ER）是典型的核內受體，具有<strong>輔活化子（coactivator）</strong>與<strong>輔抑制子（corepressor）</strong>蛋白的結合位，決定結合配體後究竟促進或抑制目標基因轉錄。ER 有 ERα 與 ERβ 兩個亞型，兩者結構域（含多個磷酸化位點，涉及非配體依賴性調控）不完全相同，在不同組織的分布比例也不同。此外還有膜結合型的<strong>G蛋白偶聯雌激素受體（GPER）</strong>，可介導雌激素的快速非基因體效應（non-genomic effect），是近年內分泌研究的重點。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>脂溶性訊息傳遞路徑的反應速度<strong>較慢</strong>（需經轉錄、轉譯合成新蛋白質才能產生效應），但效應<strong>持續時間較長</strong>；水溶性訊息經膜受體路徑反應<strong>較快</strong>，但持續時間<strong>較短</strong>——這組對比是常見的考試重點。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-gprotein">
+      <div class="section-head"><div class="section-num">4</div><h2>G蛋白偶聯受體總論</h2></div>
+      <p class="section-desc">G蛋白偶聯受體（GPCR）是數量最多、訊號路徑種類最豐富的受體家族，本節整理其活化循環的共同機轉。</p>
+
+      <h3>G蛋白活化循環</h3>
+      <div class="flow">
+        <div class="flow-node">配體結合受體</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">受體活化G蛋白α次單元對GTP親和力↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">α次單元與βγ次單元解離</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">α次單元活化效應蛋白（離子通道／酵素）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">α次單元內在GTPase活性將GTP水解為GDP+Pi → 失活</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">α次單元與βγ重新結合，循環終止</div>
+      </div>
+      <p>一個受體可能偶聯不只一種G蛋白，同一種G蛋白也可能偶聯不只一種效應蛋白，因此單一第一訊息傳遞物質可透過G蛋白偶聯，同時活化多種膜效應蛋白（離子通道與酵素），引發多樣化的細胞事件。</p>
+
+      <h3>G蛋白家族分類</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>G蛋白亞型</th><th>對效應酵素的作用</th><th>代表受體</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Gs（stimulatory）</strong></td><td>活化腺苷酸環化酶，cAMP↑</td><td>β腎上腺素受體</td></tr>
+            <tr><td><strong>Gi（inhibitory）</strong></td><td>抑制腺苷酸環化酶，cAMP↓</td><td>α₂腎上腺素受體</td></tr>
+            <tr><td><strong>Gq</strong></td><td>活化磷脂酶C（PLC），產生DAG與IP₃</td><td>α₁腎上腺素受體</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>以腎上腺素受體家族為例：不同亞型（α₁、α₂、β）分別偶聯 Gq、Gi、Gs，這是理解自主神經藥理學「同一內生物質透過不同受體亞型產生相反效應」的細胞生理基礎。</p>
+
+      <h3>G蛋白對離子通道的調控</h3>
+      <p>離子通道本身也可作為G蛋白的效應蛋白，調控方式分兩種：<strong>直接調控</strong>——G蛋白直接與通道交互作用，不經第二訊息傳遞物質；<strong>間接調控</strong>——經第二訊息傳遞物質調控，例如PKA磷酸化膜上離子通道使其開啟。</p>
+    </div>
+
+    <div class="section" id="section-camp">
+      <div class="section-head"><div class="section-num">5</div><h2>cAMP／PKA路徑</h2></div>
+      <p class="section-desc">cAMP是體內最普遍的第二訊息傳遞物質系統，本節以腎上腺素為例說明完整路徑，並整理訊號放大與臨床藥理連結。</p>
+
+      <h3>路徑機轉</h3>
+      <div class="flow">
+        <div class="flow-node">配體（如腎上腺素）結合受體</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活化 Gs</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活化腺苷酸環化酶 Adenylyl cyclase</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">ATP → cAMP（第二訊息）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活化 PKA（cAMP依賴性蛋白激酶）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">磷酸化下游目標蛋白 → 細胞反應</div>
+      </div>
+
+      <h3>同一路徑、不同組織的不同效應</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">脂肪細胞</div><p>腎上腺素經cAMP路徑刺激三酸甘油酯分解（脂解作用），由特定磷酸化酵素媒介</p></div>
+        <div class="card"><div class="card-title">肝細胞</div><p>腎上腺素經cAMP路徑同時刺激肝醣分解（glycogenolysis）與糖質新生（gluconeogenesis），由該組織特有的磷酸化酵素媒介</p></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>這正說明「受體專一性表現＋細胞內下游酵素種類差異」如何讓同一種第一訊息傳遞物質（腎上腺素）在不同組織產生完全不同、但各自符合該組織生理需求的反應。</p>
+      </div>
+
+      <h3>cAMP的降解與藥理連結</h3>
+      <p>cAMP最終由<strong>磷酸二酯酶（phosphodiesterase, PDE）</strong>分解為非環狀AMP而終止作用；細胞內cAMP濃度可經由「生成速率」與「分解速率」雙向調控。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">臨床連結</div>
+        <p><strong>咖啡因與茶鹼</strong>（咖啡與茶的活性成分）部分作用機轉是<strong>抑制磷酸二酯酶</strong>，延長cAMP在細胞內的作用時間——這是理解其興奮神經、增強心肌收縮效果的細胞生理基礎，也是臨床上茶鹼類藥物（如治療貓氣喘）的作用原理。</p>
+      </div>
+
+      <h3>訊號放大 Signal Amplification</h3>
+      <p>cAMP路徑具有強大的訊號放大效果：<strong>一個</strong>腎上腺素分子結合受體，可透過G蛋白／腺苷酸環化酶的連續酵素級聯反應，最終使肝臟釋放高達 <strong>10⁸</strong> 個葡萄糖分子——這正是酵素級聯反應（每一步驟一個酵素分子可催化多次反應）逐級放大訊號的體現。</p>
+    </div>
+
+    <div class="section" id="section-ip3">
+      <div class="section-head"><div class="section-num">6</div><h2>IP₃／DAG／PKC路徑與Ca²⁺</h2></div>
+      <p class="section-desc">此路徑由 Gq 蛋白啟動，一次活化產生兩種第二訊息傳遞物質（DAG與IP₃），並與Ca²⁺訊息系統密切交織。</p>
+
+      <h3>磷脂酶C路徑機轉</h3>
+      <div class="flow">
+        <div class="flow-node">配體結合受體，活化 Gq</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活化磷脂酶C（PLC）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">分解膜磷脂PIP₂ → DAG ＋ IP₃</div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">DAG（diacylglycerol）</div>
+          <p>停留在細胞膜上，活化<strong>蛋白激酶C（PKC）</strong>——目前已知至少13種PKC同功型，共同貢獻多樣化的細胞反應。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">IP₃（inositol trisphosphate）</div>
+          <p>擴散至細胞質，結合內質網上的<strong>配體閘門Ca²⁺通道（IP₃受體）</strong>，使通道開啟，Ca²⁺自內質網釋出，細胞質Ca²⁺濃度上升。</p>
+        </div>
+      </div>
+
+      <h3>Ca²⁺作為第二訊息傳遞物質</h3>
+      <ul>
+        <li>細胞質Ca²⁺濃度平時維持在極低濃度，刺激可透過影響主動運輸系統與／或離子通道而改變此穩態，Ca²⁺濃度增加或減少皆可引發細胞反應（包括改變膜電位）。</li>
+        <li><strong>電壓閘門Ca²⁺通道</strong>可被膜電位變化直接開啟，使細胞外Ca²⁺進入細胞；進入的Ca²⁺可進一步結合內質網上Ca²⁺敏感通道使其開啟，形成<strong>「鈣誘發鈣釋放」（Ca²⁺-induced Ca²⁺ release）</strong>的放大機制。</li>
+        <li>Ca²⁺可直接作用於其他訊息蛋白，最重要的是<strong>鈣調蛋白（calmodulin）</strong>——結合Ca²⁺後改變構形，進而活化或抑制大量酵素與蛋白質（多數為蛋白激酶，即鈣調蛋白依賴性蛋白激酶系統）；其他Ca²⁺直接作用的目標蛋白還包括肌肉收縮相關的<strong>肌鈣蛋白（troponin）</strong>、一氧化氮合成酶（NOS）等。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>IP₃釋出的Ca²⁺也能協助活化部分形式的PKC，顯示DAG/PKC路徑與Ca²⁺/鈣調蛋白路徑並非各自獨立，而是相互交織、共同放大細胞反應的訊號網路。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-cgmp">
+      <div class="section-head"><div class="section-num">7</div><h2>cGMP／PKG路徑</h2></div>
+      <p class="section-desc">cGMP系統是相對少數訊息分子使用的路徑，作用原理與cAMP系統平行但獨立，不應混淆。</p>
+
+      <h3>路徑機轉</h3>
+      <p><strong>鳥苷酸環化酶（guanylyl cyclase）</strong>是膜結合酵素，催化細胞質中 GTP 轉為<strong>環鳥苷單磷酸（cGMP）</strong>；cGMP作為第二訊息傳遞物質，活化<strong>cGMP依賴性蛋白激酶（PKG）</strong>，磷酸化特定目標蛋白產生細胞反應。</p>
+
+      <h3>兩種鳥苷酸環化酶</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">膜結合型（受體本身即為鳥苷酸環化酶）</div>
+          <p>大量表現於視網膜，參與視覺訊號處理；也見於腸道上皮（如GUCY2C），調控腸道電解質與水分分泌。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">細胞質可溶型</div>
+          <p>第一訊息傳遞物質<strong>一氧化氮（nitric oxide, NO）</strong>可直接擴散進入細胞，與細胞質內的鳥苷酸環化酶結合並活化，觸發cGMP生成。</p>
+        </div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">臨床連結</div>
+        <p>NO/cGMP/PKG路徑是血管平滑肌鬆弛（血管擴張）的重要機轉，也是磷酸二酯酶第五型抑制劑（PDE5 inhibitor，如sildenafil）的藥理作用基礎——抑制cGMP的降解以延長其血管擴張效應。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-termination">
+      <div class="section-head"><div class="section-num">8</div><h2>訊號終止與路徑交互作用</h2></div>
+      <p class="section-desc">訊號傳遞路徑一旦啟動，必須能有效終止，否則慢性過度刺激可能對細胞有害；本節整理訊號終止的機轉，以及多重路徑間的交互作用（cross-talk）。</p>
+
+      <h3>訊號終止的關鍵：受體去活化</h3>
+      <p>訊息的反應是短暫事件，通常在受體不再與配體結合後即消退。受體活化終止的主要方式：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>機制</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>第一訊息傳遞物質濃度下降</td><td>訊息分子被酵素分解、結合鄰近細胞的受體，或擴散離開</td></tr>
+            <tr><td>受體化學修飾（通常是磷酸化）</td><td>降低受體對第一訊息傳遞物質的親和力，使配體釋放</td></tr>
+            <tr><td>受體磷酸化阻礙G蛋白結合</td><td>即使配體仍結合，受體也無法再活化下游G蛋白</td></tr>
+            <tr><td>受體胞吞移除</td><td>第一訊息傳遞物質與受體的複合體經胞吞作用被移入細胞內，使膜表面受體數量減少（受體去敏感化／下調）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>訊號路徑間的交互作用 Cross-talk</h3>
+      <p>各條訊號路徑並非獨立運作，而可能在單一細胞內同時活化並產生複雜交互作用：一個第一訊息傳遞物質可能同時觸發多條路徑的變化；更重要的是，一個細胞經常同時接收數十種不同的第一訊息傳遞物質。cAMP路徑產生的活性分子，可能改變其他路徑受體與訊息分子的活性——這種路徑間的「交談」正是細胞能整合多重、甚至互相矛盾的訊號輸入、產生統合性反應的基礎。</p>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章是理解後續所有激素／神經傳導物質作用機轉的共同語言，考題常以「給定一個訊息分子與受體類型，判斷其可能的第二訊息傳遞路徑」出題。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>水溶性訊息（膜受體）反應快但短；脂溶性訊息（核內受體）反應慢但久</strong>——這是貫穿本章與內分泌生理學的核心分類原則。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>膜受體四大家族</strong>：配體閘門離子通道、GPCR、本質激酶活性受體（酪胺酸激酶）、酵素偶聯受體（JAK-STAT），各自代表反應速度與訊號放大程度不同的策略。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>G蛋白三亞型</strong>：Gs活化腺苷酸環化酶（cAMP↑）、Gi抑制腺苷酸環化酶（cAMP↓）、Gq活化PLC（DAG＋IP₃↑）——同一配體結合不同受體亞型可產生相反效應（如腎上腺素α/β受體）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>cAMP/PKA路徑</strong>具有強大訊號放大效果（一個激素分子可產生10⁸個下游產物分子），咖啡因/茶鹼透過抑制磷酸二酯酶延長其作用。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>IP₃/DAG/PKC路徑一次產生兩個第二訊息</strong>：DAG活化PKC（留在膜上）、IP₃釋放內質網Ca²⁺（擴散至細胞質），兩者與Ca²⁺/鈣調蛋白系統相互交織。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>cGMP/PKG路徑</strong>是相對少數訊息使用的獨立系統，NO/cGMP是血管擴張的重要機轉、也是PDE5抑制劑的藥理標的；勿與cAMP系統混淆。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>訊號終止的核心是受體去活化</strong>：配體濃度下降、受體磷酸化降低親和力或阻礙G蛋白結合、受體胞吞下調，都是常見的終止機制。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-1 獸醫生理學課程講義《Cellular Physiology (III)：Signal transduction》，王家琪老師。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋受體分類、G蛋白系統、第二訊息傳遞路徑、訊號終止等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q1. 脂溶性訊息分子（如類固醇激素）的受體多位於細胞膜表面，反應速度快但持續時間短。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">脂溶性訊息分子可直接穿透細胞膜，受體位於細胞質或細胞核內；這類路徑需經轉錄、轉譯合成新蛋白質才產生效應，反應較慢但作用持續時間較長，與水溶性訊息（膜受體、反應快但短）相反。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 下列哪一種G蛋白亞型活化後會「抑制」腺苷酸環化酶、使cAMP濃度下降？</div>
+        <ul class="quiz-options">
+          <li>(A) Gs</li>
+          <li>(B) Gi</li>
+          <li>(C) Gq</li>
+          <li>(D) 以上皆會抑制</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Gi（inhibitory）活化後抑制腺苷酸環化酶、使cAMP濃度下降；Gs（stimulatory）則活化腺苷酸環化酶使cAMP上升；Gq活化磷脂酶C（PLC）產生DAG與IP₃，與cAMP無直接關係。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 磷脂酶C（PLC）分解PIP₂後，會同時產生哪兩個第二訊息傳遞物質？</div>
+        <ul class="quiz-options">
+          <li>(A) cAMP 與 cGMP</li>
+          <li>(B) DAG 與 IP₃</li>
+          <li>(C) Ca²⁺ 與 cAMP</li>
+          <li>(D) NO 與 cGMP</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Gq活化PLC後，PLC分解膜磷脂PIP₂產生DAG（留在膜上活化PKC）與IP₃（擴散至細胞質，開啟內質網上的Ca²⁺通道），兩者皆作為第二訊息傳遞物質。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 咖啡因與茶鹼的部分藥理作用機轉為何與cAMP系統有關？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">咖啡因與茶鹼可抑制磷酸二酯酶（phosphodiesterase）的活性，而磷酸二酯酶正是負責將cAMP分解為非環狀AMP、終止其訊息作用的酵素；抑制此酵素會延長細胞內cAMP的作用時間，進而增強、延長cAMP路徑下游的興奮性效應（如中樞神經興奮、心肌收縮力增強）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 一氧化氮（NO）作為第一訊息傳遞物質時，主要透過活化下列哪一種酵素觸發細胞反應？</div>
+        <ul class="quiz-options">
+          <li>(A) 腺苷酸環化酶</li>
+          <li>(B) 磷脂酶C</li>
+          <li>(C) 鳥苷酸環化酶</li>
+          <li>(D) 磷酸二酯酶</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">NO可直接擴散進入細胞，與細胞質內可溶型鳥苷酸環化酶結合並活化，催化GTP轉為cGMP，是NO/cGMP/PKG路徑（血管平滑肌鬆弛機轉）的第一步。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 請列舉三種使膜受體活化終止的機制。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">（1）第一訊息傳遞物質濃度下降（被酵素分解、結合鄰近細胞受體或擴散離開）；（2）受體經磷酸化等化學修飾，降低其對配體的親和力，使配體釋放；（3）受體磷酸化後阻礙其與G蛋白的結合；（4）配體-受體複合體經胞吞作用移入細胞內，使膜表面受體數量下降（任舉三項皆可）。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '受體總論與親和特性',
+  membrane: '水溶性訊息與膜受體家族',
+  nuclear: '脂溶性訊息與核內受體',
+  gprotein: 'G蛋白偶聯受體總論',
+  camp: 'cAMP／PKA路徑',
+  ip3: 'IP₃／DAG／PKC路徑與Ca²⁺',
+  cgmp: 'cGMP／PKG路徑',
+  termination: '訊號終止與路徑交互作用',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

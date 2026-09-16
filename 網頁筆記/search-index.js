@@ -587,5 +587,1097 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 生理學總論 恆定",
     snippet: "涵蓋總論、體液區隔、恆定回饋、細胞溝通、生理節律等章節重點的練習題（共8題），點擊即可顯示答案與解析。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞生理學與膜運輸",
+    url: "總複習/獸醫生理學/細胞生理學與膜運輸.html",
+    section: "structure", sectionName: "細胞構造總覽",
+    keywords: "cell structure 細胞構造 cytosol cytoplasm 細胞質 nucleus 內質網 ER Golgi apparatus 高基氏體 endosome lysosome 溶體 peroxisome 過氧化體 mitochondria 粒線體 cytoskeleton 細胞骨架 actin filament 微絲 intermediate filament 中間絲 microtubule 微管",
+    snippet: "細胞質分區、主要胞器功能一覽（內質網/高基氏體/溶體/過氧化體/粒線體）、細胞骨架三大纖維系統（微絲/中間絲/微管）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞生理學與膜運輸",
+    url: "總複習/獸醫生理學/細胞生理學與膜運輸.html",
+    section: "junction", sectionName: "細胞膜與膜接合構造",
+    keywords: "cell membrane 細胞膜 integrin 整合素 proteoglycan 蛋白聚醣 tight junction 緊密接合 anchoring junction desmosome 橋粒 cadherin 鈣黏素 gap junction 間隙接合 connexin 心肌 功能性合胞體",
+    snippet: "膜的四大功能、整合素與細胞外基質、三種細胞間接合構造（緊密接合/橋粒/間隙接合），心肌間隙接合與同步收縮。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞生理學與膜運輸",
+    url: "總複習/獸醫生理學/細胞生理學與膜運輸.html",
+    section: "protein", sectionName: "蛋白質合成、分泌與降解",
+    keywords: "protein synthesis 蛋白質合成 transcription translation splicing 剪接 ubiquitin 泛素 proteasome 蛋白酶體 degradation 降解 mutation 突變",
+    snippet: "蛋白質合成路徑（轉錄→轉譯→修飾→分泌）、泛素-蛋白酶體降解路徑、DNA突變對蛋白質結構的影響。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞生理學與膜運輸",
+    url: "總複習/獸醫生理學/細胞生理學與膜運輸.html",
+    section: "binding", sectionName: "配體結合特性與酵素動力學",
+    keywords: "ligand binding 配體結合 chemical specificity 專一性 affinity 親和力 saturation 飽和度 competition 競爭 allosteric modulation 異位調節 covalent modulation 共價調節 phosphorylation 磷酸化 enzyme 酵素 cofactor coenzyme 輔酶 catabolism anabolism",
+    snippet: "配體結合四特性（專一性/親和力/飽和度/競爭）、異位調節vs共價調節、酵素動力學、輔因子輔酶、細胞能量代謝總覽。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞生理學與膜運輸",
+    url: "總複習/獸醫生理學/細胞生理學與膜運輸.html",
+    section: "diffusion", sectionName: "擴散與離子通道",
+    keywords: "diffusion 擴散 flux 通量 Fick's law 費克定律 ion channel 離子通道 ligand-gated voltage-gated mechanically gated 配體閘門 電壓閘門 機械閘門 membrane potential 膜電位",
+    snippet: "擴散基本原理、費克擴散定律（J=PA(C0-Ci)）、三種閘門離子通道分類、膜電位概念。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞生理學與膜運輸",
+    url: "總複習/獸醫生理學/細胞生理學與膜運輸.html",
+    section: "transport", sectionName: "媒介性運輸與主動運輸",
+    keywords: "mediated transport 媒介性運輸 facilitated diffusion 促進性擴散 active transport 主動運輸 Na-K-ATPase Ca-ATPase H-ATPase 質子幫浦 secondary active transport symporter antiporter 共同運輸體 反向運輸體 digoxin PPI",
+    snippet: "促進性擴散、四大初級主動運輸幫浦（Na/K-ATPase等）、次級主動運輸（共同運輸體/反向運輸體），毛地黃與PPI藥理連結。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞生理學與膜運輸",
+    url: "總複習/獸醫生理學/細胞生理學與膜運輸.html",
+    section: "osmosis", sectionName: "滲透壓、張力與上皮運輸",
+    keywords: "osmosis 滲透壓 aquaporin 水通道 tonicity 張力 isotonic hypotonic hypertonic 等張 低張 高張 paracellular transcellular 細胞旁路徑 跨細胞路徑 epithelial transport 上皮運輸",
+    snippet: "滲透與水通道、張力三分類（等張/低張/高張）與滲透壓的差異、上皮運輸細胞旁/跨細胞兩路徑。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞生理學與膜運輸",
+    url: "總複習/獸醫生理學/細胞生理學與膜運輸.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 細胞生理學 膜運輸",
+    snippet: "涵蓋細胞構造、膜接合、蛋白質代謝、配體結合、跨膜運輸、滲透壓等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞訊息傳遞",
+    url: "總複習/獸醫生理學/細胞訊息傳遞.html",
+    section: "membrane", sectionName: "水溶性訊息與膜受體家族",
+    keywords: "receptor 受體 ligand-gated ion channel GPCR G蛋白偶聯受體 receptor tyrosine kinase 酪胺酸激酶 EGFR JAK STAT cytokine receptor 細胞激素受體",
+    snippet: "膜受體四大家族（配體閘門通道/GPCR/本質激酶受體/酵素偶聯受體）、EGFR、JAK-STAT路徑與細胞激素訊號。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞訊息傳遞",
+    url: "總複習/獸醫生理學/細胞訊息傳遞.html",
+    section: "gprotein", sectionName: "G蛋白偶聯受體總論",
+    keywords: "G protein G蛋白 Gs Gi Gq adenylyl cyclase 腺苷酸環化酶 phospholipase C 磷脂酶C adrenergic receptor 腎上腺素受體",
+    snippet: "G蛋白活化循環、Gs/Gi/Gq三亞型對效應酵素的作用、G蛋白對離子通道的直接/間接調控。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞訊息傳遞",
+    url: "總複習/獸醫生理學/細胞訊息傳遞.html",
+    section: "camp", sectionName: "cAMP／PKA路徑",
+    keywords: "cAMP PKA adenylyl cyclase phosphodiesterase 磷酸二酯酶 caffeine theophylline 咖啡因 茶鹼 signal amplification 訊號放大 epinephrine 腎上腺素",
+    snippet: "cAMP/PKA路徑機轉、同路徑不同組織不同效應、咖啡因茶鹼抑制磷酸二酯酶、訊號放大（一分子產生10^8產物）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞訊息傳遞",
+    url: "總複習/獸醫生理學/細胞訊息傳遞.html",
+    section: "ip3", sectionName: "IP₃／DAG／PKC路徑與Ca²⁺",
+    keywords: "IP3 DAG PKC phospholipase C calcium 鈣離子 calmodulin 鈣調蛋白 calcium induced calcium release 鈣誘發鈣釋放 troponin",
+    snippet: "PLC分解PIP2產生DAG與IP3、IP3釋放內質網鈣、鈣調蛋白系統、鈣誘發鈣釋放放大機制。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞訊息傳遞",
+    url: "總複習/獸醫生理學/細胞訊息傳遞.html",
+    section: "cgmp", sectionName: "cGMP／PKG路徑",
+    keywords: "cGMP PKG guanylyl cyclase 鳥苷酸環化酶 nitric oxide NO 一氧化氮 sildenafil PDE5 血管擴張",
+    snippet: "cGMP/PKG路徑機轉、膜結合型與可溶型鳥苷酸環化酶、NO/cGMP血管擴張機轉與PDE5抑制劑藥理連結。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "細胞訊息傳遞",
+    url: "總複習/獸醫生理學/細胞訊息傳遞.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 細胞訊息傳遞 訊號傳導",
+    snippet: "涵蓋受體分類、G蛋白系統、第二訊息傳遞路徑、訊號終止等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 I",
+    url: "總複習/獸醫生理學/內分泌生理I.html",
+    section: "classes", sectionName: "激素的化學分類",
+    keywords: "hormone 激素 amine steroid peptide protein 胺類 類固醇 胜肽 prohormone prehormone 前驅激素 前激素 proinsulin T4 T3",
+    snippet: "激素三大化學分類（胺類/類固醇/胜肽蛋白質）、前驅激素vs前激素（proinsulin、T4→T3）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 I",
+    url: "總複習/獸醫生理學/內分泌生理I.html",
+    section: "regulation", sectionName: "分泌調控與激素交互作用",
+    keywords: "tropic hormone 促激素 negative feedback 負回饋 additive complementary permissive antagonistic 相加 互補 容許 拮抗 hyposecretion hypersecretion 分泌不足 分泌過多 hyporesponsiveness",
+    snippet: "三種內分泌腺刺激類型、激素釋放調控模式、四種激素交互作用（相加/互補/容許/拮抗）、內分泌疾病分類。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 I",
+    url: "總複習/獸醫生理學/內分泌生理I.html",
+    section: "axis", sectionName: "HP軸總論",
+    keywords: "hypothalamus 下視丘 pituitary 腦垂體 hypothalamic-pituitary axis HP axis 神經垂體 腺垂體 hypophysiotropic hormone 促垂體激素 portal vessel 門脈系統",
+    snippet: "下視丘與腦垂體神經連結（後葉）vs血管連結（前葉）、促垂體激素、脈衝式釋放的生理意義。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 I",
+    url: "總複習/獸醫生理學/內分泌生理I.html",
+    section: "posterior", sectionName: "腦垂體後葉：ADH與催產素",
+    keywords: "ADH antidiuretic hormone 抗利尿激素 vasopressin V1 V2 aquaporin AQP2 SIADH diabetes insipidus 尿崩症 oxytocin 催產素 milk ejection parturition 分娩",
+    snippet: "ADH三受體（V1A/V1B/V2）與AQP2、SIADH與尿崩症、催產素正回饋（排乳反射、分娩）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 I",
+    url: "總複習/獸醫生理學/內分泌生理I.html",
+    section: "anterior", sectionName: "腦垂體前葉：GH與PRL",
+    keywords: "prolactin PRL 泌乳素 dopamine 多巴胺 hyperprolactinemia growth hormone GH 生長激素 IGF-1 somatomedin ghrelin acromegaly gigantism 肢端肥大症 巨人症",
+    snippet: "泌乳素與多巴胺抑制、高泌乳素血症、GH分泌調控（GHRH/somatostatin/ghrelin）、GH異常（巨人症/肢端肥大症）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 I",
+    url: "總複習/獸醫生理學/內分泌生理I.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 內分泌生理 下視丘腦垂體軸",
+    snippet: "涵蓋激素分類、作用機轉、HP軸、ADH/催產素、GH/PRL等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "thyroidsyn", sectionName: "甲狀腺激素合成",
+    keywords: "thyroid 甲狀腺 NIS TPO methimazole T3 T4 iodine 碘 thyroglobulin",
+    snippet: "甲狀腺激素合成路徑：NIS碘攝取、TPO催化、methimazole作用機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "thyroiddisease", sectionName: "甲狀腺疾病",
+    keywords: "hyperthyroidism hypothyroidism 甲狀腺機能亢進 甲狀腺機能低下 feline 貓 Graves disease 貓甲狀腺功能亢進症",
+    snippet: "甲亢vs甲低比較表、貓甲狀腺機能亢進臨床重點、Graves氏病。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "calcium", sectionName: "副甲狀腺與鈣磷恆定",
+    keywords: "PTH parathyroid 副甲狀腺 vitamin D 維生素D calcitonin 降鈣素 calcium phosphorus 鈣磷恆定",
+    snippet: "PTH合成與作用、維生素D活化路徑、降鈣素功能。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "bone", sectionName: "骨骼生理",
+    keywords: "osteoblast osteocyte osteoclast 蝕骨細胞 造骨細胞 骨細胞 bone remodeling 骨重塑",
+    snippet: "造骨細胞/骨細胞/蝕骨細胞功能、骨重塑速率、激素對骨骼的作用。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "medulla", sectionName: "腎上腺髓質",
+    keywords: "adrenal medulla 腎上腺髓質 catecholamine 兒茶酚胺 epinephrine norepinephrine PNMT cortisol",
+    snippet: "兒茶酚胺合成路徑、PNMT需皮質醇協同活化。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "cortexsyn", sectionName: "腎上腺皮質合成與HPA軸",
+    keywords: "adrenal cortex 腎上腺皮質 StAR HPA axis zona glomerulosa fasciculata reticularis 球狀帶 束狀帶 網狀帶",
+    snippet: "StAR蛋白、HPA軸、腎上腺皮質三層（球狀帶/束狀帶/網狀帶）分工。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "glucocorticoid", sectionName: "糖皮質素與Cushing氏症",
+    keywords: "glucocorticoid 糖皮質素 cortisol Cushing 庫欣氏症 trilostane metyrapone",
+    snippet: "糖皮質素作用、Cushing氏症、trilostane/metyrapone藥理機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "mineralocorticoid", sectionName: "礦物皮質素與RAAS",
+    keywords: "mineralocorticoid 礦物皮質素 aldosterone 醛固酮 RAAS Addison disease 愛迪生氏症 hyperkalemia 高血鉀",
+    snippet: "醛固酮與RAAS、Addison氏症、高血鉀風險。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "內分泌生理 II",
+    url: "總複習/獸醫生理學/內分泌生理II.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 內分泌生理II 甲狀腺 副甲狀腺 腎上腺",
+    snippet: "涵蓋甲狀腺、副甲狀腺、骨骼、腎上腺髓質皮質等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "overview", sectionName: "神經系統分類",
+    keywords: "CNS PNS 中樞神經 周邊神經 somatic autonomic 自主神經 enteric 腸神經系統",
+    snippet: "CNS/PNS分類、體神經／自主神經（含腸神經系統）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "cells", sectionName: "神經元與神經膠質細胞",
+    keywords: "neuron glia oligodendrocyte astrocyte microglia ependymal Schwann axonal transport Wallerian degeneration 華勒氏變性",
+    snippet: "神經膠質細胞分類、軸突運輸、華勒氏變性。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "potential", sectionName: "靜止電位與動作電位",
+    keywords: "resting potential action potential 靜止膜電位 動作電位 Goldman equation saltatory conduction 跳躍式傳導 local anesthetic 局部麻醉藥",
+    snippet: "Goldman方程式、跳躍式傳導、局部麻醉藥作用機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "synapse", sectionName: "突觸傳遞",
+    keywords: "synapse SNARE NSF EPSP IPSP presynaptic inhibition facilitation 突觸前抑制 促進",
+    snippet: "SNARE複合體、EPSP/IPSP、突觸前抑制與促進。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "neurotransmitter", sectionName: "神經傳導物質",
+    keywords: "acetylcholine ACh AChE sarin 沙林毒氣 catecholamine serotonin glutamate GABA LTP 長期增益作用",
+    snippet: "ACh/AChE與沙林毒氣、兒茶酚胺、血清素、麩胺酸/GABA與長期增益作用。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "brain", sectionName: "腦部構造",
+    keywords: "cerebral lobes 腦葉 limbic system 邊緣系統 cerebellum 小腦 brainstem reticular formation 腦幹 網狀結構",
+    snippet: "四大腦葉、邊緣系統、小腦、腦幹網狀結構。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "spinalans", sectionName: "脊髓與自主神經系統",
+    keywords: "spinal cord 脊髓 sympathetic parasympathetic 交感 副交感 thoracolumbar craniosacral",
+    snippet: "脊髓節段、交感（胸腰）vs副交感（顱薦）自主神經系統。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "bbb", sectionName: "血腦障壁與腦脊髓液",
+    keywords: "blood-brain barrier BBB 血腦障壁 CSF 腦脊髓液 hydrocephalus 水腦症",
+    snippet: "血腦障壁構造、CSF循環、水腦症。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "神經元訊號與神經系統構造",
+    url: "總複習/獸醫生理學/神經元訊號與神經系統構造.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 神經元 動作電位 突觸",
+    snippet: "涵蓋神經元構造、動作電位、突觸傳遞、腦部構造等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "感覺生理學",
+    url: "總複習/獸醫生理學/感覺生理學.html",
+    section: "overview", sectionName: "受器類型與訊息編碼",
+    keywords: "receptor 受器 modality intensity duration adaptation 適應 感覺編碼",
+    snippet: "感覺受器分類、訊息編碼四要素（模式/強度/位置/時間）、受器適應。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "感覺生理學",
+    url: "總複習/獸醫生理學/感覺生理學.html",
+    section: "pain", sectionName: "痛覺與溫度覺",
+    keywords: "pain referred pain 轉移痛 gate control theory 閘門控制理論 anterolateral dorsal column 脊髓丘腦徑 背柱徑",
+    snippet: "轉移痛、閘門控制理論、脊髓丘腦徑vs背柱徑。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "感覺生理學",
+    url: "總複習/獸醫生理學/感覺生理學.html",
+    section: "visionoptics", sectionName: "視覺光學",
+    keywords: "accommodation 調節 myopia hyperopia presbyopia astigmatism cataract glaucoma 近視 遠視 老花 散光 白內障 青光眼",
+    snippet: "眼球調節機轉、屈光異常（近視/遠視/老花/散光）、白內障、青光眼。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "感覺生理學",
+    url: "總複習/獸醫生理學/感覺生理學.html",
+    section: "visiontransduction", sectionName: "視覺光轉導",
+    keywords: "phototransduction 光轉導 rod cone 桿細胞 錐細胞 bipolar cell 雙極細胞 receptive field 感受域 color vision 色覺",
+    snippet: "光轉導的暗去極化/光過極化邏輯、on/off雙極細胞、感受域、色覺。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "感覺生理學",
+    url: "總複習/獸醫生理學/感覺生理學.html",
+    section: "hearing", sectionName: "聽覺與前庭覺",
+    keywords: "cochlea 耳蝸 hair cell 毛細胞 semicircular canal 半規管 otolith organ 耳石器 nystagmus 眼球震顫 caloric test COWS",
+    snippet: "耳蝸毛細胞轉導、半規管vs耳石器、眼球震顫與冷熱試驗COWS。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "感覺生理學",
+    url: "總複習/獸醫生理學/感覺生理學.html",
+    section: "taste", sectionName: "味覺轉導",
+    keywords: "taste 味覺 ion channel GPCR sweet bitter umami salty sour 鹹 酸 甜 苦 鮮味",
+    snippet: "離子通道直接轉導（鹹/酸）vs GPCR路徑（甜/苦/鮮味）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "感覺生理學",
+    url: "總複習/獸醫生理學/感覺生理學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 感覺生理學 視覺 聽覺 味覺",
+    snippet: "涵蓋受器編碼、痛覺、視覺、聽覺前庭、味覺等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "意識、腦與行為",
+    url: "總複習/獸醫生理學/意識腦與行為.html",
+    section: "eeg", sectionName: "腦電圖 EEG",
+    keywords: "EEG 腦電圖 alpha beta theta delta wave evoked potential seizure 癲癇",
+    snippet: "電極放置、alpha/beta/theta/delta波、誘發電位、癲癇腦波記錄。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "意識、腦與行為",
+    url: "總複習/獸醫生理學/意識腦與行為.html",
+    section: "sleep", sectionName: "睡眠分期概論",
+    keywords: "sleep stage REM 快速動眼期 delta sleep process S process C",
+    snippet: "睡眠分期概覽、process S vs process C（詳見睡眠生理與腦波節律章節）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "意識、腦與行為",
+    url: "總複習/獸醫生理學/意識腦與行為.html",
+    section: "coma", sectionName: "昏迷與腦死",
+    keywords: "coma 昏迷 brain death 腦死",
+    snippet: "昏迷程度分級、腦死判定概念。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "意識、腦與行為",
+    url: "總複習/獸醫生理學/意識腦與行為.html",
+    section: "psychiatric", sectionName: "精神藥理與行為",
+    keywords: "mood affect schizophrenia D2 receptor acepromazine metoclopramide 精神分裂 多巴胺受體 阿保待因 metoclopramide",
+    snippet: "情緒vs情感、思覺失調症與D2受體、acepromazine/metoclopramide臨床連結。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "意識、腦與行為",
+    url: "總複習/獸醫生理學/意識腦與行為.html",
+    section: "dominance", sectionName: "大腦優勢半球與失語症",
+    keywords: "cerebral dominance 大腦優勢 aphasia 失語症 Broca Wernicke",
+    snippet: "大腦優勢半球、Broca氏區vs Wernicke氏區失語症。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "意識、腦與行為",
+    url: "總複習/獸醫生理學/意識腦與行為.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 意識 腦電圖 睡眠",
+    snippet: "涵蓋意識狀態、EEG、睡眠分期、精神藥理等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖生理總論",
+    url: "總複習/獸醫生理學/生殖生理總論.html",
+    section: "spermatogenesis", sectionName: "精子生成",
+    keywords: "spermatogenesis 精子生成 Sertoli cell 賽托利氏細胞 blood-testis barrier 血睪障壁 spermiogenesis",
+    snippet: "精子生成三階段、賽托利氏細胞與血睪障壁、精子形成四階段。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖生理總論",
+    url: "總複習/獸醫生理學/生殖生理總論.html",
+    section: "oogenesis", sectionName: "卵子生成",
+    keywords: "oogenesis 卵子生成 dictyate arrest 雙線期停滯 MPF OMI 減數分裂停滯",
+    snippet: "卵母細胞減數分裂雙線期停滯、LH surge恢復機轉、MII停滯物種比較。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖生理總論",
+    url: "總複習/獸醫生理學/生殖生理總論.html",
+    section: "ovulation", sectionName: "排卵機轉與類型",
+    keywords: "ovulation 排卵 spontaneous induced ovulator 自發性排卵 誘導性排卵",
+    snippet: "排卵局部機轉、自發性vs誘導性排卵物種分類。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖生理總論",
+    url: "總複習/獸醫生理學/生殖生理總論.html",
+    section: "fertilization", sectionName: "受精機轉",
+    keywords: "fertilization capacitation 獲能 acrosome reaction 頂體反應 polyspermy 多精阻斷 cortical reaction",
+    snippet: "獲能、頂體反應、透明帶穿透、皮質反應與多精阻斷。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖生理總論",
+    url: "總複習/獸醫生理學/生殖生理總論.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 生殖生理 精子生成 卵子生成 受精",
+    snippet: "涵蓋公畜母畜生殖功能、精卵生成、排卵類型、受精機轉等章節重點的練習題（共5題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖內分泌與動情週期",
+    url: "總複習/獸醫生理學/生殖內分泌與動情週期.html",
+    section: "hpgaxis", sectionName: "HPG軸與回饋調控",
+    keywords: "HPG axis GnRH LH FSH long-loop short-loop feedback 長迴路 短迴路 回饋",
+    snippet: "GnRH脈衝頻率決定LH/FSH比例、長短超短迴路回饋、抑制素活化素。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖內分泌與動情週期",
+    url: "總複習/獸醫生理學/生殖內分泌與動情週期.html",
+    section: "puberty", sectionName: "青春期",
+    keywords: "puberty 青春期 gonadostat tonic center cyclic center 緊張性中樞 週期性中樞",
+    snippet: "青春期核心機轉為下視丘負回饋敏感度下降、性別二型性GnRH中樞。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖內分泌與動情週期",
+    url: "總複習/獸醫生理學/生殖內分泌與動情週期.html",
+    section: "cycletypes", sectionName: "動情週期分類與階段",
+    keywords: "estrous cycle 動情週期 proestrus estrus metestrus diestrus 動情前期 動情期 動情後期 動情間期 polyestrous monoestrous",
+    snippet: "動情週期四期、多情期vs單情期分類、各物種週期長度比較。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖內分泌與動情週期",
+    url: "總複習/獸醫生理學/生殖內分泌與動情週期.html",
+    section: "follicular", sectionName: "卵泡波與募集選拔",
+    keywords: "follicular wave 卵泡波 recruitment selection dominance 募集 選拔 優勢化",
+    snippet: "卵泡波募集/選拔/優勢化三階段、超排卵誘導原理。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖內分泌與動情週期",
+    url: "總複習/獸醫生理學/生殖內分泌與動情週期.html",
+    section: "luteolysis", sectionName: "黃體溶解機轉",
+    keywords: "luteolysis 黃體溶解 PGF2alpha counter-current transfer 子宮卵巢逆流轉運 hysterectomy 子宮切除",
+    snippet: "PGF2α子宮-卵巢逆流轉運、子宮切除實驗物種差異、催產素放大迴路。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "生殖內分泌與動情週期",
+    url: "總複習/獸醫生理學/生殖內分泌與動情週期.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 動情週期 HPG軸 黃體溶解",
+    snippet: "涵蓋HPG軸回饋、青春期機轉、動情週期階段、黃體溶解等章節重點的練習題（共5題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "妊娠、分娩與泌乳生理",
+    url: "總複習/獸醫生理學/妊娠分娩與泌乳生理.html",
+    section: "recognition", sectionName: "妊娠辨識",
+    keywords: "maternal recognition of pregnancy 妊娠辨識 interferon-tau IFN-tau hCG 妊娠母體辨識",
+    snippet: "各物種妊娠辨識機轉比較：IFN-tau（牛羊）、雌激素改道（豬）、胚胎移動（馬）、hCG（人）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "妊娠、分娩與泌乳生理",
+    url: "總複習/獸醫生理學/妊娠分娩與泌乳生理.html",
+    section: "placenta", sectionName: "胎盤分類與功能",
+    keywords: "placenta 胎盤 epitheliochorial endotheliochorial hemochorial 上皮絨毛膜 內皮絨毛膜 血絨毛膜 diffuse cotyledonary zonary",
+    snippet: "胎盤雙重分類系統（外觀形狀＋組織學接觸層數）、免疫球蛋白胎盤傳輸差異。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "妊娠、分娩與泌乳生理",
+    url: "總複習/獸醫生理學/妊娠分娩與泌乳生理.html",
+    section: "parturitiontrigger", sectionName: "分娩觸發機轉",
+    keywords: "parturition 分娩 fetal cortisol 胎兒皮質醇 HPA axis 分娩觸發",
+    snippet: "分娩由胎兒HPA軸成熟觸發、雌激素黃體素比值逆轉、PGF2α與催產素級聯。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "妊娠、分娩與泌乳生理",
+    url: "總複習/獸醫生理學/妊娠分娩與泌乳生理.html",
+    section: "stages", sectionName: "分娩三階段",
+    keywords: "stages of labor 分娩三階段 dystocia 難產 Ferguson reflex 費格森反射",
+    snippet: "子宮頸擴張期、胎兒娩出期、胎盤娩出期，各物種時間比較。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "妊娠、分娩與泌乳生理",
+    url: "總複習/獸醫生理學/妊娠分娩與泌乳生理.html",
+    section: "lactation", sectionName: "泌乳反射與排乳",
+    keywords: "milk ejection reflex 排乳反射 oxytocin 催產素 myoepithelial cell 肌上皮細胞 prolactin reflex FIL",
+    snippet: "泌乳素反射vs排乳反射、肌上皮細胞收縮、FIL局部負回饋機制。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "妊娠、分娩與泌乳生理",
+    url: "總複習/獸醫生理學/妊娠分娩與泌乳生理.html",
+    section: "colostrum", sectionName: "初乳與被動免疫",
+    keywords: "colostrum 初乳 passive transfer 被動轉移 gut closure 腸道關閉 FPT immunoglobulin",
+    snippet: "初乳免疫球蛋白吸收窗口、腸道關閉時間物種比較、被動轉移失敗(FPT)。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "妊娠、分娩與泌乳生理",
+    url: "總複習/獸醫生理學/妊娠分娩與泌乳生理.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 妊娠 分娩 泌乳 初乳",
+    snippet: "涵蓋妊娠辨識、胎盤分類、分娩機轉、泌乳生理等章節重點的練習題（共5題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "肌肉生理學",
+    url: "總複習/獸醫生理學/肌肉生理學.html",
+    section: "structure", sectionName: "骨骼肌構造層級",
+    keywords: "skeletal muscle sarcomere T-tubule triad 橫小管 三聯體 肌小節 sarcoplasmic reticulum 肌漿網",
+    snippet: "骨骼肌構造層級、橫小管-肌漿網三聯體、肌小節A帶I帶H區。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "肌肉生理學",
+    url: "總複習/獸醫生理學/肌肉生理學.html",
+    section: "eccoupling", sectionName: "興奮收縮偶聯 EC Coupling",
+    keywords: "excitation-contraction coupling EC coupling DHP receptor ryanodine receptor RyR mechanical coupling CICR 鈣誘發鈣釋放 機械偶聯",
+    snippet: "骨骼肌DHP-RyR直接機械偶聯vs心肌鈣誘發鈣釋放CICR的關鍵差異。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "肌肉生理學",
+    url: "總複習/獸醫生理學/肌肉生理學.html",
+    section: "crossbridge", sectionName: "橫橋循環",
+    keywords: "cross-bridge cycle 橫橋循環 myosin actin power stroke rigor mortis 屍僵",
+    snippet: "橫橋循環步驟、power stroke動力衝程、屍僵機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "肌肉生理學",
+    url: "總複習/獸醫生理學/肌肉生理學.html",
+    section: "mechanics", sectionName: "單纖維收縮力學",
+    keywords: "isotonic isometric twitch summation tetanus 等張 等長 加成 強直收縮 optimal length titin 肌聯蛋白",
+    snippet: "等張/等長收縮、加成與強直收縮、最佳長度與肌聯蛋白。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "肌肉生理學",
+    url: "總複習/獸醫生理學/肌肉生理學.html",
+    section: "metabolism", sectionName: "能量代謝與肌纖維類型",
+    keywords: "muscle fiber type slow-oxidative fast-glycolytic Type I Type IIA Type IIX 慢氧化型 快糖解型 肌肉疲勞",
+    snippet: "三型骨骼肌纖維（慢氧化/快氧化糖解/快糖解）與肌肉疲勞機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "肌肉生理學",
+    url: "總複習/獸醫生理學/肌肉生理學.html",
+    section: "smooth", sectionName: "平滑肌生理",
+    keywords: "smooth muscle 平滑肌 MLCK MLCP calmodulin 鈣調素 single-unit multi-unit 單一單位型 多單位型",
+    snippet: "平滑肌MLCK/MLCP磷酸化開關、單一單位型vs多單位型分類。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "肌肉生理學",
+    url: "總複習/獸醫生理學/肌肉生理學.html",
+    section: "cardiac", sectionName: "心肌生理與三型比較",
+    keywords: "cardiac muscle 心肌 intercalated disc 間盤 gap junction desmosome autorhythmicity 自動性 refractory period 不反應期",
+    snippet: "心肌間盤（橋粒＋間隙接合）、自動性、長不反應期、三型肌肉綜合比較表。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "肌肉生理學",
+    url: "總複習/獸醫生理學/肌肉生理學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 肌肉生理 橫橋循環 EC coupling",
+    snippet: "涵蓋骨骼肌構造、EC coupling、橫橋循環、收縮力學、平滑肌心肌等章節重點的練習題（共5題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "身體運動的控制",
+    url: "總複習/獸醫生理學/身體運動控制.html",
+    section: "hierarchy", sectionName: "運動控制階層",
+    keywords: "motor control hierarchy 運動控制階層 voluntary involuntary 隨意 非隨意 motor program 運動程式",
+    snippet: "運動控制階層架構（脊髓局部迴路/腦幹運動皮質/聯合皮質小腦）、隨意非隨意運動分類。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "身體運動的控制",
+    url: "總複習/獸醫生理學/身體運動控制.html",
+    section: "proprioceptors", sectionName: "本體感覺受器",
+    keywords: "proprioception 本體感覺 muscle spindle 肌梭 Golgi tendon organ 高爾基腱器官 nuclear chain nuclear bag",
+    snippet: "肌梭（長度監測）與高爾基腱器官（張力監測）功能比較。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "身體運動的控制",
+    url: "總複習/獸醫生理學/身體運動控制.html",
+    section: "stretchreflex", sectionName: "牽張反射與α-γ共活化",
+    keywords: "stretch reflex 牽張反射 knee-jerk 膝跳反射 monosynaptic 單突觸反射 alpha-gamma coactivation reciprocal innervation 交互支配",
+    snippet: "膝跳反射單突觸迴路、α-γ共活化機轉、交互支配抑制拮抗肌。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "身體運動的控制",
+    url: "總複習/獸醫生理學/身體運動控制.html",
+    section: "withdrawal", sectionName: "屈曲反射與交叉伸肌反射",
+    keywords: "withdrawal reflex 屈曲反射 crossed-extensor reflex 交叉伸肌反射 ipsilateral contralateral",
+    snippet: "同側屈曲反射與對側交叉伸肌反射的協同保護機制。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "身體運動的控制",
+    url: "總複習/獸醫生理學/身體運動控制.html",
+    section: "descending", sectionName: "下行徑路：皮質脊髓vs腦幹徑",
+    keywords: "corticospinal pathway 皮質脊髓徑 錐體徑 pyramidal brainstem pathway 腦幹徑 錐體外系統 extrapyramidal",
+    snippet: "皮質脊髓徑（多數交叉，精細動作）vs腦幹徑（多數不交叉，軀幹姿勢）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "身體運動的控制",
+    url: "總複習/獸醫生理學/身體運動控制.html",
+    section: "cerebellum", sectionName: "小腦與姿勢平衡",
+    keywords: "cerebellum 小腦 ataxia 動作不協調 dysmetria 辨距不良 timing planning error correction",
+    snippet: "小腦時序協調/動作規劃/誤差校正三大功能、小腦病變臨床表現。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "身體運動的控制",
+    url: "總複習/獸醫生理學/身體運動控制.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 運動控制 牽張反射 小腦",
+    snippet: "涵蓋運動控制階層、本體感覺受器、脊髓反射、下行徑路、小腦功能等章節重點的練習題（共5題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心臟生理學",
+    url: "總複習/獸醫生理學/心臟生理學.html",
+    section: "conduction", sectionName: "傳導系統與節律點自動性",
+    keywords: "SA node AV node Purkinje fiber 竇房結 房室結 蒲金氏纖維 pacemaker potential 節律點電位 funny channel automaticity 自動性",
+    snippet: "心臟傳導路徑SA結→AV結→希氏束→蒲金氏纖維、竇房結節律點電位F型通道機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心臟生理學",
+    url: "總複習/獸醫生理學/心臟生理學.html",
+    section: "ecg", sectionName: "心電圖 ECG",
+    keywords: "ECG P wave QRS complex T wave 心房去極化 心室去極化 心室再極化 mean electrical axis 平均電軸",
+    snippet: "ECG波形P-QRS-T對應生理事件、平均電軸概念。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心臟生理學",
+    url: "總複習/獸醫生理學/心臟生理學.html",
+    section: "arrhythmia", sectionName: "心律不整與傳導阻滯",
+    keywords: "arrhythmia fibrillation 心房顫動 心室顫動 heart block AV block 傳導阻滯 ARVC 拳師犬 Sotalol Mexiletine",
+    snippet: "心房/心室顫動、房室傳導阻滯分級、犬ARVC臨床案例。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心臟生理學",
+    url: "總複習/獸醫生理學/心臟生理學.html",
+    section: "output", sectionName: "心輸出量、每搏量與Frank-Starling",
+    keywords: "cardiac output stroke volume ejection fraction Frank-Starling preload afterload 心輸出量 每搏量 射出分率 前負荷 後負荷",
+    snippet: "CO=HR×SV、EF=SV/EDV、Frank-Starling機轉、前負荷後負荷。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心臟生理學",
+    url: "總複習/獸醫生理學/心臟生理學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 心臟生理 傳導系統 心動週期",
+    snippet: "涵蓋心臟傳導、ECG判讀、心動週期、心輸出量調控、心律不整等章節重點的練習題（共12題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "血管生理學",
+    url: "總複習/獸醫生理學/血管生理學.html",
+    section: "hemodynamics", sectionName: "壓力、流量、阻力",
+    keywords: "hemodynamics Poiseuille equation resistance 血液動力學 阻力 血管半徑 viscosity 黏滯度",
+    snippet: "F=ΔP/R、Poiseuille方程式、血管半徑4次方關係決定阻力。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "血管生理學",
+    url: "總複習/獸醫生理學/血管生理學.html",
+    section: "arterial", sectionName: "動脈壓與脈搏壓",
+    keywords: "mean arterial pressure MAP pulse pressure 平均動脈壓 脈搏壓 compliance 順應性 dicrotic notch",
+    snippet: "MAP計算公式、脈搏壓決定因子、動脈順應性、dicrotic notch。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "血管生理學",
+    url: "總複習/獸醫生理學/血管生理學.html",
+    section: "autoregulation", sectionName: "血流自我調節",
+    keywords: "autoregulation active hyperemia myogenic response 主動充血 肌源性反應 自我調節",
+    snippet: "代謝性主動充血因子與肌源性反應機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "血管生理學",
+    url: "總複習/獸醫生理學/血管生理學.html",
+    section: "capillary", sectionName: "微循環與微血管交換",
+    keywords: "microcirculation capillary precapillary sphincter net filtration pressure NFP 微循環 前微血管括約肌 淨過濾壓 水腫 edema",
+    snippet: "微循環構造、NFP公式、低白蛋白血症與水腫成因。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "血管生理學",
+    url: "總複習/獸醫生理學/血管生理學.html",
+    section: "venous", sectionName: "靜脈系統與靜脈回流",
+    keywords: "capacitance vessel 容量血管 skeletal muscle pump respiratory pump 肌肉幫浦 呼吸幫浦 varicose veins 靜脈曲張",
+    snippet: "靜脈容量血管特性、肌肉幫浦與呼吸幫浦、靜脈曲張。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "血管生理學",
+    url: "總複習/獸醫生理學/血管生理學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 血管生理 血液動力學 微循環",
+    snippet: "涵蓋血液動力學、動脈壓、局部調控、微血管交換、靜脈回流等章節重點的練習題（共10題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心血管功能整合",
+    url: "總複習/獸醫生理學/心血管功能整合.html",
+    section: "map", sectionName: "全身動脈壓的決定因子",
+    keywords: "MAP CO TPR mean arterial pressure cardiac output total peripheral resistance 全身動脈壓 心輸出量 總周邊阻力",
+    snippet: "MAP=CO×TPR核心整合公式與完整因子網絡。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心血管功能整合",
+    url: "總複習/獸醫生理學/心血管功能整合.html",
+    section: "baroreflex", sectionName: "壓力感受反射",
+    keywords: "baroreceptor reflex 壓力感受反射 carotid sinus aortic arch 頸動脈竇 主動脈弓",
+    snippet: "壓力感受器位置、壓力感受反射完整效果鏈。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心血管功能整合",
+    url: "總複習/獸醫生理學/心血管功能整合.html",
+    section: "medulla", sectionName: "延腦心血管中樞",
+    keywords: "NTS RVLM AMB CVLM 孤束核 延腦心血管中樞 IML PVN 室旁核",
+    snippet: "NTS/RVLM/AMB/CVLM四核團分工、脊髓IML、下視丘PVN。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心血管功能整合",
+    url: "總複習/獸醫生理學/心血管功能整合.html",
+    section: "raas", sectionName: "RAAS與長期血壓調控",
+    keywords: "renin angiotensin aldosterone system RAAS ACE vasopressin ADH V1A V2 腎素 血管收縮素 醛固酮",
+    snippet: "RAAS完整路徑、Angiotensin II雙重作用、ADH雙重效果、保鉀利尿劑機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心血管功能整合",
+    url: "總複習/獸醫生理學/心血管功能整合.html",
+    section: "hemorrhage", sectionName: "出血的代償反應",
+    keywords: "hemorrhage 出血 autotransfusion 自體輸血機轉 hemorrhagic shock 出血性休克代償",
+    snippet: "出血代償時序、自體輸血機轉NFP偏移。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心血管功能整合",
+    url: "總複習/獸醫生理學/心血管功能整合.html",
+    section: "shock", sectionName: "循環休克",
+    keywords: "circulatory shock hypovolemic low-resistance cardiogenic 低血容性休克 低阻力性休克 心因性休克 anaphylactic septic",
+    snippet: "循環休克三分類：低血容性、低阻力性、心因性。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心血管功能整合",
+    url: "總複習/獸醫生理學/心血管功能整合.html",
+    section: "hypertension", sectionName: "高血壓",
+    keywords: "hypertension 高血壓 primary secondary 原發性 續發性 pheochromocytoma 嗜鉻細胞瘤",
+    snippet: "原發性vs續發性高血壓、長期器官損害。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "心血管功能整合",
+    url: "總複習/獸醫生理學/心血管功能整合.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 心血管整合 壓力感受反射 RAAS 休克",
+    snippet: "涵蓋MAP整合、壓力感受反射、RAAS、出血代償、循環休克等章節重點的練習題（共10題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "mechanics", sectionName: "通氣力學與壓力變化",
+    keywords: "ventilation Boyle's law transpulmonary pressure 跨肺壓 pneumothorax 氣胸 intrapleural pressure",
+    snippet: "波以耳定律、肺泡壓/肋膜腔壓/跨肺壓定義、氣胸機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "compliance", sectionName: "肺順應性與表面張力",
+    keywords: "lung compliance surfactant 表面張力素 surface tension 新生兒呼吸窘迫",
+    snippet: "肺順應性決定因子、表面張力素降低表面張力、早產新生兒呼吸窘迫。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "volumes", sectionName: "肺容積與肺容量",
+    keywords: "tidal volume TV IRV ERV RV vital capacity VC FRC TLC 潮氣容積 肺活量 肺總容量",
+    snippet: "四肺容積與四肺容量定義、VC/IC/FRC/TLC組成公式。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "deadspace", sectionName: "通氣、死腔與灌流配合",
+    keywords: "dead space 死腔 alveolar ventilation minute ventilation V/Q matching shunt 分流 hypoxic pulmonary vasoconstriction 缺氧性肺血管收縮",
+    snippet: "肺泡換氣量公式、分流、缺氧性肺血管收縮與V/Q配合。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "diffusion", sectionName: "氣體擴散",
+    keywords: "Fick's law diffusion alveolar-capillary barrier perfusion-limited diffusion-limited DLCO 擴散限制 灌流限制",
+    snippet: "Fick擴散定律、灌流限制vs擴散限制氣體交換、DLCO測試。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "oxygen", sectionName: "氧氣運輸與血紅素飽和",
+    keywords: "hemoglobin oxygen dissociation curve Bohr effect DPG 血紅素 氧解離曲線 波爾效應",
+    snippet: "血紅素S形飽和曲線、右移四因子（PCO2/H+/溫度/DPG）、高海拔適應。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "co2", sectionName: "二氧化碳運輸",
+    keywords: "CO2 transport bicarbonate chloride shift carbonic anhydrase 碳酸氫根 氯轉移 碳酸酐酶",
+    snippet: "CO2三種運輸形式占比、氯轉移機轉、H+緩衝運輸。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "control", sectionName: "呼吸中樞調控",
+    keywords: "medullary respiratory center Hering-Breuer reflex chemoreceptor carotid body aortic body COPD 中樞化學感受器 周邊化學感受器",
+    snippet: "延腦呼吸中樞、Hering-Breuer反射、中樞vs周邊化學感受器、COPD給氧風險。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "clinical", sectionName: "臨床連結與肺的其他功能",
+    keywords: "carbon monoxide poisoning CO中毒 cherry red 櫻桃紅 no cyanosis 不發紺 lung filter reservoir",
+    snippet: "CO中毒機轉與臨床特徵、肺臟過濾/儲血/代謝等非氣體交換功能。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "呼吸生理學",
+    url: "總複習/獸醫生理學/呼吸生理學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 呼吸生理 肺容積 氣體運輸",
+    snippet: "涵蓋通氣力學、肺容積容量、氣體擴散、氧氣二氧化碳運輸、呼吸調控等章節重點的練習題（共10題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "腎臟生理學基礎",
+    url: "總複習/獸醫生理學/腎臟生理學基礎.html",
+    section: "nephron", sectionName: "腎元構造",
+    keywords: "nephron 腎元 cortical juxtamedullary 皮質腎元 近髓腎元 glomerulus Bowman's capsule 腎絲球 鮑氏囊",
+    snippet: "腎元三大功能（過濾/再吸收/分泌）、皮質腎元vs近髓腎元、兩套微血管系統。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "腎臟生理學基礎",
+    url: "總複習/獸醫生理學/腎臟生理學基礎.html",
+    section: "jga", sectionName: "腎絲球旁器",
+    keywords: "juxtaglomerular apparatus JGA macula densa podocyte mesangial cell 腎絲球旁器 緻密斑 足細胞 系膜細胞",
+    snippet: "JG細胞、緻密斑、足細胞、系膜細胞功能與管絲反饋感應站。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "腎臟生理學基礎",
+    url: "總複習/獸醫生理學/腎臟生理學基礎.html",
+    section: "filtration", sectionName: "腎絲球過濾與GFR",
+    keywords: "GFR glomerular filtration rate filtration fraction FF proteinuria 腎絲球過濾率 過濾分率 蛋白尿",
+    snippet: "GFR≈125mL/min、FF≈19-20%、淨過濾壓三力組成。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "腎臟生理學基礎",
+    url: "總複習/獸醫生理學/腎臟生理學基礎.html",
+    section: "clearance", sectionName: "腎清除率",
+    keywords: "renal clearance inulin PAH creatinine 清除率 菊糖 肌酸酐",
+    snippet: "C=UV/P公式、清除率與GFR大小關係判讀（菊糖/PAH/葡萄糖）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "腎臟生理學基礎",
+    url: "總複習/獸醫生理學/腎臟生理學基礎.html",
+    section: "concentration", sectionName: "對流倍增與尿液濃縮",
+    keywords: "countercurrent multiplier loop of Henle vasa recta ADH aquaporin AQP2 對流倍增 亨利氏環 直血管",
+    snippet: "亨利氏環通透性差異、髓質滲透壓梯度、ADH調控AQP2、必要水分流失量。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "腎臟生理學基礎",
+    url: "總複習/獸醫生理學/腎臟生理學基礎.html",
+    section: "diuretics", sectionName: "利尿劑分類",
+    keywords: "diuretics mannitol furosemide loop diuretic thiazide spironolactone 利尿劑 保鉀利尿劑",
+    snippet: "滲透性/環利尿劑/Thiazide/保鉀利尿劑作用部位比較。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "腎臟生理學基礎",
+    url: "總複習/獸醫生理學/腎臟生理學基礎.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 腎臟生理 腎絲球過濾 清除率",
+    snippet: "涵蓋腎元構造、腎絲球過濾、清除率、對流倍增、電解質調控等章節重點的練習題（共7題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "compartments", sectionName: "體液區隔與體液平衡",
+    keywords: "body fluid compartment ICF ECF 細胞內液 細胞外液 interstitial fluid plasma",
+    snippet: "ICF約63%、ECF約37%、水分獲得流失調控槓桿。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "osmosis", sectionName: "滲透壓與水分子移動規則",
+    keywords: "osmolarity water follows salt protein glucose 滲透壓 water intoxication 水中毒",
+    snippet: "Water follows Salt/Protein/Glucose口訣、細胞腫脹皺縮、水中毒。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "shifts", sectionName: "體液移位的臨床情境",
+    keywords: "third spacing exudate transudate ascites pleural effusion 第三空間 滲出液 漏出液 腹水",
+    snippet: "第三空間效應、滲出液vs漏出液、腹水與肋膜積液成因。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "electrolytes", sectionName: "主要電解質總論",
+    keywords: "sodium potassium calcium phosphate magnesium chloride bicarbonate 鈉 鉀 鈣 磷 鎂 氯",
+    snippet: "七大電解質分布、功能與調控激素總表。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "buffers", sectionName: "化學緩衝系統",
+    keywords: "buffer system protein bicarbonate phosphate 蛋白質緩衝 碳酸氫根緩衝 磷酸鹽緩衝",
+    snippet: "三大化學緩衝系統、呼吸vs腎臟緩衝速度容量比較。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "renalacid", sectionName: "腎臟酸鹼調節機轉",
+    keywords: "hydrogen ion secretion bicarbonate reabsorption ammonium titratable acid 氫離子分泌 銨離子 可滴定酸",
+    snippet: "H+分泌、HCO3-再吸收、磷酸鹽與銨離子緩衝機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "imbalance", sectionName: "酸鹼失衡分類與代償",
+    keywords: "respiratory acidosis alkalosis metabolic acidosis alkalosis 呼吸性酸中毒 代謝性酸中毒 代償",
+    snippet: "酸鹼失衡四分類、常見病因、呼吸與腎臟代償方向。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "metabolism", sectionName: "能量代謝與基礎代謝率",
+    keywords: "basal metabolic rate BMR thyroid hormone epinephrine calorigenic 基礎代謝率 產熱效應",
+    snippet: "BMR四大決定因子（甲狀腺素/腎上腺素/食物誘導產熱/肌肉活動）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "thermoregulation", sectionName: "體溫調節",
+    keywords: "thermoregulation core body temperature shivering non-shivering fever hyperthermia 顫抖性產熱 發燒 體溫過高",
+    snippet: "晝夜體溫節律、顫抖/非顫抖產熱、發燒vs體溫過高機轉差異。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "體液、電解質與體溫調節",
+    url: "總複習/獸醫生理學/體液電解質與體溫調節.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 體液電解質 酸鹼 體溫調節",
+    snippet: "涵蓋體液區隔、電解質、酸鹼緩衝與失衡、能量代謝、體溫調節等章節重點的練習題（共7題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "反芻動物消化生理學",
+    url: "總複習/獸醫生理學/反芻動物消化生理學.html",
+    section: "overview", sectionName: "發酵消化總論：前胃vs後腸",
+    keywords: "forestomach hindgut fermentation 前胃 後腸 rumen reticulum omasum abomasum 瘤胃 網胃 瓣胃 皺胃",
+    snippet: "發酵消化vs一般消化差異、前胃發酵與後腸發酵物種分類。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "反芻動物消化生理學",
+    url: "總複習/獸醫生理學/反芻動物消化生理學.html",
+    section: "microbes", sectionName: "瘤胃微生物生態",
+    keywords: "rumen bacteria protozoa fungi 瘤胃細菌 原蟲 真菌 cross-feeding 交叉餵養",
+    snippet: "細菌原蟲真菌三大類微生物、交叉餵養協同分工。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "反芻動物消化生理學",
+    url: "總複習/獸醫生理學/反芻動物消化生理學.html",
+    section: "vfa", sectionName: "VFA生成與代謝路徑",
+    keywords: "volatile fatty acid VFA acetate propionate butyrate methane 揮發性脂肪酸 乙酸 丙酸 丁酸 甲烷",
+    snippet: "醣類經糖解厭氧代謝產生VFA、乙酸丙酸與產甲烷關係、飼糧對VFA比例影響。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "反芻動物消化生理學",
+    url: "總複習/獸醫生理學/反芻動物消化生理學.html",
+    section: "protein", sectionName: "蛋白質發酵與尿素再循環",
+    keywords: "urea recycling ammonia microbial protein 尿素再循環 微生物蛋白 非蛋白氮",
+    snippet: "蛋白質發酵路徑、微生物蛋白合成、尿素再循環機制。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "反芻動物消化生理學",
+    url: "總複習/獸醫生理學/反芻動物消化生理學.html",
+    section: "motility", sectionName: "網胃瘤胃蠕動與反芻",
+    keywords: "reticulorumen motility mixing eructation regurgitation rumination cud chewing 混合收縮 噯氣 反芻",
+    snippet: "混合/噯氣/逆嘔三種收縮型式、反芻機轉、迷走神經調控。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "反芻動物消化生理學",
+    url: "總複習/獸醫生理學/反芻動物消化生理學.html",
+    section: "absorption", sectionName: "VFA吸收機轉",
+    keywords: "VFA absorption rumen epithelium stratified squamous beta-hydroxybutyrate 瘤胃上皮 複層鱗狀上皮 β-羥丁酸",
+    snippet: "VFA解離態與游離態轉換、瘤胃上皮吸收機轉、丁酸轉β-羥丁酸。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "反芻動物消化生理學",
+    url: "總複習/獸醫生理學/反芻動物消化生理學.html",
+    section: "hindgut", sectionName: "馬屬後腸發酵比較",
+    keywords: "equine hindgut cecum colon pelvic flexure 馬 盲腸 結腸 骨盆曲 colon impaction 結腸阻塞",
+    snippet: "馬盲腸結腸發酵、與瘤胃發酵效率差異、骨盆曲阻塞好發。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "反芻動物消化生理學",
+    url: "總複習/獸醫生理學/反芻動物消化生理學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 反芻動物消化 VFA 瘤胃",
+    snippet: "涵蓋瘤胃微生物、VFA代謝、瘤胃蠕動與反芻、VFA吸收、後腸發酵比較等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "overview", sectionName: "消化道總論與調控系統",
+    keywords: "enteric nervous system ENS gut hormone secretin gastrin CCK GIP motilin 腸神經系統 腸道激素",
+    snippet: "ENS兩套神經叢、卡哈爾間質細胞、五大腸道激素總表。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "motility", sectionName: "胃腸道蠕動型態",
+    keywords: "receptive relaxation enterogastric reflex segmentation MMC migrating motility complex 容受性舒張 腸胃反射 分節收縮",
+    snippet: "胃近端儲存遠端研磨、腸胃反射抑制排空、小腸分節收縮與MMC。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "gastric", sectionName: "胃液分泌",
+    keywords: "gastric juice parietal cell chief cell HCl pepsinogen cephalic gastric intestinal phase 壁細胞 主細胞 頭期 胃期 腸期",
+    snippet: "胃腺細胞分泌總表、胃酸分泌三期調控、鹼潮。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "pancreas", sectionName: "胰臟外分泌",
+    keywords: "pancreatic zymogen trypsinogen enterokinase acinar cell 胰蛋白酶原 腸激酶 腺泡細胞",
+    snippet: "胰酵素原活化級聯、secretin/CCK對胰液不同成分的調控。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "liver", sectionName: "肝臟膽汁與腸肝循環",
+    keywords: "bile acid enterohepatic circulation gallbladder 膽酸 腸肝循環 膽囊 黃疸 jaundice",
+    snippet: "膽酸腸肝循環、膽囊物種差異、溶血性vs阻塞性黃疸。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "fat", sectionName: "脂肪消化吸收",
+    keywords: "emulsification micelle chylomicron lipase co-lipase 乳化 微胞 乳糜微粒 postprandial lipemia 餐後脂血症",
+    snippet: "脂肪消化吸收四階段、長短鏈脂肪酸吸收路徑分歧、餐後脂血症。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "neonate", sectionName: "新生兒消化特殊性",
+    keywords: "colostrum intact protein absorption lactase maltase 初乳 完整蛋白質吸收 乳糖酶 麥芽糖酶",
+    snippet: "新生兒延遲胃酸胰酵素發育、完整吸收初乳抗體、雙醣酶成熟轉換。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "postabsorptive", sectionName: "吸收後期代謝",
+    keywords: "gluconeogenesis glycogenolysis HSL CPT-1 malonyl-CoA ketogenesis alanine cycle 糖質新生 酮體生成 丙胺酸循環",
+    snippet: "胰島素/升糖素比值切換、HSL脂肪動員、CPT-1酮體生成限速步驟、糖尿病酮酸中毒機轉。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "ruminantfuel", sectionName: "反芻動物燃料代謝比較",
+    keywords: "ruminant fuel propionate gluconeogenesis acetate fatty acid synthesis 反芻動物燃料代謝 丙酸生糖",
+    snippet: "反芻動物永久糖質新生狀態、丙酸為唯一生糖VFA、脂肪酸合成原料為乙酸。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "單胃動物消化生理學",
+    url: "總複習/獸醫生理學/單胃動物消化生理學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 單胃消化 吸收後代謝 酮體",
+    snippet: "涵蓋消化道調控、分泌機轉、三大營養素消化吸收、吸收後代謝等章節重點的練習題（共7題）。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "睡眠生理與腦波節律",
+    url: "總複習/獸醫生理學/睡眠生理與腦波節律.html",
+    section: "eeg", sectionName: "EEG腦波紀錄與波型分類",
+    keywords: "EEG alpha beta theta delta wave 10-20 system synchronized desynchronized 腦波 同步化 去同步化",
+    snippet: "10-20電極系統、alpha/beta/theta/delta波型頻率與特徵。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "睡眠生理與腦波節律",
+    url: "總複習/獸醫生理學/睡眠生理與腦波節律.html",
+    section: "stages", sectionName: "NREM與REM睡眠分期",
+    keywords: "NREM REM sleep stage delta sleep slow wave sleep 慢波睡眠 睡眠分期",
+    snippet: "睡眠五分期特徵、δ睡眠為最深層恢復性睡眠。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "睡眠生理與腦波節律",
+    url: "總複習/獸醫生理學/睡眠生理與腦波節律.html",
+    section: "wake", sectionName: "覺醒系統神經傳導物質",
+    keywords: "acetylcholine norepinephrine histamine serotonin dopamine orexin hypocretin narcolepsy 食慾素 猝睡症",
+    snippet: "ACh/NE/組織胺/血清素/多巴胺/食慾素在清醒NREM REM的活性變化。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "睡眠生理與腦波節律",
+    url: "總複習/獸醫生理學/睡眠生理與腦波節律.html",
+    section: "rem", sectionName: "REM睡眠調控系統",
+    keywords: "REM-on cholinergic atonia glycine REM sleep behavior disorder 膽鹼性神經元 肌肉張力喪失",
+    snippet: "REM-on膽鹼性神經元去抑制機轉、甘胺酸介導的atonia。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "睡眠生理與腦波節律",
+    url: "總複習/獸醫生理學/睡眠生理與腦波節律.html",
+    section: "twoprocess", sectionName: "兩歷程模型",
+    keywords: "two-process model process S process C Borbely homeostatic circadian 恆定歷程 晝夜歷程",
+    snippet: "Process S恆定歷程與Process C晝夜歷程、睡眠剝奪不對稱效應。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "睡眠生理與腦波節律",
+    url: "總複習/獸醫生理學/睡眠生理與腦波節律.html",
+    section: "circadian", sectionName: "生理時鐘與退黑激素",
+    keywords: "SCN suprachiasmatic nucleus melatonin clock gene Period Cryptochrome 視交叉上核 退黑激素 時鐘基因",
+    snippet: "SCN主節律點、退黑激素分泌調控、Period/Cryptochrome時鐘基因。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "睡眠生理與腦波節律",
+    url: "總複習/獸醫生理學/睡眠生理與腦波節律.html",
+    section: "deprivation", sectionName: "睡眠剝奪的影響",
+    keywords: "sleep deprivation glymphatic system amyloid-beta pERK2 memory 類淋巴系統 類澱粉蛋白 記憶編碼",
+    snippet: "睡眠剝奪對記憶編碼的影響、類淋巴系統清除類澱粉蛋白。"
+  },
+  {
+    subject: "獸醫生理學", semester: "總複習", week: null, weekTitle: "睡眠生理與腦波節律",
+    url: "總複習/獸醫生理學/睡眠生理與腦波節律.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 睡眠生理 腦波 晝夜節律",
+    snippet: "涵蓋EEG波型、睡眠分期、神經傳導物質調控、兩歷程模型、晝夜節律等章節重點的練習題（共6題）。"
   }
 ];

@@ -3,7 +3,7 @@
    讀取 nav-data.js 的 SITE_NAV，建立頂列學期分頁；有科目的
    學期點擊展開下拉卡片選單，沒有科目的學期直接是一般連結。
    使用頁面需先放一個容器：
-     <div id="siteNav" class="site-nav" data-base="../../" data-current="大四上"></div>
+     <div id="siteNav" class="site-nav" data-base="../../" data-current="大四"></div>
    data-base：回網站根目錄的相對路徑（頂層 "" ／科目頁 "../" ／週次或主題頁 "../../"）
    data-current：目前所在學期的 id（不在任何學期時留空）
    還需要一個 <div id="navPanel" class="nav-panel"></div>

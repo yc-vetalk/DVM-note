@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：身體運動的控制 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">身體運動的控制</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">身體運動的控制</h1>
+      <p class="page-subtitle">Control of Body Movement — 運動控制階層、局部脊髓反射（牽張反射／高爾基腱器官／屈曲反射）、下行徑路、大腦皮質與小腦的角色。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-2 學年度《Control of Body Movement》Chapter 10，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">整體架構</div>
+    <a class="active" onclick="showSection('hierarchy')" id="nav-hierarchy"><span class="nav-icon">🏗️</span> 運動控制階層</a>
+    <a onclick="showSection('ascending')" id="nav-ascending"><span class="nav-icon">⬆️</span> 上行徑路回顧</a>
+    <div class="section-label" style="margin-top:8px;">局部脊髓控制</div>
+    <a onclick="showSection('proprioceptors')" id="nav-proprioceptors"><span class="nav-icon">📡</span> 本體感覺受器</a>
+    <a onclick="showSection('stretchreflex')" id="nav-stretchreflex"><span class="nav-icon">🦵</span> 牽張反射與α-γ共活化</a>
+    <a onclick="showSection('gto')" id="nav-gto"><span class="nav-icon">🧵</span> 高爾基腱器官反射</a>
+    <a onclick="showSection('withdrawal')" id="nav-withdrawal"><span class="nav-icon">🚫</span> 屈曲反射與交叉伸肌反射</a>
+    <a onclick="showSection('tone')" id="nav-tone"><span class="nav-icon">💪</span> 肌張力異常</a>
+    <div class="section-label" style="margin-top:8px;">腦部運動中樞</div>
+    <a onclick="showSection('descending')" id="nav-descending"><span class="nav-icon">⬇️</span> 下行徑路：皮質脊髓vs腦幹徑</a>
+    <a onclick="showSection('cortex')" id="nav-cortex"><span class="nav-icon">🧠</span> 大腦皮質運動區</a>
+    <a onclick="showSection('cerebellum')" id="nav-cerebellum"><span class="nav-icon">🎯</span> 小腦與姿勢平衡</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-hierarchy">
+      <div class="section-head"><div class="section-num">1</div><h2>運動控制階層</h2></div>
+      <p class="section-desc">運動控制是由脊髓局部反射到大腦皮質規劃層層堆疊的階層式系統，理解此階層架構是理解本章所有內容的骨架。</p>
+
+      <div class="flow">
+        <div class="flow-node accent">最高層：聯合皮質、基底核、小腦（動作規劃、學習、意圖形成）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">中層：運動皮質、腦幹核團（運動程式 motor program、下行徑路發動）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">最底層：脊髓局部迴路（運動神經元、中間神經元，接收周邊感覺回饋做即時微調）</div>
+      </div>
+
+      <h3>隨意 vs 非隨意運動</h3>
+      <p><strong>隨意運動</strong>伴隨意識覺察，注意力指向動作本身或其目的；<strong>非隨意運動</strong>則是無意識、自動化或反射性的。多數實際運動行為<strong>並非純隨意或純非隨意</strong>，而是混合狀態。運動可依此分為三類：<strong>反射性（reflex，最簡單）</strong>、<strong>隨意性（voluntary，最複雜）</strong>、<strong>節律性（rhythmic，如行走，是反射與隨意成分的結合）</strong>。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>脊髓層級的反射迴路可在不經意識層次的情況下獨立運作、微調正在進行中的動作，這是運動控制階層「由下而上分工」的具體展現——高層下達整體運動程式指令，細部即時修正則交由脊髓局部迴路處理，大幅減輕高層腦區的運算負擔。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-ascending">
+      <div class="section-head"><div class="section-num">2</div><h2>上行徑路回顧</h2></div>
+      <p class="section-desc">運動控制高度依賴感覺回饋（本體感覺、觸壓覺等），脊髓上行徑路（ascending tract）負責將周邊感覺訊息傳遞至腦部，此處簡要回顧其分類架構，與「感覺生理學」章節互相對應。</p>
+
+      <h3>上行徑路三級神經元架構</h3>
+      <p>多數上行徑路由<strong>三級神經元（three-order neuron chain）</strong>接力傳遞：第一級神經元（初級感覺神經元，胞體位於背根神經節）→第二級神經元（多在脊髓或延腦交叉至對側）→第三級神經元（多位於視丘，投射至大腦皮質對應感覺區）。上行徑路主要功能包括傳遞本體感覺、觸壓覺、痛溫覺（詳見「感覺生理學」章節痛覺路徑），這些訊息同時也是運動控制局部迴路所需的關鍵輸入。</p>
+    </div>
+
+    <div class="section" id="section-proprioceptors">
+      <div class="section-head"><div class="section-num">3</div><h2>本體感覺受器</h2></div>
+      <p class="section-desc">局部運動控制系統接收來自高層腦區的指令，同時根據肌肉、肌腱、關節的感覺受器回饋即時調整——這種對身體各部位相對位置與運動狀態的感覺稱為<strong>本體感覺（proprioception）</strong>。</p>
+
+      <h3>肌梭 Muscle Spindle</h3>
+      <p>是嵌於骨骼肌纖維之間、平行排列的感覺受器，偵測<strong>肌肉長度與拉伸速度</strong>，內含兩型特化肌纖維：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">核鏈纖維 Nuclear chain fiber</div><p>偵測肌肉被拉伸的<strong>程度（靜態長度）</strong></p></div>
+        <div class="card"><div class="card-title">核袋纖維 Nuclear bag fiber</div><p>偵測拉伸的<strong>幅度與速度（動態變化）</strong></p></div>
+      </div>
+
+      <h3>高爾基腱器官 Golgi Tendon Organ (GTO)</h3>
+      <p>位於肌肉與肌腱交接處，與肌纖維呈<strong>串聯（非平行）</strong>排列，偵測整條肌肉產生的<strong>張力（tension）</strong>，是「張力監測系統（tension-monitoring system）」，功能與肌梭的「長度監測系統（length-monitoring system）」互補。</p>
+    </div>
+
+    <div class="section" id="section-stretchreflex">
+      <div class="section-head"><div class="section-num">4</div><h2>牽張反射與α-γ共活化</h2></div>
+      <p class="section-desc">牽張反射（stretch reflex）是最經典的單突觸反射（monosynaptic reflex），也是臨床神經學檢查最常用的反射測試（膝跳反射），核心機轉是肌梭偵測拉伸後直接興奮同一條肌肉的α運動神經元。</p>
+
+      <h3>膝跳反射 Knee-Jerk Reflex（單突觸反射）</h3>
+      <div class="flow">
+        <div class="flow-node">敲擊肌腱，股四頭肌被瞬間拉伸</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">肌梭偵測拉伸，感覺神經元直接興奮性突觸連接同一肌肉的α運動神經元（單突觸）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">股四頭肌反射性收縮，同時經<strong>交互支配（reciprocal innervation）</strong>抑制拮抗肌（膕旁肌）的運動神經元</div>
+      </div>
+      <p>此反射常用於評估：(1) 傳入感覺神經元對運動神經元的突觸輸入平衡；(2) 運動神經元本身功能；(3) 神經肌肉接合處功能；(4) 肌肉本身功能——是臨床神經學檢查定位病灶（上運動神經元 vs 下運動神經元病變）的基礎工具。</p>
+
+      <h3>α-γ共活化 Alpha-Gamma Coactivation</h3>
+      <p>肌梭本身也接受<strong>γ運動神經元</strong>支配（調控肌梭內特化纖維的收縮狀態，藉此設定肌梭的敏感度）；當中樞下達收縮指令時，會<strong>同時活化α運動神經元（收縮整條肌肉主體）與γ運動神經元（調整肌梭敏感度）</strong>，使肌梭在主肌肉整體縮短的同時仍能維持對拉伸的敏感偵測能力，避免肌梭因肌肉整體縮短而「鬆弛失能」，這是精細動作中維持本體感覺回饋持續有效的關鍵設計。</p>
+    </div>
+
+    <div class="section" id="section-gto">
+      <div class="section-head"><div class="section-num">5</div><h2>高爾基腱器官反射</h2></div>
+      <p class="section-desc">高爾基腱器官反射是身體對「過度負重」的保護性反射，與牽張反射方向相反，展現張力監測系統的功能。</p>
+
+      <div class="flow">
+        <div class="flow-node danger">肌肉負重過大，張力急遽上升</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">高爾基腱器官偵測到過大張力，經Ib傳入神經元活化脊髓抑制性中間神經元</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">抑制同一肌肉的α運動神經元（多突觸反射） → 該肌肉放鬆，避免肌肉或肌腱因過度負重而撕裂</div>
+      </div>
+      <p>此反射屬於身體對「負重與過載」的反應（response to load and overload），是重量訓練中「自我保護性放鬆」現象（過重負荷時肌肉突然無力鬆脫）的生理基礎，也是本體感覺神經肌肉促進術（PNF）等復健技術的理論依據之一。</p>
+    </div>
+
+    <div class="section" id="section-withdrawal">
+      <div class="section-head"><div class="section-num">6</div><h2>屈曲反射與交叉伸肌反射</h2></div>
+      <p class="section-desc">屈曲反射（withdrawal/flexion reflex）是對傷害性刺激的保護性反射，常合併對側肢體的交叉伸肌反射（crossed-extensor reflex），共同維持身體平衡與安全。</p>
+
+      <h3>屈曲反射 Withdrawal Reflex</h3>
+      <p>皮膚受到疼痛刺激（如踩到尖銳物）時，會活化<strong>同側（ipsilateral）</strong>肢體的屈肌運動神經元並抑制伸肌運動神經元，使受刺激肢體迅速屈曲、遠離有害刺激來源。</p>
+
+      <h3>交叉伸肌反射 Crossed-Extensor Reflex</h3>
+      <p>同一刺激會在<strong>對側（contralateral）</strong>肢體引發相反反應：伸肌運動神經元被活化、屈肌運動神經元被抑制，使對側肢體伸直以支撐體重，代償同側肢體因屈曲離地而產生的體重轉移，避免動物跌倒。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>屈曲反射與交叉伸肌反射合稱「屈肌-交叉伸肌反射（flexion/crossed-extensor reflex）」，兩者同時發生、方向相反，是理解「單一傷害性刺激如何協調四肢整體反應」的經典範例，也是臨床神經學檢查評估脊髓反射完整性的常用測試之一。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-tone">
+      <div class="section-head"><div class="section-num">7</div><h2>肌張力異常</h2></div>
+      <p class="section-desc">肌張力（muscle tone）是靜息肌肉對被動拉伸的阻力，來自肌肉與關節本身的被動彈性特性，加上持續存在的α運動神經元活動程度，臨床上肌張力異常是重要的神經學定位線索。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>成因</th><th>特徵</th></tr></thead>
+          <tbody>
+            <tr><td><strong>高張力 Hypertonia</strong></td><td>運動神經元活性高於正常</td><td>分痙攣（stretch時張力隨拉伸速度增加而遞增，拉伸後張力減弱）與僵直（rigidity，持續性高張力，不因拉伸而變化）；可能源自上運動神經元病變（皮質或下行徑路中間神經元）或下運動神經元病變（α運動神經元本身）</td></tr>
+            <tr><td><strong>低張力 Hypotonia</strong></td><td>運動神經元、神經肌肉接合處或肌肉本身病變</td><td>伴隨肌肉無力與萎縮</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p>臨床神經學檢查中，肌張力異常合併反射亢進通常指向<strong>上運動神經元病變</strong>（如腦部或脊髓白質病灶），肌張力低下合併反射減弱／消失則通常指向<strong>下運動神經元病變</strong>（如周邊神經或神經肌肉接合處病變）——這是獸醫神經學定位診斷的基本邏輯框架。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-descending">
+      <div class="section-head"><div class="section-num">8</div><h2>下行徑路：皮質脊髓vs腦幹徑</h2></div>
+      <p class="section-desc">大腦各運動相關區域對姿勢與動作的影響，都是透過下行徑路（descending pathway）傳遞至脊髓運動神經元與中間神經元，依起源可分兩大類系統。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">皮質脊髓徑 Corticospinal Pathway（錐體徑）</div>
+          <p>神經元胞體位於感覺運動皮質，直接下行終止於脊髓；因在延腦腹側呈三角錐狀外觀而又稱<strong>錐體徑（pyramidal tract）</strong>；<strong>絕大多數纖維在延腦與脊髓交界處交叉至對側下行</strong>——因此左半腦控制右側身體骨骼肌，右半腦控制左側，這是理解「單側腦病灶導致對側肢體無力」臨床表現的解剖基礎</p>
+        </div>
+        <div class="card">
+          <div class="card-title">腦幹徑 Brainstem Pathway（錐體外徑）</div>
+          <p>神經元起源於腦幹核團，又稱<strong>錐體外系統（extrapyramidal system）</strong>；<strong>多數纖維不交叉，支配同側肌肉</strong>（僅少數交叉至對側）；主要負責控制軀幹肌肉，維持直立姿勢、平衡與行走的整體協調</p>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>皮質脊髓徑（交叉、精細隨意動作，尤其肢體遠端精細動作）與腦幹徑（多數不交叉、軀幹粗大姿勢控制）的分工，呼應「隨意精細動作依賴皮質」vs「姿勢平衡依賴腦幹與皮質下核團」的整體運動控制哲學。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-cortex">
+      <div class="section-head"><div class="section-num">9</div><h2>大腦皮質運動區</h2></div>
+      <p class="section-desc">感覺運動皮質（sensorimotor cortex）泛指所有共同參與肌肉動作控制的大腦皮質區域，在運動控制階層中同時扮演最高層（規劃）與中層（執行發動）的角色。</p>
+
+      <h3>主要皮質運動區</h3>
+      <ul>
+        <li><strong>初級運動皮質 Primary motor cortex</strong>：位於額葉後部，是下行徑路神經元的主要起源地之一，神經元依身體部位呈<strong>體感覺／運動皮質圖（somatotopic map）</strong>排列</li>
+        <li><strong>前運動區 Premotor area</strong>：參與動作準備與規劃</li>
+        <li><strong>輔助運動皮質 Supplementary motor cortex</strong>：位於兩半球間額葉表面皮質摺疊處</li>
+        <li><strong>體感覺皮質與頂葉聯合皮質</strong>：頂葉聯合皮質神經元在視覺導引下的伸手抓取動作中，負責整合手部動作訊號與物體三維空間特徵的視覺訊號，是視覺-運動整合的關鍵區域</li>
+      </ul>
+
+      <h3>皮質運動網絡的可塑性</h3>
+      <p>這些皮質區域雖各自具有解剖與功能上的獨立性，卻彼此高度互連，形成神經網絡，使<strong>同一動作可由多個部位共同參與表徵，且神經元間的交互作用具彈性、可依情境不同而改變</strong>——此特性使動物能以多種不同方式達成同一目標（例如可用左手或右手梳頭、從頭部前方或後方開始），也是運動學習得以發生的神經基礎。皮質下核團（基底核等）與腦幹核團也高度互連，主要負責建立完成特定動作序列所需的運動程式（motor program），並在技巧性動作學習中扮演重要角色。</p>
+    </div>
+
+    <div class="section" id="section-cerebellum">
+      <div class="section-head"><div class="section-num">10</div><h2>小腦與姿勢平衡</h2></div>
+      <p class="section-desc">小腦不直接下達運動指令至脊髓，而是透過調節腦幹核團與（經視丘）感覺運動皮質的活動，間接參與姿勢與動作控制，功能可歸納為時序協調、動作規劃、誤差校正三大類。</p>
+
+      <h3>小腦的輸入來源</h3>
+      <p>小腦同時接收<strong>感覺運動皮質（經腦幹核團中繼）</strong>的訊號，以及<strong>前庭系統、視覺、皮膚、肌肉、關節、肌腱</strong>的感覺回饋——是整合中樞指令與周邊實際執行狀況的關鍵節點。</p>
+
+      <h3>小腦三大功能</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">時序協調 Timing</div><p>提供動作各階段精確執行所需的時序訊號，特別是主動肌／拮抗肌成分之間的時間協調，也涉及「肌肉記憶」的形成</p></div>
+        <div class="card"><div class="card-title">動作規劃 Planning</div><p>整合預定動作的性質與周遭空間環境的資訊，參與動作規劃階段</p></div>
+        <div class="card"><div class="card-title">誤差校正 Error correction</div><p>動作進行中比對「肌肉應該做什麼」與「肌肉實際在做什麼」，兩者有落差時即時送出校正訊號</p></div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：小腦疾病</div>
+        <p>小腦病變動物表現<strong>動作不協調（ataxia）</strong>、無法快速流暢地啟動或終止動作、無法將多關節動作整合為單一平滑協調的動作（走路困難）——這些正是小腦「時序協調」與「誤差校正」功能喪失的直接後果，是獸醫神經學檢查中定位小腦病灶的重要臨床線索（如意向性震顫、寬基步態、辨距不良dysmetria）。</p>
+      </div>
+
+      <h3>行走 Walking</h3>
+      <p>行走需要眾多肌肉高度協調，由<strong>身體前傾（重心前移）啟動</strong>；正常情況下，大腦皮質、小腦、腦幹與脊髓皆同時參與神經活化以維持行走過程——即使是感覺運動皮質的微小損傷也可能造成步態改變，顯示行走這種看似「自動化」的節律性動作，實際上仍需要多層級運動控制系統的持續整合參與，而非單純的脊髓反射鏈。</p>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章的核心是理解運動控制的階層架構——脊髓局部反射負責即時微調，腦幹與皮質負責整體發動與規劃，小腦負責協調校正。考題常考「肌梭vs高爾基腱器官」「膝跳反射迴路」「皮質脊髓徑vs腦幹徑交叉特性」「小腦病變臨床表現」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>運動控制呈階層架構</strong>：脊髓局部迴路（即時微調）→腦幹與運動皮質（運動程式發動）→聯合皮質/基底核/小腦（規劃學習）；多數動作是隨意與非隨意成分的混合。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>肌梭（平行排列，偵測長度與拉伸速度）vs高爾基腱器官（串聯排列，偵測張力）</strong>是互補的兩套本體感覺監測系統。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>膝跳反射是單突觸反射</strong>：肌梭感覺神經元直接興奮同肌肉α運動神經元，同時交互支配抑制拮抗肌；α-γ共活化確保肌肉縮短時肌梭仍保有拉伸敏感度。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>高爾基腱器官反射是保護性的多突觸抑制反射</strong>，過大張力時抑制同肌肉α運動神經元，避免過度負重造成損傷。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>屈曲反射（同側屈肌興奮）合併交叉伸肌反射（對側伸肌興奮）</strong>，共同因應傷害性刺激並維持身體平衡。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>皮質脊髓徑（錐體徑）多數交叉、支配對側精細動作；腦幹徑（錐體外系統）多數不交叉、支配同側軀幹姿勢控制</strong>——是定位單側腦病灶對側肢體無力的解剖基礎。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>小腦不直接下達運動指令，而是經腦幹核團與視丘間接調節皮質活動</strong>，功能為時序協調、動作規劃、誤差校正；小腦病變表現為動作不協調、辨距不良、步態異常。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-2學年度《Control of Body Movement》Chapter 10，王家琪老師，內容參照 Human Physiology (Fox SI)、Vander's Human Physiology 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋運動控制階層、本體感覺受器、脊髓反射、下行徑路、小腦功能等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 肌梭（muscle spindle）與高爾基腱器官（Golgi tendon organ）分別偵測何種訊號？</div>
+        <ul class="quiz-options">
+          <li>(A) 肌梭偵測張力，高爾基腱器官偵測長度</li>
+          <li>(B) 肌梭偵測肌肉長度與拉伸速度，高爾基腱器官偵測肌肉張力</li>
+          <li>(C) 兩者皆偵測肌肉張力，只是位置不同</li>
+          <li>(D) 兩者皆偵測關節角度</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">肌梭與肌纖維平行排列，偵測肌肉長度與拉伸速度（長度監測系統）；高爾基腱器官位於肌肉肌腱交接處，與肌纖維串聯排列，偵測整條肌肉的張力（張力監測系統），兩者功能互補。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 皮質脊髓徑（錐體徑）的多數神經纖維在延腦與脊髓交界處交叉至對側，因此左半腦主要控制身體右側骨骼肌。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer true">答案：TRUE</div>
+          <p class="quiz-explain">皮質脊髓徑的神經元胞體位於感覺運動皮質，絕大多數纖維在延腦近脊髓交界處交叉至對側下行，因此左半腦的運動皮質主要控制身體右側的骨骼肌，反之亦然，這是單側腦病灶導致對側肢體無力的解剖基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 高爾基腱器官反射（GTO reflex）的主要生理意義為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 增強肌肉收縮力量</li>
+          <li>(B) 當肌肉張力過大時抑制同一肌肉的運動神經元，避免過度負重造成損傷</li>
+          <li>(C) 維持肌梭敏感度</li>
+          <li>(D) 觸發交叉伸肌反射</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">高爾基腱器官偵測到肌肉張力過大時，經Ib傳入神經元活化脊髓抑制性中間神經元，抑制同一肌肉的α運動神經元使其放鬆，屬於身體對過度負重的保護性反射，避免肌肉或肌腱因過度負重而撕裂。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明α-γ共活化（alpha-gamma coactivation）的機轉與其生理意義。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">肌梭本身接受γ運動神經元支配，γ運動神經元可調控肌梭內特化纖維的收縮狀態，藉此設定肌梭對拉伸的敏感度。當中樞下達收縮指令時，會同時活化α運動神經元（負責收縮整條肌肉主體）與γ運動神經元（負責同步調整肌梭敏感度），這樣的共同活化機制使肌梭即使在主肌肉整體縮短的過程中，仍能持續維持對拉伸的敏感偵測能力，避免肌梭因肌肉整體縮短而變得鬆弛、喪失偵測功能，確保在動態動作過程中本體感覺回饋訊號仍然持續有效。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 小腦病變動物臨床上最可能表現出下列何種徵候？</div>
+        <ul class="quiz-options">
+          <li>(A) 肌肉萎縮合併反射消失</li>
+          <li>(B) 動作不協調（ataxia）、辨距不良、步態異常，但肌力本身可能正常</li>
+          <li>(C) 單側肢體完全癱瘓</li>
+          <li>(D) 皮膚感覺完全喪失</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">小腦負責動作的時序協調、規劃與誤差校正，不直接下達運動指令至脊髓、也不直接產生肌力。小腦病變動物典型表現為動作不協調（ataxia）、無法流暢啟動或終止動作、辨距不良（dysmetria）、寬基步態等協調性障礙，而非單純的肌力喪失或感覺喪失。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  hierarchy: '運動控制階層',
+  ascending: '上行徑路回顧',
+  proprioceptors: '本體感覺受器',
+  stretchreflex: '牽張反射與α-γ共活化',
+  gto: '高爾基腱器官反射',
+  withdrawal: '屈曲反射與交叉伸肌反射',
+  tone: '肌張力異常',
+  descending: '下行徑路：皮質脊髓vs腦幹徑',
+  cortex: '大腦皮質運動區',
+  cerebellum: '小腦與姿勢平衡',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

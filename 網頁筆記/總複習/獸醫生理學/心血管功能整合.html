@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：心血管功能整合 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">心血管功能整合</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">心血管功能整合</h1>
+      <p class="page-subtitle">Integration of Cardiovascular Function — 全身動脈壓決定因子、壓力感受反射、RAAS與長期血壓調控、出血代償、循環休克、運動與高血壓病理生理。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-2 學年度《Circulation III - Integration of Cardiovascular Function》，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('map')" id="nav-map"><span class="nav-icon">🎯</span> 全身動脈壓的決定因子</a>
+    <div class="section-label" style="margin-top:8px;">短期調控</div>
+    <a onclick="showSection('baroreflex')" id="nav-baroreflex"><span class="nav-icon">🔄</span> 壓力感受反射</a>
+    <a onclick="showSection('medulla')" id="nav-medulla"><span class="nav-icon">🧠</span> 延腦心血管中樞</a>
+    <div class="section-label" style="margin-top:8px;">長期調控</div>
+    <a onclick="showSection('raas')" id="nav-raas"><span class="nav-icon">🫘</span> RAAS與長期血壓調控</a>
+    <div class="section-label" style="margin-top:8px;">臨床整合</div>
+    <a onclick="showSection('hemorrhage')" id="nav-hemorrhage"><span class="nav-icon">🩸</span> 出血的代償反應</a>
+    <a onclick="showSection('otherreflex')" id="nav-otherreflex"><span class="nav-icon">📋</span> 其他心血管反射</a>
+    <a onclick="showSection('shock')" id="nav-shock"><span class="nav-icon">⚠️</span> 循環休克</a>
+    <a onclick="showSection('exercise')" id="nav-exercise"><span class="nav-icon">🏃</span> 運動的心血管反應</a>
+    <a onclick="showSection('hypertension')" id="nav-hypertension"><span class="nav-icon">💊</span> 高血壓</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-map">
+      <div class="section-head"><div class="section-num">1</div><h2>全身動脈壓的決定因子</h2></div>
+      <p class="section-desc">本章統合前兩章（心臟生理學、血管生理學）的個別機轉，說明身體如何整合心臟輸出與血管阻力，共同決定並維持全身動脈壓的恆定。核心公式：<strong>MAP = CO × TPR</strong>。</p>
+
+      <div class="figure">
+        <img src="img/心血管功能整合/cvint_p3.png" alt="決定全身動脈壓的完整因子網絡圖：心輸出量與總周邊阻力">
+        <div class="figure-caption">全身動脈壓＝心輸出量（左半：靜脈壓／靜脈回流／心房壓／EDV／每搏量／心率）×總周邊阻力（右半：神經／激素／局部三大類因子調控小動脈半徑，加上血液黏滯度）。此圖整合了「心臟生理學」與「血管生理學」兩章的個別概念，是理解本章的核心地圖。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation III》課程講義</div>
+      </div>
+
+      <p>此圖顯示MAP的兩條主要決定路徑：<strong>心輸出量（CO）路徑</strong>——靜脈壓（受交感神經、血容量、肌肉幫浦、呼吸運動影響）→靜脈回流→心房壓→EDV（決定每搏量，見「心臟生理學」章節Frank-Starling機轉）；交感/副交感神經與循環腎上腺素也直接調控每搏量與心率。<strong>總周邊阻力（TPR）路徑</strong>——神經、激素、局部三大類因子（見「血管生理學」章節）共同決定小動脈半徑，加上血液黏滯度（受血比容影響）共同構成TPR。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>TPR又稱<strong>全身血管阻力（Systemic Vascular Resistance, SVR）</strong>，是全身所有體循環血管阻力的總和。理解MAP = CO × TPR這個公式，就能系統性地推論任何影響心臟或血管的因素（藥物、疾病、生理狀態）最終如何影響血壓——這是心血管生理學貫穿全部三章的核心整合公式。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-baroreflex">
+      <div class="section-head"><div class="section-num">2</div><h2>壓力感受反射</h2></div>
+      <p class="section-desc">壓力感受反射（baroreceptor reflex）是身體對抗血壓瞬間波動最快速、最重要的負回饋機制，作用時間以秒計算。</p>
+
+      <h3>動脈壓力感受器的位置</h3>
+      <p>主要感受器位於<strong>頸動脈竇（carotid sinus）與主動脈弓（aortic arch）</strong>；此外，大靜脈、肺血管與心臟壁也含有壓力感受器，共同參與循環系統整體容積與壓力的偵測。</p>
+
+      <div class="figure">
+        <img src="img/心血管功能整合/cvint_p8.png" alt="壓力感受反射迴路：動脈壓力上升觸發交感抑制與副交感興奮">
+        <div class="figure-caption">壓力感受反射基本迴路：動脈壓上升→動脈壓力感受器放電增加→經延腦心血管中樞整合→交感神經傳出減少（作用於心臟、小動脈、靜脈）＋副交感神經傳出增加（作用於心臟），最終共同使血壓回降。血壓下降時則產生完全相反的一連串反應。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation III》課程講義</div>
+      </div>
+
+      <h3>壓力感受反射的完整效果鏈</h3>
+      <p>當動脈壓上升，壓力感受器放電增加，經反射導致：(1) 副交感傳出增加＋交感傳出減少至心臟→<strong>心率下降</strong>；(2) 交感傳出減少至心臟→<strong>收縮力下降</strong>；(3) 交感傳出減少至小動脈→<strong>血管舒張，TPR下降</strong>；(4) 交感傳出減少至靜脈→<strong>靜脈舒張，靜脈回流減少</strong>。四者共同作用使心輸出量與TPR皆下降，MAP因而回降至正常範圍；血壓下降時則產生方向完全相反的代償反應（交感增加、副交感減少）。</p>
+    </div>
+
+    <div class="section" id="section-medulla">
+      <div class="section-head"><div class="section-num">3</div><h2>延腦心血管中樞</h2></div>
+      <p class="section-desc">壓力感受反射的整合中樞位於延腦，由多個功能不同的核團組成，理解各核團分工是進階理解自主神經藥理學（如中樞性降壓藥）的基礎。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>核團</th><th>主要功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>孤束核 Nucleus Tractus Solitarius (NTS)</strong></td><td>接收周邊壓力感受器與化學感受器的傳入訊息，作為整合中心，是血壓與心率調節的核心傳入中心</td></tr>
+            <tr><td><strong>延腦頭端腹外側區 Rostral Ventrolateral Medulla (RVLM)</strong></td><td>維持交感神經活性，促進交感興奮以調節血壓與血管收縮，是控制心血管系統的主要驅動力</td></tr>
+            <tr><td><strong>疑核 Nucleus Ambiguus (AMB)</strong></td><td>控制心迷走神經活動，調節心跳速率，促進心率減慢，是副交感調節的核心</td></tr>
+            <tr><td><strong>延腦尾端腹外側區 Caudal Ventrolateral Medulla (CVLM)</strong></td><td>抑制RVLM活動，經降低交感傳出促進血管擴張與血壓下降，是負回饋迴路的一環</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>脊髓中間外側細胞柱 IML</h3>
+      <p>脊髓灰質側角的<strong>中間外側細胞柱（Intermediolateral Cell Column, IML）</strong>，主要分布於胸腰段脊髓（T1–L2），是交感神經節前神經元的所在位置，負責向交感神經節傳遞來自延腦中樞的訊號，並整合自主神經系統對心率、血壓、血管張力與其他內臟功能的調控。</p>
+
+      <h3>室旁核 PVN</h3>
+      <p>下視丘的<strong>室旁核（Paraventricular Nucleus, PVN）</strong>是連結下視丘與其他腦區的重要節點，同時參與：(1) 內分泌調節（分泌ADH與CRH，見「內分泌生理I」章節）；(2) 經腦幹與脊髓連接調控交感／副交感活動；(3) 食慾與能量代謝調控；(4) 壓力反應（stress response）的核心整合節點——顯示心血管調控與壓力反應、內分泌系統之間高度整合，並非各自獨立運作。</p>
+    </div>
+
+    <div class="section" id="section-raas">
+      <div class="section-head"><div class="section-num">4</div><h2>RAAS與長期血壓調控</h2></div>
+      <p class="section-desc">壓力感受反射雖反應快速，但屬短期調控，數天內會因受器重新設定（resetting）而失去敏感度；<strong>長期血壓調控最重要的因子是血容量</strong>，主要由腎素-血管收縮素-醛固酮系統（RAAS）與ADH共同負責。</p>
+
+      <div class="figure">
+        <img src="img/心血管功能整合/cvint_p17.png" alt="腎素-血管收縮素系統完整路徑：從腎絲球旁器到醛固酮作用">
+        <div class="figure-caption">RAAS完整路徑：血漿容積下降／動脈壓下降／腎絲球過濾率下降（經黃斑密緻細胞偵測NaCl流量下降）→腎絲球旁細胞分泌腎素→血管收縮素原（肝臟合成）經腎素切割為Angiotensin I→經血管內皮ACE切割為Angiotensin II→促進腎上腺皮質分泌醛固酮＋直接引發血管收縮→醛固酮作用於遠曲小管與皮質集合管促進Na⁺/H₂O再吸收→共同使血壓上升。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation III》課程講義</div>
+      </div>
+
+      <h3>刺激腎素分泌的三個訊號</h3>
+      <ol>
+        <li>腎交感神經活性增加</li>
+        <li>動脈壓下降（腎絲球旁細胞本身的壓力感受能力）</li>
+        <li>腎絲球過濾率下降，經黃斑密緻細胞（macula densa）偵測到流至遠曲小管的NaCl減少</li>
+      </ol>
+
+      <h3>Angiotensin II 的雙重作用</h3>
+      <p>Angiotensin II同時具有：(1) <strong>直接強力縮血管效果</strong>（見「血管生理學」章節）；(2) <strong>刺激腎上腺皮質分泌醛固酮</strong>，促進遠曲小管與皮質集合管的Na⁺再吸收（同時經Na⁺-K⁺幫浦促進K⁺排除），伴隨水分再吸收增加，提升血容量。兩種作用短期與長期共同提升血壓。</p>
+
+      <h3>ADH（Vasopressin）的雙重效果</h3>
+      <p>低血容或高滲透壓刺激下視丘釋放ADH：(1) 經腎臟<strong>V2受體</strong>促進水分再吸收（AQP2插入集合管細胞膜），降低血液滲透壓、提升血容量；(2) <strong>高劑量</strong>時經血管平滑肌<strong>V1A受體</strong>直接引發血管收縮，升高血壓——此為ADH又稱「血管加壓素（vasopressin）」的由來。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">藥理連結：利尿劑與RAAS阻斷藥物</div>
+        <p>ACE抑制劑（如enalapril）阻斷Angiotensin II生成；AT1受體拮抗劑直接阻斷其受體；<strong>醛固酮受體拮抗劑（spironolactone）</strong>屬保鉀利尿劑，競爭性阻斷醛固酮作用、減少遠曲小管Na⁺-K⁺幫浦數量，因而減少鉀離子排除；<strong>保鉀利尿劑也可直接阻斷鈉離子通道</strong>達到同樣保鉀效果。這些藥物皆透過阻斷RAAS路徑的不同節點來降低血壓，是心臟病與高血壓治療的核心藥物類別。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-hemorrhage">
+      <div class="section-head"><div class="section-num">5</div><h2>出血的代償反應</h2></div>
+      <p class="section-desc">急性出血是壓力感受反射與後續代償機制共同作用的經典臨床情境，理解其時序變化是急重症生理學的重要基礎。</p>
+
+      <div class="figure">
+        <img src="img/心血管功能整合/cvint_p23.png" alt="出血後每搏量、心率、心輸出量、總周邊阻力與平均動脈壓的時序變化">
+        <div class="figure-caption">出血瞬間每搏量與心輸出量、平均動脈壓（MAP）同步驟降；隨後壓力感受反射啟動，心率與總周邊阻力代償性上升，使心輸出量與MAP部分回升至新的穩定狀態，但每搏量仍維持在較低水平（因血容量尚未恢復）。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation III》課程講義</div>
+      </div>
+
+      <h3>出血代償的時序邏輯</h3>
+      <div class="flow">
+        <div class="flow-node danger">出血 → 血容量↓ → 靜脈回流↓ → EDV↓ → 每搏量↓（Frank-Starling） → 心輸出量↓ → MAP↓</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">壓力感受反射啟動：交感↑（心率↑、收縮力代償、小動脈與靜脈收縮）、副交感↓</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">心率上升部分代償每搏量不足；TPR上升部分代償CO不足，MAP回升但每搏量仍偏低</div>
+      </div>
+
+      <h3>自體輸血機轉 Autotransfusion</h3>
+      <p>出血後微血管靜水壓下降，使淨過濾壓向<strong>再吸收</strong>方向偏移（見「血管生理學」章節NFP公式），組織間液因而淨移入血管內，部分代償失去的血容量，此現象稱自體輸血機轉（autotransfusion），是身體對抗急性失血的內源性代償之一，但代償量有限，嚴重出血仍需輸液或輸血治療。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p>臨床評估出血性休克動物時，<strong>心率上升與虛弱的脈搏（因每搏量下降而脈搏壓變小）</strong>是壓力感受反射代償階段的典型徵候；若代償機制耗竭（持續大量出血），MAP將無法維持，進入失代償性休克。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-otherreflex">
+      <div class="section-head"><div class="section-num">6</div><h2>其他心血管反射</h2></div>
+      <p class="section-desc">除壓力感受反射與RAAS外，中樞神經系統仍會整合來自更高層腦區與其他感覺輸入的訊號，調整心血管活動以因應多種生理情境。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">使血壓上升的因子</div>
+          <p>動脈血氧濃度下降合併二氧化碳上升、腦血流量下降、行走運動、皮膚傷害性疼痛、壓力與不悅情緒、<strong>Cushing氏現象（顱內壓上升引發的代償性血壓上升，見「意識腦與行為」章節腦血流相關概念）</strong></p>
+        </div>
+        <div class="card">
+          <div class="card-title">使血壓下降的因子</div>
+          <p>內臟或關節來源的疼痛、性活動、愉悅情緒</p>
+        </div>
+      </div>
+
+      <p>這些訊號的共同路徑是：(1) 由各類受器或高層腦區（大腦皮質、下視丘）傳入延腦心血管中樞；(2) 大腦皮質與下視丘也可直接與脊髓交感神經元形成突觸連結，繞過部分延腦整合、直接調節心血管活動——這是「戰或逃反應」等高層情緒/認知狀態能快速引發心血管變化的解剖基礎。</p>
+
+      <h3>姿勢性（直立性）低血壓 Orthostatic Hypotension</h3>
+      <p>從臥姿或蹲姿快速站起時，因重力使血液暫時蓄積於下肢靜脈（靜脈回流瞬間減少），造成暫時性血壓下降，稱姿勢性低血壓。機轉：<strong>直立姿勢時骨骼肌收縮擠壓靜脈的效果被打斷，血柱連續性中斷</strong>，靜脈池積血增加、微血管過濾增加，若壓力感受反射代償不及，會出現暫時性頭暈甚至暈厥。長期臥床動物、自主神經功能障礙動物風險較高。</p>
+    </div>
+
+    <div class="section" id="section-shock">
+      <div class="section-head"><div class="section-num">7</div><h2>循環休克</h2></div>
+      <p class="section-desc">循環休克（circulatory shock）指血流無法滿足組織代謝需求的狀態，依主要病理生理機轉分三大類，是急重症臨床上最重要的鑑別分類架構之一。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>核心機轉</th><th>常見病因</th></tr></thead>
+          <tbody>
+            <tr><td><strong>低血容性休克 Hypovolemic Shock</strong></td><td>血容量大幅下降；心率代償性上升（脈搏微弱）</td><td>大量出血、嚴重嘔吐/腹瀉、大面積燒燙傷；最常見類型，需積極補液治療</td></tr>
+            <tr><td><strong>低阻力性休克 Low-resistance Shock</strong></td><td>血容量正常，但血管床異常擴張使TPR大幅下降、MAP隨之驟降</td><td>過敏性休克（anaphylactic shock）、神經性休克（neurogenic shock，血管張力調控喪失）、敗血性休克（septic shock）</td></tr>
+            <tr><td><strong>心因性休克 Cardiogenic Shock</strong></td><td>心臟幫浦本身衰竭，無法維持有效循環</td><td>嚴重心肌梗塞、心肌病變、嚴重心律不整</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>短暫性低阻力性休克也可能發生於健康個體（如長時間曝曬陽光後站立過快，皮膚血管過度舒張使血液蓄積、腦部灌流暫時不足而暈眩），血管收縮恢復後即可緩解——理解此類生理性、可逆的低阻力狀態有助於與病理性休克鑑別。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-exercise">
+      <div class="section-head"><div class="section-num">8</div><h2>運動的心血管反應</h2></div>
+      <p class="section-desc">運動時身體需重新分配血流，優先供應運動所需的組織，同時維持對關鍵器官（腦、心臟）供血不受影響。</p>
+
+      <h3>運動時的血流重新分配</h3>
+      <p>運動中血流會依組織即時需求動態調整：<strong>骨骼肌與心臟的血流大幅增加</strong>（局部代謝性血管舒張，見「血管生理學」章節主動充血機轉）；<strong>腸胃道血流減少</strong>（交感血管收縮，暫緩消化功能）；<strong>腦部血流始終維持在最低必要水平不受影響</strong>——這是腦部血流自我調節優先權最高的具體展現。同時心率與心收縮力（交感興奮）、TPR變化（骨骼肌血管舒張但其餘血管代償性收縮）共同決定整體心輸出量與MAP的變化幅度。</p>
+    </div>
+
+    <div class="section" id="section-hypertension">
+      <div class="section-head"><div class="section-num">9</div><h2>高血壓</h2></div>
+      <p class="section-desc">高血壓（hypertension）是慢性持續性血壓上升，常被稱為「沉默的殺手」，因多數個體早期無自覺症狀，卻已對多重器官造成累積性損害。</p>
+
+      <h3>原發性 vs 續發性高血壓</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">原發性（本態性）高血壓</div>
+          <p>約占90%，通常沒有單一明確病因，與飲食（高鈉、高膽固醇）、肥胖、年齡、遺傳、糖尿病、壓力、吸菸等多重因子相關，需長期以飲食、運動、生活型態調整與藥物共同管理</p>
+        </div>
+        <div class="card">
+          <div class="card-title">續發性高血壓</div>
+          <p>由明確疾病引起，常見病因包括腎上腺髓質腫瘤（嗜鉻細胞瘤）、庫欣氏症（見「內分泌生理II」章節）、腎動脈狹窄、腎臟病、動脈硬化、甲狀腺機能亢進；病因移除或手術治療後血壓可改善或痊癒</p>
+        </div>
+      </div>
+
+      <h3>長期高血壓的器官損害</h3>
+      <p>長期血壓過高是心衰竭、腎衰竭、中風與血管疾病的主要成因，因心臟長期對抗過高後負荷（見「心臟生理學」章節後負荷概念）而代償性肥大，最終可能進展為失代償性心衰竭；血管壁長期承受過高壓力也加速動脈硬化進程。臨床治療藥物涵蓋利尿劑、β受體阻斷劑、鈣離子通道阻斷劑、ACE抑制劑與AT1受體拮抗劑，分別作用於MAP = CO × TPR公式中的不同節點。</p>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章是心血管三部曲的整合終章，核心是「MAP = CO × TPR」公式如何串起心臟、血管、腎臟、神經與內分泌系統的協同運作。考題常考「壓力感受反射方向性」「RAAS完整路徑」「休克三分類」「出血代償時序」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>MAP = CO × TPR</strong> 是貫穿全章的核心整合公式，任何影響心臟或血管的因素最終都透過此公式改變血壓。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>壓力感受反射是最快速的短期調控</strong>：動脈壓上升→壓力感受器放電增加→交感↓／副交感↑→心率、收縮力、TPR皆下降，MAP回降；此反射數天後會重新設定，不適合長期血壓調控。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>延腦心血管中樞分工</strong>：NTS（傳入整合）、RVLM（驅動交感）、AMB（驅動副交感心迷走）、CVLM（抑制RVLM）；脊髓IML是交感節前神經元所在。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>長期血壓調控依賴血容量，核心是RAAS與ADH</strong>：腎素→Angiotensin I→（ACE）→Angiotensin II（直接縮血管＋促醛固酮分泌）→醛固酮促Na⁺/H₂O再吸收；ADH經V2受體保水、高劑量經V1A受體縮血管。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>出血代償時序</strong>：血容量↓→EDV↓→每搏量↓→CO↓→MAP↓，壓力感受反射啟動後心率與TPR代償性上升，MAP部分回升但每搏量仍偏低；同時發生自體輸血機轉（NFP偏向再吸收）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>循環休克三分類</strong>：低血容性（血容量不足）、低阻力性（血管過度擴張，TPR驟降）、心因性（幫浦衰竭），三者病理機轉與治療方向截然不同。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>運動時血流優先供應骨骼肌與心臟，腦部血流恆定不受影響，腸胃道血流減少</strong>；高血壓分原發性（90%，多因子）與續發性（明確病因，可治療），長期未控制將導致心衰竭、腎衰竭等多重器官損害。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-2學年度《Circulation III - Integration of Cardiovascular Function》，王家琪老師，內容參照 Human Physiology (Fox SI)、Vander's Human Physiology 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋MAP整合公式、壓力感受反射、RAAS、出血代償、循環休克等章節重點，題型參照國考與轉學考命題方向（含臨床病例整合題），先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 動脈壓力感受器偵測到血壓上升時，下列何者是正確的反射反應？</div>
+        <ul class="quiz-options">
+          <li>(A) 交感傳出增加，副交感傳出減少</li>
+          <li>(B) 交感傳出減少，副交感傳出增加</li>
+          <li>(C) 交感與副交感傳出皆增加</li>
+          <li>(D) 交感與副交感傳出皆減少</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">血壓上升時，壓力感受器放電增加，經延腦心血管中樞整合後，交感傳出減少（心臟、小動脈、靜脈皆放鬆或減少收縮）、副交感傳出增加（心率減慢），兩者共同作用使心輸出量與總周邊阻力皆下降，MAP因而回降至正常範圍，這是負回饋調控的典型範例。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 延腦心血管中樞的四個主要核團中，何者負責「維持交感神經活性、促進血管收縮」，被視為控制心血管系統的主要驅動力？</div>
+        <ul class="quiz-options">
+          <li>(A) 孤束核 NTS</li>
+          <li>(B) 延腦頭端腹外側區 RVLM</li>
+          <li>(C) 疑核 AMB</li>
+          <li>(D) 延腦尾端腹外側區 CVLM</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">RVLM負責維持並驅動交感神經活性，是控制心血管系統的主要驅動力；NTS是傳入訊息的整合中心；AMB控制心迷走神經、調節心率減慢；CVLM則抑制RVLM，促進血管舒張與血壓下降，四者構成完整的延腦心血管調控迴路。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. 壓力感受反射對於長期血壓的調控非常有效，是身體維持長期血壓穩定最主要的機制。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">壓力感受反射是最快速的「短期」調控機制，但受器會在持續性血壓改變後數天內重新設定（resetting），因而不適合作為長期血壓調控的主要機制。長期血壓調控最重要的因子是血容量，主要由腎素-血管收縮素-醛固酮系統（RAAS）與抗利尿激素（ADH）負責。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. RAAS路徑中，將Angiotensin I轉換為Angiotensin II的酵素（ACE）主要位於下列何處？</div>
+        <ul class="quiz-options">
+          <li>(A) 肝臟細胞內</li>
+          <li>(B) 腎絲球旁細胞</li>
+          <li>(C) 微血管內皮細胞的頂端表面</li>
+          <li>(D) 腎上腺皮質細胞</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">血管收縮素轉化酶（ACE）位於微血管內皮細胞的頂端表面，特別是肺循環微血管密度最高，負責將Angiotensin I切割為具活性的Angiotensin II。血管收縮素原由肝臟合成，腎素由腎絲球旁細胞分泌，醛固酮則由腎上腺皮質分泌，四者分屬RAAS路徑不同節點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 一隻犬因車禍造成內出血，血壓下降。經壓力感受反射代償後，下列哪一組變化最符合預期？</div>
+        <ul class="quiz-options">
+          <li>(A) 心率下降、總周邊阻力下降</li>
+          <li>(B) 心率上升、總周邊阻力上升，但每搏量仍偏低</li>
+          <li>(C) 每搏量、心率、總周邊阻力皆恢復正常</li>
+          <li>(D) 心輸出量完全不受影響</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">出血後血容量下降使每搏量下降，壓力感受反射啟動後交感神經興奮，使心率上升、小動脈與靜脈收縮（總周邊阻力上升）以代償，使MAP部分回升至新的穩定狀態；但由於血容量尚未真正恢復，每搏量仍維持在較低水平，這正是心率上升、脈搏微弱是出血性休克代償期典型臨床徵候的生理基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 一隻貓因蜂螫發生過敏性休克（anaphylactic shock），臨床上四肢溫熱、脈搏洪大但血壓極低。此休克類型的核心病理機轉為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 血容量大幅流失</li>
+          <li>(B) 心臟幫浦功能衰竭</li>
+          <li>(C) 血管床異常過度擴張，總周邊阻力大幅下降</li>
+          <li>(D) 紅血球大量破壞</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">過敏性休克屬於低阻力性休克（low-resistance shock），核心機轉是血容量正常但血管床異常擴張（過敏介質引發廣泛性血管舒張），導致總周邊阻力大幅下降、MAP隨之驟降；因血管擴張而非血容量不足，臨床上常見四肢溫熱、脈搏相對洪大（而非低血容性休克常見的四肢冰冷、脈搏微弱），是鑑別休克類型的重要臨床線索。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q7. 請說明「自體輸血機轉（autotransfusion）」在急性出血後如何協助代償失去的血容量，其背後的微血管交換原理為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">急性出血後血容量下降，導致微血管內的靜水壓（HPc）隨之下降。依淨過濾壓公式 NFP = (HPc−HPif)−(OPc−OPif)，HPc下降會使淨過濾壓的方向從原本的過濾為主，偏向再吸收方向移動，也就是微血管外的組織間液會因血管內外壓力差改變而淨移入微血管內。這個過程稱為自體輸血機轉，能在一定程度上補充血管內流失的血容量，是身體對抗急性失血的內源性代償反應之一。但此機轉能代償的量有限，若出血持續且大量，仍需要外部輸液或輸血治療才能維持有效循環。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 運動時身體如何重新分配血流？</div>
+        <ul class="quiz-options">
+          <li>(A) 骨骼肌與心臟血流增加，腸胃道血流減少，腦部血流維持恆定</li>
+          <li>(B) 所有器官血流均等增加</li>
+          <li>(C) 腦部血流大幅增加，其餘器官血流不變</li>
+          <li>(D) 骨骼肌血流減少以保留能量供其他器官使用</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">運動時骨骼肌與心臟因局部代謝性血管舒張（主動充血）血流大幅增加；腸胃道因交感血管收縮而血流減少，暫緩消化功能；腦部血流因其自我調節優先權最高，始終維持在最低必要水平、幾乎不受影響。這種選擇性血流重新分配確保運動所需的組織獲得足夠灌流，同時保護腦部這類對缺血極敏感的關鍵器官。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 續發性高血壓通常有明確病因（如嗜鉻細胞瘤、庫欣氏症、腎動脈狹窄），病因移除或治療後血壓可能改善或痊癒；原發性高血壓則多因子相關，需長期管理。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer true">答案：TRUE</div>
+          <p class="quiz-explain">續發性高血壓由明確可辨識的疾病引起，如腎上腺髓質腫瘤（嗜鉻細胞瘤）、庫欣氏症、腎動脈狹窄、甲狀腺機能亢進等，針對病因治療後血壓常可改善甚至痊癒。原發性（本態性）高血壓約占90%，通常沒有單一明確病因，與飲食、肥胖、年齡、遺傳、糖尿病、壓力等多重因子相關，需要長期以生活型態調整與藥物共同管理，無法單靠移除單一病因痊癒。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 保鉀利尿劑spironolactone降低血鉀排除的機轉為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 直接抑制腎素分泌</li>
+          <li>(B) 競爭性阻斷醛固酮受體，減少遠曲小管Na⁺-K⁺幫浦數量，進而減少鉀離子排除</li>
+          <li>(C) 直接促進ADH分泌</li>
+          <li>(D) 阻斷ACE，抑制Angiotensin II生成</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Spironolactone是醛固酮受體拮抗劑，競爭性阻斷醛固酮與其受體結合，使遠曲小管與皮質集合管細胞上的Na⁺-K⁺幫浦數量減少，因鉀離子排除主要依賴此幫浦的活性，故連帶降低鉀離子排除、達到保鉀效果，這與直接阻斷鈉離子通道的另一類保鉀利尿劑機轉不同，但同樣達到保鉀目的。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  map: '全身動脈壓的決定因子',
+  baroreflex: '壓力感受反射',
+  medulla: '延腦心血管中樞',
+  raas: 'RAAS與長期血壓調控',
+  hemorrhage: '出血的代償反應',
+  otherreflex: '其他心血管反射',
+  shock: '循環休克',
+  exercise: '運動的心血管反應',
+  hypertension: '高血壓',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

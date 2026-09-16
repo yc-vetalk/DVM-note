@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：肌肉生理學 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">肌肉生理學</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">肌肉生理學</h1>
+      <p class="page-subtitle">Skeletal, Smooth &amp; Cardiac Muscle Physiology — 骨骼肌構造、興奮收縮偶聯、橫橋循環、收縮力學、肌纖維類型、平滑肌與心肌比較。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-2 學年度《Physiology - Muscle》Chapter 9，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">骨骼肌構造</div>
+    <a class="active" onclick="showSection('structure')" id="nav-structure"><span class="nav-icon">🧱</span> 骨骼肌構造層級</a>
+    <a onclick="showSection('filaments')" id="nav-filaments"><span class="nav-icon">🧵</span> 粗細絲蛋白組成</a>
+    <div class="section-label" style="margin-top:8px;">興奮收縮偶聯</div>
+    <a onclick="showSection('nmj')" id="nav-nmj"><span class="nav-icon">⚡</span> 神經肌肉接合處</a>
+    <a onclick="showSection('eccoupling')" id="nav-eccoupling"><span class="nav-icon">🔗</span> 興奮收縮偶聯 EC Coupling</a>
+    <a onclick="showSection('crossbridge')" id="nav-crossbridge"><span class="nav-icon">🔄</span> 橫橋循環</a>
+    <div class="section-label" style="margin-top:8px;">收縮力學</div>
+    <a onclick="showSection('mechanics')" id="nav-mechanics"><span class="nav-icon">📏</span> 單纖維收縮力學</a>
+    <a onclick="showSection('wholemuscle')" id="nav-wholemuscle"><span class="nav-icon">💪</span> 整體肌肉張力調控</a>
+    <a onclick="showSection('metabolism')" id="nav-metabolism"><span class="nav-icon">🔋</span> 能量代謝與肌纖維類型</a>
+    <div class="section-label" style="margin-top:8px;">平滑肌與心肌</div>
+    <a onclick="showSection('smooth')" id="nav-smooth"><span class="nav-icon">〰️</span> 平滑肌生理</a>
+    <a onclick="showSection('cardiac')" id="nav-cardiac"><span class="nav-icon">❤️</span> 心肌生理與三型比較</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-structure">
+      <div class="section-head"><div class="section-num">1</div><h2>骨骼肌構造層級</h2></div>
+      <p class="section-desc">骨骼肌是由結締組織層層包裹的階層式構造，從整條肌肉到單一蛋白分子共五層，理解此層級關係是理解興奮如何從細胞膜傳遞至最深處肌小節的基礎。</p>
+
+      <div class="flow">
+        <div class="flow-node">整條肌肉 Whole muscle（器官，外覆epimysium）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">肌束 Fascicle（外覆perimysium）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">肌纖維 Muscle fiber（單一多核細胞，外覆endomysium）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">肌原纖維 Myofibril（細胞內特化構造）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">粗細絲 Thick/thin filaments（肌凝蛋白／肌動蛋白）</div>
+      </div>
+
+      <h3>骨骼肌纖維的五大特徵</h3>
+      <ol>
+        <li>多核細胞（multinucleated）</li>
+        <li>含大量粒線體</li>
+        <li>具特殊的橫小管（T-tubule）構造</li>
+        <li>含肌原纖維與肌小節（sarcomere）</li>
+        <li>特有的細胞構造命名：<strong>肌漿膜（sarcolemma）</strong>＝細胞膜；<strong>肌漿（sarcoplasm）</strong>＝細胞質；<strong>肌漿網（sarcoplasmic reticulum, SR）</strong>＝滑面內質網</li>
+      </ol>
+
+      <h3>橫小管－肌漿網系統</h3>
+      <p>橫小管是肌漿膜向內凹陷延伸的管狀構造，深入肌纖維內部，使動作電位得以快速傳遞至細胞深處；橫小管兩側緊鄰肌漿網末端膨大的<strong>終池（terminal cisternae）</strong>，一條橫小管與兩側終池共同構成<strong>三聯體（triad）</strong>，是興奮收縮偶聯發生的關鍵解剖構造（見下方EC coupling章節）。</p>
+
+      <h3>肌小節（Sarcomere）</h3>
+      <p>肌小節是肌肉收縮的最小功能單位，以Z盤（Z-disc/Z-line）為界，內含規則排列的粗絲（肌凝蛋白）與細絲（肌動蛋白），依電子顯微鏡下的明暗帶命名：<strong>A帶（暗帶，粗絲所在，長度固定不變）</strong>、<strong>I帶（亮帶，僅細絲，收縮時縮短）</strong>、<strong>H區（A帶中央僅粗絲區，收縮時縮短）</strong>。</p>
+    </div>
+
+    <div class="section" id="section-filaments">
+      <div class="section-head"><div class="section-num">2</div><h2>粗細絲蛋白組成</h2></div>
+      <p class="section-desc">收縮的分子機轉建立在粗絲（肌凝蛋白）與細絲（肌動蛋白＋調控蛋白）的交互作用上，理解各蛋白的角色是理解橫橋循環與Ca²⁺調控收縮的前提。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">粗絲 Thick filament：肌凝蛋白 Myosin</div>
+          <p>由2條重鏈＋4條輕鏈組成；尾部兩條重鏈纏繞形成桿狀主體；<strong>球狀頭部（globular head）</strong>伸出形成橫橋，具肌動蛋白結合位與ATP結合位（本身具ATPase活性）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">細絲 Thin filament：肌動蛋白複合體</div>
+          <p><strong>肌動蛋白 Actin</strong>：收縮蛋白，具肌凝蛋白結合位<br><strong>原肌凝蛋白 Tropomyosin</strong>：調控蛋白，靜息時覆蓋肌動蛋白上的結合位、阻擋肌凝蛋白頭部靠近<br><strong>肌鈣蛋白 Troponin</strong>：調控蛋白複合體，含三個次單元——<strong>TnI（抑制型）、TnC（Ca²⁺結合型）、TnT（原肌凝蛋白結合型）</strong>；Ca²⁺結合TnC後引發原肌凝蛋白位移，暴露結合位</p>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>肌鈣蛋白三次單元命名可用「ITC」記憶：<strong>I</strong>=Inhibitory（抑制）、<strong>T</strong>=Tropomyosin binding（結合原肌凝蛋白）、<strong>C</strong>=Ca²⁺ binding（結合鈣離子）——Ca²⁺結合TnC是啟動骨骼肌收縮的分子開關。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-nmj">
+      <div class="section-head"><div class="section-num">3</div><h2>神經肌肉接合處</h2></div>
+      <p class="section-desc">運動單位（motor unit）是骨骼肌收縮的功能單位，其興奮訊號透過神經肌肉接合處（neuromuscular junction, NMJ）由神經傳遞至肌肉細胞。</p>
+
+      <h3>運動單位 Motor Unit</h3>
+      <p>由一顆運動神經元及其所支配的所有肌纖維共同構成；<strong>一顆運動神經元可支配多條肌纖維，但每條肌纖維僅受一顆運動神經元支配</strong>。小型運動單位（每神經元支配少數纖維，如眼外肌）利於精細控制，大型運動單位（每神經元支配大量纖維，如股四頭肌）利於產生大力量。</p>
+
+      <h3>神經肌肉接合處傳遞</h3>
+      <p>所有神經肌肉接合處皆屬<strong>興奮性</strong>傳遞：運動神經末梢釋放<strong>乙醯膽鹼（ACh）</strong>，作用於肌漿膜上的<strong>菸鹼型乙醯膽鹼受體（nAChR）</strong>——此受體為非選擇性陽離子通道，開啟後Na⁺內流引發終板電位（end-plate potential），達閾值後觸發肌纖維動作電位（詳見「神經元訊號與神經系統構造」章節ACh/AChE機轉）。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">藥理連結</div>
+        <p>神經肌肉阻斷劑（如手術用的rocuronium、atracurium）即作用於此nAChR，競爭性阻斷ACh結合，造成肌肉鬆弛；有機磷中毒則因AChE被抑制、ACh持續作用於nAChR，初期造成肌肉顫動、後期因受體持續去極化而肌肉無力麻痺。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-eccoupling">
+      <div class="section-head"><div class="section-num">4</div><h2>興奮收縮偶聯 EC Coupling</h2></div>
+      <p class="section-desc">興奮收縮偶聯（excitation-contraction coupling）是指肌漿膜的電訊號如何轉換為肌小節內Ca²⁺濃度上升、進而觸發實際收縮的完整機轉，核心是三聯體上兩種鈣離子通道蛋白的交互作用。</p>
+
+      <h3>三聯體上的兩個關鍵蛋白</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">DHP受體 Dihydropyridine Receptor</div>
+          <p>位於橫小管膜上，本質是<strong>電位敏感型Ca²⁺通道</strong>，在骨骼肌中主要功能是作為「電位感受器（voltage sensor）」，偵測膜電位變化</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Ryanodine受體 RyR</div>
+          <p>位於肌漿網膜上，是肌漿網釋放Ca²⁺的<strong>Ca²⁺通道</strong>，骨骼肌型為RyR1</p>
+        </div>
+      </div>
+
+      <h3>骨骼肌EC Coupling機轉序列</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">動作電位沿肌漿膜傳遞，並經橫小管深入細胞內部。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">橫小管膜上DHP受體感應到去極化，構型改變。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>骨骼肌特有的機械偶聯（mechanical coupling）</strong>：DHP受體與肌漿網上的RyR1直接物理接觸（腳蹬結構foot process），DHP受體構型改變直接機械性地打開RyR1通道，<strong>不需要外部Ca²⁺內流作為觸發訊號</strong>。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">RyR1開啟，肌漿網內儲存的大量Ca²⁺順濃度梯度釋放進入肌漿。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Ca²⁺結合肌鈣蛋白TnC，引發原肌凝蛋白位移，暴露肌動蛋白上的肌凝蛋白結合位，橫橋循環得以開始（見下節）。</div></div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">骨骼肌 vs 心肌的EC Coupling差異（重要比較）</div>
+        <p>骨骼肌屬於<strong>直接機械偶聯</strong>：DHP受體本身作為電位感受器，透過構型改變直接撬開RyR1，完全不依賴細胞外Ca²⁺流入即可觸發收縮（因此骨骼肌在無細胞外Ca²⁺的環境仍可短暫收縮）。心肌則屬於<strong>鈣誘發鈣釋放（Calcium-Induced Calcium Release, CICR）</strong>：心肌的DHP受體本身即是功能性L型Ca²⁺通道，動作電位使其開啟、少量Ca²⁺經此通道流入細胞，這股小量Ca²⁺再誘發鄰近RyR2大量開啟、釋放肌漿網儲存的Ca²⁺，因此心肌收縮強度會受細胞外Ca²⁺濃度影響（是鈣離子通道阻斷劑如diltiazem能減弱心肌收縮力的生理基礎，詳見「心臟生理學」章節）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-crossbridge">
+      <div class="section-head"><div class="section-num">5</div><h2>橫橋循環</h2></div>
+      <p class="section-desc">橫橋循環（cross-bridge cycle）是肌凝蛋白頭部消耗ATP、反覆與肌動蛋白結合、擺動、脫離的循環過程，是肌絲滑動（sliding filament）產生實際收縮力的分子引擎。</p>
+
+      <div class="flow">
+        <div class="flow-node">肌凝蛋白頭部結合ATP，水解為ADP＋Pi（仍附著於頭部），頭部呈「上膛」高能構型</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Ca²⁺移開原肌凝蛋白後，肌凝蛋白頭部結合肌動蛋白，形成橫橋</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">釋放Pi，頭部擺動（power stroke，動力衝程），拉動細絲向肌小節中央滑動</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">釋放ADP，頭部維持與肌動蛋白緊密結合的「僵直（rigor）」構型</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">新ATP結合肌凝蛋白頭部，使其與肌動蛋白脫離，循環重新開始</div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：屍僵 Rigor Mortis</div>
+        <p>死後細胞停止產生ATP，肌凝蛋白頭部無法與肌動蛋白脫離，全身肌肉維持僵直構型——即屍僵，直到肌肉蛋白開始分解才會消退，是法醫／病理學估計死亡時間的生理基礎。</p>
+      </div>
+
+      <h3>肌絲滑動模型 Sliding-Filament Mechanism</h3>
+      <p>收縮時肌小節縮短，<strong>I帶與H區縮短，但A帶長度不變</strong>（因粗絲本身長度固定，只是細絲被拉入A帶重疊範圍）——這是滑動絲學說的關鍵證據：肌絲本身不縮短，而是粗細絲相對滑動、重疊範圍增加，使整個肌小節縮短。</p>
+    </div>
+
+    <div class="section" id="section-mechanics">
+      <div class="section-head"><div class="section-num">6</div><h2>單纖維收縮力學</h2></div>
+      <p class="section-desc">理解肌肉收縮的力學需先釐清幾組核心名詞，這些名詞常在題目中混合出現，需準確區分。</p>
+
+      <h3>核心名詞</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>名詞</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>張力 Tension</strong></td><td>肌肉主動產生的力</td></tr>
+            <tr><td><strong>負重 Load</strong></td><td>外部施加於肌肉的阻力</td></tr>
+            <tr><td><strong>等張收縮 Isotonic</strong></td><td>張力不變，肌肉長度改變（負重固定，肌肉能克服負重移動）</td></tr>
+            <tr><td><strong>等長收縮 Isometric</strong></td><td>肌肉長度不變，張力改變（負重大於肌肉產生的力，肌肉無法縮短）</td></tr>
+            <tr><td><strong>向心收縮 Concentric</strong></td><td>肌肉長度縮短的收縮</td></tr>
+            <tr><td><strong>離心收縮 Eccentric</strong></td><td>負重超過肌肉力量，肌肉被拉長的收縮（如下坡跑步時股四頭肌）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>「收縮（contraction）」在生理學上<strong>不一定代表肌肉縮短</strong>，而是指橫橋產生力的活化狀態——例如以固定姿勢握住啞鈴需要肌肉收縮（產生張力對抗重力），但肌肉長度並未改變（等長收縮）。</p>
+      </div>
+
+      <h3>單次收縮（Twitch）的三時期</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>潛伏期 Latent period</strong>：動作電位發生到張力開始上升前的延遲，對應興奮收縮偶聯所需時間。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>收縮期 Contraction phase</strong>：橫橋循環進行，張力持續上升。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>舒張期 Relaxation phase</strong>：張力下降，時間通常長於收縮期，主因是肌漿網回收肌漿中Ca²⁺需要時間（經SERCA幫浦主動運輸，見「細胞生理學與膜運輸」章節主動運輸概念）。</div></div>
+
+      <h3>加成與強直收縮 Summation &amp; Tetanus</h3>
+      <p>單次動作電位僅持續1–2毫秒，但單次收縮的機械反應可持續約100毫秒；若在前次收縮尚未完全舒張前施加第二次刺激，產生的張力峰值會高於單次收縮，稱為<strong>加成（summation）</strong>；持續高頻刺激使張力維持在高原期不再下降，稱為<strong>強直收縮（tetanus）</strong>：刺激頻率不足以完全融合各次收縮的稱為<strong>不完全強直（unfused tetanus）</strong>，頻率足夠高、張力平滑維持高原的稱為<strong>完全強直（fused tetanus）</strong>。</p>
+
+      <h3>長度－張力關係與最佳長度</h3>
+      <p>將肌纖維拉伸至不同長度並給予強直刺激，測得的主動張力會隨長度而變，能產生最大等長強直張力的長度稱為<strong>最佳長度（optimal length, L0）</strong>——此時粗細絲重疊程度恰能形成最多有效橫橋。超過L0過度拉伸則重疊減少、可用橫橋數減少，張力下降；被動彈性張力（未刺激狀態下拉伸產生的阻力）主要來自<strong>肌聯蛋白（titin）</strong>的彈簧狀特性，而非橫橋活動。</p>
+    </div>
+
+    <div class="section" id="section-wholemuscle">
+      <div class="section-head"><div class="section-num">7</div><h2>整體肌肉張力調控</h2></div>
+      <p class="section-desc">整條肌肉（而非單一纖維）產生的總張力，由神經系統透過兩種機制調控，是理解「用力大小如何被控制」的整合概念。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">(1) 動作電位頻率</div>
+          <p>改變單一運動單位內各纖維受刺激的頻率，經加成與強直效果調控該運動單位產生的張力大小</p>
+        </div>
+        <div class="card">
+          <div class="card-title">(2) 運動單位募集 Recruitment</div>
+          <p>增加同時活化的運動單位數目；相同數量的興奮性突觸輸入，小型運動神經元較易被募集（去極化幅度較大），故募集通常遵循「由小到大」的有序徵召原則</p>
+        </div>
+      </div>
+
+      <h3>肌肉對運動的適應與失用性萎縮</h3>
+      <p>持續增加收縮活動會增大肌纖維體積、提升ATP生成能力（訓練適應）；缺乏使用則導致萎縮，分兩類：<strong>失用性萎縮（disuse atrophy）</strong>（如石膏固定的肢體，神經支配仍完整）與<strong>去神經性萎縮（denervation atrophy）</strong>（神經損傷導致失去神經支配，萎縮程度通常更嚴重且可能不可逆）。</p>
+    </div>
+
+    <div class="section" id="section-metabolism">
+      <div class="section-head"><div class="section-num">8</div><h2>能量代謝與肌纖維類型</h2></div>
+      <p class="section-desc">肌肉收縮需要大量ATP（驅動橫橋循環＋驅動SERCA幫浦回收Ca²⁺），依主要ATP生成路徑與收縮速度可將肌纖維分為三型，此分類是理解運動生理與肌肉疲勞的基礎。</p>
+
+      <h3>ATP的三種來源</h3>
+      <ol>
+        <li><strong>磷酸肌酸（creatine phosphate）</strong>直接磷酸化ADP——最快速但儲量有限，供極短暫爆發力使用</li>
+        <li><strong>粒線體氧化磷酸化</strong>——效率高、可持續，但需氧氣供應充足</li>
+        <li><strong>細胞質糖解作用（glycolysis）</strong>——不需氧氣，速度快但效率低、易產生乳酸堆積</li>
+      </ol>
+
+      <h3>三種骨骼肌纖維類型</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>肌凝蛋白ATPase活性</th><th>主要ATP來源</th><th>收縮速度</th><th>抗疲勞性</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Type I 慢氧化型 Slow-oxidative</strong></td><td>低</td><td>氧化磷酸化（高氧化能力）</td><td>慢</td><td>強（姿勢肌，如比目魚肌）</td></tr>
+            <tr><td><strong>Type IIA 快氧化糖解型 Fast-oxidative-glycolytic</strong></td><td>高</td><td>氧化磷酸化＋中等糖解能力</td><td>快</td><td>中等</td></tr>
+            <tr><td><strong>Type IIX 快糖解型 Fast-glycolytic</strong></td><td>高</td><td>糖解作用為主</td><td>最快</td><td>弱（易疲勞，如短跑衝刺肌群）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>肌肉疲勞的機轉</h3>
+      <p>長時間活動的肌肉會出現以下變化，共同導致疲勞（張力下降）：(1) 肌漿網Ca²⁺釋放、回收與儲存速率下降；(2) 細絲蛋白對Ca²⁺的敏感度下降；(3) 直接抑制肌凝蛋白橫橋的結合與動力衝程——代謝產物（如無機磷酸鹽、氫離子累積）被認為在此過程扮演重要角色。</p>
+    </div>
+
+    <div class="section" id="section-smooth">
+      <div class="section-head"><div class="section-num">9</div><h2>平滑肌生理</h2></div>
+      <p class="section-desc">平滑肌缺乏肌小節規則排列（無橫紋），收縮調控機轉與骨骼肌截然不同，核心差異在於Ca²⁺不是直接作用於肌鈣蛋白，而是透過磷酸化肌凝蛋白本身來啟動收縮。</p>
+
+      <h3>平滑肌收縮活化路徑</h3>
+      <div class="flow">
+        <div class="flow-node">Ca²⁺內流（兩來源：肌漿網釋放＋細胞外Ca²⁺經膜通道流入）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Ca²⁺結合鈣調素（calmodulin）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活化肌凝蛋白輕鏈激酶 MLCK</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">磷酸化肌凝蛋白輕鏈，肌凝蛋白頭部構型改變，得以與肌動蛋白結合啟動橫橋循環</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">肌凝蛋白輕鏈磷酸酶 MLCP 去磷酸化 → 舒張</div>
+      </div>
+
+      <p>因平滑肌缺乏肌鈣蛋白系統，收縮的開關是<strong>MLCK磷酸化 vs MLCP去磷酸化的動態平衡</strong>，而非Ca²⁺與肌鈣蛋白的直接開關（這是平滑肌收縮速度較慢、但能長時間維持張力且耗能較低的分子基礎）。</p>
+
+      <h3>單一單位型 vs 多單位型平滑肌</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">單一單位型 Single-unit</div>
+          <p>細胞間以間隙接合（gap junction）電性耦合，作為單一功能單位同步反應。代表：腸道、子宮、小血管平滑肌</p>
+        </div>
+        <div class="card">
+          <div class="card-title">多單位型 Multi-unit</div>
+          <p>細胞獨立反應，間隙接合稀少，各自受獨立神經支配。代表：大氣道、大動脈、豎毛肌</p>
+        </div>
+      </div>
+
+      <h3>神經與局部因子對平滑肌的調控</h3>
+      <p>神經傳導物質對平滑肌的效果<strong>依標的組織的受體種類而異，並非固定興奮或抑制</strong>——例如正腎上腺素作用於<strong>α腎上腺素受體</strong>使多數血管平滑肌收縮，但作用於支氣管平滑肌的<strong>β2腎上腺素受體</strong>卻造成放鬆（是氣喘吸入劑albuterol等β2促效劑的藥理基礎，也是α/β受體選擇性在藥理學的重要應用）。局部因子如酸鹼度、O₂/CO₂濃度、滲透壓、一氧化氮（NO，經cGMP路徑放鬆平滑肌，見「細胞訊息傳遞」章節）多促使平滑肌舒張；拉伸則透過機械敏感性離子通道引發去極化與收縮（肌源性反應，是血管與腸道維持基礎張力的重要機制）。</p>
+    </div>
+
+    <div class="section" id="section-cardiac">
+      <div class="section-head"><div class="section-num">10</div><h2>心肌生理與三型比較</h2></div>
+      <p class="section-desc">心肌兼具骨骼肌的橫紋滑動絲機轉與平滑肌的部分不自主調控特性，具有獨特的細胞間電耦合與自發節律能力，詳細心臟傳導與收縮整合見「心臟生理學」章節。</p>
+
+      <h3>心肌細胞特徵</h3>
+      <ul>
+        <li>單一或雙核細胞（核位於中央），呈分支狀相連</li>
+        <li>具橫紋，使用滑動絲機轉收縮（與骨骼肌相同分子基礎）</li>
+        <li><strong>間盤（intercalated disc）</strong>連接相鄰心肌細胞，內含<strong>橋粒（desmosome，機械性連結）</strong>與<strong>間隙接合（gap junction，電性耦合）</strong>——間隙接合使心肌得以作為功能性合體細胞（functional syncytium），動作電位可快速在細胞間傳播</li>
+        <li>節律細胞（nodal cells）具<strong>自動性（automaticity/autorhythmicity）</strong>，可自發產生動作電位，不需外部神經訊號啟動（見「心臟生理學」章節竇房結）</li>
+        <li><strong>絕對不反應期長達約250毫秒</strong>（遠長於骨骼肌），確保心肌不會發生強直收縮，維持心臟規律的收縮－舒張泵血週期</li>
+      </ul>
+
+      <h3>三型肌肉綜合比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>骨骼肌</th><th>心肌</th><th>平滑肌</th></tr></thead>
+          <tbody>
+            <tr><td><strong>橫紋</strong></td><td>有</td><td>有</td><td>無</td></tr>
+            <tr><td><strong>核數</strong></td><td>多核</td><td>單／雙核（中央）</td><td>單核</td></tr>
+            <tr><td><strong>控制</strong></td><td>隨意（軀體神經）</td><td>不隨意（自主神經調節，具自動性）</td><td>不隨意（自主神經＋激素＋局部因子）</td></tr>
+            <tr><td><strong>Ca²⁺調控收縮的分子開關</strong></td><td>Ca²⁺→肌鈣蛋白TnC</td><td>Ca²⁺→肌鈣蛋白TnC（CICR觸發）</td><td>Ca²⁺→鈣調素→MLCK磷酸化肌凝蛋白</td></tr>
+            <tr><td><strong>EC coupling機轉</strong></td><td>DHP-RyR直接機械偶聯</td><td>鈣誘發鈣釋放 CICR</td><td>Ca²⁺內流（SR＋細胞外雙來源）</td></tr>
+            <tr><td><strong>細胞間電耦合</strong></td><td>無（各纖維獨立興奮）</td><td>有（間隙接合，功能性合體細胞）</td><td>單一單位型有，多單位型無</td></tr>
+            <tr><td><strong>不反應期</strong></td><td>短</td><td>長（約250 ms，防止強直）</td><td>可變</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章的核心是「Ca²⁺如何在不同肌肉類型中觸發收縮」，考題常考「EC coupling骨骼肌vs心肌差異」「橫橋循環步驟」「肌小節收縮時各帶變化」「三型肌肉比較」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>肌鈣蛋白三次單元（TnI/TnT/TnC）中，Ca²⁺結合TnC是骨骼肌收縮的分子開關</strong>，使原肌凝蛋白位移、暴露肌動蛋白上的肌凝蛋白結合位。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>骨骼肌EC coupling是DHP受體與RyR1的直接機械偶聯，不需細胞外Ca²⁺流入</strong>；心肌則是鈣誘發鈣釋放（CICR），DHP受體本身是功能性Ca²⁺通道，其Ca²⁺內流觸發RyR2釋放，因此心肌收縮力受細胞外Ca²⁺濃度影響。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>橫橋循環：ATP水解上膛→結合肌動蛋白→釋放Pi產生動力衝程→釋放ADP呈僵直構型→新ATP結合使其脫離</strong>；死後ATP耗盡即產生屍僵。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>收縮時A帶長度不變，I帶與H區縮短</strong>——證明肌絲本身不縮短，而是粗細絲相對滑動增加重疊。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>整體肌肉張力由動作電位頻率（加成/強直）與運動單位募集共同調控</strong>，募集通常遵循由小到大的有序徵召原則。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>三型肌纖維依ATPase活性與代謝路徑分類</strong>：Type I慢氧化（抗疲勞）、Type IIA快氧化糖解（中等）、Type IIX快糖解（易疲勞、爆發力強）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>平滑肌收縮開關是MLCK磷酸化肌凝蛋白（非肌鈣蛋白系統）</strong>；神經傳導物質效果依標的組織受體種類而異（如正腎上腺素對血管α受體致收縮、對支氣管β2受體致舒張）。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>心肌間盤含橋粒（機械連結）與間隙接合（電性耦合）</strong>，賦予功能性合體細胞特性；絕對不反應期長達約250毫秒，防止強直收縮以維持規律泵血。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-2學年度《Physiology - Muscle》Chapter 9，王家琪老師，內容參照 Human Physiology (Fox SI) 與 Vander's Human Physiology 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋骨骼肌構造、EC coupling、橫橋循環、收縮力學、肌纖維類型、平滑肌與心肌等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 骨骼肌收縮時，肌小節的哪一個帶（band）長度維持不變？</div>
+        <ul class="quiz-options">
+          <li>(A) I帶</li>
+          <li>(B) H區</li>
+          <li>(C) A帶</li>
+          <li>(D) 整個肌小節長度都不變</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">A帶長度由粗絲（肌凝蛋白）本身長度決定，粗絲不會縮短，因此A帶長度不變；I帶與H區則因粗細絲重疊範圍增加而縮短，這是滑動絲學說的關鍵證據。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 骨骼肌的興奮收縮偶聯必須依賴細胞外鈣離子流入才能觸發肌漿網釋放鈣離子。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">骨骼肌的DHP受體與RyR1是直接機械偶聯：DHP受體感應到去極化後構型改變，直接機械性地撬開RyR1通道，不需要細胞外Ca²⁺流入作為觸發訊號。這與心肌的鈣誘發鈣釋放（CICR）機制不同——心肌需要少量細胞外Ca²⁺經DHP受體（功能性L型鈣通道）流入，才能誘發RyR2大量釋放。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 肌鈣蛋白（troponin）複合體中，直接與Ca²⁺結合的次單元為何？</div>
+        <ul class="quiz-options">
+          <li>(A) TnI</li>
+          <li>(B) TnT</li>
+          <li>(C) TnC</li>
+          <li>(D) 原肌凝蛋白（tropomyosin）本身</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">TnC是鈣離子結合次單元（Ca²⁺ binding），Ca²⁺結合後引發整個肌鈣蛋白複合體構型改變，使原肌凝蛋白位移、暴露肌動蛋白上的肌凝蛋白結合位。TnI為抑制型次單元，TnT負責與原肌凝蛋白結合固定整個複合體位置。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明平滑肌與骨骼肌在「Ca²⁺如何啟動收縮」這件事上的分子機轉差異。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">骨骼肌中，Ca²⁺直接結合肌鈣蛋白複合體的TnC次單元，引發原肌凝蛋白位移，暴露原本被覆蓋的肌動蛋白-肌凝蛋白結合位，使橫橋循環得以進行，是一個相對快速的直接開關機制。平滑肌則缺乏肌鈣蛋白系統，其機轉是Ca²⁺（來源包括肌漿網釋放與細胞外Ca²⁺經膜通道流入）先結合鈣調素（calmodulin），活化肌凝蛋白輕鏈激酶（MLCK），MLCK再將肌凝蛋白輕鏈磷酸化，改變肌凝蛋白頭部構型使其得以與肌動蛋白結合啟動橫橋循環；收縮的終止則依賴肌凝蛋白輕鏈磷酸酶（MLCP）將其去磷酸化。因此平滑肌收縮的分子開關本質上是MLCK磷酸化與MLCP去磷酸化之間的動態平衡，而非Ca²⁺與收縮蛋白的直接結合。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 心肌絕對不反應期長達約250毫秒，其主要生理意義為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 節省ATP消耗</li>
+          <li>(B) 防止心肌發生強直收縮，維持規律的收縮－舒張泵血週期</li>
+          <li>(C) 加速間隙接合傳導</li>
+          <li>(D) 增加心肌收縮力</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">心肌絕對不反應期遠長於骨骼肌（約250毫秒），確保下一個動作電位無法在前一次收縮完全舒張前提早發生，因此心肌不會像骨骼肌一樣發生強直收縮（持續收縮不放鬆）；若心肌發生強直，心臟將失去規律的舒張充盈期，無法有效泵血，是致命的生理狀態。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  structure: '骨骼肌構造層級',
+  filaments: '粗細絲蛋白組成',
+  nmj: '神經肌肉接合處',
+  eccoupling: '興奮收縮偶聯 EC Coupling',
+  crossbridge: '橫橋循環',
+  mechanics: '單纖維收縮力學',
+  wholemuscle: '整體肌肉張力調控',
+  metabolism: '能量代謝與肌纖維類型',
+  smooth: '平滑肌生理',
+  cardiac: '心肌生理與三型比較',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

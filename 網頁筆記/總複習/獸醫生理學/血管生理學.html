@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：血管生理學 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">血管生理學</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">血管生理學</h1>
+      <p class="page-subtitle">Vascular Physiology — 血管分類與功能、血液動力學（壓力／流量／阻力）、動脈壓與脈搏壓、局部血流自我調節、微血管交換、靜脈回流、淋巴系統。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-2 學年度《Circulation II - The Vascular System》，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">血管分類</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">🩸</span> 血管系統總覽與分類</a>
+    <div class="section-label" style="margin-top:8px;">血液動力學</div>
+    <a onclick="showSection('hemodynamics')" id="nav-hemodynamics"><span class="nav-icon">📐</span> 壓力、流量、阻力</a>
+    <a onclick="showSection('arterial')" id="nav-arterial"><span class="nav-icon">📈</span> 動脈壓與脈搏壓</a>
+    <div class="section-label" style="margin-top:8px;">局部與周邊調控</div>
+    <a onclick="showSection('autoregulation')" id="nav-autoregulation"><span class="nav-icon">⚙️</span> 血流自我調節</a>
+    <a onclick="showSection('extrinsic')" id="nav-extrinsic"><span class="nav-icon">🧠</span> 神經與激素調控</a>
+    <div class="section-label" style="margin-top:8px;">微循環與回流</div>
+    <a onclick="showSection('capillary')" id="nav-capillary"><span class="nav-icon">🔬</span> 微循環與微血管交換</a>
+    <a onclick="showSection('venous')" id="nav-venous"><span class="nav-icon">🔙</span> 靜脈系統與靜脈回流</a>
+    <a onclick="showSection('lymph')" id="nav-lymph"><span class="nav-icon">🟡</span> 淋巴系統</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>血管系統總覽與分類</h2></div>
+      <p class="section-desc">血管系統是循環系統的「管路」，動脈與靜脈皆含血管平滑肌與內皮細胞，但比例依血管種類不同，功能也隨之分化。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>血管種類</th><th>構造特性</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>彈性動脈 Elastic arteries</strong></td><td>大管腔，富含彈性蛋白（如主動脈）</td><td>「壓力儲庫」——收縮期擴張儲存能量、舒張期回彈推送血流，使血流維持連續性</td></tr>
+            <tr><td><strong>肌肉動脈 Muscular arteries</strong></td><td>中膜平滑肌比例最高（如腸繫膜動脈、腎動脈）</td><td>將血液送至特定器官，主動參與血管收縮，對血壓調控影響大</td></tr>
+            <tr><td><strong>小動脈 Arterioles</strong></td><td>最小的動脈，受神經、激素、局部化學物質調控</td><td>控制微血管床的分秒血流量，是調節周邊阻力的主要部位</td></tr>
+            <tr><td><strong>微血管 Capillaries</strong></td><td>單層內皮細胞，管壁最薄</td><td>氣體、養分、代謝廢物交換的場所</td></tr>
+            <tr><td><strong>靜脈系統 Venules/Veins</strong></td><td>管壁較薄，平滑肌少、彈性蛋白多，可高度擴張</td><td>「容量儲庫（capacitance vessels）」，容納體循環血量約60–70%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>全身循環血量中，微血管僅容納約<strong>5%</strong>，卻是唯一直接進行養分/氣體/激素訊號交換與廢物移除的場所——其餘血管的功能都是為了將血液有效率地送達或送離這5%的交換場域。動脈攜帶含氧血、靜脈攜帶缺氧血，<strong>唯一例外是肺循環</strong>：肺動脈攜帶缺氧血送往肺臟氣體交換，肺靜脈攜帶含氧血送回心臟（見「心臟生理學」章節兩大循環迴路）。</p>
+    </div>
+
+    <div class="section" id="section-hemodynamics">
+      <div class="section-head"><div class="section-num">2</div><h2>壓力、流量、阻力</h2></div>
+      <p class="section-desc">血液動力學（hemodynamics）以三個核心變數描述血流：壓力、流量、阻力，三者關係是理解全章節（乃至下一章「心血管功能整合」）的數學骨架。</p>
+
+      <h3>核心公式</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>變數</th><th>定義</th><th>單位</th></tr></thead>
+          <tbody>
+            <tr><td><strong>壓力 Pressure (P)</strong></td><td>驅動血流的力</td><td>mmHg</td></tr>
+            <tr><td><strong>流量 Flow (F)</strong></td><td>單位時間內移動的血液體積</td><td>mL/min</td></tr>
+            <tr><td><strong>阻力 Resistance (R)</strong></td><td>血流在兩點間移動的困難程度（摩擦阻礙）</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>三者的基本關係式：<strong>F = ΔP / R</strong>——若壓力差不變、阻力增加，流量必然下降；這是理解「血管收縮如何降低局部血流」「阻力增加如何影響全身血壓」等所有下游推論的起點公式。</p>
+
+      <h3>決定阻力的三個因子（Poiseuille方程式）</h3>
+      <p>R = 8Lη / πr⁴，其中L為血管長度、η為血液黏滯度、r為血管內半徑。三個因子中：</p>
+      <ol>
+        <li><strong>血液黏滯度</strong>：受水分含量、紅血球數量、血漿蛋白濃度影響</li>
+        <li><strong>血管總長度</strong>：需要輸送的「管路」總長</li>
+        <li><strong>血管半徑</strong>：<strong>對分秒調控阻力貢獻最大的因子</strong>——因阻力與半徑的4次方成反比，血管半徑極小的變化即可造成阻力巨大變化，是小動脈能有效即時調控局部血流量的物理基礎</li>
+      </ol>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>半徑的4次方關係意味著：血管半徑若縮小一半，阻力將增加至<strong>16倍</strong>（2⁴＝16）。這正是為何小動脈（而非大動脈或微血管本身）是全身血壓調控中「阻力血管」的主角。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-arterial">
+      <div class="section-head"><div class="section-num">3</div><h2>動脈壓與脈搏壓</h2></div>
+      <p class="section-desc">動脈壓在心動週期中並非固定值，而是隨收縮期與舒張期波動，理解此波動的組成與量測方式，是臨床血壓判讀的生理基礎。</p>
+
+      <div class="figure">
+        <img src="img/血管生理學/vasc_p40.png" alt="動脈血壓波形與年齡對血壓的影響">
+        <div class="figure-caption">左圖：單一心動週期內動脈壓波形，可見主動脈瓣關閉造成的短暫凹陷（dicrotic notch）。右圖：收縮壓、舒張壓、平均壓隨年齡上升的變化趨勢（人類數據，動物物種差異大，僅供概念參考）。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation II》課程講義</div>
+      </div>
+
+      <h3>平均動脈壓 Mean Arterial Pressure (MAP)</h3>
+      <p>MAP並非單純的收縮壓與舒張壓平均值，因心動週期中舒張期時間較長，計算公式為：</p>
+      <p><strong>MAP = DP + 1/3(SP − DP)</strong>，其中DP為舒張壓、SP為收縮壓。範例：SP=120、DP=80時，MAP = 80 + 1/3(120−80) = <strong>93 mmHg</strong>。MAP同時受心輸出量與全身血管阻力影響（MAP ≈ CO × TPR，見「心血管功能整合」章節）。</p>
+
+      <h3>脈搏壓 Pulse Pressure</h3>
+      <p>脈搏壓＝收縮壓－舒張壓（範例中為120−80＝40 mmHg），可在頸部或腕部動脈觸診感受到的搏動即源自此壓力波動。決定脈搏壓大小的三個主要因子：</p>
+      <ol>
+        <li>每搏量（SV）——SV越大，脈搏壓越大</li>
+        <li>每搏量射出速度——射出越快，脈搏壓越大</li>
+        <li>動脈順應性（compliance）——順應性下降（如動脈硬化）會使同樣SV產生更大的壓力波動，脈搏壓上升</li>
+      </ol>
+      <p><strong>順應性（compliance）＝Δ容積/Δ壓力</strong>，順應性越高的血管結構越容易被撐大。彈性動脈的高順應性使其成為「壓力儲庫」，收縮期擴張吸收部分射血能量、舒張期回彈釋放，讓血流得以在舒張期仍持續前進而非完全停滯。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p><strong>動脈粥狀硬化（atherosclerosis）與動脈硬化（arteriosclerosis）</strong>會降低動脈順應性，使脈搏壓上升；長期壓力過高則可能使血管壁重塑或減弱，減弱處有破裂風險。血壓測量以<strong>柯氏音（Korotkoff sounds）</strong>搭配血壓計（sphygmomanometer）進行，人類收縮壓/舒張壓平均約120/80 mmHg，高於140/90 mmHg視為高血壓；犬貓的血壓判讀標準與人類不同，需參照各物種常模。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-autoregulation">
+      <div class="section-head"><div class="section-num">4</div><h2>血流自我調節</h2></div>
+      <p class="section-desc">自我調節（autoregulation）是指血流依據組織當下的代謝需求自動調整的能力，獨立於全身性因子，由局部小動脈直徑改變達成，涵蓋代謝性與肌源性兩種機制。</p>
+
+      <div class="figure">
+        <img src="img/血管生理學/vasc_p47.png" alt="控制小動脈半徑的神經、激素、局部三大類因子">
+        <div class="figure-caption">控制小動脈半徑的三大類因子：神經控制（交感NE）、激素控制（腎上腺素、Angiotensin II、Vasopressin為收縮；ANP為舒張）、局部控制（內部血壓的肌源性反應、內皮素為收縮；缺氧、K⁺/CO₂/H⁺、滲透壓、腺苷、類花生酸、緩激肽、NO為舒張）。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation II》課程講義</div>
+      </div>
+
+      <h3>代謝性局部控制（主動充血 Active Hyperemia）</h3>
+      <p>組織代謝活躍時，局部氧氣下降、CO₂/H⁺/K⁺等代謝產物堆積，這些化學因子直接作用於鄰近小動脈平滑肌，引發<strong>血管舒張</strong>，增加局部血流以滿足代謝需求，此現象稱主動充血。促進舒張的局部化學因子整理如下：</p>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">代謝相關</div><p>缺氧（↓O₂）、CO₂增加、H⁺增加（酸中毒/乳酸）、腺苷（ATP分解產物）</p></div>
+        <div class="card"><div class="card-title">局部生成因子</div><p>類花生酸（膜磷脂分解產物）、緩激肽（血漿激肽釋放酶系統產物）</p></div>
+        <div class="card"><div class="card-title">內皮衍生因子</div><p>一氧化氮（NO，內皮細胞釋放，作用於鄰近平滑肌）、內皮源性過極化因子（EDHF）</p></div>
+      </div>
+
+      <h3>肌源性反應 Myogenic Response</h3>
+      <p>血管平滑肌本身對<strong>被動拉伸有內建的收縮反應</strong>：內部血壓升高使血管壁被動擴張時，平滑肌會直接反射性收縮以對抗過度擴張，此機制不依賴神經或激素，是血管內部血壓過高時自我保護、避免微血管床承受過大壓力的重要機制，也是流體壓力自我調節（如腎臟腎絲球濾過率自我調節）的重要組成之一。</p>
+    </div>
+
+    <div class="section" id="section-extrinsic">
+      <div class="section-head"><div class="section-num">5</div><h2>神經與激素調控</h2></div>
+      <p class="section-desc">除局部自我調節外，全身性的神經與激素訊號可依身體整體需求（如運動、出血、緊迫）調整周邊血管張力，是「心血管功能整合」章節壓力反射的下游執行者。</p>
+
+      <h3>神經控制</h3>
+      <p>交感神經節後纖維釋放<strong>正腎上腺素（NE）</strong>，作用於血管平滑肌的<strong>α腎上腺素受體</strong>造成收縮，是多數血管床的預設調控路徑；部分血管（如骨骼肌血管）也接受釋放NO的舒血管神經支配。副交感神經對多數周邊血管影響有限。</p>
+
+      <h3>激素控制</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>激素</th><th>效果</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>腎上腺素 Epinephrine</strong></td><td>收縮或舒張（雙重效果）</td><td>作用於α受體致收縮（多數血管床），作用於骨骼肌血管的β2受體則致舒張——與「肌肉生理學」章節平滑肌受體選擇性概念呼應</td></tr>
+            <tr><td><strong>血管收縮素II Angiotensin II</strong></td><td>強力收縮</td><td>RAAS系統產物，見「心血管功能整合」章節</td></tr>
+            <tr><td><strong>抗利尿激素 Vasopressin (ADH)</strong></td><td>收縮（高劑量時，經V1A受體）</td><td>低血容狀態下由下視丘釋放，兼具保水與升壓雙重效果</td></tr>
+            <tr><td><strong>心房利鈉肽 ANP</strong></td><td>舒張</td><td>心房壁過度伸張時分泌，同時促進腎臟排鈉排水（見「心臟生理學」章節）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">重點：內皮功能異常</div>
+        <p>正常內皮細胞持續分泌NO等舒血管物質以維持血管張力平衡；<strong>動脈粥狀硬化區域的內皮細胞功能異常</strong>，會分泌過量<strong>內皮素-1（endothelin-1，強力收縮劑）</strong>並減少舒血管物質分泌，促進局部血管收縮與病灶惡化，是動脈粥狀硬化病理生理的重要一環。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-capillary">
+      <div class="section-head"><div class="section-num">6</div><h2>微循環與微血管交換</h2></div>
+      <p class="section-desc">微循環（microcirculation）涵蓋小動脈到微血管再到小靜脈的完整交換單位，是全身血管系統中真正發生物質交換的場域。</p>
+
+      <div class="figure">
+        <img src="img/血管生理學/vasc_p69.png" alt="微循環構造：小動脈、後微動脈、前微血管括約肌、微血管床、小靜脈">
+        <div class="figure-caption">微循環單位構造：小動脈→後微動脈（metarteriole）→前微血管括約肌（precapillary sphincter，可獨立開闔調控個別微血管分支的血流）→微血管床→小靜脈；左上放大圖顯示微血管由單層內皮細胞構成，細胞間有可通透的間隙（intercellular clefts）。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation II》課程講義</div>
+      </div>
+
+      <p><strong>前微血管括約肌</strong>可獨立收縮或舒張，決定血流是否流經特定微血管分支，是局部精細調控血流分布的關鍵構造；微血管血流速度是全身血管系統中<strong>最慢</strong>的，因微血管床總橫截面積遠大於動脈，據連續性原理（流速與橫截面積成反比），流速最慢正好給予足夠時間進行物質交換。</p>
+
+      <h3>微血管壁的交換機轉</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">擴散 Diffusion</div><p>脂溶性物質（O₂、CO₂）直接穿越內皮細胞膜；水溶性小分子經細胞間隙（intercellular clefts）擴散</p></div>
+        <div class="card"><div class="card-title">巨量流動 Bulk Flow</div><p>依淨過濾壓力驅動水分與可溶質整批移動，決定組織間液的分布</p></div>
+      </div>
+
+      <h3>淨過濾壓 Net Filtration Pressure (NFP)</h3>
+      <p><strong>NFP = (HPc − HPif) − (OPc − OPif)</strong>，其中HPc為微血管血液靜水壓、HPif為組織間液靜水壓、OPc為血液膠體滲透壓（主要由血漿蛋白如白蛋白決定）、OPif為組織間液膠體滲透壓。</p>
+      <ul>
+        <li>HP（靜水壓）＞OP（膠體滲透壓）時，液體被<strong>過濾（filtered）</strong>出微血管——微血管動脈端因血壓較高，通常以過濾為主</li>
+        <li>OP＞HP時，液體被<strong>再吸收（reabsorbed）</strong>進入微血管——微血管靜脈端因血壓已下降、膠體滲透壓相對顯著，通常以再吸收為主</li>
+      </ul>
+      <p>正常情況下，過濾量略大於再吸收量，每分鐘約<strong>1.5 mL</strong>的淨液體留在組織間隙，此差額由<strong>淋巴系統</strong>收集後送回循環系統（見下一節），是體液恆定的重要環節。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：低白蛋白血症與水腫</div>
+        <p>血漿白蛋白過低（如肝病、腎病蛋白流失、營養不良）會降低OPc，使NFP偏向過濾、液體滯留組織間隙，形成<strong>水腫（edema）</strong>或體腔積液，是低白蛋白血症動物臨床評估水腫成因的核心生理機轉。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-venous">
+      <div class="section-head"><div class="section-num">7</div><h2>靜脈系統與靜脈回流</h2></div>
+      <p class="section-desc">靜脈壓力遠低於動脈（約15 mmHg），單靠此壓力不足以推動血液回到心臟，因此需要輔助機制協助靜脈回流。</p>
+
+      <h3>靜脈的容量儲庫特性</h3>
+      <p>靜脈管壁平滑肌少、彈性蛋白多，順應性高，容納全身循環血量約60–70%，因此稱為<strong>容量血管（capacitance vessels）</strong>；靜脈平滑肌同樣受交感神經支配，興奮時收縮、使靜脈管腔變窄，可將部分「儲存」的血液快速動員回心臟（是出血或運動時重要的代償機制之一，見「心血管功能整合」章節）。</p>
+
+      <div class="figure">
+        <img src="img/血管生理學/vasc_p84.png" alt="骨骼肌幫浦協助靜脈回流機轉">
+        <div class="figure-caption">骨骼肌收縮時擠壓周圍靜脈，配合靜脈內單向瓣膜，使血液只能往心臟方向移動（瓣膜開啟）而無法逆流（瓣膜關閉）。</div>
+        <div class="figure-source">來源：113-2學年度《Circulation II》課程講義</div>
+      </div>
+
+      <h3>兩種輔助靜脈回流的幫浦機制</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">呼吸幫浦 Respiratory Pump</div><p>呼吸造成的胸腔內壓變化，協助推動血液回流心臟</p></div>
+        <div class="card"><div class="card-title">肌肉幫浦 Muscular Pump</div><p>骨骼肌收縮擠壓周圍靜脈，配合單向瓣膜防止逆流，將血液向心臟方向推送</p></div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：靜脈曲張</div>
+        <p><strong>靜脈曲張（varicose veins）</strong>是靜脈瓣膜功能不全（閉鎖不全）導致靜脈擴張、扭曲的病變，好發於下肢——長時間站立、缺乏肌肉幫浦活動的動物或個體風險較高。長時間臥床或麻醉中的動物因缺乏肌肉幫浦活動，也可能出現靜脈回流不良的相關併發症風險。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-lymph">
+      <div class="section-head"><div class="section-num">8</div><h2>淋巴系統</h2></div>
+      <p class="section-desc">淋巴系統由淋巴管與淋巴組織構成，功能與血管系統互補，負責回收微血管淨過濾的多餘組織間液，同時兼具免疫監視功能。</p>
+
+      <h3>淋巴系統的雙重功能</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">體液回收</div><p>收集微血管淨過濾後未被再吸收的組織間液（約1.5 mL/min），經淋巴管送回靜脈循環，是體液恆定不可或缺的一環</p></div>
+        <div class="card"><div class="card-title">免疫監視</div><p>淋巴液沿途經過淋巴結，由免疫細胞檢查病原體、細胞碎片等異物；淋巴組織也提供淋巴球增殖場所</p></div>
+      </div>
+
+      <p>淋巴管壁本身含平滑肌，可主動收縮產生類似幫浦的推送作用，配合與靜脈相似的單向瓣膜結構，確保淋巴液單方向流動並防止逆流。與血管不同，淋巴管可以攝入較大分子（如蛋白質、細胞碎片），這是血管內皮間隙（intercellular clefts）所無法有效運送的物質類別。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結：淋巴水腫</div>
+        <p>淋巴管阻塞或功能喪失（如絲蟲感染引發的象皮病 elephantiasis）會導致組織間液無法有效回收，造成慢性、進行性的組織腫脹（淋巴水腫），與微血管過濾/再吸收失衡引起的一般性水腫成因不同，需個別鑑別。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章的核心是「血管半徑如何主導阻力與血流分配」，以及「微血管淨過濾壓如何決定體液分布」。考題常考「Poiseuille方程式半徑4次方關係」「MAP/脈搏壓計算」「NFP計算與水腫成因」「靜脈回流輔助機制」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>F = ΔP/R，阻力主要由血管半徑決定（R∝1/r⁴）</strong>，小動脈是全身阻力調控的主角，半徑微小變化即造成阻力巨大變化。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>MAP = DP + 1/3(SP−DP)</strong>，脈搏壓＝SP−DP，主要由每搏量、射出速度、動脈順應性決定；動脈硬化降低順應性使脈搏壓上升。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>局部自我調節分代謝性（主動充血）與肌源性（對抗被動拉伸）</strong>，獨立於全身神經/激素因子，依組織當下代謝需求即時調整血流。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>神經（NE，α受體收縮）與激素（Epi/AngII/ADH收縮，ANP舒張）</strong>負責全身性、整體性的血管張力調控，內皮功能異常（如動脈粥狀硬化）會使內皮素分泌增加、NO減少。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>NFP = (HPc−HPif)−(OPc−OPif)</strong>，正常過濾略大於再吸收（約1.5 mL/min差額），低白蛋白血症降低OPc、促進水腫形成。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>靜脈是容量血管（容納60–70%循環血量）</strong>，靠呼吸幫浦與肌肉幫浦（配合單向瓣膜）輔助回流；瓣膜功能不全導致靜脈曲張。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>淋巴系統回收微血管淨過濾的多餘組織液，兼具免疫監視功能</strong>，淋巴管阻塞可致淋巴水腫，與一般水腫成因需鑑別。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-2學年度《Circulation II - The Vascular System》，王家琪老師，內容參照 Human Physiology (Fox SI)、Vander's Human Physiology 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋血液動力學、動脈壓、局部與周邊調控、微血管交換、靜脈回流等章節重點，題型參照國考與轉學考命題方向（含計算題），先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 依Poiseuille方程式，若其他條件不變，血管半徑縮小為原本的一半，血流阻力將變為原本的幾倍？</div>
+        <ul class="quiz-options">
+          <li>(A) 2倍</li>
+          <li>(B) 4倍</li>
+          <li>(C) 8倍</li>
+          <li>(D) 16倍</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">阻力 R = 8Lη/πr⁴，與半徑的4次方成反比。半徑縮小為一半（r→r/2）時，阻力變為 (1/(1/2))⁴ = 2⁴ = 16倍。這是國考與轉學考極常出現的計算題型，務必牢記半徑對阻力的4次方關係。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 某動物收縮壓為150 mmHg、舒張壓為90 mmHg，其平均動脈壓（MAP）約為多少？</div>
+        <ul class="quiz-options">
+          <li>(A) 100 mmHg</li>
+          <li>(B) 110 mmHg</li>
+          <li>(C) 120 mmHg</li>
+          <li>(D) 130 mmHg</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">MAP = DP + 1/3(SP−DP) = 90 + 1/3(150−90) = 90 + 20 = 110 mmHg。此題120 mmHg是常見的錯誤答案（誤用SP與DP的算術平均值130或直接取中位數），需特別注意MAP公式並非單純平均，而是因舒張期時間較長而給予舒張壓更高的權重。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. 微血管的血流速度是全身血管系統中最慢的，這是因為微血管床的總橫截面積遠大於動脈的緣故。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer true">答案：TRUE</div>
+          <p class="quiz-explain">依連續性原理，同樣的血流量通過總橫截面積越大的區域，流速越慢；微血管床雖然單一微血管管徑極小，但數量龐大使總橫截面積遠大於動脈，因此血流速度在此處最慢，恰好提供足夠時間進行氣體與養分交換。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 下列何者屬於促進局部小動脈舒張的「代謝性」局部控制因子？</div>
+        <ul class="quiz-options">
+          <li>(A) 內皮素-1（endothelin-1）</li>
+          <li>(B) 血管收縮素II</li>
+          <li>(C) 腺苷（adenosine，ATP分解產物）與CO₂/H⁺堆積</li>
+          <li>(D) 正腎上腺素作用於α受體</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">組織代謝旺盛時，局部氧氣下降、CO₂/H⁺/K⁺堆積、ATP分解產生腺苷，這些代謝相關的化學因子直接作用於鄰近小動脈平滑肌引發舒張，增加局部血流以滿足代謝需求，稱為主動充血（active hyperemia）。內皮素-1與血管收縮素II是收縮因子，正腎上腺素經α受體也是收縮效果。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 一隻貓因慢性腎病導致嚴重蛋白尿與低白蛋白血症，臨床上出現腹水與四肢水腫。此現象最直接的微血管交換機轉為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 微血管靜水壓（HPc）大幅上升</li>
+          <li>(B) 血漿膠體滲透壓（OPc）下降，使淨過濾壓偏向過濾、液體滯留組織間隙</li>
+          <li>(C) 淋巴管阻塞導致回收能力喪失</li>
+          <li>(D) 微血管通透性完全喪失</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">白蛋白是決定血漿膠體滲透壓（OPc）的主要成分，低白蛋白血症使OPc下降，依NFP = (HPc−HPif)−(OPc−OPif)公式，OPc下降會使淨過濾壓（NFP）偏向過濾方向，液體因而更容易滯留於組織間隙，形成水腫或體腔積液，這是低白蛋白血症動物常見水腫的核心生理機轉，也是蛋白流失性腎病或腸病的重要臨床連結。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 下列關於靜脈系統的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 靜脈壁平滑肌與彈性蛋白比例皆高於動脈，故順應性較低</li>
+          <li>(B) 靜脈容納全身循環血量約60–70%，被稱為容量血管</li>
+          <li>(C) 靜脈壓遠高於動脈壓，足以單靠壓力差推動血液回心臟</li>
+          <li>(D) 靜脈完全不受自主神經支配</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">靜脈管壁平滑肌較少、彈性蛋白較多，順應性遠高於動脈，容納全身循環血量約60–70%，因此稱為容量血管（capacitance vessels）。靜脈壓約僅15 mmHg，遠低於動脈壓，單靠壓力差不足以推動血液回心臟，需仰賴呼吸幫浦與肌肉幫浦協助；靜脈平滑肌同樣受交感神經支配（NE作用），興奮時可收縮動員部分儲存血液。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q7. 請說明肌源性反應（myogenic response）的機轉與其生理意義，並舉一個此機制在特定器官發揮重要作用的例子。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">肌源性反應是血管平滑肌本身對被動拉伸具有的內建收縮反應：當血管內部血壓升高、血管壁被動擴張時，平滑肌會直接反射性收縮以對抗過度擴張，此機制不依賴神經傳導或激素訊號，是一種局部、內在（intrinsic）的自我保護機制，可避免微血管床在血壓突然升高時承受過大壓力而受損。此機制在腎臟的腎絲球濾過率自我調節中扮演重要角色：當全身血壓在一定範圍內波動時，腎臟入球小動脈可透過肌源性反應自動調整血管半徑，使腎絲球內的血流量與過濾壓維持相對穩定，避免血壓波動直接大幅影響腎絲球過濾率。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 承上題，若某犬每搏量（SV）明顯增加、且動脈因粥狀硬化而順應性下降，其脈搏壓（pulse pressure）預期會如何變化？</div>
+        <ul class="quiz-options">
+          <li>(A) 脈搏壓下降</li>
+          <li>(B) 脈搏壓上升</li>
+          <li>(C) 脈搏壓不受這兩個因素影響</li>
+          <li>(D) 無法判斷，需要更多資訊</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">脈搏壓主要由每搏量、射出速度、動脈順應性三個因子決定：每搏量增加會使脈搏壓上升；動脈順應性下降（如粥狀硬化使血管壁變硬）則使同樣的每搏量產生更大的壓力波動，同樣使脈搏壓上升。此題兩個因素同時朝脈搏壓上升方向作用，故答案明確為上升，這也是臨床上動脈硬化動物脈搏壓常偏高的生理基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 淋巴管與血管一樣，僅能運輸水分與小分子溶質，無法運輸蛋白質等較大分子。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">淋巴管與血管不同，其構造允許攝入較大分子（如蛋白質、細胞碎片、病原體等），這是血管內皮間隙（intercellular clefts）難以有效運送的物質類別，也是淋巴系統除了體液回收外，同時具備免疫監視功能（淋巴結檢查淋巴液中的病原體與異物）的構造基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 腎上腺素（epinephrine）對血管平滑肌可能造成收縮或舒張兩種相反效果，其關鍵決定因素為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 腎上腺素的血中濃度高低</li>
+          <li>(B) 標的血管平滑肌上表現的腎上腺素受體亞型（α vs β2）</li>
+          <li>(C) 動物的年齡</li>
+          <li>(D) 腎上腺素永遠只造成收縮，不會造成舒張</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">腎上腺素作用於α腎上腺素受體時造成血管收縮（多數血管床的主要反應），但作用於骨骼肌血管上密度較高的β2腎上腺素受體時則造成舒張，因此同一種激素在不同血管床可能因受體亞型分布不同而產生相反效果。此原理與「肌肉生理學」章節中正腎上腺素對血管（α受體收縮）與支氣管平滑肌（β2受體舒張）的受體選擇性概念完全一致，是跨章節整合的常見考點。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '血管系統總覽與分類',
+  hemodynamics: '壓力、流量、阻力',
+  arterial: '動脈壓與脈搏壓',
+  autoregulation: '血流自我調節',
+  extrinsic: '神經與激素調控',
+  capillary: '微循環與微血管交換',
+  venous: '靜脈系統與靜脈回流',
+  lymph: '淋巴系統',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

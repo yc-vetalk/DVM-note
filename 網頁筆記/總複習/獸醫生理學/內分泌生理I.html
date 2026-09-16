@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：內分泌生理 I - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大二"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">內分泌生理 I</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">內分泌生理 I</h1>
+      <p class="page-subtitle">Endocrine System Introduction &amp; Hypothalamic-Pituitary Axis — 激素分類與作用機轉、分泌調控、下視丘－腦垂體軸整體架構。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習・大二）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-1 課程講義《Physiology Endocrine system Introduction》，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">內分泌總論</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📚</span> 內分泌系統總論</a>
+    <a onclick="showSection('classes')" id="nav-classes"><span class="nav-icon">🧪</span> 激素的化學分類</a>
+    <a onclick="showSection('action')" id="nav-action"><span class="nav-icon">⚙️</span> 作用機轉、代謝與運輸</a>
+    <a onclick="showSection('regulation')" id="nav-regulation"><span class="nav-icon">🔄</span> 分泌調控與激素交互作用</a>
+    <div class="section-label" style="margin-top:8px;">下視丘－腦垂體軸</div>
+    <a onclick="showSection('axis')" id="nav-axis"><span class="nav-icon">🧠</span> HP軸總論</a>
+    <a onclick="showSection('posterior')" id="nav-posterior"><span class="nav-icon">💧</span> 腦垂體後葉：ADH與催產素</a>
+    <a onclick="showSection('anterior')" id="nav-anterior"><span class="nav-icon">📈</span> 腦垂體前葉：GH與PRL</a>
+    <a onclick="showSection('intermediate')" id="nav-intermediate"><span class="nav-icon">🎨</span> 中葉MSH與回饋迴路</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>內分泌系統總論</h2></div>
+      <p class="section-desc">內分泌系統透過激素（hormone）進行遠距離化學溝通，協調並整合全身細胞活動以維持恆定。本節建立激素與標的器官（target organ）的基本概念，作為後續各內分泌腺章節的共同語言。</p>
+
+      <h3>激素與標的器官</h3>
+      <ul>
+        <li><strong>激素（hormone）</strong>：由內分泌腺（如胰臟、腎上腺）、腦部（如促腎上腺皮質激素釋放激素CRH、催產素、抗利尿激素）及其他器官（心臟分泌心房利鈉胜肽ANP、肝臟分泌IGF-1、脂肪組織分泌瘦體素leptin）以極微量釋放。</li>
+        <li><strong>標的器官（target organ）</strong>：含有該激素專一受體、能對激素結合產生可觀察生理反應的組織。</li>
+      </ul>
+
+      <h3>內分泌系統的功能</h3>
+      <p>協調整合全身細胞活動、調節細胞與器官功能以維持恆定。激素的生理效應必須透過與標的器官專一受體結合才能實現，此過程涉及：受體可被上調或下調；受體與調節分子結合後必須引發標的細胞一連串特定變化；體內必須存在終止該調節作用的機制。</p>
+    </div>
+
+    <div class="section" id="section-classes">
+      <div class="section-head"><div class="section-num">2</div><h2>激素的化學分類</h2></div>
+      <p class="section-desc">激素依化學結構分為三大類，化學分類直接決定其溶解度、作用機轉與代謝方式，是貫穿本章的分類主軸。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>來源／結構</th><th>代表激素</th><th>溶解度</th></tr></thead>
+          <tbody>
+            <tr><td><strong>胺類 Amines</strong></td><td>衍生自酪胺酸（tyrosine）與色胺酸（tryptophan）</td><td>腎上腺髓質（兒茶酚胺）、甲狀腺、松果腺分泌的激素</td><td>兒茶酚胺為水溶性；甲狀腺素為脂溶性</td></tr>
+            <tr><td><strong>類固醇 Steroids</strong></td><td>膽固醇經酵素切除五碳D環側鏈而成</td><td>睪固酮、動情素、黃體素、皮質醇</td><td>脂溶性（親脂性）</td></tr>
+            <tr><td><strong>胜肽與蛋白質 Peptides &amp; Proteins</strong></td><td>胺基酸鏈，大於100個胺基酸者稱蛋白質</td><td>胰島素、生長激素；<strong>醣蛋白（glycoprotein，結合醣類）</strong>如FSH、LH</td><td>水溶性（極性），無法穿透磷脂膜</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>脂溶性激素（類固醇、甲狀腺素）可製成口服藥丸使用，因為能被腸道吸收後直接發揮活性——這是甲狀腺素補充藥丸（治療甲狀腺功能低下）與口服避孕藥（性類固醇）能夠有效的生理化學基礎。</p>
+      </div>
+
+      <h3>前驅激素與前激素</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">前驅激素 Prohormone</div>
+          <p>激素前驅物是較長的胜肽鏈，需在<strong>分泌腺細胞內</strong>被切割與重組才形成有活性的激素。例：<strong>proinsulin → insulin</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">前激素 Prehormone</div>
+          <p>內分泌腺分泌出的分子本身在標的細胞中<strong>無活性</strong>，須經標的細胞修飾化學結構才能活化。例：<strong>T4（甲狀腺素）需於周邊組織轉換為活性更高的T3</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-action">
+      <div class="section-head"><div class="section-num">3</div><h2>作用機轉、代謝與運輸</h2></div>
+      <p class="section-desc">激素的化學分類直接決定其作用機轉：水溶性激素經膜受體／G蛋白訊號路徑作用（見「細胞訊息傳遞」章節），脂溶性激素則經核內受體直接調控基因轉錄；兩者在血中運輸與代謝方式也截然不同。</p>
+
+      <h3>作用機轉回顧</h3>
+      <div class="flow">
+        <div class="flow-node">水溶性激素（胜肽/兒茶酚胺）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">膜受體 → G蛋白 → 第二訊息傳遞 → 訊號放大</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">脂溶性激素（類固醇/甲狀腺素）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">核內受體（轉錄因子）→ 直接調控基因轉錄</div>
+      </div>
+      <p>不同作用機轉導致<strong>功能起始時間與持續時間的差異</strong>：膜受體路徑起效快、持續短；核受體路徑起效慢、持續長（詳見「細胞訊息傳遞」章節）。</p>
+
+      <h3>激素代謝與排除</h3>
+      <p>肝臟與腎臟是移除血中激素的主要器官：<strong>胜肽激素與腎上腺素代謝快速</strong>；<strong>類固醇與甲狀腺素代謝較慢</strong>。某些激素的代謝物活性甚至比原激素更強。激素血中濃度取決於：(1) 內分泌腺的分泌速率、(2) 血中移除速率（肝臟代謝轉化、腎臟排除、標的細胞對激素-受體複合體的胞吞內化、酵素分解兒茶酚胺與胜肽激素）。</p>
+
+      <h3>血中運輸型式</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">胜肽與兒茶酚胺類激素</div>
+          <p>水溶性，直接溶解於血漿中運輸。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">類固醇與甲狀腺素</div>
+          <p>水溶性差，大多與<strong>血漿結合蛋白</strong>結合運輸，僅有小部分以「游離激素（free hormone）」形式存在；<strong>只有游離型激素能與標的細胞作用</strong>，結合型則作為激素儲存庫（reservoir），也是調控激素可利用度的額外機制。</p>
+        </div>
+      </div>
+
+      <h3>半衰期 Half-life</h3>
+      <p>指血中激素濃度降至參考濃度一半所需的時間，範圍可由數分鐘至數天不等；生物活性僅由游離型（未結合）激素決定，其作用又可分為<strong>基因體效應（genomic，經核受體調控轉錄）</strong>與<strong>非基因體效應（nongenomic，快速膜相關效應）</strong>兩種。</p>
+
+      <h3>受體上調與下調</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">促發效應 Priming effect（上調）</div>
+          <p>下視丘小量脈衝式釋出GnRH可上調腦垂體前葉細胞的GnRH受體，增加對後續GnRH刺激的敏感度。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">去敏感化與下調 Desensitization</div>
+          <p>脂肪細胞長期暴露於高濃度胰島素會發生受體下調；為避免去敏感化，許多胜肽與醣蛋白激素以<strong>脈衝式分泌（pulsatile secretion）</strong>而非持續分泌，藉此維持受體敏感度。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-regulation">
+      <div class="section-head"><div class="section-num">4</div><h2>分泌調控與激素交互作用</h2></div>
+      <p class="section-desc">激素分泌的調控方式與激素間的交互作用是理解多重內分泌軸串聯運作的關鍵，也是內分泌疾病分類的基礎架構。</p>
+
+      <h3>三種內分泌腺刺激類型</h3>
+      <ul>
+        <li><strong>體液性刺激</strong>：血中代謝物或離子濃度變化直接刺激分泌（如血糖刺激胰島素）</li>
+        <li><strong>神經性刺激</strong>：神經直接支配內分泌細胞（如交感神經刺激腎上腺髓質分泌兒茶酚胺）</li>
+        <li><strong>激素性刺激</strong>：上游<strong>促激素（tropic hormone）</strong>控制下游內分泌腺的分泌（如ACTH刺激腎上腺皮質分泌皮質醇）</li>
+      </ul>
+
+      <h3>激素釋放的調控模式</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>模式</th><th>說明</th><th>範例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>恆定與穩態 Homeostasis / Steady state</strong></td><td>晝夜節律（circadian rhythm）／日節律（diurnal rhythm）調控分泌；或維持動態平衡（dynamic equilibrium）</td><td>GH（晝夜節律）、ACTH（日節律）、胰島素（動態平衡）</td></tr>
+            <tr><td><strong>負回饋 Negative feedback</strong></td><td>激素作用效果回過頭抑制其自身分泌</td><td>血糖回饋調控胰島素分泌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>激素的可利用度（availability）取決於合成速率、釋放因子的存在與否，以及降解或攝取的速率。</p>
+
+      <h3>激素間的交互作用</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>交互作用類型</th><th>定義</th><th>範例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>相加效應 Additive</strong></td><td>兩激素效果相加</td><td>正腎上腺素（NE）與腎上腺素（Epi）</td></tr>
+            <tr><td><strong>互補效應 Complementary</strong></td><td>兩激素分別作用於不同機轉、共同促成完整效果</td><td>FSH與睪固酮共同促進精子生成</td></tr>
+            <tr><td><strong>容許效應 Permissive</strong></td><td>激素A必須存在，激素B才能發揮完整效果</td><td>副甲狀腺素（PTH）對維生素D3（calcitriol）作用的容許效應</td></tr>
+            <tr><td><strong>拮抗效應 Antagonistic</strong></td><td>一激素的作用抵消另一激素的效果</td><td>胰島素與升糖素（glucagon）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>內分泌疾病的分類</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">分泌量異常</div><p><strong>分泌不足（hyposecretion）</strong>：激素分泌過少；<strong>分泌過多（hypersecretion）</strong>：激素分泌過量</p></div>
+        <div class="card"><div class="card-title">反應性異常</div><p><strong>低反應性（hyporesponsiveness）</strong>與<strong>高反應性（hyperresponsiveness）</strong>：標的細胞對正常激素濃度反應不足或過度，常見於受體缺陷或自體抗體干擾</p></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>激素缺乏的臨床表現可能由<strong>受體缺陷</strong>模擬（即使激素濃度正常，仍表現如同缺乏）；激素過量的表現也可能由<strong>自體抗體結合並活化激素受體</strong>模擬（即使激素濃度正常，受體被異常活化）——判讀內分泌疾病時須同時考量激素濃度、結合蛋白與受體功能三個層面。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-axis">
+      <div class="section-head"><div class="section-num">5</div><h2>HP軸總論</h2></div>
+      <p class="section-desc">下視丘－腦垂體軸（hypothalamic-pituitary axis）是全身內分泌系統的最高整合中樞，本節整理其解剖連結方式，是理解後續各周邊內分泌腺調控的骨幹架構。</p>
+
+      <h3>下視丘的角色</h3>
+      <p>下視丘整合來自腦部各區域、外在環境與周邊器官的資訊，協助維持恆定；下視丘與腦垂體之間有兩種截然不同的連結方式：</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">神經連結 → 腦垂體後葉（神經垂體）</div>
+          <p>下視丘神經元的軸突直接延伸至腦垂體後葉，將合成的激素（催產素、ADH）沿軸突運送至此直接釋放入血。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">血管連結 → 腦垂體前葉（腺垂體）</div>
+          <p>下視丘神經元分泌的<strong>促垂體激素（hypophysiotropic hormone）</strong>經<strong>下視丘－腦垂體門脈系統（hypothalamo-hypophyseal portal vessels）</strong>運送至腦垂體前葉，刺激或抑制前葉細胞分泌各自的激素。</p>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>除泌乳素（PRL）主要受<strong>抑制性</strong>下視丘控制外，其餘腦垂體前葉激素（ACTH、TSH、GH、FSH、LH）皆主要受<strong>刺激性</strong>下視丘控制。下視丘、腦垂體與標的器官激素多以<strong>脈衝式釋放</strong>，這對防止受體下調具有重要生理意義。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-posterior">
+      <div class="section-head"><div class="section-num">6</div><h2>腦垂體後葉：ADH與催產素</h2></div>
+      <p class="section-desc">腦垂體後葉（神經垂體）本身不合成激素，只負責<strong>儲存與釋放</strong>由下視丘視上核（SON）與室旁核（PVN）神經元合成的兩種激素：抗利尿激素（ADH）與催產素（oxytocin），兩者經<strong>神經物理素（neurophysin）</strong>攜帶蛋白沿軸突運送至後葉。</p>
+
+      <h3>抗利尿激素 ADH（Arginine Vasopressin, AVP）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體</th><th>生理效應</th></tr></thead>
+          <tbody>
+            <tr><td><strong>V2受體</strong>（腎臟）</td><td>促進腎臟保留水分（超過保留溶質的比例），使滲透壓下降——經促進<strong>水通道蛋白2（AQP2）</strong>插入集尿管上皮頂端膜而增加水分再吸收，濃縮尿液</td></tr>
+            <tr><td><strong>V1A受體</strong>（血管平滑肌、肝臟）</td><td>大劑量時升高動脈血壓（血管收縮）；促進肝臟肝醣分解</td></tr>
+            <tr><td><strong>V1B受體</strong>（腦垂體前葉）</td><td>增加ACTH分泌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>觸發ADH釋放的訊號</strong>：血漿滲透壓升高（高張，經下視丘滲透壓感受器偵測）、血容積下降（低血容，經壓力感受器偵測）；ADH釋放對<strong>血漿滲透壓小幅變化的敏感度，遠高於對血容積小幅變化的敏感度</strong>。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床連結</div>
+        <p><strong>SIADH（ADH不當分泌症候群）</strong>：ADH分泌過多，導致水分滯留與<strong>低血鈉（hyponatremia）</strong>。<strong>中樞型尿崩症（central diabetes insipidus）</strong>：下視丘/腦垂體無法產生ADH。<strong>腎源性尿崩症（nephrogenic diabetes insipidus）</strong>：腎臟對ADH產生完全或部分抗性（受體疾病）。ADH缺乏會導致排出大量稀釋尿液，是尿崩症的核心病理生理。</p>
+      </div>
+
+      <h3>催產素 Oxytocin</h3>
+      <p>催產素作用於子宮（收縮）與乳腺（泌乳），核心生理機制皆為<strong>正回饋（positive feedback）</strong>：</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">排乳反射 Milk Ejection Reflex</div>
+          <p>潛伏期約30–60秒；哺乳刺激經正回饋放大：催產素增加子宮/乳腺平滑肌<strong>催產素受體數量</strong>、增加平滑肌細胞間<strong>間隙接合</strong>數量、增加<strong>前列腺素合成</strong>，共同提升子宮/乳腺肌肉的收縮性。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">分娩中的角色 Role in Parturition</div>
+          <p>動情素（estradiol）可使子宮催產素受體數量上升達<strong>100倍</strong>，形成「動情素↑→催產素受體↑→催產素效果↑」的正回饋放大迴路，是理解後續「妊娠、分娩與泌乳生理」章節的重要前導概念。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section-anterior">
+      <div class="section-head"><div class="section-num">7</div><h2>腦垂體前葉：GH與PRL</h2></div>
+      <p class="section-desc">腦垂體前葉（腺垂體）合成並分泌七種激素：ACTH、TSH、GH、FSH、LH、MSH、PRL。本節聚焦生長激素與泌乳素，甲狀腺與腎上腺軸留待「內分泌生理 II」章節整理，性腺軸留待「生殖內分泌」章節整理。</p>
+
+      <h3>泌乳素 Prolactin (PRL)</h3>
+      <p>刺激乳腺合成乳汁蛋白（casein、乳白蛋白lactalbumin）；下視丘以<strong>多巴胺（DA）持續抑制</strong>PRL分泌——這是PRL不同於其他前葉激素（主要受刺激性控制）的特殊之處。哺乳期PRL也有<strong>抑制排卵</strong>的作用（哺乳性無排卵，泌乳期天然避孕機制）。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p><strong>高泌乳素血症（hyperprolactinemia）</strong>常見於腦垂體嫌色性腺瘤（泌乳素瘤），表現為<strong>溢乳（galactorrhea）</strong>；女性因阻斷促性腺激素對卵巢的作用而導致性腺功能低下、不孕、無月經與骨質疏鬆；男性則表現性腺功能低下、性慾下降與陽痿。治療除手術切除腫瘤外，可用<strong>bromocriptine（多巴胺受體刺激劑）</strong>抑制PRL分泌。</p>
+      </div>
+
+      <h3>生長激素 Growth Hormone (GH)</h3>
+      <div class="flow">
+        <div class="flow-node">下視丘 GHRH（刺激）／Somatostatin（抑制）／Ghrelin（刺激，來自胃與下視丘）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">腦垂體前葉分泌GH（Somatotropin）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">肝臟生成 IGF-1（Somatomedin）</div>
+      </div>
+      <p>GH兼具<strong>直接效應</strong>（不需IGF-1即可促進脂解、降低葡萄糖利用）與<strong>間接效應</strong>（經IGF-1促進生長）。</p>
+
+      <h4>影響GH分泌的刺激因子</h4>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">促進GH分泌</div>
+          <p>能量基質缺乏（低血糖、禁食、運動）、蛋白質餐／胺基酸輸注、升糖素、壓力刺激（熱原、心理壓力）、入睡初期、L-Dopa與滲入腦部的α-腎上腺素致效劑、多巴胺受體致效劑、動情素與雄性素</p>
+        </div>
+        <div class="card">
+          <div class="card-title">抑制GH分泌</div>
+          <p>快速動眼期（REM）睡眠、血糖升高、皮質醇、游離脂肪酸（FFA）、GH本身（負回饋）</p>
+        </div>
+      </div>
+
+      <h3>GH分泌異常</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>機轉</th></tr></thead>
+          <tbody>
+            <tr><td><strong>軟骨發育不全 Achondroplasia</strong></td><td>FGFR3基因突變導致的侏儒症（非GH缺乏所致）</td></tr>
+            <tr><td><strong>Laron氏侏儒症</strong></td><td>組織對GH不敏感（受體缺陷）</td></tr>
+            <tr><td><strong>巨人症 Gigantism</strong></td><td>骨骺板閉合前GH分泌過多</td></tr>
+            <tr><td><strong>肢端肥大症 Acromegaly</strong></td><td>骨骺板閉合後GH分泌過多，導致骨骼與軟組織過度增生、胰島素阻抗（因組織長期暴露於過量GH與IGF-1）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-intermediate">
+      <div class="section-head"><div class="section-num">8</div><h2>中葉MSH與回饋迴路</h2></div>
+      <p class="section-desc">腦垂體中葉分泌黑色素細胞刺激素（MSH），與ACTH共享前驅蛋白，本節同時整理內分泌軸常見的回饋迴路層級。</p>
+
+      <h3>黑色素細胞刺激素 MSH</h3>
+      <p>α、β、γ-MSH與ACTH皆衍生自共同前驅蛋白<strong>前腦啡黑細胞皮質素原（POMC, pro-opiomelanocortin）</strong>，經前驅激素轉化酶（PC）在分泌小泡內裂解而成（ACTH本身也具有MSH活性）。MSH作用於黑色素細胞促進黑色素合成，分兩型：<strong>真黑色素（eumelanin，黑棕色）</strong>與<strong>褐黑色素（pheomelanin，黃紅色）</strong>。</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">色素過多 Hyperpigmentation</div><p>ACTH過量時可結合MSH受體，造成皮膚色素沉澱過度（如腎上腺皮質功能不足時ACTH代償性升高）</p></div>
+        <div class="card"><div class="card-title">色素過少 Hypopigmentation</div><p>白化症（albinism，無法合成黑色素）、先天性花斑（piebaldism）、漸進性白斑症（vitiligo）</p></div>
+      </div>
+
+      <h3>短迴路與長迴路回饋 Short-loop &amp; Long-loop Feedback</h3>
+      <p>內分泌軸的負回饋依作用層級分為：</p>
+      <ul>
+        <li><strong>長迴路回饋（long-loop）</strong>：標的器官激素（如皮質醇）回饋抑制下視丘與腦垂體</li>
+        <li><strong>短迴路回饋（short-loop）</strong>：腦垂體激素（如ACTH）回饋抑制下視丘</li>
+      </ul>
+      <p>這套多層次回饋架構是理解甲狀腺軸、腎上腺軸與性腺軸共同運作原理的通用模板，將在後續「內分泌生理 II」與「生殖內分泌」章節反覆應用。</p>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章建立整個內分泌系統的共同語言與HP軸架構，是後續甲狀腺、腎上腺、性腺各軸的共同骨幹，考題常考「激素化學分類對應作用機轉」與「HP軸各激素的受體/效應配對」。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>激素三大化學分類</strong>：胺類（水溶或脂溶）、類固醇（脂溶）、胜肽/蛋白質（水溶）——化學分類直接決定作用機轉（膜受體 vs 核受體）與血中運輸方式（游離 vs 結合蛋白）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>前驅激素（腺體內活化，如proinsulin）vs. 前激素（標的細胞內活化，如T4→T3）</strong>是常見混淆題型，務必區分活化發生的位置。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>只有游離型激素具生物活性</strong>，結合蛋白同時扮演運輸載體與儲存庫兩種角色；脈衝式分泌是預防受體去敏感化/下調的重要生理策略。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>四種激素交互作用</strong>：相加、互補、容許（A必須存在B才能發揮全效）、拮抗——PTH對維生素D3的容許效應、胰島素與升糖素的拮抗效應是經典考題。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>下視丘經神經連結後葉（ADH、催產素）、經門脈血管連結前葉（促垂體激素）</strong>，除PRL主要受抑制性控制（多巴胺）外，其餘前葉激素主要受刺激性下視丘控制。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>ADH三受體</strong>：V2（腎臟，水分再吸收/AQP2）、V1A（血管收縮、肝醣分解）、V1B（促ACTH分泌）；ADH對滲透壓變化比對血容積變化更敏感。SIADH（水中毒、低血鈉）vs. 尿崩症（大量稀釋尿）是重要臨床對比。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>催產素透過正回饋放大效應</strong>：排乳反射（增加受體、間隙接合、前列腺素）、分娩（動情素使子宮催產素受體上升達100倍）。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>GH直接效應（不需IGF-1：促脂解、抑制葡萄糖利用）vs. 間接效應（經肝臟IGF-1促進生長）</strong>；巨人症（骨骺板閉合前過量）vs. 肢端肥大症（閉合後過量）是重要鑑別。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>MSH與ACTH共享前驅蛋白POMC</strong>，因此ACTH過量（如原發性腎上腺功能不足代償性升高）可造成皮膚色素沉澱過度；長迴路（標的器官激素→下視丘/腦垂體）與短迴路（腦垂體激素→下視丘）回饋是理解各內分泌軸的通用架構。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-1 獸醫生理學課程講義《Physiology Endocrine system Introduction》，王家琪老師，內容參照 Vander's Human Physiology／Ganong's Review of Medical Physiology 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋激素分類、作用機轉、HP軸、ADH/催產素、GH/PRL等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. T4（甲狀腺素）需在周邊組織轉換為T3才具有較高活性，此現象屬於？</div>
+        <ul class="quiz-options">
+          <li>(A) 前驅激素 Prohormone</li>
+          <li>(B) 前激素 Prehormone</li>
+          <li>(C) 容許效應 Permissive effect</li>
+          <li>(D) 長迴路回饋</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">前激素（prehormone）是腺體分泌時本身無活性、須經標的細胞修飾才活化的激素，T4→T3即為典型例子；前驅激素（如proinsulin→insulin）則是在分泌腺細胞內完成活化。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 血中與血漿結合蛋白結合的類固醇激素，與游離型激素同樣具有生物活性。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">只有游離（未結合）型激素能與標的細胞作用、具有生物活性；結合型激素作為儲存庫，可視為額外的激素可利用度調控機制。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 副甲狀腺素（PTH）必須存在，維生素D3才能發揮完整的鈣吸收效果，此屬於哪一種激素交互作用？</div>
+        <ul class="quiz-options">
+          <li>(A) 相加效應</li>
+          <li>(B) 互補效應</li>
+          <li>(C) 容許效應</li>
+          <li>(D) 拮抗效應</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">容許效應（permissive effect）指激素A（PTH）必須存在，激素B（維生素D3/calcitriol）才能發揮完整效果，PTH對維生素D3活化與作用的容許效應是經典範例。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請比較中樞型尿崩症與SIADH在ADH分泌與臨床表現上的差異。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">中樞型尿崩症是下視丘/腦垂體無法產生ADH，導致腎臟無法保留水分，臨床表現為排出大量稀釋尿液（多尿）併發口渴、多飲；SIADH則是ADH分泌過多（不當分泌），使腎臟過度保留水分，臨床表現為水分滯留合併低血鈉（hyponatremia），兩者在ADH分泌量與臨床表現上恰好相反。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 催產素在分娩過程與排乳反射中，其核心調控機制為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 負回饋，逐漸降低子宮收縮強度</li>
+          <li>(B) 正回饋，放大子宮/乳腺平滑肌的收縮反應</li>
+          <li>(C) 容許效應，需先有動情素才會分泌</li>
+          <li>(D) 與其他激素完全無交互作用</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">催產素透過正回饋放大效應：分娩時動情素使子宮催產素受體數量上升達100倍；排乳反射時催產素本身增加受體數量、間隙接合與前列腺素合成，持續提升平滑肌收縮性，直到胎兒娩出或哺乳結束才終止。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 骨骺板閉合「後」生長激素分泌過多，會導致下列哪一種疾病？</div>
+        <ul class="quiz-options">
+          <li>(A) 巨人症 Gigantism</li>
+          <li>(B) 肢端肥大症 Acromegaly</li>
+          <li>(C) 軟骨發育不全 Achondroplasia</li>
+          <li>(D) Laron氏侏儒症</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">骨骺板閉合後GH過多導致肢端肥大症（骨骼與軟組織過度增生、胰島素阻抗）；骨骺板閉合「前」GH過多則導致巨人症（身高過度增長）。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '內分泌系統總論',
+  classes: '激素的化學分類',
+  action: '作用機轉、代謝與運輸',
+  regulation: '分泌調控與激素交互作用',
+  axis: 'HP軸總論',
+  posterior: '腦垂體後葉：ADH與催產素',
+  anterior: '腦垂體前葉：GH與PRL',
+  intermediate: '中葉MSH與回饋迴路',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
