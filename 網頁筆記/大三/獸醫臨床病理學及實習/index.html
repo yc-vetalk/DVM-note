@@ -5,16 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../assets/style.css">
-
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
 </head>
-<body>
+<body class="ah">
 
 <header>
   <a class="header-brand" href="../../index.html">
     <h1>上群 網頁筆記</h1>
     <div class="subtitle">DVM Course Notes · 大三／大四</div>
   </a>
-  <span class="badge">大三</span>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
   <div class="header-right">
     <div class="search-wrap lg" style="width:260px;">
       <span class="search-icon">🔍</span>
@@ -24,35 +25,34 @@
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
   </div>
 </header>
+<div class="nav-panel" id="navPanel"></div>
 
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <p class="pagehead__eyebrow"><a href="../../index.html">上群 網頁筆記</a><i>/</i><span>獸醫臨床病理學及實習</span></p>
+    <h1 class="pagehead__title">🧫 獸醫臨床病理學及實習</h1>
+    <p class="pagehead__lede">大三課程週次筆記，上課後依進度整理。</p>
+  </div>
+</section>
 
-<div class="container" style="display:block; height:auto;">
-  <main class="wide" style="padding:24px 28px 48px;">
-    <div class="breadcrumb">
-      <a href="../../index.html">網頁筆記首頁</a>
-      <span class="sep">›</span>
-      <span class="current">獸醫臨床病理學及實習</span>
-    </div>
+<main class="homewrap">
+  <h2>週次筆記</h2>
+  <div class="empty-state">尚無筆記，上課後會依進度陸續補上。</div>
+</main>
 
-    <div class="hero">
-      <h1>🧫 獸醫臨床病理學及實習</h1>
-      <p>大三</p>
-    </div>
-
-    <div class="empty-state">尚無筆記，上課後會依進度陸續補上。</div>
-
-    <footer class="note-footer">
-      本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式臨床診斷或用藥依據。
-    </footer>
-  </main>
-</div>
+<footer class="sitefoot">
+  <div class="sitefoot__inner">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式臨床診斷或用藥依據。</div>
+</footer>
 
 <script src="../../assets/site.js"></script>
 <script src="../../search-index.js"></script>
 <script src="../../assets/global-search.js"></script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
 <script>
 const SITE_ROOT = "../../";
 initGlobalSearch('searchInput', 'searchResults');
+initSiteNav('siteNav', 'navPanel');
 </script>
 
 </body>

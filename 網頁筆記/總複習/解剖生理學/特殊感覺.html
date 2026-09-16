@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫解剖學：特殊感覺 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>上群 網頁筆記</h1>
+    <div class="subtitle">DVM Course Notes · 大三／大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="總複習"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">解剖生理學</a><span class="sep">›</span><span class="current">特殊感覺</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">特殊感覺</h1>
+      <p class="page-subtitle">Special Senses · Veterinary Anatomy — 視覺、聽覺與平衡、嗅覺味覺、相關腦神經。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">解剖生理學（生涯總複習）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">解剖學實習講義《The General and Special Senses I》《The General and Special Senses-II》（113學年度，王家琪老師）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview">
+      <span class="nav-icon">📚</span> 特殊感覺總論
+    </a>
+    <div class="section-label" style="margin-top:8px;">感覺系統</div>
+    <a onclick="showSection('general')" id="nav-general">
+      <span class="nav-icon">🖐️</span> 一般感覺受器
+    </a>
+    <a onclick="showSection('vision')" id="nav-vision">
+      <span class="nav-icon">👁️</span> 視覺系統（眼）
+    </a>
+    <a onclick="showSection('hearing')" id="nav-hearing">
+      <span class="nav-icon">👂</span> 聽覺與平衡系統（耳）
+    </a>
+    <a onclick="showSection('chemosense')" id="nav-chemosense">
+      <span class="nav-icon">👃</span> 嗅覺與味覺
+    </a>
+    <a onclick="showSection('nerves')" id="nav-nerves">
+      <span class="nav-icon">🧠</span> 特殊感覺相關腦神經
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>特殊感覺總論 Special Senses Overview</h2></div>
+      <p class="section-desc">感覺（sense）依受器分布範圍分為「一般感覺（general senses）」與「特殊感覺（special senses）」兩大類，本頁整理課堂講義《The General and Special Senses I／II》的內容，先建立兩者的區分概念，再依序整理視覺、聽覺與平衡、嗅覺、味覺各系統的構造與功能。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">一般感覺 General senses</div>
+          <p>受器廣泛分布全身（皮膚、關節、肌肉、內臟），包括痛覺（nociceptors）、溫度覺（thermoreceptors）、機械覺（mechanoreceptors：觸覺／壓覺／本體感覺）、化學覺（chemoreceptors）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">特殊感覺 Special senses</div>
+          <p>受器侷限於頭部特定區域，為構造獨立、高度特化的感覺器官：<strong>視覺（sight）、聽覺（hearing）、平衡（balance）、嗅覺（smell）、味覺（taste）</strong>。</p>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>特殊感覺受器多為「神經樣上皮細胞（neuronlike epithelial cells）」或小型周邊神經元，將感覺訊息傳給對應的腦神經（cranial nerves）——這是特殊感覺與一般感覺在解剖學上最大的差異：一般感覺經由脊神經或腦神經廣泛的周邊分支傳入，特殊感覺則各自對應固定的腦神經（II 視神經、VIII 前庭耳蝸神經、I 嗅神經、VII／IX／X 部分味覺傳導）。</p>
+      </div>
+
+      <h3>本頁章節架構</h3>
+      <ul>
+        <li><strong>一般感覺受器</strong>：痛覺、溫度覺、機械覺（觸覺受器、壓力受器、本體感覺受器）、化學覺受器的分類與分布，作為特殊感覺的背景知識。</li>
+        <li><strong>視覺系統</strong>：眼眶（orbit）、眼附屬構造（眼瞼、淚器、眼外肌）、眼球三層構造（纖維膜、血管膜、視網膜）、視覺路徑。</li>
+        <li><strong>聽覺與平衡系統</strong>：外耳、中耳（聽小骨）、內耳（耳蝸負責聽覺、前庭與半規管負責平衡）、聲波傳導路徑、聽覺與前庭路徑。</li>
+        <li><strong>嗅覺與味覺</strong>：嗅覺上皮與嗅球、犁鼻器；味蕾與舌乳頭分類。</li>
+        <li><strong>特殊感覺相關腦神經</strong>：整理 CN II、III、IV、V、VI、VII、VIII、IX、X 中與眼、耳、鼻、舌相關的感覺／運動／副交感分支，方便對照理學檢查（如瞳孔對光反射、前庭眼反射）背後的神經路徑。</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《The General and Special Senses I》《The General and Special Senses-II》（113學年度，王家琪老師）。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- GENERAL SENSES -->
+    <div class="section" id="section-general">
+      <div class="section-head"><div class="section-num">2</div><h2>一般感覺受器 General Sensory Receptors</h2></div>
+      <p class="section-desc">一般感覺受器廣泛分布全身，依感受的刺激型態分為痛覺、溫度覺、機械覺、化學覺四大類，是理解後續特殊感覺受器（如觸覺盤、毛細胞）分類邏輯的基礎。</p>
+
+      <h3>痛覺受器 Nociceptors</h3>
+      <p>又稱痛覺受器，多為游離神經末梢（free nerve endings），廣泛分布於皮膚淺層、關節囊、骨膜與血管壁周圍，感受範圍大（large receptor fields）。</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">快痛 Fast pain</div>
+          <p>具髓鞘 A 型纖維傳導，訊息快速到達中樞，對應刺痛或切割傷。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">慢痛 Slow pain</div>
+          <p>較細、無髓鞘的 C 型纖維傳導，訊息傳導慢，對應燒灼痛或悶痛。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">轉移痛 Referred pain</div>
+          <p>部分內臟器官的痛覺訊息經由相同脊神經背根傳入脊髓，臨床上表現為體表特定區域的疼痛（例如心臟疾病牽連左上肢）。</p>
+        </div>
+      </div>
+
+      <h3>溫度覺受器 Thermoreceptors</h3>
+      <p>分布於真皮、骨骼肌、肝臟與下視丘，以游離神經末梢形式存在，訊息經由與痛覺相同的路徑（外側脊髓丘腦徑）傳導。<strong>冷覺受器數量約為熱覺受器的3–4倍</strong>。</p>
+
+      <h3>機械覺受器 Mechanoreceptors</h3>
+      <p>感受牽張、壓縮、扭轉或形變的刺激，可分為三類：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>觸覺受器 Tactile receptors</strong></td><td>提供觸覺、壓覺與震動覺，再細分為未包覆型與包覆型（見下表）</td></tr>
+            <tr><td><strong>壓力感受器 Baroreceptors</strong></td><td>監測器官容積／壓力變化，分布於胃、小腸、膀胱、頸動脈、肺、大腸等，參與血壓與自主神經反射調控</td></tr>
+            <tr><td><strong>本體感覺受器 Proprioceptors</strong></td><td>監測關節位置、肌腱張力與肌肉纖維長度變化，包括高基氏肌腱器（Golgi tendon organ，偵測肌腱張力）、肌梭（muscle spindle，偵測肌肉長度變化）、關節囊內感受器</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>觸覺受器細分</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>構造</th><th>分布／功能</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>未包覆型 Unencapsulated</strong></td><td>游離神經末梢</td><td>位於表皮細胞間，對觸壓覺敏感</td></tr>
+            <tr><td>觸覺盤 Tactile disc（Merkel's discs）</td><td>精細觸壓覺受器，神經元樹突延伸進表皮深層細胞</td></tr>
+            <tr><td>毛根叢 Root hair plexus</td><td>偵測毛髮變形與移動，觸發眨眼等反射</td></tr>
+            <tr><td rowspan="3"><strong>包覆型 Encapsulated</strong></td><td>觸覺小體 Tactile corpuscle（Meissner's）</td><td>位於真皮乳頭層，精細觸覺／低頻震動，常見於眼瞼、唇、指尖、乳頭、生殖器</td></tr>
+            <tr><td>層板小體 Lamellated corpuscle（Pacinian）</td><td>位於皮下組織，感受深層壓覺、脈動與高頻震動</td></tr>
+            <tr><td>路氏小體 Ruffini corpuscle</td><td>位於真皮層，對壓力與扭轉力敏感</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>化學覺受器 Chemoreceptors</h3>
+      <p>偵測化學物質濃度的微小變化，對水溶性或脂溶性物質產生反應，分布於延髓呼吸中樞附近（對腦脊髓液 pH、CO₂敏感）、頸動脈體（對血液 pH、CO₂、O₂敏感，經 CN IX 傳入）、主動脈體（經 CN X 傳入），共同參與呼吸與心血管反射調節。</p>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《The General and Special Senses I》。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- VISION -->
+    <div class="section" id="section-vision">
+      <div class="section-head"><div class="section-num">3</div><h2>視覺系統 Vision (Eye)</h2></div>
+      <p class="section-desc">視覺系統包含容納眼球的骨性眼眶、附屬的眼瞼／淚器／眼外肌，以及眼球本身三層構造（纖維膜、血管膜、視網膜），最後訊息經視神經傳導至大腦視覺皮質。</p>
+
+      <h3>眼眶 Orbit</h3>
+      <p>眼眶是容納眼球的骨性腔室：<strong>眶緣</strong>由額骨、淚骨、上頜骨、顴骨與外側的眶韌帶（orbital ligament）構成；<strong>內側</strong>為額骨、前蝶骨、淚骨部分；<strong>腹側壁</strong>由顴腺與翼肌構成；<strong>背側與外側壁</strong>主要由顳肌構成。眼眶後部三個重要開口（由吻側至尾側）：<strong>視神經管（optic canal，供CN II通過）、眶裂（orbital fissure，供CN III、IV、VI與CN V眼神經支通過）、前翼孔（rostral alar foramen）</strong>。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p><strong>眼鞘（periorbita，又稱眶骨膜）</strong>是一層包覆眼球及其肌肉、血管、神經的圓錐形結締組織與平滑肌鞘，其尖端（apex）朝尾側附著於視神經管與眶裂的骨性邊緣，並與顱內硬腦膜延續；吻側則展開與臉部骨膜融合，其結締組織（眶隔）並延伸進入眼瞼。</p>
+      </div>
+
+      <h3>眼附屬構造 Accessory Structures of the Eye</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">眼瞼與睫毛 Eyelids &amp; eyelashes</div>
+          <p>睫毛含毛根叢，觸發眨眼反射；眼瞼相關腺體包括<strong>瞼板腺（tarsal gland）</strong>、<strong>淚腺（lacrimal gland）</strong>、<strong>淚阜（lacrimal caruncle）</strong>。犬貓具有<strong>第三眼瞼（third eyelid，瞬膜）</strong>，內含軟骨支架與淺表腺。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">結膜 Conjunctiva</div>
+          <p>覆蓋眼瞼內側面（瞼結膜）與眼球前部表面（球結膜）的上皮組織，為眼瞼與眼球之間的過渡黏膜。</p>
+        </div>
+      </div>
+      <p><strong>淚器（lacrimal apparatus）</strong>負責製造、分泌與排泄眼淚，由四部分組成：(1) 淚腺與相關排管；(2) 淚管（lacrimal canaliculus）；(3) 淚囊（lacrimal sac）；(4) 鼻淚管（nasolacrimal duct，最終開口於鼻腔）。眼房液（aqueous humor）則由睫狀體上皮分泌至後房，經瞳孔至前房，再經虹膜角膜交界處的鞏膜靜脈竇回流至靜脈系統，兩者是不同的液體循環系統，臨床上分別對應「流淚」與「眼壓調控（青光眼相關）」兩種不同機轉。</p>
+
+      <h3>眼外肌 Extrinsic Muscles of the Eyeball</h3>
+      <p>所有眼外肌皆止於鞏膜（sclera）表面，依支配的腦神經整理如下：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>肌肉</th><th>功能</th><th>支配腦神經</th></tr></thead>
+          <tbody>
+            <tr><td>背側直肌／內側直肌／腹側直肌 Dorsal／Medial／Ventral rectus</td><td>轉動眼球</td><td>動眼神經 CN III</td></tr>
+            <tr><td>外側直肌 Lateral rectus</td><td>轉動眼球（外展）</td><td>外旋神經 CN VI</td></tr>
+            <tr><td>眼球縮肌 Retractor bulbi</td><td>四條肌束環繞視神經，將眼球向後拉入眼眶</td><td>外旋神經 CN VI</td></tr>
+            <tr><td>背側斜肌 Dorsal oblique</td><td>經滑車（trochlea）改變肌腱方向後止於眼球</td><td>滑車神經 CN IV</td></tr>
+            <tr><td>腹側斜肌 Ventral oblique</td><td>協助眼球旋轉</td><td>動眼神經 CN III</td></tr>
+            <tr><td>上眼瞼提肌 Levator palpebrae superioris</td><td>提起上眼瞼</td><td>動眼神經 CN III</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/特殊感覺/senses_eye_muscles_p34.png" alt="眼外肌解剖圖與功能簡圖，標註各條眼外肌名稱及其轉動眼球的方向">
+        <div class="figure-caption">眼外肌解剖圖（背外側觀／外側觀）與功能簡圖：四條直肌（背側、腹側、內側、外側直肌）、眼球縮肌（retractor bulbi）、背側斜肌（dorsal oblique）、腹側斜肌（ventral oblique）分別轉動眼球的方向；右下圖以箭頭標示各肌肉收縮時眼球轉動的軸向。</div>
+        <div class="figure-source">來源：解剖學實習講義《The General and Special Senses I》(113學年度)</div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>臨床提醒：</strong>CN III（動眼神經）支配多數眼外肌與瞳孔括約肌／睫狀肌（副交感），CN III麻痺會造成瞳孔放大、眼球外斜視、上眼瞼下垂；CN VI（外旋神經）麻痺則造成眼球無法外展、內斜視。理學檢查中的「眼球震顫（nystagmus）」與前庭系統（CN VIII）及此處眼外肌的協調密切相關（見聽覺與平衡章節）。</p>
+      </div>
+
+      <h3>眼球構造 Bulbus Oculi</h3>
+      <p>眼球壁由外而內分為三層：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層次</th><th>組成</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>纖維膜 Fibrous tunic（外層）</strong></td><td>鞏膜（sclera）＋角膜（cornea，為特化透明的鞏膜）</td><td>提供保護與眼外肌附著點</td></tr>
+            <tr><td><strong>血管膜 Vascular tunic（中層）</strong></td><td>虹膜（iris）、睫狀體（ciliary body）、脈絡膜（choroid），內含血管、淋巴管與眼內在肌</td><td>調節入眼光量、分泌與再吸收眼房液、控制水晶體形狀</td></tr>
+            <tr><td><strong>視網膜 Retina（內層）</strong></td><td>外層色素部分＋內層神經部分（視覺感受器、支持細胞、神經元）</td><td>吸收穿過神經部分的光線、將視覺訊息轉換為神經訊號</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/特殊感覺/senses_eye_overview_p36.png" alt="眼球水平剖面完整標註圖，含角膜、虹膜、水晶體、睫狀體、鞏膜、脈絡膜、視網膜、視神經、中央小凹等構造">
+        <div class="figure-caption">眼球水平剖面圖：角膜（Cornea）、虹膜（Iris）、水晶體（Lens）及其懸韌帶（Suspensory ligament）、睫狀體（Ciliary body）與睫狀肌（Ciliary muscle）、鞏膜（Sclera）、脈絡膜（Choroid）、視網膜（Retina）、視神經盤（Optic disc）、中央小凹（Fovea）、淚囊（Lacrimal sac）與淚孔（Lacrimal pore）等構造的相對位置。</div>
+        <div class="figure-source">來源：解剖學實習講義《The General and Special Senses I》(113學年度)</div>
+      </div>
+
+      <h4>自主神經對眼內在肌的調控</h4>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">瞳孔擴大肌 Dilator pupillae m.</div>
+          <p>放射狀平滑肌，由<strong>交感神經</strong>支配，收縮使瞳孔放大（散瞳）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">瞳孔括約肌 Constrictor pupillae m.</div>
+          <p>環狀平滑肌，由<strong>副交感神經（CN III）</strong>支配，收縮使瞳孔縮小（縮瞳），是瞳孔對光反射（PLR）的傳出路徑之一。</p>
+        </div>
+      </div>
+
+      <h4>視網膜 Retina</h4>
+      <p>視網膜由外層較薄的色素部分與內層較厚的神經部分構成。神經部分包括：</p>
+      <ul>
+        <li><strong>視覺感受器（photoreceptors）</strong>：桿狀細胞（rods，對光敏感、無法辨色，負責昏暗環境視覺）與錐狀細胞（cones，提供色覺）。</li>
+        <li>支持細胞與執行視覺訊息初步處理、整合的神經元（雙極細胞 bipolar cells、神經節細胞 ganglion cells、水平細胞 horizontal cells、無軸突細胞 amacrine cells）。</li>
+        <li><strong>黃斑（macula lutea）</strong>中央處的<strong>中央小凹（fovea）</strong>錐狀細胞密度最高，是視覺最敏銳處。</li>
+        <li><strong>視神經盤（optic disc，盲點 blind spot）</strong>：約百萬條神經節細胞軸突匯聚形成第二對腦神經（視神經）的起點，此處沒有視覺感受器，光線投射在此不被察覺。</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告</div>
+        <p><strong>視網膜剝離（detached retina）：</strong>當眼睛受到突然撞擊，可能造成視網膜色素部分與神經部分分開，是眼外傷的重要併發症之一。</p>
+      </div>
+
+      <h3>視覺路徑 The Visual Pathway</h3>
+      <div class="flow">
+        <div class="flow-node">視網膜光受器 Photoreceptors</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">視神經 CN II</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">視交叉 Optic chiasm</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">視徑 Optic tract</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">丘腦核 Thalamic nucleus</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">大腦視覺皮質 Visual cortex</div>
+      </div>
+      <p>在視交叉處，部分神經纖維交叉，使每個大腦半球接收到來自<strong>同側視網膜外側一半</strong>與<strong>對側視網膜內側一半</strong>的視覺訊息；大腦視覺聯絡區負責整合訊息並合成完整視野影像。</p>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《The General and Special Senses I》(113學年度)。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- HEARING -->
+    <div class="section" id="section-hearing">
+      <div class="section-head"><div class="section-num">4</div><h2>聽覺與平衡系統 Equilibrium and Hearing (Ear)</h2></div>
+      <p class="section-desc">顳骨內耳中的感受器負責平衡與聽覺兩種特殊感覺，共同的感受單元是毛細胞（hair cell，一種機械性感受器）。耳朵解剖上分為外耳、中耳、內耳三個區域。</p>
+
+      <h3>耳朵的三個解剖區域</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>區域</th><th>組成</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>外耳 External ear</strong></td><td>耳翼（auricle，彈性軟骨構成）、外耳道（external acoustic meatus）、耵聹腺（ceruminous gland）</td><td>收集並引導聲波至鼓膜（tympanic membrane）</td></tr>
+            <tr><td><strong>中耳 Middle ear</strong></td><td>顳骨內的腔室，含三塊聽小骨、耳咽管（auditory tube）</td><td>收集鼓膜震動並放大後傳至內耳</td></tr>
+            <tr><td><strong>內耳 Internal ear</strong></td><td>骨性迷路（bony labyrinth）包覆膜性迷路（membranous labyrinth），含耳蝸與前庭器</td><td>耳蝸負責聽覺，前庭與半規管負責平衡</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/特殊感覺/senses_ear_overview_p8.png" alt="耳朵解剖構造整體圖，標註外耳、中耳、內耳三區域及各自構造">
+        <div class="figure-caption">耳朵的解剖構造整體圖：外耳（耳翼 Auricle、外耳道 External acoustic meatus）、中耳（聽小骨 Auditory ossicles、卵圓窗 Oval window、鼓膜 Tympanic membrane、圓窗 Round window、耳咽管 Auditory tube）、內耳（半規管 Semicircular canals、耳蝸 Cochlea、內耳骨性迷路），以及行經此區的顏面神經（CN VII）與前庭耳蝸神經（CN VIII）。</div>
+        <div class="figure-source">來源：解剖學實習講義《The General and Special Senses-II》(113學年度)</div>
+      </div>
+
+      <h3>外耳 External Ear</h3>
+      <p>由耳翼（auricle）與外耳道（external acoustic meatus）組成。耳翼由彈性軟骨構成，保護外耳道開口；耵聹腺分泌蠟狀物質；外耳道終點止於鼓膜。犬的外耳道分為垂直部（vertical canal）與水平部（horizontal canal），臨床上外耳炎常因此構造彎曲而使異物、分泌物滯留。</p>
+
+      <h3>中耳 Middle Ear</h3>
+      <p>藉鼓膜與外耳分隔，透過耳咽管（auditory tube，又稱歐氏管）與鼻咽相連，負責平衡鼓膜兩側的壓力。微生物經由鼻咽入侵中耳造成發炎，稱為<strong>中耳炎（otitis media）</strong>。</p>
+
+      <h4>聽小骨 Auditory Ossicles</h4>
+      <p>中耳內包含三塊聽小骨，聲波經鼓膜震動依序傳送：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>聽小骨</th><th>位置／連接</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鎚骨 Malleus</strong></td><td>藉三點連接於鼓膜內側面</td></tr>
+            <tr><td><strong>砧骨 Incus</strong></td><td>介於中間，分別連接鎚骨與鐙骨</td></tr>
+            <tr><td><strong>鐙骨 Stapes</strong></td><td>基底部附著於卵圓窗（oval window），將震動傳入內耳</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>中耳腔室內另有兩條小肌肉保護鼓膜與聽小骨免受巨大噪音侵襲：<strong>鼓膜張肌（tensor tympani muscle）</strong>與<strong>鐙骨肌（stapedius muscle）</strong>。</p>
+
+      <h3>內耳 Internal Ear</h3>
+      <p>平衡與聽覺的感受器皆位於內耳膜性迷路（membranous labyrinth）內；骨性迷路（bony labyrinth）由緻密骨構成，包圍並保護內部的膜性迷路。兩者之間充滿類似腦脊髓液的液體，稱為<strong>外淋巴（perilymph）</strong>；膜性迷路內部則充滿<strong>內淋巴（endolymph）</strong>。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>骨性迷路</th><th>膜性迷路</th><th>功能</th><th>感受區域</th></tr></thead>
+          <tbody>
+            <tr><td>半規管 Semicircular canals</td><td>半規導管 Semicircular ducts</td><td>平衡：旋轉（角）加速度</td><td>壺腹嵴 Crista ampullaris</td></tr>
+            <tr><td>前庭 Vestibule</td><td>橢圓囊與球狀囊 Utricle and saccule</td><td>平衡：頭部相對重力位置、直線加速度</td><td>聽斑 Macula</td></tr>
+            <tr><td>耳蝸 Cochlea</td><td>耳蝸管 Cochlear duct（scala media）</td><td>聽覺</td><td>螺旋器官 Spiral organ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>耳蝸與螺旋器官（聽覺）</h4>
+      <p>骨性耳蝸內含充滿膜性迷路的耳蝸管（cochlear duct），管內的感受器（螺旋器官／柯蒂氏器 spiral organ）負責提供聽覺。耳蝸管內以<strong>前庭階（scala vestibuli）</strong>與<strong>鼓階（scala tympani）</strong>兩側充滿外淋巴，耳蝸管本身（scala media）充滿內淋巴。螺旋器官上有內毛細胞（inner hair cell）與外毛細胞（outer hair cells），其上覆蓋<strong>覆膜（tectorial membrane）</strong>，基底膜（basilar membrane）震動使毛細胞的靜纖毛（stereocilia）偏折而產生神經衝動。</p>
+
+      <div class="figure">
+        <img src="img/特殊感覺/senses_cochlea_p21.png" alt="耳蝸解剖圖與螺旋器官放大圖，標註前庭階、耳蝸管、鼓階、覆膜、內外毛細胞、基底膜">
+        <div class="figure-caption">耳蝸（cochlea）解剖圖：整體螺旋構造、耳蝸橫切面（前庭階 Scala vestibuli、耳蝸管 Cochlear duct、鼓階 Scala tympani、螺旋神經節 Spiral ganglion）以及螺旋器官放大圖（覆膜 Tectorial membrane、內毛細胞 Inner hair cell、外毛細胞 Outer hair cells、基底膜 Basilar membrane、耳蝸神經纖維 Fibers of cochlear nerve）。</div>
+        <div class="figure-source">來源：解剖學實習講義《The General and Special Senses-II》(113學年度)</div>
+      </div>
+
+      <h4>聲波傳導路徑 Route of Sound Waves through the Ear</h4>
+      <div class="step"><div class="step-num">1</div><div class="step-text">聲波震動<strong>鼓膜（tympanic membrane）</strong>。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>聽小骨（鎚骨→砧骨→鐙骨）</strong>依序震動，壓力被放大。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">鐙骨推動<strong>卵圓窗（oval window）</strong>，產生的壓力波經<strong>前庭階（scala vestibuli）</strong>內的外淋巴傳導。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">聽覺範圍內的聲音經<strong>耳蝸管（cochlear duct）</strong>震動<strong>基底膜（basilar membrane）</strong>，使螺旋器官的毛細胞纖毛偏折而產生神經衝動；低於聽覺範圍的聲音則經<strong>耳蝸孔（helicotrema）</strong>直接通過而不興奮毛細胞。壓力最終經<strong>圓窗（round window）</strong>釋放。</div></div>
+
+      <h4>聽覺路徑 Auditory Pathway</h4>
+      <div class="flow">
+        <div class="flow-node">螺旋器官 Spiral organ</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">耳蝸神經 Cochlear n.（CN VIII）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">耳蝸神經核 Cochlear nuclei</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">上橄欖核 Superior olivary complex</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">外側蹄系 Lateral lemniscus</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">下丘 Inferior colliculus</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">內側膝狀核 Medial geniculate nucleus</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">聽覺皮質 Auditory cortex（顳葉）</div>
+      </div>
+
+      <h3>前庭系統（平衡） Vestibular System</h3>
+      <p>前庭（vestibule）與半規管（semicircular canals）合稱<strong>前庭器（vestibular complex）</strong>，負責偵測頭部相對重力的位置、直線加速度與旋轉（角）加速度。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">前庭 Vestibule（聽斑 Macula）</div>
+          <p>包含一對膜性囊：<strong>球狀囊（saccule）</strong>與<strong>橢圓囊（utricle）</strong>，內含<strong>聽斑（macula）</strong>——毛細胞頂端覆蓋含<strong>耳石（otoliths）</strong>的耳石膜（otolith membrane）。頭部位置改變或直線加速時，耳石因重力／慣性移動，帶動毛細胞纖毛偏折，靜纖毛朝動纖毛（kinocilium）方向偏折時細胞去極化（興奮），反方向偏折則過極化（抑制）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">半規管 Semicircular canals（壺腹嵴 Crista ampullaris）</div>
+          <p>三條半規管互相垂直排列，各自壺腹（ampulla）內有<strong>壺腹嵴（crista ampullaris）</strong>，其毛細胞纖毛埋於膠質的<strong>壺腹帽（cupula）</strong>中。頭部旋轉時，半規管內內淋巴因慣性相對滯後流動，推動壺腹帽偏移而刺激毛細胞，偵測旋轉（角）加速度。</p>
+        </div>
+      </div>
+
+      <div class="figure">
+        <img src="img/特殊感覺/senses_vestibular_p27.png" alt="壺腹嵴解剖圖與頭部旋轉時內淋巴流動、壺腹帽偏移示意圖">
+        <div class="figure-caption">壺腹嵴（crista ampullaris）構造與旋轉加速度感受機轉：靜止時壺腹帽（cupula）直立；旋轉加速時內淋巴因慣性相對落後流動，推動壺腹帽偏移並興奮毛細胞；旋轉減速時內淋巴則朝反方向流動，抑制毛細胞（以花式滑冰選手旋轉為例示意）。</div>
+        <div class="figure-source">來源：解剖學實習講義《The General and Special Senses-II》(113學年度)</div>
+      </div>
+
+      <h4>毛細胞的機轉</h4>
+      <p>毛細胞（hair cell）表面含80–100根非常長的微絨毛稱為<strong>靜纖毛（stereocilia）</strong>，前庭內另有一根較粗的<strong>動纖毛（kinocilium）</strong>。靜纖毛朝動纖毛方向偏移時，鉀離子通道開啟使細胞去極化，刺激毛細胞、增加感覺神經元動作電位頻率；反方向偏移則抑制毛細胞活動。這是全身唯一利用「機械性開關離子通道」而非傳統神經傳導物質受器的初級感覺轉換機轉之一。</p>
+
+      <h4>前庭路徑與前庭核 Vestibular Pathway &amp; Nuclei</h4>
+      <p>前庭神經（CN VIII 的前庭支）將訊息傳入位於第四腦室底部的<strong>前庭核（vestibular nuclei）</strong>。前庭核接受前庭神經持續活動的軸突輸入，發出反射性路徑活化支配眼肌、頸肌、四肢伸肌的運動神經元；直接或經網狀結構間接調節伸肌張力，以維持身體直立姿勢與眼球穩定（前庭眼反射）。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>臨床提醒：</strong>前庭疾病（如中耳/內耳炎經卵圓窗或圓窗蔓延、特發性前庭症候群）常見臨床表徵包括頭部歪斜（head tilt）、眼球震顫（nystagmus）、共濟失調（ataxia）、斜圈行走（circling），需與小腦性或中樞性前庭疾病做鑑別診斷（周邊前庭病灶通常水平/旋轉性眼震且快相背離患側，中樞性則可能出現垂直性眼震）。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《The General and Special Senses-II》(113學年度)。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CHEMOSENSE -->
+    <div class="section" id="section-chemosense">
+      <div class="section-head"><div class="section-num">5</div><h2>嗅覺與味覺 Olfaction &amp; Gustation</h2></div>
+      <p class="section-desc">嗅覺與味覺同屬化學感覺，分別偵測空氣中的揮發性分子與唾液溶解的化學物質，兩者訊息傳導路徑不同：嗅覺是唯一不經過丘腦、直接投射到大腦皮質的特殊感覺。</p>
+
+      <h3>嗅覺 Olfaction (Smell)</h3>
+      <p><strong>嗅覺器官（olfactory organs）</strong>位於鼻中隔兩側的鼻腔內，涵蓋篩板（cribriform plate）下面、篩骨垂直板上方部分以及上鼻甲（superior nasal concha）。嗅覺上皮（olfactory epithelium）由三種細胞組成：</p>
+      <ul>
+        <li><strong>嗅覺受器細胞 Olfactory receptors</strong>：雙極神經元，樹突端有嗅纖毛（olfactory cilia）伸入黏液層感受氣味分子，軸突穿過篩板進入嗅球（olfactory bulb）與二尖細胞（mitral cell）在嗅小球（glomerulus）形成突觸。</li>
+        <li><strong>支持細胞 Supporting cells</strong>：類似上皮細胞，支持並隔離嗅覺受器細胞。</li>
+        <li><strong>基底細胞 Basal cells（幹細胞）</strong>：可分裂分化以取代剝落的嗅覺受器細胞——嗅覺受器細胞是少數能持續再生的神經元之一。</li>
+      </ul>
+
+      <h4>嗅覺路徑</h4>
+      <div class="flow">
+        <div class="flow-node">嗅覺上皮 Olfactory epithelium</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">嗅神經纖維 CN I</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">嗅球 Olfactory bulb</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">嗅徑 Olfactory tract</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">梨狀葉／大腦皮質 Piriform lobe</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>嗅覺是唯一直接到達大腦皮質的特殊感覺，<strong>不需經過丘腦轉接</strong>，這也是嗅覺容易直接誘發強烈情緒／記憶反應的解剖學基礎。</p>
+      </div>
+
+      <h4>犁鼻器 Vomeronasal Organ</h4>
+      <p>又稱<strong>犁鼻器官（vomeronasal organ, VNO）</strong>，位於鼻中隔基部兩側，接收犁鼻神經（vomeronasal nerves）支配。主要負責偵測費洛蒙（pheromones）等非揮發性化學訊息，與嗅覺主系統分開處理，在犬貓的社交／生殖行為（如公貓的裂唇嗅反應 flehmen response）中扮演重要角色。嗅神經路徑為：三叉神經→眼神經支→鼻睫神經→篩骨神經（傳導部分鼻黏膜的一般感覺，需與嗅神經 CN I 的化學感覺區分）。</p>
+
+      <h3>味覺 Gustation (Taste)</h3>
+      <p>舌頭表面由<strong>舌乳頭（papillae）</strong>構成，舌乳頭內含<strong>味蕾（taste buds）</strong>，味蕾由味覺細胞（gustatory cells）組成，每個味覺細胞具有伸入味孔（taste pore）的細長微絨毛（microvilli）感受溶於唾液的化學物質。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p>傳統「舌頭味覺分區地圖」（甜在舌尖、鹹在舌尖兩側、酸在舌緣、苦在舌根）常見於教學講義，但現代生理學認為各類型味覺受器其實廣泛分布於整個味蕾群，分區僅為敏感度略有差異，臨床應用時不必過度拘泥此簡化模型。</p>
+      </div>
+
+      <h4>舌乳頭分類</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>舌乳頭</th><th>分布</th><th>特徵／功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>絲狀乳頭 Filiform papillae</strong></td><td>遍布舌背，數量最多、體積最小</td><td><strong>不含味蕾</strong>，角質化程度高，協助舔舐與保護深層構造，由三叉神經分支（舌神經）之觸覺受器支配</td></tr>
+            <tr><td><strong>蕈狀乳頭 Fungiform papillae</strong></td><td>舌吻側三分之二，舌尖與舌緣最密集</td><td>菇狀，數量次多，含味蕾</td></tr>
+            <tr><td><strong>輪廓乳頭 Circumvallate papillae</strong></td><td>舌根附近</td><td>體積最大，周圍有環狀溝，味蕾密度最高，對苦味敏感</td></tr>
+            <tr><td><strong>葉狀乳頭 Foliate papillae</strong></td><td>舌兩側後段的短垂直皺褶</td><td>含多個味蕾，漿液腺分泌物沖洗味蕾表面以保持敏感度</td></tr>
+            <tr><td><strong>圓錐乳頭 Conical papillae</strong></td><td>舌尾側三分之一</td><td>機械性與觸覺功能為主，由舌咽神經（CN IX）支配</td></tr>
+            <tr><td><strong>邊緣乳頭 Marginal papillae</strong></td><td>新生犬舌緣</td><td>協助吸乳時防止乳汁溢出舌面，隨斷奶後改為固體飲食而逐漸消失</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>味覺傳導路徑</h4>
+      <p>味覺訊息依舌頭部位由不同腦神經傳導：舌吻側三分之二（絲狀、蕈狀乳頭區）由<strong>顏面神經（CN VII，經鼓索神經 chorda tympani）</strong>傳導；舌尾側三分之一（輪廓、葉狀、圓錐乳頭區）與軟腭由<strong>舌咽神經（CN IX）</strong>傳導；會厭區則由<strong>迷走神經（CN X）</strong>傳導。訊息經<strong>孤束核（nucleus solitarius）</strong>中繼，上傳至丘腦核，最終抵達大腦味覺皮質（gustatory cortex）。舌頭的一般感覺（觸壓、溫度、痛覺，非味覺）則由<strong>三叉神經（CN V）</strong>負責。</p>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《The General and Special Senses-II》(113學年度，嗅覺)、《The General and Special Senses I》(113學年度，味覺)。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CRANIAL NERVES -->
+    <div class="section" id="section-nerves">
+      <div class="section-head"><div class="section-num">6</div><h2>特殊感覺相關腦神經 Cranial Nerves of the Special Senses</h2></div>
+      <p class="section-desc">特殊感覺高度依賴特定腦神經傳導，理學檢查（如瞳孔對光反射、角膜反射、前庭眼反射）本質上就是在測試對應腦神經迴路的完整性。本節整理與眼、耳、鼻、舌相關的腦神經功能。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>腦神經</th><th>運動</th><th>感覺</th><th>副交感</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CN I 嗅神經 Olfactory</strong></td><td>—</td><td>嗅覺</td><td>—</td></tr>
+            <tr><td><strong>CN II 視神經 Optic</strong></td><td>—</td><td>視覺</td><td>—</td></tr>
+            <tr><td><strong>CN III 動眼神經 Oculomotor</strong></td><td>上眼瞼提肌、除背側斜肌與外側直肌外的所有眼外肌</td><td>—</td><td>睫狀肌、瞳孔括約肌</td></tr>
+            <tr><td><strong>CN IV 滑車神經 Trochlear</strong></td><td>背側斜肌</td><td>—</td><td>—</td></tr>
+            <tr><td><strong>CN V 三叉神經 Trigeminal</strong></td><td>（下頜支：咀嚼肌）</td><td>眼球、結膜、眼周皮膚、嗅覺黏膜（眼神經支V1）；顳頂區皮膚、下眼瞼（上頜神經支V2）；鼻腔黏膜、硬腭軟腭（翼腭神經）；上頜牙齒、鼻部與上唇皮膚（眶下神經）；下頜牙齒、下唇（下頜神經支V3）；舌吻側三分之二黏膜（舌神經）</td><td>經顏面神經轉接至淚腺（V1區）</td></tr>
+            <tr><td><strong>CN VI 外旋神經 Abducent</strong></td><td>外側直肌、眼球縮肌</td><td>—</td><td>—</td></tr>
+            <tr><td><strong>CN VII 顏面神經 Facial</strong></td><td>鐙骨肌、耳翼肌群、眼瞼肌肉、臉部表情肌</td><td>舌吻側三分之二味覺（經鼓索神經）</td><td>淚腺、鼻腭黏膜腺體、舌下腺、下頜腺</td></tr>
+            <tr><td><strong>CN VIII 前庭耳蝸神經 Vestibulocochlear</strong></td><td>—</td><td>平衡（前庭支）與聽覺（耳蝸支）</td><td>—</td></tr>
+            <tr><td><strong>CN IX 舌咽神經 Glossopharyngeal</strong></td><td>莖咽肌、咽部肌肉</td><td>舌尾側三分之一味覺與一般感覺、咽部感覺、頸動脈體（血壓/pH/O₂/CO₂化學感受）</td><td>腮腺、頰腺</td></tr>
+            <tr><td><strong>CN X 迷走神經 Vagus</strong></td><td>咽喉部大部分肌肉</td><td>耳殼與外耳道皮膚部分感覺、咽喉黏膜、胸腹腔內臟感覺</td><td>胸腔與腹腔內臟</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/骨骼系統/skull_p4.png" alt="骨骼系統頁面沿用的神經顱各骨頭在腦部外側的相對分區圖解（僅供對照顱骨與腦神經孔洞相對位置）">
+        <div class="figure-caption">神經顱各骨頭分區示意（與骨骼系統頁面共用圖檔），可對照顱骨額骨、頂骨、顳骨、蝶骨等位置，理解特殊感覺相關腦神經（CN II–VIII）分別經由視神經管、眶裂、內耳道等孔洞離開顱腔的相對空間關係。</div>
+        <div class="figure-source">來源：解剖學實習講義《Skeleton of the head part1》</div>
+      </div>
+
+      <h3>眼相關腦神經孔洞地標</h3>
+      <p>眼眶尾側三個重要開口（由吻側至尾側）：<strong>視神經管（optic canal）</strong>——CN II 通過；<strong>眶裂（orbital fissure）</strong>——CN III（動眼）、CN IV（滑車）、CN VI（外旋）、CN V的眼神經支（V1）通過；<strong>前翼孔（rostral alar foramen）</strong>——CN V的上頜神經支（V2）通過。三叉神經三大分支（V1眼神經、V2上頜神經、V3下頜神經）分別負責眼球周圍、臉頰上部、臉頰下部與下頜的一般感覺。</p>
+
+      <h3>耳相關腦神經</h3>
+      <p><strong>CN VII（顏面神經）</strong>與<strong>CN VIII（前庭耳蝸神經）</strong>共同行經內耳道進入顳骨岩部：CN VII 除支配面部表情肌外，另有鐙骨神經（stapedial nerve）支配鐙骨肌以保護內耳免受過大聲音刺激，以及鼓索神經（chorda tympani）負責舌吻側味覺與部分唾液腺副交感；CN VIII 則分為前庭支（平衡）與耳蝸支（聽覺）兩部分，分別終止於前庭核與耳蝸核。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>臨床提醒：</strong>中耳／內耳感染或腫瘤有時會同時侵犯 CN VII 與 CN VIII（兩者於顳骨岩部走行接近），臨床上可能同時出現顏面神經麻痺（眼瞼閉合不全、耳廓下垂）與前庭症狀（頭部歪斜、眼震），這是定位病灶於「周邊（顳骨／中耳）」而非「中樞」的重要線索之一，需與交感神經受損（Horner氏症候群，眼瞼下垂、瞳孔縮小、眼球內陷、第三眼瞼突出）做鑑別診斷。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《The General and Special Senses I》《The General and Special Senses-II》(113學年度)。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">7</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度的整理，複習前可先快速掃過本節，找出自己不熟的部分再回對應章節細讀。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>一般感覺 vs 特殊感覺</strong>的核心區分：一般感覺受器廣泛分布全身、經脊神經與多條腦神經傳入；特殊感覺受器侷限於頭部、各自對應固定的腦神經（CN I嗅覺、CN II視覺、CN VIII聽覺與平衡、CN VII/IX/X部分味覺）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>眼外肌與其支配腦神經</strong>是常考重點：CN III支配上/下/內直肌、腹側斜肌與上眼瞼提肌（並含副交感支配瞳孔括約肌與睫狀肌）；CN IV支配背側斜肌；CN VI支配外側直肌與眼球縮肌。臨床上瞳孔放大、上眼瞼下垂、外斜視提示CN III病灶；無法外展提示CN VI病灶。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>眼球三層構造</strong>：纖維膜（鞏膜＋角膜，保護與附著）、血管膜（虹膜＋睫狀體＋脈絡膜，調節光量與眼房液）、視網膜（色素部分＋神經部分，感光與初步整合）。視網膜剝離是色素部分與神經部分分開，視神經盤（盲點）則是神經節細胞軸突匯聚無感光受器之處。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>眼淚系統 vs 眼房液系統</strong>不要混淆：淚器（淚腺→淚管→淚囊→鼻淚管）負責眼表濕潤與排出；眼房液（睫狀體分泌→後房→瞳孔→前房→鞏膜靜脈竇回流）負責眼壓調控，與青光眼相關。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>耳的三區域與對應內耳結構</strong>：外耳（耳翼、外耳道）收集聲波；中耳（鼓膜、三塊聽小骨：鎚骨→砧骨→鐙骨）放大並傳遞震動；內耳骨性迷路內的耳蝸（聽覺，經卵圓窗接收）與前庭＋半規管（平衡）。耳咽管溝通中耳與鼻咽，是中耳炎的感染途徑之一。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>平衡系統兩組受器</strong>：聽斑（macula，位於橢圓囊與球狀囊）感受直線加速度與重力位置變化，靠耳石膜；壺腹嵴（crista ampullaris，位於半規管壺腹）感受旋轉（角）加速度，靠壺腹帽與內淋巴流動。兩者的共同受器單元都是毛細胞，靜纖毛朝動纖毛偏折時興奮、反向偏折時抑制。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>聲波傳導完整路徑</strong>：鼓膜震動→聽小骨（鎚骨→砧骨→鐙骨）放大→卵圓窗→前庭階外淋巴→耳蝸管震動基底膜→螺旋器官毛細胞興奮→耳蝸神經（CN VIII）→耳蝸核→…→聽覺皮質；低頻以下的聲音經耳蝸孔直接通過不興奮毛細胞。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>嗅覺是唯一不經丘腦的特殊感覺</strong>，嗅覺受器細胞是少數可持續由基底細胞再生的神經元；犁鼻器獨立於主嗅覺系統之外，主要感受費洛蒙訊息，與動物社交／生殖行為相關（如裂唇嗅反應）。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>味覺依舌頭部位對應不同腦神經</strong>：舌吻側三分之二經CN VII（鼓索神經）；舌尾側三分之一經CN IX；會厭區經CN X；舌頭一般感覺（非味覺）則經CN V。輪廓乳頭味蕾密度最高、對苦味敏感；絲狀乳頭不含味蕾，純粹機械／觸覺功能。</div></div>
+      <div class="step"><div class="step-num">10</div><div class="step-text"><strong>CN VII與CN VIII在顳骨岩部走行接近</strong>，中耳／內耳病灶可能同時造成顏面神經麻痺與前庭症狀（頭部歪斜、眼震、共濟失調），臨床上需與交感神經受損的Horner氏症候群做鑑別；理學檢查的瞳孔對光反射（CN II傳入、CN III傳出）與前庭眼反射（CN VIII傳入、CN III/IV/VI傳出）都是評估腦神經功能的重要工具。</div></div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《The General and Special Senses I》《The General and Special Senses-II》(113學年度，王家琪老師)。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">8</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋一般感覺、視覺、聽覺與平衡、嗅覺與味覺、相關腦神經各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念請回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q1. 特殊感覺受器與一般感覺受器最大的解剖學差異之一，是特殊感覺受器侷限於頭部特定區域，並各自對應固定的腦神經傳導。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">一般感覺受器廣泛分布全身（皮膚、關節、內臟等），特殊感覺受器則侷限於頭部，各自對應固定腦神經（如CN I嗅覺、CN II視覺、CN VIII聽覺與平衡）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 下列哪一條腦神經負責支配外側直肌（lateral rectus）與眼球縮肌（retractor bulbi）？</div>
+        <ul class="quiz-options">
+          <li>(A) CN III 動眼神經</li>
+          <li>(B) CN IV 滑車神經</li>
+          <li>(C) CN VI 外旋神經</li>
+          <li>(D) CN VII 顏面神經</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">外旋神經（CN VI）支配外側直肌與眼球縮肌；動眼神經（CN III）支配其餘大部分眼外肌與瞳孔括約肌/睫狀肌；滑車神經（CN IV）僅支配背側斜肌。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. 眼房液（aqueous humor）與淚液是同一套液體循環系統，皆經鼻淚管排出。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">兩者是不同系統：淚液由淚腺分泌，經淚管、淚囊、鼻淚管排至鼻腔；眼房液則由睫狀體分泌至後房，經瞳孔至前房，再經鞏膜靜脈竇回流至靜脈系統，與眼壓調控（青光眼）相關。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 眼球壁纖維膜、血管膜、視網膜三層構造中，負責調節入眼光量、分泌與再吸收眼房液的是？</div>
+        <ul class="quiz-options">
+          <li>(A) 纖維膜（鞏膜＋角膜）</li>
+          <li>(B) 血管膜（虹膜＋睫狀體＋脈絡膜）</li>
+          <li>(C) 視網膜色素部分</li>
+          <li>(D) 視網膜神經部分</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">血管膜（中層）內含虹膜、睫狀體、脈絡膜，負責調節光量、分泌與再吸收眼房液、控制水晶體形狀。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q5. 請依序寫出聽小骨傳導聲波震動的順序，以及鐙骨最終將震動傳給哪個構造。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">聲波先震動鼓膜，依序經鎚骨（malleus）→砧骨（incus）→鐙骨（stapes）放大震動，鐙骨基底部附著於卵圓窗（oval window），將震動傳入內耳前庭階的外淋巴。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. 半規管（semicircular canals）內的壺腹嵴（crista ampullaris）主要負責偵測頭部相對重力的靜止位置與直線加速度。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">壺腹嵴負責偵測旋轉（角）加速度；感受頭部相對重力位置與直線加速度的是前庭內橢圓囊與球狀囊的聽斑（macula）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 毛細胞的靜纖毛（stereocilia）朝哪個方向偏折時，細胞會去極化（興奮）？</div>
+        <ul class="quiz-options">
+          <li>(A) 朝動纖毛（kinocilium）方向偏折</li>
+          <li>(B) 遠離動纖毛方向偏折</li>
+          <li>(C) 與動纖毛垂直方向偏折</li>
+          <li>(D) 偏折方向與興奮/抑制無關</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">靜纖毛朝動纖毛方向偏折時，機械性開啟鉀離子通道使細胞去極化、興奮感覺神經元；反方向偏折則過極化、抑制活動。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. 嗅覺是唯一不需經過丘腦、可直接投射到大腦皮質的特殊感覺。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">嗅覺訊息經嗅神經（CN I）→嗅球→嗅徑，直接投射至梨狀葉等大腦皮質區域，不經丘腦轉接，這也是嗅覺容易直接誘發情緒／記憶反應的解剖基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 犬貓的犁鼻器（vomeronasal organ）主要負責偵測下列何者？</div>
+        <ul class="quiz-options">
+          <li>(A) 聲波震動</li>
+          <li>(B) 費洛蒙（pheromones）等非揮發性化學訊息</li>
+          <li>(C) 光線波長</li>
+          <li>(D) 血液中的pH值</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">犁鼻器獨立於主嗅覺系統之外，主要偵測費洛蒙等非揮發性化學訊息，與動物社交／生殖行為相關，如公貓的裂唇嗅反應。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q10. 舌吻側三分之二與舌尾側三分之一的味覺分別由哪條腦神經傳導？舌頭的一般感覺（非味覺）又是由哪條腦神經負責？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">舌吻側三分之二味覺由顏面神經（CN VII，經鼓索神經）傳導；舌尾側三分之一味覺由舌咽神經（CN IX）傳導；舌頭的一般感覺（觸壓、溫度、痛覺）則由三叉神經（CN V）負責。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 下列哪一組舌乳頭「不含」味蕾，功能純粹為機械性／觸覺？</div>
+        <ul class="quiz-options">
+          <li>(A) 輪廓乳頭 Circumvallate papillae</li>
+          <li>(B) 蕈狀乳頭 Fungiform papillae</li>
+          <li>(C) 絲狀乳頭 Filiform papillae</li>
+          <li>(D) 葉狀乳頭 Foliate papillae</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">絲狀乳頭是舌頭上數量最多、體積最小的乳頭，不含味蕾，角質化程度高，協助舔舐並保護深層構造，功能以觸覺為主。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q12. CN VII（顏面神經）與CN VIII（前庭耳蝸神經）在顳骨岩部走行位置接近，因此中耳／內耳病灶臨床上可能同時出現顏面神經麻痺與前庭症狀。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">CN VII與CN VIII共同行經內耳道進入顳骨岩部，兩者走行接近，中耳／內耳感染或腫瘤可能同時侵犯兩條神經，臨床表現同時包含顏面神經麻痺（眼瞼閉合不全、耳廓下垂）與前庭症狀（頭部歪斜、眼震、共濟失調）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q13. 瞳孔對光反射（PLR, pupillary light reflex）的傳入與傳出分別經由哪些腦神經？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">傳入路徑經由視神經（CN II）將光線刺激訊息傳入中樞；傳出路徑則經由動眼神經（CN III）的副交感纖維支配瞳孔括約肌，使瞳孔縮小。此反射同時檢測視覺傳入與動眼神經副交感傳出的完整性，是臨床神經學檢查的重要項目。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q14. 內耳骨性迷路中的「前庭」（vestibule）對應的膜性迷路構造與功能為？</div>
+        <ul class="quiz-options">
+          <li>(A) 半規導管；感受旋轉加速度</li>
+          <li>(B) 橢圓囊與球狀囊；感受頭部相對重力位置與直線加速度</li>
+          <li>(C) 耳蝸管；感受聽覺</li>
+          <li>(D) 壺腹嵴；感受聲音頻率</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">骨性前庭對應膜性迷路的橢圓囊（utricle）與球狀囊（saccule），內含聽斑（macula），感受重力位置與直線加速度；半規管對應半規導管（旋轉加速度）；耳蝸對應耳蝸管（聽覺）。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '特殊感覺總論',
+  general: '一般感覺受器',
+  vision: '視覺系統（眼）',
+  hearing: '聽覺與平衡系統（耳）',
+  chemosense: '嗅覺與味覺',
+  nerves: '特殊感覺相關腦神經',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

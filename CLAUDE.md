@@ -16,45 +16,71 @@
    - 解釋內容中的專業概念
    - 視情況可搭配 `VetPharm:製作藥理講義` 或 `後獸醫考古` 這兩個 skill
 
-3. **網頁筆記建立**：使用者會需要建立操作筆記網頁（例如麻醉操作筆記、藥物比較表、課程週次筆記等），風格比照使用者過去做過的頁面（見 `/Users/yuchenchiu/Library/Mobile Documents/com~apple~CloudDocs/Desktop/NTU/大三下/Mid Claude/Web/` 內的 `drug_table_combined_27_Anesthesia.html`、`vet_anesthesia_v*.html`）：淺色/深色雙主題（CSS variables + `data-theme`）、側邊欄分節導覽、卡片/表格/alert/tag 元件、頁內搜尋。純 HTML/CSS/JS，不用框架、不用打包工具，雙擊即可在瀏覽器開啟，不需要啟動伺服器。
-   - **課程週次筆記**（會隨學期持續新增，不是一次性文件）：走 `網頁筆記/` 下的多檔案架構，見下方「網頁筆記資料夾結構」。
-   - **一次性主題頁**（不屬於特定課程/週次，例如單一麻醉操作手冊、藥物比較表）：可沿用舊的單檔自包含模式（inline `<style>`/`<script>`），直接放在 `網頁筆記/` 根目錄。
+3. **網頁筆記建立**：使用者會需要建立操作筆記網頁（例如麻醉操作筆記、藥物比較表、課程週次筆記等）。技術棧維持純 HTML/CSS/JS，不用框架、不用打包工具，雙擊即可在瀏覽器開啟，不需要啟動伺服器。**排版方式比照 `上群AH/` 這個姊妹站的樣式**（外部 `assets/ah.css`／`assets/nav.css`、頂部跨學期 dropdown 導覽、`pagehead` 大標題帶＋breadcrumb＋meta-bar、內頁左側目錄改成捲動高亮 TOC、章節改成編號 section、卡片改細線無陰影），細節見下方「網頁筆記資料夾結構」。
+   - **課程週次筆記**（會隨學期持續新增，不是一次性文件）與**生涯總複習主題頁**：走 `網頁筆記/` 下的多檔案架構，見下方「網頁筆記資料夾結構」。
+   - **一次性主題頁**（不屬於特定課程/週次，例如單一麻醉操作手冊、藥物比較表）：直接放在 `網頁筆記/` 根目錄，樣式規則與「內頁」相同（見下方兩種頁面樣式說明）。
+
+4. **上群AH**（`上群AH/`）：與「網頁筆記」平行、獨立的第三條站線，把醫院實際累積的臨床知識與技術整理成可查詢的知識庫，依**臨床科別**（內科／外科／影像診斷／麻醉／急重症／臨床病理與血檢判讀／藥物治療與劑量／技術操作與SOP）分類，不是依學期週次。技術棧、頁面樣式規則與新增流程與「網頁筆記」完全一致（兩站共用同一套排版語言，只是頂部導覽的分類軸不同：AH 是臨床科別、網頁筆記是學期），詳見 `上群AH/CLAUDE.md`。
 
 ## 資料夾結構
 - `病歷/`、`病歷紀錄/`、`影像記錄/`、`麻醉/`：既有的原始病例資料（PDF、圖片、影片），依動物/案例分資料夾
 - `病例分析/`：存放針對個別 Case 的分析結果（建議每個 Case 一個 Markdown 或資料夾，檔名可比照病歷紀錄的命名方式，例如「病歷號+動物名-主訴」）
 - `讀書筆記/`：存放整理過的上課/研討會筆記
+- `上群AH/`：醫院臨床知識庫網站，獨立於「網頁筆記」的第三條站線（依臨床科別分類），詳見該資料夾內 `CLAUDE.md`
 - `網頁筆記/`：存放 HTML 筆記網頁，結構如下：
   ```
   網頁筆記/
-  ├── index.html            ← 總覽首頁，依學期列出所有科目卡片，含跨科目/跨週次搜尋框
-  ├── search-index.js       ← 跨頁搜尋索引（SEARCH_INDEX 陣列），每新增/修改一週筆記務必同步更新
+  ├── index.html            ← 總覽首頁，依學期列出所有科目卡片（doors 元件），含跨科目/跨週次搜尋框＋頂部學期導覽
+  ├── search-index.js       ← 跨頁搜尋索引（SEARCH_INDEX 陣列），每新增/修改一份內頁務必同步更新
   ├── assets/
-  │   ├── style.css         ← 共用樣式，只給「總覽頁」（頂層 index.html／各科目 index.html）載入
-  │   ├── site.js            ← 共用基礎腳本（主題切換等），只給總覽頁載入
-  │   └── global-search.js  ← 跨頁搜尋邏輯，讀取 search-index.js 的 SEARCH_INDEX，只給總覽頁載入
+  │   ├── style.css         ← 舊版共用樣式，總覽頁仍會載入（提供部分基礎 reset／header-brand 排版），內頁不載入
+  │   ├── site.js            ← 共用基礎腳本（主題切換等），所有頁面都載入
+  │   ├── global-search.js  ← 跨頁搜尋邏輯，讀取 search-index.js 的 SEARCH_INDEX，只給總覽頁／科目頁載入
+  │   ├── nav.css / nav.js   ← 頂列跨學期 dropdown 導覽的樣式與邏輯，所有頁面都載入
+  │   ├── nav-data.js        ← 頂列導覽資料（SITE_NAV：大四上／大三／總複習三個學期，topics 為各科目連結），新增科目要同步更新
+  │   └── ah.css              ← 排版主體樣式（沿用 `上群AH/assets/ah.css`，永遠最後載入），內含 pagehead／doors／toc／section／card／alert／table／quiz 等所有元件
   ├── 大四上/<科目名稱>/
-  │   ├── index.html                    ← 該科目總覽頁（週次卡片，未整理的週次顯示灰色佔位卡）
+  │   ├── index.html                    ← 該科目總覽頁（週次 doors，未整理的週次用 `.door.pending` 灰色佔位卡）
   │   └── week01_<主題>.html            ← 各週筆記，檔名格式 weekNN_主題
   │       （同一週若有多份文件，例如「課堂」+「實習」，檔名各自加主題區分，
-  │         如 week01_術前考量與麻醉.html、week01_縫合材料與結紮技術.html）
+  │         如 week01_術前考量與麻醉.html、week01_縫合材料與結紮技術.html，
+  │         科目 index.html 上用 `.door.multi` 把多份文件疊在同一張卡片內）
   └── 大三/<科目名稱>/        ← 大三科目不分上下學期，統一放同一層
       ├── index.html
       └── ...（依實際筆記類型命名，不一定有週次概念）
   ```
   - **兩種頁面的樣式來源不同**：
-    - 總覽頁（頂層 `index.html`、各科目 `index.html`）：外部引用 `assets/style.css`／`assets/site.js`／`assets/global-search.js` + `search-index.js`，元件包含 `.subject-card`、`.week-card`（`.week-card.multi` + `.week-doc-link` 用於同一週有多份文件的情況）。
-    - **週次筆記頁**（`weekNN_主題.html`）：延續原本單檔自包含風格，**整份 CSS／JS 都是 inline，不載入 `assets/` 底下任何檔案**，側邊欄 nav 用 `showSection(id)` 切換分節（非捲動）。新增時直接複製一份既有週次筆記（例如 `大四上/大動物外科手術及實習/week01_術前考量與麻醉.html`）當模板整份複製修改，包含：CSS 全部 token/元件（`.card`/`.table-wrap`/`.alert-*`/`.tag-*`/`.step`/`.flow`/`.quiz-*` 等）、`<script>` 內的 `toggleTheme`/`showSection`/hash 路由（讓跨頁搜尋結果的 `#section-xxx` 連結可直接跳轉）/`SECTION_NAMES`/`doSearch`（頁內搜尋）。
+    - **總覽頁**（頂層 `index.html`、各科目 `index.html`）：外部引用 `assets/style.css`／`assets/nav.css`／`assets/ah.css`／`assets/site.js`／`assets/global-search.js`／`assets/nav-data.js`／`assets/nav.js` + `search-index.js`。`<body class="ah">`，用 `<section class="pagehead">`（首頁無 breadcrumb，科目頁有）＋ `<main class="homewrap"><h2>週次筆記</h2><ul class="doors">...</ul></main>` 呈現卡片；沒有筆記的科目用單一 `.empty-state` 提示文字，不需要每週都放 pending 卡片（僅「大動物外科手術及實習」這種已知道 16 週結構的科目才逐週列 `.door.pending`）。
+    - **內頁**（`weekNN_主題.html`、`總複習/<科目>/<主題>.html`、根目錄的一次性主題頁）：只外部引用 `assets/nav.css`＋`assets/ah.css`（不載入 `style.css`，也不再用 inline `<style>`）。結構是 `<section class="pagehead">`（breadcrumb＋標題＋一句話說明＋`meta-bar`：科目／資料來源／最後更新／整理狀態）＋ `<div class="pagewrap"><nav class="toc">...</nav><main class="pagebody">...</main></div>`；每個 `.section` 都同時顯示在頁面上（不是分頁切換），左側 `nav.toc` 用 `IntersectionObserver` 捲動高亮目前分節，`showSection(id)` 改為 `scrollIntoView`；每個分節標題用 `<div class="section-head"><div class="section-num">N</div><h2>標題</h2></div>` 編號。**新增時直接複製一份既有內頁**（範例：`總複習/獸醫生理學/總論與生理恆定.html`）當模板整份複製修改，或參考 `上群AH/外科/內頁範本.html` 空白模板。
+    - 卡片／表格／alert／tag／step／flow／figure／quiz 等元件的 class 名稱與舊版相同（`.card`／`.table-wrap`／`.alert-*`／`.tag-*`／`.step`／`.flow`／`.figure`／`.quiz-*`），樣式改由 `ah.css` 統一提供（細線無陰影、品牌棕色系）。**alert 內部標記從舊版的 emoji icon span 改成文字 `.alert-label`**（例如 `<div class="alert alert-warn"><div class="alert-label">注意</div><p>...</p></div>`，label 依語意選「重點／注意／禁忌／警告／補充／資訊」）。
     - 練習題一律用 `<details class="quiz-reveal"><summary></summary>...</details>` 樣式，答案預設隱藏、點擊展開，不要用固定顯示的答案。
+    - 每個內頁最下方都要有 `<footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>`。
   - 目前科目：大四上＝大動物外科手術及實習（16 週）、禽病學、豬病學、反芻動物疾病學、伴侶動物復健及物理治療學、水產動物疾病學、獸醫臨床及影像診斷學；大三＝獸醫病理學及實習、獸醫臨床病理學及實習、獸醫藥理學、獸醫針灸學、獸醫麻醉學及實習、獸醫公共衛生。
-  - **新增一週筆記時**：(1) 複製既有週次筆記當模板建立 `weekNN_主題.html`（自包含 inline 風格，見上）；(2) 更新該科目 `index.html`：若該週第一份文件，把週次卡片從 `.week-card.pending` 改成連結；若是該週第二份（或更多）文件，改成 `.week-card.multi` 並用多個 `.week-doc-link` 列出；(3) 在 `search-index.js` 補上該份文件各分節的搜尋條目（subject/semester/week/weekTitle/url/section/sectionName/keywords/snippet）。
-  - 舊有「單檔自包含」風格的一次性主題頁（不屬於課程週次）維持原樣即可，不用套用這套多檔架構。
+  - **新增一週筆記時**：(1) 複製既有內頁當模板建立 `weekNN_主題.html`；(2) 更新該科目 `index.html`：若該週第一份文件，把 door 從 `.door.pending` 改成 `<a class="door">` 連結；若是該週第二份（或更多）文件，改成 `.door.multi` 並用多個 `.door__doc` 列出；(3) 在 `search-index.js` 補上該份文件各分節的搜尋條目（subject/semester/week/weekTitle/url/section/sectionName/keywords/snippet）；(4) 若該科目在 `assets/nav-data.js` 裡的 desc 還是「尚無筆記」，記得更新成簡短描述。
+  - 舊有「單檔自包含」風格的一次性主題頁若還沒轉換，之後編輯時比照上述內頁樣式規則轉過去即可，不用維持兩套並存。
+
+### 生涯總複習站群（`網頁筆記/總複習/`）
+- 與「大三／大四當學期週次筆記」平行、獨立的第二條站線，用來放**跨學年、依主題（非週次）整理的長期複習內容**，資料來源是 `獸醫總複習筆記/` 底下依科目分類的舊講義（可能橫跨多個學年度，例如 112-1、113-1，原則上以較新學年版本為主、舊版只補充差異內容）。
+  ```
+  網頁筆記/總複習/<科目名稱>/
+  ├── index.html          ← 科目總覽頁（主題 doors，未整理的主題用 .door.pending 灰色佔位卡）
+  └── <主題>.html          ← 各主題筆記頁，檔名直接用主題中文（不用 weekNN 編號）
+  ```
+  - 主題筆記頁的樣式規則與「週次筆記頁」完全相同（見上方「兩種頁面的樣式來源不同」）：複製既有頁面（週次筆記或本站群其他主題頁皆可）當模板，只改內容與 `SECTION_NAMES`。
+  - 科目總覽頁與頂層 `index.html` 一樣外部引用 `assets/`，breadcrumb 與路徑深度規則比照現有科目頁（`總複習/<科目>/` 深度同 `大四上/<科目>/`，用 `../../`），頂列導覽 `data-current="總複習"`。
+  - 目前已建立：**解剖生理學**（7/7 主題已完成：骨骼、關節、肌肉、神經、特殊感覺、生殖、禽類解剖）；**獸醫生理學**（獨立科目站，非併入解剖生理學——生理學內容量大且是完全獨立的一門課，見下方主題清單，目前 1/11 主題已完成：總論與生理恆定）。
+  - **圖片**：解剖／組織型態類主題務必配圖，不能只有文字。做法：
+    1. 用 `網頁筆記/_scripts/extract_pdf_images.py`（讀取 `.venv` 的 `pymupdf`／`Pillow`）從來源 PDF 擷取指定頁碼存成 PNG，加 `--autocrop` 去除頁面空白邊界；範例：`./.venv/bin/python 網頁筆記/_scripts/extract_pdf_images.py "<pdf路徑>" 網頁筆記/總複習/<科目>/img/<主題> --pages 6,12 --prefix skull --dpi 220 --autocrop`
+    2. 圖片存在主題頁同層的 `img/<主題>/` 資料夾，用 `<div class="figure"><img>...<div class="figure-caption">說明文字</div><div class="figure-source">來源：...</div></div>` 包裝（`ah.css` 已內建 `.figure` 樣式），插在對應文字段落之後。
+    3. 來源投影片多是「標題文字＋照片／手繪圖＋箭頭標註」混合版面，優先選整頁擷取（保留原本的箭頭/標籤，教學脈絡完整）而非硬裁乾淨照片；原始照片解析度可能偏低（如 300×300），放大會略糊，屬於來源限制，不用勉強修復。
+- **新增一個總複習主題頁時**：(1) 讀來源 PDF 整理內容、複製既有主題頁當模板寫成 `<主題>.html`；(2) 視內容挑幾張關鍵圖，用上述流程擷取並嵌入；(3) 更新科目 `index.html` 的主題 door 狀態；(4) 在 `search-index.js` 補搜尋條目（`week` 欄位留 `null`，`weekTitle` 填主題名稱）；(5) 更新頂層 `index.html` 與 `assets/nav-data.js` 該科目卡片的「已整理 X / N 主題」進度。
+- **獸醫生理學規劃中的主題清單**（依 113-1 課程大綱＋`獸醫總複習筆記/獸醫生理學上/` 講義拆分，之後陸續補上）：總論與生理恆定（已完成）、細胞生理學與細胞膜運輸、細胞訊息傳遞、內分泌生理 I（總論與下視丘－腦垂體軸）、內分泌生理 II（甲狀腺／副甲狀腺／腎上腺）、神經元訊號傳遞與神經系統構造、感覺生理學、意識腦與行為、生殖生理總論（生殖系統構造與配子生成）、生殖內分泌與動情週期調控、妊娠分娩與泌乳生理。
 
 ## 環境與工具
 - 這個資料夾已是獨立的 git repository（與其他資料夾分開版控），`.gitignore` 已排除病例相關的大型圖片/影片/PDF 資料夾與 `.venv/`（那些由 iCloud 同步即可，不進 git）
 - 網頁筆記走純 HTML/CSS/JS 單檔模式，不需要 Python、Node.js 或其他執行環境；若之後需要更複雜的網站（多頁面、需要打包），再另行評估是否導入 Node 專案
 - 病例分析、筆記整理則是閱讀資料並產出分析文字，同樣不涉及程式碼執行
-- **PDF 講義製作**：已在 `.venv/` 建立 Python 虛擬環境並安裝 `reportlab`，用於將研討會/上課 PDF 轉成整理過的 PDF 筆記。樣式規格見 `Web/PDF講義製作指南_藥理學.md`（三段色彩系統、封面/頁尾格式、`section_start`/`subsec_start` 跨頁排版技巧）。目前只做「完整筆記」單一格式（不含概念速覽、複習題庫），且內容需符合臨床獸醫師閱讀需求（比較表格、臨床思路框、用藥安全提醒），而非藥理學課程考試導向。範例腳本：`讀書筆記/scripts/generate_notes_pdf_LSA.py`，執行方式：`./.venv/bin/python 讀書筆記/scripts/generate_notes_pdf_<主題>.py`
+- **PDF 講義製作**：已在 `.venv/` 建立 Python 虛擬環境並安裝 `reportlab`（PDF 講義生成）與 `pymupdf`／`Pillow`（`網頁筆記/_scripts/extract_pdf_images.py` 用來從課程 PDF 擷取圖片，見上方「生涯總複習站群」說明），用於將研討會/上課 PDF 轉成整理過的 PDF 筆記。樣式規格見 `Web/PDF講義製作指南_藥理學.md`（三段色彩系統、封面/頁尾格式、`section_start`/`subsec_start` 跨頁排版技巧）。目前只做「完整筆記」單一格式（不含概念速覽、複習題庫），且內容需符合臨床獸醫師閱讀需求（比較表格、臨床思路框、用藥安全提醒），而非藥理學課程考試導向。範例腳本：`讀書筆記/scripts/generate_notes_pdf_LSA.py`，執行方式：`./.venv/bin/python 讀書筆記/scripts/generate_notes_pdf_<主題>.py`
 
 ## 注意事項
 - 這裡的所有內容屬於個人學習與臨床病例資料，涉及真實動物病患，請注意內容僅供學習與院內討論使用，不作為正式診斷依據

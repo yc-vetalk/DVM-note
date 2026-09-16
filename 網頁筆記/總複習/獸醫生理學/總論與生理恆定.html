@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫生理學：總論與生理恆定 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>上群 網頁筆記</h1>
+    <div class="subtitle">DVM Course Notes · 大三／大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="總複習"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫生理學</a><span class="sep">›</span><span class="current">總論與生理恆定</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">總論與生理恆定</h1>
+      <p class="page-subtitle">Introduction to Physiology &amp; Homeostasis — 身體組成、體液區隔、恆定與回饋機制、細胞間溝通方式。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫生理學（生涯總複習）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">113-1 課程講義《Introduction to Physiology》，王家琪老師</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總論</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📚</span> 生理學總論與身體組成</a>
+    <a onclick="showSection('compartments')" id="nav-compartments"><span class="nav-icon">💧</span> 體液與體液區隔</a>
+    <a onclick="showSection('homeostasis')" id="nav-homeostasis"><span class="nav-icon">⚖️</span> 恆定狀態與回饋機制</a>
+    <a onclick="showSection('communication')" id="nav-communication"><span class="nav-icon">📡</span> 細胞間溝通方式</a>
+    <a onclick="showSection('concepts')" id="nav-concepts"><span class="nav-icon">🔁</span> 適應、生理節律與物質平衡</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>生理學總論與身體組成</h2></div>
+      <p class="section-desc">生理學（physiology）源自希臘文 physis（本質、自然）＋ logos（研究），是研究生物體正常功能如何運作的學科。本節先建立「細胞→組織→器官→系統」的組成層級概念，作為後續內分泌、神經、生殖各章節的共同語言基礎。</p>
+
+      <h3>身體組成的層級</h3>
+      <div class="grid-4">
+        <div class="card"><div class="card-title">細胞 Cells</div><p>生命最基本的功能單位</p></div>
+        <div class="card"><div class="card-title">組織 Tissues</div><p>4大原始組織：肌肉、神經、上皮、結締組織</p></div>
+        <div class="card"><div class="card-title">器官 Organs</div><p>至少由兩種原始組織組成，執行特定功能</p></div>
+        <div class="card"><div class="card-title">系統 Systems</div><p>分布於不同部位、功能相關的器官組合</p></div>
+      </div>
+      <p>舉例：血管由平滑肌細胞（肌肉組織）、內皮細胞（上皮組織）與纖維母細胞（結締組織）共同組成一個「器官」；而腎臟、輸尿管、膀胱、尿道則共同組成「泌尿系統」。</p>
+
+      <h3>主要身體系統一覽</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>系統</th><th>主要組成／功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>心血管系統 Cardiovascular</strong></td><td>心臟＋血管，細胞外液（extracellular fluid）的運輸系統，連結全身各器官</td></tr>
+            <tr><td><strong>呼吸系統 Respiratory</strong></td><td>肺臟與呼吸道，氣體交換（O₂攝入、CO₂排出）</td></tr>
+            <tr><td><strong>泌尿系統 Urinary</strong></td><td>腎臟、輸尿管、膀胱、尿道，調節水分電解質平衡、排除代謝廢物</td></tr>
+            <tr><td><strong>消化系統 GI tract</strong></td><td>腸胃道及附屬腺體（肝、胰、唾液腺等），消化吸收養分</td></tr>
+            <tr><td><strong>肌肉骨骼系統 Musculoskeletal</strong></td><td>支撐、運動、保護內臟</td></tr>
+            <tr><td><strong>肌肉與神經 Muscle &amp; Nerve</strong></td><td>興奮性組織（excitable tissue），協調整合全身活動的兩大系統</td></tr>
+            <tr><td><strong>內分泌系統 Endocrine</strong></td><td>以激素進行長距離化學溝通，調控代謝、生長、生殖等功能</td></tr>
+            <tr><td><strong>生殖系統 Reproductive</strong></td><td>配子生成與受精，物種延續</td></tr>
+            <tr><td><strong>造血／血液 Blood</strong></td><td>紅血球、白血球、血小板的生成（hemopoiesis）與功能</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>肌肉與神經被稱為「興奮性組織（excitable tissue）」，具有靜止膜電位（resting membrane potential）並能產生動作電位，是後續「細胞訊息傳遞」「神經生理」章節的核心基礎。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-compartments">
+      <div class="section-head"><div class="section-num">2</div><h2>體液與體液區隔</h2></div>
+      <p class="section-desc">「體液」泛指體內含有溶解物質（氧氣、養分等）的水溶液。理解細胞內液、間質液、血漿三者的分布比例與交換關係，是後續學習水分電解質平衡、休克、脫水等臨床概念的基礎。</p>
+
+      <h3>體液區隔與占比</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>區隔</th><th>英文</th><th>占總體水量比例（約）</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>細胞內液</td><td>Intracellular fluid, <strong>ICF</strong></td><td><strong>67%</strong></td><td>位於細胞膜內部</td></tr>
+            <tr><td>間質液</td><td>Interstitial fluid, <strong>ISF</strong></td><td><strong>26%</strong></td><td>圍繞在細胞周圍，細胞外液的一部分</td></tr>
+            <tr><td>血漿</td><td>Plasma</td><td><strong>7%</strong></td><td>血管內的液體成分，細胞外液的一部分</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>細胞外液（extracellular fluid, ECF）＝間質液＋血漿，兩者透過微血管壁交換；細胞外液再透過細胞膜與細胞內液進行物質交換，維持細胞內外成分的差異——這正是細胞調節自身活動的重要方式之一。</p>
+
+      <h3>體液區隔間的交換關係</h3>
+      <div class="flow">
+        <div class="flow-node accent">ICF 細胞內液</div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-node accent">ISF 間質液</div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-node accent">Plasma 血漿</div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-node">各器官 Organs</div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-node amber">外部環境 External environment</div>
+      </div>
+      <p style="text-align:center; color:var(--fg-faint); font-size:.85em;">內部環境（internal environment）＝ ICF＋ISF＋Plasma；透過呼吸道、腸胃道、皮膚等介面與外部環境交換物質</p>
+
+      <div class="alert alert-success">
+        <div class="alert-label">補充</div>
+        <p><strong>細胞外基質（extracellular matrix, ECM）</strong>由膠原纖維（collagen）、彈性纖維（elastin）等蛋白質與多醣構成，除了提供細胞附著的支架，也能傳遞化學訊息調控細胞活性、遷移、生長與分化——這是理解結締組織與細胞訊息傳遞交互作用的重要概念。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-homeostasis">
+      <div class="section-head"><div class="section-num">3</div><h2>恆定狀態與回饋機制</h2></div>
+      <p class="section-desc">恆定（homeostasis, 恆定現象）是生理學最核心的概念：維持體內環境動態穩定，是「健康」的生理基礎；恆定機制失調則導致病理生理（pathophysiology）。本節整理負回饋與正回饋的運作原理與代表性例子。</p>
+
+      <h3>恆定狀態的本質</h3>
+      <ul>
+        <li>恆定是<strong>動態（dynamic）</strong>而非靜態的過程：生理變數在24小時內可能大幅波動，但整體仍維持平衡（dynamic constancy），例如三餐後血糖濃度會暫時上升，再透過恆定機制回到基礎值。</li>
+        <li>調節機制分兩類：<strong>內在調節（intrinsic）</strong>——發生在被調節器官本身內部；<strong>外在調節（extrinsic）</strong>——透過神經或內分泌系統，來自器官外部，常以<strong>負回饋抑制（negative feedback inhibition）</strong>方式運作。</li>
+      </ul>
+
+      <h3>回饋迴路的三大組成</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">感受器 Sensor</div><p>偵測偏離設定點（set point）的變化</p></div>
+        <div class="card"><div class="card-title">整合中樞 Integrating center</div><p>比對設定點、決定反應方式（常見於腦部特定神經核團或內分泌腺）</p></div>
+        <div class="card"><div class="card-title">效應器 Effector</div><p>產生實際反應，使變數回到設定點附近（主要為肌肉與腺體）</p></div>
+      </div>
+      <p><strong>反射弧（reflex arc）</strong>完整路徑：刺激 → 受器 → 傳入路徑（afferent pathway）→ 整合中樞 → 傳出路徑（efferent pathway）→ 效應器 → 反應。</p>
+
+      <h3>負回饋 Negative Feedback</h3>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>負回饋<strong>捍衛設定點</strong>、<strong>逆轉偏離方向</strong>，產生「與原變化方向相反」的反應，是體內最常見、最重要的調節方式，讓生理變數維持在設定點附近小幅波動。</p>
+      </div>
+      <p><strong>範例一：體溫調節（低溫刺激）</strong></p>
+      <div class="flow">
+        <div class="flow-node amber">室溫下降</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">體熱散失↑ → 體溫↓</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">皮膚血管收縮＋豎毛／蜷縮＋顫抖</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node green">散熱↓、產熱↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">體溫回到設定點</div>
+      </div>
+      <p><strong>範例二：血糖調節</strong>——進食後血糖上升，刺激胰島素分泌，促進周邊組織攝取葡萄糖，使血糖回到基礎濃度（負回饋降低刺激）。</p>
+      <p><strong>範例三：代謝酵素路徑</strong>——路徑終產物（active product）回過頭抑制路徑最上游的限速酵素（rate-limiting enzyme），避免產物過度累積。</p>
+
+      <h3>正回饋 Positive Feedback</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>正回饋使效應器的作用<strong>放大變化</strong>、且反應方向與原刺激<strong>相同</strong>，因此本質上是不穩定、自我加速的過程，必須有明確的終止機制，否則會失控；生理上正回饋通常用於需要「快速、一次性完成」的生理事件。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>正回饋範例</th><th>機制簡述</th></tr></thead>
+          <tbody>
+            <tr><td><strong>血液凝固</strong></td><td>受損內皮細胞釋出化學訊號活化血小板，活化的血小板再釋出更多訊號、吸引更多血小板聚集，直到傷口完全封閉才終止</td></tr>
+            <tr><td><strong>分娩（催產素 oxytocin）</strong></td><td>子宮收縮刺激催產素分泌，催產素再促進子宮收縮加劇，直到胎兒娩出</td></tr>
+            <tr><td><strong>排卵（LH surge）</strong></td><td>雌激素於濾泡期後期正向回饋下視丘－腦垂體，觸發LH大量湧升（surge）而引發排卵</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>恆定控制系統的重要通則</h3>
+      <ul>
+        <li>內環境變數的穩定取決於「輸入與輸出的平衡」，重要的是兩者的相對關係，而非絕對數值。</li>
+        <li>負回饋的反應方向永遠與原始變化<strong>相反</strong>，目的是把變數拉回設定值。</li>
+        <li>恆定系統無法維持絕對恆定不變，任何被調節變數都有一個依外在環境條件而定、或大或小的正常範圍。</li>
+        <li>某些變數的設定點可以被生理性地重新調高或調低（reset），例如發燒時體溫設定點上移。</li>
+        <li>恆定系統不一定能同時維持每個變數都在狹窄正常範圍內——生理調節有優先順序（hierarchy of importance），某些變數會被犧牲以維持更重要變數的穩定（例如劇烈運動時，為了維持血壓／核心體溫，皮膚與內臟血流可能被犧牲）。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-communication">
+      <div class="section-head"><div class="section-num">4</div><h2>細胞間溝通方式</h2></div>
+      <p class="section-desc">恆定的維持高度仰賴細胞與細胞之間的溝通。本節整理反射與神經內分泌反射的差異，以及五種化學訊息傳遞形式，是理解後續「細胞訊息傳遞」「內分泌生理」「神經生理」章節的共同架構。</p>
+
+      <h3>神經反射 vs. 神經內分泌反射</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">簡單神經反射 Simple Neural Reflex</div>
+          <p>受器 → 傳入神經 → 脊髓／中間神經元 → 傳出神經 → 神經傳導物質（neurotransmitter）直接作用於鄰近目標組織（如肌肉），反應速度快、作用局限。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">神經內分泌反射 Neuroendocrine Reflex</div>
+          <p>傳出路徑改為刺激下視丘（hypothalamus）分泌神經激素（neurohormone），經血液運送至遠端目標組織（如乳腺、輸精管），反應較慢但作用範圍可遍及全身。</p>
+        </div>
+      </div>
+      <p>兩者的差異是理解「生殖內分泌調控」章節（下視丘 GnRH → 腦垂體 FSH／LH／催產素）的重要先備概念。</p>
+
+      <h3>化學訊息傳遞的五種形式</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>形式</th><th>作用對象</th><th>特點／範例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>內分泌 Endocrine</strong></td><td>經血流作用於遠端目標細胞</td><td>激素（hormone），可同時作用於多處細胞</td></tr>
+            <tr><td><strong>旁分泌 Paracrine</strong></td><td>鄰近細胞</td><td>作用範圍局限於分泌處附近</td></tr>
+            <tr><td><strong>自分泌 Autocrine</strong></td><td>分泌細胞自己</td><td>如皮質醇（cortisol）也可回頭作用於分泌它的細胞本身</td></tr>
+            <tr><td><strong>突觸／神經傳導 Neural</strong></td><td>鄰近的神經元或效應細胞</td><td>神經傳導物質（neurotransmitter）經電訊號釋放</td></tr>
+            <tr><td><strong>接觸依賴性 Juxtacrine（contact-dependent）</strong></td><td>直接接觸的細胞</td><td>訊息分子固定在細胞膜上、不釋放，需兩細胞直接接觸才能傳遞</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>此外還有兩種不需分泌化學訊息的溝通方式：<strong>間隙連結（gap junction）</strong>——細胞質間直接以物理通道相連，分子可不經細胞外液直接在相鄰細胞間移動；以及前述的<strong>接觸依賴性訊號</strong>。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>同一訊息分子可能同時符合多種分類（多因子調控，multi-factorial control）。例如皮質醇作為激素經血液作用於全身遠端組織，同時也能以自分泌方式作用於分泌它的腎上腺皮質細胞本身，增加了生理調控的複雜度。</p>
+      </div>
+
+      <h3>非神經性反射 Non-nerve Reflexes</h3>
+      <p>幾乎所有體細胞都能在恆定反射中擔任效應器角色，但<strong>肌肉與腺體</strong>是最主要的兩類特化效應組織。腺體可同時身兼「受器」與「整合中樞」的角色，直接感應變化並分泌激素作為效應反應——這是內分泌系統作為恆定調節工具的基礎。</p>
+      <p><strong>局部恆定反應（local homeostatic response）</strong>則不經由神經或激素，僅發生在刺激局部區域的簡單刺激-反應序列（例如局部組織受傷後的發炎反應），與全身性的反射弧不同。</p>
+    </div>
+
+    <div class="section" id="section-concepts">
+      <div class="section-head"><div class="section-num">5</div><h2>適應、生理節律與物質平衡</h2></div>
+      <p class="section-desc">除了回饋機制，生理學中還有幾個常被考題引用的基礎概念：適應與馴化的差異、生理節律，以及物質平衡（pool concept）。</p>
+
+      <h3>適應 vs. 馴化</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">適應 Adaptation</div>
+          <p>有利於個體在特定環境下生存的<strong>遺傳性</strong>特徵，屬演化尺度、<strong>不可逆</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">馴化／習服 Acclimatization</div>
+          <p>既有恆定系統因應環境壓力（如高海拔、酷熱）而改善其功能，發生在<strong>個體</strong>身上、<strong>可逆</strong>。</p>
+        </div>
+      </div>
+
+      <h3>生理節律 Biological Rhythms</h3>
+      <p>許多身體功能呈現週期性變化，其中最重要的是<strong>晝夜節律（circadian rhythm）</strong>，週期約24小時，影響清醒／睡眠、體溫、血中激素濃度（如皮質醇）、電解質排泄等。臨床上分析任何激素濃度（尤其是皮質醇）時，都必須同時考量抽血當下所處的生理節律時間點，否則容易誤判。</p>
+
+      <h3>物質平衡 Balance of Chemical Substances</h3>
+      <p>許多恆定系統調節的是體內某物質「加入」與「移除」之間的平衡（pool concept）：</p>
+      <div class="flow">
+        <div class="flow-node green">淨增加 Net gain<br><span style="font-weight:400;font-size:.85em;">食物／空氣／體內合成</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">體內物質池 Pool</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">淨損失 Net loss<br><span style="font-weight:400;font-size:.85em;">代謝／經肺、腸道、腎臟、皮膚排出</span></div>
+      </div>
+      <p>物質池濃度不僅取決於總量，也受到<strong>體內分布</strong>（儲存庫、可逆併入其他分子）的影響。三種平衡狀態：</p>
+      <ul>
+        <li><strong>負平衡 Negative balance</strong>：損失 &gt; 獲得</li>
+        <li><strong>正平衡 Positive balance</strong>：獲得 &gt; 損失</li>
+        <li><strong>穩定平衡 Stable balance</strong>：獲得 ＝ 損失</li>
+      </ul>
+
+      <h3>生理學的通用原則 General Principles of Physiology</h3>
+      <ul>
+        <li>恆定是健康與存活的必要條件。</li>
+        <li>各器官系統的功能彼此協調整合，而非獨立運作。</li>
+        <li>大多數生理功能受多重調節系統控制，且常以相互拮抗（opposing）的方式運作（如交感／副交感、胰島素／升糖素）。</li>
+        <li>細胞、組織、器官之間的資訊流動是恆定與整合生理過程的核心特徵。</li>
+        <li>物質的受控交換發生在體液區隔之間，以及跨越細胞膜。</li>
+        <li>生理過程受化學與物理定律支配，涉及物質與能量的轉換與平衡。</li>
+        <li><strong>構造決定功能</strong>，且兩者共同演化（structure is a determinant of, and has coevolved with, function）——這是貫穿解剖學與生理學的核心連結。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">6</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章是整個生理學總複習的地基，考試常以「情境判斷正／負回饋」「指出反射弧中哪個構造出問題」的方式出題，務必熟悉下列重點。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>恆定是動態而非靜態</strong>：生理變數本來就會在正常範圍內波動（如三餐後血糖），重點是長期維持在穩定範圍，而非數值完全不變。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>回饋迴路三元件</strong>：感受器（偵測）→ 整合中樞（決策）→ 效應器（執行）。考題常給情境要求指出哪個環節故障。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>負回饋＝方向相反、抑制刺激</strong>；<strong>正回饋＝方向相同、放大刺激</strong>，記住三大正回饋經典例子：凝血、分娩催產素、排卵LH surge。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>內在調節 vs. 外在調節</strong>：內在調節在器官本身內完成；外在調節透過神經或激素、來自器官外部。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>五種化學訊息傳遞</strong>：內分泌（遠端、經血液）、旁分泌（鄰近）、自分泌（自己）、神經傳導（突觸）、接觸依賴性（細胞膜直接接觸）；另有不分泌化學物質的間隙連結。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>神經反射 vs. 神經內分泌反射</strong>：後者傳出路徑經下視丘轉換為激素訊號，是理解生殖內分泌調控（GnRH軸）的關鍵前導概念。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>體液分布</strong>：細胞內液67% ＞ 間質液26% ＞ 血漿7%；細胞外液＝間質液＋血漿。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>適應（不可逆、演化尺度）vs. 馴化（可逆、個體尺度）</strong>是常見的混淆題型，務必分清楚。</div></div>
+
+      <footer class="note-footer">
+        資料來源：113-1 獸醫生理學課程講義《Introduction to Physiology》（王家琪老師），內容參照 Vander's Human Physiology 教科書架構整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">7</div><h2>練習題</h2></div>
+      <p class="section-desc">涵蓋總論、體液區隔、恆定回饋、細胞溝通、生理節律等章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q1. 恆定狀態（homeostasis）代表生理變數維持絕對不變，不隨時間有任何波動。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">恆定是「動態（dynamic）」而非靜態的過程，生理變數會在正常範圍內波動（如進食後血糖短暫上升），重點是長期維持穩定的平均值與範圍。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 分娩過程中催產素（oxytocin）促進子宮收縮，子宮收縮又進一步刺激催產素分泌，此現象屬於？</div>
+        <ul class="quiz-options">
+          <li>(A) 負回饋</li>
+          <li>(B) 正回饋</li>
+          <li>(C) 局部恆定反應</li>
+          <li>(D) 自分泌訊號</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">此為正回饋：效應（子宮收縮）反過來放大原刺激（催產素分泌），兩者同方向增強，直到胎兒娩出才終止，是正回饋自我加速、需要明確終止點的典型範例。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 下列哪一項屬於「外在調節（extrinsic regulation）」？</div>
+        <ul class="quiz-options">
+          <li>(A) 心肌本身對牽張刺激的自主收縮反應</li>
+          <li>(B) 交感神經釋放正腎上腺素調控心跳速率</li>
+          <li>(C) 血管平滑肌對局部代謝物濃度的自我調節</li>
+          <li>(D) 腎臟腎絲球本身的自我調節（autoregulation）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">外在調節來自被調節器官「外部」的神經或內分泌系統；(A)(C)(D) 皆屬於器官／組織本身內部完成的內在調節（intrinsic regulation）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q4. 細胞外液（ECF）由血漿與間質液共同組成，兩者約占總體水量的三分之一。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">血漿約7%＋間質液約26%＝約33%的總體水量，其餘約67%為細胞內液（ICF）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 皮質醇（cortisol）由腎上腺皮質分泌後，經血液作用於肝臟、肌肉等遠端組織，同時也能作用於分泌它的腎上腺細胞本身，這代表同一訊息分子可能同時屬於下列哪兩種化學訊息傳遞形式？</div>
+        <ul class="quiz-options">
+          <li>(A) 內分泌與旁分泌</li>
+          <li>(B) 內分泌與自分泌</li>
+          <li>(C) 旁分泌與接觸依賴性</li>
+          <li>(D) 自分泌與間隙連結</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">作用於遠端目標細胞屬於「內分泌」，同時作用於分泌它自身的細胞則屬於「自分泌」，同一訊息分子可同時符合多種分類（multi-factorial control）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 請說明「簡單神經反射（simple neural reflex）」與「神經內分泌反射（neuroendocrine reflex）」在傳出路徑上的主要差異。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">簡單神經反射的傳出路徑是傳出神經直接釋放神經傳導物質作用於鄰近的效應組織，反應快速且作用局限；神經內分泌反射的傳出路徑則改為刺激下視丘分泌神經激素，經血液運送至遠端目標組織，反應較慢但作用範圍可遍及全身（例如GnRH→腦垂體→性腺軸）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q7. 「適應（adaptation）」屬於個體層次、可逆的生理改變，而「馴化（acclimatization）」則是演化尺度、不可逆的遺傳特徵。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">兩者定義相反：適應（adaptation）是有利生存的遺傳性特徵，屬演化尺度、不可逆；馴化／習服（acclimatization）則是既有恆定系統因應環境壓力而改善功能，發生在個體身上、且可逆。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 若某物質在體內「獲得速率＝損失速率」，此狀態稱為？</div>
+        <ul class="quiz-options">
+          <li>(A) 負平衡</li>
+          <li>(B) 正平衡</li>
+          <li>(C) 穩定平衡</li>
+          <li>(D) 動態恆定</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">穩定平衡（stable balance）指獲得＝損失；獲得＞損失為正平衡，損失＞獲得則為負平衡。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+    <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '生理學總論與身體組成',
+  compartments: '體液與體液區隔',
+  homeostasis: '恆定狀態與回饋機制',
+  communication: '細胞間溝通方式',
+  concepts: '適應、生理節律與物質平衡',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

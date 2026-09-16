@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫解剖學：生殖系統 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>上群 網頁筆記</h1>
+    <div class="subtitle">DVM Course Notes · 大三／大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="總複習"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">解剖生理學</a><span class="sep">›</span><span class="current">生殖系統</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">生殖系統</h1>
+      <p class="page-subtitle">Reproductive System · Veterinary Anatomy — 公畜／母畜生殖器官構造與跨物種比較。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">解剖生理學（生涯總複習）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">解剖學實習講義《Male reproductive system 113》《Female reproductive system 113》</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview">
+      <span class="nav-icon">📚</span> 生殖系統總論
+    </a>
+    <div class="section-label" style="margin-top:8px;">公畜生殖系統</div>
+    <a onclick="showSection('maletract')" id="nav-maletract">
+      <span class="nav-icon">🐂</span> 睪丸、副睪與輸精管
+    </a>
+    <a onclick="showSection('maleaccessory')" id="nav-maleaccessory">
+      <span class="nav-icon">💉</span> 副性腺、陰莖與包皮
+    </a>
+    <div class="section-label" style="margin-top:8px;">母畜生殖系統</div>
+    <a onclick="showSection('femaleovary')" id="nav-femaleovary">
+      <span class="nav-icon">🥚</span> 卵巢與輸卵管
+    </a>
+    <a onclick="showSection('femaleuterus')" id="nav-femaleuterus">
+      <span class="nav-icon">🌸</span> 子宮、子宮頸與陰道
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>生殖系統總論 Reproductive System Overview</h2></div>
+      <p class="section-desc">生殖系統分為公畜（male）與母畜（female）兩大部分，兩者的管狀構造（輸精管、輸卵管、子宮、陰道）在組織學上有共通的三層基本結構，且都具有<strong>產生配子（gametogenic）</strong>與<strong>內分泌（endocrine）</strong>雙重功能。本節先整理跨性別、跨物種都通用的基礎概念，後面公畜、母畜小節會大量引用。</p>
+
+      <h3>常用物種術語（Animal／Male／Female）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>動物 Animal</th><th>公 Male</th><th>母 Female</th></tr></thead>
+          <tbody>
+            <tr><td>馬 Equine/Horse</td><td>Stallion 種公馬</td><td>Mare 母馬</td></tr>
+            <tr><td>牛 Bovine/Cattle</td><td>Bull 種公牛</td><td>Cow 母牛</td></tr>
+            <tr><td>羊 Ovine/Sheep</td><td>Ram 種公羊</td><td>Ewe 母羊</td></tr>
+            <tr><td>豬 Porcine/Swine</td><td>Boar 種公豬</td><td>Sow 母豬</td></tr>
+            <tr><td>雞 Avian/Chicken</td><td>Rooster 公雞</td><td>Hen 母雞</td></tr>
+            <tr><td>犬 Canine/Dog</td><td>Dog 公犬</td><td>Bitch 母犬</td></tr>
+            <tr><td>貓 Feline/Cat</td><td>Tom 公貓</td><td>Queen 母貓</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>管狀生殖道的共通組織構造</h3>
+      <p>不論是公畜的輸精管（ductus deferens）或母畜的輸卵管、子宮、陰道，基本上都是由內而外的三層構造：</p>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">黏膜 Mucosa</div><p>含黏膜下層（submucosa）與管腔（lumen），血管豐富</p></div>
+        <div class="card"><div class="card-title">肌層 Muscularis</div><p>環走肌（circular）＋縱走肌（longitudinal）平滑肌層，負責蠕動推送配子／胚胎</p></div>
+        <div class="card"><div class="card-title">漿膜 Serosa</div><p>最外層，延續自腹膜（peritoneum）</p></div>
+      </div>
+
+      <h3>生殖系統的雙重功能</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🧬 Gametogenic（配子生成）</div>
+          <p>睪丸產生精子（sperm）；卵巢產生卵母細胞（oocyte）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">💊 Endocrine（內分泌）</div>
+          <p>睪丸分泌睪固酮；卵巢分泌動情素（estrogen）與黃體素（progesterone）</p>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p><strong>本頁架構：</strong>公畜生殖系統分「睪丸、副睪與輸精管」「副性腺、陰莖與包皮」兩節；母畜生殖系統分「卵巢與輸卵管」「子宮、子宮頸與陰道」兩節，並在子宮小節末附帶整理乳腺／乳頭跨物種比較（同一份講義內容）。各節皆以 113 學年度解剖學實習講義（Male／Female reproductive system 113）為主要整理依據，並標註犬貓／牛／馬／豬／羊等物種間的重要差異。</p>
+      </div>
+    </div>
+
+    <!-- MALE TRACT -->
+    <div class="section" id="section-maletract">
+      <div class="section-head"><div class="section-num">2</div><h2>睪丸、副睪與輸精管 Testes, Epididymis &amp; Ductus Deferens</h2></div>
+      <p class="section-desc">公畜生殖器官共六大部分：成對的睪丸（產生精子與荷爾蒙）、成對的副睪與輸精管（運送精子至尿道）、一組副性腺（貢獻精液主要液體成分）、尿道、陰莖（交配器官）、以及陰囊與包皮等皮膚特化構造。本節先整理睪丸本體、其保護構造，以及副睪、輸精管的運送路徑。</p>
+
+      <div class="figure">
+        <img src="img/生殖系統/repro_male_p5.png" alt="公牛生殖系統整體構造圖，標註睪丸、副睪、輸精管、副性腺、陰莖與乙狀彎曲">
+        <div class="figure-caption">公牛生殖系統整體構造（側面觀）：睪丸（Testis）、副睪頭／體／尾（Head／Body／Tail of Epididymis）、輸精管（Ductus Deferens）、精索（Spermatic Cord）、陰囊（Scrotum）、儲精囊（Vesicular Gland）、前列腺體部／瀰漫部（Body／Disseminate Prostate）、尿道球腺（Bulbourethral Gland）、龜頭（Glans Penis）與陰莖乙狀彎曲（Sigmoid Flexure）。</div>
+        <div class="figure-source">來源：解剖學實習講義《Male reproductive system 113》</div>
+      </div>
+
+      <h3>陰囊構造（由外而內）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層次</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>陰囊皮膚／肉膜 Scrotal skin／Tunica dartos</td><td>皮膚薄、富彈性、被毛稀疏且具汗腺（豬除外）；肉膜含平滑肌，協助調節睪丸與體壁的距離</td></tr>
+            <tr><td>陰囊隔 Scrotal septum</td><td>將陰囊分隔為左右兩個獨立腔室</td></tr>
+            <tr><td>外精索筋膜 External spermatic fascia</td><td>延續自腹外斜肌腱膜</td></tr>
+            <tr><td>陰道鞘膜（壁層／臟層）Parietal／Visceral tunica vaginalis</td><td>來自腹膜（peritoneum）及腹橫肌延伸；壁層貼陰囊、臟層包覆睪丸與副睪，兩層間為陰道腔（vaginal cavity）</td></tr>
+            <tr><td>提睪肌 Cremaster muscle</td><td>由腹內斜肌尾側肌纖維延伸而成，收縮可調整睪丸位置以配合溫度／天氣</td></tr>
+            <tr><td>白膜 Tunica albuginea</td><td>睪丸本體的堅韌纖維囊，深入實質形成中隔（septa），將睪丸分成許多小葉</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>睪丸的組織構造</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">曲細精管 Seminiferous tubules</div>
+          <p>精子生成場所，管壁由<strong>生殖細胞（不同分化階段：精原細胞→初級精母細胞→次級精母細胞→精子細胞）</strong>與<strong>賽托利氏細胞（Sertoli cells，支持與營養生殖細胞）</strong>組成；曲細精管匯流成睪丸網（rete testis）後經輸出小管（efferent ducts）進入副睪頭。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">萊氏細胞 Leydig cells／Interstitial cells</div>
+          <p>位於曲細精管間的間質，負責分泌<strong>睪固酮（testosterone）</strong>，屬於睪丸的內分泌功能來源。</p>
+        </div>
+      </div>
+
+      <h3>副睪 Epididymis 五大功能</h3>
+      <div class="grid-3">
+        <div class="card" style="text-align:center;"><div class="card-title">精子成熟</div><p>Maturation of sperm</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">精子濃縮</div><p>Concentration of sperm</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">精液分泌</div><p>Secretion of semen</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">精子運送</div><p>Transportation of sperm</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">精子儲存</div><p>Storage of sperm</p></div>
+      </div>
+      <p>副睪分頭（head，承接輸出小管）、體（body）、尾（tail，儲存成熟精子並延續為輸精管）三部分。</p>
+
+      <h3>睪丸的保護與支持構造——精索與溫度調節</h3>
+      <p><strong>精索（spermatic cord）</strong>內含血管（睪丸動脈）、淋巴管、神經、輸精管與提睪肌，是重要的<strong>熱交換器（heat exchanger）</strong>：其中的<strong>蔓狀靜脈叢（pampiniform plexus）</strong>透過逆流熱交換（counter-current exchange）機制，將由體循環進入睪丸的動脈血溫度從約 39℃ 降至睪丸所需的約 34℃（較體溫低 4–7℃），此為精子生成所必需的低溫環境；提睪肌與肉膜則透過改變睪丸與體壁的距離做粗調（天冷時睪丸貼近體壁）。</p>
+
+      <h3>睪丸下降與位置異常</h3>
+      <p>睪丸在胚胎發育時位於腹腔內，經引帶（gubernaculum）牽引，沿腹股溝管（inguinal canal）下降進入陰囊。各物種下降時間不同：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>睪丸下降時間</th></tr></thead>
+          <tbody>
+            <tr><td>反芻動物 Ruminant</td><td>出生前</td></tr>
+            <tr><td>馬 Horse</td><td>出生後一週內</td></tr>
+            <tr><td>豬 Pig</td><td>出生前</td></tr>
+            <tr><td>犬 Dog</td><td>出生後兩個月內（少數品種可能較晚，但罕見超過六個月）</td></tr>
+            <tr><td>人 Human</td><td>出生前</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告</div>
+        <p><strong>隱睪症（Cryptorchidism）：</strong>睪丸未下降至陰囊，滯留於腹股溝區或腹腔內，高溫環境會抑制精母細胞分化而導致不孕；可用睪固酮治療並於青春期前手術矯正，未矯正者日後有較高機率發生睪丸腫瘤；好發品種包含吉娃娃、迷你雪納瑞、博美、貴賓（迷你／玩具／標準）、喜樂蒂牧羊犬、西伯利亞哈士奇、約克夏㹴。另有<strong>單睪／無睪症（monorchism／anorchism，罕見）</strong>與<strong>多睪症（polyorchism，極罕見）</strong>。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>腹股溝疝氣（inguinal herniation）：</strong>公豬發生率約 1/200，腸道可經未完全閉合的鞘狀突（vaginal process）滑入陰囊，造成陰囊明顯腫大，需與正常睪丸鑑別。</p>
+      </div>
+
+      <h3>各物種睪丸位置與外觀差異</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>睪丸位置</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-small">貓</span></td><td>會陰部 Perineal</td><td>&nbsp;</td></tr>
+            <tr><td>豬（Boar）</td><td>會陰部 Perineal</td><td>雙側大小略有差異，左側通常較重</td></tr>
+            <tr><td><span class="tag tag-small">犬</span></td><td>中間位 Intermediate</td><td>&nbsp;</td></tr>
+            <tr><td><span class="tag tag-cattle">牛</span>（Bull）</td><td>腹股溝部 Inguinal</td><td>右側通常較重（約300g）</td></tr>
+            <tr><td>羊（Ram）</td><td>腹股溝部 Inguinal</td><td>左側睪丸略較大</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span>（Stallion）</td><td>腹股溝部 Inguinal</td><td>左側通常較大，注意生理性的睪丸扭轉（testicular torsion）方向</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p><strong>趣味補充——恆位腹內睪丸（Testicond as normal）：</strong>大象、蹄兔（hyrax）、大食蟻獸與海洋哺乳類等動物睪丸終生位於腹腔內、不下降，其精子生成在核心體溫下即可正常進行；兔、食蟲目、蝙蝠、鹿等則是季節性下降——僅在繁殖季下降入陰囊，之後又縮回腹腔。</p>
+      </div>
+
+      <h3>輸精管 Vas Deferens／Ductus Deferens</h3>
+      <p>由副睪尾延續而出，經腹股溝管進入腹腔，越過膀胱背側頂部，止於尿道起始處稱為<strong>壺腹（ampulla）</strong>。管壁同樣為漿膜、平滑肌（縱−環−縱三層）、黏膜三層構造；左右各一條，通常<strong>右側較左側長</strong>；<strong>公豬的壺腹極小或缺如</strong>。</p>
+
+      <div class="figure">
+        <img src="img/生殖系統/repro_male_p19.png" alt="貓、公豬、犬、公牛睪丸位置比較圖，分別標示會陰位、中間位、腹股溝位">
+        <div class="figure-caption">各物種睪丸位置比較：貓與公豬為<strong>會陰位（Perineal）</strong>、犬為<strong>中間位（Intermediate）</strong>、公牛為<strong>腹股溝位（Inguinal）</strong>，此差異影響陰囊與陰莖的相對位置及結紮／去勢手術入路。</div>
+        <div class="figure-source">來源：解剖學實習講義《Male reproductive system 113》</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Male reproductive system 113》。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MALE ACCESSORY -->
+    <div class="section" id="section-maleaccessory">
+      <div class="section-head"><div class="section-num">3</div><h2>副性腺、陰莖與包皮 Accessory Glands, Penis &amp; Prepuce</h2></div>
+      <p class="section-desc">副性腺負責貢獻精液的液體成分；陰莖是交配器官，各物種在型態（纖維彈性型 vs. 肌肉海綿型）與交配機制上差異很大；本節依序整理副性腺、生殖器相關肌肉，以及牛、馬、豬、犬、貓、羊各物種的陰莖／包皮特化構造與重要臨床議題。</p>
+
+      <h3>副性腺 Accessory Sex Glands</h3>
+      <p>包含成對的<strong>儲精囊（seminal vesicle／vesicular gland）</strong>、成對的<strong>尿道球腺（bulbourethral gland／Cowper's gland）</strong>，以及單一的<strong>前列腺（prostate）</strong>，共同分泌精液的液體部分；結構上皆為漿膜／平滑肌／腺體的管狀或囊狀器官。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>副性腺</th><th>位置／構造</th><th>物種差異重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>儲精囊 Seminal vesicle</strong></td><td>成對，頂端接近直腸，開口於膀胱頸與尿道交界處；分底、體、頸三部分</td><td><strong>犬與貓完全沒有儲精囊</strong>；公豬、公羊的儲精囊特別發達</td></tr>
+            <tr><td><strong>前列腺 Prostate</strong></td><td>單一腺體，位於膀胱頸與尿道起始處之間，兩葉以峽部（isthmus）於尿道背側相連</td><td>公牛分體部（body）＋瀰漫部（disseminate part）；<strong>公羊只有瀰漫部、無明顯體部</strong>；犬前列腺完整包覆尿道起始段，是犬常見疾病好發部位</td></tr>
+            <tr><td><strong>尿道球腺 Bulbourethral／Cowper's gland</strong></td><td>成對，位於前列腺後方、尿道上，構造與前列腺相似</td><td><strong>犬沒有尿道球腺</strong>；貓的尿道球腺體積小且左右緊靠；公豬、公羊的尿道球腺特別發達</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">重點</div>
+        <p><strong>記憶重點：</strong>犬是唯一「儲精囊＋尿道球腺都缺如」、只剩前列腺的常見家畜物種，這也是犬前列腺疾病（良性增生、前列腺炎、腫瘤）在臨床上特別重要的解剖背景之一。</p>
+      </div>
+
+      <h3>公畜生殖器相關肌肉</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>肌肉</th><th>起訖／作用</th></tr></thead>
+          <tbody>
+            <tr><td><strong>提睪肌 Cremaster muscle</strong></td><td>腹內斜肌尾側肌纖維延伸，調整睪丸位置</td></tr>
+            <tr><td><strong>尿道肌 Urethralis</strong></td><td>膀胱平滑肌延續，協助尿液／精液通過骨盆腔尿道</td></tr>
+            <tr><td><strong>球海綿體肌 Bulbospongiosus</strong></td><td>尿道肌的延續，馬可延伸至陰莖全長，其他動物僅延伸一小段距離</td></tr>
+            <tr><td><strong>坐骨海綿體肌 Ischiocavernosus</strong></td><td>起自坐骨弓兩側，收縮時阻斷陰莖靜脈回流，造成<strong>陰莖勃起</strong></td></tr>
+            <tr><td><strong>陰莖縮回肌 Retractor penis muscle</strong></td><td>起自肛門懸吊韌帶，於陰莖腹側會合，負責將鬆弛的陰莖拉回包皮內</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>陰莖類型：纖維彈性型 vs. 肌肉海綿型</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">纖維彈性型 Fibroelastic penis</div>
+          <p>牛、羊：陰莖海綿體結締組織豐富、血管腔小，平時已呈半硬狀態，勃起時體積變化不大；具<strong>乙狀彎曲（sigmoid flexure）</strong>使陰莖收縮於包皮內，交配時經退縮肌放鬆、伸直陰莖。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">肌肉海綿型 Musculocavernous penis</div>
+          <p>馬、犬：海綿體內含大量血管腔隙，勃起時因血液大量充盈而顯著增大、伸長；無乙狀彎曲。</p>
+        </div>
+      </div>
+
+      <h3>各物種陰莖／包皮重要差異</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>重要特徵</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛</span> Bull</td><td>纖維彈性型，乙狀彎曲；龜頭冠（glans）小，尿道突起（urethral process）不明顯</td></tr>
+            <tr><td>羊 Ram</td><td>纖維彈性型，乙狀彎曲；具明顯<strong>尿道突起（urethral process）</strong>，射精時甩動呈圓周運動，將精液噴灑至子宮頸周圍；偶見尿道結石卡在尿道突起處</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span> Stallion</td><td>肌肉海綿型，血管腔隙極豐富；包皮為<strong>雙層皺褶（double fold of prepuce）</strong></td></tr>
+            <tr><td>豬 Boar</td><td>纖維彈性型，乙狀彎曲；龜頭呈<strong>螺旋狀（corkscrew）</strong>，勃起時可契合母豬子宮頸的螺旋狀皺褶；包皮具<strong>雙葉憩室（bilobed preputial diverticulum）</strong>，內容物含尿液、精液與大量細菌，可能發炎並形成結石，必要時需手術移除</td></tr>
+            <tr><td><span class="tag tag-small">犬</span> Dog</td><td>肌肉海綿型；含<strong>陰莖骨（os penis）</strong>與<strong>球狀部（bulbus glandis）</strong>——交配時球狀部充血腫大卡於母犬陰道內形成「交配栓結（copulatory tie）」，可持續 5–45 分鐘</td></tr>
+            <tr><td><span class="tag tag-small">貓</span> Tom</td><td>含陰莖骨；龜頭表面覆有<strong>倒鉤狀陰莖棘（penile spines）</strong>，交配時可刺激母貓誘發排卵（貓為誘導排卵動物）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">警告</div>
+        <p><strong>犬交配的三階段：</strong>第一階段（插入，1–2 分鐘）→「轉身（the turn）」（2–5 秒，公犬翻轉呈背對背姿勢）→第二階段（交配栓結，5–45 分鐘，此時球狀部因坐骨海綿體肌收縮阻斷靜脈回流而腫脹卡於陰道內，強行拉開可能造成生殖道損傷）。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>公豬包皮憩室感染：</strong>憩室內容物含尿液、精液與細菌，收縮的前包皮肌可將內容物排至陰莖表面協助潤滑，但也容易滋生細菌造成局部感染甚至結石，臨床上偶需手術摘除憩室處理。</p>
+      </div>
+
+      <h3>陰莖骨 Os Penis（犬／貓）</h3>
+      <p>陰莖骨位於陰莖海綿體背側，遠端呈纖維軟骨（fibrocartilage）；橫切面上尿道位於陰莖骨腹側凹槽（urethral groove）內，周圍包覆尿道海綿體（corpus spongiosum）；陰莖骨的存在使犬貓陰莖具有一定硬度，也是X光下可辨識的正常解剖構造，不可誤判為病灶。</p>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Male reproductive system 113》。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FEMALE OVARY -->
+    <div class="section" id="section-femaleovary">
+      <div class="section-head"><div class="section-num">4</div><h2>卵巢與輸卵管 Ovary &amp; Oviduct</h2></div>
+      <p class="section-desc">母畜生殖道由卵巢、輸卵管、子宮、子宮頸、陰道與外陰部組成，全程懸吊於<strong>廣韌帶（broad ligament／mesometrium）</strong>上。本節整理卵巢的構造與內分泌功能，以及輸卵管（受精發生的場所）的分區與功能，並附帶整理相關懸吊韌帶。</p>
+
+      <div class="figure">
+        <img src="img/生殖系統/repro_female_p2.png" alt="母畜生殖系統整體側面觀，標註卵巢、輸卵管、子宮、子宮頸、陰道、外陰部與廣韌帶">
+        <div class="figure-caption">母畜生殖系統整體構造（側面觀）：卵巢（Ovary）、輸卵管（Oviduct）、子宮（Uterus）、子宮頸（Cervix）、陰道（Vagina）、外陰部（Vulva），以及懸吊子宮與卵巢的廣韌帶（Broad Ligament）；上方為直腸（Rectum），下方為膀胱（Bladder）。</div>
+        <div class="figure-source">來源：解剖學實習講義《Female reproductive system 113》</div>
+      </div>
+
+      <h3>卵巢 Ovary——構造</h3>
+      <p>大多數家畜有一對卵巢，終生位於腹腔內。基本構造由外而內：<strong>生殖上皮（germinal epithelium）</strong>→<strong>白膜（tunica albuginea）</strong>→<strong>皮質（cortex，含各級濾泡）</strong>→<strong>髓質（medulla，血管淋巴神經集中處）</strong>，另有基質（stroma）與少量平滑肌。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p><strong>馬卵巢的特殊構造：</strong>馬（及驢）的卵巢皮質與髓質位置與其他家畜（含人類）<strong>相反</strong>——皮質在內、髓質在外，且僅在單一凹陷處（<strong>排卵窩 ovulation fossa</strong>）具生殖上皮並允許排卵，其餘表面由漿膜覆蓋，因此馬的排卵一定發生在排卵窩，是馬生殖生理的重要特徵。</p>
+      </div>
+
+      <h3>卵巢的內分泌構造與週期性變化</h3>
+      <p>卵巢的內分泌功能由<strong>卵泡膜內層（theca interna）</strong>、<strong>顆粒細胞（granulosa cells）</strong>，以及統稱為<strong>間質腺（interstitial gland）</strong>的其他細胞群共同負責，排卵後濾泡依序經歷：</p>
+      <div class="flow">
+        <div class="flow-node">出血體<br>Corpus hemorrhagicum</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">黃體<br>Corpus luteum</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">白體<br>Corpus albicans</div>
+      </div>
+      <p>黃體分泌<strong>黃體素（progesterone）</strong>維持懷孕；濾泡分泌<strong>動情素（estrogen）</strong>。卵巢作為主要性器官（primary sex organ），兼具荷爾蒙（動情素、黃體素）與生殖細胞（卵母細胞）兩項功能。</p>
+
+      <h3>各物種卵巢活性的側別差異</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>較活躍的一側</th></tr></thead>
+          <tbody>
+            <tr><td>禽類 Avian</td><td>左側卵巢完全發育，<strong>右側退化</strong></td></tr>
+            <tr><td><span class="tag tag-cattle">牛</span>、羊 Cow／Ewe</td><td><strong>右側</strong>卵巢排卵次數較多</td></tr>
+            <tr><td>豬、<span class="tag tag-horse">馬</span> Sow／Mare</td><td><strong>左側</strong>卵巢較具功能性</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>輸卵管 Oviduct（Uterine tube／Salpinx）——分區</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分區</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>漏斗部 Infundibulum</strong></td><td>喇叭狀開口（約20–30 cm²），邊緣有<strong>繖部（fimbriae）</strong>，開口稱<strong>輸卵管腹腔口（ostium）</strong>，負責接住排出的卵母細胞（連同卵丘細胞 cumulus oophorus）</td></tr>
+            <tr><td><strong>壺腹部 Ampulla</strong></td><td>管腔較寬、黏膜皺褶（villi）發達，是<strong>受精發生的主要場所</strong></td></tr>
+            <tr><td><strong>壺峽接合部 Ampullary-isthmic junction</strong></td><td>壺腹與峽部的交界，精子在此暫存等待受精</td></tr>
+            <tr><td><strong>峽部 Isthmus</strong></td><td>管腔較窄，黏膜皺褶較少</td></tr>
+            <tr><td><strong>輸卵管子宮接合部 Utero-tubal junction</strong></td><td>輸卵管與子宮角的交界處</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/生殖系統/repro_female_p17.png" alt="輸卵管各分區示意圖，標註漏斗部、繖部、壺腹部、峽部、輸卵管子宮接合部與組織切片">
+        <div class="figure-caption">輸卵管（Oviduct）分區示意：漏斗部（Infundibulum，含繖部 Fimbria 與卵巢腹腔口 Ostium）→壺腹部（Ampulla，管腔黏膜皺褶／villi 豐富，為受精場所）→壺峽接合部（Ampullary-Isthmic Junction）→峽部（Isthmus）→輸卵管子宮接合部（Utero-Tubal Junction）銜接子宮角（Uterine Horn）；右側為壺腹部與峽部橫切面組織學比較，可見峽部黏膜皺褶明顯較壺腹部單純。</div>
+        <div class="figure-source">來源：解剖學實習講義《Female reproductive system 113》</div>
+      </div>
+
+      <h3>輸卵管功能</h3>
+      <div class="grid-3">
+        <div class="card" style="text-align:center;"><div class="card-title">配子運送</div><p>精子與卵母細胞的運送通道</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">受精場所</div><p>壺腹部是受精發生的部位</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">早期胚胎支持</div><p>支持早期合子／胚胎發育，並運送至子宮</p></div>
+      </div>
+
+      <h3>卵巢與生殖道的懸吊韌帶</h3>
+      <p>以犬（bitch）為例，卵巢區域由多層韌帶懸吊固定：<strong>卵巢懸韌帶（suspensory ligament of ovary）</strong>、<strong>卵巢系膜（mesovarium）</strong>、<strong>輸卵管系膜（mesosalpinx）</strong>、<strong>卵巢固有韌帶（proper ligament of ovary）</strong>、<strong>子宮圓韌帶（round ligament of uterus）</strong>，以及包覆整個子宮與卵巢的<strong>廣韌帶／子宮系膜（broad ligament／mesometrium）</strong>。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>卵巢囊（ovarian bursa）：</strong>犬貓的卵巢外側被腹膜皺褶完全或近乎完全包覆形成卵巢囊，僅留一小開口（ostium of ovarian bursa）與輸卵管相通；這層構造在<strong>卵巢子宮切除術（ovariohysterectomy）</strong>中會影響卵巢蒂的顯露與操作，是外科臨床上需注意的解剖細節。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Female reproductive system 113》。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FEMALE UTERUS -->
+    <div class="section" id="section-femaleuterus">
+      <div class="section-head"><div class="section-num">5</div><h2>子宮、子宮頸與陰道 Uterus, Cervix &amp; Vagina</h2></div>
+      <p class="section-desc">子宮的型態在不同物種間差異極大，反映出各物種的產仔數與胎盤型態；子宮頸則是決定人工授精、直腸觸診配種與分娩難易度的關鍵構造。本節依序整理子宮型態分類、子宮／子宮頸／陰道功能，各物種重要差異，以及乳腺跨物種比較。</p>
+
+      <h3>子宮型態三大分類</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>構造</th><th>物種</th></tr></thead>
+          <tbody>
+            <tr><td><strong>單子宮 Simplex</strong></td><td>1陰道、1子宮頸、1子宮體，<strong>無子宮角</strong></td><td>靈長類（人）</td></tr>
+            <tr><td><strong>雙角子宮 Bicornuate</strong></td><td>1陰道、1子宮頸、1子宮體＋2子宮角</td><td>羊、<span class="tag tag-cattle">牛</span>、豬、<span class="tag tag-horse">馬</span>、<span class="tag tag-small">犬</span>、<span class="tag tag-small">貓</span></td></tr>
+            <tr><td><strong>重複子宮 Duplex</strong></td><td>2子宮角、<strong>2子宮頸</strong>（部分物種甚至2陰道）</td><td>鼠、兔、負鼠</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p>雙角子宮是家畜最常見的型態，但同屬雙角子宮，各物種子宮體與子宮角的<strong>相對比例</strong>差異很大：羊子宮角較小；牛子宮角中等大小；豬子宮角非常長、盤繞如腸道（對應一胎多仔）；馬子宮體特別大、子宮角相對較小；犬、貓子宮體小、子宮角細長。</p>
+      </div>
+
+      <h3>子宮的功能</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">肌肉收縮 Muscle contraction</div>
+          <p>協助精子往輸卵管方向運送；分娩時將胎兒與胎盤排出體外</p>
+        </div>
+        <div class="card">
+          <div class="card-title">精子獲能 Capacitation</div>
+          <p>子宮環境部分促成精子獲能（鈣離子內流以活化精子）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">胚胎與胎兒發育環境</div>
+          <p>提供著床、胎盤形成與胎兒生長所需的環境</p>
+        </div>
+        <div class="card">
+          <div class="card-title">誘發黃體萎縮</div>
+          <p>若未懷孕，子宮分泌 <strong>PGF2α</strong> 引發黃體（corpus luteum）萎縮，週期得以繼續</p>
+        </div>
+      </div>
+
+      <h3>子宮頸 Cervix——各物種差異</h3>
+      <p>子宮頸由厚實的結締組織構成，是子宮與陰道間的關卡，在發情期／配種期會分泌黏液潤滑。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>子宮頸構造特徵</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛</span> Cow</td><td>具<strong>4–5圈環狀皺褶（annular rings）</strong>，人工授精操作時需小心通過每圈皺褶</td></tr>
+            <tr><td>豬 Sow</td><td>無陰道穹窿（<strong>no fornix vagina</strong>），黏膜呈<strong>交錯狀墊狀突起（interdigitating pads）</strong>，與公豬螺旋狀龜頭相契合</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span> Mare</td><td>黏膜呈<strong>縱向皺褶（longitudinal folds）</strong>，具陰道穹窿（fornix vagina）；子宮頸<strong>突入陰道</strong>，觸診／內視鏡下形似「小火山（small volcano）」</td></tr>
+            <tr><td><span class="tag tag-small">犬</span>／<span class="tag tag-small">貓</span></td><td>構造相對簡單，無特殊皺褶障礙</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>子宮頸作為精子屏障（species-dependent）：</strong>牛、羊、犬、貓的子宮頸對精子通過具屏障作用（人工授精須穿過子宮頸或用特殊導管）；<strong>豬與馬的子宮頸則無此屏障</strong>，公豬／種公馬射精時精液可直接大量進入子宮腔。</p>
+      </div>
+
+      <h3>子宮頸的功能</h3>
+      <ul>
+        <li>運送精子（transport of sperm）</li>
+        <li>屏障精子逆向通過（barrier to sperm transport，物種依賴）</li>
+        <li>精子儲存庫（reservoir for sperm）</li>
+        <li>懷孕期間阻擋細菌上行感染（blocking bacterial invasion）</li>
+        <li>產道（birth canal）的一部分</li>
+      </ul>
+
+      <h3>陰道 Vagina</h3>
+      <p>分為<strong>前陰道（anterior vagina，黏膜為柱狀上皮 columnar epithelium）</strong>與<strong>後陰道／前庭（posterior vagina／vestibule，黏膜為複層鱗狀上皮 stratified squamous epithelium）</strong>兩段，兩者間以<strong>陰道前庭括約肌（vulva-vaginal sphincter）</strong>為界，尿道開口（urethral opening）位於此交界處附近。前陰道頂端與子宮頸交界處形成環狀凹陷稱<strong>陰道穹窿（fornix）</strong>。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">陰道功能</div>
+          <p>交配器官、腺體分泌潤滑液、產道、腺體分泌費洛蒙（pheromones）、精液沉積處（依物種而異，牛羊精液沉積於陰道前段／子宮頸口，豬馬精液直接射入子宮）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">外陰部 Vulva（以犬為例）</div>
+          <p>由陰唇（labia）、陰唇裂（cleft）、背側聯合（dorsal commissure）、腹側聯合（ventral commissure）組成；發情期陰唇腫脹並可能有血樣分泌物（proestrus 出血）</p>
+        </div>
+      </div>
+
+      <div class="figure">
+        <img src="img/生殖系統/repro_female_p22.png" alt="羊、牛、豬雙角子宮比較圖，標示子宮角、子宮體與陰道相對比例">
+        <div class="figure-caption">雙角子宮（Bicornuate uterus）跨物種比較：羊（Ewe）子宮角較小；牛（Cow）子宮體與子宮角中等大小、具1陰道1子宮頸1子宮體2子宮角的典型構造；豬（Sow）子宮角則明顯盤繞、極長，對應一胎多仔的生殖策略。</div>
+        <div class="figure-source">來源：解剖學實習講義《Female reproductive system 113》</div>
+      </div>
+
+      <h3>乳腺／乳頭跨物種比較（同一份講義附帶內容）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>乳頭位置</th><th>每一乳頭的乳管數</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-cattle">牛</span>、駱駝</td><td>鼠蹊部 Inguinal</td><td>每乳頭<strong>2條乳管</strong>（駱駝）／每乳頭1條乳管、1乳池（牛）</td></tr>
+            <tr><td>羊、山羊、<span class="tag tag-horse">馬</span></td><td>鼠蹊部 Inguinal</td><td>每乳頭<strong>1條乳管／1乳池（cistern）</strong>（牛、羊、山羊皆同此型）</td></tr>
+            <tr><td>豬 Sow</td><td>鼠蹊部（多對，沿腹側排列）</td><td>每乳頭<strong>2–3條乳管</strong>（馬、豬同屬此型）</td></tr>
+            <tr><td><span class="tag tag-small">犬</span>、<span class="tag tag-small">貓</span></td><td>胸腹側 4–5對</td><td>每乳頭<strong>5–6條乳管</strong></td></tr>
+            <tr><td>靈長類、大象</td><td>胸側 Thoracic</td><td>每乳頭<strong>8–10條乳管</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p>乳頭的乳管數與泌乳生理相關：牛、羊、山羊、馬每乳頭僅1條乳管配1個乳池，擠乳時乳汁先儲存在乳池內；犬貓、靈長類則每乳頭有多條獨立乳管直接開口，儲乳能力較低、需頻繁哺乳。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Female reproductive system 113》。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">6</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度的整理，複習前可先快速掃過本節，找出自己不熟的部分再回對應章節細讀。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>公畜六大組成、母畜六大組成先建立整體架構</strong>：公畜＝睪丸＋副睪＋輸精管＋副性腺＋尿道＋陰莖（與陰囊、包皮）；母畜＝卵巢＋輸卵管＋子宮＋子宮頸＋陰道＋外陰部。兩性的管狀生殖道都是黏膜／平滑肌（環−縱）／漿膜三層共通構造。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>睪丸溫度調節是精子生成的關鍵</strong>：蔓狀靜脈叢（pampiniform plexus）逆流熱交換將血液降溫至比體溫低4–7℃；隱睪症因高溫抑制精母細胞分化而導致不孕，好發於吉娃娃、貴賓、雪納瑞等玩具／小型犬品種。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>犬是唯一「無儲精囊＋無尿道球腺」的常見家畜</strong>，只有前列腺；這是犬前列腺疾病特別重要的解剖背景。相對地，豬與羊的儲精囊、尿道球腺特別發達。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>陰莖分纖維彈性型（牛、羊、豬，具乙狀彎曲）與肌肉海綿型（馬、犬，無乙狀彎曲）</strong>；犬有陰莖骨與球狀部（交配栓結 copulatory tie）、貓有陰莖骨與倒鉤陰莖棘（刺激誘導排卵）、豬有螺旋狀龜頭與雙葉包皮憩室（易感染）、羊有尿道突起（射精甩動、易卡尿路結石）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>睪丸位置依物種而異</strong>：貓、豬為會陰位（perineal），犬為中間位（intermediate），牛、馬、羊為腹股溝位（inguinal）；此差異影響去勢手術入路與陰囊相對位置。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>馬卵巢皮質髓質位置與其他物種相反</strong>，僅排卵窩（ovulation fossa）可排卵；牛、羊右側卵巢較活躍，豬、馬左側卵巢較活躍，禽類僅左側卵巢發育、右側退化。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>輸卵管壺腹部是受精發生的場所</strong>，漏斗部繖部負責接住排出的卵母細胞；受精卵經峽部、輸卵管子宮接合部進入子宮角。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>子宮型態三分類</strong>：單子宮（人）、雙角子宮（牛羊豬馬犬貓，最常見）、重複子宮（鼠兔），同屬雙角子宮的物種間子宮體／子宮角比例仍差異很大（豬角極長盤繞、馬體特別大）。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>子宮頸構造與精子屏障功能高度物種依賴</strong>：牛有4–5圈環狀皺褶且對精子有屏障作用，需人工授精特殊技術通過；豬無陰道穹窿、頸部呈交錯墊狀且無屏障，精液可直接射入子宮；馬子宮頸突入陰道呈「小火山」狀，同樣無屏障。</div></div>
+      <div class="step"><div class="step-num">10</div><div class="step-text"><strong>乳腺位置與每乳頭乳管數也是重要的跨物種比較</strong>：牛羊馬每乳頭1條乳管＋1乳池（利於擠乳儲乳）；犬貓每乳頭5–6條乳管、靈長類8–10條，儲乳能力較低。乳腺與生殖系統同屬雌性激素調控的附屬器官，常一併整理記憶。</div></div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Male reproductive system 113》《Female reproductive system 113》。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">7</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋公畜、母畜生殖系統各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念請回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q1. 犬與貓皆沒有儲精囊（seminal vesicle），且犬也沒有尿道球腺（bulbourethral gland）。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">犬貓皆無儲精囊；犬另外也缺乏尿道球腺，是唯一「儲精囊＋尿道球腺都缺如」、只剩前列腺分泌精液液體成分的常見家畜物種，也是犬前列腺疾病特別重要的解剖背景。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 精索內的蔓狀靜脈叢（pampiniform plexus）透過逆流熱交換，使進入睪丸的動脈血溫度升高，以維持精子生成所需的核心體溫。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">蔓狀靜脈叢的逆流熱交換是將動脈血溫度「降低」，使睪丸維持在比體溫低約4–7℃的環境，這是精子生成所必需的低溫條件，而非升高至核心體溫。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 下列哪一組物種的睪丸正常位置為「會陰位（perineal）」？</div>
+        <ul class="quiz-options">
+          <li>(A) 貓、公豬</li>
+          <li>(B) 犬</li>
+          <li>(C) 公牛、種公馬</li>
+          <li>(D) 公羊</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">貓與公豬的睪丸位於會陰部（perineal）；犬為中間位（intermediate）；公牛、種公馬、公羊則為腹股溝位（inguinal）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 隱睪症（cryptorchidism）為何會導致不孕？請說明其病理機轉與好發品種。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">睪丸未能下降至陰囊，滯留於腹股溝區或腹腔內，該處溫度接近體溫（遠高於陰囊內的低溫環境），高溫會抑制精母細胞的分化，導致精子生成障礙而不孕；未矯正者日後罹患睪丸腫瘤機率也較高。好發品種包括吉娃娃、迷你雪納瑞、博美、貴賓、喜樂蒂牧羊犬、西伯利亞哈士奇、約克夏㹴等玩具／小型犬。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 公豬的陰莖與包皮構造，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 龜頭呈螺旋狀（corkscrew），可契合母豬子宮頸的螺旋皺褶</li>
+          <li>(B) 包皮無憩室構造</li>
+          <li>(C) 屬於肌肉海綿型陰莖，勃起時體積會顯著增大</li>
+          <li>(D) 陰莖內含骨性構造（os penis）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">公豬陰莖屬於纖維彈性型、具乙狀彎曲，龜頭呈螺旋狀以契合母豬螺旋狀子宮頸；包皮具雙葉憩室（易積存尿液精液細菌而發炎）；陰莖骨見於犬貓，豬並無此構造。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. 犬交配時的「交配栓結（copulatory tie）」是因為公犬陰莖球狀部（bulbus glandis）充血腫大並卡於母犬陰道內所致。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">坐骨海綿體肌收縮阻斷陰莖靜脈回流，使球狀部充血腫大並卡於陰道內，形成可持續5–45分鐘的交配栓結；強行拉開可能造成生殖道損傷。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 馬的卵巢構造，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 皮質在外、髓質在內，與其他家畜相同</li>
+          <li>(B) 皮質在內、髓質在外，排卵僅發生於排卵窩（ovulation fossa）</li>
+          <li>(C) 終生位於骨盆腔內、不在腹腔</li>
+          <li>(D) 左右兩側卵巢活性完全相同</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">馬（及驢）卵巢的皮質髓質位置與其他家畜相反，僅在排卵窩具生殖上皮並允許排卵，其餘表面由漿膜覆蓋，是馬生殖生理的重要特徵；此外馬的左側卵巢通常較具功能性。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q8. 輸卵管（oviduct）可分為哪幾個分區？受精主要發生在哪一部位？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">由卵巢端至子宮端依序為：漏斗部（infundibulum，含繖部fimbriae接住卵母細胞）→壺腹部（ampulla）→壺峽接合部（ampullary-isthmic junction）→峽部（isthmus）→輸卵管子宮接合部（utero-tubal junction）。受精主要發生在「壺腹部」，此處黏膜皺褶豐富，也是精卵相遇的場所。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 牛、羊的右側卵巢排卵次數通常較左側多；豬、馬則是左側卵巢較具功能性。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">牛、羊右側卵巢排卵較多；豬、馬左側卵巢較具功能性；禽類則是左側卵巢完全發育、右側退化。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 下列哪一組物種的子宮屬於「雙角子宮（bicornuate）」型態？</div>
+        <ul class="quiz-options">
+          <li>(A) 人類</li>
+          <li>(B) 小鼠、兔子</li>
+          <li>(C) 牛、羊、豬、馬、犬、貓</li>
+          <li>(D) 負鼠（opossum）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">牛羊豬馬犬貓等家畜皆屬雙角子宮（1陰道1子宮頸1子宮體＋2子宮角）；人類屬單子宮（simplex，無子宮角）；小鼠、兔、負鼠屬重複子宮（duplex，2子宮角2子宮頸）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. 為什麼豬與馬的人工授精可以直接將精液注入子宮腔，而牛、羊、犬、貓則需特別考量子宮頸的屏障作用？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">牛、羊、犬、貓的子宮頸對精子逆向通過具有屏障功能（如牛子宮頸有4–5圈環狀皺褶阻擋），人工授精須以特殊技術或導管穿越子宮頸。豬（無陰道穹窿、子宮頸呈交錯墊狀契合公豬螺旋龜頭）與馬（子宮頸突入陰道呈「小火山」狀）的子宮頸則無此屏障作用，交配或授精時精液可直接大量進入子宮腔。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q12. 貓的陰莖表面具有倒鉤狀陰莖棘（penile spines），交配時的機械刺激有助於誘導母貓排卵。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">貓為誘導排卵動物（induced ovulator），交配時龜頭表面的倒鉤狀陰莖棘刺激陰道，可誘發母貓的排卵反射。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q13. 犬、貓的乳頭每一乳頭約有幾條獨立乳管（duct）開口，這與牛、羊、馬的乳腺構造有何不同？</div>
+        <ul class="quiz-options">
+          <li>(A) 1條乳管＋1乳池，與牛羊馬相同</li>
+          <li>(B) 5–6條獨立乳管，無明顯乳池，儲乳能力較低</li>
+          <li>(C) 2–3條乳管，與豬、馬相同</li>
+          <li>(D) 8–10條乳管，與靈長類相同</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">犬貓每乳頭約5–6條獨立乳管，牛羊馬則是每乳頭1條乳管配1個乳池（利於擠乳前的乳汁儲存），豬與馬同屬2–3條乳管，靈長類與大象則是8–10條乳管，各物種乳腺構造反映不同的哺乳／泌乳生理策略。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q14. 子宮的功能中，「PGF2α」扮演什麼角色？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">若該次發情週期未受孕，子宮內膜會分泌前列腺素 PGF2α，經由子宮靜脈與卵巢動脈間的逆流交換機制作用於同側卵巢，引發黃體（corpus luteum）萎縮退化，使黃體素濃度下降，讓動物得以進入下一次發情週期；這也是臨床上使用 PGF2α 類似物進行同期發情（estrus synchronization）的生理基礎。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '生殖系統總論',
+  maletract: '睪丸、副睪與輸精管',
+  maleaccessory: '副性腺、陰莖與包皮',
+  femaleovary: '卵巢與輸卵管',
+  femaleuterus: '子宮、子宮頸與陰道',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫解剖學：骨骼系統 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>上群 網頁筆記</h1>
+    <div class="subtitle">DVM Course Notes · 大三／大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="總複習"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">解剖生理學</a><span class="sep">›</span><span class="current">骨骼系統</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">骨骼系統</h1>
+      <p class="page-subtitle">Skeletal System · Veterinary Anatomy — 骨骼分類、方位與表面標記術語，頭骨、脊柱與胸廓、前肢、後肢骨骼構造與相關臨床疾病整理。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">解剖生理學（生涯總複習）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">解剖學實習講義《Skeleton of the head part1／part2》《Vertebral column》《Bones of the pelvic limb》《Thoracic limb (forelimb)》，以及上課講義《112-1-06 The head anatomy》</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview">
+      <span class="nav-icon">📚</span> 骨骼系統總論
+    </a>
+    <div class="section-label" style="margin-top:8px;">各部位骨骼</div>
+    <a onclick="showSection('skull')" id="nav-skull">
+      <span class="nav-icon">💀</span> 頭骨
+    </a>
+    <a onclick="showSection('vertebral')" id="nav-vertebral">
+      <span class="nav-icon">🦴</span> 脊柱與胸廓
+    </a>
+    <a onclick="showSection('forelimb')" id="nav-forelimb">
+      <span class="nav-icon">🦾</span> 前肢骨骼
+    </a>
+    <a onclick="showSection('hindlimb')" id="nav-hindlimb">
+      <span class="nav-icon">🦵</span> 後肢骨骼
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>骨骼系統總論 Skeletal System Overview</h2></div>
+      <p class="section-desc">本節整理骨骼分類與全身共通的「方位術語」「骨骼表面標記術語」——這是後面頭骨、脊柱、前後肢所有小節共用的語言，建議先熟讀本節，理解每個詞的定義後，後面各小節的內容會好記非常多。</p>
+
+      <h3>骨骼的分類</h3>
+      <div class="grid-4">
+        <div class="card" style="text-align:center;"><div class="card-title">長骨 Long bone</div><p style="margin:0;">四肢骨（肱骨、股骨等），負責承重與槓桿作用</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">短骨 Short bone</div><p style="margin:0;">腕骨、跗骨，吸收震動</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">扁平骨 Flat bone</div><p style="margin:0;">肩胛骨、多數顱骨，保護內部器官／提供大面積肌肉附著</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">不規則骨 Irregular bone</div><p style="margin:0;">椎骨、骨盆骨，形狀複雜</p></div>
+      </div>
+      <p>另外還有<strong>籽骨（sesamoid bone）</strong>——包埋在肌腱內的骨頭，例如全身最大的籽骨是<strong>髕骨（patella）</strong>；以及<strong>含氣骨（pneumatic bone）</strong>，例如額骨內含額竇。</p>
+
+      <h3>解剖學方位術語（全身通用，務必先背熟）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>術語</th><th>中文</th><th>意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cranial</strong></td><td>顱側／前</td><td>朝向頭部方向（軀幹部位用語）</td></tr>
+            <tr><td><strong>Caudal</strong></td><td>尾側／後</td><td>朝向尾巴方向（Cranial 的相反）</td></tr>
+            <tr><td><strong>Rostral</strong></td><td>吻側</td><td>頭部專用，比 cranial 更精確地指向鼻尖方向</td></tr>
+            <tr><td><strong>Dorsal</strong></td><td>背側</td><td>朝向背部／上方</td></tr>
+            <tr><td><strong>Ventral</strong></td><td>腹側</td><td>朝向腹部／下方（Dorsal 的相反）</td></tr>
+            <tr><td><strong>Medial</strong></td><td>內側</td><td>朝向身體正中線</td></tr>
+            <tr><td><strong>Lateral</strong></td><td>外側</td><td>遠離正中線（Medial 的相反）</td></tr>
+            <tr><td><strong>Proximal</strong></td><td>近側</td><td>四肢用語，較靠近軀幹的一端</td></tr>
+            <tr><td><strong>Distal</strong></td><td>遠側</td><td>四肢用語，較遠離軀幹的一端（Proximal 的相反）</td></tr>
+            <tr><td><strong>Palmar</strong></td><td>掌側</td><td><strong>前肢</strong>腕關節以下，相當於腹側／尾側的面</td></tr>
+            <tr><td><strong>Plantar</strong></td><td>蹠側</td><td><strong>後肢</strong>跗關節以下，相當於腹側／尾側的面</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>前肢腕關節（carpus）以下、後肢跗關節（tarsus）以下，因為四肢末端方向已經與軀幹垂直，改用 <strong>palmar／plantar（掌側／蹠側）</strong>取代 ventral，用 <strong>dorsal</strong> 取代 cranial，這在前後肢骨骼掌墊、動脈觸診等內容中會反覆出現。</p>
+      </div>
+
+      <h3>骨骼表面標記術語（貫穿全身骨骼）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>術語</th><th>中文</th><th>意義／舉例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Process</strong></td><td>突起</td><td>泛稱骨骼上的突起，如 transverse process（橫突）、spinous process（棘突）</td></tr>
+            <tr><td><strong>Tubercle</strong></td><td>結節</td><td>較小的圓形突起，如肱骨的 greater/lesser tubercle</td></tr>
+            <tr><td><strong>Tuberosity</strong></td><td>粗隆</td><td>較大、表面粗糙的突起，通常是強力肌腱附著處，如 deltoid tuberosity、tibial tuberosity、ischiatic tuberosity</td></tr>
+            <tr><td><strong>Trochanter</strong></td><td>轉子</td><td>僅見於股骨的大型突起：greater／lesser／third trochanter</td></tr>
+            <tr><td><strong>Crest／Line</strong></td><td>嵴／線</td><td>狹長的骨脊或肌肉附著線，如 iliac crest（髂嵴）、tricipital line</td></tr>
+            <tr><td><strong>Fossa</strong></td><td>窩</td><td>凹陷處，如 olecranon fossa、trochanteric fossa、acetabular fossa</td></tr>
+            <tr><td><strong>Foramen</strong></td><td>孔</td><td>供血管、神經通過的孔洞，如 obturator foramen、vertebral foramen</td></tr>
+            <tr><td><strong>Notch</strong></td><td>切跡</td><td>邊緣的凹陷缺口，如 greater ischiatic notch、trochlear notch</td></tr>
+            <tr><td><strong>Fovea</strong></td><td>凹／小窩</td><td>小型（常為關節性）凹陷，如 atlas 的 articular fovea、radius 的 capitular fovea</td></tr>
+            <tr><td><strong>Condyle</strong></td><td>髁</td><td>圓形的關節性突起，如股骨／脛骨／肱骨的 condyle</td></tr>
+            <tr><td><strong>Epicondyle</strong></td><td>上髁</td><td>髁附近、非關節面的突起，供韌帶／肌肉附著，如肱骨、股骨的 medial／lateral epicondyle</td></tr>
+            <tr><td><strong>Trochlea</strong></td><td>滑車</td><td>滑車狀關節面，如肱骨遠端 trochlea、股骨的 patellar trochlea、脛骨的 tibial cochlea</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">補充</div>
+        <p>把這兩張表先記熟，之後看到「greater trochanter」「intercondylar fossa」這種複合詞，就能直接拆解出「大＋轉子」「髁間＋窩」的意思，不需要死背每個詞彙。</p>
+      </div>
+    </div>
+
+    <!-- SKULL -->
+    <div class="section" id="section-skull">
+      <div class="section-head"><div class="section-num">2</div><h2>頭骨 Skull</h2></div>
+      <p class="section-desc">頭骨可分為包覆腦部的<strong>神經顱（neurocranium）</strong>與構成臉部、鼻腔、口腔的<strong>顏面顱（viscerocranium）</strong>兩大部分，本節以犬貓（小動物）頭骨為主整理各骨頭的重要構造。</p>
+
+      <h3>頭骨分區</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">神經顱 Neurocranium</div>
+          <p>包覆並保護腦部的骨性腔室，由以下骨頭組成：</p>
+          <p>枕骨 Occipital、蝶骨 Sphenoid（basisphenoid＋presphenoid）、顳骨 Temporal（squamous＋petrous＋tympanic part）、額骨 Frontal、頂骨 Parietal、間頂骨 Interparietal、篩骨 Ethmoid</p>
+        </div>
+        <div class="card">
+          <div class="card-title">顏面顱 Viscerocranium</div>
+          <p>構成鼻腔、口腔、眼眶的骨性支架：</p>
+          <p>切齒骨 Incisive、上頜骨 Maxilla、鼻骨 Nasal、淚骨 Lacrimal、顴骨 Zygomatic、腭骨 Palatine、翼骨 Pterygoid、犁骨 Vomer、下頜骨 Mandible</p>
+        </div>
+      </div>
+
+      <div class="figure">
+        <img src="img/骨骼系統/skull_p4.png" alt="神經顱各骨頭在腦部外側的相對分區圖解">
+        <div class="figure-caption">神經顱各骨頭的分區示意：額骨（Frontal）、頂骨（Parietal）、間頂骨（Interparietal）、枕骨（Occipital）、蝶骨（Sphenoid）、篩骨（Ethmoid）、顳骨（Temporal，紅框範圍）在腦部外側面的相對位置。</div>
+        <div class="figure-source">來源：解剖學實習講義《Skeleton of the head part1》</div>
+      </div>
+
+      <h3>神經顱重要構造</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>骨頭</th><th>重要構造</th><th>意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>枕骨 Occipital</strong></td><td>枕骨大孔 foramen magnum</td><td>脊髓與延腦於此通過，連接顱腔與椎管</td></tr>
+            <tr><td></td><td>枕髁 occipital condyles</td><td>與寰椎（C1）形成寰枕關節（atlanto-occipital joint）</td></tr>
+            <tr><td></td><td>項嵴 nuchal crest</td><td>項部肌肉（如頭半棘肌）附著處</td></tr>
+            <tr><td><strong>顳骨 Temporal</strong></td><td>顴突 zygomatic process</td><td>與顴骨共同形成顴弓（zygomatic arch）</td></tr>
+            <tr><td></td><td>下頜窩 mandibular fossa</td><td>與下頜骨髁突形成顳頜關節（TMJ）</td></tr>
+            <tr><td></td><td>鼓泡 tympanic bulla</td><td>骨質膨大，包覆中耳腔</td></tr>
+            <tr><td></td><td>岩部 petrous part</td><td>包含內耳構造</td></tr>
+            <tr><td><strong>蝶骨 Sphenoid</strong></td><td>視神經管、眶裂、卵圓孔等多個孔洞</td><td>供視神經與多條顱神經通過</td></tr>
+            <tr><td><strong>額骨 Frontal</strong></td><td>額竇 frontal sinus</td><td>含氣空腔，減輕頭骨重量</td></tr>
+            <tr><td><strong>篩骨 Ethmoid</strong></td><td>篩板 cribriform plate、篩鼻甲 ethmoturbinates</td><td>嗅神經通過處／增加嗅覺上皮表面積</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>顏面顱重要構造</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>骨頭</th><th>重要構造／功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>切齒骨 Incisive bone</strong></td><td>容納上門齒（incisors）</td></tr>
+            <tr><td><strong>上頜骨 Maxilla</strong></td><td>容納上頜犬齒、前臼齒、臼齒；具眶下孔（infraorbital foramen，供神經血管通過，也是臨床牙科局部麻醉常用注射點）</td></tr>
+            <tr><td><strong>鼻骨 Nasal</strong></td><td>構成鼻腔背側頂</td></tr>
+            <tr><td><strong>淚骨 Lacrimal</strong></td><td>眼眶內側壁，內含淚管</td></tr>
+            <tr><td><strong>顴骨 Zygomatic</strong></td><td>與顳骨顴突共同構成顴弓，眼眶外側壁</td></tr>
+            <tr><td><strong>腭骨 Palatine</strong></td><td>硬腭後段、鼻咽側壁</td></tr>
+            <tr><td><strong>翼骨 Pterygoid</strong></td><td>鼻咽外側壁薄片狀骨</td></tr>
+            <tr><td><strong>犁骨 Vomer</strong></td><td>構成鼻中隔一部分</td></tr>
+            <tr><td><strong>下頜骨 Mandible</strong></td><td>下頜聯合（mandibular symphysis，犬貓為纖維軟骨連接、可略有活動）；下頜孔（mandibular foramen，下齒槽神經通過，拔牙局麻注射點）；喙突（coronoid process，顳肌附著）；髁突（condylar process，形成TMJ）；角突（angular process）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>舌骨器 Hyoid apparatus</h3>
+      <p>由多節小骨串連而成，連接顳骨（tympanohyoid）與喉部／舌根，作為舌頭與喉頭的懸吊支架，臨床上是喉部／舌根手術的重要解剖標誌。</p>
+
+      <h3>咀嚼肌 Muscles of Mastication</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">顳肌 Temporalis</div>
+          <p>填滿顳窩（temporal fossa），起自顱骨側面止於下頜冠突，是主要的閉口肌之一。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">咬肌 Masseter</div>
+          <p>起自顴弓，止於下頜骨外側面，強力閉口肌，觸診時可在顴弓下方摸到。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">翼肌 Pterygoid m.</div>
+          <p>內／外翼肌，協助閉口與下頜側向研磨動作。</p>
+        </div>
+      </div>
+      <p>此外<strong>二腹肌（digastricus）</strong>是主要的開口肌，與上述閉口肌群作用相反。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>犬貓與家畜頭骨差異：</strong>本節整理以犬貓（小動物）頭骨為主；牛、馬、豬等家畜頭骨在鼻竇範圍、額竇分隔、下頜聯合骨化程度、角突（os cornu，牛角的骨性核心）等構造上差異顯著，詳細內容須另行參照大動物解剖學課程。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p><strong>臨床提醒：</strong>顴弓骨折、顳頜關節脫位是頭部外傷常見併發症；矢狀嵴（sagittal crest，顱骨背側正中線的骨脊，為顳肌起點）在觸診上是重要的品種／年齡辨識與定位標誌。</p>
+      </div>
+    </div>
+
+    <!-- VERTEBRAL -->
+    <div class="section" id="section-vertebral">
+      <div class="section-head"><div class="section-num">3</div><h2>脊柱與胸廓 Vertebral Column &amp; Thorax</h2></div>
+      <p class="section-desc">脊柱分為五大區段，每一節椎骨都有共同的基本構造，但頸椎（尤其寰椎、樞椎）與胸椎、腰椎、薦椎各有特化。本節也一併整理與脊柱密切相關的肋骨與胸骨。</p>
+
+      <h3>脊柱五大區段（犬）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>區段</th><th>英文</th><th>犬的節數</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>1. 頸椎</td><td>Cervical</td><td>C1–C7（7節）</td><td>C1 寰椎、C2 樞椎高度特化</td></tr>
+            <tr><td>2. 胸椎</td><td>Thoracic</td><td>T1–T13（13節）</td><td>與肋骨相關節</td></tr>
+            <tr><td>3. 腰椎</td><td>Lumbar</td><td>L1–L7（7節）</td><td>橫突長且朝顱側</td></tr>
+            <tr><td>4. 薦椎</td><td>Sacral</td><td>S1–S3（3節，融合成單一薦骨）</td><td>與骨盆髂骨形成薦髂關節</td></tr>
+            <tr><td>5. 尾椎</td><td>Caudal / Coccygeal</td><td>約 Cd20–23（個體差異大）</td><td>構造由近端向遠端逐漸簡化</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-title">犬的脊柱公式</div>
+        <p style="font-size:16px; font-weight:700; color:var(--accent); margin:0;">C<sub>7</sub> T<sub>13</sub> L<sub>7</sub> S<sub>3</sub> Cd<sub>20–23</sub></p>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p><strong>跨物種參考（一般獸醫解剖學常見數值，非本教材逐字內容，僅供比較記憶，實際數值依教科書略有差異）：</strong></p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>脊柱公式（大致）</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-small">犬</span></td><td>C7 T13 L7 S3 Cd20–23</td></tr>
+            <tr><td><span class="tag tag-small">貓</span></td><td>C7 T13 L7 S3 Cd20–23（與犬相近）</td></tr>
+            <tr><td><span class="tag tag-horse">馬</span></td><td>C7 T18 L6 S5 Cd15–21</td></tr>
+            <tr><td><span class="tag tag-cattle">牛</span></td><td>C7 T13 L6 S5 Cd18–20</td></tr>
+            <tr><td>豬</td><td>C7 T14–15 L6–7 S4 Cd20–23</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>椎骨的共同構造</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構造</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>椎體 Body</strong></td><td>椎間盤（intervertebral disc）由中央的髓核（nucleus pulposus）與外圍的纖維環（annulus fibrosus）構成，連接相鄰椎體</td></tr>
+            <tr><td><strong>椎弓 Arch</strong></td><td>由椎弓根（pedicle）與椎板（lamina）構成，圍出椎孔</td></tr>
+            <tr><td><strong>椎孔 → 椎管 Vertebral foramen → canal</strong></td><td>連續排列形成椎管，容納脊髓</td></tr>
+            <tr><td><strong>棘突 Spinous process</strong></td><td>背側正中突起，肌肉／韌帶附著</td></tr>
+            <tr><td><strong>橫突 Transverse process</strong></td><td>兩側突起，肌肉附著，胸椎橫突與肋骨結節相關節</td></tr>
+            <tr><td><strong>關節突 Articular process</strong></td><td>顱側與尾側各一對，與相鄰椎骨相關節，限制活動範圍</td></tr>
+            <tr><td><strong>乳突 Mamillary process</strong></td><td>位於關節突背側，胸腰椎常見，肌肉附著</td></tr>
+            <tr><td><strong>副突 Accessory process</strong></td><td>胸椎後段至腰椎前段（約至L5–L6）出現，肌肉附著</td></tr>
+            <tr><td><strong>椎間孔 Intervertebral foramen</strong></td><td>相鄰椎骨間的孔洞，脊神經由此離開椎管</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/骨骼系統/vertebral_p6.png" alt="典型椎骨的共同構造標註圖，含椎體、椎弓、棘突、橫突、關節突">
+        <div class="figure-caption">典型椎骨的共同構造：椎體（Body）、椎弓（含 Pedicle 椎弓根／Lamina 椎板）、棘突（Spinous process）、橫突（Transverse process）、關節突（Articular process）。</div>
+        <div class="figure-source">來源：解剖學實習講義《Vertebral column》</div>
+      </div>
+
+      <h3>寰椎與樞椎（C1、C2）——特化頸椎</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">寰椎 Atlas（C1）</div>
+          <p>形態特殊，無明顯椎體與棘突。重要構造：翼（wing，即橫突）、翼切跡（alar notch）、橫突孔（transverse foramen）、外側椎孔（lateral vertebral foramen）、顱側關節凹（cranial articular foveae，與枕髁形成<strong>寰枕關節</strong>）、尾側關節凹（caudal articular foveae，與樞椎形成<strong>寰樞關節</strong>）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">樞椎 Axis（C2）</div>
+          <p>最具特色的構造是<strong>齒突（dens）</strong>，插入寰椎腹側，作為寰椎旋轉的軸心；另有高聳的棘突、顱側關節面、尾側椎切跡（caudal vertebral notch）、橫突、橫突孔。</p>
+        </div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告</div>
+        <p><strong>寰樞關節不穩定（atlantoaxial instability）：</strong>常見於玩具／小型犬品種（如吉娃娃、玩具貴賓），因齒突發育異常或穩定韌帶鬆弛，可能造成脊髓壓迫，臨床表現為頸部疼痛甚至四肢輕癱；搬運與保定此類患畜頭頸部時需格外小心，避免過度屈曲頸部。</p>
+      </div>
+
+      <h3>C3–C7：典型與非典型頸椎</h3>
+      <ul>
+        <li><strong>C3–C5</strong>：構造較典型，具棘突、橫突、關節突、橫突孔。</li>
+        <li><strong>C6</strong>：橫突特別寬大，在X光片上是辨認頸椎節數的重要地標。</li>
+        <li><strong>C7</strong>：<strong>缺乏橫突孔</strong>（transverse foramen 僅見於 C1–C6），且棘突是頸椎中最高的一節，常作為計數胸椎起點（T1）的參考地標。</li>
+      </ul>
+
+      <h3>胸椎 Thoracic vertebrae</h3>
+      <ul>
+        <li>棘突高聳且方向由尾側指向逐漸轉為顱側，於<strong>第11胸椎（T11）</strong>方向翻轉，此節稱為<strong>「anticlinal vertebra／臨界椎」</strong>，在X光判讀上是重要地標。</li>
+        <li>具乳突（mammillary process）與副突（accessory process，從中段胸椎延伸至腰椎前段）。</li>
+        <li>橫突末端有<strong>橫突肋凹（transverse fovea／costal fovea of transverse process）</strong>，與肋骨結節相關節；椎體兩側則有<strong>顱側／尾側肋凹（cranial／caudal costal fovea）</strong>，與肋骨頭相關節，共同組成<strong>肋椎關節（costovertebral joint）</strong>。</li>
+      </ul>
+
+      <h3>腰椎 Lumbar vertebrae</h3>
+      <ul>
+        <li>橫突細長且朝顱側方向延伸，是腰椎最明顯的特徵。</li>
+        <li>乳突位於關節突背側；副突同樣存在。</li>
+      </ul>
+
+      <h3>薦椎 Sacrum</h3>
+      <p>由數節薦椎（犬3節）融合而成單一薦骨，重要構造：翼（wing）、背側薦孔（dorsal sacral foramina）、正中薦嵴（median sacral crest）、骨盆薦孔（pelvic sacral foramina）、耳狀面（auricular surface，與髂骨構成薦髂關節）、岬（promontory，薦骨前緣向椎管內突出處）、薦管（sacral canal）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p>Sacrum 字源為拉丁文「神聖的骨頭」，古埃及傳說中與冥王歐西里斯（Osiris）的身體有關，古埃及人稱之為「Djed（節德柱）」——這是有趣的命名小知識，幫助記憶這個字。</p>
+      </div>
+
+      <h3>尾椎 Caudal vertebrae</h3>
+      <p>近端尾椎仍保有椎弓、棘突、橫突、關節突等基本構造，並可能具有<strong>血管弓（hemal arch）</strong>保護腹側尾動靜脈；越往遠端構造越簡化，最終僅剩簡單的圓柱狀椎體。</p>
+
+      <h3>臨床操作定位地標</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>操作</th><th>解剖定位地標</th></tr></thead>
+          <tbody>
+            <tr><td>腦脊髓液採集（cisternal puncture）</td><td>枕骨與寰椎之間的寰枕間隙</td></tr>
+            <tr><td>腰椎穿刺／硬膜外麻醉（lumbar puncture／epidural）</td><td><strong>腰薦間隙（L7–S1）</strong>，體表地標為兩側髂骨翼（iliac crest）連線與 L7 棘突</td></tr>
+            <tr><td>脊髓攝影術（myelography）</td><td>常用 L5–L6 棘突間隙注射顯影劑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>椎間盤突出症（IVDD, Intervertebral Disc Disease）：</strong>軟骨營養不良品種（如臘腸犬）好發，髓核鈣化後脫出壓迫脊髓；嚴重病例可行<strong>半椎板切除術（hemilaminectomy）</strong>減壓治療。</p>
+      </div>
+
+      <h3>肋骨與胸廓 Ribs &amp; Sternum</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>肋骨構造</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>頭 Head</td><td>與相鄰兩節椎體的肋凹相關節（跨越椎間盤）</td></tr>
+            <tr><td>頸 Neck</td><td>連接頭與體的細窄段</td></tr>
+            <tr><td>結節 Tubercle</td><td>與胸椎橫突的肋凹相關節</td></tr>
+            <tr><td>體 Body</td><td>主要骨幹</td></tr>
+            <tr><td>角 Angle</td><td>肋骨彎曲轉折處</td></tr>
+            <tr><td>肋軟骨 Costal cartilage</td><td>連接肋骨與胸骨</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>R1–R9</strong>：真肋（true ribs），各自以獨立肋軟骨與胸骨相接。</li>
+        <li><strong>R8–R9</strong>：肋軟骨常匯合於第7胸骨節（sternebra）附近／劍狀軟骨處。</li>
+        <li><strong>R10–R12</strong>：肋軟骨互相融合，共同形成<strong>肋弓（costal arch）</strong>。</li>
+        <li><strong>R13</strong>：游離肋（floating rib），末端不與胸骨相連，游離於肌肉中。</li>
+      </ul>
+      <p><strong>胸骨（sternum）</strong>由8節胸骨節（sternebrae）組成：第1節為<strong>胸骨柄（manubrium）</strong>，第8節為<strong>劍突（xiphoid process）</strong>並延續劍狀軟骨（xiphoid cartilage）；節與節之間以節間軟骨（intersternebral cartilage）連接。<strong>橫膈（diaphragm）</strong>附著於劍狀軟骨與 R8–R13 一帶的肋弓。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p><strong>趣味補充：</strong>牛肉分切名稱其實對應到脊柱背側肌群——覆蓋胸腰椎背側的最長肌（longissimus）＋棘肌（spinalis）對應「沙朗／紐約客牛排」；位於腰椎腹側的腰大肌（psoas major）對應「菲力（tenderloin）」；若橫切帶有椎骨則是「丁骨／紅屋牛排」。這是記憶脊柱背側肌肉相對位置的有趣方式。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Vertebral column &amp; thorax》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FORELIMB -->
+    <div class="section" id="section-forelimb">
+      <div class="section-head"><div class="section-num">4</div><h2>前肢骨骼 Thoracic Limb (Forelimb)</h2></div>
+      <p class="section-desc">前肢由肩帶（scapula，鎖骨已退化）、上臂（humerus）、前臂（radius＋ulna）與前腳掌（carpal、metacarpal、phalanges）組成。</p>
+
+      <h3>肩胛骨 Scapula</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構造</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>顱側角／尾側角 Cranial／Caudal angle</td><td>肩胛骨背側兩端</td></tr>
+            <tr><td>背側緣 Dorsal border</td><td>肩胛骨最上緣</td></tr>
+            <tr><td>顱側緣 Cranial border</td><td>較薄</td></tr>
+            <tr><td>尾側緣 Caudal border</td><td>較厚</td></tr>
+            <tr><td>棘 Spine</td><td>將外側面分為棘上窩與棘下窩的骨脊</td></tr>
+            <tr><td>肩峰 Acromion</td><td>棘的遠端終點，三角肌附著</td></tr>
+            <tr><td>盂上結節 Supraglenoid tubercle</td><td>肱二頭肌起點</td></tr>
+            <tr><td>盂下結節 Infraglenoid tubercle</td><td>關節盂下方小突起</td></tr>
+            <tr><td>棘上窩／棘下窩 Supraspinous／Infraspinous fossa</td><td>分別容納棘上肌、棘下肌</td></tr>
+            <tr><td>肩胛下窩 Subscapular fossa</td><td>內側面凹陷，容納肩胛下肌</td></tr>
+            <tr><td>喙突 Coracoid process</td><td>關節盂內側小突起</td></tr>
+            <tr><td>關節盂 Glenoid cavity</td><td>與肱骨頭相關節，形成肩關節</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p><strong>鎖骨（clavicle）</strong>在犬貓已高度退化，僅剩包埋在臂頭肌（brachiocephalicus）肌腱內的一小片骨化中心，X光下可見游離小骨影，並<strong>不構成真正的關節</strong>；肩胛骨與軀幹之間也<strong>沒有骨性連接</strong>，完全依賴肌肉（如前鋸肌、斜方肌）懸吊固定，這種「肌肉懸吊」結構讓四肢在承重、著地時具有避震效果。</p>
+      </div>
+      <p>肩帶周邊肌肉附著地標：肩峰→三角肌（deltoideus）；盂上結節→肱二頭肌（biceps brachii）；尾側緣→三頭肌長頭／大圓肌／小圓肌；棘→斜方肌／三角肌；背側緣→菱形肌（rhomboideus）。</p>
+
+      <h3>肱骨 Humerus</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構造</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>頭／頸 Head／Neck</td><td>與肩胛骨關節盂相關節</td></tr>
+            <tr><td>大結節／小結節 Greater／Lesser tubercle</td><td>肩帶肌群附著</td></tr>
+            <tr><td>大結節嵴 Crest of greater tubercle</td><td>胸肌群附著（淺胸肌、深胸肌）</td></tr>
+            <tr><td>結節間溝 Intertubercular (bicipital) groove</td><td>肱二頭肌腱通過的溝槽，位於大、小結節之間</td></tr>
+            <tr><td>三頭肌線 Tricipital line</td><td>三頭肌外側頭附著</td></tr>
+            <tr><td>三角肌粗隆 Deltoid tuberosity</td><td>三角肌止點</td></tr>
+            <tr><td>大圓肌粗隆（內側）／小圓肌粗隆（外側）</td><td>對應肌肉止點</td></tr>
+            <tr><td>滑車 Trochlea（內側）</td><td>與尺骨相關節</td></tr>
+            <tr><td>肱骨小頭 Capitulum（外側）</td><td>與橈骨相關節</td></tr>
+            <tr><td>橈窩／鷹嘴窩 Radial fossa／Olecranon fossa</td><td>分別容納伸肘、屈肘時橈骨頭／尺骨鷹嘴</td></tr>
+            <tr><td>滑車上孔 Supratrochlear foramen</td><td>犬常見，貓通常缺如</td></tr>
+            <tr><td>內／外上髁 Medial／Lateral epicondyle</td><td>前臂屈肌／伸肌群起點</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/骨骼系統/forelimb_p20.png" alt="肱骨前後兩面觀標註圖，含大小結節、結節間溝、滑車、上髁等構造">
+        <div class="figure-caption">肱骨（Humerus）前面觀與後面觀標註圖：大結節（Greater tubercle）、小結節（Lesser tubercle）、結節間溝（Intertubercular groove）、三頭肌線（Tricipital line）、三角肌粗隆（Deltoid tuberosity）、滑車（Trochlea）、肱骨小頭（Capitulum）、鷹嘴窩（Olecranon fossa）、內外上髁（Medial／Lateral epicondyle）等構造。</div>
+        <div class="figure-source">來源：《Anatomical Terminology》講義引用 <em>Guide to the Dissection of the Dog</em>, 7th ed., p.10</div>
+      </div>
+
+      <h3>橈骨與尺骨 Radius &amp; Ulna</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">橈骨 Radius</div>
+          <p>近端有<strong>橈骨頭凹（capitular fovea）</strong>與肱骨小頭相關節；遠端有<strong>莖突（styloid process）</strong>；具內側緣、外側緣，遠端背側有3條伸肌腱溝。橈骨是前臂<strong>主要承重骨</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">尺骨 Ulna</div>
+          <p><strong>鷹嘴（olecranon）</strong>含鷹嘴結節（olecranon tuber）與<strong>肘突（anconeal process）</strong>；半月切跡（trochlear notch）與肱骨滑車相關節；內側／外側冠狀突（coronoid process）；骨間緣（interosseous border）；遠端莖突（styloid process）；尺骨粗隆（ulnar tuberosity）。</p>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>肘關節發育不良（elbow dysplasia）</strong>相關病灶：<strong>內側冠狀突破裂（Fragmented Coronoid Process, FCP）</strong>與<strong>肘突未癒合（Ununited Anconeal Process, UAP）</strong>，好發於大型速生品種幼犬，是前肢跛行的重要鑑別診斷。</p>
+      </div>
+
+      <h3>腕骨、掌骨、指骨 Carpal, Metacarpal, Phalanges</h3>
+      <ul>
+        <li><strong>腕骨（carpal bones）共7塊</strong>：近列（由內至外）——橈腕骨（intermedioradial，橈骨與中間骨融合而成）、尺腕骨（ulnar carpal）、副腕骨（accessory carpal）；遠列（由內至外）——腕骨 I、II、III、IV。</li>
+        <li><strong>掌骨（metacarpal bones）</strong>：I（退化）至 V，各具底（base）、體（body）、頭（head）。</li>
+        <li><strong>指骨（phalanges）</strong>：近節、中節、遠節（含爪突 ungual process、爪嵴 ungual crest、屈肌結節 flexor tubercle）；另有掌側籽骨（palmar／proximal sesamoid bones）與背側籽骨（dorsal sesamoid bones）協助穩定關節。第一指（digit I）常退化，成為<strong>懸爪（dewclaw）</strong>。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p><strong>爪（claw）</strong>由遠節指骨（third／distal phalanx）的爪突包覆角質鞘構成，貓的爪可縮回、犬則不可縮回。<strong>斷爪手術（declaw, onychectomy）</strong>實際上是截去整個遠節指骨（P3），等同於截去人類手指的第一指節，涉及顯著動物福利爭議，臨床上應審慎評估。</p>
+      </div>
+      <p><strong>臨床觸診地標：</strong>測量血壓時常於前掌墊上方觸診固定血壓帶（對應掌側總指動脈）；橈神經、尺神經、正中神經分別支配前肢不同區域的皮膚感覺，評估周邊神經損傷時需依區域分布判讀。</p>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Thoracic limb (forelimb)》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- HINDLIMB -->
+    <div class="section" id="section-hindlimb">
+      <div class="section-head"><div class="section-num">5</div><h2>後肢骨骼 Pelvic Limb</h2></div>
+      <p class="section-desc">後肢由骨盆（pelvis）、股骨（femur）、脛骨與腓骨（tibia＋fibula）、後腳掌（tarsal、metatarsal、phalanges）組成，與前肢相比多了骨盆帶與軀幹形成真正的骨性連接（薦髂關節）。</p>
+
+      <h3>骨盆 Pelvis (Pelvic girdle)</h3>
+      <p>骨盆＝左右兩塊<strong>髖骨（hip bone, os coxae）</strong>，每塊髖骨由<strong>髂骨（ilium）＋坐骨（ischium）＋恥骨（pubis）</strong>（幼年期另有獨立的髖臼骨 acetabular bone）在髖臼處融合而成。骨盆腔（pelvic canal）具入口（inlet）與出口（outlet），其形狀與難產風險相關。</p>
+
+      <h3>髂骨 Ilium</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構造</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>髂嵴 Iliac crest</td><td>翼部背側緣</td></tr>
+            <tr><td>髂骨棘 Iliac spine</td><td>顱背側棘＋尾背側棘（合稱<strong>薦結節 tuber sacrale</strong>）、顱腹側棘</td></tr>
+            <tr><td>臀肌面 Gluteal surface</td><td>臀肌群附著的外側面</td></tr>
+            <tr><td>薦盆面 Sacropelvic surface</td><td>內含<strong>耳狀面（auricular surface）</strong>，與薦骨構成薦髂關節</td></tr>
+            <tr><td>外側緣 Lateral border／弓狀線 Arcuate line</td><td>翼部邊界</td></tr>
+            <tr><td>大坐骨切跡 Greater ischiatic notch</td><td>坐骨神經通過附近</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>坐骨 Ischium</h3>
+      <p>坐骨板（ischiatic table）、<strong>坐骨結節（ischiatic tuberosity）</strong>、坐骨弓（ischiatic arch）、骨盆聯合（symphysis pelvis）、小坐骨切跡（lesser ischiatic notch）、坐骨棘（ischiatic spine）。</p>
+
+      <h3>恥骨 Pubis</h3>
+      <p>髂恥隆起（iliopubic eminence）、恥骨結節（pubic tubercle）、恥骨櫛（pecten）、與坐骨共同參與骨盆聯合。</p>
+
+      <h3>髖臼與閉孔 Acetabulum &amp; Obturator Foramen</h3>
+      <p><strong>髖臼（acetabulum）</strong>由髂骨、坐骨、恥骨三骨共同構成的關節窩，關節面呈半月形（lunate surface），中央非關節面凹陷為<strong>髖臼窩（acetabular fossa）</strong>，邊緣缺口為<strong>髖臼切跡（acetabular notch）</strong>。<strong>閉孔（obturator foramen）</strong>由坐骨與恥骨圍成，供閉孔神經血管通過。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p><strong>內閉孔肌（internal obturator）</strong>起自骨盆聯合、坐骨與恥骨背側面，止於股骨轉子窩；在<strong>會陰疝（perineal hernia）</strong>修補手術中，常將此肌轉位（elevated）用來補強骨盆膈膜（levator ani 肌肉缺損處）。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/骨骼系統/hindlimb_p13.png" alt="骨盆管腔示意圖，標註髂骨、坐骨、恥骨、髖臼、閉孔">
+        <div class="figure-caption">骨盆腔（pelvic canal）組成示意：髂骨（Ilium）、坐骨（Ischium）、恥骨（Pubis）三骨在髖臼（Acetabulum）處融合，恥骨與坐骨圍成閉孔（Obturator foramen）。</div>
+        <div class="figure-source">來源：解剖學實習講義《Bones of the pelvic limb》</div>
+      </div>
+
+      <h3>髖關節疾病</h3>
+      <ul>
+        <li><strong>髖關節脫臼（hip luxation）</strong>：以<strong>顱背側脫位（craniodorsal displacement）</strong>最常見。</li>
+        <li><strong>髖關節發育不良（hip dysplasia）</strong>：髖臼過淺（shallow socket）合併股骨頭變形；<strong>Ortolani test</strong>是理學檢查方法，將股骨頭推入／推出髖臼、觸診「跳動感（clunk）」來評估關節鬆弛度。</li>
+        <li>嚴重病例治療之一為<strong>股骨頭頸切除術（Femoral Head and Neck Ostectomy, FHO）</strong>；手術入路需經臀肌，並須注意保護走行於附近的<strong>坐骨神經</strong>。</li>
+      </ul>
+
+      <h3>股骨 Femur</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構造</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>頭／頸 Head／Neck</td><td>與髖臼相關節</td></tr>
+            <tr><td>大轉子／小轉子／第三轉子 Greater／Lesser／Third trochanter</td><td>臀肌群、髂腰肌等附著</td></tr>
+            <tr><td>轉子窩 Trochanteric fossa</td><td>內閉孔肌等止點</td></tr>
+            <tr><td>轉子間嵴 Intertrochanteric crest</td><td>連接大、小轉子</td></tr>
+            <tr><td>滑車（髕面）Trochlea (patellar surface)</td><td>與髕骨相關節</td></tr>
+            <tr><td>內／外側髁 Medial／Lateral condyle</td><td>與脛骨相關節，構成股脛關節</td></tr>
+            <tr><td>內／外上髁 Medial／Lateral epicondyle</td><td>側副韌帶、腓腸肌附著</td></tr>
+            <tr><td>髁間窩 Intercondylar fossa</td><td>十字韌帶附著處</td></tr>
+            <tr><td>籽骨 Sesamoid bones</td><td>髕骨（patella，全身最大籽骨）；豆骨（fabella，位於腓腸肌內外側頭起點內）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>膝關節 Stifle Joint</h3>
+      <p><strong>脛骨（tibia）</strong>：內／外側髁、<strong>脛骨粗隆（tibial tuberosity，髕韌帶附著處）</strong>、顱側緣、髁間隆起（intercondylar eminence）、膕切跡（popliteal notch）、內踝（medial malleolus）、脛骨滑車（tibial cochlea，遠端與距骨相關節）。</p>
+      <p><strong>半月板（menisci）</strong>：內側與外側各一片纖維軟骨墊，位於股骨與脛骨關節面之間。</p>
+      <p><strong>十字韌帶</strong>：<strong>前十字韌帶（cranial cruciate ligament, CrCL）</strong>與<strong>後十字韌帶（caudal cruciate ligament, CaCL）</strong>分別附著於股骨髁間窩與脛骨髁間區，交叉穩定膝關節前後向移動。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告</div>
+        <p><strong>前十字韌帶斷裂（CrCL rupture）</strong>是犬最常見的後肢跛行原因之一。理學檢查：<strong>前抽屜試驗（cranial drawer test）</strong>（觸診脛骨相對股骨的異常前移）、<strong>脛骨壓迫試驗（tibial compression test）</strong>。手術治療之一為<strong>外側豆骨—脛骨縫合術（lateral fabella-tibial suture）</strong>，利用外側 fabella 作為錨點穩定關節。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>髕骨脫臼（patellar luxation）</strong>：內側脫臼（medial luxation）好發於小型／玩具犬種；外側脫臼（lateral luxation）相對常見於大型犬種與貓。理學檢查以伸展膝關節同時將髕骨向內／外側推動觸診脫位感。手術矯正原則包含加深股骨滑車溝（trochlear recession）與脛骨粗隆轉位（tibial tuberosity transposition）。</p>
+      </div>
+
+      <h3>腓骨 Fibula</h3>
+      <p>細長、<strong>不負重（non-weight-bearing）</strong>的骨頭，位於脛骨外側；近端<strong>腓骨頭（head of fibula）</strong>僅與脛骨相關節、<strong>不</strong>與股骨相關節；遠端形成<strong>外踝（lateral malleolus）</strong>。</p>
+
+      <h3>跗骨、蹠骨、趾骨 Tarsal, Metatarsal, Phalanges</h3>
+      <ul>
+        <li><strong>跗骨（tarsal bones）共7塊</strong>：<strong>跟骨（calcaneus）</strong>——含跟結節（tuber calcanei，即飛節頂點）與載距突（sustentaculum tali）；<strong>距骨（talus）</strong>——具滑車與脛骨滑車相關節；<strong>中央跗骨（central tarsal bone）</strong>；<strong>跗骨 I–IV</strong>。</li>
+        <li><strong>總跟腱（Achilles / common calcanean tendon）</strong>由腓腸肌、淺指屈肌與部分股二頭肌／半腱肌腱纖維共同構成，止於跟結節。</li>
+        <li><strong>蹠骨（metatarsal bones）</strong>通常為 II–V（I 常缺如，若存在則多為後肢懸爪）；<strong>趾骨（phalanges）</strong>構造與前肢相同。</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告</div>
+        <p><strong>跟腱斷裂：</strong>患肢無法維持飛節於正常離地姿勢，站立／行走時呈現特徵性的<strong>「蹠行（plantigrade）」步態</strong>，即跗關節塌陷貼近地面。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Bones of the pelvic limb》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">6</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度的整理，複習前可先快速掃過本節，找出自己不熟的部分再回對應章節細讀。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>方位術語與骨骼標記術語是共同語言</strong>：cranial/caudal、dorsal/ventral、medial/lateral、proximal/distal（四肢用語）先背熟；process/tubercle/tuberosity/trochanter/crest/fossa/foramen/notch/condyle/epicondyle/trochlea 這組構造詞彙會貫穿頭骨、脊柱、前後肢，理解字義比死背每塊骨頭的細節更有效率。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>犬的脊柱公式 C7 T13 L7 S3 Cd20–23</strong> 務必背熟，並理解 C7 缺乏橫突孔、C6 橫突特別寬大是X光辨識頸椎節數的地標；T11 是棘突方向轉換的「anticlinal vertebra」。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>寰椎（無棘突，具翼與關節凹）與樞椎（具齒突 dens）</strong>是特化頸椎的重點，寰樞關節不穩定是小型犬的重要臨床議題。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>肋椎關節</strong>由肋骨頭（與相鄰兩椎體肋凹相關節）＋肋骨結節（與橫突肋凹相關節）共同組成；R1–9 為真肋，R10–12 形成肋弓，R13 為游離肋。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>肩胛骨與軀幹沒有骨性連接</strong>，靠肌肉懸吊固定；鎖骨在犬貓已退化為臂頭肌肌腱內的小骨化中心。這是前肢骨骼章節最容易忽略但常考的觀念。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>肘關節發育不良（FCP、UAP）</strong>與<strong>髖關節發育不良／脫臼</strong>是四肢骨骼章節最重要的兩組臨床疾病，務必掌握對應的骨骼構造名稱（內側冠狀突、肘突／髖臼、股骨頭）與理學檢查方法（Ortolani test）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>膝關節（stifle）</strong>是後肢骨骼臨床重點區域：十字韌帶斷裂（前抽屜試驗、脛骨壓迫試驗）與髕骨脫臼（內側／外側，好發品種不同）是犬跛行最常見的兩大骨科疾病。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>腕骨7塊、跗骨7塊</strong>的組成（近列/遠列 vs 跟骨/距骨/中央跗骨/跗骨I–IV）容易混淆，建議搭配圖片反覆對照記憶。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>臨床操作定位地標</strong>是實用性很高的內容：腰薦間隙（L7–S1，靠髂嵴連線與L7棘突定位）用於腰椎穿刺／硬膜外麻醉；寰枕間隙用於腦脊髓液採集；掌／蹠墊上的動脈用於血壓測量。</div></div>
+      <div class="step"><div class="step-num">10</div><div class="step-text"><strong>髕骨是全身最大籽骨</strong>，位於股四頭肌腱內；fabella（豆骨）位於腓腸肌起點內，兩者都是後肢骨骼影像判讀時容易誤認為病灶（如游離骨片）的正常構造，需特別熟悉其正常位置。</div></div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Skeleton of the head part1／part2》《Vertebral column》《Bones of the pelvic limb》《Thoracic limb (forelimb)》，以及上課講義《112-1-06 The head anatomy》。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">7</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋總論、頭骨、脊柱、前肢、後肢各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念請回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q1. 犬的脊柱公式為 C7 T13 L7 S3 Cd20–23，其中尾椎的實際節數在不同個體間可能有差異。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">尾椎（caudal vertebrae）數量個體差異較大，一般以約20–23節表示，其餘頸、胸、腰、薦椎節數則相對固定。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 寰椎（atlas, C1）具有明顯高聳的棘突，是頸椎中最容易在觸診上辨認的特徵。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">寰椎形態特殊，並無明顯椎體與棘突；具有高聳棘突與齒突（dens）特徵的是樞椎（axis, C2）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 樞椎（axis, C2）最具特色的構造是？</div>
+        <ul class="quiz-options">
+          <li>(A) 翼（wing）</li>
+          <li>(B) 齒突（dens）</li>
+          <li>(C) 副突（accessory process）</li>
+          <li>(D) 肋凹（costal fovea）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">齒突（dens）插入寰椎腹側，作為寰椎旋轉的軸心，是樞椎最具代表性的構造；翼是寰椎的橫突。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 第11胸椎（T11）在脊柱上具有特殊意義，因為？</div>
+        <ul class="quiz-options">
+          <li>(A) 是體積最大的胸椎</li>
+          <li>(B) 棘突方向在此由尾側轉為顱側，稱為「anticlinal vertebra」</li>
+          <li>(C) 是唯一缺乏肋骨附著的胸椎</li>
+          <li>(D) 是薦椎融合的起始節</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">胸椎棘突方向由尾側逐漸轉為顱側，於T11翻轉，此節稱為 anticlinal vertebra（臨界椎），是X光判讀計數椎骨節數的重要地標。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 犬貓的肩胛骨與軀幹之間，是透過真正的骨性關節相連接。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">肩胛骨與軀幹之間並無骨性連接，完全依賴肌肉（如前鋸肌、斜方肌）懸吊固定，此結構在承重、著地時可提供避震效果。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 犬貓的鎖骨（clavicle）在骨骼型態上的描述，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 完整連接肩胛骨與胸骨的一根長骨</li>
+          <li>(B) 已高度退化，僅存於臂頭肌（brachiocephalicus）肌腱內的小骨化中心，不構成真正關節</li>
+          <li>(C) 已完全消失，X光完全看不到任何痕跡</li>
+          <li>(D) 與人類相同，呈完整S形長骨並與胸骨形成胸鎖關節</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">犬貓鎖骨高度退化，僅剩包埋在臂頭肌肌腱內的小骨化中心，X光可見游離小骨影，但不構成真正的關節。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q7. 肱骨近端的「大結節（greater tubercle）」與「小結節（lesser tubercle）」之間有一個重要溝槽構造，請說明其名稱與功能意義。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">此構造為「結節間溝（intertubercular groove，又稱 bicipital groove）」，肱二頭肌（biceps brachii）的肌腱由此通過，是評估前肢跛行時（如二頭肌腱炎）常需觸診的解剖位置。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 犬前肢的腕骨（carpal bones）共有幾塊？</div>
+        <ul class="quiz-options">
+          <li>(A) 5 塊</li>
+          <li>(B) 6 塊</li>
+          <li>(C) 7 塊</li>
+          <li>(D) 8 塊</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">近列3塊（橈腕骨、尺腕骨、副腕骨）＋遠列4塊（腕骨I–IV），共7塊。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 髕骨（patella）是全身最大的籽骨（sesamoid bone），位於股四頭肌肌腱內。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">髕骨是全身最大的籽骨，包埋在股四頭肌腱（延續為髕韌帶）內，並與股骨滑車相關節。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 懷疑犬有前十字韌帶（cranial cruciate ligament）斷裂時，下列哪組理學檢查最適合用來評估？</div>
+        <ul class="quiz-options">
+          <li>(A) 前抽屜試驗（cranial drawer test）與脛骨壓迫試驗（tibial compression test）</li>
+          <li>(B) Ortolani test</li>
+          <li>(C) 髖關節外展試驗</li>
+          <li>(D) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">前抽屜試驗與脛骨壓迫試驗是評估前十字韌帶斷裂的兩種標準理學檢查方法；Ortolani test 則是用於評估髖關節發育不良／鬆弛。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. 請說明犬「內側髕骨脫臼」與「外側髕骨脫臼」在好發族群上的差異，以及基本理學檢查的觸診方向。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">內側脫臼（medial luxation）好發於小型／玩具犬種；外側脫臼（lateral luxation）相對常見於大型犬種與貓。理學檢查方式是在伸展膝關節的同時，將髕骨分別向內側或外側推動，觸診是否有髕骨脫離股骨滑車溝的「跳出」感。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q12. 犬後肢的跗骨（tarsal bones）共有幾塊？</div>
+        <ul class="quiz-options">
+          <li>(A) 5 塊</li>
+          <li>(B) 6 塊</li>
+          <li>(C) 7 塊</li>
+          <li>(D) 8 塊</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">跟骨（calcaneus）、距骨（talus）、中央跗骨（central tarsal bone）、跗骨I–IV，共7塊，與腕骨數量相同。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q13. 總跟腱（Achilles tendon）斷裂後，患肢會呈現「蹠行（plantigrade）」步態，跗關節塌陷貼近地面。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">總跟腱由腓腸肌、淺指屈肌等共同構成並止於跟結節，斷裂後患肢無法維持飛節正常離地姿勢，出現特徵性的蹠行步態。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q14. 進行腰椎穿刺（lumbar puncture）或硬膜外麻醉時，常選擇「腰薦間隙（L7–S1）」作為進針點，請說明其體表解剖定位標誌。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">體表定位標誌為兩側髂骨翼（iliac crest）連線的中點，配合觸診第7腰椎（L7）的棘突，其尾側即為腰薦間隙；此處空間相對寬大且脊髓終末端位置更靠顱側，操作風險較低。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+    <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  overview: '骨骼系統總論',
+  skull: '頭骨',
+  vertebral: '脊柱與胸廓',
+  forelimb: '前肢骨骼',
+  hindlimb: '後肢骨骼',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

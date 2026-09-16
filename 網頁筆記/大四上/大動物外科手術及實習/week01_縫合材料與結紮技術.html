@@ -3,465 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>大動物外科：縫合材料、縫針與結紮技術</title>
-<style>
-  /* ── DESIGN TOKENS ── */
-  :root {
-    --bg:        #f5f6f8;
-    --bg2:       #ffffff;
-    --bg3:       #f0f2f5;
-    --bg4:       #e8ebf0;
-    --border:    #dde1e9;
-    --border2:   #c8cdd8;
-    --text:      #111827;
-    --text2:     #374151;
-    --text3:     #6b7280;
-    --text4:     #9ca3af;
-    --accent:    #1d6fa4;
-    --accent-bg: #e8f2fa;
-    --accent-lt: #3b8fd1;
-    --green:     #0e7a4a;
-    --green-bg:  #e6f5ee;
-    --amber:     #92520e;
-    --amber-bg:  #fdf3e3;
-    --red:       #b91c1c;
-    --red-bg:    #fef2f2;
-    --purple:    #5b21b6;
-    --purple-bg: #f0edfb;
-    --nav-w:     220px;
-    --header-h:  56px;
-    --radius:    8px;
-    --shadow:    0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
-  }
-  [data-theme="dark"] {
-    --bg:        #0d1117;
-    --bg2:       #161b22;
-    --bg3:       #1c2230;
-    --bg4:       #232c3d;
-    --border:    #2a3347;
-    --border2:   #3a4a63;
-    --text:      #e6edf3;
-    --text2:     #b0bec9;
-    --text3:     #7a8fa6;
-    --text4:     #4e6070;
-    --accent:    #58a6ff;
-    --accent-bg: #162032;
-    --accent-lt: #79bbff;
-    --green:     #3ecf8e;
-    --green-bg:  #0d2d1f;
-    --amber:     #f0a940;
-    --amber-bg:  #2a1f0c;
-    --red:       #f87171;
-    --red-bg:    #2d1212;
-    --purple:    #a78bfa;
-    --purple-bg: #1e1535;
-    --shadow:    0 1px 3px rgba(0,0,0,.4);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 13.5px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  header {
-    height: var(--header-h);
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    box-shadow: var(--shadow);
-  }
-  .header-brand { display: flex; flex-direction: column; }
-  .header-brand h1 { font-size: 15px; font-weight: 700; color: var(--text); letter-spacing: -0.2px; }
-  .header-brand .subtitle { font-size: 11px; color: var(--text3); margin-top: 1px; }
-  .badge {
-    background: var(--accent);
-    color: #fff;
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 20px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-  .header-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
-
-  .search-wrap { position: relative; }
-  .search-wrap input {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 6px 12px 6px 30px;
-    border-radius: var(--radius);
-    font-size: 12.5px;
-    width: 220px;
-    outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .search-wrap input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent); }
-  .search-wrap input::placeholder { color: var(--text4); }
-  .search-icon { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 12px; pointer-events: none; }
-  .search-wrap input.has-results { border-radius: var(--radius) var(--radius) 0 0; border-bottom-color: transparent; }
-
-  .search-results {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 380px;
-    max-height: 420px;
-    overflow-y: auto;
-    background: var(--bg2);
-    border: 1px solid var(--accent);
-    border-top: none;
-    border-radius: 0 0 var(--radius) var(--radius);
-    box-shadow: 0 8px 24px rgba(0,0,0,.15);
-    z-index: 300;
-  }
-  .search-results.open { display: block; }
-  .sr-header {
-    padding: 8px 12px 5px;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--text3);
-    background: var(--bg3);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-  }
-  .sr-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: background 0.1s;
-  }
-  .sr-item:last-child { border-bottom: none; }
-  .sr-item:hover { background: var(--bg3); }
-  .sr-section { font-size: 10px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-  .sr-text { font-size: 12.5px; color: var(--text2); line-height: 1.5; }
-  .sr-text mark { background: color-mix(in srgb, var(--amber) 25%, transparent); color: var(--amber); border-radius: 2px; padding: 0 2px; font-weight: 700; }
-  .sr-empty { padding: 16px 12px; font-size: 13px; color: var(--text3); text-align: center; }
-  .sr-count { padding: 6px 12px; font-size: 11px; color: var(--text3); background: var(--bg3); border-top: 1px solid var(--border); text-align: right; position: sticky; bottom: 0; }
-
-  .theme-btn {
-    width: 32px; height: 32px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--bg3);
-    color: var(--text2);
-    font-size: 15px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .theme-btn:hover { background: var(--bg4); border-color: var(--border2); }
-
-  .container { display: flex; height: calc(100vh - var(--header-h)); }
-
-  nav {
-    width: var(--nav-w);
-    background: var(--bg2);
-    border-right: 1px solid var(--border);
-    padding: 10px 0 16px;
-    flex-shrink: 0;
-    overflow-y: auto;
-  }
-  nav .section-label {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--text3);
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-    padding: 12px 16px 5px;
-  }
-  nav a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 16px 7px 14px;
-    color: var(--text3);
-    text-decoration: none;
-    font-size: 12.5px;
-    cursor: pointer;
-    border-left: 2.5px solid transparent;
-    border-radius: 0 6px 6px 0;
-    margin: 1px 8px 1px 0;
-    transition: all 0.12s;
-  }
-  nav a:hover { background: var(--bg3); color: var(--text2); border-left-color: var(--border2); }
-  nav a.active { background: var(--accent-bg); color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
-  nav a .nav-icon { font-size: 13px; width: 16px; text-align: center; flex-shrink: 0; }
-
-  main { flex: 1; overflow-y: auto; padding: 24px 28px; max-width: 1100px; }
-  .section { display: none; }
-  .section.active { display: block; animation: fadeIn 0.18s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-
-  h2 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 4px; letter-spacing: -0.3px; }
-  h3 { font-size: 13px; font-weight: 700; color: var(--text2); margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.6px; }
-  h4 { font-size: 12.5px; font-weight: 600; color: var(--text2); margin: 14px 0 6px; }
-  p { color: var(--text2); margin-bottom: 8px; font-size: 13px; }
-  .section-desc { color: var(--text3); font-size: 12.5px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px; line-height: 1.7; }
-  ul, ol { color: var(--text2); font-size: 13px; padding-left: 18px; }
-  li { margin-bottom: 4px; }
-  li strong { color: var(--text); }
-
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px;
-    margin-bottom: 14px;
-    box-shadow: var(--shadow);
-  }
-  .card-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-
-  .table-wrap {
-    overflow-x: auto;
-    margin: 6px 0 14px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-  }
-  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  thead tr { background: var(--bg3); }
-  th {
-    color: var(--text3);
-    font-weight: 700;
-    text-align: left;
-    padding: 8px 12px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    white-space: nowrap;
-    border-bottom: 1px solid var(--border);
-  }
-  td {
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text2);
-    vertical-align: top;
-    line-height: 1.55;
-  }
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:hover td { background: var(--bg3); }
-  td strong { color: var(--text); font-weight: 600; }
-
-  .drug-name { color: var(--accent); font-weight: 700; }
-  .dose {
-    display: inline-block;
-    color: var(--green);
-    font-family: 'SF Mono', 'Cascadia Code', monospace;
-    font-size: 11.5px;
-    background: var(--green-bg);
-    padding: 1px 6px;
-    border-radius: 4px;
-    border: 1px solid color-mix(in srgb, var(--green) 25%, transparent);
-    line-height: 1.7;
-  }
-  .route {
-    display: inline-block;
-    color: var(--amber);
-    font-size: 11px;
-    background: var(--amber-bg);
-    padding: 1px 6px;
-    border-radius: 4px;
-    border: 1px solid color-mix(in srgb, var(--amber) 25%, transparent);
-    font-weight: 700;
-    letter-spacing: 0.3px;
-  }
-
-  .alert {
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    margin: 10px 0;
-    font-size: 12.5px;
-    display: flex;
-    gap: 8px;
-    line-height: 1.6;
-    border-width: 1px;
-    border-style: solid;
-  }
-  .alert-icon { flex-shrink: 0; margin-top: 1px; }
-  .alert-warn  { background: var(--amber-bg);  border-color: color-mix(in srgb, var(--amber) 35%, transparent);  color: var(--amber); }
-  .alert-danger{ background: var(--red-bg);    border-color: color-mix(in srgb, var(--red) 30%, transparent);    color: var(--red); }
-  .alert-info  { background: var(--accent-bg); border-color: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--accent); }
-  .alert-success{background: var(--green-bg);  border-color: color-mix(in srgb, var(--green) 30%, transparent);  color: var(--green); }
-
-  .tag { display: inline-block; font-size: 10.5px; padding: 2px 7px; border-radius: 20px; font-weight: 600; margin: 1px; letter-spacing: 0.2px; }
-  .tag-cattle { background: var(--accent-bg); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); }
-  .tag-horse  { background: var(--purple-bg); color: var(--purple); border: 1px solid color-mix(in srgb, var(--purple) 25%, transparent); }
-  .tag-small  { background: var(--green-bg);  color: var(--green);  border: 1px solid color-mix(in srgb, var(--green) 25%, transparent); }
-  .tag-exam   { background: var(--red-bg);    color: var(--red);    border: 1px solid color-mix(in srgb, var(--red) 25%, transparent); }
-
-  .ref-normal { color: var(--green); font-weight: 700; }
-  .ref-warn   { color: var(--amber); font-weight: 700; }
-  .ref-danger { color: var(--red);   font-weight: 700; }
-
-  .pill-tabs { display: flex; gap: 5px; margin-bottom: 16px; flex-wrap: wrap; }
-  .pill-tab {
-    padding: 5px 13px;
-    border-radius: 20px;
-    font-size: 12px;
-    cursor: pointer;
-    border: 1px solid var(--border);
-    background: var(--bg2);
-    color: var(--text3);
-    transition: all 0.12s;
-    font-weight: 500;
-  }
-  .pill-tab:hover { background: var(--bg3); color: var(--text2); border-color: var(--border2); }
-  .pill-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; box-shadow: 0 1px 4px color-mix(in srgb, var(--accent) 40%, transparent); }
-
-  .step {
-    display: flex;
-    gap: 12px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    padding: 11px 14px;
-    margin-bottom: 8px;
-    box-shadow: var(--shadow);
-  }
-  .step-num {
-    flex-shrink: 0;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 1px;
-  }
-  .step-text { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
-  .step-text strong { color: var(--text); }
-
-  .flow {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    box-shadow: var(--shadow);
-    margin: 10px 0 14px;
-  }
-  .flow-node {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 12px;
-    color: var(--text);
-    font-weight: 600;
-  }
-  .flow-node.danger { background: var(--red-bg); color: var(--red); border-color: color-mix(in srgb, var(--red) 30%, transparent); }
-  .flow-arrow { color: var(--text4); font-size: 13px; }
-
-  /* ── QUIZ / 練習題 ── */
-  .quiz-item {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    margin-bottom: 12px;
-    box-shadow: var(--shadow);
-  }
-  .quiz-type {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 20px;
-    letter-spacing: .3px;
-    margin-bottom: 8px;
-  }
-  .quiz-type-tf   { background: var(--accent-bg); color: var(--accent); }
-  .quiz-type-mcq  { background: var(--purple-bg); color: var(--purple); }
-  .quiz-type-saq  { background: var(--amber-bg);  color: var(--amber); }
-  .quiz-q { font-size: 13px; color: var(--text); font-weight: 600; margin-bottom: 8px; line-height: 1.6; }
-  .quiz-options { list-style: none; padding: 0; margin: 0 0 8px; }
-  .quiz-options li { font-size: 12.5px; color: var(--text2); padding: 3px 0 3px 4px; margin-bottom: 0; }
-  .quiz-reveal { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 12.5px; }
-  .quiz-reveal summary { cursor: pointer; font-weight: 700; color: var(--accent); list-style: none; }
-  .quiz-reveal summary::-webkit-details-marker { display: none; }
-  .quiz-reveal summary::before { content: "▸ 顯示答案"; }
-  .quiz-reveal[open] summary::before { content: "▾ 隱藏答案"; }
-  .quiz-reveal[open] summary { margin-bottom: 8px; }
-  .quiz-answer { font-weight: 700; margin-bottom: 4px; }
-  .quiz-answer.correct { color: var(--green); }
-  .quiz-answer.false { color: var(--red); }
-  .quiz-explain { color: var(--text2); line-height: 1.6; margin: 0; }
-
-  mark { background: color-mix(in srgb, var(--amber) 30%, transparent); color: var(--amber); border-radius: 2px; padding: 0 1px; }
-
-  ::-webkit-scrollbar { width: 5px; height: 5px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
-
-  .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
-
-  footer.note-footer {
-    margin-top: 24px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border);
-    font-size: 11px;
-    color: var(--text4);
-    line-height: 1.7;
-  }
-
-  @media (max-width: 720px) {
-    nav { display: none; }
-    main { padding: 16px; }
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    .search-wrap input { width: 140px; }
-  }
-</style>
+<title>大動物外科：縫合材料、縫針與結紮技術 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
 </head>
-<body>
+<body class="ah">
 
 <header>
-  <div class="header-brand">
-    <h1>大動物外科：縫合材料、縫針與結紮技術</h1>
-    <div class="subtitle">Suture Materials, Needle, Knots and Ligatures · 實習講義</div>
-  </div>
-  <span class="badge">實習講義筆記</span>
+  <a class="header-brand" href="../../index.html">
+    <h1>上群 網頁筆記</h1>
+    <div class="subtitle">DVM Course Notes · 大三／大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四上"></div>
   <div class="header-right">
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="搜尋筆記內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
       <div id="searchResults" class="search-results"></div>
     </div>
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
   </div>
 </header>
+<div class="nav-panel" id="navPanel"></div>
 
-<div class="container">
-  <nav>
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">大動物外科手術及實習</a><span class="sep">›</span><span class="current">第 1 週・縫合材料與結紮技術（實習）</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">縫合材料、縫針與結紮技術</h1>
+      <p class="page-subtitle">Suture Materials, Needle, Knots and Ligatures · 實習講義</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">大動物外科手術及實習（大四上・第1週・實習）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》第 1 週實習講義〈Suture materials, needle, knots and ligatures〉（Yu Pin-Huan, NTU）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
     <div class="section-label">總覽</div>
     <a class="active" onclick="showSection('overview')" id="nav-overview">
       <span class="nav-icon">🧵</span> 縫線材質總論
@@ -496,17 +80,11 @@
     </a>
   </nav>
 
-  <main id="mainContent">
-
-    <div class="breadcrumb" style="font-size:11.5px;color:var(--text3);margin-bottom:16px;">
-      <a href="../../index.html" style="color:var(--accent);text-decoration:none;">網頁筆記首頁</a> ›
-      <a href="index.html" style="color:var(--accent);text-decoration:none;">大動物外科手術及實習</a> ›
-      <span>第 1 週・縫合材料與結紮技術（實習）</span>
-    </div>
+  <main class="pagebody" id="mainContent">
 
     <!-- OVERVIEW -->
-    <div class="section active" id="section-overview">
-      <h2>縫線材質總論</h2>
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>縫線材質總論</h2></div>
       <p class="section-desc">本份為第 1 週實習講義〈Suture materials, needle, knots and ligatures〉整理，聚焦於縫線材質、縫合針、縫合模式的選擇邏輯，與課堂講義〈術前考量與麻醉〉互為當週的理論／實作兩份文件。</p>
 
       <h3>理想縫線的特性</h3>
@@ -541,7 +119,7 @@
 
     <!-- STRUCTURE -->
     <div class="section" id="section-structure">
-      <h2>縫線結構 Suture Structure</h2>
+      <div class="section-head"><div class="section-num">2</div><h2>縫線結構 Suture Structure</h2></div>
       <p class="section-desc">依線材的物理結構分為多股（multifilament）與單股（monofilament），兩者在細菌親和性與組織拖曳感上有明顯差異。</p>
 
       <div class="grid-2">
@@ -549,16 +127,16 @@
           <div class="card-title">Multifilament 多股線</div>
           <p>由多股細絲<strong>絞合（twisted）</strong>或<strong>編織（braided）</strong>而成。</p>
           <div class="alert alert-warn">
-            <span class="alert-icon">⚠️</span>
-            <span>股與股之間的縫隙容易<strong>藏匿細菌</strong>，可能加重感染（harbor bacteria and potentiate infection）。</span>
+            <div class="alert-label">注意</div>
+            <p>股與股之間的縫隙容易<strong>藏匿細菌</strong>，可能加重感染（harbor bacteria and potentiate infection）。</p>
           </div>
         </div>
         <div class="card">
           <div class="card-title">Monofilament 單股線</div>
           <p>通常為<strong>合成材質</strong>，線體本身為單一實心纖維。</p>
           <div class="alert alert-success">
-            <span class="alert-icon">✅</span>
-            <span>組織反應較小、毛細作用（capillarity）較低，較不利細菌沿線體擴散。</span>
+            <div class="alert-label">重點</div>
+            <p>組織反應較小、毛細作用（capillarity）較低，較不利細菌沿線體擴散。</p>
           </div>
         </div>
       </div>
@@ -566,7 +144,7 @@
 
     <!-- MATERIALS TABLE -->
     <div class="section" id="section-materials">
-      <h2>縫線材質比較表</h2>
+      <div class="section-head"><div class="section-num">3</div><h2>縫線材質比較表</h2></div>
       <p class="section-desc">臨床常見縫線材質的成分、特性與優缺點比較，是選擇縫線的核心依據。</p>
 
       <div class="table-wrap">
@@ -629,7 +207,7 @@
 
     <!-- CHOICE -->
     <div class="section" id="section-choice">
-      <h2>縫線的選擇 Choice of Suture Material</h2>
+      <div class="section-head"><div class="section-num">4</div><h2>縫線的選擇 Choice of Suture Material</h2></div>
       <p class="section-desc">選擇縫線並非單看材質優劣，而是綜合手術者經驗、組織癒合特性、動物個體因素與傷口情境的整體判斷。</p>
 
       <h3>基本考量因子</h3>
@@ -645,8 +223,8 @@
 
       <h3>結晶尿（Crystalloid）存在的部位</h3>
       <div class="alert alert-warn">
-        <span class="alert-icon">⚠️</span>
-        <span><strong>膀胱（bladder）</strong>手術須留意——某些縫線材質可能成為<strong>尿路結石（urinary calculus）</strong>形成的核心，選線時需特別考量。</span>
+        <div class="alert-label">注意</div>
+        <p><strong>膀胱（bladder）</strong>手術須留意——某些縫線材質可能成為<strong>尿路結石（urinary calculus）</strong>形成的核心，選線時需特別考量。</p>
       </div>
 
       <h3>感染傷口（Infected wound）</h3>
@@ -658,7 +236,7 @@
 
     <!-- SIZE -->
     <div class="section" id="section-size">
-      <h2>縫線尺寸 Size Does Matter</h2>
+      <div class="section-head"><div class="section-num">5</div><h2>縫線尺寸 Size Does Matter</h2></div>
       <p class="section-desc">縫線尺寸的選擇原則：夠用就好，越細越好。</p>
 
       <div class="card">
@@ -683,12 +261,12 @@
           </tbody>
         </table>
       </div>
-      <p style="font-size:11.5px;color:var(--text3);">※ 傳統系統（traditional system）號數越多「0」，代表線徑越細；數字（如 2、1）越大代表線徑越粗。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 傳統系統（traditional system）號數越多「0」，代表線徑越細；數字（如 2、1）越大代表線徑越粗。</p>
     </div>
 
     <!-- NEEDLE -->
     <div class="section" id="section-needle">
-      <h2>縫合針 Needles</h2>
+      <div class="section-head"><div class="section-num">6</div><h2>縫合針 Needles</h2></div>
       <p class="section-desc">縫合針的選擇同樣要對應組織種類：質地堅韌的皮膚需要能切割的針尖，脆弱的內臟組織則需要能撥開而非切割的針尖。</p>
 
       <h3>理想縫合針特性</h3>
@@ -729,7 +307,7 @@
 
     <!-- LABEL -->
     <div class="section" id="section-label">
-      <h2>判讀縫線包裝標示</h2>
+      <div class="section-head"><div class="section-num">7</div><h2>判讀縫線包裝標示</h2></div>
       <p class="section-desc">臨床取用縫線前，務必核對包裝上的完整標示，避免拿錯材質、尺寸或針型。以 Vicryl Rapide 2-0 包裝為例：</p>
 
       <div class="table-wrap">
@@ -746,14 +324,14 @@
         </table>
       </div>
       <div class="alert alert-info">
-        <span class="alert-icon">ℹ️</span>
-        <span>包裝上同時會標示縫線長度（如 36"／90 cm）、是否染色（undyed）、滅菌狀態（sterile）與批號效期，取用前建議養成核對習慣。</span>
+        <div class="alert-label">補充</div>
+        <p>包裝上同時會標示縫線長度（如 36"／90 cm）、是否染色（undyed）、滅菌狀態（sterile）與批號效期，取用前建議養成核對習慣。</p>
       </div>
     </div>
 
     <!-- PATTERNS -->
     <div class="section" id="section-patterns">
-      <h2>縫合模式 Suture Patterns</h2>
+      <div class="section-head"><div class="section-num">8</div><h2>縫合模式 Suture Patterns</h2></div>
       <p class="section-desc">依傷口部位、張力需求與組織特性選擇適合的縫合模式，是縫合技術的核心判斷。</p>
 
       <h3>單純縫合（Simple Patterns）</h3>
@@ -829,7 +407,7 @@
 
     <!-- QUIZ -->
     <div class="section" id="section-quiz">
-      <h2>練習題 Practice Quiz</h2>
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
       <p class="section-desc">涵蓋縫線材質、縫合針與縫合模式重點，先自己作答再點「顯示答案」核對。</p>
 
       <div class="quiz-item">
@@ -941,31 +519,32 @@
 </div>
 
 <script>
-// ── THEME ──
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
 function toggleTheme() {
-  const html = document.documentElement;
-  const btn = document.getElementById('themeBtn');
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
   const isDark = html.getAttribute('data-theme') === 'dark';
   html.setAttribute('data-theme', isDark ? 'light' : 'dark');
   btn.textContent = isDark ? '🌙' : '☀️';
   localStorage.setItem('theme', isDark ? 'light' : 'dark');
 }
-(function() {
-  const saved = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', saved);
-  const btn = document.getElementById('themeBtn');
-  if (btn) btn.textContent = saved === 'dark' ? '☀️' : '🌙';
-})();
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
 
-// ── NAV ──
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-  document.getElementById('section-' + id).classList.add('active');
-  document.getElementById('nav-' + id).classList.add('active');
-}
-
-// 支援從總覽首頁的跨頁搜尋結果連結（例如 ...html#section-needle）直接跳到對應分節
 document.addEventListener('DOMContentLoaded', function () {
   if (location.hash && location.hash.indexOf('#section-') === 0) {
     const id = location.hash.replace('#section-', '');
@@ -973,7 +552,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// ── GLOBAL SEARCH ──
 const SECTION_NAMES = {
   overview: '縫線材質總論',
   structure: '縫線結構',
@@ -986,10 +564,8 @@ const SECTION_NAMES = {
   quiz: '練習題'
 };
 
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.search-wrap')) {
-    closeSearch();
-  }
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
 });
 
 function closeSearch() {
@@ -1002,11 +578,7 @@ function doSearch(q) {
   const input = document.getElementById('searchInput');
   q = q.trim();
 
-  if (!q) {
-    closeSearch();
-    resultsBox.innerHTML = '';
-    return;
-  }
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
 
   const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
   const results = [];
@@ -1015,20 +587,19 @@ function doSearch(q) {
     const sectionId = section.id.replace('section-', '');
     const sectionName = SECTION_NAMES[sectionId] || sectionId;
 
-    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain').forEach(el => {
-      if (!el.closest('script') && !el.closest('style')) {
-        const text = el.textContent.trim();
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
         reg.lastIndex = 0;
-        if (text && reg.test(text)) {
-          reg.lastIndex = 0;
-          const idx = text.search(reg);
-          const start = Math.max(0, idx - 30);
-          const end = Math.min(text.length, idx + 60);
-          let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
-          snippet = snippet.replace(reg, '<mark>$1</mark>');
-          results.push({ sectionId, sectionName, snippet });
-          reg.lastIndex = 0;
-        }
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
       }
     });
   });
@@ -1062,6 +633,11 @@ function doSearch(q) {
   resultsBox.classList.add('open');
   input.classList.add('has-results');
 }
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
 </script>
 
 </body>

@@ -3,465 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>大動物外科：術前考量與麻醉</title>
-<style>
-  /* ── DESIGN TOKENS ── */
-  :root {
-    --bg:        #f5f6f8;
-    --bg2:       #ffffff;
-    --bg3:       #f0f2f5;
-    --bg4:       #e8ebf0;
-    --border:    #dde1e9;
-    --border2:   #c8cdd8;
-    --text:      #111827;
-    --text2:     #374151;
-    --text3:     #6b7280;
-    --text4:     #9ca3af;
-    --accent:    #1d6fa4;
-    --accent-bg: #e8f2fa;
-    --accent-lt: #3b8fd1;
-    --green:     #0e7a4a;
-    --green-bg:  #e6f5ee;
-    --amber:     #92520e;
-    --amber-bg:  #fdf3e3;
-    --red:       #b91c1c;
-    --red-bg:    #fef2f2;
-    --purple:    #5b21b6;
-    --purple-bg: #f0edfb;
-    --nav-w:     220px;
-    --header-h:  56px;
-    --radius:    8px;
-    --shadow:    0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
-  }
-  [data-theme="dark"] {
-    --bg:        #0d1117;
-    --bg2:       #161b22;
-    --bg3:       #1c2230;
-    --bg4:       #232c3d;
-    --border:    #2a3347;
-    --border2:   #3a4a63;
-    --text:      #e6edf3;
-    --text2:     #b0bec9;
-    --text3:     #7a8fa6;
-    --text4:     #4e6070;
-    --accent:    #58a6ff;
-    --accent-bg: #162032;
-    --accent-lt: #79bbff;
-    --green:     #3ecf8e;
-    --green-bg:  #0d2d1f;
-    --amber:     #f0a940;
-    --amber-bg:  #2a1f0c;
-    --red:       #f87171;
-    --red-bg:    #2d1212;
-    --purple:    #a78bfa;
-    --purple-bg: #1e1535;
-    --shadow:    0 1px 3px rgba(0,0,0,.4);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 13.5px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  header {
-    height: var(--header-h);
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    box-shadow: var(--shadow);
-  }
-  .header-brand { display: flex; flex-direction: column; }
-  .header-brand h1 { font-size: 15px; font-weight: 700; color: var(--text); letter-spacing: -0.2px; }
-  .header-brand .subtitle { font-size: 11px; color: var(--text3); margin-top: 1px; }
-  .badge {
-    background: var(--accent);
-    color: #fff;
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 20px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-  .header-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
-
-  .search-wrap { position: relative; }
-  .search-wrap input {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 6px 12px 6px 30px;
-    border-radius: var(--radius);
-    font-size: 12.5px;
-    width: 220px;
-    outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .search-wrap input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent); }
-  .search-wrap input::placeholder { color: var(--text4); }
-  .search-icon { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 12px; pointer-events: none; }
-  .search-wrap input.has-results { border-radius: var(--radius) var(--radius) 0 0; border-bottom-color: transparent; }
-
-  .search-results {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 380px;
-    max-height: 420px;
-    overflow-y: auto;
-    background: var(--bg2);
-    border: 1px solid var(--accent);
-    border-top: none;
-    border-radius: 0 0 var(--radius) var(--radius);
-    box-shadow: 0 8px 24px rgba(0,0,0,.15);
-    z-index: 300;
-  }
-  .search-results.open { display: block; }
-  .sr-header {
-    padding: 8px 12px 5px;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--text3);
-    background: var(--bg3);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-  }
-  .sr-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: background 0.1s;
-  }
-  .sr-item:last-child { border-bottom: none; }
-  .sr-item:hover { background: var(--bg3); }
-  .sr-section { font-size: 10px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-  .sr-text { font-size: 12.5px; color: var(--text2); line-height: 1.5; }
-  .sr-text mark { background: color-mix(in srgb, var(--amber) 25%, transparent); color: var(--amber); border-radius: 2px; padding: 0 2px; font-weight: 700; }
-  .sr-empty { padding: 16px 12px; font-size: 13px; color: var(--text3); text-align: center; }
-  .sr-count { padding: 6px 12px; font-size: 11px; color: var(--text3); background: var(--bg3); border-top: 1px solid var(--border); text-align: right; position: sticky; bottom: 0; }
-
-  .theme-btn {
-    width: 32px; height: 32px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--bg3);
-    color: var(--text2);
-    font-size: 15px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .theme-btn:hover { background: var(--bg4); border-color: var(--border2); }
-
-  .container { display: flex; height: calc(100vh - var(--header-h)); }
-
-  nav {
-    width: var(--nav-w);
-    background: var(--bg2);
-    border-right: 1px solid var(--border);
-    padding: 10px 0 16px;
-    flex-shrink: 0;
-    overflow-y: auto;
-  }
-  nav .section-label {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--text3);
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-    padding: 12px 16px 5px;
-  }
-  nav a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 16px 7px 14px;
-    color: var(--text3);
-    text-decoration: none;
-    font-size: 12.5px;
-    cursor: pointer;
-    border-left: 2.5px solid transparent;
-    border-radius: 0 6px 6px 0;
-    margin: 1px 8px 1px 0;
-    transition: all 0.12s;
-  }
-  nav a:hover { background: var(--bg3); color: var(--text2); border-left-color: var(--border2); }
-  nav a.active { background: var(--accent-bg); color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
-  nav a .nav-icon { font-size: 13px; width: 16px; text-align: center; flex-shrink: 0; }
-
-  main { flex: 1; overflow-y: auto; padding: 24px 28px; max-width: 1100px; }
-  .section { display: none; }
-  .section.active { display: block; animation: fadeIn 0.18s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-
-  h2 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 4px; letter-spacing: -0.3px; }
-  h3 { font-size: 13px; font-weight: 700; color: var(--text2); margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.6px; }
-  h4 { font-size: 12.5px; font-weight: 600; color: var(--text2); margin: 14px 0 6px; }
-  p { color: var(--text2); margin-bottom: 8px; font-size: 13px; }
-  .section-desc { color: var(--text3); font-size: 12.5px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px; line-height: 1.7; }
-  ul, ol { color: var(--text2); font-size: 13px; padding-left: 18px; }
-  li { margin-bottom: 4px; }
-  li strong { color: var(--text); }
-
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px;
-    margin-bottom: 14px;
-    box-shadow: var(--shadow);
-  }
-  .card-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-
-  .table-wrap {
-    overflow-x: auto;
-    margin: 6px 0 14px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-  }
-  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  thead tr { background: var(--bg3); }
-  th {
-    color: var(--text3);
-    font-weight: 700;
-    text-align: left;
-    padding: 8px 12px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    white-space: nowrap;
-    border-bottom: 1px solid var(--border);
-  }
-  td {
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text2);
-    vertical-align: top;
-    line-height: 1.55;
-  }
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:hover td { background: var(--bg3); }
-  td strong { color: var(--text); font-weight: 600; }
-
-  .drug-name { color: var(--accent); font-weight: 700; }
-  .dose {
-    display: inline-block;
-    color: var(--green);
-    font-family: 'SF Mono', 'Cascadia Code', monospace;
-    font-size: 11.5px;
-    background: var(--green-bg);
-    padding: 1px 6px;
-    border-radius: 4px;
-    border: 1px solid color-mix(in srgb, var(--green) 25%, transparent);
-    line-height: 1.7;
-  }
-  .route {
-    display: inline-block;
-    color: var(--amber);
-    font-size: 11px;
-    background: var(--amber-bg);
-    padding: 1px 6px;
-    border-radius: 4px;
-    border: 1px solid color-mix(in srgb, var(--amber) 25%, transparent);
-    font-weight: 700;
-    letter-spacing: 0.3px;
-  }
-
-  .alert {
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    margin: 10px 0;
-    font-size: 12.5px;
-    display: flex;
-    gap: 8px;
-    line-height: 1.6;
-    border-width: 1px;
-    border-style: solid;
-  }
-  .alert-icon { flex-shrink: 0; margin-top: 1px; }
-  .alert-warn  { background: var(--amber-bg);  border-color: color-mix(in srgb, var(--amber) 35%, transparent);  color: var(--amber); }
-  .alert-danger{ background: var(--red-bg);    border-color: color-mix(in srgb, var(--red) 30%, transparent);    color: var(--red); }
-  .alert-info  { background: var(--accent-bg); border-color: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--accent); }
-  .alert-success{background: var(--green-bg);  border-color: color-mix(in srgb, var(--green) 30%, transparent);  color: var(--green); }
-
-  .tag { display: inline-block; font-size: 10.5px; padding: 2px 7px; border-radius: 20px; font-weight: 600; margin: 1px; letter-spacing: 0.2px; }
-  .tag-cattle { background: var(--accent-bg); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); }
-  .tag-horse  { background: var(--purple-bg); color: var(--purple); border: 1px solid color-mix(in srgb, var(--purple) 25%, transparent); }
-  .tag-small  { background: var(--green-bg);  color: var(--green);  border: 1px solid color-mix(in srgb, var(--green) 25%, transparent); }
-  .tag-exam   { background: var(--red-bg);    color: var(--red);    border: 1px solid color-mix(in srgb, var(--red) 25%, transparent); }
-
-  .ref-normal { color: var(--green); font-weight: 700; }
-  .ref-warn   { color: var(--amber); font-weight: 700; }
-  .ref-danger { color: var(--red);   font-weight: 700; }
-
-  .pill-tabs { display: flex; gap: 5px; margin-bottom: 16px; flex-wrap: wrap; }
-  .pill-tab {
-    padding: 5px 13px;
-    border-radius: 20px;
-    font-size: 12px;
-    cursor: pointer;
-    border: 1px solid var(--border);
-    background: var(--bg2);
-    color: var(--text3);
-    transition: all 0.12s;
-    font-weight: 500;
-  }
-  .pill-tab:hover { background: var(--bg3); color: var(--text2); border-color: var(--border2); }
-  .pill-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; box-shadow: 0 1px 4px color-mix(in srgb, var(--accent) 40%, transparent); }
-
-  .step {
-    display: flex;
-    gap: 12px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    padding: 11px 14px;
-    margin-bottom: 8px;
-    box-shadow: var(--shadow);
-  }
-  .step-num {
-    flex-shrink: 0;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 1px;
-  }
-  .step-text { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
-  .step-text strong { color: var(--text); }
-
-  .flow {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    box-shadow: var(--shadow);
-    margin: 10px 0 14px;
-  }
-  .flow-node {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 12px;
-    color: var(--text);
-    font-weight: 600;
-  }
-  .flow-node.danger { background: var(--red-bg); color: var(--red); border-color: color-mix(in srgb, var(--red) 30%, transparent); }
-  .flow-arrow { color: var(--text4); font-size: 13px; }
-
-  /* ── QUIZ / 練習題 ── */
-  .quiz-item {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    margin-bottom: 12px;
-    box-shadow: var(--shadow);
-  }
-  .quiz-type {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 20px;
-    letter-spacing: .3px;
-    margin-bottom: 8px;
-  }
-  .quiz-type-tf   { background: var(--accent-bg); color: var(--accent); }
-  .quiz-type-mcq  { background: var(--purple-bg); color: var(--purple); }
-  .quiz-type-saq  { background: var(--amber-bg);  color: var(--amber); }
-  .quiz-q { font-size: 13px; color: var(--text); font-weight: 600; margin-bottom: 8px; line-height: 1.6; }
-  .quiz-options { list-style: none; padding: 0; margin: 0 0 8px; }
-  .quiz-options li { font-size: 12.5px; color: var(--text2); padding: 3px 0 3px 4px; margin-bottom: 0; }
-  .quiz-reveal { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 12.5px; }
-  .quiz-reveal summary { cursor: pointer; font-weight: 700; color: var(--accent); list-style: none; }
-  .quiz-reveal summary::-webkit-details-marker { display: none; }
-  .quiz-reveal summary::before { content: "▸ 顯示答案"; }
-  .quiz-reveal[open] summary::before { content: "▾ 隱藏答案"; }
-  .quiz-reveal[open] summary { margin-bottom: 8px; }
-  .quiz-answer { font-weight: 700; margin-bottom: 4px; }
-  .quiz-answer.correct { color: var(--green); }
-  .quiz-answer.false { color: var(--red); }
-  .quiz-explain { color: var(--text2); line-height: 1.6; margin: 0; }
-
-  mark { background: color-mix(in srgb, var(--amber) 30%, transparent); color: var(--amber); border-radius: 2px; padding: 0 1px; }
-
-  ::-webkit-scrollbar { width: 5px; height: 5px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
-
-  .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
-
-  footer.note-footer {
-    margin-top: 24px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border);
-    font-size: 11px;
-    color: var(--text4);
-    line-height: 1.7;
-  }
-
-  @media (max-width: 720px) {
-    nav { display: none; }
-    main { padding: 16px; }
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    .search-wrap input { width: 140px; }
-  }
-</style>
+<title>大動物外科：術前考量與麻醉 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=1">
 </head>
-<body>
+<body class="ah">
 
 <header>
-  <div class="header-brand">
-    <h1>大動物外科：術前考量與麻醉</h1>
-    <div class="subtitle">Presurgical Consideration &amp; Anesthesia · Large Animal Surgery and Practice</div>
-  </div>
-  <span class="badge">課堂講義筆記</span>
+  <a class="header-brand" href="../../index.html">
+    <h1>上群 網頁筆記</h1>
+    <div class="subtitle">DVM Course Notes · 大三／大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四上"></div>
   <div class="header-right">
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="搜尋筆記內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
       <div id="searchResults" class="search-results"></div>
     </div>
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
   </div>
 </header>
+<div class="nav-panel" id="navPanel"></div>
 
-<div class="container">
-  <nav>
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">大動物外科手術及實習</a><span class="sep">›</span><span class="current">第 1 週・術前考量與麻醉</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">術前考量與麻醉</h1>
+      <p class="page-subtitle">Presurgical Consideration &amp; Anesthesia · Large Animal Surgery and Practice</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">大動物外科手術及實習（大四上・第1週・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》課程講義〈Presurgical Consideration &amp; Anesthesia〉</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
     <div class="section-label">總覽</div>
     <a class="active" onclick="showSection('history')" id="nav-history">
       <span class="nav-icon">🏛️</span> 外科學簡史
@@ -501,19 +85,11 @@
     </a>
   </nav>
 
-  <main id="mainContent">
-
-    <div class="breadcrumb">
-      <a href="../../index.html">網頁筆記首頁</a>
-      <span class="sep">›</span>
-      <a href="index.html">大動物外科手術及實習</a>
-      <span class="sep">›</span>
-      <span class="current">第 1 週・術前考量與麻醉</span>
-    </div>
+  <main class="pagebody" id="mainContent">
 
     <!-- HISTORY -->
-    <div class="section active" id="section-history">
-      <h2>動物外科學簡史 History of Animal Surgery</h2>
+    <div class="section" id="section-history">
+      <div class="section-head"><div class="section-num">1</div><h2>動物外科學簡史 History of Animal Surgery</h2></div>
       <p class="section-desc">了解大動物外科的發展脈絡，有助於理解「在農場執行手術」與「無菌手術室手術」兩種模式並存的歷史成因。</p>
 
       <div class="grid-3">
@@ -533,28 +109,28 @@
 
       <h3>Barber-Surgeons（理髮師外科醫）</h3>
       <div class="alert alert-info">
-        <span class="alert-icon">ℹ️</span>
-        <span>中世紀時人體解剖屬於禁忌，拔牙、腫瘤切除、截肢等手術由「barber」執行——因為他們已擁有所需的銳利刀具。這也是外科（Surgery）發展早期與正規醫學分流的歷史背景。</span>
+        <div class="alert-label">補充</div>
+        <p>中世紀時人體解剖屬於禁忌，拔牙、腫瘤切除、截肢等手術由「barber」執行——因為他們已擁有所需的銳利刀具。這也是外科（Surgery）發展早期與正規醫學分流的歷史背景。</p>
       </div>
 
       <h3>外科醫師（Surgeon）的知識基礎</h3>
       <p>執行動物外科需整合以下基礎學科知識，這也是後續「術前評估」與「麻醉」章節的推理骨幹：</p>
       <div class="grid-4">
-        <div class="card" style="text-align:center;"><div class="card-title">解剖學</div><p style="margin:0;">Anatomy</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">生理學</div><p style="margin:0;">Physiology</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">微生物學</div><p style="margin:0;">Microbiology</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">藥理學</div><p style="margin:0;">Pharmacology</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">解剖學</div><p>Anatomy</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">生理學</div><p>Physiology</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">微生物學</div><p>Microbiology</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">藥理學</div><p>Pharmacology</p></div>
       </div>
     </div>
 
     <!-- EVALUATION -->
     <div class="section" id="section-evaluation">
-      <h2>病患評估 Evaluation of the Patient</h2>
+      <div class="section-head"><div class="section-num">2</div><h2>病患評估 Evaluation of the Patient</h2></div>
       <p class="section-desc">無論急診或擇期手術，<strong>理學檢查</strong>都是術前的基本標準；是否加做實驗室檢查則屬於外科醫師的臨床判斷。</p>
 
       <div class="alert alert-info">
-        <span class="alert-icon">ℹ️</span>
-        <span>理學檢查（physical examination）適用於<strong>所有</strong>手術病患。實驗室檢查「該做到什麼程度」沒有絕對標準，需依個案風險判斷——但特定情境有明確建議加做的項目（見下表）。</span>
+        <div class="alert-label">重點</div>
+        <p>理學檢查（physical examination）適用於<strong>所有</strong>手術病患。實驗室檢查「該做到什麼程度」沒有絕對標準，需依個案風險判斷——但特定情境有明確建議加做的項目（見下表）。</p>
       </div>
 
       <h3>依情境加做的實驗室檢查</h3>
@@ -594,7 +170,7 @@
 
     <!-- JUDGEMENT -->
     <div class="section" id="section-judgement">
-      <h2>手術判斷 Surgical Judgement</h2>
+      <div class="section-head"><div class="section-num">3</div><h2>手術判斷 Surgical Judgement</h2></div>
       <p class="section-desc">是否進行手術不只是技術問題，也是臨床倫理與資源評估的綜合判斷。</p>
 
       <h3>術前自問三問題</h3>
@@ -626,22 +202,22 @@
       <h3>手術地點：農場 vs. 手術室</h3>
       <p>許多大動物（牛、羊、豬）手術可以「<strong>在農場（on the farm）</strong>」完成。但部分術式因需要更嚴格的無菌環境，應在<strong>無塵手術室</strong>執行：</p>
       <div class="alert alert-warn">
-        <span class="alert-icon">⚠️</span>
-        <span>範例：馬匹腕骨（carpal）與籽骨（sesamoid bone）碎骨片移除的關節切開術（arthrotomy），須在無塵手術室進行，避免關節腔感染。</span>
+        <div class="alert-label">注意</div>
+        <p>範例：馬匹腕骨（carpal）與籽骨（sesamoid bone）碎骨片移除的關節切開術（arthrotomy），須在無塵手術室進行，避免關節腔感染。</p>
       </div>
     </div>
 
     <!-- ASEPSIS -->
     <div class="section" id="section-asepsis">
-      <h2>無菌與抗菌原則 Principles of Asepsis and Antisepsis</h2>
+      <div class="section-head"><div class="section-num">4</div><h2>無菌與抗菌原則 Principles of Asepsis and Antisepsis</h2></div>
       <p class="section-desc">感染管制決定了手術成敗與病患福祉，是外科判斷中與「手術技術」同等重要的一環。</p>
 
       <h3>手術部位感染（SSI）的四大決定因子</h3>
       <div class="grid-4">
-        <div class="card" style="text-align:center;"><div class="card-title">宿主防禦力</div><p style="margin:0;">Host defense</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">生理狀態失衡</div><p style="margin:0;">Physiologic derangement</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">細菌污染風險</div><p style="margin:0;">Contamination at surgery</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">手術時間過長</div><p style="margin:0;">Prolonged surgical time</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">宿主防禦力</div><p>Host defense</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">生理狀態失衡</div><p>Physiologic derangement</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">細菌污染風險</div><p>Contamination at surgery</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">手術時間過長</div><p>Prolonged surgical time</p></div>
       </div>
       <p>其他會影響深部組織／器官感染的因素：<strong>低白蛋白血症（hypoalbuminemia）</strong>、<strong>曾接受過手術</strong>。</p>
 
@@ -653,8 +229,8 @@
         <li>適當使用<strong>預防性抗生素</strong></li>
       </ul>
       <div class="alert alert-info">
-        <span class="alert-icon">ℹ️</span>
-        <span>農場環境下「理想無菌標準」有時難以完全達成，但仍應<strong>盡力追求最高可行標準</strong>——否則手術品質可能低到危及病患福祉，也會影響獸醫師的專業聲譽。</span>
+        <div class="alert-label">重點</div>
+        <p>農場環境下「理想無菌標準」有時難以完全達成，但仍應<strong>盡力追求最高可行標準</strong>——否則手術品質可能低到危及病患福祉，也會影響獸醫師的專業聲譽。</p>
       </div>
 
       <h3>手術分類（Surgical Classification）<span class="tag tag-exam">重要</span></h3>
@@ -684,14 +260,14 @@
 
       <h3>抗生素使用原則</h3>
       <div class="alert alert-danger">
-        <span class="alert-icon">🚫</span>
-        <span><strong>抗生素絕不能用來彌補手術技術上的缺失。</strong>若判斷需要使用抗生素，須慎選藥物種類、劑量與療程長度；為求最大效益，應在<strong>術前</strong>預防性給藥，最晚於<strong>術中</strong>給予。</span>
+        <div class="alert-label">禁忌</div>
+        <p><strong>抗生素絕不能用來彌補手術技術上的缺失。</strong>若判斷需要使用抗生素，須慎選藥物種類、劑量與療程長度；為求最大效益，應在<strong>術前</strong>預防性給藥，最晚於<strong>術中</strong>給予。</p>
       </div>
     </div>
 
     <!-- POSTOP -->
     <div class="section" id="section-postop">
-      <h2>術後照護 Postoperative Care</h2>
+      <div class="section-head"><div class="section-num">5</div><h2>術後照護 Postoperative Care</h2></div>
       <p class="section-desc">術後管理是手術成功與否的延伸，三大要項缺一不可。</p>
       <div class="grid-3">
         <div class="card">
@@ -711,7 +287,7 @@
 
     <!-- RUMINANT ANESTHESIA RISK -->
     <div class="section" id="section-ruminant">
-      <h2>反芻動物麻醉的特殊風險</h2>
+      <div class="section-head"><div class="section-num">6</div><h2>反芻動物麻醉的特殊風險</h2></div>
       <p class="section-desc">牛為反芻動物，腹腔內有巨大瘤胃，這是大動物麻醉章節中臨床意義最重的一段——請務必理解「機轉 → 併發症 → 預防措施」的完整邏輯鏈。</p>
 
       <h3>病理機轉鏈</h3>
@@ -729,7 +305,7 @@
         <span class="flow-arrow">➜</span>
         <div class="flow-node danger">低血氧＋高碳酸血症＋呼吸性酸中毒</div>
       </div>
-      <p style="font-size:11.5px; color:var(--text3);">※ 脹氣（bloating）也可能發生於<strong>術後</strong>，並非只在麻醉中出現。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 脹氣（bloating）也可能發生於<strong>術後</strong>，並非只在麻醉中出現。</p>
 
       <h3>預防措施</h3>
       <ul>
@@ -751,14 +327,14 @@
       </div>
 
       <div class="alert alert-info">
-        <span class="alert-icon">ℹ️</span>
-        <span><strong>小牛（calves）</strong>可用<strong>深度鎮靜</strong>做化學保定，讓獸醫師直接進行手術，不一定需要全身麻醉。</span>
+        <div class="alert-label">補充</div>
+        <p><strong>小牛（calves）</strong>可用<strong>深度鎮靜</strong>做化學保定，讓獸醫師直接進行手術，不一定需要全身麻醉。</p>
       </div>
     </div>
 
     <!-- SEDATION -->
     <div class="section" id="section-sedation">
-      <h2>鎮靜用藥 Sedation</h2>
+      <div class="section-head"><div class="section-num">7</div><h2>鎮靜用藥 Sedation</h2></div>
       <p class="section-desc">大動物臨床上最常使用 <strong>α-2 腎上腺素受體致效劑（α-2 adrenoceptor agonist）</strong>，同時提供鎮靜與鎮痛效果。</p>
 
       <h3>常用藥物</h3>
@@ -778,8 +354,8 @@
       </ul>
 
       <div class="alert alert-danger">
-        <span class="alert-icon">🚫</span>
-        <span><strong>懷孕牛用藥禁忌：</strong>Xylazine 在<strong>早期妊娠母牛</strong>有類似催產素（oxytocin-like）的作用，會誘發<strong>子宮收縮</strong>，增加流產風險——懷孕牛使用需特別謹慎。<span class="tag tag-exam">臨床安全提醒</span></span>
+        <div class="alert-label">禁忌</div>
+        <p><strong>懷孕牛用藥禁忌：</strong>Xylazine 在<strong>早期妊娠母牛</strong>有類似催產素（oxytocin-like）的作用，會誘發<strong>子宮收縮</strong>，增加流產風險——懷孕牛使用需特別謹慎。<span class="tag tag-exam">臨床安全提醒</span></p>
       </div>
 
       <p>α-2 致效劑可與<strong>opioid（如 butorphanol）併用</strong>，降低動物突發反應（sudden responsiveness）的風險。</p>
@@ -810,7 +386,7 @@
 
     <!-- LOCAL / REGIONAL -->
     <div class="section" id="section-local">
-      <h2>局部浸潤／區域麻醉 Infiltration / Regional Analgesia</h2>
+      <div class="section-head"><div class="section-num">8</div><h2>局部浸潤／區域麻醉 Infiltration / Regional Analgesia</h2></div>
       <p class="section-desc">藉由感覺神經去敏化（desensitization）達成局部止痛，可用「浸潤（infiltration）」直接注射於手術部位，或「阻斷（block）」麻醉支配該區域的感覺神經。</p>
 
       <h3>局部麻醉藥比較</h3>
@@ -825,8 +401,8 @@
         </table>
       </div>
       <div class="alert alert-danger">
-        <span class="alert-icon">⚠️</span>
-        <span>Bupivacaine 心血管毒性較高，血管吸收後危險性高，因此臨床上使用<strong>僅限於硬膜外（epidural）與神經周圍（perineural）給藥</strong>；Lidocaine 與 Mepivacaine 則各種途徑皆可使用。</span>
+        <div class="alert-label">警告</div>
+        <p>Bupivacaine 心血管毒性較高，血管吸收後危險性高，因此臨床上使用<strong>僅限於硬膜外（epidural）與神經周圍（perineural）給藥</strong>；Lidocaine 與 Mepivacaine 則各種途徑皆可使用。</p>
       </div>
 
       <h3>藥物化學背景（機轉概念）</h3>
@@ -837,7 +413,7 @@
         <div class="grid-2">
           <div>
             <p><strong>安全總劑量：</strong> <span class="dose">3–5 mg/kg</span></p>
-            <p style="font-size:11.5px; color:var(--text3);">約 90–150 mL 2% lidocaine／600 kg 牛，<strong>單次注射不可超過此劑量</strong></p>
+            <p style="font-size:.85em; color:var(--fg-faint);">約 90–150 mL 2% lidocaine／600 kg 牛，<strong>單次注射不可超過此劑量</strong></p>
           </div>
           <div>
             <p><strong>起效時間：</strong> 約 5–10 分鐘</p>
@@ -870,14 +446,14 @@
       </div>
 
       <div class="alert alert-warn">
-        <span class="alert-icon">⚠️</span>
-        <span>應避免將大量局麻藥直接注入腹腔，因<strong>快速血管吸收可能導致中毒</strong>；注射應呈直線排列。雖然把局麻藥直接打入切口線很方便，但<strong>會造成組織水腫、可能影響傷口癒合</strong>，不建議常規使用此捷徑。</span>
+        <div class="alert-label">注意</div>
+        <p>應避免將大量局麻藥直接注入腹腔，因<strong>快速血管吸收可能導致中毒</strong>；注射應呈直線排列。雖然把局麻藥直接打入切口線很方便，但<strong>會造成組織水腫、可能影響傷口癒合</strong>，不建議常規使用此捷徑。</p>
       </div>
     </div>
 
     <!-- INVERTED L BLOCK -->
     <div class="section" id="section-invertedl">
-      <h2>倒 L 型阻斷 Inverted L Block</h2>
+      <div class="section-head"><div class="section-num">9</div><h2>倒 L 型阻斷 Inverted L Block</h2></div>
       <p class="section-desc">牛隻左側腹壁手術常用的區域麻醉術式，透過兩條注射路徑麻醉特定神經支配區域。</p>
 
       <h3>定位與技術</h3>
@@ -889,8 +465,8 @@
 
       <h3>麻醉範圍</h3>
       <div class="alert alert-info">
-        <span class="alert-icon">ℹ️</span>
-        <span>主要阻斷<strong>第 13 胸神經（T13）</strong>與<strong>第 1、2 腰神經（L1、L2）</strong>所支配的區域。</span>
+        <div class="alert-label">重點</div>
+        <p>主要阻斷<strong>第 13 胸神經（T13）</strong>與<strong>第 1、2 腰神經（L1、L2）</strong>所支配的區域。</p>
       </div>
 
       <h3>適應症</h3>
@@ -902,7 +478,7 @@
 
     <!-- SUMMARY -->
     <div class="section" id="section-summary">
-      <h2>學習重點整理</h2>
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
       <p class="section-desc">考試／臨床實務角度的整理，方便複習前快速掃過。</p>
 
       <div class="step"><div class="step-num">1</div><div class="step-text">術前評估核心是<strong>理學檢查＋依情境加做的實驗室檢查</strong>，需能舉出「哪種疾病對應哪種額外檢查」（例：RDA/RVA→電解質；酮症→尿液/血酮；colic→腹腔液分析）。</div></div>
@@ -922,7 +498,7 @@
 
     <!-- QUIZ -->
     <div class="section" id="section-quiz">
-      <h2>練習題 Practice Quiz</h2>
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
       <p class="section-desc">涵蓋本週各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念回對應章節重讀一次。</p>
 
       <div class="quiz-item">
@@ -1046,31 +622,32 @@
 </div>
 
 <script>
-// ── THEME ──
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
 function toggleTheme() {
-  const html = document.documentElement;
-  const btn = document.getElementById('themeBtn');
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
   const isDark = html.getAttribute('data-theme') === 'dark';
   html.setAttribute('data-theme', isDark ? 'light' : 'dark');
   btn.textContent = isDark ? '🌙' : '☀️';
   localStorage.setItem('theme', isDark ? 'light' : 'dark');
 }
-(function() {
-  const saved = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', saved);
-  const btn = document.getElementById('themeBtn');
-  if (btn) btn.textContent = saved === 'dark' ? '☀️' : '🌙';
-})();
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
 
-// ── NAV ──
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-  document.getElementById('section-' + id).classList.add('active');
-  document.getElementById('nav-' + id).classList.add('active');
-}
-
-// 支援從總覽首頁的跨頁搜尋結果連結（例如 ...html#section-sedation）直接跳到對應分節
 document.addEventListener('DOMContentLoaded', function () {
   if (location.hash && location.hash.indexOf('#section-') === 0) {
     const id = location.hash.replace('#section-', '');
@@ -1078,7 +655,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// ── GLOBAL SEARCH ──
 const SECTION_NAMES = {
   history: '外科學簡史',
   evaluation: '病患評估',
@@ -1093,10 +669,8 @@ const SECTION_NAMES = {
   quiz: '練習題'
 };
 
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.search-wrap')) {
-    closeSearch();
-  }
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
 });
 
 function closeSearch() {
@@ -1109,11 +683,7 @@ function doSearch(q) {
   const input = document.getElementById('searchInput');
   q = q.trim();
 
-  if (!q) {
-    closeSearch();
-    resultsBox.innerHTML = '';
-    return;
-  }
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
 
   const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
   const results = [];
@@ -1122,20 +692,19 @@ function doSearch(q) {
     const sectionId = section.id.replace('section-', '');
     const sectionName = SECTION_NAMES[sectionId] || sectionId;
 
-    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain').forEach(el => {
-      if (!el.closest('script') && !el.closest('style')) {
-        const text = el.textContent.trim();
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
         reg.lastIndex = 0;
-        if (text && reg.test(text)) {
-          reg.lastIndex = 0;
-          const idx = text.search(reg);
-          const start = Math.max(0, idx - 30);
-          const end = Math.min(text.length, idx + 60);
-          let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
-          snippet = snippet.replace(reg, '<mark>$1</mark>');
-          results.push({ sectionId, sectionName, snippet });
-          reg.lastIndex = 0;
-        }
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
       }
     });
   });
@@ -1169,6 +738,11 @@ function doSearch(q) {
   resultsBox.classList.add('open');
   input.classList.add('has-results');
 }
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
 </script>
 
 </body>
