@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>貓慢性腎病（CKD）照護指南 - 上群動物醫院</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群動物醫院" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="內科"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">上群動物醫院 首頁</a>
+      <span class="sep">›</span>
+      <a href="index.html">內科</a>
+      <span class="sep">›</span>
+      <span class="current">貓慢性腎病（CKD）照護指南</span>
+    </div>
+
+    <div class="page-head">
+      <h1 class="page-title">貓慢性腎病（CKD）照護指南</h1>
+      <p class="page-subtitle">IRIS 分期系統、依分期治療原則、常見併發症處置與居家照護整理，供內科看診與衛教參考。</p>
+    </div>
+
+    <div class="pagehead__actions">
+      <a class="btn" href="iCatCare_CKD共識指南_2026全文.pdf" target="_blank" rel="noopener">📄 2026 iCatCare CKD 共識指南全文（PDF）</a>
+      <a class="btn" href="iCatCare_CKD照護者指南.pdf" target="_blank" rel="noopener">📄 iCatCare 照護者版指南（PDF）</a>
+      <a class="btn" href="IRIS_CKD分期系統_2019.pdf" target="_blank" rel="noopener">📄 IRIS 分期系統原文（PDF）</a>
+      <a class="btn" href="IRIS_CKD治療建議_2023.pdf" target="_blank" rel="noopener">📄 IRIS 依分期治療建議原文（PDF）</a>
+    </div>
+
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科別</div><div class="meta-value">內科</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value"><a href="iCatCare_CKD共識指南_2026全文.pdf" target="_blank" rel="noopener">2026 iCatCare 貓 CKD 共識指南全文（JFMS，DOI 10.1177/1098612X261466553）</a>／<a href="IRIS_CKD分期系統_2019.pdf" target="_blank" rel="noopener">IRIS Staging of CKD（modified 2019）</a></div></div>
+      <div class="meta-item"><div class="meta-label">版本</div><div class="meta-value">2026（取代沿用十年的 2016 版標準）</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">已逐頁核對 2026 共識指南全文（Table 1–7、Box 10、Figure 19–20），含 IRIS 分期治療表與實際超音波／眼底照片</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 總覽與腎臟功能</a>
+    <div class="section-label">分期</div>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis"><span class="nav-icon">🩺</span> 診斷與篩檢</a>
+    <a onclick="showSection('staging')" id="nav-staging"><span class="nav-icon">📊</span> IRIS 分期與分亞期</a>
+    <div class="section-label">治療</div>
+    <a onclick="showSection('treatment')" id="nav-treatment"><span class="nav-icon">💊</span> 依分期治療原則</a>
+    <a onclick="showSection('complications')" id="nav-complications"><span class="nav-icon">⚠️</span> 常見併發症處置</a>
+    <a onclick="showSection('comorbidities')" id="nav-comorbidities"><span class="nav-icon">🧩</span> 常見共病與麻醉考量</a>
+    <div class="section-label">照護</div>
+    <a onclick="showSection('homecare')" id="nav-homecare"><span class="nav-icon">🏠</span> 飲食與居家照護</a>
+    <a onclick="showSection('monitoring')" id="nav-monitoring"><span class="nav-icon">📈</span> 監測與預後</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('glossary')" id="nav-glossary"><span class="nav-icon">🔤</span> 縮寫對照表</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">五個臨床重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>分期別只看 creatinine：</strong>SDMA 對早期腎功能下降更敏感，肌肉量明顯流失的貓 creatinine 會被低估，此時應以 SDMA 為準分期，避免病程被誤判為較輕。</li>
+          <li><strong>治療是分期＋分亞期的疊加：</strong>依 creatinine/SDMA 分期後，還要再疊上蛋白尿與血壓分亞期一起決定治療強度，同一分期的貓治療計畫可能完全不同。</li>
+          <li><strong>同一顆藥、不同適應症＝不同劑量，這是最容易搞混的地方：</strong>telmisartan 治療高血壓是 2 mg/kg，治療蛋白尿卻是 1 mg/kg；benazepril 治療蛋白尿也是 q12h 而非高血壓的 q24h——開藥前務必先確認治療目標。</li>
+          <li><strong>併發症處置有精確劑量與監測排程，不是憑經驗抓：</strong>低血鉀、便秘、貧血（darbepoetin／molidustat 流程）都有明確的起始劑量與調整依據，直接套用比臨床經驗判斷更安全。</li>
+          <li><strong>病程穩定與否，對存活期影響比分期本身更大：</strong>病情穩定的 CKD 貓中位存活期約 894 天，持續惡化者僅約 287 天——回診時「有沒有惡化」和「現在第幾期」一樣重要。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>總覽與腎臟功能</h2></div>
+      <p class="section-desc">資料整理自《2026 iCatCare 貓慢性腎病診斷與照護共識指南》（JFMS，2026/9/4 發布），這是取代沿用十年的 2016 ISFM 舊版標準的完整更新版，強調團隊照護、情緒福祉與居家照護工具。IRIS 分期系統的數值標準本身沿用 2019 修訂版，並未在這次改版中變動。</p>
+
+      <h3>腎臟在做什麼</h3>
+      <p>貓的兩顆腎臟由數十萬個腎元（nephron）組成，每個腎元由腎絲球（過濾用的「篩子」）與腎小管組成，共同把血液過濾成尿液。除了製造尿液，腎臟還負責：過濾血液中的毒素、維持體液平衡與預防脫水、維持正常血壓、協助鈣質平衡、維持正常紅血球數量、產生荷爾蒙、維持電解質平衡。<strong>腎臟代償能力很強，即使已經喪失部分功能，貓也可能沒有明顯症狀</strong>——這也是為什麼很多病例確診時腎病已經進展一段時間。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">常見病因</div>
+          <p style="margin:0;">多數病例找不到明確病因。已知的病因包括：遺傳性疾病（波斯貓及相關品種的多囊腎）、結石、感染、毒素、腫瘤；腎外因素如高血鈣、高血壓也會影響腎臟。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">常見臨床徵象</div>
+          <p style="margin:0;">早期可能只有體重減輕；隨病程進展可出現：多渴多尿、食慾下降或挑食、嗜睡、嘔吐、被毛品質變差、便秘（糞便乾硬、排便次數少）。</p>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">好發族群</div>
+        <p>CKD 可發生於任何年齡，但 <strong>7 歲以上</strong>貓更常見；老年貓常同時合併退化性關節炎（DJD）、牙科疾病、甲狀腺機能亢進等其他老年病，這些共病也可能加重臨床表現，需要一併評估。</p>
+      </div>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">3</div><h2>診斷與篩檢</h2></div>
+      <p class="section-desc">CKD 診斷需要血液與尿液檢驗合併判讀，不能只看單一數值。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">血液檢驗</div>
+          <p style="margin:0;">尿素氮、creatinine 因腎臟過濾功能下降而升高；也常見低血鉀、貧血（紅血球數量下降）、高血鈣與高血磷。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">尿液檢驗</div>
+          <p style="margin:0;">CKD 貓產生的尿液比重偏低（稀薄、顏色淡）。尿液應同時檢查蛋白質、細菌、結晶等項目，結果需搭配血液數值一起判讀。</p>
+        </div>
+      </div>
+
+      <p>部分病例需要影像檢查（X 光或超音波）進一步評估腎臟型態、協助找出病因（例如結石阻塞造成腎盂擴張積水）。確診後即進入<strong>分期（staging）</strong>流程（見下節），才能擬定治療與監測計畫。</p>
+
+      <div class="figure">
+        <img src="img/CKD/ckd_ultrasound_p4.jpg" alt="CKD貓腎臟超音波影像，顯示腎盂擴張積水">
+        <div class="figure-caption">CKD 貓的腎臟超音波影像：腎臟腫大且腎盂積水擴張（畫面中央無回音的黑色區域），此病例的成因是結石阻塞輸尿管。超音波是評估 CKD 貓腎臟型態、尋找可治療病因（結石、腎盂腎炎、腫瘤）的重要工具，也用於確認 IRIS 分期建議中「排除可治療的腎前性／腎後性因素」這一步。</div>
+        <div class="figure-source">來源：iCatCare《Managing the cat with chronic kidney disease: a guide for caregivers》Figure 5, 2026</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">考慮腎臟切片的時機</div>
+        <ul style="margin:0;">
+          <li>腎臟腫大（renomegaly）</li>
+          <li>年輕病患出現 CKD</li>
+          <li>持續且嚴重的蛋白尿（UP/C &gt;2.0）且無氮血症</li>
+          <li>CKD 病患蛋白尿持續惡化</li>
+          <li>急性腎損傷（AKI），切片可能提供預後判斷參考</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STAGING -->
+    <div class="section" id="section-staging">
+      <div class="section-head"><div class="section-num">4</div><h2>IRIS 分期與分亞期</h2></div>
+      <p class="section-desc">國際腎臟權益學會（IRIS）制定的分期系統，是目前貓犬 CKD 分期的國際標準做法。先以 creatinine／SDMA 分「期」（1–4），再依蛋白尿與血壓分「亞期」，兩者合起來才是完整分類，據此擬定治療與監測強度。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意事項</div>
+        <p>分期須以<strong>穩定、有適當水分（euhydrated）的病患，至少 2 次檢測</strong>為基礎，creatinine 與 SDMA 變化 &lt;20–25% 才視為 GFR 相對穩定、可用於分期。單次數值不足以分期。</p>
+      </div>
+
+      <h3>一、依 Creatinine／SDMA 分期</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>期別</th><th>犬 Creatinine<br>µmol/L（mg/dL）</th><th>貓 Creatinine<br>µmol/L（mg/dL）</th><th>SDMA<br>µg/dL</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Stage 1</strong></td><td>&lt;125（&lt;1.4）</td><td>&lt;140（&lt;1.6）</td><td>犬 &lt;18／貓 &lt;18</td><td>Creatinine 正常或僅輕微腎功能異常（尿液濃縮能力不足、腎臟觸診／影像異常、腎源性蛋白尿等）。<strong>SDMA 持續 &gt;14 µg/dL 可用於診斷早期 CKD</strong></td></tr>
+            <tr><td><strong>Stage 2</strong></td><td>125–250（1.4–2.8）</td><td>140–250（1.6–2.8）</td><td>犬 18–35／貓 18–25</td><td>輕度氮血症，臨床症狀通常輕微或無</td></tr>
+            <tr><td><strong>Stage 3</strong></td><td>251–440（2.9–5.0）</td><td>251–440（2.9–5.0）</td><td>犬 36–54／貓 26–38</td><td>中度氮血症，可能出現多種腎外症狀，程度不一</td></tr>
+            <tr><td><strong>Stage 4</strong></td><td>&gt;440（&gt;5.0）</td><td>&gt;440（&gt;5.0）</td><td>犬 &gt;54／貓 &gt;38</td><td>尿毒症危象風險逐漸升高</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11px;color:var(--text4);">來源：IRIS Staging of CKD (modified 2019)，International Renal Interest Society。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">Creatinine 與 SDMA 不一致時</div>
+        <p>SDMA 對早期腎功能下降較敏感、較不受肌肉量流失影響。貓若 SDMA 持續 &gt;18 µg/dL 但 creatinine 落在 Stage 1 範圍，<strong>應以 Stage 2 分期治療</strong>；SDMA 持續 &gt;25 µg/dL 但 creatinine 落在 Stage 2 範圍，應以 Stage 3 分期治療；SDMA 持續 &gt;38 µg/dL 但 creatinine 落在 Stage 3 範圍，應以 Stage 4 分期治療。</p>
+      </div>
+
+      <h3>二、依蛋白尿分亞期</h3>
+      <p>目標是找出腎源性蛋白尿（需先排除腎前性、腎後性原因）。建議測 <strong>UP/C（尿蛋白／肌酸酐比值）</strong>，標準尿液試紙偽陽性率高，不建議單獨依賴。理想上以間隔至少 2 週的兩次尿液採檢為準。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>UP/C 數值</th><th>犬</th><th>貓</th><th>分亞期</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="1"></td><td>&lt;0.2</td><td>&lt;0.2</td><td>Non-proteinuric（無蛋白尿）</td></tr>
+            <tr><td></td><td>0.2–0.5</td><td>0.2–0.4</td><td>Borderline proteinuric（臨界蛋白尿）</td></tr>
+            <tr><td></td><td>&gt;0.5</td><td>&gt;0.4</td><td>Proteinuric（蛋白尿）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>持續處於臨界值的病例建議 2 個月內複檢重新分類。<strong>Stage 3、4 病例蛋白尿反而可能減少</strong>（不代表病情變輕），判讀時需留意。任何降蛋白尿治療的效果都要用 UP/C 追蹤。</p>
+
+      <h3>三、依血壓分亞期</h3>
+      <p>需讓貓適應測量環境後多次測量，理想上在不同天的回診分別測量；同一次回診測量則至少間隔 2 小時。以收縮壓（systolic blood pressure）判斷未來標的器官（眼睛、腦、心臟、腎臟）受損風險：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>收縮壓 mmHg</th><th>血壓分亞期</th><th>未來標的器官受損風險</th></tr></thead>
+          <tbody>
+            <tr><td>&lt;140</td><td>Normotensive（正常血壓）</td><td>極低</td></tr>
+            <tr><td>140–159</td><td>Prehypertensive（血壓偏高）</td><td>低</td></tr>
+            <tr><td>160–179</td><td>Hypertensive（高血壓）</td><td>中</td></tr>
+            <tr><td>&ge;180</td><td>Severely hypertensive（重度高血壓）</td><td>高</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">「高血壓」分亞期需 1–2 週內多次測量確認持續性；「重度高血壓」同樣需 1–2 週內確認。已有標的器官受損證據（如眼底出血）時，單次測量即可分亞期。</p>
+
+      <div class="card">
+        <div class="card-title">分期會隨治療調整——範例</div>
+        <p style="margin:0 0 8px;"><strong>貓，治療前：</strong>Creatinine 2.3 mg/dL、SDMA 22 µg/dL、UP/C 0.32、收縮壓 200 mmHg → <strong>IRIS Stage 2，臨界蛋白尿，重度高血壓</strong></p>
+        <p style="margin:0;"><strong>降壓治療後：</strong>Creatinine 2.5 mg/dL、SDMA 24 µg/dL、UP/C 0.12、收縮壓 155 mmHg → <strong>IRIS Stage 2，無蛋白尿，血壓偏高（治療中）</strong>——分亞期要反映「治療後」的現況，並註記正在治療中。</p>
+      </div>
+    </div>
+
+    <!-- TREATMENT -->
+    <div class="section" id="section-treatment">
+      <div class="section-head"><div class="section-num">5</div><h2>依分期治療原則</h2></div>
+      <p class="section-desc">治療分兩大類：<strong>延緩病程</strong>與<strong>改善生活品質／處理臨床症狀</strong>。Stage 1–2 幾乎沒有腎外症狀，治療重心在延緩病程；Stage 3 起腎外症狀逐漸增加、變嚴重，改善生活品質的治療重要性也隨之提高，到 Stage 4 時其重要性已超過延緩病程的治療。用藥時務必考慮<strong>照護者負擔</strong>——多重用藥本身就會影響生活品質與配合度，優先處理對貓最重要的問題。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意事項</div>
+        <p>部分建議用藥<strong>並未在所有地區核准用於貓</strong>，劑量屬於經驗性建議。<strong>使用前務必由主治獸醫師評估個別病患的風險效益</strong>，不建議未經評估直接套用。</p>
+      </div>
+
+      <h3>每一期都要做的 5 件事（後續分期在此基礎上疊加）</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">停用所有可能有腎毒性的藥物（如果可行）</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">找出並治療腎前性或腎後性的異常</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">用 X 光／超音波排除可治療的病因，如腎盂腎炎（<strong>任何泌尿道感染都應視為潛在腎盂腎炎並治療</strong>）與輸尿管阻塞</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">測量血壓與 UP/C</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">（Stage 2 起）考慮／開始餵食腎臟處方飲食——<strong>及早在食慾尚未下降前開始轉換，通常比較容易成功</strong></div></div>
+
+      <h3>依分期疊加的重點</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分期</th><th>在前一期基礎上新增的重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Stage 1</strong></td><td>上述 5 件事（不含飲食，飲食從 Stage 2 起才建議）；若 UP/C 或血壓異常，依第 5 節處理</td></tr>
+            <tr><td><strong>Stage 2</strong></td><td>加入腎臟處方飲食；血磷限制（多數 Stage 2 貓血磷正常但 FGF23 已升高）；低血鉀補充；腸胃症狀（噁心／食慾下降／肌肉流失）用藥</td></tr>
+            <tr><td><strong>Stage 3</strong></td><td>代謝性酸中毒矯正；貧血評估與治療；腸胃症狀藥物治療效果不佳或需長期補液時，考慮腸道餵食管；經腎臟代謝的藥物需視治療指數調整劑量</td></tr>
+            <tr><td><strong>Stage 4</strong></td><td>強化防止蛋白質／熱量營養不良（考慮經皮胃造口餵食管）；強化預防脫水；懷疑腸胃道出血（黑便、缺鐵）時考慮 <span class="dose">omeprazole</span>；評估透析或腎臟移植</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>血磷目標隨分期調整</h3>
+      <p>腎臟處方飲食（限磷飲食）是控制血磷的<strong>第一線治療</strong>，飲食限磷 4–6 週後血磷仍高於該分期目標，才加上磷結合劑。各分期的目標血磷（Table 3, 2026 guideline）：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>IRIS 分期</th><th>目標血磷</th></tr></thead>
+          <tbody>
+            <tr><td>Stage 1</td><td>無特定目標（尚無氮血症）</td></tr>
+            <tr><td>Stage 2</td><td><span class="dose">0.81–1.45 mmol/L（2.5–4.5 mg/dL）</span></td></tr>
+            <tr><td>Stage 3</td><td><span class="dose">0.81–1.63 mmol/L（2.5–5.0 mg/dL）</span></td></tr>
+            <tr><td>Stage 4</td><td><span class="dose">0.81–1.94 mmol/L（2.5–6.0 mg/dL）</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">早期（Stage 1–2，非氮血症）用 FGF23 輔助決策</div>
+          <p style="margin:0;">血磷 &lt;1.45 mmol/L（&lt;4.5 mg/dL）時測 FGF23：<span class="dose">&gt;400 pg/mL</span> → 限磷飲食，目標把 FGF23 降到 &lt;400；<span class="dose">300–400 pg/mL</span> → 先繼續監測；<span class="dose">&lt;300 pg/mL</span> → 沒有證據支持限磷有效，繼續監測即可。血磷已 &gt;1.45 mmol/L 則直接限磷飲食，達標後再測 FGF23 決定要不要加強限制。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">氮血症期（Stage 2–4）</div>
+          <p style="margin:0;">先換腎臟處方飲食，4–6 週後複測：血磷已低於該分期目標上限 → 若血鈣正常就繼續現有飲食，每 6–12 週監測；血磷仍高於目標 → 測 FGF23，<span class="dose">持續 &gt;700 pg/mL</span> 才需要加強限磷（換更限磷的飲食和／或加磷結合劑）。</p>
+        </div>
+      </div>
+
+      <h3>高血鈣（併發於限磷飲食）</h3>
+      <p>約 20% 貓確診 CKD 時已有離子鈣過高，另外約 26% 會在診斷後 12 個月內出現；換上限磷飲食後，約半數氮血症貓的血鈣會逐漸升高（機轉與 PTH 無關）。<strong>建議優先測離子鈣（iCa），而非總鈣</strong>——兩者相關性差，總鈣容易低估真正的高血鈣程度。</p>
+      <div class="card">
+        <div class="card-title">新版建議做法</div>
+        <p style="margin:0;">飲食鈣質 <span class="dose">≤200 mg/100 kcal</span> 且 <span class="dose">鈣磷比 &lt;1.4:1</span>（相對地，鈣磷比 1.9:1 容易誘發高血鈣）；補充<span class="dose">奇亞籽 1–2 g/cat/天</span>（浸泡 20 分鐘以上拌入濕食）也有幫助。其他選項包括雙磷酸鹽類藥物，或 cinacalcet（一種擬鈣劑，人醫用於治療 CKD 高血鈣，貓的資料有限但已有病例報告成功用於治療特發性高血鈣）。<strong>鈣質過高時應改選符合上述鈣磷比條件的腎臟飲食</strong>，而非直接停用限磷飲食。</p>
+      </div>
+
+      <h3>脫水與輸液</h3>
+      <p>所有分期都要確保隨時有新鮮飲水；一旦因任何原因造成臨床脫水／低血容，用等張多離子補充液（如乳酸林格氏液）靜脈矯正，之後再靠居家措施提升自主飲水量。<strong>不是每隻 CKD 貓都需要居家皮下輸液</strong>，但對其他方法仍持續脫水的貓耐受度普遍良好。</p>
+      <div class="card">
+        <div class="card-title">居家皮下輸液</div>
+        <p style="margin:0;">劑量 <span class="dose">75–100 mL/cat</span>，每 <span class="dose">1–3 天</span>一次，多數貓可耐受；理想上選低張溶液（半濃度乳酸林格氏液、0.45% 生理食鹽水、Normosol-M）以降低鈉負擔，但臨床上貓對其他等張晶體液也多能耐受無併發症；缺鉀的貓可在輸液中加 <span class="dose">KCl 20–30 mEq／每 1000 mL 輸液</span>。加溫輸液、給予零食分散注意力、操作動作俐落，都能提升貓的接受度。</p>
+      </div>
+    </div>
+
+    <!-- COMPLICATIONS -->
+    <div class="section" id="section-complications">
+      <div class="section-head"><div class="section-num">6</div><h2>常見併發症處置</h2></div>
+      <p class="section-desc">依併發症分項整理具體用藥與監測方式，部分內容延續第 4 節的分期疊加邏輯。</p>
+
+      <h3>全身性高血壓</h3>
+      <p>目標把收縮壓降到<strong>理想 &lt;140 mmHg，至少 &lt;160 mmHg</strong>，以降低眼睛、腦、心臟等標的器官受損風險（有高達 80% 高血壓貓出現眼部標的器官損傷）。已有標的器官受損證據時<strong>不需等待血壓持續性確認</strong>即可直接治療。開始或調整用藥後 <strong>1–2 週</strong>評估效果。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物類別</th><th>藥物與劑量</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>鈣離子通道阻斷劑</td><td><span class="dose">amlodipine 0.125–0.25 mg/kg q24h</span>（常用 0.625 或 1.25 mg/cat）</td><td>單獨使用常已足夠；重度高血壓可能需到 0.5 mg/kg；副作用：低血壓、牙齦增生；穿皮劑型效果不如口服</td></tr>
+            <tr><td>ARB</td><td><span class="dose">telmisartan 2 mg/kg q24h</span></td><td>通常可降收縮壓 20–25 mmHg；<strong>若與 amlodipine 併用，telmisartan 起始劑量改為 ≤1 mg/kg q24h</strong></td></tr>
+            <tr><td>ACE 抑制劑</td><td><span class="dose">benazepril 0.5–1.0 mg/kg q24h</span>／<span class="dose">enalapril 0.25–0.5 mg/kg q24h</span>／<span class="dose">ramipril 0.125–0.25 mg/kg q24h</span></td><td><strong>不建議單獨用於治療高血壓</strong>（尤其收縮壓 &gt;180 mmHg 時），可與 amlodipine 併用</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">明顯蛋白尿的病例可優先考慮以 telmisartan 作為起始降壓藥物；若已控制血壓但蛋白尿持續，可在 amlodipine 之外加上 ARB／ACE 抑制劑；合併用藥時需密切監測低血壓。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">重要警示</div>
+        <p>脫水或血容不足的不穩定貓<strong>不可貿然開始 CCB／RAAS 抑制劑</strong>，可能使腎絲球過濾率驟降。血壓穩定後每 3 個月追蹤一次，收縮壓 &lt;120 mmHg 或出現無力、心搏過快等低血壓徵象都要避免。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/CKD/ckd_hypertensive_eye_p3.jpg" alt="CKD貓因高血壓併發症導致眼內出血的照片">
+        <div class="figure-caption">CKD 併發高血壓造成的眼內出血（前房積血），患貓可能突然出現定向感喪失、瞳孔異常、甚至失明；治療後部分視力可恢復，高血壓腦病的神經症狀也可逆轉。所有 CKD 貓確診與每次回診都應測量血壓，及早發現、及早控制可有效預防這類併發症。</div>
+        <div class="figure-source">來源：iCatCare《Managing the cat with chronic kidney disease: a guide for caregivers》Figure 3, 2026（攝影：Sarah Caney）</div>
+      </div>
+
+      <h3>蛋白尿</h3>
+      <p>UP/C &gt;0.4（IRIS「蛋白尿」分亞期）應以<strong>腎臟處方飲食＋RAAS 抑制劑</strong>治療；RAAS 抑制劑只用於<strong>非脫水、病情穩定</strong>的貓。<strong>降壓本身就能減少蛋白尿</strong>，高血壓貓應先把血壓控制到 &lt;160 mmHg，再評估是否需要額外的抗蛋白尿藥物。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>治療蛋白尿的劑量</th></tr></thead>
+          <tbody>
+            <tr><td><span class="dose">telmisartan</span></td><td><span class="dose">1 mg/kg PO q24h</span>（注意：<strong>治療蛋白尿與治療高血壓的劑量不同</strong>，高血壓劑量是 2 mg/kg）</td></tr>
+            <tr><td><span class="dose">benazepril</span></td><td><span class="dose">0.25–0.5 mg/kg PO q12h</span>，也有藥食一體劑型</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用藥後時間</th><th>檢查項目</th><th>目的</th></tr></thead>
+          <tbody>
+            <tr><td>1–2 週</td><td>臨床症狀、SBP、creatinine、鉀離子</td><td>評估耐受性；creatinine 上升 &gt;25–30% 需考慮調整劑量</td></tr>
+            <tr><td>用藥／調藥後 4 週</td><td>臨床症狀、SBP、UP/C</td><td>評估降蛋白尿效果</td></tr>
+            <tr><td>之後每 3 個月</td><td>臨床症狀、SBP、UP/C</td><td>長期監測</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="card"><div class="card-title">臨界蛋白尿是否治療</div><p style="margin:0;">UP/C 0.2–0.4 的貓進展為腎病、死亡率都比 UP/C &lt;0.2 的貓高，但<strong>目前沒有證據證實抗蛋白尿藥物在此階段有效</strong>，部分臨床醫師仍會選擇用藥，屬於可選擇的處置。</p></div>
+        <div class="card"><div class="card-title">RAAS 抑制劑副作用</div><p style="margin:0;">可能造成低血壓、高血鉀、氮血症惡化，晚期 CKD 與脫水貓要特別小心；除了臨床監測外，也應依 Table 5 排程定期回診評估。</p></div>
+      </div>
+
+      <h3>礦物質與骨骼失衡（高血磷）</h3>
+      <p>多數 Stage 2 貓血磷正常，但 FGF23（纖維母細胞生長因子 23）已經升高——這是比血磷更早出現異常的指標，詳細分期目標與 FGF23 輔助決策流程見第 4 節。</p>
+      <div class="card">
+        <div class="card-title">磷結合劑選擇</div>
+        <p style="margin:0;">含鈣磷結合劑（如碳酸鈣±甲殼素）便宜有效，但<strong>高血鈣貓應避免使用</strong>；不含鈣的替代選項包括氫氧化鋁、sevelamer、碳酸鑭。磷結合劑須<strong>徹底混入每一餐</strong>、每日總劑量依餐次分配——因為結合劑必須跟飲食中的磷同時存在才有效。</p>
+      </div>
+
+      <h3>低血鉀</h3>
+      <p>高分期 CKD 貓常見低血鉀，與攝取不足、尿液流失增加及 RAAS 活化有關；與嗜睡、食慾不振、肌肉病變（頸部腹屈、蹠行姿勢）及便秘有關。部分臨床醫師會在血鉀處於正常低值時就開始補充，<strong>目標維持血鉀 &gt;4 mmol/L</strong>，便秘的 CKD 貓尤其重要。</p>
+      <p>穩定、輕度低血鉀貓可换用鉀含量較高的飲食；中重度低血鉀給予口服<span class="dose">potassium gluconate</span>或<span class="dose">potassium citrate 1–4 mEq/cat q12h</span>（依反應調整）；<strong>合併酸中毒時 potassium citrate 較佳</strong>（鹼化效果較強）；嚴重失代償者需住院靜脈補鉀，之後再轉口服居家補充。</p>
+
+      <h3>腸胃症狀（噁心、嘔吐、食慾不振）</h3>
+      <p>症狀在高分期 CKD 更常見；<strong>Stage 1–2 貓若出現明顯噁心／嘔吐，應優先考慮是否有其他共病</strong>，而非直接歸因於 CKD。食慾下降應盡早積極處理，並同時排查／矯正脫水、便秘、低血鉀、酸中毒、貧血等會加重食慾不振的因素。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>劑量</th><th>適應症</th><th>常見副作用</th></tr></thead>
+          <tbody>
+            <tr><td><span class="dose">Maropitant</span></td><td>1 mg/kg SC／IV／PO q24h</td><td>預防與治療噁心、嘔吐</td><td>皮下注射部位疼痛</td></tr>
+            <tr><td><span class="dose">Mirtazapine</span></td><td>2 mg/cat PO 或穿皮 q24h（<strong>高分期 CKD 因腎清除率下降改 q48h</strong>）</td><td>止吐＋食慾促進</td><td>發聲躁動；穿皮劑型局部紅斑</td></tr>
+            <tr><td><span class="dose">Ondansetron</span></td><td>0.1–1 mg/kg IV（慢）／IM／SC／PO q6–12h</td><td>預防與治療噁心、嘔吐</td><td>腸胃道反應、便秘，少見過敏反應</td></tr>
+            <tr><td><span class="dose">Omeprazole</span></td><td>1 mg/kg PO q12h</td><td>強烈懷疑／確診腸胃潰瘍</td><td>厭食、嘔吐、腹瀉</td></tr>
+            <tr><td><span class="dose">Capromorelin</span></td><td>2 mg/kg PO q24h</td><td>食慾促進劑</td><td>高血糖、嘔吐、流涎、嗜睡、心搏過慢與低血壓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">此表為指南專家小組共識劑量，實際治療仍由主治獸醫師判斷。持續性厭食、高分期 CKD 或 ACKD 發作期間，可考慮放置餵食管（如食道造口管），同時有助維持水分與給藥。</p>
+
+      <h3>脫水與便秘</h3>
+      <p>CKD 貓慢性脫水常導致大腸代償性回收水分而便秘，低血鉀、尿毒素、飲食與磷結合劑也可能加重。處理原則：<strong>先矯正脫水與低血鉀，再開始藥物治療</strong>；同時排查是否因 DJD 疼痛而不願如廁、貓砂盆環境是否需要優化。</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">口服滲透性軟便劑 <span class="dose">PEG 3350</span>（1/8–1/4 茶匙 q12–24h），一般耐受度優於 lactulose</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">纖維來源：<span class="dose">洋車前子（psyllium）1/4 茶匙 q24h 或分 2 次</span>，或<span class="dose">南瓜泥 1/2–1 茶匙 q24h 或分 2 次</span>，適合水分狀態已矯正的貓拌食</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">上述無效時，第二線加腸胃蠕動促進劑 <span class="dose">cisapride 1 mg/kg PO q8h</span></div></div>
+
+      <h3>代謝性酸中毒</h3>
+      <p>可能比過去認知的更常見，是加速病程惡化的風險因子。腎臟處方飲食本身設計上會減少酸負荷，部分貓仍需額外鹼化：口服<span class="dose">potassium citrate 40–75 mg/kg q12h</span>（同時處理低血鉀時的優選）或<span class="dose">sodium bicarbonate 10–12 mg/kg q8–12h</span>，目標維持血中碳酸氫根 <span class="dose">&gt;16 mmol/L</span>。</p>
+
+      <h3>貧血</h3>
+      <p><span class="dose">PCV &lt;25%</span>，或持續處於 <span class="dose">25–28%</span> 超過 1 個月，應開始治療；貧血會造成嗜睡、食慾不振，也可能經缺氧刺激纖維化、加速病程惡化。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Darbepoetin（首選）</div>
+          <p style="margin:0;">起始 <span class="dose">0.75–1 µg/kg SC，每週一次</span>，PCV 未達 30% 前每週監測 PCV 與 SBP；達標後改<strong>隔週一次</strong>維持 PCV 30–40%；PCV &gt;40% 需暫停或減量（如減 25%）／延長給藥間隔。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Molidustat（HIF-PHI，另一選項）</div>
+          <p style="margin:0;"><span class="dose">5 mg/kg PO q24h</span>，一個療程最長 28 天（部分地區法規要求療程間休息 7 天），依 PCV 反應重複療程，目標維持 PCV 28–40%；反應不佳需排查發炎、鐵儲存不足或藥物交互作用，可能需改用 darbepoetin。</p>
+        </div>
+      </div>
+      <p>兩者都建議合併鐵補充：<span class="dose">iron dextran 50 mg/cat IM q3–4 週</span>，或口服 <span class="dose">ferrous sulphate 50–100 mg/cat q24h</span>、<span class="dose">ferrous fumarate 30–60 mg/cat q24h</span>；<strong>同化類固醇沒有證實的效益，反而可能有害</strong>，不建議使用。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點提醒</div>
+        <p>高分期 CKD 病患經腎臟代謝清除的藥物需<strong>特別留意劑量調整</strong>，避免蓄積中毒；治療優先順序也應隨分期轉移——晚期以<strong>控制症狀</strong>（止吐、促食慾）優先於<strong>延緩病程</strong>（嚴格限磷）的治療。</p>
+      </div>
+    </div>
+
+    <!-- COMORBIDITIES -->
+    <div class="section" id="section-comorbidities">
+      <div class="section-head"><div class="section-num">7</div><h2>常見共病與麻醉考量</h2></div>
+      <p class="section-desc">CKD 貓常合併甲狀腺機能亢進、慢性疼痛、糖尿病等共病，用藥與治療決策需一併考量彼此的交互作用。</p>
+
+      <h3>CKD 併發甲狀腺機能亢進</h3>
+      <p>兩者並存比例高達 15–51%；常見迷思是「治療甲亢會傷腎、應該少治療一點以保護腎臟」——這是<strong>錯誤觀念</strong>，未受控的甲亢本身就會惡化腎功能與心血管狀態，應積極治療。Stage 3–4 貓建議<strong>降低起始劑量</strong>，例如 <span class="dose">thiamazole 1 mg PO q12h</span>，並避免矯枉過正造成<strong>醫源性甲狀腺低能症</strong>（同樣會加速腎功能惡化）。</p>
+
+      <h3>CKD 併發慢性疼痛（DJD 等）</h3>
+      <p>NSAID 只能用於<strong>穩定期 CKD</strong>——定義為過去至少 2 個月體重與 creatinine 變化不大、共病已控制；<strong>Stage 4、脫水或病情不穩定的貓應避免使用</strong>。替代止痛選項：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">Gabapentinoids</div><p style="margin:0;">CKD 貓劑量尚未明確建立，但腎功能下降會使血中濃度偏高，需留意鎮靜副作用並視反應調整。</p></div>
+        <div class="card"><div class="card-title">其他選項</div><p style="margin:0;">frunevetmab（抗 NGF 單株抗體）、tramadol、amantadine、buprenorphine；居家皮下 <span class="dose">ketamine 0.5 mg/kg</span> 每月一次也是可考慮的選項。</p></div>
+      </div>
+
+      <h3>CKD 併發糖尿病</h3>
+      <p>新診斷、合併蛋白尿的糖尿病貓，<strong>SGLT2 抑制劑可能比胰島素更具腎臟保護效益</strong>，可優先考慮（詳見<a href="貓糖尿病照護指南.html">貓糖尿病照護指南</a>）；仍須排除 SGLT2i 使用禁忌症（如已有 DKA／eDKA 病史、明顯脫水）。</p>
+
+      <h3>CKD 貓的麻醉考量</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">麻醉前先確認 IRIS 分期，脫水或血容不足的貓須先矯正再麻醉</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">前驅用藥前可持續讓貓自由飲水，避免不必要的長時間禁水</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">調整經腎臟代謝清除藥物的給藥間隔與劑量</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">考慮當天暫停 ACEI／ARB，降低麻醉中低血壓合併腎灌流不足的風險</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">術中輸液速率約 <span class="dose">3–4 mL/kg/h</span>，目標維持平均動脈壓（MAP）<span class="dose">≥70 mmHg</span></div></div>
+    </div>
+
+    <!-- HOMECARE -->
+    <div class="section" id="section-homecare">
+      <div class="section-head"><div class="section-num">8</div><h2>飲食與居家照護</h2></div>
+      <p class="section-desc">飲食調整與藥物治療是 CKD 管理的基礎，居家環境的調整同樣是治療的一部分，不是附加建議。</p>
+
+      <h3>腎臟處方飲食</h3>
+      <p>特點是<strong>降低磷含量、中度限制蛋白質</strong>，並額外添加鉀、抗氧化物與 omega-3 脂肪酸；乾糧、濕糧皆有，已證實可延長存活期、減緩病程惡化。轉換飲食應<strong>漸進式，至少 1–2 週</strong>，新舊食物混合、逐步提高新飲食比例；<strong>貓咪不舒服（含住院期間）時不要換飲食</strong>，等狀況穩定、進食穩定後再轉換。若貓拒絕腎臟飲食，可考慮磷結合劑作為替代方案，或部分餐食用腎臟飲食、其餘維持原食物。</p>
+
+      <h3>「五大支柱」居家環境調整</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">支柱 1：安全空間</div><p style="margin:0;">提供多處可預期、安全、容易到達的休息區，遠離人多的區域；行動不便或有 DJD 疼痛的貓需要斜坡或階梯輔助。</p></div>
+        <div class="card"><div class="card-title">支柱 2：分散且充足的資源</div><p style="margin:0;">CKD 貓排尿飲水更頻繁，貓砂盆與水源要多處放置（每種資源至少 2 個），低邊貓砂盆搭配柔軟砂material，勤加清潔。</p></div>
+        <div class="card"><div class="card-title">支柱 3：狩獵／玩樂機會</div><p style="margin:0;">即使年老患病的貓也能從活動中受益；短時間、可預期的遊戲時段，搭配止痛藥物可幫助有 DJD 的貓參與輕度活動。</p></div>
+        <div class="card"><div class="card-title">支柱 4：正向、一致的人貓互動</div><p style="margin:0;">讓貓自己選擇互動的方式與長短，不強迫抱起，緩慢靠近並輕聲說話，允許貓隨時退出互動。</p></div>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">支柱 5：尊重貓咪感官——避免濃烈氣味（香水、空氣芳香劑），可考慮費洛蒙產品；加溫食物提升香氣促進食慾；避免突然巨響驚嚇。</p>
+
+      <h3>維持水分攝取</h3>
+      <p>CKD 貓尿液濃縮能力下降，容易流失的水分比攝取的多，進而可能造成便秘、精神不振。可用飲水噴泉、多處水碗、食物加水（貓接受的話）或風味水產品增加飲水量。部分病例需要皮下輸液維持水分：</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">頻率依個別貓咪需求而定，常見<strong>每 1–3 天</strong>一次</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">由醫療團隊示範技巧並觀察照護者操作，確認上手後才讓照護者獨立在家執行</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">器材（輸液袋、延長管、針頭）須由診所提供、無菌包裝；操作前務必洗手，並事先備好所有器材</div></div>
+
+      <h3>居家監測</h3>
+      <p>CKD 通常緩慢進展，需要定期回診調整治療，回診頻率依貓咪狀況與分期而定。照護者可協助記錄：<strong>定期在家秤體重</strong>（可用寵物秤或嬰兒秤，及早發現體重變化）、必要時<strong>在家採集尿液樣本</strong>帶回診所檢驗（使用不吸水貓砂＋吸管／針筒收集，多貓家庭可能需要暫時隔離患貓）。</p>
+    </div>
+
+    <!-- MONITORING -->
+    <div class="section" id="section-monitoring">
+      <div class="section-head"><div class="section-num">9</div><h2>監測與預後</h2></div>
+      <p class="section-desc">CKD 是進展性疾病，定期回診與結構化監測是延緩惡化、及早介入併發症的關鍵。</p>
+
+      <h3>回診頻率</h3>
+      <p>診斷初期或治療方案剛調整時，建議<strong>每 2–4 週</strong>回診一次；病情穩定後可延長至<strong>每 3–6 個月</strong>一次。</p>
+
+      <h3>每次回診檢查項目</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">病史詢問</div><p style="margin:0;">精神活力、食慾、有無嘔吐、如廁狀況（排尿排便）、飲水量變化、藥物／皮下輸液配合度與居家操作細節。</p></div>
+        <div class="card"><div class="card-title">理學檢查</div><p style="margin:0;">收縮壓測量、體重與 BCS（體態評分）／MCS（肌肉評分）、眼底檢查、完整理學檢查。</p></div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p>心腎症候群（cardiorenal syndrome）：CKD 與心臟疾病可互相影響、互為因果，回診時如發現心雜音、呼吸型態改變等徵象應一併評估心臟狀況。</p>
+      </div>
+
+      <h3>預後</h3>
+      <p>病程是否穩定對存活期影響很大：<strong>持續惡化的 CKD 病患中位存活期約 287 天</strong>，相較之下<strong>病情穩定的 CKD 病患中位存活期約 894 天</strong>——凸顯及早發現病程惡化、積極調整治療的重要性。</p>
+    </div>
+
+    <!-- GLOSSARY -->
+    <div class="section" id="section-glossary">
+      <div class="section-head"><div class="section-num">10</div><h2>縮寫對照表</h2></div>
+      <p class="section-desc">複習前可以先對照一下本頁用到的縮寫全名。</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td style="white-space:nowrap;"><strong>CKD</strong></td><td>Chronic Kidney Disease（慢性腎病）</td></tr>
+            <tr><td><strong>IRIS</strong></td><td>International Renal Interest Society（國際腎臟權益學會，制定本頁分期系統的組織）</td></tr>
+            <tr><td><strong>SDMA</strong></td><td>Symmetric Dimethylarginine（對稱性二甲基精胺酸，早期腎功能指標）</td></tr>
+            <tr><td><strong>UP/C</strong></td><td>Urine Protein-to-Creatinine ratio（尿蛋白／肌酸酐比值）</td></tr>
+            <tr><td><strong>DJD</strong></td><td>Degenerative Joint Disease（退化性關節炎）</td></tr>
+            <tr><td><strong>RAAS</strong></td><td>Renin-Angiotensin-Aldosterone System（腎素－血管收縮素－醛固酮系統）</td></tr>
+            <tr><td><strong>ACEI</strong></td><td>Angiotensin-Converting Enzyme Inhibitor（血管收縮素轉化酶抑制劑）</td></tr>
+            <tr><td><strong>ARB</strong></td><td>Angiotensin Receptor Blocker（血管收縮素受體阻斷劑）</td></tr>
+            <tr><td><strong>CCB</strong></td><td>Calcium Channel Blocker（鈣離子通道阻斷劑）</td></tr>
+            <tr><td><strong>FGF23</strong></td><td>Fibroblast Growth Factor 23（纖維母細胞生長因子23，礦物質骨骼失衡的早期指標）</td></tr>
+            <tr><td><strong>PCV</strong></td><td>Packed Cell Volume（血球容積比，即血比容）</td></tr>
+            <tr><td><strong>SBP</strong></td><td>Systolic Blood Pressure（收縮壓）</td></tr>
+            <tr><td><strong>MAP</strong></td><td>Mean Arterial Pressure（平均動脈壓）</td></tr>
+            <tr><td><strong>NSAID</strong></td><td>Non-Steroidal Anti-Inflammatory Drug（非類固醇消炎止痛藥）</td></tr>
+            <tr><td><strong>HIF-PHI</strong></td><td>Hypoxia-Inducible Factor Prolyl-Hydroxylase Inhibitor（缺氧誘導因子脯胺醯羥化酶抑制劑，molidustat 所屬藥物類別）</td></tr>
+            <tr><td><strong>BCS／MCS</strong></td><td>Body／Muscle Condition Score（體態評分／肌肉評分）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題</h2></div>
+      <p class="section-desc">以臨床情境題呈現，涵蓋分期判讀、用藥決策與居家照護的實際問題，先自行作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q1. 8 歲家貓健檢，creatinine 1.4 mg/dL（落在貓 Stage 1 上限），但兩次間隔 SDMA 皆 &gt;20 µg/dL，理學檢查發現脊椎旁肌肉明顯萎縮、體態偏瘦。這隻貓應該分期為哪一期？creatinine 的結果為什麼可能造成誤判？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">應以 SDMA 為準分期為 Stage 2（SDMA 持續 &gt;18 µg/dL 但 creatinine 落在 Stage 1 範圍時即應以 Stage 2 治療）。此貓又合併明顯肌肉流失：creatinine 是肌肉代謝產物，肌肉量下降會使 creatinine 假性偏低，低估實際腎功能惡化程度；肌肉流失明顯的病患，分期判讀應優先參考 SDMA 而非 creatinine。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q2. Stage 3 CKD 貓已用 telmisartan 2 mg/kg q24h 控制高血壓，SBP 從 185 mmHg 降到 145 mmHg，但回診 UP/C 仍 0.6（持續性蛋白尿）。要不要把 telmisartan 劑量調高來處理蛋白尿？接下來怎麼安排監測？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">不建議單純調高劑量：telmisartan 治療蛋白尿的建議劑量是 1 mg/kg q24h，本例因高血壓已使用 2 mg/kg，劑量本身已高於蛋白尿適應症所需，再往上加不是解方，應考慮改採／併用 benazepril（0.25–0.5 mg/kg q12h）等其他 RAAS 抑制劑，或重新評估是否有其他造成蛋白尿的共病、是否需要腎臟切片。監測上：調藥後 1–2 週追蹤臨床症狀／SBP／creatinine／鉀離子（creatinine 上升 &gt;25–30% 需考慮調整），4 週追蹤 UP/C 評估降蛋白尿效果，之後每 3 個月長期監測。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q3. Stage 4 貓單用 amlodipine 0.25 mg/kg q24h，SBP 仍 170 mmHg 未達標，決定加上 telmisartan。加藥時劑量該怎麼下？為什麼不能直接用一般起始劑量？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">telmisartan 起始劑量應降到 ≤1 mg/kg q24h，而非單獨使用時的 2 mg/kg，因為兩種降壓藥合併使用有加成效果，直接用全劑量容易造成低血壓（SBP &lt;120 mmHg、無力、心搏過快）。用藥後 1–2 週需追蹤血壓與腎功能，Stage 4 貓本身對脫水／血容不足的耐受度差，更要留意降壓帶來的 GFR 驟降風險。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q4. Stage 3 CKD 貓合併慢性便秘與輕度低血鉀（3.2 mmol/L），飼主已經每天餵南瓜泥兩週但沒有明顯改善。接下來的處理順序應該怎麼安排？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">先矯正脫水與低血鉀（口服 potassium citrate 或 gluconate 1–4 mEq/cat q12h；若同時有酸中毒傾向，potassium citrate 因兼具鹼化效果更優先），因為低血鉀本身就會加重便秘。同時加上口服滲透性軟便劑 PEG 3350（1/8–1/4 茶匙 q12–24h），耐受度通常優於單靠纖維（南瓜泥／洋車前子）；若這些都無效，再加第二線腸胃蠕動促進劑 cisapride 1 mg/kg PO q8h。也別忘了排查是否有 DJD 疼痛導致不願如廁、貓砂盆環境是否需要優化。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q5. Stage 4 貓 PCV 22%，符合貧血治療門檻，飼主表示沒辦法每週回診打針，但可以每天在家餵口服藥。會選擇哪種紅血球生成治療？劑量與監測目標是什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">飼主的給藥限制（無法每週回診注射）較適合選口服 molidustat（HIF-PHI）5 mg/kg PO q24h，一個療程最長 28 天（部分地區法規要求療程間休息 7 天），依 PCV 反應決定是否重複療程，目標維持 PCV 28–40%；相對地 darbepoetin 起始需 0.75–1 µg/kg SC 每週皮下注射，未達標前每週追蹤，不符合本例的照護條件。兩者都建議合併鐵補充（如口服 ferrous sulphate 50–100 mg/cat q24h），若反應不佳需排查發炎或鐵儲存不足。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q6. 13 歲貓同時確診 Stage 3 CKD 與甲狀腺機能亢進，飼主聽說「治療甲亢會傷腎」，要求先不要治療甲亢以「保護腎臟」。會怎麼跟飼主解釋？起始劑量要注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">這是常見迷思：未受控的甲亢本身會惡化腎功能與心血管狀態，並非治療甲亢傷腎，應該積極治療而非拖延。但 Stage 3–4 貓建議降低起始劑量，例如 thiamazole 1 mg PO q12h（低於一般起始劑量），並在治療後密切追蹤腎功能與甲狀腺數值，避免矯枉過正造成醫源性甲狀腺低能症（同樣會加速腎功能惡化）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q7. Stage 2 CKD 貓因 DJD 慢性疼痛，飼主想讓貓長期服用 NSAID 止痛。會如何評估這隻貓是否適合？如果不適合，有哪些替代止痛選項？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">需先確認是否符合「穩定期 CKD」：過去至少 2 個月體重與 creatinine 變化不大、共病已控制，且非 Stage 4／脫水／病情不穩定，才能謹慎使用 NSAID，並持續監測腎功能。若不符合穩定條件，可考慮 gabapentinoids（CKD 貓劑量未明確建立，需留意腎功能下降使血中濃度偏高的鎮靜風險）、frunevetmab、tramadol、amantadine、buprenorphine，或居家皮下 ketamine 0.5 mg/kg 每月一次。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        本頁內容整理自 2026 iCatCare 貓 CKD 共識指南與 IRIS Staging of CKD (modified 2019)，僅供住院醫師教學複習使用，實際治療決策需依個別病患狀況由主治獸醫師判斷，不作為單獨用藥依據。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  overview: '總覽與腎臟功能',
+  diagnosis: '診斷與篩檢',
+  staging: 'IRIS 分期與分亞期',
+  treatment: '依分期治療原則',
+  complications: '常見併發症處置',
+  comorbidities: '常見共病與麻醉考量',
+  homecare: '飲食與居家照護',
+  monitoring: '監測與預後',
+  glossary: '縮寫對照表',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
