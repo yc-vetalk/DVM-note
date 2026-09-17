@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫臨床及影像診斷學：超音波診斷入門 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=3">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫臨床及影像診斷學</a><span class="sep">›</span><span class="current">超音波診斷入門</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">超音波診斷入門 Introduction to Ultrasonography</h1>
+      <p class="page-subtitle">超音波成像原理、常見偽像判讀，以及胸腔／心臟／腹腔的系統性掃查與常見病灶特徵</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫臨床及影像診斷學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟 Shang-Lin Wang，國立臺灣大學獸醫專業學院）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-17</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">基礎原理</div>
+    <a onclick="showSection('basics')" id="nav-basics">
+      <span class="nav-icon">📡</span> 成像原理、探頭與都卜勒
+    </a>
+    <a onclick="showSection('artifacts')" id="nav-artifacts">
+      <span class="nav-icon">👻</span> 常見偽像
+    </a>
+    <div class="section-label" style="margin-top:8px;">胸腔</div>
+    <a onclick="showSection('thorax')" id="nav-thorax">
+      <span class="nav-icon">🫁</span> 胸腔超音波（POCUS）
+    </a>
+    <div class="section-label" style="margin-top:8px;">心臟</div>
+    <a onclick="showSection('echoviews')" id="nav-echoviews">
+      <span class="nav-icon">❤️</span> 心臟超音波：方位與五種標準切面
+    </a>
+    <a onclick="showSection('dopplerdisease')" id="nav-dopplerdisease">
+      <span class="nav-icon">📈</span> 都卜勒心臟超音波與常見心臟病
+    </a>
+    <div class="section-label" style="margin-top:8px;">腹腔</div>
+    <a onclick="showSection('liverbiliary')" id="nav-liverbiliary">
+      <span class="nav-icon">🟤</span> 肝臟與膽道系統、脾臟
+    </a>
+    <a onclick="showSection('gi')" id="nav-gi">
+      <span class="nav-icon">🌀</span> 腸胃道
+    </a>
+    <a onclick="showSection('renal')" id="nav-renal">
+      <span class="nav-icon">💧</span> 胰臟、腎臟、膀胱與腎上腺
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>迴音強度（echogenicity）三分類是描述任何超音波影像的共同語言：</strong>高迴音（hyperechoic，強反射，呈白色）、低迴音（hypoechoic，中等反射，呈灰色）、無迴音（anechoic，無反射，呈黑色，代表液體）——之後每一個器官、每一個病灶的描述都建立在這三個詞彙上。</li>
+          <li><strong>探頭選擇是頻率與穿透力的取捨：</strong>凸陣探頭（convex）用於腹部（低頻大型犬／高頻小型動物），線陣探頭（linear）用於淺層構造，另有專用心臟探頭；頻率越高解析度越好但穿透深度越淺，這組取捨關係是臨床選探頭的核心邏輯。</li>
+          <li><strong>五種常見偽像各自對應特定臨床線索，是國考最愛考的辨識題：</strong>聲影（acoustic shadowing，乾淨影＝骨骼／結石，髒影＝氣體與糞便）、邊緣聲影（edge shadowing，彎曲構造邊緣的三角形低迴音區）、後方回音增強（acoustic enhancement，聲波易穿透的構造後方組織假性增亮）、多重反射（reverberation，遇氣體等高反射界面產生等距平行線）、鏡像偽像（mirror image，大而平滑的強反射界面使構造在對側重複出現）。</li>
+          <li><strong>胸腔 POCUS 的核心是「有沒有 glide sign／B-line」來排除氣胸，而不是找肺葉本身：</strong>正常乾肺＝glide sign＋A-line（呼吸時肋膜線滑動＋規則等距的水平多重反射線）；濕肺／肺水腫或挫傷＝B-line（ultrasound lung rocket，源自肋膜線、延伸至遠場、隨呼吸滑動的垂直高迴音線）；氣胸＝有 A-line 但<strong>沒有</strong> glide sign，只要能找到 glide sign 或 B-line，就可以排除該處氣胸。</li>
+          <li><strong>心臟超音波五種標準切面＋M-mode＋都卜勒是心臟評估的完整工具組：</strong>右胸骨旁長軸／短軸、左心尖、左胸骨旁、劍突下五種切面各自呈現不同心臟結構角度；M-mode 記錄心臟短軸徑隨時間變化（用於測量心室收縮／舒張功能）；脈衝波都卜勒（PWD）精確測定特定一點的流速，連續波都卜勒（CWD）沒有流速上限但無法定位確切深度。</li>
+          <li><strong>肝臟六葉與膽囊的特徵外觀是腹部超音波最基本的地標：</strong>肝臟分尾葉、右外／右內側葉、方形葉、左外／左內側葉共六葉；正常膽囊呈無迴音、淚滴狀，貓偶爾呈雙葉狀；<strong>膽囊黏液囊腫（mucocele）呈「奇異果樣（kiwifruit-like）」或「星狀（stellate）」圖案</strong>，是需要緊急手術評估的重要影像所見。</li>
+          <li><strong>腸道正常五層構造與腸套疊的靶樣徵象是腸胃道超音波辨識的兩大基礎：</strong>正常腸壁由內而外呈黏膜／黏膜下層／肌肉層／漿膜下層／漿膜交替的高低迴音層次；腸套疊在橫切面上呈現同心圓的「靶樣（target）」徵象，縱切面上可見腸段互相套疊（intussusceptum 套入 intussuscipiens）。</li>
+          <li><strong>腎臟與膀胱病灶的鑑別建立在迴音質地與形態變化：</strong>慢性腎病常見皮髓質分界模糊、皮質迴音增強；多囊腎（PKD）呈現多發無迴音囊泡；阻塞性水腎／輸尿管擴張呈現腎盂與輸尿管的無迴音擴張；膀胱移形上皮癌（TCC）好發於膀胱三角區，呈現由膀胱壁向腔內突出的不規則腫塊——這些都是臨床病例整合題的常見素材。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BASICS -->
+    <div class="section" id="section-basics">
+      <div class="section-head"><div class="section-num">2</div><h2>成像原理、探頭與都卜勒 Physics, Transducers &amp; Doppler</h2></div>
+      <p class="section-desc">超音波是利用聲波產生黑白影像以觀察體內構造的診斷影像技術；理解「回音如何形成」與「探頭如何選擇」是判讀所有後續影像的基礎。</p>
+
+      <h3>什麼是超音波檢查？</h3>
+      <ul>
+        <li>屬於<strong>診斷性醫學影像程序</strong>，利用聲波產生螢幕上的黑白影像，藉此觀察體內構造</li>
+        <li>探頭（transducer）頻率約 <strong>3–12 MHz</strong>；聲波在組織中傳遞時，會被吸收或反彈回探頭頭端的壓電晶體</li>
+        <li>影像由<strong>數百條個別的掃描線</strong>組成；回音（echoes）在不同聲阻抗（acoustic impedance）的組織界面產生，界面聲阻抗差異越大、回音越強，因此呈現不同的迴音強度</li>
+        <li>每一個回音根據<strong>發射脈衝與接收訊號之間的時間差</strong>，被解剖學定位在影像上的對應深度</li>
+      </ul>
+
+      <div class="figure">
+        <img src="img/超音波診斷/imgform_p1.png" alt="超音波影像形成原理示意圖，聲波在不同聲阻抗界面產生回音">
+        <div class="figure-caption">超音波影像形成原理：探頭發射聲波，於不同聲阻抗（acoustic impedance）的組織界面產生強弱不一的回音（圖中綠色標示），影像由數百條掃描線組成，每個回音依發射脈衝與接收訊號的時間差被定位在對應深度。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>迴音強度 Echogenicity<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">高迴音 Hyperechoic</div><p>強反射，影像上呈<strong>白色</strong>（如骨骼、結石、脂肪）</p></div>
+        <div class="card"><div class="card-title">低迴音 Hypoechoic</div><p>中等反射，影像上呈<strong>灰色</strong>（大多數實質器官）</p></div>
+        <div class="card"><div class="card-title">無迴音 Anechoic</div><p>無反射，影像上呈<strong>黑色</strong>（代表液體，如膽汁、尿液、積液）</p></div>
+      </div>
+
+      <h3>探頭種類 Transducers</h3>
+      <p><strong>凸陣探頭（Convex）</strong>與<strong>線陣探頭（Linear）</strong>是最常用的兩種：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>特性</th><th>常見用途</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A：凸陣，低頻</strong></td><td>穿透力較強</td><td>大型犬腹部超音波</td></tr>
+            <tr><td><strong>B：凸陣，高頻</strong></td><td>解析度較高，穿透較淺</td><td>小型動物腹部超音波</td></tr>
+            <tr><td><strong>C：線陣</strong></td><td>寬而平的接觸面</td><td>淺層構造（甲狀腺、肌腱、體表腫塊）</td></tr>
+            <tr><td><strong>D：心臟專用探頭</strong></td><td>扇形視野、高幀率</td><td>心臟超音波（echocardiography）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 頻率越高、解析度越好，但組織穿透深度越淺，是選擇探頭時最核心的取捨（trade-off）。</p>
+
+      <div class="figure">
+        <img src="img/超音波診斷/transducer_p2.png" alt="超音波探頭種類照片，凸陣、線陣、心臟專用探頭">
+        <div class="figure-caption">臨床常用探頭：凸陣探頭（A、B，依頻率高低分別用於大型犬與小型動物腹部）、線陣探頭（C，用於淺層寬平構造）、心臟專用扇形探頭（D）。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>增益設定 Gain Setting</h3>
+      <p>超音波在組織中傳遞時會逐漸<strong>衰減（attenuate）</strong>，因此接收到的回音必須經過放大（增益）調整，且需分別調整<strong>近場（near）</strong>與<strong>遠場（far）</strong>增益，才能得到均勻一致的影像亮度。</p>
+
+      <div class="figure">
+        <img src="img/超音波診斷/gain_p2.png" alt="肝臟超音波影像，近場遠場增益調整前後比較，三張影像">
+        <div class="figure-caption">增益調整對影像品質的影響（皆為肝臟影像）：A 近場增益過強、遠場增益不足，導致近場過亮、遠場過暗；B 近遠場增益調整良好，全域亮度均勻；C 近場增益不足、遠場增益過強，導致近場過暗、遠場過亮。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>都卜勒效應 Doppler Effect</h3>
+      <p>紅血球（RBC）朝探頭方向移動時，回音頻率<strong>增加</strong>（影像上多顯示為<strong>紅色</strong>）；紅血球遠離探頭方向移動時，回音頻率<strong>降低</strong>（影像上多顯示為<strong>藍色</strong>）——這是彩色都卜勒（color Doppler）判色的基礎。</p>
+
+      <div class="figure">
+        <img src="img/超音波診斷/doppler_p2.png" alt="都卜勒效應示意圖與彩色都卜勒超音波影像">
+        <div class="figure-caption">都卜勒效應：紅血球朝探頭移動時回音頻率增加、呈紅色（B）；遠離探頭移動時回音頻率降低、呈藍色（C）；右側為實際彩色都卜勒影像，血流方向以紅／藍區分。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>脈衝波都卜勒 Spectral (Pulsed-Wave) Doppler</h3>
+      <p>用於檢測<strong>特定一點</strong>的血流狀況，可長時間精確評估流速（velocity）、方向（direction）與流動均勻度（uniformity）。與連續波都卜勒（CWD）的差異、及流速判讀慣例，於「都卜勒心臟超音波」章節詳述。</p>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ARTIFACTS -->
+    <div class="section" id="section-artifacts">
+      <div class="section-head"><div class="section-num">3</div><h2>常見偽像 Common Artifacts</h2></div>
+      <p class="section-desc">超音波偽像不是「雜訊」，而是聲波物理特性所產生、具臨床判讀意義的固定模式；辨識這五種偽像是所有後續器官判讀的前提。</p>
+
+      <h3>聲影 Acoustic Shadowing</h3>
+      <p>高度衰減或高反射構造<strong>後方</strong>出現一個回音振幅降低的區域。</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">A：乾淨聲影 Clean shadowing</div><p>如骨骼、結石（calculi）——聲波幾乎完全被阻擋或反射</p></div>
+        <div class="card"><div class="card-title">B：髒聲影 Dirty shadowing</div><p>如大腸內混合的氣體與糞便——多重反射造成不均勻的低迴音區</p></div>
+      </div>
+      <div class="figure">
+        <img src="img/超音波診斷/shadow_p2.png" alt="乾淨聲影與髒聲影超音波影像比較">
+        <div class="figure-caption">聲影兩種型態：A 乾淨聲影，界面後方近乎全黑（如骨骼、結石）；B 髒聲影，界面後方呈不均勻低迴音（如大腸內氣體與糞便混合物）。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>邊緣聲影 Edge Shadowing</h3>
+      <p>在<strong>彎曲構造的邊緣</strong>出現獨立的三角形低迴音區，是聲波在曲面邊緣發生折射所致，需與真正的病灶（如結構破裂）區分。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/edgeshadow_p2.png" alt="邊緣聲影超音波影像，膀胱與腎臟邊緣三角形低迴音區">
+        <div class="figure-caption">邊緣聲影：彎曲構造（如膀胱、腎臟）邊緣出現三角形、界線分明的低迴音區（B、D、E），屬正常偽像，須與真正的結構破裂（C 標示「Rupture?」）加以區分。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>後方回音增強 Acoustic Enhancement</h3>
+      <p>聲波容易穿透的構造（如液體）後方，仍能維持較高強度到達更深的組織 → 反射回探頭的回音也更多 → <strong>深層組織的迴音強度出現假性增亮（artifact）</strong>，常見於囊腫或膀胱後方。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/enhance_p3.png" alt="後方回音增強超音波影像，囊腫或液體構造後方組織假性增亮">
+        <div class="figure-caption">後方回音增強：液體構造（聲波易穿透）後方的組織呈現不成比例的迴音增強，是判斷「該構造內容物為液體」的重要輔助線索。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>多重反射 Reverberation</h3>
+      <p>當聲波遇到<strong>高反射界面（如氣體）</strong>時，聲波在探頭與界面之間來回反射，形成一系列<strong>等間距的平行線</strong>。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/reverb_p3.png" alt="多重反射偽像超音波影像與形成機轉示意圖">
+        <div class="figure-caption">多重反射偽像：聲波遇高反射界面（如氣體）時反覆來回反射，於影像上形成一系列等間距的平行線（箭頭處），機轉示意圖（右）顯示聲波在探頭與界面間往返的路徑。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>鏡像偽像 Mirror Image</h3>
+      <p>當存在<strong>大而平滑、曲面且強反射</strong>的組織界面時，該界面另一側會出現原構造的<strong>重複（鏡像）影像</strong>，常見於橫膈附近（如肝臟／膽囊在橫膈另一側出現鏡像）。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/mirror_p3.png" alt="鏡像偽像超音波影像，肝臟膽囊於橫膈另一側出現鏡像重複">
+        <div class="figure-caption">鏡像偽像：強反射界面（如橫膈）使肝臟（Liver）與膽囊（GB）在界面另一側出現鏡像重複影像（Liver'、GB'），示意圖（右）以虛擬鏡像構造說明其成因。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>五種偽像速查表</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>偽像</th><th>成因</th><th>影像特徵</th></tr></thead>
+          <tbody>
+            <tr><td>聲影（乾淨／髒）</td><td>高度衰減或反射的構造</td><td>構造後方低迴音區</td></tr>
+            <tr><td>邊緣聲影</td><td>曲面邊緣的聲波折射</td><td>三角形低迴音區，位於彎曲構造邊緣</td></tr>
+            <tr><td>後方回音增強</td><td>聲波易穿透的液體構造</td><td>構造後方組織假性增亮</td></tr>
+            <tr><td>多重反射</td><td>高反射界面（氣體）來回反射</td><td>一系列等間距平行線</td></tr>
+            <tr><td>鏡像偽像</td><td>大而平滑強反射界面（如橫膈）</td><td>構造於界面另一側重複出現</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- THORAX -->
+    <div class="section" id="section-thorax">
+      <div class="section-head"><div class="section-num">4</div><h2>胸腔超音波（POCUS）Thoracic Ultrasonography</h2></div>
+      <p class="section-desc">胸腔重點式超音波（POCUS）的核心任務不是逐一描述肺葉，而是快速回答「有沒有氣胸／肋膜積液／肺水腫」，靠的是幾個固定的徵象組合。</p>
+
+      <h3>三個標準掃查部位</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">CTS 胸管部位</div><p>Chest tube site，肋間最高點附近，用於偵測氣胸</p></div>
+        <div class="card"><div class="card-title">PCS 心包部位</div><p>Pericardial site，用於偵測心包積液</p></div>
+        <div class="card"><div class="card-title">DH 橫膈肝臟部位</div><p>Diaphragmatico-hepatic，用於偵測肋膜積液與橫膈疝氣</p></div>
+      </div>
+      <div class="figure">
+        <img src="img/超音波診斷/sites_p3.png" alt="胸腔超音波三個標準掃查部位示意圖，CTS PCS DH">
+        <div class="figure-caption">胸腔 POCUS 三個標準掃查部位：胸管部位（CTS）、心包部位（PCS）、橫膈肝臟部位（DH），依探頭位置與角度標示於犬胸廓示意圖上。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>Gator（alligator）sign 與肋膜肺線</h3>
+      <p>於胸管部位（CTS）掃查時，肋骨的聲影與肺表面的肋膜肺線（<strong>pleural-pulmonary line, PP-line</strong>）共同構成類似「鱷魚」的影像輪廓，是後續判讀 glide sign／A-line／B-line 的解剖地標。</p>
+
+      <h3>正常乾肺：Glide Sign 與 A-line</h3>
+      <p><strong>Glide sign（滑動徵象）：</strong>PP-line 隨呼吸出現前後滑動。<strong>A-line：</strong>PP-line 深方出現一系列規則、等間距的水平多重反射線，是正常含氣肺的特徵。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/drylung_p4.png" alt="正常乾肺超音波影像，glide sign與A-line">
+        <div class="figure-caption">正常乾肺（Dry lung）：可見規則等間距的水平 A-line（左圖示意，右圖實際影像），合併呼吸時 PP-line 的滑動徵象（glide sign），共同代表肺臟正常含氣、無氣胸。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>濕肺：B-line（Ultrasound Lung Rocket）<span class="tag tag-exam">重要</span></h3>
+      <p>B-line（又稱 ultrasound lung rocket）呈<strong>楔形（wedge-shaped）</strong>，源自肋膜線、<strong>延伸貫穿至遠場</strong>、並隨呼吸與 glide sign 一起移動，代表肺間質／肺泡含水量增加（肺水腫、肺挫傷、肺炎等）。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/wetlung_p4.png" alt="濕肺超音波影像，B-line ultrasound lung rocket">
+        <div class="figure-caption">濕肺：B-line（ultrasound lung rocket）呈楔形、源自肋膜線並延伸至遠場（左圖示意，右圖實際影像可見數條垂直高迴音線），提示肺間質或肺泡含水量增加，如肺水腫或肺挫傷。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>肺葉扭轉 Lung Lobe Torsion</h3>
+      <p>受影響的肺葉呈現「<strong>肝化（hepatized）</strong>」外觀且腫大——影像質地類似肝臟實質，是肺葉扭轉的特徵性表現。</p>
+
+      <h3>氣胸 Pneumothorax<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">診斷邏輯</div>
+        <p>氣胸的超音波表現是<strong>有 A-line 但沒有 glide sign</strong>；只要在該掃查部位找到 <strong>glide sign 或 B-line（ultrasound lung rocket）任一項</strong>，即可排除該處氣胸。</p>
+      </div>
+      <div class="figure">
+        <img src="img/超音波診斷/ptx_p4.png" alt="氣胸示意圖，部分氣胸與大量氣胸">
+        <div class="figure-caption">氣胸示意：部分氣胸（Partial PTX，B）與大量氣胸（Massive PTX，C）時，肺臟因游離氣體（free air）與胸壁分離，探頭掃查該區域時偵測不到 glide sign。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>胸壁／肋膜病變：Step Sign</h3>
+      <p>PP-line 正常線性連續性中斷（disruption of normal linear continuity），提示胸壁或肋膜的結構性病變。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/effusion_p4.png" alt="肋膜積液超音波影像，肋下經肝approach與肋間approach">
+        <div class="figure-caption">肋膜積液掃查兩種進路：(A) 肋下／經肝進路（subcostal/transhepatic approach）；(B) 肋間進路（intercostal approach），皆可見液體造成的無迴音區將胸壁與肺臟分離。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>其他胸腔病灶</h3>
+      <ul>
+        <li><strong>縱膈腔（mediastinum）：</strong>需鑑別脂肪堆積與液體或縱膈腫塊</li>
+        <li><strong>橫膈疝氣（diaphragmatic herniation）：</strong>橫膈正常的高迴音弧形連續性消失，可於胸腔內見到肝臟、膽囊等腹腔臟器，心臟可能因周圍臟器遮蔽而難以定位</li>
+      </ul>
+
+      <h3>胸腔 POCUS 徵象速查表</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>徵象</th><th>代表意義</th></tr></thead>
+          <tbody>
+            <tr><td>Glide sign ＋ A-line</td><td>正常乾肺</td></tr>
+            <tr><td>B-line（lung rocket）</td><td>肺間質／肺泡含水量增加（肺水腫、挫傷、肺炎）</td></tr>
+            <tr><td>A-line 但無 glide sign</td><td>氣胸</td></tr>
+            <tr><td>肺葉「肝化」腫大</td><td>肺葉扭轉</td></tr>
+            <tr><td>Step sign（PP-line 中斷）</td><td>胸壁／肋膜病變</td></tr>
+            <tr><td>胸壁與肺臟間無迴音區</td><td>肋膜積液</td></tr>
+            <tr><td>橫膈連續性消失＋腹腔臟器入胸</td><td>橫膈疝氣</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ECHOVIEWS -->
+    <div class="section" id="section-echoviews">
+      <div class="section-head"><div class="section-num">5</div><h2>心臟超音波：方位與五種標準切面 Echocardiography: Orientation &amp; Standard Views</h2></div>
+      <p class="section-desc">心臟超音波（echocardiography）評估的項目固定、切面固定，熟悉五種標準切面的探頭位置與呈現構造，是判讀後續心臟疾病影像的基礎。</p>
+
+      <h3>評估項目</h3>
+      <div class="grid-4">
+        <div class="card"><div class="card-title">腔室 Chamber</div><p>大小、形態</p></div>
+        <div class="card"><div class="card-title">肌肉 Muscle</div><p>心肌厚度、收縮性</p></div>
+        <div class="card"><div class="card-title">瓣膜 Valve</div><p>結構、開合</p></div>
+        <div class="card"><div class="card-title">狹窄 Stenosis</div><p>瓣膜／流出道狹窄</p></div>
+        <div class="card"><div class="card-title">收縮／舒張功能</div><p>Systolic/diastolic function</p></div>
+        <div class="card"><div class="card-title">流速 Velocity</div><p>都卜勒測定</p></div>
+        <div class="card"><div class="card-title">逆流 Regurgitation</div><p>瓣膜關閉不全</p></div>
+      </div>
+
+      <h3>方位與解剖 Orientation and Anatomy</h3>
+      <div class="figure">
+        <img src="img/超音波診斷/orient_p5.png" alt="犬心臟超音波探頭方位與心臟解剖位置示意圖">
+        <div class="figure-caption">心臟超音波探頭方位與心臟在胸腔內的解剖位置示意，建立掃查時「探頭標記—心臟結構」的對應關係，是判讀後續各切面影像的基礎。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>五種標準切面<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>切面</th><th>探頭位置</th></tr></thead>
+          <tbody>
+            <tr><td><strong>右胸骨旁長軸 Right Parasternal Long Axis</strong></td><td>右側胸骨旁，探頭平面與心臟長軸平行</td></tr>
+            <tr><td><strong>右胸骨旁短軸 Right Parasternal Short Axis</strong></td><td>右側胸骨旁，探頭旋轉 90 度與心臟短軸垂直</td></tr>
+            <tr><td><strong>左心尖 Left Apical</strong></td><td>左側心尖附近，可獲得四腔室觀</td></tr>
+            <tr><td><strong>左胸骨旁 Left Parasternal</strong></td><td>左側胸骨旁，常用於評估流出道與都卜勒對位</td></tr>
+            <tr><td><strong>劍突下 Subcostal</strong></td><td>劍突下方，可搭配彩色都卜勒評估血流</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/超音波診斷/rplong_p5.png" alt="右胸骨旁長軸切面示意圖與超音波影像">
+        <div class="figure-caption">右胸骨旁長軸切面（Right Parasternal Long Axis）：可同時呈現心房、心室、房室瓣與大血管流出道，是心臟超音波最常用的起始切面之一。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <div class="figure">
+        <img src="img/超音波診斷/rpshort_p6.png" alt="右胸骨旁短軸切面示意圖與超音波影像">
+        <div class="figure-caption">右胸骨旁短軸切面（Right Parasternal Short Axis）：探頭平面與心臟長軸垂直，可依探頭角度呈現乳頭肌、二尖瓣或主動脈根部等不同層次的橫切影像。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <div class="figure">
+        <img src="img/超音波診斷/subcostal_p6.png" alt="劍突下切面超音波影像，搭配彩色都卜勒">
+        <div class="figure-caption">劍突下切面（Subcostal View）：搭配彩色都卜勒（color Doppler）評估心室流出道及大血管的血流方向與均勻度。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>M-mode 超音波心動圖<span class="tag tag-exam">重要</span></h3>
+      <p>M-mode（motion-mode）記錄心臟<strong>短軸徑隨時間變化</strong>的連續波形，常用於精確測量心室內徑、室間隔與游離壁厚度，據此計算收縮期／舒張期功能參數（如 FS、EF）。是心臟超音波中最常被要求「動手量」的一張切面，操作手法與測量點務必熟記。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">操作手法</div>
+        <p><strong>右側躺（right lateral recumbency）</strong>→ 於右胸骨旁短軸切面先找到<strong>乳突肌／腱索層級（mushroom view）</strong>→ 切換至 <strong>M-mode</strong>，將取樣線（cursor）<strong>放在兩個乳突肌的正中間</strong>、垂直貫穿心室，避開乳突肌本身，才能量到正確、有代表性的心室壁與腔室徑。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/超音波診斷/mmode_p6.png" alt="M-mode超音波心動圖，右胸骨旁短軸切面搭配M-mode取樣線，顯示RV、IVS、LV、LVW隨心跳週期的位移波形">
+        <div class="figure-caption">M-mode 記錄短軸切面（乳突肌層級）上取樣線貫穿處的組織隨時間位移：由近場至遠場依序可辨識 RV（右心室）、IVS（室間隔）、LV（左心室腔）、LVW（左心室游離壁）四個構造帶；A、B 兩條垂直虛線分別對應舒張末期與收縮末期的取樣時間點。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h4>找 5 個點：M-mode 測量的 5 個交界點</h4>
+      <p>從近場到遠場，M-mode 取樣線依序穿過 4 個構造、共 <strong>5 個組織交界點</strong>；在舒張末期（ED，約在心電圖 QRS 波起始處）與收縮末期（ES，LV 腔室最小處）各標記一次，即可推算出 4 組「舒張期／收縮期」共 8 個測量值。</p>
+
+      <div class="mmode-diagram-wrap" style="margin:20px 0; overflow-x:auto;">
+        <svg viewBox="0 0 640 400" style="width:100%; max-width:640px; height:auto; display:block; margin:0 auto; font-family:var(--font);">
+          <text x="160" y="26" text-anchor="middle" style="fill:var(--fg); font-size:16px; font-weight:700;">舒張末期 ED</text>
+          <text x="160" y="44" text-anchor="middle" style="fill:var(--fg-faint); font-size:12px;">（QRS 起始，LV 腔室最大）</text>
+          <text x="460" y="26" text-anchor="middle" style="fill:var(--fg); font-size:16px; font-weight:700;">收縮末期 ES</text>
+          <text x="460" y="44" text-anchor="middle" style="fill:var(--fg-faint); font-size:12px;">（LV 腔室最小）</text>
+
+          <!-- ED column: x 90-230 -->
+          <rect x="90" y="55" width="140" height="35" style="fill:var(--slate-100); stroke:var(--slate-700); stroke-width:1;"/>
+          <text x="160" y="76" text-anchor="middle" style="fill:var(--slate-700); font-size:13px; font-weight:600;">RV 右心室</text>
+          <rect x="90" y="90" width="140" height="22" style="fill:var(--brand-200); stroke:var(--brand-700); stroke-width:1;"/>
+          <text x="160" y="105" text-anchor="middle" style="fill:var(--accent-deep); font-size:12px; font-weight:700;">IVS 室間隔</text>
+          <rect x="90" y="112" width="140" height="156" style="fill:var(--black); stroke:var(--brand-700); stroke-width:1;"/>
+          <text x="160" y="194" text-anchor="middle" style="fill:var(--white); font-size:13px; font-weight:600;">LV 左心室腔</text>
+          <rect x="90" y="268" width="140" height="28" style="fill:var(--brand-300); stroke:var(--brand-700); stroke-width:1;"/>
+          <text x="160" y="286" text-anchor="middle" style="fill:var(--accent-deep); font-size:12px; font-weight:700;">LVW 游離壁</text>
+
+          <!-- ED points -->
+          <circle cx="66" cy="55" r="10" style="fill:var(--rust-700);"/><text x="66" y="59" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">1</text>
+          <circle cx="66" cy="90" r="10" style="fill:var(--rust-700);"/><text x="66" y="94" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">2</text>
+          <circle cx="66" cy="112" r="10" style="fill:var(--rust-700);"/><text x="66" y="116" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">3</text>
+          <circle cx="66" cy="268" r="10" style="fill:var(--rust-700);"/><text x="66" y="272" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">4</text>
+          <circle cx="66" cy="296" r="10" style="fill:var(--rust-700);"/><text x="66" y="300" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">5</text>
+
+          <!-- ED brackets -->
+          <path d="M238,55 h8 v35 h-8" style="fill:none; stroke:var(--fg-muted); stroke-width:1.5;"/>
+          <text x="252" y="76" style="fill:var(--fg); font-size:12px; font-weight:600;">RVIDd</text>
+          <path d="M238,90 h8 v22 h-8" style="fill:none; stroke:var(--fg-muted); stroke-width:1.5;"/>
+          <text x="252" y="105" style="fill:var(--fg); font-size:12px; font-weight:600;">IVSd</text>
+          <path d="M238,112 h8 v156 h-8" style="fill:none; stroke:var(--fg-muted); stroke-width:1.5;"/>
+          <text x="252" y="194" style="fill:var(--fg); font-size:12px; font-weight:600;">LVIDd</text>
+          <path d="M238,268 h8 v28 h-8" style="fill:none; stroke:var(--fg-muted); stroke-width:1.5;"/>
+          <text x="252" y="286" style="fill:var(--fg); font-size:12px; font-weight:600;">LVPWd</text>
+
+          <!-- ES column: x 390-530 -->
+          <rect x="390" y="55" width="140" height="33" style="fill:var(--slate-100); stroke:var(--slate-700); stroke-width:1;"/>
+          <text x="460" y="75" text-anchor="middle" style="fill:var(--slate-700); font-size:13px; font-weight:600;">RV 右心室</text>
+          <rect x="390" y="88" width="140" height="38" style="fill:var(--brand-200); stroke:var(--brand-700); stroke-width:1;"/>
+          <text x="460" y="111" text-anchor="middle" style="fill:var(--accent-deep); font-size:12px; font-weight:700;">IVS 室間隔（增厚）</text>
+          <rect x="390" y="126" width="140" height="90" style="fill:var(--black); stroke:var(--brand-700); stroke-width:1;"/>
+          <text x="460" y="174" text-anchor="middle" style="fill:var(--white); font-size:13px; font-weight:600;">LV 左心室腔（變小）</text>
+          <rect x="390" y="216" width="140" height="40" style="fill:var(--brand-300); stroke:var(--brand-700); stroke-width:1;"/>
+          <text x="460" y="240" text-anchor="middle" style="fill:var(--accent-deep); font-size:12px; font-weight:700;">LVW 游離壁（增厚）</text>
+
+          <!-- ES points -->
+          <circle cx="366" cy="55" r="10" style="fill:var(--rust-700);"/><text x="366" y="59" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">1</text>
+          <circle cx="366" cy="88" r="10" style="fill:var(--rust-700);"/><text x="366" y="92" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">2</text>
+          <circle cx="366" cy="126" r="10" style="fill:var(--rust-700);"/><text x="366" y="130" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">3</text>
+          <circle cx="366" cy="216" r="10" style="fill:var(--rust-700);"/><text x="366" y="220" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">4</text>
+          <circle cx="366" cy="256" r="10" style="fill:var(--rust-700);"/><text x="366" y="260" text-anchor="middle" style="fill:var(--white); font-size:11px; font-weight:700;">5</text>
+
+          <!-- ES brackets -->
+          <path d="M538,55 h8 v33 h-8" style="fill:none; stroke:var(--fg-muted); stroke-width:1.5;"/>
+          <text x="552" y="75" style="fill:var(--fg); font-size:12px; font-weight:600;">RVIDs</text>
+          <path d="M538,88 h8 v38 h-8" style="fill:none; stroke:var(--fg-muted); stroke-width:1.5;"/>
+          <text x="552" y="111" style="fill:var(--fg); font-size:12px; font-weight:600;">IVSs</text>
+          <path d="M538,126 h8 v90 h-8" style="fill:none; stroke:var(--fg-muted); stroke-width:1.5;"/>
+          <text x="552" y="174" style="fill:var(--fg); font-size:12px; font-weight:600;">LVIDs</text>
+          <path d="M538,216 h8 v40 h-8" style="fill:none; stroke:var(--fg-muted); stroke-width:1.5;"/>
+          <text x="552" y="240" style="fill:var(--fg); font-size:12px; font-weight:600;">LVPWs</text>
+
+          <!-- ED/ES linking arrow -->
+          <path d="M234,340 L386,340" style="stroke:var(--fg-faint); stroke-width:1.5; stroke-dasharray:4,3; marker-end:url(#arrow);"/>
+          <text x="310" y="332" text-anchor="middle" style="fill:var(--fg-faint); font-size:11px;">同一心動週期內</text>
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" style="fill:var(--fg-faint);"/></marker>
+          </defs>
+
+          <text x="20" y="368" style="fill:var(--fg-faint); font-size:11px;">① RV游離壁內緣　② RV／IVS交界（IVS近場緣）　③ IVS／LV交界（IVS遠場緣）　④ LV／LVW交界（LVW近場緣）　⑤ LVW／心包交界（LVW遠場緣）</text>
+        </svg>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>測量值</th><th>對應點</th><th>生理意義</th><th>臨床應用</th></tr></thead>
+          <tbody>
+            <tr><td><strong>RVIDd／RVIDs</strong><br>右心室內徑</td><td>點①–②</td><td>右心室腔室大小</td><td>RV 容積負荷過重時增大（如嚴重三尖瓣逆流、心絲蟲病、肺動脈高壓）</td></tr>
+            <tr><td><strong>IVSd／IVSs</strong><br>室間隔厚度</td><td>點②–③</td><td>室間隔心肌厚度</td><td>HCM（肥厚型心肌病）時增厚；DCM（擴張型心肌病）時變薄</td></tr>
+            <tr><td><strong>LVIDd／LVIDs</strong><br>左心室內徑</td><td>點③–④</td><td>左心室腔室大小，用於計算 FS%</td><td>DCM／CDVD（容積負荷過重）時 LVIDd 增大；HCM 時 LVIDd 常正常或偏小</td></tr>
+            <tr><td><strong>LVPWd／LVPWs</strong><br>左心室游離壁厚度</td><td>點④–⑤</td><td>左心室游離壁心肌厚度</td><td>HCM 時增厚（常與 IVS 同步增厚，呈對稱性肥厚）；DCM 時變薄</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <p style="font-size:1.05em; text-align:center; color:var(--accent-deep); font-weight:700; margin:4px 0;">FS% = (LVIDd − LVIDs) ÷ LVIDd × 100</p>
+        <p style="text-align:center; margin:4px 0;">短軸縮短率（Fractional Shortening）── 犬正常參考值約 <strong>25–45%</strong></p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">判讀陷阱</div>
+        <p>FS% 反映的是<strong>單一維度</strong>的收縮功能、且高度受<strong>前負荷（preload）</strong>影響：容積負荷過重的代償早期（如慢性二尖瓣逆流／CDVD）常因 LVIDd 增大而使 FS% 假性正常甚至偏高，須合併 LA/Ao、LVIDd 常態化數值與臨床病史綜合判斷，不能只看單一 FS% 數字判斷心臟收縮力是否正常；相關疾病影像特徵請見「都卜勒心臟超音波與常見心臟病」一節的 DCM／HCM／CDVD 說明。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- DOPPLER DISEASE -->
+    <div class="section" id="section-dopplerdisease">
+      <div class="section-head"><div class="section-num">6</div><h2>都卜勒心臟超音波與常見心臟病 Doppler Echocardiography &amp; Common Cardiac Diseases</h2></div>
+      <p class="section-desc">都卜勒是評估血流方向與流速的工具，臨床上用於辨識瓣膜逆流、狹窄與各類心肌病；本節整理最常考的幾個犬貓心臟病代表性影像。</p>
+
+      <h3>都卜勒模式：PWD vs. CWD</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">脈衝波都卜勒 PWD</div><p>Pulsed-wave Doppler，可<strong>精確定位</strong>特定一點的流速，但流速有上限（超過上限會出現混疊 aliasing）</p></div>
+        <div class="card"><div class="card-title">連續波都卜勒 CWD</div><p>Continuous-wave Doppler，<strong>沒有實際的流速上限</strong>，但無法精確定位深度（沿整條取樣線疊加訊號）</p></div>
+      </div>
+      <div class="figure">
+        <img src="img/超音波診斷/pwdcwd_p7.png" alt="脈衝波都卜勒與連續波都卜勒示意圖">
+        <div class="figure-caption">脈衝波都卜勒（PWD）與連續波都卜勒（CWD）的取樣原理示意：PWD 於單一取樣容積內測量、CWD 沿整條取樣線疊加測量，兩者互補用於不同臨床情境（PWD 定位病灶、CWD 測量高速逆流／狹窄血流）。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>流速判讀慣例 Velocity Convention</h3>
+      <p>頻譜都卜勒波形的基準線（baseline）代表 <strong>0 m/s</strong>；基準線<strong>上方</strong>代表血流<strong>朝向</strong>探頭，<strong>下方</strong>代表血流<strong>遠離</strong>探頭；量測時取樣線應盡可能<strong>與血流方向平行</strong>，角度誤差會低估實際流速。</p>
+
+      <h3>慢性退化性瓣膜病 CDVD（二尖瓣逆流）<span class="tag tag-exam">重要</span></h3>
+      <p>Chronic degenerative valve disease，犬最常見的後天性心臟病，好發於<strong>二尖瓣（mitral valve）</strong>，造成二尖瓣逆流（MR）。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/cdvd_p7.png" alt="慢性退化性瓣膜病二尖瓣逆流彩色都卜勒與頻譜都卜勒影像">
+        <div class="figure-caption">CDVD 二尖瓣逆流：彩色都卜勒（左）顯示收縮期血流自左心室逆流回左心房的花色訊號（aliasing），頻譜都卜勒（右）顯示逆流的高速訊號。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>擴張型心肌病 DCM</h3>
+      <p>Dilated cardiomyopathy，特徵為心室<strong>擴張</strong>合併收縮力<strong>下降</strong>，好發於大型犬品種。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/dcm_p7.png" alt="擴張型心肌病超音波四張影像">
+        <div class="figure-caption">擴張型心肌病（DCM）：可見心室腔室明顯擴大、心室壁相對變薄、整體收縮功能下降。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>肥厚型心肌病 HCM</h3>
+      <p>Hypertrophic cardiomyopathy，特徵為心室壁（尤其是室間隔與游離壁）<strong>不成比例增厚</strong>，是貓最常見的心臟病。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/hcm_p7.png" alt="肥厚型心肌病超音波影像，心室壁增厚">
+        <div class="figure-caption">肥厚型心肌病（HCM）：心室壁明顯增厚、心室腔室相對縮小，是貓最常見的原發性心肌病。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>心絲蟲病 Heartworm (Dirofilariasis)</h3>
+      <p>成蟲可於右心房、右心室及肺動脈內以超音波直接觀察到<strong>平行線狀（雙軌狀）</strong>高迴音構造。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/heartworm_p7.png" alt="心絲蟲病超音波影像，右心可見蟲體高迴音線狀構造">
+        <div class="figure-caption">心絲蟲病：右心腔室及肺動脈內可見多條平行的線狀高迴音構造，為心絲蟲成蟲的特徵性超音波表現。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>心包積液與心包填塞 Pericardial Effusion &amp; Tamponade</h3>
+      <p>心包腔內出現無迴音積液（PE），大量積液合併心臟舒張受限時稱為<strong>心包填塞（tamponade）</strong>，屬心臟科急症。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/pericard_p8.png" alt="心包積液與心包填塞超音波及M-mode影像">
+        <div class="figure-caption">心包積液與心包填塞：右胸骨旁切面（A、B）可見心包腔內大量無迴音積液（PE）環繞心臟，M-mode（C）可見右心室游離壁塌陷等心包填塞徵象。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- LIVER BILIARY -->
+    <div class="section" id="section-liverbiliary">
+      <div class="section-head"><div class="section-num">7</div><h2>肝臟與膽道系統、脾臟 Liver, Biliary System &amp; Spleen</h2></div>
+      <p class="section-desc">肝臟六葉的命名與膽囊的特徵外觀，是腹部超音波掃查最基本的地標；膽囊黏液囊腫的影像特徵是臨床急症判讀重點。</p>
+
+      <h3>肝臟六葉 Liver: 6 Lobes</h3>
+      <p>肝臟分為<strong>尾葉（Caudate）、右外側葉（Right lateral）、右內側葉（Right medial）、方形葉（Quadrate）、左外側葉（Left lateral）、左內側葉（Left medial）</strong>共六葉，掃查時分矢狀面（sagittal）與橫切面（transverse）系統性評估。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/liverlobes_p8.png" alt="肝臟六葉解剖示意圖">
+        <div class="figure-caption">肝臟六葉解剖示意：尾葉、右外側葉、右內側葉、方形葉、左外側葉、左內側葉，中央可見膽囊（綠色）位置。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 肝臟迴音相對<strong>低迴音、質地較顆粒狀</strong>；肝臟迴音大致<strong>與右腎皮質相近（isoechoic）</strong>，是評估肝臟是否瀰漫性病變的重要參考基準。</p>
+
+      <h3>肝臟病灶：肝腫瘤 Hepatic Neoplasm</h3>
+      <div class="figure">
+        <img src="img/超音波診斷/hepneo_p9.png" alt="肝腫瘤超音波影像四張">
+        <div class="figure-caption">肝腫瘤：可呈現局部腫塊、迴音強度不均，或彌漫性肝臟構造改變，需搭配細胞學／組織學進一步確診。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>膽道系統 Biliary System</h3>
+      <p>正常膽囊呈<strong>無迴音、淚滴狀（teardrop-shaped）</strong>構造，<strong>貓偶爾呈雙葉狀</strong>，並可見與其相連的膽囊管（cystic duct）；正常膽囊壁應<strong>薄而平滑，厚度小於 1 mm</strong>。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/gbteardrop_p9.png" alt="正常膽囊超音波影像及剖檢照片，淚滴狀構造">
+        <div class="figure-caption">正常膽囊：超音波（左）呈無迴音、淚滴狀構造，可見膽囊管（CD）；剖檢照片（右）對照顯示膽囊與膽囊管的實際解剖形態。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+      <p><strong>膽泥（sludge）</strong>常在無臨床症狀動物身上被偶然發現，重新擺位後膽泥應隨重力移動，可藉此與附著性病灶區分。</p>
+
+      <h3>膽囊壁水腫與黏液囊腫 <span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床急症影像所見</div>
+        <p>膽囊黏液囊腫（mucocele）典型呈現<strong>「奇異果樣（kiwifruit-like）」或「星狀（stellate）」圖案</strong>，是需要緊急評估手術與否的重要影像所見；膽囊壁水腫則可見雙層或多層迴音構造。</p>
+      </div>
+      <div class="figure">
+        <img src="img/超音波診斷/gbmucocele_p9.png" alt="膽囊壁水腫與黏液囊腫超音波影像四張">
+        <div class="figure-caption">膽囊壁水腫與黏液囊腫：可見膽囊壁增厚水腫（左上）、星狀（stellate）迴音圖案（右上）、囊腔內不規則迴音構造（左下），以及典型的「奇異果樣（kiwifruit-like）」黏液囊腫圖案（右下）。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>脾臟 Spleen</h3>
+      <p>位於<strong>左側顱背側腹腔</strong>，緊鄰胃臟尾側及腹壁，其位置會隨<strong>胃內容物充盈程度</strong>而變化。脾臟出現大小不一、迴音強度不均的結節（nodule）是<strong>常見但非特異性</strong>的發現，鑑別診斷範圍廣，包含多發性脾梗塞壞死、纖維組織細胞增生結節、脾臟淋巴瘤、髓外造血、肉芽腫性脾炎、瀰漫性組織細胞肉瘤、脾臟髓脂肪瘤、血管肉瘤等，需搭配細胞學／組織學確診。</p>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- GI -->
+    <div class="section" id="section-gi">
+      <div class="section-head"><div class="section-num">8</div><h2>腸胃道 Gastrointestinal Tract</h2></div>
+      <p class="section-desc">腸胃道超音波判讀的核心是「正常五層構造是否保持」，腸套疊的靶樣徵象與異物聲影是最常見的臨床急症影像所見。</p>
+
+      <h3>掃查與正常層次構造</h3>
+      <div class="figure">
+        <img src="img/超音波診斷/gidiagram_p10.png" alt="腸胃道各部位探頭掃查位置示意圖">
+        <div class="figure-caption">腸胃道系統性掃查示意：依序評估胃、十二指腸、空腸、迴腸、盲結腸各節段，圖中同時附上各節段的代表性超音波影像（A、B、C）。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>正常腸道五層構造<span class="tag tag-exam">重要</span></h3>
+      <p>正常腸壁由內而外呈現<strong>黏膜（mucosa）／黏膜下層（submucosa）／肌肉層（muscularis）／漿膜下層／漿膜（serosa/subserosa）</strong>交替的高低迴音層次，任一層的增厚或層次消失都提示病變。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/gilayers_p10.png" alt="正常腸道五層構造超音波影像與示意圖">
+        <div class="figure-caption">正常腸道五層構造：超音波影像（左）與對應示意圖（右）顯示黏膜／黏膜下層／肌肉層／漿膜下層／漿膜由內而外交替的高低迴音層次（M＝mucosa）。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>腸壁厚度參考值</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種／體重</th><th>胃</th><th>十二指腸</th><th>空腸</th><th>迴腸</th><th>盲結腸</th></tr></thead>
+          <tbody>
+            <tr><td>犬 &lt;15 kg</td><td>2–5 mm</td><td>3.8 mm</td><td>3.0 mm</td><td>3.0 mm</td><td>1.5 mm</td></tr>
+            <tr><td>犬 15–30 kg</td><td>2–5 mm</td><td>4.1 mm</td><td>3.5 mm</td><td>3.5 mm</td><td>1.5 mm</td></tr>
+            <tr><td>犬 &gt;30 kg</td><td>2–5 mm</td><td>4.4 mm</td><td>3.8 mm</td><td>3.8 mm</td><td>1.5 mm</td></tr>
+            <tr><td>貓</td><td>2–4 mm</td><td>2.2 mm</td><td>2.2 mm</td><td>2.8 mm</td><td>1.5 mm</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 犬的腸壁厚度參考值依<strong>體重分級</strong>而非單一數值，是計算題／病例整合題常考的細節。</p>
+
+      <h3>腸套疊 Intussusception<span class="tag tag-exam">重要</span></h3>
+      <p>近端腸段（intussusceptum）套入遠端腸段（intussuscipiens），橫切面上呈現多層同心圓的<strong>「靶樣（target）」徵象</strong>。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/intussus_p10.png" alt="腸套疊超音波影像與靶樣徵象示意圖">
+        <div class="figure-caption">腸套疊：縱切面（A、B）可見腸段互相套疊，示意圖（右）標示 intussusceptum（套入的近端腸段）套入 intussuscipiens（接受套入的遠端腸段），橫切面上呈現同心圓靶樣徵象。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>腸胃道異物 Foreign Bodies</h3>
+      <p>常見型態包含<strong>圓形玩具球（play balls）、橡皮筋（elastic bands）、硬塑膠異物、線狀異物（linear foreign bodies）</strong>，各自有不同的聲影特徵（如圓形物體造成弧形聲影、線狀異物可能合併腸道摺疊堆積外觀）。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/foreignbody_p11.png" alt="胃腸道異物超音波影像四張，玩具球橡皮筋硬塑膠線狀異物">
+        <div class="figure-caption">腸胃道異物：圓形玩具球（play balls）、橡皮筋（elastic bands）、硬塑膠異物、線狀異物（linear foreign bodies），各自呈現不同的迴音與聲影特徵。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>黏膜病變</h3>
+      <ul>
+        <li><strong>黏膜迴音增強合併斑點狀高迴音：</strong>見於淋巴漿細胞性腸炎（lymphocytic-plasmacytic enteritis）；也可見於<strong>剛進食後</strong>，消化結束後斑點會消失，須避免誤判為病理性變化</li>
+        <li><strong>黏膜高迴音條紋（mucosal hyperechoic striations）：</strong>與黏膜層垂直排列的線狀高迴音，代表擴張的乳糜管（dilated lacteals），與蛋白質流失性腸病（PLE）及淋巴管擴張症相關</li>
+        <li><strong>腸壁肌肉層增厚：</strong>可見於異物造成的機械性阻塞、發炎性腸病（IBD）、腫瘤浸潤，三者影像上不易單靠厚度區分，需合併臨床病史與細胞學／組織學</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RENAL -->
+    <div class="section" id="section-renal">
+      <div class="section-head"><div class="section-num">9</div><h2>胰臟、腎臟、膀胱與腎上腺 Pancreas, Kidney, Bladder &amp; Adrenal Gland</h2></div>
+      <p class="section-desc">泌尿系統病灶的鑑別建立在迴音質地與形態變化；胰臟與腎上腺則因體積小、位置深，掃查時需熟悉固定的解剖地標。</p>
+
+      <h3>胰臟 Pancreas</h3>
+      <p>分為<strong>左葉（Left lobe）、右葉（Right lobe）、體部（Body）</strong>三部分，左葉鄰近脾臟與胃，右葉鄰近十二指腸，是掃查時的重要定位地標。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/pancreas_p11.png" alt="胰臟解剖示意圖與犬貓胰臟厚度參考值表">
+        <div class="figure-caption">胰臟解剖與厚度參考值：左葉（A）、體部（B）、右葉（C）分別鄰近脾臟、十二指腸與胃；表格列出犬貓左葉／體部／右葉平均厚度與胰管平均直徑的參考範圍。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>腎臟 Kidney</h3>
+      <p>掃查時分<strong>縱切面（Longitudinal）</strong>與<strong>橫切面（Transverse）</strong>評估，正常腎臟應可清楚分辨皮質（cortex）與髓質（medulla）的分界。</p>
+      <div class="figure">
+        <img src="img/超音波診斷/kidney_p11.png" alt="腎臟縱切面與橫切面超音波影像">
+        <div class="figure-caption">正常腎臟：縱切面（A）與橫切面（B）皆可清楚分辨皮質（cortex）與髓質（medulla）分界，皮質迴音應與肝臟相近或稍低於肝臟。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>常見腎臟病灶<span class="tag tag-exam">重要</span></h3>
+      <div class="figure">
+        <img src="img/超音波診斷/ckdpkd_p12.png" alt="慢性腎病多囊腎阻塞性水腎輸尿管擴張超音波影像四張">
+        <div class="figure-caption">常見腎臟病灶：慢性腎病（皮髓質分界模糊、皮質迴音增強，左上）、多囊腎（polycystic kidney，多發無迴音囊泡，右上）、阻塞性水腎（obstructive hydronephrosis，腎盂擴張，左下）、輸尿管擴張（hydroureter，右下）。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>膀胱 Bladder</h3>
+      <p>正常膀胱壁應<strong>薄而平滑</strong>，腔內尿液呈無迴音；掃查時需注意膀胱三角區（trigone）是腫瘤好發部位。</p>
+
+      <h3>膀胱病灶：膀胱炎與移形上皮癌</h3>
+      <div class="figure">
+        <img src="img/超音波診斷/cystitistcc_p12.png" alt="膀胱炎與移形上皮癌超音波影像">
+        <div class="figure-caption">膀胱病灶：膀胱炎（Cystitis，左）可見膀胱壁瀰漫性增厚不規則；移形上皮癌（Transitional cell carcinoma, TCC，右）呈現由膀胱壁向腔內突出的不規則腫塊，好發於膀胱三角區。</div>
+        <div class="figure-source">來源：課程講義〈Introduction to medical images: Ultrasonography〉</div>
+      </div>
+
+      <h3>腎上腺 Adrenal Gland</h3>
+      <p>位於腎臟頭側，體積小、需仔細掃查；犬貓的腎上腺厚度／長度有各自的參考範圍，過大提示腎上腺增生或腫瘤（如犬的腎上腺依賴性庫欣氏症）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>厚度／寬度</th><th>長度</th></tr></thead>
+          <tbody>
+            <tr><td>犬</td><td>6–8 mm</td><td>10–50 mm</td></tr>
+            <tr><td>貓</td><td>3.5–4.5 mm</td><td>10–11 mm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度的整理，複習前可先快速掃過本節，找出自己不熟的部分再回對應章節細讀。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>迴音強度三分類（高迴音／低迴音／無迴音）</strong>是描述所有超音波影像的共同語言；探頭選擇是頻率與穿透力的取捨，高頻高解析低穿透、低頻低解析高穿透。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>五種偽像各有固定成因與影像特徵：</strong>聲影（乾淨／髒）、邊緣聲影、後方回音增強、多重反射、鏡像偽像，是辨識題的常見素材。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>胸腔 POCUS 核心：glide sign＋A-line＝正常乾肺；B-line（lung rocket）＝肺間質／肺泡含水增加；A-line 無 glide sign＝氣胸。</strong>三部位（CTS／PCS／DH）分別對應氣胸、心包積液、肋膜積液與橫膈疝氣。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>心臟超音波五種標準切面（右胸骨旁長／短軸、左心尖、左胸骨旁、劍突下）＋M-mode＋都卜勒（PWD 定點精確、CWD 無流速上限但無法定位）</strong>是評估腔室、心肌、瓣膜、狹窄、收縮舒張功能、流速與逆流的完整工具組。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>常見心臟病影像特徵：</strong>CDVD＝二尖瓣逆流（犬最常見後天性心臟病）；DCM＝心室擴張＋收縮力下降；HCM＝心室壁不成比例增厚（貓最常見）；心絲蟲＝右心腔室內平行線狀高迴音構造；心包填塞＝大量心包積液＋右心室游離壁塌陷，屬急症。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>肝臟六葉、膽囊淚滴狀無迴音外觀</strong>是腹部超音波基本地標；<strong>膽囊黏液囊腫呈「奇異果樣」或「星狀」圖案</strong>，是需要緊急手術評估的重要影像所見。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>腸道正常五層構造（黏膜／黏膜下層／肌肉層／漿膜下層／漿膜）</strong>是判讀所有腸道病變的基準；<strong>腸套疊呈同心圓靶樣徵象</strong>；腸壁厚度參考值依犬體重分級與貓分開計算。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>腎臟病灶鑑別：</strong>慢性腎病（皮髓質分界模糊、皮質迴音增強）、多囊腎（多發無迴音囊泡）、阻塞性水腎／輸尿管擴張（腎盂／輸尿管無迴音擴張）；<strong>膀胱移形上皮癌好發膀胱三角區</strong>，呈向腔內突出的不規則腫塊。</div></div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋成像原理、偽像、胸腔／心臟／腹腔超音波各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念請回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列關於超音波迴音強度的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) Anechoic 代表強反射，影像呈白色</li>
+          <li>(B) Hyperechoic 代表無反射，影像呈黑色</li>
+          <li>(C) Anechoic 代表無反射，影像呈黑色，常見於液體</li>
+          <li>(D) Hypoechoic 與 Hyperechoic 意義相同</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">Hyperechoic（高迴音）為強反射、呈白色；Hypoechoic（低迴音）為中等反射、呈灰色；Anechoic（無迴音）為無反射、呈黑色，代表液體（如膽汁、尿液、積液）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 探頭頻率越高，組織穿透深度越深、但解析度會下降。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">應為相反：頻率越高，解析度越好，但組織穿透深度越淺；頻率越低，穿透深度越深，但解析度較差。這是選擇探頭時頻率與穿透力的核心取捨。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 掃查大腸時，因腸腔內氣體與糞便混合，其後方出現不均勻的低迴音區，此偽像屬於？</div>
+        <ul class="quiz-options">
+          <li>(A) 乾淨聲影 Clean shadowing</li>
+          <li>(B) 髒聲影 Dirty shadowing</li>
+          <li>(C) 後方回音增強 Acoustic enhancement</li>
+          <li>(D) 鏡像偽像 Mirror image</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">髒聲影（dirty shadowing）常見於氣體與糞便混合的大腸腔，後方呈現不均勻的低迴音區；乾淨聲影則多見於骨骼或結石等高度反射構造，後方近乎全黑。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明「後方回音增強（acoustic enhancement）」的成因，以及它在臨床判讀上的意義。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">聲波容易穿透的構造（通常是液體）讓聲波維持較高強度傳遞到更深的組織，因此有更多回音返回探頭，使深層組織的迴音強度出現假性增亮（artifact）。臨床上，若某一構造後方出現回音增強，是判斷該構造內容物「主要為液體」的重要輔助線索（如囊腫、膀胱）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 進行胸腔 POCUS 掃查，於胸管部位（CTS）見到 A-line，但沒有偵測到 glide sign，最可能的診斷為？</div>
+        <ul class="quiz-options">
+          <li>(A) 正常乾肺</li>
+          <li>(B) 氣胸</li>
+          <li>(C) 肺水腫</li>
+          <li>(D) 肋膜積液</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">氣胸的超音波表現是「有 A-line 但沒有 glide sign」；只要能在該部位找到 glide sign 或 B-line（ultrasound lung rocket）任一項，即可排除該處氣胸。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. B-line（ultrasound lung rocket）源自肋膜線、呈楔形、延伸至遠場，且不會隨呼吸移動。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">B-line 確實源自肋膜線、呈楔形並延伸貫穿至遠場，但它會「隨呼吸與 glide sign 一起移動」，這也是與其他靜態偽像區分的重要特徵之一。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 下列哪一個切面「不屬於」心臟超音波五種標準切面之一？</div>
+        <ul class="quiz-options">
+          <li>(A) 右胸骨旁長軸</li>
+          <li>(B) 左心尖</li>
+          <li>(C) 劍突下</li>
+          <li>(D) 頸靜脈溝切面</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">心臟超音波五種標準切面為：右胸骨旁長軸、右胸骨旁短軸、左心尖、左胸骨旁、劍突下，並無「頸靜脈溝切面」這個標準切面。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q8. 脈衝波都卜勒（PWD）與連續波都卜勒（CWD）各自的優缺點是什麼？臨床上分別適合用於什麼情境？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">PWD（脈衝波都卜勒）可以精確定位特定一點的流速，但流速有上限，超過上限會出現混疊（aliasing），適合用於需要明確定位病灶（如特定瓣膜口）的流速測量。CWD（連續波都卜勒）沒有實際的流速上限，但無法精確定位深度（訊號沿整條取樣線疊加），適合用於測量高速的逆流或狹窄血流（如嚴重二尖瓣逆流、主動脈狹窄）等 PWD 會發生混疊的情境。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 一隻貓的超音波心動圖顯示心室壁不成比例增厚、心室腔室相對縮小，最可能的診斷為？</div>
+        <ul class="quiz-options">
+          <li>(A) 擴張型心肌病 DCM</li>
+          <li>(B) 肥厚型心肌病 HCM</li>
+          <li>(C) 心包填塞</li>
+          <li>(D) 慢性退化性瓣膜病 CDVD</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">肥厚型心肌病（HCM）特徵為心室壁不成比例增厚、心室腔室相對縮小，是貓最常見的原發性心肌病；DCM 則相反，表現為心室擴張合併收縮力下降，好發於大型犬品種。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q10. 膽囊黏液囊腫（mucocele）在超音波上典型呈現「奇異果樣（kiwifruit-like）」的圖案，屬於需要緊急評估手術與否的重要發現。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">膽囊黏液囊腫典型呈「奇異果樣」或「星狀（stellate）」圖案，臨床上因有膽囊破裂與膽汁性腹膜炎風險，屬於需要緊急評估手術與否的重要影像所見。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 一隻犬正常肝臟的迴音強度，與下列何者最為接近（isoechoic）？</div>
+        <ul class="quiz-options">
+          <li>(A) 脾臟</li>
+          <li>(B) 右腎皮質</li>
+          <li>(C) 膀胱內尿液</li>
+          <li>(D) 骨骼</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">肝臟迴音相對低迴音、質地較顆粒狀，且大致與右腎皮質相近（isoechoic），是評估肝臟是否有瀰漫性病變（如彌漫性增亮或變暗）的重要參考基準。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q12. 腸套疊（intussusception）在超音波橫切面上會出現什麼特徵性徵象？請說明其形成機轉。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">腸套疊在橫切面上呈現多層同心圓的「靶樣（target）」徵象。其形成機轉是近端腸段（intussusceptum）套入遠端腸段（intussuscipiens）內，使套疊處的腸壁層次在橫切面上重疊呈現同心圓狀；縱切面則可見腸段互相套疊的形態。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q13. 一隻剛進食後的犬，腸道黏膜出現迴音增強合併斑點狀高迴音，最合理的處置是？</div>
+        <ul class="quiz-options">
+          <li>(A) 立即懷疑淋巴漿細胞性腸炎並安排腸道切片</li>
+          <li>(B) 先確認是否為剛進食造成的生理性現象，待消化結束後複查</li>
+          <li>(C) 立即懷疑腸套疊並安排緊急手術</li>
+          <li>(D) 直接診斷為蛋白質流失性腸病</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">黏膜迴音增強合併斑點狀高迴音可見於淋巴漿細胞性腸炎，但也常見於剛進食後的正常生理現象，消化結束後斑點會消失；因此需先排除進食因素、必要時複查，不應僅憑單次影像立即診斷為病理性腸炎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q14. 犬的腸壁厚度參考值不分體重，統一使用同一組數值判讀。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">犬的腸壁厚度參考值依體重分級（如 &lt;15 kg、15–30 kg、&gt;30 kg）而有不同數值，貓則另有獨立的參考值，並非統一使用同一組數值判讀。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q15. 一隻老年犬因多渴多尿就診，超音波顯示腎臟皮髓質分界模糊、皮質迴音增強，且腎盂與近端輸尿管出現無迴音擴張。請問這組影像所見分別對應什麼病灶？彼此的關係為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">皮髓質分界模糊、皮質迴音增強是慢性腎病（CKD）的典型超音波表現；腎盂與輸尿管的無迴音擴張則分別對應阻塞性水腎（obstructive hydronephrosis）與輸尿管擴張（hydroureter），提示下游存在阻塞（如輸尿管結石）。兩組發現可能同時存在於同一隻動物：慢性腎病本身即為多渴多尿的常見病因，若合併阻塞性病灶（如輸尿管結石），則需進一步評估阻塞的位置與程度，因阻塞若未解除可能加速腎功能惡化，兩者需一併處置而非只治療其中一項。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q16. 膀胱移形上皮癌（TCC）在超音波上最好發於膀胱的哪個部位？</div>
+        <ul class="quiz-options">
+          <li>(A) 膀胱頂部</li>
+          <li>(B) 膀胱三角區（trigone）</li>
+          <li>(C) 膀胱漿膜面</li>
+          <li>(D) 沒有特定好發部位</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">移形上皮癌（TCC）好發於膀胱三角區（trigone），超音波上呈現由膀胱壁向腔內突出的不規則腫塊，與瀰漫性增厚的膀胱炎在分布型態上有所區別，但仍需搭配細胞學／組織學確診。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  basics: '成像原理、探頭與都卜勒',
+  artifacts: '常見偽像',
+  thorax: '胸腔超音波（POCUS）',
+  echoviews: '心臟超音波：方位與五種標準切面',
+  dopplerdisease: '都卜勒心臟超音波與常見心臟病',
+  liverbiliary: '肝臟與膽道系統、脾臟',
+  gi: '腸胃道',
+  renal: '胰臟、腎臟、膀胱與腎上腺',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

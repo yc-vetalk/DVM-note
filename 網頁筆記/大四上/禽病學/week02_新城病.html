@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：新城病 (ND) - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=3">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">新城病 (ND)</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">新城病 Newcastle Disease (ND)</h1>
+      <p class="page-subtitle">Avian Paramyxovirus 1 (APMV-1) · 感染範圍極廣的甲類法定禽類傳染病</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《禽病學》課程講義〈新城病 Newcastle Disease; ND〉（陳慧文 DVM PhD）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-17</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 重點摘要
+    </a>
+    <a onclick="showSection('virology')" id="nav-virology">
+      <span class="nav-icon">🦠</span> 病原學：病毒分類與病原型
+    </a>
+    <a onclick="showSection('pathogenesis')" id="nav-pathogenesis">
+      <span class="nav-icon">🧬</span> 致病機轉：F蛋白切位與毒力
+    </a>
+    <a onclick="showSection('epidemiology')" id="nav-epidemiology">
+      <span class="nav-icon">🌏</span> 宿主、傳播與台灣流行病學
+    </a>
+    <div class="section-label" style="margin-top:8px;">臨床與病理</div>
+    <a onclick="showSection('clinical')" id="nav-clinical">
+      <span class="nav-icon">🤒</span> 臨床症狀與病理病變
+    </a>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis">
+      <span class="nav-icon">🧪</span> 診斷
+    </a>
+    <div class="section-label" style="margin-top:8px;">防治與公衛</div>
+    <a onclick="showSection('vaccine')" id="nav-vaccine">
+      <span class="nav-icon">💉</span> 疫苗與免疫計畫
+    </a>
+    <a onclick="showSection('zoonotic')" id="nav-zoonotic">
+      <span class="nav-icon">👤</span> 人畜共通與公衛
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>ND 是台灣甲類動物傳染病、OIE 法定通報傳染病</strong>（比 IB 的乙類分級更嚴重），且宿主範圍極廣——可感染雞及其他 250 種以上鳥類。「傳染病分級」與「宿主範圍」是禽病學中 ND 最先要建立的兩個座標。</li>
+          <li><strong>NDV 只有一個血清型，但有五種病原型，病原型由 F 蛋白切位的胺基酸序列決定：</strong>強毒株（內臟強毒型 vvND 死亡率近 100%；神經強毒型 nvND 死亡率 10–90%）的 F0 切位具多個鹼性胺基酸，可被全身廣泛存在的蛋白酶切開而擴散全身；弱毒株（中間毒型、弱毒型）F0 切位缺乏多個鹼性胺基酸，只能被<strong>侷限於呼吸道與消化道上皮</strong>的胰蛋白酶切開，因此只在這兩個系統增殖——這正是弱毒株（B1、La Sota）可以安全製成疫苗的分子機轉。</li>
+          <li><strong>WOAH 對「新城病」有明確的正式判定標準，不是所有 APMV-1 感染都叫新城病：</strong>須符合腦內接種病原性指數（ICPI，1 日齡雛雞）≥ 0.7，<strong>或</strong> F2 蛋白 C 端具多個鹼性胺基酸且 F1 蛋白 N 端第 117 位為苯丙胺酸（phenylalanine）——這是法規定義與國考的常見出題點。</li>
+          <li><strong>內臟型與神經型的病程與病變邏輯不同：</strong>內臟型（亞洲型）主要病變在腸道（腺胃乳突部、十二指腸、空腸、迴腸、盲腸扁桃潰瘍出血壞死），極急性者可能<strong>無症狀猝死</strong>，死亡率近 100%；神經型（美洲型）先出現呼吸道症狀與產蛋下降，<strong>1–2 天後才出現扭頸等神經症狀</strong>，死亡率因日齡而異（大雞 10–50%，小雞可達 90%）。</li>
+          <li><strong>典型消化道出血病變雖為 ND 特徵，但需與 AI 鑑別診斷</strong>——AI 病毒感染也會造成腺胃出血；台灣有些免疫過的病雞因抗體保護，內臟病變不明顯、僅出現神經症狀而無肉眼可視病變，此時<strong>須靠病毒分離才能確診</strong>，不能只憑肉眼病變排除 ND。</li>
+          <li><strong>台灣三次大流行的具體數字是國考常考的時間軸：</strong>1968–1969 年（調查 60 萬隻、發病 15 萬隻、死亡 8 萬隻）、1984–1985 年（調查 460 萬隻、發病 270 萬隻、死亡 56 萬隻）、1994 年 12 月至 1995 年 4 月（死亡 90 萬隻以上）——三次規模遞增再趨緩，反映台灣防疫體系與疫苗接種策略的演進。</li>
+          <li><strong>免疫策略的核心邏輯是「單一血清型使弱毒疫苗可交叉保護所有病原型」：</strong>點眼或噴霧接種雖不一定使全身抗體大幅升高，但能誘發有效的<strong>局部免疫</strong>；點眼接種因逐隻給藥、劑量一致、漏失率低而被視為較佳的接種方式；高風險強毒疫區則須採用<strong>活毒＋死毒併用</strong>的計畫。</li>
+          <li><strong>人畜共通感染極為輕微，是低致病力人畜共通病的代表：</strong>感染者多為實驗室工作人員、屠宰場員工、疫苗施用者，症狀通常僅結膜炎（3–4 天），1–2 週內完全康復，血清中和抗體力價低、HI 抗體通常為陰性——這組「職業暴露＋輕微自限性症狀」的描述是公衛章節的常見考點。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VIROLOGY -->
+    <div class="section" id="section-virology">
+      <div class="section-head"><div class="section-num">2</div><h2>病原學：病毒分類與病原型 Virology &amp; Pathotype</h2></div>
+      <p class="section-desc">新城病由第一型禽類副黏液病毒（Avian paramyxovirus 1; APMV-1）所引起，是高傳染性之惡性傳染病，可感染雞及其他 250 種以上的鳥類，感染範圍極廣。</p>
+
+      <h3>疾病背景</h3>
+      <ul>
+        <li>1926 年首先於<strong>英國新城鎮</strong>發現，台灣於 1940 年發現病例，爾後不斷流行</li>
+        <li>目前 ND 為台灣<strong>甲類動物傳染病</strong>，也是 <strong>OIE（WOAH）之法定通報傳染病</strong></li>
+      </ul>
+
+      <h3>病毒分類與特性</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>科／屬</td><td>副黏液病毒科（Paramyxoviridae）／ Avulavirus 屬</td></tr>
+            <tr><td>基因體</td><td>負義單股 RNA（(–) ssRNA），約 15 kb</td></tr>
+            <tr><td>顆粒</td><td>150–300 nm，具封套（Enveloped）</td></tr>
+            <tr><td>特徵構造</td><td>病毒破裂後釋出<strong>鞭炮或魚骨狀</strong>的核蛋白（nucleocapsid）</td></tr>
+            <tr><td>HN 蛋白</td><td>負責辨識細胞受體（cellular receptor）、凝集紅血球</td></tr>
+            <tr><td>F 蛋白</td><td>負責與細胞膜（cellular membrane）融合</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>APMV 命名法</h3>
+      <p>目前至少已發現 <strong>20 種 APMV</strong>，命名依序包含：①血清型、②分離來源鳥種、③分離地點、④參考編號或名稱、⑤分離年份。</p>
+
+      <h3>病原型分類（NDV／APMV-1）<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>NDV 只有 <strong>1 個血清型</strong>，但有 <strong>5 個病原型</strong>（也可將 1、2 及 4、5 各合併，簡化為強／中／弱三種病原型）：</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病原型</th><th>又稱</th><th>特徵</th></tr></thead>
+          <tbody>
+            <tr><td><strong>① 內臟強毒型</strong></td><td>亞洲型，viscerotropic velogenic ND, vvND</td><td>主為腸管出血，死亡率通常達 <strong>100%</strong></td></tr>
+            <tr><td><strong>② 神經強毒型</strong></td><td>美洲型，neurotropic velogenic ND, nvND</td><td>主為呼吸及神經症狀，死亡率大雞 <strong>10–50%</strong>、小雞可達 <strong>90%</strong></td></tr>
+            <tr><td><strong>③ 中間毒型</strong></td><td>Mesogenic</td><td>只在小雞發病，可作為二次免疫的疫苗</td></tr>
+            <tr><td><strong>④ 弱毒型</strong></td><td>Lentogenic</td><td>供作疫苗（B1、La Sota）</td></tr>
+            <tr><td><strong>⑤ 無病原性型</strong></td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：《禽病學》課程講義〈新城病 ND〉（陳慧文 DVM PhD）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PATHOGENESIS -->
+    <div class="section" id="section-pathogenesis">
+      <div class="section-head"><div class="section-num">3</div><h2>致病機轉：F 蛋白切位與毒力 Pathogenesis: F Protein Cleavage &amp; Virulence</h2></div>
+      <p class="section-desc">ND 的病原性強弱由 F（融合）蛋白切位的胺基酸序列決定，是理解病原型分類、疫苗安全性與 WOAH 診斷定義的分子基礎。</p>
+
+      <h3>F 蛋白活化機轉</h3>
+      <p>剛形成的 F 蛋白稱為 <strong>F0</strong>，感染細胞前，F0 須被切開成 <strong>F1、F2</strong> 兩段，使 F1 N 端的<strong>融合胜肽（fusion peptide，一小段疏水性胺基酸）</strong>露出，病毒才能與細胞膜融合、感染新細胞。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>毒株類型</th><th>F0 切位特徵</th><th>可被切開的蛋白酶</th><th>感染範圍</th></tr></thead>
+          <tbody>
+            <tr><td><strong>強毒株</strong></td><td>切位有<strong>多個鹼性胺基酸</strong></td><td>可被全身廣泛存在的<strong>多種蛋白酶</strong>切開</td><td>病毒可<strong>散佈全身各組織</strong>，於各臟器造成病變而死亡（Systemic infection）</td></tr>
+            <tr><td><strong>弱毒株</strong></td><td>切位<strong>沒有</strong>多個鹼性胺基酸</td><td>只能被<strong>胰蛋白酶（trypsin）</strong>切開</td><td>trypsin 只存在於<strong>呼吸道及消化道上皮</strong>，因此弱毒株<strong>只在此二系統增殖</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 用細胞培養弱毒株病毒時，需額外添加 trypsin 才易生長，正是此機轉的實驗室應用。</p>
+
+      <div class="figure">
+        <img src="img/week02_新城病/nd_p13.png" alt="NDV病毒株毒力機轉示意圖，強毒株經furin切割全身感染，弱毒株經trypsin切割侷限呼吸消化道">
+        <div class="figure-caption">NDV 毒力機轉示意：無毒株（avirulent strains）F 蛋白經 trypsin 切割，病毒僅侷限於呼吸道／腸道複製（切位為少數鹼性胺基酸，B-X-X-R/L 模式）；強毒株（virulent strains）F 蛋白經 furin 等廣泛存在的蛋白酶切割，病毒經病毒血症擴散為全身性感染（切位為多個鹼性胺基酸，R-X-B-R/F 模式）。</div>
+        <div class="figure-source">來源：《禽病學》課程講義〈新城病 ND〉，引自 USDA APHIS Veterinary Services</div>
+      </div>
+
+      <h3>WOAH「新城病」正式判定標準<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">重點：不是所有 APMV-1 感染都叫「新城病」</div>
+        <p>依 WOAH 定義，禽類感染 APMV-1 病毒須符合以下<strong>任一項</strong>毒力標準，才能定義為新城病爆發：</p>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;">
+          <li>(a) 病毒在 1 日齡雛雞的<strong>腦內接種病原性指數（Intracerebral Pathogenicity Index, ICPI）≥ 0.7</strong>；<strong>或</strong></li>
+          <li>(b) 病毒<strong>F2 蛋白 C 端具多個鹼性胺基酸</strong>（至少 3 個精胺酸或離胺酸，位於第 113–116 位），且 <strong>F1 蛋白 N 端第 117 位為苯丙胺酸（phenylalanine）</strong></li>
+        </ul>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：《禽病學》課程講義〈新城病 ND〉（陳慧文 DVM PhD）、WOAH Terrestrial Manual。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- EPIDEMIOLOGY -->
+    <div class="section" id="section-epidemiology">
+      <div class="section-head"><div class="section-num">4</div><h2>宿主、傳播與台灣流行病學 Host, Transmission &amp; Epidemiology in Taiwan</h2></div>
+      <p class="section-desc">ND 宿主範圍極廣、傳播途徑多元，台灣的三次大流行歷史是防疫演進的重要案例。</p>
+
+      <h3>宿主範圍</h3>
+      <p>雞、火雞、雉雞、珠雞、鵪鶉及鴿子皆有感受性；台灣曾由雞、雉雞、火雞、珠雞、鵪鶉、鷓鴣、鴿子、領角鴞、鴨及鵝分離到病毒。<strong>鴨感受性最低</strong>。在台灣，<strong>2–6 週齡肉雞</strong>多發生。</p>
+
+      <h3>傳播途徑</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">① 空氣傳染</div><p>吸入帶病毒顆粒的乾粉塵</p></div>
+        <div class="card"><div class="card-title">② 糞便</div><p>病雞糞便含有大量病毒</p></div>
+        <div class="card"><div class="card-title">③ 汙染飲水</div><p>被病毒汙染的飲水</p></div>
+        <div class="card"><div class="card-title">④ 場內器具、人員</div><p>—</p></div>
+        <div class="card"><div class="card-title">⑤ 野鳥與水禽</div><p>鴿子、野鳥及水禽</p></div>
+        <div class="card"><div class="card-title">⑥ 介蛋傳染</div><p>弱毒株可垂直傳播，<strong>強毒株使胚胎中止無法孵化</strong></p></div>
+      </div>
+
+      <h3>🇹🇼 台灣 ND 流行史<span class="tag tag-exam">國考重點</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">三次大流行時間軸</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>1968–1969 年：</strong>調查 60 萬隻雞，發病 15 萬隻，<strong>死亡 8 萬隻</strong></li>
+          <li><strong>1984–1985 年：</strong>調查 460 萬隻雞，發病 270 萬隻，<strong>死亡 56 萬隻</strong>（規模最大的一次）</li>
+          <li><strong>1994 年 12 月至 1995 年 4 月：</strong>發病死亡 <strong>90 萬隻以上</strong></li>
+        </ul>
+      </div>
+      <p>1926 年英國新城鎮首先發現本病，台灣於 <strong>1940 年</strong>發現病例，爾後不斷流行，目前 ND 為台灣<strong>甲類動物傳染病</strong>、OIE 法定通報傳染病。</p>
+
+      <footer class="note-footer">
+        資料來源：《禽病學》課程講義〈新城病 ND〉（陳慧文 DVM PhD）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">5</div><h2>臨床症狀與病理病變 Clinical Signs &amp; Lesions</h2></div>
+      <p class="section-desc">內臟型與神經型的病程與病變位置截然不同，是本節理解的主軸；肉眼病變需與 AI 鑑別診斷。</p>
+
+      <h3>潛伏期與一般臨床症狀</h3>
+      <p><strong>潛伏期：5–6 天</strong>（亦有 2 天至 15 天以上者）。明顯精神沈鬱、呼吸困難、顏面水腫、<strong>綠色下痢便</strong>，5–7 天後死亡。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">內臟型 Viscerotropic</div>
+          <p>極急性者可能<strong>無症狀就死亡</strong>；主要病變在腸道，死亡率通常達 100%。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">神經型 Neurotropic</div>
+          <p>呼吸困難、喘息、食慾消失、產蛋下降；<strong>1–2 天後</strong>出現<strong>扭頸</strong>等神經症狀，死亡率 <strong>10–90%</strong>。</p>
+        </div>
+      </div>
+
+      <div class="figure">
+        <img src="img/week02_新城病/nd_p17.png" alt="ND病雞外觀，顏面雞冠水腫出血、精神沈鬱，以及綠色糞便">
+        <div class="figure-caption">ND 病雞臨床外觀：可見雞隻精神沈鬱、羽毛凌亂、雞冠腫脹出血變色，呈瀕死或已死亡狀態（左）；被新城病病毒感染所造成的特徵性綠色糞便（右），是本病常見但非特異性的臨床徵象之一。</div>
+        <div class="figure-source">來源：《禽病學》課程講義〈新城病 ND〉</div>
+      </div>
+
+      <h3>肉眼病變</h3>
+      <ul>
+        <li><strong>氣管充出血</strong></li>
+        <li><strong>內臟型主要在腸道：</strong>腺胃乳突部、移行部出血；十二指腸、空腸、迴腸、盲腸扁桃<strong>潰瘍出血壞死</strong></li>
+        <li>其他器官：心臟、肝臟、皮膚等出血點</li>
+      </ul>
+
+      <div class="figure">
+        <img src="img/week02_新城病/nd_p19.png" alt="ND病雞腺胃黏膜出血病變照片，多張腺胃乳突部出血">
+        <div class="figure-caption">ND 腺胃病變：腺胃與肌胃交界處（乳突部、移行部）黏膜可見明顯出血點與出血斑，是 ND 內臟型最具代表性的大體病變之一——但須注意 AI 感染也可能造成類似的腺胃出血，需靠實驗室診斷鑑別。</div>
+        <div class="figure-source">來源：《禽病學》課程講義〈新城病 ND〉</div>
+      </div>
+
+      <div class="figure">
+        <img src="img/week02_新城病/nd_p20.png" alt="ND病雞腸道出血潰瘍病變，含盲腸扁桃出血腫脹">
+        <div class="figure-caption">ND 腸道病變：腸管淋巴組織（含盲腸扁桃）處出現潰瘍出血壞死病灶，圖示標註出好發潰瘍部位的腸道淋巴結分布（左），右側為腸管漿膜面所見之充出血腫脹病灶。</div>
+        <div class="figure-source">來源：《禽病學》課程講義〈新城病 ND〉</div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床提醒：鑑別診斷與隱性病例</div>
+        <p>典型的消化道出血肉眼病變雖為 ND 特異性表現，但 <strong>AI 病毒感染也會造成腺胃出血</strong>，需區別診斷。台灣有些病雞因有<strong>抗體保護</strong>，內臟病變不明顯，僅出現神經症狀而<strong>無肉眼可視病變</strong>，此時需<strong>病毒分離</strong>才能確定診斷。</p>
+      </div>
+
+      <h3>組織學病變</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>系統</th><th>病變</th></tr></thead>
+          <tbody>
+            <tr><td><strong>呼吸道 Respiratory tract</strong></td><td>上呼吸道黏膜水腫、充血及炎症細胞浸潤，肺泡壁上皮細胞水腫、充出血</td></tr>
+            <tr><td><strong>腸道 Intestinal tract</strong></td><td>腸黏膜出血壞死性病灶</td></tr>
+            <tr><td><strong>神經系統 Nervous system</strong></td><td><strong>非化膿性腦膜腦炎</strong>，伴隨神經元細胞變性、上皮細胞增生、<strong>淋巴球圍管現象（perivascular cuffing）</strong>、glial cell 浸潤</td></tr>
+            <tr><td><strong>血管系統 Vascular system</strong></td><td>血管內皮細胞壞死，各器官充出血</td></tr>
+            <tr><td><strong>淋巴系統 Lymphoid system</strong></td><td>淋巴組織（脾臟、胸腺、華氏囊）的退行性變化</td></tr>
+            <tr><td><strong>生殖系統 Reproductive system</strong></td><td>卵泡萎縮，卵巢及輸卵管炎症細胞浸潤</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：《禽病學》課程講義〈新城病 ND〉（陳慧文 DVM PhD）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">6</div><h2>診斷 Diagnosis</h2></div>
+      <p class="section-desc">實驗室診斷流程包含採樣、病毒鑑定、序列分析與病原性鑑定；血清學檢查則依疫苗接種狀況而有不同用途。</p>
+
+      <h3>實驗室檢驗流程</h3>
+      <div class="flow">
+        <div class="flow-node">採樣</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">病毒鑑定</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">序列分析</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node danger">病原性鑑定（ICPI）</div>
+      </div>
+
+      <h3>病原性鑑定：ICPI 試驗<span class="tag tag-exam">重要</span></h3>
+      <p><strong>腦內接種病原性指數（Intracerebral Pathogenicity Index, ICPI）</strong>：將病毒接種於一日齡雛雞腦內，連續 8 天觀察並記錄臨床評分（0＝正常、1＝患病、2＝死亡），計算每日總分後除以總觀察天數與雛雞數，即得 ICPI 值。依 WOAH 定義，<strong>ICPI ≥ 0.7</strong> 即符合新城病病毒毒力判定標準之一（詳見前節「致病機轉」）。</p>
+
+      <h3>血清學檢查 Serology</h3>
+      <p>最常使用的方法是 <strong>HI（血球凝集抑制試驗）</strong>，其他有 VN（中和試驗）、ELISA、IFA。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">未使用疫苗的地區</div>
+          <p>血清學用於<strong>主動監測</strong>（偵測是否有野外病毒感染）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">使用疫苗的地區</div>
+          <p>血清學用於<strong>監測疫苗抗體</strong>（評估免疫效力）</p>
+        </div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 雞隻的 HI 抗體力價與保護力呈<strong>正相關</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：《禽病學》課程講義〈新城病 ND〉（陳慧文 DVM PhD）、WOAH Terrestrial Manual。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- VACCINE -->
+    <div class="section" id="section-vaccine">
+      <div class="section-head"><div class="section-num">7</div><h2>疫苗與免疫計畫 Vaccination Programs</h2></div>
+      <p class="section-desc">ND 因五種病原型皆屬同一血清型，弱毒疫苗可提供廣效保護，是與 IB（血清型眾多、交叉保護差）最大的策略差異。</p>
+
+      <h3>免疫策略總論</h3>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>5 種病原型都屬<strong>同一種血清型</strong>，因此用弱毒株（B1、La Sota、clone 30 等）做疫苗即可保護雞隻免受強毒株感染。免疫方式以<strong>點眼或噴霧較佳</strong>——雞隻體內抗體雖不一定升高，但有<strong>局部免疫反應</strong>；<strong>點眼接種</strong>因可逐隻接種、漏失率低、劑量較一致，是較佳的接種方式。由於接種適期與途徑相似，商用 ND 活毒疫苗常與 IB 疫苗製備成<strong>混合疫苗</strong>。</p>
+      </div>
+
+      <h3>肉雞新城病接種計畫</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">計畫一：ND 低危險區</div>
+          <p>1 日齡進行活毒疫苗接種，激發上呼吸道黏膜局部免疫；免疫效力不高（約 2–3 週），僅侷限於上呼吸道。母源抗體會干擾 3 週齡內小雞的全身性免疫，但對局部免疫影響較小。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">計畫二：未於 1 日齡接種</div>
+          <p>早期保護由<strong>母源抗體</strong>提供；第 1 劑活毒通常使用較弱毒株、溫和接種方式。成長期較長雞隻（土雞、仿土雞、有色雞）或高危險地區，通常需要<strong>第 3 劑補強</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">計畫三：強毒 ND 高危險區</div>
+          <p><strong>活毒／死毒同時接種</strong>：活毒提供快速局部免疫反應，死毒提供較強且較持久的免疫反應；活毒經點眼接種，高危險區域必須進行補強接種。</p>
+        </div>
+      </div>
+
+      <h3>蛋雞／種雞新城病接種計畫</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">計畫一：活毒疫苗計畫</div>
+          <p>有效激發產蛋期間黏膜局部免疫力；種雞群移轉給後代小雞的母源抗體較低、也較不一致。產蛋中雞群每隔 30–60 天補強一劑活毒（如 B1 株）以維持高免疫力。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">計畫二：活毒／死毒併用</div>
+          <p>避免產蛋期間使用活毒；種雞群可使後代小雞獲得<strong>高量且一致的母源抗體</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">計畫三：強毒 ND 高危險區</div>
+          <p>活毒／死毒同時併用接種計畫，用於發生強毒型新城病的高危險地區。</p>
+        </div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 此外業界也發展<strong>載體疫苗（vector vaccine）</strong>接種計畫（如 HVT-ND 重組載體疫苗），可於孵化場一次注射提供較持久的保護，是近年疫苗技術的發展方向。</p>
+
+      <h3>疫苗接種後不良反應</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>接種 ND 活毒疫苗可能發生接種後反應，包括<strong>氣管囉音、呼吸道異音、眼結膜炎，以及增加對大腸桿菌的感受性</strong>等。接種後 <strong>3–5 天</strong>會發生這些反應，若無其他病原合併感染，病徵通常較輕微，且僅持續 3–5 天。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：《禽病學》課程講義〈新城病 ND〉（陳慧文 DVM PhD）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ZOONOTIC -->
+    <div class="section" id="section-zoonotic">
+      <div class="section-head"><div class="section-num">8</div><h2>人畜共通與公衛 Zoonotic Potential &amp; Public Health</h2></div>
+      <p class="section-desc">ND 的人畜共通感染屬於低致病力、自限性的職業暴露疾病，與高致死率的禽流感形成鮮明對比。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>人只有偶而被感染，感染者多為<strong>實驗室工作人員、屠宰場員工、疫苗施用者</strong>，引起的症狀很輕微：經過 <strong>1–2 天潛伏期</strong>，大都只發生 <strong>3–4 天的結膜炎</strong>，<strong>1–2 週後完全康復</strong>；血清中只含低力價中和抗體，<strong>HI 抗體通常為陰性</strong>。極少數報告提及咽喉炎、肺炎、輕微腦炎、眼周淋巴腺炎、耳下腺炎等症狀。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：《禽病學》課程講義〈新城病 ND〉（陳慧文 DVM PhD）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度的整理，複習前可先快速掃過本節，找出自己不熟的部分再回對應章節細讀。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>NDV（APMV-1）屬 Paramyxoviridae 科 Avulavirus 屬</strong>，(–)ssRNA 約 15 kb；只有 1 個血清型但有 5 種病原型（vvND、nvND、中間毒型、弱毒型、無病原性型）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>病原性由 F0 切位胺基酸序列決定</strong>：強毒株切位多個鹼性胺基酸、可被廣泛蛋白酶切開全身散播；弱毒株切位缺乏多個鹼性胺基酸、只能被侷限於呼吸消化道的 trypsin 切開，是弱毒疫苗安全性的分子基礎。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>WOAH 新城病正式定義：ICPI ≥ 0.7，或 F2 蛋白 C 端多個鹼性胺基酸＋F1 蛋白第 117 位為苯丙胺酸</strong>，兩者符合其一即成立，是法規考點。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>內臟型（腸道出血為主，可無症狀猝死，死亡率近 100%）vs. 神經型（呼吸道症狀先出現，1–2 天後神經症狀，死亡率 10–90%）</strong>，兩型病程與病變位置邏輯不同。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>腺胃出血是 ND 代表性病變，但需與 AI 鑑別</strong>；免疫過的雞群可能僅有神經症狀而無肉眼病變，須病毒分離確診。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>台灣三次大流行：1968–69（死 8 萬）、1984–85（死 56 萬，規模最大）、1994–95（死 90 萬以上）</strong>，目前為甲類動物傳染病、OIE 法定通報疾病。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>單一血清型使弱毒疫苗（B1、La Sota）可廣效保護所有病原型</strong>，點眼接種因劑量一致、漏失率低而優於其他途徑；高風險強毒區採活毒＋死毒併用計畫。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>人畜共通感染輕微、自限性</strong>：多為職業暴露（實驗室、屠宰場、疫苗施用者），通常僅 3–4 天結膜炎、1–2 週痊癒，HI 抗體通常陰性，與高致死率的 AI 形成對比。</div></div>
+
+      <footer class="note-footer">
+        資料來源：《禽病學》課程講義〈新城病 ND〉（陳慧文 DVM PhD）。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋病原學、致病機轉、流行病學、臨床病理、診斷與疫苗各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念請回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. NDV 屬於下列哪一科／屬的病毒？</div>
+        <ul class="quiz-options">
+          <li>(A) Coronaviridae, Group 3 coronavirus</li>
+          <li>(B) Paramyxoviridae, Avulavirus</li>
+          <li>(C) Orthomyxoviridae, Influenza A virus</li>
+          <li>(D) Reoviridae, Orbivirus</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">NDV 即 APMV-1，屬於 Paramyxoviridae 科 Avulavirus 屬，基因體為負義單股 RNA 約 15 kb，具封套。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. NDV 有多個血清型，因此弱毒疫苗只能保護同血清型的強毒株感染。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">NDV 只有 1 個血清型，雖有 5 種病原型，但因血清型相同，弱毒株製成的疫苗（如 B1、La Sota）可以保護雞隻免受所有病原型強毒株的感染發病，這與 IB 血清型眾多、交叉保護差的情況明顯不同。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q3. 為什麼弱毒株的 NDV 只能在呼吸道與消化道增殖，而強毒株可以造成全身性感染？請從 F 蛋白切位機轉說明。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">病毒的 F0 蛋白必須被切開成 F1、F2 才能發生膜融合、感染新細胞。強毒株的 F0 切位含有多個鹼性胺基酸，可以被全身廣泛存在的多種蛋白酶切開，因此病毒可以散佈到全身各組織、在各臟器造成病變而死亡。弱毒株的 F0 切位沒有多個鹼性胺基酸，只能被胰蛋白酶（trypsin）切開，而 trypsin 只存在於呼吸道及消化道上皮，因此弱毒株的增殖範圍侷限於這兩個系統，不會造成全身性感染，這也是弱毒株可以安全製成疫苗的分子基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 依 WOAH 定義，下列哪一項「不是」判定新城病爆發的毒力標準？</div>
+        <ul class="quiz-options">
+          <li>(A) ICPI（1 日齡雛雞）≥ 0.7</li>
+          <li>(B) F2 蛋白 C 端具多個鹼性胺基酸</li>
+          <li>(C) F1 蛋白 N 端第 117 位為苯丙胺酸</li>
+          <li>(D) 病毒可在雞胚尿囊腔造成胚胎矮小化捲曲</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">胚胎矮小化捲曲是 IBV 病毒分離的特徵性所見，並非 WOAH 判定新城病的標準。WOAH 對新城病的正式定義是 ICPI ≥ 0.7，或 F2 蛋白 C 端具多個鹼性胺基酸且 F1 蛋白 N 端第 117 位為苯丙胺酸，符合任一項即可判定。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 下列哪個物種對 NDV 的感受性最低？</div>
+        <ul class="quiz-options">
+          <li>(A) 雞</li>
+          <li>(B) 火雞</li>
+          <li>(C) 鴿子</li>
+          <li>(D) 鴨</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">雞、火雞、雉雞、珠雞、鵪鶉及鴿子皆有感受性，台灣曾由多種鳥類分離到病毒，其中鴨的感受性最低。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 台灣三次 ND 大流行分別發生於哪些年份？各自的死亡數量約為多少？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">第一次為 1968–1969 年，調查 60 萬隻雞，發病 15 萬隻，死亡 8 萬隻；第二次為 1984–1985 年，調查 460 萬隻雞，發病 270 萬隻，死亡 56 萬隻，是三次中規模最大的一次；第三次為 1994 年 12 月至 1995 年 4 月，發病死亡 90 萬隻以上。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 內臟型（vvND）與神經型（nvND）新城病的臨床表現，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 內臟型主要造成扭頸等神經症狀</li>
+          <li>(B) 神經型極急性者可能無症狀就死亡</li>
+          <li>(C) 內臟型主要病變在腸道，極急性者可能無症狀猝死，死亡率通常達 100%</li>
+          <li>(D) 兩者病變分布與死亡率完全相同，無法區分</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">內臟型（亞洲型）主要病變在腸道（腺胃乳突部、腸道潰瘍出血壞死），極急性者可能無症狀就死亡，死亡率通常達 100%；神經型（美洲型）則是先出現呼吸道症狀與產蛋下降，1–2 天後才出現扭頸等神經症狀，死亡率 10–90%。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. 看到雞群剖檢有腺胃出血病變，就可以百分之百確診為新城病，不需要考慮其他疾病。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">典型的消化道出血肉眼病變雖為 ND 特異性表現，但 AI 病毒感染也會造成腺胃出血，需要區別診斷；此外台灣有些免疫過的病雞因抗體保護，內臟病變不明顯、僅出現神經症狀而無肉眼可視病變，此時更需要病毒分離才能確診。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. ND 的血清學檢查中，最常使用的方法是？</div>
+        <ul class="quiz-options">
+          <li>(A) HI（血球凝集抑制試驗）</li>
+          <li>(B) ICPI（腦內接種病原性指數）</li>
+          <li>(C) 病毒分離</li>
+          <li>(D) RT-PCR</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">血清學檢查最常使用 HI（血球凝集抑制試驗），其他方法還有 VN（中和試驗）、ELISA、IFA；ICPI 是病原性鑑定方法，非血清學檢查；病毒分離與 RT-PCR 屬於抗原偵測方法。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q10. 為什麼 ND 疫苗接種偏好使用點眼或噴霧途徑，而不是全身性注射？點眼接種相較於噴霧有什麼優點？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">點眼或噴霧接種雖然不一定使雞隻體內全身性抗體大幅升高，但能誘發有效的局部（黏膜）免疫反應，足以保護呼吸道與消化道的黏膜表面對抗野外強毒株感染，這對主要經呼吸道、消化道感染的 ND 而言已足夠有效，且操作成本遠低於逐隻注射。點眼接種相較於噴霧的優點在於可以逐隻接種，因此漏失率低、每隻雞接種到的疫苗劑量也較為一致，噴霧接種則可能因霧化不均或個體吸入量差異而導致部分雞隻接種劑量不足。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 高風險強毒型新城病流行地區，蛋雞／種雞場建議採用下列哪一種接種策略？</div>
+        <ul class="quiz-options">
+          <li>(A) 僅使用活毒疫苗，且產蛋期間持續高頻率接種</li>
+          <li>(B) 活毒／死毒同時併用接種計畫</li>
+          <li>(C) 完全不接種，依賴自然感染建立群體免疫</li>
+          <li>(D) 只在出現扭頸等神經症狀後才緊急接種</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">發生強毒型新城病的高危險地區，建議使用活毒／死毒同時併用的接種計畫：活毒提供快速的局部免疫反應，死毒提供較強且較持久的免疫反應，兩者互補，且高危險區域必須進行補強接種以維持足夠的保護力。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q12. 人類感染 NDV 後通常會出現嚴重的全身性症狀，甚至有生命危險。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">人類感染 NDV 屬於低致病力的人畜共通感染，症狀通常很輕微，多為實驗室工作人員、屠宰場員工、疫苗施用者等職業暴露，大都只發生 3–4 天的結膜炎，1–2 週後即完全康復，血清中和抗體力價低、HI 抗體通常為陰性，極少數才有咽喉炎、輕微腦炎等報告。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q13. 接種 ND 活毒疫苗後可能出現哪些不良反應？大約在接種後多久發生？持續多久？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">接種 ND 活毒疫苗後可能出現的不良反應包括氣管囉音、呼吸道異音、眼結膜炎，以及增加對大腸桿菌的感受性等。這些反應通常在接種後 3 至 5 天發生，若無其他病原合併感染，病徵通常較為輕微，且僅持續 3 至 5 天；但若雞群同時存在其他呼吸道病原（如黴漿菌）或已有免疫抑制，反應可能加劇。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q14. 關於 ND 的介蛋（垂直）傳染，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 強毒株與弱毒株皆可有效垂直傳播給下一代</li>
+          <li>(B) 弱毒株可垂直傳播，但強毒株會使胚胎中止無法孵化</li>
+          <li>(C) ND 完全不會經由蛋垂直傳播</li>
+          <li>(D) 只有強毒株可以垂直傳播，弱毒株不會</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">弱毒株的 NDV 可以垂直傳播（介蛋傳染），但強毒株因病毒可全身性擴散並造成嚴重病變，會使受感染的胚胎中止發育而無法孵化，因此強毒株實際上較難經由垂直傳播延續到下一代雛雞。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  virology: '病原學：病毒分類與病原型',
+  pathogenesis: '致病機轉：F蛋白切位與毒力',
+  epidemiology: '宿主、傳播與台灣流行病學',
+  clinical: '臨床症狀與病理病變',
+  diagnosis: '診斷',
+  vaccine: '疫苗與免疫計畫',
+  zoonotic: '人畜共通與公衛',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

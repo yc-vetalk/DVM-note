@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫解剖學：循環系統 - 上群 網頁筆記</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=3">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大一"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫解剖學</a><span class="sep">›</span><span class="current">循環系統</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">循環系統</h1>
+      <p class="page-subtitle">Circulatory System · Angiology — 心臟構造與傳導系統、冠狀循環、動脈系統、靜脈系統、淋巴系統（含觸診淋巴結）整理。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫解剖學（生涯總複習）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">解剖學實習講義《Heart》《Artery》《Venous System》《Lymphatic System》（Albert Taiching Liao）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-17</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">心臟</div>
+    <a onclick="showSection('heartposition')" id="nav-heartposition">
+      <span class="nav-icon">📍</span> 心臟位置與大血管開口
+    </a>
+    <a onclick="showSection('heartchambers')" id="nav-heartchambers">
+      <span class="nav-icon">❤️</span> 心臟四腔與瓣膜構造
+    </a>
+    <a onclick="showSection('conduction')" id="nav-conduction">
+      <span class="nav-icon">⚡</span> 心臟傳導系統與神經支配
+    </a>
+    <a onclick="showSection('coronary')" id="nav-coronary">
+      <span class="nav-icon">🫀</span> 冠狀循環
+    </a>
+    <div class="section-label" style="margin-top:8px;">動脈系統</div>
+    <a onclick="showSection('arteryoverview')" id="nav-arteryoverview">
+      <span class="nav-icon">🩸</span> 主動脈總覽與主動脈弓分支
+    </a>
+    <a onclick="showSection('headneckartery')" id="nav-headneckartery">
+      <span class="nav-icon">🧠</span> 頭頸部與前肢動脈
+    </a>
+    <a onclick="showSection('abdominalartery')" id="nav-abdominalartery">
+      <span class="nav-icon">🫃</span> 腹主動脈與內臟動脈分支
+    </a>
+    <a onclick="showSection('pelvicartery')" id="nav-pelvicartery">
+      <span class="nav-icon">🦵</span> 骨盆與後肢動脈
+    </a>
+    <div class="section-label" style="margin-top:8px;">靜脈與淋巴</div>
+    <a onclick="showSection('vein')" id="nav-vein">
+      <span class="nav-icon">💉</span> 靜脈系統與臨床採血部位
+    </a>
+    <a onclick="showSection('lymph')" id="nav-lymph">
+      <span class="nav-icon">🔵</span> 淋巴系統與觸診淋巴結
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>犬心臟的體表定位是判讀胸腔 X 光的基礎：</strong>心臟位於第 3/4～6/7 肋間，主動脈開口約在第 3 肋、肺動脈幹開口約在第 4 肋；X 光上需能辨認左右心房心室、肺動脈幹、主動脈、氣管的相對位置（側位＋腹背位），是心臟評估的第一步。</li>
+          <li><strong>心臟瓣膜與心室壁的「左側較強」規則，全部源自體循環壓力遠高於肺循環：</strong>主動脈瓣較肺動脈瓣強厚、二尖瓣較三尖瓣強厚、左心室乳頭肌較右心室強厚、左心室壁厚度是右心室的三至四倍——這條規則可以直接推論回「左心負責體循環（高壓）、右心負責肺循環（低壓）」的生理基礎。</li>
+          <li><strong>心臟傳導系統的路徑是竇房結（SA node）→ 房室結（AV node）→ 房室束（His bundle）→ 左右分支 → 浦金氏纖維</strong>；交感神經興奮心跳（正變時、正變傳導、正變力），副交感神經（迷走神經）僅拮抗竇房結與心房肌，<strong>不直接分布到心室肌</strong>——這解釋了為什麼迷走張力過高主要造成心搏過緩或房室傳導阻滯，而非直接抑制心室收縮力。</li>
+          <li><strong>犬貓的冠狀循環以左冠狀動脈為主：</strong>左冠狀動脈的室間枝供應大部分室中膈，且反芻動物、貓、犬的右室間枝是由左冠狀動脈迴旋枝延伸而來（馬與豬則是由右冠狀動脈直接發出）——這項物種差異是比較解剖學的常見考點。</li>
+          <li><strong>主動脈弓分支模式有明確的物種差異：</strong>犬貓兔（人的變異型）是膊頭動脈幹發出右鎖骨下動脈＋雙側總頸動脈，左鎖骨下動脈則直接由主動脈弓單獨發出；反芻動物與馬則是四條血管（雙側總頸、雙側鎖骨下）全部由單一膊頭動脈幹發出——辨認這張圖是動物解剖學考試的經典題型。</li>
+          <li><strong>腹主動脈內臟枝依「前腸／中腸／後腸」供應範圍分三段記憶最有效率：</strong>腹腔動脈（前腸：胃、肝、脾）、前腸繫膜動脈（中腸：大部分小腸與大腸）、後腸繫膜動脈（後腸：降結腸、直腸），對應臨床上腸道缺血、腸繫膜血栓的區域定位邏輯。</li>
+          <li><strong>頭靜脈（前肢）與內／外側隱靜脈（後肢）是臨床最常用的周邊採血與留置導管部位</strong>，頸靜脈則是大量採血與中央靜脈導管的首選；複習靜脈系統時建議直接對照臨床操作部位記憶，比死背血管分支順序更有效率。</li>
+          <li><strong>觸診淋巴結是理學檢查核心，「五大觸診淋巴結」須每次理學檢查都檢查：</strong>下頜淋巴結、淺頸（肩胛前）淋巴結、腋下淋巴結、淺腹股溝淋巴結、膕窩淋巴結；犬另有腮腺、副腋、股淋巴結（皆不恆定存在），貓則以尾側上腹淋巴結取代犬的股淋巴結位置——物種差異也是考試重點。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HEART POSITION -->
+    <div class="section" id="section-heartposition">
+      <div class="section-head"><div class="section-num">2</div><h2>心臟位置與大血管開口 Position of the Heart</h2></div>
+      <p class="section-desc">心臟位置的體表定位是聽診、觸診心尖搏動與判讀胸腔 X 光的共同基礎，物種間略有差異。</p>
+
+      <h3>犬心臟位置</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">體表定位</div>
+          <p>位於<strong>第 3/4～6/7 肋間</strong>；食道位於背側、胸骨位於腹側、胸腺位於前方、橫膈位於後方，左右肺分居兩側。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">大血管開口</div>
+          <p>主動脈開口約位於<strong>第 3 肋</strong>；肺動脈幹開口約位於<strong>第 4 肋</strong>。</p>
+        </div>
+      </div>
+
+      <h3>馬、牛心臟位置比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構造</th><th>馬</th><th>牛</th></tr></thead>
+          <tbody>
+            <tr><td>心底 Fundus</td><td>第 2–6 肋之間</td><td>第 2–6 肋之間</td></tr>
+            <tr><td>心尖 Apex</td><td>胸骨劍狀軟骨</td><td>第 6 肋肋軟骨</td></tr>
+            <tr><td>右房室口</td><td>第 4 肋間</td><td>第 3 肋間</td></tr>
+            <tr><td>左房室口</td><td>第 4 肋與第 5 肋間之間</td><td>第 4 肋間與第 5 肋之間</td></tr>
+            <tr><td>主動脈開口</td><td>第 4 肋間</td><td>第 4 肋</td></tr>
+            <tr><td>肺動脈幹開口</td><td>第 3 肋間與第 4 肋之間</td><td>第 3 肋間與第 4 肋之間</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="figure">
+        <img src="img/循環系統/heart_p8.png" alt="犬心臟X光正常位置，側位與腹背位標示八個心臟構造">
+        <div class="figure-caption">犬心臟 X 光正常位置：側位（左）與腹背位（右）。1. 右心耳；2. 右心室；3. 左心室；4. 左心房；5. 右心房；6. 肺動脈幹；7. 主動脈；8. 氣管。判讀胸腔 X 光評估心臟大小與形狀時，建議先熟悉這八個標記的相對位置。</div>
+        <div class="figure-source">來源：解剖學實習講義《Heart》</div>
+      </div>
+
+      <h3>心臟表面標記</h3>
+      <ul>
+        <li><strong>心尖 Apex</strong>／<strong>心底 Fundus</strong>（前面上端寬大）</li>
+        <li><strong>左縱溝 Lt. longitudinal groove</strong>（又稱前／腹室間溝）：左冠狀動脈下行枝與大心／左冠狀靜脈通過</li>
+        <li><strong>右縱溝 Rt. longitudinal groove</strong>（又稱後／背室間溝）：右冠狀動脈分枝通過</li>
+        <li><strong>冠狀溝 Coronary groove</strong>：環繞心臟上部的環狀溝，冠狀動靜脈通過，將心臟分為上（心房）下（心室）兩部</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p>左右縱溝在外形上將心臟分為左右兩半，與內部的房中膈、室中膈位置一致。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Heart》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- HEART CHAMBERS -->
+    <div class="section" id="section-heartchambers">
+      <div class="section-head"><div class="section-num">3</div><h2>心臟四腔與瓣膜構造 Chambers &amp; Valves of the Heart</h2></div>
+      <p class="section-desc">心臟內部以房中膈、室中膈分為左右兩側，各再分心房、心室，共四腔；瓣膜構造與左右兩側的「強厚程度差異」是本節最重要的比較記憶。</p>
+
+      <h3>房中膈與室中膈</h3>
+      <p>左右心房之間為<strong>房中膈（Atrial septum）</strong>，其上有深陷的<strong>卵圓窩（Oval fossa）</strong>——為胎兒心臟卵圓孔（foramen ovale）的遺跡；左右心室之間為<strong>室中膈（Ventricular septum）</strong>。</p>
+
+      <h3>右心房與右房室口</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">右心房 Rt. atrium</div>
+          <p>外部隆起為<strong>右心耳</strong>；前壁有前腔靜脈口、後壁有後腔靜脈口（開口膨大處為靜脈竇）；前後腔靜脈口間偶有奇靜脈開口；房室口與後腔靜脈口間有<strong>冠狀竇口</strong>（冠狀竇入口，具冠狀竇瓣）；心耳內有<strong>櫛狀肌</strong>。承受前、後腔靜脈與冠狀竇來的靜脈血。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">右房室口</div>
+          <p>通口周圍有<strong>三尖瓣（Tricuspid valve）</strong>，經<strong>腱索</strong>接到室中膈上的<strong>乳頭肌</strong>，防止右心室血液逆流至右心房。</p>
+        </div>
+      </div>
+
+      <h3>右心室</h3>
+      <p>頂部為肺動脈口，附有前、左、右三片<strong>半月瓣</strong>，稱<strong>肺動脈瓣（Pulmonary valve）</strong>，周邊凹陷形成肺動脈竇。有三條乳頭肌凸入內腔，頂端經約 4–8 條<strong>腱索</strong>連接三尖瓣。另有一條薄而軟的<strong>調節束（Moderator band，又稱心橫肌／緣膈柱）</strong>橫跨心室內腔，可避免心室過度擴大，也是傳導系統右分支的通道之一。</p>
+
+      <h3>左心房與左房室口</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">左心房 Lt. atrium</div>
+          <p>左側外前部隆凸成<strong>左心耳</strong>，內有櫛狀肌；左右兩側各有 2–3 個肺靜脈開口；房中膈於卵圓窩相當處有淺窩，週緣有半月瓣狀中膈瓣（胎心卵圓孔瓣遺跡）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">左房室口</div>
+          <p>較右房室口小，瓣膜為<strong>二尖瓣／僧帽瓣（Bicuspid／Mitral valve）</strong>，有 6–8 條腱索接到乳頭肌，<strong>較三尖瓣強厚</strong>。</p>
+        </div>
+      </div>
+
+      <h3>左心室</h3>
+      <p>左心室壁厚度約為右心室壁的<strong>三至四倍</strong>，內腔因此狹窄。右上方為主動脈口，邊緣有左、右、後（中膈）三個半月瓣，稱<strong>主動脈瓣（Aortic valve）</strong>；瓣膜附著處向外隆凸形成<strong>主動脈竇</strong>，其中左、右主動脈竇部各有左、右冠狀動脈的出口。左心室壁有兩條乳頭肌凸入心室腔，尖端以腱索連接二尖瓣下方。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點：左側結構全面強厚於右側</div>
+        <p>大動脈瓣較肺動脈瓣強厚；左心室乳頭肌較右心室者強厚；二尖瓣較三尖瓣強厚；心室壁（三層）較心房壁（二層）厚；左心室壁較右心室壁厚——全部源自左心負責<strong>體循環（高壓）</strong>、右心負責<strong>肺循環（低壓）</strong>的生理需求差異。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/循環系統/heart_p18.png" alt="犬心臟內部構造，含瓣膜、乳頭肌、腱索與傳導系統標示">
+        <div class="figure-caption">心臟內部構造與傳導系統：竇房結（SA node）位於右心耳基部、房室結（AV node）位於冠狀竇開口附近，右心室可見三尖瓣、腱索、乳頭肌與調節束（moderator band），左心室可見主動脈瓣、二尖瓣。</div>
+        <div class="figure-source">來源：解剖學實習講義《Heart》</div>
+      </div>
+
+      <h3>心壁三層構造</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層次</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>心外膜 Epicardium</strong></td><td>又稱心包膜臟層，與漿膜性心包膜之間形成心包腔</td></tr>
+            <tr><td><strong>心肌 Myocardium</strong></td><td>橫紋不隨意肌</td></tr>
+            <tr><td><strong>心內膜 Endocardium</strong></td><td>心肌內面覆蓋心內瓣膜、腱索及肉柱（Trabeculae carneae）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>心包膜 Pericardium</h3>
+      <p>包裹心臟及大血管根部的膜囊，分兩層：<strong>纖維心包（外層）</strong>與<strong>漿膜心包（內層，再分壁層與臟層，臟層即心外膜）</strong>；壁層與臟層間形成<strong>心包腔</strong>，內含心包液。</p>
+      <div class="grid-4">
+        <div class="card" style="text-align:center;"><div class="card-title">功能一</div><p style="margin:0;">防止心臟過度擴張</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">功能二</div><p style="margin:0;">潤滑、減少摩擦</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">功能三</div><p style="margin:0;">保持心臟位置</p></div>
+        <div class="card" style="text-align:center;"><div class="card-title">功能四</div><p style="margin:0;">收縮時藉吸力協助舒張</p></div>
+      </div>
+
+      <h3>心臟骨骼 Cardiac Skeleton (Ossa Cordis)</h3>
+      <p>最常見於<strong>牛</strong>，馬也可能有；幼年不明顯、成年後逐漸顯現（外觀類似纖維化的肌肉）。是心臟瓣膜附著於心肌的基礎，心肌肌束也會鉗入其中；可避免瓣膜承受過大負載，也作為<strong>電流絕緣體</strong>，避免電流由心房直接傳導至心室（迫使電訊號必須經房室結傳導）。</p>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Heart》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CONDUCTION -->
+    <div class="section" id="section-conduction">
+      <div class="section-head"><div class="section-num">4</div><h2>心臟傳導系統與神經支配 Conduction System &amp; Innervation</h2></div>
+      <p class="section-desc">心臟本身具有自律性傳導系統，同時受自主神經系統調節速率與強度。</p>
+
+      <h3>傳導路徑</h3>
+      <div class="flow">
+        <div class="flow-node">竇房結 SA node（正常節律點）</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">房室結 AV node</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">房室束 AV bundle (Bundle of His)</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">左右分支 Rt. &amp; Lt. bundle-branch</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">心肌、游離壁乳頭肌纖維，部分經調節束通過</div>
+      </div>
+      <p>竇房結為<strong>正常節律點（pacemaker）</strong>，是整個系統的刺激生成中樞。</p>
+
+      <h3>自主神經支配</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>神經</th><th>起源</th><th>作用</th><th>分布範圍</th></tr></thead>
+          <tbody>
+            <tr><td><strong>交感神經</strong></td><td>頸胸神經節、中頸神經節</td><td>興奮時：<strong>正變時效應</strong>（心跳加快）、<strong>正變傳導效應</strong>（傳導加快）、<strong>正變力效應</strong>（收縮力增強）</td><td>竇房結、房室結、<strong>心室肌</strong></td></tr>
+            <tr><td><strong>副交感神經</strong>（迷走神經）</td><td>迷走神經之心臟枝或返喉神經枝</td><td>興奮時拮抗交感神經效應（抑制變時、變傳導、變力效應）</td><td>竇房結、<strong>心房肌</strong>（不含心室肌）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床提醒</div>
+        <p>副交感（迷走）神經<strong>只分布到竇房結與心房肌，不直接分布到心室肌</strong>；這解釋了為什麼迷走張力過高（如嘔吐、疼痛刺激迷走反射）主要造成<strong>心搏過緩或房室傳導延遲／阻滯</strong>，而不會直接抑制心室收縮力——心室收縮力主要仍受交感神經與循環中兒茶酚胺調控。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Heart》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CORONARY -->
+    <div class="section" id="section-coronary">
+      <div class="section-head"><div class="section-num">5</div><h2>冠狀循環 Coronary Circulation</h2></div>
+      <p class="section-desc">心臟本身的血液供應來自左右冠狀動脈，犬的冠狀循環模式以左冠狀動脈為主，供應範圍最廣。</p>
+
+      <h3>左冠狀動脈 Lt. Coronary a.</h3>
+      <p>通常較大，由左心耳與肺動脈之間經過，但很快分支：</p>
+      <ul>
+        <li><strong>下行枝／前室間枝／左室間枝</strong>（沿左縱溝）：再分<strong>左心室分枝</strong>（較長較大，通常 7 條）、<strong>右心室分枝</strong>（約 5 條，較小，與右冠狀動脈分枝吻合）、<strong>中膈分枝</strong>（進入室中膈）</li>
+        <li><strong>迴旋枝</strong>（沿冠狀溝向後延伸）：終止於右室間溝上緣（馬、豬），或形成<strong>右室間枝</strong>（反芻動物、貓、犬）</li>
+      </ul>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 犬有 5 個主要分支，但不同個體間數量差異很大；分枝大多很短，最大的分枝即右室間枝。</p>
+
+      <h3>右冠狀動脈 Rt. Coronary a.</h3>
+      <p>位於右心耳與肺動脈之間；<strong>迴旋枝</strong>沿右冠狀溝（反芻動物、貓、犬僅有此分枝）；約 20% 的犬會有一條很短的<strong>副右冠狀動脈</strong>，同樣源自主動脈竇；犬右冠狀動脈一般有 4–9 條分支，分佈於右心室壁外，多不長。<strong>下行枝／後室間枝／右室間枝</strong>僅存在於馬、豬。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">物種比較重點</div>
+        <p><strong>反芻動物、貓、犬的右室間枝來自左冠狀動脈的迴旋枝延伸而成；馬與豬則是由右冠狀動脈直接發出獨立的下行枝／後室間枝。</strong>這代表犬貓的心臟以左冠狀動脈供應大部分室中膈與右室游離壁，是比較解剖學的重要差異，也常出現在考題中。</p>
+      </div>
+
+      <h3>心臟靜脈系統</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>靜脈</th><th>又稱</th><th>路徑</th></tr></thead>
+          <tbody>
+            <tr><td><strong>大心靜脈 Great cardiac v.</strong></td><td>左冠狀靜脈</td><td>心尖 → 左縱溝 → 左冠狀溝 → 冠狀竇 → 右心房</td></tr>
+            <tr><td><strong>中心靜脈 Middle cardiac v.</strong></td><td>右冠狀靜脈</td><td>心尖 → 右縱溝 → 後腔靜脈基底部 → 冠狀竇 → 右心房</td></tr>
+            <tr><td><strong>小心靜脈 Minimal/Rt. cardiac v.</strong></td><td>—</td><td>右心房、室壁小枝（3–5 條）→ 右冠狀溝 → 冠狀竇 → 右心房</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Heart》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ARTERY OVERVIEW -->
+    <div class="section" id="section-arteryoverview">
+      <div class="section-head"><div class="section-num">6</div><h2>主動脈總覽與主動脈弓分支 Aorta Overview &amp; Aortic Arch Branches</h2></div>
+      <p class="section-desc">動脈系統從主動脈開始，依「升主動脈 → 主動脈弓 → 降主動脈（胸主動脈 → 腹主動脈）」的順序向全身分佈；主動脈弓分支模式有明確的物種差異，是比較解剖學的經典考點。</p>
+
+      <h3>動脈壁的三層構造</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層次</th><th>組成</th></tr></thead>
+          <tbody>
+            <tr><td><strong>內膜 Tunica intima</strong></td><td>內皮細胞＋內彈性膜——動脈硬化病變通常始於此層</td></tr>
+            <tr><td><strong>中膜 Tunica media</strong></td><td>最厚、變化最大的一層；此層結構差異將動脈分為大、中、小三類</td></tr>
+            <tr><td><strong>外膜 Tunica adventitia</strong></td><td>含<strong>脈管小血管（Vasa vasorum）</strong>，供應大血管本身（如主動脈）的血液</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>側枝循環 Collateral Circulation</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">真正終端動脈 True end arteries</div>
+          <p>沒有有效的側枝吻合，阻塞後該區域直接梗死（如視網膜血管、部分腦皮質血管）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">功能性終端動脈 Functional end arteries</div>
+          <p>雖有吻合但供血量不足以應付需求（如馬四肢的動脈間吻合），日常足夠但高需求時仍可能缺血。</p>
+        </div>
+      </div>
+
+      <h3>主動脈路徑總覽</h3>
+      <div class="flow">
+        <div class="flow-node">左心室</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">升主動脈 Ascending aorta（主動脈竇→左右冠狀動脈）</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">主動脈弓 Aortic arch</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">降主動脈：胸主動脈（第 5 胸椎左側起）</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">橫膈主動脈裂孔</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">腹主動脈（終於第 6–7 腰椎，分出左右外／內腸骨動脈與中薦動脈）</div>
+      </div>
+
+      <h3>主動脈弓分支的物種差異<span class="tag tag-exam">重要</span></h3>
+      <div class="figure">
+        <img src="img/循環系統/aorta_p9.png" alt="主動脈弓分支物種比較圖：人類、犬貓兔、豬、反芻動物與馬">
+        <div class="figure-caption">主動脈弓分支模式比較：人類為膊頭動脈＋左總頸動脈＋左鎖骨下動脈三支獨立發出；犬／貓／兔（人類變異型）為膊頭動脈幹發出右鎖骨下動脈＋雙側總頸動脈，<strong>左鎖骨下動脈單獨由主動脈弓直接發出</strong>；豬與反芻動物／馬則是<strong>四條血管（雙側總頸、雙側鎖骨下）全部由單一膊頭動脈幹發出</strong>，主動脈弓上僅此一個分支。</div>
+        <div class="figure-source">來源：解剖學實習講義《Artery》</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>主動脈弓分支模式</th></tr></thead>
+          <tbody>
+            <tr><td><strong>犬／貓／兔</strong></td><td>膊頭動脈幹 → 右鎖骨下動脈＋右總頸動脈＋左總頸動脈；<strong>左鎖骨下動脈單獨由主動脈弓發出</strong></td></tr>
+            <tr><td><strong>豬／反芻動物／馬</strong></td><td>單一膊頭動脈幹 → 右鎖骨下動脈＋兩頸動脈幹（再分左右總頸動脈）＋左鎖骨下動脈，<strong>全部四條血管皆源自同一膊頭動脈幹</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Artery》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- HEAD NECK ARTERY -->
+    <div class="section" id="section-headneckartery">
+      <div class="section-head"><div class="section-num">7</div><h2>頭頸部與前肢動脈 Arteries of Head, Neck &amp; Forelimb</h2></div>
+      <p class="section-desc">膊頭動脈幹的分支負責供應頭頸部（總頸動脈系統）與前肢（鎖骨下動脈系統），兩系統在解剖實習台上是最常一起解剖辨認的區域。</p>
+
+      <h3>總頸動脈 Common Carotid a. 分支</h3>
+      <p>總頸動脈沿氣管（右）或食道（左）腹側面上行，沿途發出<strong>後甲狀腺動脈</strong>（食道枝）、<strong>前甲狀腺動脈</strong>（甲狀腺枝、咽頭枝、環甲枝、肌枝），過甲狀軟骨後方分為內頸動脈與外頸動脈兩終支。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">內頸動脈 Internal carotid a.</div>
+          <p>分佈至<strong>大腦及腦下方</strong>，參與構成<strong>腦動脈輪（Arterial circle of brain）</strong>：後頸間枝、後交通枝、前腦下腺動脈、中大腦動脈、前大腦動脈、內眼動脈、內篩動脈。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">外頸動脈 External carotid a.</div>
+          <p>主要分佈至<strong>頭部淺層</strong>：枕動脈、前喉動脈、上咽動脈、舌動脈、面動脈、後耳殼動脈、淺側頭動脈，終支為<strong>上顎動脈（最大終支）</strong>。</p>
+        </div>
+      </div>
+
+      <h3>鎖骨下動脈 Subclavian a. 分支</h3>
+      <p>鎖骨下動脈沿第一肋前緣下行進入前肢，於腋下改名為腋窩動脈；沿途主要分支：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分支</th><th>路徑／分佈</th></tr></thead>
+          <tbody>
+            <tr><td><strong>椎動脈 Vertebral a.</strong>（第一分支）</td><td>於第一肋間分出，上行穿過第六至第一頸椎橫突孔，於寰椎翼前外面與枕動脈吻合；分佈頸部諸肌；脊髓枝經各頸椎椎間孔分佈脊髓被膜（背枝）與脊髓白質／灰質（腹枝匯成腹脊動脈）</td></tr>
+            <tr><td><strong>肋頸動脈 Costocervical a.</strong>（肋頸幹）</td><td>分四枝：第一肋間動脈（心包膜、胸腺）、背肩胛動脈（腹鋸肌胸壁部）、深頸動脈（與椎動脈背肌枝、枕動脈下行枝吻合，分佈頭頸與前胸背側肌肉）</td></tr>
+            <tr><td><strong>內胸動脈 Internal thoracic a.</strong></td><td>分佈胸骨區域</td></tr>
+            <tr><td><strong>淺頸動脈 Superficial cervical a.</strong></td><td>分佈頸部淺層</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>鎖骨下動脈續行為<strong>腋窩動脈 Axillary a.</strong>，再延續為<strong>肱（上膊）動脈 Brachial a.</strong>——肱動脈是前肢臨床上重要的<strong>脈搏觸診部位</strong>之一。</p>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Artery》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ABDOMINAL ARTERY -->
+    <div class="section" id="section-abdominalartery">
+      <div class="section-head"><div class="section-num">8</div><h2>腹主動脈與內臟動脈分支 Abdominal Aorta &amp; Visceral Branches</h2></div>
+      <p class="section-desc">腹主動脈的內臟枝可依「前腸、中腸、後腸」供應範圍分三段記憶，體壁枝則負責腰部肌肉與腹壁。</p>
+
+      <h3>未成對內臟動脈（依前中後腸分段）<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">腹腔動脈 Celiac a.（前腸）</div>
+          <p>供應胃、肝、脾；分<strong>總肝動脈</strong>（肝枝、膽囊動脈、右胃動脈、胃十二指腸動脈→右胃網膜動脈＋前胰十二指腸動脈）、<strong>脾動脈</strong>（胰枝、脾枝、小胃／短胃動脈、左胃網膜動脈）、<strong>左胃動脈</strong>（網膜枝、食道枝）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">前腸繫膜動脈 Cranial mesenteric a.（中腸）</div>
+          <p>供應大部分小腸與大腸；分<strong>總結腸動脈</strong>（中結腸、右結腸、迴腸結腸動脈）、<strong>後胰十二指腸動脈</strong>、<strong>空腸動脈</strong>（約 14 條，終於迴腸動脈）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">後腸繫膜動脈 Caudal mesenteric a.（後腸）</div>
+          <p>供應降結腸與直腸；分<strong>左結腸動脈</strong>、<strong>前直腸動脈</strong>。</p>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">記憶邏輯</div>
+        <p>三條未成對內臟動脈對應胚胎學上的<strong>前腸／中腸／後腸</strong>供應範圍——複習腸道缺血或腸繫膜血栓的臨床定位時，這個分段邏輯比死背每條小分支更實用。</p>
+      </div>
+
+      <h3>成對內臟動脈</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>動脈</th><th>供應</th></tr></thead>
+          <tbody>
+            <tr><td><strong>腎動脈 Renal a.</strong></td><td>左右腎臟</td></tr>
+            <tr><td><strong>腎上腺動脈 Suprarenal/Adrenal a.</strong></td><td>腎上腺</td></tr>
+            <tr><td><strong>睪丸動脈／卵巢動脈 Testicular/Ovarian a.</strong></td><td>性腺</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>體壁枝 Parietal Branches</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>動脈</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>腰動脈 Lumbar aa.</strong></td><td>共 7 對，各分背枝（脊枝＋背枝）與腹枝</td></tr>
+            <tr><td><strong>膈腹動脈 Phrenicoabdominal a.</strong></td><td>分後膈動脈與前腹動脈</td></tr>
+            <tr><td><strong>深腸骨迴旋動脈 Deep circumflex iliac a.</strong></td><td>分深枝與淺枝</td></tr>
+            <tr><td><strong>中薦動脈 Median sacral a.</strong></td><td>分佈尾部</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>腹主動脈末端終於第六至七腰椎，分出左右<strong>內腸骨動脈</strong>（供應骨盆壁、骨盆臟器、外生殖器、會陰與尾部）與左右<strong>外腸骨動脈</strong>（延續為後肢動脈，見下節）。</p>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Artery》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PELVIC ARTERY -->
+    <div class="section" id="section-pelvicartery">
+      <div class="section-head"><div class="section-num">9</div><h2>骨盆與後肢動脈 Arteries of the Pelvis &amp; Hindlimb</h2></div>
+      <p class="section-desc">腹主動脈末端分出內、外腸骨動脈：內腸骨動脈供應骨盆臟器與尾部，外腸骨動脈則延續為後肢動脈系統。</p>
+
+      <h3>內腸骨動脈 Internal Iliac a.（＝下腹動脈 Hypogastric a.）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分支</th><th>分佈</th></tr></thead>
+          <tbody>
+            <tr><td><strong>臍動脈 Umbilical a.</strong></td><td>前膀胱動脈</td></tr>
+            <tr><td><strong>內陰動脈 Internal pudendal a.</strong></td><td>依性別各異（如攝護腺動脈／陰道動脈）</td></tr>
+            <tr><td><strong>後臀動脈 Caudal gluteal a.</strong></td><td>再分腸腰動脈、前臀動脈、外側尾動脈、背會陰動脈</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>外腸骨動脈 External Iliac a. → 股動脈 → 後肢動脈</h3>
+      <div class="flow">
+        <div class="flow-node">外腸骨動脈</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">股動脈 Femoral a.（深股動脈、內／外側股迴旋動脈）</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">隱動脈 Saphenous a.（前連絡枝＋後連絡枝）＋下行膝動脈</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">膕動脈 Popliteal a.</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">膕動脈</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">前脛動脈＋後脛動脈</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node danger">背側足動脈 Dorsal pedal a.（後肢脈搏觸診部位）</div>
+      </div>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床提醒</div>
+        <p><strong>股動脈（Femoral a.）與背側足動脈（Dorsal pedal a.）是犬貓理學檢查最常觸診的兩個後肢脈搏部位</strong>，分別位於鼠蹊部內側與足背；急重症評估周邊灌流、休克分級時常需觸診這兩處脈搏強度。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Artery》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- VEIN -->
+    <div class="section" id="section-vein">
+      <div class="section-head"><div class="section-num">10</div><h2>靜脈系統與臨床採血部位 Venous System &amp; Clinical Venipuncture Sites</h2></div>
+      <p class="section-desc">靜脈系統大致與動脈伴行，但本節重點放在<strong>臨床上實際會用到的採血與留置導管部位</strong>，複習時建議直接對照操作經驗記憶，比死背分支順序更有效率。</p>
+
+      <h3>前腔靜脈系統（頭頸、前肢、胸部）</h3>
+      <div class="flow">
+        <div class="flow-node">前腔靜脈 Cranial vena cava</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">肱頭靜脈（雙枝）Brachiocephalic v.</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">鎖骨下靜脈 → 腋窩靜脈 → 肱靜脈</div>
+      </div>
+      <p>前肢深靜脈：肱靜脈、正中靜脈、深前臂靜脈、橈骨靜脈、尺骨靜脈、總骨間靜脈、上／下端掌靜脈弓。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點：頭靜脈 Cephalic v.</div>
+        <p>頭靜脈是犬貓<strong>前肢最常用的周邊採血與留置導管部位</strong>：起自前爪背側靜脈，沿前臂背外側上行，於腕部附近有<strong>副頭靜脈</strong>匯入，於肘部經<strong>正中肘靜脈</strong>與肱靜脈相通，續行匯入腋窩靜脈（經腋窩肱靜脈）。</p>
+      </div>
+
+      <div class="figure">
+        <img src="img/循環系統/vein_p52.png" alt="犬前臂淺層靜脈圖，標示頭靜脈、正中肘靜脈、副頭靜脈">
+        <div class="figure-caption">犬前臂淺層靜脈：頭靜脈（Cephalic v.）沿前臂背外側走行，經正中肘靜脈（Median cubital v.）與深層的肱靜脈（Brachial v.）相通，於腕部上方有副頭靜脈（Accessory cephalic v.）匯入——是前肢採血與留置導管最常用的解剖路徑。</div>
+        <div class="figure-source">來源：解剖學實習講義《Venous System》</div>
+      </div>
+
+      <h3>後腔靜脈系統（腹部、骨盆、後肢）</h3>
+      <p><strong>體壁枝：</strong>腰靜脈（7 對）、膈腹幹（後膈靜脈＋前腹靜脈）、深腸骨迴旋靜脈、總腸骨靜脈（左右一對）、正中薦靜脈、內腸骨靜脈、外腸骨靜脈。</p>
+      <div class="flow">
+        <div class="flow-node">外腸骨靜脈</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">股靜脈 Femoral v.（深股靜脈、內外側股迴旋靜脈）</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">膕靜脈 → 前／後脛靜脈</div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點：內側隱靜脈與外側隱靜脈</div>
+        <p>股靜脈另發出<strong>內隱靜脈（Medial saphenous v.）</strong>與<strong>外隱靜脈（Lateral saphenous v.）</strong>，兩者各自的前、後連絡枝在下肢相互聯繫吻合，分別成為腳背與腳掌靜脈的來源。<strong>隱靜脈是後肢最常用的採血與留置導管部位</strong>；臨床教學上，犬習慣使用<strong>外側</strong>隱靜脈，貓則習慣使用<strong>內側</strong>隱靜脈作為後肢採血部位（此為一般臨床教學慣例，實際操作仍以所屬教學醫院訓練為準）。</p>
+      </div>
+
+      <h3>後腔靜脈內臟枝</h3>
+      <p><strong>肝靜脈</strong>（前後一對，位於肝臟橫膈面）、<strong>右腎靜脈</strong>（較短）、<strong>左腎靜脈</strong>、<strong>左／右睪丸靜脈或卵巢靜脈</strong>。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">補充：肝門靜脈系統</div>
+        <p>腸胃道、脾臟與胰臟的靜脈血並不直接匯入後腔靜脈，而是先匯入<strong>肝門靜脈（Hepatic portal v.）</strong>，經肝臟竇狀隙代謝過濾後才經肝靜脈匯入後腔靜脈——此為肝／門脈循環（Hepatic/Portal circulation），是理解<strong>肝臟首渡效應（first-pass metabolism）</strong>與<strong>先天性門脈分流（portosystemic shunt）</strong>等臨床問題的解剖基礎。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Venous System》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- LYMPH -->
+    <div class="section" id="section-lymph">
+      <div class="section-head"><div class="section-num">11</div><h2>淋巴系統與觸診淋巴結 Lymphatic System &amp; Palpable Lymph Nodes</h2></div>
+      <p class="section-desc">淋巴系統兼具免疫與體液回收運輸功能；本節重點放在<strong>理學檢查可觸診的周邊淋巴結</strong>，是每次理學檢查都必須執行的一環。</p>
+
+      <h3>淋巴循環路徑</h3>
+      <div class="flow">
+        <div class="flow-node">組織間液</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">毛細淋巴管網（盲端起始，呈「念珠狀」外觀，由節段性瓣膜造成）</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">輸入淋巴管 → 淋巴結 → 輸出淋巴管</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">淋巴幹 Lymphatic trunk</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node">右淋巴幹 或 左淋巴幹（＝胸管 Thoracic duct）</div>
+        <span class="flow-arrow">➜</span>
+        <div class="flow-node danger">胸腔入口靜脈角 → 大靜脈（Vena cava）</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p><strong>右淋巴幹</strong>收集右側頭頸胸與右前肢的淋巴；<strong>左淋巴幹（胸管）</strong>收集左側頭頸胸、左前肢，並經<strong>乳糜池（Cisterna chyli）</strong>收集腹腔內臟淋巴幹、大／小腸淋巴幹與雙側後肢淋巴幹——因此胸管實際上負責回收<strong>全身大部分</strong>的淋巴液，是淋巴系統最重要的單一通道。</p>
+      </div>
+      <p><strong>沒有毛細淋巴管網的組織：</strong>中樞神經系統、上皮組織、軟骨、骨髓、眼角膜——這些組織的水腫或發炎處理必須依賴其他機轉（如腦脊髓液循環），是常考的例外清單。</p>
+
+      <h3>淋巴結構造</h3>
+      <p>多條<strong>輸入淋巴管</strong>（每個淋巴結約 2–4 條）進入被膜下竇，依序經過<strong>皮質（生發中心／淋巴小結，B 細胞為主）</strong>、<strong>副皮質區（T 細胞為主）</strong>、<strong>髓索（B 細胞及分化中的漿細胞）</strong>，最終匯集為數量較少的<strong>輸出淋巴管</strong>——輸出淋巴中的淋巴球數量可達輸入淋巴的 10 倍，反映淋巴結本身具有淋巴球增殖功能。</p>
+
+      <h3>觸診淋巴結（理學檢查核心）<span class="tag tag-exam">重要</span></h3>
+      <div class="figure">
+        <img src="img/循環系統/lnpalp_p11.png" alt="犬觸診淋巴結分布圖，標示腮腺、下頜、淺頸、腋下、淺腹股溝、膕窩等九個淋巴結">
+        <div class="figure-caption">犬的觸診淋巴結（共 9 個，藍圈標示為不恆定存在）：1. 腮淋巴結；2. 下頜淋巴結；3. 外側咽上淋巴結（不恆定）；4. 淺頸淋巴結；5. 腋淋巴結；6. 副腋淋巴結（不恆定）；7. 淺腹股溝淋巴結；8. 膕窩淋巴結；9. 股淋巴結（不恆定）。</div>
+        <div class="figure-source">來源：解剖學實習講義《Lymphatic System》</div>
+      </div>
+      <div class="figure">
+        <img src="img/循環系統/lnpalp_p13.png" alt="貓觸診淋巴結分布圖，標示下頜、外側咽上、背側淺頸、腋下、淺腹股溝、尾側上腹、膕窩等八個淋巴結">
+        <div class="figure-caption">貓的觸診淋巴結（共 8 個）：1. 下頜淋巴結；2. 外側咽上淋巴結；3. 背側淺頸淋巴結；4. 腋淋巴結；5. 副腋淋巴結；6. 淺腹股溝淋巴結；7. 尾側上腹淋巴結；8. 膕窩淋巴結。貓沒有犬的股淋巴結，改以尾側上腹淋巴結作為腹股溝區域額外的觸診點。</div>
+        <div class="figure-source">來源：解剖學實習講義《Lymphatic System》</div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">理學檢查提醒</div>
+        <p><strong>下頜淋巴結、淺頸（肩胛前）淋巴結、腋下淋巴結、淺腹股溝淋巴結、膕窩淋巴結</strong>是犬貓共同的「五大觸診淋巴結」，每次完整理學檢查都應逐一觸診，評估大小、質地、活動度與對稱性，是全身性疾病（如淋巴瘤）、局部感染與腫瘤轉移篩檢的第一線工具。</p>
+      </div>
+
+      <h3>其他區域淋巴結群（深層，多不可觸診）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>區域</th><th>淋巴結</th></tr></thead>
+          <tbody>
+            <tr><td>頭頸部</td><td>腮淋巴結、下頜淋巴結、內／外側咽上淋巴結、前／後頸深淋巴結、淺頸淋巴結</td></tr>
+            <tr><td>胸部（體壁）</td><td>胸內淋巴結、肋間淋巴結</td></tr>
+            <tr><td>胸部（臟壁）</td><td>縱膈淋巴結、氣管支氣管淋巴結、肺淋巴結</td></tr>
+            <tr><td>前肢</td><td>腋淋巴結、副腋淋巴結</td></tr>
+            <tr><td>腹壁及骨盆腔</td><td>前腰淋巴結、腰（主動脈）淋巴結、內腸骨淋巴結、下腹淋巴結、內／外側薦淋巴結、腸骨股淋巴結（＝深鼠蹊淋巴結）</td></tr>
+            <tr><td>腹腔內臟</td><td>肝淋巴結、胰十二指腸淋巴結、脾淋巴結、空腸（腸繫膜）淋巴結</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p>脾臟、胸腺、骨髓在功能上同屬淋巴系統的一部分（統稱「血管腺」），與淋巴結共同構成免疫系統的解剖基礎，複習免疫或血液系統疾病時建議一併回顧。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Lymphatic System》。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">12</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度的整理，複習前可先快速掃過本節，找出自己不熟的部分再回對應章節細讀。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>犬心臟位於第 3/4～6/7 肋間</strong>，主動脈開口約第 3 肋、肺動脈幹開口約第 4 肋；X 光判讀需熟悉左右心房心室、肺動脈幹、主動脈、氣管的相對位置。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>左側心臟結構全面強厚於右側</strong>（主動脈瓣＞肺動脈瓣；二尖瓣＞三尖瓣；左心室壁是右心室壁的 3–4 倍），源自左心負責體循環高壓、右心負責肺循環低壓的生理差異。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>傳導路徑：SA node → AV node → His bundle → 左右分支</strong>；交感神經作用於竇房結、房室結與心室肌（正變時／傳導／力）；副交感神經僅作用於竇房結與心房肌，不直接抑制心室收縮力。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>犬貓冠狀循環以左冠狀動脈為主</strong>，其室間枝供應大部分室中膈；反芻動物、貓、犬的右室間枝來自左冠狀動脈迴旋枝（馬、豬則由右冠狀動脈直接發出），是物種差異考點。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>主動脈弓分支物種差異</strong>：犬貓兔＝左鎖骨下動脈單獨由主動脈弓發出；豬／反芻動物／馬＝四條血管全部源自單一膊頭動脈幹。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>腹主動脈內臟枝依前中後腸分三段</strong>：腹腔動脈（胃肝脾）、前腸繫膜動脈（大部分小腸大腸）、後腸繫膜動脈（降結腸直腸），對應腸道缺血的區域定位邏輯。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>後肢動脈路徑：外腸骨動脈 → 股動脈 → 膕動脈 → 前／後脛動脈 → 背側足動脈</strong>；股動脈與背側足動脈是後肢理學檢查最常觸診的脈搏部位。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>頭靜脈（前肢）與內／外側隱靜脈（後肢）是臨床最常用的周邊採血與留置導管部位</strong>，頸靜脈則是大量採血與中央靜脈導管首選；犬習慣用外側隱靜脈、貓習慣用內側隱靜脈（一般教學慣例）。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>腸胃道、脾臟、胰臟靜脈血先經肝門靜脈流入肝臟</strong>，是理解肝臟首渡效應與先天性門脈分流的解剖基礎。</div></div>
+      <div class="step"><div class="step-num">10</div><div class="step-text"><strong>五大觸診淋巴結：下頜、淺頸（肩胛前）、腋下、淺腹股溝、膕窩</strong>，每次理學檢查都應觸診；犬另有腮腺、副腋、股淋巴結（皆不恆定），貓以尾側上腹淋巴結取代犬的股淋巴結位置。</div></div>
+      <div class="step"><div class="step-num">11</div><div class="step-text"><strong>沒有毛細淋巴管網的組織：中樞神經系統、上皮組織、軟骨、骨髓、眼角膜</strong>，是常考的例外清單；胸管（左淋巴幹）經乳糜池收集腹腔與雙側後肢淋巴，是全身淋巴回收最主要的單一通道。</div></div>
+
+      <footer class="note-footer">
+        資料來源：解剖學實習講義《Heart》《Artery》《Venous System》《Lymphatic System》（Albert Taiching Liao）。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋心臟、動脈、靜脈與淋巴系統各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念請回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 犬的左心室壁厚度約為右心室壁的幾倍？</div>
+        <ul class="quiz-options">
+          <li>(A) 約 1.5 倍</li>
+          <li>(B) 約 3–4 倍</li>
+          <li>(C) 約 8–10 倍</li>
+          <li>(D) 兩者厚度相同</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">左心室負責將血液打向體循環（高壓系統），心室壁厚度約為負責肺循環（低壓系統）的右心室壁的三至四倍，內腔也因此較右心室狹窄。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 副交感神經（迷走神經）可直接分布到心室肌，抑制心室收縮力。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">副交感神經只分布於竇房結與心房肌，不直接分布到心室肌；心室收縮力主要受交感神經調控。迷走張力過高主要造成心搏過緩或房室傳導延遲，而非直接抑制心室收縮力。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 心臟傳導系統的正確順序為？</div>
+        <ul class="quiz-options">
+          <li>(A) AV node → SA node → His bundle → 左右分支</li>
+          <li>(B) SA node → AV node → His bundle → 左右分支</li>
+          <li>(C) His bundle → SA node → AV node → 左右分支</li>
+          <li>(D) SA node → 左右分支 → AV node → His bundle</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">竇房結（SA node，正常節律點）→ 房室結（AV node）→ 房室束（His bundle）→ 左右分支 → 心室肌纖維，是心臟電訊號傳導的標準路徑。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 犬貓與反芻動物／馬在冠狀循環的右室間枝來源上有何不同？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">反芻動物、貓、犬的右室間枝是由左冠狀動脈的迴旋枝延伸形成，也就是右心室游離壁的部分供應仍來自左冠狀動脈；馬與豬則是由右冠狀動脈直接發出獨立的下行枝／後室間枝。這使得犬貓的冠狀循環整體以左冠狀動脈為主要供應來源。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 關於犬貓與反芻動物／馬的主動脈弓分支模式，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 犬貓的左鎖骨下動脈單獨由主動脈弓發出，不經過膊頭動脈幹</li>
+          <li>(B) 反芻動物與馬的四條血管（雙側總頸、雙側鎖骨下）分別獨立由主動脈弓發出</li>
+          <li>(C) 犬貓與反芻動物的主動脈弓分支模式完全相同</li>
+          <li>(D) 馬沒有膊頭動脈幹這個構造</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">犬貓兔（人的變異型）是膊頭動脈幹發出右鎖骨下動脈＋雙側總頸動脈，左鎖骨下動脈單獨由主動脈弓直接發出；反芻動物與馬則是四條血管全部源自單一膊頭動脈幹，模式明顯不同。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 腹主動脈的三條未成對內臟動脈分別供應哪些器官？請依前中後腸的邏輯說明。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">腹腔動脈（Celiac a.）對應前腸，供應胃、肝、脾；前腸繫膜動脈（Cranial mesenteric a.）對應中腸，供應大部分小腸與大腸（含總結腸動脈、後胰十二指腸動脈、空腸動脈）；後腸繫膜動脈（Caudal mesenteric a.）對應後腸，供應降結腸與直腸（左結腸動脈、前直腸動脈）。這個前中後腸分段邏輯有助於臨床上定位腸道缺血或腸繫膜血栓的影響範圍。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 犬貓後肢理學檢查觸診脈搏，最常使用下列哪兩個部位？</div>
+        <ul class="quiz-options">
+          <li>(A) 頭靜脈、正中肘靜脈</li>
+          <li>(B) 股動脈、背側足動脈</li>
+          <li>(C) 頸靜脈、隱靜脈</li>
+          <li>(D) 肱動脈、腋窩動脈</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">股動脈（鼠蹊部內側）與背側足動脈（足背）是犬貓後肢理學檢查最常觸診的兩個脈搏部位，用於評估周邊灌流與休克分級；頭靜脈與隱靜脈則是靜脈系統的採血／留置部位，並非動脈脈搏觸診點。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. 腸胃道、脾臟與胰臟的靜脈血會直接匯入後腔靜脈，不經過肝臟。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">腸胃道、脾臟與胰臟的靜脈血會先匯入肝門靜脈，經肝臟竇狀隙代謝過濾後才經肝靜脈匯入後腔靜脈，此為肝／門脈循環，是理解肝臟首渡效應與先天性門脈分流的解剖基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q9. 犬的「五大觸診淋巴結」是哪五個？貓與犬在觸診淋巴結上有何差異？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">五大觸診淋巴結為：下頜淋巴結、淺頸（肩胛前）淋巴結、腋下淋巴結、淺腹股溝淋巴結、膕窩淋巴結，是每次完整理學檢查都應觸診評估的部位。犬另有腮腺、副腋、股淋巴結（皆不恆定存在）；貓則沒有犬的股淋巴結，而是以尾側上腹淋巴結作為腹股溝區域的額外觸診點，複習時建議對照兩張物種圖記憶差異。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 下列哪一組織「沒有」毛細淋巴管網分佈？</div>
+        <ul class="quiz-options">
+          <li>(A) 皮膚真皮層</li>
+          <li>(B) 骨骼肌</li>
+          <li>(C) 中樞神經系統</li>
+          <li>(D) 消化道黏膜下層</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">中樞神經系統、上皮組織、軟骨、骨髓、眼角膜這五類組織沒有毛細淋巴管網分佈，是淋巴系統章節常考的例外清單。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+    <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  heartposition: '心臟位置與大血管開口',
+  heartchambers: '心臟四腔與瓣膜構造',
+  conduction: '心臟傳導系統與神經支配',
+  coronary: '冠狀循環',
+  arteryoverview: '主動脈總覽與主動脈弓分支',
+  headneckartery: '頭頸部與前肢動脈',
+  abdominalartery: '腹主動脈與內臟動脈分支',
+  pelvicartery: '骨盆與後肢動脈',
+  vein: '靜脈系統與臨床採血部位',
+  lymph: '淋巴系統與觸診淋巴結',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
