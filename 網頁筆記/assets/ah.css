@@ -159,6 +159,51 @@ body.ah .theme-btn:hover { border-color: var(--accent); }
 .door.multi .door__doc:hover { border-color: var(--accent); background: var(--bg-soft); }
 .empty-state { padding: var(--sp-6) var(--sp-5); border: 1px dashed var(--line); border-radius: var(--radius); color: var(--fg-faint); font-size: var(--text-sm); text-align: center; }
 
+/* ======================================= 首頁大圖卡（hero doors，只給頂層 index.html 用）==== */
+.hero-doors { display: grid; gap: var(--sp-5); grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); margin: 0 0 var(--sp-7); padding: 0; list-style: none; }
+.hero-doors--topics { grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); }
+.hero-door {
+  position: relative; display: flex; flex-direction: column; height: 100%; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg); overflow: hidden; text-decoration: none; color: inherit; box-shadow: none;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.hero-door::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--hero-line, var(--accent)); }
+.hero-door:hover, .hero-door:focus-visible { border-color: var(--hero-line, var(--accent)); color: inherit; transform: translateY(-2px); }
+.hero-door:hover .hero-door__link { text-decoration: underline; }
+
+.hero-door__body { display: flex; flex-direction: column; flex: 1; padding: var(--sp-5); }
+.hero-door__index { font-family: var(--mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .06em; color: var(--hero-line, var(--accent-mid)); }
+.hero-door__kicker { display: block; margin: .6rem 0 0; font-size: .68rem; font-weight: 700; letter-spacing: .09em; color: var(--fg-dim); text-transform: uppercase; }
+.hero-door__title { margin: .3rem 0 0; font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; color: var(--fg); }
+.hero-door__desc { margin: var(--sp-3) 0 0; font-size: var(--text-sm); line-height: 1.6; color: var(--fg-muted); }
+
+.hero-door__topics { margin: var(--sp-3) 0 0; padding: var(--sp-3) 0 0; border-top: 1px solid var(--line); list-style: none; }
+.hero-door__topics li { position: relative; padding: .2rem 0 .2rem 1.1em; font-size: var(--text-xs); color: var(--fg-muted); line-height: 1.5; }
+.hero-door__topics li::before { content: "›"; position: absolute; left: 0; font-weight: 700; color: var(--hero-line, var(--accent-mid)); }
+.hero-door__empty { margin: var(--sp-3) 0 0; padding: var(--sp-3) 0 0; border-top: 1px solid var(--line); font-size: var(--text-xs); font-style: italic; color: var(--fg-dim); }
+
+.hero-door__link { margin: var(--sp-4) 0 0; padding-top: 0; font-size: var(--text-xs); font-weight: 700; letter-spacing: .03em; color: var(--hero-line, var(--accent)); }
+
+.hero-door--slate { --hero-line: var(--slate-700); }
+.hero-door--rust  { --hero-line: var(--rust-700); }
+.hero-door--amber { --hero-line: var(--amber-700); }
+.hero-door--green { --hero-line: var(--green-700); }
+
+.hero-door__progress { margin: var(--sp-3) 0 0; padding: var(--sp-3) 0 0; border-top: 1px solid var(--line); font-size: var(--text-xs); font-weight: 700; letter-spacing: .02em; color: var(--hero-line, var(--accent)); }
+
+/* 未整理週次／主題：不可點擊、虛線邊框（大圖卡版） */
+.hero-door--pending { opacity: .55; cursor: default; border-style: dashed; }
+.hero-door--pending::before { background: var(--line); }
+.hero-door--pending:hover { border-color: var(--line); transform: none; }
+.hero-door--pending .hero-door__title { color: var(--fg-dim); }
+
+/* 同一週有多份文件：卡片內堆疊多個連結（大圖卡版） */
+.hero-door--multi .hero-door__week { font-family: var(--mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .06em; color: var(--hero-line, var(--accent-mid)); }
+.hero-door--multi .hero-door__title { margin: .3rem 0 0; }
+.hero-door--multi .hero-door__doclist { margin: var(--sp-3) 0 0; padding: var(--sp-3) 0 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: var(--sp-2); }
+.hero-door--multi .hero-door__doc { display: block; padding: .55rem .8rem; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--fg); text-decoration: none; font-size: var(--text-sm); font-weight: 600; transition: border-color .15s; }
+.hero-door--multi .hero-door__doc:hover { border-color: var(--hero-line, var(--accent)); background: var(--bg-soft); }
+
 /* ================================================================ 內頁 ==== */
 .pagewrap {
   max-width: var(--max); margin: 0 auto; padding: var(--sp-7) var(--sp-5) var(--sp-8);

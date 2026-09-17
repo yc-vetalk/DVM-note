@@ -155,385 +155,385 @@ const SEARCH_INDEX = [
     snippet: "涵蓋縫線材質、縫合針與縫合模式重點的練習題，點擊即可顯示答案與解析。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "骨骼系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "overview", sectionName: "骨骼系統總論",
     keywords: "骨骼分類 長骨 短骨 扁平骨 不規則骨 籽骨 含氣骨 方位術語 cranial caudal dorsal ventral medial lateral proximal distal palmar plantar rostral 骨骼表面標記 process tubercle tuberosity trochanter crest fossa foramen notch fovea condyle epicondyle trochlea",
     snippet: "骨骼分類（長骨/短骨/扁平骨/不規則骨/籽骨）與全身通用的方位術語、骨骼表面標記術語對照表，是後面各部位骨骼小節共用的基礎語彙。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "骨骼系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "skull", sectionName: "頭骨",
     keywords: "skull neurocranium viscerocranium 神經顱 顏面顱 枕骨 occipital 蝶骨 sphenoid 顳骨 temporal 額骨 frontal 頂骨 parietal 篩骨 ethmoid 切齒骨 上頜骨 maxilla 鼻骨 淚骨 顴骨 zygomatic 腭骨 翼骨 犁骨 下頜骨 mandible foramen magnum 枕骨大孔 顳頜關節 TMJ 舌骨器 hyoid 咀嚼肌 顳肌 咬肌 masseter 翼肌",
     snippet: "神經顱（枕骨/蝶骨/顳骨/額骨/頂骨/篩骨）與顏面顱（切齒骨/上頜骨/鼻骨/淚骨/顴骨/腭骨/翼骨/犁骨/下頜骨）重要構造整理，含舌骨器與咀嚼肌群。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "骨骼系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "vertebral", sectionName: "脊柱與胸廓",
     keywords: "vertebral column 脊柱 頸椎 cervical 胸椎 thoracic 腰椎 lumbar 薦椎 sacral 尾椎 caudal 脊柱公式 C7T13L7S3Cd 寰椎 atlas 樞椎 axis dens 齒突 寰樞關節不穩定 atlantoaxial instability anticlinal vertebra T11 肋椎關節 costovertebral 肋骨 ribs 胸骨 sternum 椎間盤突出 IVDD 腰薦間隙 L7-S1 硬膜外麻醉 epidural 腦脊髓液採集 cisternal puncture",
     snippet: "犬脊柱公式 C7T13L7S3Cd20-23、椎骨共同構造、寰椎/樞椎特化構造與寰樞不穩定、T11 anticlinal vertebra、薦椎、肋骨胸骨、臨床穿刺定位地標、IVDD。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "骨骼系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "forelimb", sectionName: "前肢骨骼",
     keywords: "thoracic limb forelimb 肩胛骨 scapula 鎖骨 clavicle 肱骨 humerus 大結節 小結節 結節間溝 橈骨 radius 尺骨 ulna 鷹嘴 olecranon 肘突 anconeal process 冠狀突 coronoid process 肘關節發育不良 elbow dysplasia FCP UAP 腕骨 carpal 掌骨 metacarpal 指骨 phalanges 懸爪 dewclaw 斷爪 declaw onychectomy",
     snippet: "肩胛骨（鎖骨退化）、肱骨、橈尺骨（肘關節發育不良 FCP/UAP）、腕掌指骨（7塊腕骨）構造整理，含斷爪手術倫理提醒。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "骨骼系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "hindlimb", sectionName: "後肢骨骼",
     keywords: "pelvic limb 骨盆 pelvis 髂骨 ilium 坐骨 ischium 恥骨 pubis 髖臼 acetabulum 閉孔 obturator foramen 髖關節脫臼 hip luxation 髖關節發育不良 hip dysplasia Ortolani test FHO 股骨 femur 轉子 trochanter 膝關節 stifle 十字韌帶 cruciate ligament 前抽屜試驗 cranial drawer test 髕骨脫臼 patellar luxation 腓骨 fibula 跗骨 tarsal 蹠骨 metatarsal 跟腱斷裂 plantigrade",
     snippet: "骨盆三骨（髂骨/坐骨/恥骨）與髖臼、髖關節脫臼/發育不良、股骨、膝關節（十字韌帶/髕骨脫臼）、跗蹠趾骨，含跟腱斷裂的蹠行步態。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "骨骼系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "summary", sectionName: "學習重點整理",
     keywords: "複習 重點整理 考試 骨骼系統",
     snippet: "10點考試/臨床導向整理：方位術語、脊柱公式、寰樞椎、肋椎關節、肩胛骨懸吊結構、肘髖關節疾病、膝關節臨床重點、腕跗骨組成、臨床定位地標、髕骨/豆骨籽骨辨識。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "骨骼系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 骨骼系統",
     snippet: "涵蓋骨骼系統總論到後肢各章節重點的練習題（是非/選擇/簡答，共14題），點擊即可顯示答案與解析。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "overview", sectionName: "中樞神經系統總論",
     keywords: "CNS PNS 中樞神經系統 周邊神經系統 cranial nerves spinal nerves ganglia 感覺傳入 運動傳出 somatic autonomic sympathetic parasympathetic 灰質 grey matter 白質 white matter oligodendroglia myelin tract lemniscus decussation funiculus fasciculus commissura 胚胎發育 telencephalon diencephalon mesencephalon metencephalon myelencephalon 腦室",
     snippet: "CNS（腦＋脊髓）與PNS（顱神經/脊神經/神經節）的區分、神經系統三大功能、灰質白質組成原則、腦部胚胎發育五分區與對應腦室。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "forebrain", sectionName: "前腦：大腦與間腦",
     keywords: "forebrain cerebrum telencephalon diencephalon 大腦 端腦 間腦 額葉 頂葉 顳葉 枕葉 frontal parietal temporal occipital lobe cruciate sulcus 十字溝 basal nuclei 基底核 caudate putamen globus pallidus striatum 紋狀體 substantia nigra corticospinal tract 內囊 internal capsule corona radiata limbic system 邊緣系統 cingulate gyrus hippocampus fornix amygdala thalamus 視丘 hypothalamus 下視丘 epithalamus habenular pineal gland mammillary body lamina terminalis OVLT tuber cinereum pituitary gland adenohypophysis neurohypophysis",
     snippet: "大腦皮質分葉與功能區、基底核（尾核/被殼/蒼白球）與巴金森氏症、邊緣系統、視丘與下視丘、上視丘（松果腺）、腦下垂體前後葉。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "midbrain", sectionName: "中腦",
     keywords: "mesencephalon midbrain 中腦 tectum 頂蓋 corpora quadrigemina 四疊體 rostral colliculus caudal colliculus 前丘 後丘 superior inferior colliculus tegmentum 被蓋 red nucleus 紅核 substantia nigra 黑質 reticular formation 網狀結構 periaqueductal gray PAG pretectal region 頂蓋前區 crus cerebri 大腦腳 pupillary light reflex 瞳孔光反射 oculomotor trochlear nerve",
     snippet: "中腦三分區（頂蓋/被蓋/大腦腳）、前丘後丘視聽覺反射、紅核黑質網狀結構、瞳孔光反射路徑、CN III IV起源。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "hindbrain", sectionName: "後腦：橋腦、延腦、小腦",
     keywords: "pons 橋腦 medulla oblongata 延腦 myelencephalon cerebellum 小腦 metencephalon vermis 蚓部 flocculonodular lobe 絨球小結葉 primary fissure cerebellar peduncle 小腦腳 superior middle inferior pyramids 錐體 decussation of pyramids 錐體交叉 trapezoid body 斜方體 olivary nucleus 橄欖核 vital centers 生命中樞 ataxia dysmetria intention tremor 共濟失調 辨距不良 意向性震顫",
     snippet: "橋腦連結大腦小腦、小腦分層分葉與三對小腦腳、延腦錐體交叉與生命中樞、小腦病灶不造成無力的臨床觀念。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "spinal", sectionName: "脊髓",
     keywords: "spinal cord 脊髓 cervical thoracic lumbar sacral caudal intumescence 頸膨大 腰膨大 cauda equina 馬尾 conus medullaris 脊髓圓錐 dorsal horn ventral horn lateral horn 背角 腹角 外側角 dorsal funiculus lateral funiculus ventral funiculus dorsal column medial lemniscus fasciculus gracilis fasciculus cuneatus spinothalamic tract spinocerebellar tract corticospinal tract rubrospinal reticulospinal vestibulospinal UMN LMN upper motor neuron lower motor neuron hyperreflexia hyporeflexia epidural anesthesia myelography",
     snippet: "各物種脊髓節段數比較、灰質白質構造、上行徑（本體感覺/痛溫覺/非意識性本體感覺）與下行徑（錐體/錐體外系統）、UMN/LMN鑑別、臨床穿刺定位。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "meninges", sectionName: "腦膜與腦脊髓液",
     keywords: "meninges 腦脊髓膜 dura mater 硬膜 arachnoid mater 蛛網膜 pia mater 軟膜 epidural space 硬膜上腔 subdural space 硬膜下腔 subarachnoid space 蛛網膜下腔 CSF 腦脊髓液 choroid plexus 脈絡叢 lateral ventricle third ventricle fourth ventricle mesencephalic aqueduct central canal arachnoid villi 蛛網膜絨毛 cisternal puncture lumbar puncture hydrocephalus 水腦症 meningitis 腦膜炎",
     snippet: "腦脊髓膜三層構造、腦室系統、CSF由脈絡叢產生到蛛網膜絨毛回收的完整循環路徑、CSF採集與水腦症/腦膜炎臨床應用。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "cranial", sectionName: "12對顱神經",
     keywords: "cranial nerves 顱神經 olfactory optic oculomotor trochlear trigeminal abducens facial vestibulocochlear glossopharyngeal vagus accessory hypoglossal 嗅神經 視神經 動眼神經 滑車神經 三叉神經 外展神經 顏面神經 前庭耳蝸神經 舌咽神經 迷走神經 副神經 舌下神經 head tilt nystagmus 頭傾 眼球震顫 neurolocalization 神經定位",
     snippet: "12對顱神經功能簡表、腦幹起源分布（中腦/橋腦/延腦）、神經定位診斷概念、顏面神經與前庭耳蝸神經常見臨床異常。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "summary", sectionName: "學習重點整理",
     keywords: "複習 重點整理 考試 神經系統 CNS",
     snippet: "11點考試/臨床導向整理：CNS/PNS分類、灰質白質、腦部發育五分區、基底核與黑質、邊緣系統、下視丘垂體、中腦四疊體、小腦協調功能、延腦生命中樞與UMN/LMN、CSF循環與腦膜、顱神經定位。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "神經系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "神經系統",
     url: "總複習/解剖生理學/神經系統.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 神經系統 CNS",
     snippet: "涵蓋CNS總論到顱神經各章節重點的練習題（是非/選擇/簡答，共14題），點擊即可顯示答案與解析。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "關節系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "關節系統",
     url: "總複習/解剖生理學/關節系統.html",
     section: "overview", sectionName: "關節總論",
     keywords: "arthrology 關節學 韌帶學 syndesmology 纖維關節 fibrous joint 縫合 suture syndesmosis gomphosis 嵌合 軟骨關節 cartilaginous joint synchondrosis symphysis 半動關節 amphiarthrosis 滑液關節 synovial joint diarthrosis 關節腔 關節軟骨 articular cartilage 關節囊 articular capsule 纖維層 滑液層 synovial fluid 韌帶 ligament 半月板 meniscus 關節盤 articular disc 關節唇 labrum glenoidale 滑液囊 bursa 腱鞘 tendon sheath",
     snippet: "關節三大分類（纖維/軟骨/滑液關節）與次分類（縫合、syndesmosis、synchondrosis、symphysis），滑液關節構造（關節囊、滑液、韌帶、半月板、關節唇）整理。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "關節系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "關節系統",
     url: "總複習/解剖生理學/關節系統.html",
     section: "movement", sectionName: "運動方式與分類",
     keywords: "gliding movement 滑動 angular movement 角度運動 flexion extension adduction abduction 屈曲 伸展 內收 外展 rotary movement circumduction rotation 迴旋 旋轉 pronation supination 旋前 旋後 plane joint 平面關節 hinge joint ginglymus 鉸鏈關節 pivot joint trochoid 車軸關節 condyloid ellipsoid joint 髁狀關節 saddle joint 鞍狀關節 ball-and-socket joint 球窩關節 cotylic joint 杵臼關節 單軸 雙軸 多軸 uniaxial biaxial multiaxial",
     snippet: "滑液關節運動方式（滑動/角度/迴旋運動）與依軸心數目分類的七種關節類型（平面/鉸鏈/車軸/髁狀/鞍狀/球窩/杵臼關節）對照表。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "關節系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "關節系統",
     url: "總複習/解剖生理學/關節系統.html",
     section: "forelimb", sectionName: "前肢關節",
     keywords: "shoulder joint glenohumeral joint 肩關節 glenoid cavity 關節盂 glenohumeral ligament 盂肱韌帶 intertubercular groove 結節間溝 biceps brachii tendon transverse humeral retinaculum elbow joint 肘關節 hinge joint humeral condyle trochlear notch coronoid process anconeal process collateral ligament annular ligament interosseous ligament carpal joint 腕關節 radiocarpal joint intercarpal joint carpometacarpal joint",
     snippet: "肩關節（球窩關節，盂肱韌帶與結節間溝二頭肌腱穩定）、肘關節（鉸鏈關節）、腕關節（橈腕/腕骨間/腕掌三層關節）構造與韌帶整理。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "關節系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "關節系統",
     url: "總複習/解剖生理學/關節系統.html",
     section: "hindlimb", sectionName: "後肢關節",
     keywords: "hip joint coxal joint 髖關節 cotylic joint 杵臼關節 acetabulum 髖臼 ligament of femoral head 股骨頭韌帶 圓韌帶 ligamentum teres transverse acetabular ligament 髖臼橫韌帶 stifle joint 膝關節 femorotibial joint 股脛關節 femoropatellar joint 股髕關節 meniscus 半月板 cranial cruciate ligament caudal cruciate ligament 前十字韌帶 後十字韌帶 patellar ligament tibiofibular joint 脛腓關節 tarsal joint 跗關節 tibiotarsal joint intertarsal joint tarsometatarsal joint calcanean tendon",
     snippet: "髖關節（杵臼關節，股骨頭韌帶與髖臼橫韌帶）、膝關節（股脛關節十字韌帶半月板＋股髕關節）、跗關節（脛跗/跗骨間/跗蹠三層關節）整理。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "關節系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "關節系統",
     url: "總複習/解剖生理學/關節系統.html",
     section: "axial", sectionName: "中軸骨關節",
     keywords: "skull suture 顱骨縫合線 sutura serrata squamosa plana foliata temporomandibular joint TMJ 顳頜關節 articular disc 關節盤 intervertebral joint 椎體間關節 articular process joint zygapophyseal joint 關節突關節 atlanto-occipital joint 寰枕關節 atlantoaxial joint 寰樞關節 nuchal ligament 項韌帶 supraspinous ligament 棘上韌帶 interspinous ligament 棘間韌帶 yellow ligament ligamentum flavum 黃韌帶 longitudinal ligament 縱韌帶 costovertebral joint 肋椎關節 radiate ligament costotransverse ligament sternocostal joint costochondral junction symphysis pelvis 骨盆聯合 sacroiliac joint 薦髂關節 sacrotuberous ligament",
     snippet: "顱骨縫合線、顳頜關節（含關節盤）、脊柱關節（椎體間關節、關節突關節、寰枕/寰樞關節）與周邊韌帶、肋椎關節、骨盆聯合與薦髂關節整理。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "關節系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "關節系統",
     url: "總複習/解剖生理學/關節系統.html",
     section: "summary", sectionName: "學習重點整理",
     keywords: "複習 重點整理 考試 關節系統",
     snippet: "10點考試/臨床導向整理：三大關節分類、滑液關節構造口訣、運動軸心數目分類、肩髖膝肘關節類型、腕跗三層關節、脊柱雙重關節系統、同骨不同關節類型的例子。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "關節系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "關節系統",
     url: "總複習/解剖生理學/關節系統.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 關節系統",
     snippet: "涵蓋關節總論到中軸骨關節各章節重點的練習題（是非/選擇/簡答，共15題），點擊即可顯示答案與解析。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "肌肉系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "肌肉系統",
     url: "總複習/解剖生理學/肌肉系統.html",
     section: "overview", sectionName: "肌肉學總論",
     keywords: "肌肉分類 骨骼肌 平滑肌 心肌 skeletal smooth cardiac 構造層次 epimysium perimysium endomysium sarcolemma myofibril sarcomere myosin actin 起點 origin 止點 insertion 肌腱 tendon 腱膜 aponeurosis 韌帶 ligament 肌膜 fascia 肌束排列 fusiform pennate unipennate bipennate multipennate circular sphincter 肌肉命名原則",
     snippet: "肌肉三種類型、骨骼肌結締組織構造層次（epimysium/perimysium/endomysium）、起止點與肌腱腱膜、肌束排列型態、肌肉命名七大原則整理。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "肌肉系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "肌肉系統",
     url: "總複習/解剖生理學/肌肉系統.html",
     section: "trunk", sectionName: "軀幹肌群",
     keywords: "軀幹肌群 斜方肌 trapezius 菱形肌 rhomboideus 闊背肌 latissimus dorsi 腹鋸肌 serratus ventralis 軸上肌 epaxial 髂肋肌 iliocostalis 最長肌 longissimus 橫脊肌 transversospinalis 臂頭肌 brachiocephalicus 胸肌 pectoralis 肋間肌 intercostal 背鋸肌 serratus dorsalis 腹壁 abdominal wall 腹外斜肌 腹內斜肌 腹橫肌 腹直肌 白線 linea alba 腹股溝管 inguinal canal 尾部肌群",
     snippet: "軀幹肌群完整整理：肩胛骨懸吊肌、軸上肌三系統、頸動脈鞘、臂頭肌與胸肌群、呼吸肌、腹壁四層肌與白線/腹股溝管、尾部肌群。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "肌肉系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "肌肉系統",
     url: "總複習/解剖生理學/肌肉系統.html",
     section: "headneck", sectionName: "頭頸部肌肉簡介",
     keywords: "頭部肌肉 皮肌 cutaneous muscle 頸闊肌 platysma 面部淺層肌肉 口輪匝肌 orbicularis oris 頰肌 buccinator 眼輪匝肌 orbicularis oculi 咀嚼肌",
     snippet: "頭部肌肉六大分區與神經支配、皮肌與面部淺層肌肉整理；咀嚼肌詳見骨骼系統頁面，避免重複。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "肌肉系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "肌肉系統",
     url: "總複習/解剖生理學/肌肉系統.html",
     section: "summary", sectionName: "學習重點整理",
     keywords: "複習 重點整理 考試 肌肉系統",
     snippet: "十點肌肉系統總複習：構造層次、命名規則、肩胛骨懸吊、軸上肌排列、呼吸肌分工、腹壁層次、腹股溝管、臂頭肌、頸動脈鞘等考試重點。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "肌肉系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "肌肉系統",
     url: "總複習/解剖生理學/肌肉系統.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 肌肉系統",
     snippet: "涵蓋肌肉構造、命名、軀幹懸吊肌、軸上肌、呼吸肌、腹壁層次等重點的練習題（共12題），點擊即可顯示答案與解析。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "特殊感覺",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "特殊感覺",
     url: "總複習/解剖生理學/特殊感覺.html",
     section: "overview", sectionName: "特殊感覺總論",
     keywords: "一般感覺 general senses 特殊感覺 special senses 視覺 聽覺 平衡 嗅覺 味覺",
     snippet: "區分一般感覺與特殊感覺，總覽視覺、聽覺與平衡、嗅覺味覺、相關腦神經各章節架構。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "特殊感覺",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "特殊感覺",
     url: "總複習/解剖生理學/特殊感覺.html",
     section: "general", sectionName: "一般感覺受器",
     keywords: "痛覺 溫度覺 機械覺 觸覺受器 化學覺 chemoreceptor 路氏小體 Ruffini corpuscle 頸動脈體 主動脈體",
     snippet: "痛覺/溫度覺/機械覺（未包覆與包覆型觸覺受器）/化學覺受器分類，作為特殊感覺的背景知識。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "特殊感覺",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "特殊感覺",
     url: "總複習/解剖生理學/特殊感覺.html",
     section: "vision", sectionName: "視覺系統（眼）",
     keywords: "eye orbit 眼眶 視神經管 optic canal 眶裂 orbital fissure 眼鞘 periorbita 眼瞼 third eyelid 第三眼瞼 淚器 lacrimal apparatus 眼外肌 extrinsic muscles rectus oblique retractor bulbi 鞏膜 sclera 角膜 cornea 虹膜 iris 睫狀體 ciliary body 脈絡膜 choroid 視網膜 retina 瞳孔 pupil 瞳孔對光反射 PLR CN III CN IV CN VI",
     snippet: "眼眶三孔洞、眼鞘、眼瞼淚器、眼外肌與支配腦神經、眼球三層構造（纖維膜/血管膜/視網膜）、瞳孔自主神經調控、視覺路徑。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "特殊感覺",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "特殊感覺",
     url: "總複習/解剖生理學/特殊感覺.html",
     section: "hearing", sectionName: "聽覺與平衡系統（耳）",
     keywords: "ear 外耳 中耳 內耳 聽小骨 ossicles malleus incus stapes 耳蝸 cochlea 螺旋器官 organ of Corti 前庭系統 vestibular 聽斑 macula 壺腹嵴 crista ampullaris 半規管 semicircular canal 毛細胞 hair cell 前庭核 nystagmus 眼球震顫",
     snippet: "外中內耳三區域、聽小骨傳導、耳蝸與螺旋器官、聽覺路徑、前庭系統（聽斑與壺腹嵴）、毛細胞機轉。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "特殊感覺",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "特殊感覺",
     url: "總複習/解剖生理學/特殊感覺.html",
     section: "chemosense", sectionName: "嗅覺與味覺",
     keywords: "olfaction 嗅覺 嗅覺上皮 olfactory epithelium 犁鼻器 vomeronasal organ Jacobson's organ gustation 味覺 舌乳頭 papillae CN VII CN IX CN X",
     snippet: "嗅覺上皮三細胞、嗅覺傳導路徑（不經丘腦）、犁鼻器、舌乳頭六分類、味覺依舌部位對應 CN VII/IX/X。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "特殊感覺",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "特殊感覺",
     url: "總複習/解剖生理學/特殊感覺.html",
     section: "nerves", sectionName: "特殊感覺相關腦神經",
     keywords: "cranial nerves 腦神經 CN I CN II CN III CN IV CN V CN VI CN VII CN VIII CN IX CN X 三叉神經 trigeminal 顏面神經 facial nerve",
     snippet: "CN I–X 完整運動/感覺/副交感功能表，眼相關孔洞地標，耳相關 CN VII 與 CN VIII 走行關係。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "特殊感覺",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "特殊感覺",
     url: "總複習/解剖生理學/特殊感覺.html",
     section: "summary", sectionName: "學習重點整理",
     keywords: "複習 重點整理 考試 特殊感覺",
     snippet: "十點特殊感覺總複習，涵蓋視覺、聽覺平衡、嗅覺味覺、相關腦神經各章節臨床考點。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "特殊感覺",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "特殊感覺",
     url: "總複習/解剖生理學/特殊感覺.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 特殊感覺",
     snippet: "涵蓋視覺、聽覺平衡、嗅覺味覺、腦神經等重點的練習題（共14題），點擊即可顯示答案與解析。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "overview", sectionName: "禽類解剖總論",
     keywords: "avian anatomy 禽類解剖 哺乳類差異 羽毛 feather 含氣骨骼 pneumatic bone 單向呼吸 air sac 無膀胱 生殖器官季節性",
     snippet: "哺乳類與禽類七大解剖生理差異總表：羽毛、含氣骨骼、高效消化、無膀胱、生殖器官季節性縮小、單向呼吸、高心臟體重比。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "integument", sectionName: "外皮系統",
     keywords: "喙 beak rhamphotheca rhinotheca gnathotheca 蠟膜 cere 羽毛 feather 正羽 contour feather 羽軸 羽枝 羽小枝 腿足鱗片 尾脂腺 uropygial gland",
     snippet: "體表區域命名、喙的分部、蠟膜、羽毛構造與種類、腿足鱗片、皮膚特性與唯一皮膚腺體尾脂腺。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "muscular", sectionName: "肌肉系統：飛行肌",
     keywords: "pectoralis thoracicus supracoracoideus 飛行肌 下擊 上擊 礦化肌腱 斷翼術 肌肉注射",
     snippet: "兩大飛行肌 pectoralis thoracicus（下擊）與 supracoracoideus（上擊）、礦化肌腱、外科斷翼術、臨床肌肉注射部位。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "digestive", sectionName: "消化系統",
     keywords: "嗉囊 crop 鴿嗉囊乳 crop milk 腺胃 proventriculus 肌胃 gizzard koilin 十二指腸 胰臟 肝臟 盲腸 泄殖腔 cloaca",
     snippet: "嗉囊依食性分型、腺胃/肌胃分工與 koilin 保護層、十二指腸胰臟肝臟、盲腸退化型態、泄殖腔三段構造。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "respiratory", sectionName: "呼吸系統：氣囊系統",
     keywords: "air sac 氣囊 單向氣流 unidirectional airflow 含氣肱骨 無橫膈",
     snippet: "6–9個氣囊分前後兩群、單向氣流機制（空氣通過肺兩次）、無橫膈靠肋骨胸骨運動呼吸。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "urogenital", sectionName: "泌尿生殖系統",
     keywords: "無膀胱 泄殖腔 cloaca 卵巢 輸卵管 左側發育 精子儲存小管 SST",
     snippet: "無膀胱、公鳥交配器官多僅為泄殖腔黏膜皺褶、多數禽類僅左側卵巢輸卵管發育、輸卵管五段分泌時程、精子儲存小管。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "circulation", sectionName: "循環系統",
     keywords: "四腔心 翼靜脈 頸靜脈 蹠靜脈 心臟穿刺 靜脈採血",
     snippet: "四腔心與哺乳類相同、動靜脈系統分支、臨床心臟穿刺與靜脈採血部位（翼靜脈/頸靜脈/蹠靜脈）。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "immune", sectionName: "免疫系統",
     keywords: "胸腺 thymus 法氏囊 bursa of Fabricius B細胞 T細胞 脾臟 淋巴結",
     snippet: "胸腺（T細胞來源）與法氏囊（禽類特有、B細胞來源）、脾臟位置、雞火雞缺乏淋巴結。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "sensory", sectionName: "神經與感覺系統",
     keywords: "鞏膜骨小板 scleral ossicles 色彩辨識 坐骨神經 馬立克氏病 Marek's disease 耳缺耳廓",
     snippet: "整體與哺乳類無顯著差異、耳缺耳廓、眼睛含鞏膜骨小板具色彩辨識、坐骨神經與馬立克氏病關聯。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "endocrine", sectionName: "內分泌系統",
     keywords: "甲狀腺 副甲狀腺 頸動脈體 後鰓體 ultimobranchial body 降鈣素 calcitonin 腎上腺",
     snippet: "甲狀腺/副甲狀腺/頸動脈體/後鰓體（分泌降鈣素）/腎上腺的頸部與腎臟相對位置。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "summary", sectionName: "學習重點整理",
     keywords: "複習 重點整理 考試 禽類解剖",
     snippet: "十點整合各系統「輕量化/高效率化以利飛行」核心邏輯的複習重點。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "禽類解剖",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "禽類解剖",
     url: "總複習/解剖生理學/禽類解剖.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 禽類解剖",
     snippet: "涵蓋外皮到內分泌全部章節重點的練習題（共13題），點擊即可顯示答案與解析。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "生殖系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "生殖系統",
     url: "總複習/解剖生理學/生殖系統.html",
     section: "overview", sectionName: "生殖系統總論",
     keywords: "reproductive system 生殖系統總論 gametogenic endocrine 管狀生殖道 mucosa muscularis serosa stallion mare bull cow ram ewe boar sow rooster hen dog bitch tom queen",
     snippet: "公畜母畜生殖道共通的三層組織構造（黏膜/肌層/漿膜）、配子生成與內分泌雙重功能、各物種公母術語對照表。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "生殖系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "生殖系統",
     url: "總複習/解剖生理學/生殖系統.html",
     section: "maletract", sectionName: "睪丸、副睪與輸精管",
     keywords: "testis epididymis ductus deferens vas deferens 睪丸 副睪 輸精管 陰囊 scrotum tunica vaginalis albuginea cremaster pampiniform plexus 蔓狀靜脈叢 熱交換 seminiferous tubule Sertoli Leydig cells 隱睪症 cryptorchidism 睪丸下降 testes descent 睪丸位置 perineal inguinal intermediate testicond 腹股溝疝氣 inguinal hernia",
     snippet: "陰囊分層、睪丸組織構造（曲細精管/Sertoli/Leydig）、副睪五大功能、精索熱交換機轉、睪丸下降與隱睪症、各物種睪丸位置比較。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "生殖系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "生殖系統",
     url: "總複習/解剖生理學/生殖系統.html",
     section: "maleaccessory", sectionName: "副性腺、陰莖與包皮",
     keywords: "accessory sex gland seminal vesicle 儲精囊 prostate 前列腺 bulbourethral gland Cowper's gland 尿道球腺 cremaster urethralis bulbospongiosus ischiocavernosus retractor penis muscle 陰莖 penis 包皮 prepuce fibroelastic musculocavernous sigmoid flexure 乙狀彎曲 os penis 陰莖骨 bulbus glandis copulatory tie 交配栓結 preputial diverticulum 包皮憩室 penile spines 陰莖棘",
     snippet: "副性腺物種差異（犬貓無儲精囊、犬無尿道球腺）、生殖器肌肉、陰莖類型（纖維彈性型vs肌肉海綿型）與各物種陰莖包皮特化構造、犬交配栓結。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "生殖系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "生殖系統",
     url: "總複習/解剖生理學/生殖系統.html",
     section: "femaleovary", sectionName: "卵巢與輸卵管",
     keywords: "ovary 卵巢 germinal epithelium tunica albuginea cortex medulla theca interna granulosa corpus hemorrhagicum corpus luteum corpus albicans 黃體 estrogen progesterone oviduct uterine tube salpinx infundibulum fimbriae ampulla isthmus utero-tubal junction 受精 fertilization 排卵窩 ovulation fossa mare ovary broad ligament mesovarium ovarian bursa 卵巢囊",
     snippet: "卵巢構造與內分泌（濾泡→黃體→白體）、馬卵巢排卵窩特殊構造、各物種卵巢側別活性差異、輸卵管分區與受精部位、卵巢懸吊韌帶。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "生殖系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "生殖系統",
     url: "總複習/解剖生理學/生殖系統.html",
     section: "femaleuterus", sectionName: "子宮、子宮頸與陰道",
     keywords: "uterus 子宮 simplex bicornuate duplex 單子宮 雙角子宮 重複子宮 cervix 子宮頸 annular ring interdigitating pad fornix vagina 陰道 vestibule vulva 外陰部 PGF2α capacitation 精子獲能 mammary gland teat 乳腺 乳頭 乳管",
     snippet: "子宮型態三分類與物種差異、子宮/子宮頸/陰道功能、牛豬馬子宮頸構造與精子屏障差異、乳腺乳頭跨物種比較。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "生殖系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "生殖系統",
     url: "總複習/解剖生理學/生殖系統.html",
     section: "summary", sectionName: "學習重點整理",
     keywords: "複習 重點整理 考試 生殖系統",
     snippet: "十點公畜母畜生殖系統總複習，涵蓋睪丸溫度調節、副性腺物種差異、陰莖類型、卵巢構造、輸卵管受精部位、子宮型態、子宮頸屏障、乳腺比較。"
   },
   {
-    subject: "解剖生理學", semester: "總複習", week: null, weekTitle: "生殖系統",
+    subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "生殖系統",
     url: "總複習/解剖生理學/生殖系統.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案 生殖系統",
@@ -1679,5 +1679,103 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 睡眠生理 腦波 晝夜節律",
     snippet: "涵蓋EEG波型、睡眠分期、神經傳導物質調控、兩歷程模型、晝夜節律等章節重點的練習題（共6題）。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 ASF CSF JEV HEV 非洲豬瘟 古典豬瘟 日本腦炎 E型肝炎 國考重點",
+    snippet: "七個臨床與國考重點：ASF vs CSF鑑別診斷、環境抵抗力、CSF先天型與產後持續感染型、台灣CSF根除史、代表性病變、JEV增幅宿主概念、HEV食品安全。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "asf-overview", sectionName: "病毒學與環境抵抗力(ASF)",
+    keywords: "ASF Asfarviridae Asfivirus DNA virus 非洲豬瘟 基因型 genotype 環境抵抗力 去活化 疣豬 warthog",
+    snippet: "ASFV為唯一經節肢動物傳播的DNA病毒，24種基因型，環境抵抗力極強（血液4°C可達18個月）。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "asf-transmission", sectionName: "傳播與致病機轉(ASF)",
+    keywords: "ASF transmission Ornithodoros 軟蜱 tick 傳播途徑 致病機轉 pathogenesis 病毒血症 viremia",
+    snippet: "ASF經直接接觸、餿水餵食、介質、軟蜱等途徑傳播；致病機轉：扁桃腺初期複製→血液淋巴次級複製。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "asf-clinical", sectionName: "臨床症狀與病理病變(ASF)",
+    keywords: "ASF clinical signs peracute acute subacute chronic 脾臟 腫大 質脆 暗紅 spleen enlarged friable darkened",
+    snippet: "最急性／急性／亞急性／慢性四種病程；脾臟腫大質脆暗紅為代表性大體病變。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "asf-dx", sectionName: "鑑別診斷、診斷與防治(ASF)",
+    keywords: "ASF differential diagnosis HAD hemadsorption PCR ELISA vaccine 基因刪除減毒活疫苗 越南 生物安全",
+    snippet: "病毒分離+HAD確診、PCR快篩；基因刪除減毒活疫苗於越南等國核准使用；防治核心為生物安全與撲殺。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "csf-overview", sectionName: "病毒學與環境抵抗力(CSF)",
+    keywords: "CSF Pestiviridae Orthopestivirus RNA virus 古典豬瘟 基因型 genotype 甲類傳染病 荷蘭疫情",
+    snippet: "CSFV屬Pestiviridae科RNA病毒，三種基因型，台灣為CSF清淨國；1997-98荷蘭疫情損失23億美元。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "csf-clinical", sectionName: "致病機轉與臨床型式(CSF)",
+    keywords: "CSF pathogenesis 免疫耐受 immunotolerance late-onset 先天持續感染 congenital postnatal 持續性病毒血症",
+    snippet: "CSF四種臨床型式：急性、慢性、先天型、產後持續感染型；late-onset CSF因免疫耐受終生排毒。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "csf-lesions", sectionName: "病理病變與鑑別診斷(CSF)",
+    keywords: "CSF button ulcers 鈕扣狀潰瘍 splenic infarction 脾臟梗塞 differential diagnosis 鑑別診斷",
+    snippet: "脾臟梗塞、腸胃道黏膜鈕扣狀潰瘍為代表病變；ASF與CSF臨床症狀高度重疊須靠實驗室確診。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "csf-dx", sectionName: "診斷、防治與台灣根除史(CSF)",
+    keywords: "CSF diagnosis RT-PCR ELISA FAVNT DIVA marker vaccine 台灣 根除 停止疫苗 2023 基因型2.1 3.4",
+    snippet: "RT-PCR/FAVNT/ELISA診斷；DIVA標記疫苗；台灣CSF根除史：1996基因型轉變、2006無病例、2023停止疫苗接種。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "compare", sectionName: "ASF vs CSF 比較",
+    keywords: "ASF CSF comparison 比較表 鑑別診斷 病毒科屬 環境抵抗力 代表病變 臨床型式",
+    snippet: "ASF與CSF病毒科屬、病媒、環境抵抗力、代表病變、臨床型式、台灣現況、疫苗之綜合比較表。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "jev", sectionName: "日本腦炎",
+    keywords: "JEV Japanese encephalitis Flaviviridae Culex 增幅宿主 amplifying host dead-end host 生殖障礙 流產 睪丸炎",
+    snippet: "JEV為蚊媒黃病毒，豬為增幅宿主、人馬為終端宿主；妊娠60-70天前感染致生殖障礙，公豬暫時性不孕。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "hev", sectionName: "E型肝炎",
+    keywords: "HEV Hepatitis E Hepeviridae 人畜共通 zoonotic genotype 3 4 豬肝 食品安全 糞口傳播",
+    snippet: "HEV-3、HEV-4為人畜共通基因型，豬感染多無症狀；糞口途徑傳播，豬肝HEV RNA陽性率24%，須徹底煮熟。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點整理 summary ASF CSF JEV HEV 複習",
+    snippet: "整理ASF、CSF、JEV、HEV病毒學、致病機轉、病變與防治要點，供考前快速複習。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 ASF CSF JEV HEV",
+    snippet: "涵蓋ASF、CSF、JEV、HEV病毒學、臨床型式、鑑別診斷、台灣根除史等章節重點的練習題（共10題）。"
   }
 ];
