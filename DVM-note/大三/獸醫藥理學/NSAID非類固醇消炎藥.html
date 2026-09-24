@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：NSAID 非類固醇消炎藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">NSAID 非類固醇消炎藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">NSAID 非類固醇消炎藥 Non-Steroidal Anti-Inflammatory Drugs</h1>
+      <p class="page-subtitle">花生四烯酸代謝路徑、COX 亞型、藥理效果機制、藥物分類、個別藥物、副作用毒性、物種藥動學差異</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-18</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎機轉</div>
+    <a onclick="showSection('inflammation')" id="nav-inflammation"><span class="nav-icon">🔥</span> 發炎反應與花生四烯酸代謝</a>
+    <a onclick="showSection('cox')" id="nav-cox"><span class="nav-icon">🧬</span> COX 亞型與前列腺素生理作用</a>
+    <a onclick="showSection('mechanism')" id="nav-mechanism"><span class="nav-icon">⚙️</span> NSAID 藥理效果與機制</a>
+    <div class="section-label" style="margin-top:8px;">藥物</div>
+    <a onclick="showSection('classification')" id="nav-classification"><span class="nav-icon">📋</span> NSAID 分類</a>
+    <a onclick="showSection('keydrugs')" id="nav-keydrugs"><span class="nav-icon">💊</span> 個別藥物詳述</a>
+    <a onclick="showSection('coxibs')" id="nav-coxibs"><span class="nav-icon">🎯</span> COX-2 選擇性藥物（Coxibs）</a>
+    <div class="section-label" style="margin-top:8px;">臨床安全</div>
+    <a onclick="showSection('toxicity')" id="nav-toxicity"><span class="nav-icon">⚠️</span> 副作用與毒性</a>
+    <a onclick="showSection('pk')" id="nav-pk"><span class="nav-icon">⏱️</span> 藥物動力學與物種差異</a>
+    <a onclick="showSection('contraindications')" id="nav-contraindications"><span class="nav-icon">🚫</span> 禁忌症與 FDA 核准概覽</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>NSAID（Non-Steroidal Anti-Inflammatory Drug，非類固醇消炎藥）之所以叫這個名字，是因為還有另一大類「類固醇消炎藥」（皮質類固醇，如Dexamethasone）也能消炎，但機轉與副作用完全不同；NSAID就是「不靠類固醇」達到消炎止痛效果的一大類藥物。身體感覺到疼痛、發炎、發燒，關鍵推手是一種叫<strong>前列腺素（Prostaglandin, PG）</strong>的物質，而前列腺素是由<strong>COX（Cyclooxygenase，環氧化酶）</strong>這個酵素製造出來的——NSAID的核心邏輯就是抑制COX，讓前列腺素變少。麻煩的是COX有兩種：COX-1除了製造發炎用的PG，也負責保護胃黏膜、維持腎血流等「好事」，所以抑制COX在消炎止痛的同時，不可避免會帶來副作用——這正是整個NSAID藥理學要處理的核心矛盾。這一章會先講COX與前列腺素的基礎機轉，再依化學結構把NSAID分類、介紹個別藥物，最後看COX-2選擇性藥物（Coxibs）如何嘗試解決這個矛盾、以及各物種的用藥安全性差異。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>NSAID 的療效與副作用是同一枚硬幣的兩面：</strong>都源自抑制 COX → 減少前列腺素合成。COX-1（構成型）維持胃黏膜、腎血流、血小板功能等生理性保護；COX-2（誘導型）主要介導發炎/疼痛/發燒。抑制 COX-1 是 GI 與腎毒性的來源，抑制 COX-2 才是消炎止痛的主要效果。</li>
+          <li><strong>COX-2 選擇性藥物（Coxibs）用「GI安全」換「心血管風險」：</strong>COX-2 也存在於血管內皮合成 PGI2（抗血栓），選擇性抑制後 PGI2↓但血小板 TXA2（COX-1路徑）不受影響，造成促凝血狀態——Rofecoxib（Vioxx）因此於人醫下市，是理解「COX-2假說」侷限性的經典案例。</li>
+          <li><strong>Aspirin 是唯一不可逆抑制 COX 的 NSAID，這個特性決定了低劑量的抗血栓用法：</strong>血小板無核、無法重新合成 COX，效果可持續血小板壽命（7–10天）；血小板 COX 對 Aspirin 的敏感度是內皮細胞的 250 倍，因此低劑量即可選擇性壓制 TXA2（抗血栓）而不影響內皮 PGI2（血管保護），高劑量則會失去這個選擇性。</li>
+          <li><strong>Acetaminophen（普拿疼）無抗炎效果、貓絕對禁用：</strong>因貓缺乏 glucuronidation 代謝路徑，過量代謝物 NAPQI 堆積會造成 Heinz body、變性血色素血症與溶血性貧血——這是最常考的「物種毒性」題型，務必記住「有止痛退燒但沒有消炎」＋「貓絕對碰不得」這兩個特徵。</li>
+          <li><strong>物種間 T½ 差異極大，直接決定給藥間隔：</strong>貓的 glucuronidation 酵素活性低，多數 NSAID 代謝慢（如 Aspirin 貓 T½ 22–45h 需 q48h，犬僅需 q12h；Meloxicam 貓 T½ 37h vs 犬 12–36h）——貓絕不能套用犬的劑量與頻次。</li>
+          <li><strong>NSAID 誘發胃潰瘍是雙重機制（詳見「腸胃道用藥」章節）：</strong>①全身性 COX-1 抑制 → 黏膜保護 PG 減少；②藥物局部直接刺激黏膜——口服與非口服（注射）皆可發生，預防首選是 Misoprostol（PGE1類似物）。</li>
+          <li><strong>術前必須停用 NSAID 至少 7 天：</strong>因血小板 COX 被不可逆抑制，效果持續整個血小板壽命，貿然手術會有出血風險；NSAID 與 warfarin 併用也會透過血漿蛋白結合競爭（PK）與抗凝加成（PD）雙重機轉增加出血風險。</li>
+          <li><strong>物種特化用藥是臨床選藥的核心：</strong>馬——Flunixin 為腸絞痛首選、Phenylbutazone 為骨骼肌肉疼痛最常用（便宜有效）；犬——Carprofen/Meloxicam/Firocoxib/Deracoxib/Robenacoxib 等 Coxibs 為主流；貓——FDA 核准選項極少，僅 Meloxicam（單次注射）與 Robenacoxib 可用，Acetaminophen 與長期 Meloxicam 口服皆屬禁區。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Aspirin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Acetylsalicylic acid</div></td><td>—</td><td><strong>PO</strong>；不可逆COX抑制，抗血小板</td><td class="drug-locations"><a href="#drug-aspirin" class="drug-link">不可逆COX抑制，抗血小板</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Acetaminophen<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Paracetamol／普拿疼</div></td><td>—</td><td><strong>PO</strong>；貓絕對禁用</td><td class="drug-locations"><a href="#drug-acetaminophen" class="drug-link">貓絕對禁用</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Phenylbutazone</td><td>—</td><td><strong>PO或IV</strong>；馬最常用（便宜有效安全）</td><td class="drug-locations"><a href="#drug-phenylbutazone" class="drug-link">馬最常用（便宜有效安全）</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Flunixin meglumine</td><td>—</td><td><strong>IV／IM／PO（依劑型，牛另有經皮劑型）</strong>；馬腸絞痛首選</td><td class="drug-locations"><a href="#drug-flunixin" class="drug-link">馬腸絞痛首選</a></td></tr>
+            <tr><td>Dipyrone<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Metamizole／Sulpyrine</div></td><td>—</td><td><strong>IM／SC（注射液）</strong>；馬牛豬羊解痙鎮痛</td><td class="drug-locations"><a href="#drug-dipyrone" class="drug-link">馬牛豬羊解痙鎮痛</a></td></tr>
+            <tr><td>Ibuprofen</td><td>—</td><td><strong>PO（人用，不建議獸醫使用）</strong>；不用於獸醫</td><td class="drug-locations"><a href="#drug-ketoprofen" class="drug-link">不用於獸醫</a></td></tr>
+            <tr><td>Ketoprofen</td><td>—</td><td><strong>IV／IM（馬注射劑型為主）</strong>；馬肌肉骨骼炎症</td><td class="drug-locations"><a href="#drug-ketoprofen" class="drug-link">馬肌肉骨骼炎症</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Meloxicam<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Metacam®</div></td><td>—</td><td><strong>PO或SC（注射劑型）</strong>；唯一廣泛核准貓用；犬貓OA</td><td class="drug-locations"><a href="#drug-meloxicam" class="drug-link">唯一廣泛核准貓用</a><a href="#drug-coxibs" class="drug-link">犬貓OA</a></td></tr>
+            <tr><td>Naproxen</td><td>—</td><td><strong>PO或IV（馬）</strong>；馬軟組織炎症，禁小動物</td><td class="drug-locations"><a href="#drug-naproxen" class="drug-link">馬軟組織炎症，禁小動物</a></td></tr>
+            <tr><td>Meclofenamic acid</td><td>—</td><td><strong>PO</strong>；犬馬，起效緩慢</td><td class="drug-locations"><a href="#drug-meclofenamic" class="drug-link">犬馬，起效緩慢</a></td></tr>
+            <tr><td>Sulindac</td><td>—</td><td><strong>PO</strong>；肝代謝活化，腸肝循環長效</td><td class="drug-locations"><a href="#drug-sulindac" class="drug-link">肝代謝活化，腸肝循環長效</a></td></tr>
+            <tr><td>Diclofenac<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Surpass®（外用）</div></td><td>—</td><td>馬外用；禿鷹生態事件</td><td class="drug-locations"><a href="#drug-diclofenac" class="drug-link">馬外用；禿鷹生態事件</a></td></tr>
+            <tr><td>Tepoxalin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Zubrin®</div></td><td>—</td><td><strong>PO（口崩錠）</strong>；犬，COX+5-LOX雙重抑制</td><td class="drug-locations"><a href="#drug-tepoxalin" class="drug-link">犬，COX+5-LOX雙重抑制</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Carprofen<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Rimadyl®</div></td><td>—</td><td><strong>PO或SC（注射劑型）</strong>；犬OA/術後疼痛首選之一</td><td class="drug-locations"><a href="#drug-coxibs" class="drug-link">犬OA/術後疼痛首選之一</a></td></tr>
+            <tr><td>Deracoxib<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Deramaxx®</div></td><td>—</td><td><strong>PO（咀嚼錠）</strong>；犬OA/骨科術後</td><td class="drug-locations"><a href="#drug-coxibs" class="drug-link">犬OA/骨科術後</a></td></tr>
+            <tr><td>Etodolac<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">EtoGesic®</div></td><td>—</td><td><strong>PO或注射劑型</strong>；犬OA</td><td class="drug-locations"><a href="#drug-coxibs" class="drug-link">犬OA</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Firocoxib<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Previcox®</div></td><td>—</td><td><strong>PO（錠劑／口服膏）或注射劑型</strong>；犬馬最高COX-2選擇性之一</td><td class="drug-locations"><a href="#drug-coxibs" class="drug-link">犬馬最高COX-2選擇性之一</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Robenacoxib<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Onsior®</div></td><td>—</td><td><strong>PO或SC（注射劑型）</strong>；犬貓術後疼痛≤3天</td><td class="drug-locations"><a href="#drug-coxibs" class="drug-link">犬貓術後疼痛≤3天</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- INFLAMMATION -->
+    <div class="section" id="section-inflammation">
+      <div class="section-head"><div class="section-num">3</div><h2>發炎反應與花生四烯酸代謝 Inflammation &amp; Arachidonic Acid Cascade</h2></div>
+      <p class="section-desc">理解花生四烯酸代謝路徑的完整分支，是掌握 NSAID 藥理效果與副作用來源的共同基礎。</p>
+
+      <h3>發炎反應路徑</h3>
+      <div class="flow">
+        <div class="flow-node">損傷因子 → 組織損傷</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">①預成媒介立即釋放（Histamine、Serotonin）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">②細胞膜磷脂→Phospholipase A2→花生四烯酸</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">③合成新媒介（PGs、LTs）→ 放大發炎反應</div>
+      </div>
+      <p>急性發炎四大症狀：發紅（redness）、腫脹（swelling）、熱（heat）、疼痛（pain）。</p>
+
+      <h3 id="drug-aacascade">花生四烯酸完整代謝路徑<span class="tag tag-exam">重要</span></h3>
+      <p>細胞磷脂經 <strong>Phospholipase A2</strong> 水解 → 花生四烯酸（Arachidonic Acid, C20:4），隨後分成兩條路徑：</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Lipoxygenase（LOX）路徑</div>
+          <p><strong>5-LOX</strong>：AA→5-HPETE→LTA4；LTA4+H2O→<strong>LTB4</strong>（趨化嗜酸/巨噬/嗜中性球）；LTA4+Glutathione→LTC4→LTD4→<strong>LTE4</strong>（合稱 <strong>SRS-A</strong>：支氣管收縮效力為 histamine 的 <strong>1000 倍</strong>）。<strong>12-LOX</strong>：AA→12-HPETE→HETE。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Cyclooxygenase（COX）路徑</div>
+          <p>COX（PGH synthase）：AA→PGG2→PGH2；Thromboxane synthase（血小板）→<strong>TXA2</strong>；Prostacyclin synthase（內皮）→<strong>PGI2</strong>；Isomerases→PGD2、PGE2、PGF2α。</p>
+        </div>
+      </div>
+
+      <h3>發炎介質功能比較表</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>介質</th><th>血管擴張</th><th>通透性</th><th>趨化</th><th>疼痛</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>Histamine</td><td>++</td><td>↑↑↑</td><td>-</td><td>+</td><td>H1→Gq；H2→Gs</td></tr>
+            <tr><td>Serotonin</td><td>+/-</td><td>↑</td><td>-</td><td>-</td><td>雙向血管效果</td></tr>
+            <tr><td>Bradykinin</td><td>+++</td><td>↑</td><td>-</td><td><strong>+++（最強）</strong></td><td>激肽系統</td></tr>
+            <tr><td>PGs</td><td>+++</td><td>↑</td><td>+++</td><td>++</td><td>致敏傷害感受器（hyperalgesia）</td></tr>
+            <tr><td>Leukotrienes</td><td>-</td><td>↑↑↑</td><td>+++</td><td>-</td><td>LTC4/D4/E4 = SRS-A</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- COX -->
+    <div class="section" id="section-cox">
+      <div class="section-head"><div class="section-num">4</div><h2>COX 亞型與前列腺素生理作用</h2></div>
+      <p class="section-desc">COX-1／COX-2 的分布差異是「COX-2 假說」的理論基礎，也是理解傳統 NSAID 與 Coxibs 選擇性差異的起點。</p>
+
+      <h3>Cyclooxygenase（COX）亞型</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>亞型</th><th>表現型</th><th>主要分布</th><th>功能</th><th>臨床意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>COX-1</strong></td><td>構成型（Constitutive）</td><td>胃黏膜、腎、血小板、血管內皮</td><td>維持正常生理：GI黏膜保護、腎血流、血小板TXA2合成</td><td>非選擇性NSAID抑制→GI＆腎毒性</td></tr>
+            <tr><td><strong>COX-2</strong></td><td>誘導型（Inducible，基礎表現也有）</td><td>單核球、纖維母細胞（發炎部位）、腫瘤細胞、腎/血管</td><td>介導發炎性PG（inflammation, pain, fever）</td><td>COX-2選擇性藥物靶點；腫瘤相關</td></tr>
+            <tr><td><strong>COX-3（COX-1b）</strong></td><td>犬腦中發現，人類無功能</td><td>犬腦</td><td>可能參與發燒（pyrexia）</td><td>Acetaminophen 可能作用機制</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>前列腺素的生理作用（依系統）<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>系統</th><th>Mediator</th><th>生理功能</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">生殖系統</td><td>PGF2α</td><td>黃體溶解（luteolysis）於非靈長類（牛/豬/馬/羊/天竺鼠），控制黃體壽命；子宮收縮→流產；Aspirin可延遲分娩（↓PGF2α）</td></tr>
+            <tr><td>PGE2（dinoprostone）</td><td>子宮頸軟化＋擴張，用於分娩誘導、中期妊娠流產</td></tr>
+            <tr><td>PGE1 analog（Misoprostol）</td><td>流產早期妊娠（併用 mifepristone/RU486）</td></tr>
+            <tr><td rowspan="4">心血管</td><td>PGF2α</td><td>血管收縮（vasoconstrictor）</td></tr>
+            <tr><td>PGE2</td><td>多數物種血管擴張（vasodilator）</td></tr>
+            <tr><td>PGI2（Prostacyclin）</td><td>血管內皮合成；擴血管效力5×PGE2；<strong>抗血栓</strong>（antithrombogenic）</td></tr>
+            <tr><td>TXA2</td><td>血小板合成；縮血管＋<strong>促進血小板凝集</strong>（thrombogenic）</td></tr>
+            <tr><td>腎臟</td><td>PGI2＋PGE2</td><td>腎血管擴張→↑腎血流量；抑制ADH作用→利鈉/利尿；壓力狀態下維持腎功能，<strong>NSAID→↓PG→水腫、高血鉀、急性腎衰竭</strong></td></tr>
+            <tr><td>胃腸</td><td>PGE2/PGI2（EP3）</td><td>↓胃酸分泌（Gi→cAMP↓）；↑黏液＋HCO3⁻分泌（cytoprotective）；<strong>NSAID→↓PG→胃潰瘍（主要毒性）</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">PG 受體信號重點</div>
+        <p>EP3（Gi/cAMP↓）→↓胃酸；IP（Gs/cAMP↑）→抗血栓；TP（Gq）→TXA2促凝血。<strong>PGI2（內皮）＝抗血栓 vs TXA2（血小板）＝促血栓</strong>，兩者維持動態平衡，這正是 COX-2 選擇性藥物打破平衡而導致心血管風險的根本原因。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MECHANISM -->
+    <div class="section" id="section-mechanism">
+      <div class="section-head"><div class="section-num">5</div><h2>NSAID 藥理效果與機制</h2></div>
+      <p class="section-desc">NSAID 的三大藥理效果（退燒、止痛、抗血小板）都是同一個「COX抑制→PG↓」機轉在不同組織的體現。</p>
+
+      <h3>退燒 Antipyretic</h3>
+      <div class="flow">
+        <div class="flow-node">Pro-inflammatory cytokines（IL-1, IL-6, TNF-α）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">下視丘 PG 合成 → PGE2</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">提高體溫設定點（set point）→ 發燒</div>
+      </div>
+      <p>NSAID → COX 抑制 → ↓PGE2 → 退燒；<strong>對正常體溫無影響，只降發燒</strong>。</p>
+
+      <h3>止痛 Analgesic</h3>
+      <p>Hyperalgesia（痛覺過敏）由 PGs、5-HT、Bradykinin、Histamine、Substance P 共同參與；<strong>PGE1、PGE2、PGF2α 是致敏效果最強的三種 PG</strong>，機轉為①降低痛閾（reduction in pain threshold）②延長傷害性感受器對刺激的反應時間。NSAID → COX抑制 → ↓PG → ↓致敏 → ↑痛閾 → 止痛（<strong>對炎症性疼痛有效</strong>）。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>部分頭痛可緩解（抑制 PG 媒介的血管擴張）；但<strong>嚴重內臟疼痛無效</strong>；Aspirin 與 opioid 併用可用於癌症疼痛（消炎效果增強 opioid 效果）。</p>
+      </div>
+
+      <h3 id="drug-antiplatelet">抗血小板 Antiplatelet — Aspirin 特別重要</h3>
+      <div class="flow">
+        <div class="flow-node">低劑量 Aspirin</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">不可逆乙醯化血小板COX-1（250x比內皮COX敏感）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">↓TXA2 → 抑制血小板凝集 → 預防CAD & stroke</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 高劑量 Aspirin 會同時抑制內皮 COX-1＆2 → ↓PGI2 → 失去血管保護，抗血栓的選擇性只存在於低劑量範圍。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CLASSIFICATION -->
+    <div class="section" id="section-classification">
+      <div class="section-head"><div class="section-num">6</div><h2>NSAID 分類</h2></div>
+      <p class="section-desc">依化學結構分類是理解不同 NSAID「家族特性」的基礎，同家族藥物常共享類似的選擇性與副作用型態。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>化學類型</th><th>代表藥物</th><th>選擇性</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="8">非選擇性 COX</td><td>Salicylate</td><td>Aspirin</td><td>COX-1≈COX-2</td></tr>
+            <tr><td>Para-aminophenol</td><td>Acetaminophen</td><td>COX-3?（弱）</td></tr>
+            <tr><td>Indole acetic acid</td><td>Indomethacin、Etodolac</td><td>COX-1≈COX-2</td></tr>
+            <tr><td>Fenamate</td><td>Meclofenamic acid</td><td>COX-1≈COX-2</td></tr>
+            <tr><td>Oxicam</td><td>Piroxicam、Meloxicam</td><td>Meloxicam略偏COX-2</td></tr>
+            <tr><td>Propionic acid</td><td>Ibuprofen、Ketoprofen、Carprofen、Naproxen</td><td>Carprofen略偏COX-2</td></tr>
+            <tr><td>Pyrazolone</td><td>Phenylbutazone、Dipyrone</td><td>COX-1≈COX-2</td></tr>
+            <tr><td>Nicotinic acid deriv.</td><td>Flunixin meglumine</td><td>COX-1≈COX-2</td></tr>
+            <tr><td>選擇性 COX-2</td><td>Coxibs</td><td>Celecoxib、Deracoxib、Firocoxib、Robenacoxib、Cimicoxib</td><td>主要COX-2</td></tr>
+            <tr><td>COX＋5-LOX 雙重</td><td>—</td><td>Tepoxalin（犬）</td><td>COX＋LOX</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- KEY DRUGS -->
+    <div class="section" id="section-keydrugs">
+      <div class="section-head"><div class="section-num">7</div><h2>個別藥物詳述</h2></div>
+      <p class="section-desc">本節依講義順序逐一整理各代表藥物的特性、物種適應症與臨床限制。</p>
+
+      <h3 id="drug-aspirin">Aspirin — 最重要 NSAID 基礎藥物<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li>不可逆乙醯化 COX（共價結合 Ser 530）→ 永久抑制；血小板 COX 敏感度 250× 內皮細胞 COX</li>
+        <li>血小板無核，無法重新合成 COX → 效果持續血小板壽命（7–10天）</li>
+        <li>低劑量：選擇性抑制血小板 TXA2 → 抗血栓；高劑量：同時抑制內皮 PGI2 → 失去保護</li>
+        <li><strong>獸醫劑量：犬 10 mg/kg q12h；貓 10 mg/kg q48h</strong>（貓代謝慢，T½ 22–45h）</li>
+        <li>馬：腸絞痛無效；用於敗血性/內毒素性休克輔助治療</li>
+        <li>PK：glucuronidation 代謝；70–90% 血漿蛋白結合；warfarin 交互作用（蛋白結合競爭＋抗凝加成）</li>
+      </ul>
+
+      <h3 id="drug-acetaminophen">Acetaminophen（Paracetamol）<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">正常代謝 → sulfate 或 glucuronide conjugate（安全）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">過量時經 CYP450 生成 NAPQI（毒性代謝物）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">消耗 Glutathione → 與肝/腎蛋白共價結合 → 肝中心小葉壞死＋腎髓質損傷</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ CYP450 系統與 Phase I/II 藥物代謝的完整介紹，見 <a href="藥理學總論.html#section-cyp450">藥理學總論：CYP450藥物代謝系統</a>（含「前藥prodrug」概念，Acetaminophen正好是同一套系統「正常安全、過量致命」的典型例子）。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">貓絕對禁用</div>
+        <p>貓缺乏 glucuronidation 代謝路徑 → NAPQI 堆積 → <strong>Heinz body、變性血色素血症、溶血性貧血</strong>。止痛＋退燒（可能經 COX-3 抑制），<strong>無抗炎效果</strong>（不影響外周 PG）；犬應避免使用（肝毒性）；人類每日上限 4g，相當安全。</p>
+      </div>
+
+      <h3 id="drug-phenylbutazone">Phenylbutazone</h3>
+      <div class="flow">
+        <div class="flow-node">不可逆結合COX（類似Aspirin）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活性代謝物 Oxyphenbutazone 持續存在（作用＞24h）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">誘導肝微粒體酵素 → 長期使用自身加速代謝（Cp逐漸降低）</div>
+      </div>
+      <ul>
+        <li>FDA 核准犬＋馬；跛行、骨關節炎；<strong>馬最常用（便宜、有效、安全）</strong></li>
+        <li>99% 血漿蛋白結合；禁食用動物（elimination 極長，殘留問題）</li>
+        <li>骨髓抑制（Agranulocytosis）→ 人類已禁用；小動物逐漸被 COX-2 選擇性藥物取代</li>
+        <li>毒性：GI＋腎＋肝毒性</li>
+      </ul>
+      <h4>Phenylbutazone T½ 物種差異（重要）</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>T½</th><th>物種</th><th>T½</th></tr></thead>
+          <tbody>
+            <tr><td>人（Man）</td><td>72–96h</td><td>駱駝（Camel）</td><td>13h</td></tr>
+            <tr><td>牛（Cow）</td><td>42–65h</td><td>馬（Horse）</td><td>4–6h</td></tr>
+            <tr><td>羊（Sheep）</td><td>18h</td><td>犬（Dog）</td><td>4–6h</td></tr>
+            <tr><td>山羊（Goat）</td><td>16h</td><td>驢（Donkey）</td><td>1–2h</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-flunixin">Flunixin Meglumine<span class="tag tag-exam">重要</span></h3>
+      <p>菸鹼酸衍生物；強效非選擇性 COX 抑制劑；FDA 核准馬（非人藥）。T½：馬約2h、牛約8h、犬3.7h。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">臨床應用</div>
+        <p><strong>馬：內臟疼痛（腸絞痛 colic）首選 NSAID</strong>；術後止痛；endotoxic shock。牛：退燒＋抗炎（急性乳腺炎）。犬：改善敗血症存活率。最常見副作用：GI 擾亂。</p>
+      </div>
+
+      <h3 id="drug-dipyrone">Dipyrone / Metamizole（Sulpyrine）</h3>
+      <p>舊型 NSAID；美國/台灣已禁用於人類（骨髓抑制/agranulocytosis）；FDA 核准馬退燒控制；台灣核准牛、豬、羊鎮痛退燒（舒爾必寧50%注射液）。</p>
+
+      <h3 id="drug-ketoprofen">Ketoprofen 與 Ibuprofen</h3>
+      <ul>
+        <li><strong>Ketoprofen</strong>：非選擇性COX，高濃度亦抑制5-LOX（dual inhibitor），可能增加proteoglycan合成（軟骨保護？）；FDA核准馬（肌肉骨骼炎症/疼痛）；副作用較phenylbutazone/flunixin少；T½短（馬與小動物1–1.5h）</li>
+        <li><strong>Ibuprofen</strong>：不用於獸醫（安全性問題）；犬GI毒性高</li>
+      </ul>
+
+      <h3 id="drug-meloxicam">Meloxicam<span class="tag tag-exam">重要</span></h3>
+      <p>Oxicam類；COX-2略偏選擇性（非完全selective）；<strong>FDA核准犬＋貓（獸醫NSAID中少數貓核准藥物之一）</strong>。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">物種T½差異極大</div>
+        <p>馬3h、牛13h、豬4h、犬12–36h、<strong>貓37h</strong>、人20–50h——<strong>貓的給藥間隔需大幅調整，不可套用犬的劑量與頻次</strong>；FDA僅核准貓單次注射，非長期口服。</p>
+      </div>
+
+      <h3 id="drug-naproxen">Naproxen</h3>
+      <p>主要用於馬：軟組織炎症（跛行）；安全範圍廣，效果優於phenylbutazone；T½馬4h（人14h）；需5–7天才出現明顯效果；<strong>小動物毒性過大，禁用犬貓</strong>。</p>
+
+      <h3 id="drug-meclofenamic">Meclofenamic Acid（Fenamate）</h3>
+      <p>犬與馬使用；起效緩慢（36–96h）；馬經肝氧化代謝，治療窗窄；用於急慢性炎症（蹄葉炎、骨關節炎）。</p>
+
+      <h3 id="drug-sulindac">Sulindac</h3>
+      <p>Sulfoxide prodrug → 肝代謝 → Sulfide derivative（活性型）；Sulfide分泌至膽汁後經腸道重吸收（enterohepatic cycling）→ 長效12–16h；主要用於人。</p>
+
+      <h3 id="drug-diclofenac">Diclofenac</h3>
+      <p>強效COX抑制；T½ 1–2h；關節液蓄積（synovial fluid accumulation），用於慢性炎症（RA、OA）；動物用僅 Surpass® 外用乳膏（馬OA局部使用），禁靜脈注射、不核准其他物種。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">生態事件</div>
+        <p>南亞1990s廣泛用於牛隻 → 禿鷹食用屍體殘留藥物 → 腎衰竭 → <strong>族群數量下降99%</strong> → 2006年南亞禁用獸醫Diclofenac，禿鷹族群逐漸恢復——這是獸醫藥理學影響生態系的經典案例。</p>
+      </div>
+
+      <h3 id="drug-tepoxalin">Tepoxalin（COX＋5-LOX 雙重抑制）</h3>
+      <p>COX＋5-LOX雙重抑制 → 同時↓PG和LT，LOX抑制可能對過敏性疾病也有幫助；FDA核准犬肌肉骨骼疼痛與炎症；GI副作用比傳統NSAID少（LOX抑制可能提供GI保護）；T½ 2h，活性代謝物TPA T½ 13h，蛋白結合98–99%。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- COXIBS -->
+    <div class="section" id="section-coxibs">
+      <div class="section-head"><div class="section-num">8</div><h2>COX-2 選擇性藥物（Coxibs）</h2></div>
+      <p class="section-desc">COX-2假說在1990年代帶來「選擇性消炎不傷胃腎」的期待，但心血管風險的發現改寫了這套理論的臨床應用限制。</p>
+
+      <div class="flow">
+        <div class="flow-node">COX-1（constitutive）→ 生理性PG（胃黏膜/腎/血小板）</div>
+        <span class="flow-arrow">＋</span>
+        <div class="flow-node">COX-2（inducible）→ 病理性PG（發炎/疼痛/發燒）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">理論：只抑制COX-2 → 消炎止痛但不傷胃/腎</div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">現實問題：CVS 毒性<span class="tag tag-exam">重要</span></div>
+        <p>COX-2也在血管內皮表現，合成PGI2（抗血栓）；選擇性COX-2抑制 → ↓PGI2，但TXA2（COX-1，血小板）仍正常 → <strong>促凝血狀態（prothrombotic）→ 心肌梗塞與腦中風風險↑</strong>。<strong>Rofecoxib（Vioxx）因此於2004年下市</strong>（VIGOR試驗顯示心肌梗塞風險增加4倍）；Celecoxib（Celebrex）仍有警示標示。</p>
+      </div>
+
+      <h3 id="drug-coxibs">獸醫 COX-2 選擇性藥物比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>適應動物</th><th>主要用途</th><th>T½</th><th>特色</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Carprofen</strong></td><td>犬</td><td>OA、術後疼痛</td><td>7h（犬）</td><td>COX-2輕度選擇性</td></tr>
+            <tr><td><strong>Etodolac</strong></td><td>犬</td><td>OA</td><td>—</td><td>Indole acetic acid類</td></tr>
+            <tr><td><strong>Deracoxib（Deramaxx）</strong></td><td>犬</td><td>OA＋骨科術後（&gt;1.8kg）</td><td>3h</td><td>Sulfonamide moiety，90%蛋白結合，glucuronidation→膽汁</td></tr>
+            <tr><td><strong>Firocoxib</strong></td><td>犬、馬</td><td>OA＋術後疼痛</td><td>8h</td><td>最高COX-2選擇性之一，96%蛋白結合，馬可能有興奮反應</td></tr>
+            <tr><td><strong>Robenacoxib</strong></td><td>犬、貓</td><td>去勢/矯形/卵巢子宮術後疼痛（3天）</td><td>&lt;1h（血漿），發炎部位24h</td><td>99%蛋白結合，需空腹給藥（食物↓吸收），&gt;60%肝→糞便</td></tr>
+            <tr><td><strong>Meloxicam</strong></td><td>犬、貓</td><td>OA、疼痛控制</td><td>犬12–36h／貓37h</td><td>唯一廣泛核准貓使用，物種T½差異大</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TOXICITY -->
+    <div class="section" id="section-toxicity">
+      <div class="section-head"><div class="section-num">9</div><h2>副作用與毒性</h2></div>
+      <p class="section-desc">NSAID 的六大副作用系統彼此獨立成因、但共同源自 COX 抑制的不同下游效應，臨床用藥前需逐項評估。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>副作用系統</th><th>機制</th><th>臨床表現</th><th>預防/處理</th></tr></thead>
+          <tbody>
+            <tr><td><strong>GI（最常見、最嚴重）</strong></td><td>①↓COX-1→↓黏膜PG（全身性）②直接局部刺激黏膜；口服及非口服均可發生</td><td>胃痛、胃灼熱、噁心、十二指腸潰瘍、胃糜爛，嚴重可致死</td><td>食物、H2 blocker、Sucralfate、<strong>Misoprostol（首選）</strong>；換用COX-2選擇性藥物</td></tr>
+            <tr><td>腎毒性</td><td>↓PGI2＆PGE2→腎血管收縮→↓GFR</td><td>水腫、高血鉀、急性腎衰竭、間質腎炎</td><td>腎病患者禁/慎用；注意水合狀態</td></tr>
+            <tr><td>抗凝血</td><td>↓TXA2（血小板COX-1不可逆）</td><td>出血時間延長</td><td><strong>術前7天停藥</strong></td></tr>
+            <tr><td>肝毒性</td><td>毒性代謝物（NAPQI等）</td><td>Acetaminophen最明顯，肝酵素↑、中心小葉壞死</td><td>Acetaminophen禁貓；犬慎用</td></tr>
+            <tr><td>骨髓抑制</td><td>Phenylbutazone、Dipyrone（機制不明）</td><td>Agranulocytosis（人）</td><td>兩者均禁人類使用（美/台）</td></tr>
+            <tr><td><strong>Salicylate酸鹼失衡</strong></td><td>治療量：刺激延腦呼吸中樞→過換氣→呼吸性鹼中毒＋腎代償↑HCO3⁻排出；毒性量：中樞呼吸抑制→HCO3⁻已耗盡→失代償</td><td>治療量：呼吸性鹼中毒；毒性量：呼吸性酸中毒＋血管運動抑制（低血壓）</td><td>補充HCO3⁻鹼化尿液促進排除</td></tr>
+            <tr><td>CVS毒性（COX-2選擇性）</td><td>↓內皮COX-2→↓PGI2→促凝血</td><td>MI與中風風險↑</td><td>注意CVS病史及危險因子</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PK -->
+    <div class="section" id="section-pk">
+      <div class="section-head"><div class="section-num">10</div><h2>藥物動力學與物種差異</h2></div>
+      <p class="section-desc">NSAID 的血漿蛋白結合率極高，物種間 T½ 差異也是全獸醫藥理最極端的例子之一，是選藥安全性的關鍵資訊。</p>
+
+      <h3>人用 NSAID 半衰期參考</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>T½（人）</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>Aspirin / Salicylates</td><td>2–3h</td><td>—</td></tr>
+            <tr><td>Acetaminophen</td><td>2h</td><td>—</td></tr>
+            <tr><td>Diclofenac</td><td>1–2h</td><td>—</td></tr>
+            <tr><td>Ibuprofen</td><td>2–4h</td><td>—</td></tr>
+            <tr><td>Ketoprofen</td><td>2–4h</td><td>—</td></tr>
+            <tr><td>Naproxen</td><td>14h</td><td>長效，小動物禁用</td></tr>
+            <tr><td>Piroxicam</td><td>45–50h</td><td>最長T½</td></tr>
+            <tr><td>Sulindac</td><td>7h（活性18h）</td><td>Enterohepatic cycling</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-speciest12">物種 T½ 差異總表<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>馬</th><th>牛</th><th>豬</th><th>犬</th><th>貓</th><th>人</th></tr></thead>
+          <tbody>
+            <tr><td>Salicylates</td><td>1–3h</td><td>0.5h</td><td>5.9h</td><td>8.6h</td><td><strong>22–45h</strong></td><td>2–3h</td></tr>
+            <tr><td>Meloxicam</td><td>3h</td><td>13h</td><td>4h</td><td>12–36h</td><td><strong>37h</strong></td><td>20–50h</td></tr>
+            <tr><td>Carprofen</td><td>16h</td><td>37h</td><td>—</td><td>7h</td><td>15h</td><td>12h</td></tr>
+            <tr><td>Ketoprofen</td><td>1h</td><td>0.4h</td><td>—</td><td>3.5h</td><td>1.5h</td><td>2–4h</td></tr>
+            <tr><td>Naproxen</td><td>5h</td><td>—</td><td>5h</td><td>35–74h</td><td>—</td><td>14h</td></tr>
+            <tr><td>Flunixin</td><td>2h</td><td>~8h</td><td>—</td><td>3.7h</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 貓 Salicylate T½ 22–45h → Aspirin 需 q48h（犬僅需 q12h），是物種差異考題最常引用的例子。</p>
+
+      <h3>蛋白結合 Protein Binding</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">交互作用</div>
+        <p>多數NSAID與血漿白蛋白高度結合（95–99%，部分物種達99%）→ 競爭置換甲狀腺素（thyroid hormones）from TBG → ↑游離甲狀腺素濃度；競爭置換其他高蛋白結合藥物（如warfarin）→ ↑游離藥物濃度→毒性風險；同時競爭腎小管主動分泌，影響其他藥物排泄。臨床意義：使用NSAID需注意同時使用甲狀腺藥物、warfarin及其他高蛋白結合藥物的交互作用。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CONTRAINDICATIONS -->
+    <div class="section" id="section-contraindications">
+      <div class="section-head"><div class="section-num">11</div><h2>禁忌症與 FDA 核准概覽</h2></div>
+      <p class="section-desc">臨床開立 NSAID 前的最後一道檢查清單，以及各物種目前 FDA 核准的用藥選項總表。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌症與注意事項</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li>消化性潰瘍（Peptic ulcer）患者禁用</li>
+          <li>正在使用口服抗凝血藥（如warfarin）的患者 → 出血風險</li>
+          <li>長期治療需<strong>手術前7天停藥</strong>（血小板COX不可逆→出血風險）</li>
+          <li>腎、肝、心臟疾病患者謹慎使用</li>
+          <li>老年動物：肝腎功能↓→需減量</li>
+          <li>發汗（sweating）可能導致脫水→加重腎毒性（NSAID＋脫水＝腎衰竭高風險）</li>
+          <li><strong>貓：使用NSAID非常困難</strong>（代謝慢，glucuronidation缺乏）→需謹慎選藥</li>
+        </ul>
+      </div>
+
+      <h3>美國 FDA 核准獸醫 NSAID 一覽<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>適應動物</th><th>劑型</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>Aspirin（＋methylprednisolone）</td><td>犬</td><td>Tablet</td><td>—</td></tr>
+            <tr><td>Flunixin meglumine</td><td>牛</td><td>Injection, paste, granule, transdermal</td><td>腸絞痛/退燒/抗炎</td></tr>
+            <tr><td>Phenylbutazone</td><td>犬、馬</td><td>Tablet, injection</td><td>禁食用動物</td></tr>
+            <tr><td>Naproxen</td><td>馬</td><td>Injection, oral</td><td>禁小動物</td></tr>
+            <tr><td>Ketoprofen</td><td>馬</td><td>Injection</td><td>FDA馬肌骨骼炎症</td></tr>
+            <tr><td>Carprofen</td><td>犬</td><td>Tablet, injection</td><td>COX-2選擇性（輕度）</td></tr>
+            <tr><td>Etodolac</td><td>犬</td><td>Tablet, injection</td><td>COX-2選擇性</td></tr>
+            <tr><td><strong>Meloxicam</strong></td><td>犬、貓</td><td>Injection, oral</td><td><strong>唯一廣泛核准貓用</strong></td></tr>
+            <tr><td>Firocoxib（Previcox）</td><td>犬、馬</td><td>Tablet, injection, oral paste</td><td>最高COX-2選擇性之一</td></tr>
+            <tr><td>Robenacoxib（Onsior）</td><td>犬、貓</td><td>Tablet, injection</td><td>術後疼痛≤3天</td></tr>
+            <tr><td>Diclofenac（Surpass）</td><td>馬</td><td>Topical cream</td><td>僅局部外用；禁其他物種</td></tr>
+            <tr><td>Tepoxalin</td><td>犬</td><td>—</td><td>COX＋5-LOX雙重抑制</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">12</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考題常考「機轉配對」「物種T½比較」「COX-1 vs COX-2功能區分」三種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>PGE1、PGE2、PGF2α是nociceptor致敏效果最強的三種PG</strong>；頭痛也與PG媒介的血管擴張有關。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Aspirin不可逆乙醯化（Ser 530）</strong>，血小板COX敏感度250倍於內皮；無核不再生COX；貓q48h（T½ 22–45h）；低劑量↓TXA2抗血栓，高劑量連PGI2也抑制、失去保護。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Acetaminophen無抗炎效果，貓絕對禁用</strong>（↓glucuronidation→NAPQI→Heinz body/methemoglobin）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Phenylbutazone馬最常用</strong>；T½物種差異極大（人72–96h，馬僅4–6h）；誘導肝酵素→Cp逐漸降低；禁人類（骨髓抑制）；禁食用動物。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Flunixin馬腸絞痛首選</strong>；牛急性乳腺炎；犬敗血性休克輔助。GI毒性雙重機制（全身性COX-1↓＋局部直接刺激），口服及非口服均發生。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>預防NSAID誘發GI潰瘍首選Misoprostol</strong>（PGE1類似物），輔助有H2 blocker與Sucralfate；<strong>COX-2 Coxibs降GI但升CVS</strong>（↓內皮PGI2→促凝血），Rofecoxib因此下市。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>貓FDA核准NSAID極少：Meloxicam（單次注射，T½37h）、Robenacoxib（T½&lt;1h但發炎部位24h）</strong>；犬則有Carprofen/Etodolac/Deracoxib/Firocoxib/Robenacoxib等多種Coxibs可選。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Diclofenac禿鷹危機</strong>是生態毒理經典案例；<strong>術前7天停用NSAID</strong>（血小板COX不可逆抑制導致出血風險）；NSAID與warfarin併用需注意蛋白結合競爭與抗凝加成。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之完整筆記整理；教科書交叉核對尚未完成）。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋花生四烯酸代謝、COX亞型、藥理機制、個別藥物、Coxibs、毒性與物種藥動學各章節重點，最後三題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列關於 COX-1 與 COX-2 的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) COX-1是誘導型，COX-2是構成型</li>
+          <li>(B) COX-1主要維持胃黏膜、腎、血小板等生理功能；COX-2主要介導發炎性PG合成</li>
+          <li>(C) COX-2只存在於發炎部位，不存在於血管內皮</li>
+          <li>(D) 兩者功能完全重疊，無臨床意義差異</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">COX-1是構成型，維持胃黏膜保護、腎血流、血小板TXA2合成等正常生理功能；COX-2是誘導型（基礎也有表現），主要介導發炎、疼痛、發燒相關PG合成，同時也存在於血管內皮合成PGI2，這是COX-2選擇性藥物心血管風險的根源。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Acetaminophen 具有良好的消炎、止痛、退燒三重效果，可用於貓的長期疼痛控制。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Acetaminophen只有止痛與退燒效果，不影響外周PG、無抗炎效果；更重要的是貓缺乏glucuronidation代謝路徑，過量代謝物NAPQI會造成Heinz body、變性血色素血症與溶血性貧血，是貓的絕對禁忌藥物。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. Rofecoxib（Vioxx）於2004年下市的主要原因是？</div>
+        <ul class="quiz-options">
+          <li>(A) 嚴重的胃腸道出血</li>
+          <li>(B) 選擇性抑制COX-2使PGI2減少，造成促凝血狀態，增加心肌梗塞風險</li>
+          <li>(C) 肝毒性過高</li>
+          <li>(D) 貓的過敏反應嚴重</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">COX-2也存在於血管內皮合成PGI2（抗血栓），選擇性抑制COX-2後PGI2減少，但血小板TXA2（COX-1路徑）不受影響，造成促凝血狀態；VIGOR試驗顯示Rofecoxib使心肌梗塞風險增加4倍，因此於2004年下市。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明 Aspirin 低劑量能選擇性抗血栓、但高劑量會失去血管保護效果的藥理基礎。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">Aspirin不可逆乙醯化COX（共價結合Ser 530），且血小板COX對Aspirin乙醯化的敏感度是血管內皮COX的250倍。低劑量時，Aspirin優先且幾乎只作用於高敏感度的血小板COX-1，抑制TXA2合成而達到抗血栓效果，同時血小板無核、無法重新合成COX，效果可持續整個血小板壽命（7–10天）。但當劑量提高，Aspirin會同時抑制敏感度較低的血管內皮COX（COX-1與COX-2皆受影響），使保護性的PGI2也被抑制，失去原本低劑量時「只抑制TXA2、保留PGI2」的選擇性保護效果。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 貓的 Meloxicam 半衰期約 37 小時，遠長於犬的 12–36 小時，這說明了什麼臨床原則？</div>
+        <ul class="quiz-options">
+          <li>(A) 貓可以使用比犬更高的劑量</li>
+          <li>(B) 貓的給藥間隔需要大幅延長，不可直接套用犬的劑量與頻次</li>
+          <li>(C) 貓完全不能使用Meloxicam</li>
+          <li>(D) 半衰期長短與臨床用藥無關</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">貓的glucuronidation酵素活性低，多數NSAID代謝速度慢，T½因此延長；貓若套用犬的給藥頻次會造成藥物蓄積中毒。FDA對貓Meloxicam僅核准單次注射用途，而非犬常見的長期口服使用。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. NSAID誘發的胃腸道潰瘍只會在口服給藥時發生，改為注射劑型可完全避免此副作用。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">NSAID誘發胃潰瘍是雙重機制：①全身性COX-1抑制導致黏膜保護性PG減少（與給藥途徑無關）②藥物局部直接刺激黏膜。即使改為注射給藥，全身性機制依然存在，因此口服與非口服（注射）皆可能發生潰瘍，不能視為安全的替代方案。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】一隻馬因急性腹痛（疑似腸絞痛）送醫，同時體溫偏高疑似合併內毒素血症；另一隻馬因慢性蹄葉炎需要長期消炎止痛控制。請問：(1) 這兩隻馬分別會優先選擇哪種NSAID？(2) 請說明選藥理由。(3) 若長期使用其中一種藥物，需要特別監測哪些副作用？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1)(2) 選藥與理由：</strong>急性腸絞痛合併內毒素血症的馬，應優先選擇 <strong>Flunixin meglumine</strong>——這是馬內臟疼痛（colic）的首選NSAID，同時對endotoxic shock有輔助治療效果，且T½短（馬約2h），適合急性期使用。慢性蹄葉炎需長期控制的馬，則優先選擇 <strong>Phenylbutazone</strong>——是馬骨骼肌肉疼痛/關節炎最常用的NSAID（便宜、有效、安全），適合長期給藥。<br><strong>(3) 監測重點：</strong>長期使用Phenylbutazone需注意：①GI毒性（右側背側結腸潰瘍，尤其高劑量時）②腎毒性（注意水合狀態，避免合併脫水）③因誘導肝微粒體酵素，長期使用血中濃度會逐漸降低（enzyme induction），可能需要調整劑量以維持療效；此外絕對不可用於食用動物（elimination極長，有殘留問題）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】一隻8歲米克斯貓因慢性退化性關節炎（OA）出現行動不便，飼主希望長期口服NSAID控制疼痛，且家中同時有一隻12歲拉布拉多犬也有類似OA症狀。請問：(1) 犬與貓分別可以選擇哪些FDA核准的NSAID？(2) 為什麼貓的選擇明顯少於犬？(3) 若不慎將犬用NSAID劑量套用在貓身上，最可能出現什麼後果？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 用藥選擇：</strong>犬可選擇的FDA核准OA用藥較多，包括Carprofen、Etodolac、Deracoxib、Firocoxib、Meloxicam（口服）、Robenacoxib等多種COX-2選擇性藥物；貓則選擇極少，FDA廣泛核准的口服長期選項幾乎沒有——Meloxicam僅核准貓「單次注射」使用，Robenacoxib則核准用於短期（≤3天）術後疼痛，並非長期OA控制的標準適應症。<br><strong>(2) 貓選擇少的原因：</strong>貓的glucuronidation代謝酵素活性低，導致多數NSAID的半衰期在貓體內顯著延長（如Meloxicam貓37h vs 犬12–36h），長期給藥容易造成藥物蓄積與毒性累積，因此多數NSAID缺乏貓長期使用的安全性資料與FDA核准。<br><strong>(3) 套用犬劑量的後果：</strong>由於貓代謝慢、T½長，若直接套用犬的劑量與給藥頻次，藥物會在貓體內持續蓄積，大幅提高GI潰瘍、腎毒性（尤其貓常見慢性腎病共病）、肝毒性等副作用風險，嚴重時可能致命；臨床上貓的NSAID使用須格外謹慎，劑量與間隔都不能直接比照犬的方案。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  inflammation: '發炎反應與花生四烯酸代謝',
+  cox: 'COX 亞型與前列腺素生理作用',
+  mechanism: 'NSAID 藥理效果與機制',
+  classification: 'NSAID 分類',
+  keydrugs: '個別藥物詳述',
+  coxibs: 'COX-2 選擇性藥物（Coxibs）',
+  toxicity: '副作用與毒性',
+  pk: '藥物動力學與物種差異',
+  contraindications: '禁忌症與 FDA 核准概覽',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

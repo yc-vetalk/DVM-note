@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫臨床及影像診斷學：CT與MRI原理 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫臨床及影像診斷學</a><span class="sep">›</span><span class="current">CT與MRI原理</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">CT 與 MRI 原理 CT and MRI: Clinical Applications in Veterinary Medicine</h1>
+      <p class="page-subtitle">CT／MRI基本原理與差異、Hounsfield Unit與窗寬窗位、顯影劑應用、常見偽像，以及MRI脈衝序列（T1W/T2W/FLAIR/GE/脂肪抑制）整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫臨床及影像診斷學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮 Ya-Pei Chang，BVM, MVM, PhD, DipECVN, DAiCVIM (Neurology)，國立臺灣大學獸醫專業學院）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-24</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 重點摘要
+    </a>
+    <a onclick="showSection('overview')" id="nav-overview">
+      <span class="nav-icon">🆚</span> CT 與 MRI 的差異
+    </a>
+    <div class="section-label" style="margin-top:8px;">CT</div>
+    <a onclick="showSection('ctphysics')" id="nav-ctphysics">
+      <span class="nav-icon">⚙️</span> CT 成像原理與機型
+    </a>
+    <a onclick="showSection('hounsfield')" id="nav-hounsfield">
+      <span class="nav-icon">🎚️</span> Hounsfield Unit 與窗寬窗位
+    </a>
+    <a onclick="showSection('reconstruction')" id="nav-reconstruction">
+      <span class="nav-icon">🧩</span> 影像重組
+    </a>
+    <a onclick="showSection('contrast')" id="nav-contrast">
+      <span class="nav-icon">💉</span> 顯影劑與腎毒性
+    </a>
+    <a onclick="showSection('ctartifacts')" id="nav-ctartifacts">
+      <span class="nav-icon">👻</span> CT 偽像
+    </a>
+    <div class="section-label" style="margin-top:8px;">MRI</div>
+    <a onclick="showSection('mriphysics')" id="nav-mriphysics">
+      <span class="nav-icon">🧲</span> MRI 物理基礎
+    </a>
+    <a onclick="showSection('mrisafety')" id="nav-mrisafety">
+      <span class="nav-icon">⚠️</span> MRI 安全性
+    </a>
+    <a onclick="showSection('pulsesequences')" id="nav-pulsesequences">
+      <span class="nav-icon">📶</span> 常見脈衝序列
+    </a>
+    <a onclick="showSection('practical')" id="nav-practical">
+      <span class="nav-icon">🩺</span> 臨床操作與判讀要點
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>CT（電腦斷層）與MRI（磁振造影）都是產生<strong>斷面影像（cross sectional images）</strong>的進階影像工具，共同點是都需要數位運算處理、動物都需要鎮靜或全身麻醉配合。這章先建立兩者的<strong>核心差異</strong>：CT靠X光穿透組織後的衰減差異成像，本質上是「電腦運算過的X光」；MRI靠氫原子核在磁場中的行為差異成像，物理原理完全不同，也因此兩者對不同組織的顯影能力天差地遠（CT對骨骼最強、MRI對軟組織尤其腦部最強）。接著分別深入兩條主線：<strong>CT這邊</strong>要懂Hounsfield Unit（HU）如何把組織衰減程度轉成數字、窗寬窗位（WW/WL）如何決定同一張影像資料用什麼方式呈現、以及顯影劑與腎毒性風險；<strong>MRI這邊</strong>要懂氫質子如何被磁場排列與擾動而產生訊號、磁場帶來的絕對安全禁忌（金屬物體）、以及T1W／T2W／FLAIR／GE／脂肪抑制序列各自「在找什麼」的臨床邏輯。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('overview')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">CT vs MRI</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">原理與適用構造差異</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('hounsfield')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">HU與窗寬窗位</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">同一份資料多種呈現</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('mriphysics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">MRI物理與安全</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">氫質子、磁場禁忌</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('pulsesequences')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">脈衝序列</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">T1/T2/FLAIR/GE</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">九個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>CT對骨骼與胸腔顯影最強（++++／+++），MRI對腦部與肌肉顯影最強（++++／+++）</strong>：兩者互補而非互相取代，選擇取決於感興趣的構造是什麼；<strong>MRI對肺部幾乎無法使用</strong>（肺泡氣體介面造成訊號嚴重流失）。</li>
+          <li><strong>CT只能直接取得橫切面（transverse），其他切面需靠電腦重組（reconstruction）；MRI可直接取得任何切面</strong>（矢狀、橫切、背側皆可直接掃描），這是兩者掃描邏輯的根本差異。</li>
+          <li><strong>Hounsfield Unit（HU）是以水為基準（0）、比較體素（voxel）平均衰減值後得到的數字</strong>：骨骼+1000、空氣-1000，數值越高代表衰減越強（影像越白）。</li>
+          <li><strong>窗寬窗位（WW/WL）決定同一份CT原始資料要用什麼方式呈現：</strong>窗位（WL/WC）＝感興趣組織的HU值（畫面呈現的中心灰階）；<strong>窄窗寬（narrow WW）增加組織對比</strong>（適合本身HU差異小的軟組織）；<strong>寬窗寬（wide WW）適合涵蓋範圍廣、本身對比已足夠的組織</strong>（如肺、骨）——同一張CT掃描可以用骨窗、軟組織窗、肺窗分別呈現完全不同的畫面。</li>
+          <li><strong>碘顯影劑經IV注射後主要評估三件事：</strong>正常組織與病灶的顯影強化程度差異、CNS血腦屏障是否受破壞、血管本身（CT angiography）；<strong>經腎絲球過濾排除，是CT urography的原理，也是顯影劑腎毒性風險的來源</strong>——檢查前應確認腎功能、維持適當水合狀態。</li>
+          <li><strong>CT常見偽像四類：</strong>動作偽像（motion）、射束硬化偽像（beam hardening）、部分容積效應（partial volume averaging），皆與掃描技術及病患配合度相關。</li>
+          <li><strong>MRI磁場對金屬物體是絕對安全禁忌：</strong>鐵磁性物體（如氧氣瓶、輪椅、監測設備）會被磁場當「飛彈」吸入磁場中心，曾造成嚴重傷亡事故；<strong>心臟節律器、金屬植入物、項圈、鑰匙、監測導線等一律不可進入磁場室</strong>。</li>
+          <li><strong>MRI脈衝序列的核心是「同一個病灶在不同序列上訊號強弱不同，藉此推論病灶性質」：</strong>T1W（解剖細節佳，Gd顯影評估用）、T2W（病灶通常較亮，敏感度高）、<strong>FLAIR消除純液體訊號</strong>（用於區分腦室/腦溝旁病灶與正常CSF）、<strong>GE對磁化率差異敏感</strong>（出血、鈣化、金屬呈訊號流失的「signal void」）、<strong>脂肪抑制序列（STIR／化學脂肪飽和）消除脂肪訊號</strong>（用於偵測骨髓病灶、脂肪瘤旁病灶）。</li>
+          <li><strong>臨床判讀最終要問：這是有意義的病灶，還是偶然發現（incidental finding）？</strong>影像異常不等於臨床顯著，須結合病史、神經學／理學檢查定位、影像特徵綜合判斷，這是影像診斷學貫穿全程的臨床思維。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>CT 與 MRI 的差異 CT vs. MRI — The Differences</h2></div>
+      <p class="section-desc">CT與MRI都是斷面影像技術，但成像的物理原理完全不同，這決定了兩者的適用構造、掃描切面自由度與臨床角色分工。</p>
+
+      <h3>共同特性</h3>
+      <ul>
+        <li><strong>斷面影像（cross sectional images）：</strong>不同於傳統X光的重疊投影，CT/MRI呈現的是身體某一薄層的切面影像</li>
+        <li><strong>數位化處理（digital processing）：</strong>影像資料經電腦運算產生，可後製調整呈現方式</li>
+        <li><strong>動物須鎮靜／全身麻醉配合：</strong>掃描時間長，需完全靜止才能取得清晰影像</li>
+        <li><strong>與X光、超音波互補：</strong>各有其擅長偵測的病灶類型與解剖部位</li>
+      </ul>
+
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p1.png" alt="犬腦部橫切面CT與兩種MRI序列影像對照，展示不同影像模式的組織對比差異">
+        <div class="figure-caption">同一犬腦部橫切面在CT（左）與兩種MRI序列（中、右）下的組織對比差異：CT對顱骨顯影清楚但腦實質內部細節有限；MRI對腦灰白質、腦室等軟組織構造能呈現豐富的內部細節與病灶對比。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-ctmritable">CT vs. MRI 綜合比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>CT</th><th>MRI</th></tr></thead>
+          <tbody>
+            <tr><td>判讀需求</td><td>熟悉正常解剖構造、Hounsfield unit（HU）、CT windowing（WW/WL）</td><td>熟悉正常解剖構造、不同序列下的組織特性表現</td></tr>
+            <tr><td>骨骼顯影</td><td><strong>+++</strong></td><td>+</td></tr>
+            <tr><td>軟組織顯影</td><td>++（病灶形態、顯影劑強化）</td><td><strong>++++</strong></td></tr>
+            <tr><td>麻醉時間</td><td><strong>短</strong></td><td>較長</td></tr>
+            <tr><td>操作難易度</td><td><strong>使用者友善（user friendly）</strong></td><td>需要特殊訓練（special training required）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-ctmristructure">依構造別的 CT／MRI 顯影能力比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構造</th><th>CT</th><th>MRI</th></tr></thead>
+          <tbody>
+            <tr><td>鼻腔 Nasal cavity</td><td>++</td><td>++</td></tr>
+            <tr><td>眼球後區 Retrobulbar region</td><td>++</td><td>++</td></tr>
+            <tr><td><strong>腦部 Brain</strong></td><td>+</td><td><strong>++++</strong></td></tr>
+            <tr><td>中耳 Middle ear</td><td>++</td><td>++</td></tr>
+            <tr><td>顱底構造 Skull base structure</td><td>++</td><td>+++</td></tr>
+            <tr><td>肌肉 Muscle</td><td>+</td><td>+++</td></tr>
+            <tr><td><strong>胸腔 Thorax</strong></td><td><strong>+++</strong></td><td>─（幾乎無法使用）</td></tr>
+            <tr><td>腹腔 Abdomen</td><td>+++</td><td>+++（限高磁場 High-field MRI）</td></tr>
+            <tr><td>脊髓／椎管 Spinal cord / vertebral canal</td><td>+（IVDD椎間盤疾病）</td><td>+++</td></tr>
+            <tr><td><strong>骨骼／脊椎／頭骨 Bone / vertebra / skull</strong></td><td><strong>++++</strong></td><td>+</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床選擇邏輯</div>
+        <p>這張表是<strong>臨床選擇CT或MRI最直接的依據</strong>：懷疑骨骼、胸腔病灶（如骨折、腫瘤侵蝕骨質、肺部結節）優先選CT；懷疑腦部、脊髓實質、肌肉病灶（如腦炎、脊髓腫瘤、椎間盤壓迫脊髓）優先選MRI；胸腔幾乎不會用MRI（含氣肺組織訊號流失嚴重，CT才是胸腔的黃金標準）。</p>
+      </div>
+
+      <h3 id="drug-imageplane">影像切面 Image Plane<span class="tag tag-exam">重要</span></h3>
+      <p>CT與MRI皆可呈現三種基本切面：<strong>矢狀面（Sagittal）、橫切面（Transverse）、背側面（Dorsal）</strong>。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p4.png" alt="犬頭部三種MRI切面示意圖，矢狀面橫切面背側面對應解剖切面方向">
+        <div class="figure-caption">三種基本影像切面：矢狀面（紅框，Sagittal）呈現正中矢狀切面腦部與小腦構造；橫切面（藍框，Transverse）垂直於身體長軸；背側面（橘框，Dorsal）呈現眼球與鼻腔的水平切面。右側示意圖顯示三個切面在犬頭部的相對方向。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">CT</div><p>直接掃描僅能取得<strong>橫切面（transverse planes）</strong>；矢狀面／背側面須經電腦<strong>重組（reconstruction）</strong>取得</p></div>
+        <div class="card"><div class="card-title">MRI</div><p><strong>任何切面（any planes）</strong>皆可直接掃描取得，切面選擇更自由</p></div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CT PHYSICS -->
+    <div class="section" id="section-ctphysics">
+      <div class="section-head"><div class="section-num">3</div><h2>CT 成像原理與機型 CT: Computed (Axial) Tomography</h2></div>
+      <p class="section-desc">CT的全名「電腦（軸向）斷層攝影」點出了它的本質：X光管與偵測器繞著病患旋轉取得大量投影資料，再交由電腦運算重建成斷面影像。</p>
+
+      <h3 id="drug-ctgeometry">CT 掃描幾何架構<span class="tag tag-exam">重要</span></h3>
+      <p>X光管（X-ray source）與對側的偵測器陣列（Detectors）一同繞著病患（Patient）旋轉，X光穿透病患後被偵測器接收，訊號傳送至電腦（Computer）運算重建影像。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p8.png" alt="CT掃描幾何架構示意圖，X光源與偵測器繞病患旋轉並傳送資料至電腦">
+        <div class="figure-caption">CT掃描基本架構：X光源與偵測器（Detectors）呈180度相對，一同繞著病患（Patient）旋轉取得多角度投影資料，訊號送至電腦進行影像重建。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p9.png" alt="CT掃描儀實際照片，機架內部X光管與偵測器、犬隻掃描擺位、操作控制台">
+        <div class="figure-caption">CT掃描儀實際構造：機架（gantry）內部可見X光管（X）與偵測器（D）的相對位置、旋轉軌道（R，左上）；犬隻俯臥於檢查床上準備掃描（左下）；操作人員於控制室透過螢幕監看掃描進度並操作參數（右）。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-cttypes">CT 機型種類<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">單切CT Single slice CT</div><p>每次旋轉僅取得一層切面影像，掃描速度較慢</p></div>
+        <div class="card"><div class="card-title">螺旋CT Spiral / helical CT</div><p>檢查床持續移動同時X光管連續旋轉，掃描軌跡呈螺旋狀，大幅縮短掃描時間</p></div>
+        <div class="card"><div class="card-title">多切CT Multislice CT</div><p>偵測器排列成多列（multi-row），單次旋轉可同時取得多層切面，是現代CT主流</p></div>
+      </div>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p10.png" alt="CT機型種類示意圖，單一扇形射束vs多重扇形射束，逐層平移式掃描vs連續螺旋式掃描">
+        <div class="figure-caption">CT機型演進：左上為單切CT的單一扇形射束、右上為多切CT的多重扇形射束（同時涵蓋多層）；左下為傳統逐層平移式掃描軌跡（step-and-shoot）、右下為螺旋CT檢查床連續移動下的螺旋掃描軌跡，掃描效率大幅提升。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- HOUNSFIELD -->
+    <div class="section" id="section-hounsfield">
+      <div class="section-head"><div class="section-num">4</div><h2>Hounsfield Unit 與窗寬窗位 Hounsfield Unit &amp; CT Windowing</h2></div>
+      <p class="section-desc">理解HU如何把「衰減程度」轉成數字，再理解窗寬窗位如何把同一份數字資料轉成人眼可判讀的灰階影像，是讀懂任何一張CT片的基礎。</p>
+
+      <h3>矩陣、像素與體素 Matrix, Pixel &amp; Voxel</h3>
+      <p>CT影像由<strong>矩陣（matrix size = N1 × N2）</strong>組成，矩陣中每一格稱為<strong>像素（pixel）</strong>；像素乘上切片厚度（slice thickness）即為<strong>體素（voxel）</strong>——體素內組織的平均X光衰減值，經運算後即為該像素顯示的<strong>Hounsfield unit（HU，CT number）</strong>。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p11.png" alt="矩陣像素體素關係示意圖，犬隻示意圖矩陣切割與實際CT影像格狀劃分">
+        <div class="figure-caption">矩陣、像素、體素與HU的關係：影像由 N1 × N2 的矩陣組成（左、右上），每個像素（pixel）加上切片厚度即為體素（voxel），體素的平均X光衰減值換算後即為Hounsfield unit（CT number），也就是該像素最終顯示的灰階數值。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-hu">Hounsfield Unit（HU，CT number）<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">體素的平均X光衰減值</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">以數字呈現</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">與水的衰減值比較</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Hounsfield unit（CT number）</div>
+      </div>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p13.png" alt="Hounsfield unit數值對照表與灰階漸層條，骨骼血塊器官腦部水脂肪肺氣體對應HU值">
+        <div class="figure-caption">各組織代表性HU值（以水＝0為基準）：骨骼 +1000、凝血塊 +50～+90、腹腔器官 +50、腦 +30、水 0、脂肪 -100、肺 -845、空氣 -1000；左側灰階條顯示HU值越高（正值越大）在影像上呈現越白（越不透光）。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-ctwindowing">CT Windowing 窗寬窗位<span class="tag tag-exam">重要</span></h3>
+      <p>CT原始資料的HU範圍（-1000到+1000甚至更廣）遠超過人眼能分辨的灰階數量，因此需要透過<strong>窗寬窗位</strong>選取一段HU範圍，把這段範圍內的HU值映射到完整的黑白灰階，才能呈現該範圍組織的細節對比。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">為什麼一定要 windowing？</div>
+        <p>CT理論上可以呈現多達<strong>約2000種不同的灰階</strong>（對應完整HU範圍），但<strong>人眼實際上根本分辨不出這麼多層次的灰階差異</strong>——即使資料裡兩個構造的HU值確實不同，若原封不動平均映射到全部2000級灰階上，人眼看起來仍是「差不多的灰」，無法有效區分。<strong>Windowing的本質，就是把人眼看不出來的細微HU差異，透過只選取一小段窗寬、拉開映射到黑到白的完整對比範圍，變成人眼「看得出來」的視覺差異</strong>。例如<strong>肝臟與胃壁的HU值可能彼此非常接近</strong>，直接看原始資料幾乎無法分辨兩者邊界；但只要調整窗寬窗位，把這兩者所在的HU範圍窄窗放大顯示，視覺上就能把兩者的邊界拉開、清楚區分——這正是窗寬窗位存在的核心目的：<strong>不是改變資料本身，而是改變人眼能感知到的對比呈現方式</strong>。</p>
+      </div>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p14.png" alt="CT windowing原理示意圖，完整HU範圍vs選取窗寬窗位範圍映射到灰階">
+        <div class="figure-caption">CT windowing原理：完整HU範圍（左，-1000至+1000）若全部平均映射到灰階，細節會被稀釋；選取一段窗寬窗位範圍（右，本例窗位+100、窗寬800，範圍-300至+500）後，只有這段範圍內的HU值被映射到完整灰階，範圍外的組織則呈現全黑或全白，換取範圍內組織的最大對比度。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">窗位／窗中心 Window Level (WL) / Window Center (WC)</div>
+          <p><strong>感興趣組織的HU值</strong>，決定灰階範圍的中心點落在哪裡</p>
+        </div>
+        <div class="card">
+          <div class="card-title">窗寬 Window Width (WW)</div>
+          <p><strong>窄窗寬：</strong>增加組織對比（適合HU值彼此接近的軟組織）<br><strong>寬窗寬：</strong>組織本身對比已足夠、需涵蓋廣泛範圍時使用（如骨、肺）</p>
+        </div>
+      </div>
+
+      <h3>常見窗設定與實例對照</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>窗別</th><th>WL</th><th>WW</th><th>顯示範圍</th></tr></thead>
+          <tbody>
+            <tr><td><strong>骨窗 Bone window</strong></td><td>300</td><td>2000</td><td>-700 至 1300</td></tr>
+            <tr><td><strong>軟組織窗 Soft tissue window</strong></td><td>50</td><td>350</td><td>-125 至 225</td></tr>
+            <tr><td><strong>肺窗 Lung window</strong></td><td>-600</td><td>1600</td><td>-1400 至 200</td></tr>
+            <tr><td>鼻竇窗 Sinus window</td><td>400</td><td>4000</td><td>-1600 至 2400</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p16.png" alt="同一CT橫切面在骨窗軟組織窗肺窗下呈現的不同影像對比">
+        <div class="figure-caption">同一張胸腔CT橫切面分別以骨窗（左）、軟組織窗（中）、肺窗（右）呈現：骨窗清楚顯示脊椎骨質細節但軟組織對比差；軟組織窗清楚分辨心臟、血管、肌肉層次但骨骼過度不透光；肺窗清楚呈現肺野含氣紋理但軟組織幾乎全白飽和——同一份原始資料，換一個窗設定就呈現完全不同的診斷重點。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p17.png" alt="頭部CT橫切面在鼻竇窗與軟組織窗下的影像對比">
+        <div class="figure-caption">頭部CT橫切面以鼻竇窗（左，寬窗寬涵蓋骨質與含氣鼻竇腔）與軟組織窗（右，窄窗寬突顯眼球、肌肉等軟組織層次）呈現，再次說明窗設定如何依感興趣構造調整。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RECONSTRUCTION -->
+    <div class="section" id="section-reconstruction">
+      <div class="section-head"><div class="section-num">5</div><h2>影像重組 Image Reconstruction</h2></div>
+      <p class="section-desc">CT掃描本質上只直接取得一系列橫切面影像，但透過電腦運算可以把這些橫切面資料「切」成任何角度，甚至組成立體模型，這是CT相對於傳統X光最強大的優勢之一。</p>
+
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p18.png" alt="CT影像重組範例，多張頸椎橫切面重組出矢狀面影像與3D立體重建">
+        <div class="figure-caption">影像重組範例：上排為連續的頸椎橫切面影像；下排左為由橫切面資料重組出的矢狀面（sagittal reformat），可完整呈現椎管與脊髓連續走向；下排右為3D立體重建（volume rendering），呈現體表軟組織的立體結構，常用於術前規劃與衛教溝通。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+      <p style="font-size:.9em;">重組能力是<strong>多切CT薄層掃描</strong>的直接效益：切片越薄、矩陣解析度越高，重組出的矢狀面／背側面／3D影像就越平滑清晰，這也是現代多切螺旋CT逐漸取代單切CT的重要原因之一。</p>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CONTRAST -->
+    <div class="section" id="section-contrast">
+      <div class="section-head"><div class="section-num">6</div><h2>顯影劑與腎毒性 Contrast Media &amp; Nephrotoxicity</h2></div>
+      <p class="section-desc">碘顯影劑讓CT從「只能看解剖構造」升級成「可以評估血流灌注與屏障完整性」，但這個能力伴隨著過敏反應與腎毒性兩個必須事先評估的風險。</p>
+
+      <h3 id="drug-contrastmedia">碘顯影劑 Iodinated Contrast Media<span class="tag tag-exam">重要</span></h3>
+      <p><strong>靜脈注射（Intravenous）</strong>後，經由觀察<strong>顯影強化（enhancement）</strong>程度評估：</p>
+      <ul>
+        <li><strong>正常組織 vs. 病灶：</strong>兩者血流灌注與血管通透性不同，顯影強化程度也不同，是鑑別病灶的重要依據</li>
+        <li><strong>中樞神經系統：</strong>正常情況下血腦屏障（blood-brain-barrier）阻擋顯影劑進入腦實質；<strong>血腦屏障受破壞的病灶（如腫瘤、發炎）會出現異常顯影強化</strong></li>
+        <li><strong>血管本身：</strong>顯影劑注射時機抓在血管內濃度最高的時間點掃描，即為<strong>CT血管攝影（CT angiography）</strong></li>
+      </ul>
+
+      <div class="alert alert-success">
+        <div class="alert-label">顯影劑判讀的核心邏輯：找兩種「不正常」<span class="tag tag-exam">重要</span></div>
+        <p>臨床上<strong>最常見的顯影劑給藥途徑是IV（靜脈注射）</strong>，注射後比較顯影前後影像，本質上是在找兩種方向相反的異常：</p>
+        <div class="grid-2" style="margin-top:10px;">
+          <div class="card">
+            <div class="card-title">① 本來不該顯影，卻異常顯影</div>
+            <p>正常情況下該組織有屏障阻擋顯影劑、或血流量極低，<strong>不應該明顯顯影</strong>；若異常顯影，通常代表<strong>屏障被破壞</strong>或<strong>出現病理性血管增生</strong>。</p>
+          </div>
+          <div class="card">
+            <div class="card-title">② 本來該顯影，卻異常不顯影</div>
+            <p>正常情況下該組織血流灌注豐富、<strong>應該明顯顯影</strong>；若某區域異常不顯影，通常代表<strong>該處血流灌注中斷或組織已壞死</strong>。</p>
+          </div>
+        </div>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <thead><tr><th>方向</th><th>正常表現</th><th>異常時的意義</th><th>器官／構造實例</th></tr></thead>
+            <tbody>
+              <tr><td rowspan="3"><strong>① 不該顯影卻顯影</strong></td><td>腦實質：血腦屏障完整，顯影劑無法進入腦組織</td><td>血腦屏障受破壞（腫瘤、發炎、感染）</td><td>腦部腫瘤、腦炎、腦膿瘍出現異常顯影強化區</td></tr>
+              <tr><td>椎間盤髓核：正常無血管供應，不顯影</td><td>病灶侵犯或發炎反應</td><td>椎間盤炎（discospondylitis）、腫瘤侵犯椎間盤呈異常顯影</td></tr>
+              <tr><td>骨皮質／骨髓腔：血流供應相對低，顯影不明顯</td><td>骨髓腔或骨膜血管增生</td><td>骨髓炎（osteomyelitis）、骨腫瘤呈局部異常顯影</td></tr>
+              <tr><td rowspan="3"><strong>② 該顯影卻不顯影</strong></td><td>脾臟：血流極豐富，正常應強烈顯影</td><td>局部血流灌注中斷、組織壞死</td><td>脾梗塞、脾臟腫瘤壞死區呈局部不顯影</td></tr>
+              <tr><td>腎臟皮質：血流豐富，正常應強烈顯影</td><td>血管阻塞或缺血壞死</td><td>腎梗塞、腎皮質壞死呈楔形不顯影區</td></tr>
+              <tr><td>腫瘤中心：邊緣血流供應通常較內部豐富</td><td>腫瘤中心因生長過快而壞死</td><td>腫瘤呈「環狀顯影強化（ring enhancement）」——邊緣顯影、中心壞死不顯影，同時展現①②兩種方向</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p><strong>經腎絲球過濾排除（excretion by glomerular filtration）</strong>——這個排除路徑同時是<strong>CT urography（CT泌尿道攝影）</strong>的成像原理，也是顯影劑腎毒性風險的來源。</p>
+
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p20.png" alt="腹腔CT橫切面顯影劑注射前後對照，血管與器官顯影強化">
+        <div class="figure-caption">顯影劑注射前（左）與注射後（右）腹腔CT對照：注射後主動脈、腎臟、脾臟等血流豐富的構造明顯顯影強化（變白），血管輪廓也變得清晰可辨，這是評估器官血流灌注與血管構造的基礎。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p21.png" alt="犬隻sub-lumbar mass腫塊顯影劑注射前後對照">
+        <div class="figure-caption">Sub-lumbar mass（腰下腫塊）顯影劑注射前（左）與注射後（右）對照：腫塊在注射後呈現明顯不均勻顯影強化，與周圍正常組織的顯影模式不同，是判斷病灶血流特性與良惡性線索之一的實例。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-contrastreaction">顯影劑不良反應嚴重度分級<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>嚴重度</th><th>臨床表現</th></tr></thead>
+          <tbody>
+            <tr><td><strong>輕度 Mild</strong></td><td>皮膚紅疹、搔癢、鼻分泌物、噁心、嘔吐</td></tr>
+            <tr><td><strong>中度 Moderate</strong></td><td>輕度症狀持續不退、顏面或喉頭水腫、支氣管痙攣、呼吸困難、心搏過速或過緩</td></tr>
+            <tr><td><strong>重度 Severe</strong></td><td>致命性心律不整、低血壓、喉頭水腫、明顯支氣管痙攣、肺水腫、癲癇、昏厥、死亡</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-nephrotoxicity">顯影劑腎毒性 Contrast-Induced Nephrotoxicity<span class="tag tag-exam">重要</span></h3>
+      <p><strong>風險因子（人醫資料）：</strong>已存在的腎臟疾病、糖尿病、多發性骨髓瘤、蛋白尿、脫水、高血壓。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">預防措施</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;">
+          <li><strong>先評估是否真的需要顯影劑檢查</strong></li>
+          <li>使用<strong>低滲透壓顯影劑（low-osmolality contrast media）</strong></li>
+          <li>有前次不良反應病史的病患，考慮全身麻醉下進行、並給予術前用藥</li>
+          <li><strong>檢查前確認腎功能</strong></li>
+          <li>使用<strong>最低有效劑量</strong></li>
+          <li><strong>維持適當水合狀態（hydration）</strong></li>
+          <li>檢查前<strong>停用其他腎毒性藥物</strong></li>
+        </ul>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CT ARTIFACTS -->
+    <div class="section" id="section-ctartifacts">
+      <div class="section-head"><div class="section-num">7</div><h2>CT 偽像 CT Artifacts</h2></div>
+      <p class="section-desc">判讀CT影像前，須先能辨識這些技術性偽像，避免將其誤判為真正的病灶。</p>
+
+      <div class="grid-4">
+        <div class="card"><div class="card-title">動作偽像 Motion</div><p>病患配合度不足或未充分麻醉，掃描過程中移動造成影像模糊或重複邊緣</p></div>
+        <div class="card"><div class="card-title">射束硬化偽像 Beam Hardening</div><p>X光束通過高密度構造（如骨骼、金屬）後低能量光子被優先吸收，造成條紋狀偽像</p></div>
+        <div class="card"><div class="card-title">部分容積效應 Partial Volume Averaging</div><p>單一體素內同時包含多種不同衰減程度的組織時，該像素呈現的HU值是內部組織的平均值，可能掩蓋小病灶或使邊界模糊</p></div>
+        <div class="card"><div class="card-title">其他 Others</div><p>環狀偽像、金屬偽像等，視掃描機型與病患情況而定</p></div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MRI PHYSICS -->
+    <div class="section" id="section-mriphysics">
+      <div class="section-head"><div class="section-num">8</div><h2>MRI 物理基礎 Magnetic Resonance Imaging: Principles</h2></div>
+      <p class="section-desc">MRI的成像基礎與X光完全不同，是利用氫原子核在強磁場中的物理行為差異來產生訊號，理解這個起點才能理解後續各種脈衝序列的設計邏輯。</p>
+
+      <h3 id="drug-hydrogenproton">氫質子 Hydrogen Proton<span class="tag tag-exam">重要</span></h3>
+      <p>人體（與動物體）內含量最豐富的原子核是<strong>氫質子</strong>：帶<strong>正電荷</strong>，且不斷<strong>自旋（spinning about its own axis）</strong>——帶電荷的物體自旋會產生<strong>磁場</strong>，這是MRI能夠利用氫質子成像的物理基礎。在沒有外加磁場時，體內大量氫質子的自旋方向<strong>隨機排列</strong>，彼此磁場方向互相抵消，<strong>淨磁化量 M0 = 0</strong>；進入MRI的強磁場後，氫質子才會傾向沿磁場方向排列，產生可偵測的淨磁化訊號。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p27.png" alt="氫質子隨機排列淨磁化為零示意圖，與單一氫質子自旋產生磁場示意圖">
+        <div class="figure-caption">氫質子物理基礎：正電荷＋自身自旋（spinning about its own axis）產生磁場（右）；體內大量氫質子在沒有外加磁場時方向隨機排列，彼此磁化向量互相抵消，淨磁化量 M0 = 0（左）——這是MRI掃描前必須先施加強磁場讓質子排列整齊的原因。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3>臨床磁場強度分級</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分級</th><th>磁場強度</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>多數臨床磁場</td><td>0.5 – 3 tesla (T)</td><td>—</td></tr>
+            <tr><td>低磁場 Low field MR</td><td>0.2 – 0.5 tesla (T)</td><td>—</td></tr>
+            <tr><td><strong>高磁場 High field MR</strong></td><td>1 – 3 tesla (T)</td><td><strong>多數人醫醫院使用</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p28.png" alt="臨床用MRI掃描儀實際照片，包含機架與檢查床">
+        <div class="figure-caption">臨床用高磁場MRI掃描儀：可見中央的圓形磁場孔洞（bore）與可滑入的檢查床，磁場強度越高，訊噪比與軟組織對比通常越佳，但相對成本與掃描時間限制也需一併考量。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MRI SAFETY -->
+    <div class="section" id="section-mrisafety">
+      <div class="section-head"><div class="section-num">9</div><h2>MRI 安全性 MRI Safety</h2></div>
+      <p class="section-desc">MRI的強磁場對金屬物體是絕對且不可妥協的安全禁忌，這一節的內容在臨床實務上比任何診斷知識都更優先——進磁場室前的安全檢查一旦疏漏，後果可能是致命的。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">絕對禁忌：磁場中的金屬物體<span class="tag tag-exam">重要</span></div>
+        <p>鐵磁性金屬物體一旦進入強磁場範圍，會被磁場以極高的加速度吸入磁場中心，形成所謂的<strong>「飛彈效應（missile effect）」</strong>，對病患、工作人員與設備都可能造成嚴重傷害，是MRI最重要的安全議題（safety issue）。</p>
+      </div>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p29.png" alt="MRI磁場飛彈效應實際案例照片，氧氣瓶被吸入磁場孔洞、病床輪椅等大型金屬設備被吸附於磁場機架">
+        <div class="figure-caption">飛彈效應真實案例：氧氣鋼瓶被吸入磁場孔洞中央（左上）；病床、輪椅、麻醉機等大型金屬設備意外靠近磁場後被強力吸附固定於機架上（其餘三張）——這些都是真實發生過的MRI安全事故案例照片，說明磁場吸力遠超乎直覺想像。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3>禁止攜入磁場室的物品清單<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">病患相關</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>金屬植入物（Metal implants）</li>
+            <li>具磁性的醫療裝置：<strong>心臟節律器（cardiac pacemaker）</strong>、外科夾（clips）、骨科植入物等</li>
+            <li>項圈、牽繩（collar, leash）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">人員與設備相關</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>錢包、信用卡、手錶、鑰匙（wallet, credit card, watch, keys）</li>
+            <li>監測設備、針具、聽診器、推車（monitoring equipments, needles, stethoscope, trolley）</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="drug-metalartifact">金屬造成的影像扭曲 Image Distortion</h3>
+      <p>即使金屬物體本身不會被吸入（如深部骨科植入物），仍會在局部磁場產生嚴重不均勻，造成該區域<strong>影像嚴重扭曲變形（distortion）</strong>，使該範圍的解剖構造完全無法判讀。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p31.png" alt="脊椎MRI矢狀面影像，金屬植入物周圍嚴重影像扭曲偽像">
+        <div class="figure-caption">金屬植入物造成的影像扭曲：脊椎矢狀面MRI影像中，金屬植入物（如脊椎固定器材）周圍出現大範圍條紋狀高低訊號交錯的嚴重扭曲偽像，該區域解剖構造完全無法辨識判讀。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PULSE SEQUENCES -->
+    <div class="section" id="section-pulsesequences">
+      <div class="section-head"><div class="section-num">10</div><h2>常見脈衝序列 Common Pulse Sequences in MRI</h2></div>
+      <p class="section-desc">每一種脈衝序列都是針對特定臨床問題設計出來的「不同拍照方式」，讀這節的訣竅是問「這個序列想凸顯什麼、想消除什麼」，而不是死記訊號強弱。</p>
+
+      <h3>六大類常見序列<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">T1-weighted (T1W)</div><p>解剖細節佳，是顯影劑（Gd）前後對照的基礎序列</p></div>
+        <div class="card"><div class="card-title">T2-weighted (T2W)</div><p>對病灶（水腫、發炎、多數病灶）訊號變化最敏感，通常呈高訊號（亮）</p></div>
+        <div class="card"><div class="card-title">T1W post-gadolinium</div><p>注射Gd顯影劑後的T1W影像，凸顯血腦屏障破壞或血流豐富的病灶</p></div>
+        <div class="card"><div class="card-title">FLAIR</div><p>消除純液體（CSF）訊號，用於偵測腦室/腦溝旁病灶</p></div>
+        <div class="card"><div class="card-title">GE / SWI</div><p>對磁化率差異敏感，偵測出血、鈣化、金屬異物</p></div>
+        <div class="card"><div class="card-title">脂肪訊號抑制</div><p>STIR或化學脂肪飽和，消除脂肪訊號，偵測骨髓或脂肪旁病灶</p></div>
+      </div>
+
+      <h3 id="drug-t1t2">T1W vs. T2W 基礎對照<span class="tag tag-exam">重要</span></h3>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p33.png" alt="犬腦部正中矢狀切面與冠狀切面對照組織學切片，以及對應T1W與T2W橫切面MRI影像">
+        <div class="figure-caption">T1W與T2W對照：上排為腦部正中矢狀切面標本（左，綠線標示切面位置）與對應冠狀切面組織染色切片（右）；下排為同一部位的T1W（左）與T2W（右）MRI橫切面——腦室內的腦脊髓液（CSF）在T1W呈<strong>低訊號（暗）</strong>，在T2W呈<strong>高訊號（亮）</strong>，是判斷序列種類最直觀的解剖地標。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-t1postgd">T1W Post-Gadolinium：顯影強化評估</h3>
+      <p>注射Gadolinium（Gd／Gad）顯影劑後，比較顯影前後的T1W影像，可評估病灶的<strong>顯影強化模式</strong>——這是<strong>Gd（釓）的順磁性（paramagnetic property）</strong>所致，可用於評估：血管本身（正常或增生血管）、正常組織、病灶、<strong>血腦屏障是否受破壞</strong>。<strong>顯影後常搭配T1-weighted或FLAIR序列</strong>掃描；Gd顯影劑造成的過敏反應機率<strong>低於非離子型碘顯影劑</strong>。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p35.png" alt="鼻腔病灶MRI橫切面，T2W、T1W、T1W Post-Gd三序列對照，兩個病例">
+        <div class="figure-caption">鼻腔病灶的T2W／T1W／T1W Post-Gd三序列對照（上下各一病例）：病灶在T2W呈明顯高訊號；在未顯影的T1W呈中等偏低訊號、與周圍組織界線不易分辨；注射Gd顯影劑後（T1W Post-Gd）病灶明顯強化，邊界與內部結構變得清晰可辨——是評估鼻腔腫瘤範圍最重要的序列。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-flair">FLAIR（Fluid-Attenuated Inversion Recovery）<span class="tag tag-exam">重要</span></h3>
+      <p>機轉：<strong>消除純液體（如CSF）的訊號</strong>。臨床用途：偵測<strong>緊鄰含液體空間的病灶</strong>——腦室（ventricles）、腦溝（sulci）、囊腫（cyst）旁的病灶，若不使用FLAIR，這些病灶的高訊號可能被相鄰同樣呈高訊號的CSF掩蓋（輪廓消失效應的MRI版本）。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p37.png" alt="兩個病例的FLAIR與T2W序列對照，囊腫案例與腦室擴大案例">
+        <div class="figure-caption">FLAIR消除液體訊號的實際效果：<strong>病例1</strong>（上排）為一囊腫性病灶，在T2W呈明顯高訊號圓形構造，但在FLAIR上訊號被壓低（因其內容物為近似CSF的純液體），有助於確認病灶性質為囊腫而非實質腫瘤；<strong>病例2</strong>（下排）為腦室擴大（可能為水腦），T2W上腦室呈高訊號，FLAIR上腦室內CSF訊號同樣被抑制而呈暗色，凸顯FLAIR如何用「訊號有沒有被壓下去」來判斷內容物是否為單純液體。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-ge">GE（Gradient Echo）／SWI（Susceptibility Weighted Imaging）<span class="tag tag-exam">重要</span></h3>
+      <p>機轉：對不同組織間<strong>磁化率（magnetic susceptibility）差異</strong>特別敏感，尤其是<strong>順磁性或反磁性物質</strong>：變性血紅素（methemoglobin）、鐵（如ferritin鐵蛋白）、銅、黑色素、鈣化、外來金屬異物。這些物質在GE序列上會造成<strong>磁化率偽像（magnetic susceptibility artifacts）</strong>，呈現<strong>訊號流失（signal void）</strong>——影像上出現一塊明顯比周圍暗、且範圍常被放大（blooming effect）的區域，是偵測<strong>出血、鈣化、金屬異物</strong>最敏感的序列。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p39.png" alt="腦部病灶T1W T2W GE三序列對照，兩個病例，GE序列顯示明顯訊號流失暗區">
+        <div class="figure-caption">T1W／T2W／GE三序列對照（上下各一病例）：同一腦室旁病灶在T1W與T2W上僅表現為輕微訊號異常，但在GE序列上呈現明顯放大的黑色訊號流失區（signal void），提示病灶內含出血或鈣化等順磁性/反磁性物質——GE序列讓這類病灶的偵測敏感度大幅提升。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-fatsuppression">脂肪訊號抑制技術 Fat-Signal Suppression<span class="tag tag-exam">重要</span></h3>
+      <p>兩種常見技術：<strong>STIR（short T1 inversion recovery）</strong>與<strong>化學脂肪飽和（chemical fat-saturation）</strong>，機轉皆為<strong>消除脂肪的訊號</strong>。臨床用途：偵測<strong>緊鄰脂肪組織的病灶</strong>——<strong>骨髓病灶（bone marrow lesion）</strong>（骨髓含大量脂肪，病灶若不抑制脂肪訊號容易被掩蓋）、<strong>脂肪瘤（lipoma）</strong>旁的病灶、<strong>臂神經叢區域（brachial plexus region）</strong>（周圍富含脂肪組織，抑制後神經構造與病灶更易辨識）、<strong>淋巴瘤（lymphoma）</strong>等富含水分的腫瘤（腫瘤細胞緊密、含水量高，抑制掉周遭脂肪的高訊號後，腫瘤與背景的對比大幅提升）。原理與FLAIR相似，都是針對「某一種特定組織的訊號」做選擇性消除，藉此凸顯被這種組織掩蓋的病灶。</p>
+
+      <h4>STIR 的機轉：為什麼是「把脂肪歸零」，不是「把脂肪變暗」</h4>
+      <p>STIR 屬於<strong>反轉回復序列（inversion recovery）</strong>，操作上比一般序列多一個步驟：</p>
+      <div class="flow">
+        <div class="flow-node">180° 反轉脈衝<br><span style="font-size:.85em; color:var(--fg-faint);">先把 Mz 完全翻轉成 −Mz</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Mz 隨時間回復<br><span style="font-size:.85em; color:var(--fg-faint);">回復速度＝各組織自己的 T1</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">在 TI 時間點施加讀值脈衝<br><span style="font-size:.85em;">TI＝反轉時間，可自由設定</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">該時間點 Mz 的大小＝訊號強度</div>
+      </div>
+      <p>關鍵在於：Mz 從 −Mz 回復到 +Mz 的路上，<strong>一定會經過 0</strong>——這一刻該組織完全沒有縱向磁化量可以被激發，讀出來就是<strong>沒有訊號（黑）</strong>，稱為<strong>零點（null point）</strong>，零點出現的時間點只跟這個組織自己的 T1 有關（T1 越短，回復越快，零點出現得越早）。脂肪的 <strong>T1 特別短</strong>，所以只要把 <strong>TI 設定在脂肪的零點</strong>，讀值那一刻脂肪剛好通過 0，訊號被完全抹除；而其他組織（T1 較長，此時還沒回復到自己的零點）仍帶有磁化量、仍會產生訊號。這就是「選擇性消除某一種組織訊號」的物理基礎，不是靠後製把脂肪訊號調暗，而是<strong>造影當下脂肪真的沒有訊號可讀</strong>。</p>
+
+      <div class="figure">
+        <svg viewBox="0 0 640 400" role="img" aria-label="STIR反轉回復示意圖：脂肪與病灶組織的Mz縱向磁化量隨時間回復曲線，脂肪在TI時間點通過零點訊號歸零，病灶組織此時仍有明顯磁化量">
+          <line x1="60" y1="200" x2="600" y2="200" stroke="var(--line)" stroke-width="1"/>
+          <line x1="60" y1="30" x2="60" y2="360" stroke="var(--fg-faint)" stroke-width="1.5"/>
+          <line x1="60" y1="360" x2="600" y2="360" stroke="var(--fg-faint)" stroke-width="1.5"/>
+          <line x1="210" y1="30" x2="210" y2="360" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="4 4"/>
+          <text x="210" y="22" text-anchor="middle" font-size="13" fill="var(--accent)" font-weight="700">TI（脂肪零點）</text>
+          <text x="52" y="34" text-anchor="end" font-size="12" fill="var(--fg-faint)">+Mz</text>
+          <text x="52" y="204" text-anchor="end" font-size="12" fill="var(--fg-faint)">0</text>
+          <text x="52" y="364" text-anchor="end" font-size="12" fill="var(--fg-faint)">−Mz</text>
+          <text x="600" y="378" text-anchor="end" font-size="12" fill="var(--fg-faint)">時間 →</text>
+          <polyline points="60,350 87,315 114,284 141,256 168,232 195,211 210,200 222,192 249,175 276,160 330,136 384,117 438,102 492,91 546,82 600,75" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+          <polyline points="60,350 87,340 114,329 141,320 168,310 195,301 210,296 222,292 249,284 276,275 330,260 384,245 438,232 492,219 546,208 600,197" fill="none" stroke="var(--rust-700)" stroke-width="2.5"/>
+          <circle cx="210" cy="200" r="5" fill="var(--accent)"/>
+          <circle cx="210" cy="296" r="5" fill="var(--rust-700)"/>
+          <text x="605" y="79" font-size="13" fill="var(--accent)" font-weight="700">脂肪（T1短）</text>
+          <text x="605" y="201" font-size="13" fill="var(--rust-700)" font-weight="700">病灶／淋巴瘤（T1長）</text>
+          <text x="216" y="216" font-size="11.5" fill="var(--accent)">Mz=0 → 無訊號（被抹除）</text>
+          <text x="216" y="312" font-size="11.5" fill="var(--rust-700)">Mz仍大 → 有訊號（顯影）</text>
+        </svg>
+        <div class="figure-caption">STIR 反轉回復示意圖（自製示意圖，非病患影像）：脂肪 T1 短，回復快，在設定的 TI 時間點剛好通過零點，訊號被完全抹除（變黑）；病灶組織（如富含水分的淋巴瘤）T1 較長，同一時間點還遠離自己的零點，仍保有明顯的縱向磁化量，讀出來就是相對亮的訊號。兩者對比因此被拉開，病灶在暗背景中「浮出來」。</div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p>這正是為什麼 STIR 對<strong>淋巴瘤、水腫、發炎</strong>這類「含水量高、T1 相對較長」的病灶特別敏感——這些組織不會被歸零，而它們周遭常見的脂肪（皮下脂肪、體腔脂肪、骨髓脂肪）會被歸零，兩者訊號差距被最大化，病灶邊界因此格外清楚。同一份講義提到的化學脂肪飽和（chemical fat-saturation）是用不同的物理原理（利用脂肪與水的共振頻率差，先用選擇性脈衝把脂肪的橫向磁化打散）達到類似「消除脂肪訊號」的效果，兩者殊途同歸，但 STIR 對磁場不均勻的耐受度較好，臨床更常用於四肢／脊椎等磁場均勻度較差的部位。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PRACTICAL -->
+    <div class="section" id="section-practical">
+      <div class="section-head"><div class="section-num">11</div><h2>臨床操作與判讀要點 Practical Considerations</h2></div>
+      <p class="section-desc">掃描品質很大程度取決於擺位是否正確；判讀時則永遠要回到「這個發現對這隻動物的臨床表現有意義嗎」這個問題。</p>
+
+      <h3 id="drug-mriposition">MRI 擺位重點<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>選擇適當的線圈（appropriate coil）</strong>：不同大小、不同部位的線圈訊噪比表現不同</li>
+        <li><strong>感興趣部位應盡量靠近線圈、置於線圈中心（close to the coil、center of the coil）</strong>：訊號強度隨距線圈的距離快速下降</li>
+        <li><strong>維持病患姿勢端正筆直（keep the position straight）</strong>：歪斜會造成左右不對稱的偽影像比較困難</li>
+      </ul>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p43.png" alt="脊椎矢狀面MRI影像，擺位良好與擺位不佳的訊號品質對照">
+        <div class="figure-caption">擺位品質對影像的影響：上圖擺位端正、線圈涵蓋良好，脊椎與脊髓訊號均勻清晰；下圖擺位角度偏移，可見部分區域訊號不均勻、對比下降，說明良好擺位是取得可判讀影像的前提，不能單靠後製調整彌補。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <h3 id="drug-significantlesion">有意義病灶 vs. 偶然發現<span class="tag tag-exam">重要</span></h3>
+      <p>並非每一個影像上看到的異常訊號都代表臨床顯著病灶——<strong>偶然發現（incidental findings）</strong>在健康或無關臨床症狀的動物身上並不少見（如輕微椎間盤突出但無神經學症狀）。判讀時必須<strong>結合病史、神經學／理學檢查的定位結果，以及影像特徵</strong>綜合判斷，才能決定該發現是否足以解釋病患目前的臨床表現、是否需要進一步處置。</p>
+      <div class="figure">
+        <img src="img/CTMRI原理/ctmri_p44.png" alt="脊椎矢狀面MRI影像兩個案例對照，展示影像異常程度的判讀差異">
+        <div class="figure-caption">「有意義病灶 vs. 偶然發現」的判讀思維：兩張脊椎矢狀面影像中椎間盤與脊髓的訊號變化程度不同，臨床上是否將某個影像所見判定為「解釋目前症狀的病灶」，需要對照病患實際的神經學定位與病史，而非僅憑影像本身的異常程度下定論。</div>
+        <div class="figure-source">來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">12</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試最愛出「依構造選CT或MRI」「HU數值配對」「脈衝序列辨識」三種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>CT對骨骼／胸腔最強，MRI對腦部／肌肉最強，MRI幾乎不能用於肺部</strong>；CT僅直接取得橫切面（其餘靠重組），MRI任何切面皆可直接掃描。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>HU以水為0基準：</strong>骨骼+1000、空氣-1000；<strong>窗位（WL）＝感興趣組織HU值，窄窗寬增加對比、寬窗寬涵蓋廣泛範圍</strong>，同一份CT資料可用骨窗/軟組織窗/肺窗呈現完全不同畫面。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>多切螺旋CT</strong>薄層連續掃描使影像重組（矢狀面、3D重建）更平滑；碘顯影劑IV評估正常組織/病灶/血腦屏障/血管，經腎絲球過濾排除，須注意腎毒性風險與預防措施。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>CT偽像四類：</strong>動作、射束硬化、部分容積效應、其他（環狀/金屬偽像）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>MRI靠氫質子（正電荷＋自旋）在強磁場中的行為成像</strong>，無磁場時M0=0；<strong>磁場對金屬物體是絕對安全禁忌（飛彈效應）</strong>，心臟節律器、金屬植入物、項圈、監測設備一律禁止進入磁場室。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>T1W解剖細節佳（Gd顯影前後對照用）；T2W病灶敏感度高</strong>；CSF在T1W暗、T2W亮，是辨識序列種類的地標。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>FLAIR消除純液體訊號</strong>（偵測腦室/腦溝旁病灶、鑑別囊腫）；<strong>GE/SWI對磁化率差異敏感</strong>（出血/鈣化/金屬呈訊號流失signal void）；<strong>脂肪訊號抑制（STIR/化學脂肪飽和）</strong>消除脂肪訊號（偵測骨髓病灶、脂肪瘤旁病灶、臂神經叢）。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>擺位須靠近線圈中心且端正</strong>；判讀時須區分「有意義病灶」與「偶然發現」，結合病史與神經學/理學檢查定位綜合判斷，不能只看影像異常程度。</div></div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈CT and MRI: Clinical Applications in Veterinary Medicine〉（張雅珮）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋CT/MRI構造選擇、HU與窗寬窗位、MRI安全性、脈衝序列辨識各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 一隻犬疑似有腦部病灶需要進一步影像檢查，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 應優先選擇CT，因為CT對腦部顯影能力最強</li>
+          <li>(B) 應優先選擇MRI，因為MRI對腦部軟組織的顯影能力遠優於CT</li>
+          <li>(C) CT與MRI對腦部的顯影能力完全相同，選哪一種都可以</li>
+          <li>(D) 應優先選擇胸腔X光，較快速且便宜</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">依講義的構造別顯影能力比較表，MRI對腦部的顯影能力為「++++」（最強等級），CT對腦部僅「+」（顯影能力有限）；MRI對軟組織尤其是腦部的對比解析度遠優於CT，因此懷疑腦部實質病灶時應優先選擇MRI。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. CT掃描時可以直接取得矢狀面（sagittal）與背側面（dorsal）影像，不需要經過電腦重組。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">CT掃描時X光管與偵測器只繞著病患的橫軸旋轉，因此只能直接取得橫切面（transverse planes）影像；矢狀面與背側面影像都必須透過電腦將一系列橫切面資料重新運算組合（reconstruction）才能取得。相對地，MRI可以直接掃描任何切面，不需要依賴重組。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 判讀同一張腹腔CT時，若想清楚評估肝臟、脾臟等軟組織構造的細節，同時又想確認是否有肋骨骨折，最適合的做法是？</div>
+        <ul class="quiz-options">
+          <li>(A) 只用寬窗寬、低窗位觀察整張影像</li>
+          <li>(B) 分別用軟組織窗（窄窗寬、WL約50）與骨窗（寬窗寬、WL約300）觀察同一份原始資料</li>
+          <li>(C) 必須重新掃描兩次才能得到兩種畫面</li>
+          <li>(D) CT無法同時評估軟組織與骨骼，必須改用MRI</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">CT windowing的核心概念就是同一份原始HU資料可以透過切換窗寬窗位設定，呈現出完全不同的畫面重點：軟組織窗（窄窗寬、WL約50）能放大軟組織間本身就不大的HU差異、提供最佳軟組織對比；骨窗（寬窗寬、WL約300）則涵蓋更廣的HU範圍以完整呈現骨質細節。不需要重新掃描，只需要切換窗設定即可分別觀察。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 為什麼MRI檢查前，所有病患身上的項圈、監測導線、以及工作人員的鑰匙、聽診器等金屬物品都必須完全移除，而不能只是「盡量小心」？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">MRI利用強力磁場運作，對於鐵磁性金屬物體而言，磁場並非漸進式的輕微吸引力，而是會在物體越靠近磁場中心時，以急遽增加的加速度將其猛力吸入磁場核心，形成所謂的「飛彈效應」。這個力量遠超乎直覺想像，講義中展示的真實案例照片包括氧氣鋼瓶、病床、輪椅等大型金屬設備都曾被強力吸入或吸附固定於機架上。因為這個效應是磁場強度與距離的物理特性所決定、幾乎無法用「小心操作」來規避或預測確切的危險距離，唯一安全的做法就是在病患與工作人員進入磁場室之前，徹底、無例外地移除所有金屬與磁性物品，任何僥倖心態都可能導致嚴重的人員傷亡或設備損壞。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻10歲貓因慢性鼻分泌物與間歇性鼻出血就診，理學檢查發現鼻樑略微變形。獸醫師安排MRI檢查，掃描後在T2W影像上發現鼻腔內有一團明顯高訊號的軟組織構造，同時在T1W影像上呈現中等偏低訊號、邊界不易與周圍正常組織區分。請問：(1) 接下來應該加做哪一個序列，理由是什麼？(2) 若同時發現病灶內有一小塊在GE序列上呈現明顯訊號流失（signal void）的區域，這可能代表什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 建議加做序列：</strong>應注射Gadolinium顯影劑後，加做<strong>T1W Post-Gadolinium（顯影後T1W）序列</strong>。理由是：目前的T1W影像因病灶與周圍正常組織訊號接近而邊界不清，單靠T1W與T2W難以準確界定病灶的實際侵犯範圍；Gd顯影劑注射後，病灶（尤其若血流豐富或有異常血管增生）會出現明顯的顯影強化，使病灶邊界與內部結構在T1W Post-Gd影像上變得清晰可辨，這對於後續評估腫瘤侵犯範圍、規劃手術或放射治療範圍都至關重要，也是鼻腔腫瘤性病灶影像評估的標準流程。<br><strong>(2) GE序列訊號流失的意義：</strong>GE（Gradient Echo）序列對磁化率差異特別敏感，順磁性或反磁性物質（如變性血紅素、鐵、鈣化、金屬異物）會在GE序列上造成訊號流失（signal void），且範圍常因磁化率效應而被放大（blooming effect）。因此病灶內若在GE序列出現明顯訊號流失區域，最可能代表該處<strong>存在出血（含變性血紅素或鐵沉積）或鈣化</strong>，這在鼻腔腫瘤中並不少見（腫瘤內部壞死出血、或伴隨骨質破壞產生的鈣化碎片），這項發現有助於進一步描述病灶特性，但仍需要合併細胞學或組織病理學檢查才能確診腫瘤的最終性質。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  overview: 'CT 與 MRI 的差異',
+  ctphysics: 'CT 成像原理與機型',
+  hounsfield: 'Hounsfield Unit 與窗寬窗位',
+  reconstruction: '影像重組',
+  contrast: '顯影劑與腎毒性',
+  ctartifacts: 'CT 偽像',
+  mriphysics: 'MRI 物理基礎',
+  mrisafety: 'MRI 安全性',
+  pulsesequences: '常見脈衝序列',
+  practical: '臨床操作與判讀要點',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

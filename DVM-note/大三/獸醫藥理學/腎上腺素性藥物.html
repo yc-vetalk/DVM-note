@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：腎上腺素性藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">腎上腺素性藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">腎上腺素性藥物 Adrenergic Agonists &amp; Antagonists</h1>
+      <p class="page-subtitle">腎上腺素性受體基礎、兒茶酚胺生合成與代謝、物種藥效差異、擬交感神經藥物、α／β阻斷劑整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Drugs Affecting Peripheral Nervous System，ANS 1 handout）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-24</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎架構</div>
+    <a onclick="showSection('receptors')" id="nav-receptors"><span class="nav-icon">🧬</span> 腎上腺素性受體與訊息傳遞</a>
+    <a onclick="showSection('catecholaminepk')" id="nav-catecholaminepk"><span class="nav-icon">🔄</span> 兒茶酚胺生合成與代謝</a>
+    <a onclick="showSection('speciesvariation')" id="nav-speciesvariation"><span class="nav-icon">🐾</span> 物種藥效差異</a>
+    <div class="section-label" style="margin-top:8px;">致效劑</div>
+    <a onclick="showSection('catecholamines')" id="nav-catecholamines"><span class="nav-icon">💉</span> 內生性兒茶酚胺</a>
+    <a onclick="showSection('syntheticagonists')" id="nav-syntheticagonists"><span class="nav-icon">💊</span> 合成擬交感神經藥物</a>
+    <a onclick="showSection('betaagonistfood')" id="nav-betaagonistfood"><span class="nav-icon">⚠️</span> β-agonist 食品安全議題</a>
+    <div class="section-label" style="margin-top:8px;">拮抗劑</div>
+    <a onclick="showSection('alphablockers')" id="nav-alphablockers"><span class="nav-icon">🔴</span> α-受體阻斷劑</a>
+    <a onclick="showSection('betablockers')" id="nav-betablockers"><span class="nav-icon">🔵</span> β-受體阻斷劑</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章的主線跟膽鹼性藥物那章很像——先建立<strong>受體地圖</strong>（α1、α2、β1、β2、β3），再把所有藥物掛到對應受體上。α1 主要負責血管收縮，α2 有「自體受體負回饋」與「中樞鎮靜」兩種身分；β1 主要在心臟（收縮力與心率），β2 主要在支氣管與血管平滑肌（放鬆），β3 主要在脂肪細胞。搞懂這張地圖後，內容分兩條路線：<strong>致效劑（Agonists）</strong>從內生性的 Epinephrine／Norepinephrine／Dopamine 出發，延伸到臨床上依「選擇性」設計出來的各種合成藥物（β2 選擇性支氣管擴張劑、α1 選擇性升壓劑），中間夾雜一個重要的食品安全議題——β-agonist 類「瘦肉精」藥物殘留中毒事件；<strong>拮抗劑（Antagonists）</strong>則分 α-blocker 與 β-blocker 兩大類，α-blocker 臨床上常用來逆轉 α2-agonist 鎮定劑效果，β-blocker 則是獸醫心臟科治療心律不整的常用工具。讀這章的訣竅：先把受體地圖跟訊息傳遞路徑（Gq/Gi/Gs）記熟，之後每個藥物只需要問「選擇性作用在哪個受體」就能推出臨床用途與副作用。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('receptors')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體地圖</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">α1/α2/β1/β2/β3</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('catecholamines')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">內生性兒茶酚胺</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Epi/NE/Dopamine</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('syntheticagonists')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">合成擬交感藥</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">依選擇性設計</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('alphablockers')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">α／β阻斷劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">逆轉鎮定劑／抗心律不整</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>受體訊息傳遞方向：</strong>α1偶聯Gq（收縮）、α2偶聯Gi/o（抑制）、β1/β2/β3皆偶聯Gs（放鬆/興奮，依組織而定）——α2位於突觸前的自體受體上會負回饋抑制NE釋放，是α2 agonist鎮靜劑機轉的基礎。</li>
+          <li><strong>Xylazine的物種效力差異源自受體亞型分布：</strong>反芻動物表現α2D受體、非反芻動物表現α2A受體，Xylazine對α2D親和力較高，故牛的鎮靜效果比單胃動物更強——這是選劑量時的關鍵物種考量。</li>
+          <li><strong>Epinephrine的劑量依賴雙相效應：</strong>低劑量活化β1+β2，血壓變化小；高劑量活化α受體致血管收縮，總周邊阻力上升致血壓上升，蓋過β2的血管舒張效果。</li>
+          <li><strong>Dopamine依劑量活化不同受體：</strong>低劑量活化D1（腎血管舒張、利尿）；高劑量活化α1+β1（全身血管收縮＋正性肌力）。</li>
+          <li><strong>Clenbuterol食品殘留是真實發生過的公共衛生事件：</strong>1992年西班牙爆發113例食物中毒，因牛肝殘留代謝緩慢的Clenbuterol所致，這類β2-agonist類「瘦肉精」藥物在多數國家禁用於食品動物。</li>
+          <li><strong>Tubocurarine類神經肌肉阻斷劑逆轉用抗ChE藥物，但α2-agonist鎮定劑逆轉要用α2拮抗劑（Yohimbine、Tolazoline、Atipamezole）</strong>——不要跟膽鹼性藥物那章的逆轉劑邏輯搞混，機轉完全不同的兩類藥物各自有專屬的拮抗劑。</li>
+          <li><strong>β-blocker的心臟選擇性（β1 vs 非選擇性）決定氣喘病患能不能用：</strong>非選擇性（Propranolol）會阻斷β2致支氣管收縮，氣喘病患禁忌；β1選擇性（Metoprolol、Atenolol、Esmolol）相對安全，是氣喘或慢性阻塞性肺病病患的優先選擇。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Epinephrine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Adrenaline</div></td><td>α1+β1+β2非選擇性致效劑（劑量依賴雙相效應）</td><td>★過敏性休克、心肺復甦、延長局麻藥作用、局部止血</td><td class="drug-locations"><a href="#drug-epinephrine" class="drug-link">內生性兒茶酚胺</a></td></tr>
+            <tr><td>Norepinephrine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Noradrenaline</div></td><td>α1為主致效劑（升壓效果強於Epi）</td><td><strong>IV輸注</strong>；矯正脊髓麻醉引起的低血壓；不適用於多數休克類型；外滲致組織壞死</td><td class="drug-locations"><a href="#drug-epinephrine" class="drug-link">內生性兒茶酚胺</a></td></tr>
+            <tr><td>Dopamine</td><td>低劑量D1致效（血管舒張）；高劑量α+β1致效（血管收縮＋正性肌力）</td><td><strong>IV Furosemide</strong>；★敗血性休克、心因性休克、急性心衰竭；IV給藥</td><td class="drug-locations"><a href="#drug-dopamine" class="drug-link">內生性兒茶酚胺</a></td></tr>
+            <tr><td>Isoproterenol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Isoprenaline</div></td><td>非選擇性β1/β2致效劑</td><td><strong>不可口服</strong>；急性支氣管收縮（氣喘）、完全房室傳導阻滯</td><td class="drug-locations"><a href="#drug-isoproterenol" class="drug-link">合成擬交感神經藥物</a></td></tr>
+            <tr><td>Phenylephrine</td><td>非兒茶酚胺類α1致效劑</td><td><strong>IV或局部（鼻用）</strong>；氣體麻醉中不希望心臟刺激的升壓劑；鼻腔/支氣管解充血劑</td><td class="drug-locations"><a href="#drug-phenylephrine" class="drug-link">合成擬交感神經藥物</a></td></tr>
+            <tr><td>Dobutamine</td><td>β1致效劑為主（弱β2與α）</td><td>IV輸注短期治療心衰竭（≤3天，受體下調），正性肌力效果大於正性變時</td><td class="drug-locations"><a href="#drug-dobutamine" class="drug-link">合成擬交感神經藥物</a></td></tr>
+            <tr><td>Ephedrine</td><td>混合型（間接促NE釋放＋直接弱β2致效）</td><td>口服治氣喘樣症狀與尿失禁；可穿BBB致中樞興奮</td><td class="drug-locations"><a href="#drug-ephedrine" class="drug-link">合成擬交感神經藥物</a></td></tr>
+            <tr><td>Phenylpropanolamine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">PPA</div></td><td>類似Ephedrine的擬交感神經藥</td><td><strong>PO</strong>；★獸醫最常用於控制犬貓尿失禁；人用已因出血性中風風險下市</td><td class="drug-locations"><a href="#drug-ppa" class="drug-link">合成擬交感神經藥物</a></td></tr>
+            <tr><td>Terbutaline</td><td>β2致效劑（高劑量弱β1）</td><td>心臟病/甲亢/高血壓病患首選支氣管擴張劑；馬口服無效</td><td class="drug-locations"><a href="#drug-terbutaline" class="drug-link">β-Agonist食品安全議題</a></td></tr>
+            <tr><td>Albuterol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Salbutamol</div></td><td>選擇性β2致效劑</td><td>犬貓馬氣霧劑或口服緩解支氣管痙攣或咳嗽</td><td class="drug-locations"><a href="#drug-albuterol" class="drug-link">β-Agonist食品安全議題</a></td></tr>
+            <tr><td>Clenbuterol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">克崙特羅</div></td><td>選擇性β2致效劑</td><td><strong>選擇性β2致效劑，馬口服用於治療慢性阻塞性肺病等氣道阻塞疾病</strong>；★馬氣道阻塞疾病；代謝緩慢易殘留，僅核准用於馬、禁用產食動物（1992西班牙食物中毒事件）</td><td class="drug-locations"><a href="#drug-clenbuterol" class="drug-link">β-Agonist食品安全議題</a></td></tr>
+            <tr><td>Isoxsuprine</td><td>選擇性β2致效劑</td><td>馬骨骼肌血管舒張，治蹄舟骨疾病；口服效果不佳</td><td class="drug-locations"><a href="#drug-isoxsuprine" class="drug-link">β-Agonist食品安全議題</a></td></tr>
+            <tr><td>Ractopamine</td><td>非選擇性β致效劑（β1+β2）</td><td><strong>PO（飼料添加）</strong>；牛豬火雞飼料添加物（體組成改變劑），FDA核准，零停藥期</td><td class="drug-locations"><a href="#drug-ractopamine" class="drug-link">β-Agonist食品安全議題</a></td></tr>
+            <tr><td>Zilpaterol</td><td>選擇性β2致效劑</td><td><strong>PO（飼料添加）</strong>；肉牛飼料添加物（體組成改變劑）；屠宰前停藥期3天</td><td class="drug-locations"><a href="#drug-zilpaterol" class="drug-link">β-Agonist食品安全議題</a></td></tr>
+            <tr><td>Phenoxybenzamine</td><td>非競爭性α受體阻斷劑（共價鍵結，不可逆）</td><td><strong>PO</strong>；嗜鉻細胞瘤；犬貓尿道括約肌張力過高；馬蹄葉炎</td><td class="drug-locations"><a href="#drug-phenoxybenzamine" class="drug-link">α-受體阻斷劑</a></td></tr>
+            <tr><td>Prazosin</td><td>競爭性選擇性α1拮抗劑</td><td>口服治充血性心衰竭與高血壓</td><td class="drug-locations"><a href="#drug-prazosin" class="drug-link">α-受體阻斷劑</a></td></tr>
+            <tr><td>Phentolamine</td><td>競爭性α1與α2雙重拮抗劑</td><td>IV/IM治高血壓、控制擬交感神經胺過量所致高血壓</td><td class="drug-locations"><a href="#drug-phentolamine" class="drug-link">α-受體阻斷劑</a></td></tr>
+            <tr><td>Yohimbine</td><td>α2 adrenergic receptor拮抗劑</td><td><strong>IV或IM</strong>；單胃動物α2拮抗劑，反芻動物效果有限；逆轉Xylazine/Medetomidine/Amitraz</td><td class="drug-locations"><a href="#drug-yohimbine" class="drug-link">α-受體阻斷劑</a></td></tr>
+            <tr><td>Tolazoline</td><td>α1／α2 adrenergic receptor拮抗劑</td><td><strong>緩慢IV</strong>；α1/α2拮抗劑，反芻動物適用；反芻動物對抗α2 agonist的有效解毒劑</td><td class="drug-locations"><a href="#drug-tolazoline" class="drug-link">α-受體阻斷劑</a></td></tr>
+            <tr><td>Atipamezole</td><td>α2 adrenergic receptor拮抗劑（高選擇性）</td><td><strong>IM為佳</strong>；α2拮抗劑，全物種有效，價格昂貴；核准逆轉Dexmedetomidine</td><td class="drug-locations"><a href="#drug-atipamezole" class="drug-link">α-受體阻斷劑</a></td></tr>
+            <tr><td>Propranolol</td><td>非選擇性β拮抗劑（β1+β2），具膜穩定活性</td><td><strong>首渡效應顯著，犬口服生體可用率僅2–27%</strong>；甲狀腺毒症/嗜鉻細胞瘤相關心律不整與高血壓；★氣喘動物禁忌</td><td class="drug-locations"><a href="#drug-propranolol" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Metoprolol</td><td>選擇性β1拮抗劑（高劑量也阻斷β2）</td><td><strong>首渡效應顯著（50%）降低口服生體可用率</strong>；★支氣管痙攣性疾病病患比Propranolol更安全；室上性心搏過速、HCM</td><td class="drug-locations"><a href="#drug-metoprolol" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Atenolol</td><td>選擇性β1拮抗劑（高劑量也阻斷β2）</td><td>口服治室上性心律不整、貓HCM與高血壓；脂溶性低較少進CNS</td><td class="drug-locations"><a href="#drug-atenolol" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Esmolol</td><td>選擇性β1拮抗劑</td><td><strong>口服q12h</strong>；IV心搏過速首選之一，短效（~20分鐘）常用於測試β-blocker效果</td><td class="drug-locations"><a href="#drug-esmolol" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Sotalol</td><td>低劑量非選擇性β拮抗；高劑量Class III抗心律不整（K⁺通道阻斷）</td><td>口服治犬（貓）心室性心搏過速</td><td class="drug-locations"><a href="#drug-sotalol" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Carvedilol</td><td>非選擇性β（β1+β2）併α1阻斷</td><td><strong>口服q12h</strong>；人醫高血壓/CHF/心肌梗塞後；獸醫證據仍有限</td><td class="drug-locations"><a href="#drug-carvedilol" class="drug-link">β-受體阻斷劑</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- RECEPTORS -->
+    <div class="section" id="section-receptors">
+      <div class="section-head"><div class="section-num">3</div><h2>腎上腺素性受體與訊息傳遞 Adrenergic Receptors</h2></div>
+      <p class="section-desc">所有腎上腺素性藥物的分類，最終都要回答「作用在哪個受體亞型」——這是全章的共同座標。</p>
+
+      <h3 id="drug-alphareceptors">α-腎上腺素性受體</h3>
+      <ul>
+        <li>廣泛分布於多種組織</li>
+        <li><strong>α2受體也存在於腎上腺素神經末梢的突觸前位置</strong>（presynaptic autoreceptors）</li>
+        <li><strong>α1受體偶聯Gq</strong>；<strong>α2受體偶聯Gi/o</strong></li>
+      </ul>
+
+      <h3 id="drug-betareceptors">β-腎上腺素性受體（β1、β2、β3）</h3>
+      <ul>
+        <li>β1與β2廣泛分布於多種組織，產生各種不同效應</li>
+        <li><strong>β3受體主要分布於脂肪細胞，部分存在於心肌</strong></li>
+        <li><strong>三種亞型皆偶聯Gs</strong></li>
+      </ul>
+
+      <h3>α2受體的雙重身分<span class="tag tag-exam">重要</span></h3>
+      <p>分布：CNS、心血管、腎臟、GI等系統；<strong>同時存在突觸前與突觸後位置</strong>。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">突觸前 Presynaptic</div>
+          <p>交感神經末梢的α2受體負回饋<strong>降低NE釋放</strong>；調控NE、ACh、5-HT等神經傳導物釋放。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">生理效應</div>
+          <p>↓交感張力→↓心臟功能；經抑制ACh釋放↓GI蠕動與分泌（可能有助控制腹瀉）；抑制ADH釋放及其在集尿管的水吸收作用→產生利尿效果；↓胰島素分泌→高血糖（反芻動物可持續&gt;24小時）。</p>
+        </div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ α2 agonist（如Xylazine、Medetomidine）作為鎮定劑的完整臨床應用，見 <a href="鎮靜與術前用藥.html">鎮靜與術前用藥</a> 專頁。</p>
+    </div>
+
+    <!-- CATECHOLAMINE PK -->
+    <div class="section" id="section-catecholaminepk">
+      <div class="section-head"><div class="section-num">4</div><h2>兒茶酚胺生合成與代謝</h2></div>
+      <p class="section-desc">理解內生性兒茶酚胺怎麼被製造、怎麼被清除，是理解後面所有致效劑臨床用途與給藥途徑限制的基礎。</p>
+
+      <h3>生合成路徑</h3>
+      <div class="flow">
+        <div class="flow-node">前驅物質</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Dopamine（腎上腺髓質、交感神經、CNS與腸道之多巴胺能神經元）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Norepinephrine</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Epinephrine（Adrenaline）</div>
+      </div>
+      <p style="font-size:.9em;">Isoproterenol為合成藥物，屬於異丙基取代的兒茶酚胺類似物，此結構修飾決定了它的受體選擇性。</p>
+
+      <h3 id="drug-catecholaminedeactivation">兒茶酚胺去活化機轉<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>突觸前再回收（Reuptake）：</strong>MAO使已釋放NE的87%失活；<strong>Cocaine透過阻斷再回收產生擬交感效果</strong></li>
+        <li><strong>效應細胞攝取：</strong>MAO與COMT代謝約5%已釋放的NE</li>
+        <li><strong>肝腎代謝：</strong>肝臟與腎臟富含MAO與COMT，使循環中的兒茶酚胺失活，約8%已釋放的NE透過此機轉處理</li>
+        <li><strong>口服兒茶酚胺無效</strong>（首渡代謝完全破壞）；代謝物經尿液排出</li>
+      </ul>
+    </div>
+
+    <!-- SPECIES VARIATION -->
+    <div class="section" id="section-speciesvariation">
+      <div class="section-head"><div class="section-num">5</div><h2>物種藥效差異 Species Variation</h2></div>
+      <p class="section-desc">同一顆藥在不同物種身上效力可能天差地遠，理解背後的受體分布或代謝差異，是選劑量安全用藥的關鍵。</p>
+
+      <h3 id="drug-xylazinespecies">Xylazine：反芻動物 vs 非反芻動物<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-info">
+        <div class="alert-label">藥效學差異（PD difference）</div>
+        <p><strong>反芻動物表現α2D受體，非反芻動物表現α2A受體</strong>；Xylazine對α2D受體的活性較高，故對<strong>牛</strong>產生更強效的鎮靜效果——這是牛隻使用Xylazine時劑量需要特別謹慎（容易過量）的受體層級原因。</p>
+      </div>
+
+      <h3>Morphine：貓 vs 犬（跨章節對照）</h3>
+      <p>藥效學差異——Morphine在<strong>貓的有效劑量（0.1 mg/kg）遠低於犬（1 mg/kg）</strong>；貓高劑量可能誘發興奮，此效應由中樞多巴胺受體介導、可被多巴胺阻斷劑（Droperidol）抑制；<strong>馬使用Meperidine（另一種opioid）後容易出現過度興奮的自發性運動</strong>。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Opioid類藥物完整的物種CNS反應差異，見 <a href="鴉片類止痛藥.html#section-pharmacology">鴉片類止痛藥：藥理作用與物種差異</a>。</p>
+    </div>
+
+    <!-- CATECHOLAMINES -->
+    <div class="section" id="section-catecholamines">
+      <div class="section-head"><div class="section-num">6</div><h2>內生性兒茶酚胺 Endogenous Catecholamines</h2></div>
+      <p class="section-desc">Epinephrine、Norepinephrine、Dopamine 三者的藥理效果，是理解後面所有合成擬交感神經藥物「選擇性設計邏輯」的起點。</p>
+
+      <h3 id="drug-epinephrine">Epinephrine（EP，Adrenaline）藥理效果<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">升壓效應：劑量依賴雙相反應</div>
+          <p><strong>低劑量：</strong>活化α1+β1+β2，血壓變化不大——β2使骨骼肌血流增加、α1+β1的心搏輸出增加互相抵銷。<strong>高劑量：</strong>α受體活化致血管收縮，總周邊阻力增加、蓋過β2的血管舒張效果，β1的心臟刺激也貢獻升壓；生理上會刺激壓力反射。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">血管與心臟效應</div>
+          <p>α受體致大多數組織（GI、腎、肺、皮膚）血管收縮、血流減少，但<strong>骨骼肌</strong>低劑量（β2）血流增加、高劑量（α）血流減少；<strong>心臟</strong>血流因心臟作功增加的代謝產物而增加。心臟效應以β1為主：正性肌力＋正性變時＋心輸出量、興奮性與自主性（心律不整風險）增加，但效率下降（耗氧量增加）。</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>平滑肌／器官</th><th>效應</th></tr></thead>
+          <tbody>
+            <tr><td>腸胃道</td><td>β2放鬆平滑肌；α1收縮括約肌；β2↓副交感神經節突觸前ACh釋放（↓GI蠕動與分泌）</td></tr>
+            <tr><td>子宮</td><td>α收縮、β2放鬆，依動情週期、懷孕與物種而定</td></tr>
+            <tr><td>膀胱</td><td>β2放鬆底部；α1收縮三角區與括約肌→尿滯留</td></tr>
+            <tr><td>支氣管</td><td>β2支氣管擴張</td></tr>
+            <tr><td>眼睛</td><td>α1放射狀肌收縮→散瞳（mydriasis）；β2↓房水產生→↓眼內壓</td></tr>
+            <tr><td>脾臟</td><td>α1收縮→血比容上升（尤其犬）</td></tr>
+            <tr><td>立毛肌</td><td>α1收縮→豎毛（尤其食肉動物驚恐/憤怒反應）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>代謝效應：</strong>肝臟、骨骼肌、脂肪組織血糖、游離脂肪酸、乳酸濃度上升；部分經β2↓胰島素分泌、α1/β1促進肝醣分解所致；<strong>NE（α1為主）升壓效果強於Epi</strong>，因骨骼血管床缺乏β2舒張效果；NE較低劑量即可觸發壓力反射，可能強到蓋過α1直接心臟刺激而降低心輸出量。</p>
+
+      <h3>Epinephrine 臨床用途</h3>
+      <p>EP、NE、Dopamine皆須腸胃外或局部給藥（口服無效）。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">臨床應用</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>治療嚴重過敏反應（如過敏性休克：血壓下降＋支氣管痙攣）</li>
+            <li>心跳停止後心肺復甦</li>
+            <li>減少皮膚血流，延長局部麻醉藥作用時間</li>
+            <li>局部止血（局部性出血控制）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">不良反應</div>
+          <p>焦慮、恐懼、躁動與顫抖；心悸；腦出血；心律不整（尤其甲狀腺機能亢進病患）；心肌耗氧量增加對衰竭心臟可能有害。</p>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">NE 臨床限制</div>
+        <p>NE可用於矯正脊髓麻醉引起的低血壓，但<strong>不適用於矯正多數休克類型的低血壓</strong>——因為這些休克已有高交感活性，進一步血管收縮可能損害腎臟與腸繫膜循環；NE外滲致組織壞死與脫皮（血管收縮所致）。</p>
+      </div>
+
+      <h3 id="drug-dopamine">Dopamine：劑量依賴受體切換<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">兒茶酚胺無法穿越BBB</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">低劑量：活化D1（Gs／cAMP）→血管舒張（腎、腸繫膜、冠狀血管床）＋利尿（腎血流灌注增加）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">高劑量：活化α與β1→全身血管收縮＋正性肌力</div>
+      </div>
+      <p><strong>治療用途：</strong>敗血性休克（低血壓）、心因性休克、急性心衰竭（非慢性）。</p>
+      <h4 style="margin:14px 0 6px;font-size:1em;">Dopamine 受體亞型</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體</th><th>分布</th><th>偶聯</th><th>效應</th></tr></thead>
+          <tbody>
+            <tr><td>D1</td><td>腦部；腎、腸繫膜、冠狀血管</td><td>Gs</td><td>cAMP合成→血管舒張；可被DA受體拮抗劑（如Haloperidol）阻斷，但不被α-blocker阻斷</td></tr>
+            <tr><td>D2</td><td>神經節、腎上腺素神經末梢、腎上腺皮質、GI、CNS部分區域</td><td>Gi/o</td><td>↓cAMP→↓神經分泌</td></tr>
+            <tr><td>D3</td><td>依核與紋狀體</td><td>Gi/o</td><td>—</td></tr>
+            <tr><td>D4</td><td>心臟與CNS</td><td>Gi/o</td><td>—</td></tr>
+            <tr><td>D5</td><td>淋巴球、腎、CNS</td><td>Gs</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">D3、D4受體數量較D2少。</p>
+
+      <h3>Catecholamine 不良反應比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>不良反應特色</th></tr></thead>
+          <tbody>
+            <tr><td>Epinephrine</td><td>焦慮、心悸、腦出血、心律不整（甲亢病患尤其）</td></tr>
+            <tr><td>Norepinephrine</td><td>類似EP；<strong>IV外滲致組織壞死與脫皮</strong>（血管收縮所致）</td></tr>
+            <tr><td>Dopamine</td><td>效應類似EP/NE，但因<strong>快速被代謝，效果短暫</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SYNTHETIC AGONISTS -->
+    <div class="section" id="section-syntheticagonists">
+      <div class="section-head"><div class="section-num">7</div><h2>合成擬交感神經藥物 Synthetic Sympathomimetics</h2></div>
+      <p class="section-desc">每個合成藥物都是依「想要哪個受體選擇性」設計出來的，用這個角度記憶比死背個別藥名更有效率。</p>
+
+      <h3 id="drug-isoproterenol">Isoproterenol（Isoprenaline）</h3>
+      <p>非選擇性β1/β2致效劑。IV輸注：↓血壓（β2骨骼肌血管舒張）、↑心輸出量（β1心率與收縮力）、支氣管與GI平滑肌放鬆（β1+β2）。<strong>不可口服</strong>，腸胃外或氣霧劑給藥，治療急性支氣管收縮（氣喘）與完全房室傳導阻滯；主要經COMT與MAO代謝，代謝物尿液排出；不良反應：心搏過速與心律不整。</p>
+
+      <h3 id="drug-phenylephrine">Phenylephrine</h3>
+      <p><strong>非兒茶酚胺類α1致效劑</strong>，高劑量有弱β活性。藥理效果：血壓上升（α1血管收縮）。臨床優勢：<strong>不希望心臟刺激的情境下（如氣體麻醉中）作為升壓劑優於EP</strong>；也用於鼻腔／支氣管解充血劑、限制輕微結膜手術出血。藥動學：IV後血壓立即上升、持續≤20分鐘；口服後肝臟代謝為酚類共軛物，IV後代謝為m-hydroxymandelic acid；效果因組織攝取而終止，T½ 2–3小時。不良反應：IV可能因壓力反射致心搏過緩；血管收縮致高血壓（老年、甲亢或高血壓病患尤其）；長期鼻用致鼻黏膜刺激、損傷與反彈性充血。</p>
+
+      <h3 id="drug-dobutamine">Dobutamine</h3>
+      <p>兩種鏡像異構物之消旋混合物；機轉：活化β1（主）＋弱β2與α。藥理效果：<strong>正性肌力效果大於正性變時效果</strong>——透過增加心收縮力與心搏量提升心輸出量；可能增加心肌耗氧量與冠狀動脈血流。臨床用途：IV輸注短期治療心衰竭。藥動學：IV輸注2分鐘起效、10分鐘達高峰；肝臟及其他組織快速代謝；血漿T½極短（人類2分鐘）；停藥後效果迅速消退。不良反應：可能增加耗氧量，心肌梗塞後病患應謹慎使用避免擴大梗塞範圍；可能誘發心律不整；其餘不良反應類似EP。</p>
+
+      <h3>非兒茶酚胺類擬交感神經藥物</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉</th><th>臨床用途</th></tr></thead>
+          <tbody>
+            <tr><td id="drug-ephedrine"><strong>Ephedrine</strong></td><td>混合型：主要間接（促NE釋放）＋直接活化受體（弱β2）</td><td>血壓上升（α+β1）、支氣管擴張（β2）、膀胱括約肌收縮（α1）；局部散瞳；口服治氣喘樣症狀與尿失禁</td></tr>
+            <tr><td id="drug-ppa"><strong>Phenylpropanolamine (PPA)</strong></td><td>類似Ephedrine的擬交感神經藥</td><td>獸醫最常用於控制犬貓尿失禁；CNS刺激性低於Ephedrine，此用途無耐受性（tachyphylaxis）發生</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">Ephedrine 藥動學與副作用</div>
+        <p>口服GI吸收良好；<strong>可穿越BBB產生中樞興奮</strong>；抗MAO與COMT代謝，作用時間比兒茶酚胺類更長；肝臟代謝緩慢，主要以原型藥經尿液排出（人類尿液pH影響T½：pH 5時約3小時，pH 6.3時約6小時）。不良反應：口服後效果類似EP（高血壓、心律不整、CNS刺激：緊張焦慮噁心躁動）；<strong>長期使用可能因NE耗竭產生耐受性（tachyphylaxis）</strong>。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">PPA 用藥安全</div>
+        <p>部分經肝臟代謝為活性代謝物，但80–90%以原型藥於24小時內經尿液排出；血漿T½ 3–4小時；不良反應類似Ephedrine，可能出現厭食；<strong>PPA因出血性中風風險已於台灣與美國的人用市場下市</strong>（原用於鼻腔解充血劑與食慾抑制劑），但獸醫臨床仍使用於控制尿失禁。</p>
+      </div>
+    </div>
+
+    <!-- BETA AGONIST FOOD SAFETY -->
+    <div class="section" id="section-betaagonistfood">
+      <div class="section-head"><div class="section-num">8</div><h2>β2-Agonist 食品安全議題與畜牧用途</h2></div>
+      <p class="section-desc">β2選擇性致效劑除了支氣管擴張的臨床用途外，在畜牧業還有「促進生長」與「食品安全風險」兩個延伸議題，是這節的重點。</p>
+
+      <h3 id="drug-terbutaline">Terbutaline</h3>
+      <p>β2致效劑（高劑量可能活化β1）；<strong>心臟病、甲亢或高血壓病患的首選支氣管擴張劑</strong>。腸胃外或口服給藥；高pKa（10.1）於生理pH下多呈離子型。SC給藥吸收良好，支氣管擴張高峰於1小時內出現、持續≤4小時；<strong>馬口服吸收&lt;1%（無效）</strong>，IV效果持續30分鐘，可持續IV輸注使用。排除：60%以原型藥經尿液排出，其餘為硫酸共軛代謝物。不良反應：心搏過速、顫抖與興奮（尤其高劑量）；馬可能出現流汗。</p>
+
+      <h3 id="drug-albuterol">Albuterol（Salbutamol）</h3>
+      <p>選擇性β2致效劑，作為支氣管擴張劑；犬貓馬皆可用氣霧劑或口服錠劑緩解支氣管痙攣或咳嗽。藥動學：高pKa（9.3）生理pH下多呈離子型，<strong>口服吸收因此受限</strong>；吸入（氣霧劑）吸收快而完全，吸入後5分鐘內產生支氣管擴張；作用時間：吸入1–7小時、口服≤12小時；肝臟廣泛代謝，主要代謝物albuterol 4'-O-sulfate經尿液排出；血漿T½ 3–5小時。</p>
+
+      <h3 id="drug-clenbuterol">Clenbuterol<span class="tag tag-exam">重要</span></h3>
+      <p>Albuterol衍生物，pKa較低（8.85）；<strong>選擇性β2致效劑，馬口服用於治療慢性阻塞性肺病等氣道阻塞疾病</strong>。曾在ractopamine上市前被非法用作動物體組成改變劑（repartitioning agent）。藥動學：口服後2小時達高峰，T½約12小時；<strong>排除緩慢——尿液濃度可達血漿濃度的100倍，末次口服後可於尿液中持續偵測12天</strong>。不良反應：肌肉顫動、流汗、躁動不安、蕁麻疹、心搏過速、肌酸激酶濃度上升（肌肉損傷指標）、共濟失調；高劑量致心搏過速，<strong>疑似心血管功能不全的馬應避免使用</strong>；可誘發子宮放鬆，會拮抗催產素與PGF2α的效果。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">食品安全事件：1992年西班牙食物中毒</div>
+        <p>1992年西班牙加泰隆尼亞地區爆發113例食物中毒事件，肇因於牛肝殘留未經核准使用於牛隻的Clenbuterol（牛肝殘留濃度達19–5,395 ppb）。<strong>Clenbuterol代謝緩慢、容易於組織中殘留</strong>，是本次中毒事件的關鍵藥動學因素。<strong>Clenbuterol僅核准用於馬，禁用於產食動物</strong>；類似事件也曾發生於另一β2-agonist：Cimbuterol殘留事件（檢出濃度0.002 ppm）。教科書層級的補充：Clenbuterol殘留對孕婦與心臟病患者是明確威脅，人類已有因食用Clenbuterol污染之牛肝而死亡的病例報告，美國FDA對此類殘留採取「零容忍」政策；在美國，Clenbuterol殘留濃度最高的案例出現在競賽用「show animals」；此藥物也被人類非法濫用作為「增肌減脂」用途（俗稱"Clen"），在網路上被廣泛推廣。</p>
+      </div>
+
+      <h3 id="drug-isoxsuprine">Isoxsuprine</h3>
+      <p>選擇性β2致效劑，用於馬<strong>骨骼肌血管舒張</strong>，治療蹄舟骨疾病（navicular disease，馬跛行症候群之一）；人醫用於預防早產及治療周邊血管疾病（改善血液循環）。可使遠端肢體溫度上升、放鬆子宮平滑肌；高劑量增加心率與收縮力、降低血液黏稠度與血小板凝集。IV給藥；口服效果不佳（可能因首渡效應高＋pKa 9.8所致）；馬體內消除T½約3小時。不良反應（馬）：CNS刺激（過度興奮、磨鼻）、流汗、低血壓、心搏過速。</p>
+
+      <h3 id="drug-ractopamine">Ractopamine</h3>
+      <p><strong>非選擇性β致效劑</strong>，同時活化β1與β2；作為體組成改變劑（repartitioning agent）用於牛、豬、火雞。<strong>美國FDA核准作為飼料添加物</strong>，改善增重效率、飼料利用率、屠體瘦肉率（脂肪分解↑、脂質合成↓）；<strong>零停藥期</strong>。高pKa（9.4）生理pH下多呈離子型；GI吸收與腎臟再吸收皆低；肝臟代謝為葡萄糖醛酸與硫酸共軛物，代謝物主要經尿液排出。不良反應：高劑量可能致厭食、脹氣、心搏過速；操作人員需做好個人防護；<strong>心血管疾病患者應謹慎避免暴露</strong>。</p>
+
+      <h3 id="drug-zilpaterol">Zilpaterol</h3>
+      <p>選擇性β2致效劑，作為飼料添加物用於肉牛的體組成改變劑。排除：90%以原型藥經尿液排出，10%於肝臟代謝為deisopropyl zilpaterol（牛隻缺乏其他藥動學資料）；綿羊血漿消除T½為15小時；pKa 8.1，生理pH下非離子型比例高於ractopamine。<strong>屠宰前停藥期3天</strong>。不良反應與注意事項：可能負面影響肉品嫩度；可能出現呼吸急促（tachypnea）；<strong>不可用於留種動物</strong>；操作時應避免直接接觸。</p>
+    </div>
+
+    <!-- ALPHA BLOCKERS -->
+    <div class="section" id="section-alphablockers">
+      <div class="section-head"><div class="section-num">9</div><h2>α-受體阻斷劑 α-Adrenergic Antagonists</h2></div>
+      <p class="section-desc">α1-blocker與α2-blocker臨床定位不同——前者用於降低周邊血管阻力，後者最重要的用途是逆轉α2-agonist鎮定劑的效果。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">α1-blockers</div>
+          <p>Phenoxybenzamine、Prazosin、Phentolamine</p>
+        </div>
+        <div class="card">
+          <div class="card-title">α2-blockers</div>
+          <p>Yohimbine、Tolazoline、Atipamezole</p>
+        </div>
+      </div>
+
+      <h3 id="drug-phenoxybenzamine">Phenoxybenzamine</h3>
+      <p>口服給藥；<strong>以共價鍵結合受體，屬非競爭性拮抗</strong>；效果長效、非選擇性且不可逆。藥理效果：↓總周邊阻力致低血壓；因壓力反射致心率上升；阻斷瞳孔放大肌收縮（α1介導的散瞳）；↓犬貓尿道括約肌張力過高；改善周邊血流可用於治療馬蹄葉炎與腹瀉。臨床用途：嗜鉻細胞瘤（pheochromocytoma）。藥動學：動物資料缺乏，人類T½ 24小時，停藥後效果可持續3–4天。不良反應：低血壓（低血容animals更明顯）；馬可能出現便秘、腹絞痛。</p>
+
+      <h3 id="drug-prazosin">Prazosin</h3>
+      <p><strong>競爭性、選擇性α1拮抗劑</strong>。藥理效果：放鬆動靜脈平滑肌→↓總周邊阻力；高劑量可能致低血壓。臨床用途：口服治療充血性心衰竭（↓動脈壓、↓周邊阻力與心輸出量）與高血壓。藥動學：動物資料缺乏；人類口服吸收變異大，2–3小時達血漿高峰，廣泛分布全身，高血漿蛋白結合率（97%），肝臟代謝（部分具活性），糞便排除代謝物、≤10%原型藥。不良反應：低血壓、心搏過速、水腫、腸胃道症狀（嘔吐腹瀉便秘）。</p>
+
+      <h3 id="drug-phentolamine">Phentolamine</h3>
+      <p><strong>競爭性α1與α2拮抗劑</strong>。藥理效果：阻斷血管平滑肌α1與α2受體降血壓；因阻斷交感神經末梢突觸前α2受體與壓力反射，心率可能上升。臨床用途：IV或IM治療高血壓、控制擬交感神經胺類過量所致高血壓。藥動學：動物資料缺乏；人類肝臟代謝、主要以代謝物經尿液排出，消除T½約20分鐘。不良反應：常見心搏過速。</p>
+
+      <h3 id="drug-yohimbine">Yohimbine</h3>
+      <p><strong>競爭性α2拮抗劑</strong>，促進cAMP生成。藥理效果（機轉源自α2自體受體負回饋）：CNS刺激（α2 agonist是鎮定劑，α2拮抗劑產生相反效果）；心搏過速與高血壓（增加交感神經末梢NE釋放）；↑GI蠕動（增加副交感神經末梢ACh釋放）；↑血漿胰島素濃度（解除α2對胰島素分泌的抑制）。藥動學：IV後廣泛分布（含CNS）；全身清除率馬35 mL/min/kg、犬30 mL/min/kg；T½馬0.5–1.5小時、犬1.5–2小時。臨床用途：IV／IM於單胃動物逆轉α2 agonist效果（如Xylazine、Medetomidine）及Amitraz（具α2致效活性的殺蟎劑）；<strong>對反芻動物效果有限，Tolazoline是反芻動物對抗α2 agonist的有效解毒劑</strong>。不良反應：藥理效果的延伸——CNS刺激、心搏過速、高血壓、GI蠕動增加。</p>
+
+      <h3 id="drug-tolazoline">Tolazoline</h3>
+      <p><strong>競爭性α1與α2雙重拮抗劑</strong>，藥理效果類似Phentolamine。臨床用途：緩慢IV逆轉α2-agonist效果（鎮靜與鎮痛），<strong>尤其用於反芻動物</strong>（美國FDA僅核准用於馬）。藥動學：馬體內廣泛分布，血漿T½約60分鐘。不良反應：心搏過速、低血壓、GI蠕動增加；<strong>不應用於有壓力、衰弱、心臟疾病、交感神經阻斷或低血容／休克徵象的動物</strong>。</p>
+
+      <h3 id="drug-atipamezole">Atipamezole</h3>
+      <p><strong>競爭性α2拮抗劑</strong>。臨床用途：核准作為Dexmedetomidine的逆轉劑（解毒劑）；也可逆轉其他α2 agonist（如Amitraz、Xylazine）效果；<strong>各物種皆有效，含反芻動物，但因價格昂貴較少用於食品動物</strong>。給藥：腸胃外（IM／IV／SC），<strong>IM為優先途徑</strong>。藥動學：犬IM給藥後10分鐘內達血漿高峰；肝臟代謝，經尿液排除；消除T½ 2–3小時。</p>
+    </div>
+
+    <!-- BETA BLOCKERS -->
+    <div class="section" id="section-betablockers">
+      <div class="section-head"><div class="section-num">10</div><h2>β-受體阻斷劑 β-Adrenergic Antagonists</h2></div>
+      <p class="section-desc">獸醫最主要的用途是心律不整治療，心臟選擇性（β1 vs 非選擇性）決定了氣喘病患能不能用。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">藥物家族</div>
+        <p>Propranolol、Metoprolol、Atenolol、Esmolol、Sotalol、Carvedilol。<strong>Cardioselective＝β1選擇性</strong>；獸醫最主要用途是治療心律不整（β1阻斷活性）。</p>
+      </div>
+
+      <h3>β-blockers 共同藥理效果與用途</h3>
+      <ul>
+        <li>↓心率、↓心肌耗氧量、↓房室傳導、↓血壓</li>
+        <li>治療因交感神經過度活躍或壓力/運動誘發的心律不整</li>
+        <li>↓心房撲動／顫動時的心室反應速率</li>
+        <li>可用於控制高血壓</li>
+        <li><strong>貓的室上性與心室性心搏過速首選藥物</strong></li>
+        <li><strong>犬常與Class I抗心律不整藥併用</strong></li>
+        <li>↓耗氧量：肥厚型心肌病（HCM）與高血壓</li>
+      </ul>
+
+      <h3 id="drug-betablockerprecaution">共同注意事項與副作用<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <ul style="margin:8px 0 0;padding-left:1.2em;">
+          <li><strong>負性肌力效果，可能惡化充血性心衰竭（CHF）</strong></li>
+          <li>不建議與Digoxin或Ca²⁺通道阻斷劑併用</li>
+          <li>非選擇性藥物：可能誘發支氣管痙攣</li>
+          <li>低血壓、心衰竭、心搏過緩</li>
+          <li><strong>受體上調（up-regulation）：突然停藥可能誘發嚴重心律不整</strong>，需逐漸減量</li>
+          <li>親脂性藥物（如Propranolol）可穿越BBB，致憂鬱與失定向感</li>
+        </ul>
+      </div>
+
+      <h3 id="drug-propranolol">Propranolol</h3>
+      <p><strong>非選擇性β拮抗劑（β1+β2）</strong>；近期證據顯示propranolol可能是β受體的反向致效劑（inverse agonist）。藥理效果：竇性心搏過緩、↓房室傳導、↓心輸出量、↓心臟組織自主性與耗氧量；可能↑呼吸道阻力（β2）；具膜穩定作用，尤其在神經與肌肉細胞。臨床用途：IV／IM／SC／口服治療甲狀腺毒症與嗜鉻細胞瘤相關的心律不整與高血壓；其他心律不整（房性與心室性期外收縮、室上性與心室性心搏過速）。藥動學：口服吸收良好；高脂溶性易穿越BBB；T½犬1–2小時、馬&lt;2小時；<strong>首渡效應顯著，犬口服生體可用率僅2–27%</strong>；肝臟快速代謝為4-hydroxypropranolol後再接合；&gt;99%以代謝物經尿液排出。不良反應：長期治療致β受體上調；突然停藥可能過度刺激β受體、惡化症狀。禁忌：氣喘動物（β2阻斷致支氣管痙攣）、心衰竭或竇性心搏過緩、肝臟疾病動物。</p>
+
+      <h3 id="drug-metoprolol">Metoprolol</h3>
+      <p><strong>選擇性β1拮抗劑，高劑量也阻斷β2</strong>；<strong>對支氣管痙攣性疾病病患比Propranolol更安全，常被優先選用</strong>。中度親脂性；負性肌力與變時效果：↓心輸出量、↓心率（心搏過緩）、↓心肌耗氧量、↓血壓；<strong>不具Propranolol的膜穩定活性</strong>。口服每12小時給藥，治療室上性心搏過速、心室期外收縮、全身性高血壓、肥厚型心肌病（HCM）與甲狀腺毒症。藥動學：GI快速且幾近完全吸收；<strong>首渡效應顯著（50%）降低口服生體可用率</strong>；低蛋白結合率（5–15%）；廣泛分布各組織，可穿越BBB（CSF濃度約血漿濃度80%）；肝臟代謝，原型藥與代謝物經尿液排出；T½犬1.6小時、貓1.3小時。不良反應類似Propranolol。</p>
+
+      <h3 id="drug-atenolol">Atenolol</h3>
+      <p><strong>選擇性β1拮抗劑，高劑量也阻斷β2</strong>。藥理效果：↓心率、↓心輸出量、↓收縮壓與舒張壓。臨床用途：口服治療室上性心律不整、貓肥厚型心肌病（HCM）與高血壓。藥動學：<strong>脂溶性低，與Propranolol不同，僅少量進入CNS</strong>；肝臟代謝極少，40–50%以原型藥經尿液排出，其餘多以原型藥經糞便排出；血漿T½犬3.2小時、貓3.7小時；貓β-adrenergic阻斷持續約12小時。不良反應：高劑量可能阻斷β2，氣喘或曾有支氣管痙攣病史動物須謹慎；過度β1阻斷可嚴重降低心輸出量，充血性心衰竭、腎衰竭或竇房結功能不良病患須謹慎；可能致嗜睡、低血壓與腹瀉。</p>
+
+      <h3 id="drug-esmolol">Esmolol</h3>
+      <p><strong>選擇性β1拮抗劑</strong>；膜穩定活性極低（相較Propranolol）。臨床用途：與Propranolol並列心搏過速IV給藥首選，偶爾用於貓動態性左心室流出道阻塞的急性處置；<strong>短效（約20分鐘）</strong>，常用於「測試」β-blocker是否對病患有幫助，因效果不持久。藥動學：經紅血球酯酶快速酵素水解；T½約10分鐘；<strong>不穿越BBB</strong>。不良反應：過度β1阻斷可嚴重降低心輸出量。</p>
+
+      <h3 id="drug-sotalol">Sotalol（同時屬於抗心律不整藥物）</h3>
+      <p>低劑量呈<strong>非選擇性β拮抗</strong>（效力約Propranolol的30%），無首渡效應，以原型藥經尿液排出，犬T½ 5小時。<strong>高劑量呈Class III抗心律不整活性（K⁺通道阻斷劑）</strong>，明顯延長動作電位時程與不反應期。臨床用途：口服治療犬（貓）心室性心搏過速。不良反應：低血壓、支氣管痙攣、促心律不整效應；<strong>負性肌力效果小於Propranolol</strong>。</p>
+
+      <h3 id="drug-carvedilol">Carvedilol</h3>
+      <p>人醫常用的<strong>第三代β拮抗劑</strong>，中度親脂性，具膜穩定活性。<strong>非選擇性（β1+β2）併α1阻斷</strong>：↓心收縮力與心率→↓心臟作功負荷；其他效應：抗氧化、Ca²⁺通道阻斷；血管舒張（α1阻斷＋Ca²⁺通道阻斷）→↓周邊阻力→↓心臟作功負荷；具心臟保護效果——人類CHF病患可↓病理性心臟重塑與死亡率。美國FDA核准適應症（人醫）：高血壓、充血性心衰竭、心肌梗塞後左心室功能不全；<strong>獸醫證據仍有限，尚待更多研究</strong>。</p>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>受體訊息傳遞：</strong>α1偶聯Gq（收縮）、α2偶聯Gi/o（抑制、含突觸前負回饋）、β1/β2/β3皆偶聯Gs。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Xylazine物種差異源自受體亞型：</strong>反芻動物α2D、非反芻動物α2A，Xylazine對α2D親和力較高，牛的鎮靜效果更強。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Epinephrine劑量依賴雙相效應</strong>（低劑量血壓變化小，高劑量α主導升壓）；<strong>Dopamine低劑量活化D1（血管舒張＋利尿）、高劑量活化α+β1（血管收縮＋正性肌力）</strong>。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>β2-agonist類藥物在畜牧業的雙重身分：</strong>臨床上是支氣管擴張劑（Terbutaline、Albuterol），畜牧上是體組成改變劑（Ractopamine、Zilpaterol，合法且有停藥期規範）；<strong>Clenbuterol因代謝緩慢易殘留，1992年西班牙113例食物中毒是重要歷史案例，僅核准用於馬、禁用產食動物</strong>。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>α2拮抗劑（Yohimbine／Tolazoline／Atipamezole）用於逆轉α2-agonist鎮定劑效果</strong>：Yohimbine對反芻動物效果有限，Tolazoline是反芻動物的有效解毒劑；Atipamezole各物種皆有效但食品動物較少用（昂貴）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>β-blocker心臟選擇性決定氣喘病患能不能用：</strong>非選擇性（Propranolol）氣喘禁忌；β1選擇性（Metoprolol、Atenolol、Esmolol）相對安全；Sotalol兼具Class III抗心律不整活性；貓室上性/心室性心搏過速首選β-blocker。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>β-blocker突然停藥有反彈性心律不整風險</strong>（受體上調），須逐漸減量；<strong>負性肌力效果可能惡化CHF</strong>，不建議與Digoxin或Ca²⁺通道阻斷劑併用。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，ANS 1 handout）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋受體機轉、物種差異、β-agonist食品安全、α/β阻斷劑各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 為什麼 Xylazine 對牛的鎮靜效果比對犬貓等單胃動物更強？</div>
+        <ul class="quiz-options">
+          <li>(A) 牛的肝臟代謝Xylazine的速度比犬貓慢</li>
+          <li>(B) 反芻動物主要表現α2D受體，Xylazine對此亞型的親和力較高</li>
+          <li>(C) 牛的血腦屏障通透性比犬貓高</li>
+          <li>(D) 牛沒有α2受體的負回饋調控機制</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">反芻動物表現α2D受體、非反芻動物表現α2A受體，Xylazine對α2D受體的活性較高，因此對牛產生更強效的鎮靜效果，這是受體亞型分布差異，不是代謝速度或血腦屏障通透性的問題。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Clenbuterol 因為代謝快速、不易殘留，可以安全用於所有食品動物增加瘦肉率。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Clenbuterol代謝緩慢，尿液中濃度可達血漿的100倍，末次給藥後可於尿液中持續偵測12天，容易在組織中殘留；1992年西班牙曾因牛肝殘留Clenbuterol爆發113例食物中毒事件，此藥僅核准用於馬，禁用於產食動物。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻氣喘病史的犬需要使用β-blocker控制心律不整，下列何者風險最低？</div>
+        <ul class="quiz-options">
+          <li>(A) Propranolol</li>
+          <li>(B) Metoprolol</li>
+          <li>(C) Carvedilol</li>
+          <li>(D) Sotalol（低劑量）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Metoprolol是選擇性β1拮抗劑，對支氣管痙攣性疾病病患比非選擇性藥物更安全；Propranolol、Carvedilol、低劑量Sotalol皆屬非選擇性（阻斷β2），有誘發支氣管痙攣的風險，氣喘病患應避免。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 一頭反芻動物意外過量暴露於Xylazine，為什麼獸醫師會優先選擇Tolazoline而非Yohimbine作為解毒劑？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">Yohimbine是競爭性α2拮抗劑，在單胃動物身上是有效的α2-agonist逆轉劑，但對反芻動物效果有限；相對地，Tolazoline是競爭性α1與α2雙重拮抗劑，臨床上被認定為反芻動物對抗α2 agonist（如Xylazine）的有效解毒劑，這也是美國FDA將其核准用於（大）動物解毒用途的原因之一。因此面對反芻動物的Xylazine過量，Tolazoline是更可靠的選擇，但給藥時仍須緩慢IV，並注意其心搏過速、低血壓、GI蠕動增加等不良反應，且不應用於已有壓力、衰弱、心臟疾病、交感神經阻斷或低血容／休克徵象的動物。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻貓因肥厚型心肌病（HCM）合併室上性心搏過速需要長期口服β-blocker控制。使用數月後，飼主因故自行停藥三天，貓隻出現嚴重心律不整送醫。請問：(1) 這個現象的機轉為何？(2) 臨床上應該如何避免這種情況？(3) 若要換用另一種β-blocker，需要注意什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 機轉：</strong>長期使用β-blocker會使身體代償性地增加β受體數量，稱為「受體上調（up-regulation）」。當藥物突然停止，體內原本被長期阻斷、數量又已經上調增多的β受體，會在缺乏拮抗劑保護的狀況下同時暴露於循環中的兒茶酚胺刺激，導致β受體訊號被過度活化，可能誘發嚴重心律不整（反彈性心律不整）。<br><strong>(2) 預防方式：</strong>任何長期使用β-blocker的病患，停藥或更換藥物時都應該<strong>逐漸減量（tapering）</strong>，而不是驟然停止；衛教飼主絕對不能自行突然停藥，若因故無法繼續給藥（如藥物用罄、旅遊等），應提前與獸醫師討論如何安全過渡。<br><strong>(3) 換藥注意事項：</strong>換用另一種β-blocker時，除了同樣需要考慮心臟選擇性（貓若合併呼吸道疾病應優先選β1選擇性藥物如Atenolol或Metoprolol）之外，也要注意新藥物的半衰期與給藥頻率是否與原本藥物相近，避免因血中濃度出現空窗期而使受體暴露於未受保護的狀態；換藥期間建議採漸進式交替（減少舊藥劑量同時逐步加入新藥），並密切監測心率與心律變化。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  receptors: '腎上腺素性受體與訊息傳遞',
+  catecholaminepk: '兒茶酚胺生合成與代謝',
+  speciesvariation: '物種藥效差異',
+  catecholamines: '內生性兒茶酚胺',
+  syntheticagonists: '合成擬交感神經藥物',
+  betaagonistfood: 'β-Agonist 食品安全議題',
+  alphablockers: 'α-受體阻斷劑',
+  betablockers: 'β-受體阻斷劑',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

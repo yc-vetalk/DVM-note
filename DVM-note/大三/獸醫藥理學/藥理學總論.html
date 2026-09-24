@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：藥理學總論 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">藥理學總論</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">藥理學總論 General Pharmacology Principles</h1>
+      <p class="page-subtitle">CYP450 藥物代謝系統、受體與訊息傳遞分類、藥物動力學基礎（ADME、生體可用率、半衰期）、給藥途徑與劑型——其他主題頁提到這些名詞時會連回本頁，不必每篇重講一次。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義〈PK lecture〉〈Drug dosage forms〉；藥理學教科書通論整理</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-18</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">藥物代謝與作用</div>
+    <a onclick="showSection('cyp450')" id="nav-cyp450"><span class="nav-icon">🧪</span> CYP450 藥物代謝系統</a>
+    <a onclick="showSection('receptors')" id="nav-receptors"><span class="nav-icon">🔗</span> 受體分類與訊息傳遞總論</a>
+    <div class="section-label" style="margin-top:8px;">藥物動力學</div>
+    <a onclick="showSection('pkbasics')" id="nav-pkbasics"><span class="nav-icon">📉</span> ADME 與藥動學基礎公式</a>
+    <a onclick="showSection('routes')" id="nav-routes"><span class="nav-icon">💉</span> 給藥途徑與劑型基礎</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這頁在讀什麼？</div>
+        <p>這一頁不是特定的一種藥物家族，而是整個藥理學的<strong>「共同語言與工具箱」</strong>——後面每一個藥物章節（NSAID、抗生素、鴉片類止痛藥……）都會用到的幾個基礎概念，先在這裡一次講清楚：藥物怎麼被身體代謝掉（CYP450）、藥物怎麼在細胞層級發揮作用（受體種類）、劑量與血中濃度怎麼換算（PK公式）、不同給藥途徑差在哪裡。之後各章節提到這些概念時，只會做簡短的交叉連結而不重複解釋一次。如果是第一次讀藥理學，建議先看完這一頁的四個小節再進入其他藥物分類；如果已經熟悉這些基礎概念，也可以直接把這頁當字典查閱。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('cyp450')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">CYP450 代謝</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">藥物怎麼被代謝掉、交互作用</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('receptors')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體分類</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">藥物怎麼在細胞層級起作用</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('pkbasics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">PK 基礎公式</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">生體可用率、半衰期計算</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('routes')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">給藥途徑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">劑型與起效速度</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">六個貫穿全科的基礎重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>CYP450 是肝臟最主要的藥物代謝酵素家族，「抑制」與「誘導」是兩種完全相反、但都會造成藥物交互作用的機制：</strong>抑制（如Cimetidine）使其他藥物代謝變慢、血中濃度上升、毒性風險增加；誘導（如Phenylbutazone）使其他藥物（包含藥物本身）代謝加快、血中濃度下降、療效可能不足。看到任何藥物寫「抑制/誘導CYP450」，直接聯想到「藥物交互作用」四個字。</li>
+          <li><strong>受體家族只有四大類，其餘都是這四類的排列組合：</strong>離子通道型（配體閘門，反應最快，毫秒級）、G蛋白偶聯受體（GPCR，經Gs/Gi/Gq第二訊息系統，秒到分鐘級）、具本質酵素活性受體（如胰島素受體，酪胺酸激酶）、核內受體（類固醇/甲狀腺素，經轉錄調控，小時到天數級）——反應速度與受體種類高度相關，是判斷題常考的邏輯。</li>
+          <li><strong>生體可用率（Bioavailability, F）用AUC比值計算，靜脈注射的F定義為100%：</strong>F = (AUC)口服 ÷ (AUC)靜脈，反映藥物「有多少比例、多快」到達全身循環；口服藥物的F受首渡效應（first-pass effect）、腸道破壞、劑型崩散等因素影響，通常低於靜脈給藥。</li>
+          <li><strong>多數藥物代謝遵循一級動力學（first-order kinetics）：</strong>單位時間內清除「固定比例」（而非固定量）的藥物，公式為 Cp = Cp₀e⁻ᴷᵉᵗ；半衰期 t½ = 0.693/Ke，與起始濃度無關——這是計算題最常出現的公式組合，務必能反向求出未知的Ke或t½。</li>
+          <li><strong>藥物血漿蛋白結合率高低直接影響交互作用風險：</strong>只有游離型（未結合）藥物才有藥理活性；高蛋白結合藥物（如多數NSAID、warfarin）同時競爭同一結合位時，會互相「擠出」對方，使游離濃度上升、毒性風險增加。</li>
+          <li><strong>給藥途徑決定起效速度與作用時間，腸道外（parenteral）通常比腸道（enteral）起效快：</strong>IV注射直接進入全身循環（F=100%，起效最快）；口服需經吸收與首渡效應（起效最慢、F常小於100%）；劑型設計（如控釋、植入劑）可用來延長作用時間，與「藥物本身的藥效」是兩個獨立的變因。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CYP450 -->
+    <div class="section" id="section-cyp450">
+      <div class="section-head"><div class="section-num">2</div><h2>CYP450 藥物代謝系統</h2></div>
+      <p class="section-desc">CYP450（Cytochrome P450）是全書中最常被提到、卻最少被完整解釋的名詞——本節一次講清楚，之後每篇提到「P450」都可以直接連回這裡。</p>
+
+      <h3 id="drug-cyp450what">P450 是什麼？</h3>
+      <p><strong>Cytochrome P450（CYP450）</strong>是一大群存在於<strong>肝臟（也少量存在於腸道、腎臟、肺）</strong>的血基質蛋白酵素家族，負責身體大多數藥物（與內生性物質，如類固醇激素）的<strong>氧化代謝</strong>。名稱來源：這群酵素與一氧化碳結合時，在波長450nm處有特徵性吸收峰。CYP450依基因序列相似度分為多個「家族」與「亞家族」（如CYP1A2、CYP2C9、CYP3A4——本頁其他主題頁提到的具體酵素編號都屬於這個系統）。</p>
+
+      <h3>藥物代謝的兩個階段（Phase I ＆ Phase II Biotransformation）</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">第一階段 Phase I（官能基化）</div>
+          <p><strong>CYP450 主要作用的階段</strong>：氧化（oxidation）、還原（reduction）、水解（hydrolysis），在藥物分子上加上或暴露出官能基（如-OH），通常使藥物<strong>活性降低</strong>（但也有例外，見下方前藥prodrug）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">第二階段 Phase II（結合反應）</div>
+          <p>Phase I產物與內生性分子<strong>結合（conjugation）</strong>——glucuronidation（葡萄糖醛酸化）、sulfation（硫酸化）、acetylation、glutathione結合等，使藥物<strong>水溶性大增</strong>，便於經腎臟或膽汁排出。<strong>貓的 glucuronidation 酵素活性天生較低</strong>，是本科目反覆出現的物種毒性考點（Acetaminophen、多數NSAID、Aspirin皆受此影響）。</p>
+        </div>
+      </div>
+
+      <h3 id="drug-cypinduction">誘導（Induction）與抑制（Inhibition）——兩種相反但都危險的交互作用<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>機制</th><th>對藥物代謝速率的影響</th><th>結果</th><th>本站已提過的例子</th></tr></thead>
+          <tbody>
+            <tr><td><strong>抑制 Inhibition</strong></td><td>↓（減慢）</td><td>合併使用的其他藥物血中濃度<strong>上升</strong>→毒性風險增加</td><td>Cimetidine（抑制CYP1A2/2C9/3A4）、Omeprazole（PPI）、Ketoconazole</td></tr>
+            <tr><td><strong>誘導 Induction</strong></td><td>↑（加快）</td><td>合併使用的其他藥物（含藥物自身）血中濃度<strong>下降</strong>→療效可能不足</td><td>Phenylbutazone（誘導自身代謝酵素，長期使用血中濃度逐漸降低）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床判讀口訣</div>
+        <p>看到「抑制P450／CYP」→ 聯想「別的藥物代謝變慢、濃度升高、要小心中毒」；看到「誘導P450／CYP／肝微粒體酵素」→ 聯想「別的藥物代謝變快、濃度下降、可能藥效不足或需要調高劑量」。這組邏輯貫穿抗生素、NSAID、鎮靜麻醉藥等幾乎所有藥物類別的交互作用討論。</p>
+      </div>
+
+      <h3>前藥（Prodrug）：Phase I 代謝反而是「活化」</h3>
+      <p>多數藥物經CYP450代謝後活性下降，但少數藥物本身無活性、需經代謝<strong>「活化」</strong>才能發揮藥效，稱為<strong>前藥（prodrug）</strong>。本站已提過的例子：PPI（Omeprazole等，需經胃壁細胞酸性環境活化為sulfenamide，見「腸胃道用藥」章節）、Sulindac（sulfoxide prodrug經肝代謝為活性的sulfide型，見「NSAID」章節）。相對地，Acetaminophen過量時經CYP450產生的NAPQI則是<strong>毒性代謝物</strong>而非治療活性物質——同一套代謝系統，正常劑量安全、過量時反而致命。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義；藥理學教科書通論整理。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RECEPTORS -->
+    <div class="section" id="section-receptors">
+      <div class="section-head"><div class="section-num">3</div><h2>受體分類與訊息傳遞總論</h2></div>
+      <p class="section-desc">藥物幾乎都是透過與受體結合而產生效果，受體種類決定了反應速度與持續時間，這裡只做「藥理學視角」的精簡整理；完整的 G 蛋白／第二訊息系統機轉，請見獸醫生理學站的專篇。</p>
+
+      <div class="alert alert-success">
+        <div class="alert-label">延伸閱讀</div>
+        <p>G蛋白偶聯受體（GPCR）的完整活化循環、Gs/Gi/Gq三亞型下游效應、cAMP／IP₃-DAG／cGMP三大第二訊息系統，已在獸醫生理學站的 <a href="../../總複習/獸醫生理學/細胞訊息傳遞.html">細胞訊息傳遞</a> 一文詳細整理，本節不重複，只做藥理學角度的濃縮回顧與延伸。</p>
+      </div>
+
+      <h3 id="drug-receptorclass">四大受體家族（藥理學速記版）<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體家族</th><th>反應速度</th><th>代表藥物/配體</th><th>本站已提過的例子</th></tr></thead>
+          <tbody>
+            <tr><td><strong>配體閘門離子通道</strong></td><td>最快（毫秒級）</td><td>菸鹼型ACh受體、GABA<sub>A</sub></td><td>神經肌肉阻斷劑（見「自主神經藥理」章節，待整理）</td></tr>
+            <tr><td><strong>G蛋白偶聯受體 GPCR</strong></td><td>快（秒～分鐘）</td><td>H1/H2、D2、5-HT3/4、M受體、EP受體</td><td>H2 blocker、Metoclopramide、Misoprostol（見「腸胃道用藥」）</td></tr>
+            <tr><td><strong>本質酵素活性受體</strong></td><td>中等（分鐘）</td><td>胰島素受體、生長因子受體</td><td>（待整理內分泌藥理章節）</td></tr>
+            <tr><td><strong>核內受體</strong></td><td>最慢（小時～天）</td><td>類固醇、甲狀腺素受體</td><td>Glucocorticoids（見「腸胃道用藥」IBD章節）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 核內受體因為要調控基因轉錄、合成新蛋白質才能產生效果，起效最慢但作用最持久，這條規則可以套用在幾乎所有「類固醇 vs. 非類固醇藥物」的起效時間比較題上。</p>
+
+      <h3>酵素（Enzyme）作為藥物標的——不是受體，但邏輯相通</h3>
+      <p>部分藥物並非作用於受體，而是直接抑制或活化<strong>酵素</strong>，例如：COX（NSAID標的，見「NSAID」章節）、H⁺/K⁺-ATPase（PPI標的，見「腸胃道用藥」章節）、Acetylcholinesterase（AChE抑制劑，見「自主神經藥理」章節，待整理）、CYP450本身也可作為藥物標的（如azole抗黴菌藥抑制黴菌的CYP450）。判斷藥物「作用在受體」還是「作用在酵素」，是分類選擇題常見的第一步篩選。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義；藥理學教科書通論整理，受體/訊息傳遞完整機轉另見獸醫生理學站「細胞訊息傳遞」。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PK BASICS -->
+    <div class="section" id="section-pkbasics">
+      <div class="section-head"><div class="section-num">4</div><h2>ADME 與藥動學基礎公式</h2></div>
+      <p class="section-desc">藥物動力學（Pharmacokinetics, PK）描述「身體如何處理藥物」，依序是吸收（Absorption）、分布（Distribution）、代謝（Metabolism）、排除（Excretion），合稱 ADME。本節整理國考計算題最常出現的兩組公式。</p>
+
+      <h3 id="drug-bioavailability">生體可用率 Bioavailability (F)<span class="tag tag-exam">重要</span></h3>
+      <p>指藥物<strong>到達全身循環的比例與速度</strong>。藥物口服後，可能在腸道被破壞、未被吸收、被腸壁代謝，或經肝臟首渡效應（first-pass effect）代謝掉一部分，才能到達全身循環：</p>
+      <div class="card">
+        <p style="font-size:1.1em; text-align:center; color:var(--accent-deep); font-weight:700; margin:4px 0;">F = (AUC)口服 ÷ (AUC)靜脈</p>
+        <p style="text-align:center; margin:4px 0;">AUC（Area Under the Curve）＝血中濃度-時間曲線下面積，常用梯形法（trapezoidal method）計算</p>
+      </div>
+      <ul>
+        <li><strong>靜脈注射（IV bolus）直接進入全身循環，F 定義為 100%</strong>，是計算其他劑型F值的比較基準</li>
+        <li>影響F的因素：物種、食物、藥物劑型、給藥途徑（單胃動物與反芻動物口服藥物的生體可用率差異可能很大）</li>
+        <li><strong>Bioequivalence（生物相等性）</strong>：兩個劑型（如原廠藥vs.學名藥）需F值相近、達峰時間相近、峰值濃度相近，才視為生物相等——F值較高不一定代表「較好」，需同時考慮是否超過毒性濃度</li>
+      </ul>
+
+      <h3 id="drug-firstorder">一級動力學與半衰期<span class="tag tag-exam">重要</span></h3>
+      <p>多數藥物的消除（elimination）遵循<strong>一級動力學（first-order kinetics）</strong>：單位時間內清除「固定比例」而非「固定量」的藥物（前提：藥物濃度遠低於代謝酵素的Km值，即Michaelis-Menten方程式中V=Vmax[C]/Km化簡為V∝[C]的情形）。</p>
+      <div class="card">
+        <p style="font-size:1.1em; text-align:center; color:var(--accent-deep); font-weight:700; margin:4px 0;">Cp = Cp₀ · e⁻ᴷᵉᵗ　（或　ln Cp = ln Cp₀ − Ke·t）</p>
+        <p style="font-size:1.1em; text-align:center; color:var(--accent-deep); font-weight:700; margin:4px 0;">t½ = 0.693 ÷ Ke</p>
+        <p style="text-align:center; margin:4px 0;">Cp：某時間點血中濃度；Cp₀：起始血中濃度；Ke：消除速率常數（h⁻¹）；t½：半衰期</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">計算範例（課程原題）</div>
+        <p>70公斤病患靜脈給予一劑抗生素，注射後第2小時與第8小時測得血中濃度分別為10 μg/mL與1 μg/mL，求此藥的生物半衰期（假設一級動力學，ln=2.3log）。</p>
+        <p><strong>解法：</strong>ln Cp = ln Cp₀ − Ke·t → ln 1 = ln 10 − Ke×6 → 0 = 2.3 − 6Ke → <strong>Ke = 0.383 h⁻¹</strong> → t½ = 0.693/0.383 ≈ <strong>1.81 小時</strong></p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 半衰期與起始濃度（Cp₀）無關，只由Ke決定——這是選擇題常見的陷阱：「起始劑量加倍，半衰期也加倍」是錯誤敘述。</p>
+
+      <h3>血漿蛋白結合 Protein Binding</h3>
+      <p>藥物進入血液後部分會與血漿蛋白（主要是白蛋白 albumin）結合，<strong>只有游離型（unbound）藥物才具有藥理活性、能穿越血管壁到達作用部位</strong>。高蛋白結合藥物（如多數NSAID、Warfarin，見「NSAID」章節）合併使用時會競爭同一結合位，互相取代對方使游離濃度上升，是藥物交互作用的重要來源之一，與CYP450抑制/誘導並列為「合併用藥風險」的兩大機轉。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義〈PK lecture〉。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ROUTES -->
+    <div class="section" id="section-routes">
+      <div class="section-head"><div class="section-num">5</div><h2>給藥途徑與劑型基礎</h2></div>
+      <p class="section-desc">給藥途徑（Route of Administration, ROA）與劑型設計，是決定藥物起效速度與作用時間的另一組獨立變因，與藥物本身的藥理效果是兩件事。</p>
+
+      <h3>API 與賦形劑（Excipients）</h3>
+      <p><strong>API（active pharmaceutical ingredient，主成分）</strong>本身通常不能直接臨床使用，須配方成適當<strong>劑型（dosage form）</strong>才能給藥。<strong>賦形劑（excipients）</strong>本身無藥理效果，但負責：溶解度與穩定性（抗氧化劑、螯合劑）、pH與滲透壓調整、影響生體可用率（崩散劑、助溶劑）、適口性（矯味劑、著色劑）等功能。</p>
+
+      <h3 id="drug-roa">給藥途徑二大分類<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">腸道 Enteral</div>
+          <p>藥物經腸胃道給予：口服（oral, p.o.）、舌下（sublingual，人）、頰黏膜（buccal，犬口腔黏膜凝膠）、直腸（rectal，栓劑）。需經吸收與可能的首渡效應，<strong>起效通常較慢</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">腸道外 Parenteral</div>
+          <p>不經腸胃道：靜脈（IV）、肌肉（IM）、皮下（SC）、硬膜外（epidural）、關節內（intra-articular）等。<strong>IV直接進入全身循環，起效最快、F=100%</strong>。</p>
+        </div>
+      </div>
+      <p>其他常見途徑：吸入（inhalational，氣體/氣溶膠）、鼻噴劑、耳用（滴耳液/藥膏）、眼用（滴眼液/藥膏）、外用（topical）vs. 穿皮（transdermal，如貼片，可達全身效果）。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">起效與作用時間是兩個獨立變因</div>
+        <p><strong>起效速度</strong>主要由給藥途徑決定（注射＞腸道）；<strong>作用時間</strong>則可透過劑型設計（控釋劑型、植入劑、長效注射劑）獨立延長，與藥物本身的半衰期、給藥途徑並非同一件事——這也是為何同一個藥物成分可以做成「短效注射」與「長效植入劑」兩種完全不同臨床用途的產品。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義〈Drug dosage forms〉。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">6</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">本章是後續每個藥物類別章節共用的基礎詞彙表，考題常以計算題（F、Ke、t½）與機轉配對題出現。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>CYP450是肝臟主要藥物代謝酵素家族，Phase I（氧化/還原/水解，CYP450主場）通常使藥物失活，Phase II（結合反應，如glucuronidation）使藥物水溶性增加以利排除</strong>；貓glucuronidation能力先天較弱，是反覆出現的物種毒性考點。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>抑制CYP450→別的藥物代謝變慢、濃度上升、毒性風險↑；誘導CYP450→代謝變快、濃度下降、藥效可能不足</strong>，兩者方向相反但都是重要的藥物交互作用機轉。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>四大受體家族依反應速度排序：配體閘門離子通道（最快）＞GPCR＞本質酵素活性受體＞核內受體（最慢但最持久）</strong>；完整GPCR機轉見獸醫生理學「細胞訊息傳遞」。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>F（生體可用率）= (AUC)口服 ÷ (AUC)靜脈，IV注射F定義為100%</strong>；生物相等性需F值、達峰時間、峰值濃度皆相近。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>一級動力學：Cp=Cp₀e⁻ᴷᵉᵗ，t½=0.693/Ke，半衰期與起始濃度無關</strong>，只由消除速率常數Ke決定——務必能用兩個時間點的血中濃度反推Ke與t½。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>只有游離型藥物才有藥理活性</strong>；高蛋白結合藥物合併使用時會競爭結合位，使游離濃度上升；<strong>IV起效最快（F=100%），起效速度由途徑決定，作用時間可由劑型設計獨立延長</strong>。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義；藥理學教科書通論整理。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">7</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋CYP450、受體分類、生體可用率、一級動力學計算等章節重點，最後一題為計算題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 某藥物被證實會「誘導」肝臟CYP450酵素，長期使用該藥物本身時最可能發生什麼現象？</div>
+        <ul class="quiz-options">
+          <li>(A) 藥物代謝變慢，血中濃度持續累積</li>
+          <li>(B) 藥物誘導自身代謝酵素，血中濃度隨時間逐漸下降</li>
+          <li>(C) 對其他合併用藥完全沒有影響</li>
+          <li>(D) 只影響Phase II結合反應，不影響Phase I</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">誘導CYP450會使代謝速率加快，若藥物誘導的正是代謝自己的酵素（如Phenylbutazone），會造成自身血中濃度隨長期使用逐漸降低，這也是Phenylbutazone需要調整劑量的原因之一。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 核內受體（如類固醇受體）的反應速度通常比配體閘門離子通道快。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">核內受體需要調控基因轉錄、合成新蛋白質才能產生效果，反應速度是四大受體家族中最慢的（小時到天數級）；配體閘門離子通道反應最快（毫秒級）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 關於生體可用率（F），下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 靜脈注射的F值通常小於50%</li>
+          <li>(B) F = (AUC)靜脈 ÷ (AUC)口服</li>
+          <li>(C) 靜脈注射直接進入全身循環，F定義為100%，作為其他劑型的比較基準</li>
+          <li>(D) F值越高，藥物就一定越安全</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">F = (AUC)口服 ÷ (AUC)靜脈，靜脈注射直接進入全身循環，因此F定義為100%作為基準；F值高低與安全性無直接對應關係，若F值過高使血中濃度超過毒性濃度，反而更危險，需視治療窗而定。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明「一級動力學（first-order kinetics）」的定義，並解釋為何半衰期與起始藥物濃度無關。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">一級動力學是指藥物在單位時間內被清除的量，是目前剩餘藥物濃度的「固定比例」而非固定量，數學式為Cp=Cp₀e⁻ᴷᵉᵗ，其中Ke為消除速率常數。由半衰期公式t½=0.693/Ke可知，半衰期只由Ke決定，Ke是該藥物在特定條件下的固有代謝/排除速率常數，不隨藥物濃度高低而改變；因此無論起始濃度Cp₀是高是低，藥物濃度降到一半所需要的時間（t½）都是相同的，這正是一級動力學「固定比例清除」的數學結果。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">計算題</span>
+        <div class="quiz-q">Q5.【計算題】一隻30公斤犬靜脈給予某藥物後，第1小時測得血中濃度為40 μg/mL，第5小時測得血中濃度為5 μg/mL。假設此藥物遵循一級消除動力學（ln 2 = 0.693，ln 8 = 2.08），請計算：(1) 消除速率常數 Ke；(2) 此藥物的生物半衰期 t½；(3) 若此犬需要每隔一個半衰期給藥一次以維持穩定血中濃度，大約應間隔多久給藥一次？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 求Ke：</strong>由 ln Cp = ln Cp₀ − Ke·t，兩時間點分別代入：ln 5 = ln 40 − Ke×(5−1)。Cp從40降到5，濃度比為40/5=8，即經過4小時濃度變為原來的1/8（相當於3個半衰期，因為2³=8）。以對數形式：ln(40/5) = Ke×4 → ln 8 = Ke×4 → 2.08 = Ke×4 → <strong>Ke ≈ 0.52 h⁻¹</strong>。<br><strong>(2) 求t½：</strong>t½ = 0.693/Ke = 0.693/0.52 ≈ <strong>1.33小時</strong>（驗證：4小時內經過4/1.33≈3個半衰期，濃度變為(1/2)³=1/8，與題目給的40→5一致）。<br><strong>(3) 給藥間隔：</strong>大約每 <strong>1.33小時</strong> 給藥一次即為每一個半衰期給藥一次；實務上此類短半衰期藥物若要維持穩定血中濃度，可能需要考慮連續輸注（CRI）或改用長效劑型，而非以如此頻繁的間隔重複注射。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  cyp450: 'CYP450 藥物代謝系統',
+  receptors: '受體分類與訊息傳遞總論',
+  pkbasics: 'ADME 與藥動學基礎公式',
+  routes: '給藥途徑與劑型基礎',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

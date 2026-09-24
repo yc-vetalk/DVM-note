@@ -1,0 +1,316 @@
+<!--
+  空白頁面模板 — 獸醫藥理學內頁
+
+  使用方式：複製這份檔案到 DVM-note/大三/獸醫藥理學/<主題>.html，
+  把所有 {{...}} 佔位符換成實際內容。不要保留任何 {{...}} 沒替換到。
+
+  這份模板只示範「骨架」：header/pagehead/meta-bar/toc/pagebody 的結構、
+  重點摘要區塊的兩層 alert（綠色引導 + 藍色重點條列）、一個範例 section、
+  quiz 區塊的兩種題型範例、以及結尾的 script。
+  實際章節數量、每節內容、quiz 題數，依講義實際份量增減 —— 不要為了湊格式硬塞。
+-->
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：{{主題}} - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=3">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">{{主題}}</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">{{主題（中文）}} {{主題（英文）}}</h1>
+      <p class="page-subtitle">{{一句話說明這頁涵蓋的範圍，例如：機轉、藥物分類、物種差異、臨床用途整理}}</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <!-- 資料來源務必寫實話：實際讀過哪份講義（含授課教師與檔名/編號）、實際 grep 過哪本教科書。
+           還沒做教科書核對就先寫「教科書交叉核對尚未完成」，不要预先寫已完成。 -->
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（{{授課教師}}，{{講義檔名/編號}}）為主；教科書核對：{{實際查過的教科書章節，或寫「尚未完成」}}</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">{{YYYY-MM-DD}}</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <!-- 依實際章節數量增加 <a onclick="showSection('xxx')" id="nav-xxx">，可用 section-label 分群組 -->
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT：每頁固定第一節，兩層 alert -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+
+      <!-- 第一層：綠色 alert-success，回答「這章在讀什麼？」——3-6 句白話說明這章的主線邏輯，
+           不是列重點，是講「為什麼這樣安排」「讀完應該建立什麼心智地圖」。
+           下面接一個 grid-3/4 的可點擊卡片，每張對應一個章節，點了會跳到該 section。 -->
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>{{3-6 句話說明本章主線邏輯：先建立什麼基礎概念，再怎麼展開到藥物分類/個別藥物/臨床應用，最後收在哪裡}}</p>
+        <div class="grid-3" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('{{section-id}}')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">{{分類標籤}}</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">{{一行說明}}</p></div>
+          <!-- 依章節數量增減卡片，grid-3/grid-4 依卡片數量選 -->
+        </div>
+      </div>
+
+      <!-- 第二層：藍色 alert-info，條列全頁最重要的臨床/國考重點（通常 5-8 條），
+           每條都要有明確的「為什麼重要」或「常考的陷阱點」，不是單純重述章節標題。 -->
+      <div class="alert alert-info">
+        <div class="alert-label">{{N}}個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>{{重點一句話}}：</strong>{{延伸說明，含為什麼重要或常見混淆點}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 範例章節：依講義實際章節數量複製這個區塊，section-num 依序遞增 -->
+    <div class="section" id="section-{{id}}">
+      <div class="section-head"><div class="section-num">2</div><h2>{{章節標題（中文＋英文）}}</h2></div>
+      <p class="section-desc">{{一句話說明這節在講義中的定位，為什麼放在這裡}}</p>
+
+      <!-- h3 標題：若該小節有值得被藥品索引.html 連結的具體藥物/概念，加 id="drug-xxx"；
+           純過渡性/背景說明的 h3 可以不加 id -->
+      <h3 id="drug-{{id}}">{{小節標題}}<span class="tag tag-exam">重要</span></h3>
+      <p>{{內容，優先用短句＋<strong>加粗關鍵字</strong>，避免整段長文字}}</p>
+
+      <!-- 比較表格：獸醫師讀者最愛的格式，凡是「幾種藥/幾種物種/幾種術式的差異」都優先做成表格 -->
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>{{欄位1}}</th><th>{{欄位2}}</th></tr></thead>
+          <tbody>
+            <tr><td>{{值}}</td><td>{{值}}</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 流程/機轉鏈：A→B→C 這種因果鏈用 .flow，不要寫成一長串文字 -->
+      <div class="flow">
+        <div class="flow-node">{{步驟一}}</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">{{結果，若是不良結果/警示用 danger，關鍵結論用 accent}}</div>
+      </div>
+
+      <!-- 提醒框四種：success(重點/正向)｜info(補充資訊)｜warn(注意/副作用)｜danger(禁忌/危險) -->
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p>{{禁忌內容}}</p>
+      </div>
+
+      <!-- 教科書補充：只有在真的 grep 過教科書原文、確認補充內容存在時才寫這種框，
+           且要標明是「補充」還是跟講義「不同」，不要跟講義內容混寫在一起看不出來源 -->
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>{{教科書補充或核對後的內容}}（核對自 {{教科書全名與版次}}）</p>
+      </div>
+
+      <!-- 跨頁連結：同樣概念別的頁面已經講過，這裡只放小字連結，不要重複整段解釋 -->
+      <p style="font-size:.85em; color:var(--fg-faint);">※ {{概念}}的完整機轉，見 <a href="{{其他頁面.html}}#section-{{id}}">{{其他頁面名稱：章節名}}</a>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（{{授課教師}}，{{講義編號}}）為主，並以 {{教科書}} 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY：固定倒數第二節 -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">{{N}}</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>{{重點}}：</strong>{{濃縮說明}}</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（{{授課教師}}，{{講義編號}}）為主，並以 {{教科書}} 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ：固定最後一節，題型：quiz-type-mcq / quiz-type-tf / quiz-type-saq / quiz-type-vignette
+         至少放 1-2 題 vignette（臨床情境整合題），答案預設隱藏（<details><summary></summary>），
+         不要用固定顯示的答案 -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">{{N+1}}</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋本頁各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. {{題目}}</div>
+        <ul class="quiz-options">
+          <li>(A) {{選項}}</li>
+          <li>(B) {{選項}}</li>
+          <li>(C) {{選項}}</li>
+          <li>(D) {{選項}}</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(X)</div>
+          <p class="quiz-explain">{{解析，說明為什麼對／為什麼其他選項錯}}</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q{{N}}.【臨床情境】{{病例描述}}請問：(1) {{子問題}}？(2) {{子問題}}？(3) {{子問題}}？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) {{子標題}}：</strong>{{說明}}<br><strong>(2) {{子標題}}：</strong>{{說明}}<br><strong>(3) {{子標題}}：</strong>{{說明}}</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+// 這個物件的 key 必須跟左側 TOC/所有 section id 完全一致，是站內搜尋分組顯示用的中文名稱
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

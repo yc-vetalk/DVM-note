@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：Beta-Lactam 類抗生素 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">Beta-Lactam 類抗生素</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">Beta-Lactam 類抗生素 Beta-Lactam Antibiotics</h1>
+      <p class="page-subtitle">Penicillins、Cephalosporins、Carbapenems、Monobactams：化學結構、獸醫治療用途分類、藥動學與不良反應</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.、Handbook of Veterinary Pharmacology</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-22</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（依原始講義架構重整）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">Penicillins</div>
+    <a onclick="showSection('penchem')" id="nav-penchem"><span class="nav-icon">🧬</span> 化學結構與作用機轉</a>
+    <a onclick="showSection('penuses')" id="nav-penuses"><span class="nav-icon">💊</span> 獸醫治療用途五分類</a>
+    <a onclick="showSection('penpk')" id="nav-penpk"><span class="nav-icon">⏱️</span> 給藥、抗藥性、藥動學與不良反應</a>
+    <div class="section-label" style="margin-top:8px;">Cephalosporins</div>
+    <a onclick="showSection('cephgen')" id="nav-cephgen"><span class="nav-icon">📊</span> 化學結構與五代分類</a>
+    <a onclick="showSection('cephpk')" id="nav-cephpk"><span class="nav-icon">⏱️</span> 給藥、藥動學與不良反應</a>
+    <div class="section-label" style="margin-top:8px;">其他 Beta-Lactam</div>
+    <a onclick="showSection('carbapenems')" id="nav-carbapenems"><span class="nav-icon">🛡️</span> Carbapenems</a>
+    <a onclick="showSection('monobactams')" id="nav-monobactams"><span class="nav-icon">🎯</span> Monobactams</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章依講義原本的順序，從Penicillins（青黴素）講起，再到Cephalosporins（頭孢菌素），最後是Carbapenems與Monobactams——四類藥物的核心機轉相同：都靠<strong>β-lactam環</strong>抑制細菌合成細胞壁最後一步所需的<strong>transpeptidase（PBP）</strong>，使細胞壁變弱、細菌因滲透壓而破裂死亡（殺菌性）。因為動物細胞沒有細胞壁，這類藥物對哺乳類毒性低。講義的編排邏輯是「依化學結構分家族→依抗菌譜/對β-lactamase的抵抗力再細分」：青黴素依此分成天然、耐酶、廣譜、Potentiated（加β-lactamase抑制劑）、長效五類；頭孢菌素則依「世代」演進，每一代抗菌譜與抗藥性穩定度都不同。Carbapenems與Monobactams則是結構修飾後衍生的特化類別，各有專屬的臨床定位。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('penchem')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Penicillins</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">機轉、五分類、PK</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('cephgen')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Cephalosporins</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">五代比較</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('carbapenems')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Carbapenems</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">最廣抗菌譜</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('monobactams')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Monobactams</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Aztreonam</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點（講義為主）</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>青黴素結構有5個功能位點：</strong>(1)Thiazolidone環、(2)β-lactam環、(3)β-lactamase（青黴素酶）作用位、(4)Amidase切割位（切下後得到6-APA核，用於製造半合成青黴素）、(5)羧基（鹽類形成位，影響溶解度與吸收）；β-lactam環被切斷就失去抗菌活性。</li>
+          <li><strong>青黴素五分類的邏輯：</strong>①天然（Pen G/V）②耐酶（Methicillin、Oxacillin、Cloxacillin、Dicloxacillin，對Strep效果不如天然青黴素）③廣譜（Aminopenicillins如Ampicillin/Amoxicillin；Piperacillin對G(-)尤其Pseudomonas更強；Carboxypenicillins如Carbenicillin/Ticarcillin/Temocillin主攻G(-)較弱G(+)，常與Gentamicin/Tobramycin併用治療犬耳/皮膚Pseudomonas感染；Hetacillin乳管內灌注治乳腺炎）④Potentiated（加Clavulanic acid/Sulbactam/Tazobactam等β-lactamase抑制劑，主要用於小動物）⑤長效（Procaine青黴素G單劑維持24小時；Benzathine青黴素G吸收更慢，48–72小時但血中濃度較低）。</li>
+          <li><strong>MRSA的抗藥機轉是取得非原生基因、表現對β-lactam親和力顯著降低的PBP（PBP2a）</strong>，屬於「藥物無法結合PBP」的次要抗藥機轉；主要抗藥機轉仍是β-lactamase（青黴素酶）將藥物去活化。</li>
+          <li><strong>Procaine青黴素的物種與情境禁忌（講義原文）：</strong>禁用於鳥類、蛇、龜、天竺鼠、絨鼠（chinchilla，對procaine敏感）；賽馬賽前30天禁用（血漿酯酶釋出procaine致CNS毒性）；<strong>與母豬的自發性流產有關</strong>；靜脈注射鉀鹽青黴素過快可致高鉀血症與心律不整；<strong>鉀鹽青黴素可能造成馬的腹瀉</strong>。</li>
+          <li><strong>頭孢菌素五代的規律是：越後代對G(-)覆蓋越廣、對β-lactamase越穩定</strong>（1st：G(+)強／G(-)弱／酶穩定性差；5th：G(+)與G(-)皆強／酶穩定性最佳）；<strong>4、5代在人醫是「極重要抗生素（critically important）」，獸醫除Cefquinome（4代，僅動物用）外原則不用</strong>。</li>
+          <li><strong>Ceftiofur核准僅供動物使用</strong>，代謝為活性較低的desfuroylceftiofur（對Staph的MIC較高），<strong>不建議用於Staphylococcus感染</strong>；<strong>Cefovecin單次注射血中濃度可維持7天</strong>，核准用於犬膿皮症、貓膿瘍。</li>
+          <li><strong>Carbapenems是抗菌譜最廣的β-lactam之一</strong>，涵蓋G(+)/G(-)需氧厭氧菌與ESBL陽性菌，臨床用於腹腔破裂/腸道內容物污染等極嚴重感染；<strong>Imipenem會被腎臟近端小管刷狀緣的DHP酵素代謝成無活性且具腎毒性的代謝物，因此需與DHP抑制劑Cilastatin併用</strong>；Meropenem與Ertapenem對DHP穩定，不需併用Cilastatin。</li>
+          <li><strong>Monobactam（Aztreonam）只對G(-)需氧菌有效（結合其PBP），對多數β-lactamase有抵抗性；與Penicillin／Cephalosporin無交叉過敏</strong>；講義說明其人醫用途之一是取代Aminoglycoside——因Aminoglycoside與Macrolide／Lincosamide併用時毒性較高，Aztreonam可作為替代。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Benzathine Penicillin G<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">苯唑青黴素G</div></td><td>青黴素機轉；benzathine鹽吸收更慢</td><td><strong>IM（深部注射，緩慢釋放）</strong>；長效IM（48–72h），血中濃度較低，適合輕症長期治療</td><td class="drug-locations"><a href="#drug-natural" class="drug-link">長效IM製劑（48–72小時，低濃度）</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Penicillin G<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">苄青黴素</div></td><td>抑制transpeptidase（PBP）阻斷細胞壁合成，殺菌性</td><td>不產酶G(+)菌感染首選；不耐酸須注射（IV/IM）</td><td class="drug-locations"><a href="#drug-natural" class="drug-link">天然青黴素，不可口服</a></td></tr>
+            <tr><td>Penicillin V<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">苯氧甲基青黴素</div></td><td>同青黴素類機轉；耐酸可口服</td><td>G(+)感染長期口服治療（犬貓馬）</td><td class="drug-locations"><a href="#drug-natural" class="drug-link">天然青黴素，耐酸可口服</a></td></tr>
+            <tr><td>Procaine Penicillin G<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">普魯卡因青黴素G</div></td><td>青黴素機轉；procaine鹽於注射部位緩慢溶解釋放</td><td><strong>IM（深部注射，緩慢釋放）</strong>；單劑IM維持24h治療濃度；★絕對禁用於鳥/蛇/龜/天竺鼠/絨鼠、賽馬賽前30天、與母豬流產相關</td><td class="drug-locations"><a href="#drug-natural" class="drug-link">長效IM製劑，禁用於鳥/蛇/龜/天竺鼠/絨鼠，賽馬禁賽期30天</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Cloxacillin</td><td>耐β-lactamase青黴素，口服</td><td><strong>PO</strong>；犬貓皮膚/軟組織葡萄球菌感染常用</td><td class="drug-locations"><a href="#drug-penicillinaseresist" class="drug-link">耐酶青黴素，犬貓皮膚/軟組織感染常用</a></td></tr>
+            <tr><td>Dicloxacillin</td><td>耐β-lactamase青黴素，口服</td><td>皮膚感染口服治療</td><td class="drug-locations"><a href="#drug-penicillinaseresist" class="drug-link">耐酶青黴素</a></td></tr>
+            <tr><td>Methicillin</td><td>R基立體位阻，抵抗β-lactamase水解</td><td><strong>IV／IM（不耐酸，不可口服）</strong>；已不臨床使用（腎毒性）；MRSA命名由來</td><td class="drug-locations"><a href="#drug-penicillinaseresist" class="drug-link">耐酶青黴素，已不臨床使用（腎毒性），MRSA名稱由來</a></td></tr>
+            <tr><td>Nafcillin</td><td>耐β-lactamase青黴素</td><td><strong>IV／IM</strong>；嚴重葡萄球菌感染（人醫較常用）</td><td class="drug-locations"><a href="#drug-penicillinaseresist" class="drug-link">耐酶青黴素</a></td></tr>
+            <tr><td>Oxacillin</td><td>耐β-lactamase青黴素</td><td><strong>PO</strong>；產酶葡萄球菌感染</td><td class="drug-locations"><a href="#drug-penicillinaseresist" class="drug-link">耐酶青黴素</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Amoxicillin</td><td>同Ampicillin，口服吸收較佳</td><td><strong>PO</strong>；犬貓皮膚/尿道/呼吸道感染首選之一</td><td class="drug-locations"><a href="#drug-broadspectrum" class="drug-link">廣譜青黴素，口服吸收優於Ampicillin</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Ampicillin</td><td>廣譜，對G(-)需氧菌與G(+)有效，不耐酶</td><td>G(-)/G(+)混合感染；★馬匹口服幾乎禁忌（腸炎風險）</td><td class="drug-locations"><a href="#drug-broadspectrum" class="drug-link">廣譜青黴素，馬匹口服幾乎禁忌</a></td></tr>
+            <tr><td>Carbenicillin</td><td>Carboxypenicillin，主攻G(-)</td><td><strong>IV／IM（Carbenicillin indanyl sodium有口服劑型）</strong>；犬耳/皮膚Pseudomonas感染，可與Gentamicin併用</td><td class="drug-locations"><a href="#drug-broadspectrum" class="drug-link">抗假單胞菌青黴素</a></td></tr>
+            <tr><td>Hetacillin</td><td>Ampicillin前驅藥</td><td>乳管內灌注治療乳腺炎</td><td class="drug-locations"><a href="#drug-broadspectrum" class="drug-link">乳管內灌注治乳腺炎</a></td></tr>
+            <tr><td>Piperacillin</td><td>Acylaminopenicillin，擴展G(-)尤其Pseudomonas</td><td><strong>IV／IM</strong>；嚴重G(-)感染，常與Aminoglycoside併用</td><td class="drug-locations"><a href="#drug-broadspectrum" class="drug-link">擴展抗菌譜，G(+)/G(-)皆有效</a></td></tr>
+            <tr><td>Temocillin</td><td>Carboxypenicillin，特別抗β-lactamase</td><td><strong>IV／IM</strong>；對Pseudomonas無效，用於其他產酶G(-)感染</td><td class="drug-locations"><a href="#drug-broadspectrum" class="drug-link">抗假單胞菌青黴素，特別抗β-lactamase但對Pseudomonas無效</a></td></tr>
+            <tr><td>Ticarcillin</td><td>Carboxypenicillin，主攻G(-)</td><td>抗假單胞菌感染，注射</td><td class="drug-locations"><a href="#drug-broadspectrum" class="drug-link">抗假單胞菌青黴素</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Amoxicillin-Clavulanate<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Clavamox®</div></td><td>Amoxicillin＋Clavulanic acid（β-lactamase自殺性抑制劑）</td><td><strong>PO</strong>；犬貓皮膚/尿道/呼吸道感染常用複方，涵蓋產酶菌株</td><td class="drug-locations"><a href="#drug-potentiatedpen" class="drug-link">犬貓皮膚/尿道/呼吸道感染常用複方</a></td></tr>
+            <tr><td>Ampicillin-Sulbactam<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Unasyn®</div></td><td>Ampicillin＋Sulbactam</td><td><strong>IV／IM</strong>；腹腔/婦科/軟組織感染</td><td class="drug-locations"><a href="#drug-potentiatedpen" class="drug-link">腹腔/婦科/軟組織感染</a></td></tr>
+            <tr><td>Clavulanic acid</td><td>β-lactamase自殺性抑制劑，本身無抗菌活性</td><td><strong>PO或IV（依合併藥物劑型，如與Amoxicillin PO併用或與Ticarcillin IV併用）</strong>；與青黴素併用擴展抗菌譜；★對MRSA無效（PBP2a非酶機轉）</td><td class="drug-locations"><a href="#drug-potentiatedpen" class="drug-link">β-lactamase自殺性抑制劑，對MRSA無效</a></td></tr>
+            <tr><td>Piperacillin-Tazobactam<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Zosyn®</div></td><td>Piperacillin＋Tazobactam</td><td><strong>IV／IM</strong>；嚴重G(-)含Pseudomonas感染</td><td class="drug-locations"><a href="#drug-potentiatedpen" class="drug-link">嚴重G(-)含Pseudomonas感染</a></td></tr>
+            <tr><td>Ticarcillin-Clavulanate<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Timentin®</div></td><td>Ticarcillin＋Clavulanic acid</td><td><strong>IV</strong>；嚴重G(-)及混合感染</td><td class="drug-locations"><a href="#drug-potentiatedpen" class="drug-link">嚴重G(-)及混合感染</a></td></tr>
+            <tr><td>Vancomycin</td><td>非β-lactam；結合D-Ala-D-Ala阻斷細胞壁合成</td><td><strong>IV</strong>；MRSA感染首選（不受PBP2a影響）</td><td class="drug-locations"><a href="#drug-penresistance" class="drug-link">MRSA感染首選（非β-lactam類）</a></td></tr>
+            <tr><td>Cefaclor</td><td>第2代頭孢，口服</td><td><strong>PO</strong>；G(+)＋部分G(-)感染</td><td class="drug-locations"><a href="#drug-ceph1st2nd" class="drug-link">第2代</a></td></tr>
+            <tr><td>Cefadroxil</td><td>第1代頭孢，口服</td><td><strong>PO</strong>；類似Cephalexin，G(+)感染</td><td class="drug-locations"><a href="#drug-ceph1st2nd" class="drug-link">第1代，口服</a></td></tr>
+            <tr><td>Cefoxitin</td><td>第2代頭孢，注射</td><td><strong>IV／IM</strong>；對厭氧菌有效，混合感染</td><td class="drug-locations"><a href="#drug-ceph1st2nd" class="drug-link">第2代，對厭氧菌有效</a></td></tr>
+            <tr><td>Cefuroxime</td><td>第2代頭孢</td><td><strong>乳房內軟膏（intramammary）</strong>；牛乳腺炎</td><td class="drug-locations"><a href="#drug-ceph1st2nd" class="drug-link">第2代，牛乳腺炎軟膏</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Cephalexin</td><td>第1代頭孢，抑制PBP</td><td>口服，G(+)皮膚/尿道感染，手術預防性給藥</td><td class="drug-locations"><a href="#drug-ceph1st2nd" class="drug-link">第1代，口服，皮膚/尿道感染常用</a></td></tr>
+            <tr><td>Cephalothin</td><td>第1代頭孢，注射</td><td><strong>IV／IM</strong>；★尿路感染無效（Cephapirin可用）</td><td class="drug-locations"><a href="#drug-ceph1st2nd" class="drug-link">第1代，注射</a></td></tr>
+            <tr><td>Cephapirin</td><td>第1代頭孢，注射</td><td>可用於尿路感染；乳腺炎乳管內灌注</td><td class="drug-locations"><a href="#drug-ceph1st2nd" class="drug-link">第1代，注射</a></td></tr>
+            <tr><td>Cefixime</td><td>第3代頭孢，口服</td><td><strong>PO</strong>；犬貓尿路/呼吸道感染，犬細菌性心內膜炎</td><td class="drug-locations"><a href="#drug-ceph3rd" class="drug-link">尿路/呼吸道感染，犬心內膜炎</a></td></tr>
+            <tr><td>Cefoperazone</td><td>第3代頭孢，對Pseudomonas有效</td><td><strong>IV／IM</strong>；犬G(-)與軟組織感染</td><td class="drug-locations"><a href="#drug-ceph3rd" class="drug-link">犬G(-)與軟組織感染</a></td></tr>
+            <tr><td>Cefotaxime</td><td>第3代頭孢，發炎腦膜穿透佳</td><td><strong>IV／IM</strong>；G(-)敗血症、軟組織感染、CNS感染（犬貓馬駒腦膜炎）</td><td class="drug-locations"><a href="#drug-ceph3rd" class="drug-link">G(-)敗血症、軟組織感染、CNS感染</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Cefovecin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Convenia®</div></td><td>第3代頭孢，高蛋白結合率延長作用</td><td>僅核准動物用；單次SC注射血中濃度維持7天；犬膿皮症、貓膿瘍</td><td class="drug-locations"><a href="#drug-ceph3rd" class="drug-link">獸醫專用第3代，單次SC注射血中濃度維持7天</a></td></tr>
+            <tr><td>Cefpodoxime proxetil</td><td>第3代頭孢前驅藥，口服</td><td><strong>PO</strong>；犬貓皮膚感染，每日單次給藥</td><td class="drug-locations"><a href="#drug-ceph3rd" class="drug-link">前驅藥，皮膚感染，每日單次給藥</a></td></tr>
+            <tr><td>Ceftazidime</td><td>第3代頭孢，對Pseudomonas有效</td><td><strong>IV／IM</strong>；Pseudomonas感染、CNS感染首選第3代</td><td class="drug-locations"><a href="#drug-ceph3rd" class="drug-link">對Pseudomonas有效，CNS感染</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Ceftiofur<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Naxcel®／Excenel®</div></td><td>第3代頭孢，對cephalosporinase穩定</td><td><strong>IM（全身）或乳房內懸液（牛乳腺炎）</strong>；僅核准動物用；牛羊豬馬呼吸道IM、牛乳腺炎；★不建議用於Staph感染（代謝物MIC較高）</td><td class="drug-locations"><a href="#drug-ceph3rd" class="drug-link">獸醫專用第3代，牛羊豬馬呼吸道感染，不宜用於Staph</a></td></tr>
+            <tr><td>Ceftriaxone</td><td>第3代頭孢，BBB穿透佳</td><td><strong>IV／IM</strong>；G(-)腦膜炎（人醫常用）</td><td class="drug-locations"><a href="#drug-ceph3rd" class="drug-link">第3代，人醫常用</a></td></tr>
+            <tr><td>Cefepime</td><td>第4代頭孢，人醫極重要抗生素</td><td><strong>IV／IM</strong>；對其他頭孢已抗藥的Pseudomonas更有效；獸醫不用</td><td class="drug-locations"><a href="#drug-ceph4th5th" class="drug-link">更活躍於抗藥性Pseudomonas，人醫用</a></td></tr>
+            <tr><td>Cefquinome</td><td>第4代頭孢，僅核准動物用</td><td>牛馬全身感染注射、乳牛乳腺炎軟膏</td><td class="drug-locations"><a href="#drug-ceph4th5th" class="drug-link">第4代獸醫用，牛馬等大動物</a></td></tr>
+            <tr><td>Ceftobiprole</td><td>第5代頭孢，含MRSA活性</td><td><strong>IV</strong>；人用藥</td><td class="drug-locations"><a href="#drug-ceph4th5th" class="drug-link">第5代，含MRSA活性（人醫）</a></td></tr>
+            <tr><td>Ertapenem</td><td>廣效Carbapenem，對DHP穩定</td><td><strong>IV／IM</strong>；對Pseudomonas無效；犬t½短需一日兩次</td><td class="drug-locations"><a href="#drug-imipenem" class="drug-link">對Pseudomonas無效，t½短需BID</a></td></tr>
+            <tr><td>Imipenem-Cilastatin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Primaxin®</div></td><td>廣效結合多種PBP；Cilastatin抑制腎DHP酵素避免腎毒性代謝物</td><td><strong>IV輸注</strong>；極嚴重感染（如腹膜炎、腸道破裂污染）</td><td class="drug-locations"><a href="#drug-imipenem" class="drug-link">超廣譜，需Cilastatin保護腎臟</a></td></tr>
+            <tr><td>Meropenem</td><td>廣效Carbapenem，對DHP穩定</td><td><strong>IV或SC</strong>；不需Cilastatin，CNS副作用（癲癇）較低</td><td class="drug-locations"><a href="#drug-imipenem" class="drug-link">對DHP穩定，CNS副作用較少</a></td></tr>
+            <tr><td>Aztreonam</td><td>Monobactam，結合G(-)需氧菌PBP，抗多數β-lactamase</td><td><strong>IV／IM（非經腸道給藥）</strong>；嚴重G(-)感染儲備用藥；與Penicillin/Cephalosporin無交叉過敏</td><td class="drug-locations"><a href="#drug-aztreonam" class="drug-link">Monobactam，僅對需氧G(-)有效，與Penicillin無交叉過敏</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- PENICILLIN CHEM -->
+    <div class="section" id="section-penchem">
+      <div class="section-head"><div class="section-num">3</div><h2>化學結構與作用機轉</h2></div>
+      <p class="section-desc">青黴素的化學結構決定了它的抗菌活性來源、半合成衍生物的製造方式，以及不同鹽類劑型的溶解度差異。</p>
+
+      <h3 id="drug-penstructure">青黴素化學結構的 5 個位點<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>位點</th><th>名稱</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td>(1)</td><td>Thiazolidone環</td><td>與β-lactam環共同構成核心骨架</td></tr>
+            <tr><td>(2)</td><td>β-Lactam環</td><td>抗菌活性來源；<strong>環被切斷即失去抗菌活性</strong></td></tr>
+            <tr><td>(3)</td><td>β-Lactamase（青黴素酶）作用位</td><td>細菌抗藥性水解此處</td></tr>
+            <tr><td>(4)</td><td>Amidase切割位</td><td>切下醯胺鍵側鏈，產生<strong>6-胺基青黴烷酸（6-APA）</strong>核，用於製造半合成青黴素</td></tr>
+            <tr><td>(5)</td><td>羧基（Carboxyl group）</td><td>鹽類形成位（Na/K/Procaine鹽等），影響穩定性、溶解度與吸收速率</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-penmechanism">作用機轉<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">青黴素結合並抑制transpeptidase</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">阻斷細胞壁合成的最後一步（peptidoglycan交叉鏈接）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">細胞壁弱化、破裂、細胞死亡（殺菌性）</div>
+      </div>
+      <p style="font-size:.9em;"><strong>快速生長中的細菌對青黴素的殺菌效果最敏感</strong>；天然青黴素主要對G(+)需氧/厭氧菌有效；廣譜半合成青黴素對部分G(-)病原也有效。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PENICILLIN USES -->
+    <div class="section" id="section-penuses">
+      <div class="section-head"><div class="section-num">4</div><h2>獸醫治療用途五分類</h2></div>
+      <p class="section-desc">講義把青黴素的臨床用途分成五類，這是青黴素家族最重要的分類邏輯，逐一對照抗菌譜與代表藥物。</p>
+
+      <h3 id="drug-natural">① 天然青黴素（Natural Penicillins）</h3>
+      <p><strong>Penicillin G（Benzylpenicillin）</strong>：對不產青黴素酶的G(+)菌效力最強；<strong>Penicillin V（Phenoxymethylpenicillin）</strong>：現已較少使用，用於犬貓馬G(+)感染的長期口服治療。</p>
+
+      <h3 id="drug-penicillinaseresist">② 耐青黴素酶青黴素（Penicillinase-Resistant）</h3>
+      <p>Methicillin、Oxacillin、Cloxacillin、Dicloxacillin（口服）；用於G(+)嚴重葡萄球菌感染（β-lactamase產生菌，含部分牛乳腺炎）；<strong>對Streptococcus的效果不如天然青黴素</strong>。</p>
+
+      <h3 id="drug-broadspectrum">③ 廣譜青黴素（Broad-Spectrum）<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>亞類</th><th>藥物</th><th>特色</th></tr></thead>
+          <tbody>
+            <tr><td>Aminopenicillins</td><td>Ampicillin、Amoxicillin</td><td>對G(-)需氧菌（E. coli、Proteus、Haemophilus）與G(+)皆有效；耐酸可口服，但不耐酶；口服吸收Amoxicillin＞Ampicillin</td></tr>
+            <tr><td>Acylaminopenicillin</td><td>Piperacillin</td><td>擴展抗菌譜，尤其對G(-)（如Pseudomonas aeruginosa）</td></tr>
+            <tr><td>Carboxypenicillins</td><td>Carbenicillin、Ticarcillin、Temocillin</td><td>主要對G(-)，對G(+)效力較弱；單用或與Gentamicin/Tobramycin併用治療抗假單胞菌感染；犬的耳、皮膚Pseudomonas感染；Temocillin對β-lactamase有抵抗性</td></tr>
+            <tr><td>其他</td><td>Hetacillin</td><td>乳管內灌注治療乳腺炎</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-potentiatedpen">④ Potentiated 青黴素（加 β-lactamase 抑制劑）<span class="tag tag-exam">重要</span></h3>
+      <p>Clavulanic acid本身無抗菌活性，但能抑制部分細菌β-lactamase；與Amoxicillin或Ticarcillin併用可擴展抗菌效果；Sulbactam性質類似Clavulanic acid，與Ampicillin併用；Tazobactam與Piperacillin併用。<strong>主要用於小動物。</strong></p>
+
+      <h3 id="drug-longactingpen">⑤ 長效青黴素（Long-Acting）</h3>
+      <p>Benzathine或Procaine與青黴素G結合，於注射部位緩慢釋放。<strong>Procaine青黴素G</strong>溶解度低，深部IM注射後緩慢溶解，單劑可維持治療濃度24小時；<strong>Benzathine青黴素G</strong>吸收更慢（48–72小時），但達到的血中濃度相對較低。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PENICILLIN PK -->
+    <div class="section" id="section-penpk">
+      <div class="section-head"><div class="section-num">5</div><h2>給藥、抗藥性、藥動學與不良反應</h2></div>
+      <p class="section-desc">青黴素的耐酸性決定了能否口服，物種特異性的Procaine毒性則是講義反覆強調的臨床安全重點。</p>
+
+      <h3>給藥</h3>
+      <p><strong>耐酸（可口服）：</strong>Aminopenicillins、Clavulanic acid+Amoxicillin、Penicillin V。多數青黴素會被胃酸破壞（<strong>Penicillin G、Methicillin、Ticarcillin需注射</strong>，PO無效）；耐酸品項另含Oxacillin、Cloxacillin（不含Methicillin）與Carbenicillin indanyl sodium。</p>
+
+      <h3 id="drug-penresistance">細菌對青黴素的抗藥性<span class="tag tag-exam">重要</span></h3>
+      <p><strong>主要機轉：青黴素酶（β-lactamase）將藥物去活化</strong>；<strong>次要機轉：藥物無法結合penicillin-binding protein，以及細菌通透性降低</strong>。<strong>MRSA：</strong>取得非原生基因、表現對β-lactam親和力顯著較低的PBP（PBP2a）。</p>
+
+      <h3>藥動學</h3>
+      <p>分佈：主要在<strong>細胞外空間</strong>（穿透力差）；<strong>CNS、骨骼、前列腺、眼球以外的多數組織可達有效濃度</strong>。排泄：<strong>90%以上以原型經腎絲球過濾與主動腎小管分泌由尿液排出</strong>；殘餘部分在肝臟形成penicilloic acid衍生物，<strong>此衍生物是青黴素過敏反應的抗原決定基（antigenic determinant）</strong>。青黴素與所有β-lactam皆屬<strong>time-dependent抗生素</strong>，關鍵是延長血中濃度超過MIC的時間。</p>
+
+      <h3 id="drug-penadverse">不良反應<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">講義原文重點</div>
+        <p><strong>過敏反應</strong>：尤其馬（與人類）——皮疹、血管性水腫、過敏性休克。<strong>Procaine鹽青黴素不可用於鳥類、蛇、龜、天竺鼠、絨鼠（chinchilla）</strong>，這些物種對procaine敏感；<strong>賽馬賽前30天禁用Procaine青黴素</strong>——血漿酯酶釋出高濃度procaine，造成CNS毒性；<strong>Procaine青黴素G與母豬的自發性流產病例有關</strong>；<strong>IV鉀鹽青黴素可致高鉀血症與心律不整</strong>；<strong>鉀鹽青黴素可能造成馬的腹瀉</strong>。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）；青黴素過敏原機轉核對自 Handbook of Veterinary Pharmacology。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CEPHALOSPORIN GENERATIONS -->
+    <div class="section" id="section-cephgen">
+      <div class="section-head"><div class="section-num">6</div><h2>化學結構與五代分類</h2></div>
+      <p class="section-desc">頭孢菌素以「世代」劃分抗菌譜與抗藥性，是這一大節的核心骨架，獸醫臨床最重要的是第3代的Ceftiofur與Cefovecin。</p>
+
+      <h3>化學結構</h3>
+      <p>β-lactam類抗生素；核心為<strong>7-胺基頭孢菌烷酸（7-ACA）</strong>，與青黴素的6-APA核類似；屬弱酸，以鈉鹽、一水合物或游離態給藥。</p>
+
+      <h3 id="drug-cephgentable">五代頭孢菌素比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>世代</th><th>G(-)</th><th>G(+)</th><th>β-lactamase穩定性</th></tr></thead>
+          <tbody>
+            <tr><td>1st</td><td>+</td><td>+++</td><td>+/-</td></tr>
+            <tr><td>2nd</td><td>++</td><td>++</td><td>+</td></tr>
+            <tr><td>3rd</td><td>+++</td><td>+</td><td>++</td></tr>
+            <tr><td>4th</td><td>+++</td><td>++</td><td>+++</td></tr>
+            <tr><td>5th</td><td>+++</td><td>+++</td><td>++++</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">機轉與青黴素相同（抑制PBP、殺菌）；可用於青黴素不耐受病患，但<strong>可能有交叉反應，需謹慎</strong>。</p>
+
+      <h3 id="drug-ceph1st2nd">第1、2代</h3>
+      <p><strong>第1代：</strong>Cephalexin、Cefadroxil（口服）、Cephapirin、Cephalothin（注射）；抗菌譜G(+)需氧菌；組織穿透佳，常用於手術抗生素預防；治療多數G(+)感染時作為青黴素的第一替代選擇。<strong>第2代：</strong>Cefaclor（口服）、Cefoxitin（注射）、Cefuroxime（<strong>牛乳腺炎軟膏</strong>）；抗菌譜較廣（G(+)＋部分G(-)），<strong>對Acinetobacter、Enterococcus、Salmonella與MRSA、P. aeruginosa效果差</strong>；對β-lactamase較1代穩定；人醫較常用，獸醫較少用。</p>
+
+      <h3 id="drug-ceph3rd">第3代<span class="tag tag-exam">重要</span></h3>
+      <p>Cefixime（PO）、Cefoperazone、Cefotaxime、<strong>Cefovecin</strong>、Cefpodoxime proxetil（PO）、Ceftazidime、<strong>Ceftiofur</strong>；對β-lactamase（cephalosporinase）具抵抗性；G(-)抗菌譜擴大；<strong>除Cefoperazone與Ceftazidime外，多數對P. aeruginosa效果差</strong>；<strong>腦膜發炎時血腦屏障穿透良好</strong>（Ceftriaxone、Cefotaxime注射用於敏感G(-)腦膜炎；P. aeruginosa用Ceftazidime；Cefoperazone穿透較差；PO不適用於腦脊髓液感染，因濃度上升太慢）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>臨床定位（講義）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ceftiofur</strong></td><td>僅核准動物用；IM治療牛羊豬馬呼吸道疾病；乳房內懸液治療牛乳腺炎；犬貓尿路與軟組織感染；<strong>代謝為活性較低的desfuroylceftiofur（對Staph MIC較高），不建議用於Staph感染</strong></td></tr>
+            <tr><td>Cefoperazone</td><td>犬G(-)與軟組織感染</td></tr>
+            <tr><td>Cefotaxime</td><td>G(-)敗血症、軟組織感染、犬貓馬駒腦膜炎/CNS感染</td></tr>
+            <tr><td>Cefpodoxime proxetil</td><td>前驅藥，犬貓皮膚感染，優點為每日單次給藥</td></tr>
+            <tr><td>Cefixime</td><td>犬貓尿路與呼吸道感染，犬細菌性心內膜炎</td></tr>
+            <tr><td><strong>Cefovecin</strong></td><td>僅核准動物用；單次注射長效，核准治療犬膿皮症與貓膿瘍</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-ceph4th5th">第4、5代</h3>
+      <p><strong>第4代（Cefepime、Cefquinome）：</strong>對其他頭孢菌素已產生抗藥性的Pseudomonas更具活性。<strong>第5代（Ceftobiprole）：</strong>人用藥。<strong>4、5代在人醫是極重要抗生素（critically important），獸醫除Cefquinome（僅動物用）外不使用</strong>——Cefquinome於歐盟、台灣等地核准（美國未核准），供全身注射與乳牛乳腺炎軟膏，對腸內菌、葡萄球菌、鏈球菌活性佳。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CEPHALOSPORIN PK -->
+    <div class="section" id="section-cephpk">
+      <div class="section-head"><div class="section-num">7</div><h2>給藥、藥動學與不良反應</h2></div>
+      <p class="section-desc">頭孢菌素的耐酸口服清單、長效製劑的給藥間隔，以及物種特異的排泄考量是這節的重點。</p>
+
+      <h3>給藥</h3>
+      <p>耐酸（口服）：Cephalexin、Cefadroxil、Cefaclor、Cefixime、Cefpodoxime proxetil。多數藥物每8–12小時給藥一次；例外：<strong>Cefpodoxime與Ceftiofur可每日一次</strong>；<strong>Ceftiofur與Cefovecin有長效緩釋劑型，Cefovecin單次注射血中濃度可維持7天</strong>；<strong>偶蹄動物使用Ceftiofur給藥頻率與其他物種相似，不需頻繁給藥</strong>；<strong>爬蟲類代謝慢，需拉長給藥間隔（如Ceftazidime在海龜t½達20小時，僅需單次給藥）</strong>；<strong>非經腸道給藥：IM/IV/SC每8–12小時（多數物種）；鳥類代謝快、口服吸收差，需高劑量高頻率（如Cefotaxime 100 mg/kg q8h）；牛：Ceftiofur懸液SC注射於耳後</strong>。</p>
+
+      <h3>藥動學</h3>
+      <p>分佈於細胞外液，穿透多數組織但<strong>CNS除外</strong>；多數藥物代謝極少，<strong>例外為Cephalothin、Cephapirin、Ceftiofur、Cefotaxime（肝臟去乙醯化）</strong>；<strong>Cephalothin治療尿路感染無效，Cephapirin則可用於尿路感染</strong>；多數藥物t½為1–2小時，<strong>例外：Cefixime犬7小時、Ceftiofur（IM）牛8–12小時</strong>；如同青黴素，經主動腎小管分泌與腎絲球過濾由尿排出（可用於治療尿路感染）。</p>
+
+      <h3 id="drug-cephadverse">不良反應</h3>
+      <p>短期使用非常安全，不良反應罕見；<strong>長期治療或高劑量可能造成血液學效應（貧血與骨髓抑制）</strong>；可能發生過敏與過敏反應；人類的主要副作用是過敏反應與腸胃不適。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CARBAPENEMS -->
+    <div class="section" id="section-carbapenems">
+      <div class="section-head"><div class="section-num">8</div><h2>Carbapenems</h2></div>
+      <p class="section-desc">Carbapenems是講義中抗菌譜最廣的一類β-lactam，Imipenem需搭配Cilastatin的原因是這節最常考的細節。</p>
+
+      <h3>化學結構與機轉</h3>
+      <p>β-lactam結構類似青黴素，但thiazolidine環中的-S-被甲基取代；<strong>機轉：結合更多種PBP</strong>；<strong>抗菌譜是最廣的一類抗生素之一</strong>——G(+)/G(-)需氧與厭氧菌，涵蓋Enterobacteriaceae、Pseudomonas、Klebsiella、E. coli、鏈球菌、葡萄球菌、Listeria；<strong>對產ESBL（extended-spectrum β-lactamase）的菌株有效</strong>。</p>
+      <h3>治療用途與抗藥性</h3>
+      <p><strong>用於非常嚴重的感染，例如腹膜炎（腸道破裂或手術中腸內容物外溢）</strong>。<strong>抗藥性：Carbapenemase是一類可水解除Monobactam外幾乎所有β-lactam的β-lactamase</strong>；編碼此酵素的基因正在擴散，未來可能使多數β-lactam失效。教科書補充：此類抗藥性目前在獸醫臨床上<strong>尚未成為普遍問題</strong>，但已受到關注。</p>
+
+      <h3 id="drug-imipenem">Imipenem／Meropenem／Ertapenem 比較<span class="tag tag-exam">重要</span></h3>
+      <p>口服無效（胃酸水解、吸收差）；組織穿透佳，<strong>發炎腦組織也能穿透</strong>。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>特性（講義）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Imipenem</strong></td><td>IV輸注15–30分鐘；人消除t½ 2小時（動物資料少）；75%經腎過濾與代謝清除；<strong>被腎臟近端小管刷狀緣的DHP（dehydropeptidase）廣泛代謝，代謝物無活性且具腎毒性</strong>；<strong>需與DHP抑制劑Cilastatin併用，降低毒性、延長t½與作用時間</strong></td></tr>
+            <tr><td>Meropenem</td><td><strong>對DHP穩定，不需Cilastatin</strong>；溶解度優於Imipenem，SC給藥所需容積較少；CNS副作用（如癲癇）較低</td></tr>
+            <tr><td>Ertapenem</td><td><strong>對DHP穩定，不需Cilastatin</strong>；<strong>對Pseudomonas aeruginosa無效</strong>；對多數G(-)活性良好；人t½長可每日一次；<strong>犬t½僅1.3小時，需一日兩次</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>不良反應</h3>
+      <p>食慾不振、嘔吐、腹瀉；CNS毒性（癲癇、震顫）；過敏反應（搔癢、發燒、過敏性休克），罕見。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）；獸醫臨床Carbapenemase盛行度核對自 Veterinary Pharmacology and Therapeutics 10th ed.。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MONOBACTAMS -->
+    <div class="section" id="section-monobactams">
+      <div class="section-head"><div class="section-num">9</div><h2>Monobactams</h2></div>
+      <p class="section-desc">Monobactam是講義中唯一「單環」β-lactam，抗菌譜最窄卻也因此擁有獨特的安全性優勢。</p>
+
+      <h3 id="drug-aztreonam">Aztreonam<span class="tag tag-exam">重要</span></h3>
+      <p>化學結構：具β-lactam環，但相鄰的thiazolidine環已被取代，<strong>對多數β-lactamase有抵抗性</strong>；機轉：結合G(-)需氧菌的PBP。</p>
+      <p><strong>治療用途（講義）：</strong>人醫用於取代Aminoglycoside——因Aminoglycoside與Macrolide、Lincosamide併用時毒性較高；獸醫可作為儲備抗生素，用於嚴重G(-)感染。</p>
+      <p><strong>藥動學：</strong>非經腸道給藥，分佈類似Penicillin G；<strong>腦脊髓液穿透良好</strong>；經腎排泄，人消除t½ 1.2小時。<strong>不良反應：</strong>可能發生過敏，但<strong>未觀察到與Penicillin或Cephalosporin的交叉過敏</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">依講義章節順序的濃縮版複習，考前快速掃過即可回想整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>青黴素結構5位點：</strong>Thiazolidone環、β-lactam環（活性核心）、酶作用位、Amidase切割位（→6-APA）、羧基（鹽類）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>五分類：</strong>天然→耐酶→廣譜（Amino/Piperacillin/Carboxy/Hetacillin）→Potentiated→長效（Procaine 24h／Benzathine 48–72h）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Procaine青黴素禁忌：</strong>鳥/蛇/龜/天竺鼠/絨鼠；賽馬賽前30天；母豬流產病例；K⁺鹽IV致高鉀血症，馬可能腹瀉。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>頭孢五代：</strong>越後代G(-)覆蓋與酶穩定性越佳；3代Ceftiofur（不宜Staph）與Cefovecin（7天）為獸醫要角；4/5代人醫專用，僅Cefquinome供動物用。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>頭孢PK特例：</strong>Cephalothin不可治尿路感染、Cephapirin可；t½多1–2h、Cefixime犬7h、Ceftiofur牛IM 8–12h；長期高劑量可致貧血與骨髓抑制。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Carbapenems抗菌譜最廣，</strong>用於腹膜炎等極嚴重感染；Imipenem需Cilastatin保護腎臟（DHP代謝致腎毒性）；Meropenem/Ertapenem對DHP穩定；Ertapenem對Pseudomonas無效。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Monobactam（Aztreonam）：</strong>僅對G(-)有效，對多數β-lactamase有抵抗性，與Penicillin/Cephalosporin無交叉過敏。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>MRSA機轉：</strong>取得非原生基因表現PBP2a，對β-lactam親和力大降——屬於「無法結合PBP」的次要抗藥機轉；主要機轉仍是β-lactamase水解。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 2 Beta-lactam）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋青黴素結構、五分類、頭孢五代、Carbapenem DHP機轉各章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 青黴素結構中，Amidase切割哪一個位點後可得到用於製造半合成青黴素的核心結構？</div>
+        <ul class="quiz-options">
+          <li>(A) β-lactam環</li>
+          <li>(B) 醯胺鍵側鏈</li>
+          <li>(C) 羧基</li>
+          <li>(D) Thiazolidone環</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Amidase切割醯胺鍵側鏈，產生6-胺基青黴烷酸（6-APA）核，這是製造各種半合成青黴素（如Ampicillin、Amoxicillin等）的共同起始結構。切斷β-lactam環則會直接使抗菌活性喪失，兩者作用位置不同。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 第4代與第5代頭孢菌素在獸醫臨床廣泛使用，因為它們對G(-)與G(+)菌的效力都是所有世代中最強的。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">雖然4、5代頭孢菌素抗菌效力確實最強，但正因如此它們在人醫被列為「極重要抗生素（critically important）」，獸醫臨床原則上不使用，唯一例外是僅供動物使用的Cefquinome（4代，於歐盟、台灣等地核准，美國未核准）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 為什麼Imipenem必須與Cilastatin併用？</div>
+        <ul class="quiz-options">
+          <li>(A) Cilastatin可以增強Imipenem的抗菌效力</li>
+          <li>(B) Imipenem會被腎臟近端小管的DHP酵素代謝成腎毒性代謝物，Cilastatin抑制DHP以降低毒性</li>
+          <li>(C) Cilastatin可以延緩Imipenem被胃酸破壞</li>
+          <li>(D) Imipenem對Pseudomonas無效，需要Cilastatin補強</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Imipenem會被腎臟近端小管刷狀緣的dehydropeptidase（DHP）廣泛代謝，代謝物不僅無抗菌活性、還具有腎毒性；Cilastatin是DHP抑制劑，併用可降低毒性、延長Imipenem的t½與作用時間。Meropenem與Ertapenem對DHP穩定，不需要併用Cilastatin。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一位馬主表示自家賽馬將在3週後參賽，馬匹目前有輕度呼吸道感染，獸醫考慮使用Procaine青黴素G治療。同時，另一隻懷孕母豬出現輕微感染，也在考慮使用同一藥物。請問這兩個情境分別有什麼疑慮？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>賽馬：</strong>講義明確指出Procaine青黴素不可用於<strong>賽前30天內的賽馬</strong>，因為血漿酯酶會釋放出高濃度procaine，造成中樞神經毒性；這匹馬距離比賽僅3週（21天），仍在禁用期內，應改用不含procaine的青黴素劑型（如Crystalline Penicillin G）。<br><strong>懷孕母豬：</strong>講義指出Procaine青黴素G與母豬的自發性流產病例有關，對懷孕母豬用藥應特別謹慎評估風險效益，並考慮其他替代藥物或劑型。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  penchem: '化學結構與作用機轉',
+  penuses: '獸醫治療用途五分類',
+  penpk: '給藥、抗藥性、藥動學與不良反應',
+  cephgen: '化學結構與五代分類',
+  cephpk: '給藥、藥動學與不良反應',
+  carbapenems: 'Carbapenems',
+  monobactams: 'Monobactams',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

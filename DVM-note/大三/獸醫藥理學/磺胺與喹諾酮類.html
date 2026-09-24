@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：磺胺與喹諾酮類 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">磺胺與喹諾酮類</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">磺胺與喹諾酮類 Sulfonamides &amp; Fluoroquinolones</h1>
+      <p class="page-subtitle">葉酸合成抑制劑與DNA gyrase抑制劑：化學特性、治療用途分類、抗藥性、藥動學與不良反應</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1 Sulfa/Quinolone）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-23</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（依原始講義架構重整）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">Sulfonamides</div>
+    <a onclick="showSection('sulfahistory')" id="nav-sulfahistory"><span class="nav-icon">📖</span> 歷史與相關化合物</a>
+    <a onclick="showSection('sulfamech')" id="nav-sulfamech"><span class="nav-icon">🧬</span> 作用機轉與侷限性</a>
+    <a onclick="showSection('sulfachem')" id="nav-sulfachem"><span class="nav-icon">⚗️</span> 化學結構與特性</a>
+    <a onclick="showSection('sulfauses')" id="nav-sulfauses"><span class="nav-icon">💊</span> 治療用途十二分類</a>
+    <a onclick="showSection('potentiated')" id="nav-potentiated"><span class="nav-icon">🔗</span> Potentiated Sulfonamides</a>
+    <a onclick="showSection('sulfaresist')" id="nav-sulfaresist"><span class="nav-icon">⚔️</span> 抗藥性機制</a>
+    <a onclick="showSection('sulfapk')" id="nav-sulfapk"><span class="nav-icon">⏱️</span> 藥動學</a>
+    <a onclick="showSection('sulfaadverse')" id="nav-sulfaadverse"><span class="nav-icon">⚠️</span> 不良反應與禁忌症</a>
+    <div class="section-label" style="margin-top:8px;">Fluoroquinolones</div>
+    <a onclick="showSection('fqchem')" id="nav-fqchem"><span class="nav-icon">⚗️</span> 化學、機轉與抗菌譜</a>
+    <a onclick="showSection('fquses')" id="nav-fquses"><span class="nav-icon">💊</span> 獸醫治療用途</a>
+    <a onclick="showSection('fqpk')" id="nav-fqpk"><span class="nav-icon">⏱️</span> 給藥與藥動學</a>
+    <a onclick="showSection('fqresist')" id="nav-fqresist"><span class="nav-icon">⚔️</span> 抗藥性與MPC概念</a>
+    <a onclick="showSection('fqadverse')" id="nav-fqadverse"><span class="nav-icon">⚠️</span> 不良反應</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章合併兩個機轉完全不同的合成抗生素家族。<strong>磺胺類（Sulfonamides）</strong>是最早的合成抗菌藥（1906年合成），機轉是「假冒」細菌合成葉酸的原料PABA，競爭性抑制dihydropteroate synthase，阻斷葉酸合成；<strong>喹諾酮類（Fluoroquinolones）</strong>則是直接抑制細菌DNA gyrase（type II topoisomerase），讓DNA無法正常複製。講義的編排邏輯是「機轉→化學特性→依用途分類的代表藥物→抗藥性→藥動學→不良反應」，兩個家族各自走一次這個框架。讀完機轉後，磺胺類最重要的是記住「膿瘍與立克次體感染是反直覺的禁忌症」；喹諾酮類則要特別注意「貓的視網膜退化」與「Mutant Prevention Concentration」這兩個安全性概念。</p>
+        <div class="grid-2" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('sulfamech')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Sulfonamides</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">假冒PABA，阻斷葉酸合成</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('fqchem')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Fluoroquinolones</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">抑制DNA gyrase</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點（講義為主）</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>磺胺藥競爭性抑制dihydropteroate synthase，阻斷PABA轉換為dihydrofolic acid</strong>；<strong>哺乳類細胞與直接利用預成型葉酸的細菌（如部分Enterococcus）不受影響</strong>；單用是抑菌性，與Trimethoprim/Ormetoprim併用形成序列雙重阻斷（sequential blockade）才變殺菌性。</li>
+          <li><strong>磺胺藥禁忌症有兩個反直覺的重點：</strong>膿瘍（壞死嗜中性球釋出大量PABA使磺胺藥失效）與<strong>立克次體感染（磺胺藥反而促進其生長，因為葉酸對立克次體代謝有負調控效果，阻斷葉酸反而使代謝上調）</strong>。</li>
+          <li><strong>犬不進行N4乙醯化代謝</strong>，改走氧化路徑產生quinone衍生物，是Doberman Pinscher磺胺相關副作用（KCS、關節炎、延遲性過敏反應）的藥理基礎；<strong>對一種磺胺藥有抗藥性＝對所有磺胺藥都有抗藥性</strong>。</li>
+          <li><strong>Trimethoprim/Ormetoprim是有機鹼，與磺胺藥（弱酸）性質相反</strong>：在酸性環境發生離子陷阱，<strong>Trimethoprim集中於犬前列腺，是犬前列腺炎的首選用藥</strong>；磺胺藥在乳汁中則因pH較低而無法達到治療濃度。</li>
+          <li><strong>Fluoroquinolones抑制DNA gyrase（type II topoisomerase），阻斷DNA複製時的雙股分離，屬殺菌性、濃度依賴型，且有抗生素後效應</strong>；N7-piperazine基團增加對Pseudomonas的活性（Ciprofloxacin、Enrofloxacin、Marbofloxacin皆有此基團）。</li>
+          <li><strong>Enrofloxacin不覆蓋厭氧菌，因此不會與Clostridium競爭腸道生態，是小型哺乳類（兔、鼠等）安全的選擇</strong>——相對地β-lactam與Macrolide會因破壞厭氧菌叢而誘發Clostridium過度增殖腸炎。</li>
+          <li><strong>Mutant Prevention Concentration（MPC）＝8–10倍MIC</strong>：血中濃度必須在給藥間隔內部分時間超過MPC，才能防止對DNA gyrase不敏感的突變菌株被篩選出來；<strong>長期次治療劑量是抗藥性最危險的來源</strong>。</li>
+          <li><strong>Fluoroquinolones在貓可能造成急性、瀰漫性、不可逆的視網膜退化導致失明</strong>（以Enrofloxacin風險最高）；<strong>Orbifloxacin、Marbofloxacin視網膜毒性最低，Pradofloxacin目前認為無視網膜毒性</strong>；幼齡動物（犬4–28週齡）使用會有軟骨侵蝕風險（可逆但應避免）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Silver sulfadiazine</td><td>同磺胺類機轉，外用</td><td>燒傷創面外用</td><td class="drug-locations"><a href="#section-sulfauses" class="drug-link">外用型，燒傷創面</a></td></tr>
+            <tr><td>Sulfacetamide<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">SA</div></td><td>同磺胺類機轉，可製成中性pH鈉鹽</td><td><strong>局部（眼科製劑）</strong>；眼科製劑，中性pH不刺激眼睛</td><td class="drug-locations"><a href="#section-sulfauses" class="drug-link">眼科製劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Sulfadimethoxine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">SDM</div></td><td>同磺胺類機轉</td><td><strong>PO</strong>；長效，較Sulfamethazine更溶、毒性更低，多物種首選長效磺胺</td><td class="drug-locations"><a href="#section-sulfauses" class="drug-link">長效型，多物種首選</a></td></tr>
+            <tr><td>Sulfaguanidine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">SG</div></td><td>同磺胺類機轉，完全不被GI吸收</td><td>僅用於腸道感染（局部作用）</td><td class="drug-locations"><a href="#section-sulfauses" class="drug-link">腸道型，完全不吸收</a></td></tr>
+            <tr><td>Sulfamethazine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Sulfadimidine</div></td><td>競爭性抑制dihydropteroate synthase，阻斷PABA轉為葉酸前驅物</td><td><strong>PO</strong>；牛羊豬長效磺胺，單劑血中濃度維持24小時</td><td class="drug-locations"><a href="#section-sulfauses" class="drug-link">長效型，牛羊豬全身感染</a></td></tr>
+            <tr><td>Sulfamethoxazole<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">SMZ</div></td><td>同磺胺類機轉，高溶解度快速排入尿液</td><td><strong>PO</strong>；小動物UTI；人醫眼藥水；常與TMP併用</td><td class="drug-locations"><a href="#section-sulfauses" class="drug-link">快速排泄型，小動物UTI</a><a href="#drug-sequentialblockade" class="drug-link">常與TMP併用治療UTI</a></td></tr>
+            <tr><td>Sulfaquinoxaline</td><td>同磺胺類機轉</td><td><strong>PO</strong>；獸醫用，球蟲病/弓蟲症</td><td class="drug-locations"><a href="#section-sulfauses" class="drug-link">獸醫用，球蟲病/弓蟲症</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Sulfasalazine</td><td>腸道菌分解釋出5-ASA（抗發炎）與Sulfapyridine</td><td>犬貓IBD/結腸炎口服治療；★Doberman關節炎風險藥物之一</td><td class="drug-locations"><a href="#section-sulfauses" class="drug-link">腸道型，犬貓IBD/結腸炎</a><a href="#drug-sulfaadverse" class="drug-link">Doberman關節炎風險相關藥物</a></td></tr>
+            <tr><td>Ormetoprim</td><td>抑制細菌dihydrofolate reductase，性質同Trimethoprim</td><td><strong>PO（與Sulfadimethoxine複方）</strong>；與Sulfadimethoxine併用，多物種全身感染</td><td class="drug-locations"><a href="#drug-sequentialblockade" class="drug-link">與Sulfadimethoxine併用，多物種全身感染</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Sulfadiazine</td><td>同磺胺類機轉，常與TMP併用形成序列雙重阻斷（殺菌）</td><td><strong>PO</strong>；與TMP併用是最常見組合（UTI、全身感染）；★KCS與延遲性過敏風險（尤其Doberman）</td><td class="drug-locations"><a href="#drug-sequentialblockade" class="drug-link">與TMP併用，UTI與全身感染首選組合</a><a href="#drug-sulfaadverse" class="drug-link">KCS與延遲性過敏風險藥物（含嘧啶核）</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Trimethoprim<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">TMP</div></td><td>抑制細菌dihydrofolate reductase，不影響哺乳類；有機鹼，酸性環境離子陷阱</td><td><strong>PO</strong>；與磺胺藥併用序列雙重阻斷變殺菌；集中於前列腺，★犬前列腺炎首選</td><td class="drug-locations"><a href="#drug-sequentialblockade" class="drug-link">與磺胺藥協同雙重阻斷葉酸合成</a><a href="#drug-tmpiontrap" class="drug-link">離子陷阱集中於前列腺，犬前列腺炎首選</a></td></tr>
+            <tr><td>Nalidixic acid</td><td>抑制DNA gyrase，第一代合成quinolone</td><td><strong>PO</strong>；窄效G(-) only，1960年代用於UTI，歷史藥物</td><td class="drug-locations"><a href="#section-fqchem" class="drug-link">第一代quinolone，窄效G(-) only</a></td></tr>
+            <tr><td>Ciprofloxacin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Cipro</div></td><td>抑制DNA gyrase，對G(-)活性優於Enrofloxacin</td><td><strong>PO或IV（人用）</strong>；人用藥；獸醫參考比較用（Enro代謝物之一）</td><td class="drug-locations"><a href="#drug-fqmechanism" class="drug-link">人醫用藥，對G(-)活性強</a></td></tr>
+            <tr><td>Novobiocin</td><td>抑制DNA gyrase（與FQ不同結合位）</td><td><strong>PO</strong>；與Nalidixic acid、FQ同屬gyrase抑制劑家族</td><td class="drug-locations"><a href="#drug-fqmechanism" class="drug-link">DNA gyrase抑制劑家族成員</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Pradofloxacin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Veraflox</div></td><td>抑制DNA gyrase，第三代FQ對G(+)與厭氧菌活性增加</td><td><strong>PO</strong>；美國核准貓皮膚感染（傷口/膿瘍）；★目前認為無視網膜毒性</td><td class="drug-locations"><a href="#drug-fqmechanism" class="drug-link">第三代FQ，貓皮膚感染，視網膜毒性最低</a></td></tr>
+            <tr><td>Danofloxacin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Advocin</div></td><td>抑制DNA gyrase</td><td><strong>IM或SC</strong>；牛呼吸道感染含Mannheimia；不得用於乳牛/犢牛</td><td class="drug-locations"><a href="#section-fquses" class="drug-link">牛呼吸道，不得用於乳牛/育成牛犢</a></td></tr>
+            <tr><td>Difloxacin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Dicural</div></td><td>抑制DNA gyrase</td><td><strong>PO</strong>；犬皮膚、呼吸道、UTI</td><td class="drug-locations"><a href="#section-fquses" class="drug-link">犬皮膚/呼吸道/UTI</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Marbofloxacin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Zeniquin／Marbocyl</div></td><td>抑制DNA gyrase，具N7-piperazine</td><td><strong>PO</strong>；犬貓皮膚/呼吸道/UTI；部分國家用於豬呼吸道；★貓視網膜毒性最低之一</td><td class="drug-locations"><a href="#section-fquses" class="drug-link">犬貓皮膚/呼吸道/UTI，部分國家用於豬呼吸道</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Orbifloxacin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Orbax</div></td><td>抑制DNA gyrase</td><td><strong>PO</strong>；犬貓皮膚/呼吸道/UTI；★貓視網膜毒性最低之一</td><td class="drug-locations"><a href="#section-fquses" class="drug-link">犬貓皮膚/呼吸道/UTI，貓視網膜毒性最低之一</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Enrofloxacin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Baytril</div></td><td>抑制DNA gyrase（type II topoisomerase），阻斷DNA複製，殺菌濃度依賴</td><td><strong>PO或SC／IM（依物種與劑型）</strong>；犬貓皮膚/呼吸道/泌尿道感染；牛豬易感染症；★小型哺乳類安全（不覆蓋厭氧菌不誘發Clostridium腸炎）；★貓視網膜退化風險</td><td class="drug-locations"><a href="#drug-enrofloxacinuse" class="drug-link">小型哺乳類/爬蟲類廣泛使用，貓視網膜退化風險</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- SULFA HISTORY -->
+    <div class="section" id="section-sulfahistory">
+      <div class="section-head"><div class="section-num">3</div><h2>歷史與相關化合物</h2></div>
+      <p class="section-desc">磺胺藥是最早的合成抗菌藥，它的發現史與結構分析物散布在其他藥物類別中的事實，是了解這個藥物家族起源的第一步。</p>
+
+      <h3>發現史</h3>
+      <p><strong>1906年合成Sulfanilamide</strong>，原型磺胺藥，二戰期間廣泛使用；<strong>Prontosil</strong>（偶氮染料結構）經過5年、數千個相關化合物的測試，1932年證實對小鼠的重要細菌感染有效；<strong>Gerhard Domagk因此獲得1939年諾貝爾醫學獎</strong>。</p>
+
+      <h3 id="drug-sulfaanalog">磺胺結構類似物（非抗菌用途）</h3>
+      <p>磺胺是最古老的抗微生物藥物之一，但磺胺結構也廣泛存在於其他非抗菌藥物中：<strong>降血糖藥Glipizide</strong>；<strong>利尿劑Thiazides、Furosemide</strong>；<strong>COX-2抑制劑Celecoxib</strong>。這些藥物雖含磺胺結構，但不具抗菌活性。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SULFA MECHANISM -->
+    <div class="section" id="section-sulfamech">
+      <div class="section-head"><div class="section-num">4</div><h2>作用機轉與侷限性</h2></div>
+      <p class="section-desc">磺胺藥的機轉與它「何時會失效」是一體兩面的邏輯，這節把兩者放在一起講。</p>
+
+      <h3 id="drug-sulfamoa">作用機轉<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">PABA（細菌合成葉酸的中間產物）</div>
+        <span class="flow-arrow">→（磺胺藥競爭性抑制dihydropteroate synthase）</span>
+        <div class="flow-node amber">Dihydrofolic acid合成受阻</div>
+      </div>
+      <p><strong>磺胺藥與Trimethoprim/Ormetoprim有協同作用</strong>；<strong>哺乳類細胞與利用預成型葉酸的細菌不受影響</strong>；對靜止期細菌效果不佳；磺胺藥屬<strong>靜菌性、廣譜</strong>，涵蓋部分原蟲寄生蟲（<strong>馬原蟲性脊髓腦炎EPM、球蟲症</strong>）；<strong>在感染早期、細菌快速增殖時效果最好</strong>；<strong>持續抵抗的菌種：Pseudomonas spp.、Chlamydia spp.、Bacteroides</strong>。</p>
+
+      <h3>磺胺藥的侷限性<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>膿性環境效果較差</strong>：壞死嗜中性球在膿性殘屑中釋出PABA，使磺胺藥失效</li>
+        <li><strong>對厭氧菌感染效果不穩定</strong>：厭氧感染中可能同時存在thymidine與PABA，使Trimethoprim+磺胺藥的效果變化不定</li>
+        <li><strong>Enterococcus spp.：體外測試敏感，體內卻無效</strong>（機轉見抗藥性章節）</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SULFA CHEMISTRY -->
+    <div class="section" id="section-sulfachem">
+      <div class="section-head"><div class="section-num">5</div><h2>化學結構與特性</h2></div>
+      <p class="section-desc">磺胺藥的化學特性直接決定了它最主要的副作用（結晶尿）與複方製劑（Triple-sulfa）的設計邏輯。</p>
+
+      <h3>化學結構</h3>
+      <p><strong>#4位p-amino group必須保持游離才有抗菌活性</strong>；R基（異環，如thiazole、pyrimidine、pyridine）決定不同磺胺藥的特性；<strong>弱酸、低水溶性；Na⁺鹽可溶，但高濃度呈鹼性且具腐蝕性</strong>。</p>
+
+      <h3 id="drug-independentsolubility">獨立溶解度定律<span class="tag tag-exam">重要</span></h3>
+      <p><strong>在磺胺藥混合物中，每個成分藥物各自維持自己的溶解度，不受其他成分影響</strong>；利用此特性使用磺胺混合物可以提高總磺胺藥濃度，同時預防腎臟沉澱、降低結晶尿毒性——<strong>這是Triple-sulfa複方的設計原理</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SULFA USES -->
+    <div class="section" id="section-sulfauses">
+      <div class="section-head"><div class="section-num">6</div><h2>治療用途十二分類</h2></div>
+      <p class="section-desc">講義依「長效/快速排泄/腸道/外用/其他」把磺胺藥分成十二個具體項目，是這個家族最重要的分類記憶點。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>分類</th><th>藥物</th><th>特性與臨床定位</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td rowspan="3">長效（Long-acting）</td><td>Sulfamethazine（Sulfadimidine）</td><td>牛羊豬用；單劑血中濃度維持24小時</td></tr>
+            <tr><td>2</td><td>Sulfabromomethazine</td><td>溶解度更低，長效，用於牛</td></tr>
+            <tr><td>3</td><td>Sulfadimethoxine</td><td>長效；較Sulfamethazine更溶、毒性更低</td></tr>
+            <tr><td>4</td><td rowspan="4">快速排泄／眼用</td><td>Sulfachlorpyridazine</td><td>快速吸收與排泄，峰值1–2h；PO治療犢牛（&lt;1月齡）與豬的呼吸道/腸道感染（尤其colibacillosis）</td></tr>
+            <tr><td>5</td><td>Sulfamethoxazole</td><td>高溶解度、快速排入尿液；治療小動物UTI；人醫眼藥水</td></tr>
+            <tr><td>6</td><td>Sulfisoxazole（Sulfafurazole）</td><td>高溶解度；UTI</td></tr>
+            <tr><td>7</td><td>Sulfacetamide</td><td>可製成中性pH鈉鹽；眼科製劑</td></tr>
+            <tr><td>8</td><td rowspan="2">腸道型（Enteric）</td><td>Sulfasalazine</td><td>腸道菌切開為Sulfapyridine與5-ASA；5-ASA抗發炎（&lt;10%全身吸收）；口服治療犬貓IBD/結腸炎</td></tr>
+            <tr><td>9</td><td>Sulfaguanidine</td><td>完全不被GI吸收，僅用於腸道感染</td></tr>
+            <tr><td>10</td><td>外用（燒傷）</td><td>Silver sulfadiazine cream、Mafenide cream/powder、Sulfathiazole powder</td><td>用於燒傷創面；Mafenide為磺胺樣藥物，機轉未明</td></tr>
+            <tr><td>11</td><td>其他獸醫用</td><td>Sulfathiazole（低溶解度）、Sulfaquinoxaline</td><td>—</td></tr>
+            <tr><td>12</td><td>原蟲/寄生蟲</td><td>（同上多種磺胺藥）</td><td>治療球蟲症與弓蟲症</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- POTENTIATED -->
+    <div class="section" id="section-potentiated">
+      <div class="section-head"><div class="section-num">7</div><h2>Potentiated Sulfonamides</h2></div>
+      <p class="section-desc">TMP/Ormetoprim的加入把磺胺藥從抑菌變成殺菌，兩者互補的酸鹼性質也決定了截然不同的組織分佈。</p>
+
+      <h3 id="drug-sequentialblockade">序列雙重阻斷<span class="tag tag-exam">重要</span></h3>
+      <p><strong>Trimethoprim與Ormetoprim抑制細菌的dihydrofolate reductase，但不影響哺乳類細胞</strong>；與磺胺藥合併形成序列雙重阻斷（sequential blockade），<strong>轉為殺菌性</strong>，抗菌譜更廣、抗藥性發展更少。常見組合：<strong>Sulfadiazine+Trimethoprim（UTI）</strong>、Sulfamethoxazole+Trimethoprim、Sulfisoxazole+Trimethoprim、Sulfadimethoxine+Ormetoprim。</p>
+
+      <h3 id="drug-tmpiontrap">Trimethoprim 的離子陷阱特性<span class="tag tag-exam">重要</span></h3>
+      <p>用於治療各物種的易感染症；Trimethoprim血漿t½ 2–3小時（多數物種）；<strong>Trimethoprim與Ormetoprim是有機鹼，與磺胺藥（弱酸）相反</strong>——在酸性環境發生離子陷阱累積，組織分佈型態與磺胺藥不同；<strong>Trimethoprim集中於前列腺，是犬前列腺炎的治療首選</strong>。畜牧用Trimethoprim+Sulfadoxine在部分國家可用，<strong>美國未核准</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SULFA RESISTANCE -->
+    <div class="section" id="section-sulfaresist">
+      <div class="section-head"><div class="section-num">8</div><h2>抗藥性機制</h2></div>
+      <p class="section-desc">磺胺藥交叉抗藥的規則與Enterococcus的「體外體內不一致」現象，是這節最容易考的兩個細節。</p>
+
+      <h3 id="drug-sulfaresistmech">機制<span class="tag tag-exam">重要</span></h3>
+      <p>因多年廣泛使用，細菌與原蟲已普遍產生抗藥性；<strong>對一種磺胺藥抗藥＝對所有磺胺藥抗藥</strong>。機制：↑PABA生產；標的酵素改變（dihydropteroate synthase對磺胺藥結合力下降）；↑細菌代謝磺胺藥；↑外流泵；無法穿透菌體。</p>
+      <p><strong>Potentiated sulfonamide的抗藥性也會發生，但比單用磺胺藥少見</strong>——因抗菌譜更廣且屬殺菌性而非抑菌性。Trimethoprim抗藥性：dihydrofolate reductase過量生產；標的酵素改變抵抗藥物結合。</p>
+
+      <h3>Enterococcus 與厭氧菌的特例</h3>
+      <p><strong>Enterococcus體外測試顯示敏感，但因其能直接利用外源性預成型葉酸，臨床上治療失敗</strong>；體外對厭氧菌活性良好，但臨床效果多變，因厭氧感染環境中可能存在thymidine與PABA。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SULFA PK -->
+    <div class="section" id="section-sulfapk">
+      <div class="section-head"><div class="section-num">9</div><h2>藥動學</h2></div>
+      <p class="section-desc">犬的乙醯化代謝缺陷是磺胺藥PK中最重要的物種特例，直接連結到後面Doberman的免疫介導副作用。</p>
+
+      <h3 id="drug-sulfapk">吸收、代謝、排泄<span class="tag tag-exam">重要</span></h3>
+      <p>口服吸收良好，組織分佈廣；代謝：<strong>N4乙醯化與glucuronide接合</strong>——<strong>犬不進行乙醯化</strong>；苯環與異環氧化為quinone衍生物，<strong>尤其常見於犬</strong>；代謝型態與程度因藥物與物種而異；經腎絲球過濾、主動分泌與被動腎小管再吸收排出，<strong>再吸收是pH-pKa依賴（pH partition）</strong>。</p>
+
+      <h3>分佈</h3>
+      <p>組織與細胞內濃度低於血漿濃度；血漿白蛋白結合率約50–75%；<strong>磺胺藥為弱酸，Trimethoprim為弱鹼</strong>：<strong>Vd：T&gt;S</strong>（細胞內環境較血漿更負電，有利鹼性藥物的離子陷阱）；<strong>磺胺藥在乳汁中無法達治療濃度</strong>（乳汁pH較血漿低，不利磺胺藥的離子陷阱）；可穿透BBB、前列腺、眼。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SULFA ADVERSE -->
+    <div class="section" id="section-sulfaadverse">
+      <div class="section-head"><div class="section-num">10</div><h2>不良反應與禁忌症</h2></div>
+      <p class="section-desc">Doberman品種易感性與立克次體禁忌是磺胺藥安全性中最容易出現在配對題與情境題的素材。</p>
+
+      <h3 id="drug-sulfaadverse">七大不良反應<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>不良反應</th><th>機轉/說明</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>腎結晶尿</td><td>尿液pH&lt;7時磺胺藥沉澱；大劑量/長療程、飲水不足、低溶解度藥物（如Sulfathiazole）風險較高；補水與尿液鹼化可預防；<strong>療程≤5天結晶尿罕見</strong>；Triple-sulfa可降低風險</td></tr>
+            <tr><td>2</td><td>角膜結膜炎乾燥（KCS）</td><td>含嘧啶核的磺胺藥（如Sulfadiazine）可能誘發，機轉未明，<strong>見於犬</strong></td></tr>
+            <tr><td>3</td><td>低凝血酶原血症、血小板減少、貧血</td><td>罕見，免疫介導反應；凝血異常動物禁用</td></tr>
+            <tr><td>4</td><td>關節炎</td><td>Doberman磺胺治療後遺症，<strong>尤其Sulfasalazine</strong>；機轉未完全了解，可能是T細胞對磺胺代謝物haptenated蛋白的反應</td></tr>
+            <tr><td>5</td><td>精子數減少</td><td>用於配種公犬為禁忌</td></tr>
+            <tr><td>6</td><td>假性甲狀腺功能低下</td><td>暫時性血漿甲狀腺素下降，由<strong>Trimethoprim與Ormetoprim</strong>造成（非磺胺藥本身），停藥後恢復</td></tr>
+            <tr><td>7</td><td>延遲性過敏反應</td><td>Sulfadiazine、Sulfadimethoxine、Sulfamethoxazole；<strong>Doberman Pinscher更易感</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-sulfacontraind">禁忌症<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">講義原文重點</div>
+        <p>過敏反應病史；<strong>膿瘍</strong>（膿液富含游離葉酸使磺胺藥失效）；<strong>立克次體感染</strong>——磺胺藥會提升這類細胞內病原的生長：葉酸對立克次體代謝有負調控效果，阻斷葉酸合成反而上調其代謝。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FQ CHEMISTRY -->
+    <div class="section" id="section-fqchem">
+      <div class="section-head"><div class="section-num">11</div><h2>化學、機轉與抗菌譜</h2></div>
+      <p class="section-desc">FQ的Fluorine與Piperazine環是它命名與活性的來源，DNA gyrase抑制機轉則貫穿了整個抗菌譜的邏輯。</p>
+
+      <h3>歷史</h3>
+      <p>第一個合成quinolone窄效（僅G(-)），1960年代用於治療UTI；後續加入Fluorine與Piperazine環大幅擴展效力，成為現代Fluoroquinolones。</p>
+
+      <h3 id="drug-fqstructure">化學結構<span class="tag tag-exam">重要</span></h3>
+      <p>4-quinoline環＋羧基＋氟原子＋piperazine環；<strong>N7-piperazine增加對Pseudomonas的活性</strong>（<strong>Ciprofloxacin、Enrofloxacin、Marbofloxacin皆具此基團</strong>）；弱酸、脂溶性（可穿透CNS、乳汁、胎盤）；水溶性鹽類供注射；<strong>與Ca²⁺、Mg²⁺、Zn²⁺螯合會降低口服吸收</strong>——制酸劑與含多價陽離子產品（鈣、鐵、鋅、乳製品）會降低口服吸收與血中濃度。</p>
+
+      <h3 id="drug-fqmechanism">作用機轉<span class="tag tag-exam">重要</span></h3>
+      <p><strong>抑制細菌DNA gyrase（type II topoisomerase）</strong>，此酵素控制DNA複製時的超螺旋與雙股分離；<strong>殺菌性、濃度依賴型殺菌</strong>；廣譜：G(+)、G(-)、部分厭氧菌、細胞內病原；<strong>有抗生素後效應（類似Aminoglycoside）</strong>。DNA gyrase抑制劑家族包含Nalidixic acid、<strong>Novobiocin</strong>與Fluoroquinolones。</p>
+
+      <h3>抗菌譜<span class="tag tag-exam">重要</span></h3>
+      <p>對G(-)活性佳，尤其腸內菌（E. coli、Klebsiella、Proteus、Salmonella、Enterobacter spp.）；<strong>P. aeruginosa敏感度不一，Ciprofloxacin活性較強</strong>；細胞內病原有效：Rickettsia、Chlamydia、Mycobacterium、Mycoplasma spp.；<strong>G(+)：Staphylococci的MIC較G(-)高，抗藥性常見；Ciprofloxacin對G(-)活性優於Enrofloxacin</strong>；<strong>Enrofloxacin對Staphylococci活性優於Ciprofloxacin</strong>；<strong>Marbofloxacin活性介於Ciprofloxacin與Enrofloxacin之間</strong>；獸醫用FQ對厭氧菌多具抗藥性；<strong>第三代FQ（Pradofloxacin獸醫用；Moxifloxacin、Gatifloxacin人用）對G(+)與厭氧菌活性增加</strong>；<strong>Pradofloxacin在美國核准用於貓的皮膚感染（傷口與膿瘍）</strong>，部分國家也核准犬貓使用。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FQ USES -->
+    <div class="section" id="section-fquses">
+      <div class="section-head"><div class="section-num">12</div><h2>獸醫治療用途</h2></div>
+      <p class="section-desc">Enrofloxacin是獸醫臨床應用最廣的FQ，它為何是小型哺乳類的安全選項是這節最重要的推理題。</p>
+
+      <h3 id="drug-enrofloxacinuse">Enrofloxacin<span class="tag tag-exam">重要</span></h3>
+      <p>犬貓皮膚、呼吸道、泌尿道感染（含前列腺炎）；牛豬的易感染症（如E. coli、Salmonella、Pasteurella）；<strong>廣泛用於小型哺乳類（鼠、兔、異寵）的皮膚與內臟感染</strong>：強效G(-)活性且口服吸收好；<strong>小型哺乳類容易因β-lactam與Macrolide破壞腸道菌叢而使Clostridium過度增殖引發腸炎</strong>；<strong>Enrofloxacin不覆蓋與Clostridium競爭的厭氧菌，因此不會誘發此類腸炎</strong>。爬蟲類使用：活性、安全性與口服便利性佳；<strong>消除速度慢，需拉長給藥間隔</strong>。</p>
+
+      <h3>其他藥物臨床定位</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>臨床定位（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>Danofloxacin</td><td>牛呼吸道感染，含Mannheimia（厭氧菌）；<strong>與Enrofloxacin皆核准用於牛（美國），但不得用於乳牛與犢牛</strong></td></tr>
+            <tr><td>Difloxacin</td><td>犬皮膚、呼吸道、UTI</td></tr>
+            <tr><td>Orbifloxacin、Marbofloxacin</td><td>犬貓皮膚、呼吸道、UTI；<strong>Marbofloxacin部分國家（非美國）核准用於豬呼吸道疾病</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FQ PK -->
+    <div class="section" id="section-fqpk">
+      <div class="section-head"><div class="section-num">13</div><h2>給藥與藥動學</h2></div>
+      <p class="section-desc">FQ的AUC/MIC依賴特性延續了濃度依賴殺菌的邏輯，爬蟲類極長半衰期則是物種差異的重要細節。</p>
+
+      <h3>給藥與吸收</h3>
+      <p>口服或非經腸道，SID或BID；<strong>犬口服吸收快，峰值濃度約1小時達到；進食會延遲Tmax但不影響總AUC</strong>；<strong>犬貓豬口服幾乎完全吸收，大動物較差；馬的口服吸收變異大且部分研究顯示偏低</strong>。廣泛分佈，含CNS、骨骼、前列腺；部分肝臟代謝，<strong>原型藥物（15–50%）與代謝物經尿與膽汁排出</strong>；腎小管主動分泌造成高尿液濃度。</p>
+
+      <h3 id="drug-fqhalflife">半衰期（講義原文數值）<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>t½</th></tr></thead>
+          <tbody>
+            <tr><td>Enrofloxacin</td><td>犬3–5小時；貓與馬6小時</td></tr>
+            <tr><td>Difloxacin、Marbofloxacin</td><td>犬貓9–12小時</td></tr>
+            <tr><td>Orbifloxacin</td><td>犬貓6小時；馬9小時</td></tr>
+            <tr><td>爬蟲類（Enrofloxacin）</td><td><strong>蜥蜴36小時、短吻鱷55小時</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;"><strong>Fluoroquinolones屬AUC/MIC依賴型抗生素（濃度依賴殺菌）</strong>；對G(+)病原有抗生素後效應——短暫暴露仍可持續產生抗菌效果。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FQ RESISTANCE -->
+    <div class="section" id="section-fqresist">
+      <div class="section-head"><div class="section-num">14</div><h2>抗藥性與 MPC 概念</h2></div>
+      <p class="section-desc">Campylobacter抗藥性的公衛連結與MPC概念，是FQ抗藥性這節最重要的兩個延伸知識。</p>
+
+      <h3>抗藥性機制</h3>
+      <p>藥物通透性降低、外排增加、標的改變、質體介導抗藥性；<strong>DNA gyrase基因（如gyrA）與topoisomerase基因（如parC）突變</strong>。</p>
+
+      <h3 id="drug-campylobacter">Campylobacter 公衛議題<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">講義原文重點</div>
+        <p><strong>抗藥性Campylobacter jejuni感染人類的案例與食用受污染雞肉有關</strong>；<strong>美國已撤銷家禽用Fluoroquinolone製劑的核准，並禁止食品動物的超標籤使用</strong>。</p>
+      </div>
+
+      <h3 id="drug-mpc">Mutant Prevention Concentration（MPC）<span class="tag tag-exam">重要</span></h3>
+      <p><strong>長時間維持次治療濃度，會使對DNA gyrase不敏感的突變菌株有機會增殖</strong>；<strong>MPC＝8–10倍MIC</strong>——血漿濃度必須在給藥間隔的部分時間內超過MPC，才能防止產生抗藥性的突變發生。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FQ ADVERSE -->
+    <div class="section" id="section-fqadverse">
+      <div class="section-head"><div class="section-num">15</div><h2>不良反應</h2></div>
+      <p class="section-desc">貓的視網膜退化是這一章乃至整個抗微生物藥物單元最重要的單一物種毒性，選藥時務必優先排除高風險FQ。</p>
+
+      <h3 id="drug-fqadverse">不良反應總覽<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li>輕度GI不適（噁心、嘔吐、腹瀉），高劑量較明顯</li>
+        <li>人類可能出現幻覺、CNS興奮或抑制（BBB穿透）</li>
+        <li><strong>Enrofloxacin可能在正接受Phenobarbital治療癲癇的犬誘發癲癇發作</strong>——對有癲癇病史的動物需謹慎</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">貓視網膜退化</div>
+        <p><strong>貓的失明：視網膜退化已有報告，屬急性、瀰漫性、不可逆的視網膜損傷</strong>；<strong>Orbifloxacin與Marbofloxacin視網膜毒性最低，Pradofloxacin目前被認為無視網膜毒性</strong>。</p>
+      </div>
+      <h3>關節病變（Joint Arthropathy）</h3>
+      <p>高劑量與&gt;14天治療可能造成幼齡動物軟骨侵蝕（<strong>犬4–28週齡、幼馬、幼鼠</strong>）；<strong>停藥後可逆</strong>；應避免用於幼齡動物與幼童（懷孕動物也不建議使用）。<strong>此軟骨毒性效果可能導致肌腱斷裂</strong>——2016年FDA針對肌腱斷裂風險提出警告；對人類鼻竇炎、支氣管炎、單純性UTI患者，FQ應保留給沒有其他替代治療選項的病患。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">16</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">依講義章節順序的濃縮版複習，考前快速掃過即可回想整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>磺胺機轉：</strong>假冒PABA競爭抑制dihydropteroate synthase；哺乳細胞用預成型葉酸不受影響；單用抑菌，＋TMP/Ormetoprim變殺菌。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>磺胺禁忌：</strong>膿瘍（PABA↑）、立克次體感染（促進生長）；對一種磺胺抗藥＝對所有磺胺抗藥。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>犬不乙醯化：</strong>改走氧化路徑產生quinone衍生物，是Doberman KCS/關節炎/延遲過敏的藥理基礎。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>TMP離子陷阱：</strong>有機鹼於酸性前列腺液濃縮，是犬前列腺炎首選；假性甲狀腺低下由TMP/Ormetoprim造成非磺胺藥本身。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>FQ機轉：</strong>抑制DNA gyrase，殺菌、濃度依賴、有PAE；N7-piperazine增加抗Pseudomonas活性。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Enrofloxacin小型哺乳類安全：</strong>不覆蓋厭氧菌，不會誘發Clostridium過度增殖腸炎（與β-lactam/Macrolide相反）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>MPC＝8–10倍MIC；</strong>Campylobacter抗藥性使美國禁FQ用於家禽。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>貓FQ視網膜退化：</strong>Orbi/Marbo毒性最低，Prado目前認為無毒性；幼齡動物軟骨侵蝕（可逆但應避免）。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 1）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">17</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋磺胺選擇性毒性、立克次體禁忌、Enrofloxacin小型哺乳類安全性、MPC概念各章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 一隻兔子因皮膚感染需要抗生素治療，為什麼Enrofloxacin會是比Amoxicillin更安全的選擇？</div>
+        <ul class="quiz-options">
+          <li>(A) Enrofloxacin效力比較弱</li>
+          <li>(B) Enrofloxacin不覆蓋厭氧菌，不會破壞與Clostridium競爭的正常菌叢，不易誘發Clostridium過度增殖腸炎</li>
+          <li>(C) Amoxicillin對兔子有致命的過敏反應</li>
+          <li>(D) Enrofloxacin只能注射給藥，比較安全</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">小型哺乳類（兔、鼠等）在使用β-lactam或Macrolide後，容易因這些藥物破壞厭氧菌叢而使Clostridium過度增殖，引發嚴重腸炎；Enrofloxacin不具厭氧菌活性，不會消滅與Clostridium競爭的厭氧菌，因此不會誘發這個併發症，是這類動物皮膚與內臟感染的安全選擇。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 磺胺藥是治療立克次體感染的合理選擇，因為其廣效抗菌譜也涵蓋立克次體。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">磺胺藥禁用於立克次體感染——葉酸對立克次體代謝有負調控效果，阻斷葉酸合成反而解除這個抑制，使立克次體代謝上調、生長更快，是磺胺藥少數會「幫倒忙」的禁忌症之一。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. Mutant Prevention Concentration（MPC）概念說明了為什麼臨床上要避免哪一種給藥情況？</div>
+        <ul class="quiz-options">
+          <li>(A) 劑量過高、給藥太頻繁</li>
+          <li>(B) 長時間維持次治療劑量（低於MPC但仍可能高於MIC）</li>
+          <li>(C) 只給藥一次就停藥</li>
+          <li>(D) 與食物一起服用</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">MPC等於8–10倍MIC，血漿濃度必須在給藥間隔的部分時間內超過MPC，才能防止對DNA gyrase不敏感的突變菌株增殖。若長時間維持在MIC以上但MPC以下的次治療濃度，會篩選出這些突變菌株，是產生抗藥性最危險的情況。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一隻10歲貓因疑似細菌性膀胱炎就診，獸醫師原本考慮開立Enrofloxacin治療；同時飼主提到這隻貓最近視力似乎有點退化，走路偶爾會撞到家具。請問：(1) 這個用藥選擇有什麼疑慮？(2) 如果仍需要使用Fluoroquinolone類藥物，有哪些替代選擇？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 疑慮：</strong>Fluoroquinolones在貓已有造成急性、瀰漫性、不可逆視網膜退化的報告（Enrofloxacin風險最高），這隻貓已出現疑似視力退化的徵象，若再使用Enrofloxacin可能加重既有損傷甚至導致不可逆失明，臨床上應高度警惕，並優先評估視力問題是否與眼科疾病相關。<br><strong>(2) 替代選擇：</strong>講義指出<strong>Orbifloxacin與Marbofloxacin視網膜毒性最低，Pradofloxacin目前被認為無視網膜毒性</strong>，若仍需FQ類藥物可優先考慮這些選項，並在治療期間持續監測貓咪的視力與行為表現。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  sulfahistory: '歷史與相關化合物',
+  sulfamech: '作用機轉與侷限性',
+  sulfachem: '化學結構與特性',
+  sulfauses: '治療用途十二分類',
+  potentiated: 'Potentiated Sulfonamides',
+  sulfaresist: '抗藥性機制',
+  sulfapk: '藥動學',
+  sulfaadverse: '不良反應與禁忌症',
+  fqchem: '化學、機轉與抗菌譜',
+  fquses: '獸醫治療用途',
+  fqpk: '給藥與藥動學',
+  fqresist: '抗藥性與MPC概念',
+  fqadverse: '不良反應',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

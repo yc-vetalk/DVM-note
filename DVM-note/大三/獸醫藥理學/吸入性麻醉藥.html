@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：吸入性麻醉藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">吸入性麻醉藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">吸入性麻醉藥 Inhalational Anesthetics</h1>
+      <p class="page-subtitle">血液/氣體分配係數、MAC概念、Isoflurane/Sevoflurane/Desflurane比較、惡性高燒與誘導/維持策略</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮 A4）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.11 Inhalation Anesthetics</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-19</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎原理</div>
+    <a onclick="showSection('uptake')" id="nav-uptake"><span class="nav-icon">🫁</span> 吸收動力學與血液溶解度</a>
+    <a onclick="showSection('mac')" id="nav-mac"><span class="nav-icon">📏</span> MAC（效力）概念</a>
+    <div class="section-label" style="margin-top:8px;">個別藥物</div>
+    <a onclick="showSection('agents')" id="nav-agents"><span class="nav-icon">💨</span> 個別藥物比較</a>
+    <a onclick="showSection('toxicity')" id="nav-toxicity"><span class="nav-icon">⚠️</span> 副作用與惡性高燒</a>
+    <div class="section-label" style="margin-top:8px;">臨床應用</div>
+    <a onclick="showSection('clinicaluse')" id="nav-clinicaluse"><span class="nav-icon">🎯</span> 誘導與維持策略</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>吸入性麻醉藥是「用呼吸的方式給麻醉藥」——藥物以氣體或揮發性液體的形式，經由肺泡進入血液，再到達腦部產生麻醉效果，麻醉結束時又主要經由肺部呼出排除。這章最核心的邏輯只有兩個：<strong>①「進得多快、出得多快」由血液溶解度決定</strong>——血液溶解度越低的藥物（如Sevoflurane、Desflurane、N₂O），血液很快就飽和，藥物能快速轉移到腦部，所以誘導與恢復都快；溶解度高的（如Methoxyflurane）則慢得多。<strong>②「藥效有多強」由MAC值決定</strong>——MAC越低代表藥物越強效。掌握這兩個概念之後，再逐一認識現在臨床上常用的幾種藥物（Isoflurane、Sevoflurane是主流，Halothane和Desflurane次之，N₂O作為輔助）及各自的副作用差異，就能整理出清楚的選藥邏輯。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('uptake')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">吸收動力學</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">血液溶解度決定快慢</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('mac')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">MAC</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">藥效強度指標</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('agents')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">個別藥物</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Iso／Sevo／Halothane等</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('toxicity')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">副作用與惡性高燒</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Dantrolene處置</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>血液/氣體分配係數（Blood/Gas partition coefficient）越低，誘導與恢復越快：</strong>Desflurane（0.42）＜N₂O（0.47）＜Sevoflurane（0.68）＜Isoflurane（1.46）＜Halothane（2.4）＜Methoxyflurane（13）＜Diethyl ether（15）——記住「溶解度低＝快進快出」。</li>
+          <li><strong>MAC是使50%患者對疼痛刺激無反應的最低肺泡濃度（vol%），MAC越低代表藥物越強效</strong>；手術麻醉通常維持在1.2–1.5倍MAC，以確保99.9%患者不對手術刺激反應；脂溶性與效力成正比（Meyer-Overton假說）。</li>
+          <li><strong>降低MAC的因素：</strong>低血壓、貧血、低體溫、代謝性酸中毒、極度缺氧、老齡、術前用藥（Opioid/鎮靜劑/鎮定劑）、甲狀腺功能低下；<strong>升高MAC：</strong>體溫上升、甲狀腺機能亢進；<strong>不影響MAC：</strong>麻醉時間長短、物種（差異很小）、性別、PaCO₂或PaO₂在一定範圍內。</li>
+          <li><strong>N₂O（笑氣）有「第二氣體效應（second gas effect）」：</strong>因血液溶解度極低、快速吸收，能加速另一種較高溶解度氣體（如Isoflurane、Halothane）的吸收，加快誘導；但單獨使用效力弱（MAC＞100%）、無肌肉鬆弛，停止給予時會發生「擴散性缺氧（diffusion hypoxia）」。</li>
+          <li><strong>Isoflurane與Sevoflurane是小動物與鳥類麻醉的主流：</strong>兩者血液溶解度低、誘導恢復快、代謝極少（Isoflurane僅0.17%、Sevoflurane 3-5%）；Sevoflurane無刺激性氣味，最適合面罩誘導；Isoflurane有刺激性氣味，且可能因憋氣而減慢誘導。</li>
+          <li><strong>Halothane最主要的獨特風險是使心肌對兒茶酚胺敏感化（易誘發心律不整）與「Halothane肝炎」</strong>（代謝物三氟乙醯化肝蛋白引發免疫反應，約1/10000）；因此已被Isoflurane/Sevoflurane大量取代。</li>
+          <li><strong>惡性高燒（Malignant Hyperthermia）是吸入性麻醉藥與去極化肌肉鬆弛劑（Succinylcholine）共同觸發的潛在致命事件：</strong>骨骼肌肌漿網鈣離子失控釋放；處置：Dantrolene（抑制Ca²⁺釋放）、快速降溫、100%純氧、控制酸中毒。</li>
+          <li><strong>Methoxyflurane已被淘汰：</strong>效力最強但血液溶解度極高（誘導/恢復極慢），且高達50%被代謝，代謝物（氟離子、二氯乙酸）造成不可逆腎衰竭。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Nitrous oxide<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">N₂O／笑氣</div></td><td>NMDA受體拮抗（推測機轉），血氣分配係數低</td><td>第二氣體效應，擴散性缺氧；加速其他吸入藥誘導</td><td class="drug-locations"><a href="#drug-n2o" class="drug-link">第二氣體效應，擴散性缺氧</a><a href="#drug-secondgas" class="drug-link">加速其他吸入藥誘導</a></td></tr>
+            <tr><td>Desflurane</td><td>GABAA/甘胺酸受體調控（確切機轉未明），血氣分配係數極低</td><td><strong>吸入</strong>；恢復最快，需特製蒸發器</td><td class="drug-locations"><a href="#drug-agentscompare" class="drug-link">恢復最快，需特製蒸發器</a></td></tr>
+            <tr><td>Halothane</td><td>GABAA受體調控，鹵化烷類；致心肌對兒茶酚胺敏感化</td><td><strong>吸入</strong>；心肌敏感化，Halothane肝炎；免疫性肝炎機轉</td><td class="drug-locations"><a href="#drug-agentscompare" class="drug-link">心肌敏感化，Halothane肝炎</a><a href="#drug-halothanehepatitis" class="drug-link">免疫性肝炎機轉</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Isoflurane</td><td>GABAA受體調控，鹵化甲乙醚類</td><td><strong>吸入</strong>；小動物/鳥類主流，代謝極低，無肝腎毒性</td><td class="drug-locations"><a href="#drug-agentscompare" class="drug-link">小動物/鳥類主流，代謝極低，無肝腎毒性</a></td></tr>
+            <tr><td>Methoxyflurane</td><td>GABAA受體調控；肝臟代謝率高，釋出無機氟離子</td><td><strong>吸入</strong>；高代謝致腎衰竭，已淘汰</td><td class="drug-locations"><a href="#drug-agentscompare" class="drug-link">高代謝致腎衰竭，已淘汰</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Sevoflurane</td><td>GABAA受體調控，鹵化甲異丙醚類</td><td><strong>吸入</strong>；無刺激氣味，最適合面罩誘導；面罩/腔室誘導首選</td><td class="drug-locations"><a href="#drug-agentscompare" class="drug-link">無刺激氣味，最適合面罩誘導</a><a href="#drug-iainduction" class="drug-link">面罩/腔室誘導首選</a></td></tr>
+            <tr><td>Dantrolene</td><td>結合Ryanodine受體，抑制肌漿網Ca²⁺釋放（機轉獨立於NMJ受體）</td><td><strong>直接作用型肌肉鬆弛劑，透過降低肌肉細胞內Ca²⁺濃度</strong>；惡性高燒特異性解藥；犬貓尿道張力過高、馬麻醉後肌炎</td><td class="drug-locations"><a href="#drug-malignanthyperthermia" class="drug-link">惡性高燒特異性解藥</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- UPTAKE -->
+    <div class="section" id="section-uptake">
+      <div class="section-head"><div class="section-num">3</div><h2>吸收動力學與血液溶解度</h2></div>
+      <p class="section-desc">血液溶解度是決定吸入性麻醉藥「進得多快、出得多快」的單一最重要參數，也是這章最核心的原理。</p>
+
+      <h3 id="drug-bloodgas">血液/氣體分配係數<span class="tag tag-exam">重要</span></h3>
+      <p>麻醉深度取決於藥物在腦部的分壓（partial pressure/tension），而腦部分壓與藥物在肺泡→血液→腦部的轉移速率有關。<strong>血液溶解度越低，血液越快被藥物「飽和」，一旦飽和，後續進入的藥物分子就能快速轉移到腦部等其他組織</strong>；溶解度越高，血液像一個大水庫，需要更長時間才能填滿，誘導與恢復都慢，麻醉深度的調整也較遲緩。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>血液/氣體分配係數</th><th>誘導與恢復速度</th></tr></thead>
+          <tbody>
+            <tr><td>Desflurane</td><td>0.42</td><td>最快</td></tr>
+            <tr><td>Nitrous oxide（N₂O）</td><td>0.47</td><td>極快</td></tr>
+            <tr><td>Sevoflurane</td><td>0.68</td><td>快</td></tr>
+            <tr><td>Isoflurane</td><td>1.46</td><td>快</td></tr>
+            <tr><td>Enflurane</td><td>1.9</td><td>中等</td></tr>
+            <tr><td>Halothane</td><td>2.4</td><td>中等</td></tr>
+            <tr><td>Methoxyflurane</td><td>13</td><td>極慢，面罩誘導不實際</td></tr>
+            <tr><td>Diethyl ether</td><td>15</td><td>極慢</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">吸入氣中的藥物濃度也影響動脈血分壓上升速率，但不同藥物的上升速率不同——正是因為血液溶解度不同。臨床上：<strong>Isoflurane與Sevoflurane因血液溶解度低，廣泛用於鳥類與小動物麻醉（誘導與恢復快速）</strong>。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);"><strong>教科書核對（Table 11.3，37°C）：</strong>血液/氣體係數與講義略有出入——Desflurane 0.45、N₂O 0.46、Sevoflurane 0.65、Isoflurane 1.4、Enflurane 2.0；排序與結論不變（越低越快）。上表以講義數值為主。</p>
+
+      <h3 id="drug-secondgas">第二氣體效應（Second Gas Effect）</h3>
+      <p>N₂O血液溶解度極低、使用濃度高（&gt;50%）、誘導期吸收迅速，這種快速吸收會濃縮肺泡內剩餘的氣體，<strong>增強另一種麻醉氣體（特別是溶解度較高的Isoflurane、Halothane）的吸收速度</strong>——臨床上利用這個效應加速其他吸入性麻醉藥的誘導。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A4）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.11 Inhalation Anesthetics，Table 11.3、11.7）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MAC -->
+    <div class="section" id="section-mac">
+      <div class="section-head"><div class="section-num">4</div><h2>MAC（效力）概念</h2></div>
+      <p class="section-desc">MAC相當於吸入性麻醉藥的「mg/kg」，是比較藥物效力最重要的統一標準。</p>
+
+      <h3 id="drug-macdefinition">MAC 定義與臨床意義<span class="tag tag-exam">重要</span></h3>
+      <p><strong>MAC（Minimum Alveolar Concentration）</strong>：使50%患者對疼痛刺激無反應的最低肺泡麻醉藥濃度（以體積百分比vol%表示）。<strong>MAC越低，藥物效力越強</strong>。外科麻醉通常需要<strong>1.2–1.5倍MAC</strong>才能確保99.9%患者對手術刺激無反應。脂溶性與麻醉效力成正比（Meyer-Overton假說）。</p>
+
+      <h3>各藥物 MAC 值比較（犬）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>犬</th><th>貓</th><th>馬</th><th>人</th></tr></thead>
+          <tbody>
+            <tr><td>Methoxyflurane</td><td>0.29%</td><td>0.23%</td><td>0.28%</td><td>0.16%</td></tr>
+            <tr><td>Halothane</td><td>0.87%</td><td>1.04%</td><td>0.88%</td><td>0.74%</td></tr>
+            <tr><td>Isoflurane</td><td>1.30%</td><td>1.63%</td><td>1.31%</td><td>1.15%</td></tr>
+            <tr><td>Sevoflurane</td><td>2.36%</td><td>2.58%</td><td>2.31%</td><td>2.05%</td></tr>
+            <tr><td>Desflurane</td><td>7.20%</td><td>9.79%</td><td>7.60%</td><td>7.25%</td></tr>
+            <tr><td>N₂O</td><td>222%</td><td>255%</td><td>205%</td><td>104%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">MAC排序（由強到弱）：Methoxyflurane ＞ Halothane ＞ Isoflurane ＞ Sevoflurane ＞ Desflurane ＞ N₂O（脂溶性也依此遞減）。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);"><strong>教科書核對（Table 11.7）：</strong>數值與講義大致相同，差異：Desflurane馬為8.06（講義7.60）；講義未列的Enflurane：貓2.37、犬2.06、馬2.12、人1.68。教科書定義MAC為「使50%個體對超大傷害性刺激不出現非反射性移動」的肺泡濃度（相當於ED50）；ED95約比MAC高20–40%，2 MAC代表深度麻醉甚至過量；MAC是在健康動物、無其他藥物的實驗條件下測得，臨床上需考量多種會增減麻醉需求的因素。講義的「1.2–1.5倍MAC」為臨床維持濃度的建議。</p>
+
+      <h3 id="drug-macfactors">影響 MAC 的因素<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">降低 MAC</div>
+          <p>低血壓、貧血、低體溫、代謝性酸中毒、極度缺氧、老齡動物、術前用藥（Opioid/鎮靜劑/鎮定劑）、甲狀腺功能低下</p>
+        </div>
+        <div class="card">
+          <div class="card-title">升高 MAC</div>
+          <p>體溫上升（增加腦部代謝率）、甲狀腺機能亢進</p>
+        </div>
+        <div class="card">
+          <div class="card-title">不影響 MAC</div>
+          <p>麻醉持續時間、物種（差異小）、性別、PaCO₂（14–95 mmHg）、PaO₂（38–500 mmHg）、高血壓</p>
+        </div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A4）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.11 Inhalation Anesthetics，Table 11.3、11.7）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- AGENTS -->
+    <div class="section" id="section-agents">
+      <div class="section-head"><div class="section-num">5</div><h2>個別藥物比較</h2></div>
+      <p class="section-desc">現代臨床常用的吸入性麻醉藥各有明確的優缺點，Isoflurane與Sevoflurane是絕對主流，其餘多為歷史或輔助角色。</p>
+
+      <h3 id="drug-agentscompare">臨床常用藥物一覽<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>血液/氣體係數</th><th>代謝比例</th><th>特色與定位</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Isoflurane</strong></td><td>1.46</td><td>0.17%（極低）</td><td>無肝腎毒性、心輸出量維持佳、顱內壓易控制；刺激性氣味；可能致惡性高燒；小動物與鳥類主流</td></tr>
+            <tr><td><strong>Sevoflurane</strong></td><td>0.68</td><td>3–5%</td><td>無刺激性氣味、氣道刺激最小，最適合面罩誘導；第一線優秀誘導藥；長時間手術氟離子蓄積；可能致惡性高燒</td></tr>
+            <tr><td>Desflurane</td><td>0.42</td><td>極低</td><td>恢復最快；蒸氣壓高需特製溫控蒸發器；刺激性氣味（憋氣、咳嗽、喉頭痙攣），不適合誘導</td></tr>
+            <tr><td>Halothane</td><td>2.4</td><td>20–25%</td><td>高效力、氣味甜不刺激（曾用於面罩誘導）；心肌對兒茶酚胺敏感化；Halothane肝炎；已被取代</td></tr>
+            <tr><td>Enflurane</td><td>1.9</td><td>2%</td><td>刺激性氣味；濃度＞3%可能誘發癲癇；腎衰竭風險，避免長時間手術</td></tr>
+            <tr><td>Methoxyflurane</td><td>13</td><td>高達50%</td><td>效力最強但誘導/恢復極慢；代謝物造成不可逆腎衰竭；已淘汰</td></tr>
+            <tr><td>Nitrous oxide（N₂O）</td><td>0.47</td><td>無</td><td>無味不燃；效力弱、無肌肉鬆弛；第二氣體效應；擴散性缺氧；僅作輔助</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">維持濃度參考：Methoxyflurane 0.5–1.5%、Halothane 0.75–2.0%、Isoflurane 1–2.5%、Sevoflurane 2.5–4.0%；術前用藥（鎮定劑/Opioid）可降低維持濃度。歷史藥物（Diethyl ether、Chloroform、Cyclopropane等）因易燃易爆或毒性已不再使用。</p>
+
+      <h3 id="drug-n2o">Nitrous Oxide（N₂O）要點</h3>
+      <p>無味或微甜、不易燃氣體；血液溶解度低，誘導快；鎮痛效力弱（MAC&gt;100%）；幾乎無肌肉鬆弛；需高濃度使用，因此吸入氧濃度相對降低。<strong>擴散性缺氧（Diffusion/Dilutional hypoxia）：</strong>若突然停止給予N₂O，血液與組織中的N₂O會快速回流至肺泡，稀釋肺泡氧分壓，使動脈氧張力下降——因此停用後需給予純氧。N₂O常作為輔助藥物（平衡麻醉）：使用70% N₂O+氧氣可降低Halothane/Enflurane/Isoflurane的MAC約25–30%。優點：第二氣體效應、無味不燃、對循環與呼吸驅動影響極小；缺點：無肌肉鬆弛、效力弱、擴散性缺氧、不適合單獨使用。</p>
+
+      <h3>作用機轉</h3>
+      <p>吸入性麻醉藥的作用機轉是「藥理學最大謎團之一」，脂質理論（干擾細胞膜功能）與多種受體（GABAA、Glycine、NMDA受體等）都被認為參與；解剖作用位置：脊髓（抑制肢體活動）、視丘皮質聯繫（意識喪失）、海馬迴（失憶）。所有吸入性麻醉藥皆為強力血管擴張劑，會增加腦血流與顱內壓——對腦腫瘤或腦出血患者可能危及生命；整體而言呈劑量依賴性心肺抑制（↓心輸出量、↓血壓、↓呼吸速率、↑PaCO₂）。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A4）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.11 Inhalation Anesthetics，Table 11.3、11.7）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TOXICITY -->
+    <div class="section" id="section-toxicity">
+      <div class="section-head"><div class="section-num">6</div><h2>副作用與惡性高燒</h2></div>
+      <p class="section-desc">Halothane肝炎與惡性高燒是吸入性麻醉藥最重要的兩個安全性議題，惡性高燒尤其是急診處置的必考題。</p>
+
+      <h3 id="drug-halothanehepatitis">Halothane 肝毒性</h3>
+      <p>高達25%被肝臟酵素代謝，尿液中可測到三氟乙酸、溴與氯；代謝物與肝臟蛋白形成三氟乙醯化蛋白，可誘發抗三氟乙醯化肝蛋白抗體；<strong>Halothane肝炎是對這些三氟乙醯化蛋白的免疫反應結果</strong>，約每10,000名患者發生1例。Halothane也使心肌對循環兒茶酚胺敏感化，是其易誘發心律不整的原因。</p>
+
+      <h3 id="drug-malignanthyperthermia">惡性高燒（Malignant Hyperthermia）<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">緊急處置</div>
+        <p>潛在致命事件；<strong>觸發因子：</strong>特定吸入性麻醉藥（Halothane、Isoflurane、Sevoflurane等）與去極化神經肌肉阻斷劑（Succinylcholine）。<strong>機轉：</strong>骨骼肌肌漿網（Sarcoplasmic reticulum）Ca²⁺不受控制釋放→持續肌肉收縮→產熱與代謝失控。<strong>處置：</strong>①<strong>Dantrolene</strong>（抑制SR釋放Ca²⁺）②快速降溫③100%純氧④控制酸中毒。</p>
+      </div>
+
+      <h3>其他副作用</h3>
+      <ul>
+        <li><strong>Methoxyflurane：</strong>代謝物（氟離子、二氯乙酸）造成不可逆腎衰竭</li>
+        <li><strong>Enflurane：</strong>濃度&gt;3%可能誘發癲癇；2%被代謝，有腎衰竭風險，避免長時間手術</li>
+        <li><strong>Sevoflurane：</strong>3–5%被代謝，產物含無機氟離子（比Enflurane多）、Hexafluoroisopropanol（無毒）、Compound A；不形成三氟乙醯化肝蛋白（無Halothane式免疫肝炎）；長時間手術需注意氟離子蓄積；可增強肌肉鬆弛劑效果</li>
+        <li><strong>Isoflurane：</strong>無肝腎毒性、心輸出量維持佳（不同於Enflurane/Halothane）、無癲癇活性；增強Tubocurarine引發的肌肉鬆弛，可能適合腹部手術</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A4）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.11 Inhalation Anesthetics，Table 11.3、11.7）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CLINICAL USE -->
+    <div class="section" id="section-clinicaluse">
+      <div class="section-head"><div class="section-num">7</div><h2>誘導與維持策略</h2></div>
+      <p class="section-desc">吸入性麻醉藥既可用於誘導，也可用於維持，但兩者的適用條件與優缺點截然不同。</p>
+
+      <h3 id="drug-iainduction">吸入誘導：面罩與腔室<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">面罩誘導（Mask induction）</div>
+          <p>適用小動物：鳥類、新生反芻動物與幼馬、虛弱犬貓、給予深度術前用藥的健康犬貓。<strong>未給予深度術前用藥的健康動物通常會出現興奮</strong>。大動物（馬、牛、豬）面罩誘導不實際。<strong>Sevoflurane比Isoflurane更適合面罩誘導</strong>（快速誘導）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">腔室誘導（Chamber induction）</div>
+          <p>適用難以保定的小動物：小型犬、貓、爬蟲類、實驗動物、異寵。提供「免動手」誘導，對動物與人員皆安全。使用塑膠腔室（10–25加侖），以5% Isoflurane或8% Sevoflurane搭配氧氣，直到動物喪失翻正反射。</p>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">吸入誘導缺點</div>
+        <p>未給術前用藥的健康犬不適合（誘導慢，常伴隨叫喊、興奮、排便排尿、劇烈掙扎）；Isoflurane/Desflurane的刺激性氣味可能使動物憋氣、減慢誘導；工作環境汙染。</p>
+      </div>
+
+      <h3 id="drug-iamaintenance">吸入維持的優勢<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>氣道保護與氧氣供應：</strong>幾乎所有吸入麻醉病患都需插管，並提供高濃度吸入氧氣，對貧血或呼吸功能不全患者特別有利</li>
+        <li><strong>麻醉深度易控制：</strong>可透過調整蒸發器輸出、通氣模式、總氣流量快速調整</li>
+        <li><strong>恢復快速：</strong>大部分經肺部呼出排除，不像注射式麻醉藥需依賴肝腎代謝</li>
+      </ul>
+      <p style="font-size:.9em;">所有主要吸入麻醉藥（Halothane、Isoflurane、Sevoflurane）維持在1.2–1.5倍MAC；術前給予鎮定劑或Opioid可降低維持濃度。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 誘導期注射式麻醉藥（Propofol、Thiopental、Ketamine等）的選用，見 <a href="注射式麻醉藥.html">注射式麻醉藥</a>；術前鎮靜與Opioid用藥，見 <a href="鎮靜與術前用藥.html">鎮靜與術前用藥</a> 與 <a href="鴉片類止痛藥.html">鴉片類止痛藥</a>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A4）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.11 Inhalation Anesthetics，Table 11.3、11.7）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">濃縮版複習重點，考前快速掃過即可回想起整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>血液溶解度低＝快進快出：</strong>Desflurane（0.42）＜N₂O＜Sevoflurane＜Isoflurane＜Halothane＜Methoxyflurane（13）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>MAC：</strong>使50%患者無反應的最低肺泡濃度；越低越強效；手術用1.2–1.5倍MAC；脂溶性與效力成正比。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>降低MAC：</strong>低血壓/貧血/低體溫/酸中毒/缺氧/老齡/術前用藥/甲低；升高MAC：體溫上升/甲亢；不影響：麻醉時間/物種/性別。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>N₂O：</strong>第二氣體效應加速其他氣體誘導；停用後擴散性缺氧需給純氧；僅作輔助，MAC&gt;100%。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Isoflurane/Sevoflurane主流：</strong>Sevoflurane無刺激氣味最適合面罩誘導；Isoflurane代謝極低、無肝腎毒性。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Halothane：</strong>心肌對兒茶酚胺敏感化＋Halothane肝炎（免疫反應，約1/10000）；已被取代。Methoxyflurane：50%代謝，腎衰竭，已淘汰。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>惡性高燒：</strong>吸入麻醉藥/Succinylcholine觸發SR Ca²⁺失控釋放；Dantrolene＋降溫＋純氧＋控制酸中毒。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>吸入麻醉維持優勢：</strong>氣道保護/高濃度氧氣、深度易調整、經肺排除恢復快。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A4）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.11 Inhalation Anesthetics，Table 11.3、11.7）之核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋血液溶解度、MAC、惡性高燒、誘導策略各章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪一種吸入性麻醉藥的誘導與恢復速度最快？</div>
+        <ul class="quiz-options">
+          <li>(A) Halothane</li>
+          <li>(B) Methoxyflurane</li>
+          <li>(C) Desflurane</li>
+          <li>(D) Isoflurane</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">誘導與恢復速度取決於血液溶解度（血液/氣體分配係數）：Desflurane 0.42最低，血液最快飽和，藥物最快轉移到腦部，因此誘導與恢復都最快。Methoxyflurane（13）血液溶解度最高，誘導與恢復極慢。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 動物術前給予Opioid與鎮定劑後，維持麻醉所需的吸入性麻醉藥MAC會升高。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">術前用藥（Opioid、鎮靜劑、鎮定劑）會「降低」MAC，使維持麻醉所需的吸入性麻醉藥濃度減少，這正是臨床上使用術前用藥（平衡麻醉）的重要好處之一。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q3. 請說明惡性高燒（Malignant Hyperthermia）的觸發因子、機轉與急救處置。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>觸發因子：</strong>特定吸入性麻醉藥（Halothane、Isoflurane、Sevoflurane等）與去極化神經肌肉阻斷劑（如Succinylcholine）。<strong>機轉：</strong>骨骼肌肌漿網（SR）Ca²⁺不受控制地大量釋放，導致持續性肌肉收縮、產熱失控與代謝亢進。<strong>急救處置：</strong>Dantrolene（抑制SR釋放Ca²⁺，是特異性解藥）、快速降溫（如冰敷、冰生理食鹽水灌洗）、給予100%純氧、控制酸中毒。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一隻未給予任何術前用藥的健康大型犬需要麻醉手術，麻醉團隊考慮直接用Isoflurane面罩誘導。同時，另一隻已給予深度鎮定劑與Opioid術前用藥的虛弱小型貓需要快速安全的誘導。請問：(1) 大型犬面罩誘導Isoflurane會有什麼問題？(2) 小型貓的誘導應該選擇哪種吸入藥物？理由為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 大型犬問題：</strong>未給術前用藥的健康犬並不適合直接面罩吸入誘導：誘導速度慢，常伴隨叫喊、興奮、排便排尿與劇烈掙扎；Isoflurane的刺激性氣味可能使動物憋氣，進一步減慢誘導；且大型動物面罩誘導實務上不易保定。建議改用注射式麻醉藥（如Propofol）誘導，再接吸入維持。<br><strong>(2) 小型貓誘導選擇：</strong>應選擇<strong>Sevoflurane</strong>。理由：血液/氣體分配係數低（0.68），誘導與恢復快速；無刺激性氣味、氣道刺激最小，最適合面罩誘導；貓已給予深度術前用藥，可避免興奮。虛弱病患也適合面罩誘導，同時能提供高濃度氧氣。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  uptake: '吸收動力學與血液溶解度',
+  mac: 'MAC（效力）概念',
+  agents: '個別藥物比較',
+  toxicity: '副作用與惡性高燒',
+  clinicaluse: '誘導與維持策略',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

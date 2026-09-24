@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫臨床及影像診斷學：X光學基礎 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫臨床及影像診斷學</a><span class="sep">›</span><span class="current">X光學基礎</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">X光學基礎 Radiology: Introduction</h1>
+      <p class="page-subtitle">X光的產生原理、與物質的交互作用、影響對比度的因素、二維影像的先天限制，以及標準攝影投照與擺位整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫臨床及影像診斷學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang, BVM, MVM, PhD, DipECVN，國立臺灣大學獸醫專業學院）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-24</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">X光物理基礎</div>
+    <a onclick="showSection('production')" id="nav-production">
+      <span class="nav-icon">⚡</span> X光的產生
+    </a>
+    <a onclick="showSection('interaction')" id="nav-interaction">
+      <span class="nav-icon">☢️</span> 輻射與物質的交互作用
+    </a>
+    <a onclick="showSection('basics')" id="nav-basics">
+      <span class="nav-icon">📷</span> 攝影基本概念
+    </a>
+    <div class="section-label" style="margin-top:8px;">影像品質</div>
+    <a onclick="showSection('contrast')" id="nav-contrast">
+      <span class="nav-icon">🎚️</span> 影響對比度的因素
+    </a>
+    <a onclick="showSection('twodim')" id="nav-twodim">
+      <span class="nav-icon">📐</span> 二維影像的先天限制
+    </a>
+    <div class="section-label" style="margin-top:8px;">攝影技術</div>
+    <a onclick="showSection('projections')" id="nav-projections">
+      <span class="nav-icon">🧭</span> 攝影投照與擺位
+    </a>
+    <a onclick="showSection('procedure')" id="nav-procedure">
+      <span class="nav-icon">📋</span> 攝影流程
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這是整個影像診斷學的第一堂課，主線是「X光片是怎麼形成的、為什麼會長這個樣子」。先從<strong>X光管如何產生X光</strong>講起，再看X光進入病患身體後如何與組織<strong>交互作用（主要是光電效應）</strong>——這條交互作用決定了底片上黑白對比的來源。接著整理<strong>影響影像對比度的因素</strong>（組織的物理密度、原子序、厚度、X光能量），這些是判讀任何一張X光片前都要先懂的物理背景。最後兩個大主題是臨床實際操作最常用到的：<strong>X光片身為「二維影像」天生的五個限制</strong>（放大變形、不熟悉的影像、失去深度感、疊加訊號、輪廓消失效應）解釋了為什麼同一個病灶在不同投照方向看起來不一樣；<strong>標準攝影投照與擺位</strong>則是臨床上真正動手拍片時，怎麼命名投照方向、怎麼選擺位、怎麼避免干擾物遮擋病灶的實務知識。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('production')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">X光產生</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">X光管、mA／kVp</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('contrast')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">對比度因素</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">密度／原子序／厚度</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('twodim')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">二維限制</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">五個判讀陷阱</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('projections')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">投照與擺位</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">DV/VD、CrCd/CdCr</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>X光管靠「高速電子撞擊金屬靶（鎢靶）」產生X光：</strong>熱陰極燈絲加熱釋放電子、經高電壓加速撞擊旋轉陽極的鎢靶，產生X光；<strong>mA</strong>決定電子數量（燈絲電流）、<strong>kVp</strong>決定電子加速電壓（X光能量高低）、<strong>mAs</strong>是X光管實際輸出的總輻射量。</li>
+          <li><strong>光電效應（photoelectric absorption）是形成影像的主要交互作用機轉：</strong>X光被組織完全吸收，吸收量與原子序的三次方成正比（Z³，如骨骼12.3遠高於脂肪6.5）、與光子能量的三次方成反比（1/E³）——<strong>kVp越高，光電吸收越少，組織間對比度越低</strong>，這是選擇kVp時「對比 vs. 穿透力」取捨的物理基礎。</li>
+          <li><strong>準直儀（collimator）限制主要射束範圍</strong>，避免非必要輻射造成：病患劑量增加、底片起霧（fogging）使影像品質下降、旁觀者輻射暴露增加——是輻射防護的第一道關卡。</li>
+          <li><strong>影像對比度取決於四個物理因子：</strong>物理密度差異、原子序差異、厚度差異、X光能量（kVp）；體液（血液、尿液、膽汁、CSF、滲出液）與軟組織（軟骨、肌肉、筋膜、肌腱、韌帶、器官）因密度與原子序相近，在X光片上統稱同一種「軟組織不透光度（soft-tissue radiopacity）」，無法互相區分。</li>
+          <li><strong>厚度增加會使該部位不透光度增加</strong>（即使物質相同）；<strong>kVp設定過低會使X光穿透不足、影像曝光不足；kVp過高則穿透過多、影像曝光過度</strong>，需依部位厚度與特性（如是否有運動）決定kVp與mAs。</li>
+          <li><strong>二維影像的五個先天限制是判讀X光片最重要的思維框架：</strong>①放大變形（物體離底片越遠放大率越高，感興趣構造應盡量靠近底片，但肺部病灶例外——邊界可能被萎陷的依賴側肺組織所掩蓋）②不熟悉的影像（去掉深度資訊後的疊加投影）③失去深度感（無法判斷病灶前後位置，需搭配另一投照方向）④疊加訊號（summation sign，正向或負向疊加取決於疊加構造的吸收程度）⑤輪廓消失效應（silhouette effect／border effacement，相同不透光度的構造相接觸時邊界消失，被不同不透光度的物質分隔則邊界可辨識）。</li>
+          <li><strong>投照方向依X光進入到穿出病患身體的方向命名：</strong>DV（dorsoventral，腹側朝下）／VD（ventrodorsal，背側朝下）；CrCd（craniocaudal）／CdCr（caudocranial）；<strong>外側位（lateral）依病患躺臥側或站立時靠近底片的一側命名</strong>（右外側位＝右側躺臥）；同一部位至少需要互相垂直的<strong>兩個投照方向</strong>才能完整評估。</li>
+          <li><strong>標準擺位極其重要：</strong>擺位不正（如VD歪斜）會使脊椎偏移中線、心臟輪廓失真，直接影響判讀準確性；拍片時須盡量排除外來干擾物（項圈、氣管內管、監測設備導線、手指）與病患自身構造（肢體、肩胛骨、皮膚皺褶）與感興趣部位重疊；<strong>需要標準化的解剖學方位術語（rostral/caudal、cranial/caudal、dorsal/ventral、palmar/plantar、proximal/distal）</strong>才能精確描述投照方向與病灶位置。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PRODUCTION -->
+    <div class="section" id="section-production">
+      <div class="section-head"><div class="section-num">2</div><h2>X光的產生 Production of X-ray</h2></div>
+      <p class="section-desc">理解X光管的構造與mA／kVp／mAs三個參數的意義，是後續所有「怎麼選擇曝光條件」討論的起點。</p>
+
+      <h3 id="drug-xraytube">X光管 X-ray Tube<span class="tag tag-exam">重要</span></h3>
+      <p><strong>高速電子撞擊金屬靶 → 產生X光</strong>：熱陰極燈絲（hot cathode filament）通電加熱後釋放電子（電子束），經高電壓（示意圖中約100,000 V）加速射向旋轉陽極（rotating anode）上的<strong>鎢靶（tungsten target）</strong>，電子撞擊鎢靶產生X光；陽極持續旋轉（由stator／rotor馬達驅動）以分散撞擊產生的高熱、避免靶面局部過熱損壞。</p>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p3.png" alt="X光管構造示意圖，熱陰極燈絲、電子束、旋轉陽極、鎢靶、X光產生">
+        <div class="figure-caption">X光管構造：熱陰極燈絲（Hot cathode filament）通電後釋放電子，電子束（Electron beam）經高電壓加速撞擊旋轉陽極（Rotating anode）上的鎢靶（Tungsten target），產生X光（X rays）；Stator／Rotor與Ball races構成旋轉陽極的驅動機構。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-mamas">mA、mAs、kVp 三個核心參數<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">mA 毫安培</div><p>Milliamperage，通過燈絲的電流大小，決定<strong>電子數量</strong></p></div>
+        <div class="card"><div class="card-title">mAs 毫安秒</div><p>Milliampere seconds，X光管<strong>實際產生的輻射總量</strong></p></div>
+        <div class="card"><div class="card-title">kVp 峰值千伏</div><p>Kilovoltage peak，陽極與陰極間的<strong>電壓差</strong>——kVp越高，電子被加速到越高速度，產生的<strong>X光能量越高</strong></p></div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- INTERACTION -->
+    <div class="section" id="section-interaction">
+      <div class="section-head"><div class="section-num">3</div><h2>輻射與物質的交互作用 Interaction of Radiation with Matter</h2></div>
+      <p class="section-desc">光電效應是形成X光影像的核心機轉，它的兩個比例關係（與原子序三次方成正比、與光子能量三次方成反比）直接解釋了組織對比度從何而來。</p>
+
+      <h3 id="drug-photoelectric">光電效應 Photoelectric Effect（Photoelectric Absorption）<span class="tag tag-exam">重要</span></h3>
+      <p>X光與物質交互作用的機轉很多，但<strong>光電效應是形成影像的主要交互作用機轉</strong>：X光射向病患後被<strong>完全吸收</strong>，吸收該部位的X光就<strong>不會到達底片</strong>，因此該部位在底片上曝光量較少（影像較白／不透光）。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">與原子序成正比（∝ Z³）</div>
+          <p>Z＝原子序（atomic number）。例：脂肪 6.5、骨骼 12.3、鉛 82.0——原子序越高的組織，光電吸收越強，影像上越不透光（越白）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">與光子能量成反比（∝ 1/E³）</div>
+          <p>E＝光子能量（與kVp相關）。<strong>↑X光能量（kVp）→ ↓光電吸收 → ↓組織間對比度</strong>——這是為什麼過高的kVp會讓影像看起來「灰灰的、對比度不足」的物理原因。</p>
+        </div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- BASICS -->
+    <div class="section" id="section-basics">
+      <div class="section-head"><div class="section-num">4</div><h2>攝影基本概念 Basic Concepts of Making a Radiograph</h2></div>
+      <p class="section-desc">從X光管到底片之間，準直儀限制了射束範圍、底片上的黑白深淺則直接反映了到達底片的X光量，這兩個環節構成攝影室裡實際操作的基礎。</p>
+
+      <h3>攝影基本架構</h3>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p8.png" alt="X光攝影基本架構示意圖，X光管、濾線片、準直儀、病患、底片">
+        <div class="figure-caption">攝影基本架構：X光管housing（Tube housing）產生X光經濾片（Filter）後，由準直儀（Collimator）限制射束範圍（Edge of collimated x-ray beam）僅涵蓋病患（Patient）感興趣部位，最終到達底片（X-ray film）成像。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-collimator">準直儀／準直 Collimator / Collimation<span class="tag tag-exam">重要</span></h3>
+      <p>功能：<strong>限制主要射束（primary beam）範圍，避免非必要輻射（non-useful radiation）離開X光管housing</strong>。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">非必要輻射的三個壞處</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;">
+          <li>增加病患輻射劑量</li>
+          <li>因起霧（fogging）而降低影像品質</li>
+          <li>增加旁觀者（bystanders）的輻射暴露</li>
+        </ul>
+      </div>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p9.png" alt="準直儀葉片開闔示意圖與臨床實際擺位收光照片">
+        <div class="figure-caption">準直儀葉片（diaphragm blades，左）可交叉收合以限縮射束範圍僅涵蓋感興趣部位；臨床實際操作（右）示範收光後僅曝光犬隻軀幹目標區域，減少非必要輻射暴露。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-filmblackness">底片黑化度／不透光度 Film Blackness / Opacity</h3>
+      <p><strong>底片變黑的程度與到達底片該部位的X光數量直接相關</strong>：</p>
+      <ul>
+        <li><strong>↑X光機輸出（mAs）→ ↑打到底片的X光數量 → ↑底片黑化程度</strong></li>
+        <li><strong>↓光電吸收（kVp較高）→ ↑到達底片的X光曝光量 → ↑底片黑化程度</strong></li>
+      </ul>
+      <p>底片原理：X光片是含<strong>鹵化銀（silver halide）的感光乳劑</strong>，X光或可見光使鹵化銀感光（sensitize）→ 經<strong>底片沖洗（film processing）</strong>→ 產生銀沉積（silver deposits），在沖洗完成的底片上呈黑色。</p>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CONTRAST -->
+    <div class="section" id="section-contrast">
+      <div class="section-head"><div class="section-num">5</div><h2>影響對比度的因素 Factors Affecting Contrast</h2></div>
+      <p class="section-desc">組織間能不能在X光片上被區分開來，取決於物理密度、原子序、厚度與X光能量四個因子的組合，這節把每個因子拆開來看。</p>
+
+      <h3 id="drug-contrastfactors">放射對比度取決於<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">底片對比度 Film contrast</div><p>受壓力、溫度、光線、時間影響（底片本身的物理／化學特性與沖洗條件）</p></div>
+        <div class="card"><div class="card-title">霧化與散射 Fog and scatter</div><p>降低影像清晰度與對比度的干擾因素</p></div>
+      </div>
+      <p><strong>主體對比度（subject contrast）</strong>受下列因素影響：</p>
+      <ul>
+        <li><strong>物理密度差異</strong>（physical density）</li>
+        <li><strong>原子序差異</strong>（atomic number）</li>
+        <li><strong>厚度差異</strong>（thickness）</li>
+        <li><strong>X光束能量</strong>（kVp）</li>
+      </ul>
+
+      <h3 id="drug-densitytable">各物質物理密度與原子序<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物質</th><th>物理密度</th><th>原子序</th></tr></thead>
+          <tbody>
+            <tr><td>空氣 Air</td><td>0.001</td><td>7.8</td></tr>
+            <tr><td>脂肪 Fat</td><td>0.92</td><td>6.5</td></tr>
+            <tr><td>水 Water</td><td>1.00</td><td>7.5</td></tr>
+            <tr><td>肌肉 Muscle</td><td>1.04</td><td>7.6</td></tr>
+            <tr><td>骨骼 Bone</td><td>1.65</td><td>12.3</td></tr>
+            <tr><td>鉛 Lead</td><td>8.7</td><td>82.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">「軟組織不透光度」的由來</div>
+        <p><strong>體液</strong>（血液、尿液、膽汁、腦脊髓液、滲出液、漏出液）與<strong>軟組織</strong>（軟骨、肌肉、筋膜、肌腱、韌帶、器官）的物理密度與原子序彼此相近，在X光片上呈現<strong>相似的不透光度</strong>，統稱「軟組織不透光度（soft-tissue radiopacity）」——這是為什麼X光片無法單靠不透光度區分積液與器官實質、需要搭配超音波等其他影像工具的根本原因。</p>
+      </div>
+
+      <h3 id="drug-thickness">厚度 Thickness</h3>
+      <p><strong>↑厚度 → ↑不透光度</strong>（即使物質種類相同）。</p>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p14.png" alt="厚度與不透光度關係示意圖，骨骼與脂肪不同厚度穿透X光數量比較">
+        <div class="figure-caption">厚度對不透光度的影響：同為100支X光入射，較薄的骨骼（Bone）穿透後剩90支（衰減少），較厚的脂肪（Fat）穿透後僅剩30支（衰減多）——說明厚度增加會使該部位衰減（不透光）程度上升，即使物質本身不同也適用同樣邏輯。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-kvpselect">X光束能量與 kVp／mAs 的選擇<span class="tag tag-exam">重要</span></h3>
+      <p><strong>kVp＝X光能量</strong>：</p>
+      <ul>
+        <li><strong>kVp太低</strong> → 太少X光穿透病患 → <strong>底片曝光不足（underexposed）</strong></li>
+        <li><strong>kVp太高</strong> → 太多X光穿透病患 → <strong>底片曝光過度（overexposed）</strong></li>
+      </ul>
+      <p style="font-size:.9em;">如何選擇kVp與mAs：依<strong>身體部位</strong>（例：胸腔 vs. 腹腔厚度與組織特性不同）與<strong>病患特性</strong>（例：是否有運動，運動中的部位需縮短曝光時間避免影像模糊）決定。</p>
+
+      <div class="alert alert-success">
+        <div class="alert-label">實例：胸腔攝影的 kVp／mAs 選擇邏輯</div>
+        <p><strong>胸腔宜用較高的kVp</strong>，才能有足夠穿透力呈現肺野內的細節，<strong>包含肺血管紋理等構造的狀況</strong>（kVp太低時穿透力不足，這些細微對比會被犧牲、看不清楚）；<strong>mAs則宜盡量低</strong>——因為胸腔會隨呼吸與心跳持續運動，<strong>mAs越低代表曝光時間越短</strong>（mAs＝mA×時間），才能「凍結」這個生理性運動、避免因病患移動造成的影像模糊（motion blur）。這是<strong>高kVp、低mAs</strong>的組合在胸腔攝影上特別重要的原因，與腹腔等相對靜止部位的曝光條件選擇邏輯不同。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TWO DIMENSIONAL -->
+    <div class="section" id="section-twodim">
+      <div class="section-head"><div class="section-num">6</div><h2>二維影像的先天限制 Consequences of Radiographs Being Two Dimensional</h2></div>
+      <p class="section-desc">X光片把三維立體結構壓縮成二維影像，這個壓縮過程必然帶來五種特定的判讀陷阱，是臨床判讀X光片前務必內化的思維框架。</p>
+
+      <h3 id="drug-magnification">放大與變形 Magnification and Distortion<span class="tag tag-exam">重要</span></h3>
+      <p><strong>↑物體與底片間距離（object-film distance）→ ↑放大率（magnification）</strong>。臨床原則：<strong>感興趣部位應盡量靠近底片（cassette）擺放，以避免放大失真</strong>。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">例外：肺部病灶</div>
+        <p>肺部病灶的邊界可能被<strong>萎陷、依賴側（atelectatic dependent）的肺組織</strong>掩蓋（輪廓消失效應），此時病灶實際邊界的判讀需特別謹慎，不能單純套用「越靠近底片越準確」的原則。</p>
+        <p><strong>拍攝胸腔務必等病患吸飽氣（full inspiration）後才按下曝光鍵</strong>：肺泡未充分擴張時含氣量不足，一個例如1×1大小的小腫塊，若周圍是塌陷（collapsed）而非充分擴張的肺泡，塌陷肺泡的不透光度會與腫塊接近，使腫塊邊界被掩蓋、無法辨識；<strong>只有吸飽氣、肺泡完全展開含氣，病灶與周圍正常含氣肺組織之間才會有足夠的不透光度差異，呈現出應有的細節（detail）與清楚邊界</strong>。這也是「輪廓消失效應」在胸腔攝影上最常見的實際應用情境。</p>
+      </div>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p17.png" alt="物體-底片距離與放大率關係示意圖，圓錐形放大示意">
+        <div class="figure-caption">物體與底片間距離對放大率的影響：同一物體（藍色圓）離X光源越遠（即離底片越近，右側圓錐），在底片上的投影範圍越接近原始大小；離X光源越近（離底片越遠，左側圓錐），投影範圍越大、放大率越高。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h4>變形 Distortion</h4>
+      <p>同一物體<strong>不同部位的放大率不均等</strong>，常因肢體或構造與底片的角度／距離不一致所致。</p>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p18.png" alt="犬隻骨盆與後肢放射影像範例，展示不均等放大造成的變形">
+        <div class="figure-caption">變形範例：後肢因擺位角度使左右兩側與底片距離不同，造成兩側肢體在影像上呈現不成比例的大小差異，是判讀對稱性構造（如骨盆、四肢）時需要留意的陷阱。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-unfamiliar">不熟悉的影像 Unfamiliar Image</h3>
+      <p>X光片是三維構造去除深度資訊後的二維疊加投影，初學者常因這種「壓平」後的影像型態感到陌生、難以對應到熟悉的解剖構造。</p>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p19.png" alt="脊椎外側位放射影像範例，展示不熟悉影像的判讀情境">
+        <div class="figure-caption">脊椎外側位放射影像：需要熟悉椎體、椎間盤空間、棘突等構造在二維投影上的正常表現型態，才能進一步辨識異常。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-depthperception">失去深度感 Loss of Depth Perception</h3>
+      <p>二維影像無法呈現構造的前後（深度）位置關係，同一個病灶在單一投照方向上可能對應多個不同的實際解剖位置，<strong>必須搭配互相垂直的第二個投照方向才能定位</strong>。</p>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p20.png" alt="胸腔外側位與腹側背側位放射影像範例，展示失去深度感的判讀情境">
+        <div class="figure-caption">失去深度感範例：單一投照方向上可見的病灶或異常構造，無法單獨判斷其確切前後深度位置，需合併另一垂直投照方向綜合判讀。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-summation">疊加訊號 Summation Sign<span class="tag tag-exam">重要</span></h3>
+      <p>影像上任一點的不透光度，反映的是<strong>該路徑上所有被疊加（superimposed）構造的X光吸收總和</strong>。</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">正向疊加 Positive summation shadow</div><p>疊加的構造使該區域不透光度<strong>增加</strong>（更白）</p></div>
+        <div class="card"><div class="card-title">負向疊加 Negative summation shadow</div><p>疊加的構造（如含氣構造）使該區域不透光度<strong>降低</strong>（更黑）</p></div>
+      </div>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p21.png" alt="正向疊加與負向疊加訊號放射影像範例對照">
+        <div class="figure-caption">疊加訊號對照：正向疊加訊號（左）因多重構造重疊使局部不透光度增加；負向疊加訊號（右）因含氣或低密度構造重疊使局部不透光度降低。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-silhouette">輪廓消失效應 Silhouette Effect / Border Effacement<span class="tag tag-exam">重要</span></h3>
+      <p>當<strong>兩個不透光度相同的構造互相接觸</strong>時，因兩者交界處缺乏對比差異，導致<strong>無法區分彼此的邊界（border effacement）</strong>；反之，若兩個相同不透光度的構造<strong>被另一種不同不透光度的物質分隔</strong>，則它們的邊界在X光片上<strong>可以被辨識</strong>。</p>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p22.png" alt="腹腔外側位放射影像範例，展示輪廓消失效應">
+        <div class="figure-caption">輪廓消失效應範例：腹腔內器官（皆為軟組織不透光度）在缺乏脂肪或氣體分隔的區域邊界模糊消失，而在有脂肪層分隔處輪廓則清晰可辨——是判斷腹腔積液或脂肪含量過低動物影像判讀困難的重要機轉。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PROJECTIONS -->
+    <div class="section" id="section-projections">
+      <div class="section-head"><div class="section-num">7</div><h2>攝影投照與擺位 Radiographic Projections and Positioning</h2></div>
+      <p class="section-desc">投照方向的命名邏輯與標準化的解剖學方位術語，是臨床上與同事溝通「這張片子怎麼拍的」的共同語言。</p>
+
+      <h3 id="drug-directionterms">解剖學方位術語<span class="tag tag-exam">重要</span></h3>
+      <p>描述投照方向與病灶位置前，需先統一動物解剖學的方位術語——頭部用<strong>rostral／caudal</strong>，軀幹用<strong>cranial／caudal</strong>，背腹向用<strong>dorsal／ventral</strong>，前肢遠端掌側用<strong>palmar</strong>、後肢遠端蹠側用<strong>plantar</strong>，肢體近遠端用<strong>proximal／distal</strong>。</p>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p24.png" alt="犬隻骨骼解剖學方位術語總覽示意圖，rostral caudal cranial dorsal ventral palmar plantar proximal distal">
+        <div class="figure-caption">解剖學方位術語總覽：頭部（rostral/caudal）、軀幹（cranial/caudal、dorsal/ventral）、前肢遠端（cranial/caudal、dorsal/palmar）、後肢遠端（cranial/caudal、dorsal/plantar）、肢體（proximal/distal），是精確描述任何投照方向與病灶位置的共同詞彙基礎。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-dvvd">DV／VD 投照<span class="tag tag-exam">重要</span></h3>
+      <p>投照方向依<strong>X光束穿透身體部位的方向</strong>命名，從進入點（point-of-entrance）到穿出點（point-of-exit）：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">DV：Dorsoventral projection</div><p>X光由背側射入、腹側穿出；<strong>動物採腹側臥（ventral recumbency）</strong></p></div>
+        <div class="card"><div class="card-title">VD：Ventrodorsal projection</div><p>X光由腹側射入、背側穿出；<strong>動物採背側臥（dorsal recumbency）</strong></p></div>
+      </div>
+
+      <h3 id="drug-crcdcdcr">CrCd／CdCr 投照</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">CrCd：Craniocaudal projection</div><p>X光由顱側／前方射入、尾側／後方穿出</p></div>
+        <div class="card"><div class="card-title">CdCr：Caudocranial projection</div><p>X光由尾側／後方射入、顱側／前方穿出</p></div>
+      </div>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p26.png" alt="犬隻前肢CrCd與CdCr投照擺位實際操作照片">
+        <div class="figure-caption">CrCd／CdCr投照臨床實際擺位：犬隻前肢分別以顱尾向（左）與尾顱向（右）擺位進行投照，常用於四肢遠端骨骼的評估。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <h3 id="drug-lateral">外側位投照 Lateral Projections<span class="tag tag-exam">重要</span></h3>
+      <p>腹腔與胸腔的外側位放射影像，<strong>依病患躺臥在X光檯上的側邊（recumbency）命名</strong>；若為站立病患，則依<strong>靠近底片的那一側</strong>命名：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">右外側位 Right lateral projection</div><p>動物採<strong>右側臥（right recumbency）</strong></p></div>
+        <div class="card"><div class="card-title">左外側位 Left lateral projection</div><p>動物採<strong>左側臥（left recumbency）</strong></p></div>
+      </div>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p27.png" alt="犬隻右外側位投照臨床擺位照片與對應胸腹腔放射影像">
+        <div class="figure-caption">右外側位投照（right lateral projection）：犬隻採右側臥擺位（左），對應胸腹腔外側位放射影像（右）。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">選左側躺還是右側躺，取決於想看哪一側肺葉</div>
+        <p>外側位擺位時，<strong>靠近檯面的一側（依賴側，dependent side）因體重壓迫與通氣較差，肺泡容易部分塌陷、含氣量降低</strong>；相對地，<strong>朝上、遠離檯面的一側（非依賴側，non-dependent side）肺葉擴張較完全、含氣量較佳，影像細節也較清楚</strong>。因此<strong>若想仔細觀察左側肺葉，應讓病患採右側臥（right recumbency）</strong>，使左側肺葉位於上方（非依賴側）、不被壓在下面而部分塌陷；反之想看右側肺葉則採左側臥。臨床上懷疑單側肺部病灶（如轉移性腫瘤結節）時，這個「哪一側肺要看清楚就讓哪一側朝上」的原則，與前段「拍胸腔務必吸飽氣」的道理相同——都是在確保感興趣的肺組織有足夠含氣量，才能呈現正確的病灶細節與邊界。</p>
+      </div>
+
+      <h3>其他投照方向</h3>
+      <p>除上述基本投照外，依不同身體部位還有許多專用投照方向，例：<strong>顳顎關節（TMJ）、鼓室泡（tympanic bulla）、額竇（frontal sinus）、髖關節（hip）、脊椎（spine）</strong>等，各自有特定的擺位技巧。</p>
+
+      <h3 id="drug-standardposition">標準擺位的重要性<span class="tag tag-exam">重要</span></h3>
+      <p>擺位不標準（如VD投照時脊椎歪斜、未對稱）會直接影響影像判讀的準確性：脊椎偏離身體中線會使左右兩側胸腔結構呈現不對稱的假性病變，心臟輪廓也可能因體位旋轉而失真變形。</p>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p29.png" alt="標準VD投照與歪斜VD投照胸腔放射影像對照">
+        <div class="figure-caption">標準擺位的重要性：左圖為標準VD投照，脊椎位於影像正中央、胸腔左右對稱；右圖因擺位歪斜，脊椎偏移中線、心臟與胸腔輪廓失真，可能造成誤判。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p30.png" alt="不同擺位角度胸腔外側位放射影像對照">
+        <div class="figure-caption">不同擺位／投照角度下同一病患胸腔外側位影像的差異，說明擺位角度些微改變即可能造成肺野、心臟輪廓判讀上的落差，須以標準化擺位為判讀基礎。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PROCEDURE -->
+    <div class="section" id="section-procedure">
+      <div class="section-head"><div class="section-num">8</div><h2>攝影流程 Procedures of Taking a Radiograph</h2></div>
+      <p class="section-desc">從選定部位到按下曝光鍵之間，有一套固定的檢查流程，核心精神是「排除一切會干擾判讀的因素」。</p>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>選定感興趣的身體部位</strong>（choose the body part of interest）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>選擇適當的投照方向</strong>——<strong>至少需要互相垂直（90度）的兩個投照方向</strong>，才能完整評估立體構造並補足單一方向失去的深度資訊。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>減少與感興趣部位重疊的物體</strong>，分兩類：
+          <ul style="margin:8px 0 0 0;padding-left:1.2em;">
+            <li><strong>外部物體：</strong>項圈、氣管內管、監測設備、手指等</li>
+            <li><strong>病患自身構造：</strong>肢體、肩胛骨、皮膚皺褶等</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p33.png" alt="外部物體重疊干擾放射影像判讀範例，項圈、氣管內管、監測導線">
+        <div class="figure-caption">外部物體干擾範例：項圈、金屬名牌、監測設備導線、氣管內管等外部物體與感興趣部位重疊，可能被誤判為病灶或遮蔽真正的異常構造，攝影前應盡量移除。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <div class="figure">
+        <img src="img/X光學基礎/rad_p34.png" alt="病患自身構造重疊放射影像判讀範例，肩胛骨與頸椎重疊、皮膚皺褶">
+        <div class="figure-caption">病患自身構造干擾範例：肩胛骨與尾側頸椎重疊（上）可能誤判為病灶或掩蓋真正病變；皮膚皺褶（下）在投影上可能形成類似線狀構造的假影，判讀時須留意區分。</div>
+        <div class="figure-source">來源：課程講義〈Radiology - introduction 2026〉</div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>標準身體擺位</strong>（使用解剖學體表標記／landmarks對齊）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text"><strong>有效的病患保定</strong>：
+          <ul style="margin:8px 0 0 0;padding-left:1.2em;">
+            <li><strong>化學保定：</strong>鎮靜（sedation）、全身麻醉（general anesthesia）</li>
+            <li><strong>機械式保定裝置：</strong>沙袋（sandbag）、泡棉墊（foam cushion）、膠帶（tape）、繩索（rope）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-text"><strong>X光曝光範圍與準直</strong>（collimation），以及其他特定技術與曝光時機考量。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-text"><strong>X光機參數設定：</strong>檢查目標區域的<strong>厚度</strong>，據此決定<strong>kVp與mA（mAs）</strong>。</div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試最愛出「機轉配對」「二維限制辨識」「投照方向命名」三種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>X光管：</strong>電子撞擊鎢靶產生X光；mA決定電子數量、kVp決定X光能量、mAs是輸出總輻射量。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>光電效應：</strong>形成影像的主要機轉，吸收量∝Z³（原子序）、∝1/E³（光子能量）——kVp越高，組織間對比度越低。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>準直儀</strong>限制射束範圍，減少病患劑量、影像起霧、旁觀者暴露；<strong>底片黑化度</strong>與到達底片的X光量直接相關（mAs↑、kVp↑皆使黑化度上升）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>對比度四因子：</strong>物理密度、原子序、厚度、X光能量（kVp）；體液與軟組織不透光度相近，統稱「軟組織不透光度」。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>二維影像五限制：</strong>放大變形（靠近底片減少放大，肺病灶例外）、不熟悉的影像、失去深度感（需雙投照方向）、疊加訊號（正向/負向）、輪廓消失效應（相同不透光度相接觸則邊界消失）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>投照命名：</strong>DV（腹側臥）/VD（背側臥）；CrCd/CdCr；外側位依躺臥或靠近底片的一側命名；至少需要互相垂直的兩個投照方向。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>標準擺位</strong>直接影響判讀準確性（脊椎偏移、心臟輪廓失真）；攝影前應排除外部物體（項圈、ET tube、導線）與病患自身構造（肢體、肩胛骨、皮膚皺褶）的重疊干擾。</div></div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Radiology - introduction 2026〉（Ya-Pei Chang）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋X光產生機轉、光電效應、對比度因素、二維限制、投照方向命名各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 若將X光機的kVp設定得比適當值更高（其他條件不變），最可能出現的結果是？</div>
+        <ul class="quiz-options">
+          <li>(A) 影像曝光不足，整體偏白</li>
+          <li>(B) 光電吸收增加，組織間對比度提升</li>
+          <li>(C) 光電吸收減少，組織間對比度降低，影像可能曝光過度</li>
+          <li>(D) 對成像完全沒有影響</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">光電吸收與光子能量的三次方成反比（∝1/E³），kVp越高代表X光能量越高，光電吸收會隨之減少，使組織間因吸收差異形成的對比度降低；同時因穿透力增強，太多X光穿透病患打到底片，可能導致影像曝光過度（overexposed）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 血液、尿液、膽汁與肌肉、韌帶、器官等軟組織，在X光片上可以依據不透光度清楚互相區分。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">體液（血液、尿液、膽汁、CSF、滲出液、漏出液）與軟組織（軟骨、肌肉、筋膜、肌腱、韌帶、器官）的物理密度與原子序彼此相近，在X光片上呈現相似的「軟組織不透光度」，無法單靠X光片的不透光度互相區分，需要搭配超音波等其他影像工具進一步鑑別。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一張胸腔X光片上，肋骨與脊椎因重疊使該區域局部不透光度增加，這個現象稱為？</div>
+        <ul class="quiz-options">
+          <li>(A) 輪廓消失效應（silhouette effect）</li>
+          <li>(B) 正向疊加訊號（positive summation shadow）</li>
+          <li>(C) 失去深度感（loss of depth perception）</li>
+          <li>(D) 變形（distortion）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">疊加訊號（summation sign）反映的是該路徑上所有被疊加構造的X光吸收總和；當疊加的構造（如骨骼）使該區域不透光度增加，稱為正向疊加訊號。輪廓消失效應指的是相同不透光度構造相接觸時邊界無法辨識，與本題描述的「不透光度增加」不同。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 為什麼評估任何身體部位時，通常需要拍攝至少兩個互相垂直的投照方向，而不能只憑單一方向的X光片下診斷？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">X光片是將三維立體構造壓縮成二維影像的投影結果，這個壓縮過程會造成「失去深度感」——單一投照方向上，某個構造或病灶的前後（深度）位置無法被判斷，因為沿著X光路徑上所有被疊加的構造都會呈現在同一個二維平面上，觀察者無法單憑一張影像分辨病灶究竟位於身體的前側、後側或中間。只有搭配另一個互相垂直（90度）的投照方向，才能透過兩個不同角度的資訊互相對照，重建出病灶在三維空間中的實際相對位置，這也是「至少兩個互相垂直投照方向」成為臨床攝影標準流程的核心原因。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻犬因疑似胸腔病變需要拍攝VD投照的胸腔X光片，技術人員完成擺位後隨意按下曝光鍵，沖洗出來的影像顯示脊椎明顯偏向影像右側、心臟輪廓看起來比正常略為擴大且形狀不對稱。同時，這隻犬戴著項圈且身上接有心電圖監測導線一併入鏡。請問：(1) 這張影像可能存在哪些判讀陷阱？(2) 應該如何改善？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 判讀陷阱：</strong>①<strong>擺位不標準造成的失真</strong>：脊椎偏離影像中線代表病患在VD擺位時身體有旋轉，並非真正躺平對稱，這會導致心臟與胸腔兩側結構的相對位置改變，心臟輪廓可能因此呈現假性擴大或形狀不對稱，並非真正的心臟病變；②<strong>外部物體重疊干擾</strong>：項圈與心電圖監測導線若與胸腔感興趣區域重疊，可能被誤判為病灶（如結節狀不透光構造）或掩蓋真正存在的病變，干擾判讀準確性。<br><strong>(2) 改善方式：</strong>應重新擺位，確保病患背側正躺、脊椎位於影像正中央、兩側胸廓對稱後再曝光，必要時使用泡棉墊或沙袋等機械式保定裝置維持標準姿勢；曝光前應移除項圈，並盡量將心電圖監測導線移出感興趣的胸腔投照範圍之外，或至少調整導線走向使其不與胸腔臟器重疊，才能拍出足以正確判讀心臟與肺野的合格影像。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  production: 'X光的產生',
+  interaction: '輻射與物質的交互作用',
+  basics: '攝影基本概念',
+  contrast: '影響對比度的因素',
+  twodim: '二維影像的先天限制',
+  projections: '攝影投照與擺位',
+  procedure: '攝影流程',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

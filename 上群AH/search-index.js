@@ -75,6 +75,16 @@ const SEARCH_INDEX = [
     keywords: "kinking leakage 血塊阻塞 mineralization 礦化 TPA 存活率 creatinine",
     snippet: "SUB 3.0 扭結率降至0%；出院存活率>93%；裝置內血塊約8%可用TPA溶解；常規t-EDTA沖洗使礦化率24.5%降至12.7%、慢性UTI由8%降至0%..."
   },
+  {
+    subject: "外科",
+    week: null,
+    weekTitle: "皮下輸尿管繞道系統（SUB）",
+    url: "外科/SUB皮下輸尿管繞道系統.html",
+    section: "evidence",
+    sectionName: "文獻補充與參考資料",
+    keywords: "SUB 沖洗時程 flushing schedule 術後照護 抗生素 marbofloxacin t-EDTA Berent 2025 Kulendra Vrijsen 獨立研究 SOP 尿培養 存活率",
+    snippet: "各來源共識：出院前、約1個月、之後每3個月（原廠另有1週）；Berent 2025建議2年後每6個月；獨立研究重大併發症48%、感染26%；t-EDTA預防2%與治療4%濃度不同..."
+  },
 
   {
     subject: "內科",

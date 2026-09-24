@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：Lincosamide、其他抗生素與選藥原則 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">Lincosamide、其他抗生素與選藥原則</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">Lincosamide、其他抗生素與抗微生物藥物選用原則</h1>
+      <p class="page-subtitle">Lincosamides、雜項抗生素家族，以及同一份講義收錄的MIC/breakpoint、殺菌動力學、抗藥性機制與臨床選藥流程</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4 Lincosamide）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-23</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（依原始講義架構重整，新增抗微生物藥物選用原則）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">Lincosamides</div>
+    <a onclick="showSection('lincomech')" id="nav-lincomech"><span class="nav-icon">🧬</span> 化學、機轉與抗菌譜</a>
+    <a onclick="showSection('lincouses')" id="nav-lincouses"><span class="nav-icon">💊</span> 治療用途、給藥與藥動學</a>
+    <a onclick="showSection('lincoresist')" id="nav-lincoresist"><span class="nav-icon">⚠️</span> 抗藥性與不良反應</a>
+    <div class="section-label" style="margin-top:8px;">其他抗生素家族</div>
+    <a onclick="showSection('spectinometro')" id="nav-spectinometro"><span class="nav-icon">🧬</span> Spectinomycin 與 Metronidazole</a>
+    <a onclick="showSection('rifampin')" id="nav-rifampin"><span class="nav-icon">🎯</span> Rifampin</a>
+    <a onclick="showSection('tiamulin')" id="nav-tiamulin"><span class="nav-icon">🐷</span> Tiamulin</a>
+    <a onclick="showSection('vancomycin')" id="nav-vancomycin"><span class="nav-icon">🛡️</span> Vancomycin</a>
+    <a onclick="showSection('bacpoly')" id="nav-bacpoly"><span class="nav-icon">🧱</span> Bacitracin 與 Polymyxins</a>
+    <a onclick="showSection('nitronovo')" id="nav-nitronovo"><span class="nav-icon">💧</span> Nitrofurans 與 Novobiocin</a>
+    <a onclick="showSection('streptoiono')" id="nav-streptoiono"><span class="nav-icon">⚡</span> Streptogramins 與 Ionophores</a>
+    <div class="section-label" style="margin-top:8px;">臨床選藥原則</div>
+    <a onclick="showSection('selectbasics')" id="nav-selectbasics"><span class="nav-icon">📐</span> 抗菌譜、MIC與殺菌動力學</a>
+    <a onclick="showSection('selectquestions')" id="nav-selectquestions"><span class="nav-icon">❓</span> 選藥八問與其他考量</a>
+    <a onclick="showSection('resistmech')" id="nav-resistmech"><span class="nav-icon">⚔️</span> 抗藥性機制與MRSA演化史</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章前半段是講義中不屬於前面幾大類（Beta-Lactam、AG/TC/Phenicol/Macrolide、磺胺喹諾酮）但臨床仍常用的「雜項抗生素」，每種藥物機轉與物種安全性都獨立，讀法是把每個小節當成獨立單元記憶。<strong>後半段則是同一份講義收錄的「抗微生物藥物選用原則」</strong>——這不是特定藥物，而是<strong>一套通用的臨床選藥邏輯</strong>：怎麼判斷藥物對某個病原有效（MIC/breakpoint）、怎麼決定給藥頻率（time-dependent vs concentration-dependent killing）、選藥前要問的八個問題，以及細菌抗藥性從分子機轉到金黃色葡萄球菌演化史的完整脈絡。這部分內容適用於本頁與前面所有抗生素頁面，是把整個抗生素單元串起來的收尾。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('lincomech')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Lincosamides</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">50S結合，靜菌</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('vancomycin')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Vancomycin等</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">雜項抗生素家族</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('selectbasics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">選藥原則</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">MIC、殺菌動力學</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('resistmech')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">抗藥性機制</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">MRSA演化史</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">九個臨床與國考重點（講義為主）</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>Lincosamides結合50S核糖體，與Phenicols、Streptogramins、Macrolides共用結合位</strong>（不可併用）；<strong>禁用於馬、兔、倉鼠、天竺鼠</strong>——破壞G(+)腸道菌叢使Clostridium difficile過度增殖，可能致命，Metronidazole常與Clindamycin併用以預防此併發症。</li>
+          <li><strong>Vancomycin結合peptidoglycan前驅物D-Ala-D-Ala而非PBP，因此MRSA仍有效</strong>；<strong>Tylosin抗藥基因與Vancomycin抗藥基因位於同一質體上</strong>，使用Tylosin可能連帶篩選出對Vancomycin抗藥的菌株——這是講義明確指出的跨藥物抗藥性連結。</li>
+          <li><strong>Ionophores（Monensin）機轉是形成離子通道破壞細胞膜離子梯度</strong>；<strong>馬匹是最容易因意外誤食而中毒的物種</strong>（單胃動物吸收較高、代謝較慢），毒性來自Na⁺/Ca²⁺交換異常，心肌與骨骼肌受影響最嚴重。</li>
+          <li><strong>粒線體被認為是被真核細胞收編的細菌殘餘</strong>，因此作用於細菌DNA、核糖體、gyrase的抗生素（不含細胞壁與葉酸合成路徑標的）有潛在粒線體毒性——<strong>Aminoglycosides的耳毒性、Chloramphenicol的再生不良性貧血、Fluoroquinolones的軟骨毒性都與此機轉相關</strong>（講義原文觀點）。</li>
+          <li><strong>Time-dependent killing（β-lactams、Clindamycin、Vancomycin）追求延長T&gt;MIC的時間；Concentration-dependent killing（Fluoroquinolones、Aminoglycosides）追求提高峰值濃度（Peak/MIC或AUC/MIC）</strong>，兩種殺菌動力學決定截然不同的給藥策略。</li>
+          <li><strong>選擇抗生素前的關鍵問題：</strong>是否真的需要抗生素、感染部位常見病原、藥物PK能否到達感染部位並超過MIC、MIC是否低於breakpoint（敏感）、劑量與療程如何決定。</li>
+          <li><strong>免疫力低下病患應優先選用殺菌性藥物</strong>（AG、β-lactam、FQ、Vancomycin、Metronidazole、Rifampin）；<strong>抑菌性藥物需要動物自身免疫系統配合清除細菌</strong>，但整體毒性風險與副作用通常較輕。</li>
+          <li><strong>細菌抗藥性五大機轉：酵素去活化/修飾、標的位點修飾、標的過度表現、標的替換、外流泵增加或通透性降低</strong>；<strong>抗藥性獲得方式：突變（染色體）、接合（R-factor質體轉移）、轉導（噬菌體）、轉型（環境裸DNA攝入）</strong>——抗生素本身不會誘發突變，而是對已存在的抗藥菌株施加選擇壓力。</li>
+          <li><strong>金黃色葡萄球菌抗藥性演化史</strong>：1940年代青黴素有效→1950年代抗藥性出現→Methicillin問世→1970年代MRSA→Vancomycin成為首選→1990年代VRE→1997年VISA→2002年VRSA；對抗VISA/VRSA的人用藥：<strong>Synercid、Linezolid、Daptomycin</strong>。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Clindamycin</td><td>結合50S核糖體，與Phenicol/Streptogramin/Macrolide共用位</td><td><strong>PO或IM</strong>；犬貓G(+)/MRSA軟組織感染、牙周病骨髓炎；★禁用馬兔倉鼠天竺鼠（C. difficile腸炎）</td><td class="drug-locations"><a href="#drug-lincodrugs" class="drug-link">G(+)/MRSA軟組織感染，人用不供食品動物</a><a href="#drug-lincoadverse" class="drug-link">馬兔倉鼠天竺鼠禁忌，C. difficile腸炎</a></td></tr>
+            <tr><td>Lincomycin</td><td>結合50S核糖體抑制蛋白質合成，靜菌</td><td><strong>IM或飲水給藥（豬）</strong>；豬痢疾、葡萄球菌/鏈球菌/黴漿菌感染；Mycoplasma較Clindamycin更常用</td><td class="drug-locations"><a href="#drug-lincodrugs" class="drug-link">豬痢疾與黴漿菌感染，較Clindamycin更常用於Mycoplasma</a></td></tr>
+            <tr><td>Pirlimycin</td><td>Clindamycin半合成衍生物，更疏水更強效</td><td>牛乳腺炎乳管內灌注治療</td><td class="drug-locations"><a href="#drug-lincodrugs" class="drug-link">牛乳腺炎乳管內灌注</a></td></tr>
+            <tr><td>Spectinomycin</td><td>結合30S核糖體，但靜菌非殺菌</td><td><strong>PO或IM／IV</strong>；犬貓馬豬犢牛家禽腸道/呼吸道感染；無顯著毒性</td><td class="drug-locations"><a href="#drug-spectinomycin" class="drug-link">G(-)/Mycoplasma感染，無顯著毒性</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Metronidazole</td><td>被厭氧菌/原蟲還原為細胞毒性代謝物，破壞DNA</td><td><strong>PO</strong>；厭氧菌感染、梨形鞭毛蟲/滴蟲病；★常與Clindamycin併用預防偽膜性腸炎；高劑量神經毒性</td><td class="drug-locations"><a href="#drug-metroprodrug" class="drug-link">厭氧菌與原蟲感染首選，IBD常與Clindamycin併用</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Rifampin</td><td>抑制DNA-dependent RNA polymerase，阻斷RNA合成起始</td><td><strong>PO</strong>；★馬駒Rhodococcus equi肺炎（+Erythromycin/Macrolide）；犬貓CNS黴菌感染輔助；紅橙色尿</td><td class="drug-locations"><a href="#drug-rifampinmoa" class="drug-link">馬駒Rhodococcus equi標準合併治療</a></td></tr>
+            <tr><td>Tiamulin</td><td>結合50S核糖體，機轉類似Macrolides</td><td><strong>PO（飼料或飲水）</strong>；豬Haemophilus肺炎與痢疾；禁與Ionophores併用</td><td class="drug-locations"><a href="#drug-tiamulin" class="drug-link">豬呼吸道與腸道感染</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Vancomycin</td><td>結合peptidoglycan前驅物D-Ala-D-Ala，非PBP機轉</td><td><strong>IV（骨骼/軟組織感染）或PO（腸道感染）</strong>；MRSA骨骼/軟組織感染首選（儲備抗生素）；食品動物禁用</td><td class="drug-locations"><a href="#drug-vancomoa" class="drug-link">MRSA首選，儲備抗生素</a></td></tr>
+            <tr><td>Bacitracin</td><td>抑制細胞壁合成第二步</td><td>外用三聯軟膏成分；PO可替代Vancomycin治C. difficile腸炎</td><td class="drug-locations"><a href="#drug-bacitracinmoa" class="drug-link">外用三聯軟膏，PO治C. difficile腸炎</a></td></tr>
+            <tr><td>Colistin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Polymyxin E</div></td><td>陽離子多胜肽破壞G(-)外膜</td><td>人醫MDR G(-)最後防線；動物口服/注射治GI與全身感染</td><td class="drug-locations"><a href="#drug-polymyxinmoa" class="drug-link">MDR G(-)最後防線</a></td></tr>
+            <tr><td>Polymyxin B</td><td>陽離子多胜肽破壞G(-)外膜</td><td>全物種外用；牛豬PO腸道感染；馬緩慢IV治內毒素血症</td><td class="drug-locations"><a href="#drug-polymyxinmoa" class="drug-link">外用與馬內毒素血症治療</a></td></tr>
+            <tr><td>Nitrofurantoin</td><td>還原為反應性中間產物，抑制核酸合成</td><td>犬貓UTI口服，酸性尿液效果最佳；食品動物禁用（致癌）</td><td class="drug-locations"><a href="#drug-nitrofuranmoa" class="drug-link">犬貓UTI，酸性尿液有效</a></td></tr>
+            <tr><td>Novobiocin</td><td>阻斷ATP與DNA gyrase結合</td><td><strong>與Tetracycline併用（協同效果）口服治療犬的易感染症</strong>；傷口與乳腺炎（尤其S. aureus）；與Tetracycline協同治犬感染</td><td class="drug-locations"><a href="#drug-novobiocinmoa" class="drug-link">乳腺炎與傷口，與TC協同</a></td></tr>
+            <tr><td>Virginiamycin</td><td>結合50S核糖體，Streptogramin A+B混合物</td><td><strong>PO（飼料添加，腸道不吸收）</strong>；豬痢疾；肉雞壞死性腸炎預防；與Synercid抗藥性上升有關聯</td><td class="drug-locations"><a href="#drug-streptogramin" class="drug-link">豬痢疾/肉雞壞死性腸炎，與人醫Synercid抗藥性關聯</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Monensin</td><td>與Na⁺形成複合物，破壞細胞離子梯度</td><td><strong>PO（飼料添加）</strong>；牛禽飼料效率與抗球蟲；★馬匹意外接觸最易中毒（心肌/骨骼肌毒性）</td><td class="drug-locations"><a href="#drug-ionophoremoa" class="drug-link">牛禽促生長/抗球蟲，馬匹劇毒</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- LINCO MECH -->
+    <div class="section" id="section-lincomech">
+      <div class="section-head"><div class="section-num">3</div><h2>Lincosamides：化學、機轉與抗菌譜</h2></div>
+      <p class="section-desc">Lincosamides的臨床定位由「高脂溶性帶來的深部組織穿透力」與「MLSB共用結合位」兩個特性決定。</p>
+
+      <h3>化學結構</h3>
+      <p>Lincomycin、Clindamycin、Pirlimycin是含硫辛糖衍生物，具胺基酸樣側鏈，<strong>高脂溶性</strong>；弱鹼，製成HCl或磷酸鹽（水溶性）；Clindamycin palmitate為口服劑型（腸道內轉化）；<strong>靜菌性</strong>。</p>
+
+      <h3 id="drug-lincomoa">作用機轉與抗菌譜<span class="tag tag-exam">重要</span></h3>
+      <p><strong>結合細菌50S核糖體抑制蛋白質合成</strong>；<strong>與Phenicols、Streptogramins、Macrolides結合位相同，應避免併用</strong>。Lincomycin與Clindamycin為靜菌性，對G(+)需氧菌與<strong>專性厭氧菌</strong>、Toxoplasma spp.、Neospora canis、Mycoplasma spp.有效；<strong>G(-)菌具抗藥性</strong>。<strong>Lincomycin對厭氧菌抗菌譜相當廣；Clindamycin對厭氧菌與Staphylococcus aureus的活性優於Lincomycin</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- LINCO USES -->
+    <div class="section" id="section-lincouses">
+      <div class="section-head"><div class="section-num">4</div><h2>Lincosamides：治療用途、給藥與藥動學</h2></div>
+      <p class="section-desc">三個代表藥物的臨床分工，加上高脂溶性帶來的組織穿透特性，是這節的重點。</p>
+
+      <h3 id="drug-lincodrugs">治療用途<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>臨床定位（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>Lincomycin</td><td>豬痢疾、葡萄球菌/鏈球菌/黴漿菌感染；<strong>Mycoplasma例外，Lincomycin較Clindamycin更常用</strong></td></tr>
+            <tr><td>Pirlimycin</td><td>Clindamycin半合成衍生物，更疏水、更強效，對Staphylococcus aureus等G(+)高度有效；<strong>牛乳腺炎乳管內灌注治療</strong></td></tr>
+            <tr><td><strong>Clindamycin</strong></td><td>人用藥，<strong>不用於食品動物</strong>；G(+)葡萄球菌/鏈球菌感染；<strong>MRSA軟組織感染</strong>；牙周病、骨髓炎、皮膚炎與深部軟組織感染；犬貓Toxoplasmosis、犬Neosporosis；<strong>對Mycoplasma效果較差</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">效力：<strong>Clindamycin＞Lincomycin</strong>（尤其對厭氧菌），Mycoplasma例外。</p>
+
+      <h3>給藥與分佈</h3>
+      <p>Lincomycin：豬IM每日一次或飲水給予；Clindamycin：犬貓（及人）PO或IM一日兩次；Pirlimycin：乳管內灌注（乳腺炎）。<strong>口服吸收：Lincomycin 50%、Clindamycin 90%</strong>；<strong>分佈廣，對骨骼與軟組織（含腱鞘）穿透優異</strong>；<strong>CSF濃度低</strong>（高血漿蛋白結合率90%＋快速消除動力學）；可穿越胎盤；<strong>因鹼性特質，在膿瘍、前列腺、乳腺等酸性組織累積，可能造成延長的乳汁殘留</strong>。</p>
+
+      <h3>代謝</h3>
+      <p>肝臟微粒體酵素代謝為sulfoxide（如lincomycin sulfoxide）與其他代謝物（<strong>Lincomycin 60%、Clindamycin 90%</strong>）；原型與代謝物經尿、膽汁、糞便排出；<strong>犬貓消除t½ 3–5小時</strong>；其他物種資料有限。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- LINCO RESIST -->
+    <div class="section" id="section-lincoresist">
+      <div class="section-head"><div class="section-num">5</div><h2>Lincosamides：抗藥性與不良反應</h2></div>
+      <p class="section-desc">MLSB交叉抗藥性與馬兔倉鼠天竺鼠的致命腸炎禁忌，是Lincosamides安全性最重要的兩個考點。</p>
+
+      <h3 id="drug-mlsbresist">抗藥性<span class="tag tag-exam">重要</span></h3>
+      <p>G(-)菌因外膜通透性不足與核糖體結合位甲基化而抵抗；<strong>常見抗藥形式是50S核糖體轉譯後甲基化，改變藥物結合能力</strong>；<strong>Lincosamides與Macrolides常見交叉抗藥性</strong>——轉譯後甲基化造成<strong>macrolide-lincosamide-streptogramin B（MLSB）抗藥性</strong>。</p>
+
+      <h3 id="drug-lincoadverse">不良反應<span class="tag tag-exam">重要</span></h3>
+      <p>犬貓牛豬副作用罕見，除高劑量或與麻醉藥併用時的神經肌肉阻斷。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">講義原文重點</div>
+        <p><strong>禁用於馬、兔、倉鼠、天竺鼠</strong>：因腸道菌叢改變引發嚴重、常致命的腹瀉，牽涉<strong>Clostridium difficile</strong>（對Lincomycin與Clindamycin具抗藥性）；<strong>Metronidazole常與Clindamycin併用，以避免犬的Clindamycin相關C. difficile介導偽膜性腸炎</strong>。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SPECTINOMYCIN METRONIDAZOLE -->
+    <div class="section" id="section-spectinometro">
+      <div class="section-head"><div class="section-num">6</div><h2>Spectinomycin 與 Metronidazole</h2></div>
+      <p class="section-desc">這兩個藥物雖然作用機轉完全不同，但都是「選擇性標靶」的好例子。</p>
+
+      <h3 id="drug-spectinomycin">Aminocyclitols：Spectinomycin</h3>
+      <p>化學結構與Aminoglycosides相關；<strong>結合30S核糖體，但屬靜菌性，非殺菌性</strong>；主要對G(-)需氧菌與Mycoplasma有效；口服或非經腸道治療犬貓馬豬犢牛家禽的腸道與呼吸道感染；人醫IM治療淋病；<strong>臨床使用無顯著毒性</strong>。</p>
+
+      <h3 id="drug-metroprodrug">Nitroimidazoles：Metronidazole<span class="tag tag-exam">重要</span></h3>
+      <p>Metronidazole、Ipronidazole、Dimetridazole、Ronidazole；五員雜環結構，與Nitrofurans（如Nitrofurantoin治UTI）結構相似；<strong>僅Metronidazole用於獸醫臨床</strong>。<strong>機轉：被厭氧菌與原蟲攝取後還原為具細胞毒性的代謝物，破壞DNA</strong>；PO治療犬貓馬人的嚴重厭氧菌感染（<strong>尿液可能呈深棕或黑色</strong>）；原蟲感染（<strong>梨形鞭毛蟲病、滴蟲病</strong>）；<strong>IBD：Metro+Clindamycin併用，預防Lincosamides相關的偽膜性腸炎</strong>。</p>
+      <p><strong>不良反應：</strong>高劑量或長期治療致神經毒性——<strong>眼球震顫、共濟失調、癲癇發作</strong>，貓可能流涎。<strong>藥動學：</strong>口服吸收良好，廣泛分佈含CNS；肝臟氧化與接合代謝約1/3–1/2的給藥量；代謝物與原型經尿糞排出；<strong>犬馬消除t½ 3–5小時</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RIFAMPIN -->
+    <div class="section" id="section-rifampin">
+      <div class="section-head"><div class="section-num">7</div><h2>Rifampin</h2></div>
+      <p class="section-desc">馬駒Rhodococcus equi肺炎的標準合併治療是Rifampin最重要的臨床應用，強制合併用藥的邏輯貫穿整節。</p>
+
+      <h3 id="drug-rifampinmoa">機轉與治療用途<span class="tag tag-exam">重要</span></h3>
+      <p><strong>抑制DNA-dependent RNA polymerase，阻止RNA合成起始</strong>；<strong>對分枝桿菌與G(+)具殺菌性</strong>，對細胞內感染有效。<strong>與Erythromycin（或其他Macrolide）併用治療馬駒Rhodococcus equi感染</strong>；搭配抗真菌藥治療犬貓涉及CNS的黴菌感染（麴菌病、組織漿菌病）；部分研究顯示頑固性犬膿皮症可用<strong>頭孢菌素+Rifampin</strong>；給藥：PO一日三次（馬駒、犬貓）。</p>
+
+      <h3>藥動學與不良反應</h3>
+      <p>口服快速吸收，廣泛分佈；肝臟代謝為<strong>去乙醯化型（仍具抗菌活性）</strong>；原型與代謝物主要經膽汁排出，<strong>最多30%經尿排出</strong>；<strong>原型藥物在腸道被再吸收，代謝物則不會</strong>；消除t½：馬6–8小時、犬8小時、羊3–5小時；<strong>誘導肝臟微粒體酵素，重複給藥後消除速率可能加快</strong>。不良反應少見；已有肝病動物可能肝毒性；<strong>無害的紅橙色尿液、汗液、唾液</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TIAMULIN -->
+    <div class="section" id="section-tiamulin">
+      <div class="section-head"><div class="section-num">8</div><h2>Tiamulin</h2></div>
+      <p class="section-desc">Tiamulin幾乎是豬場專用藥，機轉與Macrolides類似但屬不同家族。</p>
+
+      <h3 id="drug-tiamulin">機轉、用途與藥動學<span class="tag tag-exam">重要</span></h3>
+      <p>機轉與抗菌譜類似Macrolides（如Tylosin）：<strong>結合50S核糖體抑制蛋白質合成</strong>；抗菌譜：G(+)球菌、Mycoplasma、螺旋體、部分G(-)（如Haemophilus spp.）；<strong>Valnemulin是Tiamulin的新型類似物</strong>。治療用途：PO（飼料或飲水）用於豬<strong>Haemophilus肺炎與痢疾</strong>的控制與治療。藥動學：口服吸收良好，廣泛分佈，肝臟代謝；代謝物經糞便（70%）與尿液（30%）排出；<strong>豬t½ 4–12小時</strong>。不良反應：豬群過度擁擠時可能因刺激性代謝物產生皮膚紅斑與搔癢的皮膚炎。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- VANCOMYCIN -->
+    <div class="section" id="section-vancomycin">
+      <div class="section-head"><div class="section-num">9</div><h2>Vancomycin</h2></div>
+      <p class="section-desc">Vancomycin的臨床地位建立在「非PBP機轉對MRSA仍有效」上，而Tylosin的抗藥基因連鎖是講義特別強調的一個跨藥物觀念。</p>
+
+      <h3 id="drug-vancomoa">機轉與抗菌譜<span class="tag tag-exam">重要</span></h3>
+      <p><strong>複雜的糖胜肽，結合細菌細胞壁peptidoglycan層的前驅物D-alanyl-D-alanine</strong>，阻斷細胞壁合成，對分裂中細菌具快速殺菌效果。抗菌譜：Clostridia、Staphylococci（<strong>含MRSA與產β-lactamase菌株</strong>）、Enterococci。<strong>因對多重抗藥菌有效且對人醫至關重要，使用應限於危及生命的多重抗藥G(+)感染</strong>。</p>
+
+      <h3>治療用途</h3>
+      <p><strong>儲備抗生素</strong>，IV輸注30–60分鐘、每6–8小時一次，治療犬貓MRSA骨骼/軟組織感染；PO每6–8小時治療犬多重抗藥腸道感染。<strong>Avoparcin</strong>（相關糖胜肽，曾核准作飼料添加物）<strong>因需保護Vancomycin的儲備地位，全球已不再允許使用</strong>；<strong>Vancomycin禁用於食品動物</strong>。</p>
+
+      <h3>藥動學與不良反應</h3>
+      <p>不經口服吸收；分佈於細胞外液與經細胞液；<strong>經腎絲球過濾以原型排出</strong>；血漿t½ 2小時。不良反應：大劑量或長期使用可能耳毒性與腎毒性。</p>
+
+      <h3 id="drug-vancotylosin">抗藥性：Tylosin-Vancomycin 基因連鎖<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">講義原文重點</div>
+        <p><strong>Tylosin抗藥基因與Vancomycin抗藥基因位於同一質體上——使用Tylosin可能篩選出對Vancomycin具抗藥性的菌株</strong>，是豬場使用Tylosin作生長促進劑時的重大公衛疑慮。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- BACITRACIN POLYMYXIN -->
+    <div class="section" id="section-bacpoly">
+      <div class="section-head"><div class="section-num">10</div><h2>Bacitracin 與 Polymyxins</h2></div>
+      <p class="section-desc">這兩類藥物的共同特色是全身毒性太高而只保留局部/口服不吸收用途，三聯抗生素軟膏的組成正是這節的收尾。</p>
+
+      <h3 id="drug-bacitracinmoa">Bacitracin<span class="tag tag-exam">重要</span></h3>
+      <p>由Bacillus licheniformis與Bacillus subtilis產生的分支環狀十胜肽；<strong>Bacitracin A活性最強，是市售製劑的主要成分</strong>；<strong>機轉：抑制細胞壁合成的第二步</strong>；對G(+)與螺旋體具殺菌性。治療用途：外用軟膏/溶液，常與Polymyxin B與/或Neomycin併用（<strong>三聯抗生素軟膏</strong>，廣譜殺菌）；添加於豬禽飼料預防梭菌性腸炎並作促生長劑（多國已禁止）；<strong>PO用於Clostridium difficile相關偽膜性腸炎，是Vancomycin的替代選項</strong>。藥動學：不經口服吸收，<strong>全身使用腎毒性過高</strong>，僅限局部與腸道使用；全身毒性罕見；偶有過敏反應。</p>
+
+      <h3 id="drug-polymyxinmoa">Polymyxins<span class="tag tag-exam">重要</span></h3>
+      <p>由Bacillus polymyxa產生；<strong>醫用者為Polymyxin B與Colistin（Polymyxin E）</strong>；機轉：<strong>陽離子多胜肽，與細胞膜磷脂交互作用，產生去污劑樣效果並破壞細胞膜</strong>；窄效，對G(-)快速殺菌。</p>
+      <p><strong>Polymyxin B：</strong>不經口服吸收，非經腸道使用毒性過高（<strong>馬匹嚴重病例例外可用</strong>）；神經毒性（憂鬱、厭食、發燒）；<strong>嚴重腎毒性（腎絲球與腎小管上皮損傷），但馬匹此毒性不常見</strong>；用途：全物種皮膚/眼/耳局部使用（三聯抗生素軟膏）；PO治療牛豬G(-)腸道感染；<strong>馬匹緩慢IV滴注治療嚴重內毒素血症</strong>；人醫治療Pseudomonas等敏感菌嚴重感染。</p>
+      <p><strong>Colistin（Polymyxin E）：</strong>人醫用於MDR G(-)最後防線藥物（含Pseudomonas、Klebsiella、Acinetobacter、CRE）；動物：口服散劑治療GI感染，注射供全身治療（牛豬羊）。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- NITROFURAN NOVOBIOCIN -->
+    <div class="section" id="section-nitronovo">
+      <div class="section-head"><div class="section-num">11</div><h2>Nitrofurans 與 Novobiocin</h2></div>
+      <p class="section-desc">這兩個藥物臨床使用頻率較低，但各自的機轉與台灣的禁用背景值得快速掌握。</p>
+
+      <h3 id="drug-nitrofuranmoa">Nitrofurans（Nitrofurantoin）</h3>
+      <p>機轉：被細菌還原為反應性中間產物，抑制核酸合成，造成DNA斷裂，也可能阻斷mRNA轉譯；廣譜、靜菌性。<strong>基因毒性：多國（含台灣）禁用於食品動物</strong>。治療用途：PO治療犬貓UTI，<strong>在酸性尿液中效果最佳</strong>；外用軟膏、粉劑、水溶性傷口敷料。藥動學：快速口服吸收，腎絲球過濾與主動分泌；<strong>人尿液峰值濃度在PO後&lt;1小時、血漿t½ 20分鐘</strong>；動物資料缺乏。不良反應：罕見，犬貓口服後偶見噁心嘔吐腹瀉；<strong>實驗動物潛在致癌物，食品動物（含外用）全面禁用</strong>。</p>
+
+      <h3 id="drug-novobiocinmoa">Novobiocin</h3>
+      <p>化學：香豆素類抗生素，屬酸性；機轉：<strong>阻斷ATP與DNA gyrase的結合，抑制細菌DNA超螺旋</strong>；窄效，對G(+)球菌（尤其Staphylococcus aureus）具靜菌性，對Streptococcus效力較弱。治療用途：傷口治療與乳腺炎（尤其S. aureus感染）；<strong>乳腺炎乳管內灌注通常與Procaine Penicillin併用以限制抗藥性發展</strong>；<strong>與Tetracycline併用（協同效果）口服治療犬的易感染症</strong>。藥動學：口服吸收，峰值2–4小時；<strong>組織穿透差</strong>；主要經膽汁糞便排出；人t½約6小時，動物資料缺乏。不良反應：局部或口服無全身毒性。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- STREPTOGRAMIN IONOPHORE -->
+    <div class="section" id="section-streptoiono">
+      <div class="section-head"><div class="section-num">12</div><h2>Streptogramins 與 Ionophores</h2></div>
+      <p class="section-desc">Streptogramins與VISA/VRSA的臨床連結，以及Ionophores對馬匹的致命毒性，是這節最重要的兩個安全性重點。</p>
+
+      <h3 id="drug-streptogramin">Streptogramins</h3>
+      <p>由Streptomyces pristinaespiralis（pristinamycin）與Streptomyces virginiae（virginiamycin）產生；機轉：<strong>結合50S核糖體抑制蛋白質合成</strong>；對G(+)需氧與厭氧菌具殺菌性。<strong>Synercid（人醫）：Dalfopristin＋Quinupristin混合物，IV治療嚴重感染如VRE與MRSA</strong>。<strong>Virginiamycin：Streptogramin B（virginiamycin M）＋Streptogramin A（virginiamycin S）混合物</strong>，治療豬痢疾、預防肉雞Clostridium perfringens壞死性腸炎，也用於燃料乙醇工業防止微生物污染。獸醫用途：藥用飼料——肉雞促生長/壞死性腸炎預防、部分國家豬促生長、牛提升飼料效率並降低肝膿瘍發生率。藥動學：口服不吸收，作用侷限於腸道。</p>
+
+      <h3 id="drug-ionophoremoa">Ionophores（Monensin 為代表）<span class="tag tag-exam">重要</span></h3>
+      <p>Streptomyces衍生的多醚抗生素：Monensin、Lasalocid、Laidlomycin、Salinomycin、Narasin；主要用於食品動物（牛禽豬）提升飼料效率與抗球蟲活性。</p>
+      <div class="flow">
+        <div class="flow-node">與細胞膜Na⁺形成複合物</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">被動運出K⁺、運入H⁺</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">細胞內pH下降，殺死G(+)菌與球蟲</div>
+      </div>
+      <p><strong>瘤胃中選擇性抑制G(+)菌，使菌相轉向G(-)</strong>：<strong>↑丙酸生成、↓乙酸與丁酸生成</strong>，這個揮發性脂肪酸組成的改變減少細菌能量以CO2與甲烷形式流失，<strong>提升飼料利用效率</strong>。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">不良反應（講義原文）</div>
+        <p>混料錯誤時毒性明顯；<strong>馬匹意外接觸含Ionophore飼料時是最易感物種</strong>（單胃動物吸收較高、代謝較慢，毒性較大）；機轉：細胞電解質失衡——<strong>細胞外K⁺增加、細胞內Na⁺與Ca²⁺增加，經Na⁺/Ca²⁺交換器導致細胞損傷死亡，心肌與骨骼肌受影響最嚴重</strong>。</p>
+      </div>
+
+      <h3 id="drug-mitotox">粒線體相關副作用（跨藥物共通機轉）<span class="tag tag-exam">重要</span></h3>
+      <p style="font-size:.9em;"><strong>粒線體被認為是真核細胞收編的細胞內細菌殘餘</strong>，容易穿透生物膜的抗生素有潛在粒線體損傷風險——<strong>尤其標的是細菌DNA、核糖體、gyrase的抗生素（細胞壁與葉酸合成路徑標的則不受影響）</strong>：<strong>Aminoglycosides（耳毒性）、Chloramphenicol（再生不良性貧血）、Fluoroquinolones（軟骨毒性）都與此機轉有關</strong>——這是講義提出的統整性觀點，把先前各章分別介紹的三個毒性用同一個機轉串連起來。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SELECT BASICS -->
+    <div class="section" id="section-selectbasics">
+      <div class="section-head"><div class="section-num">13</div><h2>抗菌譜、MIC 與殺菌動力學</h2></div>
+      <p class="section-desc">這一節開始是講義收尾的「抗微生物藥物選用原則」，適用於本頁與前面所有抗生素頁面，是把整個單元串起來的核心概念。</p>
+
+      <h3>抗菌譜與體質性抗藥性</h3>
+      <p>選藥的第一步是確認藥物的作用標的是否存在於致病菌中——<strong>「體質性抗藥性（constitutive resistance）」指細菌天生缺乏某藥物的標的</strong>（如<strong>Penicillins對Mycoplasma spp.無效</strong>，因Mycoplasma沒有細胞壁）。</p>
+
+      <h3 id="drug-micbreakpoint">MIC 與 Breakpoint<span class="tag tag-exam">重要</span></h3>
+      <p>藥敏測試方法：紙錠擴散法（Disk diffusion）與最小抑菌濃度（MIC）。<strong>Breakpoint：血清中與良好治療結果相關的抗微生物濃度</strong>；<strong>MIC≤breakpoint視為敏感，反之為抗藥</strong>；抗菌活性取決於濃度是否高於MIC，或以MIC以上的曲線下面積（AUC）表示。</p>
+
+      <h3 id="drug-timeconcdependent">Time-Dependent vs. Concentration-Dependent Killing<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Time-dependent killing</th><th>Concentration-dependent killing</th></tr></thead>
+          <tbody>
+            <tr><td>關鍵指標</td><td>T&gt;MIC（血中濃度超過MIC的時間比例）</td><td>Peak/MIC、AUC/MIC</td></tr>
+            <tr><td>邏輯</td><td>效果與「暴露時間」成正比，T&gt;MIC越長效果越好</td><td>濃度越高，殺菌效果越強</td></tr>
+            <tr><td>代表藥物</td><td>β-lactams、Clindamycin、Vancomycin</td><td>Fluoroquinolones、Aminoglycosides</td></tr>
+            <tr><td>目標數值</td><td>—</td><td>Fluoroquinolones目標約8–10倍MIC（Peak/MIC）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 各家族個別的殺菌動力學細節，見 <a href="Beta-Lactam類抗生素.html#section-penpk">Beta-Lactam類抗生素</a>、<a href="胺基配醣體四環黴素與氯黴素類.html#section-agmech">胺基配醣體</a>、<a href="磺胺與喹諾酮類.html#section-fqpk">磺胺與喹諾酮類</a>各頁的對應章節。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SELECT QUESTIONS -->
+    <div class="section" id="section-selectquestions">
+      <div class="section-head"><div class="section-num">14</div><h2>選藥八問與其他考量</h2></div>
+      <p class="section-desc">講義提出的八個選藥問題是一套完整的臨床思考流程，搭配殺菌性/抑菌性的選用時機，是這節的核心。</p>
+
+      <h3 id="drug-eightquestions">選擇抗微生物藥物的八個問題<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>問題</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>是否真的需要抗微生物藥物？</td></tr>
+            <tr><td>2</td><td>這個感染會對治療有反應嗎？（避免「以防萬一」的用藥）</td></tr>
+            <tr><td>3</td><td>感染部位常見的病原是什麼？</td></tr>
+            <tr><td>4</td><td>哪一種藥物具備到達感染部位並達到超過MIC濃度所需的PK特性？（藥物生體分佈/穿透力）</td></tr>
+            <tr><td>5</td><td>感染在哪個器官/組織？有什麼給藥障礙需要克服？（同問題4，藥物穿透）</td></tr>
+            <tr><td>6</td><td>MIC是否低於breakpoint？（敏感性）</td></tr>
+            <tr><td>7</td><td>需要什麼劑量與途徑才能達到預期效果？（PK考量）</td></tr>
+            <tr><td>8</td><td>治療應該持續多久？（能否到達標的組織、能否維持濃度&gt;MIC、time-或concentration-dependent；給藥療程規劃）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>其他選藥考量</h3>
+      <p>毒性與成本會限制藥物選擇；<strong>食品動物的屠宰前停藥期</strong>——藥物殘留降至安全可接受濃度所需的時間，未過停藥期不得供人食用；血漿濃度（Cp）由給藥方案決定，組織殘留則決定停藥期。</p>
+
+      <h3 id="drug-bactericidalpreference">殺菌性 vs 抑菌性的選用時機<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">免疫力低下病患：優先殺菌性</div>
+          <p>Aminoglycosides（Tobramycin、Gentamicin、Amikacin）、β-lactams（Penicillins、Cephalosporins、Carbapenems：Amoxicillin、Cefazolin、Meropenem）、Fluoroquinolones（Ciprofloxacin、Levofloxacin、Moxifloxacin）、Glycopeptides（Vancomycin）、Nitroimidazoles（Metronidazole）、Rifampin</p>
+        </div>
+        <div class="card">
+          <div class="card-title">抑菌性藥物特性</div>
+          <p>除Aminoglycosides外，多透過抑制細菌蛋白質合成使其停止生長，<strong>需要動物自身免疫系統配合清除細菌</strong>；<strong>毒性休克發生率較低、副作用通常較可耐受</strong>；代表：Glycylcyclines（Tigecycline）、Tetracyclines（Doxycycline、Minocycline）、Lincosamides（Clindamycin）、Macrolides（Erythromycin）、Sulfonamides（Sulfamethoxazole，<strong>但Potentiated sulfonamides是殺菌性</strong>）</p>
+        </div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RESISTANCE MECH -->
+    <div class="section" id="section-resistmech">
+      <div class="section-head"><div class="section-num">15</div><h2>抗藥性機制與 MRSA 演化史</h2></div>
+      <p class="section-desc">五大抗藥機轉、四種抗藥性獲得方式，加上金黃色葡萄球菌的真實演化時間線，是整個抗生素單元收尾最重要的整合內容。</p>
+
+      <h3 id="drug-resistmechgeneral">細菌展現抗藥性的機轉<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li>酵素去活化與修飾（如β-lactamase、Acetyltransferase）</li>
+        <li>抗生素標的位點修飾（如PBP2a、核糖體甲基化）</li>
+        <li>標的過度表現</li>
+        <li>標的替換</li>
+        <li>外流泵增加與通透性降低（限制藥物進入）</li>
+      </ul>
+
+      <h3 id="drug-resistacquisition">抗藥性獲得方式<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>機制</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>突變（Mutation）</td><td>染色體隨機突變事件；<strong>抗生素不會直接誘發突變，而是透過抑制敏感菌對已存在的抗藥菌株施加選擇壓力</strong></td></tr>
+            <tr><td>接合（Conjugation）</td><td>G(-)菌可進行接合；質體或染色體DNA上的抗藥因子（R-factors）可編碼多重抗藥性，稱為傳染性/可轉移抗藥性</td></tr>
+            <tr><td>轉導（Transduction）</td><td>噬菌體媒介抗藥基因轉移；<strong>是Staphylococcus aureus抗藥性演化與獲得帶有5個以上抗藥基因的integron的重要途徑</strong></td></tr>
+            <tr><td>轉型（Transformation）</td><td>攝入環境中釋出的裸露抗藥DNA；<strong>此機制獲得抗藥性的頻率較低</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">常見抗藥性縮寫：<strong>MRSA</strong>（methicillin-resistant S. aureus）、<strong>CRE</strong>（carbapenem-resistant Enterobacterales，如E. coli）、<strong>VRE/VRSA/VISA</strong>（Vancomycin相關抗藥性）、<strong>ESBL-producing Enterobacterales</strong>（如E. coli）。</p>
+
+      <h3 id="drug-mrsatimeline">金黃色葡萄球菌抗藥性演化史<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">1940年代 青黴素有效</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">1950年代 產生抗藥性，研發Methicillin</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">1970年代 MRSA出現，改以Vancomycin治療</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">1990年代 萬古黴素抗藥性腸球菌（VRE）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">1997年 VISA；2002年 VRSA</div>
+      </div>
+      <p><strong>VISA（vancomycin-intermediate S. aureus）：對萬古黴素的感受性降低；VRSA（vancomycin-resistant S. aureus）：對萬古黴素具抗藥性</strong>。<strong>對抗VISA與VRSA的人用藥：Synercid（Dalfopristin＋Quinupristin，屬Streptogramin）、Linezolid、Daptomycin</strong>；<strong>豬用促生長劑Virginiamycin（同屬Streptogramin）數十年的使用與Synercid抗藥性上升有高度關聯性</strong>。世界衛生組織預測：2050年全球每年因超級細菌死亡人數將達1千萬人，超過癌症（資料來源：台灣感染症醫學會）。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">16</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">依講義章節順序的濃縮版複習，考前快速掃過即可回想整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Lincosamides：</strong>結合50S與Phenicol/Streptogramin/Macrolide共用位；禁用馬兔倉鼠天竺鼠（C. difficile腸炎）；MLSB交叉抗藥。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Vancomycin：</strong>結合D-Ala-D-Ala，MRSA首選；Tylosin抗藥基因與Vancomycin抗藥基因位於同一質體。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Ionophore：</strong>馬匹最易中毒物種，Na⁺/Ca²⁺交換異常致心肌骨骼肌損傷；粒線體毒性統整AG耳毒性/CAP再生不良性貧血/FQ軟骨毒性的共通機轉。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>MIC/Breakpoint：</strong>MIC≤breakpoint為敏感；Time-dependent（β-lactam/Clindamycin/Vancomycin）vs Concentration-dependent（FQ/AG）殺菌動力學。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>選藥八問：</strong>需要嗎、會反應嗎、常見病原、PK能否到達且超過MIC、MIC是否低於breakpoint、劑量途徑、療程長度。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>免疫力低下優先用殺菌性藥物</strong>（AG/β-lactam/FQ/Vancomycin/Metronidazole/Rifampin）；抑菌性藥物需免疫系統配合。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>抗藥性五大機轉：</strong>酵素去活化、標的修飾、標的過度表現、標的替換、外流泵/通透性降低；獲得方式：突變/接合/轉導/轉型。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>MRSA演化史：</strong>1940青黴素→1950抗藥性/Methicillin→1970 MRSA/Vancomycin→1990 VRE→1997 VISA→2002 VRSA；對抗藥：Synercid/Linezolid/Daptomycin。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 4）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">17</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋Lincosamide禁忌、Vancomycin機轉、Time/Concentration-dependent killing、MRSA演化史各章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 豬場長期使用Tylosin作為飼料生長促進劑，最值得擔憂的公衛疑慮是什麼？</div>
+        <ul class="quiz-options">
+          <li>(A) Tylosin本身對人類有直接毒性</li>
+          <li>(B) Tylosin的抗藥基因與Vancomycin的抗藥基因位於同一質體上，可能連帶篩選出Vancomycin抗藥菌株</li>
+          <li>(C) Tylosin會殘留在豬肉中造成過敏</li>
+          <li>(D) Tylosin會誘導細菌產生突變</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義明確指出Tylosin抗藥基因與Vancomycin抗藥基因位於同一質體上，長期使用Tylosin作為生長促進劑可能連帶篩選出對Vancomycin（人醫治療MRSA等多重抗藥菌的重要儲備藥物）具抗藥性的菌株，這是重大的公衛疑慮。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 抗生素會直接誘發細菌產生對抗自己的突變，是細菌抗藥性最主要的來源。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">突變是隨機發生的染色體事件，抗生素本身不會直接誘發突變；抗生素的角色是透過抑制敏感菌，對族群中已經存在的抗藥性突變菌株施加「選擇壓力」，使這些菌株得以存活並增殖成為優勢菌株。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. Fluoroquinolones屬於Concentration-dependent killing藥物，這代表臨床給藥策略應該？</div>
+        <ul class="quiz-options">
+          <li>(A) 少量多次給藥，盡量延長T&gt;MIC的時間</li>
+          <li>(B) 提高單次劑量，追求較高的Peak/MIC或AUC/MIC比值</li>
+          <li>(C) 給藥頻率與劑量都不重要</li>
+          <li>(D) 應該持續靜脈輸注以維持穩定濃度</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Concentration-dependent killing藥物（如Fluoroquinolones、Aminoglycosides）的殺菌效果與峰值濃度成正比，臨床策略是提高單次劑量以追求較高的Peak/MIC或AUC/MIC比值，而非增加給藥頻率；(A)與(D)描述的是Time-dependent killing藥物（如β-lactams）的給藥邏輯。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一隻犬確診MRSA軟組織感染，同時獸醫師發現這隻犬有慢性腎臟病史；另一位馬主表示自家馬廄旁的牛飼料不慎混入馬的飼料槽，這批牛飼料含有Monensin。請問：(1) 這隻犬使用Vancomycin治療MRSA時需要注意什麼？(2) 馬誤食含Monensin飼料的風險與機轉為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 犬的考量：</strong>Vancomycin的不良反應包含大劑量或長期使用可能造成的耳毒性與腎毒性；這隻犬已有慢性腎臟病史，使用Vancomycin時應更謹慎監測腎功能與藥物血中濃度，並依腎功能調整劑量與給藥間隔，因為腎功能不良會影響Vancomycin以原型經腎絲球過濾排出的效率，增加蓄積毒性風險。同時Vancomycin屬儲備抗生素，應確認感染確實為MRSA且無其他替代選項時才使用。<br><strong>(2) 馬的風險：</strong>馬匹是Ionophore（如Monensin）中毒最易感的物種——單胃動物對Ionophore的吸收率較高、代謝較慢，毒性遠高於反芻動物。機轉是Monensin破壞細胞電解質恆定，導致細胞外K⁺增加、細胞內Na⁺與Ca²⁺增加（經Na⁺/Ca²⁺交換器），造成細胞損傷與死亡，<strong>心肌與骨骼肌是最容易受影響的組織</strong>，可能導致致命的心臟毒性。應立即將馬隔離觀察，密切監測心臟功能，並教育飼主務必將牛用與馬用飼料分開儲存，避免交叉污染再次發生。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  lincomech: 'Lincosamides化學、機轉與抗菌譜',
+  lincouses: 'Lincosamides治療用途、給藥與藥動學',
+  lincoresist: 'Lincosamides抗藥性與不良反應',
+  spectinometro: 'Spectinomycin與Metronidazole',
+  rifampin: 'Rifampin',
+  tiamulin: 'Tiamulin',
+  vancomycin: 'Vancomycin',
+  bacpoly: 'Bacitracin與Polymyxins',
+  nitronovo: 'Nitrofurans與Novobiocin',
+  streptoiono: 'Streptogramins與Ionophores',
+  selectbasics: '抗菌譜、MIC與殺菌動力學',
+  selectquestions: '選藥八問與其他考量',
+  resistmech: '抗藥性機制與MRSA演化史',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

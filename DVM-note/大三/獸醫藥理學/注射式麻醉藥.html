@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：注射式麻醉藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">注射式麻醉藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">注射式麻醉藥 Injectable Anesthetics</h1>
+      <p class="page-subtitle">麻醉名詞學、再分佈藥動學原理、Propofol/Etomidate、Ketamine解離性麻醉、品種與物種用藥考量</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮 A3）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.12、Handbook of Veterinary Pharmacology</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-19</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎概念</div>
+    <a onclick="showSection('terminology')" id="nav-terminology"><span class="nav-icon">📖</span> 麻醉名詞學與麻醉分期</a>
+    <a onclick="showSection('pkprinciples')" id="nav-pkprinciples"><span class="nav-icon">⏱️</span> 藥動學原理：再分佈</a>
+    <div class="section-label" style="margin-top:8px;">藥物家族</div>
+    <a onclick="showSection('barbiturateIA')" id="nav-barbiturateIA"><span class="nav-icon">💊</span> 超短效 Barbiturates</a>
+    <a onclick="showSection('nonbarbiturate')" id="nav-nonbarbiturate"><span class="nav-icon">💉</span> Propofol 與 Etomidate</a>
+    <a onclick="showSection('dissociatives')" id="nav-dissociatives"><span class="nav-icon">🌀</span> 解離性麻醉藥</a>
+    <a onclick="showSection('otheragents')" id="nav-otheragents"><span class="nav-icon">➕</span> 其他輔助藥物</a>
+    <div class="section-label" style="margin-top:8px;">臨床整合</div>
+    <a onclick="showSection('comparison')" id="nav-comparison"><span class="nav-icon">📊</span> 藥物比較與臨床組合</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章談的是「怎麼讓動物快速失去意識、進入手術可以進行的麻醉深度」——不同於前一章的鎮靜（動物仍有意識，只是比較安靜），這裡的藥物目標是真正的<strong>全身麻醉（general anesthesia）</strong>。注射式麻醉藥有一個共同的藥動學特性：它們都<strong>高度親脂</strong>，注射後能快速通過血腦屏障進入灌流最豐富的腦部，因此起效非常快；但麻醉效果的「結束」通常不是靠代謝排除，而是靠藥物從腦部<strong>重新分佈（redistribution）</strong>到肌肉、脂肪等灌流較差的組織——這個機制直接決定了不同體型、不同代謝能力的動物（如瘦體型犬種、肝功能不佳的病患）麻醉恢復時間會差很多。這章依藥物家族分成三大類：Barbiturates（傳統但正被取代）、Propofol／Etomidate（現代非巴比妥類首選）、Ketamine等解離性麻醉藥（機轉完全不同，作用NMDA受體而非GABA），各自的優缺點與物種考量是臨床選藥的核心。</p>
+        <div class="grid-3" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('barbiturateIA')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Barbiturates</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">傳統誘導藥，品種考量多</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('nonbarbiturate')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Propofol／Etomidate</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">現代首選，恢復快</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('dissociatives')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Ketamine 等解離性麻醉</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">NMDA拮抗，機轉獨立</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>注射式麻醉藥的麻醉終止機制是「再分佈」而非代謝：</strong>藥物快速從腦部重新分佈到肌肉、脂肪組織，使血中濃度快速下降，但真正的消除半衰期其實長得多——這解釋了為何重複注射會導致藥物在脂肪蓄積、恢復時間延長。</li>
+          <li><strong>瘦體型犬種（Sighthounds）因脂肪組織少，Thiopental再分佈空間有限，恢復時間會大幅延長</strong>；Greyhound另外缺乏代謝Thiopental的氧化酵素，恢復速度比其他犬種慢2–4倍（講義）。教科書：Thiobarbiturates在Greyhound甦醒可能&gt;8小時，不建議使用；Methohexital曾是Greyhound首選，現在Propofol較常用，但Greyhound的Propofol恢復時間仍較混種犬長。</li>
+          <li><strong>Propofol的最大優勢是「不蓄積」：</strong>肝臟＋肺臟外代謝速度快，無論麻醉時間長短，恢復都快速完全，適合門診手術與需要重複/連續給藥的情境（如MRI、支氣管鏡）；但反覆使用3–4天可能造成貓的Heinz body（講義）。教科書指出：貓「誘導劑量＋30分鐘持續輸注」曾報告Heinz body、食慾不振與腹瀉，但另有研究每日誘導兩次、連續5天並無血液學變化——證據並不一致。</li>
+          <li><strong>Etomidate的優勢是心血管穩定性最佳</strong>，適合有低血壓風險的病患，但可能造成腎上腺抑制，注射時因丙二醇賦形劑而疼痛，獸醫臨床使用不如人醫普及。</li>
+          <li><strong>Ketamine/Tiletamine是NMDA受體的非競爭性拮抗劑</strong>，阻斷興奮性神經傳導物Glutamate的作用，產生「解離性麻醉（dissociative anesthesia）」——動物眼睛張開、肌肉張力增加、但對外界刺激無反應，是機轉上與GABA系統完全獨立的一類麻醉藥。</li>
+          <li><strong>解離性麻醉藥絕對不能單獨使用：</strong>必須搭配鎮定劑（BZD、α2 agonist）避免肌肉僵直、抽搐與恢復期躁動，馬匹單用甚至會有恢復期譫妄（delirium）風險。</li>
+          <li><strong>Ketamine在馬多與Xylazine/Detomidine併用，在犬多與Diazepam/Midazolam/Medetomidine併用</strong>，大動物則常加Guaifenesin作為肌肉鬆弛輔助；Telazol®（Tiletamine+Zolazepam）是獸醫臨床廣泛使用的複方麻醉劑。</li>
+          <li><strong>類固醇麻醉藥（Alphaxalone/Saffan）是GABAA致效劑，短效且鎮痛效果不錯</strong>，但舊型賦形劑Cremophor EL曾造成犬貓嚴重過敏反應（組織胺釋放）而下市，現行新賦形劑（Cyclodextrin）已改善此問題。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Methohexital</td><td>GABAA受體致效劑（Barbiturate類，超短效）</td><td><strong>IV</strong>；Sighthound安全替代選擇；代謝較快，較易低劑量興奮</td><td class="drug-locations"><a href="#drug-thiomethoxcompare" class="drug-link">代謝較快，較易低劑量興奮</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Thiopental<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Thiopentone</div></td><td>GABAA受體致效劑（Barbiturate類，超短效）</td><td><strong>IV bolus</strong>；超短效誘導，再分佈終止效果，Sighthound恢復延長；與Methohexital比較，Greyhound禁忌</td><td class="drug-locations"><a href="#drug-thiomethoxcompare" class="drug-link">與Methohexital比較，Greyhound禁忌</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Propofol</td><td>GABAA受體致效劑（烷基酚類）</td><td><strong>IV</strong>；快速代謝不蓄積，貓連續使用致Heinz body</td><td class="drug-locations"><a href="#drug-propofol" class="drug-link">快速代謝不蓄積，貓連續使用致Heinz body</a></td></tr>
+            <tr><td>Etomidate</td><td>GABAA受體致效劑（咪唑類），不影響交感張力</td><td><strong>IV</strong>；心血管最穩定，腎上腺抑制</td><td class="drug-locations"><a href="#drug-etomidate" class="drug-link">心血管最穩定，腎上腺抑制</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Ketamine</td><td>NMDA受體非競爭性拮抗劑，產生解離性麻醉</td><td><strong>IV或IM（IM效果佳，其他注射式麻醉藥IM無效）</strong>；NMDA拮抗解離性麻醉，需搭配鎮定劑</td><td class="drug-locations"><a href="#drug-ketamineclinical" class="drug-link">NMDA拮抗解離性麻醉，需搭配鎮定劑</a></td></tr>
+            <tr><td>Telazol®<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Tiletamine＋Zolazepam</div></td><td>Tiletamine（NMDA拮抗）＋Zolazepam（BZD類GABAA調節）複方</td><td><strong>IM或IV</strong>；異寵/野生動物複方麻醉劑</td><td class="drug-locations"><a href="#drug-ketamineclinical" class="drug-link">異寵/野生動物複方麻醉劑</a></td></tr>
+            <tr><td>Tiletamine</td><td>NMDA受體非競爭性拮抗劑（解離性麻醉成分）</td><td><strong>IM或IV</strong>；與Zolazepam組成Telazol®</td><td class="drug-locations"><a href="#drug-ketamineclinical" class="drug-link">與Zolazepam組成Telazol®</a></td></tr>
+            <tr><td>Guaifenesin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Glyceryl guaiacolate</div></td><td>中樞性肌肉鬆弛劑，抑制腦幹與脊髓多突觸反射（非GABA機轉）</td><td>中樞性肌肉鬆弛，FDA核准用於馬</td><td class="drug-locations"><a href="#drug-guaifenesin" class="drug-link">中樞性肌肉鬆弛，FDA核准用於馬</a></td></tr>
+            <tr><td>Alphaxalone<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Saffan</div></td><td>神經活性類固醇，GABAA受體致效劑</td><td><strong>IV或IM</strong>；神經活性類固醇，GABAA致效劑</td><td class="drug-locations"><a href="#drug-alphaxalone" class="drug-link">神經活性類固醇，GABAA致效劑</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- TERMINOLOGY -->
+    <div class="section" id="section-terminology">
+      <div class="section-head"><div class="section-num">3</div><h2>麻醉名詞學與麻醉分期</h2></div>
+      <p class="section-desc">釐清幾個常混淆的名詞，並理解麻醉在術前、誘導、維持、恢復四個階段各自需要哪一類藥物，是進入本章的第一步。</p>
+
+      <h3>基礎名詞</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>名詞</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td>Anesthesia（麻醉）</td><td>感覺喪失</td></tr>
+            <tr><td>Analgesia（止痛）</td><td>無痛覺，但意識未必喪失</td></tr>
+            <tr><td>General anesthesia（全身麻醉）</td><td>全身感覺喪失；可逆的意識喪失＋肌肉鬆弛＋鎮痛</td></tr>
+            <tr><td>Balanced anesthesia（平衡麻醉）</td><td>合併多種藥物達成麻醉，每種藥物負責一個component（如一個負責意識喪失、一個負責鎮痛、一個負責肌肉鬆弛）</td></tr>
+            <tr><td>Dissociative anesthesia（解離性麻醉）</td><td>藥物（如Ketamine）誘發的僵直狀態，通常合併肌肉張力增加</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-anesthesiaphases">麻醉各階段用藥<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階段</th><th>常用藥物</th></tr></thead>
+          <tbody>
+            <tr><td>術前用藥（Preanesthetic）</td><td>Opioid（Morphine/Fentanyl）、鎮定劑（Diazepam）、主要鎮定劑（Phenothiazines/Xylazine）、抗膽鹼藥（Atropine）</td></tr>
+            <tr><td>誘導（Induction）</td><td>注射式或吸入性麻醉藥</td></tr>
+            <tr><td>維持（Maintenance）</td><td>吸入性麻醉藥（如Halothane）、肌肉鬆弛劑（如Tubocurarine）</td></tr>
+            <tr><td>恢復（Recovery）</td><td>Opioid（如Morphine）、抗生素</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">注射式麻醉藥的臨床定位是<strong>快速誘導</strong>：適用於短時程麻醉（內視鏡檢查、小型手術、骨折固定）、大動物麻醉（設備不易搬運到現場）、野生/動物園動物捕捉。獸醫麻醉比人醫更依賴藥物誘導的原因：動物不配合，且獸醫常規影像檢查（如CT）幾乎都需要麻醉，人醫則很少需要。</p>
+
+      <h3 id="drug-anesthesiastages">全身麻醉四個分期（講義，以乙醚最易觀察）<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分期</th><th>特徵</th></tr></thead>
+          <tbody>
+            <tr><td>第1期：鎮痛期（Analgesia）</td><td>CNS輕度抑制、痛覺下降，但仍有意識</td></tr>
+            <tr><td>第2期：興奮期（Excitement）</td><td>抑制性神經元被去抑制；失去意識、部分麻醉，可能亂動、發聲、憋氣、嘔吐；現代麻醉技術設計為縮短或消除此期</td></tr>
+            <tr><td>第3期：外科麻醉期（Surgical anesthesia）</td><td>自發性運動停止、呼吸規律</td></tr>
+            <tr><td>第4期：延腦抑制期（Medullary depression）</td><td>CNS深度抑制，影響延腦生命中樞</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">教科書提到馬使用Propofol誘導時的興奮，可能是因為需長時間給予大量藥液，使動物停留在第2期（興奮期）所致。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A3）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.12 Injectable Anesthetic Agents）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PK PRINCIPLES -->
+    <div class="section" id="section-pkprinciples">
+      <div class="section-head"><div class="section-num">4</div><h2>藥動學原理：再分佈</h2></div>
+      <p class="section-desc">「再分佈終止效果」是理解整章所有注射式麻醉藥物種/個體差異的共同鑰匙。</p>
+
+      <h3 id="drug-redistribution">再分佈原理<span class="tag tag-exam">重要</span></h3>
+      <p>注射式麻醉藥高度親脂（lipophilic）→容易通過血腦屏障；IV bolus後快速分佈進入灌流最高的CNS，產生麻醉效果（分佈主要由血流灌注決定，起效快）。<strong>麻醉效果的終止靠「再分佈」而非代謝：</strong>藥物從CNS重新分佈到週邊組織（肌肉、脂肪），這個過程通常比肝臟代謝快得多。</p>
+      <div class="flow">
+        <div class="flow-node">IV bolus注射</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">快速分佈進入高灌流CNS（起效快）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">再分佈到肌肉／脂肪組織（麻醉效果結束）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">肝臟代謝／清除（真正消除，速度慢得多）</div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床警示</div>
+        <p>重複注射會導致藥物在脂肪組織持續蓄積、恢復時間延長；<strong>肝功能不佳（如肝硬化）或年輕/幼齡動物的代謝速度較慢，麻醉恢復也可能延長</strong>。這也是為何吸入性麻醉藥（主要靠肺部呼出消除，見〈吸入性麻醉藥〉一頁）在某些情境下恢復更可預測。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A3）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.12 Injectable Anesthetic Agents）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- BARBITURATE IA -->
+    <div class="section" id="section-barbiturateIA">
+      <div class="section-head"><div class="section-num">5</div><h2>超短效 Barbiturates</h2></div>
+      <p class="section-desc">Barbiturates曾是注射式麻醉的主力，如今多被Propofol取代，但品種特異性的用藥考量仍是重要考點。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Barbiturates的GABAA受體機轉與依作用時間的完整三級分類，見 <a href="鎮靜與術前用藥.html#section-barbiturates">鎮靜與術前用藥：Barbiturates（巴比妥類）</a>。</p>
+
+      <h3 id="drug-barbiturateIAdrugs">超短效藥物：誘導專用<span class="tag tag-exam">重要</span></h3>
+      <p>Thiopental、Thiamylal、Methohexital——僅適合<strong>誘導</strong>（IV bolus），不用於維持麻醉。機轉：結合GABAA受體β次單元，增強抑制性Cl⁻電流；藥理效果：鎮靜/催眠、抗癲癇（弱肌肉鬆弛）、呼吸抑制與暫停（IV bolus時）、心臟抑制與心律不整（中樞交感神經流出降低）。</p>
+
+      <h3 id="drug-thiomethoxcompare">Thiopental vs Methohexital vs Pentobarbital<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>比較項目</th><th>Thiopental</th><th>Methohexital</th></tr></thead>
+          <tbody>
+            <tr><td>脂溶性/作用</td><td>極高，超短效</td><td>極高，超短效</td></tr>
+            <tr><td>麻醉持續時間</td><td>較長（Thio＞Metho）</td><td>較短</td></tr>
+            <tr><td>效力</td><td>1倍</td><td>約2倍</td></tr>
+            <tr><td>肝臟代謝速度</td><td>較慢</td><td>較快（Metho＞Thio）</td></tr>
+            <tr><td>Greyhound恢復</td><td>顯著延長（缺乏代謝酵素）</td><td>較快，是Sighthound推薦選擇</td></tr>
+            <tr><td>低劑量興奮風險</td><td>較低</td><td>較高</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床警示</div>
+        <p><strong>癲癇病史或顱內壓升高的動物適合選用Thiobarbiturates誘導</strong>（可降低腦部代謝與顱內壓）。<strong>Greyhound缺乏代謝Thiopental所需的氧化酵素，恢復時間比其他犬種慢2–4倍，應避免使用</strong>；<strong>瘦體型犬種（Sighthounds：Afghan、Greyhound、Whippet、Irish Wolfhound）因脂肪組織少、再分佈空間有限，效果會被放大且延長，Methohexital因代謝快、恢復迅速，是這些犬種的安全替代選擇</strong>。大動物（馬）：Barbiturates常搭配Guaifenesin等術前用藥使用以降低劑量、減少心肺副作用；馬匹單用Thiopental若未經充分術前鎮靜容易誘發興奮；Methohexital單獨使用在馬也不建議。<br><strong>教科書／Handbook補充：</strong>Methohexital代謝比Thiopental快4–5倍，犬貓約5–10分鐘即可胸骨臥姿，但甦醒仍主要靠再分佈；Greyhound用Thiobarbiturates甦醒可&gt;8小時；瘦體型犬、新生兒與惡病質病患皆可能延遲恢復；Thiobarbiturates用於剖腹產誘導是安全的（在母體與胎兒快速再分佈）；血管周圍外滲可用稀釋（如2.5% Thiopental）、注射生理食鹽水或Lidocaine稀釋以減輕組織壞死。</p>
+      </div>
+      <p style="font-size:.9em;">超短效Barbiturates的優點：成本低（小動物與大動物皆可用）、給藥迅速、所需設備少、單次IV注射誘導與恢復都快；缺點見〈鎮靜與術前用藥〉頁的不良反應整理（局部刺激、安全範圍窄、高劑量致嚴重心肺抑制）。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A3）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.12 Injectable Anesthetic Agents）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- NON-BARBITURATE -->
+    <div class="section" id="section-nonbarbiturate">
+      <div class="section-head"><div class="section-num">6</div><h2>Propofol 與 Etomidate</h2></div>
+      <p class="section-desc">這兩種非巴比妥類藥物都透過GABA促進達到麻醉效果，但代謝與安全特性各有明顯優勢，是現代小動物麻醉誘導的主力。</p>
+
+      <h3 id="drug-propofol">Propofol<span class="tag tag-exam">重要</span></h3>
+      <p>非巴比妥、非解離性IV麻醉藥；機轉：GABA facilitation（與Thiobarbiturates藥理輪廓相似）；起效快；心血管與呼吸抑制；大劑量可能在犬貓豬誘發呼吸暫停（建議備妥插管）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>優點</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>快速肝臟＋肺外代謝</td><td>肝硬化病患效果相同；不蓄積於組織，無論麻醉時間長短都能快速完全恢復</td></tr>
+            <tr><td>可誘導＋維持</td><td>可持續輸注或間歇IV作為麻醉維持，適合門診手術</td></tr>
+            <tr><td>恢復品質優於Thiopental</td><td>無血管周圍組織刺激（但小靜脈注射會疼痛，建議選大靜脈）</td></tr>
+            <tr><td>適合不能吸入麻醉的情境</td><td>支氣管鏡檢查、MRI等</td></tr>
+            <tr><td>對新生兒影響小</td><td>肌肉鬆弛效果優良</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床警示</div>
+        <p>無鎮痛效果，可能需額外鎮痛藥；大動物成本過高，主要用於犬貓；<strong>酚類化合物可能對貓紅血球造成氧化損傷，連續使用3–4天可能導致Heinz body形成</strong>（講義；教科書證據不一，見上）；乳劑配方（含大豆油、蛋卵磷脂、甘油）易滋生細菌，需注意無菌操作；馬可能誘發誘導期興奮（教科書：Propofol不應作為馬的唯一誘導藥，以α2 agonist鎮靜後仍常見興奮，Guaifenesin重度鎮靜可減輕）；給藥應緩慢滴定（與Thiopental類似），術前用藥可降低誘導劑量50%以上。</p>
+      </div>
+
+      <h3 id="drug-etomidate">Etomidate</h3>
+      <p>與Propofol藥理輪廓相似：非巴比妥、非解離性IV；機轉：GABA facilitation；起效快；呼吸抑制與暫停；不造成血管周圍組織刺激；快速肝臟代謝，恢復迅速、輸注或重複IV不蓄積；無鎮痛效果；價格昂貴。用於犬、貓、人的麻醉誘導。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">臨床補充</div>
+        <p><strong>最大優勢：心血管抑制程度遠低於Propofol/Thiopental，適合有低血壓風險的病患</strong>。缺點：成本較高；因丙二醇賦形劑注射時疼痛；常見打噴嚏、乾嘔、肌陣攣性抽動；<strong>可能造成明顯的腎上腺抑制</strong>；犬貓偶有溶血與血尿報告——因此在獸醫臨床不如Propofol普及。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A3）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.12 Injectable Anesthetic Agents）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- DISSOCIATIVES -->
+    <div class="section" id="section-dissociatives">
+      <div class="section-head"><div class="section-num">7</div><h2>解離性麻醉藥</h2></div>
+      <p class="section-desc">Ketamine家族的機轉與前述GABA系統完全獨立，這是獸醫臨床應用最廣、也最容易單獨考出機轉題的一類麻醉藥。</p>
+
+      <h3 id="drug-nmdamechanism">作用機轉：NMDA 受體拮抗<span class="tag tag-exam">重要</span></h3>
+      <p>Ketamine與Tiletamine是<strong>NMDA受體的非競爭性拮抗劑</strong>——Glutamate是CNS主要的興奮性神經傳導物，結合NMDA受體（高度Ca²⁺穿透性的離子型麩胺酸受體）。阻斷NMDA受體→產生<strong>解離性麻醉（dissociative anesthesia，僵直狀態）</strong>；臨床劑量會刺激交感神經系統（心血管興奮），但大劑量會直接抑制心肌造成低血壓。</p>
+
+      <h3>解離性麻醉狀態的特徵</h3>
+      <ul>
+        <li>意識改變，與環境「解離」（不在意周遭發生的事）</li>
+        <li>催眠狀態，但<strong>深度鎮痛</strong></li>
+        <li>看似清醒但對感覺刺激無反應，<strong>眼睛張開</strong></li>
+        <li>自發性呼吸維持</li>
+        <li>保留咽喉、喉部、角膜、吞嚥反射</li>
+        <li><strong>肌肉張力增加</strong>（肢體可能移動、偶發抽搐）</li>
+        <li>唾液與淚液分泌增加</li>
+      </ul>
+
+      <h3 id="drug-ketamineclinical">Ketamine／Tiletamine 臨床應用<span class="tag tag-exam">重要</span></h3>
+      <p>優點：呼吸抑制程度較其他麻醉藥輕、可IV或IM給藥（IM給藥效果佳，其他注射式麻醉藥IM無效）；廣泛用於犬、貓、非人靈長類、兔、豬、馬、牛、鳥類、魚類等。藥動學：肝臟CYP450代謝（N-去甲基化、羥化、接合）；貓的活性代謝物Norketamine活性僅Ketamine的10–30%；腎功能不全延長作用；t½約1–1.5小時。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>常見術前搭配</th></tr></thead>
+          <tbody>
+            <tr><td>犬</td><td>Diazepam、Midazolam或Medetomidine</td></tr>
+            <tr><td>馬</td><td>Xylazine或Detomidine（α2 agonist）</td></tr>
+            <tr><td>大動物（馬、牛）</td><td>Guaifenesin</td></tr>
+            <tr><td>異寵大型動物</td><td>Telazol®（Tiletamine＋Zolazepam）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌症與注意事項</div>
+        <p><strong>不可用於食品動物</strong>；<strong>馬不能單獨使用（無術前鎮定），會有恢復期譫妄風險</strong>；不建議剖腹產；<strong>不能單獨當唯一麻醉藥使用，必須搭配鎮定劑</strong>（否則有肌肉僵直、抽搐、術後躁動風險）；術後出血、頭部外傷、癲癇病史、肝腎功能不全動物需謹慎使用。<strong>Phencyclidine（PCP）</strong>是Ketamine的前身/相關化合物，因不良精神症狀（幻覺、狂躁、定向障礙）與1970年代娛樂性濫用（俗稱Angel dust）而停用，消除極慢（可達數日）。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A3）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.12 Injectable Anesthetic Agents）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- OTHER AGENTS -->
+    <div class="section" id="section-otheragents">
+      <div class="section-head"><div class="section-num">8</div><h2>其他輔助藥物</h2></div>
+      <p class="section-desc">這兩個藥物臨床使用頻率不如前述家族高，但各有獨特角色，值得快速掌握。</p>
+
+      <h3 id="drug-guaifenesin">Guaifenesin</h3>
+      <p>CNS抑制劑；機轉：抑制腦幹；效果：中樞性骨骼肌鬆弛、鎮靜、催眠、輕度鎮痛；同時也是袪痰劑（mucokinetic）。FDA核准用於馬；常與Barbiturates、Ketamine併用做術前/麻醉輔助用藥，可降低麻醉藥用量。</p>
+
+      <h3 id="drug-alphaxalone">類固醇麻醉藥（Alphaxalone／Saffan）</h3>
+      <p>Neuroactive steroids（神經活性類固醇）；成分含Alphaxalone（0.9%）與Alphadolone（0.3%）；機轉：GABAA agonist；短效（10–20分鐘）；IV/IM可用於犬貓麻醉誘導；心血管抑制明顯，但呼吸抑制輕微，<strong>鎮痛效果相對不錯</strong>。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床補充</div>
+        <p>舊配方賦形劑Cremophor EL（聚氧乙烯蓖麻油）曾因犬貓過敏反應（組織胺釋放）嚴重而下市；新配方改用Cyclodextrin賦形劑，安全性大幅改善——目前用於貓（安全性佳、副作用少）以及兔、鳥類、綿羊、豬、狒狒、馬、爬蟲類、魚類的麻醉誘導，也可用於貓的麻醉維持。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A3）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.12 Injectable Anesthetic Agents）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="section" id="section-comparison">
+      <div class="section-head"><div class="section-num">9</div><h2>藥物比較與臨床組合</h2></div>
+      <p class="section-desc">把四種主要注射式麻醉藥的心肺效應並排比較，並整理實務上常見的犬麻醉搭配組合，是考前複習最有效率的方式。</p>
+
+      <h3 id="drug-cardiopulmonarysummary">心肺效應比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>參數</th><th>Thiopental</th><th>Propofol</th><th>Etomidate</th><th>Ketamine</th></tr></thead>
+          <tbody>
+            <tr><td>腦血流 CBF</td><td>↓↓↓</td><td>↓↓↓</td><td>↓↓↓</td><td>↑↑</td></tr>
+            <tr><td>顱內壓 ICP</td><td>↓↓↓</td><td>↓↓↓</td><td>↓↓↓</td><td>↑↑</td></tr>
+            <tr><td>平均動脈壓 MAP</td><td>↓</td><td>↓↓</td><td>↔</td><td>↑</td></tr>
+            <tr><td>心跳 HR</td><td>↑</td><td>↔</td><td>↔</td><td>↑↑</td></tr>
+            <tr><td>心輸出量 CO</td><td>↓</td><td>↓</td><td>↔</td><td>↑</td></tr>
+            <tr><td>呼吸速率 RR</td><td>↓</td><td>↓↓</td><td>↓</td><td>↔</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">從這張表可以直接看出：<strong>Ketamine是唯一會「升高」腦血流/顱內壓/心跳/心輸出量的藥物</strong>（交感興奮），因此顱內壓升高的病患應避免使用Ketamine，改選Thiopental或Propofol（都能降低ICP）；<strong>Etomidate對MAP與CO影響最小（↔）</strong>，是心血管風險病患的優先選擇。</p>
+
+      <h3>常見犬麻醉搭配範例</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>術前用藥</th><th>誘導</th><th>維持</th></tr></thead>
+          <tbody>
+            <tr><td>Acepromazine＋Opioid IM/SC</td><td>Thiopental IV</td><td>吸入性麻醉</td></tr>
+            <tr><td>Acepromazine＋Butorphanol IM/SC</td><td>Ketamine/Diazepam混合IV</td><td>吸入性麻醉</td></tr>
+            <tr><td>Atropine＋Opioid IM/SC</td><td>Thiopental或Propofol IV</td><td>吸入性麻醉</td></tr>
+            <tr><td>Opioid＋Medetomidine IM/SC</td><td>Thiopental或Propofol</td><td>吸入性麻醉</td></tr>
+            <tr><td>（未給術前用藥）</td><td>低劑量Thiopental或Propofol</td><td>Mask induction</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 吸入性麻醉藥的維持機轉與MAC概念，見〈吸入性麻醉藥〉一頁。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A3）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.12 Injectable Anesthetic Agents）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">濃縮版複習重點，考前快速掃過即可回想起整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>再分佈原理：</strong>麻醉終止靠藥物從腦部再分佈到肌肉/脂肪，不是代謝排除，重複注射會蓄積延長恢復。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Sighthounds/Greyhound禁忌：</strong>脂肪少＋缺代謝酵素，Thiopental恢復延長，改用Methohexital/Propofol。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Propofol：</strong>快速肝肺外代謝不蓄積，可誘導＋維持，貓連續使用致Heinz body風險。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Etomidate：</strong>心血管穩定性最佳，但腎上腺抑制與注射疼痛限制其普及。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Ketamine機轉：</strong>NMDA受體非競爭性拮抗，阻斷Glutamate，產生解離性麻醉；唯一升高CBF/ICP/HR/CO的藥物。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Ketamine絕不單獨使用：</strong>必須搭配鎮定劑；馬用Xylazine/Detomidine，犬用BZD/Medetomidine，大動物加Guaifenesin。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Telazol®</strong>＝Tiletamine+Zolazepam，異寵/大型野生動物廣泛使用。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Saffan（Alphaxalone/Alphadolone）：</strong>GABAA致效劑，短效鎮痛佳，舊賦形劑致過敏已改良為Cyclodextrin配方。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A3）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.12 Injectable Anesthetic Agents）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋再分佈原理、品種考量、Ketamine機轉、心肺效應比較各章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 一隻疑似有顱內壓升高（如腦腫瘤）的犬需要緊急麻醉檢查，下列哪一種注射式麻醉藥應該避免使用？</div>
+        <ul class="quiz-options">
+          <li>(A) Thiopental</li>
+          <li>(B) Propofol</li>
+          <li>(C) Etomidate</li>
+          <li>(D) Ketamine</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">Ketamine是唯一會升高腦血流（CBF）與顱內壓（ICP）的注射式麻醉藥（交感興奮效果），對顱內壓已經升高的病患可能造成危險惡化。Thiopental、Propofol、Etomidate都會降低CBF與ICP，是顱內壓升高病患誘導麻醉時的優先選擇。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Ketamine可以單獨作為犬的唯一麻醉藥使用，不需要搭配其他鎮定劑。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Ketamine/Tiletamine等解離性麻醉藥不能單獨作為唯一麻醉藥使用，必須搭配鎮定劑（BZD、α2 agonist等），否則可能出現肌肉僵直、抽搐與術後恢復期躁動（馬甚至有恢復期譫妄風險），臨床上必須搭配術前鎮定藥物使用。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. Propofol相較於Thiopental最大的臨床優勢是？</div>
+        <ul class="quiz-options">
+          <li>(A) 具有鎮痛效果</li>
+          <li>(B) 快速肝肺外代謝，不會蓄積，恢復快速且完全</li>
+          <li>(C) 成本更低廉，適合大動物使用</li>
+          <li>(D) 對貓完全沒有任何副作用風險</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Propofol的核心優勢是快速的肝臟與肺外代謝，不會像Thiobarbiturates一樣在脂肪組織蓄積，因此無論麻醉時間長短，恢復都快速且完全，適合門診手術與需要連續輸注維持麻醉的情境。Propofol本身無鎮痛效果，成本對大動物而言偏高，且連續使用3-4天可能對貓造成Heinz body形成的氧化損傷風險。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一隻成年Greyhound需要進行短時間的骨折X光檢查，需要注射式麻醉誘導。麻醉團隊原本考慮使用Thiopental。同時，另一隻貓因慢性皮膚病已連續4天接受Propofol麻醉換藥。請問：(1) Greyhound使用Thiopental有什麼疑慮？(2) 這隻貓連續使用Propofol需要注意什麼併發症？機轉為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) Greyhound用藥疑慮：</strong>Greyhound是典型的瘦體型犬種（sighthound），一方面體脂肪組織少，導致Thiopental麻醉終止所依賴的「再分佈」機制空間有限，效果會被放大且延長；另一方面Greyhound還天生缺乏代謝Thiopental所需的氧化酵素，使得肝臟清除速度比其他犬種慢2-4倍。兩個因素疊加會讓這隻Greyhound的麻醉恢復時間遠超預期，存在安全疑慮，應改用代謝速度快、恢復迅速的Methohexital或Propofol。<br><strong>(2) 貓連續使用Propofol的併發症：</strong>Propofol含有酚類化合物，貓因先天glucuronidation代謝能力較弱，連續使用3-4天可能造成紅血球氧化損傷，導致<strong>Heinz body（變性血紅素凝集體）形成</strong>，嚴重時可能引發溶血性貧血。臨床上若貓需要連續多日麻醉/鎮靜換藥，應注意避免連續使用Propofol超過建議天數，並監測血球型態變化，必要時改用其他麻醉/鎮靜方式輪替使用。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  terminology: '麻醉名詞學與麻醉分期',
+  pkprinciples: '藥動學原理：再分佈',
+  barbiturateIA: '超短效Barbiturates',
+  nonbarbiturate: 'Propofol與Etomidate',
+  dissociatives: '解離性麻醉藥',
+  otheragents: '其他輔助藥物',
+  comparison: '藥物比較與臨床組合',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

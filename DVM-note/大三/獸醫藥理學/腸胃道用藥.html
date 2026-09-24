@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：腸胃道用藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">腸胃道用藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">腸胃道用藥 GI Pharmacology</h1>
+      <p class="page-subtitle">消化性潰瘍用藥、瀉劑、促腸蠕動藥、止吐藥、催吐藥、止瀉藥、IBD 用藥、食慾促進與抗肥胖藥</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Drugs Affecting Gastrointestinal Functions）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.、Handbook of Veterinary Pharmacology</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-18</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">胃酸與潰瘍</div>
+    <a onclick="showSection('acid')" id="nav-acid"><span class="nav-icon">🧪</span> 胃酸分泌與消化性潰瘍用藥</a>
+    <a onclick="showSection('nsaidgastric')" id="nav-nsaidgastric"><span class="nav-icon">⚠️</span> NSAID 誘發胃黏膜損傷機轉</a>
+    <div class="section-label" style="margin-top:8px;">腸道蠕動</div>
+    <a onclick="showSection('laxatives')" id="nav-laxatives"><span class="nav-icon">💩</span> 瀉劑與緩瀉劑</a>
+    <a onclick="showSection('prokinetics')" id="nav-prokinetics"><span class="nav-icon">🌀</span> 促腸蠕動藥</a>
+    <a onclick="showSection('antidiarrheal')" id="nav-antidiarrheal"><span class="nav-icon">🛑</span> 止瀉藥</a>
+    <div class="section-label" style="margin-top:8px;">嘔吐</div>
+    <a onclick="showSection('antiemetics')" id="nav-antiemetics"><span class="nav-icon">🤢</span> 嘔吐路徑與止吐藥</a>
+    <a onclick="showSection('emetics')" id="nav-emetics"><span class="nav-icon">🤮</span> 催吐藥</a>
+    <div class="section-label" style="margin-top:8px;">其他</div>
+    <a onclick="showSection('ibd')" id="nav-ibd"><span class="nav-icon">🔥</span> IBD 用藥</a>
+    <a onclick="showSection('appetite')" id="nav-appetite"><span class="nav-icon">🍖</span> 食慾促進劑與抗肥胖藥</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>腸胃道用藥不像NSAID或抗生素有一個共同機轉可以貫穿全章，比較像一個<strong>「依症狀分類的工具箱」</strong>：胃部出問題（胃酸過多、黏膜受損）就處理酸與黏膜保護；腸道蠕動太慢或太快，分別對應促腸蠕動藥與瀉劑；噁心想吐要選止吐藥（依嘔吐訊號來自哪一條路徑選藥）；動物剛誤食毒物時反過來要用催吐藥讓牠吐出來；已經腹瀉要用止瀉藥把蠕動慢下來；慢性腸道發炎（IBD）則需要抗發炎/免疫調節藥物；食慾不振或過度肥胖也各有專屬藥物。這些藥物的受體與作用標的彼此獨立，讀這一章不需要找一個「大一統」的機轉，把下面每個小節當成獨立單元、依「這個症狀該用哪一類藥」的邏輯記憶即可——點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('acid')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">胃酸／潰瘍</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">制酸、黏膜保護</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('laxatives')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">便秘</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">瀉劑／緩瀉劑</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('prokinetics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">蠕動不足</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">促腸蠕動藥</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('antiemetics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">噁心嘔吐</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">止吐藥（依路徑選藥）</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('emetics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">誤食中毒</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">催吐藥（犬貓不同藥）</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('antidiarrheal')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">06</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">腹瀉</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">止瀉藥</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('ibd')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">07</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">慢性腸炎</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">IBD 用藥</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('appetite')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">08</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">食慾異常</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">食慾促進／抗肥胖</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>胃酸分泌抑制效力排序：PPI（不可逆）＞H2 blocker＞Antacids（速效但短暫）</strong>；Histamine 對 ACh／Gastrin 誘發胃酸分泌有「協同增強（markedly enhances）」效果，是理解胃酸調控三路徑（ACh、Gastrin、Histamine 共同匯聚到 parietal cell）的核心。</li>
+          <li><strong>Famotidine 效力最強且不抑制 P450，但 IV 快速注射給貓可能溶血；Cimetidine 效力最弱但抑制 CYP450 最顯著</strong>（高劑量還有抗雄激素效果）——這組「效力 vs. 交互作用」的反比關係是最常考的細節。</li>
+          <li><strong>Misoprostol（PGE1 類似物）是 NSAID 誘發潰瘍的首選預防藥</strong>：透過 EP3（Gi）雙重機制抑酸＋促進黏液/HCO₃分泌，但禁用懷孕動物（可誘發子宮收縮）與 IBD 患者。</li>
+          <li><strong>促腸蠕動藥的受體邏輯決定副作用差異：</strong>Metoclopramide（D2拮抗為主）穿越 BBB→產生 EPS；Domperidone（同為D2拮抗）不穿 BBB→無 EPS；Cisapride（5-HT4致效為主）不作用 D2、無 EPS，但 2000 年因人用 QT 延長下市（獸醫仍可用）。</li>
+          <li><strong>止吐藥依「嘔吐四條路徑」對應選藥：</strong>前庭（M/H1）→抗組織胺/Scopolamine；CTZ（D2/5-HT3/M/H1/α2）→Metoclopramide/Maropitant；GI vagal afferents（5-HT3）→Ondansetron（化療嘔吐最有效）；嘔吐中樞本身（Substance P/NK1）→Maropitant（廣效，犬貓皆可、額外可降麻醉用量與止咳）。</li>
+          <li><strong>催吐藥物種特異性明確：犬用 Apomorphine（D2 agonist，不可重複給藥）、貓用 Xylazine（α2 agonist）</strong>——貓對 Apomorphine 效果差，這組物種配對是臨床急診（誤食毒物）最常用到的知識。</li>
+          <li><strong>Opioids 是最有效的止瀉藥，但感染性腹瀉禁用：</strong>機轉是抑制腸神經 ACh 釋放、增加節段性收縮、降低推進性蠕動；感染性腹瀉使用會讓病原滯留腸道、症狀惡化。Loperamide 不穿 BBB（OTC、安全）；Diphenoxylate 穿 BBB（處方藥，須注意 CNS 副作用）。</li>
+          <li><strong>NSAID 誘發胃潰瘍是雙重機制（全身性 COX 抑制＋局部酸性直接刺激）</strong>，即使改注射給藥仍有全身性潰瘍風險——這解釋了為何「改用注射劑型」不能完全避免 NSAID 腸胃副作用，是臨床選藥常見誤區。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Cimetidine</td><td>H2 receptor拮抗（效力最弱）；抑制CYP450＋抗雄激素</td><td><strong>PO／IV</strong>；H2 blocker</td><td class="drug-locations"><a href="#drug-h2blocker" class="drug-link">H2 blocker</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Famotidine</td><td>H2 receptor拮抗（效力最強，不抑制P450）</td><td><strong>PO／IV（★IV快速注射給貓可能溶血）</strong>；H2 blocker效力最強</td><td class="drug-locations"><a href="#drug-h2blocker" class="drug-link">H2 blocker效力最強</a></td></tr>
+            <tr><td>Nizatidine</td><td>H2 receptor拮抗（效力居中）</td><td><strong>PO</strong>；H2 blocker</td><td class="drug-locations"><a href="#drug-h2blocker" class="drug-link">H2 blocker</a></td></tr>
+            <tr><td>Ranitidine</td><td>H2 receptor拮抗＋弱ChE抑制（促腸蠕動效果）</td><td><strong>PO／IV</strong>；H2 blocker</td><td class="drug-locations"><a href="#drug-h2blocker" class="drug-link">H2 blocker</a></td></tr>
+            <tr><td>Esomeprazole</td><td>S-Omeprazole；共價不可逆結合H⁺/K⁺-ATPase</td><td><strong>PO</strong>；PPI</td><td class="drug-locations"><a href="#drug-ppi" class="drug-link">PPI</a></td></tr>
+            <tr><td>Lansoprazole</td><td>共價不可逆結合H⁺/K⁺-ATPase</td><td><strong>PO</strong>；PPI</td><td class="drug-locations"><a href="#drug-ppi" class="drug-link">PPI</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Omeprazole</td><td>前驅藥，酸性環境活化→共價不可逆結合H⁺/K⁺-ATPase</td><td><strong>PO</strong>；獸醫最常用PPI</td><td class="drug-locations"><a href="#drug-ppi" class="drug-link">獸醫最常用PPI</a></td></tr>
+            <tr><td>Pantoprazole</td><td>共價不可逆結合H⁺/K⁺-ATPase</td><td><strong>PO／IV</strong>；PPI</td><td class="drug-locations"><a href="#drug-ppi" class="drug-link">PPI</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Misoprostol</td><td>PGE1類似物，EP3（Gi）→cAMP↓抑酸＋促進黏液/HCO3分泌</td><td><strong>PO</strong>；NSAID潰瘍預防首選；PG相關藥物比較</td><td class="drug-locations"><a href="#drug-misoprostol" class="drug-link">NSAID潰瘍預防首選</a><a href="#section-nsaidgastric" class="drug-link">PG相關藥物比較</a></td></tr>
+            <tr><td>Bismuth subsalicylate<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">次水楊酸鉍</div></td><td>Bismuth-protein凝膠覆蓋潰瘍表面＋抑制pepsin活性＋抗菌</td><td><strong>PO</strong>；消化性潰瘍輔助；止瀉吸附劑</td><td class="drug-locations"><a href="#drug-sucralfate" class="drug-link">消化性潰瘍輔助</a><a href="#drug-adsorbents" class="drug-link">止瀉吸附劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Sucralfate<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">硫糖鋁</div></td><td>Polyaluminum hydroxide硫酸蔗糖鹽，pH<4活化→黏附潰瘍表面</td><td><strong>PO</strong>；消化性潰瘍保護；PG相關藥物比較</td><td class="drug-locations"><a href="#drug-sucralfate" class="drug-link">消化性潰瘍保護</a><a href="#section-nsaidgastric" class="drug-link">PG相關藥物比較</a></td></tr>
+            <tr><td>Amoxicillin</td><td>與PPI／Clarithromycin三聯療法根除H. pylori</td><td><strong>PO（H. pylori三聯療法成分）</strong>；H. pylori三聯療法</td><td class="drug-locations"><a href="#drug-hpylori" class="drug-link">H. pylori三聯療法</a></td></tr>
+            <tr><td>Clarithromycin</td><td>與Amoxicillin／PPI三聯療法根除H. pylori</td><td><strong>PO（H. pylori三聯療法成分）</strong>；H. pylori三聯療法</td><td class="drug-locations"><a href="#drug-hpylori" class="drug-link">H. pylori三聯療法</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Metronidazole</td><td>抗厭氧菌＋抑制細胞媒介免疫反應；前驅藥經厭氧菌活化</td><td><strong>PO</strong>；H. pylori四聯療法；IBD常用</td><td class="drug-locations"><a href="#drug-hpylori" class="drug-link">H. pylori四聯療法</a><a href="#drug-sulfasalazine" class="drug-link">IBD常用</a></td></tr>
+            <tr><td>Tetracycline</td><td>與Bismuth／Metronidazole四聯療法治H. pylori</td><td><strong>PO（H. pylori四聯療法成分）</strong>；H. pylori四聯療法</td><td class="drug-locations"><a href="#drug-hpylori" class="drug-link">H. pylori四聯療法</a></td></tr>
+            <tr><td>Al(OH)3<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">氫氧化鋁</div></td><td>中和胃酸；不被吸收</td><td><strong>PO</strong>；制酸劑</td><td class="drug-locations"><a href="#drug-antacid" class="drug-link">制酸劑</a></td></tr>
+            <tr><td>Mg(OH)2<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">氫氧化鎂</div></td><td>中和胃酸；滲透性導致鬆便與酸反彈</td><td><strong>PO</strong>；制酸劑</td><td class="drug-locations"><a href="#drug-antacid" class="drug-link">制酸劑</a></td></tr>
+            <tr><td>NaHCO3<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">碳酸氫鈉</div></td><td>中和胃酸；全身性鹼中毒風險</td><td><strong>PO</strong>；制酸劑</td><td class="drug-locations"><a href="#drug-antacid" class="drug-link">制酸劑</a></td></tr>
+            <tr><td>Aminopentamide</td><td>M receptor拮抗→↓GI分泌與蠕動</td><td><strong>神經肌肉阻斷劑：</strong>；抗膽鹼；犬貓急性腹部臟器痙攣，GI效果較Atropine強、散瞳/流涎抑制較弱</td><td class="drug-locations"><a href="#drug-antimuscarinicgi" class="drug-link">抗膽鹼</a></td></tr>
+            <tr><td>Darbazine®<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Isopropamide＋Prochlorperazine複方</div></td><td>Isopropamide（M拮抗）＋Prochlorperazine（D2拮抗止吐）複方</td><td><strong>PO（膠囊複方）</strong>；止吐複方</td><td class="drug-locations"><a href="#drug-antimuscarinicgi" class="drug-link">止吐複方</a></td></tr>
+            <tr><td>Isopropamide</td><td>M receptor拮抗（antimuscarinic），Darbazine成分</td><td><strong>PO（Darbazine®成分）</strong>；Darbazine成分</td><td class="drug-locations"><a href="#drug-antimuscarinicgi" class="drug-link">Darbazine成分</a></td></tr>
+            <tr><td>Methscopolamine</td><td>M receptor拮抗（antimuscarinic）</td><td><strong>PO</strong>；抗膽鹼</td><td class="drug-locations"><a href="#drug-antimuscarinicgi" class="drug-link">抗膽鹼</a></td></tr>
+            <tr><td>Neo-Darbazine®<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Darbazine＋Neomycin複方</div></td><td>Darbazine＋Neomycin（抗生素）複方</td><td><strong>PO（膠囊複方）</strong>；止吐複方</td><td class="drug-locations"><a href="#drug-antimuscarinicgi" class="drug-link">止吐複方</a></td></tr>
+            <tr><td>Prochlorperazine</td><td>D2 receptor拮抗（Phenothiazine類），Darbazine成分</td><td><strong>PO（Darbazine®成分，亦有注射劑型）</strong>；Darbazine成分</td><td class="drug-locations"><a href="#drug-antimuscarinicgi" class="drug-link">Darbazine成分</a></td></tr>
+            <tr><td>Scopolamine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">東莨菪鹼（Hyoscine）</div></td><td>M＋H1 receptor路徑（前庭）；結構類似Atropine（三級胺）</td><td><strong>Scopolamine口服可控制暈動症</strong>；貓興奮反應；暈動症；N-Butylscopolammonium IV用於馬腸絞痛</td><td class="drug-locations"><a href="#drug-antimuscarinicgi" class="drug-link">貓興奮反應</a><a href="#section-antiemetics" class="drug-link">暈動症</a></td></tr>
+            <tr><td>Aloe<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">蘆薈（Anthraquinone類）</div></td><td>腸道菌活化為aglycone→刺激myenteric plexus</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Anthraquinones<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">蒽醌類（Aloe／Cascara／Senna）</div></td><td>植物糖苷經腸道菌活化為aglycone→刺激myenteric plexus蠕動</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Bisacodyl</td><td>Diphenylmethane類，刺激腸黏膜反射性蠕動</td><td><strong>PO或栓劑/灌腸</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Carboxymethylcellulose</td><td>親水性纖維吸水膨脹→刺激腸道反射</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Castor oil<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">蓖麻油</div></td><td>Lipase水解為ricinoleic acid→刺激腸黏膜</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Docusate</td><td>陰離子界面活性劑→軟化糞便</td><td><strong>PO或灌腸</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Lactulose</td><td>腸道菌分解為滲透性顆粒＋酸化腸腔捕捉NH3</td><td><strong>PO</strong>；滲透性瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">滲透性瀉劑</a></td></tr>
+            <tr><td>Methylcellulose</td><td>親水性纖維吸水膨脹</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>MgSO4<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">硫酸鎂</div></td><td>滲透力吸水入腸腔（不被吸收）</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Mineral oil<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">礦物油</div></td><td>潤滑腸壁＋軟化糞便，減少水分吸收</td><td><strong>PO（有誤吸風險，臨床常改直腸灌腸）</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>PEG<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Polyethylene glycol</div></td><td>滲透力吸水入腸腔（不被吸收）</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Phenolphthalein</td><td>Diphenylmethane類，刺激腸黏膜</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Psyllium<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">車前草</div></td><td>親水性纖維吸水膨脹刺激腸道反射</td><td><strong>PO</strong>；膨脹性瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">膨脹性瀉劑</a></td></tr>
+            <tr><td>Senna<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">番瀉葉</div></td><td>植物糖苷經腸道菌活化→刺激myenteric plexus</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Sorbitol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">山梨醇</div></td><td>滲透力吸水入腸腔（不被吸收），兼作甜味劑</td><td><strong>PO</strong>；瀉劑</td><td class="drug-locations"><a href="#drug-laxatives" class="drug-link">瀉劑</a></td></tr>
+            <tr><td>Bethanechol</td><td>M3 muscarinic agonist（無nicotinic活性）→直接興奮平滑肌</td><td><strong>PO／SC／IM／IV（含CRI連續輸注）</strong>；M3促效劑；治膀胱擴張（現多被Neostigmine/Metoclopramide取代）</td><td class="drug-locations"><a href="#drug-prokinetics" class="drug-link">M3促效劑</a></td></tr>
+            <tr><td>Cisapride</td><td>5-HT4 agonist→↑ACh釋放；亦阻斷5-HT3（貓另有非膽鹼性直接刺激平滑肌機轉）</td><td><strong>PO／SC／IM／IV（含CRI連續輸注）</strong>；促腸蠕動</td><td class="drug-locations"><a href="#drug-prokinetics" class="drug-link">促腸蠕動</a></td></tr>
+            <tr><td>Domperidone</td><td>D2 receptor拮抗（周邊為主，不穿BBB）</td><td><strong>PO／SC／IM／IV（含CRI連續輸注）</strong>；促腸蠕動</td><td class="drug-locations"><a href="#drug-prokinetics" class="drug-link">促腸蠕動</a></td></tr>
+            <tr><td>Erythromycin（低劑量）</td><td>Motilin receptor agonist（非D2／5-HT機轉）</td><td><strong>PO／SC／IM／IV（含CRI連續輸注）</strong>；motilin agonist</td><td class="drug-locations"><a href="#drug-prokinetics" class="drug-link">motilin agonist</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Metoclopramide</td><td>D2拮抗（主）＋5-HT4致效＋高劑量5-HT3拮抗</td><td><strong>PO／SC／IM／IV（含CRI連續輸注）</strong>；促腸蠕動；止吐藥</td><td class="drug-locations"><a href="#drug-prokinetics" class="drug-link">促腸蠕動</a><a href="#drug-antiemeticclass" class="drug-link">止吐藥</a></td></tr>
+            <tr><td>Diphenoxylate</td><td>Opioid receptor致效（腸神經）→↓ACh釋放；meperidine衍生物，穿BBB</td><td><strong>PO</strong>；止瀉（Lomotil成分）</td><td class="drug-locations"><a href="#drug-opioidantidiarrheal" class="drug-link">止瀉（Lomotil成分）</a></td></tr>
+            <tr><td>Lomotil®<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Diphenoxylate＋Atropine複方</div></td><td>Diphenoxylate＋Atropine（低劑量atropine降低濫用可能）</td><td><strong>PO</strong>；止瀉複方</td><td class="drug-locations"><a href="#drug-opioidantidiarrheal" class="drug-link">止瀉複方</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Loperamide<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Imodium®</div></td><td>Opioid receptor致效（腸神經）→↓ACh釋放；不穿BBB</td><td><strong>PO</strong>；OTC止瀉首選</td><td class="drug-locations"><a href="#drug-opioidantidiarrheal" class="drug-link">OTC止瀉首選</a></td></tr>
+            <tr><td>Paregoric<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">阿片樟腦酊</div></td><td>Opioid（鴉片酊劑）→↓腸道ACh釋放</td><td><strong>PO</strong>；止瀉</td><td class="drug-locations"><a href="#drug-opioidantidiarrheal" class="drug-link">止瀉</a></td></tr>
+            <tr><td>Kaolin-pectin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">高嶺土-果膠</div></td><td>Hydrated aluminum silicate，吸附細菌毒素</td><td><strong>PO</strong>；止瀉吸附劑</td><td class="drug-locations"><a href="#drug-adsorbents" class="drug-link">止瀉吸附劑</a></td></tr>
+            <tr><td>Propantheline</td><td>季銨antimuscarinic（M receptor拮抗），不穿BBB</td><td>抗膽鹼；小動物PO口服吸收差效果受質疑，馬IV降結腸蠕動</td><td class="drug-locations"><a href="#section-antiemetics" class="drug-link">抗膽鹼</a></td></tr>
+            <tr><td>Aprepitant</td><td>NK1 receptor拮抗（人用，機轉同Maropitant）</td><td><strong>PO</strong>；NK1拮抗劑</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">NK1拮抗劑</a></td></tr>
+            <tr><td>Butyrophenones</td><td>D2 receptor拮抗（CTZ／NST）</td><td><strong>PO／IM／IV（依個別藥物）</strong>；止吐藥</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">止吐藥</a></td></tr>
+            <tr><td>Cyclizine</td><td>H1 receptor拮抗</td><td><strong>PO</strong>；止吐藥</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">止吐藥</a></td></tr>
+            <tr><td>Dexamethasone</td><td>抑制PG合成（止吐機轉未明確）</td><td><strong>PO／IV／IM</strong>；止吐輔助</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">止吐輔助</a></td></tr>
+            <tr><td>Diphenhydramine</td><td>H1 receptor拮抗（第一代，穿BBB）</td><td><strong>PO／IM／IV</strong>；H1止吐</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">H1止吐</a></td></tr>
+            <tr><td>Meclizine</td><td>H1 receptor拮抗</td><td><strong>PO</strong>；止吐藥</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">止吐藥</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Ondansetron</td><td>5-HT3 receptor拮抗（GI vagal afferents／NST）</td><td><strong>PO／IV</strong>；化療嘔吐最有效</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">化療嘔吐最有效</a></td></tr>
+            <tr><td>Phenothiazines</td><td>D2 receptor拮抗（CTZ／NST）</td><td><strong>PO／IM／IV（依個別藥物）</strong>；D2拮抗止吐</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">D2拮抗止吐</a></td></tr>
+            <tr><td>Tropisetron</td><td>5-HT3 receptor拮抗</td><td><strong>PO／IV</strong>；5-HT3拮抗</td><td class="drug-locations"><a href="#drug-antiemeticclass" class="drug-link">5-HT3拮抗</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Maropitant<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Cerenia®</div></td><td>NK1（Substance P）receptor拮抗，作用於嘔吐中樞</td><td><strong>SC或PO（亦有IV核准劑型）</strong>；NK1廣效止吐首選</td><td class="drug-locations"><a href="#drug-maropitant" class="drug-link">NK1廣效止吐首選</a></td></tr>
+            <tr><td>Ipecac<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">吐根糖漿</div></td><td>Emetine生物鹼，中樞＋周邊雙重刺激催吐</td><td><strong>PO</strong>；催吐藥</td><td class="drug-locations"><a href="#section-emetics" class="drug-link">催吐藥</a></td></tr>
+            <tr><td>NaCl<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">食鹽</div></td><td>咽部刺激反射性催吐</td><td><strong>PO（置入咽部誘吐）</strong>；催吐藥</td><td class="drug-locations"><a href="#section-emetics" class="drug-link">催吐藥</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Apomorphine</td><td>D2 agonist→CTZ刺激→催吐；高劑量μ activation反轉為止吐</td><td><strong>IV低劑量（IM／SC亦可）</strong>；犬首選催吐劑；多巴胺D2 agonist（Morphine降解產物）</td><td class="drug-locations"><a href="#drug-apomorphine" class="drug-link">犬首選催吐劑</a></td></tr>
+            <tr><td>Naloxone</td><td>μ opioid receptor拮抗，逆轉Apomorphine高劑量止吐效果</td><td><strong>IV／IM／SC</strong>；μ拮抗劑</td><td class="drug-locations"><a href="#drug-apomorphine" class="drug-link">μ拮抗劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Xylazine</td><td>α2 adrenergic agonist（貓經此受體誘發嘔吐）</td><td><strong>IM／IV／SC</strong>；貓首選催吐劑；α2 agonist術前鎮靜</td><td class="drug-locations"><a href="#drug-xylazine" class="drug-link">貓首選催吐劑</a></td></tr>
+            <tr><td>Azathioprine</td><td>Purine合成抑制劑，免疫抑制</td><td><strong>PO</strong>；IBD免疫抑制</td><td class="drug-locations"><a href="#drug-sulfasalazine" class="drug-link">IBD免疫抑制</a></td></tr>
+            <tr><td>Olsalazine</td><td>兩分子5-ASA鍵結，腸道菌分解釋放5-ASA（無磺胺基）</td><td><strong>PO</strong>；IBD</td><td class="drug-locations"><a href="#drug-sulfasalazine" class="drug-link">IBD</a></td></tr>
+            <tr><td>Prednisolone</td><td>Glucocorticoid，免疫抑制／抗發炎</td><td><strong>PO</strong>；IBD</td><td class="drug-locations"><a href="#drug-sulfasalazine" class="drug-link">IBD</a></td></tr>
+            <tr><td>Sulfasalazine</td><td>腸道菌分解為Sulfapyridine＋5-ASA（局部抗炎）</td><td><strong>PO</strong>；IBD</td><td class="drug-locations"><a href="#drug-sulfasalazine" class="drug-link">IBD</a></td></tr>
+            <tr><td>Tylosin</td><td>Macrolide抗生素，機轉未明確用於IBD</td><td><strong>PO</strong>；IBD常用</td><td class="drug-locations"><a href="#drug-sulfasalazine" class="drug-link">IBD常用</a></td></tr>
+            <tr><td>Cyproheptadine</td><td>H1＋5-HT receptor拮抗</td><td><strong>PO</strong>；食慾促進</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">食慾促進</a></td></tr>
+            <tr><td>Diazepam</td><td>Benzodiazepine受體致效劑（GABAA正向調節）</td><td>食慾促進；術前用藥；★癲癇重積症IV首選（犬不適合長期維持，貓可口服）</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">食慾促進</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Mirtazapine</td><td>5-HT2／5-HT3／H1／α2 receptor拮抗（人用抗憂鬱藥）</td><td><strong>PO</strong>；貓食慾促進+止吐首選</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">貓食慾促進+止吐首選</a></td></tr>
+            <tr><td>Oxazepam</td><td>GABA-mediated抑制下視丘飽足中樞</td><td><strong>PO</strong>；食慾促進</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">食慾促進</a></td></tr>
+            <tr><td>Poloxalene</td><td>Surfactant，改變瘤胃氣泡表面張力</td><td><strong>PO（拌料或灌服）</strong>；反芻動物消脹氣</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">反芻動物消脹氣</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Dirlotapide<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Slentrol®</div></td><td>抑制MTP（microsomal triglyceride transfer protein）→↓脂蛋白組裝</td><td><strong>PO（口服液）</strong>；犬抗肥胖藥</td><td class="drug-locations"><a href="#drug-dirlotapide" class="drug-link">犬抗肥胖藥</a></td></tr>
+            <tr><td>Lomitapide</td><td>抑制MTP（人用降血脂藥，機轉同Dirlotapide）</td><td><strong>PO</strong>；MTP抑制劑</td><td class="drug-locations"><a href="#drug-dirlotapide" class="drug-link">MTP抑制劑</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- ACID -->
+    <div class="section" id="section-acid">
+      <div class="section-head"><div class="section-num">3</div><h2>胃酸分泌與消化性潰瘍用藥 Acid Secretion &amp; Peptic Ulcer Drugs</h2></div>
+      <p class="section-desc">胃酸分泌由三條路徑匯聚至 parietal cell，理解這張總圖是所有抑酸藥物作用位點的共同座標。</p>
+
+      <h3 id="drug-acidpath">胃酸分泌機制（必考）</h3>
+      <div class="flow">
+        <div class="flow-node">G cell（幽門竇）分泌 Gastrin</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">ECL cell 釋放 Histamine</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">H2R（Gs/cAMP↑）→ Parietal cell</div>
+      </div>
+      <ul>
+        <li>Histamine 效果「markedly enhances」ACh 和 Gastrin 誘發的胃酸分泌（協同增強）</li>
+        <li>ACh（迷走神經 M3）＋ Gastrin（CCK2）→ 直接刺激 Parietal cell</li>
+        <li>Parietal cell：<strong>H⁺/K⁺-ATPase（質子幫浦，P-type ATPase）</strong> → 分泌 H⁺ 至胃腔；靜止時 ATPase 儲存在細胞質囊泡中，經 Ca²⁺/cAMP 訊號才插入 apical membrane 開始分泌</li>
+        <li>PGE1/PGE2（EP3）→ Gi → cAMP↓ → 抑制胃酸分泌（← Misoprostol 作用點）</li>
+        <li>D cell（胃竇）分泌 Somatostatin → 抑制 G cell（負回饋）</li>
+      </ul>
+
+      <h3 id="drug-h2blocker">H2 受體拮抗劑 H2 Receptor Antagonists</h3>
+      <p>效力排序：<strong>Famotidine ＞ Nizatidine ＞ Ranitidine ＞ Cimetidine</strong></p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 下表提到的「P450抑制」是什麼、為何會造成藥物交互作用，見 <a href="藥理學總論.html#section-cyp450">藥理學總論：CYP450藥物代謝系統</a>。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>特色</th><th>臨床注意事項</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cimetidine</strong></td><td>最早上市、效力最弱</td><td>P450 抑制（CYP1A2, 2C9, 3A4）→ 藥物交互作用；高劑量抗雄激素效果（可逆性陽痿、男性乳房發育 gynecomastia）；與 Ranitidine 競爭腎臟陽離子轉運體</td></tr>
+            <tr><td><strong>Ranitidine</strong></td><td>效力優於 Cimetidine，有弱 prokinetic 效果</td><td>高劑量使用 &gt; 7 天須監測 ALT（肝毒性）</td></tr>
+            <tr><td><strong>Famotidine</strong></td><td>效力最強、不抑制 P450</td><td>IV 快速注射給貓 → 溶血（hemolysis）</td></tr>
+            <tr><td><strong>Nizatidine</strong></td><td>效力介於 Ranitidine 與 Famotidine 之間</td><td>類似 ranitidine，prokinetic 效果較少報告</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>H2 blockers 以<strong>腎臟排除</strong>為主（1/4–1/2 經肝代謝）→ 腎臟疾病患者需減量；相比之下 PPI 主要肝臟代謝，腎功能不全時不需大幅調整劑量。</p>
+      </div>
+
+      <h3 id="drug-ppi">質子幫浦抑制劑 Proton Pump Inhibitors (PPI)</h3>
+      <div class="flow">
+        <div class="flow-node">前藥（prodrug）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">胃壁細胞分泌小管（酸性 pH）活化為 sulfenamide</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">不可逆（共價）結合 H⁺/K⁺-ATPase → 永久抑制</div>
+      </div>
+      <ul>
+        <li><strong>Omeprazole</strong>：獸醫最常用；亦抑制 CYP450</li>
+        <li>Lansoprazole、Pantoprazole、Esomeprazole：機制類似，P450 代謝程度不同</li>
+        <li>藥理效果與血漿 T½ 無關（T½ 短但作用時間長，重複給藥緩慢累積效果）；ATPase 只存在於分泌胃酸的細胞，選擇性高</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">藥物交互作用</div>
+        <p>PPI ↓ BZDs／phenobarbital／phenytoin／warfarin 清除率；抑制 clopidogrel 活化代謝；肝臟疾病患者需謹慎使用。長期副作用：貓可能出現慢性高胃泌素血症（chronic hypergastrinemia）；胃 pH↑ → SIBO（小腸菌叢過度生長）；↓ Azole 抗黴藥（ketoconazole、itraconazole 等需酸性環境吸收）、mycophenolate mofetil、鐵劑吸收。</p>
+      </div>
+
+      <h3 id="drug-misoprostol">Misoprostol（PGE1 類似物）</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">抑酸機制</div><p>EP3 agonist → Gi → adenylyl cyclase↓ → cAMP↓ → 抑制 H⁺/K⁺-ATPase（antisecretory）</p></div>
+        <div class="card"><div class="card-title">細胞保護機制</div><p>刺激黏液＋HCO₃分泌、促進黏膜微血管血流 → cytoprotective effect</p></div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p><strong>NSAID 誘發胃潰瘍預防首選</strong>（補充外源 PGE1）；可誘發子宮收縮 → <strong>禁用懷孕動物</strong>（可用於治療 pyometra）；<strong>IBD 患者亦需謹慎</strong>；副作用：腹瀉、腹部痙攣（PGE 促進腸蠕動所致）。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Misoprostol <strong>對「預防」NSAID 潰瘍效果明確，但對已形成的潰瘍「治療」效果較差</strong>，臨床定位是預防用藥而非治療用藥；對<strong>類固醇誘發的腸胃道潰瘍無明確保護效果</strong>（機轉不同，非 COX 路徑）。犬用劑量 2–5 μg/kg，&gt;5 μg/kg 副作用（腹瀉）明顯增加。此外教科書記載 Misoprostol 對犬異位性皮膚炎有<strong>輕度抗發炎效果</strong>（3–6 μg/kg TID PO，可降低約 30% 搔癢與臨床分數），此為講義未提及之延伸用途。（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）</p>
+      </div>
+
+      <h3 id="drug-sucralfate">Sucralfate 與 Bismuth Salts</h3>
+      <ul>
+        <li><strong>Sucralfate</strong> = polyaluminum hydroxide salt of sucrose sulfate；於 pH &lt; 4 的酸性環境才活化 → Al 螯合潰瘍表面暴露蛋白質，形成黏稠保護膜；全身吸收率僅 3–5%（局部作用為主）</li>
+        <li>長期使用慢性腎衰竭患者 → <strong>Al 累積 → 神經毒性＋骨軟化症</strong>；與其他口服藥同時給 → 降低其吸收，需間隔 2 小時給藥</li>
+        <li><strong>Bismuth subsalicylate（次水楊酸鉍）</strong>：bismuth-protein 凝膠 → cytoprotective ＋ antimicrobial；抑制 pepsin 活性；可造成黑便（dark stool）；<strong>貓禁用</strong>（對水楊酸敏感 → 毒性）</li>
+      </ul>
+
+      <h3 id="drug-hpylori">H. pylori 致病機制與治療<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">Urease 分解尿素 → NH3 + HCO3⁻（細菌得以在胃酸中存活）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">分解 mucus layer</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">抑制 Somatostatin → Gastrin↑ → 胃酸分泌↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">消化性潰瘍</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>療法</th><th>組成</th><th>根除率</th></tr></thead>
+          <tbody>
+            <tr><td><strong>三聯療法</strong></td><td>PPI ＋ Amoxicillin ＋ Clarithromycin（14 天）</td><td>70–85%</td></tr>
+            <tr><td><strong>四聯療法</strong></td><td>PPI ＋ Bismuth ＋ Tetracycline ＋ Metronidazole</td><td>75–90%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>根除 H. pylori 後潰瘍復發率僅 <strong>15%</strong>；單用 H2 blocker 未根除 → 復發率高達 <strong>75%</strong>（差距懸殊，凸顯根除治療的必要性）。H. pylori 除 urease 外還分泌 proteases、phospholipases，直接分解黏液層糖蛋白脂質結構。</p>
+      </div>
+
+      <h3 id="drug-antacid">制酸劑 Antacids</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>制酸劑</th><th>副作用</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>Al(OH)₃ 氫氧化鋁</td><td>便秘</td><td>長期鋁毒性</td></tr>
+            <tr><td>Mg(OH)₂ 氫氧化鎂</td><td>鬆便＋酸反彈（acid rebound）</td><td>腎病患者謹慎</td></tr>
+            <tr><td>NaHCO₃ 碳酸氫鈉</td><td>全身性鹼中毒</td><td>不建議長期使用</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-antimuscarinicgi">抗膽鹼藥物在 GI 中的應用</h3>
+      <p>代表藥：Aminopentamide、Isopropamide、Methscopolamine、Propantheline；機制：抑制 M receptor → 降低胃酸分泌＋降低 GI 平滑肌蠕動（antisecretory ＋ antispasmodic）；抑酸效果不如 H2 blocker 或 PPI，現多用於抗腹瀉／抗痙攣而非抑酸。</p>
+      <div class="card">
+        <div class="card-title">Darbazine® 與 Neo-Darbazine®</div>
+        <p><strong>Darbazine® = Isopropamide（抗膽鹼）＋ Prochlorperazine（酚噻嗪止吐）</strong>，用於胃腸炎所致嘔吐；<strong>Neo-Darbazine® = Darbazine ＋ Neomycin（抗生素）</strong>，用於犬細菌性感染性胃腸炎。全類副作用：口乾、便秘、麻痺性腸梗阻、視力模糊、尿瀦留；<strong>Scopolamine 在貓可引起興奮反應，使用需謹慎</strong>。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- NSAID GASTRIC -->
+    <div class="section" id="section-nsaidgastric">
+      <div class="section-head"><div class="section-num">4</div><h2>NSAID 誘發胃黏膜損傷機轉</h2></div>
+      <p class="section-desc">本節整理 NSAID 造成腸胃副作用的前列腺素機轉，是連接「胃酸用藥」與後續 NSAID 專頁的橋樑。</p>
+
+      <h3>前列腺素保護胃黏膜的四大機制</h3>
+      <div class="flow">
+        <div class="flow-node">COX-1（constitutive）→ PGE1/PGE2（胃黏膜）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">①黏液分泌↑ ②HCO₃分泌↑ ③黏膜血流↑ ④EP3/Gi 抑制胃酸</div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">機制</div>
+        <p>NSAID 抑制 COX → PGE1/PGE2↓ → 以上四種保護機制均喪失 → 黏膜屏障崩潰＋胃酸仍持續分泌 → 糜爛／潰瘍（NSAID-induced gastric erosions）。<strong>NSAID 誘發潰瘍是雙重機制：①全身性（COX 抑制 → PGE↓）②局部（酸性 NSAID 直接刺激黏膜）</strong>——即使改為注射給藥仍有全身性潰瘍風險，這是臨床常見的用藥誤區。</p>
+      </div>
+
+      <h3>PG 相關藥物整理</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物／機制</th><th>作用</th><th>與 PG 的關係</th></tr></thead>
+          <tbody>
+            <tr><td>NSAID（COX 抑制劑）</td><td>↓PGE → 黏膜保護喪失 → 潰瘍</td><td>主要副作用來源</td></tr>
+            <tr><td>Misoprostol（PGE1 類似物）</td><td>補充外源性 PGE1 → 恢復黏膜保護</td><td>NSAID 潰瘍首選預防</td></tr>
+            <tr><td>Sucralfate</td><td>物理性保護膜覆蓋潰瘍表面</td><td>非 PG 機制</td></tr>
+            <tr><td>PPI／H2 blocker</td><td>↓胃酸分泌，降低潰瘍惡化</td><td>非 PG 機制</td></tr>
+            <tr><td>Bismuth</td><td>Cytoprotective＋antimicrobial</td><td>非 PG 機制</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Misoprostol 是最接近「補充 PG 本身」的療法，藥理邏輯上最貼合 NSAID 潰瘍的致病機轉，因此是預防首選。</p>
+      <p style="font-size:.9em;">📖 完整的 NSAID 藥理機轉、COX-1/COX-2 選擇性、個別藥物與物種毒性差異，請見 <a href="NSAID非類固醇消炎藥.html">NSAID 非類固醇消炎藥</a> 專頁。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- LAXATIVES -->
+    <div class="section" id="section-laxatives">
+      <div class="section-head"><div class="section-num">5</div><h2>瀉劑與緩瀉劑 Laxatives &amp; Cathartics</h2></div>
+      <p class="section-desc">Laxatives（緩瀉劑）產生軟便、效果溫和、起效慢；Cathartics（峻瀉劑）大量增加腸內容積，促進液體排空、效果強烈。</p>
+
+      <h3 id="drug-laxatives">各類瀉劑比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>代表藥物</th><th>機制</th><th>注意</th></tr></thead>
+          <tbody>
+            <tr><td><strong>潤滑 Emollient</strong></td><td>Mineral oil、Docusate</td><td>軟化糞便、潤滑腸壁、減少水分吸收</td><td>Mineral oil 口服有誤吸風險，改用直腸灌腸；長期↓脂溶性維生素（A/D/E/K）吸收</td></tr>
+            <tr><td><strong>膨脹 Bulk</strong></td><td>Psyllium（車前草）、Methylcellulose、Carboxymethylcellulose</td><td>親水性纖維吸水膨脹 → 增加腸內容積</td><td>需大量補水，同時需適當腸蠕動</td></tr>
+            <tr><td><strong>滲透 Osmotic</strong></td><td>Lactulose、MgSO4、PEG 溶液、Sorbitol</td><td>不被腸道吸收 → 滲透力吸水 → 糞便軟化</td><td><strong>脫水動物禁用</strong>；副作用：嚴重脫水、電解質異常</td></tr>
+            <tr><td><strong>刺激 Irritant</strong></td><td>Castor oil、Bisacodyl、Anthraquinones</td><td>刺激腸黏膜 → 反射性蠕動＋促進分泌累積</td><td>長期使用 → myenteric plexus 退化</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Irritant Cathartics 各藥詳細</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機制／特色</th><th>起效時間</th><th>臨床注意</th></tr></thead>
+          <tbody>
+            <tr><td>Castor oil（蓖麻油）</td><td>Lipase 水解 → Ricinoleic acid → 刺激腸黏膜＋完全排空</td><td>小動物 4–8h／大動物 12–18h</td><td>低毒性、腹痛；<strong>主要用非反芻動物</strong></td></tr>
+            <tr><td>Bisacodyl</td><td>Diphenylmethane 類，腸溶製劑或栓劑</td><td>口服 &gt;6h；灌腸起效更快</td><td>OTC 可取得</td></tr>
+            <tr><td>Anthraquinones（Aloe、Cascara、Senna）</td><td>植物糖苷 → 腸道菌活化 aglycones → 刺激 myenteric plexuses</td><td>小動物 6–14h／大動物 12–36h</td><td>長期使用 → 腸肌叢退化（cathartic colon）</td></tr>
+            <tr><td>Phenolphthalein</td><td>Diphenylmethane 類，pH 指示劑</td><td>—</td><td>靈長類／豬強效；潛在致癌性</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">瀉劑注意事項總結</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;">
+          <li><strong>Lactulose：脫水動物禁用</strong>（高滲透壓加重脫水）</li>
+          <li>Mineral oil：口服有誤吸風險，優先直腸灌腸；長期口服干擾脂溶性維生素吸收</li>
+          <li>Anthraquinones：長期使用 → myenteric plexus 退化</li>
+          <li>Castor oil：主要用非反芻動物，反芻動物需特別謹慎</li>
+        </ul>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PROKINETICS -->
+    <div class="section" id="section-prokinetics">
+      <div class="section-head"><div class="section-num">6</div><h2>促腸蠕動藥 Prokinetics</h2></div>
+      <p class="section-desc">促腸蠕動藥的作用機轉圍繞抑制性受體（D2、5-HT3）的「解除抑制」與興奮性受體（5-HT4、M3、Motilin）的「直接活化」兩條路徑。</p>
+
+      <h3>促腸蠕動藥作用機轉全圖</h3>
+      <div class="flow">
+        <div class="flow-node">腸道 DA → D2R 活化 → ↓ACh 釋放 → ↓蠕動</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">D2 antagonist（disinhibition）→ 恢復 ACh → ↑蠕動</div>
+      </div>
+      <ul>
+        <li>腸道 5-HT3（inhibitory interneurons）抑制 myenteric neurons ← <strong>Metoclopramide</strong> 阻斷</li>
+        <li>腸道 5-HT4（excitatory interneurons）增強 myenteric neurons ← <strong>Cisapride／Metoclopramide</strong> 激活</li>
+        <li>Bethanechol → M3 agonist → 直接增強平滑肌收縮（非透過神經）</li>
+        <li>Erythromycin → Motilin receptor（22 胺基酸多肽激素）→ 上段 GI 收縮</li>
+      </ul>
+
+      <h3 id="drug-prokinetics">各促腸蠕動藥比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>主要受體機制</th><th>臨床特色</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Metoclopramide</strong></td><td>D2 antagonist（主）＋5-HT4 agonist＋高劑量 5-HT3 antagonist</td><td><strong>PO／SC／IM／IV（含CRI連續輸注）</strong>；穿越 BBB → EPS（錐體外症狀）；馬中樞興奮反應；↑prolactin 促泌乳</td></tr>
+            <tr><td><strong>Cisapride</strong></td><td>5-HT4 agonist（主）→↑ACh；5-HT3 antagonist（止吐）；不作用 D2</td><td><strong>僅PO</strong>（無注射劑型）；無 EPS；貓犬用於胃腸遲緩／逆流食道炎／巨結腸；2000年人用因心律不整下市，藥廠無意重新供應獸醫市場，現僅能透過調劑藥局（compounding pharmacy）取得（新藥 mosapride）</td></tr>
+            <tr><td><strong>Domperidone</strong></td><td>D2 antagonist</td><td><strong>PO</strong>；主要周邊效果，不穿 BBB → 無 EPS；↑prolactin（可用於促乳）</td></tr>
+            <tr><td><strong>Erythromycin</strong></td><td>Motilin receptor agonist</td><td>只作用上段 GI（胃+小腸），對結腸效果小；<strong>0.5–1 mg/kg PO 犬貓</strong>（低於抗菌劑量）；<strong>亦可低劑量緩慢IV給藥</strong>促進上消化道排空（大動物文獻中用於牛隻左側皺胃移位術前／術後促進皺胃排空、犢牛皺胃蠕動不良），給藥途徑須依實際臨床情境與劑量調整；高劑量→嘔吐；也用於逆流食道炎</td></tr>
+            <tr><td><strong>Bethanechol</strong></td><td>Muscarinic M3 agonist（無 nicotinic 活性）</td><td><strong>PO／SC</strong>；不穿 BBB；resistant to ChE；已被 Neostigmine 與 Metoclopramide 取代</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">比較重點</div>
+        <p><strong>Metoclopramide vs Domperidone：前者穿 BBB（EPS）；後者不穿（無 EPS，促泌乳）</strong>。Cisapride 以 5-HT4 為主要機制、無 D2 作用，教科書指出其促腸蠕動效果是所有此類藥物中最強的，且在貓還有一條獨立於膽鹼機制之外、直接刺激平滑肌的路徑；Erythromycin prokinetic 是 motilin agonist，非 D2/5-HT 機制，只對上段 GI 有效；Misoprostol 也可刺激結腸收縮，可視為 colon 的 prokinetic。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ANTIDIARRHEAL -->
+    <div class="section" id="section-antidiarrheal">
+      <div class="section-head"><div class="section-num">7</div><h2>止瀉藥 Anti-Diarrheal Drugs</h2></div>
+      <p class="section-desc">Opioids 是最有效的止瀉藥，但使用時機需嚴格排除感染性腹瀉。</p>
+
+      <h3 id="drug-opioidantidiarrheal">鴉片類止瀉機制</h3>
+      <div class="flow">
+        <div class="flow-node">Opioid receptors on enteric nerves</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">↓ACh release → ↑節段性（非推進性）收縮</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">↓推進性蠕動 → 腸內容物通過時間延長 → 水分吸收↑</div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p><strong>感染性腹瀉禁用</strong>：腸蠕動↓ → 病原留在腸道 → 症狀加重。Paregoric（阿片樟腦酊）：貓使用有爭議（興奮反應）。</p>
+      </div>
+
+      <h3>Diphenoxylate vs Loperamide</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>特性</th><th>Diphenoxylate</th><th>Loperamide（Imodium®）</th></tr></thead>
+          <tbody>
+            <tr><td>結構</td><td>Meperidine 衍生物</td><td>Meperidine 衍生物</td></tr>
+            <tr><td>效力</td><td>標準</td><td>50× morphine（最強）</td></tr>
+            <tr><td>BBB</td><td>穿越 BBB</td><td><strong>不穿 BBB（重要）</strong></td></tr>
+            <tr><td>購買</td><td>處方藥</td><td>OTC（非處方）</td></tr>
+            <tr><td>特別配方</td><td>Lomotil® = diphenoxylate ＋ atropine（atropine 劑量不足治療效果，目的是高劑量使用產生不適感以降低濫用）</td><td>—</td></tr>
+            <tr><td>貓</td><td>謹慎</td><td>謹慎（可能興奮反應）</td></tr>
+            <tr><td>副作用</td><td>CNS 副作用（BBB 穿透）</td><td>便秘、腹脹、鎮靜</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-adsorbents">吸附劑與保護劑</h3>
+      <ul>
+        <li><strong>Kaolin-pectin（高嶺土-果膠）</strong>：hydrated aluminum silicate，吸附細菌毒素、保護腸黏膜</li>
+        <li><strong>Bismuth subsalicylate</strong>：cytoprotective＋antimicrobial＋抑制 pepsin 活性；可造成黑便；<strong>貓禁用</strong>（水楊酸敏感）</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ANTIEMETICS -->
+    <div class="section" id="section-antiemetics">
+      <div class="section-head"><div class="section-num">8</div><h2>嘔吐路徑與止吐藥 Emesis Pathways &amp; Antiemetics</h2></div>
+      <p class="section-desc">理解嘔吐訊號匯聚到 emetic center 的四條路徑，是選擇止吐藥（尤其化療嘔吐）的關鍵邏輯。</p>
+
+      <h3>嘔吐觸發路徑（化療嘔吐重要）</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">① 前庭 Vestibular</div><p>M ＋ H1 receptors → Emetic center</p></div>
+        <div class="card"><div class="card-title">② CTZ（area postrema，BBB 弱）</div><p>5-HT3、D2、M、H1、α2 → Emetic center</p></div>
+        <div class="card"><div class="card-title">③ NST（nucleus of solitary tract）</div><p>5-HT3、D2、M、H1 → Emetic center；接收 vagal afferents（來自 GI EC cells 5-HT3）</p></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">化療嘔吐機轉</div>
+        <p>化療 → EC cells 損傷 → 大量 5-HT 釋放 → 5-HT3 on vagal afferents → <strong>Ondansetron 在外周 5-HT3 攔截，作用在最上游，效果最好</strong>；相對地 Phenothiazines（D2 blocker）只阻斷 CTZ/NST 端的 D2 路徑，效果較弱。</p>
+      </div>
+
+      <h3 id="drug-antiemeticclass">止吐藥分類表<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物類別</th><th>代表藥</th><th>作用部位</th><th>主要適應症</th></tr></thead>
+          <tbody>
+            <tr><td>H1 拮抗劑</td><td>Cyclizine、Diphenhydramine、Dimenhydrinate、Meclizine</td><td>Vestibular / Emetic center</td><td>暈動症（需預防性使用）</td></tr>
+            <tr><td>Antimuscarinic</td><td>Scopolamine（Hyoscine）</td><td>Vestibular</td><td>暈動症；貓犬效果差</td></tr>
+            <tr><td>5-HT3 拮抗劑</td><td>Ondansetron、Tropisetron</td><td>GI vagal afferents / NST</td><td>化療誘發嘔吐（最有效）</td></tr>
+            <tr><td>D2 拮抗劑</td><td>Phenothiazines、Butyrophenones、Metoclopramide</td><td>CTZ / NST → Emetic center</td><td>化療輔助；胃腸炎</td></tr>
+            <tr><td>NK1 拮抗劑</td><td><strong>Maropitant (Cerenia)</strong>、Aprepitant</td><td>Emetic center（Substance P）</td><td>廣效；急性嘔吐＋暈動症</td></tr>
+            <tr><td>Glucocorticoids</td><td>Dexamethasone</td><td>抑制 PG 合成</td><td>化療止吐輔助</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-maropitant">Maropitant（Cerenia®）— NK1 Antagonist</h3>
+      <ul>
+        <li>Substance P（tachykinin/neurokinin）→ NK1 receptor 位於嘔吐中樞（nucleus tractus solitarius）；不同於傳統止吐藥只阻斷單一輸入路徑（前庭／CTZ／GI），NK1 拮抗劑可同時阻斷多來源訊號匯入嘔吐中樞，因此屬廣效機轉</li>
+        <li><strong>廣效止吐</strong>：急性嘔吐＋暈動症（vestibular＋central）；犬貓均可；效果優於 Metoclopramide（pilot studies）；主要肝臟代謝（犬 CYP2D15、CYP3A1）</li>
+        <li>額外效果：<strong>↓麻醉用量</strong>（犬腹部手術）；<strong>↓犬慢性支氣管炎咳嗽</strong>（NK1 也位於 cough center）</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：核准與劑量</div>
+        <p>Maropitant 於 2007 年獲 FDA 核准用於犬，2012 年擴及貓。標準劑量：SC 1 mg/kg QD（最多連續 5 天）或 PO 2 mg/kg QD（最多連續 5 天）；暈動症預防用 PO 8 mg/kg（最多連續 2 天）。原始仿單限制注射僅能 SC（部分犬貓 SC 注射會疼痛），後續藥廠另取得 IV 給藥核准，用於預防麻醉／醫療處置相關嘔吐。血漿半衰期雖僅 SC 7.75 h／PO 4–5.5 h，但因與中樞 NK1 受體結合，藥效可持續 24 小時以上。（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）</p>
+      </div>
+
+      <h3>H1 抗組織胺藥與 Scopolamine／Propantheline</h3>
+      <ul>
+        <li>第一代抗組織胺（鎮靜＋antimuscarinic）：Diphenhydramine、Chlorpheniramine、Promethazine、Cyclizine、Meclizine；第二代（較少鎮靜）：Terfenadine、Astemizole；<strong>暈動症需預防性使用</strong></li>
+        <li>Scopolamine（東莨菪鹼）：結構/藥理類似 atropine，犬貓效果差；N-butylscopolammonium IV → 馬腸絞痛（antispasmodic + antimuscarinic）</li>
+        <li>Propantheline：不穿 BBB；poor oral absorption（&lt;25%）；小動物 PO → 腹瀉/colitis；馬 IV → 鬆弛直腸（用於直腸檢查）</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- EMETICS -->
+    <div class="section" id="section-emetics">
+      <div class="section-head"><div class="section-num">9</div><h2>催吐藥 Emetics</h2></div>
+      <p class="section-desc">催吐藥物種特異性極強，是臨床誤食毒物急診最常用到的知識。</p>
+
+      <ul>
+        <li>NaCl（食鹽）：1 茶匙放入咽部，犬有效</li>
+        <li>Ipecac（吐根）糖漿：emetine 生物鹼，中樞＋外周雙重刺激，systemic amebicide</li>
+      </ul>
+
+      <h3 id="drug-apomorphine">Apomorphine（犬首選催吐劑）<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">Apomorphine → D2 agonist</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">CTZ（area postrema）刺激</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Emetic center → 嘔吐</div>
+      </div>
+      <ul>
+        <li>高首渡效應 → 需 IV 低劑量（IM、SC 亦可）；onset 1 分鐘；duration 3–5 分鐘；T½ 犬 48 分鐘</li>
+        <li><strong>高劑量 → μ receptor 激活 → 反而止吐</strong>；Naloxone（μ blocker）→ 增強催吐效果</li>
+        <li><strong>犬首選催吐劑；不適用於貓</strong>（貓改用 Xylazine）</li>
+        <li><strong>不可重複使用</strong>：嘔吐後嘔吐中樞受抑制 → 重複給藥無效甚至止吐</li>
+        <li>也用於人類 Parkinson's disease 治療（D2 agonist）</li>
+      </ul>
+
+      <h3 id="drug-xylazine">Xylazine（貓首選催吐）</h3>
+      <p><strong>α2 adrenergic agonist</strong> → 在貓透過 α2 receptors 誘發嘔吐；注意 Xylazine 主要是鎮靜/肌鬆藥，催吐是貓特有反應。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- IBD -->
+    <div class="section" id="section-ibd">
+      <div class="section-head"><div class="section-num">10</div><h2>IBD 用藥 Drugs for Inflammatory Bowel Disease</h2></div>
+      <p class="section-desc">Sulfasalazine 的腸道菌分解路徑是本節必考重點。</p>
+
+      <h3 id="drug-sulfasalazine">Sulfasalazine 分解路徑</h3>
+      <div class="flow">
+        <div class="flow-node">Sulfasalazine（口服）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">腸道菌分解</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Sulfapyridine（&lt;30% 吸收）＋ 5-ASA（&lt;10% 全身吸收）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">5-ASA 局部抗炎作用</div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">副作用</div>
+        <p>長期副作用：keratoconjunctivitis（角膜結膜炎）；<strong>貓需監測水楊酸毒性</strong>。<strong>Olsalazine</strong>：兩個 5-ASA 連結、無磺胺基 → 毒性較低（無 keratoconjunctivitis）。</p>
+      </div>
+      <ul>
+        <li><strong>Tylosin</strong>：macrolide 抗生素，用於犬貓 IBD</li>
+        <li><strong>Metronidazole</strong>：①抗厭氧菌（antibacterial）②抑制細胞免疫反應（immunomodulatory）</li>
+        <li>Immunosuppressants（azathioprine）＋ Glucocorticoids（prednisolone）</li>
+        <li>Probiotics（益生菌）可能有益</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- APPETITE -->
+    <div class="section" id="section-appetite">
+      <div class="section-head"><div class="section-num">11</div><h2>食慾促進劑與抗肥胖藥</h2></div>
+      <p class="section-desc">食慾促進劑的物種特異性（貓犬效果差異）是這節的核心考點。</p>
+
+      <h3 id="drug-appetite">食慾促進劑比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機制</th><th>物種特異性</th><th>注意</th></tr></thead>
+          <tbody>
+            <tr><td>Cyproheptadine</td><td>H1＋5-HT receptor 拮抗</td><td>貓有效，犬效果差</td><td>—</td></tr>
+            <tr><td>Diazepam／Oxazepam</td><td>GABA-mediated 抑制下視丘飽足中樞</td><td>貓效果好，犬效果差</td><td>BZD 成癮潛力</td></tr>
+            <tr><td><strong>Mirtazapine</strong></td><td>5-HT2/5-HT3/H1/α2 receptor antagonist</td><td>貓犬均有效，<strong>貓優先選用</strong></td><td>SE：鎮靜（H1），用最低有效劑量</td></tr>
+            <tr><td>Glucocorticoids</td><td>機制不明</td><td>短期使用</td><td>SE：胃潰瘍、免疫抑制</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <p><strong>Mirtazapine</strong>：人用抗憂鬱藥，在貓兼具<strong>食慾促進＋止吐效果</strong>；Metoclopramide 也可透過促進胃排空間接提升食慾。</p>
+      </div>
+
+      <h3 id="drug-dirlotapide">抗肥胖藥：Dirlotapide（Slentrol®）</h3>
+      <ul>
+        <li><strong>第一個 FDA 核准用於犬的抗肥胖藥</strong>；主要效果：↓食慾（major）；次要效果：↓脂肪吸收（minor）</li>
+        <li>副作用：厭食、腹瀉、嗜睡、嘔吐</li>
+      </ul>
+      <div class="flow">
+        <div class="flow-node">Dirlotapide / Lomitapide</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">抑制 MTP（Microsomal Triglyceride Transfer Protein）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">↓脂蛋白組裝 → ↓脂質吸收/釋放</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Lomitapide：FDA 2012 核准，用於人類家族性高膽固醇血症。</p>
+
+      <h3>消脹氣劑（反芻動物瘤胃積氣）</h3>
+      <p><strong>Poloxalene</strong>：polymer of ethylene and propylene oxides，surfactant，每日飼料或灌服，改變表面張力以消氣泡；也可用 Polymerized methyl silicone、Vegetable oil。</p>
+
+      <h3>非特異性治療</h3>
+      <p>禁食 12–18 小時（急性 GI 擾亂）；補液與電解質補充（脫水預防首要措施）；飲食調整；Probiotics 可能有益。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">12</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試最愛出「機轉配對」「受體→副作用」「物種差異」三種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>PPI（不可逆）＞H2 blocker＞Antacids（速效）</strong>— 抑酸效力排序；Histamine「markedly enhances」ACh＋Gastrin 誘發的胃酸分泌。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Cimetidine：P450 抑制＋抗雄激素＋腎臟轉運體競爭；Famotidine：效力最強，IV給貓→溶血</strong>；PPI 藥理效果與血漿 T½ 無關，肝病患者需謹慎。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Misoprostol：禁懷孕＋禁IBD；NSAID潰瘍預防首選</strong>；Sucralfate 全身吸收僅3–5%，CRF長期用→Al毒性，需與其他口服藥間隔2小時。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>H. pylori 根除後復發率15%（vs 未根除75%）</strong>；三聯70–85%、四聯75–90%。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Metoclopramide（穿BBB→EPS）vs Domperidone（不穿→無EPS）</strong>；Cisapride以5-HT4為主，2000年人用因QT延長下市（獸醫仍可用）；Erythromycin prokinetic是motilin agonist、低於抗菌劑量。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Maropitant（NK1）廣效止吐</strong>：急性嘔吐＋暈動症，額外↓麻醉用量＋止咳；Ondansetron（5-HT3）化療嘔吐最有效（外周攔截vagal afferents）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Apomorphine（D2）犬催吐首選，不可重複；Xylazine（α2）貓催吐首選</strong>；Loperamide不穿BBB、50×morphine、OTC，感染性腹瀉禁用所有opioid類止瀉藥。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Sulfasalazine→5-ASA抗炎＋貓水楊酸毒性；Olsalazine無磺胺基毒性較低</strong>；Mirtazapine是貓食慾促進+止吐首選；Dirlotapide是第一個FDA核准犬用抗肥胖藥（MTP抑制劑）。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義與共筆整理。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋胃酸抑制、瀉劑、促腸蠕動、止吐、催吐、止瀉、IBD、食慾促進各章節重點，最後三題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪種 H2 blocker 已知會顯著抑制肝臟 CYP450 酵素系統？</div>
+        <ul class="quiz-options">
+          <li>(A) Famotidine</li>
+          <li>(B) Ranitidine</li>
+          <li>(C) Cimetidine</li>
+          <li>(D) Nizatidine</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">Cimetidine 是最早的 H2 blocker，顯著抑制 CYP1A2、2C9、3A4，是藥物交互作用最多的一種；其他 H2 blockers 此問題較少。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Misoprostol 是 PGE1 類似物，透過 EP3 receptor（Gs）增加 cAMP 來抑制胃酸分泌。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">EP3 是 Gi receptor，會使 cAMP↓（不是↑），進而抑制 H⁺/K⁺-ATPase；這是常見的受體偶聯方向陷阱題。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. Domperidone 與 Metoclopramide 相比，較不會引起錐體外症狀（EPS）的原因是？</div>
+        <ul class="quiz-options">
+          <li>(A) 是 5-HT4 agonist 而非 D2 antagonist</li>
+          <li>(B) 不穿越 BBB</li>
+          <li>(C) 不作用於 D2 receptor</li>
+          <li>(D) 主要肝臟代謝</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Domperidone 雖然也是 D2 antagonist，但不穿越 BBB，因此不會造成中樞 D2 blockade 引發的 EPS；Metoclopramide 則會穿越 BBB。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 化療引起嘔吐時，Ondansetron 比 Phenothiazines 更有效的主要原因是？</div>
+        <ul class="quiz-options">
+          <li>(A) Ondansetron 直接抑制嘔吐中樞</li>
+          <li>(B) 化療主要透過 EC cells 釋放 5-HT 刺激 vagal afferents 的 5-HT3，Ondansetron 在此上游攔截</li>
+          <li>(C) Phenothiazines 有嚴重肝毒性</li>
+          <li>(D) Ondansetron 可以穿越血腦障壁</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">化療損傷 GI EC cells → 大量 5-HT 釋放 → 刺激 vagal afferents 上的 5-HT3 receptors → NST → emetic center；Ondansetron 在此路徑最上游（外周）攔截，故效果優於只作用 CTZ/NST 端 D2 受體的 Phenothiazines。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. Apomorphine 是犬與貓共通的首選催吐劑。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Apomorphine（D2 agonist）是犬首選催吐劑，但貓對其效果差；貓的首選催吐劑是 Xylazine（α2 agonist）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 下列關於瀉劑的敘述，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) Lactulose 用於肝性腦病是透過酸化腸腔使 NH3 轉為 NH4⁺</li>
+          <li>(B) Castor oil 適用於反芻動物</li>
+          <li>(C) Psyllium 需要大量水分才能發揮效果</li>
+          <li>(D) Anthraquinones 長期使用可能導致腸神經叢退化</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Castor oil（蓖麻油）主要用於非反芻動物，反芻動物需特別謹慎使用，並非「適用」。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q7. 請說明 NSAID 誘發胃潰瘍的雙重機制，並解釋為何改為注射給藥仍無法完全避免潰瘍風險。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">NSAID 誘發潰瘍有兩個機制：①全身性機制——NSAID 抑制 COX，使 PGE1/PGE2 合成減少，喪失黏液分泌、HCO3 分泌、黏膜血流維持、抑制胃酸分泌這四項保護作用；②局部機制——酸性 NSAID 分子直接刺激胃黏膜。改為注射給藥只能消除局部機制，全身性 COX 抑制（及隨之而來的 PGE 減少）依然存在，因此注射劑型仍有潰瘍風險，不能視為安全的替代方案。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. Loperamide 相較於 Diphenoxylate 的最大臨床優勢是？</div>
+        <ul class="quiz-options">
+          <li>(A) 效力比 Diphenoxylate 弱，較安全</li>
+          <li>(B) 不穿越血腦障壁，CNS 副作用較少，可作為 OTC 藥物</li>
+          <li>(C) 對感染性腹瀉也安全</li>
+          <li>(D) 沒有任何禁忌症</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Loperamide 不穿越 BBB（Diphenoxylate 會穿越），因此 CNS 副作用少，得以成為 OTC 藥物；但兩者皆為 opioid 類止瀉藥，感染性腹瀉皆為禁忌。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q9. 一隻貓因慢性腎病長期食慾不振，你會優先選擇哪一個食慾促進劑？請說明理由與需注意的副作用。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">優先選擇 <strong>Mirtazapine</strong>：貓犬皆有效但貓效果特別好、是貓的首選；其機轉（5-HT2、5-HT3、H1、α2 receptor antagonist）同時提供食慾促進與止吐雙重效果，對慢性腎病常合併噁心的貓相當合適。需注意的副作用是鎮靜（來自 H1 拮抗），應使用最低有效劑量；相對地 Cyproheptadine、Diazepam/Oxazepam 雖然貓也有效，但 BZD 類有成癮疑慮，Diazepam 更有肝毒性風險，較不適合慢性腎病貓長期使用。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q10.【臨床情境】8 歲拉布拉多犬因骨關節炎長期口服 NSAID（carprofen），近三日出現嘔吐、黑便、食慾下降。血檢無明顯異常，觸診上腹部輕微不適。請問：(1) 最可能的診斷與機轉為何？(2) 你會如何選擇治療藥物？(3) 後續若仍需使用 NSAID 控制關節炎，該如何調整用藥策略降低再次潰瘍風險？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 診斷與機轉：</strong>黑便（melena）提示上消化道出血，配合長期 NSAID 使用史，最可能是 <strong>NSAID 誘發性胃潰瘍</strong>。機轉是 NSAID 抑制 COX → PGE1/PGE2↓ → 喪失黏液分泌、HCO3分泌、黏膜血流、胃酸抑制四項保護機制，同時 NSAID 分子本身也局部刺激黏膜（雙重機制）。<br><strong>(2) 治療選擇：</strong>首選 <strong>PPI（Omeprazole）</strong>不可逆抑制 H⁺/K⁺-ATPase、抑酸效果最強；可合併 <strong>Sucralfate</strong> 形成物理保護膜（需與其他口服藥間隔2小時給藥）；<strong>立即停用目前的 NSAID</strong>；血便/黑便明顯時應評估是否需要輸液或輸血支持。<br><strong>(3) 後續調整：</strong>待潰瘍癒合後若仍需消炎止痛，可改用<strong>選擇性 COX-2 抑制劑</strong>降低腸胃副作用；若必須重新使用 NSAID，應<strong>合併 Misoprostol</strong>（NSAID 潰瘍預防首選，補充外源性 PGE1）；並定期監測糞便、食慾與血檢，及早發現復發跡象。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q11.【臨床情境】一隻貓誤食少量百合花花瓣送醫，體重3.5 kg，就診時間為誤食後30分鐘內，目前意識清楚、生命徵象穩定。獸師決定進行催吐處置。請問：(1) 應選擇哪一種催吐藥？(2) 為什麼不能選擇犬常用的那一種？(3) 若第一次給藥後嘔吐效果不佳，可以馬上追加一劑嗎？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 藥物選擇：</strong>貓應選擇 <strong>Xylazine（α2 adrenergic agonist）</strong>，這是貓誘導嘔吐的特有反應機轉。<br><strong>(2) 為何不能用犬常用藥：</strong>犬首選催吐劑是 <strong>Apomorphine（D2 agonist，作用於 CTZ）</strong>，但貓對 Apomorphine 的催吐反應效果差，因此不適合用於貓。<br><strong>(3) 是否可追加：</strong>不建議立即追加，無論是 Apomorphine 或 Xylazine 誘導催吐的原理，都是初次刺激後嘔吐中樞會受到抑制（Apomorphine 高劑量甚至會透過 μ receptor 產生止吐效果），因此重複給藥通常無效甚至可能適得其反；若第一次催吐效果不佳，應改採其他方式（如內視鏡取出或洗胃）而非單純重複給藥。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  acid: '胃酸分泌與消化性潰瘍用藥',
+  nsaidgastric: 'NSAID 誘發胃黏膜損傷機轉',
+  laxatives: '瀉劑與緩瀉劑',
+  prokinetics: '促腸蠕動藥',
+  antidiarrheal: '止瀉藥',
+  antiemetics: '嘔吐路徑與止吐藥',
+  emetics: '催吐藥',
+  ibd: 'IBD 用藥',
+  appetite: '食慾促進劑與抗肥胖藥',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

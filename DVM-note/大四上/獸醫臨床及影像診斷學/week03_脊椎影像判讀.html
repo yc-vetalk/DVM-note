@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫臨床及影像診斷學：脊椎影像判讀 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫臨床及影像診斷學</a><span class="sep">›</span><span class="current">脊椎影像判讀</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">脊椎影像判讀 Diagnostic Imaging: Spinal Cord Diseases</h1>
+      <p class="page-subtitle">影像工具選擇的臨床思路、脊椎攝影技術與擺位、系統性判讀架構（A SPINE）、依異常特徵分類的鑑別診斷，以及常見脊椎疾病的影像特徵整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫臨床及影像診斷學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈Diagnostic Imaging in Small Animal Neurology (spinal cord diseases)〉（張雅珮 Ya-Pei Chang, BVM, MVM, PhD, DipECVN, DAiCVIM (Neurology)，國立臺灣大學獸醫專業學院）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-25</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">臨床思路</div>
+    <a onclick="showSection('approach')" id="nav-approach">
+      <span class="nav-icon">🧭</span> 影像工具選擇
+    </a>
+    <div class="section-label" style="margin-top:8px;">攝影技術</div>
+    <a onclick="showSection('technique')" id="nav-technique">
+      <span class="nav-icon">📷</span> 脊椎攝影技術與擺位
+    </a>
+    <div class="section-label" style="margin-top:8px;">判讀</div>
+    <a onclick="showSection('interpretation')" id="nav-interpretation">
+      <span class="nav-icon">🔍</span> 系統性判讀與鑑別診斷
+    </a>
+    <a onclick="showSection('diseases')" id="nav-diseases">
+      <span class="nav-icon">🩻</span> 常見脊椎疾病影像特徵
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這堂課的主線是「拿到一隻疑似脊髓／脊椎病變的病患，怎麼一步步從神經學檢查走到影像診斷，再從一張脊椎X光片系統性地讀出異常」。先建立<strong>影像工具選擇的思路</strong>——神經學檢查定位病灶所在的脊髓節段，才能決定要不要拍片、拍哪裡、需不需要進階到CT/MRI；接著整理<strong>脊椎攝影的技術細節</strong>（擺位、投照方向、如何減少疊加結構、各區域攝影中心），這些是拍出一張「能被正確判讀」的脊椎X光片的前提。核心是<strong>系統性判讀架構「A SPINE」</strong>與<strong>依異常特徵分類的鑑別診斷</strong>——脊椎X光片的異常大致落在排列、形狀、密度、椎間孔、椎間盤寬度與密度這幾個維度，每個維度都對應一組固定的鑑別診斷清單，這是國考與臨床讀片最常考、也最實用的思考框架。最後整理<strong>六類常見脊椎疾病</strong>（先天性異常、脊椎黏連性關節病、椎間盤感染、脊椎腫瘤、創傷、椎間盤突出退化性疾病與ANNPE）的典型影像特徵。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('approach')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">工具選擇</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">定位先於選片</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('technique')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">攝影技術</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">擺位／投照／中心</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('interpretation')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">系統性判讀</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">A SPINE、鑑別診斷表</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('diseases')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">常見疾病</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">先天／退化／感染／腫瘤／創傷</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">六個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>「Imaging is not everything」：</strong>神經學檢查的病灶定位（lesion localization）必須走在影像檢查之前，決定要拍哪個區域、需不需要進階到CT/MRI；影像上看到的異常還要進一步判斷<strong>臨床意義（significant vs. insignificant）</strong>，不是每個異常發現都是造成目前症狀的原因。</li>
+          <li><strong>A SPINE 是系統性判讀脊椎X光片的口訣：</strong>Alignment（排列）、Soft tissues（周圍軟組織）、Processes（各突起構造）、Interior＝vertebral canal（椎管內部）、Nerves/spinal cord＝intervertebral foramen（椎間孔，神經根通過處）、Exterior＝vertebral body與intervertebral disc（椎體與椎間盤外部）。</li>
+          <li><strong>脊椎X光片的異常大致分成六個維度各有固定鑑別診斷：</strong>排列異常、椎體形狀異常、椎體密度異常、椎間孔大小異常、椎間孔密度異常、椎間盤寬度與密度異常——背熟這張分類表，看到異常先問「這是哪個維度的異常」，再回想對應的鑑別診斷清單。</li>
+          <li><strong>椎間盤感染（discospondylitis）的影像變化會落後於臨床症狀出現：</strong>早期只有終板（endplate）不規則溶解與椎間盤空間變寬或塌陷，晚期才出現硬化、贅生骨形成、甚至相鄰椎體融合；不能因為早期X光正常就排除discospondylitis。</li>
+          <li><strong>ANNPE（急性非壓迫性髓核突出）不同於一般退化性椎間盤疾病：</strong>與創傷相關、主要造成脊髓挫傷而非明顯壓迫，臨床上急性發作、非進行性、神經缺損對應局部脊髓病灶；MRI特徵是椎間盤空間變窄但髓核水合正常（區別於退化性椎間盤的髓核脫水），T2W於椎間盤旁呈現高訊號。</li>
+          <li><strong>脊椎腫瘤依來源與位置分類：</strong>原發性腫瘤通常侵犯單一椎體、具侵襲性（骨溶解／骨增生／混合性變化）；轉移性腫瘤常侵犯一個以上椎體並可能合併其他骨骼病灶、多為骨溶解性、可合併病理性骨折；位置上再區分是否侵犯椎管內部。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- APPROACH -->
+    <div class="section" id="section-approach">
+      <div class="section-head"><div class="section-num">2</div><h2>影像工具選擇 Which One to Choose?</h2></div>
+      <p class="section-desc">面對疑似脊髓／脊椎病變的病患，選擇影像工具不是「先拍了再說」，而是先透過神經學檢查建立初步方向。</p>
+
+      <div class="flow">
+        <div class="flow-node">神經學檢查</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">病灶定位<br><span style="font-size:.85em; color:var(--fg-faint);">對應脊髓節段</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">鑑別診斷</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">適當的影像檢查計畫</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">準確診斷</div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>Imaging is not everything!!!</strong> 影像檢查是輔助工具，不能取代神經學檢查的病灶定位；拿到影像報告後，還要判斷每一項發現對目前臨床症狀而言是<strong>有意義（significant）還是無意義的意外發現（insignificant）</strong>——例如一隻因腰薦椎病灶就診的犬，若同時在胸腰椎看到輕微脊椎黏連性關節病（spondylosis deformans），後者很可能只是無症狀的意外發現，不是造成目前症狀的原因。</p>
+      </div>
+
+      <h4>依構造選擇影像工具</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:30%;">構造</th><th>適合的影像工具</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CNS 本體</strong>（腦、脊髓實質）</td><td>對脊髓實質本身（脊髓水腫、脊髓內出血、脊髓壓迫程度）敏感度最高的是<strong>MRI</strong>；CT對骨性結構與部分髓內病灶也有幫助，但軟組織對比度不如MRI。</td></tr>
+            <tr><td><strong>脊椎周邊構造</strong>（骨骼、椎間盤、周圍軟組織）</td><td><strong>X光（radiography）</strong>是評估脊椎骨骼排列、形狀、密度最快速可近的第一線工具；<strong>CT</strong>對骨性細節（如骨折、鈣化椎間盤物質）解析度更高。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>選擇任何一種影像技術時，都要問四個問題：<strong>擅長顯示哪個構造？優點是什麼？缺點與限制是什麼？醫院是否有這項設備（可近性）？</strong>X光的優勢是快速、可近性高、可在門診下完成，缺點是對脊髓實質本身幾乎沒有直接顯影能力，且是二維疊加影像（見<a href="week03_X光學基礎.html#section-twodim">X光學基礎：二維影像的先天限制</a>）；關於CT與MRI各自的物理原理、脈衝序列選擇與訊號判讀邏輯，見<a href="week04_CT與MRI原理.html">CT與MRI原理</a>，本頁聚焦在X光片本身如何系統性判讀。</p>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TECHNIQUE -->
+    <div class="section" id="section-technique">
+      <div class="section-head"><div class="section-num">3</div><h2>脊椎攝影技術與擺位 Radiography – Spine</h2></div>
+      <p class="section-desc">要從X光片得到最大的診斷價值，取決於「怎麼拍」——正確的擺位、投照方向、避免疊加結構干擾，以及正確的攝影中心。</p>
+
+      <h4>脊椎節區解剖總覽</h4>
+      <p>脊椎依區域分為頸椎（cervical）、胸椎（thoracic）、腰椎（lumbar）、薦椎（sacral）、尾椎（caudal），各節區椎體形狀有明顯差異（棘突方向、椎體大小、關節突角度），熟悉正常解剖形狀是辨認異常形狀的前提。</p>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p8.png" alt="犬頸椎外側位X光片與對應頸椎骨骼標本">
+        <div class="figure-caption">頸椎（cervical spine）外側位X光片與對應椎體標本：頸椎椎體相對細長、棘突低平，C1（寰椎）與C2（軸椎）形狀特殊易於辨認。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p9.png" alt="犬胸椎外側位X光片與對應胸椎骨骼標本，棘突明顯向後傾斜">
+        <div class="figure-caption">胸椎（thoracic spine）外側位X光片與對應標本：胸椎棘突明顯向尾側傾斜且逐漸增高，與肋骨相連。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p10.png" alt="胸腰椎交界處外側位X光片與對應標本，棘突方向由後傾轉為前傾">
+        <div class="figure-caption">胸腰椎交界處（thoraco-lumbar junction）：棘突方向在此區由尾側傾斜逐漸轉為顱側傾斜，是解剖學上的轉換點，也是臨床上機械應力集中、椎間盤突出好發的區域之一。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p12.png" alt="全脊椎VD投照X光片與對應背側觀骨骼標本">
+        <div class="figure-caption">VD（ventrodorsal）投照的全脊椎影像與對應標本背側觀：VD／DV投照可評估脊椎左右排列是否居中、椎弓根與橫突形狀。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+
+      <h4>良好脊椎攝影的五個要素</h4>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>適當的病患擺位</strong>（adequate animal position）</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>正確的照野範圍與中心</strong>（correct area and center）</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>符合脊椎攝影的曝光參數</strong>（parameters for vertebrae）</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>完整的判讀</strong>（thorough interpretation）</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>好的診斷價值</strong>（good diagnostic value）——以上四步驟環環相扣的結果</div></div>
+
+      <h4>病患擺位</h4>
+      <p>脊椎攝影對擺位精確度要求高，常見的保定方式：</p>
+      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>物理保定</strong>（physical restraint）</li>
+        <li><strong>機械式保定裝置</strong>（mechanical restraint）：沙袋、泡棉墊、繩索等輔助固定姿勢</li>
+        <li><strong>鎮靜或全身麻醉</strong>（sedation or anesthesia）——尤其疼痛或躁動的病患，確保姿勢標準且病患不因疼痛掙扎而移動</li>
+      </ul>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p16.png" alt="使用泡棉墊與沙袋固定犬隻姿勢進行脊椎攝影的實際擺位照片">
+        <div class="figure-caption">實際擺位範例：以泡棉墊與沙袋固定四肢與頭頸部，維持病患對稱、標準的姿勢。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+
+      <h4>標準投照方向</h4>
+      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>外側位</strong>（lateral projection）</li>
+        <li><strong>腹背位</strong>（ventrodorsal projection, VD）</li>
+        <li><strong>斜位</strong>（oblique projection）</li>
+        <li><strong>屈曲與伸展外側位</strong>（flexion and extension lateral projections）——用於評估動態不穩定性，如寰樞椎不穩定</li>
+        <li><strong>牽引</strong>（traction）——用於區分固定性與可復位性的病灶</li>
+      </ul>
+
+      <h4>減少疊加結構：外側位</h4>
+      <p>外側位攝影時，四肢容易與脊椎重疊，依區域調整拉肢方向：</p>
+      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>頸椎：</strong>前肢向尾側牽拉</li>
+        <li><strong>胸腰椎：</strong>前肢向頭側牽拉、後肢向尾側牽拉</li>
+      </ul>
+      <p>判讀時可利用的解剖學標記（landmarks）：<strong>C1、C6</strong>、胸椎棘突與胸骨柄的相對位置、肩胛骨、腸骨嵴。</p>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p19.png" alt="前肢分別向頭側與尾側牽拉的頸椎外側位X光片比較，右上為對應骨骼標本">
+        <div class="figure-caption">前肢牽拉方向對頸椎外側位影像的影響：不同牽拉方向會改變前肢骨骼與頸椎的重疊程度，攝影時需依感興趣的節區調整。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+
+      <h4>減少疊加結構：VD／DV</h4>
+      <p>VD／DV投照時常見的干擾物：氣管內管（endotracheal tube）、頭骨與C1的重疊。判讀標記：<strong>C1、C6</strong>、胸骨、肩關節／肘關節／髖關節／膝關節（stifle）是否對稱。</p>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p25.png" alt="三張頸椎VD投照比較，展示氣管內管與頭骨重疊對影像判讀的干擾">
+        <div class="figure-caption">VD投照頸椎的常見干擾：氣管內管與頭骨陰影可能與C1重疊，判讀前應先辨識並排除這些非解剖構造的干擾。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+
+      <h4>攝影中心（Center）</h4>
+      <p>攝影中心的選擇要考量兩個因素：<strong>神經學檢查的病灶定位</strong>（脊髓節段不完全對應同編號的椎體）、<strong>是否涵蓋了所有可能造成臨床症狀的區域</strong>。實務上常用的區域攝影中心：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>區域</th><th>攝影中心</th></tr></thead>
+          <tbody>
+            <tr><td>頸椎（cervical）</td><td>C3–C4</td></tr>
+            <tr><td>頸胸交界（cervico-thoracic）</td><td>C7–T1</td></tr>
+            <tr><td>胸椎（thoracic）</td><td>T6–T7（肩胛骨尾側緣）</td></tr>
+            <tr><td>胸腰交界（thoraco-lumbar）</td><td>T13–L1</td></tr>
+            <tr><td>腰椎（lumbar）</td><td>L3–L4（最後一根肋骨與髖關節之間）</td></tr>
+            <tr><td>腰薦交界（lumbo-sacral）</td><td>L7–S1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- INTERPRETATION -->
+    <div class="section" id="section-interpretation">
+      <div class="section-head"><div class="section-num">4</div><h2>系統性判讀與鑑別診斷</h2></div>
+      <p class="section-desc">脊椎X光片的判讀分兩層：先確認影像品質與位置無誤，再依固定架構逐項檢查，避免遺漏。</p>
+
+      <h4>讀片前檢查清單</h4>
+      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>病患身分確認</strong>（patient ID）</li>
+        <li><strong>確認投照方向與左右</strong>（determine the position：projection、right or left）</li>
+        <li><strong>影像品質是否合格？</strong>：足夠的細節與對比度、攝影中心是否正確（proper centering）、準直是否適當（proper collimation）、沖洗／處理是否正確（proper processing）</li>
+      </ul>
+
+      <h4>A SPINE 系統性判讀口訣</h4>
+      <div class="flow">
+        <div class="flow-node accent">A<br><span style="font-size:.85em;">Alignment</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">S<br><span style="font-size:.85em;">Soft tissues</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">P<br><span style="font-size:.85em;">Processes</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">I<br><span style="font-size:.85em;">Interior：vertebral canal</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">N<br><span style="font-size:.85em;">Nerves：intervertebral foramen</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">E<br><span style="font-size:.85em;">Exterior：body／disc</span></div>
+      </div>
+      <p>具體操作時，「Alignment」「Exterior」兩項可再細分為：脊椎<strong>排列</strong>是否整齊、椎體<strong>形狀</strong>是否正常、椎體<strong>密度</strong>是否正常、<strong>椎間孔</strong>大小與密度是否正常、<strong>椎間盤空間</strong>寬度與密度是否正常——這六個維度正是下方鑑別診斷表的分類依據。</p>
+
+      <h4>依異常特徵分類的鑑別診斷</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">異常特徵</th><th>可能鑑別診斷</th></tr></thead>
+          <tbody>
+            <tr><td><strong>脊椎排列</strong>（alignment）</td><td>脊椎彎曲（spinal curvature）、外傷性骨折或脫臼（traumatic fracture/luxation）、<strong>寰樞椎不穩定</strong>（atlanto-axial instability）、腰薦椎不穩定（lumbosacral instability）</td></tr>
+            <tr><td><strong>椎體形狀</strong>（shape）</td><td>先天性異常（congenital anomaly）、骨折（fracture）、感染（infection）、腫瘤（neoplasia）、<strong>脊椎黏連性關節病</strong>（spondylosis deformans）、黏多醣症（mucopolysaccharidosis）</td></tr>
+            <tr><td><strong>椎體密度</strong>（opacity）</td><td>密度增加：骨質硬化症（osteopetrosis）、骨髓炎（osteomyelitis）、腫瘤、癒合中或已癒合骨折；密度減少：骨質疏鬆（osteoporosis）、腫瘤、骨髓炎</td></tr>
+            <tr><td><strong>椎間孔大小</strong>（foramen size）</td><td>變小：椎間盤脫出併椎間盤空間變窄、鄰近椎體增生性骨腫瘤、外傷、癒合椎（block vertebra）；變大：神經根或周圍軟組織腫瘤、手術後、外傷</td></tr>
+            <tr><td><strong>椎間孔密度</strong>（foramen opacity）</td><td>密度增加：鈣化椎間盤物質、硬腦（脊）膜骨化（ossifying pachymeningitis）、鄰近椎體增生性骨病灶、異物</td></tr>
+            <tr><td><strong>椎間盤空間寬度</strong>（IVD width）</td><td>變窄：椎間盤突出或膨出、慢性椎間盤感染、骨折或脫臼、擺位偽像；變寬：急性椎間盤感染、骨折或脫臼</td></tr>
+            <tr><td><strong>椎間盤空間密度</strong>（IVD opacity）</td><td>密度增加：椎間盤鈣化、側面脊椎黏連性關節病疊加；密度減少（增加透光性）：急性椎間盤感染、氣體（vacuum phenomenon）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p39.png" alt="T12-T13脊椎排列異常X光片，箭頭標示脫位位置">
+          <div class="figure-caption"><strong>排列異常範例：</strong>T12–T13 脊椎半脫位（sub-luxation），箭頭處可見椎體排列中斷。</div>
+        </div>
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p41.png" alt="寰樞椎不穩定，中立位與伸展位比較，可見寰椎與樞椎間角度異常增大">
+          <div class="figure-caption"><strong>排列異常範例：</strong>寰樞椎不穩定，中立位（Neutral）與伸展位（Extension）比較，伸展時可見寰樞椎間角度異常增大。</div>
+        </div>
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p40.png" alt="半椎體，虛線圈標示形狀異常的楔形椎體">
+          <div class="figure-caption"><strong>形狀異常範例：</strong>半椎體（hemivertebrae），虛線圈處椎體呈楔形，屬先天性異常。</div>
+        </div>
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p45.png" alt="密度異常範例，實心箭頭標示脊椎黏連性關節病贅生骨，空心箭頭標示腫瘤造成的骨溶解">
+          <div class="figure-caption"><strong>密度異常範例：</strong>同一張影像上，實心箭頭＝脊椎黏連性關節病造成的贅生骨（骨密度增加）；空心箭頭＝腫瘤造成的骨溶解（骨密度減少）。</div>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p56.png" alt="椎間盤空間寬度異常，上圖增寬為急性椎間盤感染，下圖變窄為慢性椎間盤感染">
+        <div class="figure-caption"><strong>椎間盤空間寬度異常範例：</strong>上圖椎間盤空間增寬＝急性椎間盤感染（acute discospondylitis）；下圖椎間盤空間變窄＝慢性椎間盤感染（chronic discospondylitis）——同一種疾病在不同病程階段可呈現相反方向的椎間盤寬度變化。</div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p>臨床上遇到任何影像異常，除了上表的部位別鑑別診斷，也可以套用通用的病因分類口訣（不同教科書字母順序略有差異，常見版本為<strong>VITAMIN D</strong>或<strong>DAMNIT V</strong>）：血管性（Vascular）、發炎／感染性（Inflammatory/Infectious）、外傷性（Traumatic）、先天性／自體免疫性（Anomalous/Autoimmune）、代謝性（Metabolic）、醫源性／特發性（Iatrogenic/Idiopathic）、腫瘤性／營養性（Neoplastic/Nutritional）、退化性（Degenerative）——幫助確認鑑別診斷清單沒有漏掉整個病因類別。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- DISEASES -->
+    <div class="section" id="section-diseases">
+      <div class="section-head"><div class="section-num">5</div><h2>常見脊椎疾病影像特徵</h2></div>
+      <p class="section-desc">把上一節「依異常特徵分類」的鑑別診斷，對應到六類臨床上最常遇到的脊椎疾病，整理各自的典型影像表現。</p>
+
+      <h3 id="drug-congenital">先天性脊椎異常 Congenital Vertebral Anomalies</h3>
+      <p>多數為<strong>亞臨床（subclinical）意外發現</strong>，僅在造成脊椎不穩定或神經壓迫時才有臨床意義。常見類型：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:28%;">類型</th><th>影像特徵</th></tr></thead>
+          <tbody>
+            <tr><td>過渡椎（transitional vertebrae）</td><td>某節椎體同時具備前後兩個區域的解剖特徵（如腰薦過渡椎），常見於腰薦交界處</td></tr>
+            <tr><td>癒合椎（block vertebra）</td><td>相鄰兩節椎體先天融合為一體，椎間盤空間消失</td></tr>
+            <tr><td>半椎體（hemivertebrae）</td><td>椎體僅發育一半，呈楔形，好發於胸椎，可能合併脊椎側彎</td></tr>
+            <tr><td>蝴蝶椎（butterfly vertebra）</td><td>椎體矢狀面發育缺陷，VD投照呈蝴蝶翅膀狀分裂外觀</td></tr>
+            <tr><td>脊柱裂（spina bifida）</td><td>椎弓背側未完全癒合閉合</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p61.png" alt="過渡椎外側位與VD投照X光片">
+          <div class="figure-caption">過渡椎（transitional vertebrae）</div>
+        </div>
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p62.png" alt="癒合椎外側位與VD投照X光片，相鄰椎體融合">
+          <div class="figure-caption">癒合椎（block vertebra）</div>
+        </div>
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p64.png" alt="蝴蝶椎外側位與VD投照X光片，VD投照呈分裂狀">
+          <div class="figure-caption">蝴蝶椎（butterfly vertebra），VD投照可見椎體呈分裂狀外觀</div>
+        </div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 半椎體（hemivertebrae）影像範例見上方<a href="#section-interpretation" onclick="showSection('interpretation')">系統性判讀與鑑別診斷</a>小節。</p>
+
+      <h3 id="drug-spondylosis">脊椎黏連性關節病 Spondylosis Deformans<span class="tag tag-exam">重要</span></h3>
+      <p>退化性、增生性的脊椎疾病，在椎間盤纖維環（annulus fibrosus）處形成骨性增生（osteophyte／enthesophyte），從小骨刺到跨越椎間盤空間的骨橋都可能出現。<strong>多數為亞臨床（subclinical）</strong>，僅小部分病患出現僵硬、活動受限或疼痛，好發於運動犬或工作犬。判讀時最重要的是判斷這個發現對目前症狀是否有臨床意義（見上方「影像工具選擇」的significant vs. insignificant提醒）。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 影像範例見上方<a href="#section-interpretation" onclick="showSection('interpretation')">系統性判讀與鑑別診斷</a>小節（與腫瘤造成的骨溶解並列比較）。</p>
+
+      <h3 id="drug-discospondylitis">椎間盤感染 Discospondylitis<span class="tag tag-exam">重要</span></h3>
+      <p>終板（vertebral endplate）與椎間盤的感染，常合併骨髓炎。<strong>關鍵重點：影像上的變化會落後於臨床症狀的出現</strong>，可能同時侵犯一個以上的椎間盤。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">病程</th><th>影像特徵</th></tr></thead>
+          <tbody>
+            <tr><td><strong>早期</strong></td><td>終板不規則溶解（irregular lysis at endplates）、椎間盤空間變寬或塌陷</td></tr>
+            <tr><td><strong>晚期</strong></td><td>椎間盤空間塌陷、椎體終板硬化（sclerosis）、椎體邊緣贅生骨形成（enthesophyte formation）、癒合過程中相鄰椎體可能融合</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 影像範例見上方<a href="#section-interpretation" onclick="showSection('interpretation')">系統性判讀與鑑別診斷</a>小節（骨溶解合併骨硬化的密度異常範例，以及椎間盤空間寬度變化範例）。</p>
+
+      <h3 id="drug-neoplasia">脊椎腫瘤 Vertebral Neoplasia</h3>
+      <p>依來源與侵犯範圍分類：</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">原發性腫瘤（primary）</div>
+          <p style="margin:0; font-size:.9em; color:var(--fg-muted);">通常侵犯<strong>單一椎體</strong>，具侵襲性（aggressive），呈骨溶解性、骨增生性或混合性變化。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">轉移性腫瘤（metastatic）</div>
+          <p style="margin:0; font-size:.9em; color:var(--fg-muted);">常侵犯<strong>一個以上椎體</strong>，可能合併其他骨骼病灶，多呈骨溶解性，<strong>+/- 病理性骨折</strong>。</p>
+        </div>
+      </div>
+      <p>來源上也可分為：<strong>椎體本身</strong>的腫瘤，或<strong>椎外軟組織</strong>的腫瘤；位置上再區分是否<strong>侵犯椎管內部</strong>或僅侷限於椎管外部——這會直接影響是否合併脊髓壓迫症狀。</p>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p80.png" alt="腰薦椎腫瘤病例，外側位與VD投照皆可見侵襲性骨病變">
+        <div class="figure-caption">脊椎腫瘤病例：腰薦椎區域可見侵襲性的骨溶解合併骨增生變化，範圍廣泛且侵犯周圍軟組織。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+
+      <h3 id="drug-trauma">創傷 Trauma</h3>
+      <p>脊椎創傷主要造成<strong>骨折（fracture）</strong>與<strong>半脫位／脫位（subluxation/luxation）</strong>，X光可初步評估排列與骨折線，但骨折細節、椎管內是否有碎骨片壓迫，CT的解析度優於一般X光。</p>
+      <div class="figure">
+        <img src="img/脊椎影像學/sp_p87.png" alt="L1骨折合併T13-L1半脫位的外側位X光片">
+        <div class="figure-caption">創傷案例：L1骨折合併T13/L1半脫位，可見脊椎排列明顯中斷。</div>
+        <div class="figure-source">來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉</div>
+      </div>
+
+      <h3 id="drug-ivdd">椎間盤突出退化性疾病 vs. ANNPE<span class="tag tag-exam">重要</span></h3>
+      <p>兩者都表現為椎間盤相關的脊髓病灶，但機轉、病程與影像特徵不同，是臨床上常混淆、也是國考常考的鑑別重點。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>退化性椎間盤突出（degenerative IVDD）</th><th>ANNPE（急性非壓迫性髓核突出）</th></tr></thead>
+          <tbody>
+            <tr><td>機轉</td><td>椎間盤退化，髓核或纖維環物質突出／膨出壓迫脊髓</td><td>與外傷相關，主要造成脊髓挫傷（contusion），<strong>壓迫程度輕微</strong></td></tr>
+            <tr><td>臨床病程</td><td>可急性或慢性、可進行性惡化</td><td><strong>急性發作、非進行性</strong>，神經缺損對應局部脊髓病灶，+/- 脊椎疼痛</td></tr>
+            <tr><td>X光</td><td>椎間盤空間變窄、椎間孔變窄、椎間盤物質鈣化（disc space或foramen內）</td><td>椎間盤空間變窄、<strong>無脊椎不穩定</strong></td></tr>
+            <tr><td>脊髓造影</td><td>硬膜外壓迫（extradural compression）</td><td>椎間盤空間旁局限性髓內病灶，<strong>無或僅輕微硬膜外壓迫</strong></td></tr>
+            <tr><td>CT</td><td>椎管內可見鈣化物質</td><td>（較少作為首選）</td></tr>
+            <tr><td>MRI</td><td>椎間盤退化訊號、脊髓受壓，<strong>+/- 脊髓水腫（不常見）</strong></td><td>椎間盤空間變窄但<strong>髓核水合正常、體積減少</strong>（區別於退化性椎間盤的髓核脫水）；椎間盤旁<strong>T2W呈高訊號</strong>；<strong>+/- 髓內出血</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p95.png" alt="退化性椎間盤突出的X光、CT重組與螺旋CT影像比較">
+          <div class="figure-caption">退化性椎間盤突出：X光、CT重組影像、螺旋CT橫切面比較，CT可清楚顯示椎間盤鈣化物質侵入椎管的範圍。</div>
+        </div>
+        <div class="figure">
+          <img src="img/脊椎影像學/sp_p96.png" alt="退化性椎間盤突出的MRI T1與T2矢狀面及橫切面影像">
+          <div class="figure-caption">退化性椎間盤突出的MRI：T1SAG／T2SAG矢狀面與T1TRA／T2TRA橫切面，可見椎間盤物質壓迫脊髓；T1／T2加權序列的判讀邏輯見<a href="week04_CT與MRI原理.html#drug-t1t2">CT與MRI原理：T1W／T2W</a>。</div>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">臨床情境整合</div>
+        <p><strong>案例：</strong>4歲、公、德國牧羊犬，3週漸進性病史，不願跳躍、坐下時發出尖叫聲、步態異常；理學檢查發現腰薦部位觸診敏感（hyperesthesia）；神經學檢查提示病灶位於<strong>L6–S1脊髓節段或神經根</strong>。影像所見：L3/4至L7/S1多節椎間盤空間可見不同程度贅生骨；<strong>L7終板呈骨溶解合併骨增生變化、S1顱側終板明顯骨溶解</strong>。診斷：主要診斷為<strong>L7/S1椎間盤感染（discospondylitis）</strong>；其餘節區的脊椎黏連性關節病則判斷為<strong>意外發現，臨床意義不明</strong>——這正是本頁一開始強調的「significant vs. insignificant」判斷在真實病例上的應用。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉（張雅珮）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">6</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試最愛出「A SPINE配對」「鑑別診斷分類」「discospondylitis vs. ANNPE」三種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>影像檢查前先做神經學檢查定位：</strong>影像不能取代神經學定位，且發現的異常要區分是否為造成目前症狀的原因（significant）或意外發現（insignificant）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>攝影技術決定影像品質：</strong>正確擺位、投照方向、減少疊加結構（依區域調整四肢牽拉方向、排除ET tube等干擾物）、正確攝影中心（依區域對應椎體）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>A SPINE：</strong>Alignment、Soft tissues、Processes、Interior（vertebral canal）、Nerves（intervertebral foramen）、Exterior（body／disc）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>六維度鑑別診斷：</strong>排列、形狀、密度（椎體）、大小、密度（椎間孔）、寬度與密度（椎間盤空間），每個維度各自對應一組固定的鑑別診斷清單。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Discospondylitis：</strong>影像變化落後於臨床症狀；早期終板溶解＋椎間盤空間變寬或塌陷，晚期硬化＋贅生骨＋可能融合。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>脊椎腫瘤：</strong>原發性＝單一椎體、侵襲性；轉移性＝多椎體＋/−其他骨骼、多骨溶解性＋/−病理性骨折。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>退化性IVDD vs. ANNPE：</strong>前者椎間盤退化壓迫脊髓、可進行性惡化；後者與外傷相關、脊髓挫傷為主、急性非進行性、MRI上髓核水合正常但椎間盤旁T2W高訊號。</div></div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈Diagnostic Imaging in Small Animal Neurology〉（張雅珮）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">7</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋影像工具選擇思路、A SPINE判讀口訣、依異常特徵分類的鑑別診斷、discospondylitis與ANNPE各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 一隻犬的脊椎X光片上，在T12/T13椎間盤空間看到明顯的贅生骨橋接兩側椎體，但這隻犬因後肢急性無力就診，神經學檢查定位病灶在L4-S3節段。關於這個贅生骨發現，下列敘述何者最恰當？</div>
+        <ul class="quiz-options">
+          <li>(A) 這一定是造成後肢無力的主要原因，應立即安排手術</li>
+          <li>(B) 這是脊椎黏連性關節病（spondylosis deformans），位置與神經學定位不符，臨床意義可能不明顯，應合併其他節區的影像所見一併判斷</li>
+          <li>(C) 這代表椎間盤感染，應立即給予抗生素治療</li>
+          <li>(D) X光看到贅生骨即可排除椎間盤突出的可能性</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">脊椎黏連性關節病多為亞臨床的意外發現，好發於胸腰椎交界處；本題神經學定位在L4-S3，與T12/T13的發現位置不符，應優先考慮這是意外發現，並繼續尋找L4-S3節段對應區域是否有其他更符合臨床表現的影像異常，而非直接把贅生骨當成診斷。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 依A SPINE判讀口訣，評估椎間孔（intervertebral foramen）大小與密度屬於下列哪一項？</div>
+        <ul class="quiz-options">
+          <li>(A) Alignment</li>
+          <li>(B) Processes</li>
+          <li>(C) Nerves（＝intervertebral foramen）</li>
+          <li>(D) Exterior</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">A SPINE口訣中，N代表Nerves／spinal cord，對應的解剖構造是椎間孔（intervertebral foramen）——神經根通過的位置；I則代表Interior，對應椎管（vertebral canal）本身。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. 椎間盤感染（discospondylitis）在臨床症狀出現的同一時間，X光片上通常已經可以看到明顯的終板溶解與椎間盤空間變化。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Discospondylitis的影像變化會落後於臨床症狀的出現，早期X光可能仍是正常或只有極輕微變化；不能因為症狀初期X光正常就排除discospondylitis，必要時應追蹤複查或搭配其他檢查（如血液培養、CT/MRI）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 下列哪一項發現最符合ANNPE（急性非壓迫性髓核突出）而非典型退化性椎間盤突出的MRI特徵？</div>
+        <ul class="quiz-options">
+          <li>(A) 椎間盤髓核明顯脫水，T2W訊號降低</li>
+          <li>(B) 椎間盤空間變窄，但髓核水合正常、體積減少，椎間盤旁T2W呈高訊號</li>
+          <li>(C) 硬膜外明顯壓迫合併椎間盤物質鈣化</li>
+          <li>(D) 症狀呈慢性進行性惡化超過數個月</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">ANNPE的MRI特徵是椎間盤空間變窄，但髓核水合正常（不像退化性椎間盤那樣脫水），體積減少；因主要造成脊髓挫傷而非壓迫，椎間盤旁T2W呈高訊號反映脊髓實質水腫／挫傷，而非硬膜外壓迫。臨床上ANNPE發作是急性、非進行性的，與外傷相關。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】4歲、公、德國牧羊犬，3週漸進性病史：不願意跳躍、坐下時會尖叫、步態異常。理學檢查發現腰薦部位觸診敏感。神經學檢查提示病灶位於L6–S1脊髓節段或神經根。脊椎X光顯示：L3/4、L4/5、L5/6、L6/7、L7/S1多節椎間盤空間有不同程度的贅生骨；L7椎體尾側終板呈骨溶解合併骨增生變化；S1顱側終板有明顯骨溶解。請問：(1) 最可能的主診斷是什麼？依據為何？(2) 其餘節區的贅生骨發現該如何解讀？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 主診斷：</strong>L7/S1椎間盤感染（discospondylitis）。依據：神經學定位在L6-S1節段，與L7/S1的病灶位置吻合；L7尾側終板與S1顱側終板的骨溶解合併骨增生變化，符合discospondylitis「終板不規則溶解、可合併硬化與贅生骨」的影像特徵，且病史為漸進性病程（3週）合併局部觸診敏感，臨床表現也符合感染性病灶的疼痛表現。<br><strong>(2) 其餘節區的贅生骨：</strong>L3/4至L6/7的贅生骨屬於脊椎黏連性關節病（spondylosis deformans），這些節區並非神經學定位的病灶所在，臨床意義不明確，應判斷為意外發現（incidental finding），不應被誤認為是造成目前臨床症狀的原因——這正是「significant vs. insignificant」判斷原則在實際病例中的應用。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  approach: '影像工具選擇',
+  technique: '脊椎攝影技術與擺位',
+  interpretation: '系統性判讀與鑑別診斷',
+  diseases: '常見脊椎疾病影像特徵',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

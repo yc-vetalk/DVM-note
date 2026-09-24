@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：胺基配醣體、四環黴素、氯黴素與巨環內酯類 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">胺基配醣體、四環黴素、氯黴素與巨環內酯類</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">胺基配醣體、四環黴素、氯黴素與巨環內酯類</h1>
+      <p class="page-subtitle">Aminoglycosides、Tetracyclines、Phenicols、Macrolides：同一份講義（Antimicrobial 3）涵蓋的四大核糖體標的抗生素家族</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3 Aminoglycoside）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-23</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（依原始講義架構重整，新增Macrolides）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">Aminoglycosides</div>
+    <a onclick="showSection('agmech')" id="nav-agmech"><span class="nav-icon">🧬</span> 化學、機轉與活性影響因素</a>
+    <a onclick="showSection('agclinical')" id="nav-agclinical"><span class="nav-icon">💊</span> 治療用途、給藥與藥動學</a>
+    <a onclick="showSection('agtox')" id="nav-agtox"><span class="nav-icon">⚠️</span> 三大不良反應</a>
+    <div class="section-label" style="margin-top:8px;">Tetracyclines</div>
+    <a onclick="showSection('tcmech')" id="nav-tcmech"><span class="nav-icon">🧬</span> 化學結構與作用機轉</a>
+    <a onclick="showSection('tcclinical')" id="nav-tcclinical"><span class="nav-icon">💊</span> 獸醫治療用途</a>
+    <a onclick="showSection('tcpk')" id="nav-tcpk"><span class="nav-icon">⏱️</span> 藥動學、抗藥性與不良反應</a>
+    <div class="section-label" style="margin-top:8px;">Phenicols</div>
+    <a onclick="showSection('phenicol')" id="nav-phenicol"><span class="nav-icon">⚠️</span> 化學、機轉、用途與不良反應</a>
+    <div class="section-label" style="margin-top:8px;">Macrolides</div>
+    <a onclick="showSection('macromech')" id="nav-macromech"><span class="nav-icon">🧬</span> 化學、機轉與抗藥性</a>
+    <a onclick="showSection('macroclinical')" id="nav-macroclinical"><span class="nav-icon">💊</span> 個別藥物治療用途</a>
+    <a onclick="showSection('macropk')" id="nav-macropk"><span class="nav-icon">⏱️</span> 給藥、藥動學與不良反應</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章的四個藥物家族來自同一份講義（Antimicrobial 3），共同點是<strong>都作用在細菌核糖體</strong>，但結合的次單元、可逆性與殺菌動力學各不相同：<strong>Aminoglycosides不可逆結合30S，殺菌、濃度依賴型</strong>；<strong>Tetracyclines可逆結合30S，靜菌</strong>；<strong>Phenicols與Macrolides都結合50S</strong>，但Phenicols抑制peptide bond形成、Macrolides阻止胺基酸轉位——兩者作用位置重疊，因此不可與Lincosamide併用（MLSB交叉抗藥性）。讀法建議把四個家族當成四個獨立單元，各自掌握「化學結構→機轉→抗菌譜→代表藥物臨床定位→藥動學→不良反應」的固定框架，最後比較彼此的核糖體標的與可逆性即可。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('agmech')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Aminoglycosides</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">30S不可逆，殺菌</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('tcmech')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Tetracyclines</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">30S可逆，靜菌</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('phenicol')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Phenicols</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">50S，多為靜菌</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('macromech')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Macrolides</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">50S，靜菌</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">九個臨床與國考重點（講義為主）</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>AG不可逆結合30S造成錯誤蛋白質合成，屬殺菌性、濃度依賴型且有抗生素後效應（PAE）</strong>；穿透菌體需氧氣依賴的能量步驟，因此<strong>對厭氧菌天生抵抗</strong>；<strong>Pulse therapy（SID高劑量）可完整清除藥物並降低毒性</strong>。</li>
+          <li><strong>AG三大不良反應：耳毒性、腎毒性、神經肌肉阻斷</strong>；<strong>Neomycin因毒性過高不可全身給藥</strong，僅供口服（腸道不吸收）或局部使用；毒性若早期停藥可逆；不可與其他耳毒性/腎毒性藥物（Furosemide、Amphotericin B）併用。</li>
+          <li><strong>Tetracyclines可逆結合30S，屬靜菌性</strong>；<strong>對缺乏細胞壁的病原（如Mycoplasma）特別有用，因為β-lactam對這類病原天生無效</strong>；<strong>Doxycycline是蜱媒感染（Ehrlichia、Rickettsia、貓Mycoplasma haemofelis）的首選</strong>，因其能達到高細胞內濃度。</li>
+          <li><strong>貓膿瘍中的L-form細菌對β-lactam有抗藥性但對四環黴素敏感</strong>——β-lactam破壞細胞壁後部分細菌會脫去細胞壁以L-form存活，此時四環黴素仍可作用（機轉不依賴細胞壁）；<strong>高劑量Oxytetracycline用於馬駒攣縮肌腱，機轉是抑制肌纖維母細胞的膠原收縮</strong>。</li>
+          <li><strong>Doxycycline約75%經腸道排泄（非膽汁），不適合治療尿路感染</strong>；<strong>Doxycycline與Minocycline脂溶性較高可穿透CNS/眼/前列腺，其餘四環黴素不能</strong>；<strong>馬匹口服或注射治療劑量的四環黴素都應避免，因為可能破壞腸道/結腸菌叢</strong>。</li>
+          <li><strong>Chloramphenicol在台灣已全面禁用於食品動物</strong>（歷史事件：2012年屏東貢丸被驗出氯黴素殘留）；<strong>主要毒性是骨髓抑制（劑量相關）與再生不良性貧血（特異體質、與劑量無關、罕見但致命，人類發生率約百萬分之一至四）</strong>；<strong>Florfenicol以氟取代硝基（-NO2）結構，消除了造成再生不良性貧血的化學基團</strong>，是獸醫專用可用於食品動物的替代藥。</li>
+          <li><strong>Macrolides可逆結合50S，屬靜菌性，與Phenicols、Streptogramins、Lincosamides（尤其Clindamycin）結合位重疊，理論上不可併用</strong>；<strong>主要對G(+)需氧/厭氧菌與Mycoplasma有效，G(-)菌多數不敏感</strong>（例外：Tylosin對Pasteurella、Haemophilus等部分G(-)有效）。</li>
+          <li><strong>抗藥性主要來自50S核糖體結構改變（甲基化或突變）</strong>；<strong>葡萄球菌的轉譯後甲基化會造成對Lincosamide與Streptogramin B的交叉抗藥性（MLSB抗藥性）</strong>——這與Lincosamide頁的MLSB機轉是同一件事，從Macrolide這端看是「誘發抗藥性的來源」。</li>
+          <li><strong>Tilmicosin對牛以外的物種（含人類）可能造成致命性心臟毒性</strong>（增加心肌Ca²⁺濃度），注射時需格外小心；<strong>Erythromycin/Tylosin口服對成年反芻動物與成年馬可能誘發嚴重腹瀉</strong>，是這兩個物種的重要禁忌。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Amikacin</td><td>不可逆結合30S核糖體；不受多數AG修飾酵素影響</td><td><strong>IV／IM／SC</strong>；抗藥性G(-)感染首選；廣效同Gentamicin</td><td class="drug-locations"><a href="#drug-agdrugs" class="drug-link">抗菌譜最廣，用於AG修飾抵抗菌感染</a></td></tr>
+            <tr><td>Apramycin</td><td>不可逆結合30S核糖體</td><td>PO治療豬/犢牛腸道感染（尤其colibacillosis），口服吸收<10%，無顯著毒性</td><td class="drug-locations"><a href="#drug-agdrugs" class="drug-link">豬/牛腸道感染首選，口服不吸收</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Gentamicin</td><td>不可逆結合30S核糖體，殺菌，濃度依賴型</td><td><strong>IV／IM／SC</strong>；廣效G(-)（含Pseudomonas）皮膚/呼吸道/耳/眼/泌尿道感染與敗血症</td><td class="drug-locations"><a href="#drug-agdrugs" class="drug-link">G(-)廣譜含Pseudomonas，各系統感染與敗血症</a></td></tr>
+            <tr><td>Kanamycin</td><td>不可逆結合30S核糖體，效力較Gentamicin/Amikacin弱</td><td>獸醫口服製劑治療犬細菌性腸炎與腹瀉症狀緩解；對P. aeruginosa 90%抗藥</td><td class="drug-locations"><a href="#drug-agdrugs" class="drug-link">對Pseudomonas無效（90%抗藥）</a></td></tr>
+            <tr><td>Neomycin</td><td>不可逆結合30S核糖體</td><td>PO治療腸道感染；局部用於皮膚/耳/眼；★不可全身給藥（毒性過高）</td><td class="drug-locations"><a href="#drug-agdrugs" class="drug-link">PO/局部用，絕對禁止全身注射</a></td></tr>
+            <tr><td>Plazomicin</td><td>不可逆結合30S核糖體；不受多數修飾AG的細菌酵素影響</td><td><strong>IV</strong>；2018 FDA核准治療人類複雜性UTI；廣譜含CRE與ESBL陽性菌</td><td class="drug-locations"><a href="#drug-agdrugs" class="drug-link">次世代AG，廣譜含CRE/ESBL陽性菌</a></td></tr>
+            <tr><td>Streptomycin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Dihydrostreptomycin</div></td><td>不可逆結合30S核糖體，抑制蛋白質合成，殺菌</td><td>PO Dihydrostreptomycin核准治療豬牛犬馬Leptospirosis；老藥多被新藥取代</td><td class="drug-locations"><a href="#drug-agdrugs" class="drug-link">老藥，已被新藥取代，PO核准治療Leptospirosis</a></td></tr>
+            <tr><td>Tobramycin</td><td>不可逆結合30S核糖體</td><td><strong>IV／IM／SC</strong>；對Pseudomonas效力較強、腎毒性較低，Amikacin抗藥時可替代</td><td class="drug-locations"><a href="#drug-agdrugs" class="drug-link">對Pseudomonas效力強、腎毒性較低</a></td></tr>
+            <tr><td>Tetracycline<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">TC</div></td><td>可逆結合30S核糖體，靜菌</td><td><strong>PO</strong>；廣譜G(+)/G(-)/Rickettsia/Chlamydia/Mycoplasma感染</td><td class="drug-locations"><a href="#drug-tcmoa" class="drug-link">可逆結合30S，靜菌性廣譜</a></td></tr>
+            <tr><td>Chlortetracycline<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">CTC</div></td><td>可逆結合30S核糖體，口服吸收僅35%</td><td><strong>PO（飼料添加）</strong>；食品動物飼料添加（台灣「歐羅肥」成分），民國70年代豬飼料促生長劑</td><td class="drug-locations"><a href="#section-tcclinical" class="drug-link">食品動物飼料添加，歐羅肥成分</a></td></tr>
+            <tr><td>Minocycline<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">MINO</div></td><td>可逆結合30S核糖體，脂溶性較高可穿透CNS/眼/前列腺</td><td><strong>PO</strong>；呼吸道/尿路感染；貓膿瘍（L-form）；抗藥性較其他TC少見</td><td class="drug-locations"><a href="#section-tcclinical" class="drug-link">脂溶性高可穿透CNS，貓膿瘍治療</a></td></tr>
+            <tr><td>Tigecycline</td><td>Glycylcycline衍生物，克服傳統TC抗藥機制</td><td><strong>IV</strong>；廣譜含MDR，人醫用於MRSA/VRE</td><td class="drug-locations"><a href="#section-tcclinical" class="drug-link">廣譜含MRSA/VRE，克服傳統TC抗藥性</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Doxycycline<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">DOXY</div></td><td>可逆結合30S核糖體；可達高細胞內濃度；亦有非抗菌性MMP抑制/抗發炎作用</td><td><strong>PO（小動物首選途徑，亦可IV）</strong>；蜱媒感染首選（Ehrlichia、Rickettsia、貓Mycoplasma haemofelis）；犬心絲蟲病輔助（針對Wolbachia）；貓L-form膿瘍；★75%腸道排泄不適合UTI</td><td class="drug-locations"><a href="#drug-doxycycline" class="drug-link">蜱媒感染首選，高細胞內濃度</a><a href="#drug-lform" class="drug-link">貓L-form膿瘍對四環黴素敏感</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Oxytetracycline<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">OTC</div></td><td>可逆結合30S核糖體</td><td>食品動物最常用四環黴素；高劑量治馬駒攣縮肌腱（抑制肌纖維母細胞膠原收縮）；★馬避免口服/注射</td><td class="drug-locations"><a href="#drug-otctendon" class="drug-link">高劑量治療馬駒攣縮肌腱</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Florfenicol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">FF</div></td><td>結合50S核糖體，不可逆結合，可呈殺菌效果；氟取代-NO2消除致貧血風險</td><td>核准用於牛豬禽魚等食品動物；牛呼吸道疾病與腐蹄病IM/SC；豬禽飲水投藥</td><td class="drug-locations"><a href="#drug-florfenicol" class="drug-link">結構修飾消除再生不良性貧血風險，獸醫專用</a></td></tr>
+            <tr><td>Thiamphenicol</td><td>結合50S核糖體，性質似Chloramphenicol但親水性較高</td><td><strong>PO或IM</strong>；多國核准（美國未核准）；較低毒性，無再生不良性貧血，但可致可逆骨髓抑制</td><td class="drug-locations"><a href="#drug-florfenicol" class="drug-link">較低毒性，無再生不良性貧血</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Chloramphenicol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">CAP</div></td><td>結合50S核糖體，可逆結合，抑制胜肽鍵形成，多為靜菌</td><td><strong>PO（吸收快）；亦有眼科局部劑型</strong>；★台灣全面禁用於食品動物（貢丸事件）；部分國家用於犬貓馬鳥CNS/眼/厭氧感染；再生不良性貧血風險（特異體質，致死率高）</td><td class="drug-locations"><a href="#drug-chloramphenicoltox" class="drug-link">再生不良性貧血機轉與台灣禁用背景</a></td></tr>
+            <tr><td>Azithromycin</td><td>可逆結合50S核糖體，靜菌</td><td><strong>注射過程需格外小心，對牛以外物種（含人類）可能致命性心臟毒性</strong>；犬貓馬Staph/Strep/Mycoplasma感染；馬駒Rhodococcus equi肺炎</td><td class="drug-locations"><a href="#section-macroclinical" class="drug-link">Staph/Strep/Mycoplasma感染；馬駒Rhodococcus equi</a></td></tr>
+            <tr><td>Clarithromycin</td><td>可逆結合50S核糖體，靜菌</td><td><strong>注射過程需格外小心，對牛以外物種（含人類）可能致命性心臟毒性</strong>；犬貓分枝桿菌感染；貓雪貂Helicobacter感染；馬駒Rhodococcus equi</td><td class="drug-locations"><a href="#section-macroclinical" class="drug-link">分枝桿菌感染、Helicobacter、馬駒Rhodococcus equi</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Erythromycin</td><td>可逆結合50S核糖體，阻止胺基酸轉位，靜菌</td><td>Penicillin替代治療G(+)感染；犬馬駒Campylobacter腸炎；馬駒Rhodococcus equi肺炎（＋Rifampin）；★成年反芻動物口服可致嚴重腹瀉</td><td class="drug-locations"><a href="#section-macroclinical" class="drug-link">犬貓馬G(+)感染Penicillin替代；馬駒Rhodococcus equi合併用藥</a></td></tr>
+            <tr><td>Tilmicosin</td><td>可逆結合50S核糖體</td><td>牛Pasteurella呼吸道疾病SC；★對牛以外物種（含人）可能致命性心臟毒性，注射需格外小心</td><td class="drug-locations"><a href="#section-macroclinical" class="drug-link">牛呼吸道疾病，牛以外物種心臟毒性風險</a></td></tr>
+            <tr><td>Tulathromycin</td><td>可逆結合50S核糖體；濃縮於白血球與肺組織</td><td>牛豬呼吸道疾病，單次SC注射；對Mannheimia/Mycoplasma/Haemophilus有效</td><td class="drug-locations"><a href="#section-macroclinical" class="drug-link">牛豬呼吸道疾病，單次SC注射</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Tylosin</td><td>可逆結合50S核糖體；對部分G(-)（Pasteurella、Haemophilus）也有效</td><td>牛羊豬Mycoplasma/G(+)感染；飼料添加控制牛肝膿瘍與促生長；犬貓慢性大腸炎/IBD；★成年馬非經腸道/口服可致嚴重腹瀉</td><td class="drug-locations"><a href="#section-macroclinical" class="drug-link">牛羊豬Mycoplasma感染；犬貓慢性大腸炎</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- AG MECHANISM -->
+    <div class="section" id="section-agmech">
+      <div class="section-head"><div class="section-num">3</div><h2>Aminoglycosides：化學、機轉與活性影響因素</h2></div>
+      <p class="section-desc">AG的高極性結構同時決定了它的穿透機轉（需氧依賴）與藥動學限制（口服不吸收），這是理解整個家族臨床定位的起點。</p>
+
+      <h3>化學結構</h3>
+      <p>2或3個胺基糖以醣苷鍵連接不同的鹼基；含多個胺基，<strong>高極性、鹼性</strong>；硫酸鹽劑型水溶性佳。</p>
+
+      <h3 id="drug-agmoa">作用機轉<span class="tag tag-exam">重要</span></h3>
+      <p><strong>不可逆結合30S核糖體片段</strong>，破壞蛋白質合成與mRNA轉譯的準確性，導致異常蛋白質合成；高極性藥物須經由porin蛋白形成的水通道穿過細菌外膜；<strong>細胞質攝取需要一個依賴能量、需氧的步驟</strong>，此步驟在厭氧或酸性環境會被抑制，也會被Ca²⁺、Mg²⁺抑制——<strong>因此AG對厭氧菌穿透力差，厭氧菌天生抵抗</strong>。</p>
+      <p><strong>因30S不可逆抑制而具殺菌性</strong>（其他抑制核糖體蛋白合成的抗生素多為靜菌性）；主要對G(-)需氧菌有效，<strong>與β-lactam併用對許多G(+)病原有協同效果</strong>（AG單獨用對G(+)效果有限）；<strong>殺菌效果為濃度依賴型，且有抗生素後效應（PAE）</strong>——短暫暴露仍可持續產生抗菌效果。</p>
+
+      <h3 id="drug-agfactors">影響 AG 抗菌活性的因素<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>因素</th><th>影響</th></tr></thead>
+          <tbody>
+            <tr><td>pH</td><td>依賴pH，最適pH 6–8；低pH（5.5–6.0）活性遠低於pH 7.4</td></tr>
+            <tr><td>細胞碎片</td><td>壞死白血球釋出的核酸物質會結合並使AG失活；<strong>治療膿瘍效果差</strong></td></tr>
+            <tr><td>氧氣張力</td><td>細胞質攝取需要氧氣；厭氧或壞死組織中活性下降</td></tr>
+            <tr><td>陽離子</td><td>菌體攝取依賴藥物的正電荷；Ca²⁺、Mg²⁺干擾攝取，單價陽離子也有抑制效果</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- AG CLINICAL -->
+    <div class="section" id="section-agclinical">
+      <div class="section-head"><div class="section-num">4</div><h2>Aminoglycosides：治療用途、給藥與藥動學</h2></div>
+      <p class="section-desc">講義依藥物逐一介紹獸醫臨床定位，Gentamicin/Amikacin/Tobramycin三者的抗菌譜比較與給藥策略是這節重點。</p>
+
+      <h3 id="drug-agdrugs">獸醫治療用途（依藥物）<span class="tag tag-exam">重要</span></h3>
+      <p>主要用於所有物種的G(-)需氧菌感染。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>臨床定位（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>Streptomycin／Dihydrostreptomycin</td><td>老藥，已多被新藥取代；早期劑型為Penicillin G Procaine＋Dihydrostreptomycin；PO Dihydrostreptomycin核准治療豬牛犬馬的Leptospirosis</td></tr>
+            <tr><td>Neomycin</td><td>PO治療腸道感染（如E. coli腸炎）；局部用於皮膚/耳/眼感染；<strong>不可全身給藥（毒性過高）</strong></td></tr>
+            <tr><td>Apramycin</td><td>PO治療豬/犢牛腸道感染（尤其colibacillosis）；經飲水給予豬牛；口服吸收&lt;10%；<strong>無顯著毒性</strong></td></tr>
+            <tr><td>Kanamycin</td><td>抗菌譜似Gentamicin/Amikacin但效力較弱；<strong>對P. aeruginosa 90%抗藥</strong>；獸醫口服製劑（＋bismuth subcarbonate、鋁鎂矽酸鹽）治療犬細菌性腸炎與腹瀉症狀緩解</td></tr>
+            <tr><td><strong>Gentamicin／Amikacin</strong></td><td>抗菌譜擴大：Pseudomonas、Proteus、Staphylococcus、Corynebacterium spp.、G(-)需氧菌；各物種皮膚、呼吸道、耳、眼、泌尿道感染與敗血症</td></tr>
+            <tr><td>Tobramycin</td><td>性質似Gentamicin；對Pseudomonas更強效、腎毒性較低；Amikacin較常用於治療抗藥性感染，Tobramycin可作替代</td></tr>
+            <tr><td>Plazomicin</td><td>次世代AG，2018年FDA核准治療人類複雜性UTI；廣譜含CRE與ESBL陽性Enterobacteriaceae；<strong>不受多數修飾AG的細菌酵素影響</strong>；抗藥性來自外流泵過度表現與核糖體修飾</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>給藥</h3>
+      <p><strong>全身感染以非經腸道給藥為主</strong>（殺菌、濃度依賴、有PAE）；<strong>Pulse therapy：每日一次高劑量（而非一日兩次）可讓藥物完全清除、降低毒性</strong>；腸道感染可用一日兩次口服；PO對全身性感染無效。<strong>關節內給藥</strong>可在滑液達到比IV更久更高的濃度，用於馬的敗血性關節炎；<strong>區域肢體灌注</strong>將藥物侷限於下肢，減少全身暴露，用於馬下肢/關節感染。也可局部外用；<strong>三聯抗生素軟膏＝Neomycin（G-）＋Bacitracin（G+）＋Polymyxin（G-）</strong>，不經口服吸收，全身毒性高，人醫常用。</p>
+
+      <h3>藥動學</h3>
+      <p>高極性不經腸胃道吸收；非經腸道給藥；分佈於細胞外液與經細胞液（胸膜液、腹膜液）；<strong>CNS或眼組織分佈極少</strong>；<strong>累積於腎皮質與內耳淋巴液，是毒性好發部位</strong>；以腎絲球過濾原型排出；多數物種血漿t½ 1–3小時；<strong>腎臟中殘留時間長，食品動物僅限標籤核准用途</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- AG TOX -->
+    <div class="section" id="section-agtox">
+      <div class="section-head"><div class="section-num">5</div><h2>Aminoglycosides：三大不良反應</h2></div>
+      <p class="section-desc">耳、腎、神經肌肉是AG講義明確列出的三大毒性，各自的機轉與早期偵測方式是考試重點。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">講義原文重點</div>
+        <p><strong>相對於其他抗生素毒性較高</strong>；毒性若及早停藥可逆；腎功能不良動物需調整劑量；不可與其他耳毒性或腎毒性藥物（Furosemide、Amphotericin B）併用。</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">耳毒性 Ototoxicity</div>
+          <p>耳蝸感覺細胞與/或前庭細胞的粒線體進行性損傷，分別造成耳聾與失衡；<strong>使用AG耳藥須留意鼓膜是否完整</strong>——鼓膜破裂會使藥物直接作用內耳（高敏感部位）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">腎毒性 Nephrotoxicity</div>
+          <p>損傷近端腎小管細胞膜，造成刷狀緣酵素流失；<strong>腎絲球過濾與再吸收下降</strong>；蛋白尿、<strong>尿液GGT:Creatinine比值上升（腎損傷指標）</strong>；<strong>幼齡動物較常見</strong>；<strong>Pulse therapy（SID）可降低腎毒性風險</strong>；局部Gentamicin也曾在貓引發腎毒性。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">神經肌肉阻斷</div>
+          <p>相對少見；機轉：<strong>突觸前阻斷ACh釋放＋突觸後對ACh敏感性下降</strong>；肌肉麻痺與呼吸暫停以<strong>Calcium gluconate</strong>治療；<strong>通常僅發生於氣體麻醉下</strong>，重症肌無力患者症狀加重。</p>
+        </div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TC MECHANISM -->
+    <div class="section" id="section-tcmech">
+      <div class="section-head"><div class="section-num">6</div><h2>Tetracyclines：化學結構與作用機轉</h2></div>
+      <p class="section-desc">四環黴素的兩性離子特性與螯合陽離子的能力，直接決定了它的口服吸收限制與獨特的臨床應用（如骨骼/牙齒累積）。</p>
+
+      <h3>化學結構</h3>
+      <p>剛性多環結構，含4個苯環樣環；<strong>兩性（amphoteric）：同時具酸性與鹹性基團</strong>；暴露於紫外光會螢光反應；<strong>與陽離子（Ca²⁺、Mg²⁺、Fe³⁺、Al³⁺）形成不溶性螯合物，會累積在生長中的骨骼與牙齒</strong>；多數製成鹽酸鹽。</p>
+
+      <h3 id="drug-tcmoa">作用機轉<span class="tag tag-exam">重要</span></h3>
+      <p><strong>可逆結合細菌30S核糖體，抑制蛋白質合成</strong>——阻止aminoacyl tRNA附著到mRNA-核糖體複合體、阻斷胺基酸加入生長中的胜肽鏈；<strong>靜菌性</strong>，廣譜：G(+)與G(-)需氧菌、少數厭氧菌（敏感度不一）、Rickettsiae、Spirochetes、Chlamydiae、Mycoplasma與部分原蟲；<strong>攝取依賴氧氣，因此對厭氧菌穿透差</strong>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TC CLINICAL -->
+    <div class="section" id="section-tcclinical">
+      <div class="section-head"><div class="section-num">7</div><h2>Tetracyclines：獸醫治療用途</h2></div>
+      <p class="section-desc">四環黴素對「沒有細胞壁的病原」特別有用，這個邏輯貫穿了本節多數的臨床應用。</p>
+
+      <h3>核心邏輯：對無細胞壁病原有效</h3>
+      <p><strong>四環黴素對缺乏細胞壁的病原（如Mycoplasma）有效，這類病原對β-lactam天生具抵抗性</strong>（β-lactam標的是細胞壁合成，沒有細胞壁就沒有作用標的）。抗藥性常見於E. coli、Enterobacter、Klebsiella、Mycobacterium、Proteus與Salmonella spp.。</p>
+
+      <h3>食品動物用途與台灣背景</h3>
+      <p>Tetracycline（TC）、Chlortetracycline、Oxytetracycline（OTC）用於牛、羊、馬、豬、火雞、雞的局部與全身性細菌、披衣菌、立克次體與原蟲感染；部分國家（含早期台灣、美國）曾作為飼料添加物促進生長。<strong>台灣「歐羅肥」的成分是Chlortetracycline（金黴素）</strong>——民國70年代廣泛用於養豬飼料添加，成為「增肥劑」的代名詞。</p>
+
+      <h3 id="drug-doxycycline">Doxycycline<span class="tag tag-exam">重要</span></h3>
+      <p>廣譜，可達到<strong>高細胞內濃度</strong>；<strong>蜱媒感染的首選（Ehrlichia canis、Rickettsia、Mycoplasma haemofelis）</strong>；許多絲蟲類寄生蟲（如心絲蟲）與共生的細胞內細菌（如Wolbachia）有共生關係——<strong>Doxycycline加其他藥物用於治療犬心絲蟲病</strong>（針對Wolbachia）。小動物：Doxycycline、Minocycline與TC用於呼吸道/尿路感染，以及Borrelia（萊姆病）、Brucella、Haemobartonella（Mycoplasma haemofelis）、Ehrlichia spp.感染；鳥類的Chlamydia psittaci（鸚鵡熱）。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Doxycycline除了抗菌機轉外，還具有抑制matrix metalloproteinase（MMP）與調控發炎細胞浸潤的非抗菌性抗發炎作用，常與Niacinamide併用治療犬免疫媒介性皮膚病（如discoid lupus erythematosus）；此機轉講義未提及，核對自 Veterinary Pharmacology and Therapeutics 10th ed. 皮膚科與眼科章節。</p>
+
+      <h3 id="drug-lform">貓膿瘍與 L-form 細菌<span class="tag tag-exam">重要</span></h3>
+      <p>Doxycycline與Minocycline用於治療對β-lactam無反應的貓膿瘍，<strong>即使該病原體的抗生素圖譜顯示β-lactam應該有效</strong>：當細胞壁被β-lactam破壞時，部分細菌會脫去細胞壁以<strong>L-form</strong>存活；<strong>膿瘍中的L-form細菌沒有細胞壁，對β-lactam具抵抗性，但對四環黴素敏感</strong>（四環黴素標的是核糖體，不依賴細胞壁）。</p>
+
+      <h3 id="drug-otctendon">馬駒攣縮肌腱（Contracted Tendons）</h3>
+      <p>高劑量Oxytetracycline（OTC）；<strong>機轉：四環黴素抑制肌纖維母細胞（myofibroblasts）的膠原基收縮</strong>，因此對馬駒攣縮肌腱有效。</p>
+
+      <h3>Tigecycline</h3>
+      <p>Glycylcyclines的新衍生物，設計用來克服細菌抗藥性；廣譜（G(+)、G(-)、多重抗藥菌），人醫含MRSA與VRE。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）；Doxycycline抗發炎機轉核對自 Veterinary Pharmacology and Therapeutics 10th ed.。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TC PK -->
+    <div class="section" id="section-tcpk">
+      <div class="section-head"><div class="section-num">8</div><h2>Tetracyclines：藥動學、抗藥性與不良反應</h2></div>
+      <p class="section-desc">Doxycycline的腸道排泄特例與馬匹口服禁忌，是四環黴素藥動學中最重要的兩個安全性細節。</p>
+
+      <h3>藥動學</h3>
+      <p>口服吸收60–90%（<strong>Chlortetracycline例外，僅35%</strong>）；二價或三價陽離子會妨礙吸收——<strong>口服前後3小時應避免牛奶、制酸劑或鐵劑</strong>；分佈於除CNS外的所有組織，<strong>Doxycycline與Minocycline脂溶性較高，可穿透CNS、眼與前列腺，其餘四環黴素不行</strong>。多數家畜動物代謝極少，<strong>Minocycline例外，經肝臟大量代謝</strong>；主要經腎絲球過濾排出，少量經膽汁/腸道擴散；<strong>Doxycycline例外：約75%經腸道排泄（非膽汁）</strong>，不是治療尿路感染的好選擇。多數四環黴素血漿t½ 6–12小時，每日給藥可維持有效濃度。</p>
+
+      <h3>給藥</h3>
+      <p>口服或IV，每8–12小時；<strong>IM注射會引起疼痛、刺激與無菌膿瘍</strong>，除非使用特殊緩衝配方；<strong>馬匹應避免口服或非經腸道給予治療劑量的四環黴素，因為有破壞結腸/瘤胃菌叢的風險</strong>。</p>
+
+      <h3>抗藥性</h3>
+      <p>因廣泛使用，四環黴素抗藥性現已非常普遍，<strong>Doxycycline與Minocycline例外（抗藥性較少）</strong>；機轉主要是藥物攝取減少或主動將藥物泵出菌體（質體或轉位子介導的外流泵）。</p>
+
+      <h3 id="drug-tcadverse">不良反應</h3>
+      <p><strong>除Doxycycline與Minocycline外，其餘四環黴素可能腎毒性</strong>，腎功能不良動物應避免；幼齡動物可能造成未萌發牙齒的永久染色（四環黴素-磷酸鈣複合物），Doxycycline與Minocycline較少見；長期使用廣譜抗生素可能引發GI黴菌/酵母菌/抗藥菌二重感染，<strong>貓常見GI副作用</strong>；<strong>草食動物不應長期口服，因為對反芻消化有嚴重影響</strong>；高劑量因結合粒線體核糖體而有抗合成代謝效應，可能升高BUN（尤其已有腎病者）；光敏感與肝毒性罕見。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PHENICOL -->
+    <div class="section" id="section-phenicol">
+      <div class="section-head"><div class="section-num">9</div><h2>Phenicols：化學、機轉、用途與不良反應</h2></div>
+      <p class="section-desc">Chloramphenicol在台灣有真實的食安事件背景，Florfenicol的結構修飾邏輯則是這節最重要的機轉考點。</p>
+
+      <h3>化學與代表藥物</h3>
+      <p>Chloramphenicol、Florfenicol、Thiamphenicol。<strong>Chloramphenicol是罕見的天然化合物，含dichloracetate與nitrobenzene基團</strong>；曾用於眼科溶液與局部軟膏；<strong>因殘留安全疑慮（骨髓抑制、再生不良性貧血）已不再用於獸醫</strong>。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">台灣背景（講義原文引用）</div>
+        <p><strong>2012年10月屏東市售貢丸被檢出0.4–2.6 ppb氯黴素殘留</strong>，其後擴大抽驗發現多家含氯黴素（7–42 ppb）；農委會規定肉商向畜牧場購買淘汰種豬做加工原料時需提供來源證明。氯黴素在台灣<strong>全面禁用於食品動物</strong>。</p>
+      </div>
+
+      <h3 id="drug-phenicolmoa">作用機轉<span class="tag tag-exam">重要</span></h3>
+      <p><strong>結合細菌50S核糖體，抑制胜肽鍵形成與蛋白質合成</strong>；通常為靜菌性，高濃度對部分物種可能殺菌；<strong>Chloramphenicol可逆結合、Florfenicol不可逆結合</strong>——對特定病原（如Mannheimia hemolytica）分別呈現靜菌與殺菌效果；廣譜（G(+)與G(-)），對多數厭氧菌有效；<strong>Florfenicol還能抑制Pasteurella的毒力基因表現</strong>。</p>
+
+      <h3 id="drug-florfenicol">Chloramphenicol vs. Florfenicol<span class="tag tag-exam">重要</span></h3>
+      <p><strong>Florfenicol是氟化衍生物，以氟原子取代造成chloramphenicol再生不良性貧血的-NO2基團</strong>——這個結構修飾消除了該毒性風險；<strong>Florfenicol是獸醫專用藥，非人用藥</strong>；Thiamphenicol人畜皆可用，親水性較高、穿透脂質膜較慢，毒性較低、無再生不良性貧血，但可能造成劑量相關的可逆骨髓抑制。</p>
+
+      <h3>抗藥性</h3>
+      <p>Chloramphenicol：主要機轉為質體編碼的乙醯轉移酶（acetyltransferase）與其他代謝酵素；Florfenicol：主要機轉為外流泵，<strong>對chloramphenicol抗藥菌的活性優於chloramphenicol本身</strong>。</p>
+
+      <h3>治療用途</h3>
+      <p><strong>食品動物禁用Chloramphenicol（違法），因殘留可能對人類造成危害</strong>；部分國家（不含台灣）仍用於犬貓馬鳥的呼吸道、CNS、眼部感染，以及厭氧菌與Salmonella感染。<strong>Florfenicol全球核准用於牛、豬、家禽、魚等多種物種</strong>——IM/SC治療牛呼吸道疾病與腐蹄病；豬禽的飲水投藥。Thiamphenicol多國核准，美國未核准。</p>
+
+      <h3>藥動學</h3>
+      <p>Chloramphenicol口服吸收快，廣泛分佈含CNS與眼；肝臟glucuronide接合代謝——<strong>貓代謝較慢（僅75%經此路徑），犬較快（90%）</strong>；消除t½犬馬1–1.5小時，貓4–5小時。Florfenicol各途徑吸收率普遍高，分佈廣含CNS；IM/SC因賦形劑吸收較慢、作用延長（牛40 mg/kg IM可維持高於MIC達20小時以上；豬每48小時IM一次）；牛血清t½ 18小時，2/3以原型經尿排出，1/3經肝代謝。</p>
+
+      <h3 id="drug-chloramphenicoltox">不良反應</h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">講義原文重點</div>
+        <p><strong>骨髓抑制</strong>：Chloramphenicol可能抑制骨髓造血細胞粒線體對鐵的攝取，劑量相關，動物與人類皆可能發生。<strong>再生不良性貧血</strong>：人類使用Chloramphenicol的嚴重不良反應，<strong>特異體質反應、與劑量無關、罕見但致命，發生率約百萬分之一至四</strong>；此為Chloramphenicol在台灣被禁用的原因。快速殺死大量G(-)菌也可能誘發醫源性內毒素血症。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MACROLIDE MECHANISM -->
+    <div class="section" id="section-macromech">
+      <div class="section-head"><div class="section-num">10</div><h2>Macrolides：化學、機轉與抗藥性</h2></div>
+      <p class="section-desc">Macrolides與Phenicols、Lincosamides的結合位重疊，這個機轉直接解釋了臨床上「不可併用」與「交叉抗藥」兩個規則。</p>
+
+      <h3>化學結構</h3>
+      <p>Erythromycin、Azithromycin、Clarithromycin、Tilmicosin、Gamithromycin、Tulathromycin、Tylosin、Tildipirosin等；<strong>鹼性、脂溶性化合物，核心為大內酯環（macrolactone ring）連接去氧糖</strong>；製成硫酸鹽或更穩定的酯化鹽（stearate、tartrate、estolate、lactobionate）。</p>
+
+      <h3 id="drug-macromoa">作用機轉<span class="tag tag-exam">重要</span></h3>
+      <p><strong>靜菌性，抑制細菌蛋白質合成</strong>——結合50S核糖體，阻止胺基酸轉位到生長中的胜肽鏈；<strong>與Phenicols、Streptogramins、Lincosamides（尤其Clindamycin）的結合位重疊，理論上不應併用</strong>。主要對G(+)需氧/厭氧菌、Mycoplasma spp.與部分立克次體有效；<strong>多數G(-)菌不敏感</strong>；<strong>Tylosin例外，對部分G(-)病原（Pasteurella、Haemophilus spp.）有效</strong>。</p>
+
+      <h3 id="drug-macroresistance">抗藥性<span class="tag tag-exam">重要</span></h3>
+      <p>主要機轉：<strong>核糖體結構改變，降低50S對藥物的結合力</strong>（染色體或質體介導，標的位點甲基化或突變）；<strong>葡萄球菌的轉譯後甲基化會造成對Lincosamides與Streptogramin B的交叉抗藥性（MLSB抗藥性）</strong>；次要機轉：主動外流或酵素去活化；<strong>G(-)菌因細胞壁通透性不足，多數天生具抗藥性</strong>。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ MLSB抗藥性在Lincosamide端的完整說明，見 <a href="Lincosamide與其他抗生素.html#section-lincosamides">Lincosamide與其他抗生素：抗藥性機制</a>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MACROLIDE CLINICAL -->
+    <div class="section" id="section-macroclinical">
+      <div class="section-head"><div class="section-num">11</div><h2>Macrolides：個別藥物治療用途</h2></div>
+      <p class="section-desc">每個Macrolide的臨床定位都不同，馬駒Rhodococcus equi肺炎的合併用藥是這節出現頻率最高的臨床情境。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>臨床定位（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>Erythromycin</td><td>犬貓馬G(+)需氧/厭氧菌感染，Penicillin替代；犬與馬駒Campylobacter jejuni腸炎；<strong>馬駒Rhodococcus equi肺炎（＋Rifampin）</strong></td></tr>
+            <tr><td>Azithromycin</td><td>犬貓馬的Staphylococcus、Streptococcus、Mycoplasma感染；馬駒Rhodococcus equi肺炎</td></tr>
+            <tr><td>Clarithromycin</td><td>犬貓分枝桿菌感染（犬leproid granuloma、貓leprosy）；貓與雪貂的Helicobacter spp.（也是人類三聯療法首選成分之一）；馬駒Rhodococcus equi</td></tr>
+            <tr><td>Tylosin</td><td>牛羊豬的Mycoplasma與G(+)感染；飼料添加控制牛Fusobacterium necrophorum相關肝膿瘍（腐蹄病）與促進生長；犬貓慢性大腸炎／IBD；聲稱可改善白毛犬淚痕（epiphora）但仍有爭議</td></tr>
+            <tr><td>Tilmicosin</td><td>牛Pasteurella spp.呼吸道疾病；<strong>注射過程需格外小心，對牛以外物種（含人類）可能致命性心臟毒性</strong></td></tr>
+            <tr><td>Tulathromycin</td><td>牛豬呼吸道疾病，對Mannheimia、Mycoplasma、Haemophilus有效；<strong>濃縮於白血球與肺組織</strong></td></tr>
+            <tr><td>Gamithromycin／Tildipirosin</td><td>新型Macrolides，用途與Tulathromycin類似</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MACROLIDE PK -->
+    <div class="section" id="section-macropk">
+      <div class="section-head"><div class="section-num">12</div><h2>Macrolides：給藥、藥動學與不良反應</h2></div>
+      <p class="section-desc">Macrolides在呼吸道分泌物中的高度濃縮，是它們成為呼吸道感染首選的藥動學基礎。</p>
+
+      <h3>給藥</h3>
+      <p>Erythromycin：口服或IM，犬貓馬駒一日三次，牛羊豬IM一日一次；Azithromycin：口服，犬貓馬駒一日一次；Clarithromycin：口服，犬貓雪貂馬駒一日兩次；Tylosin：口服或IM，豬牛犢羊羔犬貓一日二至三次；Tilmicosin：SC，牛每72小時一次；Tulathromycin：單次SC注射即宣稱對牛豬呼吸道感染有效（Gamithromycin、Tildipirosin相同）。</p>
+
+      <h3>藥動學</h3>
+      <p>口服吸收：依賴腸溶劑型（保護不被胃酸破壞）或穩定的酯化鹽；<strong>弱有機鹼，廣泛分佈但不含CNS</strong>；<strong>濃縮於酸性環境，如呼吸道分泌物、乳汁與白血球</strong>——<strong>Tilmicosin、Tulathromycin、Tildipirosin、Gamithromycin在肺組織濃度可達血清的60倍</strong>，是治療牛豬呼吸道疾病的藥動學基礎。排除：Erythromycin主要以原型經膽汁排出，少量經肝臟N-去甲基化；Tylosin、Tilmicosin、Azithromycin以原型經膽汁與尿液排出。t½：Erythromycin多數物種1–3小時；Azithromycin貓20小時、馬駒35小時；Tilmicosin牛約30小時、豬25小時；Tylosin犬牛1小時、羊豬山羊4小時；Tulathromycin牛豬90小時。</p>
+
+      <h3 id="drug-macroadverse">不良反應<span class="tag tag-exam">重要</span></h3>
+      <p>多數Macrolides副作用相對輕微：口服輕度GI不適；IM注射部位疼痛與刺激。<strong>Erythromycin具motilin樣活性，可能造成腹痛與腹瀉</strong>；IM Tylosin可能造成豬直腸黏膜水腫合併輕微脫肛。<strong>禁忌：口服Erythromycin給成年反芻動物、口服/非經腸道Tylosin給成年馬，皆可能造成嚴重腹瀉</strong>。<strong>Tilmicosin對牛以外物種可能因增加心肌Ca²⁺濃度造成心血管毒性</strong>；Azithromycin在人類可能有心臟毒性；其餘Macrolides副作用少見。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">13</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">依講義章節順序的濃縮版複習，考前快速掃過即可回想整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>AG機轉：</strong>不可逆結合30S，殺菌、濃度依賴、有PAE；需氧依賴穿透，厭氧菌天生抵抗；Pulse SID降低毒性。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>AG三大毒性：</strong>耳（鼓膜須完整）、腎（GGT:Cr比值監測）、神經肌肉阻斷（Calcium gluconate治療）；Neomycin不可全身給藥。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>TC機轉：</strong>可逆結合30S，靜菌；對無細胞壁病原（Mycoplasma、L-form細菌）有效，β-lactam則無效。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Doxycycline：</strong>蜱媒感染首選、高細胞內濃度、75%腸道排泄不適合UTI；馬匹口服/注射TC禁忌（腸炎風險）；OTC治馬駒攣縮肌腱（抑制膠原收縮）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Phenicols：</strong>Chloramphenicol台灣禁用（貢丸事件）、再生不良性貧血與劑量無關；Florfenicol以氟取代-NO2消除此毒性，獸醫專用。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Macrolides機轉：</strong>可逆結合50S，靜菌；與Phenicol/Lincosamide/Streptogramin結合位重疊不可併用；MLSB交叉抗藥。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>馬駒Rhodococcus equi：</strong>Macrolide（Erythromycin/Azithromycin/Clarithromycin）＋Rifampin是標準組合。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Tilmicosin：</strong>牛以外物種心臟毒性；成年反芻動物口服Erythromycin、成年馬用Tylosin皆可能致嚴重腹瀉。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Antimicrobial 3）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">14</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋AG濃度依賴殺菌、TC對無細胞壁病原的邏輯、Florfenicol結構修飾、Macrolide結合位重疊各章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 一隻貓因β-lactam治療無效的膿瘍改用Doxycycline後有效，最可能的原因是？</div>
+        <ul class="quiz-options">
+          <li>(A) Doxycycline的抗菌譜比β-lactam更廣</li>
+          <li>(B) 膿瘍中的病原轉變為L-form（無細胞壁），對作用於細胞壁的β-lactam具抵抗性，但對作用核糖體的四環黴素仍敏感</li>
+          <li>(C) β-lactam在貓體內代謝過快</li>
+          <li>(D) Doxycycline具有殺菌性而β-lactam是靜菌性</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">當細胞壁被β-lactam破壞時，部分細菌會脫去細胞壁以L-form型態存活；L-form細菌沒有細胞壁，對以PBP/細胞壁合成為標的的β-lactam天生具抵抗性，但四環黴素的標的是核糖體（不依賴細胞壁），因此仍然有效。β-lactam其實是殺菌性、四環黴素才是靜菌性，(D)方向相反。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Florfenicol之所以能安全用於食品動物而Chloramphenicol不行，是因為Florfenicol的抗菌效力比較弱、殘留濃度較低。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">關鍵不是效力強弱，而是化學結構：Florfenicol以氟原子取代了Chloramphenicol結構中造成再生不良性貧血的-NO2（硝基）基團，因此消除了這個特異體質性、致命性的毒性風險，使其能核准用於食品動物；Chloramphenicol則因為這個風險在多國（含台灣）全面禁用於食品動物。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 為什麼Macrolides、Phenicols與Lincosamides（尤其Clindamycin）理論上不應併用？</div>
+        <ul class="quiz-options">
+          <li>(A) 三者都會被同一種肝臟酵素代謝，產生毒性代謝物</li>
+          <li>(B) 三者在50S核糖體上的結合位重疊，會互相競爭而削弱彼此效果</li>
+          <li>(C) 三者併用會導致嚴重的腎毒性</li>
+          <li>(D) 三者的抗菌譜完全重複，併用沒有意義但不會互相干擾</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Macrolides、Phenicols與Lincosamides都作用於50S核糖體、且結合位置重疊，併用時會產生競爭性拮抗，互相削弱抗菌效果，因此臨床上應避免併用。這也是葡萄球菌轉譯後甲基化可以同時對這三類藥物產生交叉抗藥性（MLSB）的結構基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一位酪農詢問能否用Tilmicosin注射液治療自己不小心誤觸藥瓶噴到皮膚的傷口感染；同時他也詢問能否用同一瓶藥物幫家中的馬治療呼吸道感染。請問你會如何回應？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">兩個情境都應該明確勸阻。<strong>人的部分：</strong>講義明確指出Tilmicosin對牛以外的物種（包含人類）可能造成致命性心臟毒性（增加心肌Ca²⁺濃度），因此Tilmicosin注射時本身就需要格外小心操作，避免自我暴露（意外針扎或接觸傷口），若已經接觸應立即就醫，絕不可將其視為可自行使用的傷口用藥。<strong>馬的部分：</strong>同樣的心臟毒性風險適用於牛以外的動物物種，馬並非Tilmicosin的核准動物種類，使用可能造成嚴重甚至致命的心血管毒性，應改用馬匹核准且安全的呼吸道感染用藥（如講義中提到的其他Macrolides或依培養藥敏選擇的抗生素），並由獸醫師評估後處方。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  agmech: 'AG化學、機轉與活性影響因素',
+  agclinical: 'AG治療用途、給藥與藥動學',
+  agtox: 'AG三大不良反應',
+  tcmech: 'TC化學結構與作用機轉',
+  tcclinical: 'TC獸醫治療用途',
+  tcpk: 'TC藥動學、抗藥性與不良反應',
+  phenicol: 'Phenicols化學、機轉、用途與不良反應',
+  macromech: 'Macrolides化學、機轉與抗藥性',
+  macroclinical: 'Macrolides個別藥物治療用途',
+  macropk: 'Macrolides給藥、藥動學與不良反應',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

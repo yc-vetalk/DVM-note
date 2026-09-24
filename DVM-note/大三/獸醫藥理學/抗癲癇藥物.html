@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：抗癲癇藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">抗癲癇藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">抗癲癇藥物 Anticonvulsants (Antiepileptics)</h1>
+      <p class="page-subtitle">癲癇分類與病因、兩大細胞機轉框架、老藥與新藥個論、癲癇重積症處置與臨床用藥禁忌整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（柯僑書 Chiao-Hsu Ke，A9 CNS Anticonvulsant）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.17 Anticonvulsant Drugs</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-24</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎架構</div>
+    <a onclick="showSection('nomenclature')" id="nav-nomenclature"><span class="nav-icon">🧠</span> 癲癇定義、分類與病因</a>
+    <a onclick="showSection('mechanisms')" id="nav-mechanisms"><span class="nav-icon">🔀</span> 兩大細胞作用機轉</a>
+    <div class="section-label" style="margin-top:8px;">藥物個論</div>
+    <a onclick="showSection('olderdrugs')" id="nav-olderdrugs"><span class="nav-icon">💊</span> 老藥個論</a>
+    <a onclick="showSection('statusepilepticus')" id="nav-statusepilepticus"><span class="nav-icon">🚨</span> 癲癇重積症與用藥禁忌</a>
+    <a onclick="showSection('newerdrugs')" id="nav-newerdrugs"><span class="nav-icon">🆕</span> 新藥個論</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章的主線很清楚：<strong>藥物治療只能控制癲癇發作，不能根治</strong>，理解這件事之後，剩下的內容就是在建立「這些藥物怎麼分類、怎麼選」的框架。講義先建立癲癇本身的分類（全腦性 vs 局部性發作）與病因（顱內 vs 顱外），接著給出全章最重要的一張地圖——<strong>幾乎所有抗癲癇藥都可以歸到「促進 GABAA／Cl⁻通道開啟」或「阻斷電壓依賴性 Na⁺通道」這兩條機轉路徑之一</strong>，之後每個藥物個論都可以先問「這顆藥走哪條路徑」再去記細節。藥物個論分成「老藥」（Phenobarbital 為主力、BZD 類、Phenytoin、Imepitoin、Carbamazepine、Valproic acid、Ethosuximide、KBr）與「新藥」（Gabapentin、Levetiracetam、Felbamate、Zonisamide，多用於難治型癲癇的輔助治療），中間插入癲癇重積症（Status Epilepticus）的急診處置與一份「會降低癲癇閾值、癲癇患者要避免」的藥物黑名單，這份黑名單在臨床上跟機轉一樣重要，因為癲癇病患常常同時需要其他治療，選錯藥可能誘發發作。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('nomenclature')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">分類與病因</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">全腦性／局部性、顱內／顱外</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('mechanisms')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">兩大機轉</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">GABAA vs Na⁺通道</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('olderdrugs')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">老藥個論</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Phenobarbital為主力</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('statusepilepticus')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">重積症急診</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">處置＋用藥黑名單</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('newerdrugs')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">新藥個論</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">難治型癲癇輔助用藥</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>抗癲癇藥物是「控制」不是「治癒」：</strong>突然停藥可能誘發戒斷症狀、發作，甚至癲癇重積症，臨床上調整或停用劑量都必須緩慢漸進。</li>
+          <li><strong>兩大機轉框架：</strong>促進 GABAA/Cl⁻通道開啟（Phenobarbital、Primidone、BZD 類）vs 阻斷電壓依賴性 Na⁺通道（Phenytoin、Carbamazepine、Sodium valproate）——先問藥物屬於哪一條路徑，記憶效率比逐個死背高很多。</li>
+          <li><strong>Phenobarbital 是犬貓維持性治療的第一線用藥</strong>（60–80% 犬病例可用），但會誘導肝臟 P450 酵素、有肝毒性風險，屬於長效 barbiturate（犬 T½ 32–90 小時）。</li>
+          <li><strong>Diazepam 是癲癇重積症的第一線急救藥（IV bolus）</strong>，但<strong>不適合犬的長期維持治療</strong>（犬對其抗癲癇效果會快速產生耐受性），貓則可以口服維持；若無法 IV，Diazepam 是唯一可經直腸吸收良好的 BZD，可作居家頓服控制群發性癲癇。</li>
+          <li><strong>Potassium Bromide（KBr）不建議用於貓</strong>：可能誘發嚴重氣喘樣呼吸道疾病，這是物種安全性最鮮明的一個對比考點。</li>
+          <li><strong>癲癇重積症的物種治療策略不同：</strong>犬先用 BZD（IV）、無效才用 barbiturate；貓幾乎只需要 Diazepam 就能控制，很少需要其他抗癲癇藥物。</li>
+          <li><strong>Xylazine 在癲癇病患是明確禁忌：</strong>會嚴重抑制心血管功能，且可能在易感動物誘發癲癇發作——這條規則在麻醉前評估癲癇病史的病患時特別重要。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Phenobarbital</td><td>GABAA受體致效劑（Barbiturate類，長效）</td><td><strong>PO（維持）；亦可IV負荷劑量</strong>；長效Barbiturate；★犬貓抗癲癇第一線維持用藥（60–80%犬有效），P450誘導有肝毒性</td><td class="drug-locations"><a href="#drug-phenobarbital" class="drug-link">犬貓第一線維持用藥</a></td></tr>
+            <tr><td>Primidone</td><td>體內代謝轉換為Phenobarbital（GABAA受體致效）</td><td><strong>PO</strong>；犬維持治療；不建議用於貓（轉換率低、效果差、毒性較高）</td><td class="drug-locations"><a href="#drug-primidone" class="drug-link">犬維持治療，不建議用於貓</a></td></tr>
+            <tr><td>Diazepam</td><td>Benzodiazepine受體致效劑（GABAA正向調節）</td><td>食慾促進；術前用藥；★癲癇重積症IV首選（犬不適合長期維持，貓可口服）</td><td class="drug-locations"><a href="#drug-bzdanticonvulsant" class="drug-link">癲癇重積症IV首選</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Midazolam</td><td>Benzodiazepine受體致效劑（GABAA正向調節）</td><td><strong>治療癲癇重積症的第一線用藥（IV bolus）</strong>；短效BZD，常與Opioid/Ketamine併用；癲癇重積症輔助用藥（T½ 77分鐘）</td><td class="drug-locations"><a href="#drug-bzdanticonvulsant" class="drug-link">癲癇重積症輔助用藥</a></td></tr>
+            <tr><td>Clonazepam</td><td>Benzodiazepine受體致效劑（GABAA正向調節）</td><td><strong>治療癲癇重積症的第一線用藥（IV bolus）</strong>；可降低Phenobarbital用量；快速耐受性，維持治療價值有限</td><td class="drug-locations"><a href="#drug-bzdanticonvulsant" class="drug-link">可降低Phenobarbital用量</a></td></tr>
+            <tr><td>Lorazepam</td><td>Benzodiazepine受體致效劑（GABAA正向調節，無活性代謝物）</td><td><strong>治療癲癇重積症的第一線用藥（IV bolus）</strong>；貓維持治療首選BZD；犬僅短期控制</td><td class="drug-locations"><a href="#drug-bzdanticonvulsant" class="drug-link">貓維持治療首選BZD</a></td></tr>
+            <tr><td>Phenytoin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Diphenylhydantoin</div></td><td>Na⁺通道阻斷劑（抑制恢復；Class Ib抗心律不整）</td><td>抗癲癇：廣效（失神性發作除外）；★犬代謝過快、貓代謝過慢，皆不建議長期使用；抗心律不整：犬緩慢IV治Digitalis誘發心律不整，★仍禁用於貓</td><td class="drug-locations"><a href="#drug-phenytoin" class="drug-link">犬貓皆不建議使用</a></td></tr>
+            <tr><td>Imepitoin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Pexion</div></td><td>GABAA受體BZD結合位部分致效劑（弱Ca²⁺通道阻斷）</td><td><strong>PO</strong>；★2013年歐洲核准犬特發性癲癇第一線（美國未核准）；也用於犬噪音恐懼症</td><td class="drug-locations"><a href="#drug-imepitoin" class="drug-link">歐洲核准犬特發性癲癇第一線</a></td></tr>
+            <tr><td>Carbamazepine</td><td>Na⁺通道阻斷劑（減緩通道恢復速率）</td><td>局部性發作，犬臨床少用（作用時間短、肝酵素誘導快）</td><td class="drug-locations"><a href="#drug-carbamazepine" class="drug-link">局部性發作，犬臨床少用</a></td></tr>
+            <tr><td>Valproic Acid</td><td>Na⁺通道阻斷劑＋抑制GABA transaminase</td><td><strong>PO</strong>；第二線用藥；犬難治型癲癇輔助（Phenobarbital／Primidone附加）</td><td class="drug-locations"><a href="#drug-valproicacid" class="drug-link">犬難治型癲癇輔助</a></td></tr>
+            <tr><td>Ethosuximide</td><td>降低丘腦神經元Ca²⁺電流</td><td><strong>PO</strong>；人醫失神性發作首選，獸醫臨床少用</td><td class="drug-locations"><a href="#drug-ethosuximide" class="drug-link">人醫失神性發作首選，獸醫臨床少用</a></td></tr>
+            <tr><td>Potassium Bromide<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">KBr</div></td><td>通過Cl⁻通道使神經元過極化</td><td><strong>PO</strong>；Phenobarbital/Primidone反應不佳犬隻的附加用藥；★不建議用於貓（誘發氣喘樣呼吸道疾病）</td><td class="drug-locations"><a href="#drug-kbr" class="drug-link">貓禁用（氣喘樣呼吸道疾病）</a></td></tr>
+            <tr><td>Gabapentin</td><td>結合脊髓背角Ca²⁺通道α2δ次單元</td><td><strong>PO</strong>；難治型癲癇輔助治療＋神經性疼痛控制</td><td class="drug-locations"><a href="#drug-gabapentin" class="drug-link">難治型癲癇輔助＋神經性疼痛控制</a></td></tr>
+            <tr><td>Pregabalin</td><td>結合脊髓背角Ca²⁺通道α2δ次單元（機轉類似Gabapentin）</td><td><strong>PO</strong>；附加抗癲癇藥</td><td class="drug-locations"><a href="#drug-gabapentin" class="drug-link">附加抗癲癇藥</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Levetiracetam</td><td>結合突觸小泡醣蛋白2A（SV2A）</td><td><strong>口服吸收率 100%</strong>；難治型癲癇優先選用藥物；不誘導P450，耐受性佳</td><td class="drug-locations"><a href="#drug-levetiracetam" class="drug-link">難治型癲癇優先選用藥物</a></td></tr>
+            <tr><td>Felbamate</td><td>增強GABA抑制＋阻斷NMDA受體（雙重機轉）</td><td><strong>PO</strong>；犬難治型癲癇輔助治療；需每6個月監測肝功能</td><td class="drug-locations"><a href="#drug-felbamate" class="drug-link">犬難治型癲癇輔助治療</a></td></tr>
+            <tr><td>Zonisamide</td><td>抑制電壓依賴性Na⁺與Ca²⁺通道</td><td><strong>Diazepam 是重積症 IV 首選但不適合犬長期維持</strong>；犬難治型癲癇附加或單一用藥；安全範圍高</td><td class="drug-locations"><a href="#drug-zonisamide" class="drug-link">犬難治型癲癇，安全範圍高</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- NOMENCLATURE -->
+    <div class="section" id="section-nomenclature">
+      <div class="section-head"><div class="section-num">3</div><h2>癲癇定義、分類與病因 Nomenclature &amp; Causes</h2></div>
+      <p class="section-desc">在談藥物之前，先把「癲癇」「發作」「癲癇性發作」這幾個容易混用的詞釐清，並理解發作依放電範圍如何分類。</p>
+
+      <h3>名詞定義</h3>
+      <ul>
+        <li><strong>Epilepsy（癲癇）：</strong>一種慢性疾病，特徵是反覆、週期性、無法預測的發作（seizures）。</li>
+        <li><strong>Seizure（發作）：</strong>因腦部神經元異常（快速且過度）放電，造成短暫的行為改變。</li>
+        <li><strong>Epileptic seizure（癲癇性發作）：</strong>無明顯誘因下發生，起始於一個局部異常放電點，稱為「focus（病灶）」。
+          <ul>
+            <li><strong>Partial（局部性）：</strong>放電侷限在病灶周圍區域</li>
+            <li><strong>Generalized（全腦性）：</strong>擴散至整個大腦皮質</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>癲癇發作分類</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">全腦性發作 Generalized Seizures</div>
+          <p>雙側大腦同時出現不受控放電，從一處開始擴散至全腦，是<strong>最常見的癲癇類型</strong>，表現為肌肉抽搐、抽搐痙攣與意識喪失。</p>
+          <ul style="margin:8px 0 0;padding-left:1.2em;">
+            <li><strong>Tonic-clonic（大發作，grand mal）：</strong>放電擴散至整個皮質，<strong>犬最常見的發作型態</strong></li>
+            <li>Absence（失神性發作，petit mal）</li>
+            <li>Myoclonic（肌陣攣性發作）</li>
+            <li>Atonic（失張力性發作）</li>
+            <li>Status epilepticus（癲癇重積症）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">局部性發作 Partial Seizures</div>
+          <p>異常電活動只涉及腦部一小區域，可能進一步擴散至全腦。</p>
+          <ul style="margin:8px 0 0;padding-left:1.2em;">
+            <li><strong>Simple partial：</strong>短暫發作、意識不喪失，可能出現異常的視/聽/嗅覺，身體部分抽動</li>
+            <li><strong>Complex partial：</strong>意識「改變」而非「喪失」，可能出現幻覺或記憶重現</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>病因</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">顱內病因 Intracranial</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li><strong>特發性（Idiopathic）：</strong>病因不明，<strong>最常見的類型</strong></li>
+            <li><strong>遺傳性（Inherited）：</strong>基因決定的腦部異常</li>
+            <li><strong>後天性（Acquired）：</strong>先前腦部疾病導致，如頭部創傷、腦腫瘤、血管疾病（中風）、感染（腦膜炎、腦炎）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">顱外病因 Extracranial</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>血糖過低或過高</li>
+            <li>中毒、電解質失衡</li>
+            <li>誤食毒物</li>
+            <li>肝／腎疾病</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>癲癇基因與發作誘因</h3>
+      <p><strong>人類 SCN1A 基因突變</strong>與癲癇相關，此基因編碼形成 Na⁺通道的離子通道蛋白 Nav1.1；小鼠同源基因 scn1a 的 knock-in 突變鼠攜帶一個突變基因複本，會在第 3 週開始出現癲癇發作，約 40% 在 3 個月內死亡——是理解「Na⁺通道異常可直接導致癲癇」這個分子機轉的具體案例。</p>
+      <p><strong>犬癲癇發作的常見誘發因子：</strong>壓力（過度換氣→pH 改變→發作）、環境改變、搭車、生活作息改變、雷雨與噪音、就醫、溫度過冷過熱、化學刺激物（菸味、香水、清潔劑）、睡眠不足、疲勞、低血糖。</p>
+    </div>
+
+    <!-- MECHANISMS -->
+    <div class="section" id="section-mechanisms">
+      <div class="section-head"><div class="section-num">4</div><h2>兩大細胞作用機轉 Two Major Mechanisms of Action</h2></div>
+      <p class="section-desc">幾乎所有抗癲癇藥物的分類記憶，都可以先掛到這兩條路徑上——這是全章最重要的一張地圖。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">① 促進 GABAA 受體／Cl⁻通道開啟</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li><strong>Phenobarbital</strong>（延長開放時間 open time）</li>
+            <li><strong>Primidone</strong></li>
+            <li><strong>Benzodiazepines</strong>（增加開放頻率 open frequency）</li>
+          </ul>
+          <p style="margin-top:8px;font-size:.9em;">Cl⁻內流增加→細胞膜過極化→神經元興奮性降低</p>
+        </div>
+        <div class="card">
+          <div class="card-title">② 阻斷電壓依賴性 Na⁺通道</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li><strong>Phenytoin</strong></li>
+            <li><strong>Carbamazepine</strong></li>
+            <li><strong>Sodium valproate</strong></li>
+          </ul>
+          <p style="margin-top:8px;font-size:.9em;">穩定神經元細胞膜、抑制持續高頻動作電位放電</p>
+        </div>
+      </div>
+
+      <h3 id="drug-nachannel">Na⁺通道的三態模型</h3>
+      <p>理解 Na⁺通道阻斷劑的機轉，要先知道通道有三種狀態：</p>
+      <div class="flow">
+        <div class="flow-node">靜止態 Resting</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">活化態 Activated（Na⁺內流，膜去極化）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">去活化態 Inactivated（不反應期，無法再次激發）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">恢復回靜止態</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>Phenytoin 等 Na⁺通道阻斷劑作用在<strong>去活化態到恢復回靜止態這段「恢復」過程</strong>，延緩通道恢復、抑制其再次激發——這正是為什麼這類藥物能選擇性抑制「持續高頻放電」的神經元（癲癇病灶的特徵），而對正常低頻放電的神經元影響較小。</p>
+      </div>
+    </div>
+
+    <!-- OLDER DRUGS -->
+    <div class="section" id="section-olderdrugs">
+      <div class="section-head"><div class="section-num">5</div><h2>老藥個論 Older Drugs</h2></div>
+      <p class="section-desc">依講義順序：Phenobarbital 與 Primidone → Benzodiazepines → Phenytoin 與 Imepitoin → Carbamazepine、Valproic Acid、Ethosuximide → Potassium Bromide。</p>
+
+      <h3 id="drug-phenobarbital">Phenobarbital<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li>作用 GABAA/Cl⁻通道；<strong>廣效</strong>——對大發作（grand mal）與局部性發作皆有效</li>
+        <li>長效 barbiturate：<strong>犬 T½ 32–90 小時、貓 34–43 小時、馬 13–18 小時</strong></li>
+        <li><strong>適合維持性治療</strong>，約 60–80% 犬病例可有效控制；主要口服給藥，也可 IV／IM</li>
+        <li>用於癲癇重積症時<strong>起效比 Diazepam 慢</strong>（需數分鐘）</li>
+        <li>肝臟 P450 代謝</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">副作用</div>
+        <p><strong>P450 誘導</strong>（藥物交互作用，影響 barbiturates 及多種其他藥物與荷爾蒙如雌激素、雄性素、甲狀腺素代謝）；<strong>肝毒性</strong>（ALT 上升）；多渴多尿多食（ADH 相關）；神經內分泌效應（鎮靜、躁動、共濟失調）；懷孕動物需謹慎——大鼠產前暴露會影響性發育與幼鼠腦部生長。<strong>肝臟疾病患者禁用</strong>。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>一項犬給藥研究測得 Phenobarbital 平均半衰期為 <strong>41 小時</strong>（落在講義給出的 32–90 小時範圍內），同時測得其活性代謝相關物質 PEMA（見下方 Primidone）半衰期僅 7.1 小時、Primidone 本身半衰期僅 1.85 小時——三者半衰期差異懸殊，也解釋了為什麼癲癇控制程度與血漿中 Phenobarbital 濃度的相關性遠高於與 Primidone 濃度的相關性。（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）</p>
+      </div>
+
+      <h3 id="drug-primidone">Primidone</h3>
+      <p>Phenobarbital 的前驅衍生物，體內代謝轉換為 Phenobarbital 而具肝毒性；<strong>不建議用於貓</strong>（轉換率低、效果差、毒性較高）；用於犬的維持治療，約 4–5 mg Primidone ≒ 1 mg Phenobarbital 效力。代謝產物 PEMA（Phenylethylmalonamide）本身具活性，但效力僅 1/30、半衰期極短。</p>
+
+      <h3 id="drug-bzdanticonvulsant">Benzodiazepines（BZD）類抗癲癇藥<span class="tag tag-exam">重要</span></h3>
+      <p>代表藥物：Diazepam、Clonazepam、Midazolam、Lorazepam——<strong>治療癲癇重積症的第一線用藥（IV bolus）</strong>。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>臨床定位</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Diazepam</strong></td><td>重積症 IV 首選；貓可口服維持治療；<strong>唯一直腸吸收良好的 BZD</strong>，居家控制群發性癲癇</td><td>犬對其抗癲癇效果快速產生耐受性（犬 T½ 2–4h，約3h），<strong>不適合犬長期維持</strong>；貓可能引起急性肝壞死</td></tr>
+            <tr><td><strong>Clonazepam</strong></td><td>可降低 Phenobarbital 用量</td><td>快速耐受性→維持治療價值有限；副作用：嘔吐、流涎、腸胃症狀</td></tr>
+            <tr><td><strong>Midazolam</strong></td><td>作用類似 Diazepam，T½ 更短（77 分鐘）</td><td>活性代謝物 hydroxymidazolam 經葡萄糖醛酸化排尿；副作用：輕度呼吸抑制、嘔吐、焦躁</td></tr>
+            <tr><td><strong>Lorazepam</strong></td><td>貓維持治療首選 BZD；犬僅用於短期控制</td><td>無活性代謝物，肝功能低下病患可用；副作用較 Diazepam 輕，肝壞死發生率低；初期治療可能增加食慾與興奮焦慮</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-phenytoin">Phenytoin（Diphenylhydantoin）</h3>
+      <p>Hydantoin 衍生物；<strong>廣效（失神性發作除外）</strong>，也具抗心律不整效果；機轉：穩定神經元細胞膜、Na⁺通道阻斷劑（抑制恢復）。非鎮靜性，但有其他副作用：肝毒性、齒齦增生、嗜睡、共濟失調、犬厭食嘔吐；<strong>致畸胎性</strong>（胎兒 hydantoin 症候群，如唇顎裂）。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">藥動學問題：犬貓皆不建議使用</div>
+        <p>個體差異大（人類 T½ 6–30 小時）；貓作用時間長達 42–108 小時；藥物交互作用明顯（P450 誘導縮短 T½；Carbamazepine↑其代謝、Cimetidine↓其代謝），難以維持穩定治療濃度。<strong>犬代謝過快</strong>（T½ 僅 3–7 小時且會越用越短）降低療效；<strong>貓代謝過慢</strong>增加毒性風險——兩個物種各自因藥動學問題而不建議使用，原因剛好相反。</p>
+      </div>
+
+      <h3 id="drug-imepitoin">Imepitoin</h3>
+      <p>Imidazolone 類，結構與 hydantoin 類似，但機轉不同：<strong>對 Na⁺通道無作用</strong>，是 GABAA 受體 BZD 結合位的<strong>部分致效劑</strong>，同時具弱鈣離子通道阻斷作用。原本為治療人類癲癇開發，因吸菸者與非吸菸者代謝差異太大而放棄人用；<strong>2013 年於歐洲核准用於犬特發性癲癇</strong>（可降低發作頻率），是<strong>第一個核准用於癲癇的 GABAA 受體部分致效劑</strong>；2018 年於美國核准用於犬噪音恐懼症（降低與噪音相關的焦慮與恐懼）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Imepitoin 商品名 <strong>Pexion</strong>，<strong>僅於歐洲核准，美國並未核准</strong>用於治療犬癲癇。機轉上雖非典型 BZD 結構，但透過對 GABAA 受體 BZD 結合位的低親和力結合，產生類似 Diazepam 等 BZD 的效果——親和力約僅 Diazepam 的<strong>600 分之一</strong>。核准劑量為 10–30 mg/kg 口服，一天兩次。美國臨床試驗顯示 Imepitoin 效果不如 Primidone，但「不劣於」且副作用較少；歐洲核准試驗顯示其整體效力不如 Phenobarbital，但部分犬仍能被良好控制，歐洲藥品管理局認定其為「適合」的第一線特發性癲癇治療選擇。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.17）</p>
+      </div>
+
+      <h3 id="drug-carbamazepine">Carbamazepine</h3>
+      <p>用於局部性發作，人醫也用於治療憂鬱症（結構與三環抗憂鬱藥相關）；<strong>獸醫臨床少用</strong>——犬體內作用時間短、肝臟酵素誘導速度快。機轉：Na⁺通道阻斷劑，減緩通道恢復速率；毒性低於 Phenytoin。</p>
+
+      <h3 id="drug-valproicacid">Valproic Acid</h3>
+      <p>人醫治療肌陣攣性發作效果極佳；機轉：Na⁺通道阻斷劑＋抑制 GABA transaminase（減少 GABA 分解）；<strong>屬第二線用藥</strong>——具肝毒性、半衰期短（1.5–3 小時）；犬難治型癲癇可作為 Phenobarbital 與 Primidone 的輔助用藥；尚未於貓身上評估安全性。</p>
+
+      <h3 id="drug-ethosuximide">Ethosuximide</h3>
+      <p>人醫治療失神性發作的第一線用藥；機轉：降低丘腦神經元的 Ca²⁺電流，降低節律點神經元活性；毒性較低（嗜睡、腸胃不適）；<strong>獸醫臨床少用</strong>，安全性與效力尚待研究。</p>
+
+      <h3 id="drug-kbr">Potassium Bromide（KBr）<span class="tag tag-exam">重要</span></h3>
+      <p>老牌抗癲癇兼鎮靜藥物；機轉：通過 Cl⁻通道使神經元過極化；對 Phenobarbital／Primidone 反應不佳或不耐受的犬隻有效，可單用或作為附加用藥（降低其他藥物劑量）。<strong>T½ 長達 25 天</strong>，需 4–6 個月才能達到穩定血中濃度，可能需數週才看到治療效果。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌：不建議用於貓</div>
+        <p>副作用：神經系統（共濟失調、鎮靜）；腸胃道（因高滲透壓致嘔吐，建議隨食物給予）；經腎臟排除，<strong>肝毒性不是主要考量</strong>；<strong>貓可能誘發嚴重氣喘樣反應，不建議使用</strong>。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>貓的 Bromide 半衰期約 <strong>11.2 天</strong>；臨床評估顯示即使血中濃度已達犬隻的有效治療濃度，仍有<strong>約一半的貓癲癇控制不佳</strong>，且<strong>約一半的貓出現不良反應</strong>，最常見是咳嗽；後續病例報告確認 Bromide 與貓的下呼吸道疾病相關，文獻結論是「貓癲癇控制不建議使用 Bromide」。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.17）</p>
+      </div>
+    </div>
+
+    <!-- STATUS EPILEPTICUS -->
+    <div class="section" id="section-statusepilepticus">
+      <div class="section-head"><div class="section-num">6</div><h2>癲癇重積症與臨床用藥禁忌</h2></div>
+      <p class="section-desc">癲癇病患的急診處置邏輯，以及一份跨科別都該記得的「會誘發或加重癲癇、應避免使用」藥物清單。</p>
+
+      <h3 id="drug-statusepilepticus">Status Epilepticus（SE，癲癇重積症）<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li>定義：<strong>持續發作超過 5 分鐘</strong>，或在完全恢復前又再度發作（recurrent seizure）</li>
+        <li><strong>群發性癲癇（Cluster seizures）：</strong>24 小時內發作 ≥2 次</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>治療策略</th></tr></thead>
+          <tbody>
+            <tr><td><strong>犬</strong></td><td>先用 <strong>Benzodiazepine（IV）</strong>；無效則第二選擇為 IV barbiturate</td></tr>
+            <tr><td><strong>貓</strong></td><td>幾乎只需要 <strong>Diazepam</strong> 即可控制，很少需要其他抗癲癇藥物</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Pentobarbital</strong>（短效）作為 BZD 無效時、無法控制的重積症的<strong>最後手段</strong>——在麻醉劑量下可有效終止發作，但須注意呼吸抑制與體溫過低的風險。</p>
+
+      <h3 id="drug-seizurethreshold">會降低癲癇閾值的藥物（臨床用藥黑名單）<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">中樞抑制/鎮吐相關</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>Phenothiazine 與 Butyrophenone 類鎮定劑</li>
+            <li>Metoclopramide</li>
+            <li>Quinolones（喹諾酮類抗生素）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">驅蟲藥／中樞興奮劑</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>Pyrantel、Levamisole、除蟲菊精類、Methoxychlor、Lindane 等抗寄生蟲藥</li>
+            <li>咖啡因（巧克力）、Doxapram 等中樞興奮劑應避免</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">特別警示：Xylazine 與高劑量 Morphine</div>
+        <p><strong>Xylazine 不應用於癲癇病患</strong>：會嚴重抑制心血管功能，且可能在易感動物誘發癲癇發作；<strong>高劑量 Morphine</strong> 同樣須避免。麻醉前評估有癲癇病史的病患時，這是選擇鎮靜/麻醉用藥必須排除的選項。</p>
+      </div>
+      <p style="font-size:.9em;"><strong>肝臟酵素誘導藥物</strong>（Phenobarbital、Primidone、Phenytoin……）長期使用需注意藥物交互作用與肝功能監測，這點跟第 4 節個別藥物的副作用描述互相呼應。</p>
+    </div>
+
+    <!-- NEWER DRUGS -->
+    <div class="section" id="section-newerdrugs">
+      <div class="section-head"><div class="section-num">7</div><h2>新藥個論 Newer Drugs</h2></div>
+      <p class="section-desc">多用於難治型（refractory）癲癇的輔助治療，機轉與老藥的兩大框架不完全重疊，各有獨立的分子標的。</p>
+
+      <h3 id="drug-gabapentin">Gabapentin（與 Pregabalin）</h3>
+      <p>GABA 類似物，可穿透血腦屏障；適應症：難治型癲癇輔助治療＋疼痛控制；作為人類局部性發作的輔助用藥——耐受性良好、不需監測血中濃度、與其他第一線藥物無交互作用。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">機轉尚不完全明朗</div>
+        <p><strong>不直接結合 GABA 受體</strong>；可能促進 GABA 生合成；主要機轉是結合脊髓背角 Ca²⁺通道的 <strong>α2δ 次單元</strong>，降低神經元 Ca²⁺濃度——鎮痛效果的機轉與此相關：降低神經元 Ca²⁺濃度連帶減少麩胺酸（Glutamate）釋放，減弱麩胺酸介導的痛覺傳導。對神經性疼痛與癌症相關疼痛有效。</p>
+      </div>
+      <p>藥動學：主要經腎臟排除，腎功能不全病患需減量；<strong>應逐漸減量以避免反彈性疼痛</strong>；副作用：鎮靜、共濟失調。<strong>Pregabalin</strong> 機轉類似 Gabapentin，作為附加抗癲癇藥使用。</p>
+
+      <h3 id="drug-levetiracetam">Levetiracetam</h3>
+      <p>因藥動學特性佳、副作用輕微，是難治型癲癇的<strong>優先選用藥物</strong>；機轉尚不明確——結合<strong>突觸小泡醣蛋白 2A（SV2A）</strong>，SV2A 參與小泡運輸與神經傳導物胞吐釋放。<strong>口服吸收率 100%</strong>；T½ 犬 4 小時、貓 8 小時；<strong>不誘導細胞色素 P450</strong>（與 Phenobarbital 等老藥的重大差異）；代謝程度低，原型藥與代謝物主要經尿液排出；耐受性佳、副作用輕微（行為改變、嘔吐）。</p>
+
+      <h3 id="drug-felbamate">Felbamate</h3>
+      <p>犬難治型癲癇的輔助治療；<strong>雙重機轉</strong>：增強 GABA 介導的神經抑制＋阻斷 NMDA 受體。口服吸收率幼犬約 30%、成犬較高；70% 經尿液排出、其餘經肝臟代謝；T½ 成犬 5–6 小時、幼犬 2.5 小時。副作用：肝功能異常（肝病犬應避免使用）、可逆性骨髓抑制、乾眼症（keratoconjunctivitis sicca）、顫抖；<strong>建議每 6 個月監測肝功能</strong>。</p>
+
+      <h3 id="drug-zonisamide">Zonisamide</h3>
+      <p>犬難治型癲癇的附加或單一用藥；機轉：抑制電壓依賴性 Na⁺與 Ca²⁺通道，減少興奮性神經傳導物釋放。腸胃道吸收良好；T½ 犬 15–20 小時、貓 30 小時；主要經尿液排出，僅約 20% 經肝臟代謝。副作用：<strong>犬安全範圍高</strong>，可能出現鎮靜、共濟失調、厭食。</p>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>抗癲癇藥控制不治癒</strong>，突然停藥可能誘發戒斷症狀、發作或癲癇重積症。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>兩大機轉框架：</strong>促進 GABAA/Cl⁻通道開啟（Phenobarbital／Primidone／BZD）vs 阻斷電壓依賴性 Na⁺通道（Phenytoin／Carbamazepine／Valproic acid）——先歸類再記細節。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Phenobarbital 是犬貓第一線維持用藥</strong>（60–80% 犬有效），長效、P450 誘導、有肝毒性；<strong>Diazepam 是重積症 IV 首選但不適合犬長期維持</strong>（快速耐受）、貓可口服維持。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Phenytoin 犬貓皆不建議使用</strong>：犬代謝過快、貓代謝過慢，原因相反但結論一致；<strong>KBr 不建議用於貓</strong>（誘發氣喘樣呼吸道疾病，教科書確認約一半貓出現不良反應）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Imepitoin</strong>：GABAA受體BZD結合位部分致效劑（親和力僅Diazepam的600分之一），2013年歐洲核准（商品名Pexion，美國未核准）用於犬特發性癲癇，也用於犬噪音恐懼症。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>癲癇重積症物種策略不同：</strong>犬先BZD（IV）後barbiturate；貓幾乎只需Diazepam。Pentobarbital是BZD無效時的最後手段。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>臨床用藥黑名單：</strong>Phenothiazine/Butyrophenone鎮定劑、Metoclopramide、喹諾酮類、多種驅蟲藥會降低癲癇閾值；<strong>Xylazine與高劑量Morphine是癲癇病患明確禁忌</strong>。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>新藥多用於難治型癲癇輔助治療：</strong>Levetiracetam（不誘導P450、耐受性最佳，優先選用）、Gabapentin（結合Ca²⁺通道α2δ次單元、兼具鎮痛）、Felbamate（雙機轉、需監測肝功能）、Zonisamide（安全範圍高）。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（柯僑書，A9 CNS Anticonvulsant）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋機轉分類、老藥個論、重積症處置、用藥禁忌各章節重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪一組藥物的共同作用機轉是「阻斷電壓依賴性 Na⁺通道」？</div>
+        <ul class="quiz-options">
+          <li>(A) Phenobarbital、Primidone、Diazepam</li>
+          <li>(B) Phenytoin、Carbamazepine、Sodium valproate</li>
+          <li>(C) Gabapentin、Levetiracetam、Zonisamide</li>
+          <li>(D) Imepitoin、Ethosuximide、KBr</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Phenytoin、Carbamazepine、Sodium valproate 皆透過阻斷電壓依賴性 Na⁺通道發揮抗癲癇效果；Phenobarbital、Primidone、Diazepam 則屬於促進 GABAA/Cl⁻通道開啟這條路徑。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Diazepam 因為效果好、耐受性佳，適合作為犬的長期口服維持治療用藥。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">犬對 Diazepam 的抗癲癇效果會快速產生耐受性，且犬體內半衰期短（2–4小時），因此不適合犬的長期維持治療；Diazepam 口服維持治療較適合用於貓。犬長期維持治療首選是 Phenobarbital。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻貓因難治型癲癇考慮使用 Potassium Bromide（KBr），下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) KBr 在貓的效果與安全性都優於犬，是貓的首選用藥</li>
+          <li>(B) KBr 可能在貓誘發嚴重氣喘樣呼吸道疾病，臨床上不建議使用</li>
+          <li>(C) KBr 主要肝臟代謝，肝病貓應避免使用</li>
+          <li>(D) KBr 起效非常快，數小時內即可看到療效</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">KBr 可能在貓誘發嚴重氣喘樣呼吸道反應，臨床上不建議用於貓；KBr 主要經腎臟排除、肝毒性不是主要考量；且 KBr 半衰期長達 25 天，需 4–6 個月才能達到穩定血中濃度，起效非常慢。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 為什麼 Phenytoin 在犬與貓都不建議常規使用？請分別說明兩個物種各自的藥動學問題。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">兩個物種不建議使用 Phenytoin 的原因剛好相反：<strong>犬</strong>代謝 Phenytoin 的速度過快（半衰期僅 3–7 小時，且隨用藥時間越來越短，可能是肝臟酵素被自我誘導所致），導致血中濃度難以維持在有效治療範圍，療效大打折扣；<strong>貓</strong>則相反，代謝速度過慢（作用時間長達 42–108 小時），使血中濃度容易累積超出安全範圍，增加中毒風險。兩個物種都因為難以把血中濃度穩定維持在治療窗內，才被列為不建議使用，而不是單純的「無效」或「太毒」。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻已確診特發性癲癇、長期口服 Phenobarbital 控制良好的犬，因外傷需要進行鎮靜評估傷口。獸醫師原本考慮使用 Xylazine 做為鎮靜藥物之一。請問：(1) 這個選擇是否恰當？為什麼？(2) 除了鎮靜藥物選擇，還有哪些已知會降低癲癇閾值的藥物類別在處置這隻犬時應該避免？(3) 若這隻犬鎮靜或處置過程中突然出現持續超過 5 分鐘的癲癇發作，臨床上的處置原則為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) Xylazine 選擇是否恰當：</strong>不恰當。講義明確指出 Xylazine 不應用於癲癇病患，原因有二：一是會嚴重抑制心血管功能，二是可能在易感動物身上誘發癲癇發作。這隻犬已有癲癇病史，屬於典型的「易感動物」，應改用其他鎮靜方案。<br><strong>(2) 應避免的藥物類別：</strong>除了 Xylazine 與高劑量 Morphine，還應避免 Phenothiazine 與 Butyrophenone 類鎮定劑、Metoclopramide、喹諾酮類抗生素，以及多種驅蟲藥（如 Pyrantel、Levamisole、除蟲菊精類藥物），這些都被列為會降低癲癇閾值、增加發作風險的藥物。同時要留意這隻犬長期服用 Phenobarbital，本身就是肝臟酵素誘導劑，處置時若合併使用其他經肝臟代謝的藥物，也要考量交互作用。<br><strong>(3) 突發癲癇重積症的處置：</strong>持續發作超過 5 分鐘已符合癲癇重積症（Status Epilepticus）定義，犬隻的處置原則是<strong>先使用 Benzodiazepine（IV）</strong>作為第一線急救藥物；若 BZD 無法控制，第二選擇是<strong>IV barbiturate</strong>；若仍然無法控制（BZD 無效的頑固型重積症），可將<strong>短效的 Pentobarbital</strong> 作為最後手段，在麻醉劑量下終止發作，但須密切監測呼吸抑制與體溫過低的風險。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  nomenclature: '癲癇定義、分類與病因',
+  mechanisms: '兩大細胞作用機轉',
+  olderdrugs: '老藥個論',
+  statusepilepticus: '癲癇重積症與臨床用藥禁忌',
+  newerdrugs: '新藥個論',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

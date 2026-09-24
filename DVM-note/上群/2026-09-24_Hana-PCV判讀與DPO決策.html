@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上群病例：Hana - PCV 判讀與 DPO 決策 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">上群病例筆記</a><span class="sep">›</span><span class="current">Hana：PCV 判讀與 DPO 決策</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">Hana：PCV 判讀與 DPO 決策</h1>
+      <p class="page-subtitle">一天內 PCV 疑似驟降而給了 DPO＋鐵劑，回頭用抽血時間、TP/Alb 邏輯與 RETIC 絕對值拆解，發現是稀釋假象而非真貧血惡化</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">個案</div><div class="meta-value">Hana・貓・米克斯・3y6m・3.2kg・已絕育（母）</div></div>
+      <div class="meta-item"><div class="meta-label">主要問題</div><div class="meta-value">輸尿管結石阻塞，外院轉入，裝置 SUB（皮下輸尿管繞道）</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-09-24（涵蓋住院第 9/14–9/23 資料）</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">進行中病例</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">結論</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 核心結論</a>
+    <a onclick="showSection('basics')" id="nav-basics"><span class="nav-icon">📖</span> 基礎知識：EPO／DPO／鐵劑</a>
+    <div class="section-label" style="margin-top:8px;">事件與判讀</div>
+    <a onclick="showSection('background')" id="nav-background"><span class="nav-icon">📋</span> 事件回顧</a>
+    <a onclick="showSection('dilution')" id="nav-dilution"><span class="nav-icon">💧</span> 關鍵發現：抽血時間決定數字</a>
+    <a onclick="showSection('regenerative')" id="nav-regenerative"><span class="nav-icon">📈</span> 再生性貧血怎麼判斷</a>
+    <div class="section-label" style="margin-top:8px;">用藥決策</div>
+    <a onclick="showSection('dpotiming')" id="nav-dpotiming"><span class="nav-icon">⏱️</span> DPO：適應症與時間尺度</a>
+    <a onclick="showSection('iron')" id="nav-iron"><span class="nav-icon">🔩</span> 鐵劑：合理但時機不同</a>
+    <a onclick="showSection('differential')" id="nav-differential"><span class="nav-icon">🔀</span> 急性PCV下降鑑別流程</a>
+    <a onclick="showSection('retrospective')" id="nav-retrospective"><span class="nav-icon">🔄</span> 回顧：9/21 決策複盤</a>
+    <a onclick="showSection('decision')" id="nav-decision"><span class="nav-icon">✅</span> 9/23 決策</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('lessons')" id="nav-lessons"><span class="nav-icon">⭐</span> 學習重點</a>
+    <a onclick="showSection('followup')" id="nav-followup"><span class="nav-icon">📌</span> 後續監測與待確認</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>核心結論</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">結論</div>
+        <p>9/21 看到的「PCV 一天掉 6 點」是抽血時間差造成的<strong>稀釋假象</strong>，不是真正的貧血惡化。Hana 的實際 PCV 約 30–33%，幾乎沒有貧血，<strong>DPO 的指徵不成立</strong>。<strong>回頭看，9/21 當下就不應該給 DPO</strong>——不只是事後諸葛：給藥前一天（9/20）的 RETIC 已經 153.7 K/µL，骨髓早就在積極造血，加上急性一天的變化本來就不是 DPO 這種慢性工具的作用範圍，這些訊號在給藥當下就存在，只是沒有先做鑑別診斷就直接治療了。9/23 的高 RETIC（241.3 K/µL）幾乎確定是 9/16 就開始的內源性再生反應的延續，時間尺度對不上 DPO 藥效——<strong>不建議繼續給藥</strong>；鐵劑則因造血加速、10天連續抽血消耗，可以獨立於 DPO 決策繼續給予。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">這個病例在教什麼？</div>
+        <p>PCV／HCT 是<strong>濃度</strong>不是<strong>總量</strong>——分子（紅血球）沒變，分母（血漿）被輸液撐大，數字就會跳動到看似貧血惡化。急性數字變化要先問「這個數字是真的嗎」（抽血時間、輸液速率、TP/Alb），再問「要給什麼藥」；處置的時間尺度必須跟問題的時間尺度對齊——急性稀釋不需要慢性藥物介入。</p>
+      </div>
+    </div>
+
+    <!-- BASICS -->
+    <div class="section" id="section-basics">
+      <div class="section-head"><div class="section-num">2</div><h2>基礎知識：EPO、DPO 與鐵劑分別在做什麼</h2></div>
+      <p class="section-desc">後面幾節會反覆用到這三個名詞，先把它們的角色分清楚：<strong>EPO 是身體自己發的訊號，DPO 是人工補這個訊號，鐵劑是造血用的原料</strong>——三者處理的是完全不同層級的問題，缺一個都做不出紅血球，但補錯一個也解決不了另一個的問題。</p>
+
+      <div class="flow">
+        <div class="flow-node">組織缺氧</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">腎臟間質細胞感應（HIF路徑）→ 分泌 EPO</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">骨髓紅血球前驅細胞收到訊號，開始增殖分化（RETIC 上升）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">需要鐵當原料合成血紅素（Heme 核心是 Fe²⁺）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">成熟紅血球釋出 → HCT／HGB 上升</div>
+      </div>
+
+      <h3 id="drug-epo">EPO（Erythropoietin，紅血球生成素）——身體自己的訊號</h3>
+      <ul>
+        <li><strong>產生位置：</strong>主要是腎臟（腎皮質與外髓質的間質纖維母細胞），少量由肝臟製造</li>
+        <li><strong>觸發機轉：</strong>組織缺氧 → HIF（hypoxia-inducible factor）路徑活化 → 分泌 EPO 進入血液循環</li>
+        <li><strong>作用位置：</strong>結合骨髓紅血球前驅細胞（CFU-E、BFU-E）上的 EPO 受體，促進其存活、增殖、分化為成熟紅血球</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">跟這個病例的關聯</div>
+        <p>慢性腎病時，受損的腎臟間質細胞無法正常分泌足夠的 EPO，骨髓收不到「多做紅血球」的訊號，造成<strong>腎性貧血（renal anemia）</strong>——特徵是非再生性（骨髓沒反應，RETIC 不會升高）。這是 DPO 這類藥物設計要解決的問題。</p>
+      </div>
+
+      <h3 id="drug-dpobasic">DPO（Darbepoetin alfa）——人工合成的長效 EPO 替身</h3>
+      <p>本質是重組合成的 EPO 類似物，結構上比天然 EPO 多了醣化位點，因此<strong>半衰期更長、注射頻率可以降低</strong>（這也是名字裡 Darbe- 的由來）。它的適應症很明確：<strong>補足因為腎臟訊號不足而缺的 EPO</strong>，不是廣效的「補血劑」。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">關鍵限制</div>
+        <p>如果骨髓已經有能力造血、只是缺少 EPO 訊號（如 CKD），DPO 補上訊號才有意義；<strong>如果骨髓根本沒有收訊號的問題（例如訊號已經足夠、甚至骨髓已經在自主積極造血），額外補 DPO 不會加速造血，只會疊加過度刺激的風險</strong>（紅血球增多症、高血壓、PRCA）。這正是 Hana 這個病例的核心矛盾——她的骨髓從沒缺過訊號。</p>
+      </div>
+
+      <h3 id="drug-ironbasic">鐵劑——造血的原料，不是訊號</h3>
+      <p>血紅素（Hemoglobin）的核心結構 Heme 需要 Fe²⁺；<strong>就算 EPO 訊號充足、骨髓也想造血，沒有足夠的鐵，前驅細胞也無法順利做出「有血紅素、能帶氧」的成熟紅血球</strong>——這時候骨髓是「有訊號、沒原料」，等於空轉。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">絕對缺鐵 Absolute Iron Deficiency</div>
+          <p>體內鐵儲存總量真的不夠（如長期失血、營養不良）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">功能性缺鐵 Functional Iron Deficiency</div>
+          <p>鐵儲存量可能足夠，但因發炎（hepcidin 把鐵鎖在巨噬細胞內）或造血速度太快、超過鐵釋放供應的速度，導致短期內鐵「供不應求」——Hana 屬於這一種。</p>
+        </div>
+      </div>
+      <p style="font-size:.9em;"><strong>監測工具：CHr（RETIC-HGB，網狀紅血球血紅素含量）</strong>——比血清鐵更即時，反映的是「新做出來的紅血球有沒有拿到足夠的鐵」，而不是體內鐵儲存的總量。</p>
+
+      <h3>三者合作的臨床邏輯</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>骨髓的狀態</th><th>該補什麼</th></tr></thead>
+          <tbody>
+            <tr><td>訊號足夠，但缺鐵（原料不夠）</td><td>只需要補鐵，不需要 DPO</td></tr>
+            <tr><td>訊號不足（如 CKD），骨髓怠工</td><td>需要 DPO 補訊號，且必須同時確保鐵足夠——否則訊號有了、原料不夠，骨髓仍做不出東西</td></tr>
+            <tr><td>訊號本來就足夠，骨髓已自主積極造血（如 Hana）</td><td>不需要 DPO（甚至有害）；但造血加速仍會消耗鐵，可能需要補鐵</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Hana 屬於第三種情況：骨髓從未缺過訊號，DPO 的指徵從一開始就不成立；鐵劑則因應加速造血的消耗，是合理的獨立決策。詳細數據見下方各節。</p>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="section" id="section-background">
+      <div class="section-head"><div class="section-num">3</div><h2>事件回顧</h2></div>
+      <p class="section-desc">Hana，3 歲 6 個月米克斯母貓，3.2 kg，因輸尿管結石阻塞由外院轉入，裝置 SUB（Subcutaneous Ureteral Bypass，皮下輸尿管繞道）。Crea 由 14 降至 4.1，再降至 0.8。住院期間輸液設定：白天 8 mL/hr，夜間包手不打點滴。</p>
+
+      <div class="flow">
+        <div class="flow-node">9/20 16:03 抽血：HCT 29.1%</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">9/21 19:46 抽血：HCT 23.2%（一天掉 5.9 個百分點）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">擔心貧血惡化，當日給予長效紅血球生成素 DPO＋鐵劑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">9/23 RETIC 達 241.3 K/µL，HCT 回升至 33.5%</div>
+      </div>
+      <p>表面上看起來處置有效——但時間軸對不上，需要重新檢視。</p>
+
+      <div class="figure">
+        <img src="img/hana-pcv-dpo/cbc_trend_09-14_to_09-23.png" alt="Hana 9/14-9/23 血液檢查趨勢表，含RBC/HCT/HGB/MCV/MCH/MCHC/RDW/RETIC/RETIC-HGB/WBC/NEU%/LYM%">
+        <div class="figure-caption">原始 CBC 血液檢查趨勢（2026/09/14–09/23，逐日抽血時間並列），下面幾節的所有數字分析都是從這張表拆解出來的。</div>
+        <div class="figure-source">來源：院內病歷系統血液檢查紀錄（已去識別化，僅保留檢驗數據）</div>
+      </div>
+    </div>
+
+    <!-- DILUTION -->
+    <div class="section" id="section-dilution">
+      <div class="section-head"><div class="section-num">4</div><h2>關鍵發現：抽血時間決定了數字</h2></div>
+      <p class="section-desc">9/20 抽血於 16:03，9/21 抽血於 19:46——多泡了將近 4 小時的點滴。</p>
+
+      <h3>血容積計算</h3>
+      <div class="card">
+        <p>以 3.2 kg 貓估算：血容積 ≈ 3.2 × 55 mL/kg ≈ 176 mL；HCT 29% 時，血漿容積 ≈ 125 mL；8 mL/hr × 多 3.7 hr ≈ 30 mL，血漿被撐大約 20–25%。</p>
+        <p style="margin-top:8px;"><strong>預期 HCT = 29.1 ÷ 1.22 ≈ 23.9%，實測 23.2%——幾乎完全吻合。</strong></p>
+      </div>
+
+      <h3>三項同步下降 = 稀釋的指紋<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>9/20 16:03</th><th>9/21 19:46</th><th>變化</th></tr></thead>
+          <tbody>
+            <tr><td>RBC (M/µL)</td><td>5.63</td><td>4.55</td><td>−19%</td></tr>
+            <tr><td>HCT (%)</td><td>29.1</td><td>23.2</td><td>−20%</td></tr>
+            <tr><td>RETIC (K/µL)</td><td>153.7</td><td>89.6</td><td>−42%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">判讀邏輯</div>
+        <p>RBC 與 HCT 等比例下降，出血或溶血不會產生這麼乾淨的比例。更關鍵的是 <strong>RETIC 也跟著掉</strong>——真的急性失血，骨髓會更興奮，RETIC 不可能反而減少。所有細胞成分一起被水稀釋，才會呈現這種型態。</p>
+      </div>
+
+      <h3>整條曲線其實是「抽血時鐘」</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日期</th><th>抽血時間</th><th>HCT (%)</th><th>點滴累積時數</th></tr></thead>
+          <tbody>
+            <tr><td>9/23</td><td>10:02</td><td>33.5</td><td>整夜未打，最濃縮</td></tr>
+            <tr><td>9/22</td><td>14:01</td><td>25.8</td><td>~6 hr</td></tr>
+            <tr><td>9/21</td><td>19:46</td><td>23.2</td><td>~12 hr，最稀釋</td></tr>
+            <tr><td>9/20</td><td>16:03</td><td>29.1</td><td>~8 hr</td></tr>
+            <tr><td>9/19</td><td>14:26</td><td>28.5</td><td>~6 hr</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>早上抽最高、晚上抽最低。9/22 到 9/23「兩天跳 10 點」的謎團，答案同樣是時間——從下午 14:01 換成早上 10:02。9/23 的 HCT 漲幅略大於 RBC，是因為 MCV 由 52.4 升至 57.1 fL，網狀紅血球把細胞撐大了。數據內部完全自洽。</p>
+
+      <div class="alert alert-success">
+        <div class="alert-label">結論</div>
+        <p>Hana 真實的 PCV 約 <strong>30–33%</strong>（早上未輸液狀態），參考範圍 30.3–52.3%。<strong>她幾乎沒有貧血。</strong>9/21 看到的 23.2 是「泡了 12 小時點滴的貓」的數字，不是她的紅血球量。</p>
+      </div>
+    </div>
+
+    <!-- REGENERATIVE -->
+    <div class="section" id="section-regenerative">
+      <div class="section-head"><div class="section-num">5</div><h2>再生性貧血怎麼判斷</h2></div>
+      <p class="section-desc"><strong>只看 RETIC 絕對值（K/µL），不要看 %RETIC。</strong>%RETIC 的分母是 RBC，貧血時 RBC 下降，同樣的網狀紅血球數量會讓百分比被灌水。Hana 9/21 的 %RETIC 只有 2.0 看似平平，但 4.55 M/µL × 2.0% = 89.6 K/µL，已是明確再生性。</p>
+
+      <h3 id="drug-reticgrading">貓的 Aggregate Reticulocyte 分級<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>RETIC 絕對值 (K/µL)</th><th>判讀</th></tr></thead>
+          <tbody>
+            <tr><td>&lt; 50</td><td>非再生性</td></tr>
+            <tr><td>50–100</td><td>輕度再生</td></tr>
+            <tr><td>100–200</td><td>中度再生</td></tr>
+            <tr><td>&gt; 200</td><td><strong>強烈再生</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>三個佐證指標</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">MCV 上升</div>
+          <p>46.3→48.3→49.7→51.0→52.4→57.1 fL。網狀紅血球比成熟紅血球大，MCV 被拉高代表骨髓在放新細胞出來。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">RDW 上升</div>
+          <p>19.1→25.7→29.5→31.0%。RDW 是紅血球大小的離散度，新舊兩群細胞混雜（anisocytosis）就會升高。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">CHr 維持正常</div>
+          <p>RETIC-HGB維持18–21 pg，代表新造出的紅血球「有料」，鐵供應充足——比血清鐵更即時的功能性鐵指標。</p>
+        </div>
+      </div>
+      <p style="font-size:.9em;">MCV 高＋RDW 高＋RETIC 高＝典型再生性型態。若為缺鐵，會反向走 MCV 低、CHr 低。</p>
+
+      <h3>Hana 的 RETIC 走勢：教科書等級的自然再生曲線</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日期</th><th>9/14</th><th>9/15</th><th>9/16</th><th>9/17</th><th>9/18</th><th>9/19</th><th>9/20</th><th>9/21</th><th>9/22</th><th>9/23</th></tr></thead>
+          <tbody>
+            <tr><td>RETIC (K/µL)</td><td>2.5</td><td>9.5</td><td>67.9</td><td>93.6</td><td>54.1</td><td>54.5</td><td>153.7</td><td>89.6</td><td>135.3</td><td><strong>241.3</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">重點</div>
+        <p>入院時 2.5 K/µL（完全非再生性），9/16 之後一路上爬。急性損傷後 3–5 天骨髓啟動，接著逐步加速——<strong>這條線在 DPO 給藥前就已經確立了方向。</strong></p>
+      </div>
+    </div>
+
+    <!-- DPO TIMING -->
+    <div class="section" id="section-dpotiming">
+      <div class="section-head"><div class="section-num">6</div><h2>DPO：適應症與時間尺度</h2></div>
+      <p class="section-desc"><strong>處置的時間尺度必須和問題的時間尺度對齊。</strong>擔心的是「一天」，DPO 解決的是「一個月」——工具本身沒錯，錯在對不上。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>事件</th><th>時間尺度</th></tr></thead>
+          <tbody>
+            <tr><td>一天內 PCV 掉 6 點</td><td>小時級事件——出血、溶血、或稀釋</td></tr>
+            <tr><td>骨髓造血反應</td><td>3–5 天才看到 RETIC 動</td></tr>
+            <tr><td>DPO 讓 RETIC 上升</td><td>給藥後 3–7 天</td></tr>
+            <tr><td>DPO 讓 PCV 有感上升</td><td>2–4 週</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">時間軸對不上</div>
+        <p>9/21 給藥、9/23 測到 241.3，只隔 2 天。這個數字幾乎確定是 9/16 就開始的內源性再生反應的延續，<strong>不是 DPO 造成的</strong>。判斷療效永遠要先問「這個藥什麼時候會開始作用」，再看時間軸對不對得上。</p>
+      </div>
+
+      <h3>這隻貓有 EPO 缺乏嗎？</h3>
+      <p>DPO 的適應症是腎性貧血——慢性腎病導致腎臟間質細胞分泌 EPO 不足。EPO 缺乏需要時間累積，兩週的 AKI 不太可能造成有意義的缺乏。<strong>Hana 是 3 歲半的年輕貓、急性輸尿管阻塞造成的 AKI、Crea 已回到 0.8</strong>，一項都不符合。</p>
+      <p>她的貧血（若真的存在）更可能來自：</p>
+      <ul>
+        <li><strong>Anemia of inflammation：</strong>IL-6 → hepcidin ↑ → 鐵被鎖在巨噬細胞內。這種 DPO 效果差。</li>
+        <li><strong>醫源性失血：</strong>3.2 kg 貓總血量約 176 mL，連抽 10 天 CBC 加上手術失血。</li>
+        <li><strong>稀釋性：</strong>如前節所述，這是主因。</li>
+      </ul>
+
+      <h3>DPO 的風險<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌／風險</div>
+        <ul style="margin:8px 0 0;padding-left:1.2em;">
+          <li><strong>高血壓：</strong>最需要在意的一項。EPO 類藥物會升壓，剛做完 SUB 的腎貓本身就是高血壓高風險族群，可能導致視網膜剝離、高血壓腦病。</li>
+          <li><strong>Pure red cell aplasia（PRCA，純紅血球再生不良）：</strong>產生抗 EPO 抗體，反而完全不造血。DPO 發生率低於 rHuEPO 但仍存在。</li>
+          <li>癲癇、鐵耗竭。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- IRON -->
+    <div class="section" id="section-iron">
+      <div class="section-head"><div class="section-num">7</div><h2>鐵劑：合理，但時機不同</h2></div>
+      <p class="section-desc">CHr 走勢 19.9（9/21）→ 18.6（9/22）→ 17.8（9/23），9/21 當下 CHr 正常、不缺鐵；真正開始掉是 9/22 之後，因為 RETIC 衝到 241.3，造血加速把鐵消耗掉，出現 functional iron deficiency。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>鐵劑的最佳時機是<strong>現在</strong>，不是 9/21。不過提早給不算錯——鐵劑相對安全，且連續住院 10 天每日抽血，鐵儲備本來就在消耗。<strong>若決定使用 DPO，鐵劑幾乎是必配：沒有鐵，骨髓只是空轉。</strong>但鐵劑本身的必要性不需要綁在 DPO 決策上——即使停用 DPO，鐵劑仍可因應加速中的內源性造血需求繼續給予。</p>
+      </div>
+    </div>
+
+    <!-- DIFFERENTIAL -->
+    <div class="section" id="section-differential">
+      <div class="section-head"><div class="section-num">8</div><h2>急性 PCV 下降的鑑別流程</h2></div>
+      <p class="section-desc">先問「為什麼掉」，再問「要給什麼」。一天內 PCV 明顯下降只有三個可能。<strong>關鍵鑑別是 TP/Albumin，不是 CBC。</strong>CBC 三個數字都會同步下降，分不出來，這是為什麼急性 PCV 下降一定要同時看 TP。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>機轉</th><th>RBC</th><th>HCT</th><th>HGB</th><th>TP/Alb</th><th>怎麼確認</th></tr></thead>
+          <tbody>
+            <tr><td>稀釋（輸液）</td><td>↓</td><td>↓</td><td>↓</td><td>↓</td><td>輸液速率、抽血時間、體重、TP</td></tr>
+            <tr><td>出血</td><td>↓</td><td>↓</td><td>↓</td><td>↓</td><td>找出血點、腹超、手術部位、採血量</td></tr>
+            <tr><td>溶血</td><td>↓</td><td>↓</td><td>↓</td><td>不變</td><td>血漿顏色、TBIL、抹片球形紅血球</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>決策順序</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">PCV 急性下降 → 對照 TP/Alb、抽血時間、輸液速率</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>TP 正常</strong> → 懷疑溶血，看血漿顏色、TBIL</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>TP 下降＋時間可解釋</strong> → 稀釋，調輸液、隔天回測</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>TP 下降＋時間不可解釋</strong> → 懷疑出血，找出血點</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">溶血或出血確認後 → 評估有無臨床症狀、PCV 是否 &lt; 15–18% → 決定是否輸血；否則觀察回測</div></div>
+
+      <h3>貓的輸血觸發點</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">僅供學習參考，實際依主治判斷</div>
+        <p>PCV &lt; 15–18%，或出現臨床症狀：頻脈、呼吸快、虛弱、黏膜蒼白、lactate 升高。<strong>Hana PCV 23% 且無症狀，尚未到輸血門檻</strong>，單純觀察加隔天回測是合理的。</p>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-faint);">急性問題要配急性工具：急性失血 → 輸血；急性稀釋 → 調輸液。DPO 是慢性工具，對小時級的變化幫不上忙。</p>
+    </div>
+
+    <!-- RETROSPECTIVE -->
+    <div class="section" id="section-retrospective">
+      <div class="section-head"><div class="section-num">9</div><h2>回顧：9/21 的決策哪裡可以做得更好</h2></div>
+      <p class="section-desc">前面幾節拆解的是「數字本身有沒有問題」——結論是稀釋假象。這節要問的是另一件事：<strong>就算不看事後的 9/23 數據，9/21 當下的決策流程本身站不站得住腳？</strong>答案是不站得住腳，而且不需要事後諸葛，用 9/21 當天已經存在的資訊就能看出來。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">四個在 9/21 當下就存在、不需要等 9/23 的訊號</div>
+        <ol style="margin:8px 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>9/20 的 RETIC 已經是 153.7 K/µL</strong>——這是給藥「之前」就抽到的數字，已落在中度到強烈再生範圍。若給藥前有拉出 RETIC 趨勢看一眼，會發現骨髓根本沒有偷懶，這時候補 EPO 類藥物的邏輯基礎就已經薄弱。</li>
+          <li><strong>急性一天的變化，本來就不是 DPO 的作用範圍</strong>——這點不需要任何檢驗數據，純粹是藥理學：DPO 起效要 3–7 天、PCV 有感上升要 2–4 週，用它去處理「一天內掉 6 點」，時間尺度從一開始就對不上，跟後來證實是稀釋無關。</li>
+          <li><strong>EPO 缺乏的病理機轉在 9/21 當下就不成立</strong>——Hana 是年輕貓、急性阻塞性 AKI 正在改善中（Crea 持續下降），不是慢性腎病的族群，這個判斷不需要等兩天後的 RETIC 曲線才能下。</li>
+          <li><strong>給藥前沒有先排除稀釋／出血／溶血</strong>——TP/Alb 若當時有配合 CBC 一起看，稀釋這個最溫和的解釋本來就該先被排除或確認，而不是看到 HCT 掉就直接治療。</li>
+        </ol>
+      </div>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">問題不是選錯了藥，是順序錯了</div>
+        <p>9/21 的決策問題不是「DPO 這個工具選錯」，而是<strong>在做鑑別診斷之前就先給了藥</strong>——跳過了「為什麼掉」直接跳到「要給什麼」。對照第 7 節的鑑別流程：PCV 急性下降應該先看 TP/Alb、抽血時間、輸液速率，再決定是稀釋、出血還是溶血；<strong>DPO 從頭到尾都不在這張鑑別流程圖的任何一個分支終點上</strong>，因為它處理的不是「急性下降的原因」，而是「慢性造血不足」——兩者是不同層級的問題。</p>
+      </div>
+
+      <p style="font-size:.9em; color:var(--fg-faint);">這個複盤跟下一節「9/23 決策」的差別：這節是往回看「當初的判斷流程」，下一節是往前看「現在該怎麼做」——兩者結論一致（DPO 不該繼續／不該給），但論證的材料不同，值得分開記錄。</p>
+    </div>
+
+    <!-- DECISION -->
+    <div class="section" id="section-decision">
+      <div class="section-head"><div class="section-num">10</div><h2>9/23 決策：DPO 停、鐵劑繼續</h2></div>
+      <p class="section-desc">整合以上分析，對「今天（9/23）該不該再打一劑 DPO＋鐵」的實際決策。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">❌ DPO：不繼續</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>今天早上未輸液的乾淨數據：HCT 33.5%，已在參考範圍內，幾乎不貧血</li>
+            <li>RETIC 241.3 的上升曲線從 9/16 就開始，比給藥早 5 天，時間尺度對不上 DPO 藥效</li>
+            <li>原始適應症本就站不住腳：急性阻塞性 AKI 已解除，非腎性貧血族群</li>
+            <li>風險已經反過來：PCV 正自行達標並持續上升，疊加 DPO 恐衝過頭（紅血球增多症、血液黏稠度上升），剛做 SUB 的腎貓是高血壓高風險族群</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">✅ 鐵劑：繼續給</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>CHr 19.9→18.6→17.8 pg，雖仍在範圍內但方向向下</li>
+            <li>RETIC 持續加速，造血消耗鐵的速度只會更快</li>
+            <li>連續 10 天每日抽血，鐵儲備消耗是真實存在的</li>
+            <li>鐵劑風險低，此決定不需要跟著 DPO 一起停</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert alert-success">
+        <div class="alert-label">行動項目</div>
+        <p>今天這劑 DPO 先保留；鐵劑照給。把「PCV 已回升至 33%、繼續給藥有過度上升風險」明確帶去跟主治確認——這本來就在待確認清單裡，現在有今天的數據可以收斂成具體建議，而不是開放式問題。</p>
+      </div>
+    </div>
+
+    <!-- LESSONS -->
+    <div class="section" id="section-lessons">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點</h2></div>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>PCV/HCT 是濃度，不是總量。</strong>分子（紅血球）沒變，分母（血漿）動一下，數字就跳。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>在對數字做出反應之前，先確認這個數字是真的。</strong>一天漲 14 點、一天掉 6 點都超出生理極限——生理上不可能的數字，先懷疑檢體或情境，再懷疑病人。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>處置的時間尺度要和問題的時間尺度對齊。</strong>急性變化先找病因，不要反射性抓一個慢性藥物去處理。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>住院貓的 CBC 應固定抽血時段</strong>（建議早上輸液開始前），否則每天的數字無法互相比較。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>PCV 一定配 TP 一起看</strong>——區分稀釋與失血最便宜有效的方法。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>RETIC 看絕對值，不看百分比。</strong>百分比的分母會隨貧血程度變動。</div></div>
+
+      <footer class="note-footer">
+        本頁內容涉及真實動物病患臨床決策紀錄，僅供個人學習與院內討論使用，<strong>不作為正式診斷或用藥依據</strong>。病歷相關個資已於紀錄中省略。
+      </footer>
+    </div>
+
+    <!-- FOLLOWUP -->
+    <div class="section" id="section-followup">
+      <div class="section-head"><div class="section-num">12</div><h2>後續監測與待確認事項</h2></div>
+
+      <h3>後續監測</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>頻率</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr><td>血壓</td><td>DPO 後每週</td><td>EPO 類藥物最需防的併發症，尤其腎貓</td></tr>
+            <tr><td>PCV + RETIC</td><td>每週</td><td>目標 PCV 緩升至 25–30%；上升過快需減量</td></tr>
+            <tr><td>CHr (RETIC-HGB)</td><td>每 1–2 週</td><td>&lt; 13 pg 代表功能性缺鐵</td></tr>
+            <tr><td>RETIC 驟降</td><td>隨時警覺</td><td>&lt; 10 K/µL 併 PCV 下滑 → 懷疑 PRCA</td></tr>
+            <tr><td>尿檢＋尿培養</td><td>依 WBC 趨勢</td><td>SUB 裝置相關感染、pyelonephritis</td></tr>
+            <tr><td>Crea + K⁺</td><td>持續</td><td>Post-obstructive diuresis 後低血鉀</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-faint);">另注意 WBC 趨勢：9/19 12.11 → 9/20 19.30 → 9/22 16.59 → 9/23 19.91 K/µL（上限 17.02），%NEU 77.5。SUB 最常見的長期併發症即裝置相關感染，值得追蹤。但住院壓力、類固醇、術後發炎反應也會造成，需搭配體溫與尿檢判讀。</p>
+
+      <h3>待向主治確認</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">待確認清單</div>
+        <ul style="margin:8px 0 0;padding-left:1.2em;">
+          <li>9/15 → 9/16 HCT 由 20.6 跳至 34.5，一天漲 14 點。抽血時間是 09:16 → 13:59，時間效應為反向卻仍上漲——這組數據只剩輸血能解釋。請確認 9/15–9/16 有無給 pRBC。若有，早期是真的有貧血（早上抽只有 20.6），後續恢復有一部分來自輸血而非骨髓。</li>
+          <li>9/20、9/21 的 TP/Alb 數值，用以確認稀釋判讀。</li>
+          <li>下一劑 DPO 還打嗎？PCV 已回升至 33%，繼續給藥有 PCV 過度上升、血液黏稠度增加的風險。目標是 25–30%，不是越高越好。</li>
+          <li>選 DPO 的考量是「RETIC 反應不足」，還是預期 AKI 會留下 CKD 而預防性給？後者是另一套邏輯，值得釐清。</li>
+          <li>住院貓的 CBC 抽血時間有無統一規定？這可能是科室流程可以改善的點。</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '核心結論',
+  basics: '基礎知識：EPO／DPO／鐵劑',
+  background: '事件回顧',
+  dilution: '關鍵發現：抽血時間決定數字',
+  regenerative: '再生性貧血怎麼判斷',
+  dpotiming: 'DPO：適應症與時間尺度',
+  iron: '鐵劑：合理但時機不同',
+  differential: '急性PCV下降鑑別流程',
+  retrospective: '回顧：9/21 決策複盤',
+  decision: '9/23 決策',
+  lessons: '學習重點',
+  followup: '後續監測與待確認'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

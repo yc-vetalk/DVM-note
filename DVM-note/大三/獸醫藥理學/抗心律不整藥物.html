@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：抗心律不整藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">抗心律不整藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">抗心律不整藥物 Antiarrhythmic Drugs</h1>
+      <p class="page-subtitle">心臟電生理基礎、心律不整發生機轉、Vaughan Williams四大分類藥物個論與臨床選藥邏輯整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout CV2 Antiarrhythmics）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.22</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-24</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">電生理基礎</div>
+    <a onclick="showSection('electrophysiology')" id="nav-electrophysiology"><span class="nav-icon">⚡</span> 心臟電生理與動作電位</a>
+    <a onclick="showSection('arrhythmogenesis')" id="nav-arrhythmogenesis"><span class="nav-icon">🔁</span> 心律不整發生機轉</a>
+    <div class="section-label" style="margin-top:8px;">藥物分類個論</div>
+    <a onclick="showSection('classi')" id="nav-classi"><span class="nav-icon">1️⃣</span> Class I：Na⁺通道阻斷劑</a>
+    <a onclick="showSection('classii')" id="nav-classii"><span class="nav-icon">2️⃣</span> Class II：β-受體阻斷劑</a>
+    <a onclick="showSection('classiii')" id="nav-classiii"><span class="nav-icon">3️⃣</span> Class III：K⁺通道阻斷劑</a>
+    <a onclick="showSection('classiv')" id="nav-classiv"><span class="nav-icon">4️⃣</span> Class IV：Ca²⁺通道阻斷劑</a>
+    <a onclick="showSection('others')" id="nav-others"><span class="nav-icon">➕</span> 其他：Adenosine與ACEI</a>
+    <div class="section-label" style="margin-top:8px;">臨床選藥</div>
+    <a onclick="showSection('clinicalselect')" id="nav-clinicalselect"><span class="nav-icon">🩺</span> 依心律不整型態選藥</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章延續強心配糖體那章末尾提到的「Digoxin雙面刃」——正性肌力同時伴隨心律不整風險——正式進入<strong>心律不整的藥物治療</strong>。先建立心臟動作電位五個時相（Phase 0–4）與其對應離子流，理解「心律不整」在機轉上不外乎兩大類：<strong>異常衝動生成</strong>（automaticity改變、triggered activity）與<strong>異常傳導</strong>（reentry折返）。接著進入本章主軸：<strong>Vaughan Williams四大分類</strong>——Class I（Na⁺通道阻斷劑，再細分Ia/Ib/Ic）、Class II（β-blocker）、Class III（K⁺通道阻斷劑）、Class IV（Ca²⁺通道阻斷劑），每一類都用「阻斷哪個離子流→延長或縮短哪個時相→臨床上用在哪種心律不整」這條邏輯記憶，比死背藥名清單有效。最後收在「依心律不整型態選藥」的臨床總結表，把整章的藥物地圖串成實際決策依據。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('electrophysiology')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">電生理基礎</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">動作電位五時相</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('classi')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Class I</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Na⁺通道阻斷Ia/Ib/Ic</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('classiii')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Class III</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Amiodarone／Sotalol</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('clinicalselect')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">臨床選藥</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">依心律不整型態</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>Vaughan Williams分類的核心邏輯：</strong>Class I阻斷Na⁺（減慢phase 0上升速率）、Class II阻斷β受體（降低交感驅動的自主性）、Class III阻斷K⁺（延長APD與不反應期，阻斷reentry）、Class IV阻斷Ca²⁺（減慢SA/AV node慢反應傳導）。</li>
+          <li><strong>Lidocaine只對心室性心律不整有效，對室上性心律不整無效</strong>——這是Class Ib藥物的共通特性；<strong>只能IV給藥</strong>（口服因首渡效應無效）。</li>
+          <li><strong>Phenytoin對貓的毒性風險極高</strong>：貓代謝緩慢（T½ 42–108小時），即使低劑量也可能中毒，臨床上不用於貓。</li>
+          <li><strong>β-blocker是貓室上性與心室性心搏過速的第一線用藥</strong>（cat: first choice），犬則常與Class I藥物併用。</li>
+          <li><strong>Verapamil禁忌於心衰竭病患</strong>（負性肌力效果顯著），也禁忌於Digitalis誘發的心房性心搏過速。</li>
+          <li><strong>Amiodarone療效強但副作用多</strong>（肝毒性、嗜中性球低下、血小板低下），保留給對Sotalol／Mexiletine無效的頑固性心律不整；<strong>杜賓犬對副作用特別敏感</strong>。</li>
+          <li><strong>Digitalis誘發的心室性心律不整，首選藥物是Lidocaine</strong>——與強心配糖體章節的中毒處置章節呼應。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Quinidine</td><td>Class Ia：Na⁺通道阻斷（中等解離速率）＋K⁺通道、α與蕈毒鹼受體</td><td>房性與心室性心搏過速、reentry心律不整；PO／IV／IM；犬貓馬皆可用</td><td class="drug-locations"><a href="#drug-quinidine" class="drug-link">Class I</a></td></tr>
+            <tr><td>Disopyramide</td><td>Class Ia：類似Quinidine，抗蕈毒鹼作用更強、無α阻斷</td><td><strong>PO</strong>；心房顫動/撲動；負性肌力強，★保留給威脅生命的心室性心律不整</td><td class="drug-locations"><a href="#drug-disopyramide" class="drug-link">Class I</a></td></tr>
+            <tr><td>Procainamide</td><td>Class Ia：類似Quinidine機轉</td><td>IV／IM／PO皆可；心室性心律不整效果優於心房性</td><td class="drug-locations"><a href="#drug-procainamide" class="drug-link">Class I</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Lidocaine</td><td>Class Ib：Na⁺通道快速解離型阻斷</td><td>★只對心室性心律不整有效（含Digitalis誘發者）；★只能IV給藥（口服首渡效應失效）；不適合長期維持</td><td class="drug-locations"><a href="#drug-lidocaine" class="drug-link">Class I</a></td></tr>
+            <tr><td>Tocainide</td><td>Class Ib：Lidocaine結構類似物</td><td><strong>藥動學優勢明顯不同：口服有效</strong>；PO有效（犬可BID）；急性與長期維持治療皆可用</td><td class="drug-locations"><a href="#drug-tocainide" class="drug-link">Class I</a></td></tr>
+            <tr><td>Phenytoin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Diphenylhydantoin</div></td><td>Na⁺通道阻斷劑（抑制恢復；Class Ib抗心律不整）</td><td>抗癲癇：廣效（失神性發作除外）；★犬代謝過快、貓代謝過慢，皆不建議長期使用；抗心律不整：犬緩慢IV治Digitalis誘發心律不整，★仍禁用於貓</td><td class="drug-locations"><a href="#drug-phenytoin" class="drug-link">Class I</a></td></tr>
+            <tr><td>Mexiletine</td><td>Class Ib：類似Lidocaine與Tocainide</td><td>口服吸收完全，門診慢性心室性心律不整管理；可與Sotalol併用治頑固病例</td><td class="drug-locations"><a href="#drug-mexiletine" class="drug-link">Class I</a></td></tr>
+            <tr><td>Aprindine</td><td>Class Ib：類似Lidocaine但作用範圍更廣</td><td><strong>PO</strong>；室上性與心室性心律不整皆可用；保留給頑固性心室性心律不整；副作用白血球低下、肝毒性</td><td class="drug-locations"><a href="#drug-aprindine" class="drug-link">Class I</a></td></tr>
+            <tr><td>Flecainide／Encainide／Lorcainide／Propafenone</td><td>Class Ic：Na⁺通道緩慢解離型阻斷（作用最強）</td><td><strong>PO</strong>；頑固性心室性心搏過速；犬副作用心律不整、心搏過緩、低血壓</td><td class="drug-locations"><a href="#drug-classic" class="drug-link">Class Ic</a></td></tr>
+            <tr><td>Propranolol</td><td>非選擇性β拮抗劑（β1+β2），具膜穩定活性</td><td><strong>首渡效應顯著，犬口服生體可用率僅2–27%</strong>；甲狀腺毒症/嗜鉻細胞瘤相關心律不整與高血壓；★氣喘動物禁忌</td><td class="drug-locations"><a href="#drug-betablockerarrhythmia" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Metoprolol</td><td>選擇性β1拮抗劑（高劑量也阻斷β2）</td><td><strong>首渡效應顯著（50%）降低口服生體可用率</strong>；★支氣管痙攣性疾病病患比Propranolol更安全；室上性心搏過速、HCM</td><td class="drug-locations"><a href="#drug-betablockerarrhythmia" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Atenolol</td><td>選擇性β1拮抗劑（高劑量也阻斷β2）</td><td>口服治室上性心律不整、貓HCM與高血壓；脂溶性低較少進CNS</td><td class="drug-locations"><a href="#drug-betablockerarrhythmia" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Esmolol</td><td>選擇性β1拮抗劑</td><td><strong>口服q12h</strong>；IV心搏過速首選之一，短效（~20分鐘）常用於測試β-blocker效果</td><td class="drug-locations"><a href="#drug-betablockerarrhythmia" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Sotalol</td><td>低劑量非選擇性β拮抗；高劑量Class III抗心律不整（K⁺通道阻斷）</td><td>口服治犬（貓）心室性心搏過速</td><td class="drug-locations"><a href="#drug-betablockerarrhythmia" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Carvedilol</td><td>非選擇性β（β1+β2）併α1阻斷</td><td><strong>口服q12h</strong>；人醫高血壓/CHF/心肌梗塞後；獸醫證據仍有限</td><td class="drug-locations"><a href="#drug-betablockerarrhythmia" class="drug-link">β-受體阻斷劑</a></td></tr>
+            <tr><td>Bretylium</td><td>抑制NE釋放；高劑量Class III（延長APD）</td><td>威脅生命的頑固性心室性心律不整；IM／IV（口服吸收差）；副作用姿勢性低血壓</td><td class="drug-locations"><a href="#drug-bretylium" class="drug-link">Class III</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Amiodarone</td><td>Class III：延長APD與不反應期（結構類似甲狀腺素）</td><td><strong>可IV也可PO給藥，但臨床上最常用口服</strong>；★保留給對Sotalol+Mexiletine無效的頑固性房性/心室性心律不整；PO為主亦可IV；犬T½ 3.2天；★杜賓犬易肝毒性/血球低下</td><td class="drug-locations"><a href="#drug-amiodarone" class="drug-link">Class III</a></td></tr>
+            <tr><td>Verapamil</td><td>Class IV：L-type Ca²⁺通道阻斷（抑制SA/AV放電）</td><td><strong>PO或緩慢IV</strong>；室上性心搏過速；★禁忌心衰竭病患與Digitalis誘發心房性心搏過速</td><td class="drug-locations"><a href="#drug-verapamil" class="drug-link">Class IV</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Diltiazem</td><td>Class IV：L-type Ca²⁺通道阻斷，負性肌力較Verapamil輕</td><td>室上性心律不整；常與Digoxin併用控制心房顫動；貓HCM常用；IV 0.1–0.2mg/kg緩慢或PO 0.5–1.5mg/kg TID（常規劑型）／q24h（長效劑型）</td><td class="drug-locations"><a href="#drug-diltiazem" class="drug-link">Class IV</a></td></tr>
+            <tr><td>Adenosine</td><td>活化K⁺通道→↓自主性；↓Ca²⁺電流→↑AV不反應期</td><td>人醫IV bolus終止陣發性室上性心搏過速；T½僅數秒；副作用短暫心搏過緩/停止</td><td class="drug-locations"><a href="#drug-adenosine" class="drug-link">其他</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- ELECTROPHYSIOLOGY -->
+    <div class="section" id="section-electrophysiology">
+      <div class="section-head"><div class="section-num">3</div><h2>心臟電生理與動作電位 Cardiac Electrophysiology</h2></div>
+      <p class="section-desc">理解抗心律不整藥物前，要先知道正常心臟電衝動如何產生、傳導、以及動作電位每個時相對應哪個離子流——藥物分類幾乎都是照著這些時相與離子流命名的。</p>
+
+      <h3>衝動傳導路徑</h3>
+      <div class="flow">
+        <div class="flow-node">SA node</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">AV node（正常延遲0.15秒，讓心房血液有時間充盈心室）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">His-Purkinje系統</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">心室全面去極化</div>
+      </div>
+
+      <h3 id="drug-actionpotentialphases">心臟動作電位五個時相<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Phase</th><th>名稱</th><th>離子流</th></tr></thead>
+          <tbody>
+            <tr><td><strong>0</strong></td><td>快速去極化</td><td>Na⁺快速內流</td></tr>
+            <tr><td><strong>1</strong></td><td>早期復極化</td><td>K⁺短暫外流</td></tr>
+            <tr><td><strong>2</strong></td><td>平原期（plateau）</td><td>Na⁺持續但減緩內流＋Ca²⁺大量緩慢內流</td></tr>
+            <tr><td><strong>3</strong></td><td>復極化</td><td>K⁺外流</td></tr>
+            <tr><td><strong>4</strong></td><td>靜息期</td><td>—（心室肌）；SA/AV node則為舒張期自發去極化</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-diastolicdepolarization">舒張期自發去極化：節律點電位<span class="tag tag-exam">重要</span></h3>
+      <p>SA node、AV node與Purkinje纖維具<strong>獨特的自主性（automaticity）</strong>：靜息膜電位在Phase 4會逐漸自發去極化，達到閾值時觸發動作電位。<strong>Phase 4斜率上升速率最快的組織就是節律點（通常是SA node），決定心率</strong>——Phase 4斜率越陡，心率越快。AV node的Phase 4去極化中β1受體活化透過cAMP路徑加速Ca²⁺內流，是β-blocker能減慢心率的機轉基礎。</p>
+    </div>
+
+    <!-- ARRHYTHMOGENESIS -->
+    <div class="section" id="section-arrhythmogenesis">
+      <div class="section-head"><div class="section-num">4</div><h2>心律不整發生機轉 Arrhythmogenic Mechanisms</h2></div>
+      <p class="section-desc">心律不整定義：心臟衝動的速率、規律性、起源部位異常，或傳導出現障礙。機轉可分成兩大類。</p>
+
+      <h3>異常衝動生成 Abnormal Impulse Generation</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">自主性改變 Altered Automaticity</div>
+          <p>節律點的Phase 4去極化速率異常（過快或出現在非典型位置的異位節律點）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">觸發活動 Triggered Activity</div>
+          <p>後去極化（afterdepolarization）達到閾值產生額外衝動：<strong>早期後去極化（EAD）</strong>發生在復極化完成之前；<strong>延遲後去極化（DAD）</strong>發生在復極化完全結束後的舒張早期，<strong>典型誘因是Digitalis與兒茶酚胺</strong>（與強心配糖體章節提到的Ca²⁺過載機轉一致）。</p>
+        </div>
+      </div>
+
+      <h3 id="drug-reentry">傳導異常：折返 Reentry<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">局部組織單向傳導阻滯（one-way block，常因不均勻損傷）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">電衝動繞行折返路徑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">反覆再刺激周邊心肌組織 → 循環性心律不整</div>
+      </div>
+      <p><strong>Reentry是人類心律不整中最常見的機轉（約90%）</strong>。終止折返的兩種藥理策略：<strong>改變傳導</strong>（造成雙向傳導阻滯，或反過來加速傳導速率使折返路徑無法維持）；<strong>改變不反應期</strong>（延長動作電位時程APD，使折返路徑上的組織仍處於不反應期而無法被再刺激）——這正是Class III藥物（K⁺通道阻斷劑）的核心策略。</p>
+    </div>
+
+    <!-- CLASS I -->
+    <div class="section" id="section-classi">
+      <div class="section-head"><div class="section-num">5</div><h2>Class I：Na⁺通道阻斷劑</h2></div>
+      <p class="section-desc">共同機轉：阻斷Na⁺通道、減慢Phase 0去極化速率、降低傳導速率。依對動作電位時程（APD）與通道解離動力學的差異，再細分Ia/Ib/Ic三個亞類。</p>
+
+      <h3 id="drug-classisubclasses">三個亞類的核心差異<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">Ia</div>
+          <p>中等程度阻斷Na⁺通道解離速率；<strong>↑APD、↑有效不反應期</strong>；代表藥：Quinidine、Procainamide、Disopyramide。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Ib</div>
+          <p>快速解離；<strong>↓或不影響APD</strong>；對正常組織影響小，選擇性作用於缺血/去極化組織；代表藥：Lidocaine、Phenytoin、Mexiletine、Tocainide。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Ic</div>
+          <p>緩慢解離（作用最強）；<strong>對APD影響極小</strong>；代表藥：Flecainide、Encainide、Lorcainide、Propafenone。</p>
+        </div>
+      </div>
+
+      <h3 id="drug-quinidine">Quinidine（Ia）</h3>
+      <p>金雞納生物鹼（cinchona alkaloids）成員，為抗瘧藥Quinine的立體異構物；↓Phase 0最大去極化速率→↓傳導；↑APD→↑有效不反應期；同時阻斷Na⁺、K⁺通道與α受體、蕈毒鹼受體（多重作用位點）。<strong>犬貓馬皆可用，給藥途徑口服／IV／IM</strong>；T½：犬6小時、貓2小時、馬4–7小時。副作用：房室傳導阻滯、心律不整、腸胃道不適、低血壓。</p>
+
+      <h3 id="drug-disopyramide">Disopyramide（Ia）</h3>
+      <p><strong>PO給藥</strong>；藥理效果類似Quinidine，但<strong>抗蕈毒鹼作用（atropine-like）更強</strong>、無α阻斷效果；<strong>負性肌力效果強烈，心衰竭病患需謹慎</strong>；用於心房顫動／撲動；因副作用（一般抗蕈毒鹼效果＋腸胃道症狀）多，<strong>主要保留給威脅生命的心室性心律不整</strong>。</p>
+
+      <h3 id="drug-procainamide">Procainamide（Ia）</h3>
+      <p>Procaine的衍生物；<strong>IV、IM給藥，口服吸收亦佳</strong>；醯胺結構使T½較長（3–4小時）；藥理效果類似Quinidine，但<strong>對心室性心律不整效果優於心房性</strong>；副作用：心律不整、低血壓、腸胃道、CNS症狀；肝臟代謝腎臟排除；代謝物N-acetylprocainamide<strong>只見於馬，犬貓不會產生</strong>。</p>
+
+      <h3 id="drug-lidocaine">Lidocaine（Ib）<span class="tag tag-exam">重要</span></h3>
+      <p>同時也是局部麻醉藥；<strong>快速從Na⁺通道解離</strong>；<strong>對室上性心律不整無效，只用於心室性心律不整</strong>（包括Digitalis誘發者）；起效快、作用時間短；<strong>只能IV給藥（口服因首渡效應無效）</strong>：先給緩慢IV bolus，再接續輸注（infusion）；<strong>短T½，不適合作為長期維持治療</strong>；肝臟代謝（部分代謝物仍具活性）；副作用：心血管與中樞神經症狀（劑量過高可能出現抽搐）。</p>
+
+      <h3 id="drug-tocainide">Tocainide（Ib）</h3>
+      <p>Lidocaine的結構類似物，藥效學性質相近，但<strong>藥動學優勢明顯不同：口服有效</strong>（犬T½較長，可BID給藥）；<strong>可用於急性治療與長期維持治療</strong>（Lidocaine只能急性用）；肝腎共同清除；副作用類似但較Lidocaine輕微。</p>
+
+      <h3 id="drug-phenytoin">Phenytoin（Ib）</h3>
+      <p>同時也是抗癲癇藥物（見<a href="抗癲癇藥物.html">抗癲癇藥物</a>）；用於<strong>對Lidocaine無效的Digitalis誘發心律不整</strong>；對室上性心律不整無效。<strong>犬：緩慢IV給藥</strong>（口服吸收差）；T½：人6–30小時、犬3–7小時、<strong>貓&gt;40小時（42–108小時）</strong>；P450酵素誘導者，需注意藥物交互作用；犬副作用：心搏過緩、房室傳導阻滯、心搏停止、噁心嘔吐厭食。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌：貓</div>
+        <p><strong>Phenytoin不用於貓</strong>——貓代謝Phenytoin速度極慢（T½可達42–108小時），即使低劑量也有毒性風險（緩慢代謝使藥物蓄積速度快於排除速度）。</p>
+      </div>
+
+      <h3 id="drug-mexiletine">Mexiletine（Ib）</h3>
+      <p>藥效學類似Lidocaine與Tocainide；<strong>首渡代謝極少、腸胃道吸收完全，適合口服門診病患使用</strong>；用於心室性心律不整的長期慢性管理；<strong>可與Sotalol併用產生協同效果</strong>治療頑固性心室性心律不整（不同類別藥物機轉互補）。</p>
+
+      <h3 id="drug-aprindine">Aprindine（Ib）</h3>
+      <p><strong>PO給藥</strong>；類似Lidocaine但作用範圍更廣（<strong>室上性與心室性心律不整皆可用</strong>）；保留給頑固性心室性心律不整；副作用：白血球低下、肝毒性。</p>
+
+      <h3 id="drug-classic">Class Ic：Encainide、Flecainide、Lorcainide、Propafenone</h3>
+      <p><strong>PO給藥</strong>；從Na⁺通道<strong>緩慢解離</strong>（作用最強）；↓Phase 0最大去極化速率→↓傳導；<strong>對動作電位時程幾乎無影響或影響極小</strong>；適應症：頑固性心室性心搏過速；犬副作用：心律不整、心搏過緩、低血壓。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Mexiletine在教科書中被描述為「相對安全、已成為熱門且有效的心室性抗心律不整藥物」，最常見的不良反應是輕微的腸胃道症狀（食慾下降、嘔吐），與少量食物併服可緩解；建議治療後10–14天做24小時Holter心電圖監測療效，目標是VPC數量減少至少85%並降低複雜度。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.22）</p>
+      </div>
+    </div>
+
+    <!-- CLASS II -->
+    <div class="section" id="section-classii">
+      <div class="section-head"><div class="section-num">6</div><h2>Class II：β-受體阻斷劑</h2></div>
+      <p class="section-desc">獸醫臨床上β-blocker最主要的用途就是治療心律不整（β1阻斷效果），與腎上腺素性藥物章節的β-blocker內容互為對照。</p>
+
+      <h3>共通藥理效果</h3>
+      <p>代表藥物：Propranolol、Metoprolol、Atenolol、Esmolol、Sotalol、Timolol；<strong>減慢心率、降低心肌耗氧量、↓AV傳導、↓血壓</strong>；治療因交感神經過度興奮或緊迫/運動誘發的心律不整；<strong>↓心房顫動/撲動時的心室反應速率</strong>；也可能用於控制高血壓。<strong>心臟選擇性＝β1選擇性</strong>。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">貓</div>
+          <p>β-blocker是室上性與心室性心搏過速的<strong>第一線用藥</strong>；也用於降低肥厚型心肌病（HCM）的耗氧量。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">犬</div>
+          <p>常與Class I藥物併用（機轉互補）。</p>
+        </div>
+      </div>
+
+      <h3 id="drug-betablockerprecautions">共通注意事項與副作用<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;">
+          <li><strong>負性肌力效果可能惡化CHF</strong>；<strong>不建議與Digoxin或Ca²⁺通道阻斷劑併用</strong>（傳導抑制疊加風險）。</li>
+          <li>非選擇性藥物可能誘發支氣管痙攣；可能致低血壓、心衰竭、心搏過緩。</li>
+          <li><strong>受體上調（up-regulation）：突然停藥可能誘發嚴重心律不整（反彈效應）</strong>，需漸進式減量停藥。</li>
+          <li>脂溶性高的藥物（如Propranolol）可穿越BBB，可能致憂鬱、定向力障礙。</li>
+        </ul>
+      </div>
+
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Propranolol／Metoprolol／Atenolol／Esmolol／Carvedilol個別藥物的完整機轉、藥動學與其他適應症（尿失禁、氣喘、嗜鉻細胞瘤等），已在 <a href="腎上腺素性藥物.html#section-betablockers">腎上腺素性藥物：β-受體阻斷劑</a> 詳述，此處只補充抗心律不整情境下的重點。</p>
+
+      <h3 id="drug-betablockerarrhythmia">抗心律不整情境下的補充重點</h3>
+      <ul>
+        <li><strong>Propranolol：</strong>非選擇性β1/β2拮抗劑；致竇性心搏過緩與房室傳導抑制；↓心輸出量、↓自主性、↓心肌耗氧量；具膜穩定效果（尤其對神經與肌肉細胞）。</li>
+        <li><strong>Metoprolol：</strong>選擇性β1（高劑量也阻斷β2）；較Propranolol安全於支氣管痙攣病患；<strong>口服q12h</strong>治室上性心搏過速、心室早期收縮、全身性高血壓、HCM、甲狀腺毒症。</li>
+        <li><strong>Atenolol：</strong>選擇性β1；<strong>PO</strong>治室上性心律不整、貓HCM、高血壓；脂溶性低較少進CNS；犬T½ 3.2h、貓3.7h；貓β-阻斷作用可持續約12小時。</li>
+        <li><strong>Esmolol：</strong>選擇性β1；<strong>IV首選</strong>用於心搏過速急性處置與貓左心室流出道動態阻塞的急性處置；短效（~20分鐘，經紅血球酯酶快速水解），常用於「測試」病患是否適合長期使用β-blocker；不穿越BBB。</li>
+        <li><strong>Carvedilol：</strong>第三代非選擇性β（β1+β2）併α1阻斷；人醫證實可降低CHF病患死亡率、逆轉病理性心臟重塑；<strong>獸醫實證仍有限</strong>。</li>
+      </ul>
+    </div>
+
+    <!-- CLASS III -->
+    <div class="section" id="section-classiii">
+      <div class="section-head"><div class="section-num">7</div><h2>Class III：K⁺通道阻斷劑</h2></div>
+      <p class="section-desc">共同機轉：延長動作電位時程（APD）與有效不反應期，阻斷reentry折返路徑。</p>
+
+      <h3 id="drug-sotalol">Sotalol</h3>
+      <p>低劑量時屬<strong>非選擇性β拮抗劑（效力約為Propranolol的30%）</strong>；<strong>高劑量時轉為Class III效果（K⁺通道阻斷）</strong>，顯著延長APD與不反應期；無首渡效應；經尿液原型排出；犬T½ 5小時。<strong>口服</strong>用於犬（及貓）頑固性心室性心搏過速，<strong>常與Mexiletine併用</strong>；副作用：低血壓、支氣管痙攣、促心律不整效果、負性肌力效果。</p>
+
+      <h3 id="drug-bretylium">Bretylium</h3>
+      <p>腎上腺素性神經阻斷劑：抑制NE釋放，曾作為降血壓藥使用；<strong>高劑量屬Class III（顯著延長心室肌與Purkinje纖維APD，對心房影響較小）</strong>；用於威脅生命的頑固性心室性心律不整；<strong>人與犬皆可用，IM／IV給藥（口服吸收差）</strong>；副作用：姿勢性低血壓。</p>
+
+      <h3 id="drug-amiodarone">Amiodarone<span class="tag tag-exam">重要</span></h3>
+      <p>屬Class III（顯著延長APD與不反應期）；臨床上<strong>保留給對Sotalol＋Mexiletine無效的頑固性房性與心室性心搏過速</strong>（因副作用多不作第一線）；<strong>長T½（犬3.2天）</strong>，可能需數週才達穩定血中濃度；極親脂性，蓄積於脂肪組織（濃度可達血漿300倍）；活性代謝物desethylamiodarone可阻斷Na⁺通道，也貢獻抗心律不整效果。結構類似甲狀腺素（thyroxine），可能抑制T4轉T3、降低T4效果。副作用：厭食嘔吐、<strong>嚴重肝毒性（需監測肝酵素）</strong>、嗜中性球低下、血小板低下；<strong>杜賓犬更容易出現不良反應</strong>；藥物賦形劑Polysorbate 80（Tween 80）可能誘發類過敏反應（組織胺釋放），可考慮預先給抗組織胺藥物。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Amiodarone<strong>可IV也可PO給藥，但臨床上最常用口服</strong>；教科書並補充Amiodarone已用於治療馬的心房顫動，不只是犬的房性／心室性心搏過速；監測建議：定期追蹤肝酵素、白血球與血小板數，數值異常時考慮停藥；已有血中濃度檢測方法，但如何用於指導獸醫臨床治療仍未有明確共識。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.22）</p>
+      </div>
+    </div>
+
+    <!-- CLASS IV -->
+    <div class="section" id="section-classiv">
+      <div class="section-head"><div class="section-num">8</div><h2>Class IV：Ca²⁺通道阻斷劑</h2></div>
+      <p class="section-desc">作用於SA/AV node的慢反應組織（慢通道由Ca²⁺內流主導），主要用於室上性心律不整。</p>
+
+      <h3 id="drug-verapamil">Verapamil</h3>
+      <p><strong>PO或緩慢IV</strong>；L-type鈣離子通道阻斷劑；<strong>抑制SA與AV node放電速率</strong>（慢反應組織）；用於室上性心搏過速；<strong>禁忌於心衰竭病患，也禁忌於Digitalis誘發的心房性心搏過速</strong>（負性肌力效果加重心衰竭、對Digitalis中毒性心律不整風險增加）；<strong>與β-blocker併用可能致竇性心搏過緩與房室傳導阻滯</strong>（傳導抑制疊加）。副作用：心肌收縮力抑制→心輸出量下降、低血壓、心衰竭。</p>
+
+      <h3 id="drug-diltiazem">Diltiazem<span class="tag tag-exam">重要</span></h3>
+      <p>L-type鈣離子通道阻斷劑；<strong>負性肌力效果較Verapamil輕微</strong>，但具強效冠狀動脈舒張與輕度周邊血管舒張效果；同樣抑制SA/AV node放電速率。適應症：室上性心律不整；<strong>常與Digoxin併用進一步減慢心房顫動犬隻的心室反應速率</strong>；貓HCM的心率控制常用藥。<strong>給藥途徑：</strong>常規劑型（conventional）<strong>PO TID</strong>；長效劑型（sustained-release）<strong>PO每日一次</strong>可提高服藥順從性；併用β-blocker可能致竇性心率抑制與心臟傳導阻滯。副作用：↓心肌收縮力、低血壓、精神沉鬱、心搏過緩、房室傳導阻滯；貓可能出現肝酵素上升與行為改變（攻擊性）；活性代謝物受Cimetidine、Ketoconazole、Chloramphenicol抑制（藥物交互作用需留意）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Diltiazem實際劑量</div>
+        <p>教科書提供具體劑量：<strong>Diltiazem 0.1–0.2 mg/kg 緩慢IV</strong>（急性控制）；<strong>0.5–1.5 mg/kg TID PO</strong>（常規劑型）；貓HCM控制心率的長期研究建議：常規劑型7.5 mg TID PO，或長效劑型45 mg q24h PO；另有以30或60 mg長效劑型每日一次、或30 mg長效劑型BID的用法。心衰竭病患使用Ca²⁺通道阻斷劑（Verapamil、Diltiazem）與β-blocker皆須謹慎。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.22）</p>
+      </div>
+
+      <h3>肥厚型心肌病（HCM）的治療目標</h3>
+      <p>核心問題是心室充盈受阻，治療目標：<strong>減慢心率以延長充盈時間、減少心肌缺血</strong>；改善心臟舒張功能。治療藥物：Ca²⁺通道阻斷劑（Diltiazem）、β-受體阻斷劑、ACE抑制劑（ACEI）。</p>
+
+      <h3 id="drug-acei">ACE抑制劑（延伸提及）</h3>
+      <p>代表藥物：Captopril、Enalapril、Lisinopril、Benazepril；主要用於<strong>抗高血壓</strong>，副作用profile良好，是糖尿病、缺血性心臟病或肥厚型左心室病患的首選之一，<strong>也是犬全身性高血壓的第一線用藥</strong>；用於慢性心衰竭（CHF、擴張型心肌病、慢性瓣膜閉鎖不全、HCM）；可延緩貓（可能也包括犬）慢性腎衰竭的病程進展。詳細機轉與個別藥物將在<strong>降血壓藥物</strong>章節完整討論。</p>
+    </div>
+
+    <!-- OTHERS -->
+    <div class="section" id="section-others">
+      <div class="section-head"><div class="section-num">9</div><h2>其他：Adenosine</h2></div>
+      <p class="section-desc">不屬於Vaughan Williams四大分類的特殊機轉藥物，人醫用途較廣，獸醫使用相對有限。</p>
+
+      <h3 id="drug-adenosine">Adenosine</h3>
+      <p>作用於G蛋白偶聯的腺苷受體；活化K⁺通道→APD縮短、細胞膜過極化→↓自主性；同時降低Ca²⁺電流→↑AV node不反應期。<strong>T½僅數秒</strong>（經carrier-mediated uptake快速清除）；<strong>人醫IV bolus</strong>治療室上性心律不整，短暫阻斷AV傳導可終止陣發性室上性心搏過速。副作用：心搏過緩、短暫心搏停止（&lt;5秒）、短暫低血壓與呼吸困難。</p>
+    </div>
+
+    <!-- CLINICAL SELECTION -->
+    <div class="section" id="section-clinicalselect">
+      <div class="section-head"><div class="section-num">10</div><h2>依心律不整型態選藥 Clinical Drug Selection</h2></div>
+      <p class="section-desc">整合前面各分類藥物，依實際臨床心律不整型態組織成選藥速查表，這是整章的臨床落地重點。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>心律不整型態</th><th>建議用藥</th></tr></thead>
+          <tbody>
+            <tr><td><strong>竇性心搏過緩</strong></td><td>Atropine；Propantheline bromide（PO）；Isoproterenol</td></tr>
+            <tr><td><strong>心房顫動／撲動</strong></td><td>Digoxin（減慢心室反應速率）；替代藥物：Verapamil、Propranolol；Class Ia（Quinidine、Procainamide、Disopyramide）</td></tr>
+            <tr><td><strong>緊迫／運動誘發心搏過速</strong></td><td>β-blocker</td></tr>
+            <tr><td><strong>室上性心搏過速</strong></td><td>終止急性發作：Adenosine（短效）或Verapamil（IV）為首選；<strong>Verapamil禁忌於CHF病患與正接受IV β-blocker者</strong>；替代：β-blocker或Digoxin；長期抑制：Class Ia、Ic、II、IV與Digoxin</td></tr>
+            <tr><td><strong>持續性心室性心搏過速</strong></td><td>電擊復律（最安全有效）；急性治療首選<strong>Lidocaine</strong>；替代：Procainamide、Bretylium；長期抑制：Class II、III、Ia、Mexiletine（Ib）</td></tr>
+            <tr><td><strong>心室顫動</strong></td><td>電擊復律（第一選擇）；<strong>Lidocaine</strong>為藥物首選；替代：Procainamide、Amiodarone、Bretylium</td></tr>
+            <tr><td><strong>Digitalis誘發心室性心律不整</strong></td><td><strong>Lidocaine為首選藥物</strong>（與強心配糖體章節中毒處置呼應）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>動作電位五時相：</strong>Phase 0（Na⁺內流去極化）、1（K⁺外流早期復極化）、2（Ca²⁺內流平原期）、3（K⁺外流復極化）、4（靜息／節律點自發去極化）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>心律不整兩大機轉：</strong>異常衝動生成（自主性改變、觸發活動EAD/DAD）與異常傳導（reentry折返，人類約90%病例）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Vaughan Williams四分類：</strong>I（Na⁺通道阻斷，Ia/Ib/Ic依APD效果與解離速率細分）、II（β-blocker）、III（K⁺通道阻斷，延長APD）、IV（Ca²⁺通道阻斷，抑制SA/AV慢反應）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Lidocaine只治心室性心律不整（含Digitalis誘發者），只能IV給藥</strong>；Phenytoin禁用於貓（T½42–108h毒性風險）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>β-blocker是貓室上性/心室性心搏過速首選</strong>；犬常與Class I併用；不建議與Digoxin或Ca²⁺通道阻斷劑併用（傳導抑制疊加）；突然停藥有反彈性心律不整風險。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Amiodarone療效強但副作用多</strong>（肝毒性、血球低下，杜賓犬尤其敏感），保留給對Sotalol+Mexiletine無效的頑固性心律不整；PO為主亦可IV。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Verapamil禁忌CHF與Digitalis誘發心房性心搏過速</strong>；Diltiazem負性肌力較輕、常與Digoxin併用治房顫、貓HCM常用（PO TID常規劑型或PO q24h長效劑型）。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV2 Antiarrhythmics）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋電生理基礎、四大分類機轉、臨床選藥邏輯，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 一隻犬因心室性心搏過速需要緊急藥物治療，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) Lidocaine口服給藥即可有效控制</li>
+          <li>(B) Lidocaine需IV給藥，因口服吸收後首渡效應會使其失效</li>
+          <li>(C) Lidocaine對室上性與心室性心律不整皆有效</li>
+          <li>(D) Lidocaine適合作為長期維持治療用藥</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Lidocaine口服會經歷顯著的肝臟首渡效應（first-pass metabolism），導致口服途徑幾乎無效，臨床上只能IV給藥（緩慢bolus後接續輸注）。它只對心室性心律不整有效（對室上性無效），且因半衰期短、不適合作為長期維持治療用藥（長期治療可考慮結構類似但口服有效的Tocainide或Mexiletine）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Phenytoin可安全用於貓的Digitalis誘發性心律不整治療，劑量只需比犬略低即可。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Phenytoin在貓體內代謝速度極慢（T½可達42–108小時，遠長於犬的3–7小時），即使給予低劑量也有蓄積中毒的高風險，臨床上不建議用於貓，不是「劑量略低即可」的問題，而是整體不適合這個物種。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 下列關於Verapamil的臨床使用限制，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 可安全用於充血性心衰竭病患的室上性心搏過速</li>
+          <li>(B) 禁忌於心衰竭病患，也禁忌於Digitalis誘發的心房性心搏過速</li>
+          <li>(C) 是Class Ib藥物，機轉與Lidocaine相同</li>
+          <li>(D) 主要用於心室顫動的急性電擊復律後維持治療</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Verapamil屬Class IV（L-type鈣離子通道阻斷劑），負性肌力效果顯著，禁忌用於心衰竭病患（會加重心衰竭）；也禁忌用於Digitalis誘發的心房性心搏過速（風險增加而非改善）。它的適應症是一般室上性心搏過速，不是心室顫動的維持治療。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. Class III藥物（如Amiodarone、Sotalol）透過延長動作電位時程（APD）來終止reentry折返性心律不整，請說明這個機轉為什麼有效。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">Reentry的維持需要折返迴路中存在一段「可被再興奮」的組織——電衝動沿著迴路繞行時，前方組織必須已經恢復到可以再次去極化的狀態，迴路才能持續循環。Class III藥物透過阻斷K⁺通道，延長動作電位時程（APD）與有效不反應期（effective refractory period），使折返迴路上原本應該「恢復」的組織仍處於不反應期、無法被再刺激。當迴路上找不到可興奮的組織可供電衝動繼續傳遞時，折返迴路就會中斷，心律不整因此終止。這與Class I藥物「減慢傳導速率」的策略不同（Class I是讓折返波傳得更慢甚至產生雙向阻滯），Class III是從「不反應期夠不夠長」這個角度切入解決問題。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻患有心房顫動的犬正在使用Digoxin控制心室反應速率，但效果不理想，獸醫師考慮加上Diltiazem合併治療。飼主詢問：(1) 為什麼要兩種藥一起用，不能加大Digoxin劑量就好嗎？(2) 併用時有什麼要特別注意的地方？(3) 如果這隻犬同時有輕度心衰竭病史，選藥上需要考慮什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 為什麼併用而非加大Digoxin劑量：</strong>Digoxin治療窗極窄（0.8–2.0 ng/mL），加大劑量的中毒風險（心律不整、GI症狀）遠高於其額外控制心室反應速率的效益；Diltiazem透過不同機轉（阻斷Ca²⁺通道、抑制SA/AV node放電速率）進一步減慢心室反應速率，兩種藥物機轉互補，可用較低劑量的Digoxin搭配Diltiazem達到更好的心率控制，同時降低各自單獨使用需要的劑量與副作用風險，這是臨床上常見的合併治療策略。<strong>(2) 併用注意事項：</strong>兩者都會抑制AV傳導，併用雖然是常規做法但仍需密切監測是否出現過度心搏過緩或房室傳導阻滯；Diltiazem的活性代謝物會受到Cimetidine、Ketoconazole、Chloramphenicol抑制而增加血中濃度，需注意這類藥物交互作用；若同時使用β-blocker，三者併用抑制傳導的效果會疊加，風險更高。<strong>(3) 合併輕度心衰竭時的考量：</strong>Diltiazem的負性肌力效果雖然比Verapamil輕微，但仍可能影響心肌收縮力，心衰竭病患使用Ca²⁺通道阻斷劑仍須謹慎評估；此時可以考慮是否有其他減輕心臟負荷的藥物（如ACEI或Pimobendan，見<a href="強心配糖體.html#section-otherinotropes">強心配糖體：其他正性肌力藥物</a>）一併納入治療計畫，並以較低劑量起始Diltiazem、密切監測心臟功能與臨床症狀變化，而非直接排除這個藥物選項。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  electrophysiology: '心臟電生理與動作電位',
+  arrhythmogenesis: '心律不整發生機轉',
+  classi: 'Class I：Na⁺通道阻斷劑',
+  classii: 'Class II：β-受體阻斷劑',
+  classiii: 'Class III：K⁺通道阻斷劑',
+  classiv: 'Class IV：Ca²⁺通道阻斷劑',
+  others: '其他：Adenosine',
+  clinicalselect: '依心律不整型態選藥',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

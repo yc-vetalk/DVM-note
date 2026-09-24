@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：局部麻醉藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">局部麻醉藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">局部麻醉藥 Local Anesthetics</h1>
+      <p class="page-subtitle">Na⁺通道阻斷機轉、Ester與Amide分類、影響因素、局部麻醉種類、毒性與個別藥物整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（柯教授 A8）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.15 Local Anesthetics</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-19</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎機轉</div>
+    <a onclick="showSection('mechanism')" id="nav-mechanism"><span class="nav-icon">🧬</span> 作用機轉</a>
+    <a onclick="showSection('classification')" id="nav-classification"><span class="nav-icon">📊</span> 分類與影響因素</a>
+    <div class="section-label" style="margin-top:8px;">臨床應用</div>
+    <a onclick="showSection('types')" id="nav-types"><span class="nav-icon">💉</span> 局部麻醉種類</a>
+    <a onclick="showSection('drugs')" id="nav-drugs"><span class="nav-icon">💊</span> 個別藥物</a>
+    <a onclick="showSection('toxicity')" id="nav-toxicity"><span class="nav-icon">⚠️</span> 毒性與處置</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>前面幾章的麻醉藥都是讓「整隻動物」失去意識；局部麻醉藥則只讓「特定區域」失去痛覺，動物是清醒的。它們的機轉非常單純：<strong>阻斷神經細胞膜上的Na⁺通道</strong>，讓動作電位無法產生，痛覺訊號因此傳不出去——這也是為什麼神經纖維依「粗細與有無髓鞘」會依序被阻斷：先痛覺→溫覺→觸覺→壓覺→最後才是運動功能。這章依序介紹：化學結構分成Ester與Amide兩大類（決定代謝方式與過敏/毒性特性）、影響麻醉效果的因素（如pKa、感染組織、Epinephrine）、各種給藥方式（表面、浸潤、神經阻斷、硬脊膜外等）、以及局部麻醉藥過量時的毒性表現（先CNS、再心血管）。</p>
+        <div class="grid-3" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('mechanism')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">作用機轉</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Na⁺通道阻斷</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('classification')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Ester vs Amide</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">分類與影響因素</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('types')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">給藥方式</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">浸潤／神經阻斷／硬膜外</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('drugs')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">個別藥物</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Lidocaine／Bupivacaine等</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('toxicity')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">毒性與處置</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">CNS先於心血管</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>局部麻醉藥是Na⁺通道阻斷劑：</strong>直接與Na⁺通道交互作用，阻止動作電位產生；<strong>神經纖維被阻斷的順序是「小而無髓鞘/小髓鞘先，大髓鞘後」</strong>，感覺喪失順序為：痛覺→溫覺→觸覺→壓覺→運動功能。</li>
+          <li><strong>依化學結構分兩類：Esters（Procaine、Tetracaine、Chloroprocaine、Proparacaine、Cocaine）與Amides（Lidocaine、Mepivacaine、Bupivacaine、Ropivacaine、Prilocaine等）</strong>。</li>
+          <li><strong>代謝方式不同：</strong>Ester類由血漿膽鹼酯酶水解（新生兒膽鹼酯酶活性低，Ester毒性風險增加）；Amide類由肝臟酵素代謝，代謝物經尿排出。</li>
+          <li><strong>pKa越接近生理pH（7.4），非離子型（脂溶性）比例越高，起效越快；發炎或感染組織（酸性環境）會降低非離子型比例，導致起效慢、效果減弱</strong>——這是為何在膿瘍或感染組織注射局部麻醉藥效果不佳。</li>
+          <li><strong>Epinephrine（腎上腺素）加入局部麻醉藥的目的：</strong>局部血管收縮，減少全身吸收速率，延長作用時間並降低全身毒性風險。</li>
+          <li><strong>毒性順序：CNS毒性通常先於心血管毒性出現</strong>（講義）：早期徵象為行為改變與骨骼肌抽動→癲癇（強直-陣攣抽搐）；處置以BZD（Diazepam）與氧氣支持為主；心血管毒性表現為心律不整、低血壓、最終心血管崩潰。<strong>教科書補充：此順序適用於Lidocaine；消旋Bupivacaine的心臟毒性遠高於Lidocaine，且Bupivacaine引發心臟崩潰的復甦成功率明顯低於Lidocaine。</strong></li>
+          <li><strong>Prilocaine的特殊風險是變性血紅素血症（Methemoglobinemia）</strong>（代謝物o-toluidine氧化血紅素）；Benzocaine 20%噴劑也有此風險，貓與兔最常見。Prilocaine是毒性最低的Amide類，最適合IV區域麻醉。</li>
+          <li><strong>Procaine水解產生PABA，會干擾磺胺類抗生素作用</strong>（PABA是磺胺藥的競爭性拮抗物，見〈磺胺與喹諾酮類〉頁）；Bupivacaine效力為Lidocaine的4倍、作用最長，但心臟毒性也高於Ropivacaine。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Mepivacaine</td><td>Amide類，阻斷電壓門控Na⁺通道</td><td><strong>局部浸潤或神經阻斷注射</strong>；中效Amide</td><td class="drug-locations"><a href="#drug-ladurationclass" class="drug-link">中效Amide</a></td></tr>
+            <tr><td>Benzocaine</td><td>Ester類，阻斷電壓門控Na⁺通道（非解離型結構，僅表面麻醉）</td><td>牙科/插管噴劑，20%噴劑致變性血紅素血症</td><td class="drug-locations"><a href="#drug-esterdrugs" class="drug-link">牙科/插管噴劑，20%噴劑致變性血紅素血症</a></td></tr>
+            <tr><td>Chloroprocaine</td><td>Ester類，阻斷電壓門控Na⁺通道，血漿酯酶快速水解</td><td><strong>局部浸潤或硬膜外注射</strong>；快速短效，產科硬膜外</td><td class="drug-locations"><a href="#drug-esterdrugs" class="drug-link">快速短效，產科硬膜外</a></td></tr>
+            <tr><td>Procaine</td><td>Ester類，阻斷電壓門控Na⁺通道；水解產物PABA</td><td><strong>局部注射</strong>；Ester短效，水解為PABA干擾磺胺藥</td><td class="drug-locations"><a href="#drug-esterdrugs" class="drug-link">Ester短效，水解為PABA干擾磺胺藥</a></td></tr>
+            <tr><td>Proparacaine</td><td>Ester類，阻斷電壓門控Na⁺通道（眼用表面劑型）</td><td><strong>局部（眼科表面滴劑）</strong>；眼科表面麻醉，起效30-60秒</td><td class="drug-locations"><a href="#drug-esterdrugs" class="drug-link">眼科表面麻醉，起效30-60秒</a></td></tr>
+            <tr><td>Tetracaine</td><td>Ester類，阻斷電壓門控Na⁺通道，脂溶性高作用持久</td><td><strong>局部（表面）或脊髓麻醉注射</strong>；Ester長效，表面與脊髓麻醉</td><td class="drug-locations"><a href="#drug-esterdrugs" class="drug-link">Ester長效，表面與脊髓麻醉</a></td></tr>
+            <tr><td>Tricaine mesylate<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">MS-222</div></td><td>阻斷電壓門控Na⁺通道（魚類麻醉專用劑型）</td><td><strong>浸泡給藥（溶於水中，魚類）</strong>；魚類麻醉，FDA核准有鰭魚</td><td class="drug-locations"><a href="#drug-esterdrugs" class="drug-link">魚類麻醉，FDA核准有鰭魚</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Bupivacaine</td><td>Amide類，阻斷電壓門控Na⁺通道，高蛋白結合率長效</td><td><strong>誤食貼片可導致動物Lidocaine中毒</strong>；效力4倍Lidocaine，作用最長，心毒性較高</td><td class="drug-locations"><a href="#drug-amidedrugs" class="drug-link">效力4倍Lidocaine，作用最長，心毒性較高</a></td></tr>
+            <tr><td>EMLA<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Lidocaine＋Prilocaine乳膏</div></td><td>Amide類混合物，阻斷電壓門控Na⁺通道（經皮吸收劑型）</td><td>經皮皮膚鎮痛，靜脈導管/採血前使用</td><td class="drug-locations"><a href="#drug-amidedrugs" class="drug-link">經皮皮膚鎮痛，靜脈導管/採血前使用</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Lidocaine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Xylocaine</div></td><td>Amide類，阻斷電壓門控Na⁺通道；高濃度IV可阻斷心肌Na⁺通道（抗心律不整）</td><td><strong>誤食貼片可導致動物Lidocaine中毒</strong>；最廣用Amide，IV可抗心律不整</td><td class="drug-locations"><a href="#drug-amidedrugs" class="drug-link">最廣用Amide，IV可抗心律不整</a></td></tr>
+            <tr><td>Prilocaine</td><td>Amide類，阻斷電壓門控Na⁺通道；代謝物o-toluidine氧化血紅素鐵</td><td><strong>誤食貼片可導致動物Lidocaine中毒</strong>；毒性最低Amide，過量致變性血紅素血症</td><td class="drug-locations"><a href="#drug-amidedrugs" class="drug-link">毒性最低Amide，過量致變性血紅素血症</a></td></tr>
+            <tr><td>Ropivacaine</td><td>Amide類，阻斷電壓門控Na⁺通道；S-鏡像異構物心毒性較低</td><td><strong>誤食貼片可導致動物Lidocaine中毒</strong>；毒性低於Bupivacaine，運動阻斷輕</td><td class="drug-locations"><a href="#drug-amidedrugs" class="drug-link">毒性低於Bupivacaine，運動阻斷輕</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- MECHANISM -->
+    <div class="section" id="section-mechanism">
+      <div class="section-head"><div class="section-num">3</div><h2>作用機轉</h2></div>
+      <p class="section-desc">局部麻醉藥的機轉單純，但「神經纖維被阻斷順序」是理解臨床效果與副作用的重要細節。</p>
+
+      <h3 id="drug-lamechanism">Na⁺ 通道阻斷<span class="tag tag-exam">重要</span></h3>
+      <p>局部麻醉藥直接與Na⁺通道交互作用，阻止動作電位的產生，因此神經傳導被阻斷。自主神經纖維、小型無髓鞘C纖維與小型有髓鞘A纖維，比大型有髓鞘A纖維更早被阻斷。</p>
+      <div class="flow">
+        <div class="flow-node">痛覺（最先消失）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">溫覺</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">觸覺</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">壓覺</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">運動功能（最後才消失）</div>
+      </div>
+
+      <h3>神經纖維分類（背景）</h3>
+      <p>A纖維（有髓鞘）：α運動、β觸壓、γ肌梭、δ痛覺；B纖維（有髓鞘）：自主神經節前交感；C纖維（無髓鞘）：痛覺與溫度覺、節後纖維。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（柯教授 A8）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.15 Local Anesthetics）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CLASSIFICATION -->
+    <div class="section" id="section-classification">
+      <div class="section-head"><div class="section-num">4</div><h2>分類與影響因素</h2></div>
+      <p class="section-desc">Ester與Amide的代謝差異、作用時間分類，以及影響神經阻斷效果的三個關鍵因素，是這章的核心考點。</p>
+
+      <h3 id="drug-laclass">依化學結構分類<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>藥物</th><th>代謝方式</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Esters</strong></td><td>Cocaine、Procaine、Chloroprocaine、Proparacaine、Tetracaine（Benzocaine）</td><td>血漿膽鹼酯酶水解（新生兒酯酶活性低，毒性風險↑）</td></tr>
+            <tr><td><strong>Amides</strong></td><td>Lidocaine、Mepivacaine、Dibucaine、Bupivacaine、Ropivacaine、Etidocaine、Prilocaine</td><td>肝臟酵素代謝，代謝物主要經尿排出</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-ladurationclass">依作用時間分類</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分類</th><th>持續時間</th><th>藥物（效力／起效）</th></tr></thead>
+          <tbody>
+            <tr><td>短效</td><td>30–60分鐘</td><td>Procaine（慢起效，效力1）、Chloroprocaine（快起效，效力3）</td></tr>
+            <tr><td>中效</td><td>60–180分鐘</td><td>Lidocaine（快起效，效力2）、Prilocaine（慢，1.8）、Mepivacaine（慢，1.5）</td></tr>
+            <tr><td>長效</td><td>120–480分鐘</td><td>Tetracaine、Etidocaine、Bupivacaine、Ropivacaine（皆慢起效，效力8）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-lafactors">影響神經阻斷的三個因素<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">pKa 與組織 pH</div>
+          <p>局部麻醉藥pKa高於生理pH，在pH 7.4時只有少部分（如Tetracaine僅約5%）為脂溶性非離子型。pKa越接近7.4，起效越快；發炎/感染（酸中毒）組織會降低非離子型比例，導致起效慢、效果減弱。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">劑量</div>
+          <p>增加劑量可延長局部麻醉效果的持續時間。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Epinephrine</div>
+          <p>誘發局部血管收縮，減少全身吸收，延長作用時間。吸收越快→作用時間越短→全身毒性潛力越高。</p>
+        </div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（柯教授 A8）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.15 Local Anesthetics）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TYPES -->
+    <div class="section" id="section-types">
+      <div class="section-head"><div class="section-num">5</div><h2>局部麻醉種類</h2></div>
+      <p class="section-desc">依給藥位置分成八種常見技術，從最表淺的表面麻醉到最深的脊髓硬膜外阻斷。</p>
+
+      <h3 id="drug-latypes">局部麻醉技術總覽<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>表面／局部（Surface/Topical）</td><td>塗抹在組織表面</td></tr>
+            <tr><td>局部浸潤（Local infiltration）</td><td>局部注射；常加Epinephrine減少全身吸收</td></tr>
+            <tr><td>Splash block</td><td>局部沖洗（如卵巢摘除術）</td></tr>
+            <tr><td>週邊神經阻斷（Peripheral nerve block）</td><td>神經周圍給藥；含區域阻斷（Field-block）</td></tr>
+            <tr><td>關節內（Intra-articular）</td><td>馬跛行診斷</td></tr>
+            <tr><td>靜脈區域阻斷（Intravenous block）</td><td>於靜脈內注射，使遠端肢體麻醉</td></tr>
+            <tr><td>硬脊膜外（Epidural block）</td><td>注入脊髓硬膜外腔</td></tr>
+            <tr><td>脊髓（蛛網膜下腔）阻斷（Spinal block）</td><td>注入腰椎蛛網膜下腔</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;"><strong>硬脊膜外鎮痛</strong>在牛、貓、犬常用，可使用的藥物類別包含：Opioid（Morphine、Meperidine、Fentanyl、Buprenorphine）、局部麻醉藥（Lidocaine、Ropivacaine、Bupivacaine）、α2 agonist（Dexmedetomidine）。局部麻醉的優點：設備需求少、全身效應小；缺點：需病患配合或保定，可能需鎮靜而帶來全身效應。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（柯教授 A8）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.15 Local Anesthetics）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- DRUGS -->
+    <div class="section" id="section-drugs">
+      <div class="section-head"><div class="section-num">6</div><h2>個別藥物</h2></div>
+      <p class="section-desc">Ester與Amide兩大類各有明確代表藥物，Lidocaine是應用最廣泛的一支，Bupivacaine則是長效代表。</p>
+
+      <h3 id="drug-esterdrugs">Ester 類藥物</h3>
+      <ul>
+        <li><strong>Procaine：</strong>在Cocaine被發現有毒性後合成；不適合作為表面麻醉；短效，用於浸潤與神經阻斷（常配血管收縮劑）；被血漿膽鹼酯酶水解為PABA與Diethylaminoethanol——<strong>PABA會干擾磺胺類抗生素作用</strong>（詳見〈磺胺與喹諾酮類〉頁的PABA機轉）。</li>
+        <li><strong>Proparacaine：</strong>眼科局部麻醉藥，用於角膜/結膜短時程麻醉；起效快（30–60秒），持續10–20分鐘；被血漿與組織酯酶水解。</li>
+        <li><strong>Benzocaine：</strong>牙科與插管噴劑；50 mg/L浸泡可在30秒內使魚鎮靜；同樣代謝為PABA。</li>
+        <li><strong>Chloroprocaine：</strong>起效快、短效、效力低；主要用於產科硬膜外麻醉。</li>
+        <li><strong>Tetracaine：</strong>起效慢、長效、高效力；用於表面與脊髓麻醉；黏膜吸收與代謝慢，有全身毒性潛力。</li>
+        <li><strong>Tricaine Mesylate（MS-222）：</strong>結構與局部麻醉藥相關，用於魚的保定/麻醉/鎮靜；FDA核准用於有鰭魚類；15–200 ppm浸泡。</li>
+      </ul>
+
+      <h3 id="drug-amidedrugs">Amide 類藥物<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>Lidocaine（Xylocaine）：</strong>噴劑、溶液、凝膠劑型；廣泛用於各種局部麻醉；常加Epinephrine延長作用；<strong>IV也用作抗心律不整藥</strong>；肝臟代謝→尿排出。</li>
+        <li><strong>Prilocaine：</strong>類似Lidocaine但血管擴張較少；<strong>毒性最低的Amide類，最適合IV區域麻醉</strong>；過量：Methemoglobinemia。</li>
+        <li><strong>EMLA：</strong>Lidocaine與Prilocaine 1:1共熔混合乳膏（各25 mg/mL），經皮使用於皮膚鎮痛，敷用60分鐘後效果佳，用於靜脈導管放置與犬貓兔採血，幾乎無毒性（Prilocaine）。</li>
+        <li><strong>Lidocaine patch：</strong>貼在傷口/病灶/疼痛區域「附近」（非直接覆蓋）；藥物可滲入貼片下組織維持12–24小時；<strong>誤食貼片可導致動物Lidocaine中毒</strong>。</li>
+        <li><strong>Bupivacaine：</strong>效力為Lidocaine的4倍，作用最長；區域麻醉與硬膜外使用；<strong>第一個展現感覺與運動阻斷顯著分離的藥物→產科用途</strong>。</li>
+        <li><strong>Etidocaine：</strong>類似Bupivacaine，但感覺與運動阻斷分離不明顯。</li>
+        <li><strong>Ropivacaine：</strong>類似Bupivacaine但脂溶性較低；硬膜外使用時作用較短、運動阻斷較輕；<strong>CNS與心臟毒性低於Bupivacaine</strong>。</li>
+        <li><strong>教科書補充（FDA核准）：</strong>目前僅三項產品獲FDA CVM核准作為非人類物種局部麻醉藥，包括Mepivacaine（Carbocaine-V®，用於馬，但不得用於供人食用的馬）與Proparacaine（Ophthaine®，眼科）。</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（柯教授 A8）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.15 Local Anesthetics）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TOXICITY -->
+    <div class="section" id="section-toxicity">
+      <div class="section-head"><div class="section-num">7</div><h2>毒性與處置</h2></div>
+      <p class="section-desc">局部麻醉藥毒性依「CNS先、心血管後」的順序出現，掌握這個時序與各階段處置是急診必備知識。</p>
+
+      <h3 id="drug-latoxicity">三大毒性類型<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">毒性順序與處置</div>
+        <p><strong>①局部組織刺激與損傷；②CNS效應（興奮、抑制、癲癇）；③心血管效應（心律不整、低血壓、心血管崩潰）。</strong><br><strong>CNS毒性：</strong>常發生在血管豐富區域的神經阻斷（全身吸收）；<strong>通常先於心血管毒性出現</strong>；早期徵象：行為改變與骨骼肌抽動→癲癇（強直-陣攣抽搐）；處置以BZD（Diazepam）與氧氣支持為主。<br><strong>心血管毒性：</strong>局部麻醉藥直接作用心肌誘發心律不整，同時造成明顯血管擴張與低血壓；最終導致心血管崩潰（心跳停止）——心室收縮力下降、心肌傳導減緩、周邊血管張力喪失；處置包含輸液、CPR、氧氣、腎上腺素致效劑，直到藥物代謝完畢。</p>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充（Ch.15）：Bupivacaine 為何特別危險</div>
+        <p>Bupivacaine脂溶性高，與心肌Na⁺通道結合快、<strong>解離慢</strong>（Lidocaine在舒張期即可解離，Bupivacaine則持續結合），心率越快，被佔據的通道比例越高，易造成折返性心律不整；Etidocaine有類似問題。心血管抑制或崩潰時需通氣與循環支持，嚴重心搏過緩可用Atropine。Bupivacaine作用5–8小時、起效較慢（完全阻斷需30分鐘以上）。Lidocaine造成的心血管變化出現在比CNS症狀更高的血漿濃度，但消旋Bupivacaine不是如此。另外，酯類藥物主要靠血漿酯酶代謝，Amide類的高脂溶性與高蛋白結合使血中尖峰濃度較平緩，因此初期較不易出現CNS症狀。</p>
+      </div>
+
+      <h3>其他毒性</h3>
+      <ul>
+        <li><strong>局部神經損傷：</strong>Chloroprocaine；抗氧化劑Sodium bisulfite</li>
+        <li><strong>局部骨骼肌毒性：</strong>長效局部麻醉藥大劑量使用</li>
+        <li><strong>變性血紅素血症（Methemoglobinemia）：</strong>Prilocaine（代謝物o-toluidine氧化血紅素）、Benzocaine 20%噴劑；<strong>兒童、貓與兔較常見</strong></li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（柯教授 A8）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.15 Local Anesthetics）之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">濃縮版複習重點，考前快速掃過即可回想起整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>機轉：</strong>Na⁺通道阻斷→無動作電位；阻斷順序：痛→溫→觸→壓→運動。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Ester vs Amide：</strong>Ester由血漿膽鹼酯酶水解（新生兒風險↑，代謝為PABA干擾磺胺藥）；Amide由肝臟代謝。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>pKa與感染：</strong>pKa接近7.4起效快；發炎/感染酸性環境降低非離子型比例，效果減弱。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Epinephrine：</strong>局部血管收縮，延長作用時間並降低全身毒性。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>毒性順序：</strong>CNS先（抽動→癲癇，Diazepam+氧氣）於心血管（心律不整→崩潰）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Prilocaine：</strong>毒性最低Amide，適合IV區域麻醉，但過量致Methemoglobinemia（貓、兔）；Benzocaine 20%噴劑同風險。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Bupivacaine vs Ropivacaine：</strong>Bupivacaine效力4倍Lidocaine、作用最長；Ropivacaine毒性較低、運動阻斷較輕。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Lidocaine patch：</strong>貼在病灶「附近」12–24小時；誤食致中毒。EMLA＝Lidocaine+Prilocaine乳膏。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（柯教授 A8）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.15 Local Anesthetics）之核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋作用機轉、pKa與感染影響、毒性時序、個別藥物特性各章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 為什麼在膿瘍或發炎組織中注射局部麻醉藥的效果通常較差？</div>
+        <ul class="quiz-options">
+          <li>(A) 發炎組織的Na⁺通道數量減少</li>
+          <li>(B) 酸性環境降低非離子型（脂溶性）藥物比例，使藥物較難穿透神經膜</li>
+          <li>(C) 發炎組織血流量減少</li>
+          <li>(D) 膿液會直接分解局部麻醉藥</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">局部麻醉藥需要以脂溶性的非離子型才能穿透神經細胞膜，而其pKa高於生理pH，在酸性環境（如發炎、感染組織）中非離子型比例會進一步下降，使起效變慢、效果減弱。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 局部麻醉藥過量時，心血管毒性（如心律不整）通常比CNS毒性（如抽搐）更早出現。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">局部麻醉藥的CNS毒性通常先於心血管毒性出現。早期徵象為行為改變與骨骼肌抽動，可進展為強直-陣攣抽搐；處置以Diazepam（BZD）與氧氣支持為主。心血管毒性（心律不整、低血壓、最終崩潰）通常在較高血中濃度時才出現。（教科書補充：這個時序適用Lidocaine，消旋Bupivacaine是例外，心臟毒性風險明顯較高。）</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 下列哪一種局部麻醉藥被認為是毒性最低的Amide類，且最適合用於IV區域麻醉？</div>
+        <ul class="quiz-options">
+          <li>(A) Bupivacaine</li>
+          <li>(B) Prilocaine</li>
+          <li>(C) Tetracaine</li>
+          <li>(D) Procaine</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Prilocaine是毒性最低的Amide類局部麻醉藥，因此最適合IV區域麻醉；但需注意過量時可能因代謝物o-toluidine氧化血紅素而造成變性血紅素血症（貓、兔較常見）。Tetracaine與Procaine是Ester類，Bupivacaine毒性相對較高。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一隻貓在牙科處理時，助手誤在血管豐富的區域一次注射了偏大劑量的局部麻醉藥，貓隨後出現骨骼肌抽動與行為異常，接著出現全身強直-陣攣抽搐。同時，另一隻已接受磺胺類抗生素治療的犬，術中被使用Procaine做浸潤麻醉。請問：(1) 這隻貓最可能發生了什麼？應如何處置？(2) 犬使用Procaine與磺胺藥併用有什麼疑慮？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 貓的狀況：</strong>這是局部麻醉藥的<strong>CNS毒性</strong>——在血管豐富區域注射導致藥物大量進入全身循環，先出現早期徵象（行為改變與骨骼肌抽動），進而發展為癲癇（強直-陣攣抽搐）。處置：以Benzodiazepines（Diazepam）控制抽搐，並給予氧氣支持療法；同時需監測心血管功能，因為若血中濃度繼續升高，後續可能進展為心血管毒性（心律不整、低血壓）。<br><strong>(2) 犬的疑慮：</strong>Procaine被血漿膽鹼酯酶水解後會產生<strong>PABA（對胺基苯甲酸）</strong>，而PABA正是磺胺類抗生素競爭性拮抗的天然基質——PABA會與磺胺藥競爭細菌DHPS酵素結合位，因此可能干擾磺胺類抗生素的抗菌效果；臨床上應避免將Procaine（或同樣代謝為PABA的Benzocaine）與磺胺類抗生素併用，可改用Amide類（如Lidocaine）。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  mechanism: '作用機轉',
+  classification: '分類與影響因素',
+  types: '局部麻醉種類',
+  drugs: '個別藥物',
+  toxicity: '毒性與處置',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

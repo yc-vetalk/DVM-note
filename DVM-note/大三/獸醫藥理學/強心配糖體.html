@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：強心配糖體 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">強心配糖體</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">強心配糖體 Cardiac Glycosides</h1>
+      <p class="page-subtitle">心臟功能基礎、CHF病理生理、Digoxin機轉與藥動學、中毒處置、其他正性肌力藥物與休克用藥整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout CV1 Cardiac Glycoside）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.21 Drugs Acting on the Cardiovascular System</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-24</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎架構</div>
+    <a onclick="showSection('cardiacfunction')" id="nav-cardiacfunction"><span class="nav-icon">❤️</span> 心臟功能與CHF病理生理</a>
+    <div class="section-label" style="margin-top:8px;">Digoxin個論</div>
+    <a onclick="showSection('digoxinmechanism')" id="nav-digoxinmechanism"><span class="nav-icon">🔬</span> 機轉與藥理效果</a>
+    <a onclick="showSection('digoxinpk')" id="nav-digoxinpk"><span class="nav-icon">⏱️</span> 藥動學與給藥</a>
+    <a onclick="showSection('digoxintoxicity')" id="nav-digoxintoxicity"><span class="nav-icon">☠️</span> 副作用與中毒處置</a>
+    <div class="section-label" style="margin-top:8px;">其他正性肌力藥與休克</div>
+    <a onclick="showSection('otherinotropes')" id="nav-otherinotropes"><span class="nav-icon">💉</span> 其他正性肌力藥物</a>
+    <a onclick="showSection('shock')" id="nav-shock"><span class="nav-icon">🚨</span> 休克分類與用藥</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章的主線是<strong>「心臟輸出量不夠時，可以從哪裡下手」</strong>。先建立 CO = HR × SV 這個基礎公式，理解 SV 由 preload（Frank-Starling law）、afterload、與 inotropy（收縮力）三者決定，再看充血性心衰竭（CHF）時身體啟動的代償機轉（交感興奮、RAS活化、水鈉滯留、心臟肥大）其實長期反而是惡性循環，這是理解所有心衰竭用藥策略的地圖。接著進入本章主角 <strong>Digoxin（強心配糖體）</strong>——機轉是抑制 Na⁺/K⁺-ATPase，間接透過 Na⁺/Ca²⁺交換增加細胞內 Ca²⁺，達到正性肌力效果；同時因抑制 Na⁺/K⁺-ATPase 也會影響心臟電生理（SA/AV node 傳導、心律不整風險），這條「正性肌力 vs. 心律不整風險」的雙面性，是 Digoxin 治療指數極窄、需要密切監測的原因。最後收在<strong>其他正性肌力藥物</strong>（Dopamine、Dobutamine、PDE抑制劑如 Pimobendan——現在已大幅取代 Digoxin 治療犬 CHF）與<strong>休克的分類用藥邏輯</strong>，把整個心衰竭／休克的藥物地圖串起來。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('cardiacfunction')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">心臟功能與CHF</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">CO公式與代償惡性循環</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('digoxinmechanism')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Digoxin機轉</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Na/K-ATPase抑制</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('digoxintoxicity')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">中毒處置</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">窄治療指數</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('otherinotropes')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">其他正性肌力藥</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Pimobendan取代地位</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>CHF的代償機轉最終是惡性循環：</strong>交感興奮＋RAS活化→水鈉滯留、血管收縮→↑preload與afterload→↑心臟作功負荷與耗氧量→加速心臟衰竭，這解釋了為什麼「治療CHF」常常要同時「抑制這些代償機轉」而非單純強心。</li>
+          <li><strong>Digoxin機轉是抑制Na⁺/K⁺-ATPase，不是直接作用Ca²⁺通道</strong>：抑制Na⁺幫浦→細胞內Na⁺↑→Na⁺/Ca²⁺交換器代償性增加Ca²⁺流入→細胞內Ca²⁺↑→收縮力↑。</li>
+          <li><strong>Digoxin對SA/AV node的效果與對心肌收縮力的效果方向相反：</strong>心肌收縮力↑（正性肌力），但心率↓（負性變時，經迷走神經敏感化）、AV傳導↓（可用於控制室上性心搏過速的心室反應速率）。</li>
+          <li><strong>低血鉀會增強Digoxin毒性</strong>（K⁺與Digoxin競爭Na⁺/K⁺-ATPase結合位），使用利尿劑（尤其排鉀型）的病患併用Digoxin時風險特別高。</li>
+          <li><strong>貓對Digoxin的敏感度高於犬</strong>，維持劑量需明顯降低（0.004–0.005 mg/kg／12h）；治療濃度窗極窄（0.8–2.0 ng/mL），臨床監測是必要環節。</li>
+          <li><strong>Digoxin Immune FAB（Digibind®）劑量換算：38 mg可中和500 μg（微克）Digoxin</strong>——這個單位容易被誤植為「ng（奈克）」，差了1000倍，換算解毒劑用量時務必留意單位。</li>
+          <li><strong>Pimobendan（inodilator，PDE III抑制劑）已大幅取代Digoxin成為犬CHF（DCM／二尖瓣疾病）的第一線用藥</strong>，具正性肌力＋血管舒張雙重效果，且有實證支持能延長存活期。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Digitoxin</td><td>同Digoxin抑制Na⁺/K⁺-ATPase</td><td>PO為主（口服吸收率&gt;90%）；經肝臟代謝（Digoxin為代謝物之一）；半衰期長（人7天）；蛋白結合率高（~95%）；臨床已少用</td><td class="drug-locations"><a href="#drug-digitalischemistry" class="drug-link">化學結構</a></td></tr>
+            <tr><td>Ouabain</td><td>同Digoxin抑制Na⁺/K⁺-ATPase</td><td>需IV注射給藥（口服吸收率&lt;10%）；起效最快（10分鐘）；臨床少用</td><td class="drug-locations"><a href="#drug-digitalischemistry" class="drug-link">化學結構</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Digoxin</td><td>抑制Na⁺/K⁺-ATPase→細胞內Ca²⁺↑→正性肌力；同時↓AV傳導</td><td>★室上性心律不整（控制心室反應速率）；CHF現多被Pimobendan取代；PO維持／IV或PO負荷劑量；治療窗0.8–2.0 ng/mL極窄，貓需減量</td><td class="drug-locations"><a href="#drug-digoxindosing" class="drug-link">藥動學與給藥</a><a href="#drug-digoxinadverse" class="drug-link">副作用與中毒處置</a></td></tr>
+            <tr><td>Digoxin Immune FAB<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Digibind®</div></td><td>羊源性抗Digoxin抗體，結合並中和游離Digoxin</td><td>★Digoxin中毒解毒劑；IV輸注給藥（抗體蛋白製劑，無法口服）；38 mg中和500 μg（微克，非奈克）Digoxin</td><td class="drug-locations"><a href="#drug-digoxinintoxicationtx" class="drug-link">中毒處置流程</a></td></tr>
+            <tr><td>Dobutamine</td><td>β1致效劑為主（弱β2與α）</td><td>IV輸注短期治療心衰竭（≤3天，受體下調），正性肌力效果大於正性變時</td><td class="drug-locations"><a href="#drug-dobutaminecv" class="drug-link">其他正性肌力藥物</a></td></tr>
+            <tr><td>Dopamine</td><td>低劑量D1致效（血管舒張）；高劑量α+β1致效（血管收縮＋正性肌力）</td><td>★敗血性休克、心因性休克、急性心衰竭；IV給藥</td><td class="drug-locations"><a href="#drug-dopaminecv" class="drug-link">其他正性肌力藥物</a></td></tr>
+            <tr><td>Amrinone<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Inamrinone</div></td><td>選擇性PDE III抑制劑→↑cAMP（正性肌力＋血管舒張）</td><td>IV短期治CHF；作用時間短（&lt;30分）；人用藥，動物較少用</td><td class="drug-locations"><a href="#drug-pdeinhibitors" class="drug-link">其他正性肌力藥物</a></td></tr>
+            <tr><td>Milrinone</td><td>選擇性PDE III抑制劑（效力為Amrinone 20–30倍）</td><td>IV治重度心衰竭；副作用心律不整；人用藥，動物較少用</td><td class="drug-locations"><a href="#drug-pdeinhibitors" class="drug-link">其他正性肌力藥物</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Pimobendan</td><td>PDE III抑制劑＋Ca²⁺敏感化（inodilator：正性肌力＋血管舒張雙重效果）</td><td>★核准治犬DCM／慢性二尖瓣疾病所致CHF，QUEST/PROTECT試驗證實延長存活；PO 0.25mg/kg BID為主，亦可IV；已大幅取代Digoxin</td><td class="drug-locations"><a href="#drug-pdeinhibitors" class="drug-link">其他正性肌力藥物</a></td></tr>
+            <tr><td>Sildenafil</td><td>選擇性PDE V抑制劑→↑cGMP→血管平滑肌舒張</td><td>PO治肺高血壓；副作用低血壓</td><td class="drug-locations"><a href="#drug-sildenafil" class="drug-link">休克分類與用藥</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- CARDIAC FUNCTION -->
+    <div class="section" id="section-cardiacfunction">
+      <div class="section-head"><div class="section-num">3</div><h2>心臟功能與CHF病理生理 Cardiac Function &amp; CHF Pathophysiology</h2></div>
+      <p class="section-desc">在談藥物之前，先建立心輸出量的決定因子，以及充血性心衰竭（CHF）代償機轉為何最終走向惡性循環。</p>
+
+      <h3>心輸出量公式<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node accent">CO = HR × SV</div>
+      </div>
+      <p><strong>SV（每搏輸出量）</strong>由三個因子決定：</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">Preload 前負荷</div>
+          <p>靜止肌纖維長度（end-diastolic pressure/volume，充盈程度）——<strong>Frank-Starling Law</strong>：健康心臟能依前負荷自動調節收縮力，靜脈回流增加→心臟收縮力增加→搏出量增加（增加幅度可達100%），此力學-長度關係主要源自肌小節長度增加時對Ca²⁺敏感度上升。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Afterload 後負荷</div>
+          <p>動脈壓力程度——與CO呈反比、與心肌耗氧量呈正相關。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Inotropy 收縮力</div>
+          <p>與細胞內鈣離子濃度相關；受藥物、自主神經系統、循環中兒茶酚胺等影響。</p>
+        </div>
+      </div>
+
+      <h3>心血管功能調控機轉</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">自主神經系統 ANS</div>
+          <p>周邊壓力與化學受器訊號於腦幹整合→交感與副交感神經輸出，調控心率（chronotropy）、收縮力（inotropy）、血管張力；<strong>麻醉藥物會干擾此系統（抑制血管運動中樞）</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">體液機轉 Humoral</div>
+          <p>腎上腺髓質（Epi、NE）、腎素-血管收縮素系統（RAS）、抗利尿激素（ADH／Arginine vasopressin）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">自我調控 Autoregulation</div>
+          <p>心率與收縮力的自我調節；血管依局部組織代謝需求（CO2、NO等代謝產物）調整血流——多數組織可於局部層級自我調控血流。</p>
+        </div>
+      </div>
+
+      <h3 id="drug-chfpathophysiology">CHF 病理生理：代償機轉的惡性循環<span class="tag tag-exam">重要</span></h3>
+      <p><strong>CHF</strong>是複雜的臨床症候群，特徵：心室功能受損、運動不耐、心室性心律不整發生率高、預期壽命縮短。多種心臟疾病（冠狀動脈疾病、高血壓、糖尿病）皆可能導致CHF。</p>
+      <p>CHF發生時，身體啟動代償機轉試圖維持足夠的全身循環：</p>
+      <div class="flow">
+        <div class="flow-node">心肌收縮力↓（缺血、老化、心肌病變）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">心室擴大＋神經荷爾蒙活化（SNS、RAS）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">↑心率、Na⁺滯留、靜脈與動脈張力↑、心臟肥大</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">↑前負荷與後負荷 → ↑心壁張力與耗氧量 → 心律不整 → 存活率↓</div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">為什麼代償機轉在CHF病患身上失效？</div>
+        <p>這些代償機轉（血管收縮、水鈉滯留、交感興奮）在<strong>正常生理狀況下是短期保護反應</strong>，但在CHF病患身上長期持續活化，反而<strong>增加心臟工作負荷與耗氧量</strong>，加速心肌損傷與心律不整風險，形成惡性循環——這正是藥物治療需要介入「阻斷代償機轉」而非只是「增強收縮力」的原因。</p>
+      </div>
+
+      <h3>藥物治療策略總覽</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">早期／傳統藥物</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>強心配糖體（正性肌力）</li>
+            <li>PDE抑制劑</li>
+            <li>利尿劑（減少細胞外液容積）</li>
+            <li>ACE抑制劑</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">附加藥物</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>更積極的利尿劑治療</li>
+            <li>血管擴張劑</li>
+            <li><strong>β-blocker（如Carvedilol）</strong>可用於降低心臟工作負荷</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ β-blocker的完整機轉與物種考量，見 <a href="腎上腺素性藥物.html#section-betablockers">腎上腺素性藥物：β-受體阻斷劑</a>。</p>
+    </div>
+
+    <!-- DIGOXIN MECHANISM -->
+    <div class="section" id="section-digoxinmechanism">
+      <div class="section-head"><div class="section-num">4</div><h2>Digoxin：機轉與藥理效果</h2></div>
+      <p class="section-desc">理解Digoxin「正性肌力」與「電生理效應」這兩個表面上矛盾（一個增強收縮、一個減慢傳導）的效果，都源自同一個分子機轉：抑制Na⁺/K⁺-ATPase。</p>
+
+      <h3 id="drug-digitalischemistry">Digitalis（強心配糖體）化學結構</h3>
+      <p>植物來源配糖體：<strong>Digoxin、Digitoxin、Ouabain</strong>；結構包含lactone環、類固醇核心、與糖residue；移除配糖體成分後剩餘分子稱為「aglycone」。<strong>Digitoxin與Digoxin的差異僅在C12位置是否有OH基</strong>，此差異改變親水性、進而影響藥動學特性與給藥途徑：<strong>Digitoxin口服吸收率&gt;90%，以PO給藥為主</strong>（脂溶性較高，臨床已少用）；<strong>Ouabain口服吸收率&lt;10%，臨床上須以IV注射給藥</strong>，起效最快但臨床少用。來源植物：毛地黃（Digitalis lanata、Digitalis purpurea，洋地黃）、Strophanthus gratus（毒毛旋花，夾竹桃科）。</p>
+
+      <h3 id="drug-digoxinmoa">正性肌力機轉<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node danger">Digoxin抑制Na⁺/K⁺-ATPase（結合α次單元）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">細胞內[Na⁺]↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Na⁺/Ca²⁺交換器活性↑（代償性）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">細胞內[Ca²⁺]↑ → 收縮力↑</div>
+      </div>
+      <p style="font-size:.9em;">收縮力大致與細胞外[Ca²⁺]／[Na⁺]²比值成正比；<strong>細胞外K⁺↓也有正性肌力效果</strong>（同樣抑制Na⁺幫浦活性）——這是為什麼低血鉀會增強Digoxin效果與毒性的機轉基礎。</p>
+
+      <h3>藥理效果總覽</h3>
+      <ul>
+        <li><strong>主要作用：</strong>增加正常與衰竭心肌的收縮力（正性肌力效果）</li>
+        <li><strong>衰竭心臟：</strong>心輸出量增加；<strong>正常心臟：</strong>對CO影響很小——因中樞介導交感血管張力增加與直接血管收縮效果，使總周邊阻力上升（後負荷增加），抵銷正性肌力效果帶來的CO增加</li>
+        <li><strong>間接抑制CHF相關的神經荷爾蒙活化（SNS、RAS）：</strong>正常化壓力受器功能、周邊血管舒張降低阻力、心臟體積縮小、靜脈壓下降、循環血量下降、利尿並緩解水腫</li>
+        <li><strong>心臟能量代謝：</strong>非衰竭心肌中，Digoxin使耗氧量隨收縮力增加成比例上升；<strong>衰竭心臟因心率減慢＋SNS血管收縮反轉，反而不會增加心肌耗氧量</strong></li>
+      </ul>
+
+      <h3 id="drug-digoxinelectrophysiology">對心臟電生理的效果<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">SA node</div>
+          <p>心率↓（可被Atropine逆轉）；經迷走神經敏感化與交感張力反射性下降所致。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">AV node</div>
+          <p>延長不反應期、延遲脈衝傳導→減慢AV傳導，<strong>用於治療室上性心搏過速</strong>；高劑量可致完全房室傳導阻滯。Digoxin使正常心率下降約15%，CHF病患心率下降約30%。</p>
+        </div>
+      </div>
+
+      <h3>心臟自主性與心律不整風險</h3>
+      <p>Digoxin：↑細胞內[Na⁺]、↑[Ca²⁺]、↓[K⁺] → 靜息膜電位變得較不負（less negative）→ <strong>膜電位斜率增加，心臟自主性（automaticity）上升</strong>，可能出現<strong>延遲後去極化（delayed after-depolarization）</strong>：動作電位時程縮短（APD↓）＋細胞內Ca²⁺過載致震盪性釋放→電生理不穩定→心室性心搏過速與心室顫動風險。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">機轉小結：一把雙面刃</div>
+        <p>Digoxin透過同一個Na⁺/K⁺-ATPase抑制機轉，同時產生「治療效果」（正性肌力、減慢AV傳導）與「毒性風險」（自主性上升致心律不整）——<strong>這是Digoxin治療指數極窄、需要密切監測血中濃度與心電圖的根本原因</strong>。</p>
+      </div>
+
+      <h3>臨床適應症</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">充血性心衰竭 CHF</div>
+          <p><strong>Pimobendan已大幅取代Digoxin成為動物CHF治療的主流</strong>（見第5節）。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">室上性心律不整</div>
+          <p>心房顫動、心房撲動、房室折返性心搏過速、房室結折返性心搏過速；<strong>Digoxin用於控制心室反應速率</strong>，若合併心衰竭則為首選藥物；<strong>注意：單純竇性心搏過速（無心衰竭證據）不應使用Digoxin降低心率</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIGOXIN PK -->
+    <div class="section" id="section-digoxinpk">
+      <div class="section-head"><div class="section-num">5</div><h2>Digoxin：藥動學與給藥</h2></div>
+      <p class="section-desc">窄治療指數藥物，給藥劑量與監測時程都必須精確依循物種與個體狀況調整。</p>
+
+      <h3>三種強心配糖體藥動學比較（人類資料）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>參數</th><th>Digitoxin</th><th>Digoxin</th><th>Ouabain</th></tr></thead>
+          <tbody>
+            <tr><td>半衰期</td><td>7天</td><td>人36h；犬23–39h；貓25–78h；馬13–23h</td><td>21h</td></tr>
+            <tr><td>口服吸收率</td><td>&gt;90%</td><td>犬75–90%</td><td>&lt;10%</td></tr>
+            <tr><td>起效</td><td>30–60分</td><td>15–30分</td><td>10分</td></tr>
+            <tr><td>達穩定血中濃度時間</td><td>—</td><td>犬7天、貓10天、馬3–5天</td><td>—</td></tr>
+            <tr><td>血漿蛋白結合率</td><td>~95%</td><td>~25%</td><td>0%</td></tr>
+            <tr><td>治療濃度</td><td>14–26</td><td><strong>0.8–2.0 ng/mL</strong></td><td>—</td></tr>
+            <tr><td>中毒濃度</td><td>&gt;34</td><td><strong>&gt;2.4 ng/mL</strong></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;"><strong>Digoxin主要經腎臟排除；Digitoxin經肝臟代謝</strong>（代謝物之一即為digoxin）——這是Digoxin在腎功能不全病患需調整劑量、Digitoxin則需注意肝功能的原因。</p>
+
+      <h3 id="drug-digoxindosing">給藥方式與劑量調整<span class="tag tag-exam">重要</span></h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>負荷劑量（Loading dose）：</strong>IV或口服（<strong>口服為優先</strong>），分2–3次給予。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>維持劑量：</strong>依病患反應調整——監測心電圖、血中濃度、治療與中毒反應、半衰期；一般給藥頻率<strong>q12h或每日一次（q.d.）</strong>，劑量&lt;0.5 mg/kg，分次給予。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>貓的維持劑量須明顯降低：</strong>Digoxin 0.004–0.005 mg/kg／12h（口服）——貓對Digitalis的敏感度高於犬。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">考量體重（精瘦體重、水腫狀態）——<strong>體重12–15 kg的犬每公斤體重所需Digitalis劑量通常低於體型較小的犬</strong>；腎臟與肝臟疾病須調整劑量；建議<strong>口服途徑</strong>從保守劑量開始。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text"><strong>監測血中濃度</strong>（治療窗0.8–2.0 ng/mL）：首劑後8–10小時採血，若濃度&lt;0.8 ng/mL可增加不超過30%的劑量；其後每週監測一次。</div>
+      </div>
+    </div>
+
+    <!-- DIGOXIN TOXICITY -->
+    <div class="section" id="section-digoxintoxicity">
+      <div class="section-head"><div class="section-num">6</div><h2>副作用與中毒處置</h2></div>
+      <p class="section-desc">Digoxin安全邊際極窄，臨床上必須熟悉中毒的早期徵象、誘發因子、與正確的處置流程。</p>
+
+      <h3 id="drug-digoxinadverse">副作用</h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">警示：安全邊際極窄</div>
+        <p><strong>心律不整：</strong>任何類型的心律不整都可能發生——竇性心搏過緩、心房性心律不整、完全房室傳導阻滯、心室性心搏過速或顫動。<strong>腸胃道症狀（厭食、噁心、嘔吐、腹瀉）常是中毒最早出現的徵象</strong>——嘔吐是Digoxin直接刺激CTZ（化學受器觸發區）所致。</p>
+      </div>
+
+      <h3 id="drug-digoxinriskfactors">增加中毒風險的因子<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">電解質失衡</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li><strong>低血鉀（多見於利尿劑併用）</strong></li>
+            <li>高血鈉、高血鈣</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">疾病狀態</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>腎功能不全</li>
+            <li>心臟疾病本身</li>
+            <li><strong>甲狀腺：亢進↑Digoxin心臟效應；低下↓Digoxin清除率（須減量）</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="drug-digoxinintoxicationtx">中毒處置流程<span class="tag tag-exam">重要</span></h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>暫停利尿劑</strong>（避免低血鉀加重毒性）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">類固醇結合樹脂 <strong>Cholestyramine（口服）</strong>僅在意外口服過量後極短時間內有效（阻斷腸道再吸收）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Digoxin Immune FAB（Digibind®）：</strong>羊源性抗Digoxin抗體；<strong>IV輸注給藥</strong>（抗體蛋白製劑，無法口服）；<strong>38 mg可中和500 μg（微克）Digoxin</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>IV輸液</strong>矯正脫水並維持最大腎功能。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">若出現心律不整：補充<strong>K⁺</strong>；抗心律不整藥物（<strong>Lidocaine、Phenytoin</strong>）；竇性心搏過緩／房室傳導阻滯可用<strong>Atropine</strong>；<strong>避免使用β-blocker與Ca²⁺通道阻斷劑</strong>（可能加重房室傳導阻滯）；<strong>避免併用Quinidine</strong>（抑制P-glycoprotein，降低Digoxin清除率）。</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Digibind劑量單位</div>
+        <p>核對原文確認為「38 mg digoxin immune FAB可中和500 <strong>μg</strong>（微克）Digoxin」，與部分共筆或簡化資料中可能誤植的「500 ng（奈克）」相差1000倍——考量Digoxin治療劑量與典型中毒案例的絕對藥量級別，μg單位在生理上才合理，計算解毒劑用量時務必以μg為準。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21）</p>
+      </div>
+    </div>
+
+    <!-- OTHER INOTROPES -->
+    <div class="section" id="section-otherinotropes">
+      <div class="section-head"><div class="section-num">7</div><h2>其他正性肌力藥物 Other Inotropic Drugs</h2></div>
+      <p class="section-desc">除了強心配糖體，臨床上還有β1-agonist類與PDE抑制劑類正性肌力藥物，各有不同的臨床定位——尤其Pimobendan已成為犬CHF治療的現代標準。</p>
+
+      <h3>β1-Adrenergic Agonists（Dopamine、Dobutamine）</h3>
+      <p>兒茶酚胺結構，<strong>半衰期短（約2分鐘）</strong>；急性與慢性心衰竭皆可能使用，但<strong>慢性CHF效用有限</strong>（易致心律不整、作用時間短）。</p>
+
+      <h3 id="drug-dobutaminecv">Dobutamine</h3>
+      <p>化學：兒茶酚胺類，(-)與(+)鏡像異構物之消旋混合物；機轉：活化β1（主）＋弱β2與α受體。藥理效果：<strong>正性肌力效果大於正性變時效果</strong>（血壓與心率變化小，promarrhythmic程度低）；增加心輸出量（收縮力與搏出量增加）；可能增加心肌耗氧量與冠狀動脈血流。臨床用途：<strong>IV輸注</strong>治療急性重度心衰竭與心因性休克，可單用或與Nitroprusside（血管擴張劑）併用；<strong>受體下調（downregulation）限制其僅適合短期（≤3天）使用</strong>。藥動學：<strong>IV輸注</strong>2分鐘起效、10分鐘達高峰；肝臟及其他組織快速代謝；血漿T½極短（人類2分鐘）；停藥效果迅速消退。不良反應：可能增加耗氧量，心肌梗塞後病患須謹慎（避免擴大梗塞範圍）；可能誘發心律不整（竇性心搏過速、心搏過速性心律不整）；其餘不良反應類似Epinephrine。</p>
+
+      <h3 id="drug-dopaminecv">Dopamine（心衰竭情境）</h3>
+      <p><strong>IV給藥</strong>用於急性心衰竭與休克，增加血壓與心輸出量；作用時間短；<strong>周邊血管收縮效果（α）＋正性肌力效果（β1）</strong>；<strong>腎動脈舒張效果（D1、D2）改善Na⁺與水的排除</strong>。臨床搭配：收縮壓&gt;90 mmHg時可加入Nitroprusside降低後負荷；可加入<strong>IV Furosemide</strong>減輕水腫。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Dopamine完整的劑量依賴受體切換機轉（D1／α+β1），見 <a href="腎上腺素性藥物.html#drug-dopamine">腎上腺素性藥物：內生性兒茶酚胺</a>。</p>
+
+      <h3 id="drug-pdeinhibitors">磷酸二酯酶抑制劑 Phosphodiesterase Inhibitors（PDEI）<span class="tag tag-exam">重要</span></h3>
+      <p>代表藥物：Amrinone、Milrinone、Pimobendan；機轉：選擇性抑制cGMP抑制型cAMP磷酸二酯酶（<strong>type III PDE</strong>）→↑細胞內cAMP濃度→①血管舒張（後負荷↓）②心肌收縮力↑（正性肌力）；Ca²⁺通道受cAMP依賴性蛋白激酶（PKA）調控。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>給藥途徑</th><th>臨床定位</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Amrinone（Inamrinone）</strong></td><td><strong>IV</strong></td><td>CHF短期治療；↓後負荷→↓耗氧量；作用時間短（&lt;30分鐘）；人用藥，動物較少用</td></tr>
+            <tr><td><strong>Milrinone</strong></td><td><strong>IV</strong></td><td>效力為Amrinone的20–30倍；人類重度心衰竭；犬自發性心衰竭亦有效；副作用：心律不整；人用藥，動物較少用</td></tr>
+            <tr><td><strong>Pimobendan</strong></td><td><strong>主要PO；亦可IV</strong></td><td>獸醫專用藥；雙重效果（正性肌力＋血管舒張，inodilator）；<strong>核准治療犬因擴張型心肌病（DCM）或慢性二尖瓣疾病所致CHF</strong>，提升存活率且安全性佳；也用於貓心肌病相關CHF；可單用或與利尿劑、ACEI、Digoxin併用</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-success">
+        <div class="alert-label">Pimobendan：現已大幅取代Digoxin</div>
+        <p>藥動學：<strong>口服</strong>T½犬&lt;1小時、貓約1.3小時；經肝臟代謝為活性代謝物（DesmethylP，效力與半衰期皆大於原型藥，半衰期約2小時，部分貓不會產生此代謝物）；經糞便排除。不良反應：犬貓皆耐受性良好；心血管方面可能出現心搏過速、血壓變化（升高或降低）；少數犬出現食慾下降、嗜睡、虛弱、腹瀉、呼吸困難、氮血症。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Pimobendan核准口服劑量為<strong>0.25 mg/kg，一天兩次（BID PO）</strong>；大型多機構臨床試驗（如QUEST trial、PROTECT study）證實Pimobendan治療犬DCM與二尖瓣疾病所致心衰竭時，能有效改善心臟疾病分級（NYHA功能分級）並延長存活期，安全性佳；<strong>但存活期顯著延長的效果在杜賓犬（Doberman Pinscher）的DCM研究中特別明確</strong>，其他品種雖也有功能分級改善，存活效益證據強度略有不同。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21）</p>
+      </div>
+      <p style="font-size:.9em;">新一代同類藥物：<strong>Levosimendan</strong>，目前仍在研究階段，尚未廣泛臨床使用。</p>
+    </div>
+
+    <!-- SHOCK -->
+    <div class="section" id="section-shock">
+      <div class="section-head"><div class="section-num">8</div><h2>休克分類與用藥 Shock Classification &amp; Treatment</h2></div>
+      <p class="section-desc">不同類型休克的根本病生理機轉不同，選藥邏輯必須對應到正確的機轉分類，而不是一套用藥處方套用所有休克。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>休克類型</th><th>機轉</th><th>治療</th></tr></thead>
+          <tbody>
+            <tr><td><strong>低血容性休克</strong><br>Hypovolemic</td><td>脫水或失血</td><td><strong>IV輸液</strong>、輸血</td></tr>
+            <tr><td><strong>心輸出量阻塞性</strong><br>Obstructive</td><td>肺栓塞、主動脈剝離</td><td>依病因處置</td></tr>
+            <tr><td><strong>心因性休克</strong><br>Cardiogenic</td><td>急性心衰竭（心肌組織大量喪失或心律不整）</td><td>正性肌力藥物（<strong>IV兒茶酚胺類與Dobutamine</strong>）；硝酸鹽類（<strong>IV</strong>，降低前負荷）</td></tr>
+            <tr><td><strong>過敏性休克</strong><br>Anaphylactic</td><td>血壓↓＋支氣管痙攣</td><td><strong>Epinephrine（IM/IV）、Dopamine（IV）</strong>——α與β1升血壓、β2支氣管擴張</td></tr>
+            <tr><td><strong>敗血性休克</strong><br>Septic</td><td>周邊血管張力喪失</td><td><strong>Norepinephrine（IV）、Vasopressin（IV）</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-sildenafil">肺高血壓 Pulmonary Hypertension</h3>
+      <p>治療根本病因是關鍵。<strong>Sildenafil（Viagra）</strong>：Type V磷酸二酯酶抑制劑，↑血管平滑肌細胞內cGMP濃度，誘發血管舒張、降低肺高血壓（犬與人類皆有效）。藥動學：<strong>口服</strong>生體可用率佳；達峰時間（Tmax）&lt;60分鐘；犬T½ 6小時。不良反應：低血壓。PDE V分布：腦、肺組織、心臟、肝臟、腎臟、膀胱、前列腺、尿道、陰莖、子宮、骨骼肌。</p>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>CO=HR×SV，SV由preload（Frank-Starling）、afterload、inotropy決定</strong>；CHF的代償機轉（SNS/RAS活化、水鈉滯留、心臟肥大）長期反而形成惡性循環。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Digoxin機轉：抑制Na⁺/K⁺-ATPase→細胞內Na⁺↑→Na⁺/Ca²⁺交換↑→細胞內Ca²⁺↑→正性肌力</strong>；同一機轉也致自主性上升、心律不整風險——雙面刃是窄治療指數的根本原因。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Digoxin治療窗0.8–2.0 ng/mL</strong>，貓維持劑量須降低（0.004–0.005 mg/kg／12h PO）；低血鉀、高血鈉高血鈣、甲亢皆增加毒性風險。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Digoxin中毒處置：</strong>停利尿劑、Cholestyramine（極早期口服過量）、Digibind（38mg中和500μg）、IV輸液、補K⁺、Lidocaine/Phenytoin抗心律不整、Atropine治竇性心搏過緩；<strong>避免β-blocker、Ca²⁺通道阻斷劑、Quinidine</strong>。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Dobutamine（IV，正性肌力大於變時，僅短期≤3天用）</strong>與<strong>Dopamine（IV，劑量依賴受體切換）</strong>用於急性心衰竭與休克；PDE III抑制劑（Amrinone/Milrinone IV，Pimobendan PO/IV）透過↑cAMP同時強心與擴血管。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Pimobendan（0.25mg/kg BID PO）已大幅取代Digoxin成為犬CHF第一線用藥</strong>，QUEST/PROTECT試驗證實延長存活期，安全性佳。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>休克分類決定選藥：</strong>低血容→IV輸液／輸血；心因性→IV正性肌力藥；過敏性→Epinephrine（IM/IV）；敗血性→Norepinephrine（IV）——機轉不同，用藥邏輯不能互換。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV1 Cardiac Glycoside）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋CHF病理生理、Digoxin機轉、中毒處置、Pimobendan定位各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. Digoxin 增加心肌收縮力的機轉，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 直接活化細胞膜上的Ca²⁺通道</li>
+          <li>(B) 抑制Na⁺/K⁺-ATPase，經Na⁺/Ca²⁺交換器間接增加細胞內Ca²⁺</li>
+          <li>(C) 直接結合Troponin C增加其對Ca²⁺的親和力</li>
+          <li>(D) 抑制磷酸二酯酶，增加細胞內cAMP濃度</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Digoxin抑制Na⁺/K⁺-ATPase，導致細胞內Na⁺濃度上升，這會促使Na⁺/Ca²⁺交換器活性代償性增加（以排出過多Na⁺、換入Ca²⁺），最終使細胞內Ca²⁺濃度上升、增強心肌收縮力。選項(D)描述的是PDE抑制劑（如Pimobendan）的機轉，並非Digoxin。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 一隻正在服用排鉀型利尿劑的犬併用 Digoxin，低血鉀會降低 Digoxin 的中毒風險。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">低血鉀會「增加」Digoxin中毒風險，而非降低。K⁺與Digoxin競爭Na⁺/K⁺-ATPase上的結合位，低血鉀時Digoxin更容易結合並抑制此酵素，使治療效果與毒性同時增強；使用排鉀型利尿劑的病患併用Digoxin時，這是需要特別留意監測血鉀的原因。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻犬因 Digoxin 中毒需要使用 Digoxin Immune FAB（Digibind）緊急處置，下列劑量換算敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 38 mg 的 Digibind 可中和 500 ng 的 Digoxin</li>
+          <li>(B) 38 mg 的 Digibind 可中和 500 μg 的 Digoxin</li>
+          <li>(C) 38 mg 的 Digibind 可中和 5 mg 的 Digoxin</li>
+          <li>(D) Digibind 劑量與 Digoxin 中和量無固定換算關係</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">教科書核對確認：一瓶38 mg的Digoxin Immune FAB可中和500微克（μg）的Digoxin，不是500奈克（ng）——兩者相差1000倍，計算解毒劑用量時務必用正確單位，避免給藥不足或換算錯誤。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 為什麼 Pimobendan 現在已大幅取代 Digoxin 成為犬隻 CHF（因 DCM 或二尖瓣疾病）治療的第一線用藥？請從機轉與臨床實證兩個角度說明。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>機轉角度：</strong>Pimobendan屬於PDE III抑制劑，兼具「正性肌力」與「血管舒張」雙重效果（inodilator），能同時增強心肌收縮力並降低後負荷；相對地，Digoxin雖有正性肌力效果，但正常心臟中會因反射性血管收縮使後負荷上升、抵銷部分效益，且Digoxin的治療濃度與中毒濃度非常接近（治療指數窄），需要密切的血中濃度監測，臨床操作門檻較高。<strong>臨床實證角度：</strong>多項高品質、多機構的臨床試驗（如QUEST trial、PROTECT study）證實口服Pimobendan（0.25 mg/kg BID）治療犬DCM或二尖瓣疾病所致心衰竭，能有效改善心臟疾病功能分級（NYHA分級）、延長存活期，且安全性佳、副作用少；這些高品質實證支持是Digoxin所缺乏的，因此Pimobendan已成為現代犬CHF治療的主流第一線用藥，Digoxin現在多用於需要控制心室反應速率的室上性心律不整情境。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻患有心房顫動合併CHF的犬正在使用Digoxin控制心室反應速率。近日飼主發現牠出現厭食、嘔吐與精神沉鬱，帶來急診。心電圖顯示新出現的心室性期外收縮。請問：(1) 你首先會懷疑什麼？(2) 需要優先確認哪些檢驗數值？(3) 若確診為Digoxin中毒，初步處置的優先順序為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 首要懷疑：</strong>厭食、嘔吐是Digoxin中毒最早出現的徵象之一（直接刺激CTZ所致），加上新出現的心室性期外收縮（心律不整），高度懷疑<strong>Digoxin中毒</strong>，尤其病患本身就在服用Digoxin。<br><strong>(2) 優先確認的檢驗：</strong>應立即檢查<strong>血清Digoxin濃度</strong>（治療窗0.8–2.0 ng/mL，中毒常見於&gt;2.4 ng/mL）；<strong>血鉀濃度</strong>（低血鉀會加重毒性，若病患同時使用利尿劑風險更高）；腎功能指數（Digoxin主要經腎臟排除，腎功能不全會使藥物蓄積）；心電圖持續監測其他心律不整型態。<br><strong>(3) 處置優先順序：</strong>先<strong>暫停Digoxin與利尿劑給藥</strong>；若病患曾在極短時間內誤食過量且尚未吸收完全，可考慮口服Cholestyramine；若血鉀偏低應<strong>補充K⁺</strong>；心室性心律不整可使用Lidocaine等抗心律不整藥物控制；同時給予<strong>IV輸液</strong>矯正脫水、維持腎灌流以促進藥物排除；<strong>避免使用β-blocker或Ca²⁺通道阻斷劑</strong>（可能加重房室傳導阻滯）；若病情嚴重危及生命，可考慮使用Digoxin Immune FAB（Digibind）直接中和血中游離Digoxin，但需注意其成本較高，且獸醫臨床上取得可能較受限。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  cardiacfunction: '心臟功能與CHF病理生理',
+  digoxinmechanism: 'Digoxin：機轉與藥理效果',
+  digoxinpk: 'Digoxin：藥動學與給藥',
+  digoxintoxicity: '副作用與中毒處置',
+  otherinotropes: '其他正性肌力藥物',
+  shock: '休克分類與用藥',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

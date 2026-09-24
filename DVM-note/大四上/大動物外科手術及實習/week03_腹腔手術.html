@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大動物外科：腹腔手術 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">大動物外科手術及實習</a><span class="sep">›</span><span class="current">第 3 週・腹腔手術</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">腹腔手術</h1>
+      <p class="page-subtitle">Abdominal Surgery · 脅腹剖腹術總論、瘤胃切開術、瘤胃瘻管造口術、皺胃移位（LDA／RDA）手術矯正</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">大動物外科手術及實習（大四上・第3週・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》課程講義〈Abdominal Surgery〉</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-23</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（部分主題講義未涵蓋，見下方說明）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">通用技術</div>
+    <a onclick="showSection('flanklaparotomy')" id="nav-flanklaparotomy"><span class="nav-icon">🔪</span> 脅腹剖腹術總論</a>
+    <div class="section-label" style="margin-top:8px;">瘤胃手術</div>
+    <a onclick="showSection('rumenotomy')" id="nav-rumenotomy"><span class="nav-icon">🐄</span> 瘤胃切開術</a>
+    <a onclick="showSection('rumenfistulation')" id="nav-rumenfistulation"><span class="nav-icon">🕳️</span> 瘤胃瘻管造口術</a>
+    <div class="section-label" style="margin-top:8px;">皺胃移位</div>
+    <a onclick="showSection('abomasaldisplacement')" id="nav-abomasaldisplacement"><span class="nav-icon">🫃</span> 皺胃移位：病因與診斷</a>
+    <a onclick="showSection('abomasopexy')" id="nav-abomasopexy"><span class="nav-icon">🧵</span> 皺胃固定術式比較</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這份講義先建立<strong>脅腹剖腹術（flank laparotomy）</strong>這個「共同技術骨架」——左脅腹與右脅腹分別對應不同的手術目的，但備皮、麻醉、進刀層次、縫合方式都遵循同一套標準流程，之後每種術式只需要疊加「這個手術特有的步驟」。接著分兩條主線展開：①<strong>瘤胃手術</strong>——瘤胃切開術（取異物）與瘤胃瘻管造口術（做長期廔管，供營養試驗、慢性脹氣治療、瘤胃液移植），兩者都走左脅腹剖腹路徑，差異在於「切開後要不要永久造廔」；②<strong>皺胃移位（LDA／RDA）</strong>——先理解泌乳牛產後皺胃移位的病生理機轉（子宮擴張頂起皺胃、產後瘤胃下降但皺胃張力不足被壓向左上方），再比較四種手術矯正術式（右脅腹大網膜固定術、套鎖針固定術、腹腔鏡固定術、腹旁中線固定術）的操作方式、優缺點與適用情境。讀這章的訣竅是：先抓住「左脅腹＝瘤胃相關、右脅腹＝皺胃與其他腹腔臟器相關」這條分類邏輯，再依「站立 vs. 仰臥保定」「直視 vs. 盲目操作」「經濟性 vs. 精確性」這幾組取捨來記憶四種皺胃固定術的差異。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('flanklaparotomy')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">脅腹剖腹術</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">共用技術骨架</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('rumenotomy')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">瘤胃切開術</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">取異物</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('rumenfistulation')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">瘤胃瘻管造口</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">長期廔管</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('abomasopexy')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">皺胃固定術式</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">四種術式比較</p></div>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">本頁涵蓋範圍說明</div>
+        <p>原始講義第一頁列出的大綱包含盲腸擴張扭轉、腸套疊、臍疝氣與膿瘍、迷走神經性消化不良、腹腔穿刺、肝臟切片、肛門直腸閉鎖、直腸脫出等主題，但<strong>實際投影片內容僅涵蓋脅腹剖腹術總論、瘤胃切開術、瘤胃瘻管造口術、以及皺胃移位的四種手術矯正術式</strong>，大綱中其餘主題本份講義未實際涵蓋。本頁僅整理講義實際涵蓋的內容，未涵蓋主題待後續取得對應講義後再補充，不在此處臆測填補。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">六個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>左脅腹 vs. 右脅腹的適應症分類是全章的第一條分類線：</strong>左脅腹用於瘤胃切開術與瘤胃瘻管造口術；右脅腹用於大網膜固定術、幽門大網膜固定術、小腸／盲腸／結腸矯正、剖腹產與探查手術——先分清楚「左邊做什麼、右邊做什麼」，後面每個術式才不會記混。</li>
+          <li><strong>瘤胃切開的縫合是「雙層縫合」的經典範例：</strong>第一層用單純連續縫合（simple continuous），第二層用內翻縫合（inverting pattern）加強密封——這組雙層縫合邏輯與內科學、其他空腔臟器縫合原則相通，是操作技術題的常考重點。</li>
+          <li><strong>接觸瘤胃內容物的器械須視為污染器械、與無菌器械分開存放</strong>，是瘤胃切開術中最容易被忽略但最重要的無菌操作細節。</li>
+          <li><strong>皺胃移位的病生理機轉是「兩階段」邏輯：</strong>懷孕後期子宮擴張頂起瘤胃與皺胃，使皺胃被推向前、偏左；產後瘤胃下降，若皺胃本身張力不足（atony），就會被下降的瘤胃壓向左上方，卡在左側腹壁與瘤胃之間形成 LDA。分娩本身是最重要的誘因，皺胃張力不足則是必要的前提條件。</li>
+          <li><strong>高音調 ping sound 是 DA 的診斷關鍵：</strong>同時聽診＋叩診，在皺胃充氣部位上方會聽到清脆高音調的 ping 音；LDA 的 ping 音範圍可以從腹部下三分之一（第 8 肋間）一路延伸到腰旁窩，範圍相對寬廣是重要鑑別線索。</li>
+          <li><strong>四種皺胃固定術的臨床選擇邏輯：</strong>右脅腹大網膜固定術是<strong>幾乎所有病例的首選</strong>（站立保定、成本低、復發率低，但無法直視皺胃）；套鎖針固定術追求<strong>經濟與速度</strong>（可用氣味或胃液 pH 確認位置，但盲目操作風險最高）；腹腔鏡固定術<strong>併發症最少、恢復最快</strong>但無法用於沾黏病例；腹旁中線固定術<strong>專門處理皺胃潰瘍沾黏腹壁</strong>的特殊病例，但仰臥保定風險（疝氣、乳房循環受損）最高。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FLANK LAPAROTOMY -->
+    <div class="section" id="section-flanklaparotomy">
+      <div class="section-head"><div class="section-num">2</div><h2>脅腹剖腹術總論 Flank Laparotomy</h2></div>
+      <p class="section-desc">脅腹剖腹術是牛隻腹腔手術最基本的進腹路徑，左右脅腹對應不同適應症，但備皮、麻醉、進刀層次與縫合原則共用同一套標準流程——是後面瘤胃切開、瘤胃瘻管造口、皺胃固定等術式共同的技術骨架。</p>
+
+      <h3>左右脅腹剖腹術的適應症</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">左脅腹 Left-flank Laparotomy</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>瘤胃切開術 Rumenotomy</li>
+            <li>瘤胃瘻管造口術 Rumen fistulation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">右脅腹 Right-flank Laparotomy</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>大網膜固定術 Omentopexy</li>
+            <li>幽門大網膜固定術 Pyloro-omentopexy</li>
+            <li>小腸、盲腸與結腸的手術矯正</li>
+            <li>剖腹產 Cesarean section</li>
+            <li>探查手術 Exploratory</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>術前準備與麻醉</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">牛隻以<strong>站立姿勢保定於牛欄（stanchion）</strong>，尾巴綁向手術對側的後肢，避免尾巴掃入術野。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">全身給藥：<span class="drug-name">Ceftiofur</span>（<span class="dose">1.1–2.2 mg/kg</span>，IM）、<span class="drug-name">Flunixin</span>（<span class="dose">1.1–2.2 mg/kg</span>，IM）；視需要給予 IV 輸液（葡萄糖、鈣劑、生理食鹽水、methionine）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">剃毛範圍：<strong>手術部位周圍 15–20 cm</strong>，介於第 12 肋間與腸骨翼之間、椎骨橫突下方與脅腹底部之間。先以 <strong>10 號刀片</strong>剃除粗毛，再以 <strong>40 號刀片</strong>剃除細毛。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>直線浸潤麻醉：</strong>使用 <span class="dose">100 mL 2% lidocaine</span>，涵蓋一層皮下組織與兩層肌肉。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">以 <strong>povidone-iodine（1% 有效碘）</strong>溶液消毒術野。</div>
+      </div>
+
+      <div class="figure">
+        <img src="img/week03_腹腔手術/flank_prep.png" alt="脅腹術野備皮碘液消毒照片">
+        <div class="figure-caption">脅腹手術部位以 povidone-iodine 溶液消毒的實際術野照片。</div>
+      </div>
+
+      <h3>進刀技術（垂直切口）<span class="tag tag-exam">重要</span></h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">做<strong>垂直切口</strong>：距腰椎橫突腹側<strong>至少 3–5 cm</strong>、距最後一根肋骨尾側<strong>至少 5 cm</strong>，<strong>一刀完整貫穿、一氣呵成</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">分離皮膚與皮下組織，顯露<strong>腹外斜肌（external oblique）</strong>肌纖維。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">垂直切開腹外斜肌，顯露<strong>腹內斜肌（internal oblique）</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">依<strong>腹內斜肌的肌纖維方向鈍性分離</strong>（不用刀切開）；<strong>腹橫肌（transverse abdominis）與腹膜一併垂直切開</strong>。</div>
+      </div>
+
+      <div class="figure">
+        <img src="img/week03_腹腔手術/flank_incision.png" alt="脅腹垂直切口實際照片與切口位置標準">
+        <div class="figure-caption">垂直切口實際照片，切口位置需距腰椎橫突腹側至少 3–5 cm、距最後一根肋骨尾側至少 5 cm。</div>
+      </div>
+
+      <h3>縫合關閉</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層次</th><th>縫合方式</th><th>縫線材質</th></tr></thead>
+          <tbody>
+            <tr><td><strong>腹膜＋腹橫肌</strong>（一起縫合）</td><td>單純連續縫合 Simple continuous</td><td>合成可吸收縫線</td></tr>
+            <tr><td><strong>腹內斜肌與腹外斜肌</strong>（分開縫合）</td><td>單純連續縫合 Simple continuous</td><td>合成可吸收縫線</td></tr>
+            <tr><td><strong>皮膚</strong></td><td>水平褥式間斷縫合 Interrupted horizontal mattress</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 縫合材質與各種縫合花紋（simple continuous、inverting pattern、horizontal mattress 等）的詳細比較，見 <a href="week01_縫合材料與結紮技術.html">縫合材料與結紮技術</a> 專頁。</p>
+
+      <h3>術後照護</h3>
+      <ul>
+        <li>傷口塗抹<strong>碘軟膏，一天兩次，連續 3 天</strong>。</li>
+        <li>視手術情況給予<strong>抗生素</strong>。</li>
+        <li><strong>術後 2–3 週</strong>可拆線。</li>
+      </ul>
+    </div>
+
+    <!-- RUMENOTOMY -->
+    <div class="section" id="section-rumenotomy">
+      <div class="section-head"><div class="section-num">3</div><h2>瘤胃切開術 Rumenotomy</h2></div>
+      <p class="section-desc">走左脅腹剖腹路徑，目的是切開瘤胃取出異物，核心技術重點是「雙層縫合」與「污染器械隔離」。</p>
+
+      <h3>手術目的</h3>
+      <p>移除下列部位的異物：</p>
+      <div class="grid-3">
+        <div class="card" style="text-align:center;"><p>瘤胃或網胃異物</p></div>
+        <div class="card" style="text-align:center;"><p>網胃與皺胃間的阻塞物</p></div>
+        <div class="card" style="text-align:center;"><p>遠端食道異物</p></div>
+      </div>
+
+      <h3>手術步驟</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">術野準備與麻醉（同左脅腹剖腹術總論）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">依左脅腹剖腹術程序打開腹腔。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">以 <strong>Cushing 縫合花紋</strong>將瘤胃固定錨定於切口處——目的是<strong>避免打開瘤胃時污染肌肉層與腹膜</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">以手術刀切開瘤胃，<strong>背側與腹側須留足夠空間供後續縫合</strong>。<span class="tag tag-exam">重要</span> <strong>任何接觸瘤胃黏膜或瘤胃液的器械都須視為污染器械，與無菌器械分開存放</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">術者戴上<strong>長手套</strong>，清空並探查瘤胃內容物。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-text">探查瘤胃與網胃內部，若有異物則予以移除。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-text">瘤胃切口以<strong>雙層縫合</strong>關閉：第一層以 1 號或 2 號合成可吸收縫線做<strong>單純連續縫合</strong>；第二層以類似材質做<strong>內翻縫合（inverting pattern）</strong>加強密封。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-text">移除瘤胃固定縫線前，先以無菌生理食鹽水沖洗術部。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">9</div>
+        <div class="step-text">關閉剖腹切口（同脅腹剖腹術總論的縫合方式）。</div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>瘤胃切開術的整套流程，本質上是「先錨定防污染 → 切開探查取異物 → 雙層縫合密封 → 沖洗確認乾淨後才移除固定縫線」的邏輯鏈，每一步都是為了降低瘤胃內容物污染腹腔的風險。</p>
+      </div>
+    </div>
+
+    <!-- RUMEN FISTULATION -->
+    <div class="section" id="section-rumenfistulation">
+      <div class="section-head"><div class="section-num">4</div><h2>瘤胃瘻管造口術 Rumen Fistulation</h2></div>
+      <p class="section-desc">同樣走左脅腹路徑，但目的不是取異物，而是建立一條<strong>永久性的瘤胃通道（廔管）</strong>，供研究或治療長期使用。</p>
+
+      <h3>手術目的</h3>
+      <div class="grid-3">
+        <div class="card" style="text-align:center;"><p>營養試驗<br>Nutritional trials</p></div>
+        <div class="card" style="text-align:center;"><p>治療慢性脹氣<br>Chronic bloat</p></div>
+        <div class="card" style="text-align:center;"><p>瘤胃液移植給病牛<br>Rumen fluid transplantation</p></div>
+      </div>
+
+      <h3>手術步驟</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">術野準備與麻醉，視需要給予鎮靜劑。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">依左脅腹剖腹術程序打開腹腔。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>錨定瘤胃：</strong>將瘤胃漿膜以 3 號非吸收性縫線，於<strong>3、6、9、12 點鐘方向</strong>縫合固定於皮膚。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">以手術刀切開瘤胃，<strong>注意止血並防止瘤胃內容物流入腹腔</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">以 3 號非吸收性縫線，用<strong>單純連續縫合</strong>將瘤胃直接縫至皮膚上（先前的固定縫線可視情況移除）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-text">傷口塗抹碘液。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-text">裝上<strong>瘤胃瘻管與蓋子</strong>。</div>
+      </div>
+
+      <h3>術後照護與長期維護</h3>
+      <ul>
+        <li>傷口塗抹<strong>碘液或抗生素軟膏，一天兩次，連續 4–5 天</strong>。</li>
+        <li>給予<strong>預防性抗生素</strong>（例如 Shotapen®）。</li>
+        <li><strong>術後約 14 天</strong>：暫時移除瘻管並拆線，重新安裝瘻管與蓋子，傷口繼續塗抹碘液或抗生素軟膏、一天兩次、再連續 4–5 天。</li>
+      </ul>
+
+      <h3>瘤胃瘻管拆線與更換流程</h3>
+      <p>長期使用的瘤胃瘻管需要定期維護，基本流程為：移除壞死組織 → 以 1% 碘液仔細擦拭傷口 → 重新裝上瘤胃瘻管，確保廔口清潔、避免感染。</p>
+    </div>
+
+    <!-- ABOMASAL DISPLACEMENT -->
+    <div class="section" id="section-abomasaldisplacement">
+      <div class="section-head"><div class="section-num">5</div><h2>皺胃移位：病因與診斷 Displacement of the Abomasum (DA)</h2></div>
+      <p class="section-desc">皺胃移位（Left/Right Displacement of Abomasum, LDA/RDA）是泌乳牛常見的消化道急症，理解正常解剖位置與產後病生理機轉，是診斷與選擇手術術式的基礎。</p>
+
+      <h3>皺胃正常解剖位置</h3>
+      <div class="figure">
+        <img src="img/week03_腹腔手術/abomasum_anatomy.png" alt="牛皺胃正常解剖位置標示圖：劍突與皺胃相對位置">
+        <div class="figure-caption">皺胃底部（fundus）位於胸骨劍突（xiphoid process）上方；胃體大部分略偏中線右側；幽門部位於右側第 9 或第 10 肋骨處並向上延伸。</div>
+        <div class="figure-source">來源：課程講義〈Abdominal Surgery〉</div>
+      </div>
+
+      <h3>病因：LDA 的兩階段機轉<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">懷孕後期子宮擴張</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">頂起瘤胃與皺胃，皺胃被推向前、略偏左，位於瘤胃下方</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">分娩後瘤胃下降</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">若皺胃張力不足（atony），被下降的瘤胃壓向左上方 → LDA</div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">分娩 Parturition</div>
+          <p><strong>最主要的誘發因子</strong>——子宮擴張與產後瘤胃下降的過程，直接推動皺胃移位的物理機轉。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">皺胃張力不足 Atony</div>
+          <p><strong>必要的前提條件</strong>——若皺胃收縮力正常，即使受到瘤胃下降的推擠，也較不易被卡在左側腹壁與瘤胃之間。</p>
+        </div>
+      </div>
+      <p style="font-size:.9em;">若皺胃移位方向改為右側，則稱為<strong>右側皺胃移位（Right-sided Displacement of Abomasum, RDA）</strong>。</p>
+
+      <h3>臨床症狀</h3>
+      <ul>
+        <li>精神沉鬱（Depressed）</li>
+        <li>食慾下降（完全厭食、精料攝取減少，或正常食慾與厭食交替出現）</li>
+        <li>糞便通常正常至偏軟（糊狀或泥狀），但<strong>糞量減少</strong></li>
+        <li>泌乳量<strong>快速下降</strong></li>
+        <li>因長期消化問題，體態<strong>逐漸消瘦</strong></li>
+      </ul>
+
+      <h3>診斷：Ping Sound<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-info">
+        <div class="alert-label">聽診＋叩診同步進行</div>
+        <p>同時進行聽診與叩診，在<strong>皺胃充氣部位上方</strong>會聽到<strong>清脆高音調的 ping 音</strong>。LDA 的 ping 音出現範圍可以很廣——從<strong>腹部下三分之一、第 8 肋間</strong>一路延伸到<strong>腰旁窩（paralumbar fossa）</strong>都可能聽到。</p>
+      </div>
+    </div>
+
+    <!-- ABOMASOPEXY -->
+    <div class="section" id="section-abomasopexy">
+      <div class="section-head"><div class="section-num">6</div><h2>皺胃固定術式比較 Surgical Treatment of DA</h2></div>
+      <p class="section-desc">四種手術矯正術式各有不同的保定方式、操作邏輯與適用情境，臨床選擇的核心是在「精確度」「成本與速度」「病患風險」三者間取捨。</p>
+
+      <h3>四種手術選項總覽</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>術式</th><th>保定姿勢</th><th>核心特點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>右脅腹大網膜固定術</strong><br>Right-flank omentopexy</td><td>站立</td><td><strong>幾乎所有病例的首選</strong>；成本低、復發率低，但無法直視皺胃</td></tr>
+            <tr><td><strong>套鎖針固定術</strong><br>Toggle-pin abomasopexy</td><td>仰臥</td><td>經濟、快速；盲目操作，可能刺穿錯誤器官</td></tr>
+            <tr><td><strong>腹腔鏡固定術</strong><br>Laparoscopic abomasopexy</td><td>依術式而定</td><td>侵入性最低、併發症最少、恢復最快；無法用於沾黏病例</td></tr>
+            <tr><td><strong>腹旁中線固定術</strong><br>Ventral paramedian abomasopexy</td><td>仰臥</td><td>專門處理皺胃潰瘍沾黏腹壁的病例；仰臥相關風險最高</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>右脅腹大網膜固定術 Right-flank Omentopexy<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-success">
+        <div class="alert-label">為何是首選</div>
+        <p>牛隻手術中<strong>可維持站立姿勢</strong>，且<strong>不需要直接縫合到皺胃本身</strong>（縫合的是大網膜），需要的人力較少、復發率低，是<strong>幾乎所有 DA 病例的第一線術式</strong>。缺點是<strong>無法直接視覺確認皺胃位置</strong>，有腹膜炎風險，手術部位可能水腫或感染，且<strong>無法預防 RDA 復發</strong>。</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">右脅腹術野準備並施行直線浸潤麻醉。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">於右側脅腹做<strong>約 15 cm 長的垂直切口</strong>：距最後一根肋骨後方 <strong>10 cm</strong>、距腰椎橫突下方約 <strong>20 cm</strong>。</div>
+      </div>
+      <div class="figure">
+        <img src="img/week03_腹腔手術/rightflank_incision_site.png" alt="右脅腹大網膜固定術切口位置實際照片，粉紅色標線標示切口">
+        <div class="figure-caption">右脅腹垂直切口位置實際照片（粉紅色標線標示切口線）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">垂直切開腹外斜肌；依肌纖維方向鈍性分離腹內斜肌；腹橫肌與腹膜一併切開。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">左手伸入腹腔，經瘤胃頂部，探及瘤胃左側與體壁，<strong>觸診確認皺胃的脹氣程度與相對位置</strong>。</div>
+      </div>
+      <div class="figure">
+        <img src="img/week03_腹腔手術/abomasum_palpation.png" alt="伸手經瘤胃頂部觸診皺胃位置的實際照片，右側為皺胃脹氣示意3D模型">
+        <div class="figure-caption">左：術者手臂伸入腹腔觸診皺胃脹氣程度的實際操作照片；右：脹氣皺胃相對於瘤胃位置的示意模型（左側視角）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">使用附有無菌軟管的針頭為皺胃<strong>放氣減壓</strong>：針頭刺入皺胃最背側部位，以手施壓或接上抽吸裝置，<strong>盡量排出皺胃內積氣</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-text">拔出針頭並小心收回，<strong>軟管須摺疊以避免污染</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-text">將手移至瘤胃與體壁之間，<strong>沿腹膜表面垂直探入</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-text">手指併攏，<strong>將皺胃掃回正常位置</strong>：輕柔地朝背側／頭側牽拉大網膜有助於復位；以術者手肘<strong>抬高瘤胃</strong>，讓皺胃能沿著瘤胃下方被拉回原位。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">9</div>
+        <div class="step-text">抓住大網膜並經切口拉出，找到<strong>靠近十二指腸的增厚大網膜皺褶</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">10</div>
+        <div class="step-text">以 3 號非吸收性縫線，將大網膜皺褶與腹橫肌、腹膜以<strong>單純間斷縫合</strong>方式縫合固定在一起。</div>
+      </div>
+      <div class="figure">
+        <img src="img/week03_腹腔手術/omentum_suture.png" alt="大網膜與腹橫肌腹膜縫合固定的實際手術照片">
+        <div class="figure-caption">大網膜皺褶與腹橫肌、腹膜縫合固定的實際手術照片。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">11</div>
+        <div class="step-text">關閉剖腹切口。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">12</div>
+        <div class="step-text">依前述標準流程進行術後照護。</div>
+      </div>
+
+      <h3>套鎖針固定術 Toggle-pin Abomasopexy</h3>
+      <p>適用於<strong>經濟考量與需要快速見效</strong>的病例。牛隻保定<strong>仰臥</strong>，透過聽診與叩診確定脹氣皺胃的位置。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">優點</div>
+        <p>可透過套管<strong>嗅聞特殊氣味或測量胃液 pH 值</strong>來確認針尖確實位於皺胃內；單純型 LDA 使用此術式，<strong>48–72 小時內</strong>食慾與泌乳量即可改善。若術後食慾未見明顯改善，<strong>建議 2 天內移除縫線</strong>並改採其他手術方式。</p>
+      </div>
+      <div class="figure">
+        <img src="img/week03_腹腔手術/toggle_pin_illustration.png" alt="套鎖針固定術完整操作示意圖：牛隻仰臥保定、聽診定位、套管刺入皺胃腔的解剖截面圖">
+        <div class="figure-caption">套鎖針固定術完整操作示意：牛隻經保定呈仰臥姿勢 → 以聽診法在劍突尾側約 4–7 吋、正中線右側約 2–3 吋處定位皺胃 → 套管經腹壁刺入皺胃腔、排出積氣後才開始固定操作（右側截面圖顯示套管進入皺胃腔的解剖相對位置）。</div>
+        <div class="figure-source">來源：sawchynmi.com（L. D. Sawchyn, DVM, CSE）</div>
+      </div>
+      <h4 style="margin:14px 0 6px;font-size:1em;">缺點</h4>
+      <ul>
+        <li>可能<strong>錯過皺胃、誤刺入幽門或胃體</strong></li>
+        <li>皺胃可能被<strong>固定在錯誤位置</strong></li>
+        <li>皺胃液<strong>流入腹腔</strong></li>
+        <li><strong>刺穿錯誤的器官</strong></li>
+        <li>損傷乳房靜脈，造成<strong>靜脈炎</strong></li>
+        <li>外源或內源性污染物導致<strong>腹膜炎</strong></li>
+      </ul>
+
+      <h3>腹腔鏡固定術 Laparoscopic Abomasopexy</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">優點</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>侵入性較低</li>
+            <li>成功率高</li>
+            <li>併發症少</li>
+            <li>手術時間較短</li>
+            <li>術後恢復快</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">缺點</div>
+          <p>無法用於<strong>皺胃已發生沾黏</strong>的病例。</p>
+        </div>
+      </div>
+
+      <h3>腹旁中線固定術 Ventral Paramedian Abomasopexy</h3>
+      <p>需要<strong>助手協助保定</strong>牛隻；主要適用於<strong>皺胃潰瘍已沾黏腹壁</strong>的病例。</p>
+      <div class="figure">
+        <img src="img/week03_腹腔手術/ventral_paramedian.png" alt="腹旁中線固定術腹部標記照片，黑線標示劍突、乳靜脈與正中線，紅線標示切口">
+        <div class="figure-caption">術野標記照片：黑線標示劍突、乳靜脈與正中線的相對位置，紅線為切口位置參考。</div>
+        <div class="figure-source">來源：ResearchGate, Surgery of the Abomasum</div>
+      </div>
+      <h4 style="margin:14px 0 6px;font-size:1em;">缺點</h4>
+      <ul>
+        <li>牛隻須<strong>仰臥</strong>保定</li>
+        <li>切口部位有<strong>疝氣或廔管形成</strong>風險</li>
+        <li>切口部位<strong>污染</strong>風險</li>
+        <li>懷孕後期<strong>下脅腹水腫</strong>可能影響手術進行</li>
+        <li>損傷腹壁血管可能<strong>影響乳房循環</strong></li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌症</div>
+        <p>急性或慢性支氣管肺炎、明確的肌肉骨骼損傷、<strong>懷孕後期</strong>母牛。</p>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">7</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>左脅腹＝瘤胃相關術式（瘤胃切開、瘤胃瘻管）；右脅腹＝大網膜固定、小腸／盲腸／結腸矯正、剖腹產、探查</strong>——這條分類線決定手術入路，是全章的第一個判斷點。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">脅腹剖腹術的進刀順序固定：皮膚／皮下 → 腹外斜肌（銳性切開）→ 腹內斜肌（鈍性分離）→ 腹橫肌＋腹膜（一併切開）；縫合則反向進行，腹膜＋腹橫肌一起縫、內外斜肌分開縫、皮膚用水平褥式間斷縫合。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>瘤胃切開術用「雙層縫合」關閉</strong>（第一層單純連續、第二層內翻縫合），且<strong>接觸瘤胃內容物的器械須與無菌器械分開存放</strong>——這是操作技術題與無菌原則題常見的交叉考點。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">瘤胃切開術與瘤胃瘻管造口術的差異在於<strong>「切完要不要永久造廔」</strong>：前者取異物後雙層縫合密封瘤胃；後者用非吸收性縫線把瘤胃直接固定並縫到皮膚，形成長期通道。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>LDA 病生理是兩階段機轉：</strong>懷孕後期子宮擴張頂起皺胃（誘發因子：分娩）→ 產後瘤胃下降時若皺胃張力不足（必要條件：atony）→ 皺胃被壓向左上方卡住。分娩與皺胃張力不足兩者缺一不可。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Ping sound（聽診＋叩診同步）</strong>是 DA 診斷的核心理學檢查發現，LDA 的 ping 音範圍可以從第 8 肋間下腹部一路延伸到腰旁窩，範圍較廣是重要鑑別線索。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>四種皺胃固定術式的取捨：</strong>右脅腹大網膜固定術（站立、首選、無法直視）＞套鎖針固定術（仰臥、經濟快速、盲目操作風險最高）；腹腔鏡固定術（併發症最少但不能用於沾黏病例）；腹旁中線固定術（仰臥、專治皺胃潰瘍沾黏腹壁、風險最高）——依「精確度」「成本速度」「病患風險」三軸記憶。</div></div>
+
+      <footer class="note-footer">
+        資料來源：《大動物外科學》課程講義〈Abdominal Surgery〉。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">8</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋本週各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念回對應章節重讀一次。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列何者屬於左脅腹剖腹術（Left-flank Laparotomy）的適應症？</div>
+        <ul class="quiz-options">
+          <li>(A) 剖腹產</li>
+          <li>(B) 瘤胃瘻管造口術</li>
+          <li>(C) 大網膜固定術</li>
+          <li>(D) 盲腸矯正手術</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">左脅腹剖腹術主要用於瘤胃切開術與瘤胃瘻管造口術；剖腹產、大網膜固定術與盲腸矯正手術皆屬於右脅腹剖腹術的適應症。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 瘤胃切開術中，接觸過瘤胃黏膜或瘤胃液的器械可以稍微沖洗後繼續與其他無菌器械混放使用。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">接觸瘤胃黏膜或瘤胃液的器械必須視為污染器械，應與其他無菌器械分開存放，不可混放使用，這是避免腹腔污染的重要無菌操作原則。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 瘤胃切開術關閉瘤胃切口時，標準做法是？</div>
+        <ul class="quiz-options">
+          <li>(A) 單層單純間斷縫合即可</li>
+          <li>(B) 雙層縫合：第一層單純連續縫合，第二層內翻縫合</li>
+          <li>(C) 僅需用組織膠黏合，不需縫線</li>
+          <li>(D) 雙層縫合：兩層皆用水平褥式間斷縫合</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">瘤胃切口關閉採雙層縫合：第一層以 1 號或 2 號合成可吸收縫線做單純連續縫合，第二層以類似材質做內翻縫合（inverting pattern）加強密封，降低瘤胃內容物滲漏風險。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 一頭剛分娩完的乳牛出現食慾下降、泌乳量快速下降、糞量減少但糞便偏軟，理學檢查在左側第 8 肋間至腰旁窩範圍聽到高音調 ping 音。下列敘述何者最能解釋其病生理機轉？</div>
+        <ul class="quiz-options">
+          <li>(A) 分娩後子宮收縮直接壓迫皺胃導致移位</li>
+          <li>(B) 懷孕後期子宮擴張頂起皺胃偏左，產後瘤胃下降時若皺胃張力不足，會被壓向左上方形成 LDA</li>
+          <li>(C) 皺胃移位與分娩過程完全無關，純粹是皺胃先天位置異常</li>
+          <li>(D) 高音調 ping 音只會出現在右側腹壁，此病例應診斷為 RDA</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">LDA 的病生理是兩階段機轉：懷孕後期子宮擴張頂起瘤胃與皺胃，使皺胃被推向前、略偏左；分娩後瘤胃下降，若皺胃張力不足（atony），就會被下降的瘤胃壓向左上方，卡在左側腹壁與瘤胃之間形成 LDA。分娩是最主要誘因，皺胃張力不足是必要前提，兩者缺一不可。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 為什麼右脅腹大網膜固定術是絕大多數 DA 病例的首選手術？</div>
+        <ul class="quiz-options">
+          <li>(A) 因為可以直接看到皺胃並精準縫合</li>
+          <li>(B) 因為牛隻可維持站立姿勢、不需直接縫合皺胃本身、人力需求少且復發率低</li>
+          <li>(C) 因為它是唯一能治療 RDA 復發的術式</li>
+          <li>(D) 因為它完全不需要麻醉</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">右脅腹大網膜固定術的優勢在於牛隻可維持站立姿勢、不需直接縫合到皺胃本身（縫的是大網膜）、需要的人力較少、復發率低；缺點是無法直接視覺確認皺胃位置，且無法預防 RDA 復發。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 套鎖針固定術（Toggle-pin Abomasopexy）有哪些常見的操作風險／缺點？請至少列舉三項，並說明為什麼這個術式風險相對較高。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">套鎖針固定術的常見缺點包括：①可能錯過皺胃，誤刺入幽門或胃體；②皺胃可能被固定在錯誤位置；③皺胃液流入腹腔；④刺穿錯誤的器官；⑤損傷乳房靜脈造成靜脈炎；⑥外源或內源性污染物導致腹膜炎。此術式風險相對較高的原因是操作過程<strong>屬於盲目定位</strong>——僅靠聽診與叩診確定皺胃大概位置，再以套管盲目刺入，不像右脅腹大網膜固定術或腹腔鏡固定術能透過觸診或直視確認皺胃位置，因此容易發生定位錯誤相關的併發症。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】一頭乳牛因皺胃潰瘍長期未癒合，經檢查發現皺胃已與腹壁發生沾黏。獸醫師評估後決定進行手術矯正。請問：(1) 這種情況下不適合選擇哪一種皺胃固定術式？為什麼？(2) 應該優先考慮哪一種術式？(3) 若選擇該術式，牛隻需要以何種姿勢保定，可能有哪些手術風險？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 不適合的術式：</strong>腹腔鏡固定術（Laparoscopic abomasopexy）不適合此病例，因為腹腔鏡固定術的限制正是<strong>無法用於皺胃已發生沾黏的病例</strong>，沾黏會妨礙腹腔鏡器械的操作與視野。<br><strong>(2) 優先考慮的術式：</strong>應優先考慮<strong>腹旁中線固定術（Ventral paramedian abomasopexy）</strong>，因為講義明確指出此術式<strong>專門適用於皺胃潰瘍已沾黏腹壁的病例</strong>。<br><strong>(3) 保定姿勢與風險：</strong>腹旁中線固定術需要牛隻<strong>仰臥</strong>保定，並需要助手協助固定。可能的手術風險包括：仰臥保定本身的風險、切口部位發生疝氣或廔管形成、切口部位污染、若牛隻懷孕後期可能因下脅腹水腫影響手術進行、以及損傷腹壁血管可能影響乳房循環。此外若牛隻有急慢性支氣管肺炎、明確的肌肉骨骼損傷、或處於懷孕後期，則屬於禁忌症，應考慮其他替代方案。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本週筆記各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  flanklaparotomy: '脅腹剖腹術總論',
+  rumenotomy: '瘤胃切開術',
+  rumenfistulation: '瘤胃瘻管造口術',
+  abomasaldisplacement: '皺胃移位：病因與診斷',
+  abomasopexy: '皺胃固定術式比較',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

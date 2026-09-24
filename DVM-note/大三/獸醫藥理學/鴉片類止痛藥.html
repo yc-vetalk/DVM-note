@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：鴉片類止痛藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">鴉片類止痛藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">鴉片類止痛藥 Opioid Agonists &amp; Antagonists</h1>
+      <p class="page-subtitle">疼痛傳導路徑、μ/κ/δ受體機轉、物種CNS反應差異、Neuroleptanalgesia組合、Fentanyl家族與逆轉劑選用整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.13 Opioid Analgesic Drugs</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-18</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎機轉</div>
+    <a onclick="showSection('painphysiology')" id="nav-painphysiology"><span class="nav-icon">🧠</span> 疼痛生理與Gate Control理論</a>
+    <a onclick="showSection('opioidreceptors')" id="nav-opioidreceptors"><span class="nav-icon">🧬</span> 鴉片受體與細胞機轉</a>
+    <a onclick="showSection('classification')" id="nav-classification"><span class="nav-icon">📊</span> 藥物分類與效力比較</a>
+    <div class="section-label" style="margin-top:8px;">藥理與臨床</div>
+    <a onclick="showSection('pharmacology')" id="nav-pharmacology"><span class="nav-icon">💊</span> 藥理作用與物種差異</a>
+    <a onclick="showSection('clinicaluse')" id="nav-clinicaluse"><span class="nav-icon">🎯</span> 臨床用途與Neuroleptanalgesia</a>
+    <div class="section-label" style="margin-top:8px;">個別藥物</div>
+    <a onclick="showSection('fullagonists')" id="nav-fullagonists"><span class="nav-icon">💉</span> 完全與部分Agonist個論</a>
+    <a onclick="showSection('fentanylfamily')" id="nav-fentanylfamily"><span class="nav-icon">⚠️</span> Fentanyl家族與野生動物用藥</a>
+    <a onclick="showSection('mixedantagonists')" id="nav-mixedantagonists"><span class="nav-icon">🔄</span> 混合型與拮抗劑</a>
+    <div class="section-label" style="margin-top:8px;">藥動學與安全</div>
+    <a onclick="showSection('pktoxtolerance')" id="nav-pktoxtolerance"><span class="nav-icon">⏱️</span> 藥動學、毒性與耐受性</a>
+    <a onclick="showSection('otheranalgesics')" id="nav-otheranalgesics"><span class="nav-icon">➕</span> 其他鎮痛輔助藥物</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章的核心邏輯很單純：身體感覺到痛，是因為痛覺訊號經由神經傳到大腦；鴉片類藥物的作用方式，是模仿身體自己原本就會製造的<strong>「內生性鴉片胜肽」</strong>，去結合神經細胞上的<strong>鴉片受體（主要是μ、κ、δ三種）</strong>，抑制神經傳導物釋放，讓痛覺訊號傳不過去——「鴉片（opiate）」這個名字來自這類藥物最早都是從罌粟（Opium）提煉出來的。搞懂受體機轉之後，這章剩下的內容主要是在「認識藥物家族」：依藥物對受體的作用型態（完全促效劑、部分促效劑、混合型、拮抗劑）與效力強弱分類，一路從常規的Morphine家族講到效力驚人的Fentanyl衍生物，最後認識專門用來逆轉效果的拮抗劑。</p>
+        <div class="grid-3" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('opioidreceptors')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體與機轉</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">μ／κ／δ受體</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('classification')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">分類與效力</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">四大作用型態</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('fullagonists')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">常規Agonist</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Morphine家族個論</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('fentanylfamily')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Fentanyl家族</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">效力最強一支</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('mixedantagonists')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">混合型與拮抗劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">逆轉劑選用</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('otheranalgesics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">06</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">其他輔助鎮痛藥</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">非典型選項</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>μ受體主管脊髓上鎮痛與愉悅感（euphoria），κ受體主管脊髓鎮痛且產生煩躁感（dysphoria）</strong>；opioid受體是G-protein coupled receptor，透過Gi抑制腺苷酸環化酶、開啟K⁺通道（突觸後過極化）、關閉Ca²⁺通道（突觸前抑制神經傳導物釋放）達到鎮痛效果。</li>
+          <li><strong>Opioids在人/犬/兔/猴引起CNS抑制，但在貓/馬/豬/羊/牛卻可能引起CNS興奮</strong>——這是選擇鎮痛藥物時最重要的物種差異，純Agonist（如Morphine、Fentanyl）不建議單獨用於馬，高劑量易致興奮。</li>
+          <li><strong>Neuroleptanalgesia（神經安定鎮痛）是Opioid＋Tranquilizer的組合技術</strong>，用於輕度手術麻醉、化學保定、氣管內管置入前鎮靜，常見組合包含Fentanyl+Droperidol（Innovar-Vet®）、Oxymorphone/Morphine+Acepromazine、Butorphanol+Xylazine等。</li>
+          <li><strong>Fentanyl效力是Morphine的100倍，高脂溶性適合經皮吸收（貼片可維持72小時鎮痛）</strong>；其衍生物效力遞增：Sufentanil（5–10倍Fentanyl）＜Carfentanil（100倍Fentanyl，僅限大型野生動物）＜Etorphine（4000–10000倍Morphine，僅限特定大型野生動物，需備妥拮抗劑Diprenorphine才可使用）。</li>
+          <li><strong>Buprenorphine是μ受體的部分Agonist，具有「天花板效應（ceiling effect）」</strong>：鎮痛與呼吸抑制效果達到上限後不再隨劑量增加，治療指數極高（LD50/ED50達12,313，遠高於Morphine的464），但因與受體結合強且解離慢，Naloxone逆轉需要較高劑量。</li>
+          <li><strong>Naloxone是純競爭性拮抗劑，可完全逆轉Opioid的呼吸抑制與鎮痛效果</strong>；但逆轉的同時會失去鎮痛（動物可能出現興奮、心搏過速等不良反應）；Butorphanol或Nalbuphine等混合型藥物可以「部分逆轉」呼吸抑制同時保留部分鎮痛效果，臨床上有時是更平衡的選擇。</li>
+          <li><strong>新生動物血腦屏障不成熟，對Opioid特別敏感</strong>；幼豬對Morphine的興奮性作用格外敏感；動物較少出現成癮問題（不同於人類），但長效Opioid（如Methadone）在人醫用於治療鴉片成癮的戒斷治療。</li>
+          <li><strong>不同物種對同一藥物的敏感度差異極大：</strong>Morphine在貓的有效劑量（0.1 mg/kg）遠低於犬（1 mg/kg），貓使用過高劑量易致興奮（中樞多巴胺受體介導，可用Droperidol等多巴胺阻斷劑抑制）；Xylazine對牛（α2D受體）鎮靜效果強於單胃動物（α2A受體）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Codeine</td><td>μ opioid receptor agonist（弱效，需代謝活化為Morphine）</td><td>口服輕度疼痛，鎮咳，效力為Morphine的1/10</td><td class="drug-locations"><a href="#drug-codeine" class="drug-link">口服輕度疼痛，鎮咳，效力為Morphine的1/10</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Oxymorphone</td><td>μ opioid receptor agonist</td><td><strong>IV／IM／SC</strong>；效力10倍Morphine，術前用藥與術後鎮痛</td><td class="drug-locations"><a href="#drug-oxymorphone" class="drug-link">效力10倍Morphine，術前用藥與術後鎮痛</a></td></tr>
+            <tr><td>Hydromorphone</td><td>μ opioid receptor agonist</td><td><strong>IV／IM／SC</strong>；效力7-8倍Morphine，發燒副作用較常見</td><td class="drug-locations"><a href="#drug-hydromorphone" class="drug-link">效力7-8倍Morphine，發燒副作用較常見</a></td></tr>
+            <tr><td>Meperidine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Pethidine</div></td><td>μ opioid receptor agonist；另具抗膽鹼與局麻活性</td><td><strong>IM（口服生體可用率差）</strong>；馬腸絞痛、牛分娩鎮痛，禁與MAOI/SSRI併用</td><td class="drug-locations"><a href="#drug-meperidine" class="drug-link">馬腸絞痛、牛分娩鎮痛，禁與MAOI/SSRI併用</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Tramadol</td><td>μ受體弱agonist＋抑制5-HT/NE回收（代謝物O-desmethyltramadol為主要活性）</td><td>口服鎮痛鎮咳，三重機轉，貓代謝物活性強</td><td class="drug-locations"><a href="#drug-tramadol" class="drug-link">口服鎮痛鎮咳，三重機轉，貓代謝物活性強</a></td></tr>
+            <tr><td>Methadone</td><td>μ opioid receptor agonist＋NMDA拮抗劑＋抑制5-HT/NE回收</td><td><strong>IV／IM／SC</strong>；犬貓馬Morphine替代品，鎮靜嘔吐較少</td><td class="drug-locations"><a href="#drug-methadone" class="drug-link">犬貓馬Morphine替代品，鎮靜嘔吐較少</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Fentanyl</td><td>μ opioid receptor agonist（高效力、高脂溶性）</td><td>效力100倍Morphine，貼片可維持72小時鎮痛</td><td class="drug-locations"><a href="#drug-fentanyl" class="drug-link">效力100倍Morphine，貼片可維持72小時鎮痛</a></td></tr>
+            <tr><td>Alfentanil</td><td>μ opioid receptor agonist（Fentanyl衍生物）</td><td><strong>1/4 劑量 IV ＋ 3/4 劑量 SC</strong>；效力為Fentanyl的1/4，用於貓</td><td class="drug-locations"><a href="#drug-fentanylderivatives" class="drug-link">效力為Fentanyl的1/4，用於貓</a></td></tr>
+            <tr><td>Carfentanil</td><td>μ opioid receptor agonist（超高效力Fentanyl衍生物）</td><td><strong>1/4 劑量 IV ＋ 3/4 劑量 SC</strong>；效力100倍Fentanyl，僅限大型野生動物，禁用於馬，逆轉用Naltrexone</td><td class="drug-locations"><a href="#drug-fentanylderivatives" class="drug-link">效力100倍Fentanyl，僅限大型野生動物，禁用於馬，逆轉用Naltrexone</a></td></tr>
+            <tr><td>Remifentanil</td><td>μ opioid receptor agonist（組織酯酶水解，超短效）</td><td><strong>1/4 劑量 IV ＋ 3/4 劑量 SC</strong>；組織酯酶水解，t½極短，麻醉誘導用</td><td class="drug-locations"><a href="#drug-fentanylderivatives" class="drug-link">組織酯酶水解，t½極短，麻醉誘導用</a></td></tr>
+            <tr><td>Sufentanil</td><td>μ opioid receptor agonist（Fentanyl衍生物，高效力）</td><td><strong>1/4 劑量 IV ＋ 3/4 劑量 SC</strong>；效力5-10倍Fentanyl</td><td class="drug-locations"><a href="#drug-fentanylderivatives" class="drug-link">效力5-10倍Fentanyl</a></td></tr>
+            <tr><td>Etorphine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">M99</div></td><td>μ opioid receptor agonist（極高效力Morphine衍生物）</td><td><strong>IM</strong>；效力4000-10000倍Morphine，需備妥Diprenorphine拮抗劑</td><td class="drug-locations"><a href="#drug-etorphine" class="drug-link">效力4000-10000倍Morphine，需備妥Diprenorphine拮抗劑</a></td></tr>
+            <tr><td>Pentazocine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Sosegon</div></td><td>κ受體agonist／μ受體部分agonist（混合型）</td><td><strong>IM或IV</strong>；κ agonist/μ部分agonist，曾用於人犬馬</td><td class="drug-locations"><a href="#drug-pentazocine" class="drug-link">κ agonist/μ部分agonist，曾用於人犬馬</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Butorphanol</td><td>κ受體agonist／μ受體拮抗劑（混合型）</td><td><strong>IV／IM／SC／PO</strong>；混合型，內臟痛管理，馬匹偏好使用</td><td class="drug-locations"><a href="#drug-butorphanol" class="drug-link">混合型，內臟痛管理，馬匹偏好使用</a></td></tr>
+            <tr><td>Nalbuphine</td><td>κ受體agonist／μ受體拮抗劑（混合型）</td><td>κ agonist/μ antagonist，局部治療角膜潰瘍疼痛</td><td class="drug-locations"><a href="#drug-nalbuphine" class="drug-link">κ agonist/μ antagonist，局部治療角膜潰瘍疼痛</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Buprenorphine</td><td>μ受體部分agonist／κ受體拮抗劑</td><td><strong>IV／IM／SC／經皮</strong>；μ部分agonist，天花板效應，治療指數極高</td><td class="drug-locations"><a href="#drug-buprenorphine" class="drug-link">μ部分agonist，天花板效應，治療指數極高</a></td></tr>
+            <tr><td>Nalorphine</td><td>混合型partial agonist/antagonist（拮抗多數Morphine效果）</td><td><strong>IV／IM／SC</strong>；混合型拮抗劑，效果變異大不建議使用</td><td class="drug-locations"><a href="#drug-nalorphine" class="drug-link">混合型拮抗劑，效果變異大不建議使用</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Naloxone</td><td>純競爭性opioid受體拮抗劑（μ＞κ、δ）</td><td><strong>IV／IM／SC</strong>；純競爭性拮抗劑，逆轉呼吸抑制，對Carfentanil無效</td><td class="drug-locations"><a href="#drug-naloxone" class="drug-link">純競爭性拮抗劑，逆轉呼吸抑制，對Carfentanil無效</a></td></tr>
+            <tr><td>Diprenorphine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">M 50/50</div></td><td>Opioid受體（μ／κ／δ）拮抗劑，專逆轉Etorphine</td><td><strong>IM或IV</strong>；專用逆轉Etorphine</td><td class="drug-locations"><a href="#drug-naltrexone" class="drug-link">專用逆轉Etorphine</a></td></tr>
+            <tr><td>Nalmefene</td><td>Opioid受體拮抗劑（對μ活性強，長效）</td><td><strong>IV／IM／SC</strong>；κ活性較強拮抗劑，作用時間較Naloxone長</td><td class="drug-locations"><a href="#drug-naltrexone" class="drug-link">κ活性較強拮抗劑，作用時間較Naloxone長</a></td></tr>
+            <tr><td>Naltrexone</td><td>長效純競爭性opioid受體拮抗劑（μ／κ／δ）</td><td><strong>IV／IM／SC</strong>；長效拮抗劑，逆轉Carfentanil等高效力Opioid</td><td class="drug-locations"><a href="#drug-naltrexone" class="drug-link">長效拮抗劑，逆轉Carfentanil等高效力Opioid</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Apomorphine</td><td>D2 agonist→CTZ刺激→催吐；高劑量μ activation反轉為止吐</td><td><strong>IV低劑量（IM／SC亦可）</strong>；犬首選催吐劑；多巴胺D2 agonist（Morphine降解產物）</td><td class="drug-locations"><a href="#drug-apomorphine" class="drug-link">多巴胺D2 agonist（Morphine降解產物）</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- PAIN PHYSIOLOGY -->
+    <div class="section" id="section-painphysiology">
+      <div class="section-head"><div class="section-num">3</div><h2>疼痛生理與 Gate Control 理論</h2></div>
+      <p class="section-desc">理解Opioid如何鎮痛，必須先理解痛覺傳導的四個步驟與脊髓層級的「閘門」調控機制，這是後續受體機轉與臨床用藥邏輯的基礎。</p>
+
+      <h3>Nociception 基礎</h3>
+      <p>Nociception是感覺受器接收組織損傷訊號的過程；<strong>Type-A delta（有髓鞘）</strong>：快速急性痛；<strong>Type-C（無髓鞘）</strong>：緩慢慢性痛；Nociceptors是A-delta與C纖維的神經末梢，對機械性、熱性或傷害性刺激反應。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">臨床補充</div>
+        <p>大腦本身沒有痛覺受器（painless brain）——大部分人類腦部手術僅需局部麻醉，這也是為什麼「清醒開顱手術」在臨床上可行。</p>
+      </div>
+
+      <h3 id="drug-gatecontrol">Gate Control Theory of Pain<span class="tag tag-exam">重要</span></h3>
+      <p>此理論描述脊髓層級如何調控痛覺訊號是否往上傳遞至大腦：無刺激時，抑制性中間神經元（I）持續抑制投射神經元（P）——「閘門關閉」；<strong>非疼痛刺激（大纖維）同時活化P與I，仍維持閘門關閉</strong>；<strong>疼痛刺激（小纖維）活化P、抑制I，閘門打開</strong>，允許痛覺訊號傳遞。臨床經驗：摩擦疼痛部位旁的皮膚可緩解疼痛，正是利用大纖維活化I來重新關閉閘門。</p>
+
+      <h3>Pain Neurochemistry — 疼痛介質</h3>
+      <p>組織損傷→發炎介質釋放→組織發炎與痛覺過敏（hyperalgesia）；介質包含：PGs、5-HT、Bradykinin、Histamine、Substance P；<strong>PGE1、PGE2、PGF2α是誘發痛覺過敏效力最強的前列腺素</strong>；傷害性神經傳導物：Substance P、Glutamate/Aspartate（作用NMDA受體）、Somatostatin、Cholecystokinin、VIP。</p>
+
+      <h3 id="drug-nociception4steps">Nociception 四步驟與藥物介入點<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>步驟</th><th>說明</th><th>可介入藥物</th></tr></thead>
+          <tbody>
+            <tr><td>1. Transduction</td><td>周邊nociceptors致敏化</td><td>Local anesthetics；NSAIDs、皮質類固醇（抗發炎）</td></tr>
+            <tr><td>2. Transmission</td><td>神經衝動傳導至CNS</td><td>Opioids、α2 agonists、Local anesthetics</td></tr>
+            <tr><td>3. Modulation</td><td>下行抑制路徑調控</td><td>Opioids、α2 agonists</td></tr>
+            <tr><td>4. Perception</td><td>大腦感知為疼痛經驗</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-faint);">此四步驟模型解釋了為何多模式鎮痛（multimodal analgesia，同時使用NSAID＋Opioid＋Local anesthetic）能在不同層級同時阻斷痛覺傳導，效果優於單一藥物。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- OPIOID RECEPTORS -->
+    <div class="section" id="section-opioidreceptors">
+      <div class="section-head"><div class="section-num">4</div><h2>鴉片受體與細胞機轉</h2></div>
+      <p class="section-desc">三種主要受體（μ/κ/δ）的功能分工，以及它們作用於突觸前後的細胞層級機轉，是理解各種Opioid藥理差異的核心基礎。</p>
+
+      <h3>Opiates vs Opioids 名詞釐清</h3>
+      <p>Opiates：源自鴉片（opium）的藥物——罌粟（Papaver somniferum）未熟種莢乾燥後的汁液，主要活性成分為Morphine，另含Codeine、Thebaine（非鎮痛）、Noscapine（鎮咳）、Papaverine（血管擴張，非鎮痛）；Opioids：所有具Morphine樣活性的Agonist與Antagonist，包含天然/半合成鴉片生物鹼衍生物、合成藥物、內生性鴉片胜肽（enkephalins、endorphins、dynorphins）。</p>
+
+      <h3 id="drug-receptortypes">Opioid 受體類型與反應<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體</th><th>活化後反應</th></tr></thead>
+          <tbody>
+            <tr><td><strong>μ（mu）</strong></td><td>鎮痛（脊髓上）、呼吸抑制、愉悅感（euphoria）、縮瞳（人）、↓GI蠕動、身體依賴性</td></tr>
+            <tr><td><strong>κ（kappa）</strong></td><td>鎮痛（脊髓）、輕度呼吸抑制、縮瞳、精神症狀（如迷失方向）、煩躁感（dysphoria）</td></tr>
+            <tr><td><strong>δ（delta）</strong></td><td>鎮痛、幻覺</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">μ1受體主管脊髓上鎮痛（也有μ3、δ參與）；μ2受體主管脊髓鎮痛（也有κ1、δ參與）、呼吸抑制、GI作用；愉悅感主要由μ受體介導，煩躁感由κ受體介導。</p>
+
+      <h3 id="drug-opioidmechanism">Opioid 受體細胞機轉<span class="tag tag-exam">重要</span></h3>
+      <p>Opioid受體是G-protein coupled receptor：Gi-adenylate cyclase-cAMP路徑，降低細胞內Ca²⁺濃度，刺激受體活化K⁺電流（Ik），導致細胞膜過極化。Agonist產生兩個明確的細胞效果以降低神經傳導物釋放：</p>
+      <div class="flow">
+        <div class="flow-node">①突觸前：關閉電壓門控Ca²⁺通道</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">降低Substance P等神經傳導物釋放</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">②突觸後：增加K⁺通道通透性</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">過極化，降低對Substance P的反應性</div>
+      </div>
+      <p>鎮痛作用位置：中腦與延腦（脊髓上鎮痛；μ1）；脊髓（μ2、κ、δ）；也可能包含周邊部位。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CLASSIFICATION -->
+    <div class="section" id="section-classification">
+      <div class="section-head"><div class="section-num">5</div><h2>藥物分類與效力比較</h2></div>
+      <p class="section-desc">依「對受體的作用型態」將Opioid分為四大類，配合效力比較表，是快速掌握整個藥物家族相對強弱的第一步。</p>
+
+      <h3 id="drug-opioidclass">Classification of Opioids<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分類</th><th>特性</th><th>代表藥物</th></tr></thead>
+          <tbody>
+            <tr><td>Agonist（Full agonist）</td><td>產生最大效果</td><td>Morphine、Meperidine、Methadone、Fentanyl、Etorphine</td></tr>
+            <tr><td>Partial agonist</td><td>僅產生部分效果</td><td>（Butorphanol）、Tramadol</td></tr>
+            <tr><td>Mixed agonist/antagonist</td><td>對不同受體有不同作用型態</td><td>Butorphanol、Pentazocine、Buprenorphine、Nalbuphine、Nalorphine</td></tr>
+            <tr><td>Antagonist</td><td>逆轉Agonist效果</td><td>Naloxone、Naltrexone、Nalmefene、Diprenorphine</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-potencycompare">效力比較表（以Morphine=1為基準）<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>相對效力</th></tr></thead>
+          <tbody>
+            <tr><td>Codeine</td><td>0.1</td></tr>
+            <tr><td>Meperidine</td><td>0.16</td></tr>
+            <tr><td>Morphine</td><td>1（基準）</td></tr>
+            <tr><td>Butorphanol</td><td>1–7</td></tr>
+            <tr><td>Oxycodone</td><td>3–6</td></tr>
+            <tr><td>Hydrocodone</td><td>6</td></tr>
+            <tr><td>Hydromorphone</td><td>7–8</td></tr>
+            <tr><td>Oxymorphone</td><td>10–15</td></tr>
+            <tr><td>Buprenorphine</td><td>25</td></tr>
+            <tr><td><strong>Fentanyl</strong></td><td><strong>100</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PHARMACOLOGY -->
+    <div class="section" id="section-pharmacology">
+      <div class="section-head"><div class="section-num">6</div><h2>藥理作用與物種差異</h2></div>
+      <p class="section-desc">Opioid的物種CNS反應差異（抑制vs興奮）是本章臨床用藥安全性的核心，選藥前務必先確認物種類別。</p>
+
+      <h3 id="drug-cnsspecies">CNS 作用與物種差異<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li>鎮痛：對內臟痛、慢性痛效果較好；高劑量可阻斷所有痛覺</li>
+        <li>鎮咳（Antitussive）</li>
+        <li>愉悅感＆幻覺：成癮與濫用相關</li>
+        <li>人類出現嗜睡與意識混濁</li>
+        <li><strong>CNS抑制：人、犬、兔、猴</strong></li>
+        <li><strong>CNS興奮：貓、馬、豬、羊、牛</strong>（高劑量更容易引起興奮）</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床警示</div>
+        <p><strong>純Agonist（如Morphine、Fentanyl）不建議單獨用於馬</strong>；許多Opioid（Fentanyl、Morphine、Buprenorphine）可能增加運動活性（locomotor activity）。</p>
+      </div>
+
+      <h3>物種藥效差異案例</h3>
+      <p><strong>Xylazine（α2 agonist）</strong>：反芻動物表現α2D受體，非反芻動物為α2A受體，Xylazine對α2D親和力較高→牛的鎮靜效果更強。<strong>Morphine（μ agonist）</strong>：貓的有效劑量（0.1 mg/kg）遠低於犬（1 mg/kg），貓使用較高劑量可能產生興奮——由中樞多巴胺受體介導，可被多巴胺阻斷劑（如Droperidol）抑制；<strong>馬使用Meperidine後易出現過度興奮的自發性運動</strong>。</p>
+
+      <h3>其他效應</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Convulsion（抽搐）</div>
+          <p>僅極高劑量（如Morphine）引起；可能機轉：抑制GABA神經元；典型抗癲癇藥無效，<strong>純拮抗劑Naloxone有效</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">眼睛</div>
+          <p>縮瞳（Miosis）：犬、鼠、兔、人；<strong>散瞳（Mydriasis）：貓、羊、馬、猴</strong>——與人類方向相反是常考點。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">體溫調節</div>
+          <p>影響下視丘；<strong>體溫過低：兔、犬、猴</strong>；<strong>體溫過高：貓、羊、牛、馬</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">呼吸</div>
+          <p>所有型Agonist都抑制呼吸（直接作用腦幹呼吸中樞，降低對CO2的反應性）；<strong>過量致死的主因是呼吸抑制</strong>；選擇性Agonist通常呼吸抑制較不顯著。</p>
+        </div>
+      </div>
+
+      <h3>嘔吐中樞、消化道與心血管效應</h3>
+      <p>作用嘔吐化學受體觸發區（CTZ）：犬、貓、人可見噁心嘔吐（反應不可預測）；GI：↓蠕動、↑靜息張力、↑非推進性活動振幅、↓推進性收縮，淨效果是節段性收縮與↑水分吸收，可用於治療腹瀉；子宮：↓收縮力（延長生產）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>心血管系統效應</th><th>機轉/說明</th></tr></thead>
+          <tbody>
+            <tr><td>心搏過緩（Bradycardia）</td><td>Gi介導K⁺通道開啟，心肌過極化；可用抗膽鹼藥矯正</td></tr>
+            <tr><td>冠狀動脈效應</td><td>人：擴張；<strong>犬：收縮</strong></td></tr>
+            <tr><td>血壓/心輸出量</td><td>影響輕微</td></tr>
+            <tr><td>組織胺釋放</td><td>快速IV注射Morphine/Meperidine時發生，致血管擴張與低血壓</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CLINICAL USE -->
+    <div class="section" id="section-clinicaluse">
+      <div class="section-head"><div class="section-num">7</div><h2>臨床用途與 Neuroleptanalgesia</h2></div>
+      <p class="section-desc">Neuroleptanalgesia（神經安定鎮痛）是Opioid在獸醫臨床最重要的複方應用型態，掌握常見組合是這一節的重點。</p>
+
+      <h3>Opioid 臨床用途總覽</h3>
+      <ul>
+        <li>提供鎮痛</li>
+        <li>術前用藥（Preanesthetic medication）：鎮靜、安定、化學保定</li>
+        <li>Neuroleptanalgesia；降低MAC（吸入性麻醉藥最低肺泡濃度）</li>
+        <li>鎮咳（Codeine、Dextromethorphan、Butorphanol、Tramadol）</li>
+        <li>控制腹瀉（Loperamide、Diphenoxylate）</li>
+      </ul>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Loperamide、Diphenoxylate作為止瀉藥的完整機轉與物種考量，見 <a href="腸胃道用藥.html#drug-opioidantidiarrheal">腸胃道用藥：止瀉藥（鴉片類受體）</a>。</p>
+
+      <h3 id="drug-neuroleptanalgesia">Neuroleptanalgesia<span class="tag tag-exam">重要</span></h3>
+      <p>定義：投予Neuroleptic藥物＋Opioid鎮痛藥的組合，產生安靜、意識改變與鎮痛的狀態。臨床用途：小型手術提供深度鎮靜＋鎮痛；化學保定；允許氣管內管置入（麻醉誘導）；動物可能對噪音仍有過度反應（對周遭環境仍有部分知覺）。</p>
+
+      <h3>常見 Neuroleptanalgesia 組合<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>組合</th><th>成分</th></tr></thead>
+          <tbody>
+            <tr><td>Innovar-Vet®</td><td>Fentanyl＋Droperidol</td></tr>
+            <tr><td>—</td><td>Oxymorphone＋Acepromazine</td></tr>
+            <tr><td>—</td><td>Oxymorphone＋Diazepam</td></tr>
+            <tr><td>—</td><td>Oxymorphone＋Midazolam</td></tr>
+            <tr><td>—</td><td>Morphine＋Acepromazine</td></tr>
+            <tr><td>—</td><td>Morphine＋Xylazine</td></tr>
+            <tr><td>—</td><td>Butorphanol＋Xylazine</td></tr>
+            <tr><td>—</td><td>Butorphanol＋Medetomidine</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Morphine 各物種臨床應用</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>臨床應用重點</th></tr></thead>
+          <tbody>
+            <tr><td>犬</td><td>鎮痛與麻醉、術前用藥、控制咳嗽與腹瀉；心衰竭：靜脈擴張降低前負荷</td></tr>
+            <tr><td>貓</td><td>建議臨床劑量下罕見興奮；鎮痛與麻醉</td></tr>
+            <tr><td>豬</td><td>少用（缺乏殘留消退資料）；伴侶豬（大肚豬）使用漸增</td></tr>
+            <tr><td>馬</td><td>痙攣性腸絞痛鎮痛；高劑量致CNS興奮；常與Xylazine併用（neuroleptanalgesia）</td></tr>
+            <tr><td>魚</td><td>已有報告可控制疼痛，魚類具有opiate受體</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FULL AGONISTS -->
+    <div class="section" id="section-fullagonists">
+      <div class="section-head"><div class="section-num">8</div><h2>完全與部分 Agonist 個論</h2></div>
+      <p class="section-desc">除了Fentanyl家族（獨立下一節），這裡整理臨床最常用的口服/注射型Opioid Agonist，各自的效力、代謝特性與物種考量。</p>
+
+      <h3 id="drug-codeine">Codeine</h3>
+      <p>鎮痛效力低於Morphine（1/10）；口服給予治療輕度疼痛（非重度）；常與Acetaminophen併用於犬（不用於貓——貓Acetaminophen絕對禁用，見 <a href="NSAID非類固醇消炎藥.html#drug-acetaminophen">NSAID非類固醇消炎藥：Acetaminophen</a>）；也用於控制刺激性咳嗽；犬口服生體可用率低（4–7%）；代謝物6-glucuronide、Norcodeine與O-demethylation產生的Morphine與Morphine-6-glucuronide皆有貢獻鎮痛效果；Oxycodone代謝為Noroxycodone、Oxymorphone，效力3–6倍Morphine，動物口服生體可用率低，較少使用。</p>
+
+      <h3 id="drug-oxymorphone">Oxymorphone</h3>
+      <p>效力約10倍Morphine；犬貓的嘔吐、噁心、鎮靜較Morphine/Hydromorphone少；用於術前用藥、鎮痛、犬貓馬術後疼痛；犬neuroleptanalgesia常配Acepromazine；貓需降低劑量；豬麻醉可配Xylazine＆Ketamine IV；給藥途徑IV/IM/SC；t½犬約1小時，人2–3小時；代謝類似Morphine。</p>
+
+      <h3 id="drug-hydromorphone">Hydromorphone</h3>
+      <p>注射型鎮靜、鎮痛、術前用藥，效果類似Oxymorphone；鎮痛效力為Morphine的7–8倍；藥效類似Oxymorphone但作用時間較短；代謝排泄類似Morphine；不良反應類似Morphine，但發燒（41–42°C，可持續5小時）發生率較高。</p>
+
+      <h3 id="drug-meperidine">Meperidine（Pethidine）</h3>
+      <p>犬貓IM注射吸收良好；口服生體可用率差；IV bolus可能引發組織胺釋放；鎮痛效力介於Codeine與Morphine之間；臨床已多被新型Opioid取代——犬貓術前用藥；牛：分娩鎮痛且不抑制子宮收縮；馬：緩解疼痛、治療腸絞痛，IV可能誘發自發性運動亢進。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床警示</div>
+        <p>與MAO抑制劑或SSRI併用可能引發血清素症候群（Serotonin syndrome）；抑制DA與NE回收；結構類似Atropine具抗膽鹼活性，人不會縮瞳；代謝物Norpethidine（Normeperidine）具神經毒性，可致抽搐與死亡，貢獻人類血清素症候群，是犬貓的次要代謝物。</p>
+      </div>
+
+      <h3 id="drug-tramadol">Tramadol</h3>
+      <p>合成型Agonist，用於犬貓馬；三重作用機轉：抑制5-HT與NE回收（α2活化）＋活性代謝物作用μ受體；臨床用途：主要為口服鎮痛與鎮咳藥；犬口服生體可用率變異大；肝臟代謝為O-desmethyltramadol（貓＞＞犬），此代謝物鎮痛效力與受體結合親和力遠高於Tramadol本身；鎮痛效果可部分被Naloxone拮抗；t½犬0.8–2h，貓2.2–4h；副作用類似Morphine。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充：犬的鎮痛效果證據薄弱</div>
+        <p>教科書特別指出，<strong>犬將Tramadol轉化為活性代謝物O-desmethyltramadol的效率遠不如人類與貓</strong>，臨床對照研究顯示犬使用Tramadol控制術後疼痛的失敗率高達<strong>60–80%</strong>（相對人類僅20–30%失敗率）；一項犬骨關節炎安慰劑對照試驗雖然飼主問卷顯示活動力改善，但因變異度過大未達統計顯著性，且部分犬隻長期給藥兩週後血漿中幾乎測不到藥物濃度（可能因代謝被誘導）。整體而言，<strong>目前缺乏設計良好的對照研究支持Tramadol作為犬止痛藥物的常規使用</strong>，儘管臨床上因方便、便宜而仍被廣泛使用；此為講義未提及的重要臨床保留態度，處方前應與飼主討論實際止痛效果的不確定性。（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）</p>
+      </div>
+
+      <h3 id="drug-methadone">Methadone</h3>
+      <p>三重機轉：合成型Agonist＋NMDA拮抗劑＋抑制5-HT與NE回收；人醫：因戒斷症狀較輕、長效（t½ 8–59h）用於鴉片成癮治療；t½貓4h，犬2–4h；效力與不良反應類似Morphine；獸醫：犬貓馬——作為Morphine替代品，鎮靜與嘔吐較少；鎮痛與術前用藥；馬前驅用藥常配Ketamine或α2 agonist；肝臟代謝。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- FENTANYL FAMILY -->
+    <div class="section" id="section-fentanylfamily">
+      <div class="section-head"><div class="section-num">9</div><h2>Fentanyl 家族與野生動物用藥</h2></div>
+      <p class="section-desc">Fentanyl系列的效力隨結構修飾遞增，從臨床常規貼片一路延伸到僅限大型野生動物使用、效力達Morphine萬倍以上的Etorphine，物種限制與逆轉劑選擇是這一節的核心。</p>
+
+      <h3 id="drug-fentanyl">Fentanyl<span class="tag tag-exam">重要</span></h3>
+      <p>高脂溶性＆高效力（100倍Morphine）；適合經皮吸收；起效快、作用時間短，再分佈t½約45分鐘；Neuroleptanalgesia：Innovar-Vet（＋Droperidol），IV/IM；給藥途徑：IV、IM、SC、經皮；<strong>Fentanyl貼片：犬貓可維持&gt;72小時止痛</strong>；Recuvyra：犬用（不用於貓）經皮Fentanyl外用溶液；心血管作用輕微，臨床劑量耐受良好；劑量依賴性呼吸抑制；t½貓2.5h，犬45分鐘。肝臟代謝：Hydroxylation與N-dealkylation。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床警示</div>
+        <p>Fentanyl是重大人類藥物濫用/過量死亡議題（美國2022年每日約200人因Fentanyl死亡），臨床使用與儲存需嚴格列管；Xylazine＋Fentanyl（或Heroin）的複方「Tranq」在人類濫用市場造成嚴重皮膚潰瘍（皮膚灌流大幅下降），是藥物協同（synergism）造成組織傷害的極端案例。</p>
+      </div>
+
+      <h3 id="drug-fentanylderivatives">Fentanyl 衍生物比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>相對效力</th><th>代謝/藥動特性</th><th>臨床應用</th></tr></thead>
+          <tbody>
+            <tr><td>Remifentanil</td><td>≥Fentanyl</td><td>非肝臟代謝（組織酯酶水解），t½極短（7.5分鐘）</td><td>麻醉誘導＋麻醉藥/鎮定劑，IV輸注快速恢復</td></tr>
+            <tr><td>Sufentanil</td><td>5–10倍Fentanyl</td><td>PK/PD類似Fentanyl</td><td>IV/IM/SC/硬脊膜外</td></tr>
+            <tr><td>Alfentanil</td><td>Fentanyl的1/4</td><td>PK/PD類似Fentanyl</td><td>用於貓</td></tr>
+            <tr><td><strong>Carfentanil</strong></td><td>100倍Fentanyl，10000倍Morphine</td><td>t½變異大（2–24h）</td><td>大型動物園/野生動物保定（<strong>不用於馬，副作用不可接受</strong>）；FDA核准用於鹿科（deer/elk/moose）；<strong>逆轉用Naltrexone（長效），不用Naloxone</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>教科書對效力倍數給出稍微保守的數字：Carfentanil 約為 Morphine 的 <strong>8,000–10,000 倍</strong>（與講義萬倍數字一致）；Naltrexone 逆轉 Carfentanil 的建議劑量比例是 <strong>100 mg Naltrexone : 1 mg Carfentanil</strong>，給藥方式為<strong>1/4 劑量 IV ＋ 3/4 劑量 SC</strong>；Carfentanil 與 Naltrexone 是目前美國唯一核准用於食品動物（鹿科）的鴉片類藥物組合，但<strong>鹿隻獵捕季前 Carfentanil 須停用 30 天、Naltrexone 須停用 45 天</strong>，這個停藥期規定講義未提及。（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）</p>
+      </div>
+
+      <h3 id="drug-etorphine">Etorphine（M99）<span class="tag tag-exam">重要</span></h3>
+      <p>極高效力：4000–10000倍Morphine；IM給藥快速達到保定、鎮靜、鎮痛；可搭配Tranquilizer（Acepromazine或Xylazine）；<strong>必須在備妥Diprenorphine等拮抗劑的情況下才可使用</strong>；專用於大型野生與異寵物種（動物園臨床）；FDA核准；劑量範例：多數異寵動物1–2 mg，斑馬1.5 mg，非洲象6 mg。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>教科書記載 Etorphine 效力約為 Morphine 的 <strong>3,000–4,000 倍</strong>，較講義列出的上限（10000倍）保守；IM 給藥後約 <strong>20 分鐘內</strong>起效，若未使用拮抗劑逆轉，保定狀態通常持續 <strong>30–60 分鐘</strong>；<strong>Diprenorphine 逆轉劑量比例為 2 mg Diprenorphine : 1 mg Etorphine</strong>；有時會添加<strong>Hyaluronidase（150 IU）</strong>以加速吸收。（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床補充</div>
+        <p>Enterohepatic recirculation（腸肝循環）：膽汁中的Glucuronide接合物可被腸道菌的β-glucuronidase水解，釋出游離藥物重新吸收進入全身循環，大幅延長藥物滯留時間與血漿t½；馬匹從Etorphine鎮靜恢復會因腸肝循環而延遲，即使已用Diprenorphine初步逆轉，仍可能因此再度陷入深度鎮靜（relapse）。</p>
+      </div>
+      <p style="font-size:.9em;">飛鏢注射（Tranquilizer dart）常用藥物：注射式麻醉藥（Ketamine）、α2 agonists（Detomidine、Xylazine）、Opioids（Carfentanil、Etorphine）、主要鎮定劑（Acepromazine、Azaperone、Haloperidol）。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MIXED ANTAGONISTS -->
+    <div class="section" id="section-mixedantagonists">
+      <div class="section-head"><div class="section-num">10</div><h2>混合型與拮抗劑</h2></div>
+      <p class="section-desc">混合型Agonist/Antagonist藥物與純拮抗劑是臨床上「平衡鎮痛」與「緊急逆轉」的關鍵工具，理解各藥物對μ/κ受體的不同作用型態是選藥的核心邏輯。</p>
+
+      <h3 id="drug-pentazocine">Pentazocine（Sosegon）</h3>
+      <p>κ agonist與μ partial agonist；1967年美國FDA核准；曾用於人、犬、馬；鎮痛與呼吸抑制效果有限；1970年代曾有娛樂性濫用問題（配Tripelennamine產生欣快感）；防濫用劑型會添加Naloxone。</p>
+
+      <h3 id="drug-butorphanol">Butorphanol<span class="tag tag-exam">重要</span></h3>
+      <p>κ partial agonist或antagonist、μ full agonist的混合型；可逆轉Morphine誘發的鎮靜與呼吸抑制，同時保留部分（κ）鎮痛效果；效力雖為Morphine的4–7倍，但術後疼痛控制需頻繁給藥；用於管理內臟痛（貓犬馬），κ agonist效果較好；也用於術前用藥；犬非生產性咳嗽（劑量低於鎮痛所需，效力高於Codeine/Morphine）。</p>
+      <p>鎮靜效果明顯，且在低於鎮痛所需的劑量即可出現（鎮靜不能被解讀為鎮痛）；給藥途徑IV/IM/SC/口服；建議劑量下心血管作用輕微；副作用：鎮靜、GI蠕動下降與便秘、煩躁、散瞳（貓）；<strong>馬使用Opioid時較偏好Butorphanol，因κ受體介導的興奮較少</strong>；負荷劑量後接IV輸注在馬匹內臟痛控制耐受性較佳（避免血中濃度過高）。</p>
+
+      <h3 id="drug-nalbuphine">Nalbuphine</h3>
+      <p>主要為κ agonist與μ antagonist；藥理性質類似Butorphanol；可逆轉Morphine誘發的鎮靜與呼吸抑制，保留部分κ鎮痛；僅能控制輕至中度疼痛；作用時間犬45分鐘、貓2–3小時；局部用於控制角膜潰瘍疼痛。</p>
+
+      <h3 id="drug-buprenorphine">Buprenorphine<span class="tag tag-exam">重要</span></h3>
+      <p>κ受體拮抗劑；μ受體部分Agonist——親和力強、與受體解離緩慢；<strong>Naloxone對其逆轉能力有限（需比逆轉Morphine更高劑量）</strong>；鎮痛效力高（25–30倍Morphine）；有<strong>天花板效應（ceiling effect）</strong>：鎮痛與呼吸抑制效果在達到上限後不再隨劑量增加；<strong>治療指數（LD50/ED50）極高：12,313，遠高於Morphine的464</strong>；高脂溶性但進出CNS擴散緩慢，IV給藥後起效延遲；犬主要經Glucuronidation代謝。</p>
+      <p>作用時間長（8小時）；t½犬5h、貓7h、人37h（人醫用於鴉片成癮治療）；可作為鎮痛藥使用，途徑IV/IM/SC/經皮；貓的黏膜（頰）吸收率報告可達100%（貓唾液偏鹼性），其他報告約30%；貓的興奮、煩躁、噁心副作用少於純Agonist；<strong>犬與馬的頰黏膜生體可用率低，不建議使用</strong>；貓身上效果優於Morphine與Oxymorphone、與Butorphanol相當；犬身上與Morphine及Fentanyl效果相當。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書核對</div>
+        <p>治療指數數字經核對無誤：Morphine LD50/ED50 = <strong>464</strong>，Buprenorphine 可達 <strong>12,313</strong>。教科書並補充：犬的 LD50 為 <strong>79 mg/kg</strong>，而臨床治療劑量通常<strong>不超過 0.04 mg/kg</strong>——兩者相差近 2000 倍，是 Buprenorphine 安全性極高的具體數字佐證；犬貓臨床心血管安全性研究亦顯示其血流動力學變化未達臨床顯著程度。（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）</p>
+      </div>
+
+      <h3 id="drug-nalorphine">Nalorphine</h3>
+      <p>Morphine衍生物（N-methyl替換為N-allyl基）；混合型partial agonist/antagonist，可拮抗多數Morphine效果，包含典型呼吸抑制；<strong>效果變異大，不建議使用</strong>；若第一劑無法拮抗，追加劑量屬於禁忌；<strong>若有Naloxone可用，就不要使用Nalorphine</strong>。</p>
+
+      <h3 id="drug-naloxone">Naloxone<span class="tag tag-exam">重要</span></h3>
+      <p>純競爭性Opioid拮抗劑（作用三種受體）——對μ受體活性大於κ、δ；效力為Nalorphine的10–30倍；逆轉Opioid誘發的呼吸抑制；<strong>逆轉同時可能失去鎮痛效果，出現興奮、心搏過速等不良反應，這些反應難以用藥物治療</strong>（因此臨床上Nalbuphine或Butorphanol可能是更好的「部分逆轉」選擇）；作用時間45–90分鐘；<strong>對Carfentanil無效</strong>（需用長效的Naltrexone）；高劑量可用於治療休克——逆轉犬的低血容性與敗血性休克，改善犬內毒素休克存活率（內生性Opioid在休克中扮演角色）。</p>
+
+      <h3 id="drug-naltrexone">Naltrexone、Nalmefene 與 Diprenorphine</h3>
+      <ul>
+        <li><strong>Naltrexone</strong>：長效Opioid拮抗劑，逆轉高效力Opioid（如Carfentanil）效果</li>
+        <li><strong>Nalmefene</strong>：對κ受體活性較強的拮抗劑，性質類似Naloxone，作用時間較Naloxone長，犬對抗Fentanyl效果與Naloxone相當</li>
+        <li><strong>Diprenorphine（M 50/50）</strong>：逆轉大型野生與異寵動物的Etorphine效果</li>
+      </ul>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- PK TOX TOLERANCE -->
+    <div class="section" id="section-pktoxtolerance">
+      <div class="section-head"><div class="section-num">11</div><h2>藥動學、毒性與耐受性</h2></div>
+      <p class="section-desc">Opioid的藥動學特性（高Vd、經肝臟代謝為主）決定了給藥途徑的選擇，而耐受性/依賴性的分類則是理解長期用藥與戒斷症候群的基礎。</p>
+
+      <h3 id="drug-opioidpk">PK / 吸收與分佈<span class="tag tag-exam">重要</span></h3>
+      <p>血漿蛋白結合率各異；pKa &gt; 8的鹼性生物鹼，在鹼性環境高脂溶性，偏好分佈進入細胞內，<strong>Vd大（&gt;1 L/kg bw），超過全身體液總量</strong>；組織分佈取決於灌流；<strong>高脂溶性Opioid（如Fentanyl）快速再分佈，重複給藥導致藥物在脂肪組織累積，效果延長、恢復延遲</strong>。</p>
+      <p>吸收：多數Opioid經SC/IM注射吸收良好；Fentanyl可經皮與腸胃外途徑；口服吸收：部分Opioid（如Morphine）有顯著首渡效應；<strong>Codeine與Oxycodone因C3芳香羥基被取代保護不受接合作用影響，口服相對於腸胃外途徑效率較高</strong>。</p>
+
+      <h3>PK / 血腦屏障與代謝<span class="tag tag-exam">重要</span></h3>
+      <p>兩性離子藥物（同時含酸性與鹼性基團，如Morphine C3的酚羥基）進入腦部最困難；C3位置取代可改善BBB穿透（如Heroin、Codeine）；<strong>新生動物BBB未成熟、更易滲漏</strong>；胎盤Opioid轉運（用於產科鎮痛）可能導致新生兒呼吸抑制。</p>
+      <p>Morphine具兩個OH基接合作用，首渡肝臟代謝高，口服生體可用率5–20%，<strong>不建議動物以口服途徑給予Morphine</strong>；C3甲基取代（如Codeine）可減少首渡Glucuronide接合代謝，使Codeine與Oxycodone在人類口服生體可用率較高。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">臨床補充</div>
+        <p>Morphine Glucuronide接合（貓例外，主要走硫酸接合）；<strong>Morphine-6-glucuronide是活性代謝物</strong>；O-demethylation：Codeine→Morphine；酯類Opioid（如Remifentanil）由組織酯酶水解，t½極短；<strong>Fentanyl、Alfentanil、Sufentanil、Methadone、Meperidine主要走肝臟CYP450氧化代謝</strong>。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ CYP450 Phase I氧化代謝的完整機轉，見 <a href="藥理學總論.html#section-cyp450">藥理學總論：CYP450藥物代謝系統</a>。</p>
+
+      <h3 id="drug-opioidtox">Toxicity（毒性）<span class="tag tag-exam">重要</span></h3>
+      <p><strong>新生動物對Opioid更敏感（血腦屏障未成熟）</strong>；犬與人類高劑量可能出現抽搐性癲癇；<strong>幼豬對Morphine的興奮性作用特別敏感</strong>；動物成癮少見（不同於人類常見）；藥理逆轉：純拮抗劑（如Naloxone）可完全拮抗效果；部分Agonist（如Butorphanol、Nalbuphine）可逆轉部分效果（如鎮靜、呼吸抑制）。</p>
+
+      <h3>Precautions &amp; Contraindications</h3>
+      <ul>
+        <li>呼吸抑制：加重腦出血與水腫（動脈CO2升高致血管擴張、增加腦血流）</li>
+        <li>高劑量致興奮，需併用鎮定劑</li>
+        <li>急性尿毒症與毒血症犬需謹慎使用：ADH分泌增加→尿量降低90%</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌症</div>
+        <p><strong>抽搐性疾病</strong>：無鎮痛效果，高劑量反致抽搐；<strong>犬的創傷性休克</strong>：Opioid立即引發低血壓效果，屬禁忌。</p>
+      </div>
+
+      <h3 id="drug-tolerance">Tolerance and Dependence<span class="tag tag-exam">重要</span></h3>
+      <p><strong>耐受性（Drug tolerance）</strong>：因先前藥物暴露而降低對該藥物效果的反應性；<strong>身體依賴（Physical dependence）</strong>：持續藥物暴露後產生的潛伏狀態，適應性改變使身體需要藥物存在才能維持正常功能；<strong>戒斷症候群</strong>：身體依賴個體出現的症狀，通常與藥物作用方向相反，給藥可終止症狀。</p>
+      <p><strong>交叉耐受性</strong>：重複暴露一種藥物會對其他藥理相關藥物也產生耐受性；<strong>Tachyphylaxis（急性耐受）</strong>：短時間內（數分鐘至數小時）快速產生的耐受性；耐受性類型：藥物動力學/代謝性（酵素誘導）、藥效學/細胞性（受體密度改變）、學習/制約性（如酒精）。</p>
+      <p>人類對Opioid各效果耐受性發展不均：愉悅感、鎮痛、呼吸抑制耐受性發展較快，心搏過緩耐受性中等，<strong>縮瞳與便秘幾乎不發展耐受性</strong>——這是長期使用Opioid患者仍持續便秘的原因。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- OTHER ANALGESICS -->
+    <div class="section" id="section-otheranalgesics">
+      <div class="section-head"><div class="section-num">12</div><h2>其他鎮痛輔助藥物</h2></div>
+      <p class="section-desc">除了典型Opioid，臨床上還有多種輔助鎮痛/相關藥物各有獨特機轉，適合作為多模式鎮痛方案的補充或Opioid的替代選擇。</p>
+
+      <h3 id="drug-apomorphine">Apomorphine</h3>
+      <p>Morphine降解產物；多巴胺D2 agonist（不是鴉片受體agonist）；<strong>用於犬的催吐劑</strong>（不用於貓，貓改用Xylazine）——直接刺激CTZ；高劑量可能經activation產生止吐效果；Naloxone會增強其催吐效果；首渡代謝高，需腸胃外途徑；犬t½ 48分鐘；人醫也用於治療帕金森氏症。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Apomorphine作為犬首選催吐劑的完整臨床應用，見 <a href="腸胃道用藥.html#drug-apomorphine">腸胃道用藥：犬首選催吐劑</a>。</p>
+
+      <h3 id="drug-phenothiazines">Phenothiazines</h3>
+      <p>機轉：阻斷DA與NE受體；臨床用途：人醫抗精神病藥；動物Neuroleptic/鎮定劑（最常用的鎮定劑之一，用於化學保定，動物園臨床效果佳）；術前用藥（可降低Barbiturate劑量，具增強中樞抑制劑的能力）；止吐；<strong>不可用於食品動物</strong>。</p>
+
+      <h3>Dissociative Anesthesia（解離性麻醉）與 NMDA 拮抗劑</h3>
+      <p>解離性麻醉狀態特徵：催眠狀態、深度鎮痛、眼睛張開但對環境無反應（看似清醒但無感知）、自發性呼吸維持、咽喉/喉部/角膜/吞嚥反射保留、肌肉張力增加（肢體移動與偶發抽搐）、唾液與淚液分泌增加。</p>
+      <ul>
+        <li><strong>Ketamine</strong>：院內鎮痛輔助藥，不適合門診疼痛管理</li>
+        <li><strong>Dextromethorphan</strong>：口服生體可用率低、t½短，不適合門診疼痛控制</li>
+        <li><strong>Amantadine</strong>：犬貓口服使用，也是抗病毒藥；抑制單胺（僅多巴胺）回收（人醫治療帕金森氏症）；用於NSAID或Tramadol控制不佳、或NSAID不耐受的病患合併Opioid使用；主要經腎臟排泄，腎功能不全需減量</li>
+      </ul>
+
+      <h3 id="drug-gabapentin">Gabapentin</h3>
+      <p>GABA類似物，可穿透BBB；人醫作為部分性癲癇的輔助用藥——不需監測血中濃度、耐受性好、與其他一線藥物無交互作用。機轉：<strong>不結合GABA受體</strong>，結合背角電壓門控Ca²⁺通道的α2δ次單元，降低神經元Ca²⁺濃度，減少Glutamate釋放，進而降低Glutamate介導的痛覺傳導。有效於神經性疼痛（direct nerve injury）與貓犬癌症相關疼痛；主要經腎臟排泄，腎功能不全需減量；<strong>應逐漸減量以避免反彈性疼痛</strong>。</p>
+
+      <h3>其他藥物</h3>
+      <p><strong>Amitriptyline</strong>：三環抗憂鬱藥，犬貓具鎮痛潛力；抑制單胺回收（NE與5-HT）、活化μ受體、阻斷Na⁺通道與NMDA受體。<strong>Lidocaine patch（局部麻醉貼片）</strong>：貼於傷口/病灶/疼痛區域附近（非直接覆蓋），藥物滲入貼片下組織可維持12–24小時，鎮痛效果較長；貼片誤食可能導致Lidocaine毒性。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">13</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">濃縮版複習重點，考前快速掃過即可回想起整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>受體分工：</strong>μ脊髓上鎮痛＋愉悅感；κ脊髓鎮痛＋煩躁感；δ鎮痛＋幻覺；G-protein coupled機轉（突觸前關Ca²⁺通道、突觸後開K⁺通道）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>物種CNS反應：</strong>抑制（人犬兔猴）vs興奮（貓馬豬羊牛）；純Agonist不建議單獨用於馬。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>分類四型：</strong>Full agonist/Partial agonist/Mixed agonist-antagonist/Antagonist；效力Fentanyl（100）＞Buprenorphine（25）＞Oxymorphone（10–15）＞Morphine（1）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Neuroleptanalgesia：</strong>Opioid＋Tranquilizer常見組合（Fentanyl+Droperidol、Oxymorphone/Morphine+Acepromazine、Butorphanol+Xylazine等）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Fentanyl家族效力遞增：</strong>Fentanyl（100×Morphine）→Sufentanil（5–10×Fentanyl）→Carfentanil（100×Fentanyl，禁用於馬，逆轉用Naltrexone）→Etorphine（4000–10000×Morphine，需備Diprenorphine）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Buprenorphine：</strong>μ部分agonist，有天花板效應，治療指數極高（12,313），Naloxone逆轉需高劑量。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>逆轉劑選擇：</strong>Naloxone純拮抗（對Carfentanil無效）；Nalbuphine/Butorphanol部分逆轉保留鎮痛；Naltrexone長效；Diprenorphine專用逆轉Etorphine。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>耐受性不均：</strong>愉悅感/鎮痛/呼吸抑制耐受性發展快，縮瞳/便秘幾乎不產生耐受性；新生動物與幼豬對Opioid特別敏感。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，A6 CNS Narcotic）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">14</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋受體機轉、物種CNS反應差異、Fentanyl家族效力、Buprenorphine特性各章節重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 一匹馬因腸絞痛需要鎮痛，獸醫師應優先避免單獨使用下列哪一種藥物？</div>
+        <ul class="quiz-options">
+          <li>(A) Butorphanol</li>
+          <li>(B) Morphine（純Agonist單獨使用）</li>
+          <li>(C) Butorphanol + Xylazine</li>
+          <li>(D) NSAID類藥物</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">馬匹屬於Opioid可能引起CNS興奮的物種之一，純Agonist（如Morphine、Fentanyl）不建議單獨用於馬，高劑量容易誘發興奮；臨床上馬匹傾向使用Butorphanol（κ受體介導的興奮較少）或與α2 agonist（如Xylazine）併用的neuroleptanalgesia組合。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Buprenorphine的鎮痛效果會隨劑量增加而持續上升，沒有上限。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Buprenorphine是μ受體的部分Agonist，具有「天花板效應（ceiling effect）」，鎮痛與呼吸抑制效果在達到一定上限後不再隨劑量增加而上升，這也是它治療指數（LD50/ED50）極高、安全性佳的原因之一。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻大型野生動物中毒需要緊急逆轉Carfentanil的效果，應該選用下列哪一種拮抗劑？</div>
+        <ul class="quiz-options">
+          <li>(A) Naloxone</li>
+          <li>(B) Nalorphine</li>
+          <li>(C) Naltrexone（長效）</li>
+          <li>(D) Diprenorphine</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">Naloxone對Carfentanil無效（Carfentanil效力極高、t½變異大，需要長效拮抗劑才能有效且持續地逆轉），臨床上使用長效的Naltrexone；Diprenorphine則是專用於逆轉Etorphine的拮抗劑，兩者不可混淆。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明為什麼Naloxone逆轉Opioid過量時，動物可能出現興奮、心搏過速等不良反應，以及Butorphanol或Nalbuphine作為「部分逆轉」選擇的理論基礎。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">Naloxone是純競爭性拮抗劑，會完全阻斷Opioid在μ、κ、δ受體上的作用，因此在逆轉呼吸抑制等不良反應的同時，也會完全消除原本的鎮痛效果，動物突然失去鎮痛保護、加上生理反彈，可能出現興奮、心搏過速等難以用藥物控制的不良反應。相對地，Butorphanol與Nalbuphine是混合型Agonist/Antagonist（例如對μ受體為拮抗、對κ受體仍保有部分Agonist活性），使用這類藥物來逆轉純Agonist過量時，雖然同樣能拮抗μ受體介導的呼吸抑制與鎮靜，但因其本身對κ受體仍有部分促效作用，可以保留一定程度的鎮痛效果，讓逆轉的過程更加平衡，減少動物因痛覺驟然恢復而產生的劇烈反應。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻剛出生3天的幼犬因先天性疾病需要進行小手術，麻醉團隊考慮使用Opioid作為鎮痛/術前用藥的一部分。同時，隔壁畜舍有一隻剛出生的仔豬也需要輕微鎮靜。請問：(1) 使用Opioid於這兩隻新生動物時，有什麼共同的藥動學/藥效學考量？(2) 針對幼豬，有什麼特別需要注意的地方？(3) 如果術中或術後出現過度鎮靜或呼吸抑制，你會如何處置？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 共同考量：</strong>新生動物的血腦屏障（BBB）尚未發育成熟、通透性較高（"more leaky"），這代表Opioid更容易進入中樞神經系統，使新生動物對Opioid的效果（包含鎮痛與呼吸抑制）比成年動物更加敏感；因此在新生動物身上使用Opioid時應該從較低劑量開始，並且密切監測呼吸與意識狀態，避免因為血腦屏障不成熟而造成過度的中樞抑制效果。<br><strong>(2) 幼豬特別注意事項：</strong>講義特別指出<strong>幼豬（young swine）對Morphine的興奮性作用格外敏感</strong>，這與一般成豬使用Opioid可能出現CNS興奮的物種特性（貓、馬、豬、羊、牛屬於Opioid易致興奮的物種）在幼齡動物身上可能更加明顯；因此針對幼豬使用Opioid做鎮靜時，應特別留意觀察是否出現躁動、興奮等反常反應，而非預期中的鎮靜效果，必要時可考慮劑量調整或改用其他更適合的鎮靜方式（如搭配Tranquilizer的neuroleptanalgesia組合）。<br><strong>(3) 過度鎮靜/呼吸抑制處置：</strong>若術中或術後出現明顯呼吸抑制，應立即給予純拮抗劑Naloxone逆轉呼吸抑制效果；但需注意Naloxone會同時消除鎮痛效果，術後動物可能因此出現疼痛相關的躁動反應，應密切監測並視情況給予其他不影響呼吸的鎮痛方式（如局部麻醉或NSAID，若適用）；若擔心完全逆轉鎮痛會造成動物不適，也可考慮使用Butorphanol或Nalbuphine等混合型藥物做部分逆轉，同時保留一定的鎮痛效果，是更平衡的處置方式，同時給予氧氣支持與生命徵象監測直到恢復穩定。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  painphysiology: '疼痛生理與Gate Control理論',
+  opioidreceptors: '鴉片受體與細胞機轉',
+  classification: '藥物分類與效力比較',
+  pharmacology: '藥理作用與物種差異',
+  clinicaluse: '臨床用途與Neuroleptanalgesia',
+  fullagonists: '完全與部分Agonist個論',
+  fentanylfamily: 'Fentanyl家族與野生動物用藥',
+  mixedantagonists: '混合型與拮抗劑',
+  pktoxtolerance: '藥動學、毒性與耐受性',
+  otheranalgesics: '其他鎮痛輔助藥物',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

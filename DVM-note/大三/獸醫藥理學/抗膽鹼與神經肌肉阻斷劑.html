@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：抗膽鹼與神經肌肉阻斷劑 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">抗膽鹼與神經肌肉阻斷劑</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">抗膽鹼與神經肌肉阻斷劑</h1>
+      <p class="page-subtitle">副交感神經拮抗劑（Atropine等）、神經肌肉阻斷藥物（去極化型／競爭性）、中樞性肌肉鬆弛劑 Dantrolene 整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Drugs Affecting Peripheral Nervous System，ANS 2 handout）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.10 Neuromuscular Blocking Agents</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-24</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">副交感神經拮抗劑</div>
+    <a onclick="showSection('atropine')" id="nav-atropine"><span class="nav-icon">🌿</span> Atropine 與生物鹼類</a>
+    <a onclick="showSection('syntheticantimuscarinics')" id="nav-syntheticantimuscarinics"><span class="nav-icon">💊</span> 合成型抗蕈毒鹼藥物</a>
+    <div class="section-label" style="margin-top:8px;">神經肌肉阻斷劑</div>
+    <a onclick="showSection('nmbmechanism')" id="nav-nmbmechanism"><span class="nav-icon">🔀</span> NMJ阻斷機轉：去極化vs競爭性</a>
+    <a onclick="showSection('nmbdrugs')" id="nav-nmbdrugs"><span class="nav-icon">💉</span> 個別藥物與藥動學</a>
+    <a onclick="showSection('nmbadverse')" id="nav-nmbadverse"><span class="nav-icon">⚠️</span> 不良反應與影響因子</a>
+    <div class="section-label" style="margin-top:8px;">中樞性肌肉鬆弛劑</div>
+    <a onclick="showSection('dantrolene')" id="nav-dantrolene"><span class="nav-icon">🔥</span> Dantrolene</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這頁其實是兩個不同但常放在一起討論的主題：<strong>抗蕈毒鹼藥物（Antimuscarinic Drugs）</strong>阻斷副交感神經末梢的蕈毒鹼型受體，臨床效果是「減少分泌、放鬆平滑肌、加速心跳」，以 Atropine 這個原型藥為核心，其他藥物（Scopolamine、Glycopyrrolate、Propantheline……）可以用「跟 Atropine 比起來，這顆藥有什麼不同」的方式快速記憶——通常差在<strong>能不能穿越血腦屏障（三級胺 vs 四級銨）</strong>與<strong>作用時間長短</strong>這兩軸。<strong>神經肌肉阻斷劑（Neuromuscular Blocking Drugs）</strong>則是完全不同的臨床情境——麻醉手術中用來讓骨骼肌暫時癱瘓，分成<strong>去極化型（Succinylcholine，先讓肌肉持續去極化再癱瘓）</strong>與<strong>競爭性拮抗型（Tubocurarine、Pancuronium、Atracurium、Vecuronium，直接佔據受體不讓ACh結合）</strong>兩條機轉，這組分類決定了逆轉方式完全不同——競爭性阻斷可以用抗ChE藥物（Neostigmine、Edrophonium）逆轉，去極化型則沒有好的拮抗劑、只能等其代謝完、以呼吸支持撐過去。<strong>最容易被忽略但臨床極重要的一點：這類藥物只癱瘓肌肉，完全不影響痛覺與意識</strong>，動物「看起來麻醉了」但其實可能還清醒著感覺到痛，這是為什麼這類藥物絕對不能單獨使用、必須配合足夠的麻醉／鎮痛藥物。最後收在 Dantrolene，一個機轉完全不同（直接作用肌肉本身而非NMJ）的肌肉鬆弛劑，專治惡性高熱。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('atropine')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Atropine類</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">原型抗蕈毒鹼藥</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('syntheticantimuscarinics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">合成抗蕈毒鹼藥</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">跟Atropine比差異</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('nmbmechanism')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">NMJ阻斷機轉</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">去極化vs競爭性</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('dantrolene')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Dantrolene</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">惡性高熱治療</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>Atropine是三級胺可穿越BBB，Glycopyrrolate是合成四級銨不能穿越</strong>——臨床上需要中樞抗膽鹼效果（如拮抗抗ChE中毒的中樞症狀）選Atropine，只需要周邊效果（如術前減少分泌物、不想有中樞副作用）選Glycopyrrolate。</li>
+          <li><strong>神經肌肉阻斷劑「不影響痛覺與意識」是最重要的臨床安全觀念：</strong>動物被麻痺癱瘓，但清醒且能感覺疼痛，絕對不能單獨使用，必須合併足夠的全身麻醉/鎮痛。</li>
+          <li><strong>去極化型（Succinylcholine）與競爭性型（Tubocurarine等）的逆轉方式完全不同：</strong>競爭性阻斷可用抗ChE藥物（Neostigmine、Edrophonium）逆轉；<strong>Succinylcholine沒有好的拮抗劑</strong>，中毒或過量只能提供呼吸支持等待其自然代謝。</li>
+          <li><strong>Tubocurarine會釋放組織胺，犬貓特別容易發生</strong>，這是它在小動物臨床上少用的主因；Atracurium組織胺釋放較少。</li>
+          <li><strong>Succinylcholine在犬可能出現不明原因的延長麻痺（約20分鐘）</strong>；反芻動物的PChE活性低於馬等其他物種，影響其代謝速度。</li>
+          <li><strong>曾接觸過有機磷（殺蟲劑或眼藥水）的動物，30天內使用Succinylcholine可能延長作用時間</strong>——因為OP已經不可逆地抑制了負責代謝Succinylcholine的膽鹼酯酶，這是術前病史詢問容易被忽略的重點。</li>
+          <li><strong>吸入性麻醉藥（如Isoflurane）會增強競爭性神經肌肉阻斷劑的效果</strong>，兩者併用時阻斷劑劑量需要調整，也是為什麼術中肌肉鬆弛程度會隨麻醉深度變化。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Atropine</td><td>Muscarinic受體拮抗劑（三級胺，可穿BBB）</td><td><strong>PO／IV／IM／SC</strong>；★所有抗蕈毒鹼藥物原型；術前用藥、拮抗抗ChE中毒、蕈毒菇類中毒</td><td class="drug-locations"><a href="#drug-atropine" class="drug-link">原型藥</a></td></tr>
+            <tr><td>Scopolamine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">東莨菪鹼（Hyoscine）</div></td><td>M＋H1 receptor路徑（前庭）；結構類似Atropine（三級胺）</td><td><strong>Scopolamine口服可控制暈動症</strong>；貓興奮反應；暈動症；N-Butylscopolammonium IV用於馬腸絞痛</td><td class="drug-locations"><a href="#drug-scopolamine" class="drug-link">馬腸絞痛用藥</a></td></tr>
+            <tr><td>Hyoscyamine</td><td>Muscarinic受體拮抗劑（Scopolamine相關生物鹼）</td><td>口服治心搏過緩與GI過度蠕動（如大腸激躁症）</td><td class="drug-locations"><a href="#drug-hyoscyamine" class="drug-link">原型藥比較</a></td></tr>
+            <tr><td>Propantheline</td><td>季銨antimuscarinic（M receptor拮抗），不穿BBB</td><td>抗膽鹼；小動物PO口服吸收差效果受質疑，馬IV降結腸蠕動</td><td class="drug-locations"><a href="#drug-propantheline" class="drug-link">合成型抗蕈毒鹼藥物</a></td></tr>
+            <tr><td>Glycopyrrolate</td><td>Muscarinic受體拮抗劑（合成四級銨，不穿BBB）</td><td><strong>IV／IM／SC</strong>；術前用藥；治竇性心搏過緩；SC控制貓過度流涎（無中樞副作用）</td><td class="drug-locations"><a href="#drug-glycopyrrolate" class="drug-link">合成型抗蕈毒鹼藥物</a></td></tr>
+            <tr><td>Ipratropium Bromide</td><td>Muscarinic受體拮抗劑（四級銨）</td><td>吸入劑型治馬慢性阻塞性肺病（heaves），作用短須頻繁給藥</td><td class="drug-locations"><a href="#drug-ipratropium" class="drug-link">合成型抗蕈毒鹼藥物</a></td></tr>
+            <tr><td>Tropicamide</td><td>Muscarinic受體拮抗劑（合成三級胺）</td><td>局部眼科散瞳與睫狀肌麻痺；優於Atropine：作用時間較短（4-8h）</td><td class="drug-locations"><a href="#drug-ipratropium" class="drug-link">合成型抗蕈毒鹼藥物</a></td></tr>
+            <tr><td>Aminopentamide</td><td>M receptor拮抗→↓GI分泌與蠕動</td><td><strong>神經肌肉阻斷劑：</strong>；抗膽鹼；犬貓急性腹部臟器痙攣，GI效果較Atropine強、散瞳/流涎抑制較弱</td><td class="drug-locations"><a href="#drug-aminopentamide" class="drug-link">與Atropine比較</a></td></tr>
+            <tr><td>Oxybutynin</td><td>合成三級胺解痙藥（抗蕈毒鹼機轉）</td><td><strong>神經肌肉阻斷劑：</strong>；犬貓逼尿肌反射亢進（膀胱過動症）輔助治療</td><td class="drug-locations"><a href="#drug-aminopentamide" class="drug-link">合成型抗蕈毒鹼藥物</a></td></tr>
+            <tr><td>Succinylcholine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">SuCh</div></td><td>去極化型NMJ阻斷（持續去極化終板電活動喪失）</td><td><strong>IV</strong>；★手術骨骼肌鬆弛；犬可能不明原因延長麻痺，無好拮抗劑只能呼吸支持</td><td class="drug-locations"><a href="#drug-suchpk" class="drug-link">個別藥物與藥動學</a></td></tr>
+            <tr><td>Tubocurarine</td><td>競爭性NMJ阻斷（非去極化，佔據N<sub>M</sub>受體）</td><td><strong>IV</strong>；獸醫臨床少用（安全疑慮）；犬貓易組織胺釋放致低血壓；可用抗ChE藥物逆轉</td><td class="drug-locations"><a href="#drug-competitivepk" class="drug-link">競爭性阻斷劑比較</a></td></tr>
+            <tr><td>Pancuronium</td><td>競爭性NMJ阻斷（非去極化）</td><td><strong>IV</strong>；肝腎功能不全延長麻痺時間；可用抗ChE藥物逆轉</td><td class="drug-locations"><a href="#drug-competitivepk" class="drug-link">競爭性阻斷劑比較</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Atracurium</td><td>競爭性NMJ阻斷（非去極化）</td><td><strong>IV</strong>；★Hoffman elimination不經肝腎代謝，肝腎疾病病患首選；組織胺釋放少於Tubocurarine</td><td class="drug-locations"><a href="#drug-competitivepk" class="drug-link">競爭性阻斷劑比較</a></td></tr>
+            <tr><td>Vecuronium</td><td>競爭性NMJ阻斷（非去極化）</td><td>約15%腎臟排除其餘肝臟代謝；副作用肌肉無力</td><td class="drug-locations"><a href="#drug-competitivepk" class="drug-link">競爭性阻斷劑比較</a></td></tr>
+            <tr><td>Dantrolene</td><td>結合Ryanodine受體，抑制肌漿網Ca²⁺釋放（機轉獨立於NMJ受體）</td><td><strong>直接作用型肌肉鬆弛劑，透過降低肌肉細胞內Ca²⁺濃度</strong>；惡性高燒特異性解藥；犬貓尿道張力過高、馬麻醉後肌炎</td><td class="drug-locations"><a href="#drug-dantrolenemech" class="drug-link">機轉與臨床用途</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- ATROPINE -->
+    <div class="section" id="section-atropine">
+      <div class="section-head"><div class="section-num">3</div><h2>Atropine 與生物鹼類 Belladonna Alkaloids</h2></div>
+      <p class="section-desc">Atropine 是所有抗蕈毒鹼藥物的原型（prototype），理解它的完整藥理效果，後面每個合成藥物只需要記「跟 Atropine 的差異點」。</p>
+
+      <h3 id="drug-atropine">Atropine<span class="tag tag-exam">重要</span></h3>
+      <p><strong>三級胺生物鹼</strong>，萃取自顛茄（Atropa belladonna，deadly nightshade，茄科有毒植物）；<strong>所有抗蕈毒鹼藥物的原型藥</strong>；屬 Belladonna alkaloids／Tropane alkaloids；Atropine 本身是 d,l-Hyoscyamine 的消旋混合物，同類生物鹼還包括 Hyoscyamine 與 Scopolamine（Hyoscine）。</p>
+
+      <h3>藥理效果</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">心臟</div>
+          <p>心跳速率反應不一——低劑量可能因中樞迷走神經刺激先<strong>短暫減慢</strong>；高劑量因阻斷竇房結蕈毒鹼受體致<strong>心搏過速</strong>；ECG PR interval 縮短。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">血管與CNS</div>
+          <p>血管主要受交感神經調控，Atropine治療劑量對全身血壓影響小到中等（升壓）；<strong>中毒劑量致CNS興奮與幻覺</strong>，隨中毒惡化轉為抑制。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">平滑肌</div>
+          <p>↓GI收縮與張力（高劑量↓分泌）；膽道平滑肌放鬆；↓膀胱與輸尿管張力；大支氣管擴張。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">眼睛與汗腺</div>
+          <p><strong>散瞳（Mydriasis）：</strong>阻斷虹膜收縮肌M3受體；<strong>睫狀肌麻痺（Cycloplegia）：</strong>無法調節近視；↓汗腺分泌。</p>
+        </div>
+      </div>
+
+      <h3>臨床用途</h3>
+      <ul>
+        <li>IV／IM／SC／PO給藥</li>
+        <li><strong>術前用藥：</strong>↓唾液與呼吸道分泌</li>
+        <li>眼科：誘導睫狀肌麻痺與散瞳——<strong>因作用時間長，此用途受限</strong></li>
+        <li>與Opioid併用治療腎臟與膽道絞痛</li>
+        <li><strong>拮抗抗ChE藥物過量或中毒</strong></li>
+        <li>治療蕈毒（muscarine類）菇類中毒</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">副作用</div>
+        <p>心搏過速、畏光（因散瞳）、口乾（xerostomia）、<strong>馬體溫升高（因↓排汗）</strong>、躁動、失定向感與CNS興奮。<strong>處置：</strong>抗ChE藥物（如Neostigmine、Physostigmine）拮抗周邊/中樞毒性；BZD控制CNS興奮症狀。</p>
+      </div>
+
+      <h3>藥動學</h3>
+      <p>口服與腸胃外給藥皆<strong>快速吸收良好</strong>；IV給藥後心跳反應約<strong>3分鐘內達高峰</strong>；<strong>三級胺可穿越BBB</strong>，廣泛分布全身；肝臟代謝為Noratropine、Atropine-N-oxide、Tropic acid；30–40%以原型藥經尿液排出，多數於12小時內排出；<strong>T½約2.5小時</strong>。</p>
+
+      <h3 id="drug-scopolamine">Scopolamine（Hyoscine）與 N-Butylscopolammonium Bromide</h3>
+      <p>結構與藥理性質類似Atropine；<strong>Scopolamine口服可控制暈動症</strong>（人用經皮貼片預防）；<strong>N-Butylscopolammonium經IV用於馬</strong>，作為解痙/抗蕈毒鹼藥物治療腸絞痛與腸阻塞（impaction colic，馬匹嚴重、可能致命的疼痛性疾病）。兩者皆可能產生興奮或鎮靜反應。</p>
+
+      <h3 id="drug-hyoscyamine">Hyoscyamine</h3>
+      <p>Scopolamine相關的抗蕈毒鹼藥物；口服治療心搏過緩與GI過度蠕動（如大腸激躁症）；無動物藥動學資料。人類資料：口服吸收快而完整；分布全身（含CNS）；部分於肝臟水解為Tropic acid與Tropine；多數原型藥經尿液排出；消除T½約3.5小時（緩釋劑型約7小時）；平均作用時間4–6小時；副作用類似Atropine。</p>
+    </div>
+
+    <!-- SYNTHETIC ANTIMUSCARINICS -->
+    <div class="section" id="section-syntheticantimuscarinics">
+      <div class="section-head"><div class="section-num">4</div><h2>合成型抗蕈毒鹼藥物</h2></div>
+      <p class="section-desc">每個藥物都用「跟Atropine比起來」的角度記憶——主要差異在能否穿越BBB、作用時間長短、選擇性。</p>
+
+      <h3 id="drug-propantheline">Propantheline</h3>
+      <p>合成<strong>四級銨</strong>抗蕈毒鹼藥；動物無藥動學資料；<strong>口服吸收差（&lt;25%）</strong>；不能穿越BBB；於GI／肝臟代謝（水解）；&lt;5%原型藥經尿液排出；人類血漿T½ 1.6小時，作用時間6小時；副作用類似Atropine（但無CNS效應）。臨床用途（解痙／抗分泌效果）：小動物PO治療腹瀉、腸炎、急性腸躁症、尿失禁、心搏過緩——<strong>因口服吸收差，效果受質疑</strong>；馬IV用於降低結腸蠕動、放鬆直腸以利直腸檢查與手術操作。</p>
+
+      <h3 id="drug-glycopyrrolate">Glycopyrrolate</h3>
+      <p>合成<strong>四級銨</strong>；<strong>不易進入CNS或眼睛</strong>。藥動學：IM給藥後血漿濃度30–45分鐘達峰值；迷走神經阻斷效果持續2–3小時，止涎效果持續7小時；主要腎臟排除，代謝角色小；血漿T½約1小時（IM或IV後）。臨床用途：IV／IM／SC作術前用藥；IV／IM治療竇性心搏過緩、竇房停止、不完全房室傳導阻滯；SC控制貓過度流涎。</p>
+
+      <h3 id="drug-ipratropium">Ipratropium Bromide 與 Tropicamide</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Ipratropium Bromide</div>
+          <p>四級抗蕈毒鹼藥；吸入劑型治療馬慢性阻塞性肺病（heaves）；<strong>作用時間短（4–6小時），須頻繁給藥</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Tropicamide</div>
+          <p>合成三級胺；局部眼科給藥誘導散瞳與睫狀肌麻痺；<strong>優於Atropine之處：作用時間較短（4–8小時）</strong>，更適合診斷性眼科檢查。</p>
+        </div>
+      </div>
+
+      <h3 id="drug-aminopentamide">Aminopentamide 與 Oxybutynin</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Aminopentamide</div>
+          <p>PO／IM／SC治療犬貓急性腹部臟器痙攣、幽門痙攣或肥厚性胃炎相關的噁心嘔吐腹瀉；<strong>與Atropine相比，GI效果較強、散瞳與流涎抑制效果較弱</strong>；可能降低胃酸分泌。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Oxybutynin</div>
+          <p>合成三級胺解痙藥；PO作為犬貓逼尿肌反射亢進（膀胱過動症）的輔助治療；GI吸收快而良好；肝臟代謝、尿液排除；人類作用時間6–10小時。</p>
+        </div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Propantheline、Aminopentamide 在馬腸絞痛／小動物腹瀉的臨床應用，與腸胃道用藥頁面的抗膽鹼藥物段落內容互補，見 <a href="腸胃道用藥.html#drug-antimuscarinicgi">腸胃道用藥：抗膽鹼藥物在GI中的應用</a>。</p>
+    </div>
+
+    <!-- NMB MECHANISM -->
+    <div class="section" id="section-nmbmechanism">
+      <div class="section-head"><div class="section-num">5</div><h2>神經肌肉阻斷機轉：去極化型 vs 競爭性 Mechanisms of Action</h2></div>
+      <p class="section-desc">神經肌肉阻斷劑（肌肉鬆弛劑的一種）作用於神經肌肉接合處的N<sub>M</sub>受體，依機轉分兩大類——這組分類決定了臨床用法與逆轉方式的所有差異。</p>
+
+      <div class="alert alert-info">
+        <div class="alert-label">肌肉鬆弛劑的兩大類別</div>
+        <p>①<strong>神經肌肉阻斷劑：</strong>作用在神經肌肉終板、無CNS活性，手術中用於產生暫時性癱瘓；②<strong>解痙藥（Spasmolytics，「中樞性」肌肉鬆弛劑）：</strong>用於緩解肌肉骨骼疼痛與痙攣、降低多種神經性疾病造成的痙攣性——本頁的Dantrolene屬於後者但機轉又不同（見第6節）。</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">① 去極化型 Depolarizing Drugs</div>
+          <p><strong>代表藥：Succinylcholine（SuCh）</strong></p>
+          <p>結合終板N<sub>M</sub>受體產生去極化（Phase I：肌肉顫動 fasciculation）；因去極化<strong>持續存在</strong>，終板電活動喪失，導致鬆弛性麻痺（Phase II）；SuCh被AChE水解的速度<strong>比ACh慢</strong>。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">② 競爭性拮抗型 Competitive Blocking Drugs</div>
+          <p><strong>代表藥：Tubocurarine、Pancuronium、Atracurium、Vecuronium</strong></p>
+          <p><strong>不會活化</strong>N<sub>M</sub>受體；為非去極化型競爭性拮抗劑；終板電位降低，未達興奮肌肉所需的閾值，肌肉因此放鬆。</p>
+        </div>
+      </div>
+
+      <h3>治療用途與給藥</h3>
+      <ul>
+        <li>皆經<strong>IV</strong>給藥</li>
+        <li>促進手術中骨骼肌鬆弛——可<strong>減少全身麻醉藥用量</strong>、提升手術安全性</li>
+        <li>利於氣管內管置入</li>
+        <li>機械通氣時提供骨骼肌鬆弛</li>
+      </ul>
+
+      <h3>逆轉方式：關鍵差異<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">兩類藥物的逆轉方式完全不同</div>
+        <p><strong>競爭性阻斷劑</strong>可用抗ChE藥物（如Edrophonium、Neostigmine）拮抗；<strong>SuCh沒有好的拮抗劑</strong>——中毒或延長作用時病患應以人工呼吸支持，等待藥物自然代謝，不能靠給藥快速逆轉。</p>
+      </div>
+    </div>
+
+    <!-- NMB DRUGS -->
+    <div class="section" id="section-nmbdrugs">
+      <div class="section-head"><div class="section-num">6</div><h2>個別藥物與藥動學</h2></div>
+      <p class="section-desc">依機轉分兩組個別討論藥動學特性，這些細節決定了臨床上「選哪一種」以及「肝腎疾病病患能不能用」。</p>
+
+      <h3 id="drug-suchpk">Succinylcholine（SuCh）藥動學<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li>IV給藥後起效<strong>30–60秒</strong>，效果於<strong>10分鐘內</strong>逐漸消退</li>
+        <li>經<strong>假膽鹼酯酶（Pseudocholinesterase, PChE）</strong>水解</li>
+        <li>PChE活性有<strong>物種差異：反芻動物低於其他物種（如馬）</strong></li>
+        <li><strong>犬可能出現不明原因的延長麻痺（約20分鐘）</strong></li>
+        <li><strong>曾暴露有機磷ChE抑制劑（如殺蟲劑或眼藥水）的動物，暴露後30天內使用SuCh可能延長作用時間</strong>（OP共價結合ChE，抑制持續存在，降低SuCh水解速率）</li>
+      </ul>
+
+      <h3 id="drug-competitivepk">競爭性阻斷劑藥動學比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>代謝與排除</th><th>臨床考量</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tubocurarine</strong></td><td>動物體內幾乎不代謝；約50%以原型經尿液、50%經膽汁排出</td><td>獸醫臨床<strong>因安全疑慮少用</strong>；肝腎疾病病患須謹慎給藥</td></tr>
+            <tr><td><strong>Pancuronium</strong></td><td>部分肝臟代謝，原型或代謝物經腎臟排除</td><td>顯著肝／腎功能不全會<strong>延長麻痺時間</strong></td></tr>
+            <tr><td><strong>Vecuronium</strong></td><td>約15%經腎臟排除，其餘經肝臟代謝與膽汁排除</td><td>—</td></tr>
+            <tr><td><strong>Atracurium</strong></td><td><strong>獨特代謝路徑：</strong>血漿中自發性降解（Hoffman elimination）＋酯類水解，不經肝腎</td><td><strong>肝／腎疾病病患的首選藥物</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- NMB ADVERSE -->
+    <div class="section" id="section-nmbadverse">
+      <div class="section-head"><div class="section-num">7</div><h2>不良反應與影響因子</h2></div>
+      <p class="section-desc">神經肌肉阻斷劑最重要的安全觀念，是理解這類藥物「阻斷的是什麼、沒有阻斷的是什麼」。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">核心安全觀念<span class="tag tag-exam">重要</span></div>
+        <p>神經肌肉阻斷劑<strong>不影響感覺機制，對痛覺（nociception）沒有作用</strong>——動物雖然肢體癱瘓，<strong>清醒狀態下仍能感覺疼痛</strong>；可能出現延長的肌肉無力與呼吸暫停；<strong>這類藥物不應在缺乏人工呼吸設備的情況下使用</strong>，且絕對不能單獨使用替代麻醉/鎮痛。</p>
+      </div>
+
+      <h3>個別藥物副作用</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>不良反應</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Succinylcholine</strong></td><td>引發不協調肌肉收縮，可持續約30秒且會疼痛；可能刺激自主神經節N<sub>N</sub>受體與蕈毒鹼受體→心搏過緩、支氣管/唾液分泌增加；<strong>可誘發豬與馬的惡性高熱</strong></td></tr>
+            <tr><td><strong>Tubocurarine</strong></td><td><strong>肥大細胞釋放組織胺→低血壓</strong>；阻斷自主神經節→低血壓；<strong>犬貓特別容易發生組織胺釋放，此為臨床少用於這些物種的原因</strong>；組織胺釋放亦可致支氣管痙攣、支氣管分泌與流涎</td></tr>
+            <tr><td><strong>Pancuronium</strong></td><td>輕度心搏過速與高血壓、唾液分泌過多；偶見組織胺相關過敏反應</td></tr>
+            <tr><td><strong>Atracurium</strong></td><td>組織胺釋放<strong>少於</strong>Tubocurarine</td></tr>
+            <tr><td><strong>Vecuronium</strong></td><td>肌肉無力</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>影響作用時間的因子<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>基因性或ChE抑制劑誘發的血漿AChE活性降低</strong>會延長SuCh作用時間</li>
+        <li><strong>肝臟疾病</strong>可能延長SuCh作用時間（血漿ChE由肝臟合成）</li>
+        <li><strong>Aminoglycoside類抗生素</strong>具神經肌肉阻斷活性（抑制ACh釋放），與NMJ阻斷劑併用需注意加成效應</li>
+        <li><strong>吸入性麻醉藥（如Isoflurane）會增強競爭性神經肌肉阻斷劑效果</strong>（穩定接合後膜或造成過極化）</li>
+        <li>SuCh與吸入性麻醉藥併用可能<strong>增加心搏過緩、心律不整、竇性停止與呼吸暫停的發生率</strong>（神經節效應所致）</li>
+      </ul>
+    </div>
+
+    <!-- DANTROLENE -->
+    <div class="section" id="section-dantrolene">
+      <div class="section-head"><div class="section-num">8</div><h2>Dantrolene</h2></div>
+      <p class="section-desc">機轉與前述NMJ阻斷劑完全不同——直接作用骨骼肌本身，不經過神經或受體。</p>
+
+      <h3 id="drug-dantrolenemech">機轉與臨床用途<span class="tag tag-exam">重要</span></h3>
+      <p><strong>直接作用型肌肉鬆弛劑，透過降低肌肉細胞內Ca²⁺濃度</strong>——抑制肌漿網（sarcoplasmic reticulum）釋放Ca²⁺。口服或腸胃外給藥，治療用途：</p>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">預防與治療惡性高熱</div><p>Malignant Hyperthermia</p></div>
+        <div class="card"><div class="card-title">犬貓功能性尿道阻塞</div><p>因尿道外括約肌張力增加所致</p></div>
+        <div class="card"><div class="card-title">馬麻醉後肌炎與運動性橫紋肌溶解</div><p>Postanesthetic myositis／Exertional rhabdomyolysis</p></div>
+      </div>
+
+      <h3>副作用與藥動學</h3>
+      <p>副作用：人類具肝毒性（動物尚不確定，<strong>應監測肝功能</strong>）；虛弱、CNS抑制、GI不適（嘔吐、便秘）。藥動學資料<strong>僅見於馬</strong>：口服（intragastric）生體可用率40%；1.5小時達血漿高峰；食物會降低GI吸收；<strong>高度白蛋白結合</strong>，可能與其他高蛋白結合藥物產生交互作用；肝臟代謝、代謝物經尿液排出，僅約1%原型藥排出；消除T½約130分鐘。</p>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">9</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Atropine是所有抗蕈毒鹼藥物的原型</strong>（三級胺，穿BBB）；散瞳、心搏過速（高劑量）、↓分泌、↓GI張力；合成四級銨藥物（Glycopyrrolate、Propantheline）不穿BBB，只作用周邊。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>NMJ阻斷劑兩大機轉：</strong>去極化型（SuCh，持續去極化致麻痺，無好拮抗劑）vs競爭性型（Tubocurarine等，佔據受體不活化，可用抗ChE藥物逆轉）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>核心安全觀念：NMJ阻斷劑不影響痛覺與意識</strong>，動物癱瘓但可能清醒有痛覺，絕不可單獨使用，須有呼吸支持設備。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Tubocurarine犬貓易組織胺釋放</strong>（臨床少用於這些物種）；<strong>Atracurium經Hoffman elimination不經肝腎，是肝腎疾病病患首選</strong>。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>SuCh延長作用的三個風險因子：</strong>犬不明原因延長麻痺（~20分鐘）、反芻動物PChE活性低、30天內OP暴露史。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>吸入性麻醉藥會增強競爭性阻斷劑效果</strong>；SuCh併用吸入性麻醉藥增加心律不整風險（神經節效應）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Dantrolene機轉獨立於NMJ之外</strong>：直接抑制肌漿網Ca²⁺釋放，治療惡性高熱、犬貓尿道張力過高、馬麻醉後肌炎。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，ANS 2 handout）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋Atropine藥理效果、NMJ阻斷機轉、逆轉方式、Dantrolene用途各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 一隻犬需要術前用藥以減少呼吸道分泌，但獸醫師希望避免藥物影響中樞神經系統。下列何者最適合？</div>
+        <ul class="quiz-options">
+          <li>(A) Atropine</li>
+          <li>(B) Scopolamine</li>
+          <li>(C) Glycopyrrolate</li>
+          <li>(D) Hyoscyamine</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">Glycopyrrolate是合成四級銨化合物，不易進入CNS，因此可以達到減少呼吸道與唾液分泌的周邊效果而不影響中樞神經系統；Atropine、Scopolamine、Hyoscyamine皆為（或類似）三級胺生物鹼，可穿越血腦屏障。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 動物注射神經肌肉阻斷劑後肢體完全癱瘓不動，代表牠已經進入麻醉狀態、不會感覺到疼痛。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">神經肌肉阻斷劑只作用於神經肌肉接合處的受體，完全不影響感覺機制與痛覺傳導。動物雖然肢體癱瘓無法動彈，但意識與痛覺可能完全清醒正常，這類藥物絕對不能單獨使用，必須合併足夠的全身麻醉與鎮痛藥物。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻貓因競爭性神經肌肉阻斷劑（如Pancuronium）過量出現延長的肌肉無力，獸醫師想要逆轉其效果，應該考慮使用下列何者？</div>
+        <ul class="quiz-options">
+          <li>(A) Atropine</li>
+          <li>(B) Neostigmine</li>
+          <li>(C) 只能提供呼吸支持，沒有拮抗劑可用</li>
+          <li>(D) Dantrolene</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">競爭性神經肌肉阻斷劑（如Pancuronium、Tubocurarine）可用抗ChE藥物（Neostigmine、Edrophonium）逆轉，因為增加的ACh濃度可以與阻斷劑競爭受體結合位。相對地，去極化型的Succinylcholine沒有好的拮抗劑，只能提供呼吸支持等待自然代謝。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 為什麼曾經接觸過有機磷殺蟲劑的動物，在暴露後30天內使用Succinylcholine可能出現作用時間延長的風險？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">Succinylcholine主要經血漿假膽鹼酯酶（PChE）水解代謝而終止其神經肌肉阻斷作用。有機磷類化合物會與膽鹼酯酶形成穩定的共價鍵結，長時間、甚至不可逆地抑制酵素活性（這也是有機磷中毒需要在24小時內使用2-PAM才能有效逆轉、否則會發生「老化」的原因）。因此，動物若曾經暴露於有機磷殺蟲劑或含OP成分的眼藥水，其體內的膽鹼酯酶活性可能在相當長一段時間內（暴露後30天內都需留意）仍處於受抑制的狀態，使Succinylcholine的水解代謝速率降低，導致藥物作用時間比預期延長，術前應詳細詢問病史以避免此風險。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻患有肝臟與腎臟功能不全的犬需要進行手術，麻醉團隊評估是否需要使用神經肌肉阻斷劑來提升手術安全性與減少全身麻醉藥用量。請問：(1) 在肝腎功能不全的情況下，選擇神經肌肉阻斷劑時應該優先考慮哪一種？為什麼？(2) 應避免使用哪些藥物？(3) 使用神經肌肉阻斷劑時，麻醉團隊還需要注意哪些配套措施？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 優先考慮的藥物：</strong>應優先考慮 <strong>Atracurium</strong>，因為它具有獨特的代謝路徑——血漿中的自發性降解（Hoffman elimination）加上酯類水解，這個代謝過程<strong>不經過肝臟或腎臟</strong>，因此在肝腎功能不全的病患身上，其代謝與消除不會受到影響，是這類病患的首選藥物。<br><strong>(2) 應避免使用的藥物：</strong>應避免 <strong>Tubocurarine</strong>（幾乎不被代謝，50%經尿液、50%經膽汁排出，肝腎疾病病患須格外謹慎，且犬貓容易發生組織胺釋放）與 <strong>Pancuronium</strong>（部分經肝臟代謝、經腎臟排除，顯著肝腎功能不全會延長其麻痺時間），這兩者在肝腎功能不全時都可能因代謝或排除受阻而使藥效與副作用延長、難以預測。<br><strong>(3) 配套措施：</strong>神經肌肉阻斷劑完全不影響痛覺與意識，因此必須合併足夠的全身麻醉與鎮痛藥物，不能單獨使用；同時必須備妥人工呼吸支持設備，因為這類藥物會造成呼吸肌麻痺；若使用吸入性麻醉藥（如Isoflurane），需注意其會增強競爭性阻斷劑的效果，可能需要調整劑量；術中應持續監測病患的呼吸與神經肌肉阻斷恢復程度，必要時以抗ChE藥物（如Neostigmine）逆轉殘餘的阻斷效果。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  atropine: 'Atropine 與生物鹼類',
+  syntheticantimuscarinics: '合成型抗蕈毒鹼藥物',
+  nmbmechanism: '神經肌肉阻斷機轉',
+  nmbdrugs: '個別藥物與藥動學',
+  nmbadverse: '不良反應與影響因子',
+  dantrolene: 'Dantrolene',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：鎮靜與術前用藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">鎮靜與術前用藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">鎮靜與術前用藥 Sedatives &amp; Preanesthetic Medication</h1>
+      <p class="page-subtitle">CNS抑制光譜、GABAA受體機轉、Barbiturates與Benzodiazepines比較、Phenothiazines/α2 agonists術前用藥整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮 A2、A5）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.14、Handbook of Veterinary Pharmacology</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-19</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎機轉</div>
+    <a onclick="showSection('cnsdepression')" id="nav-cnsdepression"><span class="nav-icon">🧠</span> CNS抑制光譜與GABAA機轉</a>
+    <div class="section-label" style="margin-top:8px;">藥物家族</div>
+    <a onclick="showSection('barbiturates')" id="nav-barbiturates"><span class="nav-icon">💊</span> Barbiturates（巴比妥類）</a>
+    <a onclick="showSection('benzodiazepines')" id="nav-benzodiazepines"><span class="nav-icon">💊</span> Benzodiazepines（BZD）</a>
+    <a onclick="showSection('tranquilizers')" id="nav-tranquilizers"><span class="nav-icon">🎯</span> Phenothiazines、Butyrophenones 與 α2 Agonists</a>
+    <a onclick="showSection('otherpremed')" id="nav-otherpremed"><span class="nav-icon">➕</span> 其他鎮靜輔助藥物</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章要解決的問題是：手術前要怎麼讓動物安靜下來、減少緊張與掙扎，同時讓後面正式麻醉更安全、用量更少？答案是<strong>CNS抑制劑（CNS depressants）</strong>——這些藥物透過增強大腦中最主要的抑制性訊號<strong>GABA</strong>，讓神經活動整體降下來，效果從「只是比較不緊張」到「完全失去意識」是一個連續光譜，差別在於劑量與藥物本身能走多遠。<strong>Barbiturates（巴比妥類）和酒精一樣可以走完整個光譜（鎮靜→麻醉→死亡）</strong>，所以安全範圍窄；<strong>Benzodiazepines（BZD）的效果有天花板，頂多讓動物鎮靜催眠，自己不會造成完全麻醉</strong>，所以安全很多——這組「full spectrum vs. 有限光譜」的對比是整章最核心的概念。除了這兩類經典藥物，術前用藥還會用到<strong>Phenothiazines（如Acepromazine，屬「主要鎮定劑」，阻斷多巴胺受體）</strong>與<strong>α2 agonists（如Xylazine，另一類藥物，兼具鎮靜、止痛與肌肉鬆弛）</strong>，機轉與BZD完全不同，這章最後會逐一介紹。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('cnsdepression')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">CNS抑制光譜</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">GABAA受體機轉</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('barbiturates')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Barbiturates</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">全光譜，安全範圍窄</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('benzodiazepines')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Benzodiazepines</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">有天花板，較安全</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('tranquilizers')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Phenothiazines／α2 agonists</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">大／小動物術前鎮靜</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">九個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>GABAA受體是一個五聚體氯離子通道，Barbiturates結合β次單元、BZD結合γ次單元</strong>：Barbiturates增加通道「開啟時間」，高劑量可直接活化通道（不需GABA存在）造成完全CNS抑制；BZD增加通道「開啟頻率」，但必須有GABA在場才有效——這解釋了為何BZD本身不會造成致命的全身麻醉。</li>
+          <li><strong>Barbiturates依作用時間分三級，臨床用途完全不同：</strong>超短效（Thiopental、Methohexital，用於麻醉誘導）、短效（Pentobarbital，安樂死用）、長效（Phenobarbital，抗癲癇用）。</li>
+          <li><strong>Thiopental麻醉效果的終止靠「再分佈」而非代謝：</strong>瘦體型犬種（Sighthounds）脂肪組織少、再分佈空間有限，恢復時間大幅延長；Greyhound另缺乏代謝Thiobarbiturates的氧化酵素（講義：恢復慢2–4倍；教科書：甦醒可能&gt;8小時），Thiobarbiturates不建議用於Greyhound。</li>
+          <li><strong>BZD的急性毒性遠低於Barbiturates</strong>（大鼠LD50：Diazepam 710 vs Pentobarbital 162 mg/kg）；但<strong>貓可能出現反常興奮，且「口服」Diazepam連續使用數日可能引發貓致命性急性肝壞死</strong>（教科書：多在用藥約5天後出現，機轉可能與代謝物Temazepam累積及膽鹽輸出泵受抑制有關，貓應考慮改用其他BZD）。</li>
+          <li><strong>Flumazenil是BZD的競爭性拮抗劑</strong>，對GABAA受體有高親和力但無內在活性，可逆轉BZD介導的鎮靜並縮短麻醉恢復時間（教科書補充：長期使用BZD而產生依賴的犬，Flumazenil可能誘發戒斷症狀）。</li>
+          <li><strong>馬對BZD反應差：</strong>成年馬使用BZD容易出現運動失調、肌肉無力與肌束顫動，不是有用的術前用藥；大動物術前鎮靜多依賴α2 agonists（Xylazine、Detomidine）或Chloral hydrate。</li>
+          <li><strong>Phenothiazines（如Acepromazine）是「主要鎮定劑」，阻斷D2（鎮靜、止吐）並同時阻斷α1（周邊血管擴張→低血壓）</strong>；無鎮痛效果，常與Opioid併用做Neuroleptanalgesia；重要禁忌與注意：不可與Epinephrine併用（epinephrine reversal）、虛弱/脫水/休克動物、種公馬（陰莖脫垂）、Boxer可能過度反應；無特異拮抗劑（教科書）。</li>
+          <li><strong>α2 agonists（Xylazine、Detomidine、Medetomidine等）作用於中樞α2受體（自體受體負回饋，降低NE釋放）</strong>：產生鎮靜、強效鎮痛與肌肉鬆弛；心血管呈雙相反應（先高血壓後低血壓）並伴隨心搏過緩，治療劑量使心輸出量下降約50%；反芻動物因α2D受體對Xylazine特別敏感，劑量約為單胃動物的1/10；可用Yohimbine/Tolazoline/Atipamezole拮抗。</li>
+          <li><strong>Buspirone是不作用GABA受體的抗焦慮藥（5-HT1A部分促效劑）</strong>：無GABA介導的鎮靜、無交叉耐受性、無成癮與戒斷問題，臨床用於犬貓行為治療而非術前麻醉。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Pentobarbital</td><td>GABAA受體致效劑（Barbiturate類，短效）</td><td><strong>IV</strong>；短效，小型實驗動物安樂死，安全範圍窄</td><td class="drug-locations"><a href="#drug-barbclass" class="drug-link">短效，小型實驗動物安樂死，安全範圍窄</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Phenobarbital</td><td>GABAA受體致效劑（Barbiturate類，長效）</td><td><strong>PO（維持）；亦可IV負荷劑量</strong>；長效Barbiturate；★犬貓抗癲癇第一線維持用藥（60–80%犬有效），P450誘導有肝毒性</td><td class="drug-locations"><a href="#drug-barbclass" class="drug-link">長效Barbiturate</a></td></tr>
+            <tr><td>Methohexital</td><td>GABAA受體致效劑（Barbiturate類，超短效）</td><td><strong>IV</strong>；Sighthound安全替代選擇；代謝較快，較易低劑量興奮</td><td class="drug-locations"><a href="#drug-thiopental" class="drug-link">Sighthound安全替代選擇</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Thiopental<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Thiopentone</div></td><td>GABAA受體致效劑（Barbiturate類，超短效）</td><td><strong>IV bolus</strong>；超短效誘導，再分佈終止效果，Sighthound恢復延長；與Methohexital比較，Greyhound禁忌</td><td class="drug-locations"><a href="#drug-thiopental" class="drug-link">超短效誘導，再分佈終止效果，Sighthound恢復延長</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Midazolam</td><td>Benzodiazepine受體致效劑（GABAA正向調節）</td><td><strong>治療癲癇重積症的第一線用藥（IV bolus）</strong>；短效BZD，常與Opioid/Ketamine併用；癲癇重積症輔助用藥（T½ 77分鐘）</td><td class="drug-locations"><a href="#drug-bzdeffects" class="drug-link">短效BZD，常與Opioid/Ketamine併用</a></td></tr>
+            <tr><td>Diazepam</td><td>Benzodiazepine受體致效劑（GABAA正向調節）</td><td>食慾促進；術前用藥；★癲癇重積症IV首選（犬不適合長期維持，貓可口服）</td><td class="drug-locations"><a href="#drug-diazepam" class="drug-link">術前用藥</a></td></tr>
+            <tr><td>Flumazenil</td><td>Benzodiazepine受體競爭性拮抗劑</td><td><strong>IV</strong>；BZD競爭性拮抗劑</td><td class="drug-locations"><a href="#drug-flumazenil" class="drug-link">BZD競爭性拮抗劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Acepromazine</td><td>Phenothiazine，阻斷中樞多巴胺(D2)受體</td><td><strong>PO或IV／IM／SC</strong>；Phenothiazine鎮定劑，無鎮痛，禁用食品動物</td><td class="drug-locations"><a href="#drug-phenothiazine" class="drug-link">Phenothiazine鎮定劑，無鎮痛，禁用食品動物</a></td></tr>
+            <tr><td>Chlorpromazine</td><td>Phenothiazine，阻斷中樞多巴胺(D2)受體</td><td><strong>IV／IM／PO</strong>；FDA核准犬貓；異寵化學保定；馬單用致失調興奮</td><td class="drug-locations"><a href="#drug-acepromazine" class="drug-link">FDA核准犬貓；異寵化學保定；馬單用致失調興奮</a></td></tr>
+            <tr><td>Azaperone</td><td>Butyrophenone類，阻斷中樞多巴胺(D2)受體</td><td><strong>IM</strong>；豬與野生動物鎮定劑，馬IV可能反常興奮</td><td class="drug-locations"><a href="#drug-butyrophenones" class="drug-link">豬與野生動物鎮定劑，馬IV可能反常興奮</a></td></tr>
+            <tr><td>Droperidol</td><td>Butyrophenone類，阻斷中樞多巴胺(D2)受體</td><td><strong>IV或IM</strong>；犬術前鎮定劑，與Fentanyl組成Innovar-Vet®</td><td class="drug-locations"><a href="#drug-butyrophenones" class="drug-link">犬術前鎮定劑，與Fentanyl組成Innovar-Vet®</a></td></tr>
+            <tr><td>Haloperidol</td><td>Butyrophenone類，阻斷中樞多巴胺(D2)受體</td><td><strong>IM或PO</strong>；犬預防Apomorphine誘發嘔吐</td><td class="drug-locations"><a href="#drug-butyrophenones" class="drug-link">犬預防Apomorphine誘發嘔吐</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Xylazine</td><td>α2 adrenergic agonist（貓經此受體誘發嘔吐）</td><td><strong>IM／IV／SC</strong>；貓首選催吐劑；α2 agonist術前鎮靜</td><td class="drug-locations"><a href="#drug-alpha2agonist" class="drug-link">α2 agonist術前鎮靜</a></td></tr>
+            <tr><td>Detomidine</td><td>α2 adrenergic receptor致效劑</td><td><strong>IV或IM</strong>；α2 agonist，馬術前鎮靜</td><td class="drug-locations"><a href="#drug-alpha2agonist" class="drug-link">α2 agonist，馬術前鎮靜</a></td></tr>
+            <tr><td>Medetomidine</td><td>α2 adrenergic receptor致效劑（高選擇性）</td><td><strong>IV或IM</strong>；α2 agonist，犬貓術前用藥，常配Ketamine</td><td class="drug-locations"><a href="#drug-alpha2agonist" class="drug-link">α2 agonist，犬貓術前用藥，常配Ketamine</a></td></tr>
+            <tr><td>Dexmedetomidine</td><td>α2 adrenergic receptor致效劑（Medetomidine活性異構物，選擇性更高）</td><td><strong>IV或IM</strong>；核准犬貓，極強效選擇性α2 agonist</td><td class="drug-locations"><a href="#drug-xylazine" class="drug-link">核准犬貓，極強效選擇性α2 agonist</a></td></tr>
+            <tr><td>Romifidine</td><td>α2 adrenergic receptor致效劑</td><td>核准用於馬，IV</td><td class="drug-locations"><a href="#drug-xylazine" class="drug-link">核准用於馬，IV</a></td></tr>
+            <tr><td>Atipamezole</td><td>α2 adrenergic receptor拮抗劑（高選擇性）</td><td><strong>IM為佳</strong>；α2拮抗劑，全物種有效，價格昂貴；核准逆轉Dexmedetomidine</td><td class="drug-locations"><a href="#drug-alpha2antagonists" class="drug-link">α2拮抗劑，全物種有效，價格昂貴</a></td></tr>
+            <tr><td>Yohimbine</td><td>α2 adrenergic receptor拮抗劑</td><td><strong>IV或IM</strong>；單胃動物α2拮抗劑，反芻動物效果有限；逆轉Xylazine/Medetomidine/Amitraz</td><td class="drug-locations"><a href="#drug-alpha2antagonists" class="drug-link">單胃動物α2拮抗劑，反芻動物效果有限</a></td></tr>
+            <tr><td>Tolazoline</td><td>α1／α2 adrenergic receptor拮抗劑</td><td><strong>緩慢IV</strong>；α1/α2拮抗劑，反芻動物適用；反芻動物對抗α2 agonist的有效解毒劑</td><td class="drug-locations"><a href="#drug-alpha2antagonists" class="drug-link">α1/α2拮抗劑，反芻動物適用</a></td></tr>
+            <tr><td>Chloral hydrate</td><td>中樞抑制機轉未明（推測GABA相關），代謝物trichloroethanol為活性成分</td><td><strong>IV或PO（口服易致嘔吐，不建議）</strong>；大動物術前用藥，現已少用</td><td class="drug-locations"><a href="#drug-chloralhydrate" class="drug-link">大動物術前用藥，現已少用</a></td></tr>
+            <tr><td>Buspirone</td><td>5-HT1A受體部分致效劑</td><td><strong>無GABA介導的鎮靜、無交叉耐受性、無抗癲癇與肌肉鬆弛作用、無成癮與戒斷問題</strong>；5-HT1A部分促效劑，行為治療</td><td class="drug-locations"><a href="#drug-buspirone" class="drug-link">5-HT1A部分促效劑，行為治療</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- CNS DEPRESSION -->
+    <div class="section" id="section-cnsdepression">
+      <div class="section-head"><div class="section-num">3</div><h2>CNS 抑制光譜與 GABAA 機轉</h2></div>
+      <p class="section-desc">理解「全光譜 vs 有限光譜」的差異，是判斷一個CNS抑制劑安全與否最快的方法。</p>
+
+      <h3 id="drug-cnsspectrum">CNS 抑制的連續光譜<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">正常</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">解除焦慮（Anxiolysis）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">去抑制（Disinhibition）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node amber">鎮靜（Sedation）→催眠（Hypnosis）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">全身麻醉（General Anesthesia）→昏迷→死亡</div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床警示</div>
+        <p><strong>Barbiturates與酒精是「全光譜」藥物：</strong>劑量足夠時可以一路走到死亡，這是它們安全範圍窄、可用於安樂死或麻醉誘導、但也容易過量致死的根本原因。<strong>Benzodiazepines是「有限光譜」藥物：</strong>效果頂多到催眠，本身劑量再高也不會造成外科麻醉深度的完全抑制，這正是BZD單獨使用相對安全的原因，但也代表BZD不能單獨當麻醉藥使用。</p>
+      </div>
+
+      <h3 id="drug-gabaareceptor">GABAA 受體結構與機轉<span class="tag tag-exam">重要</span></h3>
+      <p>GABAA受體是一個<strong>配體閘門氯離子通道（ligand-gated Cl⁻ channel）</strong>，由多個次單元組成五聚體蛋白：2個α次單元（結合2個GABA分子，活化通道）、2個β次單元（<strong>Barbiturate結合位</strong>）、1個γ次單元（<strong>Benzodiazepine結合位</strong>）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>結合位</th><th>電生理效果</th><th>是否需要GABA存在</th></tr></thead>
+          <tbody>
+            <tr><td>Barbiturates</td><td>β次單元</td><td>增加通道<strong>開啟時間</strong></td><td>高劑量可直接活化通道（不需GABA）</td></tr>
+            <tr><td>Benzodiazepines</td><td>γ次單元</td><td>增加通道<strong>開啟頻率</strong></td><td>必須有GABA存在才有效</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">這個「是否需要GABA存在才能作用」的差異，直接解釋了兩類藥物安全性的天壤之別：Barbiturates在極高劑量下可以繞過生理訊號直接抑制中樞，BZD則永遠受限於身體自己能產生多少GABA。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A2、A5）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.14 Sedatives and Tranquilizers）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- BARBITURATES -->
+    <div class="section" id="section-barbiturates">
+      <div class="section-head"><div class="section-num">4</div><h2>Barbiturates（巴比妥類）</h2></div>
+      <p class="section-desc">Barbiturates依作用時間長短分成三個等級，各自對應完全不同的臨床角色，這是本節最重要的分類邏輯。</p>
+
+      <h3 id="drug-barbclass">依作用時間分類<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>等級</th><th>作用時間</th><th>代表藥物</th><th>臨床用途</th></tr></thead>
+          <tbody>
+            <tr><td>超短效</td><td>&lt;1小時（10-30分鐘）</td><td>Thiopental、Thiamylal、Methohexital</td><td>注射式麻醉誘導</td></tr>
+            <tr><td>短效</td><td>1–2小時（講義同一份中另一處寫3–4小時；Handbook：30–60分鐘，各來源不一致）</td><td>Pentobarbital</td><td>安樂死（小型實驗動物，安全範圍極窄）</td></tr>
+            <tr><td>長效</td><td>~12小時</td><td>Phenobarbital</td><td>抗癲癇（口服，非麻醉劑量）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">Thiobarbiturates（如Thiopental，R3為S取代O）脂溶性較Oxybarbiturates（如Pentobarbital）高，起效更快；作用時間快慢排序：Methohexital ≈ Thiopental（超短效）＞Pentobarbital＞Phenobarbital。</p>
+
+      <h3 id="drug-thiopental">超短效 Barbiturates 藥動學<span class="tag tag-exam">重要</span></h3>
+      <p>高脂溶性、IV bolus後快速分佈進入高灌流的CNS，起效極快；<strong>麻醉效果終止靠「再分佈（redistribution）」而非代謝或排除</strong>——藥物從腦部重新分佈到肌肉與脂肪組織，血中濃度快速下降，但消除半衰期其實遠比麻醉持續時間長（如Thiopental麻醉僅10–30分鐘，但消除t½犬約180分鐘、羊約250分鐘）。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床警示</div>
+        <p><strong>瘦體型犬種（Sighthounds：Greyhound、Whippet、Afghan Hound、Irish Wolfhound等）脂肪組織少，Thiopental再分佈的空間有限，恢復時間會大幅延長且效果放大</strong>；Greyhound另外缺乏代謝Thiopental的氧化酵素，恢復速度比其他犬種慢2–4倍。<strong>這些犬種建議改用Methohexital（肝臟代謝快）或Propofol</strong>。教科書補充：Greyhound使用Thiobarbiturates甦醒可能&gt;8小時；Methohexital代謝比Thiopental快4–5倍，但甦醒仍主要靠再分佈；Propofol現為Greyhound較常用選擇，但其恢復時間仍較混種犬長。重複注射Barbiturates會因藥物在脂肪組織累積而使恢復時間延長。</p>
+      </div>
+
+      <h3>藥理作用與不良反應</h3>
+      <p>作用：鎮靜/催眠、抗癲癇（Phenobarbital）、輕度肌肉鬆弛、呼吸抑制與呼吸暫停（IV bolus）、心臟抑制與心律不整（中樞交感神經流出降低所致）；<strong>Barbiturates會誘導肝臟CYP450酵素</strong>，與多種藥物及內生性物質（如類固醇激素）產生交互作用。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>不良反應</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>局部刺激</td><td>血管周圍注射造成組織壞死（藥液呈鹼性，pH 10–11）</td></tr>
+            <tr><td>安全範圍窄（&lt;2）</td><td>呼吸系統副作用可致死；Pentobarbital因此主要用於安樂死</td></tr>
+            <tr><td>低劑量致興奮</td><td>馬：嘶鳴、划動肢體、共濟失調；Methohexital較Thiopental更易致興奮</td></tr>
+            <tr><td>高劑量嚴重抑制</td><td>心室心律不整、呼吸暫停、死亡</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">大動物臨床上常將Barbiturates與Guaifenesin（中樞性骨骼肌鬆弛劑，兼具鎮靜/鎮痛/袪痰作用，FDA核准用於馬）等術前用藥併用，可降低Barbiturate劑量、減少心肺副作用、讓恢復更平順；馬匹單用Thiopental易在無充分術前鎮靜下誘發興奮。中毒處置：無真正解毒劑，以支持療法（正壓通氣、輸液、升壓藥）、血液透析、利尿與尿液鹼化（長效製劑）為主。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A2、A5）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.14 Sedatives and Tranquilizers）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- BENZODIAZEPINES -->
+    <div class="section" id="section-benzodiazepines">
+      <div class="section-head"><div class="section-num">5</div><h2>Benzodiazepines（BZD）</h2></div>
+      <p class="section-desc">BZD的臨床應用比Barbiturates廣泛許多，但作為術前用藥時每個物種的反應差異值得特別留意。</p>
+
+      <h3 id="drug-bzdeffects">CNS 效果與臨床用途<span class="tag tag-exam">重要</span></h3>
+      <p>作用：抗焦慮（Anxiolytic）、鎮靜（taming effect）、催眠、順向失憶（anterograde amnesia）、肌肉鬆弛（中樞性，抑制多突觸反射）、抗癲癇——<strong>但不會造成全身麻醉</strong>。臨床用途：失眠與酒精戒斷（人）；焦慮症（人與寵物行為治療）；骨骼肌鬆弛；癲癇重積狀態急救（首選Diazepam IV，能快速進入腦部）；術前用藥（常與Ketamine併用）；Neuroleptanalgesia（與Opioid併用）。</p>
+
+      <h3 id="drug-diazepam">Diazepam 臨床重點</h3>
+      <p>中樞性肌肉鬆弛（抑制多突觸反射，與周邊骨骼肌鬆弛劑機轉不同）；抗癲癇首選（癲癇重積狀態急救藥，也用於治療局部麻醉藥過量誘發的抽搐）；廣泛用於多物種術前用藥（含海豹、水獺、鳥類、貓頭鷹、短吻鱷，常與Ketamine併用）；犬貓行為治療用於抗焦慮。</p>
+
+      <h3 id="drug-bzdadverse">不良反應與物種差異<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>反應</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>輕度身體依賴</td><td>反應時間延長、影響駕駛與動作技巧（人）</td></tr>
+            <tr><td>反彈性失眠</td><td>需逐漸減量停藥，避免症狀復發</td></tr>
+            <tr><td><strong>貓反常興奮</strong></td><td>去抑制效應，臨床上禁忌用於已有攻擊性的動物</td></tr>
+            <tr><td><strong>馬使用效果差</strong></td><td>共濟失調、肌肉無力與肌束顫動，成年馬非有效術前用藥</td></tr>
+            <tr><td>妊娠毒性</td><td>可穿過胎盤進入乳汁；早期妊娠致畸胎性（囓齒類研究）</td></tr>
+            <tr><td><strong>貓Diazepam肝毒性</strong></td><td>講義：貓可能發生嚴重肝壞死（毒性中間代謝物）。教科書/Handbook：見於<strong>口服</strong>Diazepam連續數日，可致命，多在約5天後出現；貓可考慮改用其他BZD</td></tr>
+            <tr><td>Flumazenil與依賴（教科書）</td><td>長期用BZD而依賴的犬，Flumazenil可能誘發戒斷症狀（顫抖、抽搐，偶有死亡）</td></tr>
+            <tr><td>Diazepam吸附PVC（教科書）</td><td>Diazepam會被PVC輸液管/袋吸附達50%，持續輸注或存放於PVC管路時需留意；硬塑膠針筒不受影響</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-flumazenil">Flumazenil（BZD 拮抗劑）</h3>
+      <p>競爭性拮抗劑，對GABAA受體有高親和力但無內在活性；用於治療犬貓BZD中毒；逆轉BZD介導的效果（如麻醉相關鎮靜）、縮短麻醉恢復時間；也能抑制BZD增強酒精效果的作用。</p>
+
+      <h3>Barbiturates vs. Benzodiazepines 總比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>Barbiturates</th><th>Benzodiazepines</th></tr></thead>
+          <tbody>
+            <tr><td>耐受性/成癮風險（人）</td><td>較高</td><td>較低</td></tr>
+            <tr><td>藥物交互作用</td><td>顯著誘導CYP450</td><td>不顯著</td></tr>
+            <tr><td>戒斷反應</td><td>可能致命</td><td>相對溫和</td></tr>
+            <tr><td>過量致死性</td><td>高（全光譜）</td><td>低（有限光譜）</td></tr>
+            <tr><td>安全範圍</td><td>窄</td><td>寬</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">LD50比較：大鼠Diazepam 710 mg/kg vs. Pentobarbital 162 mg/kg——BZD安全範圍遠大於Barbiturates；短效Barbiturates仍作為注射式麻醉藥使用，長效Barbiturates用於抗癲癇；BZD本身不是麻醉藥，而是抗癲癇藥、抗焦慮藥、次要鎮定劑與肌肉鬆弛劑。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A2、A5）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.14 Sedatives and Tranquilizers）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- TRANQUILIZERS -->
+    <div class="section" id="section-tranquilizers">
+      <div class="section-head"><div class="section-num">6</div><h2>Phenothiazines、Butyrophenones 與 α2 Agonists</h2></div>
+      <p class="section-desc">這三類藥物是術前用藥與化學保定最常用的「鎮定/鎮靜劑」，機轉與BZD完全不同：前兩類阻斷多巴胺受體（主要鎮定劑），α2 agonists則是另一類獨立藥物。</p>
+
+      <h3 id="drug-premedrationale">術前給鎮定劑的目的<span class="tag tag-exam">重要</span></h3>
+      <p>住院環境的焦慮與手術疼痛→壓力→循環中兒茶酚胺（Epinephrine）升高；而麻醉藥會使心肌對兒茶酚胺敏感化，可能誘發心律不整。<strong>術前給予鎮定劑與止痛藥可減少壓力反應與心律不整風險</strong>，讓動物在恢復期保持平靜，也能降低麻醉藥的用量。</p>
+
+      <h3 id="drug-tranquilizernomenclature">鎮定劑命名學</h3>
+      <p><strong>主要鎮定劑（Major tranquilizers）＝Neuroleptics＝抗精神病藥物（Antipsychotics）</strong>：Phenothiazines、Butyrophenones、Thioxanthenes皆屬此類；<strong>次要鎮定劑（Minor tranquilizers）＝Benzodiazepines</strong>；α2 Adrenergic agonists是另一類，常與上述藥物併用。名詞區分：Tranquilization（焦慮降低、放鬆，但仍知覺周遭）；Sedation（CNS抑制、嗜睡，對周遭覺察降低）；Chemical restraint（化學保定）。</p>
+
+      <h3 id="drug-phenothiazine">Phenothiazines<span class="tag tag-exam">重要</span></h3>
+      <p><strong>機轉：阻斷DA與NE受體</strong>（教科書：鎮靜來自抑制突觸後中樞D2受體，止吐來自CTZ的D2拮抗，副作用之一是周邊α1拮抗造成血管擴張）。臨床用途：人醫抗精神病藥；動物最常用的鎮定劑（化學保定，動物園臨床有效）；術前用藥（增強中樞抑制劑，可降低Barbiturate劑量、降低麻醉期間罹病與死亡）；止吐（針對藥物誘發的嘔吐，對暈動症無效）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥理作用（講義）</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>抗精神病／安定</td><td>改變意識狀態、taming effect</td></tr>
+            <tr><td>降低自發性運動</td><td>肌肉鬆弛良好；高劑量產生僵直狀態（catalepsy）</td></tr>
+            <tr><td>體溫調節受損</td><td>可能低體溫，需避免溫度劇烈波動</td></tr>
+            <tr><td>抗壓力效果</td><td>減少動物運輸時的體重減輕與瘀傷</td></tr>
+            <tr><td>內分泌</td><td>↑Prolactin釋放（高泌乳素血症，D2阻斷）</td></tr>
+            <tr><td>止吐</td><td>作用CTZ；針對藥物誘發，不用於暈動症</td></tr>
+            <tr><td><strong>無鎮痛效果</strong></td><td>疼痛性處置需避免單獨使用</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-phenothiazinesideeffects">Phenothiazines 副作用與禁忌<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>副作用（講義）</th><th>機轉/說明</th></tr></thead>
+          <tbody>
+            <tr><td>僵直/錐體外症候群（EPS）</td><td>D2阻斷（nigrostriatal pathway）；僵硬、顫抖、運動不能、類巴金森症狀</td></tr>
+            <tr><td><strong>Epinephrine reversal</strong></td><td>α1被阻斷，若併用Epinephrine，β介導血管擴張佔優勢→低血壓（休克）；<strong>Phenothiazines與Epinephrine不可併用</strong></td></tr>
+            <tr><td>低血壓</td><td>α1阻斷；血比容（Hct）下降（脾臟滯留與體液位移）</td></tr>
+            <tr><td>高血糖</td><td>低血壓→腎上腺釋放Epinephrine</td></tr>
+            <tr><td>種公馬陰莖脫垂（paraphimosis）</td><td>鎮靜劑量Acepromazine可持續約30分鐘，部分馬&gt;100分鐘；<strong>種公馬避免使用</strong></td></tr>
+            <tr><td>抑制膽鹼酯酶</td><td>與有機磷併用→嚴重CNS抑制</td></tr>
+            <tr><td>H1抗組織胺效果</td><td>干擾過敏測試；低血壓使其不能用於治療異常組織胺釋放</td></tr>
+            <tr><td>其他</td><td>高泌乳素血症、低體溫、GI蠕動下降（弱抗膽鹼）、可能降低血小板凝集、Chlorpromazine光毒性（毛少/白毛動物避免日曬）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌與注意（講義）</div>
+        <p>Epinephrine；有機磷與Physostigmine（膽鹼酯酶抑制）；癲癇（講義：無效且降低癲癇閾值，馬IV可誘發抽搐）；Chlorpromazine單用會使馬劇烈失調與興奮；虛弱、脫水、低血容、出血或休克動物（血管擴張）；衰弱老年動物；心臟病；種公馬；凝血異常與血小板減少；<strong>部分Boxer可能出現過度鎮靜與低血壓</strong>。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充與講義的差異（Ch.14）</div>
+        <p>①<strong>癲癇禁忌</strong>：教科書指出此「禁忌」源自兔子使用Chlorpromazine的舊實驗，目前<strong>缺乏證據</strong>顯示Acepromazine會誘發自發性癲癇，近期研究甚至提示可能具抗癲癇效果——講義與教科書立場不同，臨床上仍需依個案判斷。②<strong>Epinephrine</strong>：教科書指出Acepromazine可提高Epinephrine誘發心室心律不整的閾值；低血壓可用Phenylephrine等升壓藥對抗。③<strong>藥動學</strong>：起效IV約10–15分鐘、IM約30分鐘；t½馬3.1小時、犬7.1小時；犬口服生體可用率約20%；<strong>目前沒有可逆轉Phenothiazines的拮抗劑</strong>；血管擴張效果常比鎮靜持續更久。④<strong>劑量</strong>：犬貓、馬非經口鎮靜0.01–0.05 mg/kg（IV/IM/SC），犬貓口服0.5–2 mg/kg。⑤Phenothiazines會降低Hct（脾臟滯留），抽血檢驗數據需相應解讀。</p>
+      </div>
+
+      <h3 id="drug-acepromazine">代表藥物</h3>
+      <ul>
+        <li><strong>Acepromazine：</strong>獸醫最常用的Phenothiazine；FDA核准用於犬、貓、馬（術前用藥；犬止吐）；也用於牛、豬、羊、兔（不得有殘留，需足夠停藥期）；藥理類似但效力高於Chlorpromazine與Promazine。教科書：與降低馬麻醉期間的罹病率與死亡率相關。</li>
+        <li><strong>Chlorpromazine：</strong>人醫抗精神病藥；FDA核准用於犬貓（IV/IM/口服，用於緊張或具攻擊性動物、術前用藥、止吐）；也用於異寵動物（獅、熊等）捕捉與化學保定。</li>
+        <li><strong>Propiopromazine：</strong>犬貓IV術前鎮定劑，也有口嚼錠，用於難處理的興奮犬、過度吠叫、暈車、輕微手術與檢查前。</li>
+        <li><strong>Prochlorperazine：</strong>Phenothiazine的piperazine衍生物；EPS較強、鎮靜與降血壓較弱；與Isopropamide複方（Darbazine）用於情緒壓力相關的胃腸不適；Neo-Darbazine®另含Neomycin，用於犬的感染性細菌性腸胃炎（見 <a href="腸胃道用藥.html#drug-antimuscarinicgi">腸胃道用藥</a>）。</li>
+      </ul>
+
+      <h3 id="drug-butyrophenones">Butyrophenones 與 Thioxanthenes</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>副作用比較（講義）</th><th>Phenothiazines</th><th>Butyrophenones</th></tr></thead>
+          <tbody>
+            <tr><td>EPS（D2）</td><td>++</td><td>++++</td></tr>
+            <tr><td>抗膽鹼（M1）</td><td>++</td><td>+</td></tr>
+            <tr><td>鎮靜（H1）</td><td>+++</td><td>±</td></tr>
+            <tr><td>降血壓（α1）</td><td>+++</td><td>±</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>Butyrophenones（Haloperidol、Droperidol、Azaperone）：</strong>化學結構不同但藥理類似Phenothiazines；對D2更具選擇性，EPS較多，但降血壓（α阻斷）與鎮靜較少；與Epinephrine同樣禁忌。Haloperidol（人醫抗精神病藥）在犬用於預防Apomorphine誘發嘔吐。</li>
+        <li><strong>Azaperone（獸醫專用）：</strong>主要用於豬與動物園/野生動物（馬、鹿、犀牛、象）；控制豬的攻擊與打鬥；馬IV可能誘發反常興奮；豬作用2–4小時；影響體溫調節；無鎮痛；輕度呼吸抑制；高劑量可造成公豬陰莖脫垂。</li>
+        <li><strong>Droperidol：</strong>效力高於Haloperidol與Chlorpromazine，Butyrophenones中作用時間最短；犬術前鎮定劑；與Fentanyl複方為Innovar-Vet®（FDA核准），用於Neuroleptanalgesia。</li>
+        <li><strong>Thioxanthene（Chlorprothixene）：</strong>藥理類似Chlorpromazine，主要用於人；動物少數報告（犬術前、豬與小型反芻動物鎮靜）。</li>
+      </ul>
+
+      <h3 id="drug-alpha2agonist">α2 Adrenergic Agonists<span class="tag tag-exam">重要</span></h3>
+      <p><strong>機轉：</strong>α2受體是自體受體（autoreceptor），負回饋抑制NE神經元活性；中樞α2受體受刺激產生：鎮靜/鎮定、<strong>強效鎮痛</strong>、肌肉鬆弛、降低交感輸出（皆為中樞效應）。教科書：鎮靜來自腦幹青斑核（locus ceruleus）突觸前α2受體活化、降低NE釋放；鎮痛來自青斑核與脊髓背角膠質區（降低NE與Substance P釋放）；所有此類藥物對α1也有部分作用。</p>
+      <p><strong>獸醫用藥：</strong>Xylazine、Detomidine、Medetomidine、Romifidine（馬）、Dexmedetomidine；Clonidine是人用降血壓藥。<strong>拮抗劑：</strong>Yohimbine、Tolazoline、Atipamezole。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>系統</th><th>效應（講義為主，教科書核對）</th></tr></thead>
+          <tbody>
+            <tr><td>心血管</td><td>血壓<strong>雙相反應</strong>：先短暫高血壓（血管α受體活化）→後持續低血壓；心搏過緩；負性肌力，<strong>治療劑量使心輸出量下降約50%</strong>（教科書：多數物種&gt;50%；可能出現I、II度房室傳導阻滯）</td></tr>
+            <tr><td>泌尿</td><td>抑制ADH釋放及其在集尿管的作用→利尿</td></tr>
+            <tr><td>呼吸</td><td>反芻動物可能低血氧與肺水腫（肺巨噬細胞活化、毛細血管內皮損傷、肺泡水腫與出血）；綿羊較敏感、IV更嚴重</td></tr>
+            <tr><td>體溫</td><td>體溫調節受抑制，體溫隨環境溫度變化；恢復期需防過冷或過熱，必要時用α2拮抗劑</td></tr>
+            <tr><td>消化／其他</td><td>貓（少數犬）因刺激CTZ的α2受體而嘔吐；抑制ACh釋放→↓GI活性（脹氣、胃腸停滯、瘤胃無力）；妊娠末期（母馬與反芻動物）可能流產；高血糖（↓胰島素釋放，反芻動物顯著）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-xylazine">Xylazine<span class="tag tag-exam">重要</span></h3>
+      <p>廣泛用於犬、貓、馬、鹿、鳥類與異寵；同時作用α2與α1受體；強效鎮痛，<strong>不被Naloxone拮抗</strong>；與Etorphine、Fentanyl（Neuroleptanalgesia）及Ketamine有極佳協同作用；貓用作催吐劑（見 <a href="腸胃道用藥.html#drug-xylazine">腸胃道用藥</a>）。<strong>反芻動物（牛）極敏感，劑量約為非反芻動物的1/10</strong>：Xylazine對α2D受體的親和力高於α2A，反芻動物表現α2D、非反芻動物為α2A。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>IV (mg/kg)</th><th>IM (mg/kg)</th><th>受體</th></tr></thead>
+          <tbody>
+            <tr><td>牛</td><td>0.03–0.1</td><td>0.1–0.2</td><td>α2D</td></tr>
+            <tr><td>綿羊</td><td>0.05–0.1</td><td>0.1–0.3</td><td>—</td></tr>
+            <tr><td>山羊</td><td>0.01–0.5</td><td>0.05–0.5</td><td>—</td></tr>
+            <tr><td>馬、豬、犬、貓</td><td>0.5–1.1</td><td>1–3</td><td>α2A</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;"><strong>藥動學（講義）：</strong>Xylazine鎮靜10–30分鐘（劑量依賴），t½：馬50、牛40、綿羊25、犬30分鐘；肝臟P450代謝，70%經尿、30%經糞（膽汁）。Detomidine（核准用於馬）鎮靜1–2小時、t½1.2小時；Dexmedetomidine（核准用於犬貓）極強效、選擇性高，鎮靜1–3小時、t½1–1.5小時；Romifidine（核准用於馬，IV）鎮靜1–1.5小時、t½50分鐘。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">Xylazine 禁忌（講義）</div>
+        <p>呼吸抑制、心臟異常、低血壓/休克、腎肝功能受損的衰弱動物；癲癇（可誘發發作）；腸絞痛（強效鎮痛可能掩蓋潛在問題與腸道麻痺）；脫水或尿路阻塞（強利尿）；<strong>馬誤將Xylazine注入頸動脈可立即虛脫、抽搐、死亡</strong>；妊娠最後一個月（尤其母馬與反芻動物）。</p>
+      </div>
+
+      <h3 id="drug-alpha2antagonists">α2 拮抗劑<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>特性與用途（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>Yohimbine</td><td>競爭性α2拮抗劑；單胃動物IV/IM逆轉α2 agonists（Xylazine、Medetomidine等）與Amitraz（殺蟎劑，具α2促效作用）；<strong>對反芻動物僅有邊際效果</strong>；副作用：CNS興奮、心搏過速、高血壓、GI蠕動增加；犬t½ 1.5–2小時</td></tr>
+            <tr><td>Tolazoline</td><td>同時拮抗α1與α2；緩慢IV逆轉α2 agonists，<strong>特別適用反芻動物</strong>（FDA僅核准馬）；馬t½約60分鐘；副作用：心搏過速、低血壓、GI蠕動增加；壓力、衰弱、心臟病、低血容或休克動物不用</td></tr>
+            <tr><td>Atipamezole</td><td>競爭性α2拮抗劑；核准逆轉Dexmedetomidine，也可逆轉Xylazine、Amitraz；<strong>所有物種（含反芻動物）皆有效</strong>，但價格昂貴，不適合食品動物；IM為佳；犬IM後10分鐘達峰，t½ 2–3小時</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Xylazine對牛（α2D受體）鎮靜較強的物種差異也見 <a href="鴉片類止痛藥.html#section-pharmacology">鴉片類止痛藥：藥理作用與物種差異</a>；α2 agonist與Opioid併用的Neuroleptanalgesia組合，見同頁「臨床用途與Neuroleptanalgesia」。α2 agonist+Ketamine誘導的用法，見 <a href="注射式麻醉藥.html#section-dissociatives">注射式麻醉藥</a>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A2、A5）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.14 Sedatives and Tranquilizers）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- OTHER PREMED -->
+    <div class="section" id="section-otherpremed">
+      <div class="section-head"><div class="section-num">7</div><h2>其他鎮靜輔助藥物</h2></div>
+      <p class="section-desc">這幾個藥物臨床使用頻率不如前述家族高，但各有獨特的機轉與適應症，值得快速掌握。</p>
+
+      <h3 id="drug-chloralhydrate">Chloral Hydrate</h3>
+      <p>經Alcohol dehydrogenase轉換為活性代謝物Trichloroethanol；機轉：GABA agonist；IV或口服（口服刺激胃黏膜、易致嘔吐，不建議）；<strong>用於大動物（馬、豬、牛）術前用藥（全身鎮靜）</strong>，可降低麻醉藥（如Thiopental）用量、使麻醉誘導更平順；現代獸醫已較少使用。Flumazenil可有效治療人的Chloral hydrate過量。</p>
+
+      <h3 id="drug-buspirone">Buspirone（Azapirones）<span class="tag tag-exam">重要</span></h3>
+      <p>非BZD類抗焦慮藥，副作用少；機轉：<strong>5-HT1A受體部分促效劑</strong>——不與GABA受體作用，因此<strong>無GABA介導的鎮靜、無交叉耐受性、無抗癲癇與肌肉鬆弛作用、無成癮與戒斷問題</strong>。適應症：犬攻擊性、犬貓刻板行為、社交焦慮、貓排尿障礙。屬於行為治療用藥，不用於術前麻醉。</p>
+
+      <h3>Ethanol 與 Disulfiram（背景知識）</h3>
+      <p>Ethanol是典型的全光譜CNS抑制劑（與Barbiturates類似），但消除慢、安全範圍更低、更容易因去抑制作用致興奮；90%以上經肝臟代謝（Alcohol dehydrogenase→Aldehyde dehydrogenase）。<strong>Disulfiram</strong>抑制Aldehyde dehydrogenase，使乙醛蓄積產生不適反應（顏面潮紅、頭痛、嘔吐），用於人類戒酒治療——這是理解「代謝酵素抑制劑如何被用來製造嫌惡反應」的經典藥理學案例。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A2、A5）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.14 Sedatives and Tranquilizers）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">濃縮版複習重點，考前快速掃過即可回想起整章脈絡。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>CNS抑制光譜：</strong>Barbiturates/酒精走全光譜（可達死亡），BZD有限光譜（頂多催眠）——決定了兩者的安全性差異。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>GABAA機轉：</strong>Barbiturates結合β次單元增加開啟時間（不需GABA也可活化）；BZD結合γ次單元增加開啟頻率（需GABA存在）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Barbiturates三級：</strong>超短效（Thiopental誘導）、短效（Pentobarbital安樂死）、長效（Phenobarbital抗癲癇）；終止麻醉靠再分佈非代謝。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>瘦體型犬種：</strong>Sighthounds脂肪少、再分佈空間有限，Thiopental恢復延長，應改用Methohexital/Propofol。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>BZD安全性遠高於Barbiturates；</strong>Flumazenil逆轉BZD；貓可能反常興奮，馬效果差，貓Diazepam注射有肝毒性風險。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Phenothiazines（Acepromazine）：</strong>阻斷D2與α1，無鎮痛；不可併用Epinephrine；種公馬、虛弱/休克動物、Boxer需謹慎；無拮抗劑；癲癇禁忌講義與教科書看法不同。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>α2 Agonists：</strong>中樞α2→鎮靜＋強效鎮痛＋肌肉鬆弛；雙相血壓、心搏過緩、心輸出量↓約50%；反芻動物（α2D）極敏感，劑量約1/10；Atipamezole（全物種）、Yohimbine（單胃）、Tolazoline（反芻）拮抗。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Buspirone：</strong>5-HT1A部分促效劑，不作用GABA，用於行為治療而非術前麻醉。<strong>貓：</strong>口服Diazepam連續數日可致命性肝壞死。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮 A2、A5）為主；標示「教科書」處為 Veterinary Pharmacology and Therapeutics 10th ed.（Ch.14 Sedatives and Tranquilizers）與 Handbook of Veterinary Pharmacology 之核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋GABAA機轉、Barbiturates物種考量、BZD安全性、術前用藥選擇各章節重點，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 為什麼Benzodiazepines單獨使用不會像Barbiturates一樣造成致命的全身麻醉？</div>
+        <ul class="quiz-options">
+          <li>(A) BZD不會進入中樞神經系統</li>
+          <li>(B) BZD需要GABA存在才能增加氯離子通道開啟頻率，效果有天花板</li>
+          <li>(C) BZD的劑量天生就比Barbiturates低</li>
+          <li>(D) BZD只作用於周邊神經</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">BZD結合GABAA受體的γ次單元，增加通道開啟頻率，但必須有GABA存在才有效；不像Barbiturates在高劑量下可以直接活化通道（不需GABA），因此BZD的CNS抑制效果受限於身體自身的GABA系統，屬於「有限光譜」藥物，這是它安全性遠高於Barbiturates的根本原因。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Greyhound等瘦體型犬種使用Thiopental麻醉誘導時恢復時間會延長，是因為這些犬種肝臟代謝Thiopental的速度特別快。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Thiopental的麻醉終止主要靠「再分佈」（從腦部分佈到肌肉/脂肪組織），而非代謝。瘦體型犬種脂肪組織少，可供再分佈的空間有限，導致藥物效果延長、恢復時間拉長；Greyhound另外還缺乏代謝Thiopental的氧化酵素，使代謝速度變慢（不是變快），這兩個因素加總使恢復時間比其他犬種慢2-4倍。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻貓因BZD過量出現嚴重呼吸抑制，應使用下列哪一種藥物逆轉？</div>
+        <ul class="quiz-options">
+          <li>(A) Naloxone</li>
+          <li>(B) Flumazenil</li>
+          <li>(C) Atropine</li>
+          <li>(D) Diprenorphine</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Flumazenil是BZD的競爭性拮抗劑，對GABAA受體有高親和力但無內在活性，可用於逆轉BZD介導的效果（包含呼吸抑制與鎮靜）。Naloxone是Opioid拮抗劑，對BZD過量無效。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一隻成年Whippet（瘦體型犬種）需要進行短時間的內視鏡檢查，麻醉團隊原本考慮使用Thiopental IV做麻醉誘導。同時，隔壁診間有一隻Doberman因癲癇重積狀態送急診。請問：(1) Whippet的用藥選擇有什麼疑慮？應該如何調整？(2) Doberman癲癇重積狀態的第一線急救藥物是什麼？為什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) Whippet用藥疑慮：</strong>Whippet屬於瘦體型犬種（sighthound），脂肪組織少，Thiopental麻醉效果終止依賴的「再分佈」機制在這類犬種中空間有限，會導致麻醉效果與恢復時間都大幅延長、超出預期，增加麻醉風險。應改用<strong>Methohexital</strong>（肝臟代謝快速，恢復迅速，是傳統上瘦體型犬種的替代選擇）或<strong>Propofol</strong>（快速肝臟及肺臟代謝、不蓄積於組織，恢復快且完全，是現代臨床更常見的選擇）。<br><strong>(2) Doberman癲癇重積狀態急救：</strong>第一線藥物是<strong>Diazepam（靜脈注射）</strong>，原因是Diazepam具有中樞抗癲癇效果，且IV注射後能快速穿越血腦屏障進入腦部發揮作用，起效非常迅速，是癲癇重積狀態（status epilepticus）的標準急救首選；雖然長效Barbiturates（如Phenobarbital）也具抗癲癇效果，但起效較慢，臨床上多用於後續的長期癲癇控制，而非急性重積狀態的第一線急救。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 一位飼主自行將Diazepam口服錠給焦慮的貓連續餵食一週，貓開始食慾廢絕、黃疸。最可能的原因與對策是？</div>
+        <ul class="quiz-options">
+          <li>(A) Diazepam引起的急性腎衰竭，應立即補液</li>
+          <li>(B) 口服Diazepam引起的急性肝壞死，應停藥並考慮改用其他BZD</li>
+          <li>(C) Diazepam的反常興奮，應增加劑量</li>
+          <li>(D) 與劑量無關的免疫反應，無需處理</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義指出貓使用Diazepam可能發生嚴重肝壞死（毒性中間代謝物）；教科書與Handbook進一步說明此反應與<strong>口服</strong>Diazepam連續數日有關，可致命，多於用藥約5天後出現，貓應考慮改用其他BZD。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 為什麼Xylazine對牛的劑量只需約單胃動物的1/10？</div>
+        <ul class="quiz-options">
+          <li>(A) 牛的肝臟代謝Xylazine特別慢</li>
+          <li>(B) 反芻動物表現α2D受體，Xylazine對α2D的親和力高於單胃動物的α2A</li>
+          <li>(C) 牛的血腦屏障較通透</li>
+          <li>(D) 牛沒有α1受體</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義：反芻動物表現α2D受體、非反芻動物為α2A受體，Xylazine對α2D的促效力較α2A強，因此牛鎮靜效果更強、劑量約為非反芻動物的1/10。教科書亦指出牛有較高比例的α2D亞型，這是反芻動物對Xylazine特別敏感的可能原因。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  cnsdepression: 'CNS抑制光譜與GABAA機轉',
+  barbiturates: 'Barbiturates（巴比妥類）',
+  benzodiazepines: 'Benzodiazepines（BZD）',
+  tranquilizers: 'Phenothiazines、Butyrophenones與α2 Agonists',
+  otherpremed: '其他鎮靜輔助藥物',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

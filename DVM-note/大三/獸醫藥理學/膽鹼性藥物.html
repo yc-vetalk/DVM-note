@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：膽鹼性藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">膽鹼性藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">膽鹼性藥物 Cholinergic Drugs</h1>
+      <p class="page-subtitle">菸鹼型與蕈毒鹼型受體基礎、直接型膽鹼性致效劑、抗膽鹼酯酶藥物與有機磷中毒處置、神經節菸鹼型藥物整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Drugs Affecting Peripheral Nervous System，ANS 2 handout）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-24</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎架構</div>
+    <a onclick="showSection('receptors')" id="nav-receptors"><span class="nav-icon">🧬</span> 菸鹼型與蕈毒鹼型受體</a>
+    <div class="section-label" style="margin-top:8px;">直接與間接致效劑</div>
+    <a onclick="showSection('directagonists')" id="nav-directagonists"><span class="nav-icon">💧</span> 直接型膽鹼性致效劑</a>
+    <a onclick="showSection('anticholinesterase')" id="nav-anticholinesterase"><span class="nav-icon">🔗</span> 抗膽鹼酯酶藥物</a>
+    <a onclick="showSection('optoxicity')" id="nav-optoxicity"><span class="nav-icon">☠️</span> 有機磷中毒與解毒</a>
+    <div class="section-label" style="margin-top:8px;">神經節藥物</div>
+    <a onclick="showSection('ganglionic')" id="nav-ganglionic"><span class="nav-icon">🪱</span> 神經節菸鹼型藥物與驅蟲藥</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這章談的是「模仿或增強乙醯膽鹼（ACh）作用」的藥物，先分清楚兩種受體——<strong>菸鹼型（Nicotinic, N<sub>M</sub>／N<sub>N</sub>）</strong>與<strong>蕈毒鹼型（Muscarinic, M1–M5）</strong>——之後所有藥物分類都能掛回這兩個受體系統。接著分三條路線展開：①<strong>直接型致效劑</strong>（ACh、Carbachol、Bethanechol、Pilocarpine）直接結合受體；②<strong>抗膽鹼酯酶藥物（間接型致效劑）</strong>不直接作用受體，而是抑制分解 ACh 的酵素（AChE），讓內生性 ACh 累積延長作用——這類藥物依對 AChE 的結合方式分成可逆性、carbamylation、phosphorylation 三種機轉，直接對應到臨床上「治療青光眼／重症肌無力」與「有機磷／氨基甲酸鹽中毒」這兩個完全相反的臨床情境（治療劑量 vs 中毒劑量，其實是同一群受體被過度活化的光譜兩端）；③<strong>神經節菸鹼型藥物</strong>，獸醫臨床應用有限，但 Levamisole／Pyrantel／Morantel 這幾個「擬菸鹼」機轉的驅蟲藥是重點——牠們對線蟲的神經節/肌肉受體產生過度刺激後麻痺蟲體，跟哺乳動物中毒時的機轉是同一套邏輯。讀這章的訣竅是：先建立受體地圖，再把每個藥物「歸類」到它作用的受體與機轉上，中毒處置（Atropine＋2-PAM）務必連著有機磷的三種抑制機轉一起記。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('receptors')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體地圖</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Nicotinic vs Muscarinic</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('directagonists')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">直接致效劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">ACh／Carbachol／Bethanechol</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('anticholinesterase')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">抗ChE藥物</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">三種抑制機轉</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('optoxicity')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">OP中毒解毒</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Atropine＋2-PAM</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">六個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>菸鹼型受體是非選擇性陽離子通道</strong>（Na⁺為主）分 N<sub>M</sub>（神經肌肉接合處）與 N<sub>N</sub>（自主神經節＋CNS）；<strong>蕈毒鹼型 M1/M3/M5 偶聯 Gq，M2/M4 偶聯 Gi/o</strong>——這組配對是理解各藥物心血管、GI、眼睛效應方向的分子基礎。</li>
+          <li><strong>抗膽鹼酯酶藥物依化學結構分三種機轉：</strong>可逆性結合（Edrophonium）＜ Carbamylation（Neostigmine、Physostigmine 等 carbamate 類，非共價但持久）＜ Phosphorylation（有機磷類，共價鍵結、長效不可逆）——效果持續時間隨機轉遞增。</li>
+          <li><strong>Physostigmine 是三級胺，可穿越 BBB；Neostigmine 是四級銨，不能穿越 BBB</strong>——這個化學結構差異解釋了為什麼前者可用於治療 Atropine 中樞毒性，後者只作用周邊、可安全逆轉神經肌肉阻斷劑效果而不影響 CNS。</li>
+          <li><strong>有機磷中毒的解毒是「雙管齊下」：</strong>Atropine 只能緩解蕈毒鹼型症狀（不能逆轉神經肌肉阻斷），2-PAM（Pralidoxime）才能真正把 OP 從 AChE 上拉下來讓酵素再生——且<strong>必須在 OP「老化（aging）」前（通常 24 小時內）給予</strong>才有效，兩者需合併使用，2-PAM 不能穿越 BBB 故無法緩解中樞症狀。</li>
+          <li><strong>Levamisole／Pyrantel／Morantel 是「擬菸鹼」驅蟲藥</strong>：模仿 ACh 活化線蟲的 N<sub>N</sub>型受體，先興奮後因過度刺激而麻痺蟲體；同樣機轉用於哺乳動物身上則會產生菸鹼中毒症狀（CNS興奮、心搏過速、肌肉顫動甚至呼吸肌麻痺）。</li>
+          <li><strong>神經節阻斷劑（Hexamethonium 等）因非選擇性同時阻斷交感與副交感神經節，獸醫臨床幾乎不使用</strong>——這是「機轉聽起來合理但臨床不實用」的典型例子，常出現在考題的「以下何者不用於臨床」類型。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Carbachol</td><td>Muscarinic＋Nicotinic雙重致效劑（抗ChE水解，四級銨不穿BBB）</td><td>眼科局部給藥縮瞳治療青光眼；SC治GI/子宮弛緩（須防臟器破裂）</td><td class="drug-locations"><a href="#drug-carbachol" class="drug-link">直接型致效劑</a></td></tr>
+            <tr><td>Methacholine</td><td>高蕈毒鹼活性、弱菸鹼活性（更抗ChE水解）</td><td><strong>吸入或IV（人醫氣喘激發試驗）</strong>；人醫診斷支氣管過度反應性（氣喘）</td><td class="drug-locations"><a href="#drug-methacholine" class="drug-link">直接型致效劑</a></td></tr>
+            <tr><td>Bethanechol</td><td>M3 muscarinic agonist（無nicotinic活性）→直接興奮平滑肌</td><td><strong>PO／SC／IM／IV（含CRI連續輸注）</strong>；M3促效劑；治膀胱擴張（現多被Neostigmine/Metoclopramide取代）</td><td class="drug-locations"><a href="#drug-bethanechol" class="drug-link">直接型致效劑</a></td></tr>
+            <tr><td>Pilocarpine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">毛果芸香鹼</div></td><td>Muscarinic致效劑（三級胺，可穿BBB）</td><td>局部縮瞳降IOP治療青光眼</td><td class="drug-locations"><a href="#drug-pilocarpine" class="drug-link">直接型致效劑</a></td></tr>
+            <tr><td>Physostigmine</td><td>可逆性AChE抑制（Carbamylation機轉；三級胺可穿BBB）</td><td><strong>IM／SC／PO</strong>；拮抗Atropine等抗蕈毒鹼藥物中毒（含中樞症狀）；治青光眼、重症肌無力</td><td class="drug-locations"><a href="#drug-physostigmine" class="drug-link">抗膽鹼酯酶藥物</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Neostigmine</td><td>Carbamylation機轉AChE抑制（四級銨不穿BBB）</td><td><strong>SC／IM／IV（口服吸收差）</strong>；逆轉Tubocurarine類競爭性NMJ阻斷；麻痺性腸阻塞；膀胱弛緩；類重症肌無力</td><td class="drug-locations"><a href="#drug-neostigmine" class="drug-link">抗膽鹼酯酶藥物</a></td></tr>
+            <tr><td>Edrophonium</td><td>可逆性AChE抑制（結合活性中心陰離子位點）</td><td><strong>IV</strong>；診斷類重症肌無力；拮抗Tubocurarine類藥物（短效10-15分鐘）</td><td class="drug-locations"><a href="#drug-edrophonium" class="drug-link">抗膽鹼酯酶藥物</a></td></tr>
+            <tr><td>Pyridostigmine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">與Demecarium同類</div></td><td>Carbamylation機轉AChE抑制（四級銨）</td><td>治重症肌無力（須腸胃外給藥）；Demecarium局部治青光眼；作用4-6小時較Neostigmine長</td><td class="drug-locations"><a href="#drug-othercarbamates" class="drug-link">抗膽鹼酯酶藥物</a></td></tr>
+            <tr><td>Echothiophate</td><td>Phosphorylation機轉AChE抑制（四級OP化合物，共價鍵長效）</td><td>局部治青光眼，作用超過12小時</td><td class="drug-locations"><a href="#drug-echothiophate" class="drug-link">有機磷中毒與解毒</a></td></tr>
+            <tr><td>Levamisole／Pyrantel／Morantel</td><td>模仿ACh活化N<sub>N</sub>受體（擬菸鹼機轉）</td><td><strong>去極化型神經肌肉阻斷可麻痺骨骼肌（尤其呼吸肌），可能致死</strong>；驅線蟲藥，先興奮後過度刺激麻痺蟲體；過量哺乳動物中毒同機轉</td><td class="drug-locations"><a href="#drug-nicotinelike" class="drug-link">神經節菸鹼型藥物與驅蟲藥</a></td></tr>
+            <tr><td>Hexamethonium</td><td>神經節N<sub>N</sub>受體拮抗劑（非選擇性）</td><td><strong>PO或IV（歷史用藥，獸醫已不使用）</strong>；同時阻斷交感副交感神經節，獸醫臨床不使用</td><td class="drug-locations"><a href="#drug-ganglionicblockers" class="drug-link">神經節菸鹼型藥物與驅蟲藥</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!-- RECEPTORS -->
+    <div class="section" id="section-receptors">
+      <div class="section-head"><div class="section-num">3</div><h2>菸鹼型與蕈毒鹼型受體 Nicotinic &amp; Muscarinic Receptors</h2></div>
+      <p class="section-desc">所有膽鹼性藥物的分類，最終都要回答「作用在哪一種受體」——這是全章的共同座標。</p>
+
+      <h3 id="drug-nicotinicreceptors">菸鹼型受體 Nicotinic Receptors（N<sub>M</sub> &amp; N<sub>N</sub>）<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>N<sub>M</sub>：</strong>神經肌肉接合處（neuromuscular junction）</li>
+        <li><strong>N<sub>N</sub>：</strong>自主神經節（autonomic ganglia）＋中樞神經系統</li>
+        <li>非選擇性陽離子通道，允許 Na⁺、K⁺、Ca²⁺通過，<strong>以 Na⁺內流為主</strong></li>
+        <li>Na⁺內流→細胞膜去極化→觸發電壓依賴性 Ca²⁺通道開啟→Ca²⁺內流</li>
+      </ul>
+
+      <h3 id="drug-muscarinicreceptors">蕈毒鹼型受體 Muscarinic Receptors（M1–M5）<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體</th><th>主要分布與功能</th><th>G蛋白偶聯</th></tr></thead>
+          <tbody>
+            <tr><td><strong>M1</strong></td><td>神經元，介導興奮性突觸後電位（EPSP）</td><td rowspan="3">Gq</td></tr>
+            <tr><td><strong>M3</strong></td><td>平滑肌、括約肌、分泌腺</td></tr>
+            <tr><td><strong>M5</strong></td><td>中腦多巴胺神經元（促進DA釋放）、腦與周邊血管、淋巴球</td></tr>
+            <tr><td><strong>M2</strong></td><td>心臟（降低興奮性）、CNS（海馬迴）</td><td rowspan="2">Gi/o</td></tr>
+            <tr><td><strong>M4</strong></td><td>中樞神經系統</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em;">記憶口訣：<strong>單數（1、3、5）走 Gq，偶數（2、4）走 Gi/o</strong>——這組配對決定了各器官被活化後的訊息傳遞方向（Gq→PLC→IP3/Ca²⁺→收縮；Gi/o→↓cAMP→抑制）。</p>
+    </div>
+
+    <!-- DIRECT AGONISTS -->
+    <div class="section" id="section-directagonists">
+      <div class="section-head"><div class="section-num">4</div><h2>直接型膽鹼性致效劑 Direct-Acting Cholinergic Agonists</h2></div>
+      <p class="section-desc">代表藥物：Acetylcholine、Carbachol、Bethanechol、Methacholine、Pilocarpine——直接結合受體產生效果。</p>
+
+      <h3 id="drug-ach">Acetylcholine（ACh）</h3>
+      <p>同時活化蕈毒鹼型與菸鹼型受體。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">心血管效應</div>
+          <p>心搏過緩與負性肌力（類似迷走神經刺激效果），IV注射後降血壓；M2受體活化使K⁺通道開啟致細胞膜過極化，關閉電壓依賴性Ca²⁺通道；多數血管無膽鹼神經支配，ACh類似物須經M3受體活化內皮細胞釋放NO→cGMP路徑才能致血管擴張。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">平滑肌與腺體（M3介導）</div>
+          <p>↑GI蠕動與分泌；子宮、輸尿管、膀胱、支氣管與虹膜括約肌收縮（致縮瞳）；↑唾液與淚腺分泌。</p>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>ACh<strong>本身無臨床治療用途</strong>（作用太廣泛、太快被分解），臨床改用其他更穩定的膽鹼性藥物；Atropine是蕈毒鹼型受體的專一拮抗劑。</p>
+      </div>
+
+      <h3 id="drug-carbachol">Carbachol</h3>
+      <p>Carbamic acid-ester鍵結構，<strong>抗ChE水解，作用時間比ACh更長</strong>；四級銨化合物，<strong>不能穿越BBB</strong>；同時具蕈毒鹼型與菸鹼型活性。臨床用於眼科局部給藥誘導縮瞳、降低眼內壓（IOP）治療青光眼（人：縮瞳20分鐘內起效，持續4–8小時；IOP最大降幅於4小時出現，持續8小時）；SC給藥治療GI與子宮弛緩，<strong>須極度謹慎以防臟器破裂</strong>。</p>
+
+      <h3 id="drug-methacholine">Methacholine（Acetyl-β-methylcholine）</h3>
+      <p>β-methyl基團使其<strong>高蕈毒鹼活性、弱菸鹼活性，更抗ChE水解</strong>，作用時間比ACh長；人醫用於診斷支氣管過度反應性（氣喘）。</p>
+
+      <h3 id="drug-bethanechol">Bethanechol</h3>
+      <p>結構類似Carbachol；四級銨化合物，<strong>不能穿越BBB</strong>；抗ChE水解；<strong>純蕈毒鹼型受體致效劑（無菸鹼活性）</strong>。PO與SC用於治療膀胱擴張（增加收縮力）；SC治療GI與子宮弛緩（同樣須謹慎防破裂）——<strong>Neostigmine與Metoclopramide已大幅取代Bethanechol的這項用途</strong>。人類藥動學：GI吸收差，PO起效30–90分鐘、效果持續6小時；SC起效5–15分鐘、效果持續2小時。</p>
+
+      <h3 id="drug-pilocarpine">Pilocarpine（毛果芸香鹼）</h3>
+      <p>擬膽鹼植物生物鹼之一（同類：Muscarine、Arecoline檳榔鹼）；<strong>三級胺，無四級氮，可穿越BBB</strong>；局部給藥誘導縮瞳、降低IOP治療青光眼。副作用：局部刺激與葡萄膜炎；反覆使用可能引起全身性副作用（嘔吐、腹瀉、流涎增加）。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 青光眼用藥全覽（含α2 agonist、β-blocker等其他機轉），見下方「抗膽鹼酯酶藥物」小節的 Glaucoma Drugs 整理。</p>
+    </div>
+
+    <!-- ANTICHOLINESTERASE -->
+    <div class="section" id="section-anticholinesterase">
+      <div class="section-head"><div class="section-num">5</div><h2>抗膽鹼酯酶藥物 Anticholinesterase Agents（間接型膽鹼性致效劑）</h2></div>
+      <p class="section-desc">不直接作用受體，而是抑制分解ACh的酵素（AChE），讓內生性ACh累積、延長並增強其作用——依化學結構分三種機轉，效果持續時間遞增。</p>
+
+      <h3 id="drug-achemechanisms">三種抑制機轉<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">① 可逆性抑制</div>
+          <p>藥物的四級氮可逆性結合AChE活性中心的陰離子位點</p>
+          <p style="font-size:.85em; color:var(--fg-faint);">代表：Edrophonium</p>
+        </div>
+        <div class="card">
+          <div class="card-title">② Carbamylation</div>
+          <p>Carbamate類作為AChE的受質，以非共價鍵長時間佔據活性位點</p>
+          <p style="font-size:.85em; color:var(--fg-faint);">代表：Physostigmine、Neostigmine、Pyridostigmine、Demecarium</p>
+        </div>
+        <div class="card">
+          <div class="card-title">③ Phosphorylation</div>
+          <p>有機磷與酵素形成穩定共價鍵，產生長效抑制</p>
+          <p style="font-size:.85em; color:var(--fg-faint);">代表：Echothiophate及多數OP類殺蟲劑</p>
+        </div>
+      </div>
+
+      <h3 id="drug-physostigmine">Physostigmine</h3>
+      <p><strong>三級胺，可穿越BBB</strong>——大劑量先興奮後抑制CNS，極大劑量致抽搐。藥理效果模擬ACh：縮瞳、流涎、↑GI蠕動；大劑量致骨骼肌顫動繼而麻痺（NMJ處ACh堆積）、呼吸麻痺（中毒致死主因）。臨床用途：IM/SC/PO拮抗Atropine及其他抗蕈毒鹼藥物中毒；可治療青光眼；治療重症肌無力（myasthenia gravis）與逆轉非去極化型神經肌肉阻斷劑效果。GI與SC吸收良好；主要經血漿酯酶於酯鍵水解；作用時間3–6小時。</p>
+
+      <h3 id="drug-neostigmine">Neostigmine<span class="tag tag-exam">重要</span></h3>
+      <p><strong>四級銨，效果與Physostigmine類似，但不影響CNS</strong>（不能穿越BBB）。透過三重機轉逆轉競爭性神經肌肉阻斷劑（如Tubocurarine類）的阻斷效果：①抑制AChE ②增加神經末梢ACh釋放 ③直接作用骨骼肌神經肌肉接合處。臨床用途：逆轉Tubocurarine類藥物阻斷、麻痺性腸阻塞（paralytic ileus）、膀胱弛緩、類重症肌無力狀態。藥動學：口服吸收差、不穿BBB，須腸胃外給藥（SC/IM/IV）；經血漿酯酶水解；原型藥經尿液排出；作用時間0.5–2小時。<strong>禁忌：GI或泌尿道阻塞。</strong>副作用皆為膽鹼性（副交感與神經肌肉接合處）。</p>
+
+      <h3 id="drug-edrophonium">Edrophonium</h3>
+      <p>四級銨；藥理效果類似Neostigmine；腸胃外給藥後<strong>作用時間短（10–15分鐘）</strong>。臨床用於診斷類重症肌無力疾病、拮抗Tubocurarine類藥物；副作用具劑量相關性，大量過量可能產生嚴重不良反應。</p>
+
+      <h3 id="drug-othercarbamates">其他Carbamate類藥物</h3>
+      <p><strong>Pyridostigmine與Demecarium：</strong>結構類似Neostigmine（四級銨），副作用相似，<strong>作用時間較長（4–6小時，Neostigmine為0.5–2小時）</strong>；Pyridostigmine用於治療重症肌無力，須腸胃外給藥以提高效果；Demecarium局部給藥治療青光眼。<strong>Propoxur與其他Carbamate類：</strong>作為Carbamate殺蟲劑；過量效果類似有機磷中毒，<strong>可用Atropine治療</strong>。</p>
+
+      <h3>青光眼用藥總覽 Glaucoma Drugs</h3>
+      <p>治療原則：降低IOP——透過↓房水產生、↑房水排出，或兩者兼具；縮瞳有助於打開受阻的房角排水通道。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物類別</th><th>代表藥物</th><th>機轉</th></tr></thead>
+          <tbody>
+            <tr><td>擬副交感藥物</td><td>Pilocarpine</td><td>縮瞳，打開房角</td></tr>
+            <tr><td>α2 agonist</td><td>Brimonidine、Apraclonidine</td><td>↓房水產生</td></tr>
+            <tr><td>β-blocker</td><td>Timolol</td><td>↓房水產生</td></tr>
+            <tr><td>碳酸酐酶抑制劑、前列腺素類似物、滲透性利尿劑</td><td>—</td><td>↓房水產生或↑排出</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- OP TOXICITY -->
+    <div class="section" id="section-optoxicity">
+      <div class="section-head"><div class="section-num">6</div><h2>有機磷中毒與解毒 Organophosphate Toxicity</h2></div>
+      <p class="section-desc">有機磷（OP）中毒是抗膽鹼酯酶機轉「過度活化」的臨床急症，解毒需要兩種藥物分別處理不同層面的症狀。</p>
+
+      <h3 id="drug-echothiophate">Echothiophate</h3>
+      <p>四級OP化合物；<strong>長效作用（超過12小時）</strong>；局部給藥治療青光眼；部分OP類也作為體外驅蟲藥（ectoparasiticides）使用。</p>
+
+      <h3 id="drug-optoxsigns">有機磷中毒臨床徵象<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">蕈毒鹼型症狀</div>
+          <p>流涎、流淚、排尿、排便、呼吸困難、縮瞳、心搏過緩</p>
+        </div>
+        <div class="card">
+          <div class="card-title">神經與呼吸系統</div>
+          <p>厭食嘔吐；抽搐、骨骼肌顫動；呼吸中樞抑制＋支氣管痙攣＋分泌物過多＋呼吸肌無力→呼吸衰竭致死</p>
+        </div>
+        <div class="card">
+          <div class="card-title">中毒暴露途徑</div>
+          <p>OP高脂溶性，皮膚易吸收；也可經口誤食</p>
+        </div>
+      </div>
+
+      <h3 id="drug-optreatment">中毒處置流程<span class="tag tag-exam">重要</span></h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>皮膚暴露去污：</strong>沖洗接觸部位以移除未吸收的毒物；處置人員須穿戴防護裝備避免接觸。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>口服暴露去污：</strong>胃灌洗（gastric lavage）移除已攝入的OP。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>穩定病患：</strong>視需要提供呼吸支持；可能需給予抗癲癇藥物。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>解毒治療：</strong>Atropine緩解蕈毒鹼型症狀；2-PAM（Pralidoxime，Pyridine-2-aldoxime methiodide）重新活化AChE。</div></div>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">2-PAM 使用重點</div>
+        <p>IV／IM／SC給藥，<strong>IV為優先途徑</strong>；<strong>須於OP暴露後24小時內給予</strong>，超過此時間OP會與AChE形成「老化（aging）」的更穩定鍵結，2-PAM將無法再拉出OP；2-PAM機轉是結合OP、將其從AChE上拉出，使酵素重新活化；<strong>2-PAM不能穿越BBB，無法緩解中樞症狀，因此必須合併使用Atropine</strong>。</p>
+      </div>
+    </div>
+
+    <!-- GANGLIONIC -->
+    <div class="section" id="section-ganglionic">
+      <div class="section-head"><div class="section-num">7</div><h2>神經節菸鹼型藥物與驅蟲藥 Ganglionic Nicotinic Agonists &amp; Antagonists</h2></div>
+      <p class="section-desc">獸醫臨床使用非常有限，但「擬菸鹼」機轉的驅蟲藥（Levamisole、Pyrantel、Morantel）是這節的實用重點。</p>
+
+      <h3 id="drug-nicotinelike">Levamisole、Pyrantel、Morantel、Monepantel 等擬菸鹼驅蟲藥<span class="tag tag-exam">重要</span></h3>
+      <p>機轉：模仿ACh，<strong>活化交感與副交感神經節的N<sub>N</sub>受體</strong>，刺激節後神經元；也刺激腎上腺髓質釋放Epi與NE；同時作用神經肌肉接合處N<sub>M</sub>受體。在線蟲身上，這些藥物<strong>先刺激後因過度刺激而麻痺</strong>線蟲的神經與肌肉，達到驅蟲效果。<strong>尼古丁本身無治療用途</strong>，但這類「尼古丁樣」化合物作為抗線蟲藥廣泛使用。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>系統</th><th>效應</th></tr></thead>
+          <tbody>
+            <tr><td>CNS</td><td>刺激運動皮質，導致顫抖</td></tr>
+            <tr><td>呼吸系統</td><td>初期刺激，隨後因N<sub>M</sub>過度刺激而抑制</td></tr>
+            <tr><td>心血管系統</td><td>刺激交感神經節與腎上腺髓質→血壓、心跳、周邊阻力↑</td></tr>
+            <tr><td>平滑肌與腺體</td><td>刺激副交感神經節→GI蠕動與唾液分泌↑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>藥動學：所有給藥途徑吸收皆良好（含經皮尼古丁貼片，人用戒菸輔助）；肝臟phase I/II代謝；腎臟排除（代謝物與原型藥）；血漿半衰期 Levamisole 4–6小時、Pyrantel tartrate 約6小時。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">中毒副作用</div>
+        <p>高劑量可能引起抽搐；嘔吐與肌肉顫動；<strong>去極化型神經肌肉阻斷可麻痺骨骼肌（尤其呼吸肌），可能致死</strong>——這與治療劑量時對線蟲的「過度刺激致麻痺」是同一套機轉在哺乳動物身上的放大版。</p>
+      </div>
+
+      <h3 id="drug-ganglionicblockers">神經節阻斷劑</h3>
+      <p>老藥：Hexamethonium、Trimethaphan、Mecamylamine——<strong>缺點是非選擇性</strong>，同時阻斷交感與副交感神經節，<strong>獸醫臨床不使用</strong>。</p>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>受體地圖：</strong>菸鹼型N<sub>M</sub>(NMJ)／N<sub>N</sub>(神經節+CNS)為陽離子通道；蕈毒鹼型M1/M3/M5偶聯Gq，M2/M4偶聯Gi/o。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>直接致效劑：</strong>ACh無臨床用途；Carbachol／Bethanechol為四級銨不穿BBB；Bethanechol純蕈毒鹼活性，已大多被Neostigmine/Metoclopramide取代其GI/膀胱用途。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>抗ChE三機轉效果遞增：</strong>可逆性(Edrophonium)＜Carbamylation(Neostigmine等)＜Phosphorylation(OP類)；<strong>Physostigmine穿BBB、Neostigmine不穿BBB</strong>是關鍵化學結構差異。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>OP中毒解毒雙管齊下：</strong>Atropine緩解蕈毒鹼症狀＋2-PAM重新活化AChE（須24小時內給予、不穿BBB）；兩者缺一不可。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Levamisole/Pyrantel/Morantel</strong>是擬菸鹼驅蟲藥，先興奮後麻痺線蟲；哺乳動物過量會出現相同機轉的菸鹼中毒症狀。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>神經節阻斷劑因非選擇性，獸醫臨床幾乎不使用。</strong></div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，ANS 2 handout）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋受體分類、抗ChE機轉、OP中毒處置、擬菸鹼驅蟲藥各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列何者是 Physostigmine 與 Neostigmine 藥理特性最主要的差異？</div>
+        <ul class="quiz-options">
+          <li>(A) Physostigmine效力遠高於Neostigmine</li>
+          <li>(B) Physostigmine為三級胺可穿越BBB，Neostigmine為四級銨不能穿越BBB</li>
+          <li>(C) Neostigmine只能局部給藥，Physostigmine只能口服</li>
+          <li>(D) 兩者機轉完全不同，Physostigmine不是抗ChE藥物</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Physostigmine是三級胺，可穿越BBB進入中樞神經系統；Neostigmine是四級銨化合物，不能穿越BBB，因此只在周邊產生作用。這個化學結構差異解釋了兩者臨床用途的差異：Physostigmine可用於治療中樞性Atropine中毒，Neostigmine則安全用於逆轉周邊的神經肌肉阻斷劑效果而不影響CNS。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 治療有機磷中毒時，只要給予足量的 Atropine 就能完全逆轉所有中毒症狀，不需要額外使用其他解毒劑。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Atropine只能緩解蕈毒鹼型症狀（如流涎、縮瞳、心搏過緩），無法逆轉神經肌肉阻斷造成的骨骼肌顫動與呼吸肌無力；必須合併使用2-PAM（Pralidoxime）將OP從AChE上拉出使酵素重新活化，兩者需合併使用才能全面處置有機磷中毒。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻犬誤食有機磷殺蟲劑，中毒後 36 小時才送醫，此時給予 2-PAM 的效果可能為何？</div>
+        <ul class="quiz-options">
+          <li>(A) 效果與24小時內給予相同，因為2-PAM沒有時間限制</li>
+          <li>(B) 效果可能大幅降低，因為OP可能已與AChE形成「老化」的穩定鍵結，2-PAM難以再將其拉出</li>
+          <li>(C) 完全無效，因為2-PAM只能預防中毒不能治療已發生的中毒</li>
+          <li>(D) 效果會更好，因為給藥時間越晚體內OP濃度越低</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">2-PAM必須在OP暴露後24小時內給予才有較好效果，超過這個時間窗，OP與AChE之間的共價鍵結會經歷「老化（aging）」過程形成更穩定難以逆轉的結構，此時2-PAM將難以有效地把OP從酵素上置換出來，酵素活性難以恢復。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. Levamisole、Pyrantel 等驅蟲藥對線蟲的作用機轉，與這些藥物在哺乳動物中毒時產生的症狀，兩者之間有什麼共同的邏輯？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">這類驅蟲藥的核心機轉是模仿ACh活化菸鹼型（N<sub>N</sub>）受體，在線蟲身上會先刺激其神經與肌肉，但因為刺激持續存在（不像ACh會被迅速分解），最終導致過度刺激而使線蟲的神經肌肉麻痺、蟲體無法附著在腸道而被排出。這個「先興奮後因過度刺激而麻痺」的機轉，在哺乳動物意外過量暴露時是同一套邏輯的放大版：先出現CNS興奮（顫抖）、心血管系統興奮（血壓心跳上升）、GI興奮（蠕動與分泌增加）等症狀，劑量再高則會因神經肌肉接合處的去極化型阻斷而導致骨骼肌（尤其呼吸肌）麻痺，可能致死。也就是說，藥物在目標蟲體與非目標宿主身上作用的分子機轉完全相同，差別只在於劑量與物種的受體分布/敏感度不同。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  receptors: '菸鹼型與蕈毒鹼型受體',
+  directagonists: '直接型膽鹼性致效劑',
+  anticholinesterase: '抗膽鹼酯酶藥物',
+  optoxicity: '有機磷中毒與解毒',
+  ganglionic: '神經節菸鹼型藥物與驅蟲藥',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
