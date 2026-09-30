@@ -22,7 +22,7 @@ const SITE_NAV = [
     icon: "🩺",
     url: "index.html",
     topics: [
-      { title: "大動物外科手術及實習", url: "大四上/大動物外科手術及實習/index.html", desc: "術前考量與麻醉、縫合技術、腹腔手術（瘤胃／皺胃）等週次筆記" },
+      { title: "大動物外科手術及實習", url: "大四上/大動物外科手術及實習/index.html", desc: "術前考量與麻醉、縫合技術、腹腔手術（瘤胃／皺胃）、手術器械圖鑑等週次筆記" },
       { title: "禽病學", url: "大四上/禽病學/index.html", desc: "已整理第2週：新城病(ND)、第3週：傳染性支氣管炎(IB)" },
       { title: "豬病學", url: "大四上/豬病學/index.html", desc: "已整理第2週：豬病毒性疾病(I)（ASF／CSF／JEV／HEV）" },
       { title: "反芻動物疾病學", url: "大四上/反芻動物疾病學/index.html", desc: "已整理第1-2週：乳牛營養與飼養管理、轉換期／低血鈣症／DCAD、臨床檢查、眼科疾病" },

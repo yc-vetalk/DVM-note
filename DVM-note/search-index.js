@@ -211,6 +211,55 @@ const SEARCH_INDEX = [
     snippet: "涵蓋脅腹剖腹適應症、瘤胃縫合、LDA機轉、皺胃固定術式選擇的練習題（共7題，含1題臨床情境整合題）。"
   },
   {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 5, weekTitle: "手術器械圖鑑",
+    url: "大四上/大動物外科手術及實習/week05_手術器械.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 手術器械 surgical instrument 器械圖鑑",
+    snippet: "四大類共43件大動物手術器械圖鑑總覽：診斷、外科與解剖、保定去勢去角蹄部、產科與胚胎切割器械。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 5, weekTitle: "手術器械圖鑑",
+    url: "大四上/大動物外科手術及實習/week05_手術器械.html",
+    section: "diagnostic", sectionName: "診斷器械",
+    keywords: "叩診槌 percussion hammer 標記筆 marker",
+    snippet: "叩診槌、標記筆兩件基礎理學檢查與標記工具。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 5, weekTitle: "手術器械圖鑑",
+    url: "大四上/大動物外科手術及實習/week05_手術器械.html",
+    section: "surgicalid", sectionName: "外科與解剖器械、標記辨識設備",
+    keywords: "開口器 mouth gag 止血帶 chain tourniquet 防踢鏈 anti cow kicker 豬鼻捕捉器 牙銼 tooth rasp 鼻捻 nose twitch 灌藥器 drencher 電擊趕牛棒 electric goad 去勢鉗 emasculator 無血去勢鉗 bloodless castrator Burdizzo",
+    snippet: "開口器、止血帶、防踢鏈、牙銼、鼻捻鼻鉗、灌藥器、去勢鉗、無血去勢鉗等11件泛用型大動物操作器械。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 5, weekTitle: "手術器械圖鑑",
+    url: "大四上/大動物外科手術及實習/week05_手術器械.html",
+    section: "restraint", sectionName: "保定、去勢去角、蹄部與乳頭器械",
+    keywords: "乳頭栓 teat plugs 蹄檢查鉗 hoof tester 削蹄器 hoof buffer 蹄剪 hoof shear 尖銳刮匙 sharp curette 蹄刀 hoof knife 爪刀 claw knife 蹄葉炎",
+    snippet: "乳頭栓導管、蹄檢查鉗、削蹄器蹄剪、尖銳刮匙、蹄刀爪刀共6件蹄部與乳頭相關器械。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 5, weekTitle: "手術器械圖鑑",
+    url: "大四上/大動物外科手術及實習/week05_手術器械.html",
+    section: "obstetric", sectionName: "產科與胚胎切割器械、導管、人工授精",
+    keywords: "牽引器 calf puller 產科鏈 calving chain 助產鉗 farrowing forceps 陰道擴張器 vaginal speculum 人工陰道 artificial vagina 胚胎切割 embryotomy 產科鉤 obstetric hook 鋸線 wire saw Flessa needle 外陰縫合 vulva sutures 子宮導管 uterine catheter 子宮頸鉗 cervix forceps 子宮灌洗幫浦 uterine pump 瘤胃固定鉗 rumen holding forceps 螺旋套管針 screw trocar 胃管 stomach tube",
+    snippet: "24件產科與胚胎切割器械，依牽引輔助、陰道與採精、胚胎切割、縫合外陰、子宮器械導管、瘤胃相關六小類整理。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 5, weekTitle: "手術器械圖鑑",
+    url: "大四上/大動物外科手術及實習/week05_手術器械.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 手術器械",
+    snippet: "五點總複習：去勢鉗vs無血去勢鉗、產科鉤vs鋸線、蹄部器械分工、瘤胃固定鉗定位、產科器械工作流程分類。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 5, weekTitle: "手術器械圖鑑",
+    url: "大四上/大動物外科手術及實習/week05_手術器械.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 手術器械",
+    snippet: "涵蓋去勢鉗辨識、產科鉤與鋸線功能區別、瘤胃穿刺、蹄部處置流程的練習題，含胚胎切割術臨床情境整合題。"
+  },
+  {
     subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "overview", sectionName: "骨骼系統總論",
