@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：凝血相關藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">凝血相關藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">凝血相關藥物 Hemostatics &amp; Anticoagulants</h1>
+      <p class="page-subtitle">凝血瀑布基礎、體外與體內抗凝血劑（Heparin、Warfarin、新型口服抗凝血藥）、血栓溶解藥物、抗血小板藥物，以及局部與全身性止血藥物整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三・不分上下學期）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.25 Anticoagulant, Antiplatelet, and Hemostatic Drugs；Handbook of Veterinary Pharmacology 相關章節（心血管藥物劑量表、眼科抗纖維蛋白藥物節）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-25</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對完成：Heparin／LMWH／Warfarin／Aspirin／Clopidogrel／Streptokinase／t-PA／Vitamin K1／Desmopressin／Protamine皆已核對犬貓臨床劑量與機轉細節；Abciximab／Eptifibatide／Idarucizumab／Andexanet／Urokinase／Hirudin於現有教科書節錄中查無獸醫臨床實證資料，該部分維持講義原文，未強行補充）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">抗凝血劑</div>
+    <a onclick="showSection('cascade')" id="nav-cascade"><span class="nav-icon">🩸</span> 凝血生理基礎與體外抗凝劑</a>
+    <a onclick="showSection('heparin')" id="nav-heparin"><span class="nav-icon">💉</span> Heparin：機轉、藥動學與毒性</a>
+    <a onclick="showSection('oralanticoag')" id="nav-oralanticoag"><span class="nav-icon">💊</span> 口服抗凝血劑：Vit.K拮抗劑與新型藥物</a>
+    <a onclick="showSection('rodenticide')" id="nav-rodenticide"><span class="nav-icon">⚠️</span> 藥物交互作用與滅鼠藥中毒</a>
+    <div class="section-label" style="margin-top:8px;">溶栓／抗血小板／止血</div>
+    <a onclick="showSection('fibrinolytic')" id="nav-fibrinolytic"><span class="nav-icon">🧬</span> 血栓溶解藥物</a>
+    <a onclick="showSection('antiplatelet')" id="nav-antiplatelet"><span class="nav-icon">🔬</span> 抗血小板藥物</a>
+    <a onclick="showSection('hemostatic')" id="nav-hemostatic"><span class="nav-icon">🩹</span> 止血藥物：局部與全身性</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這份講義的主題其實是<strong>「凝血系統的兩個方向：促進止血 vs. 抑制凝血」</strong>，不是單純「抗凝血藥物」而已。先建立<strong>凝血瀑布</strong>（外源路徑、內源路徑匯聚成共同路徑，最終Thrombin把Fibrinogen轉成Fibrin）這張座標圖，後面每一個藥物都可以定位在這張圖的某一個節點上。接著沿講義順序走：<strong>體外抗凝劑</strong>（Oxalate、Citrate、EDTA，檢驗與輸血用）→<strong>Heparin</strong>（活化Antithrombin III，抑制多個活化凝血因子，只能注射給藥）→<strong>口服抗凝血劑</strong>（Warfarin等Vitamin K拮抗劑，阻斷Vitamin K epoxide reductase；以及Dabigatran、Rivaroxaban、Apixaban等新型直接抑制劑）→<strong>血栓溶解藥物</strong>（Streptokinase、Urokinase、t-PA，把Plasminogen轉成Plasmin，溶解「已經形成」的血栓，這跟前面「防止新血栓形成」的抗凝血劑是完全不同層次的介入）→<strong>抗血小板藥物</strong>（Aspirin阻斷COX、Clopidogrel阻斷ADP受體，作用在血小板聚集這一關）→最後收在<strong>止血藥物</strong>：局部性（Thrombin、膠原蛋白海綿）與全身性（Vitamin K1、Aminocaproic acid、Protamine sulfate、Desmopressin），這些是「方向相反」的藥物，用來處理出血而非血栓。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-3" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('cascade')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">凝血瀑布基礎</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">內源／外源路徑與體外抗凝劑</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('heparin')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Heparin</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">AT III依賴、只能注射</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('oralanticoag')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">口服抗凝血劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Warfarin與新型口服藥</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('fibrinolytic')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">血栓溶解藥物</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">溶解已形成的血栓</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('antiplatelet')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">抗血小板藥物</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Aspirin、Clopidogrel</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('hemostatic')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">06</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">止血藥物</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Vit K1、Desmopressin等</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>Heparin只能注射（IV或SC），不能口服：</strong>因為是大分子磺化黏多醣（5–40 kDa），口服無法從腸胃道吸收；機轉依賴Antithrombin III（Heparin使AT III活性增加約1000倍），監測用APTT（目標1.5–2.5倍基礎值）。</li>
+          <li><strong>Warfarin類藥物是Vitamin K拮抗劑，不是直接抑制凝血因子：</strong>機轉是阻斷Vitamin K epoxide reductase，讓Vitamin K無法從氧化態（epoxide）還原回可用的氫醌態（hydroquinone），間接阻斷Prothrombin（II）與Factor VII、IX、X的γ-carboxylation活化；監測用PT（目標1.5–2倍基礎值），起效比Heparin慢（需等體內既有活性凝血因子代謝完，約數天）。</li>
+          <li><strong>低血鉀不是這裡的重點，「NMTT側鏈的頭孢菌素會增強Warfarin作用」才是：</strong>帶有N-methylthiotetrazole (NMTT)側鏈的Cephalosporins會抑制Vitamin K epoxide reductase，與Warfarin併用時出血風險上升，這是藥物交互作用常考的細節。</li>
+          <li><strong>血栓溶解藥物（Streptokinase、Urokinase、t-PA）與抗凝血劑的作用層次不同：</strong>抗凝血劑只能「防止新血栓擴大」，血栓溶解藥物則是主動把Plasminogen轉成Plasmin去「溶解已經形成的血栓」，風險（全身性出血）也因此更高。</li>
+          <li><strong>Aspirin與Clopidogrel的抗血小板機轉完全不同：</strong>Aspirin不可逆抑制COX-1，阻斷Thromboxane A2（TXA2）合成；Clopidogrel是前驅藥，需經肝臟代謝成活性代謝物後阻斷Gi偶聯的ADP受體（P2Y12），完全不影響COX路徑——兩者可以併用以達到更完整的抗血小板效果。</li>
+          <li><strong>Protamine Sulfate是Heparin專一解毒劑，但過量本身也有抗凝血性質：</strong>魚精蛋白與帶負電的Heparin形成穩定鹽類而中和其活性，但因會干擾Thrombin與Fibrinogen的反應，過量給予反而可能加重出血，需要謹慎計算劑量、緩慢IV給藥。</li>
+          <li><strong>抗凝血性滅鼠藥中毒是獸醫臨床常見毒理案例：</strong>Warfarin、Brodifacoum、Bromadiolone等第一/二代滅鼠藥透過同樣的Vitamin K拮抗機轉致病，第二代藥物半衰期長，需要以Vitamin K1治療數週而非數天；Vitamin K1應避免IV給藥（有過敏樣反應風險），首選IV/SC/PO依產品標示與臨床狀況選擇。</li>
+          <li><strong>Desmopressin的效果會隨重複給藥而遞減：</strong>機轉是促使內皮細胞與巨噬細胞釋放「已儲存」的von Willebrand factor，重複皮下注射會因儲存庫耗盡而效果下降，臨床上多用於單次手術前的止血準備，而非長期治療。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物／概念一覽，途徑與臨床應用欄位盡量標明給藥方式；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物／概念</th><th>機轉／標的</th><th>臨床應用與原因（含途徑）</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Oxalate／Citrate／EDTA</td><td>螯合或沉澱Ca²⁺（Factor IV），阻斷凝血瀑布</td><td>檢驗採血管添加劑，僅供體外（in vitro）使用，不用於活體</td><td class="drug-locations"><a href="#drug-invitroanticoagulants" class="drug-link">體外抗凝劑</a></td></tr>
+            <tr><td>CPDA-1</td><td>Citrate螯合Ca²⁺；Phosphate/Dextrose/Adenine延緩紅血球代謝</td><td>輸血醫學：全血採集用血袋添加劑（ex vivo，血袋內使用）</td><td class="drug-locations"><a href="#drug-cpda1" class="drug-link">CPDA-1</a></td></tr>
+            <tr><td>Hirudin</td><td>抗Thrombin與抗Thromboplastin（水蛭分泌）</td><td>體內與體外皆有效，但純化成本高，臨床少用；講義未載明常規給藥途徑</td><td class="drug-locations"><a href="#drug-hirudin" class="drug-link">Hirudin</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Heparin（UFH）</td><td>依賴Antithrombin III，抑制Factor VIIa、IXa、Xa、XIa、XIIa</td><td>★預防與治療血栓栓塞；IV或SC給藥（不可口服）；監測APTT 1.5–2.5倍基礎值</td><td class="drug-locations"><a href="#drug-heparin" class="drug-link">Heparin機轉與給藥</a></td></tr>
+            <tr><td>LMWH（Dalteparin／Enoxaparin／Tinzaparin）</td><td>同Heparin但對Xa選擇性大於IIa，較不需常規監測APTT</td><td>血栓栓塞預防與治療；SC給藥；出血風險較UFH低，人醫證據較完整</td><td class="drug-locations"><a href="#drug-lmwh" class="drug-link">LMWH</a></td></tr>
+            <tr><td>Protamine Sulfate</td><td>鹼性蛋白，與酸性Heparin形成穩定鹽類而中和其活性</td><td>★Heparin過量出血之解毒劑；IV緩慢給藥（不可快速推注）；過量本身有輕度抗凝血性，需避免過度中和</td><td class="drug-locations"><a href="#drug-protamine" class="drug-link">Protamine Sulfate</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Warfarin（及其他Coumarin衍生物）</td><td>抑制Vitamin K epoxide reductase→阻斷II、VII、IX、X的γ-carboxylation活化</td><td>★血栓栓塞之預防與治療；PO給藥，口服生體可用率高；監測PT 1.5–2倍基礎值；亦為第一代抗凝血性滅鼠藥成分</td><td class="drug-locations"><a href="#drug-warfarin" class="drug-link">Warfarin機轉</a></td></tr>
+            <tr><td>Dabigatran Etexilate</td><td>直接凝血酶（Thrombin）抑制劑</td><td>PO前驅藥（口服生體可用率僅約6%，經酯酶轉為活性型）；人醫用於心房顫動血栓栓塞預防；獸醫應用經驗有限；解毒劑Idarucizumab</td><td class="drug-locations"><a href="#drug-dabigatran" class="drug-link">Dabigatran</a></td></tr>
+            <tr><td>Rivaroxaban／Apixaban</td><td>直接Factor Xa抑制劑</td><td>PO給藥；藥動學可預測，無需如Warfarin般常規監測；犬貓已有限量臨床使用報告（如IMHA併發血栓栓塞）；解毒劑Andexanet alfa</td><td class="drug-locations"><a href="#drug-rivaroxaban" class="drug-link">Rivaroxaban／Apixaban</a></td></tr>
+            <tr><td>Andexanet Alfa</td><td>重組修飾型人類Factor Xa誘餌蛋白，結合並中和Factor Xa抑制劑</td><td>Factor Xa抑制劑（Rivaroxaban／Apixaban）過量出血之解毒劑；蛋白質類製劑，需注射給藥；獸醫臨床應用資料極少</td><td class="drug-locations"><a href="#drug-andexanet" class="drug-link">Andexanet</a></td></tr>
+            <tr><td>Idarucizumab</td><td>人源化抗體片段，專一結合並中和Dabigatran</td><td>Dabigatran過量之緊急解毒劑；抗體片段製劑，需注射給藥；教科書明確記載「尚未於動物臨床使用」</td><td class="drug-locations"><a href="#drug-idarucizumab" class="drug-link">Idarucizumab</a></td></tr>
+            <tr><td>Streptokinase</td><td>與Plasminogen結合形成複合物，催化Plasminogen轉為Plasmin（非特異性）</td><td>血栓溶解治療；IV緩慢輸注給藥；犬貓研究顯示未證實優於傳統治療（Aspirin+Heparin），且有全身性出血、高血鉀再灌流傷害風險</td><td class="drug-locations"><a href="#drug-streptokinase" class="drug-link">Streptokinase</a></td></tr>
+            <tr><td>Urokinase</td><td>人類腎臟來源酵素，直接催化Plasminogen轉為Plasmin</td><td>血栓溶解治療；依講義所述血栓溶解藥物整體「經IV給藥誘發全身溶解狀態」；內生性抗胞漿素不影響其活性</td><td class="drug-locations"><a href="#drug-urokinase" class="drug-link">Urokinase</a></td></tr>
+            <tr><td>t-PA（Alteplase／Reteplase）</td><td>組織胞漿素原活化劑，優先活化與Fibrin結合的Plasminogen（較具血栓專一性）</td><td>血栓溶解治療（人醫：肺栓塞、深部靜脈栓塞、急性心肌梗塞）；IV給藥；犬貓臨床經驗有限，貓再灌流傷害死亡率高，屬人類蛋白對動物具潛在抗原性</td><td class="drug-locations"><a href="#drug-tpa" class="drug-link">t-PA</a></td></tr>
+            <tr><td>Aminocaproic Acid／Tranexamic Acid</td><td>競爭性抑制Plasminogen活化（結合離胺酸位點），抑制纖維蛋白溶解</td><td>血栓溶解治療後出血之處置；PO或IV給藥（Aminocaproic Acid兩種劑型皆有）；Tranexamic acid效力約為Aminocaproic acid的6–10倍；不良反應：血栓形成風險上升</td><td class="drug-locations"><a href="#drug-aminocaproic" class="drug-link">Aminocaproic Acid</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Aspirin</td><td>不可逆抑制COX-1（乙醯化）→阻斷Thromboxane A2合成，抑制血小板聚集</td><td>血栓栓塞高風險病患抗血小板治療；PO給藥；犬貓對Aspirin反應不一致（部分犬對低劑量無反應），臨床效果不如Clopidogrel穩定</td><td class="drug-locations"><a href="#drug-aspirin" class="drug-link">Aspirin</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Clopidogrel（及Ticlopidine）</td><td>前驅藥，活性代謝物阻斷Gi偶聯之ADP受體（P2Y12），非NSAID不影響COX</td><td>★心臟病、血栓栓塞、心絲蟲病之抗血小板治療；PO給藥，效果不可逆；不良反應：嘔吐、厭食、出血；Ticlopidine在貓不良反應較多，臨床少用</td><td class="drug-locations"><a href="#drug-clopidogrel" class="drug-link">Clopidogrel</a></td></tr>
+            <tr><td>Abciximab／Eptifibatide</td><td>阻斷血小板膜Glycoprotein IIb/IIIa受體（血小板聚集最終共同路徑）</td><td>人醫抗血小板治療；本頁教科書核對未查到獸醫臨床劑量或途徑資料，僅依講義列為機轉分類</td><td class="drug-locations"><a href="#drug-gpiibiiia" class="drug-link">GPIIb/IIIa抑制劑</a></td></tr>
+            <tr><td>局部止血劑（Thrombin、Thromboplastin、Gelatin sponge、Collagen、Oxidized cellulose）</td><td>提供凝血反應的結構基質或直接促進Fibrin形成</td><td>局部外用控制微血管出血（對動靜脈出血效果較差）；局部應用，非全身性給藥途徑</td><td class="drug-locations"><a href="#drug-topicalhemostatics" class="drug-link">局部止血劑</a></td></tr>
+            <tr><td>Vitamin K1（Phytonadione）</td><td>Vitamin K循環中的活性形式，作為II、VII、IX、X的γ-carboxylation輔因子</td><td>★抗凝血性滅鼠藥中毒解毒劑；短效滅鼠藥1 mg/kg/day IV／SC／PO 10–14天，長效滅鼠藥2.5–5 mg/kg/day IM／SC／PO 3–4週；<strong>應避免IV給藥</strong>（過敏樣反應風險）</td><td class="drug-locations"><a href="#drug-vitamink1" class="drug-link">Vitamin K1</a></td></tr>
+            <tr><td>Desmopressin（DDAVP）</td><td>合成Vasopressin類似物，經V2受體促內皮細胞釋放儲存之vWF</td><td>血管性血友病（vWD）、肝硬化或藥物所致出血之微血管出血控制；SC給藥，或稀釋後緩慢IV（約10分鐘）；重複SC給藥效果遞減（儲存庫耗盡）</td><td class="drug-locations"><a href="#drug-desmopressin" class="drug-link">Desmopressin</a></td></tr>
+            <tr><td>von Willebrand Factor（vWf）</td><td>內皮細胞分泌之醣蛋白，穩定Factor VIII、媒介血小板黏附（結合膠原蛋白、血小板GPIb受體）</td><td>生理概念（非藥物）：vWD時功能缺損致出血傾向，是Desmopressin作用的標的</td><td class="drug-locations"><a href="#drug-vwf" class="drug-link">von Willebrand Factor</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CASCADE -->
+    <div class="section" id="section-cascade">
+      <div class="section-head"><div class="section-num">3</div><h2>凝血生理基礎與體外抗凝劑 Coagulation Cascade &amp; In Vitro Anticoagulants</h2></div>
+      <p class="section-desc">在談藥物之前，先建立凝血瀑布的骨架，後面每個藥物都能定位在這張圖的某個節點上；同時整理實驗室／輸血醫學常用的體外抗凝劑，這些與後面「體內」使用的抗凝血藥物機轉／用途完全不同，不要混淆。</p>
+
+      <h3>凝血瀑布 Coagulation Cascade<span class="tag tag-exam">重要</span></h3>
+      <p>凝血的核心是<strong>可溶性Fibrinogen轉變為不可溶的Fibrin</strong>，透過一連串「限制性蛋白水解」的連鎖反應：每個凝血因子被前一個活化因子水解後才轉為有活性的蛋白酶，再去活化下一個因子，最終形成固態的Fibrin凝塊。<strong>Ca²⁺（Factor IV）貫穿整個瀑布</strong>，是外源、內源與共同路徑多個步驟的必要輔因子——這也是體外抗凝劑（見下方）之所以有效的原因：只要螯合或沉澱掉Ca²⁺，整個瀑布就無法繼續。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階段</th><th>外源路徑 Extrinsic Pathway</th><th>內源路徑 Intrinsic Pathway</th></tr></thead>
+          <tbody>
+            <tr><td>觸發</td><td>組織創傷（Tissue Trauma）</td><td>血液本身受創傷（Trauma to Blood）</td></tr>
+            <tr><td>啟動因子</td><td>Tissue Thromboplastin（Factor III）→分解為Tissue Factor與Tissue Phospholipid</td><td>Factor XII→XIIa→（活化XI→XIa，需Ca²⁺）</td></tr>
+            <tr><td>中間步驟</td><td>Tissue Factor＋Factor VII，Tissue Phospholipid＋Factor V，共同作用於Factor X</td><td>XIa活化IX→IXa；IXa與Factor VIII、Platelet Factor 3、Ca²⁺共同作用於Factor X</td></tr>
+            <tr><td>匯聚點</td><td colspan="2" style="text-align:center;"><strong>Factor X → Xa（PAC, prothrombin activator complex）</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>共同路徑（Common Pathway）：</strong></p>
+      <div class="flow">
+        <div class="flow-node">Xa（＋Ca²⁺）＋ Prothrombin（Factor II）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">Thrombin</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Fibrinogen（Factor I）→ Fibrin Monomer</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">（＋Factor XIII）Fibrin Chain（＋血小板、紅血球、血漿）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Clot Retraction（Thrombosthenin介導）→ Formed Clot</div>
+      </div>
+      <p style="font-size:.9em;">凝塊形成後並非終點，生理上還有<strong>Fibrinolysis</strong>持續進行：Plasminogen經Activators轉為Plasmin，將Fibrin降解回收——這條路徑正是後面「血栓溶解藥物」（第7節）人為加速利用的生理機轉。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Factor</th><th>同義名稱 Synonym</th></tr></thead>
+          <tbody>
+            <tr><td>Factor I</td><td>Fibrinogen</td></tr>
+            <tr><td>Factor II</td><td>Prothrombin</td></tr>
+            <tr><td>Factor III</td><td>Tissue thromboplastin</td></tr>
+            <tr><td>Factor IV</td><td>Calcium</td></tr>
+            <tr><td>Factor V</td><td>Proaccelerin</td></tr>
+            <tr><td>Factor VII</td><td>Proconvertin；serum prothrombin conversion accelerator</td></tr>
+            <tr><td>Factor VIII</td><td>Antihemophilic factor</td></tr>
+            <tr><td>Factor IX</td><td>Plasma thromboplastin component；Christmas factor</td></tr>
+            <tr><td>Factor X</td><td>Stuart-Prower factor</td></tr>
+            <tr><td>Factor XI</td><td>Plasma thromboplastin antecedent</td></tr>
+            <tr><td>Factor XII</td><td>Hageman factor</td></tr>
+            <tr><td>Factor XIII</td><td>Fibrin stabilizing factor</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義原投影片中此表格直接引用自教科書「TABLE 27.1—Blood coagulation factors and their synonyms」。</p>
+
+      <h3 id="drug-invitroanticoagulants">體外抗凝劑：Oxalate、Citrate、EDTA<span class="tag tag-exam">重要</span></h3>
+      <p>這三者的<strong>共通整體效果是阻斷Fibrin形成</strong>，但都<strong>僅限體外（in vitro）使用</strong>，不能用於活體：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥劑</th><th>機轉</th><th>用途／限制</th></tr></thead>
+          <tbody>
+            <tr><td>Oxalate</td><td>與Ca²⁺形成不溶性鈣鹽</td><td>僅供體外使用</td></tr>
+            <tr><td>Citrate</td><td>與Ca²⁺形成複合物</td><td>體內使用有限（CPDA-1即為Citrate應用，見下）</td></tr>
+            <tr><td>EDTA（ethylene diamine tetraacetic acid）</td><td>螯合Ca²⁺離子</td><td>僅供體外使用（常見於EDTA採血管）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-cpda1">CPDA-1（Citrate Phosphate Dextrose Adenine）</h3>
+      <p>雖然Citrate本身「體內使用有限」，但<strong>CPDA-1是人醫與獸醫輸血醫學常用的血袋添加劑</strong>，用於全血採集：Citrate作為抗凝血成分螯合Ca²⁺，Phosphate、Dextrose與Adenine則共同作用以延緩紅血球代謝、達到保存效果。</p>
+
+      <h3 id="drug-hirudin">Hirudin（水蛭素）</h3>
+      <p>由水蛭（leech）分泌，具<strong>抗Thrombin與抗Thromboplastin</strong>活性，體內與體外皆有效，但因純化成本高，臨床應用受限。講義同時提及<strong>蛇毒（snake venoms）</strong>：多物種蛇毒對凝血因子有多樣的作用，主要作為診斷與研究用途——講義並附上台灣蛇毒研究先驅<strong>歐陽兆和院士</strong>（台大醫學院藥理學科）的介紹：他系統性整理台灣產五大毒蛇的毒液與各凝血因子間的交互作用，1957年發表於《台灣醫學雜誌》，該論文成為出血性蛇毒研究的經典之作，並於1984年當選中央研究院院士。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主；凝血因子同義表引用自講義投影片內建表格。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- HEPARIN -->
+    <div class="section" id="section-heparin">
+      <div class="section-head"><div class="section-num">4</div><h2>Heparin：機轉、藥動學與毒性</h2></div>
+      <p class="section-desc">Heparin是講義中第一個「真正用於活體」的抗凝血劑，機轉不是直接抑制凝血因子，而是「借力」體內既有的Antithrombin III；也因為分子量大、水溶性高，給藥途徑受到嚴格限制。</p>
+
+      <h3 id="drug-heparin">Unfractionated Heparin（UFH）<span class="tag tag-exam">重要</span></h3>
+      <p><strong>本質：</strong>異質性的磺化黏多醣（sulfated mucopolysaccharides），為生理性抗凝血劑，最早由肝臟中分離出。<strong>分子量5–40 kDa。</strong></p>
+      <div class="flow">
+        <div class="flow-node">Heparin結合並活化Antithrombin III</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">AT III抑制Thrombin活性提升約1000倍</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">抑制Factor VIIa、IXa、Xa、XIa、XIIa</div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">給藥途徑限制</div>
+        <p><strong>只能IV或SC給藥，不可口服</strong>——腸胃道無法吸收此大分子磺化黏多醣。臨床用途：預防與治療凝血障礙、限制既有血栓擴大、預防進一步血栓栓塞事件。</p>
+      </div>
+      <p style="font-size:.9em;"><strong>Low Molecular Weight Heparin（LMWH）</strong>另立小節說明，見下方。</p>
+
+      <h3 id="drug-lmwh">低分子量肝素 LMWH<span class="tag tag-exam">重要</span></h3>
+      <p>代表藥物：<strong>Dalteparin、Enoxaparin、Tinzaparin</strong>，分子量&lt;8 kDa。與UFH相比，<strong>對Factor IIa（Thrombin）的抑制效果較弱、對Factor Xa的抑制效果相對較強</strong>（以Dalteparin為例，Xa/IIa比值約2.7），因此：</p>
+      <ul>
+        <li>對凝血酶（IIa）抑制能力有限→出血風險較低（人醫實證安全性較佳）</li>
+        <li>對凝血時間影響不明顯，<strong>一般不需常規監測APTT</strong>；需要監測時改測Anti-Xa activity</li>
+        <li>人類與馬的半衰期較長，但<strong>犬貓半衰期未見延長</strong>——這是物種間藥動學差異的重點，不能直接套用人醫的給藥頻率</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>途徑／劑量（犬貓）</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>Dalteparin（Fragmin®）</td><td>SC 150 IU/kg q4–12h</td><td>犬貓臨床經驗較多</td></tr>
+            <tr><td>Enoxaparin（Lovenox®）</td><td>SC 1.5 mg/kg q6–12h</td><td>犬貓臨床經驗較多</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：UFH犬貓劑量與監測建議</div>
+        <p>Veterinary Pharmacology and Therapeutics 10th ed.指出Heparin<strong>「不是一體適用的藥物」</strong>，劑量需依疾病嚴重度與個體Antithrombin濃度大幅調整；理想上應以凝血時間（最常用APTT）個別化調整劑量。犬的參考劑量：低劑量預防70 units/kg SC q8–12h；治療性用藥100–200 units/kg IV負荷劑量，續以100–300 units/kg SC q6–8h，必要時可增至500–600 units/kg；貓的起始劑量約300 units/kg SC q8h。惟教科書同時指出，以APTT調整Heparin劑量<strong>不一定能穩定對應Anti-Xa activity</strong>，這些劑量多屬人醫外推或專家建議，尚未經嚴謹臨床試驗驗證。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25）</p>
+      </div>
+
+      <h3>Toxicity of Heparin：毒性與風險管控<span class="tag tag-exam">重要</span></h3>
+      <p><strong>主要不良／毒性反應：出血。</strong>風險管控三要素：</p>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">病患篩選</div><p>評估潛在出血風險與適應症合理性。</p></div>
+        <div class="card"><div class="card-title">劑量控制</div><p>個別化調整，避免一體適用的固定劑量。</p></div>
+        <div class="card"><div class="card-title">監測</div><p>APTT（目標1.5–2.5倍基礎值）與血小板數。</p></div>
+      </div>
+      <p>其他毒性：<strong>短暫性（25%）與嚴重（5%）血小板低下</strong>（誘發抗Heparin/血小板複合物之抗體）、<strong>矛盾性血栓栓塞</strong>（Heparin誘發血小板聚集，可能因AT III耗竭所致）、<strong>可逆性脫毛</strong>。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充／出入：Heparin誘發血小板低下的物種差異</div>
+        <p>講義列出人類文獻常見的Heparin-induced thrombocytopenia比例（短暫性25%、嚴重5%）。但<strong>Veterinary Pharmacology and Therapeutics 10th ed.明確指出「Heparin誘發血小板低下在人是已知問題，但在動物尚未被記載為一個問題」</strong>——換句話說，這個數字主要來自人醫資料，臨床上不宜直接套用到犬貓病患的風險評估上，仍應以個體監測血小板數為準。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25，Adverse Effects段落）</p>
+      </div>
+
+      <h3 id="drug-protamine">反轉Heparin效果：Protamine Sulfate（魚精蛋白）<span class="tag tag-exam">重要</span></h3>
+      <p><strong>反轉方式：</strong>①停藥（drug discontinuation）；②特定解毒劑Protamine Sulfate。</p>
+      <p>Protamine Sulfate是低分子量鹼性蛋白（來自特定魚類精液），<strong>與帶酸性的Heparin結合形成穩定的惰性鹽類</strong>，中和其抗凝血活性；體外亦有效。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">用藥安全：避免過度中和</div>
+        <p>Protamine本身也具有<strong>輕度抗凝血性質</strong>（干擾Thrombin與Fibrinogen的反應），過量給予反而可能<strong>加重出血</strong>，臨床上須精算劑量、避免「反轉過頭」。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Protamine給藥方式與換算劑量</div>
+        <p><strong>給藥方式：</strong>IV緩慢給藥，速率不超過50 mg／10分鐘。<strong>換算劑量：</strong>1 mg Protamine中和80–100 units UFH（約相當於1–1.5 mg中和每1 mg Heparin）；中和Dalteparin為1.0 mg Protamine／每100 U Dalteparin；中和Enoxaparin為1 mg Protamine／每1 mg Enoxaparin；若距Heparin給藥已有時間差（如30分鐘後），所需劑量可酌減（例如降至0.5 mg中和每1 mg Heparin）。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25，Reversing Agent for Heparin段落）</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25 核對補充犬貓臨床劑量。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ORAL ANTICOAGULANTS -->
+    <div class="section" id="section-oralanticoag">
+      <div class="section-head"><div class="section-num">5</div><h2>口服抗凝血劑：Vitamin K拮抗劑與新型口服抗凝血藥</h2></div>
+      <p class="section-desc">從一段獸醫毒理學史（牛隻因誤食腐敗甜苜蓿而死亡）開始，帶出Warfarin這類藥物的機轉；再延伸到近年上市、機轉完全不同的新型口服抗凝血藥。</p>
+
+      <h3>發現史：從甜苜蓿中毒到Warfarin<span class="tag tag-exam">重要</span></h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>1920年：</strong>文獻報告牛隻因食用腐敗甜苜蓿（Sweet Clover, <em>Melilotus indicus</em>）後死亡。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>1931年：</strong>研究確認這些死亡與血清中Factor II（Prothrombin）濃度下降有關。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>1939年：</strong>從腐敗甜苜蓿中純化出Dicoumarol（一種Coumarin衍生物），確認為致出血成分。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>1948年：</strong>Warfarin被合成並作為滅鼠藥使用（Wisconsin Alumni Research Foundation），活性與Coumarin類似。</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">甜苜蓿具特殊香氣（含Coumarin，香豆素），原產於印度的熱帶豆科牧草，外觀與一般苜蓿相似，葉有鋸齒、穗狀花序。</p>
+
+      <h3 id="drug-warfarin">Warfarin與其他Coumarin衍生物<span class="tag tag-exam">重要</span></h3>
+      <p>代表藥物：<strong>Dicumarol、4-hydroxycoumarin、Warfarin</strong>等，皆屬<strong>Vitamin K拮抗劑</strong>。</p>
+      <div class="flow">
+        <div class="flow-node">阻斷Prothrombin（II）與Factor VII、IX、X之Glutamate殘基的γ-carboxylation</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">此反應耦合Vitamin K的氧化去活化</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">抗凝血劑阻斷無活性Vitamin K epoxide還原回活性氫醌態（Vitamin K cycle受阻）</div>
+      </div>
+      <p><strong>Vitamin K Cycle（四步驟）：</strong></p>
+      <div class="step">
+        <div class="step-num">①</div>
+        <div class="step-text">Vitamin K氫醌態（hydroquinone）經O₂氧化為Epoxide態，同時驅動②的carboxylation反應。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">②</div>
+        <div class="step-text">Protein carboxylase利用此能量，將蛋白質中的Glutamate（Glu）殘基carboxylation為γ-carboxyglutamate（Gla）——這是Prothrombin與Factor VII、IX、X具備凝血活性所必需的修飾。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">③</div>
+        <div class="step-text">Vitamin K epoxide經Vitamin K epoxide reductase還原為quinone態——<strong>Warfarin／Dicoumarol正是抑制這一步的酵素</strong>，需要SH基提供還原當量。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">④</div>
+        <div class="step-text">Quinone態經NADPH／NADP⁺系統還原回氫醌態，完成循環、可再次被利用。</div>
+      </div>
+
+      <h3>三種Vitamin K化學形式</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">Vitamin K₁</div><p>Phylloquinone（phytonadione），來自植物飲食，用於治療用途。</p></div>
+        <div class="card"><div class="card-title">Vitamin K₂</div><p>Menaquinone，存在於人體組織，由腸道細菌合成。</p></div>
+        <div class="card"><div class="card-title">Vitamin K₃</div><p>Menadione，合成形式；<strong>講義明確指出療效差且有副作用，臨床不建議使用</strong>。</p></div>
+      </div>
+
+      <h3 id="drug-warfarin-pk">Warfarin藥動學與監測</h3>
+      <ul>
+        <li><strong>高口服生體可用率</strong>（Warfarin &gt; Dicumarol），大部分與血漿白蛋白結合</li>
+        <li><strong>監測Prothrombin Time（PT）</strong>，目標為基礎值的<strong>1.5–2倍</strong></li>
+        <li>適應症：靜脈血栓的預防與治療、凝血障礙</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書核對：機轉與監測數字皆吻合</div>
+        <p>Handbook of Veterinary Pharmacology確認Warfarin機轉為<strong>抑制Vitamin K epoxide reductase</strong>，效果可被足量Vitamin K1逆轉，且因抗凝血蛋白半衰期較大多數促凝血因子短，<strong>給藥初期可能出現短暫性高凝血狀態</strong>（這點講義未提及，屬教科書補充的臨床細節，起始治療時需留意）。Veterinary Pharmacology and Therapeutics 10th ed.進一步確認動物監測標準為<strong>PT維持於基礎值1.5–2倍（或INR 2–3）</strong>，與講義數字一致；並指出Warfarin口服吸收快速，主要經肝臟代謝為無活性代謝物、經尿液排除，個體與物種間反應差異極大，臨床上因此已較少作為獸醫常規用藥。（核對自 Handbook of Veterinary Pharmacology 相關章節；Veterinary Pharmacology and Therapeutics 10th ed. Ch.25）</p>
+      </div>
+
+      <h3>新型口服抗凝血藥物 Direct Oral Anticoagulants（DOAC）<span class="tag tag-exam">重要</span></h3>
+      <p>相較Warfarin需要密切監測與飲食交互作用管理，這類藥物<strong>藥動學較可預測，多數不需常規監測</strong>，也較少受飲食影響。</p>
+
+      <h3 id="drug-dabigatran">Dabigatran Etexilate（直接Thrombin抑制劑）</h3>
+      <p>2010年上市，屬<strong>直接凝血酶（Thrombin）抑制劑</strong>。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Dabigatran Etexilate是前驅藥形式，<strong>口服生體可用率僅約6%</strong>，經酯酶（esterase）迅速轉化為活性型Dabigatran；人醫使用中GI不良反應報告相對其他新型口服抗凝血藥更多（口服吸收需酸性環境，製劑中含酸化劑，可能致消化不良）。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25）</p>
+      </div>
+
+      <h3 id="drug-rivaroxaban">Rivaroxaban（2011）／Apixaban（直接Factor Xa抑制劑）</h3>
+      <p>直接抑制活化態Factor X（Xa）——Factor Xa在凝血瀑布中扮演關鍵角色（見第3節共同路徑匯聚點）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：犬的Factor Xa結構與臨床使用現況</div>
+        <p>教科書指出<strong>犬與人類的Factor Xa結構相似但非完全相同</strong>，提示人醫用的Factor Xa抑制劑理論上對犬亦可能有效。目前已有<strong>犬隻免疫媒介性溶血性貧血（IMHA）併發血栓栓塞</strong>病例使用Rivaroxaban的有限報告（因這類病患對抗血小板藥物、Heparin與LMWH反應通常不佳）；但整體獸醫臨床證據仍屬有限、劑量多為外推。優點是藥動學可預測、<strong>不需如Warfarin般常規監測</strong>，也較少受飲食影響；缺點是半衰期短，漏服可能增加血栓風險，且新藥在動物身上的不良反應資料仍不足。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25）</p>
+      </div>
+
+      <h3 id="drug-andexanet">Coagulation Factor Inhibitors &amp; Antidotes：Andexanet Alfa 與 Idarucizumab</h3>
+      <p><strong id="drug-idarucizumab">Idarucizumab</strong>（2015年核准）：<strong>Dabigatran專一解毒劑</strong>，是第一個針對新型口服抗凝血藥開發的專一反轉劑。<strong id="drug-andexanet-inline">Andexanet</strong>（2018年核准）：一種重組修飾型人類活化Factor X（FXa）誘餌蛋白，用於中和Factor Xa抑制劑（Rivaroxaban、Apixaban）的效果。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充：獸醫臨床應用現況誠實揭露</div>
+        <p>Veterinary Pharmacology and Therapeutics 10th ed.明確指出：<strong>Idarucizumab雖已於人醫核准上市，但截至該書撰寫時「尚未於動物身上使用」</strong>；Andexanet則描述為「正在開發中的新藥」，用以拮抗Factor Xa抑制劑的效果。相對地，<strong>Warfarin的效果可直接以Vitamin K反轉，是教科書明確指出的優勢之一</strong>——這解釋了為什麼講義將這兩個解毒劑放在同一張投影片介紹：它們代表的是「新型口服抗凝血藥出血風險難以逆轉」這個臨床痛點的解方，但獸醫實務上取得與應用經驗仍非常有限。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25，Adverse Effects and Precautions段落）</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RODENTICIDE / INTERACTIONS -->
+    <div class="section" id="section-rodenticide">
+      <div class="section-head"><div class="section-num">6</div><h2>抗凝血劑臨床應用：藥物交互作用與滅鼠藥中毒</h2></div>
+      <p class="section-desc">承接上一節Warfarin的機轉，這節整理兩個臨床實務上必須知道的延伸：藥物交互作用如何改變Warfarin效果，以及抗凝血性滅鼠藥中毒這個獸醫臨床常見毒理案例。</p>
+
+      <h3>Warfarin藥物交互作用<span class="tag tag-exam">重要</span></h3>
+      <p>藥物動力學交互作用類型包括：酵素誘導或抑制、腸胃道吸收改變、血漿蛋白結合競爭。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>方向</th><th>藥物／機轉</th></tr></thead>
+          <tbody>
+            <tr><td><strong>↑ 增強抗凝血作用</strong>（出血風險上升）</td><td>Phenylbutazone、Heparin、Salicylates、Cimetidine、抗生素（Chloramphenicol）、Ketoconazole；<strong>帶N-methylthiotetrazole (NMTT)側鏈的Cephalosporins</strong>：直接抑制Vitamin K epoxide reductase</td></tr>
+            <tr><td><strong>↓ 減弱抗凝血作用</strong>（治療效果不足）</td><td>Barbiturates、Cholestyramine 等</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-rodenticides">抗凝血性滅鼠藥中毒 Anticoagulant Rodenticide Toxicosis<span class="tag tag-exam">重要</span></h3>
+      <p>Coumarin類衍生物除了臨床用藥，也被開發為<strong>環境用鼠藥</strong>——這是獸醫臨床上遠比人用抗凝血治療更常見的中毒情境（寵物誤食）：</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">代表藥物</div>
+          <p><strong>Warfarin</strong>（殺鼠靈）、<strong>Brodifacoum</strong>（可滅鼠）、Bromadiolone、Chlorophacinone、Pindone</p>
+        </div>
+        <div class="card">
+          <div class="card-title">臨床情境</div>
+          <p>寵物動物之抗凝血劑毒物症（anticoagulant toxicosis）：誤食滅鼠餌劑後，因Vitamin K依賴凝血因子逐漸耗竭，常於<strong>誤食數天後才出現出血症狀</strong>（潛伏期反映既有活性凝血因子的代謝時間）。</p>
+        </div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">教科書補充：第二代滅鼠藥療程需拉長至數週</div>
+        <p>Veterinary Pharmacology and Therapeutics 10th ed.指出，<strong>第二代滅鼠藥（如Brodifacoum、Bromadiolone等）半衰期長，中毒後可能需要長達6週的Vitamin K1治療</strong>，遠長於第一代Warfarin中毒的療程——這是辨識滅鼠藥「世代」對治療計畫影響重大的關鍵，飼主教育與追蹤監測（PT）需以此為據調整。實際的Vitamin K1劑量與給藥途徑建議，見第9節「止血藥物」。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25，Vitamin K段落）</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Vitamin K1治療劑量與給藥途徑（含應避免IV的安全提醒），見 <a href="#section-hemostatic">止血藥物：局部與全身性</a>。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據，實際中毒病例處置請依當下臨床獸醫師評估</strong>。
+      </footer>
+    </div>
+
+    <!-- FIBRINOLYTIC -->
+    <div class="section" id="section-fibrinolytic">
+      <div class="section-head"><div class="section-num">7</div><h2>血栓溶解藥物 Fibrinolytic Drugs</h2></div>
+      <p class="section-desc">從「防止新血栓形成」（前面幾節的抗凝血劑）切換到「主動溶解已經形成的血栓」——這是完全不同層次、風險也更高的介入，機轉都圍繞著同一件事：催化Plasminogen轉為活性的Plasmin。</p>
+
+      <h3>生理性纖維蛋白溶解 Fibrinolysis</h3>
+      <div class="flow">
+        <div class="flow-node">Plasminogen Activators（由受損內皮細胞釋放）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Plasminogen</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Plasmin（活性蛋白水解酶）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">蛋白水解消化Fibrin，限制血栓擴大</div>
+      </div>
+      <p>此系統受Plasminogen activator inhibitor（PAI，抑制t-PA）與α2-antiplasmin（抑制Plasmin）兩層負向調控，維持凝血與溶栓的動態平衡（呼應第3節「Regulation of Coagulation」的概念）。</p>
+
+      <h3>Fibrolytic Drugs 總覽</h3>
+      <p><strong>概念：</strong>催化Plasmin（絲胺酸蛋白酶）由Plasminogen形成，達到溶解血栓效果；<strong>IV給藥後誘發全身性溶解狀態（lytic state）</strong>，目標血栓（thromboemboli）與正常止血血栓（hemostatic thrombi）皆會被同時溶解——這也是全身性出血風險的來源。</p>
+
+      <h3 id="drug-streptokinase">Streptokinase</h3>
+      <p>來自鏈球菌（streptococci）的蛋白質，<strong>與Plasminogen（proactivator）結合形成酵素複合物</strong>，此複合物催化Plasminogen轉為活性Plasmin（非特異性活化）。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充：犬貓臨床證據與劑量</div>
+        <p>Handbook of Veterinary Pharmacology給出犬貓劑量：<strong>IV緩慢給藥，90,000 IU於20–30分鐘輸注，續以45,000 IU/h維持3小時以上</strong>。但同一資料來源明確指出：<strong>「未證實Streptokinase比傳統治療（Aspirin加Heparin）在貓身上有存活率優勢」</strong>；不良反應包含全身性出血、續發於溶栓與再灌流傷害的急性高血鉀、代謝性酸中毒，Streptokinase還可能增加血小板聚集性並誘發血小板功能異常。（核對自 Handbook of Veterinary Pharmacology 相關章節）</p>
+      </div>
+
+      <h3 id="drug-urokinase">Urokinase</h3>
+      <p>來自<strong>人類（腎臟）的酵素</strong>，<strong>直接催化</strong>Plasminogen轉為Plasmin（不需先形成複合物）。內生性抗胞漿素（antiplasmins）<strong>不會</strong>影響Urokinase或Streptokinase-proactivator複合物的活性，因此Urokinase（與Streptokinase-proactivator複合物）能促使Plasmin<strong>在血栓內部形成</strong>，達到「從血栓內部往外溶解」的效果。</p>
+
+      <h3 id="drug-tpa">組織胞漿素原活化劑 Tissue Plasminogen Activators（t-PA）</h3>
+      <p>相較Streptokinase／Urokinase的非特異性活化，t-PA<strong>優先活化與Fibrin結合的Plasminogen</strong>，理論上較具血栓專一性、對全身性纖維蛋白原耗竭影響較小。人類t-PA以重組DNA技術製造：<strong>Alteplase</strong>為未修飾型人類t-PA，<strong>Reteplase</strong>為修飾型。人醫臨床用途：多發性肺栓塞（不需手術者）、中央型深部靜脈栓塞、急性心肌梗塞；強調<strong>審慎病患篩選、早期介入</strong>。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">教科書補充：貓的再灌流傷害風險與人類蛋白抗原性</div>
+        <p>Handbook of Veterinary Pharmacology指出：rt-PA在動物的使用經驗非常有限，<strong>最適劑量尚未確立</strong>；一系列貓病例報告顯示<strong>高死亡率，推測與再灌流傷害（reperfusion injury）有關</strong>。藥動學上，t-PA在犬的半衰期僅2–3分鐘，但因與Fibrin結合，效果持續時間較血漿半衰期長。雖然出血風險理論上低於Streptokinase，仍有嚴重出血可能；此外，<strong>因t-PA是人類蛋白，對動物具有潛在抗原性</strong>，這是講義未特別強調、但臨床上須留意的物種差異。犬IV劑量參考：1 mg/kg q1h，共10劑；貓：0.25–1 mg/kg/h輸注，總劑量不超過1–10 mg/kg。（核對自 Handbook of Veterinary Pharmacology 相關章節）</p>
+      </div>
+
+      <h3 id="drug-aminocaproic">纖維蛋白溶解抑制劑：Aminocaproic Acid／Tranexamic Acid<span class="tag tag-exam">重要</span></h3>
+      <p>與上述藥物方向相反——這是<strong>抑制</strong>纖維蛋白溶解的藥物：<strong>競爭性抑制Plasminogen活化</strong>，臨床用途是治療血栓溶解藥物治療後所引發的出血。<strong>Tranexamic acid</strong>為Aminocaproic acid的類似物，作用機轉相似，效力約為Aminocaproic acid的<strong>6–10倍</strong>。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：犬臨床劑量與證據強度</div>
+        <p>Veterinary Pharmacology and Therapeutics 10th ed.確認Aminocaproic acid與Tranexamic acid皆為合成離胺酸類似物，透過結合Fibrin的離胺酸結合位阻斷Plasminogen與Fibrin的結合而抑制纖維蛋白溶解。Aminocaproic acid劑型包含100／500 mg錠劑、250 mg/mL糖漿（<strong>皆為PO</strong>），以及250 mg/mL<strong>IV注射</strong>劑型。研究劑量方面，一項犬研究建議<strong>100 mg/kg PO q6h</strong>用於高纖維蛋白溶解病患；但另一項122犬的臨床病例系列使用較低劑量（平均18 mg/kg）卻無法得出療效結論。人醫最常見不良反應為治療期間血栓形成風險上升。整體而言，<strong>犬貓劑量多屬人醫外推，臨床證據強度有限</strong>。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25）</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主，並以 Handbook of Veterinary Pharmacology 與 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25 核對補充犬貓臨床劑量與證據強度。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ANTIPLATELET -->
+    <div class="section" id="section-antiplatelet">
+      <div class="section-head"><div class="section-num">8</div><h2>抗血小板藥物 Antithrombotic Drugs</h2></div>
+      <p class="section-desc">前面的藥物都作用在「凝血因子瀑布」這條軸線上；這節換一個標的——血小板本身的活化與聚集，這是血栓形成的另一個獨立、但相互影響的環節。</p>
+
+      <h3>血小板內部訊息系統與藥物標的</h3>
+      <p>血小板內部與周邊產生並作用的訊息分子：<strong>Prostaglandin endoperoxidase（COX-1）</strong>、cAMP、cGMP、Ca²⁺。抗血小板藥物的三大藥理標的：</p>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">抑制PG代謝</div><p><strong>Aspirin</strong></p></div>
+        <div class="card"><div class="card-title">抑制ADP誘發之血小板聚集</div><p><strong>Ticlopidine、Clopidogrel</strong></p></div>
+        <div class="card"><div class="card-title">阻斷GP IIb/IIIa血小板膜醣蛋白受體</div><p><strong>Abciximab、Eptifibatide（Integrilin）</strong></p></div>
+      </div>
+
+      <h3 id="drug-aspirin">Aspirin<span class="tag tag-exam">重要</span></h3>
+      <p>講義僅簡述「抑制PG代謝」，教科書核對後補充完整機轉如下：</p>
+      <div class="flow">
+        <div class="flow-node danger">Aspirin不可逆乙醯化血小板COX-1</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">阻斷Thromboxane A2（TXA2）合成</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">抑制血小板聚集（TXA2為血管收縮＋促聚集因子）</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：低劑量Aspirin為何「保留」血管內皮的PGI2</div>
+        <p>Handbook / VPT10共同指出：Aspirin對COX-1的親和力遠高於COX-2，血管內皮細胞合成Prostacyclin（PGI2，強效血管擴張與抗聚集因子）主要依賴<strong>COX-2</strong>，因此<strong>低劑量</strong>Aspirin可選擇性抑制血小板COX-1（阻斷TXA2）而<strong>不明顯影響</strong>內皮PGI2合成——這正是「低劑量Aspirin」用於抗血小板治療、而非單純消炎止痛的藥理基礎。此外，Aspirin口服後先經<strong>門脈循環</strong>大量乙醯化血小板COX-1，之後才在肝臟快速轉為Salicylic acid（此代謝物不具乙醯化能力），因此血小板的抑制效果主要發生在藥物濃度最高的門脈循環階段。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25）</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床提醒：犬貓對Aspirin的反應不一致</div>
+        <p>Veterinary Pharmacology and Therapeutics 10th ed.指出，犬對ADP或膠原蛋白誘發的血小板聚集反應中，Aspirin的抑制效果<strong>並不可靠</strong>，臨床上可能有<strong>高達30%的犬對低劑量Aspirin無反應</strong>，需要提高給藥頻率才能達到穩定效果；心絲蟲感染／栓塞後所需的Aspirin劑量也會明顯上升。貓的抗血小板效果同樣不一致。這是臨床上<strong>Clopidogrel逐漸取代Aspirin</strong>作為犬貓抗血小板首選藥物的重要原因之一。犬參考劑量0.5 mg/kg q12h（PO）；貓81 mg/cat每週2–3次或5 mg/cat q72h（PO）。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25；Handbook of Veterinary Pharmacology劑量表）</p>
+      </div>
+
+      <h3 id="drug-clopidogrel">Clopidogrel<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">Clopidogrel（前驅藥）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">肝臟代謝為活性代謝物</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">阻斷Gi偶聯的ADP受體（P2Y12）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">抑制血小板聚集（不影響COX，非NSAID）</div>
+      </div>
+      <p><strong>臨床應用（PO給藥）：</strong>人類用於預防中風與心肌梗塞復發；<strong>犬貓馬：血栓栓塞、心絲蟲病相關血栓</strong>。<strong>不良反應：</strong>嘔吐、厭食、出血。<strong>Ticlopidine：</strong>臨床動物少用，貓的不良反應較多。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書核對：機轉相符，且已有犬貓臨床劑量與藥效持續時間資料</div>
+        <p>教科書確認Clopidogrel為thienopyridine類前驅藥，活性代謝物專一阻斷血小板P2Y12（ADP）受體，效果<strong>不可逆</strong>。犬口服0.5或1 mg/kg／日可產生穩定且快速的血小板聚集抑制（對ADP與膠原蛋白誘發之聚集皆有效），效果優於Aspirin；停藥後犬的抑制效果仍可持續3天（部分犬超過7天），貓持續約3天，馬2 mg/kg q24h口服可使抑制效果持續達6天——這種<strong>持續效果</strong>使間歇給藥（如隔日給藥）成為可能。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25）</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書之間的劑量出入，提醒使用者留意</div>
+        <p>Veterinary Pharmacology and Therapeutics 10th ed.引用之研究建議犬劑量為<strong>0.5–1 mg/kg PO q24h</strong>；但Handbook of Veterinary Pharmacology劑量表列出的犬劑量為<strong>2–4 mg/kg PO q24h</strong>、貓為<strong>18.75 mg/cat PO q24h</strong>，兩本教科書給出的犬劑量相差約2–8倍。這類劑量落差在獸醫抗血小板藥物領域並不少見（多屬人醫外推、缺乏大型犬貓臨床試驗），實際處方請以當下臨床指引或主治獸醫師判斷為準，本頁僅如實並列兩種來源、不代為取捨。</p>
+      </div>
+
+      <h3 id="drug-gpiibiiia">GP IIb/IIIa受體阻斷劑：Abciximab、Eptifibatide</h3>
+      <p>機轉：<strong>阻斷血小板膜Glycoprotein IIb/IIIa受體</strong>——此受體是血小板聚集反應中，Fibrinogen交聯連結相鄰血小板的最終共同路徑，阻斷後可阻止聚集發生，不論上游是何種活化訊號（ADP、TXA2、Thrombin等）誘發。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書核對：查無獸醫臨床資料，誠實揭露</div>
+        <p>本頁核對的兩本教科書節錄（Veterinary Pharmacology and Therapeutics 10th ed. Ch.25、Handbook of Veterinary Pharmacology相關章節）中<strong>皆未查到Abciximab或Eptifibatide的獸醫臨床劑量、途徑或病例資料</strong>——這兩個藥物在教科書中的定位偏向人類心臟介入治療（PCI）領域用藥。本節內容因此完全依講義原文呈現機轉分類，<strong>不代表已有可靠的犬貓臨床應用實證</strong>，若臨床上考慮使用，需另外查證最新獸醫文獻。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- HEMOSTATIC -->
+    <div class="section" id="section-hemostatic">
+      <div class="section-head"><div class="section-num">9</div><h2>止血藥物：局部與全身性 Hemostatic Agents</h2></div>
+      <p class="section-desc">整份講義的最後一段方向完全反轉：前面八節都在講「怎麼讓血不要凝」，這節換成「怎麼幫助止血」，分成局部外用與全身性給藥兩大類。</p>
+
+      <h3 id="drug-topicalhemostatics">局部止血劑 Topical Hemostatic Agents</h3>
+      <p><strong>特性：</strong>屬於可吸收性止血劑（absorbable hemostatics），主要控制局部微血管出血，<strong>對動脈或靜脈出血效果較差</strong>；多數成分含Thrombin或Collagen，直接促進凝塊形成。</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Thromboplastin</div>
+          <p>噴劑或海綿劑型。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Thrombin</div>
+          <p>用於皮膚移植固定，常與Gelatin sponge或Fibrin foam併用。</p>
+        </div>
+      </div>
+      <p><strong>提供結構基質促進凝血：</strong>Fibrinogen、Fibrin foam、可吸收性Gelatin sponge、Microcrystalline collagen、Oxidized cellulose。</p>
+
+      <h3 id="drug-vitamink1">全身性止血劑：Vitamin K<span class="tag tag-exam">重要</span></h3>
+      <p><strong>生理角色：</strong>Prothrombin與Factor VII、IX、X具生物活性所必需（呼應第5節Vitamin K cycle）；脂溶性，來自飲食並由腸道菌合成；<strong>吸收需要膽鹽輔助</strong>。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">教科書補充：Vitamin K1應避免IV給藥</div>
+        <p>Veterinary Pharmacology and Therapeutics 10th ed.提出重要安全提醒：<strong>雖然部分Vitamin K1動物用藥標籤列有IV給藥途徑，但該途徑並未獲FDA核准</strong>——快速IV注射曾在人與動物身上觀察到類似過敏性休克的反應（推測與製劑輔料Polysorbate 80誘發組織胺釋放有關），<strong>臨床上應避免IV給藥</strong>，優先選擇SC、IM或PO。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：滅鼠藥中毒治療劑量與監測依據</div>
+        <p><strong>短效滅鼠藥中毒：</strong>犬貓1 mg/kg/day，IV／SC／PO（但如上所述應避免IV），連續10–14天。<strong>長效（第二代）滅鼠藥中毒：</strong>2.5–5 mg/kg/day，IM／SC／PO，連續3–4週（呼應第6節提及的「長療程」）。牛、犢牛、馬、綿羊、山羊：0.5–2.5 mg/kg SC或IM。<strong>監測依據：</strong>Factor VII是Vitamin K依賴凝血因子中半衰期最短者，也是PT檢測主要反映的因子，因此<strong>PT會比其他凝血時間檢測更早出現變化</strong>，適合作為治療追蹤指標。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25）</p>
+      </div>
+      <p style="font-size:.9em;"><strong>臨床情境：</strong>新生兒（早產兒常見的Vitamin K缺乏出血預防）；人類住院病患（ICU：飲食不良、全靜脈營養TPN、多重抗生素治療）；獸醫：<strong>Vitamin K拮抗劑（滅鼠藥）中毒</strong>是最主要臨床情境，偶爾也見於脂肪吸收障礙。</p>
+
+      <h3 id="drug-aminocaproic-hemostatic">全身性止血劑：血漿製劑與Aminocaproic Acid</h3>
+      <p><strong>血漿製劑（Plasma fractions）：</strong>用於凝血因子缺乏所致之出血。<strong>Aminocaproic acid</strong>完整機轉、效力比較與犬臨床劑量已於第7節詳述，此處僅提醒：其臨床角色除了處理血栓溶解治療後的出血，也可用於一般性纖維蛋白溶解過度所致的出血傾向。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Aminocaproic Acid／Tranexamic Acid完整機轉與劑量，見 <a href="#section-fibrinolytic">血栓溶解藥物：纖維蛋白溶解抑制劑</a>。</p>
+
+      <h3 id="drug-protamine-hemostatic">全身性止血劑：Protamine Sulfate（回顧）</h3>
+      <p>作為Heparin解毒劑的完整機轉、劑量換算與過量風險，已於第4節詳述，此處僅作為「全身性止血劑」分類下的回顧連結。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Protamine Sulfate完整機轉與劑量換算，見 <a href="#section-heparin">Heparin：機轉、藥動學與毒性</a>。</p>
+
+      <h3 id="drug-desmopressin">Desmopressin<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">Desmopressin（合成Vasopressin類似物）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">促內皮細胞與巨噬細胞釋放儲存之von Willebrand Factor</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">↑血中vWF濃度 → 縮短出血時間</div>
+      </div>
+      <p><strong>臨床應用：</strong>vWD病患的微血管出血控制、肝硬化或藥物誘發之出血障礙。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：作用受體與臨床劑量</div>
+        <p>Veterinary Pharmacology and Therapeutics 10th ed.確認Desmopressin促進vWF釋放的作用是經由<strong>V2受體</strong>（而非負責血管收縮的V1受體）媒介，因此相較天然Vasopressin，Desmopressin的<strong>升壓效果極小</strong>，這是它能安全用於術前止血準備而非造成血壓劇烈波動的原因。犬建議劑量：<strong>1 μg/kg SC</strong>，或稀釋於20 mL生理食鹽水中<strong>緩慢IV給藥（約10分鐘）</strong>；效果持續時間約2小時；雖然犬的vWF上升幅度不如人類明顯，臨床上仍可觀察到口腔黏膜出血時間縮短（但部分犬反應輕微）。（核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25，Desmopressin Acetate段落）</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">重複給藥效果遞減</div>
+        <p>重複皮下注射會因<strong>儲存庫（storage pool）耗盡</strong>而效果降低——臨床上通常用於單次手術前的止血準備，而非長期慢性治療。</p>
+      </div>
+
+      <h3 id="drug-vwf">von Willebrand Factor（vWf）概念補充</h3>
+      <p>vWf是由<strong>內皮細胞分泌至血漿的醣蛋白</strong>，功能為<strong>血小板黏附（platelet adhesion）</strong>：穩定Factor VIII、並與膠原蛋白及內皮下組織（subendothelium）結合，同時也與血小板表面的vWf受體（GPIb）結合，是血小板黏附到受損血管壁的關鍵橋梁。講義附圖並標示<strong>Heparin會抑制vWf與血小板GPIb受體的結合</strong>——這提供了理解Heparin治療病患偶見出血傾向增加的另一個機轉角度（不只是凝血因子抑制，也可能牽動血小板黏附這一環）。重複皮下注射Desmopressin後，因儲存庫耗盡使效果減弱的現象亦已於上方說明。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. Ch.25 核對補充Vitamin K1與Desmopressin之犬貓臨床劑量與安全性提醒。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>凝血瀑布：</strong>外源路徑（Tissue Trauma→Tissue Thromboplastin）與內源路徑（Trauma to Blood→XII→XI→IX）匯聚於Factor Xa，共同路徑經Thrombin把Fibrinogen轉成Fibrin，Ca²⁺貫穿全程；生理上另有Fibrinolysis系統（Plasminogen→Plasmin）持續回收凝塊。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>體外抗凝劑（Oxalate、Citrate、EDTA）只能in vitro使用</strong>，機轉皆為螯合或沉澱Ca²⁺；CPDA-1為輸血醫學血袋添加劑。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Heparin：</strong>依賴Antithrombin III抑制多個活化凝血因子（VIIa/IXa/Xa/XIa/XIIa），<strong>只能IV或SC</strong>，監測APTT 1.5–2.5倍基礎值；LMWH對Xa選擇性較高、出血風險較低、通常免監測；解毒劑為<strong>Protamine Sulfate（IV緩慢給藥）</strong>，過量本身可能加重出血。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Warfarin等Coumarin類：</strong>抑制Vitamin K epoxide reductase，阻斷II、VII、IX、X的γ-carboxylation活化；PO給藥，監測PT 1.5–2倍基礎值；NMTT側鏈頭孢菌素、Phenylbutazone等會增強其效果，Barbiturates會減弱；也是抗凝血性滅鼠藥（Warfarin、Brodifacoum等）的作用機轉，第二代滅鼠藥中毒需以Vitamin K1治療數週。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>新型口服抗凝血藥：</strong>Dabigatran（直接Thrombin抑制劑，解毒劑Idarucizumab）、Rivaroxaban／Apixaban（直接Factor Xa抑制劑，解毒劑Andexanet）——PO給藥、藥動學可預測、通常免監測，但獸醫臨床證據與解毒劑動物使用經驗都仍有限。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>血栓溶解藥物（Streptokinase、Urokinase、t-PA）：</strong>催化Plasminogen轉為Plasmin以溶解「已形成」的血栓，屬IV給藥，風險（全身性出血、再灌流傷害）高於單純抗凝血劑；相反地Aminocaproic acid／Tranexamic acid是抑制纖維蛋白溶解，用於處理溶栓治療後的出血。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>抗血小板藥物：</strong>Aspirin不可逆抑制COX-1阻斷TXA2（但犬貓反應不穩定）；Clopidogrel為前驅藥，阻斷ADP的P2Y12受體，效果不可逆且較穩定，已逐漸取代Aspirin；Abciximab／Eptifibatide阻斷GPIIb/IIIa受體，惟獸醫臨床實證資料極少。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>止血藥物：</strong>局部性（Thrombin、Gelatin sponge、Collagen）僅控制微血管出血；全身性Vitamin K1是滅鼠藥中毒解毒劑（<strong>應避免IV</strong>，優先SC/IM/PO）；Desmopressin經V2受體促vWF釋放以縮短出血時間，重複給藥效果遞減；vWf是血小板黏附的關鍵橋梁醣蛋白。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV4 Coagulation）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋凝血瀑布基礎、Heparin／Warfarin機轉、血栓溶解藥物、抗血小板藥物與止血藥物各章節重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 關於Heparin的敘述，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 可口服給藥，因分子量小易被腸胃道吸收</li>
+          <li>(B) 機轉是直接抑制Vitamin K epoxide reductase</li>
+          <li>(C) 需依賴Antithrombin III，抑制多個活化凝血因子（VIIa、IXa、Xa、XIa、XIIa）</li>
+          <li>(D) 監測指標為Prothrombin Time（PT）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">Heparin本身不直接抑制凝血因子，而是結合並活化Antithrombin III，使其抑制Thrombin與多個活化凝血因子的能力大幅提升（約1000倍），進而抑制Factor VIIa、IXa、Xa、XIa、XIIa。Heparin是大分子磺化黏多醣，無法口服吸收，只能IV或SC給藥（排除A）；抑制Vitamin K epoxide reductase是Warfarin的機轉，非Heparin（排除B）；Heparin監測用APTT而非PT，PT是監測Warfarin的指標（排除D）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 一隻犬因誤食第二代抗凝血性滅鼠藥（如Brodifacoum）中毒，其Vitamin K1治療療程應比誤食Warfarin（第一代）中毒者短，因為Brodifacoum的效力較弱。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">恰好相反：第二代滅鼠藥（如Brodifacoum、Bromadiolone）並非效力較弱，而是<strong>半衰期遠長於第一代Warfarin</strong>，教科書指出第二代滅鼠藥中毒可能需要長達6週的Vitamin K1治療，遠比第一代中毒的療程長，臨床上必須依滅鼠藥種類調整治療與監測（PT）的持續時間，切勿因症狀短暫緩解就提早停藥。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. Aspirin與Clopidogrel都是抗血小板藥物，下列關於兩者機轉差異的敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 兩者皆透過抑制COX-1發揮作用，只是效力不同</li>
+          <li>(B) Aspirin不可逆抑制COX-1阻斷TXA2合成；Clopidogrel為前驅藥，活性代謝物阻斷ADP的P2Y12受體，不影響COX路徑</li>
+          <li>(C) Clopidogrel直接抑制Thrombin，Aspirin抑制Factor Xa</li>
+          <li>(D) 兩者機轉相同，因此不建議併用</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Aspirin與Clopidogrel的機轉完全獨立：Aspirin不可逆乙醯化血小板COX-1，阻斷Thromboxane A2合成；Clopidogrel是前驅藥，需經肝臟代謝為活性代謝物後才能阻斷Gi偶聯的ADP受體（P2Y12），完全不涉及COX路徑，也不是NSAID。正因機轉獨立，臨床上兩者常合併使用以達到更完整的抗血小板效果，而非互斥（排除D）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 為什麼血栓溶解藥物（如Streptokinase、t-PA）的臨床風險通常高於單純的抗凝血劑（如Heparin、Warfarin）？請從機轉層次說明。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">抗凝血劑（Heparin、Warfarin）的機轉是<strong>抑制新的凝血因子活化或凝血瀑布的推進</strong>，作用是「防止血栓繼續擴大或新血栓形成」，並不會主動破壞已經存在的凝塊。血栓溶解藥物則是<strong>主動催化Plasminogen轉為Plasmin，誘發全身性的「溶解狀態」（lytic state）</strong>——這個狀態下，不只是目標的病理性血栓（thromboemboli）會被溶解，連身體正常止血用的生理性凝塊（hemostatic thrombi）也會一併被分解，因此全身性出血的風險明顯更高；此外，部分藥物（如Streptokinase、t-PA）還可能誘發再灌流傷害、急性高血鉀、血小板功能異常等額外風險，這些都是單純「抑制凝血」的抗凝血劑所沒有的機轉層次的額外危害。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻8歲米克斯犬因免疫媒介性溶血性貧血（IMHA）住院，主治獸醫師決定使用Heparin預防血栓栓塞併發症，給予IV負荷劑量後改SC每8小時給藥。住院第3天，飼主詢問「為什麼不能像Warfarin一樣給口服藥就好？」，同時護理紀錄顯示病患出現輕微瘀斑。請問：(1) 如何回答飼主的疑問？(2) 出現瘀斑時，臨床上應優先確認哪些監測數值？(3) 若確認為Heparin過量出血，處置的優先順序為何？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 為什麼不能口服：</strong>Heparin是分子量5–40 kDa的大分子磺化黏多醣，腸胃道無法吸收此類大分子物質，因此只能經IV或SC途徑給藥；這與Warfarin不同——Warfarin是小分子的Coumarin衍生物，口服生體可用率高，適合口服給藥，但起效較慢（需等體內既有活性凝血因子代謝完畢），因此臨床上常視情境選擇不同抗凝血劑，並非能互相替代。<br><strong>(2) 優先確認的監測數值：</strong>應立即檢查<strong>APTT</strong>（目標維持在基礎值1.5–2.5倍，若明顯超過此範圍提示Heparin過量）；同時檢查<strong>血小板數</strong>（Heparin可能誘發血小板低下，雖然教科書指出此現象在動物身上尚未被明確記載為常見問題，仍應監測排除）；並評估瘀斑範圍是否持續擴大、是否合併其他部位出血徵象。<br><strong>(3) 處置優先順序：</strong>先<strong>暫停或調降Heparin劑量</strong>；若出血程度輕微，多數情況下停藥觀察即足夠；若出血明顯或持續惡化，則考慮給予<strong>Protamine Sulfate緩慢IV</strong>中和Heparin活性（速率不超過50 mg／10分鐘），並依最近一次Heparin給藥的劑量與時間差計算中和劑量；給藥時須留意<strong>Protamine本身具輕度抗凝血性質，避免過量中和反而加重出血</strong>；後續應更密切監測APTT與血小板數，並重新評估該病患的Heparin劑量方案是否需要下修或改採監測需求較低的LMWH。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  cascade: '凝血生理基礎與體外抗凝劑',
+  heparin: 'Heparin：機轉、藥動學與毒性',
+  oralanticoag: '口服抗凝血劑：Vitamin K拮抗劑與新型口服抗凝血藥',
+  rodenticide: '抗凝血劑臨床應用：藥物交互作用與滅鼠藥中毒',
+  fibrinolytic: '血栓溶解藥物',
+  antiplatelet: '抗血小板藥物',
+  hemostatic: '止血藥物：局部與全身性',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

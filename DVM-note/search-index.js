@@ -3473,6 +3473,69 @@ const SEARCH_INDEX = [
     snippet: "涵蓋病灶定位、椎間盤分類、坐骨神經損傷、前庭疾病、PNF、DM分期的練習題（共9題，含2題臨床情境整合題）。"
   },
   {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 骨科疾病復健 四階段框架",
+    snippet: "骨科復健總覽：疼痛與物理治療模式、關節肌肉本體感覺核心復健、骨折修復、前後肢疾病、截肢輔具，套用同一套四階段框架。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "painmodalities", sectionName: "疼痛評估與物理治療模式",
+    keywords: "疼痛評估 VAS Colorado pain scale 跛足評估量表 lameness scale 冰敷 熱敷 針灸 雷射 TENS 治療超音波 NMES 止痛劑 NSAID Gabapentin",
+    snippet: "VAS/Colorado疼痛量表、0-5跛足評估量表、骨科常用止痛劑、七種物理治療模式原理與使用時機。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "generalrehab", sectionName: "關節、肌肉、本體感覺與核心復健",
+    keywords: "PROM AROM 關節活動 關節囊膜 joint capsule 肌肉萎縮 massage NMES 等長收縮 等張收縮 本體感覺 proprioception 核心肌群",
+    snippet: "關節活動範圍評量表、關節囊膜感受體、按摩四手法、等長等張收縮訓練、本體感覺與核心肌群復健方式。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "fracture", sectionName: "骨折修復復健",
+    keywords: "骨折修復 fracture repair 骨幹骨折 幹骺端骨折 四階段框架 骨折病患復健注意事項",
+    snippet: "復健計畫決定因素、骨折病患三不一要、骨幹骨折術後逐週復健時間表完整範例。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "fronts", sectionName: "前肢關節與肌腱疾病",
+    keywords: "肩胛骨脫臼 scapular luxation 內側肩關節不穩定 MSI 棘上肌肌腱病 棘下肌攣縮 二頭肌肌腱病 biceps tendinopathy 肘關節發育不良 elbow dysplasia FMCP UAP OCD 腕關節過度伸展 carpal hyperextension",
+    snippet: "前肢7種疾病：肩胛骨脫臼、MSI、棘上/棘下肌、二頭肌肌腱病、肘關節發育不良、腕關節過度伸展的診斷與復健重點。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "hinds", sectionName: "後肢關節與韌帶疾病",
+    keywords: "髂腰肌扭傷 髖關節發育不良 hip dysplasia FHNO THR 纖維化肌病 前十字韌帶斷裂 CCL rupture drawer test TPLO TTA CBLO 膝蓋骨異位 patellar luxation 總跟腱斷裂 calcaneal tendon rupture",
+    snippet: "後肢6種疾病：髂腰肌扭傷、髖關節發育不良（FHNO vs THR）、CCL斷裂、膝蓋骨異位、跟腱斷裂的診斷與復健重點。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "amputation", sectionName: "截肢術後復健與義肢輔具",
+    keywords: "截肢 amputation 義肢 輔具 prosthetics orthotics",
+    snippet: "截肢術後復健注意事項與頻率、義肢與輔具實例。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 骨科疾病復健",
+    snippet: "五點總複習：四階段框架、骨折三不一要、前肢動作禁忌、CCL斷裂重點、髖關節FHNO與THR復健差異。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 骨科疾病復健",
+    snippet: "涵蓋物理治療模式、骨折復健原則、CCL斷裂、髖關節手術復健差異的練習題，含臨床情境整合題。"
+  },
+  {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癲癇藥物",
     url: "大三/獸醫藥理學/抗癲癇藥物.html",
     section: "abstract", sectionName: "重點摘要",
@@ -4171,5 +4234,810 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 選擇題 是非題 臨床情境題 脊椎",
     snippet: "涵蓋寰樞椎判讀、貓種間差異、anticlinal vertebra、糞便假影辨識的練習題（共5題，含1題臨床情境整合題）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 抗心律不整藥物 antiarrhythmic Vaughan Williams分類",
+    snippet: "心臟電生理基礎、心律不整發生機轉、Vaughan Williams四大分類藥物個論與臨床選藥邏輯整理總覽。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "藥物總覽 抗心律不整藥物 藥品索引",
+    snippet: "本頁提到的藥物一覽表，機轉與臨床應用欄位與全站藥品索引同步。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "electrophysiology", sectionName: "心臟電生理與動作電位",
+    keywords: "心臟電生理 動作電位 action potential phase 0-4 Na+ Ca2+ K+ 離子流 SA node AV node",
+    snippet: "正常心臟衝動的產生與傳導、動作電位各時相對應的離子流——藥物分類幾乎都照著這些時相命名。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "arrhythmogenesis", sectionName: "心律不整發生機轉",
+    keywords: "心律不整發生機轉 arrhythmogenesis reentry 折返 diastolic depolarization 節律點自發去極化",
+    snippet: "心律不整定義為速率、規律性、起源部位異常或傳導障礙，機轉分為異常衝動形成與異常傳導（reentry）兩大類。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "classi", sectionName: "Class I：Na⁺通道阻斷劑",
+    keywords: "Class I Na+通道阻斷劑 Quinidine Disopyramide Procainamide Lidocaine Tocainide Phenytoin Mexiletine Aprindine Flecainide Ia Ib Ic",
+    snippet: "Ia/Ib/Ic三亞類依動作電位時程與通道解離動力學區分；Lidocaine只能IV、只治心室性；Phenytoin貓禁用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "classii", sectionName: "Class II：β-受體阻斷劑",
+    keywords: "Class II β受體阻斷劑 Propranolol Metoprolol Atenolol Esmolol Carvedilol Sotalol",
+    snippet: "β1阻斷降低竇房結自發性與房室結傳導速率，是獸醫臨床心律不整治療最主要的β-blocker用途。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "classiii", sectionName: "Class III：K⁺通道阻斷劑",
+    keywords: "Class III K+通道阻斷劑 Sotalol Amiodarone Bretylium 延長動作電位時程 APD",
+    snippet: "延長動作電位時程與有效不反應期、阻斷reentry路徑；Amiodarone保留給頑固性心律不整、杜賓犬易肝毒性。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "classiv", sectionName: "Class IV：Ca²⁺通道阻斷劑",
+    keywords: "Class IV Ca2+通道阻斷劑 Verapamil Diltiazem 四大分類效應速查表",
+    snippet: "作用於SA/AV node慢反應組織，主要治室上性心律不整；Diltiazem負性肌力較Verapamil輕，貓HCM常用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "others", sectionName: "其他：Adenosine",
+    keywords: "Adenosine 腺苷 陣發性室上性心搏過速 K+通道活化",
+    snippet: "活化K+通道降低自主性並增加AV不反應期，IV bolus終止陣發性室上性心搏過速，半衰期僅數秒。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "clinicalselect", sectionName: "依心律不整型態選藥",
+    keywords: "臨床選藥 依心律不整型態選藥 室上性 心室性 房顫 心搏過速",
+    snippet: "整合各分類藥物，依實際臨床心律不整型態（室上性／心室性／房顫等）組織成選藥速查表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 抗心律不整藥物",
+    snippet: "考試／臨床實務角度整理電生理基礎、四大分類機轉與臨床選藥邏輯，複習前快速掃過本節。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
+    url: "大三/獸醫藥理學/抗心律不整藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 抗心律不整藥物",
+    snippet: "涵蓋電生理基礎、四大分類機轉、臨床選藥邏輯的練習題，最後一題為臨床情境整合題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 組織胺 抗組織胺藥物 histamine antihistamine autacoids",
+    snippet: "Autacoids總論、組織胺生成代謝與受體亞型、生理作用、H1抗組織胺藥物分類與臨床應用整理總覽。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "overview", sectionName: "Autacoids總論與組織胺生成代謝",
+    keywords: "autacoids 總論 組織胺生成代謝 methylation diamine oxidase 生物胺 類花生酸 多肽",
+    snippet: "autacoid三大類總覽（生物胺/類花生酸/多肽）；組織胺代謝以甲基化路徑為主（>50%），diamine oxidase路徑約25%。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "release", sectionName: "組織胺的釋放機轉與發炎反應",
+    keywords: "組織胺釋放 肥大細胞去顆粒化 免疫性釋放 mast cell degranulation",
+    snippet: "肥大細胞顆粒內組織胺的三種釋放觸發機轉，免疫性釋放是臨床上最重要的一種。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "receptors", sectionName: "組織胺受體亞型 H1–H4",
+    keywords: "H1 H2 H3 H4受體 G-protein Gq Gs Gi 組織胺受體亞型",
+    snippet: "H1-H4四種受體皆為G-protein偶聯受體，但下游訊息路徑不同；貓/羊呼吸道經H1/H2是放鬆而非收縮。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "effects", sectionName: "組織胺的生理作用",
+    keywords: "組織胺生理作用 血管 支氣管 腸胃道 疼痛 搔癢",
+    snippet: "依受體分布套進各器官系統的生理效應，多系統同時有H1與H2受體參與，效果常為兩者加總。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "therapeutics", sectionName: "臨床應用與拮抗策略總覽",
+    keywords: "組織胺臨床應用 拮抗策略 肥大細胞穩定劑 Cromolyn 受體阻斷",
+    snippet: "組織胺本身臨床用途有限（歷史/診斷用）；三種拮抗策略：抑制釋放、肥大細胞穩定劑、受體阻斷。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "classification", sectionName: "H1抗組織胺藥物：分類與機轉",
+    keywords: "H1抗組織胺 第一代 第二代 Ethanolamine Alkylamine Piperazine Phenothiazine Diphenhydramine Chlorpheniramine Hydroxyzine Promethazine Cetirizine Loratadine Fexofenadine",
+    snippet: "先分世代（鎮靜程度）再分五大化學結構分類；同結構家族共享類似鎮靜/抗毒蕈鹼強度。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "clinical", sectionName: "副作用、臨床應用與過敏性鼻炎",
+    keywords: "抗組織胺副作用 犬皮膚科 過敏性搔癢 貓氣喘 臨床有效無效適應症",
+    snippet: "副作用強度與化學結構分類直接相關；犬皮膚科第一代54%好-中度反應，Cetirizine僅18%，貓氣喘Cetirizine無效。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 組織胺 抗組織胺藥物",
+    snippet: "考題常考受體配對、第一代vs第二代、臨床有效/無效適應症三種題型，複習前快速掃過本節。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "組織胺與抗組織胺藥物",
+    url: "大三/獸醫藥理學/組織胺與抗組織胺藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 組織胺 抗組織胺藥物",
+    snippet: "涵蓋組織胺生成代謝、受體亞型、生理作用、H1抗組織胺分類機轉與臨床應用的練習題，含2題臨床情境整合題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 抗貧血藥物 antianemic erythropoietin 鐵劑",
+    snippet: "紅血球生成與鐵代謝生理、造血輔助營養素、貧血分類與治療策略、鐵劑製劑與中毒處置、Erythropoietin整理總覽。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "physiology", sectionName: "紅血球生成與鐵代謝生理",
+    keywords: "紅血球生成 erythropoiesis 鐵代謝 transferrin ferritin hemoglobin",
+    snippet: "紅血球生成來源與鐵吸收循環利用的基礎地圖，是理解缺鐵/缺輔助營養素致貧血的前提。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "hematinics", sectionName: "造血輔助營養素",
+    keywords: "維生素B6 pyridoxine 銅 copper ceruloplasmin 維生素B12 cobalamin 葉酸 folic acid 巨球性貧血 鐵胚血球性貧血",
+    snippet: "血基質與DNA合成所需的輔助營養素（B6/銅/B12/葉酸），缺乏各有特徵性臨床表現可供鑑別。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "anemiaclass", sectionName: "貧血定義與分類",
+    keywords: "貧血分類 失血性 溶血性 造血不良性 anemia classification",
+    snippet: "貧血是一組症候群而非單一疾病，正確分類是選對治療策略的前提。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "bloodloss", sectionName: "失血性貧血的治療",
+    keywords: "失血性貧血 急性失血 慢性失血 輸液複甦 高張晶體液 合成膠體液",
+    snippet: "急性失血是搶救血容積的急症（先控制出血再擴容），慢性失血需處理病因並補充鐵與造血原料。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "hemolytic", sectionName: "溶血性貧血的治療",
+    keywords: "溶血性貧血 IMHA 免疫媒介性溶血性貧血 acetylcysteine 貓acetaminophen毒性 danazol",
+    snippet: "核心治療邏輯：移除病因＋保護尚未被破壞的紅血球＋必要時抑制免疫系統（IMHA）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "irontx", sectionName: "鐵劑治療與中毒處置",
+    keywords: "鐵劑 口服鐵劑 注射型鐵劑 iron deferoxamine 鐵中毒解毒劑",
+    snippet: "口服與注射鐵劑依給藥途徑分兩大類；急性鐵中毒需搭配Deferoxamine螯合劑解毒流程。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "epo", sectionName: "Erythropoietin",
+    keywords: "Erythropoietin EPO Epoetin Alfa 慢性腎衰竭貧血 同化雄性素 stanozolol boldenone",
+    snippet: "慢性腎病等造血刺激訊號不足時補充外源性EPO；同化雄性素為EPO問世前的較舊治療選項。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 抗貧血藥物",
+    snippet: "考試／臨床實務角度整理鐵代謝生理、造血營養素、貧血分類治療、鐵劑與EPO重點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗貧血藥物",
+    url: "大三/獸醫藥理學/抗貧血藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 抗貧血藥物",
+    snippet: "涵蓋鐵代謝生理、造血營養素、貧血分類治療、鐵劑與EPO的練習題，含2題臨床情境整合題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 降血壓藥物 antihypertensive vasodilator",
+    snippet: "血壓生理與犬貓高血壓病因、ACEi/ARB、CCB、α/β-腎上腺素性阻斷劑、直接血管擴張劑、硝酸鹽類、高血壓急症與肺高血壓用藥整理總覽。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "physiology", sectionName: "血壓生理與犬貓病因",
+    keywords: "血壓生理 犬貓高血壓病因 續發性高血壓 原發性高血壓",
+    snippet: "血壓調控生理基礎，以及犬貓臨床上常見的高血壓病因分類。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "aceiarb", sectionName: "ACE抑制劑與ARB",
+    keywords: "ACEI ARB Captopril Enalapril Benazepril Telmisartan 降血壓藥物 貓全身性高血壓",
+    snippet: "犬全身性高血壓第一線用藥；Telmisartan是唯一FDA核准貓全身性高血壓的ARB，亦可降貓CKD的UPC。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "ccb", sectionName: "鈣離子通道阻斷劑",
+    keywords: "CCB Amlodipine Nifedipine Verapamil Diltiazem 鈣離子通道阻斷劑 貓高血壓第一線",
+    snippet: "Dihydropyridine類（Amlodipine）選擇性血管舒張，貓全身性高血壓第一線；Verapamil/Diltiazem血管作用較弱非首選。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "alphablockers", sectionName: "α-腎上腺素性阻斷劑",
+    keywords: "α受體阻斷劑 Phenoxybenzamine Phentolamine Prazosin 嗜鉻細胞瘤 Yohimbine Tolazoline Atipamezole",
+    snippet: "Phenoxybenzamine為嗜鉻細胞瘤術前準備首選；Yohimbine/Tolazoline/Atipamezole澄清為α2-agonist鎮靜反轉劑而非抗高血壓藥。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "betablockers", sectionName: "β-腎上腺素性阻斷劑",
+    keywords: "β受體阻斷劑 Atenolol Esmolol Propranolol 降血壓藥物",
+    snippet: "獸醫臨床最常用β1選擇性拮抗劑Atenolol；Esmolol超短效用於急性情境即時調整劑量。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "directvasodilators", sectionName: "直接血管平滑肌擴張劑",
+    keywords: "Hydralazine Minoxidil Diazoxide 直接血管擴張劑 胰島素瘤低血糖",
+    snippet: "Hydralazine常併Furosemide治犬二尖瓣閉鎖不全；Diazoxide獸醫實際用途是治胰島素瘤低血糖，與講義人醫脈絡相反。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "nitrates", sectionName: "硝酸鹽類血管擴張劑",
+    keywords: "Nitroprusside Nitroglycerin Isosorbide 硝酸鹽類 NO cGMP",
+    snippet: "NO→cGMP路徑血管舒張；Nitroprusside為高血壓急症首選，Nitroglycerin用於犬貓急性心因性肺水腫輔助。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "emergency", sectionName: "高血壓急症與肺高血壓",
+    keywords: "高血壓急症 肺高血壓 Sildenafil Tadalafil PDE-V抑制劑",
+    snippet: "高血壓急症用藥選擇與肺高血壓的PDE-V抑制劑治療。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 降血壓藥物",
+    snippet: "考試／臨床實務角度整理ACEi/ARB、CCB、α/β阻斷劑、直接血管擴張劑重點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "降血壓藥物",
+    url: "大三/獸醫藥理學/降血壓藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 降血壓藥物",
+    snippet: "涵蓋ACEi/ARB、CCB、α/β阻斷劑選用邏輯的練習題，含臨床情境整合題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 腎素血管收縮素系統 RAAS ACE抑制劑 ARB",
+    snippet: "RAAS生理機轉與腎絲球旁器調控、ACE抑制劑與ARB、腎臟/心臟保護角色，並延伸至激肽系統整理總覽。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "ras", sectionName: "RAAS 生理機轉與腎絲球旁器",
+    keywords: "RAS瀑布反應 renin angiotensinogen 腎絲球旁器 juxtaglomerular apparatus",
+    snippet: "Angiotensinogen→Renin→AngI→ACE→AngII的瀑布反應，以及腎絲球旁器的構造基礎。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "renincontrol", sectionName: "腎素分泌調控與 Aliskiren",
+    keywords: "腎素分泌調控 Aliskiren 腎素抑制劑",
+    snippet: "腎素分泌的四大調控機制；Aliskiren為腎素抑制劑，人類高血壓用藥，獸醫用途待研究。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "angii", sectionName: "Angiotensin II 藥理效應與腎臟傷害機轉",
+    keywords: "Angiotensin II 藥理效應 腎臟傷害機轉 腎絲球內高壓 TGF-β 纖維化",
+    snippet: "Angiotensin II效力為NE的40倍；腎損傷機轉分血液動力學（腎內高壓）與非血液動力學（促纖維化）兩類。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "acei", sectionName: "ACE 抑制劑",
+    keywords: "ACE抑制劑 Captopril Enalapril Benazepril Fosinopril Imidapril Lisinopril Ramipril",
+    snippet: "Enalapril為唯一獸醫執照核准犬心衰竭用藥；Benazepril活性代謝物貓經糞便排除，腎病/貓CKD優先選擇。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "arb", sectionName: "血管收縮素受體阻斷劑（ARB）",
+    keywords: "ARB Losartan Candesartan Valsartan Telmisartan Saralasin AT1受體拮抗",
+    snippet: "AT1受體競爭性拮抗劑，不影響Bradykinin代謝；Telmisartan是唯一FDA核准貓全身性高血壓的ARB。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "mrb", sectionName: "醛固酮受體阻斷劑（教科書補充）",
+    keywords: "Spironolactone 醛固酮受體阻斷劑 醛固酮逃逸 教科書補充",
+    snippet: "Spironolactone對抗「醛固酮逃逸」，心衰竭輔助治療；此節內容為教科書補充，講義未教授。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "kinin", sectionName: "激肽（Kinin）系統與 ACE 的雙重角色",
+    keywords: "Kinin激肽系統 Bradykinin Kinin-1 Kinin-2受體 ACE雙重機轉",
+    snippet: "ACE同時是Kininase II，分解Bradykinin；ACE抑制劑因此同時影響RAAS與激肽系統兩條路徑。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 腎素血管收縮素系統 RAAS",
+    snippet: "考試／臨床實務角度整理RAAS機轉、ACEi/ARB、腎臟保護角色與激肽系統重點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腎素血管收縮素系統藥物",
+    url: "大三/獸醫藥理學/腎素血管收縮素系統藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 RAAS ACE抑制劑",
+    snippet: "涵蓋RAAS機轉、ACEi/ARB選用邏輯、腎臟保護角色的練習題，含臨床情境整合題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "血清素受體藥物",
+    url: "大三/獸醫藥理學/血清素受體藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 血清素受體藥物 serotonin 5-HT antagonist",
+    snippet: "5-HT合成代謝與受體分型、血小板/心血管/腸胃道/神經系統藥理效果、致效劑與拮抗劑整理總覽。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "血清素受體藥物",
+    url: "大三/獸醫藥理學/血清素受體藥物.html",
+    section: "physiology", sectionName: "5-HT 合成代謝與受體分型",
+    keywords: "5-HT合成代謝 Tryptophan SERT MAO 受體分型 5-HT1 5-HT2 5-HT3 5-HT4",
+    snippet: "Trp→5-HTP→5-HT→melatonin合成路徑，SERT回收、MAO代謝為5-HIAA；僅5-HT3為離子通道，其餘皆GPCR。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "血清素受體藥物",
+    url: "大三/獸醫藥理學/血清素受體藥物.html",
+    section: "effects", sectionName: "血清素的藥理效果",
+    keywords: "血清素藥理效果 血小板 心血管 腸胃道 嘔吐反射 Bezold-Jarisch反射",
+    snippet: "血小板凝集、心血管Bezold-Jarisch反射、腸胃道蠕動、嘔吐反射（area postrema/NTS）等多系統效果。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "血清素受體藥物",
+    url: "大三/獸醫藥理學/血清素受體藥物.html",
+    section: "agonists", sectionName: "血清素受體致效劑",
+    keywords: "5-HT致效劑 Buspirone Sumatriptan Ergonovine 麥角生物鹼 犬焦慮行為",
+    snippet: "Buspirone（5-HT1A部分致效）治犬貓焦慮行為問題；麥角生物鹼為天然5-HT致效劑，產科子宮收縮劑。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "血清素受體藥物",
+    url: "大三/獸醫藥理學/血清素受體藥物.html",
+    section: "antagonists", sectionName: "血清素受體拮抗劑",
+    keywords: "5-HT拮抗劑 Cyproheptadine Ketanserin Ritanserin Ondansetron Dolasetron Granisetron Tropisetron",
+    snippet: "Cyproheptadine（5-HT2A+H1）貓食慾促進；Ondansetron等5-HT3拮抗劑犬貓口服吸收差異大。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "血清素受體藥物",
+    url: "大三/獸醫藥理學/血清素受體藥物.html",
+    section: "safety", sectionName: "血清素症候群與交互作用",
+    keywords: "血清素症候群 serotonin syndrome SSRI MAOI TCA併用風險",
+    snippet: "SSRI+MAOI+TCA併用致血清素症候群風險，臨床表現三大類；教科書補充內容講義未教授。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "血清素受體藥物",
+    url: "大三/獸醫藥理學/血清素受體藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 血清素受體藥物",
+    snippet: "考試／臨床實務角度整理5-HT合成代謝、受體分型、致效劑與拮抗劑重點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "血清素受體藥物",
+    url: "大三/獸醫藥理學/血清素受體藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 血清素受體藥物",
+    snippet: "涵蓋5-HT受體分型、致效劑拮抗劑機轉、臨床應用的練習題，含臨床情境整合題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 凝血相關藥物 hemostatics anticoagulants",
+    snippet: "凝血瀑布基礎、體外與體內抗凝血劑、血栓溶解藥物、抗血小板藥物、局部與全身性止血藥物整理總覽。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "cascade", sectionName: "凝血生理基礎與體外抗凝劑",
+    keywords: "凝血瀑布 coagulation cascade Oxalate Citrate EDTA CPDA-1 體外抗凝劑",
+    snippet: "凝血瀑布反應基礎；體外檢驗與輸血用抗凝劑（Oxalate/Citrate/EDTA/CPDA-1）不用於活體。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "heparin", sectionName: "Heparin：機轉、藥動學與毒性",
+    keywords: "Heparin UFH LMWH Protamine AT III APTT監測",
+    snippet: "活化AT III抑制多種凝血因子；監測APTT 1.5–2.5倍；VPT10指出HIT在動物尚未記載為問題（與講義有出入）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "oralanticoag", sectionName: "口服抗凝血劑：Vitamin K拮抗劑與新型口服抗凝血藥",
+    keywords: "Warfarin Coumarin Dabigatran Rivaroxaban Apixaban PT監測 新型口服抗凝血藥",
+    snippet: "Warfarin抑制Vitamin K epoxide reductase，監測PT；新型口服抗凝血藥獸醫經驗有限，解毒劑多未用於動物。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "rodenticide", sectionName: "抗凝血劑臨床應用：藥物交互作用與滅鼠藥中毒",
+    keywords: "滅鼠藥中毒 rodenticide Vitamin K1 Phytonadione 藥物交互作用",
+    snippet: "短效/長效滅鼠藥中毒的Vitamin K1解毒劑量與天數；應避免IV給藥（FDA未核准、過敏樣反應風險）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "fibrinolytic", sectionName: "血栓溶解藥物",
+    keywords: "血栓溶解 Streptokinase Urokinase t-PA Alteplase 貓再灌流傷害",
+    snippet: "Plasminogen活化路徑血栓溶解；t-PA對貓再灌流傷害死亡率高，Streptokinase未證實優於傳統治療。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "antiplatelet", sectionName: "抗血小板藥物",
+    keywords: "抗血小板 Aspirin Clopidogrel Ticlopidine COX-1 P2Y12受體",
+    snippet: "Aspirin不可逆抑制COX-1，犬貓反應不穩定；Clopidogrel劑量兩本教科書相差2–8倍，頁面並列未取捨。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "hemostatic", sectionName: "止血藥物：局部與全身性",
+    keywords: "止血藥物 局部止血劑 Desmopressin DDAVP von Willebrand Factor vWD",
+    snippet: "局部止血劑控制微血管出血；Desmopressin促內皮釋放vWF，用於vWD出血控制。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 凝血相關藥物",
+    snippet: "考試／臨床實務角度整理凝血瀑布、抗凝血劑、血栓溶解、抗血小板、止血藥物重點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "凝血相關藥物",
+    url: "大三/獸醫藥理學/凝血相關藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 凝血相關藥物",
+    snippet: "涵蓋凝血瀑布、抗凝血劑選用、血栓溶解與抗血小板藥物的練習題，含臨床情境整合題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 呼吸道用藥 respiratory drugs 氣喘",
+    snippet: "以氣喘藥理為主軸，延伸鎮咳藥、化痰袪痰藥、鼻充血解除劑，以及肺高壓/高海拔疾病/表面張力素替代療法整理總覽。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "asthma", sectionName: "氣喘病理生理與治療策略",
+    keywords: "氣喘病理生理 asthma CD4+T細胞致病路徑 治療策略",
+    snippet: "氣喘致病路徑與整體治療策略框架，是後續支氣管擴張劑與抗發炎藥物分類的基礎。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "bronchodilators", sectionName: "支氣管擴張劑",
+    keywords: "支氣管擴張劑 β2致效劑 Theophylline 抗蕈毒鹼 Ipratropium Terbutaline Albuterol Clenbuterol",
+    snippet: "β2致效劑（Terbutaline/Albuterol/Clenbuterol）、黃嘌呤類（Theophylline）、抗蕈毒鹼（Ipratropium）三大類支氣管擴張劑。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "antiinflammatory", sectionName: "氣喘抗發炎藥物",
+    keywords: "氣喘抗發炎藥物 Corticosteroids Fluticasone Cromolyn Leukotriene Benralizumab",
+    snippet: "吸入型類固醇為長期控制首選；Cromolyn僅能預防性使用；白三烯路徑用藥對急性發作無效。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "antitussive", sectionName: "鎮咳藥",
+    keywords: "鎮咳藥 antitussive Butorphanol Hydrocodone Codeine Dextromethorphan 中樞性鎮咳",
+    snippet: "Opioid類中樞性鎮咳為主（Butorphanol犬用FDA核准口服），Codeine犬口服吸收差可能無效。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "mucokinetics", sectionName: "化痰藥與袪痰藥",
+    keywords: "化痰藥 袪痰藥 N-Acetylcysteine Bromhexine Guaifenesin 貓氣喘吸入NAC增加阻力",
+    snippet: "打斷黏液雙硫鍵（NAC）或增加表面張力素分泌（Bromhexine）；貓氣喘吸入NAC反增加呼吸道阻力需謹慎。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "decongestants", sectionName: "鼻充血解除劑",
+    keywords: "鼻充血解除劑 decongestant Phenylephrine Pseudoephedrine H1抗組織胺",
+    snippet: "局部α致效劑（Phenylephrine）與間接擬交感（Pseudoephedrine）緩解鼻充血。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "other", sectionName: "肺高壓、高海拔與表面張力素",
+    keywords: "肺高血壓 Sildenafil 高海拔疾病 Acetazolamide 肺表面張力素 Surfactant Doxapram",
+    snippet: "Sildenafil治肺動脈高壓；高海拔疾病與新生兒呼吸窘迫症候群的周邊用藥；Doxapram為教科書補充非本堂課實際教授內容。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 呼吸道用藥",
+    snippet: "考試／臨床實務角度整理支氣管擴張劑、抗發炎藥物、鎮咳化痰藥重點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "呼吸道用藥",
+    url: "大三/獸醫藥理學/呼吸道用藥.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 呼吸道用藥",
+    snippet: "涵蓋支氣管擴張劑、氣喘抗發炎藥物、鎮咳化痰藥選用邏輯的練習題，含臨床情境整合題。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 乳牛營養 飼養管理 dairy nutrition feeding management",
+    snippet: "必需營養素（水、能量／VFA、蛋白質）、粗料與TMR、乳牛生產醫學導論整理總覽。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "intro", sectionName: "反芻動物分類與生產醫學導論",
+    keywords: "反芻動物分類 taxonomy ruminant 前腸發酵 foregut fermentation 乳牛生產醫學 dairy production medicine 生產週期 lifecycle",
+    snippet: "牛羊水牛駱駝分類學背景、前腸發酵定義、乳牛生產醫學導論、乳牛生產週期時間軸。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "water-energy", sectionName: "必需營養素：水與能量（VFA）",
+    keywords: "飲水量公式 water intake DMI VFA volatile fatty acid 乙酸 acetate 丙酸 propionate 丁酸 butyrate 脂肪酸動物 醣類動物 糖質新生 gluconeogenesis 乳脂率",
+    snippet: "每日飲水量公式；VFA乙酸65%/丙酸15%/丁酸10%；反芻動物是脂肪酸動物；結構性碳水提高乙酸比例與乳脂率。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "protein", sectionName: "必需營養素：蛋白質",
+    keywords: "粗蛋白 CP RDP RUP IIP bypass protein 繞道蛋白 NPN 非蛋白氮 菌體蛋白 NASEM",
+    snippet: "粗蛋白三分類RDP/RUP/IIP，NASEM建議RDP 60-65%、RUP 35-40%；瘤胃菌分解氨合成菌體蛋白。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "forage", sectionName: "粗料、精料與TMR",
+    keywords: "粗料 forage 精料 concentrate 禾本科 豆科 苜蓿 TMR total mixed ration 完全混合日糧",
+    snippet: "禾本科與豆科牧草比較、根瘤菌固氮、TMR完全混合日糧定義與五大優點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "glossary", sectionName: "雙語詞彙表",
+    keywords: "雙語詞彙表 bilingual glossary 中英對照",
+    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 乳牛營養 飼養管理",
+    snippet: "六點總複習：VFA比例、乙酸乳脂關聯、蛋白質分類、飲水公式、TMR。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 乳牛營養",
+    snippet: "涵蓋VFA比例與角色、蛋白質分類、飲水公式的練習題，含臨床情境整合題。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 轉換期 transition period 低血鈣 hypocalcemia DCAD",
+    snippet: "乾乳期飼養管理、產後低血鈣症連鎖病變、陰陽離子差（DCAD）預防策略整理總覽。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "phases", sectionName: "泌乳分期與轉換期定義",
+    keywords: "泌乳分期 lactation phases 轉換期 transition period 乾乳期 dry period",
+    snippet: "轉換期定義為產前21天到產後21天，是代謝病與生殖疾病集中好發的時間窗。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "drymanagement", sectionName: "乾乳期飼養管理",
+    keywords: "乾乳期 far-off close-up 精料適應 DMI下降 瘤胃乳突",
+    snippet: "far-off高纖低能、close-up高能低纖＋精料適應；close-up期DMI下降30-40%。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "hypocalcemia", sectionName: "低血鈣症",
+    keywords: "低血鈣症 hypocalcemia milk fever 平滑肌功能下降 皺胃移位 displaced abomasum 酮症 ketosis 胎衣滯留 retained placenta 子宮內膜炎 endometritis 產後代謝病",
+    snippet: "低血鈣致平滑肌功能下降，連鎖引發皺胃移位、酮症、胎衣滯留、子宮內膜炎等產後疾病，國考最高頻整合考點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "dcad", sectionName: "DCAD 陰陽離子差",
+    keywords: "DCAD dietary cation-anion difference 陰陽離子差 負DCAD 骨鈣動員 鈣恆定",
+    snippet: "DCAD=(Na+K)-(Cl+S)，負DCAD日糧輕度酸化血液刺激骨鈣動員，close-up期預防低血鈣。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "glossary", sectionName: "雙語詞彙表",
+    keywords: "雙語詞彙表 bilingual glossary 中英對照",
+    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 轉換期 低血鈣 DCAD",
+    snippet: "五點總複習：轉換期定義、乾乳期兩階段管理、低血鈣連鎖病變、DCAD公式與機轉。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 轉換期 低血鈣 DCAD",
+    snippet: "涵蓋轉換期定義、乾乳期管理、低血鈣連鎖病變、DCAD機轉的練習題，含臨床情境整合題。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 臨床檢查 clinical examination",
+    snippet: "反芻動物臨床檢查總覽：胃解剖、問診與檢查順序、BCS/RF評分、生命徵象、觸診。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "anatomy", sectionName: "四胃解剖",
+    keywords: "四胃解剖 rumen reticulum omasum abomasum 瘤胃 網胃 重瓣胃 皺胃",
+    snippet: "瘤胃、網胃、重瓣胃、皺胃四個胃室位置與構造，配位置圖與組織照片。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "history", sectionName: "病史詢問與檢查順序",
+    keywords: "病史詢問 history taking 標準檢查順序 standard examination order",
+    snippet: "問診checklist與由前而後、由外而內的標準理學檢查順序。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "scoring", sectionName: "身體狀況與瘤胃充盈評分",
+    keywords: "BCS body condition score RF score 瘤胃充盈評分 Ferguson決策樹",
+    snippet: "BCS體態評分landmark、Ferguson 1994決策樹、RF瘤胃充盈評分，配臨床照片。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "vitals", sectionName: "生命徵象與瘤胃聽診",
+    keywords: "生命徵象 體溫 心跳 呼吸速率 瘤胃蠕動聽診 ping sound LDA RDA 盲腸擴張",
+    snippet: "體溫/心跳/呼吸速率依種類年齡分表、瘤胃聽診頻率、ping音定位LDA/RDA/盲腸鑑別。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "palpation", sectionName: "觸診：淋巴結、頭頸、直腸",
+    keywords: "淋巴結觸診 lymph node 頭頸觸診 直腸觸診 rectal palpation",
+    snippet: "六個淋巴結位置圖、頭頸部觸診重點、直腸觸診技巧。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "glossary", sectionName: "雙語詞彙表",
+    keywords: "雙語詞彙表 bilingual glossary 中英對照",
+    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 臨床檢查",
+    snippet: "四胃解剖、問診檢查順序、BCS/RF評分、生命徵象與聽診、觸診重點總複習。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 臨床檢查",
+    snippet: "涵蓋四胃解剖、評分系統、生命徵象、觸診的練習題，含連結低血鈣症的臨床情境整合題。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 眼科疾病 diseases of the eye",
+    snippet: "反芻動物眼科疾病總覽：感染/發炎性疾病光譜與眼部腫瘤兩大類。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "exam", sectionName: "眼科檢查適應症與眼病徵象",
+    keywords: "眼科檢查適應症 眼病徵象 ocular disease signs",
+    snippet: "眼科檢查適應症清單與眼病徵象分類（不對稱、位置改變、分泌物、疼痛、失明等）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "endophthalmitis", sectionName: "眼內炎與全眼球炎",
+    keywords: "眼內炎 endophthalmitis 全眼球炎 panophthalmitis 摘除眼球 enucleation",
+    snippet: "眼內炎與全眼球炎病因、徵象、鑑別與治療，同一病理光譜的兩個嚴重度，配臨床照片。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "orbitalcellulitis", sectionName: "眼眶蜂窩織炎",
+    keywords: "眼眶蜂窩織炎 orbital cellulitis 急性 慢性",
+    snippet: "急性與慢性眼眶蜂窩織炎徵象、診斷、治療，配臨床照片。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "infectious", sectionName: "感染性角結膜炎與其他傳染病",
+    keywords: "IBK pink eye Moraxella bovis 感染性牛角結膜炎 Mycoplasma Chlamydia pecorum 顏面蠅",
+    snippet: "IBK／pink eye病原、徵象、防治；山羊綿羊Mycoplasma/Chlamydia眼病；其他會致眼部徵象的傳染病清單。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "neoplasia", sectionName: "眼部腫瘤：OSCC與淋巴肉瘤",
+    keywords: "OSCC ocular squamous cell carcinoma 眼部鱗狀細胞癌 淋巴肉瘤 lymphosarcoma BLV 牛白血病病毒",
+    snippet: "OSCC危險因子、癌前與惡性病變外觀鑑別、治療；淋巴肉瘤與BLV關聯、預後極差，配臨床照片。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "glossary", sectionName: "雙語詞彙表",
+    keywords: "雙語詞彙表 bilingual glossary 中英對照",
+    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 眼科疾病",
+    snippet: "眼內炎/全眼球炎/眼眶蜂窩織炎光譜、IBK、羊隻眼部感染、OSCC、淋巴肉瘤總複習。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 眼科疾病",
+    snippet: "涵蓋感染/發炎光譜、IBK、OSCC、淋巴肉瘤的練習題，含臨床情境整合題。"
   }
 ];

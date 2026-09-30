@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：組織胺與抗組織胺藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">組織胺與抗組織胺藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">組織胺與抗組織胺藥物 Histamine &amp; Antihistamines</h1>
+      <p class="page-subtitle">Autacoids 總論、組織胺生成代謝與受體亞型、生理作用、H1 抗組織胺藥物分類與臨床應用（H2 受體阻斷劑詳見〈腸胃道用藥〉頁）</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三・不分上下學期）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine，共16頁）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th Ed. Ch.19「Histamine, Serotonin, and their Antagonists」、Handbook of Veterinary Pharmacology Ch.3「Autacoids and Their Pharmacological Modulators」</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-25</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記；教科書交叉核對完成（H1–H4受體訊息傳遞表、抗組織胺分代與鎮靜比較表、物種代謝差異與臨床劑量均已逐項核對，細節見各節「教科書補充」框）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">組織胺基礎</div>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">🧪</span> Autacoids總論與組織胺生成代謝</a>
+    <a onclick="showSection('release')" id="nav-release"><span class="nav-icon">💥</span> 組織胺的釋放機轉與發炎反應</a>
+    <a onclick="showSection('receptors')" id="nav-receptors"><span class="nav-icon">🧬</span> 組織胺受體亞型 H1–H4</a>
+    <a onclick="showSection('effects')" id="nav-effects"><span class="nav-icon">⚙️</span> 組織胺的生理作用</a>
+    <div class="section-label" style="margin-top:8px;">抗組織胺藥物</div>
+    <a onclick="showSection('therapeutics')" id="nav-therapeutics"><span class="nav-icon">🎯</span> 臨床應用與拮抗策略總覽</a>
+    <a onclick="showSection('h1classification')" id="nav-h1classification"><span class="nav-icon">📋</span> H1抗組織胺藥物：分類與機轉</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🩺</span> 副作用、臨床應用與過敏性鼻炎</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這份講義的標題其實是「Autacoids &amp; Their Antagonists」（自泌素／內泌素與其拮抗劑），組織胺只是 autacoids 家族裡的第一個生物胺類代表；開頭兩張投影片先建立「autacoid＝局部作用的內生荷爾蒙」這個大框架，再收斂到組織胺本身。整章的邏輯是一條清楚的因果鏈：先講組織胺怎麼「被做出來、被存起來、被釋放」（合成、儲存於肥大細胞顆粒、免疫性/發炎性/藥物誘發三種釋放機轉），再講它「釋放後去敲哪個門」（H1–H4 四種受體，各自接不同的 G-protein），最後看「敲門之後身體發生什麼事」（心血管、分泌、呼吸、腸胃、痛癢等生理效應）。抗組織胺藥物的邏輯完全是這條鏈的鏡像：既然組織胺的問題出在「釋放」和「受體活化」，拮抗策略就分成生理性拮抗（腎上腺素反向作用）、釋放抑制（肥大細胞穩定劑）、受體阻斷（H1／H2 blocker）三條路。這一頁重點放在組織胺本身與 H1 抗組織胺藥物的分類、機轉、副作用與臨床應用；H2 受體阻斷劑（cimetidine、famotidine 等）講義明講「留到腸胃道藥理學再講」，因此本頁只帶過 H2 受體本身的生理角色，藥物細節請見〈腸胃道用藥〉頁。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('overview')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">Autacoids總論與生成代謝</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">組胺酸去羧化、儲存部位、失活代謝路徑</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('release')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">釋放機轉與發炎反應</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">免疫性／發炎性／藥物誘發三種釋放</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('receptors')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體亞型 H1–H4</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">G-protein偶聯、訊息路徑、分布</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('effects')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">生理作用</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">心血管、分泌、呼吸、腸胃、痛癢</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('therapeutics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">臨床應用與拮抗策略</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">胃酸測試、生理性拮抗、肥大細胞穩定劑</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('h1classification')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">06</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">H1抗組織胺分類與機轉</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">第一代vs第二代、五大化學結構分類</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('clinical')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">07</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">副作用與臨床應用</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">鎮靜/抗毒蕈鹼比較、過敏性鼻炎用藥</p></div>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">8個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>組織胺失活「快」是它作用短暫的關鍵：</strong>主要經 imidazole-N-methyltransferase 甲基化（形成1-methylhistamine，再經MAO氧化成methylimidazoleacetic acid，合計佔代謝&gt;50%），次要經 diamine oxidase（histaminase）氧化成imidazoleacetic acid（約25%，多以riboside形式結合），游離組織胺僅2–3%原型排出。</li>
+          <li><strong>四種受體接四種不同的G-protein，記法是「1、2號管收縮/分泌，3、4號管回饋/趨化」：</strong>H1（Gq，PLC-IP3-Ca2+）→平滑肌收縮／血管擴張／通透性↑；H2（Gs，cAMP↑）→胃酸分泌／血管擴張；H3（Gi/o，突觸前）→負回饋抑制neurotransmitter釋放；H4（Gi/o接PLC-β）→肥大細胞/嗜酸性球趨化。</li>
+          <li><strong>心血管的「整體效應」是矛盾的統合結果：</strong>組織胺同時收縮大動靜脈、卻擴張小動脈、又增加微血管通透性，三者加總＝血壓↓（histamine shock）＋反射性心搏過速＋直接正性肌力/頻率效應——這種「局部收縮、整體降壓」的組合是常見考點。</li>
+          <li><strong>犬貓對某些藥物特別容易誘發組織胺釋放：</strong>Opioid快速IV注射（morphine、meperidine）與tubocurarine皆可誘發non-immunologic histamine release；教科書特別指出犬貓對tubocurarine的組織胺釋放特別敏感，這正是tubocurarine在犬貓臨床上被排除使用的原因之一。</li>
+          <li><strong>抗組織胺藥物三大策略互不相同：</strong>生理性拮抗（epinephrine，作用在不同受體、產生相反生理效果，是anaphylaxis的首選藥物而非H1 blocker）、釋放抑制／肥大細胞穩定劑（cromolyn、nedocromil，只能預防不能逆轉已釋放的組織胺）、受體阻斷（H1/H2 antagonist，藥理學上正確分類其實是「inverse agonist」而非單純拮抗劑）。</li>
+          <li><strong>第一代vs第二代H1抗組織胺的分野是「穿不穿血腦障壁」：</strong>第二代藥物（cetirizine、loratadine、fexofenadine）因為是P-glycoprotein幫浦的良好受質，較難進入CNS，鎮靜與抗毒蕈鹼效果都遠低於第一代；但犬貓的臨床實證資料遠少於人醫，效果因個體差異大。</li>
+          <li><strong>Hydroxyzine在犬體內其實是前驅藥：</strong>不論IV或PO給藥，hydroxyzine在犬體內都會快速代謝成cetirizine（第二代活性代謝物），實際觀察到的抗組織胺效果來自血中cetirizine濃度而非hydroxyzine本身。</li>
+          <li><strong>H1抗組織胺藥物對anaphylaxis、氣喘、食物過敏「大多無效」：</strong>因為這些病理反應涉及多種介質（不只組織胺），臨床首選分別是epinephrine（anaphylaxis）、bronchodilator＋glucocorticoid（氣喘）；H1 blocker的臨床強項其實是搔癢/蕁麻疹/過敏性鼻炎這類「以組織胺為主要介質」的病灶。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物／概念一覽，機轉與臨床應用欄位待藥品索引更新後會與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物／概念</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Histamine</td><td>內生生物胺，非治療用藥本身；作用於H1–H4受體</td><td>歷史上用於胃酸分泌功能測試（現已由Pentagastrin取代）</td><td class="drug-locations"><a href="#drug-histamine" class="drug-link">歷史胃酸測試</a></td></tr>
+            <tr><td>Cromolyn sodium／Nedocromil</td><td>肥大細胞穩定劑，抑制去顆粒化（release inhibitor）</td><td><strong>局部／鼻噴劑（口服效果差）</strong>；預防性使用，過敏性鼻炎輔助</td><td class="drug-locations"><a href="#drug-cromolyn" class="drug-link">肥大細胞穩定劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Diphenhydramine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Benadryl®；Ethanolamine類</div></td><td>H1受體拮抗（第一代，穿BBB）</td><td><strong>PO／IM／IV</strong>；犬貓過敏性搔癢、蕁麻疹；止吐/鎮靜輔助見〈腸胃道用藥〉</td><td class="drug-locations"><a href="#drug-diphenhydramine" class="drug-link">第一代代表藥</a></td></tr>
+            <tr><td>Clemastine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Tavist；Ethanolamine類</div></td><td>H1受體拮抗（第一代）</td><td><strong>PO</strong>；犬貓過敏性搔癢；犬吸收差、馬口服吸收僅3%，不建議馬口服</td><td class="drug-locations"><a href="#drug-diphenhydramine" class="drug-link">Ethanolamine類</a></td></tr>
+            <tr><td>Chlorpheniramine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Chlor-Trimeton；Alkylamine類</div></td><td>H1受體拮抗（第一代，鎮靜/抗毒蕈鹼相對較輕）</td><td><strong>PO</strong>；犬貓過敏性搔癢、蕁麻疹，鎮靜副作用相對較輕</td><td class="drug-locations"><a href="#drug-chlorpheniramine" class="drug-link">鎮靜較輕的第一代</a></td></tr>
+            <tr><td>Pyrilamine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Neoantergan；Ethylenediamine類</div></td><td>H1受體拮抗（第一代）</td><td>高劑量可能誘發馬／兒童CNS興奮（非鎮靜）</td><td class="drug-locations"><a href="#drug-chlorpheniramine" class="drug-link">CNS興奮案例</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Hydroxyzine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Atarax；Piperazine類</div></td><td>H1受體拮抗（第一代）；犬體內快速代謝為Cetirizine（前驅藥）</td><td><strong>PO（0.5–2 mg/kg q8h）</strong>；犬皮膚科最常用抗組織胺之一</td><td class="drug-locations"><a href="#drug-hydroxyzine" class="drug-link">Piperazine類、前驅藥</a></td></tr>
+            <tr><td>Meclizine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Piperazine類</div></td><td>H1受體拮抗（第一代）</td><td><strong>PO</strong>；防暈車效果較強，止吐用途詳見〈腸胃道用藥〉</td><td class="drug-locations"><a href="#drug-hydroxyzine" class="drug-link">Piperazine類</a></td></tr>
+            <tr><td>Promethazine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Phenergan；Phenothiazine類</div></td><td>H1受體拮抗（第一代，鎮靜與抗毒蕈鹼效果最強之一）</td><td><strong>PO／IM／IV</strong>；鎮靜誘導、止吐輔助</td><td class="drug-locations"><a href="#drug-promethazine" class="drug-link">鎮靜效果最強的第一代</a></td></tr>
+            <tr><td>Cyproheptadine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Periactin®；Piperidine類</div></td><td>H1受體拮抗＋5-HT血清素受體拮抗（第一代）</td><td><strong>PO</strong>；血清素拮抗特性，食慾促進用途詳見〈腸胃道用藥〉</td><td class="drug-locations"><a href="#drug-promethazine" class="drug-link">兼具血清素拮抗</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Cetirizine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Zyrtec；Piperazine類（第二代）</div></td><td>H1受體拮抗（第二代，低CNS穿透）；為Hydroxyzine活性代謝物</td><td><strong>PO</strong>；犬2 mg/kg q12h、貓1 mg/kg SID、馬0.4 mg/kg q12h</td><td class="drug-locations"><a href="#drug-cetirizine" class="drug-link">第二代代表藥</a></td></tr>
+            <tr><td>Loratadine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Claritin；Piperidine類（第二代）</div></td><td>H1受體拮抗（第二代，低CNS穿透）</td><td><strong>PO</strong>；犬貓劑量尚未建立完整實證（not established）</td><td class="drug-locations"><a href="#drug-cetirizine" class="drug-link">第二代，劑量未確立</a></td></tr>
+            <tr><td>Fexofenadine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Allegra；Piperidine類（第二代）</div></td><td>H1受體拮抗（第二代，低CNS穿透，無Terfenadine心毒性）</td><td><strong>PO</strong>；高劑量（18 mg/kg）於犬異位性皮膚炎小型試驗顯示顯著止癢效果</td><td class="drug-locations"><a href="#drug-cetirizine" class="drug-link">無心毒性的第二代</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">3</div><h2>Autacoids 總論與組織胺生成代謝 Autacoids Overview &amp; Histamine Biosynthesis</h2></div>
+      <p class="section-desc">講義用兩張投影片先建立「autacoid」這個總稱，再聚焦到組織胺——理解組織胺從哪裡來、怎麼被關起來、怎麼被拆解掉，是後面所有藥理作用與拮抗策略的基礎。</p>
+
+      <h3>Autacoid 的定義與分類</h3>
+      <p><strong>Autacoid（自泌素／內泌素）</strong>＝「local hormones」，字源本身就是 <em>Self + Medical agent</em> 的組合，意指這類物質在局部組織自行合成、自行作用，不像典型內分泌荷爾蒙需要經血流送到遠端器官。講義列出三大類：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>代表物質</th></tr></thead>
+          <tbody>
+            <tr><td>Biogenic amines（生物胺類）</td><td>Histamine、5-HT（Serotonin）——本頁主題屬於這一類</td></tr>
+            <tr><td>Lipid mediators（脂質介質）</td><td>Eicosanoids（PGs、Thromboxanes、Leukotrienes）、PAF（platelet-activating factor）——詳見〈NSAID非類固醇消炎藥〉頁的花生四烯酸代謝路徑</td></tr>
+            <tr><td>Polypeptides（多肽類）</td><td>Angiotensins、Kinins、Substance P</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Autacoids 生理角色橫跨心血管系統（血壓調控、局部循環、凝血/止血）、發炎（過敏反應、痛覺敏感化 hyperalgesia）與神經系統（神經傳導物/調節物）；講義特別點出一個臨床提示：<strong>H1 抗組織胺藥物會造成嗜睡</strong>，正是因為組織胺本身在中樞神經系統也扮演神經傳導物角色。</p>
+
+      <h3 id="drug-histamine">組織胺的化學與生成 Chemistry &amp; Biosynthesis<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">L-Histidine（含 imidazole 環的胺基酸）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Histidine decarboxylase（去羧化）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Histamine</div>
+      </div>
+      <p>組織胺由 <strong>L-histidine 去羧化</strong>而成，保留了 histidine 的 imidazole 環結構（這個環也是後面抗組織胺藥物化學結構討論的基礎骨架之一）。</p>
+
+      <h3>失活與代謝 Inactivation</h3>
+      <p>組織胺的<strong>失活速度非常快</strong>，主要透過兩條代謝路徑：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>路徑</th><th>酵素</th><th>產物</th><th>約佔比例</th></tr></thead>
+          <tbody>
+            <tr><td>主要路徑</td><td>Imidazole-N-methyltransferase → 再經 MAO 氧化</td><td>1-Methylhistamine → Methylimidazoleacetic acid</td><td>Methylhistamine 4–8%；Methylimidazoleacetic acid &gt;50%</td></tr>
+            <tr><td>次要路徑</td><td>Diamine oxidase（Histaminase）</td><td>Imidazoleacetic acid（多與ribose結合成riboside）</td><td>&gt;25%</td></tr>
+            <tr><td>未代謝</td><td>—</td><td>游離組織胺（Free histamine）原型排出</td><td>2–3%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Handbook of Veterinary Pharmacology 的描述方式略有不同但數字互相吻合：主要代謝路徑（&gt;50%）為經 imidazole-N-methyltransferase 轉為 1-methylhistamine（此即講義甲基化路徑的第一步，再經MAO氧化為&gt;50%的methylimidazoleacetic acid）；次要路徑（約25%）為經diamine oxidase（histaminase）氧化為imidazoleacetic acid——兩本教科書與講義的數字核對一致（核對自 VPT10 Ch.19 與 HBK Ch.3）。</p>
+      </div>
+
+      <h3>組織分布 Tissue Distribution</h3>
+      <ul>
+        <li><strong>主要儲存部位：</strong>肥大細胞（mast cells）與嗜鹼性球（basophils）的顆粒內——這是組織胺參與發炎與過敏反應的解剖學基礎。</li>
+        <li><strong>其他分布：</strong>CNS（作為神經傳導物）；胃腸道（刺激胃液分泌）；皮膚、肺、鼻黏膜。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>HBK 補充了更完整的分布細節：肺、皮膚、胃腸黏膜層是主要儲存部位；食物與迷走神經刺激可從胃黏膜 ECL（enterochromaffin-like）細胞釋放組織胺，啟動胃酸分泌；消化道內容物（digesta）中也存在大量由腸道細菌作用產生的組織胺，但正常情況下這部分不會進入全身循環；許多毒液與昆蟲叮咬毒素本身也含有組織胺（核對自 HBK Ch.3）。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine）為主，並以 Veterinary Pharmacology and Therapeutics 10th Ed. Ch.19 與 Handbook of Veterinary Pharmacology Ch.3 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RELEASE -->
+    <div class="section" id="section-release">
+      <div class="section-head"><div class="section-num">4</div><h2>組織胺的釋放機轉與發炎反應 Histamine Release &amp; Inflammation</h2></div>
+      <p class="section-desc">組織胺平常安穩地待在肥大細胞顆粒裡，講義列出三種讓它被「放出來」的觸發機轉，其中免疫性釋放是臨床上最重要的一種。</p>
+
+      <h3>三種釋放機轉</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>機轉</th><th>觸發方式</th><th>臨床意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>免疫性釋放（Immunologic）</strong></td><td>過敏原暴露 → 肥大細胞去顆粒化</td><td><strong>最重要的機轉</strong>；即Type I（立即型）過敏反應，可導致anaphylaxis</td></tr>
+            <tr><td>發炎反應相關釋放</td><td>局部組織損傷</td><td>局部血管擴張、白血球（leukocytes）募集參與發炎反應</td></tr>
+            <tr><td>藥物誘發釋放</td><td>Opioid快速IV注射（morphine、meperidine等）、Tubocurarine</td><td>Non-immunologic release，屬於藥物本身的直接肥大細胞去顆粒化效果，並非過敏</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充：犬貓用藥安全提示</div>
+        <p>Veterinary Pharmacology and Therapeutics 特別指出，<strong>犬與貓對 tubocurarine 誘發的組織胺釋放特別敏感</strong>，這正是 tubocurarine 這類神經肌肉阻斷劑在犬貓臨床上被排除使用的原因之一；相較之下 atracurium 雖也會誘發組織胺釋放，但程度遠低於 tubocurarine（核對自 VPT10）。臨床上為快速IV opioid給藥時應留意類似的非過敏性組織胺釋放反應（如低血壓、潮紅），與真正的IgE過敏反應機轉不同。</p>
+      </div>
+
+      <h3>發炎反應的因果鏈</h3>
+      <p>組織胺釋放後，會啟動一連串放大發炎反應的級聯效應（講義以圖示呈現，改寫為文字流程）：</p>
+      <div class="flow">
+        <div class="flow-node">細菌入侵或組織損傷</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">肥大細胞釋放組織胺</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">①局部小動脈擴張＋②微血管通透性↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">①血流增加②局部積液 → 紅（Redness）／熱（Heat）／腫（Swelling）／痛（Pain）</div>
+      </div>
+      <p>接下來紅熱腫痛四大症狀又進一步促成血漿蛋白（含凝血因子）滲出組織、吞噬細胞（phagocytes）在組織中增加並分泌 <strong>促發炎細胞激素（pro-inflammatory cytokines）</strong>，最終匯聚成兩個結果：<strong>對抗外來病原＋組織修復</strong>，以及可能伴隨的<strong>全身性反應（如發燒）</strong>。這張圖說明了組織胺並非孤立作用，而是啟動了一連串細胞激素與吞噬細胞反應的「發炎放大器」。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine）為主，並以 Veterinary Pharmacology and Therapeutics 10th Ed. Ch.19 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RECEPTORS -->
+    <div class="section" id="section-receptors">
+      <div class="section-head"><div class="section-num">5</div><h2>組織胺受體亞型 H1–H4 Histamine Receptor Subtypes</h2></div>
+      <p class="section-desc">四種受體全部都是G-protein偶聯受體，但接的G-protein與下游訊息路徑完全不同，這是理解組織胺多重生理效應、以及不同抗組織胺藥物選擇性的根本基礎。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體</th><th>G-protein／訊息路徑</th><th>主要分布</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>H1</strong></td><td>Gq/11 → Phospholipase C → 細胞內Ca2+↑</td><td>血管內皮、平滑肌細胞、CNS</td><td>平滑肌收縮、血管擴張、通透性↑、致敏（itch/pain）</td></tr>
+            <tr><td><strong>H2</strong></td><td>Gs → Adenylate cyclase → cAMP↑</td><td>胃黏膜、CNS、心肌細胞</td><td>胃酸分泌、血管擴張（藥物詳見〈腸胃道用藥〉頁）</td></tr>
+            <tr><td><strong>H3</strong></td><td>Gi/o → cAMP↓、Ca2+內流↓、K+外流↑</td><td>神經元，主要位於突觸前（presynaptic）</td><td>負回饋：降低神經傳導物釋放（mesenteric plexus、CNS）</td></tr>
+            <tr><td><strong>H4</strong></td><td>Gi/o → Phospholipase C（經Gβγ活化）</td><td>肥大細胞、嗜鹼性球、嗜酸性球</td><td>趨化（chemotaxis）、發炎、痛覺</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：核對無誤＋物種差異</div>
+        <p>VPT10 與 HBK 的 H1–H4 受體G-protein偶聯與訊息路徑描述與講義完全一致（H1：Gq/11-PLC-Ca2+；H2：Gs-cAMP↑；H3：Gi/o；H4：Gi/o-PLC-β），核對無誤。HBK 額外補充了一個重要的<strong>物種差異</strong>：多數哺乳類（天竺鼠、兔、犬、羊、牛、豬、馬、人）的支氣管平滑肌經H1受體活化會<strong>收縮</strong>，但<strong>貓的呼吸道平滑肌經H1與H2受體活化反而是放鬆（bronchodilation）</strong>，綿羊則經H2受體放鬆——這解釋了為什麼組織胺誘發的氣喘/支氣管痙攣模型在貓身上不適用，也是物種比較題常見的陷阱點（核對自 HBK Ch.3）。</p>
+      </div>
+
+      <p style="font-size:.85em; color:var(--fg-faint);">※ H3受體目前在獸醫臨床上沒有專一性促效劑或拮抗劑上市使用；H4受體拮抗劑仍在開發階段，尚無臨床用藥。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine）為主，並以 Veterinary Pharmacology and Therapeutics 10th Ed. Ch.19 與 Handbook of Veterinary Pharmacology Ch.3 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- EFFECTS -->
+    <div class="section" id="section-effects">
+      <div class="section-head"><div class="section-num">6</div><h2>組織胺的生理作用 Physiological Effects of Histamine</h2></div>
+      <p class="section-desc">把上一節的受體分布套進各器官系統，就是這一節要記的生理效應——重點是很多系統同時有H1與H2兩種受體參與，效果經常是兩者加總的結果。</p>
+
+      <h3>心血管系統 Cardiovascular</h3>
+      <ul>
+        <li>收縮大動脈與大靜脈（constrict arteries &amp; large veins）</li>
+        <li>擴張小動脈（dilate arterioles）</li>
+        <li>增加微血管通透性（↑ capillary permeability）——因內皮細胞收縮並產生間隙</li>
+      </ul>
+      <div class="flow">
+        <div class="flow-node">大動靜脈收縮＋小動脈擴張＋通透性↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">整體效應：血壓↓（Histamine Shock，H1與H2受體皆參與）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">反射性心搏過速（低血壓觸發）＋直接心臟效應（正性肌力＋正性頻率）</div>
+      </div>
+      <p>微血管通透性增加是因為組織胺造成內皮細胞收縮、細胞間出現裂隙，使血漿及小分子蛋白滲出（plasma extravasation）——這正是<strong>蕁麻疹（urticaria）</strong>與過敏性水腫的直接成因，過敏原（食物、花粉、塵蟎、蟑螂等）致敏的肥大細胞經IgE媒介去顆粒化後大量釋放組織胺即會造成此現象。</p>
+
+      <h3>分泌組織 Secretory Tissues</h3>
+      <p>組織胺是胃酸分泌的<strong>重要刺激物</strong>，經<strong>H2受體</strong>作用於胃壁細胞（parietal cells）——這也是為什麼H2受體阻斷劑（cimetidine等）能有效抑制胃酸分泌，詳細機轉與藥物見〈腸胃道用藥〉頁。</p>
+
+      <h3>呼吸系統 Respiratory</h3>
+      <p>經<strong>H1受體</strong>媒介支氣管收縮（bronchoconstriction）；吸入性組織胺激發試驗（inhaled histamine provocative test）可用於診斷支氣管過度反應性（如過敏性氣喘）。</p>
+
+      <h3>腸胃道 Gastrointestinal Tract</h3>
+      <p>經H1受體造成腸道平滑肌收縮（intestinal smooth muscle contraction）。</p>
+
+      <h3 id="drug-histamine-pain">神經末梢：疼痛與搔癢 Pain &amp; Itch</h3>
+      <p>組織胺是感覺神經末梢的刺激物，經<strong>H1受體</strong>誘發疼痛與搔癢感；不同昆蟲叮咬呈現的症狀差異，正好對應組織胺釋放量與其他共釋放介質的比例——蚊子叮咬以搔癢（itching）為主，黃蜂螫傷則以劇痛（severe pain）為主，兩者都屬於局部組織胺相關反應（含蕁麻疹）。講義另有一張「疼痛相關介質」示意圖，指出組織胺與PGs、5-HT、Bradykinin共同作用於C/Aδ痛覺纖維，促使該神經末梢釋放Substance P向中樞投射神經元傳遞痛覺訊號；同一張圖也顯示Touch/Pressure（Aα/Aβ纖維）與腦幹下行止痛路徑（經Enkephalin作用於Opioid受體）可對這條痛覺路徑產生抑制性回饋——這是理解「以疼痛介質為標的」鎮痛藥（含NSAID）共同作用位置的示意圖，組織胺只是其中一個致敏介質，並非唯一角色。</p>
+
+      <h3>生理與病理角色總覽 Physiologic &amp; Pathologic Roles</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">1. 過敏反應與過敏性休克</div><p>Allergic reactions &amp; anaphylactic shock</p></div>
+        <div class="card"><div class="card-title">2. 胃酸分泌</div><p>Gastric acid secretion</p></div>
+        <div class="card"><div class="card-title">3. 局部發炎</div><p>Local inflammation</p></div>
+        <div class="card"><div class="card-title">4. 組織修復與生長</div><p>Tissue repair and growth</p></div>
+        <div class="card"><div class="card-title">5. 神經傳導</div><p>Neurotransmission</p></div>
+        <div class="card"><div class="card-title">6. 微循環</div><p>Microcirculation</p></div>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine）為主，並以 Veterinary Pharmacology and Therapeutics 10th Ed. Ch.19 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- THERAPEUTICS OVERVIEW -->
+    <div class="section" id="section-therapeutics">
+      <div class="section-head"><div class="section-num">7</div><h2>組織胺的臨床應用與拮抗策略總覽 Therapeutic Uses &amp; Antagonist Strategies</h2></div>
+      <p class="section-desc">這一節是承先啟後的橋樑：先看組織胺「本身」有限的臨床用途（主要是歷史/診斷用），再看三種完全不同邏輯的拮抗策略，最後一節才會深入其中最重要的「受體阻斷」這一支。</p>
+
+      <h3>組織胺本身的臨床用途（歷史／診斷）</h3>
+      <ul>
+        <li><strong>胃酸分泌功能測試：</strong>組織胺歷史上曾用於測試胃酸分泌能力，現已由<strong>Pentagastrin</strong>（短效，目前使用中）取代。</li>
+        <li><strong>Betazole：</strong>組織胺的異構物（isomer），對胃酸分泌（H2受體）有優先效果，選擇性約為H1受體的10倍，曾用於測試胃功能。</li>
+      </ul>
+
+      <h3>三種拮抗策略 Histamine Antagonists</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>策略</th><th>代表藥物</th><th>作用邏輯</th></tr></thead>
+          <tbody>
+            <tr><td><strong>生理性拮抗</strong><br>Physiological antagonists</td><td>Epinephrine、Phenylephrine</td><td>作用在<strong>不同受體</strong>，產生與組織胺相反的生理效果（如升血壓）；<strong>anaphylaxis的首選藥物是epinephrine，不是H1 blocker</strong>，因為epinephrine能直接逆轉多重介質造成的心血管崩潰，機轉詳見〈腎上腺素性藥物〉頁</td></tr>
+            <tr><td id="drug-cromolyn"><strong>釋放抑制</strong><br>Release inhibitors（肥大細胞穩定劑）</td><td>Cromolyn、Nedocromil</td><td>降低肥大細胞去顆粒化，<strong>只能預防、不能逆轉已釋放的組織胺</strong>；口服吸收差，臨床以局部／鼻噴劑／吸入形式為主，需作為預防性用藥規律使用而非急性發作時使用</td></tr>
+            <tr><td><strong>受體阻斷</strong><br>Receptor antagonists</td><td>H1與H2 antagonists／blockers</td><td>選擇性阻斷特定受體；藥理學上更精確的分類是<strong>inverse agonist</strong>（降低受體本身的組成性活性，而非單純競爭性拮抗），詳見下一節</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ H2受體阻斷劑（Cimetidine、Ranitidine、Famotidine、Nizatidine）藥物細節、效力排序與物種安全性，見〈<a href="腸胃道用藥.html#section-acid">腸胃道用藥：胃酸分泌與消化性潰瘍用藥</a>〉——原始講義本身也明講這部分留待腸胃道藥理學課程講授。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine）為主。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- H1 CLASSIFICATION -->
+    <div class="section" id="section-h1classification">
+      <div class="section-head"><div class="section-num">8</div><h2>H1 抗組織胺藥物：分類與機轉 H1-Antihistamines: Classification &amp; Mechanism</h2></div>
+      <p class="section-desc">先分世代（鎮靜程度），再分化學結構（五大類），最後看整體藥理效果——這是理解一整排「XX-amine」藥名的最快方式：同結構家族通常共享類似的鎮靜/抗毒蕈鹼強度。</p>
+
+      <h3>第一代 vs 第二代</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>特性</th><th>第一代（First-generation）</th><th>第二代（Second-generation）</th></tr></thead>
+          <tbody>
+            <tr><td>鎮靜（CNS效果）</td><td>相對較強</td><td>相對較輕</td></tr>
+            <tr><td>CNS穿透</td><td>容易穿越血腦障壁</td><td>降低（P-glycoprotein efflux幫浦排出）</td></tr>
+            <tr><td>抗毒蕈鹼效果</td><td>明顯 &gt;&gt; 第二代</td><td>低</td></tr>
+            <tr><td>代表藥物</td><td>Diphenhydramine、Clemastine、Chlorpheniramine、Promethazine、Meclizine、Hydroxyzine等</td><td>Terfenadine（已停用）、Fexofenadine、Loratadine、Cetirizine</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">Hydroxyzine → Cetirizine：活性代謝物關係</div>
+        <p>Hydroxyzine（第一代）在體內會代謝成<strong>Cetirizine（第二代，活性代謝物）</strong>；教科書進一步證實：不論IV或PO給藥，犬體內的hydroxyzine都會<strong>快速</strong>轉換成cetirizine（劑量約2 mg/kg研究），而且實際觀察到的抗組織胺效果與血中<strong>cetirizine</strong>濃度相關，而非hydroxyzine本身——換句話說，hydroxyzine在犬體內的角色其實接近<strong>前驅藥（prodrug）</strong>（核對自 VPT10，Bizikova et al. 2008研究）。</p>
+      </div>
+
+      <h3 id="drug-diphenhydramine">五大化學結構分類<span class="tag tag-exam">重要</span></h3>
+      <p>幾乎所有H1抗組織胺藥物都能用同一個通式表示：<strong>X–C–C–N(R1)(R2)</strong>（類似組織胺本身的乙胺基團CH2CH2NH2），差異在於X原子種類與環狀結構，形成五大類：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>化學類別</th><th>X原子</th><th>代表藥物</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ethanolamines</strong></td><td>Oxygen</td><td>Diphenhydramine、Clemastine</td></tr>
+            <tr><td id="drug-chlorpheniramine">Ethylenediamines</td><td>Nitrogen</td><td>Pyrilamine</td></tr>
+            <tr><td>Alkylamines</td><td>Carbon</td><td>Chlorpheniramine</td></tr>
+            <tr><td id="drug-hydroxyzine">Piperazines</td><td>（環狀piperazine取代傳統ethylenediamine連結）</td><td>Hydroxyzine、Meclizine</td></tr>
+            <tr><td id="drug-promethazine">Phenothiazines</td><td>（非典型結構，phenothiazine衍生物）</td><td>Promethazine</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 第二代藥物（如Loratadine）多屬於Piperidine類結構，兩端各有芳香環取代乙胺鏈；Terfenadine因QT間期延長導致心毒性已停用，同結構的Fexofenadine則不具此副作用，是講義未明講、但教科書補充的重要安全性差異（核對自 VPT10）。</p>
+
+      <h3 id="drug-cetirizine">H1抗組織胺藥物的藥理效果<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li>放鬆支氣管與腸道平滑肌（relax bronchiolar &amp; intestinal smooth muscle）</li>
+        <li>抑制組織胺誘發的血管擴張與微血管通透性增加 → 減少水腫與風疹塊（wheals）</li>
+        <li>抑制搔癢感（itch sensation）；許多H1抗組織胺藥物本身具局部麻醉作用，可能也貢獻了止癢止痛效果</li>
+        <li>鎮靜（CNS效果，第一代明顯）</li>
+        <li>抗暈動症（antimotion sickness／antiemetic）效果——部分第一代藥物可<strong>預防性（prophylaxis）</strong>使用以預防暈車，發作後才給藥效果較差</li>
+        <li>抗毒蕈鹼作用（atropine-like effects）</li>
+        <li>血清素能阻斷（serotonergic blockade）：<strong>Cyproheptadine（Periactin®）</strong>特有</li>
+      </ul>
+
+      <h3>給藥途徑與物種劑量參考</h3>
+      <p>H1抗組織胺藥物可經<strong>口服（PO）、注射（parenteral：IM／IV）或局部（topical）</strong>給藥；教科書指出所有已研究的H1抗組織胺藥物口服吸收皆佳（Tmax 1–3小時），且經CYP450代謝後再結合排出。以下為教科書彙整的獸醫臨床劑量參考：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>途徑</th><th>劑量</th></tr></thead>
+          <tbody>
+            <tr><td>Chlorpheniramine</td><td>PO</td><td>犬：4–8 mg/dog，上限0.5 mg/kg q8–12h；貓：2–4 mg/cat q12h</td></tr>
+            <tr><td>Diphenhydramine</td><td>PO（研究中也有IM給藥）</td><td>2–4 mg/kg q8–12h</td></tr>
+            <tr><td>Clemastine</td><td>PO（吸收差，犬/馬皆不建議口服為主要途徑）</td><td>0.05–0.1 mg/kg q12h</td></tr>
+            <tr><td>Hydroxyzine</td><td>PO</td><td>0.5–2 mg/kg q8h</td></tr>
+            <tr><td>Trimeprazine</td><td>PO</td><td>0.5 mg/kg q12h</td></tr>
+            <tr><td>Cetirizine</td><td>PO</td><td>馬：0.4 mg/kg q12h；犬：2 mg/kg q12h；貓：1 mg/kg 每日一次</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>教科書明白指出，多數H1抗組織胺藥物在獸醫物種的<strong>藥物動力學資料稀少</strong>，上表劑量多半整合自零星犬貓臨床研究，馬與反芻動物資料更少；Clemastine在犬的口服生體可用率差、在馬的口服吸收僅約3%，臨床上不建議以口服clemastine作為馬的主要抗組織胺途徑（核對自 VPT10）。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine）為主，並以 Veterinary Pharmacology and Therapeutics 10th Ed. Ch.19 核對補充（含犬貓馬臨床劑量表、Hydroxyzine前驅藥研究）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">9</div><h2>副作用、臨床應用與過敏性鼻炎 Side Effects, Clinical Uses &amp; Allergic Rhinitis</h2></div>
+      <p class="section-desc">副作用強度與化學結構分類直接相關（這也是選藥時的實務依據），臨床應用則要記住「哪些病有效、哪些病無效」這條分界線。</p>
+
+      <h3>副作用 Side Effects</h3>
+      <ul>
+        <li><strong>鎮靜／CNS效果</strong>（以Promethazine最明顯）：嗜睡（lethargy）、想睡（drowsiness）、運動失調（ataxia）</li>
+        <li><strong>抗毒蕈鹼效果（atropine-like）：</strong>口乾（分泌減少）、排尿困難（urinary retention）、視覺障礙（mydriasis瞳孔放大）；<strong>青光眼病患需謹慎使用</strong></li>
+        <li><strong>CNS興奮（矛盾反應）：</strong>可能誘發馬與兒童的興奮躁動，例如高劑量Pyrilamine</li>
+      </ul>
+
+      <h3>各化學類別鎮靜／抗毒蕈鹼強度比較（第一代）<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>藥物</th><th>鎮靜（Sedative）</th><th>抗毒蕈鹼（Atropine-like）</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="2">Ethanolamines</td><td>Diphenhydramine</td><td>+++</td><td>有（μ）</td></tr>
+            <tr><td>Dimenhydrinate</td><td>+++</td><td>有（μ）</td></tr>
+            <tr><td rowspan="2">Ethylenediamines</td><td>Pyrilamine</td><td>++</td><td>—</td></tr>
+            <tr><td>Tripelennamine</td><td>++</td><td>—</td></tr>
+            <tr><td>Alkylamines</td><td>Chlorpheniramine</td><td>+</td><td>—</td></tr>
+            <tr><td rowspan="2">Piperazines</td><td>Hydroxyzine</td><td>+</td><td>—</td></tr>
+            <tr><td>Meclizine</td><td>+</td><td>—</td></tr>
+            <tr><td rowspan="2">Phenothiazines</td><td>Promethazine</td><td>+++</td><td>有（μ）</td></tr>
+            <tr><td>Trimeprazine</td><td>+++</td><td>有（μ）</td></tr>
+            <tr><td>Piperidines</td><td>Cyproheptadine</td><td>+</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：人類半衰期參考＋核對無誤</div>
+        <p>HBK Table 3-2 的鎮靜程度分級與講義幾乎逐字相同（Ethanolamines／Phenothiazines鎮靜最強且具抗毒蕈鹼；Alkylamines／Piperazines／Piperidines鎮靜較輕），核對無誤。額外提供人類消除半衰期作為參考量級：Diphenhydramine 3–9h、Chlorpheniramine約20h、Hydroxyzine 20–25h、Promethazine 16–19h、Cyproheptadine 1–4h；第二代Cetirizine約8h、Loratadine約8h、Fexofenadine約14h。<strong>提醒：這些是人類數據，動物體內半衰期多半缺乏完整研究，不可直接套用作為給藥間隔依據</strong>（核對自 HBK Ch.3）。</p>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：鎮靜效果的實證存疑</div>
+        <p>一篇犬隻研究對「第一代抗組織胺一定會鎮靜」這個假設提出反例：給予犬2、4、8 mg/kg <strong>IM</strong> diphenhydramine，與acepromazine及生理食鹽水組比較，acepromazine組出現顯著鎮靜，但<strong>diphenhydramine組的鎮靜程度與生理食鹽水組並無顯著差異</strong>——提示犬的臨床鎮靜反應可能存在個體差異或劑量依賴性，不宜完全依賴人醫的鎮靜強度分級直接套用於犬（核對自 VPT10，Hofmeister and Egger 2005）。</p>
+      </div>
+
+      <h3>臨床應用 Clinical Uses</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>適應症</th><th>效果</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>過敏性反應</strong><br>過敏性鼻炎、異位性皮膚炎、蕁麻疹</td><td><strong>有效（首選適應症）</strong></td><td>組織胺是這類病灶的主要介質</td></tr>
+            <tr><td>氣喘 Asthma</td><td>大多無效</td><td>涉及多種介質，需用bronchodilator、glucocorticoid</td></tr>
+            <tr><td>過敏性休克 Anaphylaxis</td><td>大多無效</td><td>首選為epinephrine（見上一節）</td></tr>
+            <tr><td>食物過敏 Food allergy</td><td>大多無效</td><td>—</td></tr>
+            <tr><td>暈車 Motion sickness</td><td>需<strong>預防性（prophylaxis）</strong>使用才有效</td><td>第一代CNS效果為主；<strong>不可用於妊娠相關噁心嘔吐</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：犬貓臨床實證資料</div>
+        <p>皮膚科臨床研究顯示第一代抗組織胺（Diphenhydramine、Hydroxyzine、Chlorpheniramine、Clemastine）整體約<strong>54%的犬達到好至中度止癢反應</strong>（Diphenhydramine與Hydroxyzine最常用也最常見效）；第二代<strong>Fexofenadine高劑量（18 mg/kg，6週試驗，15隻犬）達80%犬搔癢減少&gt;50%</strong>，但樣本數小，尚需更大型研究驗證；<strong>Cetirizine效果較保守（約1 mg/kg/day，18%反應率）</strong>。氣喘方面，Cetirizine在氣喘貓的研究中<strong>未能</strong>降低呼吸道嗜酸性球浸潤，建議不作為貓氣喘的單一治療。此外，H1抗組織胺藥物在獸醫上也有一些經驗性但實證薄弱的用途（如馬的營養性/妊娠性蹄葉炎、陣發性肌紅蛋白尿、週期性眼炎，牛的臌氣、產後代謝病、乳房炎、子宮蓄膿與胎衣滯留等），這些屬於歷史經驗用法，實證等級遠低於過敏性搔癢適應症（核對自 VPT10）。</p>
+      </div>
+
+      <h3>過敏性鼻炎 Allergic Rhinitis</h3>
+      <p>過敏性鼻炎（俗稱<strong>乾草熱／花粉熱，hay fever</strong>）是最常見的異位性疾病（美國約10%人口盛行率），機轉為致敏肥大細胞對空氣傳播過敏原產生反應，經<strong>IgE媒介的去顆粒化</strong>釋放組織胺等發炎介質，造成局部血管擴張、通透性增加等症狀。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物類別</th><th>目標症狀／機轉</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>H1抗組織胺藥物</strong></td><td>打噴嚏、搔癢、水樣鼻漏（rhinorrhea）、眼部搔癢/流淚/紅腫</td><td>主力藥物</td></tr>
+            <tr><td>α-腎上腺素性促效劑</td><td>鼻塞</td><td>Phenylephrine（機轉見〈腎上腺素性藥物〉頁）</td></tr>
+            <tr><td>Cromolyn sodium</td><td>減少肥大細胞活化</td><td>鼻噴劑；幾乎無副作用；<strong>僅適合預防性使用</strong></td></tr>
+            <tr><td>鼻內類固醇</td><td>抗發炎</td><td><strong>目前最強效的藥物</strong>，但需注意全身性副作用</td></tr>
+            <tr><td>免疫療法</td><td>減敏治療（hyposensitization）</td><td>長期病因治療</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine）為主，並以 Veterinary Pharmacology and Therapeutics 10th Ed. Ch.19 與 Handbook of Veterinary Pharmacology Ch.3 核對補充（含犬皮膚科抗組織胺反應率、貓氣喘研究、鎮靜實證研究）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考題常考「受體配對」「第一代vs第二代」「臨床有效/無效適應症」三種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>組織胺由L-histidine去羧化而成</strong>，主要儲存於肥大細胞/嗜鹼性球顆粒中；主要失活路徑（甲基化+MAO氧化，合計&gt;50%）與次要路徑（diamine oxidase氧化，約25%）都很快速，游離型僅2–3%排出。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>三種釋放機轉：</strong>免疫性（最重要，IgE媒介mast cell去顆粒化）、發炎性（局部損傷）、藥物誘發（opioid快速IV、tubocurarine——犬貓對tubocurarine特別敏感）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>H1（Gq-PLC-Ca2+）、H2（Gs-cAMP↑）、H3（Gi/o，突觸前負回饋）、H4（Gi/o-PLC-β，肥大細胞/嗜酸性球趨化）</strong>——四個受體四種G-protein，物種差異：貓的呼吸道經H1/H2放鬆而非收縮。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>心血管整體效應是血壓↓（histamine shock）</strong>：大動靜脈收縮＋小動脈擴張＋通透性↑三者加總；通透性↑造成蕁麻疹/水腫是H1受體主導的病理機轉。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>三種拮抗策略：</strong>生理性拮抗（epinephrine，anaphylaxis首選）、釋放抑制／肥大細胞穩定劑（cromolyn/nedocromil，僅能預防）、受體阻斷（H1/H2 blocker，藥理分類其實是inverse agonist）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>H1抗組織胺分五大化學類（Ethanolamine／Ethylenediamine／Alkylamine／Piperazine／Phenothiazine）</strong>，鎮靜與抗毒蕈鹼強度：Ethanolamine與Phenothiazine最強（+++，μ），Alkylamine／Piperazine／Piperidine較輕（+）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>第二代（Cetirizine/Loratadine/Fexofenadine）因P-gp排出、較不穿透BBB，鎮靜與抗毒蕈鹼效果都較輕</strong>；Hydroxyzine在犬體內快速代謝為活性代謝物Cetirizine，接近前驅藥角色。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>臨床應用分界線：</strong>過敏性搔癢/蕁麻疹/過敏性鼻炎有效（組織胺為主要介質）；氣喘、anaphylaxis、食物過敏大多無效（多重介質參與，需用其他藥物）；暈車需<strong>預防性</strong>給藥才有效，且不可用於妊娠相關嘔吐。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 1 Histamine）為主，並以 Veterinary Pharmacology and Therapeutics 10th Ed. Ch.19 與 Handbook of Veterinary Pharmacology Ch.3 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋組織胺生成代謝、受體亞型、生理作用、H1抗組織胺分類機轉與臨床應用各章節重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列關於組織胺受體亞型的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) H1受體偶聯Gs蛋白，活化adenylate cyclase</li>
+          <li>(B) H2受體偶聯Gq蛋白，活化phospholipase C</li>
+          <li>(C) H3受體主要位於突觸前，活化後會抑制神經傳導物釋放</li>
+          <li>(D) H4受體主要分布於心肌細胞，介導正性肌力效應</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">H1受體偶聯Gq/11，經PLC-IP3-Ca2+路徑作用；H2受體偶聯Gs，經cAMP路徑作用（(A)(B)選項受體與G-protein配對相反）；H3受體主要位於突觸前，屬Gi/o偶聯，活化後透過降低cAMP、抑制Ca2+內流、增加K+外流來抑制神經傳導物釋放；H4受體主要分布於肥大細胞/嗜鹼性球/嗜酸性球，介導趨化作用，不是心肌正性肌力效應（(D)錯誤）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 組織胺誘發的過敏性休克（anaphylaxis）應優先使用H1抗組織胺藥物治療。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Anaphylaxis涉及多種介質同時釋放，並非只有組織胺，H1抗組織胺藥物對此大多無效；臨床首選藥物是epinephrine，它作為生理性拮抗劑，直接逆轉多重介質造成的心血管崩潰，而不是與組織胺競爭受體。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻長期搔癢的犬考慮使用第一代抗組織胺藥物，下列何者鎮靜與抗毒蕈鹼效果最強？</div>
+        <ul class="quiz-options">
+          <li>(A) Chlorpheniramine（Alkylamine類）</li>
+          <li>(B) Hydroxyzine（Piperazine類）</li>
+          <li>(C) Promethazine（Phenothiazine類）</li>
+          <li>(D) Cyproheptadine（Piperidine類）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">Phenothiazine類（Promethazine、Trimeprazine）與Ethanolamine類（Diphenhydramine、Dimenhydrinate）的鎮靜程度最強（+++）且具明顯抗毒蕈鹼效果；Alkylamine（Chlorpheniramine）、Piperazine（Hydroxyzine、Meclizine）、Piperidine（Cyproheptadine）類鎮靜較輕（+）且無明顯抗毒蕈鹼效果。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明Hydroxyzine在犬體內為何常被視為「前驅藥（prodrug）」，這對臨床解讀藥效有什麼意義？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">研究顯示不論IV或PO給藥，Hydroxyzine（第一代抗組織胺）在犬體內都會被快速代謝為Cetirizine（第二代抗組織胺，活性代謝物），且犬對組織胺激發反應的抑制程度與血中<strong>Cetirizine</strong>濃度相關，而非Hydroxyzine原型藥物濃度。這意味著臨床上觀察到的「Hydroxyzine藥效」實際上主要來自其代謝物Cetirizine的作用，因此Hydroxyzine在犬體內的角色接近前驅藥；這也提示若肝功能異常影響代謝轉化速率，可能會間接影響Hydroxyzine的實際止癢效果。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. Cromolyn sodium能有效終止已經發生的急性過敏反應，適合在過敏症狀發作當下緊急給藥使用。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">Cromolyn屬於肥大細胞穩定劑（釋放抑制劑），機轉是預防肥大細胞去顆粒化，對於已經釋放出來的組織胺沒有拮抗或清除效果，因此只能作為<strong>預防性（prophylactic）</strong>用藥規律使用，不適合在急性過敏症狀發作當下作為緊急治療藥物。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 關於組織胺對心血管系統的整體效應，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 組織胺會同時收縮大動靜脈與小動脈，整體效應為血壓上升</li>
+          <li>(B) 組織胺收縮大動靜脈、擴張小動脈、並增加微血管通透性，整體效應為血壓下降（histamine shock）</li>
+          <li>(C) 組織胺只作用於H1受體，與H2受體無關</li>
+          <li>(D) 組織胺對心臟只有負性頻率與負性肌力效應</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">組織胺收縮大動脈與大靜脈、擴張小動脈、並增加微血管通透性，三者加總的整體效應是血壓下降（即histamine shock），此效應同時涉及H1與H2受體；低血壓會誘發反射性心搏過速，加上組織胺對心臟的直接效應是正性肌力（increased contractility）與正性頻率（increased heart rate），並非負性效應。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】一隻3歲米克斯犬因異位性皮膚炎（atopic dermatitis）反覆搔癢就診，飼主希望先嘗試口服抗組織胺藥物控制搔癢，暫不使用類固醇。同一週稍後，這隻犬因誤食異物需要緊急手術，麻醉師詢問術前是否曾使用neuromuscular blocker類藥物。請問：(1) 針對搔癢控制，臨床上會怎麼選擇/嘗試抗組織胺藥物，預期反應率大約如何？(2) 為什麼麻醉師特別詢問neuromuscular blocker使用史，這與組織胺有什麼關聯？(3) 若術中需要快速IV給予opioid類止痛藥，臨床上要注意什麼與組織胺相關的反應？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 搔癢控制的選藥與反應率：</strong>臨床皮膚科常見做法是嘗試多種第一代抗組織胺（如Diphenhydramine、Hydroxyzine、Chlorpheniramine、Clemastine），因個體反應差異大，可能需2週為單位輪流嘗試找出最有效者；整體約54%的犬對第一代抗組織胺達到好至中度止癢反應，Diphenhydramine與Hydroxyzine是最常用也最常見效的選擇，效果通常屬於中度而非完全緩解，嚴重病例仍可能需合併類固醇或其他抗發炎藥物。<br><strong>(2) 詢問neuromuscular blocker使用史的原因：</strong>Tubocurarine這類神經肌肉阻斷劑會誘發non-immunologic（藥物誘發性）組織胺釋放，且犬貓對tubocurarine誘發的組織胺釋放特別敏感，可能造成低血壓、心搏過速、潮紅等反應，因此臨床上犬貓已避免使用tubocurarine；麻醉師詢問是確認過去或計畫中的神經肌肉阻斷劑選擇是否會有類似風險（如較低風險的atracurium仍有一定組織胺釋放程度）。<br><strong>(3) 快速IV opioid給藥的注意事項：</strong>Morphine、Meperidine等opioid類藥物快速IV注射可直接誘發肥大細胞去顆粒化、造成non-immunologic組織胺釋放，臨床表現可能包括低血壓、心搏過速、注射部位潮紅或搔癢，這與真正的IgE過敏反應機轉不同；因應方式是放慢注射速度（緩慢IV給藥）以降低組織胺釋放程度，並於給藥中密切監測血壓與心律。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】一隻工作犬（緝毒犬）出現季節性過敏性鼻炎症狀（打噴嚏、水樣鼻漏、眼睛搔癢），飼主希望用藥但強調「絕對不能影響工作表現（嗅覺敏銳度與警覺性）」。獸醫師考慮在第一代與第二代抗組織胺藥物之間選擇，同時病患本身有輕微青光眼病史。請問：(1) 應優先考慮第一代還是第二代抗組織胺藥物？理由為何？(2) 青光眼病史為什麼會影響選藥？(3) 除了H1抗組織胺藥物，過敏性鼻炎還有哪些藥物選項可以合併考慮？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 世代選擇與理由：</strong>應優先考慮<strong>第二代</strong>抗組織胺藥物（如Cetirizine、Loratadine、Fexofenadine）。第二代藥物因為是P-glycoprotein幫浦的良好受質，較不易穿透血腦障壁，CNS鎮靜效果遠低於第一代，較不會影響工作犬的警覺性與嗅覺相關的行為表現；第一代藥物（如Diphenhydramine、Promethazine）鎮靜效果明顯（+++），可能直接影響嗅聞與反應速度等工作能力，不適合這類病患，儘管犬貓臨床實證資料仍較人醫少，選藥時仍需個別評估反應。<br><strong>(2) 青光眼病史的影響：</strong>第一代抗組織胺藥物具有明顯的抗毒蕈鹼（antimuscarinic／atropine-like）效果，其中包含瞳孔放大（mydriasis）；瞳孔放大可能使前房角變窄、阻礙房水排出，進而升高眼內壓，對青光眼病患是禁忌或需謹慎使用的風險因子。第二代藥物因抗毒蕈鹼效果低，對青光眼病患相對較安全，這也是本案例傾向選擇第二代的另一個理由。<br><strong>(3) 其他藥物選項：</strong>可合併考慮的藥物包括：α-腎上腺素性促效劑（如Phenylephrine）改善鼻塞；Cromolyn sodium鼻噴劑作為預防性肥大細胞穩定劑（需規律使用、幾乎無副作用）；鼻內類固醇（目前最強效的藥物，但需注意全身性副作用，工作犬長期使用需評估）；長期而言也可考慮免疫療法（減敏治療）處理病因而非僅控制症狀。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+// 這個物件的 key 必須跟左側 TOC/所有 section id 完全一致，是站內搜尋分組顯示用的中文名稱
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  overview: 'Autacoids總論與組織胺生成代謝',
+  release: '組織胺的釋放機轉與發炎反應',
+  receptors: '組織胺受體亞型 H1–H4',
+  effects: '組織胺的生理作用',
+  therapeutics: '臨床應用與拮抗策略總覽',
+  h1classification: 'H1抗組織胺藥物：分類與機轉',
+  clinical: '副作用、臨床應用與過敏性鼻炎',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

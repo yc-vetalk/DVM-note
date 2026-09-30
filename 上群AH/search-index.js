@@ -267,4 +267,45 @@ const SEARCH_INDEX = [
     keywords: "IDEXX Cancer Dx 液態切片 liquid biopsy SEARCHER Nascimento 篩檢 陽性預測值",
     snippet: "特異度98.9%敏感度79.3%；SEARCHER篩檢研究中陽性後確診率僅約5/17；緩解後轉陰、復發時轉陽相關性..."
   },
+
+  {
+    subject: "外科",
+    week: null,
+    weekTitle: "貓口腔與牙科照護指南",
+    url: "外科/貓口腔與牙科照護指南.html",
+    section: "periodontal",
+    sectionName: "牙周病與分期系統",
+    keywords: "periodontal disease PD0 PD1 PD2 PD3 PD4 牙周病分期 附著喪失 attachment loss 牙菌斑指數 牙結石指數 牙齦指數 根分岔 furcation 動搖度",
+    snippet: "牙周病須逐牙評估分期，PD2<25%附著喪失、PD3為25-50%、PD4>50%；完整評估含六點探診、根分岔與動搖度..."
+  },
+  {
+    subject: "外科",
+    week: null,
+    weekTitle: "貓口腔與牙科照護指南",
+    url: "外科/貓口腔與牙科照護指南.html",
+    section: "otherdisease",
+    sectionName: "其他常見口腔疾病",
+    keywords: "FCGS 貓慢性齒齦口腔炎 齒根吸收 tooth resorption TR Type1 Type2 Type3 咬合不正 malocclusion MAL 口腔腫瘤 SCC 鱗狀細胞癌 MRONJ FOPS 口面部疼痛",
+    snippet: "FCGS共識為及早手術，全口或後段拔牙；TR無法預防、依型態拔除或截冠術，確診後建議每年複查；口腔病灶68%為惡性..."
+  },
+  {
+    subject: "外科",
+    week: null,
+    weekTitle: "貓口腔與牙科照護指南",
+    url: "外科/貓口腔與牙科照護指南.html",
+    section: "anesthesia",
+    sectionName: "麻醉前用藥與麻醉照護",
+    keywords: "ACEI ARB benazepril telmisartan amlodipine 胰島素 insulin 麻醉前用藥 停藥 continue discontinue 輸液 fluid rate IRIS 區域神經阻斷 nerve block",
+    snippet: "ACEI/ARB術前至少24小時停用，amlodipine例外要繼續；胰島素依血糖給全劑量/半劑量/不給；IRIS≥Stage3輸液3-5mL/kg/h..."
+  },
+  {
+    subject: "外科",
+    week: null,
+    weekTitle: "貓口腔與牙科照護指南",
+    url: "外科/貓口腔與牙科照護指南.html",
+    section: "postop",
+    sectionName: "術後止痛、營養與抗生素原則",
+    keywords: "抗生素 antibiotics 牙周病 拔牙 antimicrobial stewardship Feline Grimace Scale 止痛 食道造口管 esophagostomy tube",
+    snippet: "常規牙周治療與拔牙術後多不需抗生素，僅免疫抑制或高感染風險考慮；多模式止痛3-7天，以Feline Grimace Scale追蹤..."
+  },
 ];

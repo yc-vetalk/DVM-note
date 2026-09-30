@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：腎素血管收縮素系統藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">腎素血管收縮素系統藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">腎素血管收縮素系統藥物 Renin-Angiotensin-Aldosterone System (RAAS) Drugs</h1>
+      <p class="page-subtitle">RAAS 生理機轉與腎絲球旁器調控、ACE 抑制劑與 ARB、腎臟／心臟保護角色，並延伸至激肽（Kinin）系統與 ACE 抑制劑的雙重機轉連結</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三・不分上下學期）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 6 ACE）為主；教科書核對：Handbook of Veterinary Pharmacology（Ch.3 Autacoids、Ch.8 CV drugs）、Veterinary Pharmacology and Therapeutics 10th ed.（Ch.21 心臟用藥、Ch.24 利尿劑與腎臟藥理）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-25</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記；教科書核對完成（機轉、適應症、劑量與副作用皆已對照兩本教科書，標示為講義原文或教科書補充）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎生理</div>
+    <a onclick="showSection('ras')" id="nav-ras"><span class="nav-icon">🧬</span> RAAS 生理機轉與腎絲球旁器</a>
+    <a onclick="showSection('renincontrol')" id="nav-renincontrol"><span class="nav-icon">⚙️</span> 腎素分泌調控與 Aliskiren</a>
+    <a onclick="showSection('angii')" id="nav-angii"><span class="nav-icon">🩸</span> Angiotensin II 藥理效應與腎臟傷害機轉</a>
+    <div class="section-label" style="margin-top:8px;">藥物</div>
+    <a onclick="showSection('acei')" id="nav-acei"><span class="nav-icon">💊</span> ACE 抑制劑</a>
+    <a onclick="showSection('arb')" id="nav-arb"><span class="nav-icon">🎯</span> 血管收縮素受體阻斷劑（ARB）</a>
+    <a onclick="showSection('mrb')" id="nav-mrb"><span class="nav-icon">🧪</span> 醛固酮受體阻斷劑（教科書補充）</a>
+    <div class="section-label" style="margin-top:8px;">延伸主題</div>
+    <a onclick="showSection('kinin')" id="nav-kinin"><span class="nav-icon">🔥</span> 激肽（Kinin）系統與 ACE 的雙重角色</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這份講義的核心是「腎素-血管收縮素-醛固酮系統（RAAS）」這條血壓調控主軸：腎絲球旁器（Juxtaglomerular Apparatus, JGA）感知到血壓/血流不足時分泌<strong>腎素（Renin）</strong>，把肝臟製造的 Angiotensinogen 切成 Angiotensin I，再經肺微血管內皮上的 <strong>ACE（Angiotensin Converting Enzyme）</strong>轉成強力縮血管物質 <strong>Angiotensin II</strong>。Angiotensin II 一方面直接縮血管、刺激醛固酮與 ADH 分泌造成水鈉滯留，長期還會誘發心血管與腎臟的病理性重塑（remodeling）——這正是心衰竭、高血壓、慢性腎病共同的神經賀爾蒙致病機轉。整章藥理邏輯就是「在這條瀑布反應的不同節點插入煞車」：<strong>ACE 抑制劑</strong>（Captopril、Enalapril、Benazepril 等）阻斷 AT I→AT II 的轉換，同時因為 ACE 本身也負責分解 Bradykinin（Kininase II 的另一個名字），抑制 ACE 會讓 Bradykinin 累積、產生額外的擴血管保護效果，這是 ACE 抑制劑「一兼二顧」的機轉核心；<strong>ARB</strong>（Losartan、Telmisartan 等）則是在下游直接卡住 AT1 受體，不影響 Bradykinin。講義最後另外帶到一個表面上不相關、但機轉上緊密相連的主題——<strong>激肽（Kinin）系統</strong>：因為 ACE＝Kininase II，理解 Bradykinin 怎麼被製造、又怎麼被 ACE 分解，才能完整解釋「為什麼 ACE 抑制劑的降壓效果比單純「移除 Angiotensin II」更強」。下面依講義順序點選各卡片可直接跳到對應段落。</p>
+        <div class="quiz-nav-cards" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <a onclick="showSection('ras')" class="tag tag-exam" style="cursor:pointer;">3 RAAS 生理與 JGA</a>
+          <a onclick="showSection('renincontrol')" class="tag tag-exam" style="cursor:pointer;">4 腎素調控／Aliskiren</a>
+          <a onclick="showSection('angii')" class="tag tag-exam" style="cursor:pointer;">5 AngII 效應／腎傷害</a>
+          <a onclick="showSection('acei')" class="tag tag-exam" style="cursor:pointer;">6 ACE 抑制劑</a>
+          <a onclick="showSection('arb')" class="tag tag-exam" style="cursor:pointer;">7 ARB</a>
+          <a onclick="showSection('mrb')" class="tag tag-exam" style="cursor:pointer;">8 醛固酮拮抗劑</a>
+          <a onclick="showSection('kinin')" class="tag tag-exam" style="cursor:pointer;">9 激肽系統</a>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>ACE 抑制劑是雙重機轉：</strong>①阻斷 Angiotensin I→II 轉換（↓縮血管、↓醛固酮、↓交感放電、↓CV重塑）；②ACE＝Kininase II，抑制 ACE 同時讓 Bradykinin 不被分解而累積，透過 NO 與擴血管性 PG 增強降壓效果。這是理解「為什麼副作用清單裡會出現咳嗽」的關鍵（Bradykinin 堆積刺激氣道）。</li>
+          <li><strong>Enalapril 是唯一取得獸醫執照核准用於治療心衰竭的 ACE 抑制劑</strong>（HBK），Benazepril 則因為代謝物同時經腎與膽道排除、腎功能不良時藥物蓄積風險較低，是<strong>腎病患者優先選擇</strong>的 ACE 抑制劑（HBK／VPT10 一致）。</li>
+          <li><strong>ACE 抑制劑在犬是全身性高血壓的第一線藥物之一</strong>，但教科書（VPT10）也指出「ACE 抑制劑單獨使用治療高血壓的效果其實不強，常需併用 Amlodipine 等血管擴張劑才能達到臨床目標血壓」——講義的「1st choice」與教科書的「單用效果有限」並不衝突，是同一件事的兩個切面，臨床上通常是合併用藥。</li>
+          <li><strong>ACE 抑制劑對腎臟是雙面刃：</strong>Angiotensin II 收縮出球小動脈以維持腎絲球過濾率（GFR），ACE 抑制劑／ARB 會解除這個代償機制，在腎灌流不足（脫水、休克、併用利尿劑）時可能誘發腎功能惡化；但另一方面在蛋白尿性腎病，ACE 抑制劑能有效降低尿蛋白/肌酸酐比值（UPC）、延緩氮血症出現，這是貓慢性腎病（CKD）與犬腎絲球疾病的重要適應症。</li>
+          <li><strong>AT1 受體是 Angiotensin II 幾乎所有作用的受體</strong>（Gq→血管平滑肌收縮），AT2 受體多半是拮抗 AT1 效果；ARB（Losartan、Telmisartan 等）直接阻斷 AT1，不影響 Bradykinin 代謝，因此人醫臨床上咳嗽的副作用遠低於 ACE 抑制劑，但目前絕大多數是人用藥，獸醫使用經驗仍有限。</li>
+          <li><strong>Telmisartan 是目前唯一有明確獸醫臨床實證支持用於貓（Semintra® 等商品）的 ARB</strong>，講義提到已取得 FDA 核准用於貓的全身性高血壓；教科書（VPT10）另外補充 Telmisartan 也能有效降低貓慢性腎病的 UPC，效果與 Benazepril 相當。</li>
+          <li><strong>醛固酮受體阻斷劑（Spironolactone）雖然講義沒有獨立討論，但屬於同一條 RAAS 軸的下游煞車</strong>，臨床上常與 ACE 抑制劑併用治療心衰竭（阻斷「醛固酮逃逸／breakthrough」現象），兩藥併用時要特別注意高血鉀風險。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物／概念一覽，點最後一欄可跳到頁面內對應段落。劑量欄若標示「講義未列」，代表數字來自教科書核對補充，不是投影片原文。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Aliskiren</td><td>腎素受體抑制劑，阻斷 Angiotensinogen→AngI</td><td><strong>PO（人用）</strong>；人類高血壓，獸醫尚待研究</td><td class="drug-locations"><a href="#drug-aliskiren" class="drug-link">腎素分泌調控</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Captopril</td><td>非前驅藥型 ACE 抑制劑</td><td><strong>PO</strong>；心衰竭／高血壓，起效快但需 q8–12h</td><td class="drug-locations"><a href="#drug-captopril" class="drug-link">ACE 抑制劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Enalapril<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Enacard®</div></td><td>前驅藥，肝轉化為 Enalaprilat</td><td><strong>PO</strong>；犬唯一獸醫執照核准之 ACEI，慢性心衰竭首選之一</td><td class="drug-locations"><a href="#drug-enalapril" class="drug-link">ACE 抑制劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Benazepril<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Fortekor®</div></td><td>前驅藥，肝轉化為 Benazeprilat</td><td><strong>PO</strong>；腎病患者優先選擇，犬貓皆可用</td><td class="drug-locations"><a href="#drug-benazepril" class="drug-link">ACE 抑制劑</a></td></tr>
+            <tr><td>其他 ACEI（Fosinopril／Imidapril／Lisinopril／Ramipril）</td><td>ACE 抑制劑（機轉同類）</td><td><strong>PO</strong>；部分國家核准犬用，台灣臨床少用</td><td class="drug-locations"><a href="#drug-otheracei" class="drug-link">ACE 抑制劑</a></td></tr>
+            <tr><td>Saralasin</td><td>AT1 部分致效劑／競爭性拮抗劑</td><td><strong>僅 IV</strong>；已無臨床使用，僅具藥理學史意義</td><td class="drug-locations"><a href="#drug-saralasin" class="drug-link">ARB</a></td></tr>
+            <tr><td>Losartan／Candesartan／Valsartan</td><td>AT1 受體競爭性拮抗劑</td><td><strong>PO（人用）</strong>；主要人類降壓／心衰竭藥物，獸醫劑量尚未確立</td><td class="drug-locations"><a href="#drug-arb" class="drug-link">ARB</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Telmisartan<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Semintra®</div></td><td>AT1 受體競爭性拮抗劑</td><td><strong>PO</strong>；FDA 核准貓全身性高血壓，亦可降低貓 CKD 蛋白尿</td><td class="drug-locations"><a href="#drug-arb" class="drug-link">ARB／貓高血壓首選</a></td></tr>
+            <tr><td>Spironolactone<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Aldactone®；教科書補充</div></td><td>醛固酮受體（Mineralocorticoid receptor）競爭性拮抗劑</td><td><strong>PO</strong>；心衰竭輔助治療，阻斷醛固酮逃逸；與 ACEI 併用需防高血鉀</td><td class="drug-locations"><a href="#drug-spironolactone" class="drug-link">醛固酮受體阻斷劑</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- RAS PHYSIOLOGY -->
+    <div class="section" id="section-ras">
+      <div class="section-head"><div class="section-num">3</div><h2>RAAS 生理機轉與腎絲球旁器 Renin-Angiotensin System &amp; Juxtaglomerular Apparatus</h2></div>
+      <p class="section-desc">理解 RAAS 這條瀑布反應每一個節點分別由誰催化、在哪裡發生，是後面看懂每一類藥物「插在哪一步」的基礎。</p>
+
+      <h3 id="drug-rascascade">RAS 瀑布反應<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">Angiotensinogen（肝臟合成之血漿 α-globulin）</div>
+        <span class="flow-arrow">→ Renin（腎絲球旁器細胞分泌）→</span>
+        <div class="flow-node">Angiotensin I（無明顯活性）</div>
+        <span class="flow-arrow">→ ACE（肺微血管內皮，peptidyl dipeptidase／Kininase II）→</span>
+        <div class="flow-node accent">Angiotensin II（活性最強）</div>
+        <span class="flow-arrow">→ Angiotensinase →</span>
+        <div class="flow-node">Angiotensin III（活性弱／不活化）</div>
+      </div>
+      <p>Renin 是一種蛋白酶，由腎絲球旁器（Juxtaglomerular Apparatus, JGA）分泌；ACE 除了在肺微血管內皮大量表現外，也分布於其他血管床，且本身兼具「Kininase II」身份，同時負責分解 Bradykinin——這是後面 ACE 抑制劑章節的機轉核心，先在這裡記住這個「一酶兩用」的事實。</p>
+
+      <h3>腎絲球旁器 Juxtaglomerular Apparatus（JGA）</h3>
+      <p>JGA 是傳入小動脈（afferent arteriole）表面細胞與遠曲小管（distal convoluted tubule）緊密相鄰的一個特化構造。當血壓不足以維持正常壓力性過濾時，JGA 細胞分泌 Renin，啟動 Renin→AngI→AngII 的連鎖反應；Angiotensin II 除了是強力縮血管物質外，也刺激腎上腺皮質分泌醛固酮、刺激腦下垂體分泌 ADH（抗利尿激素）。JGA 構造上包含：傳入/傳出小動脈上的 Renin 分泌細胞、macula densa（緻密斑，遠曲小管與 JGA 血管接觸的特化小管節段）、以及支配此區的交感神經末梢（β1 受體）。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 6 ACE，投影片1–4頁）；教科書核對：Handbook of Veterinary Pharmacology Ch.3（Autacoids and Their Pharmacological Modulators, p.75）內容與講義描述一致，未發現出入。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- RENIN CONTROL -->
+    <div class="section" id="section-renincontrol">
+      <div class="section-head"><div class="section-num">4</div><h2>腎素分泌調控與 Aliskiren Regulation of Renin Secretion</h2></div>
+      <p class="section-desc">四個獨立但互相交織的調控機制，決定了 Renin 什麼時候該分泌、什麼時候該停止——這也解釋了為什麼 β 阻斷劑（propranolol）能間接壓低 RAAS 活性。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>調控機制</th><th>感應對象</th><th>作用方向</th></tr></thead>
+          <tbody>
+            <tr><td><strong>①Macula densa（緻密斑）</strong></td><td>遠曲小管 Na⁺／Cl⁻ 流量，經 Na⁺/K⁺/2Cl⁻ 共同運輸體感應管腔內氯離子濃度變化</td><td>流量↓→Renin分泌↑；流量↑→Renin分泌↓</td></tr>
+            <tr><td><strong>②腎血管壓力受體</strong></td><td>傳入小動脈上的牽張受體（baroreceptor）</td><td>牽張↓（血壓低）→Renin↑；牽張↑→Renin↓</td></tr>
+            <tr><td><strong>③Angiotensin II 負回饋</strong></td><td>直接作用於 JGA 細胞的胜肽效應</td><td>AngII↑→抑制 Renin 分泌（負回饋迴路）</td></tr>
+            <tr><td><strong>④交感神經系統</strong></td><td>腎交感神經活性↑、正腎上腺素直接作用於JGA細胞（<strong>β1受體</strong>媒介）；循環中的腎上腺素也有影響</td><td>交感活性↑→Renin分泌↑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 機制④正是 β 阻斷劑能透過抑制 β1 受體、間接壓低 Renin 分泌與 RAAS 活性的藥理基礎（Handbook of Veterinary Pharmacology Ch.3 亦有相同敘述：propranolol 等 β1 拮抗劑抑制 JGA 的 renin 釋放）。</p>
+
+      <h3 id="drug-aliskiren">Aliskiren — 腎素受體抑制劑</h3>
+      <div class="alert alert-info">
+        <div class="alert-label">補充資訊</div>
+        <p>Aliskiren 是直接抑制 Renin 活性、阻斷 Angiotensinogen→Angiotensin I 這一步的藥物（renin inhibitor），<strong>PO</strong> 給藥，用於人類高血壓治療；講義明確指出「獸醫用途仍待研究」（to be studied in animals）。教科書（HBK Ch.3）用詞略有出入——稱其為「renin receptor inhibitor」，但機轉描述同樣是「抑制 Angiotensinogen 轉換為 Angiotensin I」，兩份資料對其藥理作用點的描述一致，僅命名角度不同（renin本身 vs renin受體），目前兩本教科書都未提供動物劑量，與講義「獸醫尚待建立」的說法吻合。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（投影片3–4、7–8頁）；教科書核對：Handbook of Veterinary Pharmacology Ch.3（p.76，Aliskiren 段落）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ANGII EFFECTS -->
+    <div class="section" id="section-angii">
+      <div class="section-head"><div class="section-num">5</div><h2>Angiotensin II 藥理效應與腎臟傷害機轉</h2></div>
+      <p class="section-desc">Angiotensin II 的效應遍及血管、腎上腺、腦下垂體與中樞交感系統，理解這張總覽圖是掌握 ACE 抑制劑「阻斷了什麼」的關鍵。</p>
+
+      <h3>Angiotensin II 完整藥理效應<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node accent">Angiotensin II</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">血管：直接縮血管（效力為 NE 的 <strong>40 倍</strong>）</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node accent">Angiotensin II</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">腎上腺皮質：↑醛固酮合成與分泌 → Na⁺/水滯留、K⁺流失</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node accent">Angiotensin II</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">腦下垂體：↑ADH（vasopressin）分泌 → 水再吸收</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node accent">Angiotensin II</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">中樞：刺激下視丘口渴中樞＋中樞交感放電 → 正性肌力/變時性效果</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node accent">Angiotensin II</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">長期：血管與心臟肥大／重塑（hypertrophy &amp; remodeling）</div>
+      </div>
+      <p><strong>整體效果：</strong>↑血壓、↑鈉水滯留、長期造成心血管病理性重塑——這三項正是心衰竭與高血壓病程惡化的核心機轉，也是 RAAS 阻斷藥物（ACEI／ARB／MRB）要處理的共同標的。</p>
+
+      <h3>受體亞型：AT1 與 AT2</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體</th><th>訊息傳遞</th><th>分布／功能</th><th>臨床意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AT1</strong></td><td>Gq偶聯（G protein-coupled）</td><td>廣泛分布，<strong>主要分布於血管平滑肌</strong>；Losartan 高親和力，saralasin 與 Angiotensin II 親和力相當</td><td>媒介 Angiotensin II 絕大多數作用；<strong>可能媒介腎臟的不良效果</strong>；ARB 的作用標的</td></tr>
+            <tr><td><strong>AT2</strong></td><td>訊息機轉未明；教科書（HBK）補充：活化後增加 NO 合成（→cGMP↑），並抑制 PKCα 合成</td><td>Losartan 低親和力</td><td>作用多與 AT1 相反（抑制性）；目前<strong>獸醫臨床無 Angiotensin 類藥物直接應用</strong>（僅拮抗劑有臨床角色）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-angiirenalinjury">Angiotensin II 造成腎臟傷害的機轉</h3>
+      <p>講義引用 <em>International Journal of Nephrology and Renovascular Disease</em>（2010; 3:33–38）說明 Angiotensin II 如何直接造成腎臟損傷，分成兩條路徑：</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">血液動力學機轉（Hemodynamic）</div>
+          <p>①全身性與腎絲球內高血壓 → 壓力誘發腎損傷；②腎內血管收縮 → ↓腎血流 → 缺血性腎損傷。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">非血液動力學機轉（Non-hemodynamic）</div>
+          <p>活化腎臟纖維母細胞轉化為肌纖維母細胞 → 產生促纖維化細胞介質 <strong>TGF-β</strong> 並引發局部發炎；刺激血管與腎絲球繫膜細胞（mesangial cell）增生與肥大。</p>
+        </div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 這正是 ACE 抑制劑／ARB 被用於「延緩慢性腎病進程」的病理生理學基礎——不只是降血壓，更是直接阻斷 Angiotensin II 對腎臟的直接毒性效應。此段引用的原始研究文獻未在兩本教科書中特別提及，故未另外核對，維持講義原文陳述。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（投影片5–7頁，含引用 Int J Nephrol Renovasc Dis 2010:3 33–38）；教科書核對：Handbook of Veterinary Pharmacology Ch.3（p.75，Angiotensin II 藥理效應與 AT1/AT2 受體機轉、40倍效力數字一致）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ACEI -->
+    <div class="section" id="section-acei">
+      <div class="section-head"><div class="section-num">6</div><h2>ACE 抑制劑 Angiotensin Converting Enzyme Inhibitors</h2></div>
+      <p class="section-desc">ACE 抑制劑是目前獸醫臨床最常用的 RAAS 阻斷藥物，機轉、適應症與副作用皆已與教科書核對，劑量部分因講義未列具體數字，以下劑量全部取自教科書。</p>
+
+      <h3>藥理效果與機轉<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">抑制 ACE</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">①↓Angiotensin II 生成 → ↓SNS放電、↓醛固酮、↓Na⁺滯留</div>
+        <span class="flow-arrow">＋</span>
+        <div class="flow-node accent">②↑Bradykinin（ACE＝Kininase II，分解受阻）→ 擴血管保護效果</div>
+      </div>
+      <ul>
+        <li>降低高血壓患者血壓，對血壓正常個體僅有輕微降壓效果</li>
+        <li><strong>心血管反射得以維持</strong>，腦部與冠狀動脈血流維持良好（與部分傳統血管擴張劑不同）</li>
+        <li>可對抗異常的心血管重塑（remodeling）</li>
+        <li>腎血流量增加，伴隨利鈉作用（natriuresis）</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：動脈與靜脈的「混合型」血管擴張</div>
+        <p>VPT10 Ch.24 進一步說明 ACE 抑制劑造成的血管擴張是相對較弱的「混合型」（balanced，動脈＋靜脈皆有），血管壁局部產生的 ACE 抑制也可能在循環腎素濃度不高時獨立產生局部擴血管效果；HBK Ch.8 也提到局部血管壁內 ACE 抑制的擴血管效果會被增加的 Bradykinin 進一步增強——與講義「Bradykinin 增加」的機轉描述完全吻合。</p>
+      </div>
+
+      <h3>適應症</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>適應症</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>全身性高血壓</strong></td><td>犬第一線用藥之一；貓也可使用。副作用profile相對溫和，是糖尿病、缺血性心臟病或左心室肥厚患者的優先選擇</td></tr>
+            <tr><td><strong>慢性心衰竭</strong></td><td>鬱血性心衰竭、擴張型心肌病（DCM）、肥厚性心肌病（HCM）</td></tr>
+            <tr><td><strong>慢性腎病</strong></td><td>減緩貓（可能也包含犬）慢性腎病進程；減緩腎功能惡化速度、部分緩解合併之高血壓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充：ACE 抑制劑單用於高血壓的實際效力</div>
+        <p>VPT10 Ch.24 指出「ACE 抑制劑單獨作為高血壓治療時效力偏低，往往無法達到理想的臨床降壓效果」，臨床上常需併用 Amlodipine 等血管擴張劑才能有效控制血壓。這點補充了講義「1st choice for canine systemic hypertension」的說法——ACEI 仍是第一線用藥的一部分，但單獨使用未必足夠，合併用藥在臨床上很常見。</p>
+      </div>
+
+      <h3>副作用</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>副作用</th><th>機轉／處理</th></tr></thead>
+          <tbody>
+            <tr><td>低血壓</td><td>混合型血管擴張效果所致，常見於併用血管擴張劑／利尿劑時；出現時先減少利尿劑劑量</td></tr>
+            <tr><td>高血鉀</td><td>↓醛固酮導致；併用 K⁺-sparing 利尿劑（如 Spironolactone）或 K⁺ 補充劑時風險增加</td></tr>
+            <tr><td>腎功能惡化、氮血症</td><td>Angiotensin II 原本收縮出球小動脈以維持 GFR，ACEI 解除此代償 → 灌流不足時 GFR 下降；教科書補充：<strong>臨床劑量下 ACEI 本身直接腎毒性極低</strong>（僅在50–100倍臨床劑量才有直接腎毒性），主要機轉是透過造成低血壓間接影響腎灌流</td></tr>
+            <tr><td>腎內血液動力學紊亂</td><td>出球小動脈擴張效果解除，腎絲球內壓力調節能力下降</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p>教科書（VPT10）補充：RAAS 對胎兒腎臟發育至關重要，ACE 抑制劑／ARB 可能造成先天畸形，<strong>孕期動物與新生兒應避免使用</strong>（此點為講義未提及之教科書補充內容）。</p>
+      </div>
+
+      <h3 id="drug-captopril">Captopril</h3>
+      <p><strong>PO</strong>，唯一非前驅藥型（active drug，非prodrug）的 ACE 抑制劑；口服生體可用率約75%，但進食會降低吸收30–40%。起效快（1小時內出現血液動力學效果、1–2小時達峰值），但作用時間短（犬<4小時），因此需要較密集的給藥頻次。教科書劑量：<strong>犬 0.5–2.0 mg/kg PO q8–12h（低劑量起始）；貓 0.5–1.25 mg/kg PO q12–24h</strong>（HBK附錄用藥速查表）。經尿液排除。</p>
+
+      <h3 id="drug-enalapril">Enalapril<span class="tag tag-exam">重要</span></h3>
+      <p><strong>PO</strong>，前驅藥（prodrug），於肝臟水解活化為 Enalaprilat；口服吸收良好、生體可用率不受進食影響。犬體內達峰值ACE抑制活性需4–6小時，作用持續12–14小時（每日一次給藥24小時後效果已明顯降低）；貓則2–4小時達最大活性，部分ACE抑制作用（約50%）可持續2–3天。教科書劑量：<strong>犬 0.5 mg/kg PO q12–24h；貓 0.25–0.5 mg/kg PO q12–24h</strong>（HBK附錄；VPT10對高血壓/蛋白尿的劑量範圍略寬，犬可達0.25–1.0 mg/kg PO q12–24h）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Enalapril 是<strong>目前唯一取得獸醫執照核准、用於治療犬心衰竭的 ACE 抑制劑</strong>（美國核准商品名 Enacard®，現已停產改用人用學名藥）；Enalapril 及其活性代謝物主要經尿液排除，因此腎衰竭或嚴重心衰竭患者藥物清除會延長，此時建議降低劑量或改用 Benazepril。</p>
+      </div>
+
+      <h3 id="drug-benazepril">Benazepril<span class="tag tag-exam">重要</span></h3>
+      <p><strong>PO</strong>，前驅藥，肝臟代謝活化為 Benazeprilat。口服吸收率約40%，不受進食影響；犬貓皆於給藥後2小時內達到ACE抑制高峰，貓在0.25–0.5 mg/kg劑量下可達到完全ACE抑制，24小時仍有>90%抑制率。教科書劑量：<strong>犬貓皆為 0.25–0.5 mg/kg PO q12–24h</strong>（HBK附錄／VPT10一致）。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">腎病患者的優先選擇</div>
+        <p>Benazeprilat 在犬經尿液與膽汁近乎等量排除，貓則約85%經糞便、僅15%經尿液排除——意味著<strong>腎功能下降時 Benazepril 藥物動力學受影響較小</strong>，這是它相較 Enalapril 更常用於腎病患者（尤其貓慢性腎病）的藥理基礎（VPT10 Ch.24 明確指出此為 Benazepril 相對 Enalapril 的優勢）。臨床研究顯示 Benazepril 可顯著降低貓 CKD 的尿蛋白/肌酸酐比值（UPC）並維持血漿蛋白濃度，但對存活時間的改善未達統計顯著差異（King et al. 2006, cited in VPT10）。</p>
+      </div>
+
+      <h3 id="drug-otheracei">其他 ACE 抑制劑</h3>
+      <p>講義列出 Lisinopril、Fosinopril、Ramipril、Alacecapril、Quinipril、Imidapril、Temocapril 等，均屬同類機轉之藥物，多數為人用藥、少數在特定國家核准犬用。教科書補充部分藥物的臨床定位與劑量：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>途徑／劑量（教科書）</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>Lisinopril</td><td><strong>PO</strong>；犬 0.25–0.5 mg/kg q12–24h；貓 0.25–0.5 mg/kg q24h</td><td>Enalaprilat 的離胺酸類似物，直接具ACE抑制活性（非需肝臟活化的prodrug）；生體可用率25–50%，不受進食影響；6–8小時達峰效果</td></tr>
+            <tr><td>Fosinopril</td><td><strong>PO</strong>；犬 0.25–0.5 mg/kg q24h</td><td>—</td></tr>
+            <tr><td>Imidapril</td><td><strong>PO</strong>；犬 0.25 mg/kg q24h</td><td>英國核准用於犬心衰竭（商品名 Prilium®）</td></tr>
+            <tr><td>Ramipril</td><td><strong>PO</strong>；犬 0.125–0.25 mg/kg q24h（自低劑量起始並逐漸調升）</td><td>英國核准犬用（商品名 Vasotop®）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Alacecapril、Quinipril、Temocapril 兩本教科書皆未特別列出獸醫劑量，維持講義原文列舉、不另外補充數字。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（投影片8–9頁）；教科書核對：Handbook of Veterinary Pharmacology Ch.8（p.174–176，機轉／適應症／副作用敘述與講義幾乎逐字對應，附錄用藥速查表提供 Captopril／Enalapril／Benazepril／Fosinopril／Imidapril／Lisinopril／Ramipril 完整劑量）、Veterinary Pharmacology and Therapeutics 10th ed. Ch.24（p.639–642，機轉、藥物交互作用、腎臟風險與治療用途段落）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ARB -->
+    <div class="section" id="section-arb">
+      <div class="section-head"><div class="section-num">7</div><h2>血管收縮素受體阻斷劑 Angiotensin Receptor Blockers (ARB)</h2></div>
+      <p class="section-desc">ARB 在下游直接卡住 AT1 受體，與 ACE 抑制劑「上游減少 Angiotensin II 生成」的策略互補；不影響 Bradykinin 代謝是兩者機轉上最大的差異。</p>
+
+      <h3 id="drug-saralasin">Saralasin — 藥理學歷史意義</h3>
+      <p>八胜肽（octapeptide），對 AT1 受體是部分致效劑（partial agonist）兼競爭性拮抗劑；<strong>僅能 IV 給藥</strong>才能降低血壓（口服無效）。目前<strong>無臨床使用</strong>，主要作為理解 AT1 受體藥理學的歷史性藥物。</p>
+
+      <h3 id="drug-arb">Losartan、Candesartan、Telmisartan、Valsartan<span class="tag tag-exam">重要</span></h3>
+      <p>此類藥物在 AT1 受體上為競爭性拮抗劑，主要作為<strong>人類降壓與心衰竭用藥</strong>，效果與 ACE 抑制劑相當，適應症涵蓋高血壓與鬱血性心衰竭。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">Telmisartan：貓的例外</div>
+        <p>講義明確指出 Telmisartan 已取得 <strong>FDA 核准用於治療貓的全身性高血壓</strong>，是這個藥物類別中少數有明確獸醫核准適應症的成員（商品名 Semintra®）。<strong>PO</strong> 給藥。教科書（VPT10 Ch.24）補充：在貓，Telmisartan 對抗外源性 Angiotensin II 的效果比 Losartan 與 Irbesartan 更強、持續更久；另一項臨床研究（Sent et al. 2015，VPT10引用）顯示 Telmisartan 長期口服可顯著降低貓慢性腎病（CKD）的尿蛋白/肌酸酐比值（UPC），效果與 Benazepril 相近。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充：獸醫使用現況與限制</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li>Losartan 在犬的口服生體可用率偏低（23–33%）；人類體內 Losartan 會代謝為活性更強的代謝物 E-3174，但<strong>犬體內僅產生極少量此活性代謝物</strong>，貓的代謝路徑則尚未有報告</li>
+          <li>目前<strong>沒有犬貓自然發生慢性心臟病使用 ARB 的臨床療效研究</strong>（VPT10 Ch.24 明確指出這一點），現有證據多來自實驗性給藥模型；隨著學名藥成本降低，獸醫臨床使用可能會逐漸增加</li>
+          <li>VPT10 心衰竭治療劑量表中，Losartan 的犬用劑量標註為「dosage TBD（尚待確立）」——反映這類藥物在獸醫臨床劑量共識仍不成熟</li>
+          <li>HBK 補充：這類藥物目前在獸醫的使用仍受限於<strong>藥價偏高</strong></li>
+        </ul>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（投影片10頁）；教科書核對：Handbook of Veterinary Pharmacology Ch.3（p.76）、Veterinary Pharmacology and Therapeutics 10th ed. Ch.24（p.639–641，機轉、藥物動力學、貓臨床研究引用）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MRB -->
+    <div class="section" id="section-mrb">
+      <div class="section-head"><div class="section-num">8</div><h2>醛固酮受體阻斷劑（教科書補充） Mineralocorticoid Receptor Blockers</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">為什麼這裡有一段「講義沒教」的內容</div>
+        <p>這份講義本身沒有把 Spironolactone 當成獨立主題講授，只在 RAS 生理機轉裡提到「Angiotensin II 刺激腎上腺皮質分泌醛固酮」。但醛固酮受體阻斷劑是同一條 RAAS 軸最末端的臨床用藥（常與 ACE 抑制劑併用治療心衰竭），教科書對這類藥物有完整、且與 ACE 抑制劑臨床交互作用密切相關的說明，因此在這裡以「教科書補充」的方式簡短收錄，方便理解 RAAS 阻斷藥物的完整版圖。內容全部標明出處，不是講義原文。</p>
+      </div>
+
+      <h3 id="drug-spironolactone">Spironolactone<span class="tag tag-exam">重要</span></h3>
+      <p><strong>PO</strong>，合成 17-lactone 藥物，為遠曲小管醛固酮受體（mineralocorticoid receptor）之競爭性拮抗劑；抑制醛固酮作用後，遠曲小管 Na⁺/H₂O 排出增加、K⁺排出減少（弱效的保鉀利尿劑）。犬口服吸收快，與食物併服生體可用率可達80–90%。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>來源</th><th>劑量</th></tr></thead>
+          <tbody>
+            <tr><td>HBK 附錄用藥速查表</td><td>犬貓 0.5–1 mg/kg PO q12–24h</td></tr>
+            <tr><td>VPT10 Ch.21（引用 Guyonnet et al. 2010 藥動/藥效模型建議之最適劑量）</td><td>犬 2 mg/kg PO SID</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 兩本教科書劑量範圍有出入（HBK較低、VPT10較高），兩者皆為教科書原文照錄，未自行取捨；臨床實際用量請以當下最新獸醫藥典或處方指示為準。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床應用與「醛固酮逃逸」概念</div>
+        <p>早期 Spironolactone 主要用於搭配 Loop／Thiazide 類利尿劑做序貫性腎元阻斷、對抗低血鉀；現今臨床角色轉為<strong>直接拮抗醛固酮對心血管與腎臟組織的病理性重塑效果（發炎、肥大、纖維化）</strong>。犬的臨床研究（212隻犬，二尖瓣黏液性病變併發心衰竭）顯示：在標準治療（ACE抑制劑＋Furosemide±Digoxin）基礎上加入 Spironolactone，可使心臟相關病態率與死亡率風險降低69%（Bernay et al. 2010，VPT10引用）。這個現象背後的概念是「<strong>醛固酮逃逸（aldosterone breakthrough）</strong>」——長期使用 ACE 抑制劑後，醛固酮濃度可能又逐漸回升，此時加上 Spironolactone 直接阻斷受體，能補足單用 ACEI 的不足。</p>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">與 ACE 抑制劑併用的關鍵風險：高血鉀</div>
+        <p>Spironolactone 與 ACE 抑制劑／ARB 併用時同時抑制兩條「保鉀」與「降醛固酮」路徑，<strong>高血鉀風險疊加</strong>，這也是 ACE 抑制劑副作用章節中特別提到「併用 K⁺-sparing 利尿劑時風險增加」的具體情境。市售已有 Benazepril＋Spironolactone 固定劑量複方（Cardalis®，歐盟核准犬用），提供心衰竭／高血壓／蛋白尿性腎病的合併治療選項。</p>
+      </div>
+
+      <footer class="note-footer">
+        本節內容為教科書補充，非講義原文。資料來源：Handbook of Veterinary Pharmacology 附錄用藥速查表；Veterinary Pharmacology and Therapeutics 10th ed. Ch.21（p.544–545，機轉、劑量研究、犬臨床試驗、Cardalis®複方）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- KININ -->
+    <div class="section" id="section-kinin">
+      <div class="section-head"><div class="section-num">9</div><h2>激肽（Kinin）系統與 ACE 的雙重角色</h2></div>
+      <p class="section-desc">講義在講完 ACE 抑制劑與 ARB 之後，接著介紹激肽系統，看似轉換主題，實際上是要說明「ACE＝Kininase II」這條線索——完整理解 Bradykinin 從哪裡來、怎麼被分解，才能解釋 ACE 抑制劑為什麼比單純阻斷 Angiotensin II 效果更強。</p>
+
+      <h3>激肽系統總覽</h3>
+      <p>激肽（Kinins）是強效血管擴張性胜肽，同時參與發炎反應與痛覺敏化（nociceptive activation, hyperalgesia）；由激肽原（Kininogens）經激肽酶（Kallikreins，亦稱 kininogenases）催化而成。</p>
+
+      <h3>Kallikreins（激肽酶）</h3>
+      <ul>
+        <li><strong>分布：</strong>血漿；組織（腎臟、胰臟、腸道、唾液腺、汗腺）</li>
+        <li><strong>性質：</strong>絲胺酸蛋白酶（serine protease），催化特性與 trypsin、chymotrypsin、thrombin、elastase、plasmin 相似</li>
+        <li><strong>前驅物：</strong>Prekallikrein 由肝臟製造；部分腺體中的 kallikrein 以 prekallikrein 形式存在；轉化為活性 kallikrein 由 trypsin 或 <strong>Hageman factor（凝血因子XII）</strong>催化</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">補充：Hageman Factor 連結凝血與激肽兩大系統</div>
+        <p>講義在這裡插入了一頁標準的凝血瀑布反應圖（Extrinsic／Intrinsic Pathway），用意是標示出 <strong>Factor XII（Hageman Factor）</strong>在內源性凝血路徑中被活化為 XIIa 的同一個事件，也正是觸發血漿 Prekallikrein 轉為 Kallikrein 的起點——也就是說，凝血系統與激肽系統共用同一個上游活化因子（Hageman Factor），這是兩個系統在生理上會同時被啟動（例如組織創傷、接觸帶負電荷表面）的解剖生理基礎。</p>
+      </div>
+
+      <h3>激肽原 Kininogens</h3>
+      <p>激肽原是激肽的前驅物，也是 kallikrein 的受質，存在於血漿、淋巴與組織間液：</p>
+      <ul>
+        <li><strong>低分子量（LMW）激肽原：</strong>可穿越微血管壁，是組織激肽酶（tissue kallikreins）的受質</li>
+        <li><strong>高分子量（HMW）激肽原：</strong>占血漿總激肽原15–20%，留存於血液中，是血漿激肽酶（plasma kallikrein）的受質</li>
+      </ul>
+
+      <h3>激肽的生成與代謝（Turnover of Kinins）<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">Hageman Factor（HF）</div>
+        <span class="flow-arrow">→ 接觸帶電表面（膠原蛋白、玻璃等）活化 →</span>
+        <div class="flow-node">HFa</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活化血漿 Prekallikrein → 血漿 Kallikrein</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">血漿 Kallikrein ＋ HMW 激肽原</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Bradykinin（九胜肽）</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">腺體 Kallikrein ＋ 激肽原</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Kallidin（Lysylbradykinin，十胜肽）</div>
+        <span class="flow-arrow">→ Aminopeptidase →</span>
+        <div class="flow-node accent">Bradykinin</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node accent">Bradykinin／Kallidin</div>
+        <span class="flow-arrow">→ Kininases（含ACE／Kininase II）→</span>
+        <div class="flow-node danger">失活代謝物</div>
+      </div>
+      <p><strong>三種激肽：</strong>Bradykinin（血漿 kallikrein 釋放，<strong>血漿中主要激肽</strong>）、Lysylbradykinin／Kallidin（腺體 kallikrein 釋放，<strong>尿液中主要激肽</strong>）、Methionyllysylbradykinin（由胃蛋白酶／胃蛋白酶類酵素釋放）。血漿 kallikrein 偏好受質為 HMW 激肽原，組織 kallikrein 偏好 LMW 激肽原。講義圖示也標明：<strong>Kallikrein 抑制劑</strong>（Aprotinin、α2-macroglobulin）可阻斷 kallikrein 這一步；<strong>Kininase 抑制劑</strong>（<strong>Captopril</strong>、Teprotide）則阻斷激肽被分解這一步——這張圖直接把 Captopril（ACE 抑制劑）標註為「Kininase 抑制劑」，是講義前後兩個章節（ACE 抑制劑、激肽系統）機轉連結最明確的一張圖。</p>
+
+      <h3>生理效應</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>效應</th><th>機轉</th></tr></thead>
+          <tbody>
+            <tr><td><strong>血管擴張</strong>（小動脈為主）</td><td>直接作用於小動脈平滑肌；經 NO 媒介；經擴血管性 PG（PGE2、PGI2）媒介</td></tr>
+            <tr><td><strong>靜脈收縮</strong></td><td>直接刺激靜脈平滑肌；釋放縮靜脈性 PG（PGF2α）</td></tr>
+            <tr><td>血壓效應</td><td>短暫低血壓反應；反射性心搏過速＋正性肌力（代償性↑心輸出量）；小動脈擴張使微血管床壓力與血流增加、通透性增加；靜脈收縮同時促使液體轉移至組織間隙 → <strong>可能出現水腫</strong></td></tr>
+            <tr><td>發炎相關症狀</td><td>激肽產生典型發炎症狀；刺激傷害性感受傳入神經（nociceptive afferents）→ 痛覺過敏（hyperalgesia）</td></tr>
+            <tr><td>內分泌／外分泌腺體效應</td><td>Prekallikrein／kallikrein 存在於腎臟、胰臟、腸道、唾液腺；相關酵素或激肽可能擴散至血液中，作為局部血流調節因子；可能影響唾液腺／胰管張力與腸胃道蠕動</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Kininase 分型</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>性質</th><th>分布</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Kininase I</strong></td><td>羧基胜肽酶（Carboxypeptidase）</td><td>肝臟製造；分布於肺與皮膚</td></tr>
+            <tr><td><strong>Kininase II（＝ACE）</strong></td><td>Peptidyl dipeptidase</td><td>多種組織皆有表現，<strong>肺臟活性最高</strong>；此酵素之抑制劑即 <strong>Captopril、Enalapril</strong> 等 ACE 抑制劑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">回扣重點：為什麼放在 ACE 抑制劑之後講激肽系統</div>
+        <p>整份講義的敘事邏輯到這裡收尾：ACE 抑制劑之所以叫「ACE」抑制劑，是因為它同時是 <strong>Angiotensin Converting Enzyme</strong> 與 <strong>Kininase II</strong> 兩個身份的抑制劑——抑制前者減少 Angiotensin II 生成（RAAS 阻斷），抑制後者則讓 Bradykinin 不被分解而累積（激肽系統增強）。兩個效果方向一致（都是降血壓、擴血管），這正是 ACE 抑制劑臨床效果比單純移除 Angiotensin II 更全面的原因，也是理解「為什麼人醫 ACE 抑制劑常見乾咳副作用（教科書補充：Bradykinin／PG累積刺激氣道所致），但目前動物病例罕見報告」的機轉基礎。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義目前為止（及兩本教科書核對範圍內）均未提及激肽本身或其拮抗劑有實際臨床用藥——Bradykinin 目前仍停留在生理機轉／機轉解釋的角色，本節沒有可另外收錄進〈本頁藥物總覽〉的獨立藥物。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（投影片11–17頁）；教科書核對：Handbook of Veterinary Pharmacology Ch.3（p.76–77，激肽系統之化學、機轉、生理效應段落與講義高度一致，含 Kinin-1/Kinin-2 受體、Gq偶聯等講義未提及之補充細節）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考題常考「RAAS瀑布反應各節點催化酵素／分泌來源配對」「ACE抑制劑雙重機轉」「ARB vs ACEI差異」「激肽系統與ACE連結」四種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>RAS瀑布反應：</strong>Angiotensinogen（肝臟）→Renin（JGA）→Angiotensin I→ACE（肺微血管內皮）→Angiotensin II（活性最強，效力40倍NE）→Angiotensinase→Angiotensin III（活性弱）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Renin分泌四大調控：</strong>①Macula densa感應Na⁺/Cl⁻流量②傳入小動脈牽張受體③Angiotensin II負回饋④交感神經（β1受體媒介）；Aliskiren（腎素抑制劑）阻斷Angiotensinogen→AngI，人用，獸醫尚待研究。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Angiotensin II效應經AT1受體（Gq偶聯）媒介：</strong>縮血管、↑醛固酮、↑ADH、刺激口渴中樞與中樞交感放電、長期心血管重塑；AT2受體多為抑制性。可透過血液動力學（腎內高壓、缺血）與非血液動力學（TGF-β促纖維化、繫膜細胞增生）機轉直接造成腎損傷。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>ACE抑制劑雙重機轉：</strong>①↓Angiotensin II生成②ACE＝Kininase II，↑Bradykinin堆積增強擴血管效果；Enalapril唯一獸醫執照核准犬心衰竭用藥；Benazepril因代謝物同時經腎與膽道排除，是腎病患者優先選擇。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>ACEI副作用：</strong>低血壓、高血鉀（併用K⁺-sparing利尿劑時）、腎功能惡化與氮血症（解除出球小動脈代償性收縮）；教科書補充：臨床劑量下直接腎毒性極低（需50–100倍劑量才有），主要透過低血壓間接影響腎灌流；孕期禁用。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>ARB（Losartan、Candesartan、Telmisartan、Valsartan）直接拮抗AT1受體</strong>，不影響Bradykinin代謝；<strong>Telmisartan是唯一取得FDA核准用於貓全身性高血壓的ARB</strong>，也能降低貓CKD的UPC；Saralasin僅具藥理史意義（僅IV有效，已無臨床使用）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Spironolactone（醛固酮受體阻斷劑，教科書補充）</strong>常與ACE抑制劑併用治療心衰竭，對抗「醛固酮逃逸」；併用時高血鉀風險疊加，需監測血鉀。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>激肽系統：</strong>Hageman Factor（Factor XII）活化Prekallikrein→Kallikrein，作用於激肽原（HMW／LMW Kininogen）生成Bradykinin／Kallidin；Kininase II（＝ACE）負責分解激肽——Captopril等ACE抑制劑同時也是「Kininase抑制劑」，這是ACE抑制劑講義章節與激肽系統章節前後呼應的核心連結。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（依課程提供之原始投影片整理）；教科書交叉核對已完成，詳見各節footer標註之具體章節。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋RAAS生理機轉、腎素調控、Angiotensin II效應、ACE抑制劑、ARB、醛固酮拮抗劑與激肽系統各章節重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. Angiotensin Converting Enzyme（ACE）主要分布於下列何處，並具有下列哪一項「兼職」功能？</div>
+        <ul class="quiz-options">
+          <li>(A) 分布於腎絲球旁器，同時具有分泌 Renin 的功能</li>
+          <li>(B) 分布於肺微血管內皮，同時具有分解 Bradykinin（Kininase II）的功能</li>
+          <li>(C) 分布於腎上腺皮質，同時具有合成醛固酮的功能</li>
+          <li>(D) 分布於肝臟，同時具有合成 Angiotensinogen 的功能</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">ACE 主要在肺微血管內皮細胞大量表現（也分布於其他血管床），除了將 Angiotensin I 轉為 Angiotensin II 之外，同時是 Kininase II，負責分解 Bradykinin。這個「一酶兩用」的特性是 ACE 抑制劑同時具備「降 Angiotensin II」與「升 Bradykinin」雙重降壓機轉的基礎。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. ARB（如 Losartan）與 ACE 抑制劑一樣，都會使 Bradykinin 濃度上升，因此兩者的咳嗽副作用發生率應該相近。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">ARB 是直接在 AT1 受體層級拮抗 Angiotensin II 的作用，並不影響 ACE（Kininase II）分解 Bradykinin 的功能，因此 Bradykinin 濃度不會像使用 ACE 抑制劑時那樣上升。人醫臨床上 ACE 抑制劑相關的咳嗽副作用被認為與 Bradykinin／前列腺素堆積有關，ARB 因為不影響 Bradykinin 代謝，此副作用發生率明顯較低。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻患有慢性腎病（CKD）的貓，醫師選擇 Benazepril 而非 Enalapril 作為 ACE 抑制劑，最主要的藥理學理由是？</div>
+        <ul class="quiz-options">
+          <li>(A) Benazepril 效果比 Enalapril 更強</li>
+          <li>(B) Benazepril 的活性代謝物在貓主要經糞便／膽道排除，腎功能不良時藥物蓄積風險較低</li>
+          <li>(C) Enalapril 對貓有肝毒性，Benazepril 沒有</li>
+          <li>(D) Benazepril 是唯一有貓劑量的 ACE 抑制劑</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Enalaprilat（Enalapril活性代謝物）主要經尿液排除，腎功能下降時容易蓄積延長作用；Benazeprilat 在貓約85%經糞便、僅15%經尿液排除，受腎功能影響較小，因此是腎病患者（尤其貓CKD）較常優先選擇的ACE抑制劑。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明 Hageman Factor（凝血因子XII）如何同時連結凝血系統與激肽系統。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">當血液接觸到帶負電荷的異常表面（如受損血管內皮下的膠原蛋白）時，Hageman Factor（Factor XII）會被活化為 XIIa。XIIa 一方面啟動內源性凝血路徑（活化 Factor XI，進而啟動共同凝血路徑形成凝血酶與纖維蛋白），另一方面也同時活化血漿 Prekallikrein 使其轉為 Kallikrein，進而催化 HMW 激肽原生成 Bradykinin。因此 Hageman Factor 是凝血瀑布反應與激肽系統共同的上游活化因子，兩個系統在組織創傷等情境下常會同時被啟動。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻10歲米克斯犬因二尖瓣黏液性病變併發鬱血性心衰竭就診，目前使用 Furosemide 與 Enalapril 治療，但血液檢查發現血鈉偏低、症狀控制仍不理想。醫師考慮加入 Spironolactone。請問：(1) 加入 Spironolactone 的藥理學理由是什麼？(2) 三種藥物併用時最需要監測的電解質風險是什麼、為什麼？(3) 若之後這隻犬因脫水／食慾不振就診，發現血液肌酸酐上升，最可能的機轉是什麼、第一步該如何調整用藥？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 加藥理由：</strong>長期使用 ACE 抑制劑（Enalapril）可能出現「醛固酮逃逸」現象，即醛固酮濃度在治療一段時間後又逐漸回升，單靠 ACEI 無法完全阻斷 RAAS 對心血管與腎臟的病理性重塑效果；加入 Spironolactone 直接在遠曲小管拮抗醛固酮受體，能補強這個缺口。臨床研究顯示在標準治療基礎上加入 Spironolactone 可顯著降低犬心臟相關病態率與死亡率風險。<br><strong>(2) 電解質監測：</strong>最需要監測<strong>血鉀（高血鉀）</strong>——Enalapril 透過↓醛固酮分泌本身就有升高血鉀的傾向，Spironolactone 又是保鉀利尿劑（直接拮抗醛固酮的保鉀效果被阻斷，看似矛盾但實際上兩者都會減少腎臟排鉀），兩者併用時保鉀效果疊加，高血鉀風險明顯增加，用藥後應定期複查血鉀。<br><strong>(3) 肌酸酐上升的處理：</strong>最可能的機轉是脫水／食慾不振造成有效血容積下降，加上 Enalapril 已經解除了 Angiotensin II 對出球小動脈的代償性收縮，腎絲球濾過壓力失去這層保護，在腎灌流不足時 GFR 更容易下降、肌酸酐上升。第一步應優先<strong>減少利尿劑（Furosemide）劑量、改善水合狀態</strong>，而非立即停用 ACE 抑制劑；若調整利尿劑後氮血症仍未改善，才考慮降低或暫停 ACEI／Spironolactone 劑量。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q6.【臨床情境】一隻8歲家貓因例行健檢發現全身性高血壓（收縮壓持續>180 mmHg），眼底檢查已出現輕微視網膜病變徵兆，同時血檢顯示輕度氮血症（疑似早期CKD）。請問：(1) 這隻貓的高血壓治療，ACE抑制劑與ARB（Telmisartan）分別的適用性與證據強弱如何？(2) 若選擇Telmisartan，除了降血壓之外還有什麼額外的腎臟保護證據？(3) 用藥後應該監測哪些項目、為什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 適用性比較：</strong>講義與教科書都指出 ACE 抑制劑單獨使用於高血壓治療的效果其實有限（VPT10：「ACE抑制劑單獨治療高血壓效力偏低，常需併用血管擴張劑」），臨床上常作為輔助而非單一降壓主力；相對地，Telmisartan 是目前唯一取得<strong>FDA明確核准用於貓全身性高血壓</strong>的ARB，證據強度與臨床定位都優於ACEI單獨用於此適應症。<br><strong>(2) 額外腎臟保護證據：</strong>教科書引用的臨床研究（Sent et al. 2015）顯示Telmisartan長期口服可顯著降低貓CKD的尿蛋白/肌酸酐比值（UPC），效果與Benazepril相近，對這隻同時有早期CKD徵兆的貓而言，除了控制血壓，還可能有延緩蛋白尿性腎損傷的額外效益。<br><strong>(3) 監測項目：</strong>①<strong>血壓</strong>（確認達到治療目標、避免過度降壓造成腎灌流不足）②<strong>腎功能指標（肌酸酐、UPC）</strong>（監測腎臟保護效果，同時提防RAAS阻斷藥物在腎灌流不足情境下可能誘發的氮血症惡化）③<strong>眼底檢查追蹤</strong>（評估高血壓視網膜病變是否穩定或改善）④<strong>血鉀</strong>（RAAS阻斷藥物皆有↑血鉀傾向，尤其合併腎功能不佳時）。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  ras: 'RAAS 生理機轉與腎絲球旁器',
+  renincontrol: '腎素分泌調控與 Aliskiren',
+  angii: 'Angiotensin II 藥理效應與腎臟傷害機轉',
+  acei: 'ACE 抑制劑',
+  arb: '血管收縮素受體阻斷劑（ARB）',
+  mrb: '醛固酮受體阻斷劑（教科書補充）',
+  kinin: '激肽（Kinin）系統與 ACE 的雙重角色',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>貓口腔與牙科照護指南 - 上群動物醫院</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群動物醫院" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="外科"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">上群動物醫院 首頁</a>
+      <span class="sep">›</span>
+      <a href="index.html">外科</a>
+      <span class="sep">›</span>
+      <span class="current">貓口腔與牙科照護指南</span>
+    </div>
+
+    <div class="page-head">
+      <h1 class="page-title">貓口腔與牙科照護指南</h1>
+      <p class="page-subtitle">牙周病分期、常見口腔疾病、麻醉前用藥調整、拔牙照護與抗生素使用原則整理。</p>
+    </div>
+
+    <div class="pagehead__actions">
+      <a class="btn" href="2025_FelineVMA_口腔與牙科照護指南.pdf" target="_blank" rel="noopener">📄 2025 FelineVMA 原文全文（PDF）</a>
+    </div>
+
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科別</div><div class="meta-value">外科（牙科）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value"><a href="2025_FelineVMA_口腔與牙科照護指南.pdf" target="_blank" rel="noopener">2025 FelineVMA 貓口腔健康與牙科照護指南（JFMS 27, 1–29）</a></div></div>
+      <div class="meta-item"><div class="meta-label">版本</div><div class="meta-value">2025（Lobprise 等人，FelineVMA Task Force）</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">已逐頁閱讀原文全文（29 頁）並整理成筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 總覽與照護光譜</a>
+    <div class="section-label">疾病</div>
+    <a onclick="showSection('periodontal')" id="nav-periodontal"><span class="nav-icon">🦷</span> 牙周病與分期系統</a>
+    <a onclick="showSection('otherdisease')" id="nav-otherdisease"><span class="nav-icon">🩹</span> 其他常見口腔疾病</a>
+    <div class="section-label">評估與麻醉</div>
+    <a onclick="showSection('assessment')" id="nav-assessment"><span class="nav-icon">🔍</span> 患者評估與檢查</a>
+    <a onclick="showSection('anesthesia')" id="nav-anesthesia"><span class="nav-icon">💉</span> 麻醉前用藥與麻醉照護</a>
+    <div class="section-label">治療與照護</div>
+    <a onclick="showSection('surgery')" id="nav-surgery"><span class="nav-icon">🔧</span> 手術治療與拔牙照護</a>
+    <a onclick="showSection('postop')" id="nav-postop"><span class="nav-icon">💊</span> 術後止痛、營養與抗生素原則</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('glossary')" id="nav-glossary"><span class="nav-icon">🔤</span> 縮寫對照表</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <a onclick="showSection('references')" id="nav-references"><span class="nav-icon">📚</span> 參考資料</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">五個臨床重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>牙周病分期是「以牙齒為單位」，不是整口一個分數：</strong>PD0–4 依每顆牙齒的附著喪失百分比分別評分，同一隻貓不同牙齒可能落在不同分期，診斷與治療計畫都要逐牙記錄。</li>
+          <li><strong>麻醉前用藥「繼續 vs 停用」有明確清單，容易搞混：</strong>ACEI（benazepril、enalapril）與 ARB（telmisartan）要在麻醉前至少 24 小時停用，但 <strong>amlodipine 是例外、要繼續給</strong>；胰島素則依當下血糖值決定給全劑量、半劑量或不給。</li>
+          <li><strong>牙科術前後不建議常規使用全身性抗生素：</strong>牙周病本身是牙菌斑誘發的發炎反應，術前 1–2 週、術中「預防性」、術後 1–2 週的常規給藥都缺乏實證支持，只有免疫抑制或特定高風險病例才考慮使用。</li>
+          <li><strong>齒根吸收（TR）目前無法預防、也無法阻止已發生病灶的進展：</strong>治療目標是止痛而非治癒，依吸收型態分別處理（完整拔除／截冠術／混合處理），確診後建議<strong>每年</strong>安排影像複查是否有新病灶。</li>
+          <li><strong>麻醉相關死亡近 75% 發生在術後恢復期、其中逾 60% 集中在恢復室前 3 小時：</strong>保暖、拔管前確認咽喉紗布已移除、術後密切監測體溫與呼吸，重要性不亞於術中麻醉深度控制。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>總覽與照護光譜</h2></div>
+      <p class="section-desc">口腔與牙科疾病在貓非常普遍，但貓天生會隱藏病痛、飼主也常因為擔心麻醉風險與費用而延遲就醫，使得診斷與治療格外具有挑戰性。</p>
+
+      <h3>盛行率（依各獨立研究整理）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>研究族群</th><th>盛行率</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">牙周病（PD）</td><td>英國初級診所貓（1 年期）</td><td>15.2%</td></tr>
+            <tr><td>109 隻貓的族群調查</td><td>牙齦發炎 96%、齒槽骨流失 98.2%、重度牙周病 12.8%</td></tr>
+            <tr><td>2 歲以上貓（綜合文獻）</td><td>80–85%</td></tr>
+            <tr><td rowspan="2">齒根吸收（TR）</td><td>各研究綜合</td><td>影像學證據 28.5–67%，10 歲以上貓可達 83.3%</td></tr>
+            <tr><td>好發牙位</td><td>下顎前臼齒最常見，是例行檢查時的重點觀察牙位</td></tr>
+            <tr><td>貓慢性齒齦口腔炎（FCGS）</td><td>初級診所貓 vs 流浪貓（韓國）</td><td>0.7% vs 26.6%</td></tr>
+            <tr><td>咬合不正</td><td>純種短頭型貓（波斯貓／異國短毛貓）</td><td>72%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>照護光譜（Spectrum of Care）</h3>
+      <p>治療計畫的決定同時受到<strong>飼主、獸醫師、病患三方因素</strong>影響，不存在對所有病患都適用的單一「黃金標準」方案。生活品質是決定治療計畫的核心考量；當獸醫師心中的「理想治療」與飼主的財力、對麻醉手術的顧慮、居家照護能力有落差時，開放討論期待與目標、共同決策，才能建立信任並產出對病患真正適合的方案。</p>
+
+      <h3>賦能飼主：居家照護與衛教</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">飼主居家觀察重點</div><p style="margin:0;">口臭、牙齦紅腫出血、單側咀嚼或偏頭進食、掉食物、抓臉、臉部腫脹、流口水、任何異常口腔分泌物、食慾不振。<strong>食慾改變在貓的口腔疾病中並不常見</strong>，要提醒飼主「食慾正常≠口腔健康」，不能以此排除疾病。</p></div>
+        <div class="card"><div class="card-title">VOHC 認證標章</div><p style="margin:0;">Veterinary Oral Health Council（VOHC）審核廠商送審的居家牙科用品（潔牙骨、牙膏、飲水添加物等），通過標準者可獲得 VOHC Seal of Acceptance，是向飼主推薦居家用品時較有實證基礎的參考依據（vohc.org）。</p></div>
+      </div>
+      <p>居家照護首選是<strong>刷牙或用紗布擦拭移除牙菌斑</strong>，搭配合作訓練（cooperative care）讓貓願意配合，也有助於貓在診間更能接受口腔檢查。指南明確反對<strong>非麻醉洗牙（anesthesia-free dentistry）</strong>，因為無法進行探診、齒槽骨下方病灶評估與 X 光檢查，容易漏掉齒根吸收與牙周附著喪失。</p>
+    </div>
+
+    <!-- PERIODONTAL -->
+    <div class="section" id="section-periodontal">
+      <div class="section-head"><div class="section-num">3</div><h2>牙周病與分期系統</h2></div>
+      <p class="section-desc">牙周病（PD）泛指從可逆的牙齦炎到不可逆的牙周炎（附著組織流失）的一整個病程光譜，成因是宿主對牙菌斑細菌的免疫發炎反應，涉及牙齦、齒槽骨與牙周韌帶等支持組織。</p>
+
+      <h3>分期一定要「逐牙評估」</h3>
+      <p>同一隻貓的不同牙齒，牙周病嚴重度可能完全不同，因此診斷必須<strong>以每顆牙齒為單位</strong>分別判定分期，而非整口給一個籠統的分數。完整的牙周評估包含：牙菌斑指數／牙結石指數／牙齦指數評分、六點探診深度測量、牙齦萎縮或增生的測量、多根牙的根分岔侵犯評估、牙齒動搖度評分。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分期</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td>Normal（PD0）</td><td>臨床上無牙齦炎或牙周炎證據（仍需 X 光確認無骨流失）</td></tr>
+            <tr><td>Stage 1（PD1）</td><td>只有牙齦炎，<strong>無附著喪失</strong>，齒槽緣高度與形態正常</td></tr>
+            <tr><td>Stage 2（PD2）</td><td>早期牙周炎；附著喪失 <span class="dose">&lt;25%</span>，或多根牙為 F1 根分岔侵犯；X 光可見早期牙周炎徵象</td></tr>
+            <tr><td>Stage 3（PD3）</td><td>中度牙周炎；附著喪失 <span class="dose">25–50%</span>，或 F2 根分岔侵犯</td></tr>
+            <tr><td>Stage 4（PD4）</td><td>重度牙周炎；附著喪失 <span class="dose">&gt;50%</span>，或 F3 根分岔侵犯</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="figure">
+        <svg viewBox="0 0 800 260" role="img" aria-label="牙周病PD0到PD4的示意剖面圖：隨分期增加，齒槽骨附著喪失的比例逐漸上升，從正常齒槽緣高度到超過一半的骨流失">
+          <defs>
+            <marker id="pdArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+            </marker>
+          </defs>
+          <text x="400" y="24" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor" opacity="0.7">牙周附著喪失隨分期增加（示意，非等比例）</text>
+          <g font-size="11" text-anchor="middle" fill="currentColor">
+            <!-- PD0 -->
+            <g transform="translate(70,50)">
+              <rect x="-8" y="0" width="16" height="130" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="-25" y1="18" x2="25" y2="18" stroke="currentColor" stroke-width="2"/>
+              <text y="150">PD0</text>
+              <text y="165" font-size="9" opacity="0.6">正常</text>
+            </g>
+            <!-- PD1 -->
+            <g transform="translate(230,50)">
+              <rect x="-8" y="0" width="16" height="130" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="-25" y1="18" x2="25" y2="18" stroke="currentColor" stroke-width="2"/>
+              <rect x="-25" y="0" width="50" height="18" fill="var(--amber-bg)" opacity="0.7"/>
+              <text y="150">PD1</text>
+              <text y="165" font-size="9" opacity="0.6">僅牙齦炎，無骨流失</text>
+            </g>
+            <!-- PD2 -->
+            <g transform="translate(390,50)">
+              <rect x="-8" y="32" width="16" height="98" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="-25" y1="32" x2="25" y2="32" stroke="var(--signal)" stroke-width="2.5" marker-end="url(#pdArrow)"/>
+              <text y="150">PD2</text>
+              <text y="165" font-size="9" opacity="0.6">&lt;25% 附著喪失</text>
+            </g>
+            <!-- PD3 -->
+            <g transform="translate(550,50)">
+              <rect x="-8" y="60" width="16" height="70" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="-25" y1="60" x2="25" y2="60" stroke="var(--signal)" stroke-width="2.5" marker-end="url(#pdArrow)"/>
+              <text y="150">PD3</text>
+              <text y="165" font-size="9" opacity="0.6">25–50% 附著喪失</text>
+            </g>
+            <!-- PD4 -->
+            <g transform="translate(710,50)">
+              <rect x="-8" y="95" width="16" height="35" fill="var(--bg3)" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="-25" y1="95" x2="25" y2="95" stroke="var(--signal)" stroke-width="2.5" marker-end="url(#pdArrow)"/>
+              <text y="150">PD4</text>
+              <text y="165" font-size="9" opacity="0.6">&gt;50% 附著喪失</text>
+            </g>
+          </g>
+          <line x1="40" y1="180" x2="760" y2="180" stroke="currentColor" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="400" y="200" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.55">橫線＝目前齒槽緣／附著位置；灰色方塊＝牙根示意；分期依附著喪失百分比或根分岔侵犯程度判定</text>
+        </svg>
+        <figcaption class="figure-caption">牙周病 PD0–PD4 分期的核心邏輯：從正常齒槽緣高度，隨附著喪失比例增加而逐期加重，最終進入不可逆的重度牙周炎。判定需靠探診與 X 光，不能只憑肉眼。</figcaption>
+      </figure>
+
+      <h3>牙菌斑／牙結石／牙齦指數</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>指數</th><th>0 分</th><th>1 分</th><th>2 分</th><th>3 分</th></tr></thead>
+          <tbody>
+            <tr><td>牙菌斑指數（PI）</td><td>無可見牙菌斑</td><td>覆蓋頰側面 &lt;1/3</td><td>覆蓋 1/3–2/3</td><td>覆蓋 &gt;2/3</td></tr>
+            <tr><td>牙結石指數（CI）</td><td>無可見牙結石</td><td>覆蓋頰側面 &lt;1/3</td><td>覆蓋 1/3–2/3</td><td>覆蓋 &gt;2/3</td></tr>
+            <tr><td>牙齦指數（GI）</td><td>健康牙齦，邊緣銳利無發炎</td><td>邊緣輕度發炎，探診不出血</td><td>發炎範圍較寬，探診出血</td><td>發炎達黏膜牙齦交界，可能自發性出血</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">根分岔侵犯（F1–F3）與牙齒動搖度（M0–M3）另有 AVDC 標準分級，臨床上用探針測試深入根分岔的程度與各方向的動搖幅度（M1：0.2–0.5mm；M2：0.5–1.0mm；M3：&gt;1.0mm 或有軸向移動）判定。</p>
+
+      <h3>治療原則</h3>
+      <p>牙菌斑控制（完整的齦上與齦下清潔）是牙周病預防與治療的核心，必要時需拔牙。<strong>抗生素在牙周病治療中極少有適應症</strong>（詳見第 8 節）。麻醉恢復後，可依貓的情緒狀態評估是否能開始居家口腔照護，對於有恐懼焦慮的貓不一定可行。</p>
+    </div>
+
+    <!-- OTHER DISEASE -->
+    <div class="section" id="section-otherdisease">
+      <div class="section-head"><div class="section-num">4</div><h2>其他常見口腔疾病</h2></div>
+      <p class="section-desc">除了牙周病，以下幾類是臨床上常遇到、需要不同處置邏輯的口腔疾病。</p>
+
+      <h3>幼貓型牙齦炎（Early-onset gingivitis）</h3>
+      <p>好發於 <span class="dose">6–8 月齡</span>幼貓，臨床上牙齦明顯紅腫，X 光可見中重度牙周病等級的骨流失，病因不明。建議<strong>及早在全身麻醉下</strong>依牙周病指數積極治療（含拔牙），並安排追蹤，因為此病可能進展為侵襲性牙周炎或貓慢性齒齦口腔炎（FCGS）。</p>
+
+      <h3>慢性骨炎／齒槽炎（Chronic osteitis/alveolitis）</h3>
+      <p>好發於<strong>老年貓</strong>，屬慢性牙周炎的一種型態，特徵是頰側齒槽骨膨大，常合併齒冠或齒根吸收與牙齒「超伸長」（super-eruption）。上顎犬齒最常受影響，常合併齒槽骨流失甚至動搖，多數需要拔牙。</p>
+
+      <h3>咬合不正（Malocclusion）</h3>
+      <p>正常咬合是下顎犬齒位於上顎第三門齒與上顎犬齒之間，呈剪刀狀咬合。咬合不正分為發育性與後天性（外傷、腫瘤），只有造成軟組織或牙齒創傷時才需要治療；貓的牙科治療<strong>不接受單純美觀目的的矯正</strong>，骨性咬合不正多與家族／遺傳有關，應建議繁殖諮詢。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分類</th><th>來源</th><th>描述</th><th>常見創傷部位</th></tr></thead>
+          <tbody>
+            <tr><td>Class 1（MAL1）</td><td>牙性</td><td>上下顎關係正常，單顆或多顆牙齒排列異常</td><td>下顎犬齒舌側偏移可能造成上顎創傷</td></tr>
+            <tr><td>Class 2（MAL2）</td><td>骨性</td><td>下顎後縮（覆咬合）</td><td>下顎犬齒造成上顎硬顎創傷</td></tr>
+            <tr><td>Class 3（MAL3）</td><td>骨性</td><td>下顎前突（戽斗）</td><td>上顎門齒可能創傷下顎門齒舌側牙齦</td></tr>
+            <tr><td>Class 4（MAL4）</td><td>骨性</td><td>左右不對稱（前後、左右或垂直方向）</td><td>上顎第四前臼齒與下顎第一大臼齒頰側黏膜接觸創傷</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="figure">
+        <svg viewBox="0 0 820 220" role="img" aria-label="咬合不正分類示意圖：正常咬合為剪刀狀咬合，MAL2下顎後縮造成覆咬合，MAL3下顎前突造成戽斗，MAL4為左右或垂直方向的不對稱">
+          <defs>
+            <marker id="malArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+            </marker>
+          </defs>
+          <text x="10" y="18" font-size="10" fill="currentColor" opacity="0.55">rostral（吻側）</text>
+          <text x="185" y="18" font-size="10" fill="currentColor" opacity="0.55" text-anchor="end">caudal（尾側）→</text>
+
+          <!-- Panel 1: Normal -->
+          <g transform="translate(10,35)">
+            <rect x="0" y="0" width="180" height="26" rx="6" fill="var(--bg3)" stroke="currentColor" stroke-width="1.3"/>
+            <text x="90" y="17" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.7">上顎齒列（maxilla）</text>
+            <path d="M78,26 L88,40 L98,26 Z" fill="currentColor"/>
+            <path d="M80,90 L90,76 L100,90 Z" fill="currentColor"/>
+            <rect x="0" y="90" width="180" height="26" rx="6" fill="var(--bg3)" stroke="currentColor" stroke-width="1.3"/>
+            <text x="90" y="107" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.7">下顎齒列（mandible）</text>
+            <text x="90" y="140" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">正常咬合</text>
+            <text x="90" y="155" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.6">剪刀狀，下顎犬齒略偏吻側</text>
+          </g>
+
+          <!-- Panel 2: MAL2 overbite -->
+          <g transform="translate(220,35)">
+            <rect x="0" y="0" width="180" height="26" rx="6" fill="var(--bg3)" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M78,26 L88,40 L98,26 Z" fill="currentColor"/>
+            <path d="M115,90 L125,76 L135,90 Z" style="fill:var(--signal)"/>
+            <rect x="0" y="90" width="180" height="26" rx="6" fill="var(--bg3)" stroke="currentColor" stroke-width="1.3"/>
+            <line x1="88" y1="60" x2="125" y2="60" stroke="var(--signal)" stroke-width="1.5" marker-end="url(#malArrow)"/>
+            <text x="90" y="140" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">MAL2 覆咬合</text>
+            <text x="90" y="155" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.6">下顎後縮，下犬齒偏尾側</text>
+          </g>
+
+          <!-- Panel 3: MAL3 underbite -->
+          <g transform="translate(430,35)">
+            <rect x="0" y="0" width="180" height="26" rx="6" fill="var(--bg3)" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M100,26 L110,40 L120,26 Z" fill="currentColor"/>
+            <path d="M55,90 L65,76 L75,90 Z" style="fill:var(--signal)"/>
+            <rect x="0" y="90" width="180" height="26" rx="6" fill="var(--bg3)" stroke="currentColor" stroke-width="1.3"/>
+            <line x1="110" y1="60" x2="65" y2="60" stroke="var(--signal)" stroke-width="1.5" marker-end="url(#malArrow)"/>
+            <text x="90" y="140" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">MAL3 戽斗</text>
+            <text x="90" y="155" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.6">下顎前突，下犬齒偏吻側</text>
+          </g>
+
+          <!-- Panel 4: MAL4 asymmetry -->
+          <g transform="translate(630,35)">
+            <rect x="0" y="0" width="180" height="26" rx="6" fill="var(--bg3)" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M78,26 L88,40 L98,26 Z" fill="currentColor"/>
+            <path d="M120,90 L130,76 L140,90 Z" style="fill:var(--signal)"/>
+            <rect x="0" y="90" width="180" height="26" rx="6" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="1.3" transform="skewX(-6)"/>
+            <text x="90" y="140" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">MAL4 不對稱</text>
+            <text x="90" y="155" font-size="9.5" text-anchor="middle" fill="currentColor" opacity="0.6">前後／左右／垂直方向偏移</text>
+          </g>
+
+          <text x="410" y="200" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.55">示意圖：上下橫條代表上下顎齒列，三角形標示犬齒位置；黃色三角與箭頭標示偏離正常位置的方向。MAL1（牙性）為單顆牙齒排列異常，未繪於此圖</text>
+        </svg>
+        <figcaption class="figure-caption">咬合不正分類示意：正常咬合是上下犬齒呈剪刀狀咬合；MAL2（覆咬合）下顎相對後縮；MAL3（戽斗）下顎相對前突；MAL4 則是左右、前後或垂直方向的不對稱。實際診斷仍須以理學檢查與 X 光判定。</figcaption>
+      </figure>
+
+      <h3>貓慢性齒齦口腔炎（FCGS）</h3>
+      <p>比一般口腔炎更嚴重、持續的疾病型態，牙齦發炎延伸至黏膜，紅腫、潰瘍、增生，可能波及後段口腔（舊稱 fauces／faucitis，現已較少使用）。病因可能是多重因素（貓卡里西病毒、口腔微菌叢失衡、免疫發炎基因），常合併牙周病與齒根吸收，但部分病例牙齒本身完全正常。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">共識建議</div>
+        <p>指南工作小組共識是<strong>及早介入手術</strong>，而非長期依賴類固醇或抗生素（兩者都無法根治，且有抗微生物管理疑慮）。手術分兩種：<strong>後段口腔拔牙</strong>（前臼齒＋大臼齒）或<strong>全口拔牙</strong>，取決於門齒／犬齒周圍是否有發炎；若無發炎，可考慮後段拔牙並配合飼主規律回診。一篇 95 例研究顯示拔牙後 39% 明顯改善、28% 完全緩解，但仍有相當比例需要持續內科治療。</p>
+      </div>
+      <p>對治療 6 個月後仍無反應者定義為「頑固型（refractory）」，可用 <strong>Stomatitis Disease Activity Index（SDAI）</strong>（依紅腫、潰瘍／增生程度＋飼主評估＋體重變化評分）追蹤治療反應。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>頑固型 FCGS 治療選項</th><th>反應</th></tr></thead>
+          <tbody>
+            <tr><td>Prednisolone（皮質類固醇）</td><td>23% 治癒或明顯改善，7% 完全緩解</td></tr>
+            <tr><td>Ciclosporin</td><td>52.7% SDAI 分數改善</td></tr>
+            <tr><td>重組貓干擾素 omega</td><td>效果依劑量與途徑而異</td></tr>
+            <tr><td>幹細胞治療</td><td>最高 72% 正反應率</td></tr>
+            <tr><td>CO2 雷射、1-十四烷醇複合物、frunevetmab（標示外使用）、益生菌、玻尿酸牙周凝膠</td><td>證據等級低，多為個案或未知</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>齒根吸收（Tooth Resorption, TR）</h3>
+      <p>好發於下顎前臼齒，是常見且常合併疼痛的漸進性疾病，成因不明，隨年齡增加而更常見。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>型態</th><th>X 光特徵</th><th>治療</th></tr></thead>
+          <tbody>
+            <tr><td>Type 1</td><td>局部或多發性硬組織流失，但牙根本身放射密度正常、牙周韌帶間隙完整，常合併牙周炎</td><td>完整拔除牙冠與牙根</td></tr>
+            <tr><td>Type 2</td><td>硬組織被骨質取代，牙周韌帶間隙消失，殘留牙根呈條紋狀放射透光</td><td>截冠術（coronectomy）＋牙齦縫合，意圖性保留殘根</td></tr>
+            <tr><td>Type 3</td><td>同一顆牙同時有 Type 1 與 Type 2 特徵</td><td>混合處理：能拔除的部分盡量拔除，單根牙（如犬齒）可能需要更靠近根尖處截斷</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>治療目標是<strong>止痛</strong>，目前<strong>沒有預防方法，也無法阻止已存在病灶的進展</strong>。早期僅侵犯牙根、探診無疼痛反應者可考慮監測，但需告知飼主會持續進展。<strong>確診後建議每年安排 X 光複查</strong>其他牙齒是否出現新病灶。</p>
+
+      <h3>牙齒創傷與齒內症</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>骨折類型</th><th>是否暴露牙髓</th><th>建議治療</th></tr></thead>
+          <tbody>
+            <tr><td>複雜性牙冠骨折</td><td>是</td><td>根管治療或完整手術拔除</td></tr>
+            <tr><td>複雜性牙冠－牙根骨折</td><td>是（貓少見）</td><td>手術拔除</td></tr>
+            <tr><td>單純性琺瑯質骨折</td><td>否</td><td>麻醉下完整評估＋X 光排除牙髓壞死，之後定期監測</td></tr>
+            <tr><td>單純性牙冠骨折</td><td>否（貓少見）</td><td>麻醉下完整評估＋X 光，定期監測</td></tr>
+            <tr><td>單純性牙冠－牙根骨折</td><td>否（貓少見）</td><td>手術拔除（此類牙齒極易續發牙周炎）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>牙齒脫位（luxation）或完全脫落（avulsion）多因外傷，少數繼發於重度牙周病或腫瘤；罕見情況下可考慮復位，多數仍需拔除並關閉傷口。顱顏創傷可能造成軟組織損傷、骨折、聯合部分離或顳顎關節脫位；口內 X 光只能評估有牙齒的區域，複雜顱顏創傷建議以 CT／cone beam CT 評估。</p>
+
+      <h3>口腔腫塊與增生</h3>
+      <p>口腔病灶初步先分「腫瘤性」與「非腫瘤性」再逐步縮小鑑別診斷範圍。<strong>CT 是評估口腔顱顏區域的黃金標準影像</strong>（尤其懷疑腫瘤時），口內 X 光可提供腫塊大小、範圍與是否侵犯齒槽骨的初步資訊。切片建議採<strong>病灶內切片（intralesional incisional biopsy）</strong>，維持腫塊邊界完整，避免腫瘤種植與方便未來計算手術邊界。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">警訊</div>
+        <p>口腔病灶中<strong>高達 68% 為惡性</strong>，其中鱗狀細胞癌（SCC）是最常見的類型，因侵襲性強、存活期短，<strong>早期診斷至關重要</strong>。單一區域局部的牙齦炎合併附著喪失，若與其他牙位表現不成比例，應提高警覺懷疑腫瘤，而不是單純當作局部牙周病處理。</p>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">腫瘤性病灶可再分為非齒源性（惡性：SCC、纖維肉瘤、黑色素瘤、淋巴瘤、骨肉瘤、肥大細胞瘤、血管肉瘤；良性：漿細胞瘤、骨瘤、肉芽腫）與齒源性腫瘤。非腫瘤性病灶包含發育性（含齒囊腫）、發炎性（嗜酸性肉芽腫、化膿性肉芽腫、根尖囊腫）、感染性（齒根膿瘍、卡里西病毒、乳突病毒）、藥物誘發（環孢素造成牙齦增生、雙磷酸鹽相關顎骨壞死）與其他（唾液腺囊腫、外傷）。</p>
+
+      <h3>其他情況</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">藥物相關顎骨壞死（MRONJ）</div><p style="margin:0;">因特發性高血鈣使用雙磷酸鹽或抗骨吸收藥物的貓有此風險，理想上牙科手術應安排在開始用藥<strong>之前</strong>；表現為拔牙處持續不癒合、有引流道或膿瘍，需積極清創並使用適當抗生素，常需再次手術。</p></div>
+        <div class="card"><div class="card-title">貓口面部疼痛症候群（FOPS）</div><p style="margin:0;">可能是三叉神經相關的神經病變性疾病，表現為舔舐、咀嚼、咬舌、抓臉等單側發作性症狀，常由萌牙、牙周病、齒根吸收或壓力誘發。一般止痛方案效果有限，抗癲癇藥物可能有幫助；<strong>緬因貓（Burmese）好發</strong>，被認為具遺傳性。</p></div>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">其他罕見情況還包括：髕骨骨折與牙齒異常症候群（年輕貓非外傷性髕骨骨折合併滯留乳齒與阻生恆齒，需積極手術）、自體免疫性口腔疾病（黏膜類天疱瘡、天疱瘡，需與卡里西病毒鑑別）、唾液腺囊腫（建議手術切除腺體而非單純引流）。</p>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="section" id="section-assessment">
+      <div class="section-head"><div class="section-num">5</div><h2>患者評估與檢查</h2></div>
+      <p class="section-desc">完整的口腔評估分成「清醒檢查」與「麻醉下檢查」兩階段，缺一不可，病歷紀錄也需要使用標準化的方向術語與縮寫（見第 9 節縮寫對照表）。</p>
+
+      <h3>牙科方向術語（AVDC 標準）</h3>
+      <figure class="figure">
+        <svg viewBox="0 0 600 320" role="img" aria-label="貓上顎齒列俯視示意圖，標示吻側rostral、尾側caudal、近中mesial、遠中distal、頰側buccal、顎側palatal等牙科方向術語">
+          <defs>
+            <marker id="dirArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+            </marker>
+          </defs>
+          <!-- skull outline (dorsal view, simplified) -->
+          <path d="M300,40 C230,40 190,90 190,140 C190,200 230,260 300,280 C370,260 410,200 410,140 C410,90 370,40 300,40 Z"
+                fill="var(--bg3)" stroke="currentColor" stroke-width="1.5" opacity="0.9"/>
+          <!-- dental arch -->
+          <path d="M240,90 C240,130 260,160 300,165 C340,160 360,130 360,90"
+                fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="240" cy="90" r="5" fill="currentColor"/>
+          <circle cx="270" cy="112" r="5" fill="currentColor"/>
+          <circle cx="300" cy="120" r="5" fill="currentColor"/>
+          <circle cx="330" cy="112" r="5" fill="currentColor"/>
+          <circle cx="360" cy="90" r="5" fill="currentColor"/>
+
+          <!-- rostral / caudal -->
+          <line x1="300" y1="70" x2="300" y2="20" stroke="var(--signal)" stroke-width="2" marker-end="url(#dirArrow)"/>
+          <text x="300" y="14" font-size="12" font-weight="700" text-anchor="middle" style="fill:var(--signal)">rostral（吻側）</text>
+          <line x1="300" y1="250" x2="300" y2="300" stroke="currentColor" stroke-width="2" marker-end="url(#dirArrow)"/>
+          <text x="300" y="315" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor">caudal（尾側）</text>
+
+          <!-- mesial (toward midline along arch) -->
+          <line x1="255" y1="100" x2="290" y2="118" stroke="currentColor" stroke-width="1.5" marker-end="url(#dirArrow)"/>
+          <text x="230" y="95" font-size="10.5" fill="currentColor" opacity="0.75">mesial（近中）</text>
+          <!-- distal (away from midline along arch) -->
+          <line x1="235" y1="88" x2="200" y2="75" stroke="currentColor" stroke-width="1.5" marker-end="url(#dirArrow)"/>
+          <text x="150" y="70" font-size="10.5" fill="currentColor" opacity="0.75">distal（遠中）</text>
+
+          <!-- buccal -->
+          <line x1="245" y1="92" x2="215" y2="115" stroke="currentColor" stroke-width="1.5" marker-end="url(#dirArrow)"/>
+          <text x="150" y="130" font-size="10.5" fill="currentColor" opacity="0.75">buccal（頰側）</text>
+          <!-- palatal/lingual -->
+          <line x1="300" y1="120" x2="300" y2="155" stroke="currentColor" stroke-width="1.5" marker-end="url(#dirArrow)"/>
+          <text x="300" y="180" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.75">palatal／lingual（顎側／舌側）</text>
+
+          <text x="300" y="235" font-size="10" text-anchor="middle" fill="currentColor" opacity="0.5">上顎齒列俯視示意（簡化），下顎方向術語相同邏輯，僅顎側改為舌側</text>
+        </svg>
+        <figcaption class="figure-caption">AVDC 標準方向術語：rostral（朝吻端）／caudal（朝尾端）描述整體前後方向；mesial（沿牙弓朝中線靠近）／distal（沿牙弓遠離中線）描述牙齒在牙弓上的相對位置；buccal（朝頰側）／palatal 或 lingual（朝顎側或舌側）描述牙齒朝口腔外側或內側的表面。病歷記錄與跨院轉診溝通都仰賴這套統一術語。</figcaption>
+      </figure>
+
+      <h3>清醒口腔檢查（四步驟）</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>口外檢查</strong>：即使貓不願配合口內檢查，仍可評估臉部對稱性、單／雙側上下顎腫脹、鼻眼分泌物與臉部病灶</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>咬合檢查</strong>：每次回診都應評估，非僅限口腔專門檢查時</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>口腔軟組織檢查</strong>：牙齦、黏膜、硬顎、舌頭是疾病的重要觀察窗口，留意形狀、顏色、大小的偏離與不對稱</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>牙齒結構檢查</strong>：牙結石只是評估項目之一，還要看牙齒形狀大小與數量；缺牙需考慮脫落、曾拔除、埋伏齒、缺齒症或末期齒根吸收</div></div>
+
+      <h3>ASA 麻醉風險分級（貓專用修訂版）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分級</th><th>定義</th><th>範例</th></tr></thead>
+          <tbody>
+            <tr><td>I</td><td>健康，無全身性疾病</td><td>—</td></tr>
+            <tr><td>II</td><td>輕度全身性疾病</td><td>肥胖、高血壓、控制良好的糖尿病或甲亢</td></tr>
+            <tr><td>III</td><td>重度全身性疾病</td><td>腎功能不全（IRIS &gt;Stage 2）、貓氣喘、未控制的甲亢或高血壓</td></tr>
+            <tr><td>IV</td><td>重度全身性疾病、持續威脅生命</td><td>重度貓氣喘或肺病、DKA、出血性休克</td></tr>
+            <tr><td>V</td><td>不緊急手術無法存活</td><td>重度頭部外傷、無法控制的體腔出血</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>多數牙科病患落在 ASA I–III。<strong>年齡（尤其 &gt;12 歲）本身是獨立風險因子</strong>，但一篇針對麻醉時間 &gt;30 分鐘的 138 隻貓研究顯示，ASA 分級而非年齡與麻醉相關併發症有關。一篇大型前瞻性研究顯示貓的麻醉相關死亡率僅 <span class="dose">0.63%</span>，但<strong>近 75% 發生於術後恢復期</strong>。</p>
+
+      <h3>麻醉下口腔檢查</h3>
+      <p>可評估清醒時看不到的結構（扁桃腺、軟顎、舌下區）。建議採「四手牙科」：一人負責探診與檢查，另一人同步記錄於牙科病歷表，雙方都需受過訓練避免漏診或牙位記錄錯誤。找到的異常都應拍照存證，術前術後對照照片有助於病程追蹤與衛教。<strong>完整口內 X 光是最低限度的標準照護</strong>，麻醉下檢查也是篩檢口腔腫瘤的重要機會。</p>
+    </div>
+
+    <!-- ANESTHESIA -->
+    <div class="section" id="section-anesthesia">
+      <div class="section-head"><div class="section-num">6</div><h2>麻醉前用藥與麻醉照護</h2></div>
+      <p class="section-desc">指南明確反對非麻醉洗牙，牙科處置必然涉及麻醉，術前用藥調整與麻醉細節管理是安全的關鍵。</p>
+
+      <h3>術前慢性用藥：繼續或停用</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>處置</th><th>藥物</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="6"><strong>照常繼續</strong></td><td>甲狀腺藥物（補充劑或 methimazole，PO）</td><td>—</td></tr>
+            <tr><td>行為與止痛藥物</td><td>不建議突然停藥</td></tr>
+            <tr><td>口服抗焦慮藥（PO）</td><td>減少恐懼焦慮</td></tr>
+            <tr><td>心臟用藥（pimobendan PO、furosemide PO/IV）</td><td>—</td></tr>
+            <tr><td>抗生素（依處方途徑）</td><td>—</td></tr>
+            <tr><td>類固醇；<strong>amlodipine（PO）</strong></td><td>類固醇不建議突然停藥；amlodipine 是降壓藥中的<strong>例外</strong>，麻醉前仍要繼續給</td></tr>
+            <tr><td rowspan="2"><strong>麻醉前停用</strong></td><td>ACEI（enalapril、benazepril，PO）、ARB（telmisartan，PO）</td><td>麻醉前<strong>至少 24 小時</strong>停用（amlodipine 例外，見上）</td></tr>
+            <tr><td>抗凝血藥物</td><td>依出血風險，可能需提前<strong>2 週</strong>停用</td></tr>
+            <tr><td><strong>依個別狀況調整</strong></td><td>胰島素（SC）</td><td>禁食病患不給全劑量以免低血糖：血糖 <span class="dose">&lt;8 mmol/L（&lt;145 mg/dL）</span>不給；<span class="dose">8–15 mmol/L（145–270 mg/dL）</span>給平常劑量<strong>一半</strong>；<span class="dose">&gt;15 mmol/L（&gt;270 mg/dL）</span>給<strong>全劑量</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">Gabapentin（PO）可能降低健康貓與 CKD 貓的收縮壓，但這主要影響清醒時的血壓監測判讀，對麻醉中血壓影響較小；考量其降低壓力與焦慮的效益，仍建議使用以提升配合度。</p>
+
+      <h3>禁食時間</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">健康病患</div><p style="margin:0;"><span class="dose">4–6 小時</span></p></div>
+        <div class="card"><div class="card-title">糖尿病患</div><p style="margin:0;"><span class="dose">2–4 小時</span>（縮短以降低低血糖風險）</p></div>
+        <div class="card"><div class="card-title">有反流風險者</div><p style="margin:0;"><span class="dose">6–12 小時</span></p></div>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">飲水皆不需禁止。</p>
+
+      <h3>麻醉中管理重點</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">輸液</div><p style="margin:0;">貓血液量偏低（50–60 mL/kg），多數貓輸液速率約 <span class="dose">3 mL/kg/h</span>；IRIS Stage 3 以上的腎功能不全病患，建議術前至少 <span class="dose">4 小時</span>給予 <span class="dose">3–5 mL/kg/h</span> 輸液，同時監測輸液過量徵象。</p></div>
+        <div class="card"><div class="card-title">保溫與呼吸道</div><p style="margin:0;">牙科處置大量用水，頭部易失溫，需主動保暖並密切監測體溫；插管需用合適大小的<strong>帶氣囊</strong>氣管內管，咽喉填塞紗布減少液體堆積，但<strong>避免填塞過久</strong>造成靜脈回流受阻與舌下水腫，拔管前務必確認紗布已移除。</p></div>
+      </div>
+
+      <h3>局部與區域神經阻斷</h3>
+      <p>局部／區域神經阻斷是多模式止痛的核心技術，常用術式包含下齒槽神經阻斷（下顎阻斷）、眶下神經阻斷、後上顎神經阻斷與頦神經阻斷。執行時務必注意<strong>眶下管平均長度僅約 3mm</strong>，注射前需回抽確認無血液；可於術末重複給藥，或搭配 opioid／血管收縮劑（如 α-2 受體促效劑、腎上腺素）延長 bupivacaine 等局部麻醉藥的作用時間（注意腎上腺素加入口腔局麻可能增加併發症風險）。</p>
+
+      <h3>其他麻醉操作細節</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">開口器具</div><p style="margin:0;">彈簧式開口器會持續施力於下顎與鼓室泡之間、壓迫上顎動脈，可能造成缺血性中樞神經損傷（含失明），建議<strong>避免使用</strong>或改用不過度伸張下顎的替代方式（如剪短的空針筒）；口腔張開的總時間也應限制，如同止血帶不能久放。</p></div>
+        <div class="card"><div class="card-title">眼睛與輻射安全</div><p style="margin:0;">貓眼球大而突出，全程需塗抹眼藥膏保護角膜；操作口內 X 光機時，人員不應站在主射束 180° 範圍內或距機器 6 英尺（1.8m）內，手持式機型建議加穿鉛衣。</p></div>
+      </div>
+
+      <h3>術後恢復與出院</h3>
+      <p><strong>逾 60% 的貓麻醉相關死亡發生在恢復期前 3 小時內。</strong>部分貓麻醉中易失溫，但也可能出現反彈性體溫過高（與 hydromorphone 等藥物有關），恢復期監測體溫格外重要。多模式止痛應延續到出院階段，包含 NSAID、opioid（含長效劑型）、gabapentinoid、NMDA 受體拮抗劑，以及冷敷、脈衝電磁場、冷雷射、針灸等輔助方式；懷疑神經病變性疼痛（如 FOPS）的病患可能需要更完整的長期止痛計畫。</p>
+    </div>
+
+    <!-- SURGERY -->
+    <div class="section" id="section-surgery">
+      <div class="section-head"><div class="section-num">7</div><h2>手術治療與拔牙照護</h2></div>
+      <p class="section-desc">在無發育異常或幼年口腔疾病的情況下，可考慮從 <span class="dose">2 歲</span>開始安排麻醉下的口腔評估與基礎 X 光，作為牙周病與齒根吸收的基準檢查。</p>
+
+      <h3>標準處置流程</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">完整口內 X 光</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">完整口腔檢查，含牙周探診與逐牙記錄</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">依診斷結果擬定治療計畫；若需手術介入，建議先與飼主溝通；範圍較大時可能需要<strong>分次麻醉分階段處理</strong></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">牙周治療：齦上與齦下超音波洗牙 ± 手動刮治</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">牙面拋光（非必要）</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text">完成其他處置（拔牙、截冠術等），確保足夠的麻醉深度與多模式止痛；若貓在洗牙時出現疼痛反應，可考慮在洗牙前就先執行區域麻醉</div></div>
+
+      <h3>拔牙器械要點</h3>
+      <p>建議使用小頭、內建 LED 燈的高速手機以應付貓狹小的口腔視野；牙科鑽針應<strong>每次使用後更換</strong>，避免鈍化造成效率下降與骨組織熱傷害；骨膜剝離器應選圓頭銳利、專為口腔手術設計的小型款式，減少撕裂貓薄弱的牙齦與黏膜組織；牙挺／牙鉤需適合貓的尺寸（1–3mm）並經常維持鋭利（含術中）；根尖挑針、根尖挺與根尖鉗對處理脆弱易斷裂的貓牙根特別重要，建議隨時備妥。</p>
+
+      <h3>拔牙相關併發症</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">技術性併發症</div><p style="margin:0;">殘留牙根未完整拔除、根尖碎片移位至下顎管或鼻腔、鄰牙意外骨折或創傷、下顎犬齒拔除造成醫源性下顎骨折或聯合部分離、高速手機或氣水噴頭導致空氣栓塞（罕見）</p></div>
+        <div class="card"><div class="card-title">軟組織與其他併發症</div><p style="margin:0;">傷口裂開（張力不足、皮瓣鬆弛或未診斷出的腫瘤）、口鼻瘻管形成、上顎犬齒拔除後上唇嵌陷、拔除下顎第一大臼齒後化膿性肉芽腫（可能與舌下唾液腺創傷有關）、出血、神經損傷（下齒槽神經阻斷不慎麻醉到舌神經造成術後咬舌）、區域麻醉或拔牙操作不慎造成眼部創傷</p></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點提醒</div>
+        <p>絕大多數併發症可透過<strong>合適的器械、扎實的手術技術與熟悉局部解剖</strong>來避免。</p>
+      </div>
+
+      <h3>術後立即檢查清單</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">移除咽喉紗布填塞</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">抽吸口內殘留液體</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">檢查口腔與咽部有無殘留碎屑（喉鏡輔助檢視）</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">擦乾頭部</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">重新塗抹眼藥膏</div></div>
+    </div>
+
+    <!-- POSTOP -->
+    <div class="section" id="section-postop">
+      <div class="section-head"><div class="section-num">8</div><h2>術後止痛、營養與抗生素原則</h2></div>
+      <p class="section-desc">拔牙後止痛一律需要，抗生素則多數不需要——這是本篇指南與常見直覺最不一致的地方。</p>
+
+      <h3>術後止痛</h3>
+      <p>若手術時間超過 <span class="dose">2–3 小時</span>，應考慮重複給予區域神經阻斷。術後即刻可視需要開始或延續針劑止痛（如 opioid 或 ketamine 持續輸注 CRI），長效 opioid 可納入多模式方案。口服止痛藥的選擇依年齡與整體健康狀況調整，多數處置以<strong>多模式方案搭配 3–7 天</strong>口服止痛已足夠。建議以經驗證的評分工具（如 <strong>Feline Grimace Scale</strong>，已驗證可用於診間與居家評分）追蹤止痛效果。</p>
+
+      <h3>營養支持</h3>
+      <p>術後部分貓（尤其全口拔牙等大範圍處置）可能食慾不振，<strong>充分的術中與術後止痛是預防厭食的第一步</strong>；必要時可搭配食慾促進劑，特定情況下建議<strong>預防性</strong>放置食道造口管，而非等到厭食才被動處理。</p>
+
+      <h3>全身性抗生素使用原則</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">核心立場</div>
+        <p>常規牙科預防清潔或拔牙後<strong>通常不需要</strong>全身性抗生素；牙周病是牙菌斑誘發的發炎疾病，抗生素<strong>不能取代手術治療</strong>；多數齒根尖膿瘍只要清創感染組織即已足夠控制感染。指南支持落實抗微生物管理，呼應 2022 AAFP/AAHA 抗微生物管理指南，強調<strong>不要「以防萬一」用藥</strong>。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>時機</th><th>建議</th></tr></thead>
+          <tbody>
+            <tr><td>術前 1–2 週</td><td>牙周病是牙菌斑誘發的發炎疾病，<strong>不建議</strong>麻醉牙周治療前常規給藥；不會接受手術治療的病患也不適合用藥</td></tr>
+            <tr><td>誘導麻醉當下</td><td>目的是處理菌血症而非局部組織感染。<strong>免疫功能正常</strong>的病患菌血症會在 <span class="dose">20–30 分鐘</span>內自行清除；<strong>免疫抑制、主動脈狹窄、曾患心內膜炎或有心臟／骨科植入物</strong>的病患屬於血行性感染高風險族群，可考慮使用</td></tr>
+            <tr><td>術後 1–2 週</td><td>單純牙周清潔後<strong>絕對不需要</strong>；即使拔牙後也<strong>很少需要</strong>。僅在組織品質差（如慢性口腔炎、曾放療組織）或病患嚴重免疫抑制（化療中、糖尿病）等局部感染風險高的少數情況考慮</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">以上原則同樣適用於牙周病之外的其他貓口腔與牙科疾病的抗生素決策。</p>
+    </div>
+
+    <!-- GLOSSARY -->
+    <div class="section" id="section-glossary">
+      <div class="section-head"><div class="section-num">9</div><h2>縮寫對照表</h2></div>
+      <p class="section-desc">複習前可以先對照一下本頁用到的縮寫全名，前段為 AVDC 病歷紀錄標準縮寫，後段為一般臨床縮寫。</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td style="white-space:nowrap;"><strong>ABE</strong></td><td>Alveolar Bone Expansion（齒槽骨膨大）</td><td style="white-space:nowrap;"><strong>ATE</strong></td><td>Abnormal Tooth Extrusion（牙齒異常伸長／超伸長）</td></tr>
+            <tr><td><strong>CU</strong></td><td>Contact Mucositis／Ulceration（接觸性黏膜炎／潰瘍）</td><td><strong>DT／DT/P</strong></td><td>Deciduous Tooth／Persistent Deciduous Tooth（乳齒／滯留乳齒）</td></tr>
+            <tr><td><strong>EOG</strong></td><td>Eosinophilic Granuloma（嗜酸性肉芽腫）</td><td><strong>FX</strong></td><td>Fracture（牙齒或顎骨骨折）</td></tr>
+            <tr><td><strong>GE</strong></td><td>Gingival Enlargement（牙齦增生）</td><td><strong>OM</strong></td><td>Oral/Maxillofacial Mass（口腔／顱顏腫塊）</td></tr>
+            <tr><td><strong>ONF</strong></td><td>Oronasal Fistula（口鼻瘻管）</td><td><strong>PD</strong></td><td>Periodontal Disease（牙周病）</td></tr>
+            <tr><td><strong>TMJ</strong></td><td>Temporomandibular Joint（顳顎關節）</td><td><strong>TR</strong></td><td>Tooth Resorption（齒根吸收）</td></tr>
+            <tr><td><strong>X／XSS</strong></td><td>Closed／Open（Surgical）Extraction（單純／手術拔牙）</td><td><strong>AVDC</strong></td><td>American Veterinary Dental College（美國獸醫牙科學院）</td></tr>
+            <tr><td><strong>FCGS</strong></td><td>Feline Chronic Gingivostomatitis（貓慢性齒齦口腔炎）</td><td><strong>SDAI</strong></td><td>Stomatitis Disease Activity Index（口腔炎疾病活動指數）</td></tr>
+            <tr><td><strong>MAL</strong></td><td>Malocclusion（咬合不正）分級（MAL1–4）</td><td><strong>ASA</strong></td><td>American Society of Anesthesiologists（美國麻醉醫學會，此處為分級系統）</td></tr>
+            <tr><td><strong>MRONJ</strong></td><td>Medication-Related Osteonecrosis of the Jaw（藥物相關顎骨壞死）</td><td><strong>FOPS</strong></td><td>Feline Orofacial Pain Syndrome（貓口面部疼痛症候群）</td></tr>
+            <tr><td><strong>VOHC</strong></td><td>Veterinary Oral Health Council（獸醫口腔健康委員會）</td><td><strong>NMDA</strong></td><td>N-Methyl-D-Aspartate（NMDA 受體，麻醉止痛藥標的）</td></tr>
+            <tr><td><strong>CRI</strong></td><td>Constant Rate Infusion（持續輸注）</td><td><strong>IRIS</strong></td><td>International Renal Interest Society（國際腎臟權益學會，此處指其 CKD 分期）</td></tr>
+            <tr><td><strong>FelineVMA</strong></td><td colspan="3">Feline Veterinary Medical Association（貓科獸醫醫學會，本指南發布單位）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">以臨床情境呈現，先自行作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q1. 貓確診 IRIS Stage 3 CKD，要安排全口牙科評估與可能的拔牙，目前長期服用 benazepril（PO）與 amlodipine（PO）控制血壓。麻醉前這兩顆藥要怎麼安排？輸液又該怎麼調整？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">benazepril 屬 ACEI，應在麻醉前<strong>至少 24 小時停用</strong>；amlodipine 是<strong>例外</strong>，應照常繼續給藥，不需停用。輸液方面，因為是 IRIS Stage 3（≥Stage 3 都適用），建議術前至少 4 小時給予 3–5 mL/kg/h 的輸液，並在過程中監測輸液過量徵象，而非直接套用健康貓的 3 mL/kg/h。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q2. 3 歲貓上次拔牙診斷為 Type 1 齒根吸收，飼主這次回診時問：「上次拔完是不是就沒事了？之後還需要特別做什麼嗎？」會怎麼回答？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">齒根吸收目前沒有預防方法，一旦確診代表這隻貓有此體質，<strong>其他目前正常的牙齒未來仍可能出現新的吸收病灶</strong>。應建議<strong>每年</strong>安排 X 光複查追蹤其他牙齒，而不是拔完這一顆就當作處理完畢；居家可以留意進食行為改變、下顎顫動等疼痛徵象，但要提醒飼主很多病例在家中不會有明顯異常。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q3. 8 歲貓例行檢查發現單一顆牙齒局部牙齦紅腫合併明顯附著喪失，但同一隻貓其他牙齒的牙周狀況都相對輕微、分布均勻。這個「不成比例」的單一病灶會讓你優先懷疑什麼？下一步怎麼做？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">應提高警覺懷疑<strong>口腔腫瘤</strong>（尤其鱗狀細胞癌），而不是單純當作局部牙周病處理——指南明確把「局部、與其他牙位不成比例的牙齦炎合併附著喪失」列為容易被忽略、需要考慮腫瘤的警訊。下一步應安排麻醉下詳細檢查、X 光（或有條件時安排 CT）評估骨侵犯程度，並執行病灶內切片取得組織學診斷，而非直接當作單純牙周病治療。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q4. FCGS 貓完成後段口腔拔牙後恢復良好，飼主主動詢問是否要繼續吃一個療程的抗生素「保險一點」。會怎麼回應？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">不建議常規使用。術後 1–2 週的抗生素<strong>幾乎從不需要</strong>，即使是拔牙術後也很少有適應症，只有組織品質差（如慢性口腔炎本身）或病患嚴重免疫抑制等局部感染風險高的情況才考慮；FCGS 手術的核心治療是拔牙本身，不是抗生素，指南明確反對「以防萬一」的用藥心態，需要向飼主說明抗生素無法取代手術、也不會加速癒合。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q5. 貓完成大範圍拔牙手術，麻醉時間較長，恢復室觀察到體溫偏高。這跟術中使用的哪一類藥物可能有關？術後前幾小時的監測重點是什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">反彈性體溫過高（rebound hyperthermia）可能與 <strong>hydromorphone 等 opioid 藥物</strong>有關，牙科手術本身大量用水也容易造成術中失溫、恢復期反彈性體溫過高兩種情況都可能出現，需要主動監測而非只假設會失溫。由於<strong>逾 60% 的麻醉相關死亡集中在恢復室前 3 小時</strong>，此階段應密切監測體溫、呼吸與意識恢復狀況，並確認咽喉紗布已於拔管前移除。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q6. 糖尿病貓當天早上禁食後帶來動物醫院準備麻醉拔牙，量測隨機血糖為 260 mg/dL。今天的胰島素該怎麼給？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">260 mg/dL 落在 145–270 mg/dL（8–15 mmol/L）區間，應給<strong>平常劑量的一半</strong>（SC），而不是完全不給、也不是給全劑量。若血糖 &lt;145 mg/dL 則不給胰島素，若 &gt;270 mg/dL 才給全劑量；禁食病患絕對不能只因為「平常都這樣打」就給全劑量，以免造成麻醉中低血糖。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q7. 拔除貓的下顎第一大臼齒（409）後約一週回診，該處出現一顆邊界清楚的粉紅色增生組織，貓活動力食慾都正常。這最可能是什麼？跟哪個解剖構造的創傷有關？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">最可能是<strong>化膿性肉芽腫（pyogenic granuloma）</strong>，是拔牙後常見的併發症，尤其好發於下顎第一大臼齒拔除處，可能與手術過程中<strong>舌下唾液腺（lingual molar salivary gland）</strong>受到創傷有關。貓整體狀況正常的情況下，這通常是局部反應而非緊急感染徵象，但仍應由獸醫師評估病灶是否需要處理，並與其他增生性病灶（如腫瘤）做鑑別。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        本頁內容整理自 2025 FelineVMA 貓口腔健康與牙科照護指南，僅供住院醫師教學複習使用，實際治療決策需依個別病患狀況由主治獸醫師判斷，不作為單獨診斷或治療依據。
+      </footer>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="section" id="section-references">
+      <div class="section-head"><div class="section-num">11</div><h2>參考資料</h2></div>
+      <p class="section-desc">主要來源與指南全文中提及、供延伸閱讀的其他共識指南。</p>
+      <ul style="margin:0;padding-left:1.2em;line-height:1.9;">
+        <li>Lobprise HB, St Denis K, Anderson JG, Hoyer N, Fiani N, Yaroslav J. (2025). 2025 FelineVMA feline oral health and dental care guidelines. <i>Journal of Feline Medicine and Surgery</i>, 27, 1–29. <a href="https://doi.org/10.1177/1098612X251398793" target="_blank" rel="noopener">https://doi.org/10.1177/1098612X251398793</a></li>
+        <li>Niemiec B, Gawor J, Nemec A, et al. (2020). World Small Animal Veterinary Association global dental guidelines. <i>Journal of Small Animal Practice</i>, 61, 395–403.</li>
+        <li>Bellows J, Berg ML, Dennis S, et al. (2019). 2019 AAHA dental care guidelines for dogs and cats. <i>Journal of the American Animal Hospital Association</i>, 55, 49–69.</li>
+        <li>Rodan I, Dowgray N, Carney HC, et al. (2022). 2022 AAFP/ISFM cat friendly veterinary interaction guidelines: approach and handling techniques. <i>Journal of Feline Medicine and Surgery</i>, 24, 1093–1132.</li>
+        <li>2022 AAHA pain management guidelines for dogs and cats. <i>Journal of the American Animal Hospital Association</i>, 2022.</li>
+        <li>2022 AAFP/AAHA antimicrobial stewardship guidelines.</li>
+        <li>2022 ISFM consensus guidelines on the management of acute pain in cats. <a href="https://go.jfms.com/Acute_Pain_GLs" target="_blank" rel="noopener">go.jfms.com/Acute_Pain_GLs</a></li>
+      </ul>
+      <p style="font-size:11.5px;color:var(--text3);">完整逐條參考文獻請見原文 PDF 第 26–29 頁。</p>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  overview: '總覽與照護光譜',
+  periodontal: '牙周病與分期系統',
+  otherdisease: '其他常見口腔疾病',
+  assessment: '患者評估與檢查',
+  anesthesia: '麻醉前用藥與麻醉照護',
+  surgery: '手術治療與拔牙照護',
+  postop: '術後止痛、營養與抗生素原則',
+  glossary: '縮寫對照表',
+  quiz: '練習題',
+  references: '參考資料'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

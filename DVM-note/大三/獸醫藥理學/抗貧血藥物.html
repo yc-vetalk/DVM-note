@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：抗貧血藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">抗貧血藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">抗貧血藥物 Antianemic Agents</h1>
+      <p class="page-subtitle">紅血球生成與鐵代謝生理、造血輔助營養素（B6／銅／B12／葉酸）、貧血分類與對應治療策略、鐵劑製劑與中毒處置、Erythropoietin整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三・不分上下學期）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout CV5 Antianemics）為主；教科書核對：Handbook of Veterinary Pharmacology Ch.12（Erythropoietin、Androgens、Danazol）、Veterinary Pharmacology and Therapeutics 10th ed.（Acetylcysteine機轉）與 Handbook of Veterinary Pharmacology Ch.19（貓Acetaminophen毒性）；鐵劑製劑細節、Deferoxamine、維生素B6／銅／B12／葉酸的生理與投予途徑，兩本教科書皆查無對應專章內容，此部分維持講義原文、未另行核對</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-25</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記；教科書部分核對（詳見資料來源欄）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">生理基礎</div>
+    <a onclick="showSection('physiology')" id="nav-physiology"><span class="nav-icon">🩸</span> 紅血球生成與鐵代謝</a>
+    <a onclick="showSection('hematinics')" id="nav-hematinics"><span class="nav-icon">🥗</span> 造血輔助營養素</a>
+    <div class="section-label" style="margin-top:8px;">貧血分類與治療</div>
+    <a onclick="showSection('anemiaclass')" id="nav-anemiaclass"><span class="nav-icon">📋</span> 貧血定義與分類</a>
+    <a onclick="showSection('bloodloss')" id="nav-bloodloss"><span class="nav-icon">🩹</span> 失血性貧血治療</a>
+    <a onclick="showSection('hemolytic')" id="nav-hemolytic"><span class="nav-icon">🧪</span> 溶血性貧血治療</a>
+    <div class="section-label" style="margin-top:8px;">鐵劑與EPO</div>
+    <a onclick="showSection('irontx')" id="nav-irontx"><span class="nav-icon">💉</span> 鐵劑治療與中毒處置</a>
+    <a onclick="showSection('epo')" id="nav-epo"><span class="nav-icon">🧬</span> Erythropoietin</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這份講義只有12張投影片，內容相對精簡，但邏輯很完整，主線是<strong>「貧血怎麼分類，就決定怎麼治療」</strong>。一開始先建立紅血球生成與鐵代謝的生理基礎——鐵怎麼被吸收、儲存、運輸，以及血基質合成需要哪些輔助營養素（維生素B6、銅、維生素B12、葉酸），這些是理解後面「為什麼缺鐵/缺B12會貧血」的地圖。接著進入貧血的臨床分類：<strong>失血性（血量減少但成分正常）</strong>與<strong>溶血性／生成減少性（血量可能正常但紅血球本身有問題）</strong>，這兩類的治療邏輯完全不同——失血性貧血的重點是「先補血量、再補鐵」，溶血性貧血的重點是「先找出破壞紅血球的原因並移除、再用抗氧化劑或免疫抑制劑控制」。最後收在兩個具體的治療工具：<strong>鐵劑</strong>（口服／注射兩種給藥途徑，以及鐵中毒的解毒劑Deferoxamine）與<strong>Erythropoietin</strong>（腎臟分泌的內生性造血刺激素，人類重組製劑用於犬貓慢性腎病貧血）。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('physiology')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">生理基礎</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">鐵代謝與Hb合成</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('hematinics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">造血輔助營養素</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">B6／銅／B12／葉酸</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('anemiaclass')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">貧血分類與治療</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">失血性／溶血性</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('irontx')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">鐵劑與EPO</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">具體治療藥物</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>鳥類與爬蟲類的成熟紅血球有核，壽命可達600–1400天</strong>，遠長於哺乳動物——這是物種比較題常考的特徵。</li>
+          <li><strong>鐵的吸收發生在胃與十二指腸，Fe²⁺遠比Fe³⁺容易被吸收</strong>：胃酸（低pH）促進吸收、維生素C（抗氧化）促進吸收（幫助維持Fe²⁺型態），磷酸鹽、制酸劑、咖啡、茶則會抑制吸收——這組「促進vs.抑制因子」是臨床衛教（例如建議鐵劑搭配維生素C、避免與制酸劑併服）的生理基礎。</li>
+          <li><strong>維生素B6缺乏會造成鐵沉積在紅血球前驅細胞（sideroblasts），稱為鐵胚血球性貧血（sideroblastic anemia）</strong>：Isoniazid、Pyrazinamide是B6拮抗劑，Chloramphenicol與鉛中毒也會造成此類貧血，這是藥物性貧血常考的機轉。</li>
+          <li><strong>貧血的分類決定治療方向：</strong>失血性（急性需先控制出血＋補充血容積，慢性需補鐵）vs. 溶血性（找出並移除病因＋抗氧化劑／免疫抑制劑）vs. 生成減少性（缺鐵＝小球低色素；缺B12/葉酸＝巨球高色素）——這是本頁最重要的分類地圖，也是選藥的第一步。</li>
+          <li><strong>急性失血性休克的輸液順序：</strong>先控制出血，再給高張晶體液（7.2% NaCl）或合成膠體液（Dextran-40/70、pentastarch、hetastarch），若持續出血才進入全血／濃縮紅血球輸血——先補血容積、不是先補鐵，鐵劑對急性失血沒有立即幫助。</li>
+          <li><strong>維生素B12缺乏可用「神經病變」與其他貧血作鑑別：</strong>軸突退化造成的譫妄、麻木、步態異常、手腳刺痛感，是B12缺乏特有而葉酸缺乏沒有的症狀（葉酸缺乏的其他表現與B12相同）。</li>
+          <li><strong>鐵中毒的解毒劑Deferoxamine是鐵螯合劑，100 mg可結合8.5 mg鐵</strong>，用於急性鐵中毒（可能造成胃黏膜壞死、低血壓、休克）合併洗胃使用。</li>
+          <li><strong>犬貓使用人類重組Erythropoietin治療慢性腎病貧血時，可能產生抗體導致治療失效</strong>——這是異種蛋白製劑的通病，也是講義特別強調「犬貓專用重組EPO有其必要性」的原因。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物／營養素一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。部分項目（維生素B6、銅、維生素B12、葉酸）講義僅說明生理機轉與缺乏症，未明確提供治療投予途徑，途徑欄如實標註「講義未提供」，不代入一般藥理學印象。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物／營養素</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>維生素B6<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Pyridoxine</div></td><td>ALA synthase輔因子（glycine+succinyl-CoA合成aminolevulinic acid，血基質合成第一步）</td><td>缺乏致鐵胚血球性貧血（sideroblastic anemia）；Isoniazid／Pyrazinamide為B6拮抗劑所致藥物性貧血可補充改善；★講義未提供補充途徑</td><td class="drug-locations"><a href="#drug-vitaminb6" class="drug-link">造血輔助營養素</a></td></tr>
+            <tr><td>銅<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Copper／Ceruloplasmin</div></td><td>Ceruloplasmin為ferrooxidase，將Fe²⁺氧化為Fe³⁺供transferrin運輸</td><td>缺乏致低色素性貧血（腸道繞道手術、TPN病患、營養不良嬰兒）；講義未提供補充途徑</td><td class="drug-locations"><a href="#drug-copper" class="drug-link">造血輔助營養素</a></td></tr>
+            <tr><td>維生素B12<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Cyanocobalamin</div></td><td>DNA合成、上皮細胞增生、髓鞘維持所需輔因子；吸收需intrinsic factor</td><td>缺乏致巨球性貧血並伴隨神經病變（軸突退化，區別於葉酸缺乏）；講義未提供補充途徑</td><td class="drug-locations"><a href="#drug-cobalamin" class="drug-link">造血輔助營養素</a></td></tr>
+            <tr><td>葉酸<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Folic Acid</div></td><td>DNA合成輔酶前驅物；Aminopterin、Methotrexate為葉酸拮抗劑</td><td>缺乏致巨球性貧血（症狀同B12但無神經病變）；孕期、腫瘤等需求增加時風險較高；講義未提供補充途徑</td><td class="drug-locations"><a href="#drug-folicacid" class="drug-link">造血輔助營養素</a></td></tr>
+            <tr><td>高張晶體液／合成膠體液<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">7.2% NaCl、Dextran、Hetastarch等</div></td><td>提高血管內滲透壓／擴張血容積，非直接造血</td><td>★急性失血性休克第一線；<strong>IV</strong>給藥，需先控制出血；持續出血才轉全血／濃縮紅血球輸血</td><td class="drug-locations"><a href="#drug-fluidresuscitation" class="drug-link">失血性貧血治療</a></td></tr>
+            <tr><td>N-Acetylcysteine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">NAC</div></td><td>Glutathione前驅物，清除氧化自由基，保護RBC免於氧化損傷</td><td>★溶血性貧血合併氧化性藥物中毒（如貓Acetaminophen毒性）；<strong>IV</strong>給藥控制氧化性藥物損傷</td><td class="drug-locations"><a href="#drug-acetylcysteine" class="drug-link">溶血性貧血治療</a></td></tr>
+            <tr><td>免疫抑制劑<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Corticosteroids、Cyclophosphamide、Azathioprine</div></td><td>抑制免疫系統對自身紅血球的攻擊</td><td>★免疫媒介性溶血性貧血（IMHA）；講義未細分各藥途徑與劑量，僅列為藥物類別</td><td class="drug-locations"><a href="#drug-immunosuppressants" class="drug-link">溶血性貧血治療</a></td></tr>
+            <tr><td>Danazol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">教科書補充</div></td><td>雄性素受體部分致效劑，降低抗體與單核吞噬系統Fc受體的親和力</td><td>犬IMHA／免疫媒介性血小板減少症輔助用藥（對類固醇反應不佳時）；<strong>PO</strong> 5 mg/kg BID，可隨病情減量</td><td class="drug-locations"><a href="#drug-danazol" class="drug-link">溶血性貧血治療</a></td></tr>
+            <tr><td>口服鐵劑<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Ferrous sulfate／lactate／gluconate／fumarate、Ferric chloride／methionine</div></td><td>補充外源性鐵供血基質合成</td><td>★慢性失血或缺鐵性貧血；<strong>PO</strong>給藥；長期使用可致便秘、黑便，急性過量可致GI壞死</td><td class="drug-locations"><a href="#drug-oraliron" class="drug-link">鐵劑治療</a></td></tr>
+            <tr><td>注射型鐵劑<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Iron dextran complex、Ferric hydroxide</div></td><td>補充外源性鐵，繞過腸胃道吸收限制</td><td>★仔豬缺鐵性貧血預防等無法經口補鐵情境；<strong>IM／SC（parenteral）</strong>給藥</td><td class="drug-locations"><a href="#drug-parenteraliron" class="drug-link">鐵劑治療</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Deferoxamine</td><td>鐵螯合劑（iron chelating agent），100 mg可結合8.5 mg鐵</td><td>★急性鐵中毒解毒劑，合併洗胃使用；講義未提供投予途徑，本頁如實標註未查得依據</td><td class="drug-locations"><a href="#drug-deferoxamine" class="drug-link">鐵劑治療</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Erythropoietin<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">EPO、Epoetin Alfa</div></td><td>結合EPO受體，活化Janus kinase路徑，刺激紅血球前驅細胞分化增生</td><td>★犬貓慢性腎衰竭相關貧血；<strong>SC／IV</strong>注射給藥（人用重組蛋白製劑）；可能誘發抗體致治療失效</td><td class="drug-locations"><a href="#drug-epoetinalfa" class="drug-link">Erythropoietin</a></td></tr>
+            <tr><td>合成同化雄性素<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Stanozolol、Boldenone；教科書補充</div></td><td>促進內生性EPO分泌，間接刺激紅血球生成</td><td>慢性腎衰竭、慢性關節炎等慢性病貧血之較舊治療選項；Stanozolol <strong>PO</strong>每日或<strong>IM</strong>懸液每週；Boldenone <strong>IM</strong>（油劑）每3週</td><td class="drug-locations"><a href="#drug-anabolicandrogens" class="drug-link">Erythropoietin</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PHYSIOLOGY -->
+    <div class="section" id="section-physiology">
+      <div class="section-head"><div class="section-num">3</div><h2>紅血球生成與鐵代謝生理 Erythropoiesis &amp; Iron Metabolism</h2></div>
+      <p class="section-desc">在談貧血分類與用藥之前，先建立紅血球從哪裡來、鐵怎麼被吸收與循環利用的基礎地圖，這是後面理解「為什麼缺鐵/缺輔助營養素會貧血」的前提。</p>
+
+      <h3>紅血球生成部位 Erythropoiesis Sites</h3>
+      <p>主要部位：<strong>骨髓</strong>；新生兒與貧血成年動物：也可能發生於脾臟與肝臟（髓外造血）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">物種比較：鳥類與爬蟲類</div>
+        <p><strong>鳥類與爬蟲類的成熟紅血球有核</strong>，壽命長達<strong>600–1400天</strong>，遠長於哺乳動物紅血球的壽命（犬約110–120天），這是物種比較常考的特徵。</p>
+      </div>
+      <p><strong>紅血球破壞：</strong>由網狀內皮系統（reticuloendothelial system，即單核球-巨噬細胞系統）負責，包含單核球、游走巨噬細胞、骨髓/脾臟/淋巴結中的固定組織巨噬細胞，以及少數特化內皮細胞，是分布於全身組織的廣泛吞噬系統。</p>
+
+      <h3 id="drug-hemesynthesis">血基質合成 Hemoglobin Synthesis</h3>
+      <p>血紅素（Hemoglobin）＝<strong>heme（血基質）＋globin（球蛋白鏈）</strong>：heme是由卟啉環（porphyrin ring）與中心Fe²⁺構成，Fe²⁺以配位鍵與近端組胺酸（Proximal His F8）結合，氧氣則結合在遠端組胺酸（Distal His E7）形成的口袋位置。血基質合成的第一步需要<strong>維生素B6作為ALA synthase的輔因子</strong>（見下節）。</p>
+
+      <h3 id="drug-ironmetabolismflow">鐵的吸收、儲存與循環<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">飲食攝入 Fe 10–20 mg/day</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">胃（HCl，Fe³⁺→Fe²⁺）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">十二指腸黏膜細胞吸收（Fe²⁺，實際吸收約1 mg/day，其餘由糞便排出）</div>
+      </div>
+      <div class="flow" style="margin-top:8px;">
+        <div class="flow-node">黏膜細胞內：Apoferritin + Fe = Ferritin</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">一部分留存為儲存鐵（Storage）；一部分進入血液</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">血液：Transferrin + Fe = Fe-Transferrin</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">一部分供Fe酵素利用；一部分送至骨髓</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">骨髓：紅血球生成（Heme + globin = Hemoglobin）→ RBC</div>
+      </div>
+      <div class="flow" style="margin-top:8px;">
+        <div class="flow-node">RBC老化 → 破壞與回收（Destruction &amp; recycle）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">大部分鐵回收再利用（回到Transferrin循環）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">少部分經糞便、尿液、汗液流失（約1 mg/day，與吸收量平衡）</div>
+      </div>
+
+      <h3>鐵的吸收調節因子</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">促進吸收</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li><strong>Fe²⁺（亞鐵）遠比Fe³⁺（三價鐵）容易被吸收</strong>——鐵鹽須先游離化（ionized）才能吸收</li>
+            <li>胃酸／低pH環境</li>
+            <li><strong>抗壞血酸（維生素C，作為抗氧化劑）</strong>促進吸收（幫助維持鐵在Fe²⁺型態）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">抑制吸收</div>
+          <ul style="margin:0;padding-left:1.2em;">
+            <li>無機或有機磷酸鹽</li>
+            <li>制酸劑</li>
+            <li>咖啡、茶</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 吸收部位為胃與小腸，<strong>以十二指腸吸收量最大</strong>。</p>
+
+      <h3>鐵相關蛋白質</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>蛋白質</th><th>特性</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Transferrin</strong></td><td>76 kDa球蛋白</td><td>血液循環中運輸鐵</td></tr>
+            <tr><td><strong>Ferritin</strong></td><td>Apoferritin（440 kDa）＋鐵＝Ferritin</td><td>鐵於肝臟、脾臟等組織的儲存型式</td></tr>
+            <tr><td><strong>Hemosiderin</strong></td><td>Ferritin部分降解後的型式</td><td>長期鐵過量時堆積的儲存型式</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>人體鐵含量分布（講義原文為人類數據）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>數值／比例</th></tr></thead>
+          <tbody>
+            <tr><td>總鐵量</td><td>約5 g</td></tr>
+            <tr><td>血紅素（Hemoglobin）</td><td>60–70%</td></tr>
+            <tr><td>肌紅素（Myohemoglobin）</td><td>3–5%</td></tr>
+            <tr><td>酵素（cytochrome c等）</td><td>0.1%</td></tr>
+            <tr><td>Transferrin</td><td>0.1%</td></tr>
+            <tr><td>Ferritin</td><td>15%</td></tr>
+            <tr><td>其他</td><td>~10%</td></tr>
+            <tr><td>每日吸收量</td><td>1 mg/day</td></tr>
+            <tr><td>每日流失量</td><td>1 mg/day</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充說明</div>
+        <p>講義此表格標題為「Human body」，數值為人類參考值；一般生理原則（鐵主要儲存於血紅素、吸收量與流失量在生理狀況下維持動態平衡）在哺乳動物間大致相通，但物種間絕對數值可能不同，講義未提供犬貓等伴侶動物的對應數字，臨床解讀時不宜直接套用人類數值。</p>
+      </div>
+    </div>
+
+    <!-- HEMATINICS -->
+    <div class="section" id="section-hematinics">
+      <div class="section-head"><div class="section-num">4</div><h2>造血輔助營養素 Hematinic Nutrients</h2></div>
+      <p class="section-desc">除了鐵，血基質與DNA合成還需要幾個輔助營養素——缺乏任何一個都可能造成貧血，且各有特徵性的臨床表現可作鑑別。</p>
+
+      <h3 id="drug-vitaminb6">維生素B6 Vitamin B6（Pyridoxine）<span class="tag tag-exam">重要</span></h3>
+      <p>作為<strong>glycine與succinyl-CoA合成aminolevulinic acid（ALA）的輔因子</strong>，是血基質合成的第一步。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">缺乏後果：鐵胚血球性貧血</div>
+        <p>B6缺乏會造成<strong>血紅素合成受損，且鐵沉積在紅血球前驅細胞內</strong>，這些細胞稱為<strong>sideroblasts（鐵胚血球）</strong>。<strong>遺傳性鐵胚血球性貧血</strong>為X染色體隱性遺傳；<strong>藥物誘發性鐵胚血球性貧血</strong>常見於：Isoniazid、Pyrazinamide（皆為B6拮抗劑）、Chloramphenicol、鉛中毒。補充B6可改善多達50%人類患者的造血功能。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義未提供B6補充治療時的投予途徑與劑量，本頁不另行代入。</p>
+
+      <h3 id="drug-copper">銅 Copper（Ceruloplasmin）</h3>
+      <p>銅是氧化酶（cytochrome c oxidase等）與超氧歧化酶（superoxide dismutase）的組成成分。<strong>Ceruloplasmin（血漿α2-球蛋白）</strong>結合銅，作為<strong>ferrooxidase</strong>將ferritin中的Fe²⁺氧化為Fe³⁺，以供transferrin運輸——這是銅與鐵代謝連動的機轉關鍵。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">缺乏後果：低色素性貧血</div>
+        <p>銅缺乏可能導致低色素性貧血，常見情境：<strong>腸道繞道手術（intestinal bypass surgery）</strong>、營養不良嬰兒、接受全靜脈營養（TPN）的病患；機轉可能與粒線體血基質生成減少有關。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義未提供銅補充治療時的投予途徑與劑量，本頁不另行代入。</p>
+
+      <h3 id="drug-cobalamin">維生素B12 Vitamin B12（Cyanocobalamin）<span class="tag tag-exam">重要</span></h3>
+      <p>參與造血作用、上皮細胞生成、髓鞘（myelin）維持與DNA合成；由微生物合成，<strong>來源為動物性食物</strong>（肉類、肝臟、魚、蛋）；吸收<strong>需要intrinsic factor（內在因子）</strong>；體內儲存量2–5 mg，其中約1 mg儲存於肝臟。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">與其他貧血的鑑別點：神經病變</div>
+        <p>B12缺乏性貧血的特徵是<strong>合併神經病變</strong>（中樞與周邊神經系統軸突退化），臨床表現包括譫妄、麻木、步態困難、手腳刺痛感——這是與其他貧血（包含葉酸缺乏）鑑別的關鍵特徵，因為葉酸缺乏「除了神經病變之外」症狀與B12缺乏相同。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義未提供B12補充治療時的投予途徑與劑量，本頁不另行代入。</p>
+
+      <h3 id="drug-folicacid">葉酸 Folic Acid</h3>
+      <p>化學名Pteroylmonoglutamic acid；作為輔酶前驅物，在<strong>DNA合成</strong>中扮演主要角色；由許多細菌合成；<strong>來源為深綠色蔬菜</strong>（花椰菜、蘆筍、萵苣等）；體內儲存量5–10 mg，約1/3儲存於肝臟；<strong>懷孕、腫瘤等需求量增加的狀況下風險較高</strong>。<strong>葉酸拮抗劑：Aminopterin、Methotrexate</strong>（皆為抗腫瘤／免疫調節藥物，機轉上會誘發葉酸缺乏性貧血）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">與B12缺乏的異同</div>
+        <p>葉酸缺乏症狀<strong>與B12缺乏相同，唯獨不會出現神經病變</strong>——這是臨床鑑別B12缺乏vs.葉酸缺乏的重點。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義未提供葉酸補充治療時的投予途徑與劑量，本頁不另行代入。</p>
+    </div>
+
+    <!-- ANEMIA CLASSIFICATION -->
+    <div class="section" id="section-anemiaclass">
+      <div class="section-head"><div class="section-num">5</div><h2>貧血定義與分類 Anemia: Definition &amp; Classification</h2></div>
+      <p class="section-desc">貧血本身不是單一疾病，而是一組症候群，正確分類是選對治療策略的前提。</p>
+
+      <h3>定義</h3>
+      <ul>
+        <li>循環紅血球總數減少</li>
+        <li>血紅素濃度降低</li>
+        <li>血球容積比（Hematocrit）降低</li>
+      </ul>
+
+      <h3>症狀與徵象</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">氧氣運輸不足所致</div>
+          <p>疲勞、昏厥（syncope）、呼吸困難（dyspnea）</p>
+        </div>
+        <div class="card">
+          <div class="card-title">血容積減少所致</div>
+          <p>姿勢性低血壓（postural hypotension）；反射性心輸出量增加（心跳加速）</p>
+        </div>
+      </div>
+
+      <h3 id="drug-anemiaclassification">依病因分類<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>大類</th><th>子分類</th><th>特徵／病因</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="2"><strong>紅血球流失或破壞</strong></td><td>出血（Hemorrhage）</td><td>急性或慢性失血</td></tr>
+            <tr><td>溶血（Hemolysis）</td><td>寄生蟲、藥物所致紅血球破壞</td></tr>
+            <tr><td rowspan="3"><strong>紅血球生成減少</strong></td><td>低色素性貧血</td><td>缺鐵性貧血</td></tr>
+            <tr><td>巨球性貧血</td><td>高色素、大球性；維生素B12與葉酸缺乏；惡性貧血（pernicious anemia，B12相關）</td></tr>
+            <tr><td>骨髓功能異常</td><td>骨髓本身生成功能受損</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">為什麼分類很重要</div>
+        <p>這三大類的治療邏輯完全不同：<strong>流失性/破壞性貧血</strong>需要先處理「量」的問題（補充血容積、找出並移除破壞紅血球的原因）；<strong>生成減少性貧血</strong>需要處理「質」的問題（補充缺乏的原料——鐵、B12、葉酸）。下面兩節分別展開失血性與溶血性貧血的治療，鐵劑與造血輔助營養素的補充則整合在第8、9節。</p>
+      </div>
+    </div>
+
+    <!-- BLOOD LOSS ANEMIA -->
+    <div class="section" id="section-bloodloss">
+      <div class="section-head"><div class="section-num">6</div><h2>失血性貧血的治療 Treatment of Blood Loss Anemia</h2></div>
+      <p class="section-desc">急性與慢性失血的治療重點不同：急性失血是搶救血容積的急症，慢性失血則要處理病因＋補充鐵與造血原料。</p>
+
+      <h3 id="drug-fluidresuscitation">急性出血 Acute Hemorrhage<span class="tag tag-exam">重要</span></h3>
+      <p>低血容積可能導致休克，治療目標是<strong>血容積補充（blood volume repletion）</strong>：</p>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>控制出血</strong>（先處理病因，不是先補液）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>高張晶體液：7.2% NaCl（IV）</strong>。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>合成膠體液（IV）：</strong>生理食鹽水搭配Dextran-40、Dextran-70、pentastarch或hetastarch。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">若持續出血：<strong>全血輸血、濃縮紅血球輸血，或聚合血紅素溶液（polymerized hemoglobin solutions）</strong>。</div>
+      </div>
+
+      <h3>慢性出血 Chronic Hemorrhage</h3>
+      <ul>
+        <li><strong>治療病因</strong>（找出並處理慢性出血源，如腸胃道寄生蟲、潰瘍）</li>
+        <li>輸血</li>
+        <li><strong>鐵劑與其他造血相關營養素補充</strong>（見第8節）</li>
+        <li>循環性休克時的血容積擴充：全血、聚合血紅素、膠體或晶體溶液</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">急性vs.慢性的治療重點差異</div>
+        <p><strong>急性失血優先搶救血容積</strong>（晶體/膠體/輸血），鐵劑對急性失血沒有立即幫助（急性失血當下紅血球本身是正常的，只是數量不足，問題在容積不在原料）；<strong>慢性失血則需處理病因並補充鐵</strong>，因為長期慢性失血會逐漸耗盡體內鐵儲存，最終演變為缺鐵性貧血。</p>
+      </div>
+    </div>
+
+    <!-- HEMOLYTIC ANEMIA -->
+    <div class="section" id="section-hemolytic">
+      <div class="section-head"><div class="section-num">7</div><h2>溶血性貧血的治療 Treatment of Hemolytic Anemia</h2></div>
+      <p class="section-desc">溶血性貧血的核心治療邏輯是「移除病因＋保護尚未被破壞的紅血球＋必要時抑制免疫系統」。</p>
+
+      <h3>移除病因與支持性療法</h3>
+      <ul>
+        <li><strong>找出並移除致病原因</strong>（寄生蟲、藥物、毒素等）</li>
+        <li><strong>支持性療法：</strong>輸血</li>
+      </ul>
+
+      <h3 id="drug-acetylcysteine">抗氧化劑：預防紅血球持續氧化損傷<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>抗氧化劑</th><th>途徑／用法</th><th>機轉／用途</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Acetylcysteine</strong></td><td><strong>IV</strong></td><td>Glutathione前驅物，控制氧化性藥物（如acetaminophen）造成的持續損傷</td></tr>
+            <tr><td>半胱胺酸（Cysteine）</td><td>飲食補充（<strong>PO</strong>）</td><td>促進glutathione合成，預防氧化損傷</td></tr>
+            <tr><td>維生素A、C、E</td><td>講義未細分途徑</td><td>抗氧化，保護紅血球</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Acetylcysteine的機轉與最常見適應症</div>
+        <p>核對確認：Acetylcysteine可提升glutathione濃度，作為氧自由基的清除劑（scavenger），這個特性使其被用於治療特定藥物中毒，<strong>最常見的情境正是貓的acetaminophen（普拿疼）毒性</strong>。（核對自 Veterinary Pharmacology and Therapeutics 10th ed.，呼吸系統用藥Mucolytics章節）</p>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">教科書補充：貓Acetaminophen毒性的機轉與處置細節</div>
+        <p>核對確認：貓缺乏glucuronyl transferase，acetaminophen無法經glucuronide路徑代謝，經phase I代謝產生的毒性代謝物需由glutathione結合清除，過量時會<strong>耗竭glutathione清除系統</strong>；<strong>變性血色素血症（methemoglobinemia）是最常見的毒性表現</strong>。值得注意：<strong>Methylene blue（人醫常用的變性血色素血症解毒劑）在貓身上效果有限</strong>（貓的血紅素比其他物種更容易發生氧化變性），臨床上<strong>可改用抗壞血酸（維生素C）作為還原劑</strong>。（核對自 Handbook of Veterinary Pharmacology Ch.19 藥物交互作用與不良反應）</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Acetaminophen對貓的禁忌與NAPQI毒性機轉完整說明，見 <a href="NSAID非類固醇消炎藥.html#drug-acetaminophen">NSAID非類固醇消炎藥：Acetaminophen</a>。</p>
+
+      <h3 id="drug-immunosuppressants">免疫媒介性紅血球破壞：免疫抑制劑</h3>
+      <p>用於免疫媒介性紅血球破壞（immune-mediated RBC destruction）：<strong>Corticosteroids、Cyclophosphamide、Azathioprine</strong>。講義僅列出藥物類別，未提供本頁範圍內的個別劑量與途徑細節。</p>
+
+      <h3 id="drug-danazol">教科書補充：Danazol——類固醇反應不佳時的輔助選項</h3>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充（講義未提及）</div>
+        <p>核對發現：<strong>Danazol</strong>是雄性素受體部分致效劑，主要用作<strong>犬免疫媒介性血小板減少症與免疫媒介性溶血性貧血（IMHA）的輔助治療</strong>，特別是病患對<strong>糖皮質類固醇及其他免疫抑制劑反應不佳（refractory）</strong>時；機轉推測與<strong>降低抗體對單核吞噬系統Fc受體的親和力</strong>有關；給藥方式：<strong>PO 5 mg/kg，一天兩次（BID）</strong>，待病患改為低劑量隔日給予Prednisone/Prednisolone後可逐漸減量。（核對自 Handbook of Veterinary Pharmacology Ch.12 Endocrine Pharmacology，Androgens章節）</p>
+      </div>
+    </div>
+
+    <!-- IRON THERAPY -->
+    <div class="section" id="section-irontx">
+      <div class="section-head"><div class="section-num">8</div><h2>鐵劑治療與中毒處置 Iron Therapy &amp; Toxicity Management</h2></div>
+      <p class="section-desc">鐵劑依給藥途徑分為口服與注射兩大類，臨床選擇取決於病患能否經腸道吸收；鐵劑本身安全範圍有限，急性過量需要專門的解毒流程。</p>
+
+      <h3 id="drug-oraliron">口服鐵劑 Oral Iron Preparations<span class="tag tag-exam">重要</span></h3>
+      <p>講義列出的口服鐵劑（partial list）：<strong>Ferrous sulfate、Ferrous lactate、Ferrous gluconate、Ferrous fumarate、Ferric chloride、Ferric methionine</strong>（原始投影片中Ferrous sulfate重複列出兩次，應為投影片排版所致，不影響藥物種類判讀）。<strong>途徑：PO</strong>，是慢性失血或缺鐵性貧血最常用的補鐵方式。</p>
+
+      <h3 id="drug-parenteraliron">注射型鐵劑 Parenteral Iron Preparations</h3>
+      <p>講義列出的注射型鐵劑：<strong>Iron dextran complex、Ferric hydroxide</strong>，以及多種供獸醫使用的複合維生素-礦物質「shot-gun」注射製劑。<strong>途徑：注射（parenteral，常見為IM／SC）</strong>，適用於無法經口服吸收鐵的情境（例如仔豬先天鐵儲存量低、母乳含鐵量不足所致的仔豬缺鐵性貧血，是Iron dextran複合物注射劑最經典的臨床應用場景之一）。</p>
+
+      <h3 id="drug-ironsideeffects">鐵劑副作用<span class="tag tag-exam">重要</span></h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">急性毒性</div>
+          <p>腸胃道症狀：噁心、嘔吐、腹瀉。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">長期使用</div>
+          <p>便秘；糞便呈黑色（正常鐵劑反應，非病理出血徵象，但需與黑便性腸胃道出血作鑑別）。</p>
+        </div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">慢性毒性：hemochromatosis</div>
+        <p>長期鐵過量可致<strong>hemochromatosis（血色素沉積症）</strong>，損傷儲鐵器官——肝臟、腎上腺、胃等。</p>
+      </div>
+
+      <h3 id="drug-deferoxamine">急性鐵中毒處置：Deferoxamine<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node danger">急性鐵過量</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">胃黏膜壞死、低血壓、休克</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">洗胃（Gastric lavage）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Deferoxamine（鐵螯合劑）：100 mg可結合8.5 mg鐵</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義未提供Deferoxamine在此適應症下的實際投予途徑，兩本核對教科書亦查無對應章節，本頁如實標註未查得依據，不代入一般臨床印象。</p>
+    </div>
+
+    <!-- EPO -->
+    <div class="section" id="section-epo">
+      <div class="section-head"><div class="section-num">9</div><h2>紅血球生成刺激劑：Erythropoietin</h2></div>
+      <p class="section-desc">當缺乏原料（鐵、B12、葉酸）都不是問題，但腎臟分泌的造血刺激訊號本身不足時（如慢性腎病），治療邏輯要換成補充外源性EPO。</p>
+
+      <h3>紅血球生成的負回饋調節<span class="tag tag-exam">重要</span></h3>
+      <p>刺激因子：<strong>低血容積、貧血、低血紅素、血流不佳</strong>（皆代表氧氣運輸能力下降）。</p>
+      <div class="flow">
+        <div class="flow-node danger">血氧攜帶能力下降（低血容積／貧血／低Hb／血流不佳）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">腎臟感應缺氧</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">分泌Erythropoietin（EPO）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">刺激骨髓中發育中的紅血球前驅細胞</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">循環紅血球增加 → 血氧攜帶能力恢復 → 解除刺激（負回饋）</div>
+      </div>
+
+      <h3 id="drug-epoetinalfa">Erythropoietin（EPO, Epoetin Alfa）<span class="tag tag-exam">重要</span></h3>
+      <p><strong>人類重組EPO（human recombinant EPO）</strong>；<strong>天然產生於腎臟</strong>；促進紅血球生成。人醫用於<strong>腎病患者</strong>（尿毒素造成內生性EPO分泌減少）；獸醫用於<strong>犬貓慢性腎衰竭相關貧血</strong>。<strong>途徑：注射給藥</strong>（重組蛋白製劑無法口服）。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">副作用：異種蛋白免疫反應</div>
+        <p>犬貓使用<strong>人類重組EPO</strong>可能<strong>誘發抗體產生</strong>，導致<strong>對後續治療產生抗性（resistance）</strong>——這是異種蛋白製劑的通病；因此<strong>犬貓專用重組EPO製劑有其臨床必要性</strong>（減少異種蛋白免疫原性問題）。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：分子量、機轉與藥動學時程</div>
+        <p>核對確認：Epoetin Alfa分子量約<strong>30 kDa</strong>；機轉為<strong>活化EPO受體，並啟動Janus kinase（JAK）訊息傳遞路徑</strong>（與生長激素GH訊息傳遞路徑類似）促進紅血球前驅細胞分化增生，並促進網狀紅血球（reticulocyte）釋放；動物藥動學資料缺乏，但<strong>依起始血球容積與劑量，矯正血球容積通常需2–8週</strong>；不良反應方面，教科書同樣強調<strong>犬貓可能因治療產生抗體而抗藥</strong>，PCV開始下降時應停藥，<strong>目前仍持續開發犬貓專用重組EPO以提升療效與安全性</strong>——與講義敘述完全一致。（核對自 Handbook of Veterinary Pharmacology Ch.12 Endocrine Pharmacology）</p>
+      </div>
+
+      <h3 id="drug-anabolicandrogens">教科書補充：合成同化雄性素——EPO製劑問世前的舊選項</h3>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充（講義未提及）</div>
+        <p>核對發現：<strong>雄性素（androgens）可透過促進內生性EPO分泌來增加紅血球生成</strong>，這個效果可用於治療貧血，是重組EPO製劑問世前的舊治療選項，目前臨床上多已被EPO取代。代表藥物：<strong>Stanozolol</strong>（<strong>PO</strong>每日給藥，或作為懸液<strong>IM</strong>每週給藥一次）、<strong>Boldenone</strong>（油劑，<strong>IM</strong>每3週給藥一次，效果可持續約8週）；適應症：<strong>慢性腎衰竭、慢性關節炎、退化性脊髓病</strong>等慢性病所致貧血。（核對自 Handbook of Veterinary Pharmacology Ch.12 Endocrine Pharmacology，Androgens章節）</p>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>鐵代謝路徑：</strong>飲食10–20 mg/day → 胃酸轉為Fe²⁺ → 十二指腸吸收（實際約1 mg/day）→ 黏膜細胞Apoferritin+Fe=Ferritin → 血液Transferrin運輸 → 骨髓合成Hemoglobin → RBC老化後大部分鐵回收循環、少部分經糞尿汗流失（約1 mg/day，與吸收量平衡）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>四種造血輔助營養素：</strong>維生素B6（ALA synthase輔因子，缺乏致鐵胚血球性貧血，Isoniazid/Pyrazinamide為拮抗劑）、銅（Ceruloplasmin為ferrooxidase，缺乏致低色素性貧血）、維生素B12（吸收需intrinsic factor，缺乏合併神經病變）、葉酸（DNA合成輔酶，缺乏症狀同B12但無神經病變）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>貧血三大分類：</strong>流失/破壞性（出血、溶血）vs. 生成減少性（低色素=缺鐵；巨球性=缺B12/葉酸）——分類決定治療方向。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>急性失血：</strong>先控制出血→高張晶體液（7.2% NaCl IV）或合成膠體液（Dextran/pentastarch/hetastarch IV）→持續出血才輸血；<strong>慢性失血：</strong>治病因＋補鐵。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>溶血性貧血：</strong>移除病因＋支持性輸血＋抗氧化劑（Acetylcysteine IV為glutathione前驅物，經核對確認最常見情境是貓Acetaminophen毒性，貓對Methylene blue反應差、可改用維生素C）＋免疫抑制劑（IMHA，類固醇反應不佳可加Danazol PO 5mg/kg BID）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>鐵劑：</strong>口服（Ferrous sulfate等，PO）vs. 注射（Iron dextran等，IM/SC，如仔豬缺鐵性貧血預防）；急性鐵中毒→洗胃＋Deferoxamine（鐵螯合劑，100mg結合8.5mg鐵）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Erythropoietin（EPO, Epoetin Alfa）：</strong>腎臟分泌，結合EPO受體活化JAK路徑，經核對確認分子量約30kDa；用於犬貓慢性腎衰竭貧血（注射給藥）；可能誘發抗體致抗藥，矯正PCV通常需2–8週；舊選項為同化雄性素（Stanozolol PO/IM、Boldenone IM）促進內生性EPO分泌。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV5 Antianemics）為主，並以 Handbook of Veterinary Pharmacology 與 Veterinary Pharmacology and Therapeutics 10th ed. 部分核對補充（詳見meta-bar資料來源欄）。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋鐵代謝生理、造血營養素、貧血分類治療、鐵劑與EPO各章節重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列關於鐵吸收的敘述，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 吸收部位主要在十二指腸</li>
+          <li>(B) Fe²⁺比Fe³⁺容易被吸收</li>
+          <li>(C) 制酸劑會促進鐵的吸收</li>
+          <li>(D) 維生素C可促進鐵的吸收</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">制酸劑（連同無機/有機磷酸鹽、咖啡、茶）會「抑制」鐵的吸收，不是促進。維生素C作為抗氧化劑能幫助鐵維持在較易吸收的Fe²⁺型態，因此能促進吸收；胃酸低pH環境同樣促進Fe²⁺型態的形成與吸收。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 一隻犬正在服用Isoniazid治療分枝桿菌感染，這可能增加牠發生鐵胚血球性貧血（sideroblastic anemia）的風險。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer true">答案：TRUE</div>
+          <p class="quiz-explain">Isoniazid是維生素B6的拮抗劑，而B6是ALA synthase合成血基質前驅物的必要輔因子；B6缺乏會造成鐵沉積於紅血球前驅細胞（sideroblasts）內而非正常併入血基質，形成藥物誘發性鐵胚血球性貧血。同樣機轉的藥物還包括Pyrazinamide；Chloramphenicol與鉛中毒也會造成此類貧血，但機轉不完全相同。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻貓因誤食acetaminophen（普拿疼）就診，出現變性血色素血症（methemoglobinemia）。下列處置何者最不恰當？</div>
+        <ul class="quiz-options">
+          <li>(A) 給予IV Acetylcysteine補充glutathione前驅物</li>
+          <li>(B) 優先使用Methylene blue作為還原劑</li>
+          <li>(C) 可考慮使用維生素C（抗壞血酸）作為還原劑</li>
+          <li>(D) 支持性療法包含輸血</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">教科書核對確認：貓的血紅素比其他物種更容易發生氧化變性，使得Methylene blue在貓身上治療變性血色素血症的效果「只是勉強有效（marginally effective）」，臨床上會改用維生素C（抗壞血酸）作為還原劑。Acetylcysteine作為glutathione前驅物、支持性輸血皆是合理處置；(B)並非最恰當的第一線選擇。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請說明為什麼「急性失血」與「慢性失血」的第一線治療策略不同？各自的第一線處置是什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>急性失血</strong>時，血液中「剩下的」紅血球本身是正常的，問題出在血容積驟降可能導致低血容性休克，因此第一線是<strong>搶救血容積</strong>：先控制出血，再給高張晶體液（7.2% NaCl IV）或合成膠體液（Dextran、pentastarch、hetastarch，IV），若持續出血才進入全血或濃縮紅血球輸血——鐵劑在這個時間點沒有立即幫助，因為紅血球生成需要數天到數週的時間，緩不濟急。<strong>慢性失血</strong>則是長期少量失血，身體有時間代償，但會逐漸耗盡鐵儲存，最終演變成缺鐵性貧血，因此第一線除了治療慢性出血的病因（如腸胃道寄生蟲、潰瘍），還需要<strong>補充鐵劑與其他造血相關營養素</strong>，以支持長期紅血球生成的原料需求。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻8歲貓因慢性腎衰竭合併中度貧血（Hct 20%）就診，主人詢問是否能用Erythropoietin治療。請問：(1) EPO在這個情境下的作用機轉與治療目標為何？(2) 使用重組EPO時最需要監測、也最容易被忽略的副作用是什麼？(3) 除了EPO之外，講義中提到的哪些治療選項也可能與此病例相關？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 機轉與治療目標：</strong>慢性腎衰竭病患的腎臟因尿毒素累積、腎實質受損，內生性Erythropoietin分泌不足，導致紅血球生成受抑制而貧血。給予人類重組EPO（Epoetin Alfa）可補足這個訊號缺口，結合EPO受體並活化Janus kinase路徑，刺激骨髓紅血球前驅細胞分化增生，目標是逐步提升血球容積（依起始Hct與劑量，矯正通常需2–8週，不是立即見效）。<br><strong>(2) 最需監測的副作用：</strong>犬貓使用「人類」重組EPO屬於異種蛋白，可能誘發抗體產生，導致對後續治療的抗藥性（resistance）——這個副作用不會馬上出現，容易在治療一段時間後才被發現（PCV原本應該上升卻反而開始下降），因此治療過程中必須持續監測PCV，一旦PCV開始下降應考慮停藥。<br><strong>(3) 其他可能相關選項：</strong>若病患同時有慢性失血或鐵儲存不足的證據，仍需視情況補充鐵劑（口服或注射，視腸胃道吸收狀況決定）；若無法取得或負擔重組EPO，教科書補充提到的合成同化雄性素（如Stanozolol、Boldenone）透過促進內生性EPO分泌，也是慢性腎衰竭貧血的傳統替代選項之一，但這類藥物講義本身並未提及，臨床採用前應與現行治療指引核對。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  physiology: '紅血球生成與鐵代謝生理',
+  hematinics: '造血輔助營養素',
+  anemiaclass: '貧血定義與分類',
+  bloodloss: '失血性貧血的治療',
+  hemolytic: '溶血性貧血的治療',
+  irontx: '鐵劑治療與中毒處置',
+  epo: 'Erythropoietin',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

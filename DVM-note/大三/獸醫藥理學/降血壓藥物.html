@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：降血壓藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">降血壓藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">降血壓藥物 Antihypertensive Drugs (Vasodilators)</h1>
+      <p class="page-subtitle">血壓生理與犬貓高血壓病因、ACE抑制劑／ARB、鈣離子通道阻斷劑、α／β-腎上腺素性阻斷劑、直接血管擴張劑、硝酸鹽類、高血壓急症與肺高血壓用藥整理</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三・不分上下學期）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.7（Adrenergic Receptor Agonists and Antagonists）／Ch.21（Digitalis, Positive Inotropes, and Vasodilators）／Ch.24（Diuretics and Renal Pharmacology）／Ch.30（Drugs Influencing Glucose Metabolism）；Handbook of Veterinary Pharmacology Ch.2（Drugs Affecting Peripheral Nervous System）／Ch.8（心血管系統相關章節）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-25</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對完成，見各節「教科書補充」框）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎架構</div>
+    <a onclick="showSection('physiology')" id="nav-physiology"><span class="nav-icon">❤️</span> 血壓生理與犬貓病因</a>
+    <div class="section-label" style="margin-top:8px;">藥物分類</div>
+    <a onclick="showSection('aceiarb')" id="nav-aceiarb"><span class="nav-icon">🧪</span> ACE抑制劑與ARB</a>
+    <a onclick="showSection('ccb')" id="nav-ccb"><span class="nav-icon">🔷</span> 鈣離子通道阻斷劑</a>
+    <a onclick="showSection('alphablockers')" id="nav-alphablockers"><span class="nav-icon">🅰️</span> α-腎上腺素性阻斷劑</a>
+    <a onclick="showSection('betablockers')" id="nav-betablockers"><span class="nav-icon">🅱️</span> β-腎上腺素性阻斷劑</a>
+    <a onclick="showSection('directvasodilators')" id="nav-directvasodilators"><span class="nav-icon">💉</span> 直接血管擴張劑</a>
+    <a onclick="showSection('nitrates')" id="nav-nitrates"><span class="nav-icon">☁️</span> 硝酸鹽類血管擴張劑</a>
+    <a onclick="showSection('emergency')" id="nav-emergency"><span class="nav-icon">🚨</span> 高血壓急症與肺高血壓</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這份講義的主線公式是<strong>血壓 = 心輸出量（CO）× 周邊血管阻力（PR）</strong>，而 CO = 心率（HR）× 心搏出量（SV）——所有抗高血壓藥物的作用位置，說到底都是在這兩條路徑上其中之一動手腳：<strong>降低心臟輸出</strong>（β-blocker）或<strong>降低血管阻力</strong>（ACEI/ARB、CCB、α-blocker、直接血管擴張劑、硝酸鹽類）。第一站先建立犬貓高血壓與人類最大的不同：人類9成是找不到病因的原發性高血壓，犬貓卻幾乎都是<strong>繼發性</strong>（腎臟病、內分泌疾病），這決定了「治高血壓不能只給降壓藥、一定要同時處理原發病」這條臨床鐵律，也解釋了為什麼犬（ACEI）與貓（Amlodipine）的第一線用藥並不相同。接著依講義順序逐一介紹每個藥物家族的受體/通道機轉、給藥途徑與臨床定位，再收在<strong>高血壓急症</strong>（Nitroprusside 為首選）與<strong>肺高血壓</strong>（Sildenafil）這兩個特殊臨床情境。點下方任一分類可直接跳到該小節。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('physiology')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">血壓生理與犬貓病因</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">BP=CO×PR，犬貓好發原因</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('aceiarb')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">ACE抑制劑與ARB</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">犬首選機轉與貓的例外</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('ccb')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">鈣離子通道阻斷劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Amlodipine貓首選</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('alphablockers')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">α-腎上腺素性阻斷劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">嗜鉻細胞瘤術前用藥</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('betablockers')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">β-腎上腺素性阻斷劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">↓心輸出與腎素</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('directvasodilators')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">06</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">直接血管擴張劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Hydralazine/Minoxidil/Diazoxide</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('nitrates')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">07</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">硝酸鹽類血管擴張劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">NO-cGMP機轉</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('emergency')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">08</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">高血壓急症與肺高血壓</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Nitroprusside、Sildenafil</p></div>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>BP = CO × PR = (HR × SV) × PR：</strong>兩大調控路徑（心臟輸出 vs 血管阻力）決定了所有抗高血壓藥物的分類邏輯，讀每一類藥物前先問「它降低的是哪一邊」。</li>
+          <li><strong>犬貓高血壓好發原因與人類相反：</strong>人類90%以上是找不到病因的原發性(essential)高血壓，犬貓卻幾乎都是繼發性——犬多見於腎臟疾病、庫欣氏症；貓最大宗是慢性腎臟病（~60%）、其次甲狀腺機能亢進（~20%），治療時務必同時找出並處理原發病因，不能只給降壓藥。</li>
+          <li><strong>犬貓高血壓定義為血壓 &gt;180/120 mmHg</strong>，與人類的高血壓臨界值不同，判讀動物血壓數值時不能直接套用人類標準。</li>
+          <li><strong>犬全身性高血壓第一線是ACE抑制劑；貓則是Amlodipine（CCB）</strong>——因為ACEI在貓的降壓效果較差（但仍可透過降低腎絲球內高壓延緩CKD惡化），這是選藥邏輯中最容易考的物種差異。</li>
+          <li><strong>Telmisartan（ARB）是目前FDA核准治療貓全身性高血壓的藥物</strong>，教科書核對顯示其降低貓CKD蛋白尿（UPC）的效果與benazepril相當。</li>
+          <li><strong>Dihydropyridine類CCB（如Amlodipine）選擇性作用於血管平滑肌</strong>，幾乎不影響心臟；Verapamil、Diltiazem則以心臟（房室結）為主要作用位置，臨床上用於心律不整而非高血壓首選——同一藥物家族、作用位置卻截然不同。</li>
+          <li><strong>α2-腎上腺素性阻斷劑（Yohimbine、Tolazoline、Atipamezole）在獸醫臨床的真正用途是反轉α2-agonist鎮靜</strong>（如反轉Xylazine、Dexmedetomidine），並不是拿來治療高血壓——這是講義分類表最容易被誤解的地方，教科書核對後特別澄清。</li>
+          <li><strong>Diazoxide在獸醫臨床實際的定位是口服治療胰島素瘤所致低血糖</strong>，其抑制胰島素分泌造成的「高血糖」副作用其實正是治療目的，與講義描述的「人醫高血壓急症用藥」脈絡完全相反，複習時務必分清楚人醫與獸醫臨床的用途落差。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，依頁面中第一次出現的段落排序；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>ACE抑制劑<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Captopril、Enalapril、Lisinopril、Benazepril</div></td><td>抑制ACE→↓Angiotensin II生成→血管舒張＋↓醛固酮；↓出球小動脈收縮與腎絲球內高壓</td><td>★犬全身性高血壓第一線；PO給藥；貓效果較差但可延緩CKD惡化；教科書劑量：Enalapril 0.5mg/kg PO SID–BID、Benazepril 0.25–0.5mg/kg PO SID</td><td class="drug-locations"><a href="#drug-acei" class="drug-link">ACE抑制劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Telmisartan<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">ARB</div></td><td>選擇性拮抗AT1受體，阻斷Angiotensin II作用</td><td>★FDA核准治療貓全身性高血壓；PO給藥；教科書：可顯著降低貓CKD蛋白尿(UPC)，效果與benazepril相當</td><td class="drug-locations"><a href="#drug-arb" class="drug-link">ARB</a></td></tr>
+            <tr><td>Verapamil</td><td>阻斷L-type Ca²⁺通道，主要作用於心臟（房室結）</td><td>PO/IV；用於心律不整，非高血壓首選（血管作用相對弱）</td><td class="drug-locations"><a href="#drug-verapamil" class="drug-link">CCB</a></td></tr>
+            <tr><td>Diltiazem</td><td>阻斷L-type Ca²⁺通道，兼具心臟與血管作用</td><td>用於心律不整、肥厚型心肌病(HCM)；教科書劑量：IV緩慢0.1–0.2mg/kg，PO 0.5–1.5mg/kg TID</td><td class="drug-locations"><a href="#drug-diltiazem" class="drug-link">CCB</a></td></tr>
+            <tr><td>Nifedipine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">及其他Dihydropyridine類</div></td><td>選擇性阻斷血管平滑肌L-type Ca²⁺通道→↓周邊阻力</td><td>治療輕至中度高血壓，尤其低renin型；多為人用藥，獸醫臨床以Amlodipine為代表</td><td class="drug-locations"><a href="#drug-nifedipine" class="drug-link">Dihydropyridine類</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Amlodipine Besylate</td><td>Dihydropyridine類CCB，選擇性血管舒張，幾乎無心臟直接效應</td><td>★貓全身性高血壓第一線；犬可單用或與ACEI併用；PO；教科書劑量：犬0.1–0.3mg/kg PO q12–24h，貓臨床常用0.625mg/cat PO SID–BID</td><td class="drug-locations"><a href="#drug-amlodipine" class="drug-link">Amlodipine</a></td></tr>
+            <tr><td>Phenoxybenzamine</td><td>共價鍵不可逆結合α受體；機轉上屬非選擇性(α1與α2皆阻斷)</td><td>★嗜鉻細胞瘤術前準備首選；PO；犬貓降尿道括約肌過高張力；馬治蹄葉炎與分泌性腹瀉</td><td class="drug-locations"><a href="#drug-phenoxybenzamine" class="drug-link">α-blocker</a></td></tr>
+            <tr><td>Phentolamine</td><td>競爭性α1與α2受體拮抗劑</td><td>IV或IM；治療高血壓危象與交感擬似胺類藥物過量所致高血壓；常見反射性心搏過速</td><td class="drug-locations"><a href="#drug-phentolamine" class="drug-link">α-blocker</a></td></tr>
+            <tr><td>Prazosin</td><td>選擇性、競爭性α1受體拮抗劑</td><td>PO；CHF輔助降後負荷與高血壓；教科書劑量：1mg TID(&lt;15kg)、2mg TID(&gt;15kg)</td><td class="drug-locations"><a href="#drug-prazosin" class="drug-link">α-blocker</a></td></tr>
+            <tr><td>Yohimbine、Tolazoline、Atipamezole</td><td>拮抗α2受體</td><td>教科書核對：獸醫臨床主要用於反轉α2-agonist鎮靜(如Xylazine、Dexmedetomidine)，非用於治療高血壓</td><td class="drug-locations"><a href="#drug-alpha2reversal" class="drug-link">α2-blocker</a></td></tr>
+            <tr><td>Atenolol</td><td>選擇性β1受體拮抗劑</td><td>PO；獸醫臨床最常用的β1選擇性拮抗劑，半衰期較metoprolol長</td><td class="drug-locations"><a href="#drug-atenolol" class="drug-link">β-blocker</a></td></tr>
+            <tr><td>Esmolol</td><td>超短效選擇性β1受體拮抗劑（t½約10分鐘）</td><td>IV CRI；用於需即時調整劑量的急性情境（如麻醉中急性高血壓/心搏過速）</td><td class="drug-locations"><a href="#drug-esmolol" class="drug-link">β-blocker</a></td></tr>
+            <tr><td>Propranolol</td><td>非選擇性β1+β2受體拮抗劑</td><td>PO；現已較少使用；教科書劑量（CHF用藥表脈絡）：5–40mg TID PO；氣喘/慢性氣道疾病動物須避免</td><td class="drug-locations"><a href="#drug-propranolol" class="drug-link">β-blocker</a></td></tr>
+            <tr><td>Hydralazine</td><td>直接鬆弛小動脈平滑肌，對小動脈作用遠大於靜脈（確切機轉未完全明朗）</td><td>★常與Furosemide併用治療犬二尖瓣閉鎖不全與嚴重肺水腫；PO；教科書劑量：犬初始0.5–1.0mg/kg PO，2–3h後可重複給藥</td><td class="drug-locations"><a href="#drug-hydralazine" class="drug-link">直接血管擴張劑</a></td></tr>
+            <tr><td>Minoxidil</td><td>直接鬆弛小動脈平滑肌（機轉與Hydralazine類似）</td><td>降收縮壓與舒張壓；反射性心搏過速、水鈉滯留；犬貓臨床應用少（人醫為主）</td><td class="drug-locations"><a href="#drug-minoxidil" class="drug-link">直接血管擴張劑</a></td></tr>
+            <tr><td>Diazoxide</td><td>活化血管平滑肌K⁺通道使細胞過極化；同機轉也抑制胰臟β細胞釋放胰島素</td><td>講義脈絡：人醫IV治高血壓急症；★教科書核對：獸醫臨床實際用途是PO治療胰島素瘤所致低血糖(10–40mg/kg/day分次)</td><td class="drug-locations"><a href="#drug-diazoxide" class="drug-link">直接血管擴張劑</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Sodium Nitroprusside</td><td>釋放NO活化鳥苷酸環化酶→↑cGMP→動靜脈同時強力舒張</td><td>★高血壓急症首選；IV CRI；教科書劑量：1–5μg/kg/min IV；起效快、消退快(&lt;10分鐘)，須密切監測避免低血壓</td><td class="drug-locations"><a href="#drug-nitroprusside" class="drug-link">硝酸鹽類</a></td></tr>
+            <tr><td>Nitroglycerin</td><td>NO供體，↑cGMP，靜脈舒張效果大於動脈</td><td>人：舌下治心絞痛；犬貓：2%藥膏透皮，用於急性心因性肺水腫輔助；教科書劑量：0.5cm/5kg TID透皮，僅前24小時</td><td class="drug-locations"><a href="#drug-nitroglycerin" class="drug-link">硝酸鹽類</a></td></tr>
+            <tr><td>Isosorbide Dinitrate</td><td>NO供體，↑cGMP血管舒張</td><td>PO；慢性CHF輔助治療，或於動物無法耐受ACEI時與Hydralazine/Amlodipine併用</td><td class="drug-locations"><a href="#drug-isosorbide" class="drug-link">硝酸鹽類</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Sildenafil<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Viagra</div></td><td>選擇性PDE type V抑制劑→↑cGMP→血管平滑肌舒張（肺循環為主）</td><td>★治犬與人類肺高血壓；PO；教科書劑量：0.5–1mg/kg PO SID–BID；犬T½ 6小時，Tmax&lt;60分</td><td class="drug-locations"><a href="#drug-sildenafil" class="drug-link">肺高血壓</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PHYSIOLOGY -->
+    <div class="section" id="section-physiology">
+      <div class="section-head"><div class="section-num">3</div><h2>血壓生理與犬貓高血壓病因 Blood Pressure Physiology &amp; Etiology</h2></div>
+      <p class="section-desc">在談個別藥物之前，先建立血壓的決定因子，以及犬貓高血壓病因與人類的根本差異——這是理解整份講義選藥邏輯的地圖。</p>
+
+      <h3>血管擴張劑的主要臨床適應症</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">全身性高血壓 Systemic HTN</div>
+          <p>降低周邊血管阻力，直接降血壓。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">肺高血壓 Pulmonary HTN</div>
+          <p>降低肺循環阻力，減輕右心負荷。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">充血性心衰竭 CHF</div>
+          <p>小動脈舒張↓後負荷；靜脈舒張↓前負荷；降低血壓→↓心臟作功負荷與心肌耗氧量。</p>
+        </div>
+      </div>
+
+      <h3>血壓的決定因子</h3>
+      <div class="flow">
+        <div class="flow-node">心率 HR × 心搏出量 SV</div>
+        <span class="flow-arrow">=</span>
+        <div class="flow-node accent">心輸出量 CO</div>
+        <span class="flow-arrow">×</span>
+        <div class="flow-node">周邊血管阻力 PR</div>
+        <span class="flow-arrow">=</span>
+        <div class="flow-node accent">動脈血壓 BP</div>
+      </div>
+      <p>心率上升會提高動脈血壓（其他因子不變時）；部分抗高血壓藥物<strong>↓HR</strong>（如β-blocker）。給定CO時，血壓取決於周邊阻力；部分抗高血壓藥物<strong>↓PR</strong>（血管擴張劑）。</p>
+
+      <h3 id="drug-humananimal-htn">人類 vs. 犬貓高血壓病因比較<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>人類</th><th>犬</th><th>貓</th></tr></thead>
+          <tbody>
+            <tr><td><strong>主要型態</strong></td><td>原發性(essential)高血壓&gt;90%，找不到明確病因</td><td colspan="2">原發性(idiopathic)高血壓少見，<strong>以繼發性為主</strong></td></tr>
+            <tr><td><strong>常見病因</strong></td><td>內分泌（Cushing's、Hyperaldosteronism、Pheochromocytoma）；腎臟（腎血管狹窄/梗塞、腎素分泌腫瘤）（4–5%為繼發性）</td><td>腎臟疾病、Hyperadrenocorticism（庫欣氏症）</td><td><strong>慢性腎臟病(~60%)</strong>、甲狀腺機能亢進(~20%)、Hyperaldosteronism、Hyperadrenocorticism、Pheochromocytoma</td></tr>
+            <tr><td><strong>高血壓診斷閾值</strong></td><td>依人類標準（因物種而異，本講義未列數值）</td><td colspan="2"><strong>&gt;180/120 mmHg</strong></td></tr>
+            <tr><td><strong>藥物誘發</strong></td><td>—</td><td colspan="2">Glucocorticoids、Mineralocorticoids、NSAID（尤其CKD病患）、Phenylpropanolamine、Phenylephrine</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：犬貓的選藥邏輯起點</div>
+        <p>犬貓高血壓幾乎都是<strong>繼發性</strong>，這與人類「9成找不到病因」完全相反——臨床上發現動物血壓偏高時，第一步永遠是<strong>找出並處理原發病因</strong>（腎臟病、內分泌疾病等），降壓藥物是輔助控制標的器官損傷風險的手段，不能只靠藥物「治高血壓」而忽略病因檢查。</p>
+      </div>
+
+      <h3>非藥物介入（人類原發性高血壓）</h3>
+      <p style="font-size:.9em;">飲食控制（鹽分、膽固醇、脂肪）、減壓、規律有氧運動、體重控制（如需要）、控制其他風險因子（血脂、血糖、吸菸、飲酒）。此部分為人類醫學內容，講義未提及犬貓對應的非藥物介入策略。</p>
+
+      <h3 id="drug-antihtn-overview">抗高血壓藥物分類總覽<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物類別</th><th>代表藥物</th><th>臨床定位（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>中樞性交感神經抑制劑</td><td>Clonidine、Methyldopa</td><td>人類使用</td></tr>
+            <tr><td>ACE抑制劑</td><td>Captopril、Enalapril等</td><td><strong>犬第一線</strong></td></tr>
+            <tr><td>鈣離子通道阻斷劑</td><td>Amlodipine等</td><td><strong>貓第一線</strong>（除甲亢外，甲亢病患偏好β-blocker）</td></tr>
+            <tr><td>α-受體阻斷劑</td><td>Phenoxybenzamine、Prazosin、Phentolamine</td><td>特殊情境（嗜鉻細胞瘤等）</td></tr>
+            <tr><td>β-受體阻斷劑</td><td>Atenolol、Propranolol等</td><td>特殊情境（甲亢、嗜鉻細胞瘤合併心搏過速）</td></tr>
+            <tr><td>血管擴張劑</td><td>Hydralazine、Nitrates等</td><td>CHF輔助、高血壓急症</td></tr>
+            <tr><td>利尿劑</td><td>（本講義未展開個別藥物）</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 利尿劑（Furosemide等）的完整機轉與臨床用法，見獸醫藥理學其他利尿劑相關筆記頁（若尚未整理則暫缺）。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ACEI ARB -->
+    <div class="section" id="section-aceiarb">
+      <div class="section-head"><div class="section-num">4</div><h2>ACE抑制劑與ARB ACE Inhibitors &amp; Angiotensin Receptor Blockers</h2></div>
+      <p class="section-desc">阻斷RAS（腎素-血管收縮素系統）的兩種策略——ACEI阻斷Angiotensin II的生成，ARB則直接拮抗其受體。</p>
+
+      <h3 id="drug-acei">ACE抑制劑 ACE Inhibitors<span class="tag tag-exam">重要</span></h3>
+      <p>代表藥物：<strong>Captopril、Enalapril、Lisinopril、Benazepril</strong>…</p>
+      <div class="flow">
+        <div class="flow-node danger">ACE抑制劑抑制Angiotensin Converting Enzyme</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">↓Angiotensin II生成</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">血管舒張＋↓醛固酮分泌 → 血壓↓</div>
+      </div>
+      <ul>
+        <li>副作用相對良好（favorable side effect profile）。</li>
+        <li><strong>★犬全身性高血壓第一線用藥</strong>。</li>
+        <li>在<strong>貓的高血壓效果較差</strong>，但可透過<strong>降低出球小動脈收縮與腎絲球內高壓</strong>，減緩慢性腎臟病（CKD）惡化進程。</li>
+        <li>講義原文提出「Other indications???」——暗示ACEI在心臟病、蛋白尿等其他適應症上的角色，值得在CHF、腎臟病相關筆記頁另行深入。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：ACEI犬用劑量</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21 犬心衰竭用藥表（脈絡為CHF神經荷爾蒙調控，非專屬高血壓劑量表，惟給藥途徑與劑量範圍可共通參考）：<strong>Captopril 0.5–2 mg/kg TID PO；Enalapril 0.5 mg/kg SID–BID PO；Benazepril 0.25–0.5 mg/kg SID PO</strong>。三者皆為<strong>PO</strong>給藥。Handbook of Veterinary Pharmacology Ch.2另補充：因不需依腎功能調整劑量，benazepril、ramipril、imidapril在腎功能不全動物較常被優先選用（enalapril主要經腎排除，需視腎功能調整）。</p>
+      </div>
+
+      <h3 id="drug-arb">血管收縮素受體阻斷劑 Angiotensin Receptor Blockers (ARB)<span class="tag tag-exam">重要</span></h3>
+      <p>機轉：直接拮抗<strong>AT1受體</strong>，不論Angiotensin II經哪一條路徑生成，皆可阻斷其作用——理論上比ACEI（僅阻斷ACE這一條生成路徑）更完整地阻斷RAS效應。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">Telmisartan：貓高血壓的FDA核准用藥</div>
+        <p><strong>★FDA核准 Telmisartan 治療貓全身性高血壓</strong>（商品名Semintra）。給藥途徑為<strong>PO</strong>。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Telmisartan在貓CKD的實證</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.24：口服ARB（losartan、telmisartan、valsartan、irbesartan）已在犬進行藥動學研究，但貓尚無完整資料；貓使用telmisartan的降壓效果較losartan、irbesartan更強且更持久，但因劑量範圍測試有限、生體可用率與半衰期未知，尚不確定telmisartan是否真的優於其他ARB或只是劑量設定較適合。<strong>臨床實證方面：telmisartan可顯著降低貓CKD病患的蛋白尿(UPC)，效果與benazepril（ACEI）相當</strong>（Sent et al., 2015）。人類ARB口服生體可用率多&lt;50%，主要經肝代謝與膽汁排除，腎功能對其藥動學影響小；食物會明顯降低人類telmisartan、valsartan的口服吸收，但犬的相關資料尚未完整評估。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21、Ch.24 與 Handbook of Veterinary Pharmacology Ch.2 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- CCB -->
+    <div class="section" id="section-ccb">
+      <div class="section-head"><div class="section-num">5</div><h2>鈣離子通道阻斷劑 Calcium Channel Blockers (CCB)</h2></div>
+      <p class="section-desc">同屬CCB家族，但依作用位置（心臟 vs. 血管平滑肌）分成截然不同的臨床定位——這是這節最重要的分類邏輯。</p>
+
+      <h3>鈣離子通道的種類</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">L-type（"Long-lasting"）</div>
+          <p>去活化緩慢；廣泛分布於心血管系統，負責動作電位<strong>plateau phase</strong>；對CCB敏感；受cAMP依賴性蛋白激酶調控。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">T-type（"Transient"）</div>
+          <p>去活化快速；涉及節律性／節律點（pacemaker）活動。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">N-type</div>
+          <p>存在於神經組織。</p>
+        </div>
+      </div>
+      <p style="font-size:.9em;">心肌細胞膜動作電位各期：Phase 0 快速去極化（Na⁺快速流入）→ Phase 1 早期再極化（K⁺短暫外流）→ <strong>Phase 2 平台期（持續但減少的Na⁺流入，加上大量緩慢的Ca²⁺流入）</strong>→ Phase 3 再極化（K⁺外流）→ Phase 4 靜止期。L-type Ca²⁺通道正是Phase 2平台期的主角，這也是CCB主要透過阻斷此通道影響心臟電生理與收縮力的機轉基礎。</p>
+
+      <h3 id="drug-verapamil">Verapamil</h3>
+      <p>阻斷L-type電壓依賴性Ca²⁺通道，<strong>主要作用於心臟（房室結）</strong>。臨床用於治療心律不整；講義原文強調"only heart"——意即相對CCB家族其他成員，Verapamil對血管平滑肌的舒張作用弱，故不作為高血壓治療首選。</p>
+
+      <h3 id="drug-diltiazem">Diltiazem</h3>
+      <p>阻斷L-type Ca²⁺通道，作用介於Verapamil（偏心臟）與Dihydropyridine類（偏血管）之間，兼具心臟與血管效果。臨床用於<strong>心律不整、肥厚型心肌病（HCM）</strong>。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Diltiazem劑量</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21 犬心衰竭用藥表：<strong>IV緩慢注射 0.1–0.2 mg/kg；PO 0.5–1.5 mg/kg TID</strong>。</p>
+      </div>
+
+      <h3 id="drug-nifedipine">Dihydropyridine類CCB：Nifedipine與同類藥物<span class="tag tag-exam">重要</span></h3>
+      <p>機轉：選擇性阻斷<strong>血管平滑肌</strong>L-type Ca²⁺通道，降低周邊阻力，對心臟的直接抑制效果極小——這正是Dihydropyridine類與Verapamil/Diltiazem最大的區別。</p>
+      <p>同類藥物：Amlodipine、Felodipine、Isradipine、Nicardipine、Nifedipine、Nimodipine、Nitrendipine。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">CCB治療高血壓的注意事項</div>
+        <p>SA/AV node異常或合併CHF（因負性肌力效應）病患使用CCB需謹慎；<strong>與其他小動脈擴張劑不同，CCB較不易引起水鈉滯留</strong>；Dihydropyridine類CCB對輕至中度高血壓皆有效，<strong>對低renin型高血壓效果尤佳</strong>。不良反應：可能抑制SA node致心搏過緩或心搏停止（併用β-blocker時此效應更明顯）；負性肌力效應在併用β-blocker時也會加成放大。</p>
+      </div>
+
+      <h3 id="drug-amlodipine">Amlodipine Besylate<span class="tag tag-exam">重要</span></h3>
+      <div class="alert alert-success">
+        <div class="alert-label">貓全身性高血壓的第一線用藥</div>
+        <p>屬長效Dihydropyridine類CCB，<strong>血管舒張效果明顯，無明顯心臟直接效應</strong>。人類臨床可單用或與olmesartan（ARB）併用治療高血壓。<strong>★貓全身性高血壓第一線用藥</strong>；也用於犬（單用或與ACE抑制劑併用）。經<strong>肝臟代謝</strong>，肝功能不良動物須謹慎使用。副作用：低血壓、精神沉鬱、心搏過緩與房室傳導阻滯、水腫。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Amlodipine藥動學與劑量</div>
+        <p>核對自 Handbook of Veterinary Pharmacology Ch.8 與 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21：血漿t½在<strong>犬約30小時</strong>，最大效果於<strong>治療開始後4–7天</strong>才出現；口服生體可用率高（犬88%），口服後3–8小時達血中濃度高峰；經肝代謝但無明顯首渡效應。<strong>貓目前無完整藥動學數據</strong>，惟已知經皮吸收也能達到血中濃度與藥理效果，但吸收程度低於口服；貓的降壓效果可持續≥24小時，且一般不會明顯影響慢性腎衰竭貓的血清肌酸酐或體重。<strong>教科書劑量：犬 0.1–0.3 mg/kg PO q12–24h；貓臨床常用 0.625 mg/cat PO SID–BID</strong>（Feline formulary）。不良反應方面，低血壓發生率較Hydralazine低（因起效較慢），偶見食慾不振、氮血症、嗜睡、低血鉀、反射性心搏過速、體重下降。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主，並以 Handbook of Veterinary Pharmacology Ch.8 與 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ALPHA BLOCKERS -->
+    <div class="section" id="section-alphablockers">
+      <div class="section-head"><div class="section-num">6</div><h2>α-腎上腺素性阻斷劑 α-Adrenergic Blockers</h2></div>
+      <p class="section-desc">依受體選擇性分成α1-blockers與α2-blockers兩組，但臨床用途南轅北轍——前者用於降血壓/嗜鉻細胞瘤，後者主要是麻醉科的鎮靜反轉劑，不是抗高血壓藥。</p>
+
+      <h3>α受體阻斷劑分類</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分類</th><th>代表藥物</th></tr></thead>
+          <tbody>
+            <tr><td><strong>α1-blockers</strong></td><td>Phenoxybenzamine、Prazosin、Phentolamine</td></tr>
+            <tr><td><strong>α2-blockers</strong></td><td>Yohimbine、Tolazoline、Atipamezole</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：講義前後對Phenoxybenzamine的描述有出入</div>
+        <p>講義第16頁描述Phenoxybenzamine為「選擇性阻斷α1受體」，但第17頁的分類表卻把它列在α1-blockers清單中、同時內文又寫「covalent binding to α receptors」「nonselective」——也就是<strong>藥理機轉上它其實是非選擇性（同時阻斷α1與α2），但臨床分類習慣把它歸在α1-blockers這組</strong>。這是原始投影片自身前後用語不完全一致之處，本頁如實呈現，複習時記得抓住「機轉非選擇性、但臨床效果以α1介導的血管舒張為主」這個重點，不要被單一頁的用詞誤導。</p>
+      </div>
+
+      <h3 id="drug-phenoxybenzamine">Phenoxybenzamine</h3>
+      <div class="flow">
+        <div class="flow-node danger">共價鍵結合α受體（不可逆）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">長效、非選擇性、不可逆阻斷</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">↓總周邊阻力 → 低血壓</div>
+      </div>
+      <ul>
+        <li>心率可能因壓力受器反射（baroreceptor reflex去活化）而上升。</li>
+        <li>可阻斷瞳孔放大（α1介導的瞳孔擴大肌收縮）、眼瞼收縮、瞬膜收縮。</li>
+        <li>給藥途徑：<strong>PO</strong>。</li>
+        <li>★<strong>主要用於嗜鉻細胞瘤（pheochromocytoma）</strong>術前控制；Prazosin亦可用於此目的。</li>
+        <li>會引起反射性心搏過速，臨床上會<strong>加上β-blocker</strong>控制；β-blocker也可用於治療嗜鉻細胞瘤誘發的心搏過速性心律不整。</li>
+        <li>犬貓：降低尿道括約肌過高張力；馬：治療蹄葉炎（laminitis，透過改善周邊血流）與分泌性腹瀉。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Phenoxybenzamine藥動學與不良反應</div>
+        <p>核對自 Handbook of Veterinary Pharmacology Ch.2：動物無藥動學資料；<strong>人類口服生體可用率僅20–30%</strong>，起效慢（數小時），且效果隨連續給藥逐日增強，<strong>停藥後效果仍可持續3–4天</strong>，人類血漿t½約24小時。高脂溶性，可能儲存於脂肪組織；經去烷基化代謝，尿液與膽汁排除。不良反應：低血容動物中低血壓會加重；不可用於腹痛（colic）的馬；便秘（馬可能誘發腸絞痛）。</p>
+      </div>
+
+      <h3 id="drug-phentolamine">Phentolamine</h3>
+      <p>機轉：<strong>競爭性</strong>α1與α2受體拮抗劑。血壓下降是透過阻斷血管平滑肌的α1與α2受體所致；心率可能因壓力受器反射<strong>及</strong>阻斷心臟交感神經末梢突觸前α2受體負回饋（NE釋放增加）而上升。</p>
+      <ul>
+        <li>臨床用途：<strong>IV或IM</strong>給藥，治療高血壓與交感擬似胺類藥物過量所致高血壓。</li>
+        <li>不良反應：心搏過速常見。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Phentolamine藥動學</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.7：動物無藥動學資料；人類經肝代謝，主要以代謝物形式經尿排除，消除t½約20分鐘。</p>
+      </div>
+
+      <h3 id="drug-prazosin">Prazosin</h3>
+      <p>機轉：<strong>選擇性</strong>、競爭性α1受體拮抗劑，鬆弛動脈與靜脈平滑肌，降低總周邊阻力；高劑量可能引起低血壓。</p>
+      <ul>
+        <li><strong>PO</strong>給藥，用於CHF輔助治療（↓動脈壓、↓周邊阻力與心輸出量）與高血壓。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Prazosin臨床定位與劑量</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.7 與 Ch.21：Prazosin可能對<strong>腎性高血壓</strong>有幫助，也用於犬的<strong>膀胱尿道逼尿肌-括約肌協同失調（vesicourethral reflex dyssynergia）</strong>，但<strong>在獸醫心臟科臨床實際使用不多</strong>。犬體內以<strong>肝臟代謝、膽汁排除</strong>為主要清除途徑，約50%經首渡代謝，尿液排出比例低。人類：口服吸收不穩定，2–3小時達血中濃度高峰，高血漿蛋白結合率（97%），肝代謝（部分代謝物仍具活性）。<strong>教科書劑量（源自犬CHF用藥表）：1 mg TID PO（體重&lt;15kg）、2 mg TID PO（體重&gt;15kg）</strong>。不良反應：低血壓、心搏過速、水鈉滯留、腸胃道反應（嘔吐、腹瀉、便秘）。</p>
+      </div>
+
+      <h3 id="drug-alpha2reversal">α2-腎上腺素性阻斷劑：Yohimbine、Tolazoline、Atipamezole</h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">教科書核對：這三個藥不是抗高血壓藥</div>
+        <p>講義的分類表把Yohimbine、Tolazoline、Atipamezole列在「α-Blockers」標題下，容易讓人誤以為它們也是治療高血壓的藥物。<strong>教科書核對（Veterinary Pharmacology and Therapeutics 10th ed. Ch.7）確認：這三個藥在獸醫臨床的真正用途是反轉α2-agonist（如Xylazine、Dexmedetomidine）造成的鎮靜作用</strong>——Yohimbine用於反轉Xylazine鎮靜（尤其牛）；Atipamezole核准用於反轉Medetomidine類鎮靜，是目前最常用的α2反轉劑；Tolazoline為混合型α1/α2拮抗劑，同樣可用於反轉。這三者<strong>並不會被用來治療全身性高血壓</strong>，講義單純把它們放在受體藥理分類表中，讀者需要自行補上這個臨床脈絡才不會誤解。</p>
+      </div>
+
+      <h3>案例：Phentolamine誘發的反射性心搏過速</h3>
+      <div class="flow">
+        <div class="flow-node danger">α-blocker阻斷血管α1（失去原本的α張力）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">血壓↓ → 壓力受器反射</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">心臟交感張力↑（心臟突觸前α2負回饋也被阻斷，NE釋放更多）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">SAN/AVN β1受體活化 → 反射性心搏過速</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">此圖說明了為什麼非選擇性α-blocker（同時阻斷突觸前α2負回饋）造成的反射性心搏過速，往往比選擇性α1-blocker更明顯——α2負回饋被阻斷後，交感神經末梢釋放的NE不再受到抑制，等於同時「踩了油門」。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主，並以 Handbook of Veterinary Pharmacology Ch.2 與 Veterinary Pharmacology and Therapeutics 10th ed. Ch.7 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- BETA BLOCKERS -->
+    <div class="section" id="section-betablockers">
+      <div class="section-head"><div class="section-num">7</div><h2>β-腎上腺素性阻斷劑 β-Adrenergic Blockers</h2></div>
+      <p class="section-desc">β-blocker降血壓走的是「降低心臟輸出」這條路徑，跟前面幾類藥物「降低血管阻力」的邏輯不同；受體選擇性（β1 vs 非選擇性）決定了副作用風險。</p>
+
+      <h3>β-blocker在心絞痛治療中的定位（人類）</h3>
+      <p style="font-size:.9em;">人類治療心絞痛的三大類藥物：血管擴張劑（Nitrates、Calcium Blockers）與心臟抑制劑（Beta-Blockers）——β-blocker被歸類為「心臟抑制劑」而非「血管擴張劑」，正是因為它的降壓/抗心絞痛機轉是透過抑制心臟做功，而非直接舒張血管。</p>
+
+      <h3 id="drug-betablockers-mechanism">機轉與受體選擇性<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node danger">β-blocker阻斷心臟β1受體</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">↓心肌收縮力(inotropism) ＋ ↓心率(chronotropism)</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">↓CO → 血壓↓</div>
+      </div>
+      <p>β-blocker也<strong>降低腎素(renin)分泌</strong>，進而降低Angiotensin II濃度——這是RAS路徑的另一個介入點，與ACEI/ARB直接阻斷RAS本身不同，屬於「上游減少驅動訊號」的策略。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體選擇性</th><th>代表藥物</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>心臟選擇性（Cardioselective）</strong><br>β1 selective</td><td>Metoprolol、Acebutolol、<strong>Esmolol</strong></td><td>Esmolol為短效藥物（約20分鐘）</td></tr>
+            <tr><td><strong>非選擇性（Nonselective）</strong><br>β1+β2</td><td>Propranolol</td><td>同時阻斷β2，氣喘/氣道疾病動物須小心</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="drug-atenolol">Atenolol</h3>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.7：Atenolol是選擇性β1受體拮抗劑，無內生性交感擬似活性(ISA)；<strong>是獸醫臨床最常用的選擇性β-blocker</strong>；半衰期比Metoprolol長，分布體積大，肝代謝程度低。給藥途徑：<strong>PO</strong>。</p>
+      </div>
+
+      <h3 id="drug-esmolol">Esmolol</h3>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.7：超短效β1選擇性拮抗劑，<strong>半衰期約10分鐘</strong>，持續IV輸注(CRI)可快速達到穩定血中濃度，停止輸注後作用也迅速消退——非常適合需要即時滴定劑量的急性情境（如麻醉中急性高血壓或心搏過速）。給藥途徑：<strong>IV CRI</strong>。</p>
+      </div>
+
+      <h3 id="drug-propranolol">Propranolol</h3>
+      <p>非選擇性β1+β2受體拮抗劑。因心臟選擇性藥物已普及，<strong>propranolol現已較少作為首選</strong>。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Propranolol劑量</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21 犬心衰竭神經荷爾蒙調控用藥表（脈絡非專屬高血壓劑量表，惟供口服劑量參考）：<strong>5–40 mg TID PO</strong>；教科書並特別提醒Calcium channel blocker（verapamil、diltiazem）與β-blocker（propranolol、esmolol、atenolol）用於已有心衰竭的病患時須謹慎（負性肌力效應可能使心衰竭惡化）。</p>
+      </div>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">β-blocker不良反應</div>
+        <p>心搏過緩、支氣管痙攣（<strong>β2</strong>受體阻斷所致，非選擇性藥物風險較高）、鎮靜、陽萎（人）、驟停藥物可能誘發心絞痛（人）；因<strong>↓心肌收縮力</strong>可能使CHF惡化甚至誘發心衰竭；<strong>驟然停藥可能導致反彈性高血壓（rebound hypertension）</strong>，須採漸進式減量停藥。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. Ch.7、Ch.21 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- DIRECT VASODILATORS -->
+    <div class="section" id="section-directvasodilators">
+      <div class="section-head"><div class="section-num">8</div><h2>直接血管平滑肌擴張劑 Direct Vasodilators</h2></div>
+      <p class="section-desc">不透過特定受體，直接作用於血管平滑肌本身——三個藥物的機轉描述都不算完全明朗，其中Diazoxide在獸醫臨床的真實定位與講義脈絡差異最大，是本節重點。</p>
+
+      <h3 id="drug-hydralazine">Hydralazine</h3>
+      <p>直接鬆弛小動脈平滑肌，<strong>對小動脈的作用遠大於靜脈</strong>（機轉尚未完全明朗，可能涉及cAMP、cGMP、Ca²⁺相關路徑）；因主要作用在小動脈而非靜脈，姿勢性低血壓（orthostatic hypotension）的程度有限。</p>
+      <ul>
+        <li>★常與<strong>Furosemide</strong>併用，治療犬<strong>二尖瓣閉鎖不全</strong>與<strong>嚴重肺水腫</strong>。</li>
+        <li>會引起<strong>反射性心搏過速</strong>與腎素活性上升（可搭配β-blocker降低此反射，但β-blocker也可能使低血壓與心衰竭惡化，需權衡）。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Hydralazine劑量與不良反應</div>
+        <p>核對自 Handbook of Veterinary Pharmacology Ch.8：<strong>犬初始劑量0.5–1.0 mg/kg PO</strong>，可於<strong>2–3小時後重複給藥</strong>，直到收縮壓達90–110 mmHg，之後改為<strong>q12h維持</strong>（此劑量出自高血壓急症處置流程，於避免使用nitroprusside時的替代方案）。不良反應：低血壓最常見，部分動物反射性心搏過速明顯，需減量或加用digoxin/β-blocker；可能加重心衰竭病患的神經荷爾蒙代償反應，增加Na⁺與水滯留；腸胃道不適（尤其貓）。</p>
+      </div>
+
+      <h3 id="drug-minoxidil">Minoxidil</h3>
+      <p>直接鬆弛小動脈平滑肌（機轉與Hydralazine類似），對靜脈影響有限（限制性影響）。</p>
+      <ul>
+        <li>降低收縮壓與舒張壓；姿勢性低血壓程度輕微。</li>
+        <li>不良反應：反射性心搏過速、交感神經活性增加、血漿renin與angiotensin濃度上升、水鈉滯留。</li>
+        <li>犬貓臨床應用相對少見（人醫用藥為主）。</li>
+      </ul>
+
+      <h3 id="drug-diazoxide">Diazoxide</h3>
+      <p>機轉：使血管平滑肌細胞<strong>活化K⁺通道而過極化</strong>，導致血管舒張，對靜脈影響可忽略。</p>
+      <p>講義脈絡：用於<strong>高血壓急症</strong>（人醫）。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">教科書核對：獸醫臨床的真實定位與講義脈絡相反</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.30（Drugs Influencing Glucose Metabolism）：Diazoxide抑制胰臟β細胞釋放胰島素的機轉，正是<strong>透過增加K⁺通透性、使細胞膜過極化</strong>——與講義描述的血管平滑肌過極化是<strong>同一種機轉，作用在不同細胞</strong>。但在獸醫臨床上，<strong>Diazoxide幾乎不會被拿來治療高血壓</strong>，它真正的臨床用途是<strong>口服治療胰島素瘤（insulin-secreting tumor）所致的低血糖</strong>：初始劑量10 mg/kg/day分兩次給予，可漸增但不超過40 mg/kg/day。也就是說，講義中列出的「高血糖（抑制胰島素釋放）」這項不良反應，<strong>在獸醫真實臨床情境中其實正是治療目的</strong>——這是人醫用途（血管擴張劑）與獸醫實際用途（抗低血糖藥）幾乎完全反轉的一個例子，複習時務必把「投影片脈絡」與「獸醫臨床實際定位」分開記憶，不要誤以為獸醫師會用Diazoxide來降血壓。</p>
+      </div>
+      <p>講義列出的其他不良反應（人醫高血壓急症脈絡）：Na⁺與水滯留、反射性交感/renin興奮、心肌缺血、反射性心搏過速及收縮力增加。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主，並以 Handbook of Veterinary Pharmacology Ch.8 與 Veterinary Pharmacology and Therapeutics 10th ed. Ch.30 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- NITRATES -->
+    <div class="section" id="section-nitrates">
+      <div class="section-head"><div class="section-num">9</div><h2>硝酸鹽類血管擴張劑 Nitrovasodilators (Nitrates)</h2></div>
+      <p class="section-desc">三個藥物共用同一條NO-cGMP訊息傳遞路徑，差異主要在給藥途徑、起效/消退速度、與動脈/靜脈的相對作用強度。</p>
+
+      <h3>NO-cGMP訊息傳遞機轉<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">硝酸鹽類藥物釋出NO</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活化鳥苷酸環化酶(guanylate cyclase)</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">↑細胞內cGMP</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">活化Protein Kinase G</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Ca²⁺通道關閉＋K⁺通道開啟 → 血管舒張</div>
+      </div>
+      <p style="font-size:.9em;">同一條下游訊息傳遞路徑（Kinase-linked receptors的Type 3：Guanylyl cyclase）也被<strong>心房利鈉肽（Atrial Natriuretic Peptide, ANP）與Guanylin</strong>利用（透過Particulate GC，而非NO活化的Soluble GC），最終同樣產生血管舒張與抑制細胞增生的效果——這說明cGMP是多條血管舒張路徑共用的下游訊息分子，不是硝酸鹽類獨有。</p>
+
+      <h3 id="drug-nitroprusside">Sodium Nitroprusside<span class="tag tag-exam">重要</span></h3>
+      <p>同為NO-cGMP路徑，但屬於強力的<strong>動靜脈同時舒張劑</strong>。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">高血壓急症首選藥物</div>
+        <p>★<strong>Nitroprusside是高血壓急症的首選血管擴張劑</strong>，優點是<strong>起效快、停藥後效果也消退快</strong>，需以<strong>IV持續輸注（CRI，例如輸液幫浦）</strong>精確控制血壓。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Nitroprusside劑量與藥動學</div>
+        <p>核對自 Handbook of Veterinary Pharmacology Ch.8：Nitroprusside效果在<strong>停藥後10分鐘內消退</strong>，因此必須以靜脈輸注方式給藥；Veterinary Pharmacology and Therapeutics 10th ed. Ch.21犬用劑量表：<strong>1–5 μg/kg/min IV</strong>。不良反應少見但需留意：其代謝產物可能造成<strong>變性血紅素血症（methemoglobinemia）與氰化物毒性</strong>（罕見）。</p>
+      </div>
+
+      <h3 id="drug-nitroglycerin">Nitroglycerin</h3>
+      <p>同為NO供體，↑cGMP，但<strong>靜脈舒張效果大於動脈</strong>。</p>
+      <ul>
+        <li>人類：<strong>舌下（SL）</strong>給藥治療心絞痛，↑冠狀動脈血流、↑缺血心肌的氧氣供應。</li>
+        <li>犬貓：<strong>2%藥膏透皮塗抹</strong>，用於急性心因性肺水腫的輔助治療。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Nitroglycerin外用劑量</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21：<strong>2%藥膏 0.5 cm／5kg TID透皮塗抹，僅用於治療前24小時</strong>。</p>
+      </div>
+
+      <h3 id="drug-isosorbide">Isosorbide Dinitrate</h3>
+      <p>同為NO-cGMP路徑，<strong>PO</strong>給藥，用於<strong>慢性CHF</strong>的輔助治療，與標準療法併用；或在動物<strong>無法耐受ACE抑制劑</strong>時，改與Hydralazine或Amlodipine併用。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">不良反應與耐受性</div>
+        <p>低血壓（頭痛、反射性心搏過速）；罕見變性血紅素血症與氰化物毒性（Nitroprusside代謝產物）；<strong>頻繁暴露於高劑量硝酸鹽類會產生耐受性（tolerance）與依賴性</strong>——人類長期治療後若驟然停藥，可能誘發嚴重的心肌缺血甚至死亡，這點在臨床上提醒我們硝酸鹽類不宜貿然停藥。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主，並以 Handbook of Veterinary Pharmacology Ch.8 與 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- EMERGENCY -->
+    <div class="section" id="section-emergency">
+      <div class="section-head"><div class="section-num">10</div><h2>高血壓急症與肺高血壓 Hypertensive Crisis &amp; Pulmonary Hypertension</h2></div>
+      <p class="section-desc">兩個特殊臨床情境的收尾：血壓需要「立刻」降下來的急症，以及肺循環專屬的血管擴張劑Sildenafil。</p>
+
+      <h3>高血壓危象 Hypertensive Crisis</h3>
+      <p>可用血管擴張劑：<strong>Sodium Nitroprusside</strong> 與 <strong>Diazoxide</strong>（人醫）。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">Nitroprusside是首選</div>
+        <p>★<strong>Sodium Nitroprusside是高血壓危象的首選藥物</strong>，優點：<strong>起效快</strong>；<strong>停藥後效果迅速消退</strong>。須以<strong>IV持續輸注（如輸液幫浦）</strong>精確控制血壓，避免劑量過大造成低血壓。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ Nitroprusside完整的機轉、教科書核對劑量（1–5 μg/kg/min IV）與不良反應，見本頁「硝酸鹽類血管擴張劑」一節之 <a href="#drug-nitroprusside">Sodium Nitroprusside</a> 段落。</p>
+
+      <h3 id="drug-sildenafil">肺高血壓 Pulmonary Hypertension：Sildenafil<span class="tag tag-exam">重要</span></h3>
+      <p>治療根本病因是關鍵（肺高血壓多為繼發性，找出並處理原發病是治療核心）。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">Sildenafil（Viagra）</div>
+        <p><strong>選擇性PDE type V抑制劑</strong>，↑血管平滑肌細胞內cGMP濃度，誘發血管舒張，★<strong>降低犬與人類的肺高血壓</strong>。給藥途徑：<strong>PO</strong>。藥動學：口服<strong>生體可用率佳</strong>；達峰時間（Tmax）<strong>&lt;60分鐘</strong>；<strong>犬T½ 6小時</strong>。不良反應：低血壓。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：Sildenafil劑量</div>
+        <p>核對自 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21：<strong>0.5–1 mg/kg PO SID–BID</strong>。</p>
+      </div>
+      <p style="font-size:.9em;">PDE V分布組織：腦、肺組織、心臟、肝臟、腎臟、膀胱、前列腺、尿道、陰莖、子宮、骨骼肌——這也解釋了為什麼Sildenafil在人醫另有勃起功能障礙的適應症，屬於同一分子機轉在不同器官的臨床應用延伸。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. Ch.21 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考試／臨床實務角度整理，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>BP = CO × PR = (HR × SV) × PR</strong>；犬貓高血壓與人類相反，幾乎都是<strong>繼發性</strong>（犬：腎臟病、庫欣氏症；貓：CKD~60%、甲亢~20%），診斷閾值為<strong>&gt;180/120 mmHg</strong>，治療務必同時處理原發病因。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>犬第一線：ACE抑制劑（PO）</strong>；<strong>貓第一線：Amlodipine（CCB，PO）</strong>——因ACEI在貓效果較差但仍可延緩CKD惡化；<strong>Telmisartan（ARB，PO）是FDA核准的貓專用抗高血壓藥</strong>，也能降低貓CKD蛋白尿。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>CCB依作用位置分兩群</strong>：Verapamil、Diltiazem主要作用心臟（房室結），臨床用於心律不整/HCM；Dihydropyridine類（Amlodipine、Nifedipine等）選擇性作用血管平滑肌，是高血壓用藥主力。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>α1-blocker（Phenoxybenzamine PO、Prazosin PO、Phentolamine IV/IM）</strong>臨床重點是嗜鉻細胞瘤術前準備與高血壓危象；<strong>α2-blocker（Yohimbine、Tolazoline、Atipamezole）不是抗高血壓藥</strong>，是獸醫麻醉科的α2-agonist鎮靜反轉劑。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>β-blocker透過↓CO與↓renin降血壓</strong>；心臟選擇性（Atenolol PO、Esmolol IV CRI超短效）比非選擇性（Propranolol PO）副作用風險（支氣管痙攣）小；<strong>驟停可能致反彈性高血壓</strong>，須漸進減量。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>直接血管擴張劑：Hydralazine（PO）</strong>常與Furosemide併用治犬二尖瓣閉鎖不全；<strong>Diazoxide在獸醫臨床實際是口服治療胰島素瘤低血糖藥物</strong>，與講義描述的「人醫高血壓急症用藥」用途相反，需特別留意這個落差。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>硝酸鹽類（Nitroprusside IV CRI、Nitroglycerin透皮、Isosorbide dinitrate PO）</strong>共用NO-cGMP機轉；<strong>Nitroprusside是高血壓急症首選</strong>，起效快消退也快；長期高劑量使用會產生耐受性。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Sildenafil（PDE V抑制劑，PO）</strong>用於治療犬肺高血壓，犬T½ 6小時，Tmax&lt;60分。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout CV3 Hypertension）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed.、Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋犬貓高血壓病因、各藥物家族機轉與臨床定位、教科書核對重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列關於犬貓全身性高血壓病因的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 犬貓的高血壓與人類相同，多數屬於找不到病因的原發性(essential)高血壓</li>
+          <li>(B) 貓的高血壓最常見病因是慢性腎臟病（約占60%）</li>
+          <li>(C) 犬的高血壓與甲狀腺機能亢進最相關</li>
+          <li>(D) NSAID不會造成動物血壓上升</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">犬貓的高血壓與人類相反，絕大多數屬於<strong>繼發性</strong>；貓最大宗病因是慢性腎臟病（~60%），其次是甲狀腺機能亢進（~20%）；犬則以腎臟疾病、庫欣氏症（hyperadrenocorticism）為主，甲狀腺機能亢進是<strong>貓</strong>的常見病因而非犬；NSAID（尤其在CKD病患）、糖皮質類固醇、礦物皮質類固醇等藥物都可能誘發或加重動物的高血壓。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 犬全身性高血壓的第一線用藥是ACE抑制劑，而貓則因為ACEI效果較差，臨床上以Amlodipine（CCB）為首選。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer true">答案：TRUE</div>
+          <p class="quiz-explain">正確。犬全身性高血壓第一線是ACE抑制劑（PO）；貓因ACEI單獨降壓效果較差，第一線改為Amlodipine（Dihydropyridine類CCB，PO），且Amlodipine對正常心臟幾乎無不良的心臟直接效應，適合長期使用。ACEI在貓雖然降壓效果有限，仍可透過降低出球小動脈收縮、減少腎絲球內高壓，延緩CKD惡化進程，臨床上常與Amlodipine併用而非互斥。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. Verapamil與Diltiazem雖然同屬鈣離子通道阻斷劑，但臨床上較少作為犬貓高血壓的首選用藥，最主要的原因是？</div>
+        <ul class="quiz-options">
+          <li>(A) 兩者對血管平滑肌完全沒有作用</li>
+          <li>(B) 兩者主要作用位置在心臟（房室結），相對Dihydropyridine類CCB，血管舒張效果較弱</li>
+          <li>(C) 兩者僅能經IV給藥，臨床使用不便</li>
+          <li>(D) 兩者會直接使血壓升高</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Verapamil、Diltiazem主要阻斷<strong>心臟房室結</strong>的L-type Ca²⁺通道，臨床上用於心律不整（及HCM），對血管平滑肌的舒張效果相對Dihydropyridine類（如Amlodipine、Nifedipine）弱，因此不是高血壓治療的首選。Diltiazem也有PO劑型（非僅IV），選項(C)不正確；兩者是降壓而非升壓藥物。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 講義把Phenoxybenzamine歸類在「α1-blockers」清單中，但機轉描述卻寫著「非選擇性、同時阻斷α1與α2受體」。這個分類上的落差，複習時該怎麼理解？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">Phenoxybenzamine在受體藥理學上確實是<strong>非選擇性</strong>的α受體拮抗劑（同時共價、不可逆地結合α1與α2受體），這點與Prazosin（選擇性α1）、Yohimbine等（選擇性α2）不同。但臨床分類表常把它跟Prazosin一起歸在「α1-blockers」這組，是因為它<strong>臨床上呈現出的效果以α1介導的血管舒張、降壓為主</strong>，用途也與其他α1-blocker相近（如嗜鉻細胞瘤術前準備）。這提醒我們讀講義時要分清楚「受體藥理學上的選擇性」跟「臨床分類習慣」有時不完全一致，遇到類似矛盾時應該同時記住兩個面向，而不是硬記成單一答案。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q5. Diazoxide在教科書中記載的獸醫臨床主要用途是什麼？跟講義描述的用途有何不同？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">講義把Diazoxide放在「血管擴張劑／高血壓急症用藥」這個脈絡下介紹（人醫IV用法），並列出「高血糖（抑制胰島素釋放）」作為它的不良反應。但教科書核對後發現，<strong>獸醫臨床上Diazoxide幾乎不會用來治療高血壓</strong>，它真正常用的適應症是<strong>口服治療胰島素瘤所致的低血糖</strong>（初始劑量10 mg/kg/day分兩次，可漸增但不超過40 mg/kg/day）。機轉上兩種用途其實是同一件事（活化K⁺通道使細胞過極化，抑制胰臟β細胞釋放胰島素），只是講義討論的是它作用在<strong>血管平滑肌</strong>造成血壓下降這個人醫脈絡，而獸醫臨床實際利用的是它作用在<strong>胰臟β細胞</strong>造成的「高血糖」這個效果本身，兩者的臨床目的方向相反，複習時要分開記憶。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q6.【臨床情境】一隻8歲罹患慢性腎臟病（IRIS stage 2）的家貓，於例行回診時多次測量收縮壓皆為190 mmHg（已排除白袍效應），同時檢驗發現尿蛋白/肌酸酐比值(UPC)偏高。請問：(1) 這隻貓的血壓數值是否達到需要治療的高血壓標準？依據為何？(2) 第一線降壓藥物會選擇哪一類？為什麼？(3) 除了降壓藥，還有沒有其他藥物可能同時處理牠的蛋白尿問題？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 是否達標：</strong>犬貓高血壓的診斷閾值為&gt;180/120 mmHg，此貓收縮壓190 mmHg已達標，且已多次測量排除白袍效應，加上合併CKD（高血壓的標的器官風險包括視網膜、腎臟、心臟、腦），應積極治療以避免高血壓性標的器官損傷（如視網膜剝離、腎功能加速惡化）。<br><strong>(2) 第一線藥物：</strong>貓的全身性高血壓第一線用藥是<strong>Amlodipine（Dihydropyridine類CCB，PO）</strong>，因為ACE抑制劑在貓的降壓效果較差。<br><strong>(3) 蛋白尿的輔助處理：</strong>雖然ACEI（如Benazepril）或ARB（Telmisartan）單獨用於貓的降壓效果有限，但兩者都能透過降低出球小動脈收縮、減少腎絲球內高壓，進而降低蛋白尿（UPC）並延緩CKD惡化——教科書核對顯示Telmisartan降低貓CKD的UPC效果與Benazepril相當，臨床上常與Amlodipine併用，同時處理血壓與蛋白尿兩個問題。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】一隻疑似腎上腺髓質嗜鉻細胞瘤(pheochromocytoma)的犬即將接受腫瘤切除手術，麻醉醫師在術前數天就開始給予Phenoxybenzamine。請問：(1) 為什麼要在術前提早數天開始給藥，而不是手術當天才給？(2) 若病患在給藥後出現反射性心搏過速，臨床上可以如何處理？(3) 為什麼術前準備的原則是「務必先給α-blocker，再視需要加β-blocker」，不能反過來？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 為何提早給藥：</strong>Phenoxybenzamine是共價、不可逆結合α受體的長效藥物，起效慢（數小時），且效果會隨連續給藥逐日增強，需要數天時間才能建立穩定完整的α受體阻斷，讓術中操作腫瘤時大量兒茶酚胺瀑發性釋放引起的高血壓危象風險降到最低。<br><strong>(2) 反射性心搏過速的處理：</strong>可加上β-blocker來控制——因為α受體被阻斷後，壓力受器反射與腫瘤持續釋放的兒茶酚胺仍可興奮心臟的β受體造成心搏過速，此時搭配β-blocker能進一步控制心率。<br><strong>(3) 為何不能先給β-blocker：</strong>若先給β-blocker，會阻斷血管平滑肌上具部分舒張作用的β2受體，但腫瘤持續大量釋放的兒茶酚胺仍可充分刺激未被阻斷的α受體造成強力血管收縮，失去β2部分抵銷血管收縮的緩衝效果後，α介導的血管收縮反而相對增強，可能誘發更嚴重的高血壓危象——這是嗜鉻細胞瘤術前準備的臨床鐵律：務必先α後β，順序不能顛倒。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  physiology: '血壓生理與犬貓病因',
+  aceiarb: 'ACE抑制劑與ARB',
+  ccb: '鈣離子通道阻斷劑',
+  alphablockers: 'α-腎上腺素性阻斷劑',
+  betablockers: 'β-腎上腺素性阻斷劑',
+  directvasodilators: '直接血管平滑肌擴張劑',
+  nitrates: '硝酸鹽類血管擴張劑',
+  emergency: '高血壓急症與肺高血壓',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

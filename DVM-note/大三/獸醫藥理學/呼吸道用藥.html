@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：呼吸道用藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">呼吸道用藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">呼吸道用藥 Drugs Affecting the Respiratory System</h1>
+      <p class="page-subtitle">以氣喘藥理為主軸（支氣管擴張劑、氣喘抗發炎藥物），延伸鎮咳藥、化痰袪痰藥、鼻充血解除劑，以及肺動脈高壓／高海拔疾病／肺表面張力素替代療法等周邊應用</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三・不分上下學期）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2，26頁）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.（Ch.48 呼吸系統用藥為主）與 Handbook of Veterinary Pharmacology（CNS 興奮劑章節），針對 Theophylline／Terbutaline／Ipratropium／鎮咳鴉片類／NAC／Cromolyn／Sildenafil／Doxapram 等重點藥物核對，部分次要藥物未逐一核對（詳見頁末說明）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-25</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對：部分完成，見各段落標註）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">氣喘藥理</div>
+    <a onclick="showSection('asthma')" id="nav-asthma"><span class="nav-icon">🫁</span> 氣喘病理生理與治療策略</a>
+    <a onclick="showSection('bronchodilators')" id="nav-bronchodilators"><span class="nav-icon">💨</span> 支氣管擴張劑</a>
+    <a onclick="showSection('antiinflammatory')" id="nav-antiinflammatory"><span class="nav-icon">🔥</span> 氣喘抗發炎藥物</a>
+    <div class="section-label" style="margin-top:8px;">症狀導向用藥</div>
+    <a onclick="showSection('antitussive')" id="nav-antitussive"><span class="nav-icon">😮‍💨</span> 鎮咳藥</a>
+    <a onclick="showSection('mucokinetics')" id="nav-mucokinetics"><span class="nav-icon">💧</span> 化痰藥與袪痰藥</a>
+    <a onclick="showSection('decongestants')" id="nav-decongestants"><span class="nav-icon">👃</span> 鼻充血解除劑</a>
+    <div class="section-label" style="margin-top:8px;">其他</div>
+    <a onclick="showSection('other')" id="nav-other"><span class="nav-icon">❤️</span> 肺高壓、高海拔與表面張力素</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>這份講義以「氣喘（asthma）」作為呼吸道用藥的核心案例，先建立氣喘的病理生理與「短期急救 vs 長期控制」兩種治療邏輯，再依此邏輯把支氣管擴張劑（β2 致效劑、Methylxanthine、抗膽鹼藥）與氣喘抗發炎藥物（類固醇、肥大細胞穩定劑、白三烯路徑抑制劑，以及近年出現的生物製劑）分成兩大類逐一介紹。接著轉向另一組常被搞混的症狀導向用藥：鎮咳藥（先分辨 productive vs non-productive cough）、化痰／袪痰藥（改變痰液黏稠度 vs 促進痰液排出），以及處理上呼吸道症狀的鼻充血解除劑。最後收在幾個跟呼吸系統相關、但機轉截然不同的周邊應用：PDE-V 抑制劑用於肺動脈高壓與高海拔疾病、以及新生兒呼吸窘迫症候群的肺表面張力素替代療法。整體脈絡是「先講一個完整疾病模型（氣喘）建立藥理邏輯，再擴展到其他呼吸道症狀與周邊應用」。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('asthma')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">氣喘總論</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">病理生理與治療策略框架</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('bronchodilators')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">支氣管擴張劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">β2致效劑／Methylxanthine／抗膽鹼藥</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('antiinflammatory')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">氣喘抗發炎藥物</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">類固醇／肥大細胞穩定劑／白三烯抑制劑</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('antitussive')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">鎮咳藥</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">中樞性 Opioid 類為主</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('mucokinetics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">化痰藥與袪痰藥</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Mucolytics vs Expectorants</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('decongestants')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">06</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">鼻充血解除劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">H1抗組織胺／局部與全身α致效劑</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('other')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">07</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">其他周邊應用</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">肺高壓／高海拔／表面張力素／Doxapram</p></div>
+        </div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">八個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>三大類支氣管擴張劑機轉不同、終點相同（↑cAMP → 平滑肌鬆弛）：</strong>β2 致效劑（Gs 偶聯 → adenylyl cyclase↑ → cAMP↑）、Methylxanthine（腺苷 A1 受體拮抗＋高濃度時抑制 PDE，讓 cAMP/cGMP 不被分解）、抗膽鹼藥（阻斷 M 受體移除膽鹼性收縮訊號，屬於「防止痙攣」而非主動放鬆）。三條路徑互不重疊，臨床上常合併使用達到加成效果。</li>
+          <li><strong>吸入型（aerosol/MDI）是氣喘長期控制藥物的優先給藥途徑：</strong>無論類固醇（Fluticasone）或肥大細胞穩定劑（Cromolyn），吸入劑型都能把藥物濃度集中在肺部、大幅降低全身性副作用，這也是為什麼長期控制藥物幾乎都優先發展吸入劑型。</li>
+          <li><strong>貓氣喘用藥選擇少、且部分黏液溶解劑對貓反而有風險：</strong>Salmeterol＋Fluticasone 是講義中明確用於貓氣喘長期控制的組合；但教科書實證顯示氣管內霧化 NAC 在貓氣喘動物實驗中反而<strong>增加</strong>呼吸道阻力，使用前需特別謹慎（詳見化痰藥章節）。</li>
+          <li><strong>鎮咳藥的黃金原則：生產性咳嗽（productive cough）禁止止咳：</strong>把痰咳不出來會讓下呼吸道感染或阻塞惡化。中樞性鎮咳藥全部是 Opioid 類（Codeine、Hydrocodone、Butorphanol、Morphine、Tramadol）或非鴉片類的 Dextromethorphan，只適用於非生產性（乾）咳。</li>
+          <li><strong>Ipratropium 是「局部化版本的 Atropine」：</strong>季銨結構不易穿透黏膜吸收進入全身循環，氣霧化給藥時的全身副作用（口乾、心搏過速、腸胃蠕動抑制）遠低於注射用 Atropine，是氣喘／馬 RAO 長期控制時優先於 Atropine 的抗膽鹼藥。</li>
+          <li><strong>Theophylline 治療窗窄、物種間半衰期差異大、且藥物交互作用多：</strong>Cimetidine 與 Fluoroquinolones（尤其 Enrofloxacin，經抑制 CYP1A2）會使血中濃度升高、增加中樞興奮與心律不整風險；犬（~6h）、貓（~8h）、馬（12–17h）半衰期不同，給藥頻次不能互相套用。</li>
+          <li><strong>β2 選擇性倍數越高，心臟（β1）副作用越少，但不是零：</strong>Albuterol／Clenbuterol 的 β2/β1 選擇性約 4 倍，仍需注意心搏過速、心律不整；非選擇性的 Isoproterenol、Epinephrine 心血管副作用更明顯，長期使用會受限。</li>
+          <li><strong>「大綱列出但投影片沒教」也是常考陷阱：</strong>本份講義第1頁大綱把 Doxapram（呼吸興奮劑）列為最後一項，但整份投影片實際上沒有相關內容——本頁在「其他」章節用教科書補充框標出這個落差，讀者需知道這不是講義原文，是額外補充。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步（索引表更新後將同步覆蓋此表）；點最後一欄可跳到頁面內對應段落。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td>Epinephrine</td><td>非選擇性α／β1／β2致效劑（catecholamine）</td><td><strong>Parenteral（注射）</strong>；過敏性休克、心跳停止急救、延長局麻效果、局部止血</td><td class="drug-locations"><a href="#drug-epinephrine" class="drug-link">過敏性休克、心跳停止急救</a></td></tr>
+            <tr><td>Isoproterenol</td><td>非選擇性β1＋β2致效劑（無α活性）</td><td><strong>不可口服；Parenteral或Aerosol</strong>；急性支氣管收縮、完全性房室傳導阻滯</td><td class="drug-locations"><a href="#drug-isoproterenol" class="drug-link">急性支氣管收縮、AV block</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Terbutaline<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Brethine®／Bricanyl®</div></td><td>β2選擇性致效劑（非catecholamine）</td><td><strong>PO或Parenteral（SC/IV/IM）</strong>；犬貓支氣管收縮、內視鏡檢查前預防痙攣、犬安胎；<strong>馬僅能注射</strong>（口服吸收率&lt;1%）治療RAO</td><td class="drug-locations"><a href="#drug-terbutaline" class="drug-link">犬貓支氣管收縮；馬RAO</a></td></tr>
+            <tr><td>Isoetharine</td><td>β2選擇性catecholamine</td><td><strong>Aerosol</strong>；小動物，起效快</td><td class="drug-locations"><a href="#drug-terbutaline" class="drug-link">小動物氣霧劑，起效快</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Albuterol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Salbutamol</div></td><td>β2選擇性致效劑（β2/β1選擇性約4倍）</td><td><strong>Aerosol</strong>；小動物與馬支氣管收縮；麻醉中馬的低血氧治療</td><td class="drug-locations"><a href="#drug-albuterol" class="drug-link">麻醉中馬低血氧</a></td></tr>
+            <tr><td>Salmeterol</td><td>長效β2選擇性致效劑（&gt;12h）</td><td><strong>Aerosol</strong>；與Fluticasone併用，貓氣喘長期控制</td><td class="drug-locations"><a href="#drug-albuterol" class="drug-link">貓氣喘長期控制（併Fluticasone）</a></td></tr>
+            <tr><td>Clenbuterol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Ventipulmin®</div></td><td>β2選擇性致效劑（β2/β1約4倍）</td><td><strong>PO</strong>；FDA核准馬，RAO首選之一；長期使用有合成代謝效果，受賽馬產業用藥規範</td><td class="drug-locations"><a href="#drug-clenbuterol" class="drug-link">馬RAO；賽馬用藥管制</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Theophylline<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Aminophylline／Oxtriphylline為衍生鹽類</div></td><td>治療濃度：腺苷A1受體競爭性拮抗；高濃度：抑制PDE（cAMP/cGMP降解酶）</td><td><strong>PO</strong>；犬貓馬慢性支氣管肺疾病，舒張支氣管＋抑制肥大細胞去顆粒化＋增加呼吸肌力</td><td class="drug-locations"><a href="#drug-theophylline" class="drug-link">犬貓馬慢性支氣管肺病</a></td></tr>
+            <tr><td>Atropine／Glycopyrrolate</td><td>非選擇性Muscarinic受體拮抗劑</td><td><strong>注射（Injectable）</strong>；阻斷膽鹼性支氣管收縮，全身副作用明顯；馬反覆使用可能致腸阻塞</td><td class="drug-locations"><a href="#drug-atropine" class="drug-link">阻斷膽鹼性支氣管收縮</a></td></tr>
+            <tr><td>Ipratropium<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Atrovent®</div></td><td>季銨結構Muscarinic拮抗劑（局部型Atropine）</td><td><strong>Aerosol（MDI）</strong>；犬支氣管擴張效果為atropine2倍，全身副作用低；馬RAO</td><td class="drug-locations"><a href="#drug-ipratropium" class="drug-link">犬馬支氣管擴張，全身副作用低</a></td></tr>
+            <tr><td>Prednisolone／Prednisone</td><td>Glucocorticoid：抑制發炎細胞介導的氣道發炎（主要抑制cytokine產生）</td><td><strong>PO</strong>；急性重症或支氣管擴張劑無效之惡化病例</td><td class="drug-locations"><a href="#drug-corticosteroids-resp" class="drug-link">急性重症或支氣管擴張劑無效</a></td></tr>
+            <tr><td>Fluticasone</td><td>Glucocorticoid（高脂溶性）</td><td><strong>Aerosol（MDI）</strong>；長期控制首選劑型，降低全身性副作用；預防效果優於急性治療</td><td class="drug-locations"><a href="#drug-corticosteroids-resp" class="drug-link">長期控制首選劑型</a></td></tr>
+            <tr><td>Cromolyn（Cromoglycate）／Nedocromil<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Intal®</div></td><td>抑制肥大細胞去顆粒化（機轉未明，可能與Ca²⁺流入抑制有關）</td><td><strong>Aerosol／鼻噴劑</strong>；僅能預防性使用，不能逆轉已發生的支氣管痙攣；馬RAO</td><td class="drug-locations"><a href="#drug-cromolyn" class="drug-link">預防性使用，馬RAO</a></td></tr>
+            <tr><td>Zileuton</td><td>5-LOX抑制劑，阻斷白三烯合成</td><td>獸醫使用受限（成本高、有肝毒性）</td><td class="drug-locations"><a href="#drug-leukotriene" class="drug-link">獸醫使用受限</a></td></tr>
+            <tr><td>Zafirlukast／Montelukast</td><td>白三烯受體拮抗劑</td><td>人類輕中度氣喘維持治療，效果不如吸入類固醇；犬異位性皮膚炎與貓氣喘輔助治療；對急性發作無效</td><td class="drug-locations"><a href="#drug-leukotriene" class="drug-link">輔助治療，對急性發作無效</a></td></tr>
+            <tr><td>Benralizumab<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Fasenra®</div></td><td>抗IL-5受體單株抗體，抑制IL-5介導的嗜酸性球增生</td><td>人醫用於重度嗜酸性球氣喘（SEA）之附加治療，非既定獸醫用藥</td><td class="drug-locations"><a href="#drug-benralizumab" class="drug-link">重度嗜酸性球氣喘附加治療</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Butorphanol<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Torbutrol®</div></td><td>Opioid（κ致效／μ拮抗－部分拮抗）中樞性鎮咳</td><td><strong>PO（FDA核准犬用鎮咳錠劑）</strong>；犬貓非生產性咳嗽</td><td class="drug-locations"><a href="#drug-opioid-antitussive" class="drug-link">犬貓非生產性咳嗽，FDA核准</a></td></tr>
+            <tr><td>Hydrocodone</td><td>Opioid中樞性鎮咳</td><td><strong>PO</strong>；犬常規處方鎮咳藥</td><td class="drug-locations"><a href="#drug-opioid-antitussive" class="drug-link">犬常規鎮咳處方</a></td></tr>
+            <tr><td>Codeine</td><td>Opioid中樞性鎮咳</td><td><strong>PO（犬口服生體可用率差，效果可能不佳）</strong></td><td class="drug-locations"><a href="#drug-opioid-antitussive" class="drug-link">犬口服吸收差，效果存疑</a></td></tr>
+            <tr><td>Morphine</td><td>μ-opioid致效劑</td><td><strong>Parenteral</strong>；鎮咳有效，但臨床少單獨作此用途</td><td class="drug-locations"><a href="#drug-opioid-antitussive" class="drug-link">鎮咳有效</a></td></tr>
+            <tr><td>Tramadol</td><td>弱μ-opioid致效＋單胺回收抑制</td><td>貓實驗中經活性代謝物產生鎮咳效果（尚未臨床驗證）</td><td class="drug-locations"><a href="#drug-opioid-antitussive" class="drug-link">貓實驗性鎮咳效果</a></td></tr>
+            <tr><td>Dextromethorphan</td><td>非鴉片類，鎮咳機轉不明</td><td><strong>PO</strong>；人類OTC感冒藥；<strong>犬體內血中濃度下降快，不建議使用</strong></td><td class="drug-locations"><a href="#drug-dextromethorphan" class="drug-link">犬不建議使用</a></td></tr>
+            <tr><td>N-Acetylcysteine（NAC）<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Mucomyst®</div></td><td>打斷黏液蛋白雙硫鍵（S-S），降低黏稠度</td><td><strong>PO（粉劑）或Aerosol（10%溶液，每日3–4次）</strong>；化痰；<strong>貓氣喘動物實驗中吸入反增加呼吸道阻力，需謹慎</strong></td><td class="drug-locations"><a href="#drug-nac" class="drug-link">化痰；貓氣喘慎用</a></td></tr>
+            <tr><td>Bromhexine／Ambroxol</td><td>↑第二型肺泡細胞表面張力素分泌；促進黏液水解、增加漿液性黏液分泌</td><td>化痰（分泌溶解效果）</td><td class="drug-locations"><a href="#drug-bromhexine" class="drug-link">化痰（分泌溶解效果）</a></td></tr>
+            <tr><td>Potassium Iodide</td><td>刺激胃黏膜→迷走反射→增加支氣管分泌</td><td>增加分泌物流動性，提高分泌量約150%</td><td class="drug-locations"><a href="#drug-expectorants" class="drug-link">增加分泌量約150%</a></td></tr>
+            <tr><td>Ethylenediamine Dihydroiodide</td><td>同上（碘化物類袪痰機轉）</td><td>牛的輕度呼吸道疾病</td><td class="drug-locations"><a href="#drug-expectorants" class="drug-link">牛輕度呼吸道疾病</a></td></tr>
+            <tr><td>Ammonium Chloride</td><td>刺激性袪痰＋酸化尿液</td><td>兼具袪痰與尿液酸化雙重用途</td><td class="drug-locations"><a href="#drug-expectorants" class="drug-link">袪痰兼尿液酸化</a></td></tr>
+            <tr><td>Guaifenesin</td><td>刺激性袪痰（機轉不明，效果存疑）</td><td>人類OTC鎮咳藥；<strong>獸醫麻醉領域另作中樞性骨骼肌鬆弛劑使用，兩種情境劑量差異極大，不可混淆</strong></td><td class="drug-locations"><a href="#drug-expectorants" class="drug-link">袪痰效果存疑；勿與麻醉用途混淆</a></td></tr>
+            <tr><td>H1-抗組織胺類<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Diphenhydramine等</div></td><td>H1受體拮抗劑</td><td>過敏性鼻炎、感冒相關鼻塞症狀，常與袪痰藥／Pseudoephedrine併用</td><td class="drug-locations"><a href="#drug-h1-decongestant" class="drug-link">過敏性鼻炎、感冒鼻塞</a></td></tr>
+            <tr><td>Phenylephrine</td><td>短效α致效劑（局部）</td><td><strong>鼻噴劑（Topical）</strong>；馬麻醉甦醒前緩解鼻充血；犬馬鼻甲手術減少出血</td><td class="drug-locations"><a href="#drug-phenylephrine" class="drug-link">馬甦醒前鼻充血、鼻甲手術止血</a></td></tr>
+            <tr><td>Oxymetazoline／Xylometazoline</td><td>長效局部α致效劑</td><td><strong>鼻噴劑（Topical）</strong>；動物少用（給藥不便），長期恐致黏膜缺血</td><td class="drug-locations"><a href="#drug-phenylephrine" class="drug-link">動物少用</a></td></tr>
+            <tr><td>Pseudoephedrine／Phenylpropanolamine（PPA）</td><td>間接性擬交感神經作用（促進NE釋放，作用於α1/α2/β1/β3，不影響β2）</td><td><strong>PO</strong>；鼻血管收縮解充血；<strong>PPA另用於犬尿失禁</strong>（α↑尿道括約肌張力、β鬆弛逼尿肌）</td><td class="drug-locations"><a href="#drug-pseudoephedrine" class="drug-link">鼻充血；PPA用於犬尿失禁</a></td></tr>
+            <tr><td>Sildenafil<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Viagra®</div></td><td>PDE-V抑制劑，↑cGMP血管平滑肌濃度</td><td><strong>PO</strong>；犬與人的肺動脈高壓治療，血管擴張</td><td class="drug-locations"><a href="#drug-sildenafil" class="drug-link">犬人肺動脈高壓</a></td></tr>
+            <tr><td>Tadalafil<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Cialis®</div></td><td>PDE-V抑制劑</td><td><strong>PO</strong>；高海拔疾病相關血管擴張</td><td class="drug-locations"><a href="#drug-sildenafil" class="drug-link">高海拔疾病血管擴張</a></td></tr>
+            <tr><td>Acetazolamide</td><td>碳酸酐酶抑制劑（利尿藥）；誘發輕度代謝性酸中毒刺激呼吸中樞</td><td>高海拔疾病輔助，促進換氣代償</td><td class="drug-locations"><a href="#drug-altitude" class="drug-link">高海拔疾病輔助換氣</a></td></tr>
+            <tr><td>Nifedipine</td><td>Ca²⁺通道阻斷劑</td><td>高海拔疾病之肺血管收縮，血管擴張</td><td class="drug-locations"><a href="#drug-altitude" class="drug-link">高海拔肺血管收縮</a></td></tr>
+            <tr><td>Dexamethasone</td><td>Glucocorticoid（機轉未明）</td><td>緩解高海拔疾病水腫症狀</td><td class="drug-locations"><a href="#drug-altitude" class="drug-link">緩解高海拔水腫</a></td></tr>
+            <tr><td>Poractant alfa／Calfactant／Beractant</td><td>外源性肺表面張力素（豬／牛肺萃取磷脂蛋白複合物）</td><td><strong>氣管內直接灌注（Intratracheal）</strong>；新生兒呼吸窘迫症候群（RDS）</td><td class="drug-locations"><a href="#drug-surfactant" class="drug-link">新生兒RDS</a></td></tr>
+            <tr><td>Doxapram<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">大綱提及、投影片未涵蓋，內容整理自教科書</div></td><td>直接刺激延腦呼吸中樞＋活化頸動脈／主動脈化學受器</td><td><strong>IV（效果5–10分鐘）／IM／頰黏膜局部（新生兒）</strong>；麻醉甦醒、新生兒複甦呼吸刺激，無法取代插管急救</td><td class="drug-locations"><a href="#drug-doxapram" class="drug-link">麻醉甦醒、新生兒呼吸刺激</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ASTHMA -->
+    <div class="section" id="section-asthma">
+      <div class="section-head"><div class="section-num">3</div><h2>氣喘病理生理與治療策略 Asthma: Pathophysiology &amp; Treatment Strategy</h2></div>
+      <p class="section-desc">氣喘是這份講義用來串起整個支氣管擴張劑／抗發炎藥物邏輯的疾病模型，先建立病理生理與治療分層，後面藥物章節都是在回答「這顆藥打在這個模型的哪一段」。</p>
+
+      <h3>氣喘的定義與病理生理</h3>
+      <p>氣喘（Asthma）是肺臟以<strong>明顯支氣管收縮＋發炎</strong>為特徵的病理狀態，核心特徵是<strong>氣道對刺激的反應性上升（hyperreactivity）</strong>，臨床上可用 Methacholine challenge test（支氣管激發測試）評估。症狀包含呼吸困難、咳嗽、喘鳴（wheezing）、胸悶。病程為<strong>陣發性（episodic）</strong>：急性發作與無症狀期交替；長期嚴重阻塞則稱為 <strong>status asthmaticus（氣喘重積狀態）</strong>。輕度氣喘最常見，誘發因子包括過敏原暴露、空氣汙染物（PM2.5）、運動、上呼吸道病毒感染之後。</p>
+
+      <h3 id="drug-aacascade-resp">CD4⁺ T 細胞於氣喘致病機轉中的角色<span class="tag tag-exam">重要</span></h3>
+      <div class="flow">
+        <div class="flow-node">過敏原（Allergen）進入呼吸道</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">APC 以 MHC II 呈現給 CD4⁺ T 細胞 → 分化為 Th2</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Th2 分泌 IL-4／IL-13（促B細胞產生IgE）＋ IL-5（活化嗜酸性球）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">肥大細胞去顆粒化（Histamine、PAF、Leukotrienes）＋嗜酸性球釋放MBP＋Leukotrienes → 氣道發炎、黏液分泌↑、氣道過度反應、氣流阻塞</div>
+      </div>
+
+      <h3>治療策略：短期緩解 vs 長期控制<span class="tag tag-exam">重要</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>治療層級</th><th>藥物類別</th><th>核心邏輯</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>短期藥理緩解</strong>（Short-term relief）</td><td>β-Adrenergic 致效劑</td><td>講義以急性支氣管收縮的急救藥物介紹（見支氣管擴張劑章節），屬於快速起效的救援用藥</td></tr>
+            <tr><td>Theophylline（Methylxanthine）</td><td>促進氣道平滑肌鬆弛、↑氣道口徑</td></tr>
+            <tr><td>抗膽鹼藥（Anticholinergic）</td><td>阻斷膽鹼性支氣管收縮</td></tr>
+            <tr><td rowspan="3"><strong>長期藥理管理</strong>（Long-term management）</td><td>吸入型類固醇（首選劑型）</td><td>降低氣道發炎、減少發作頻率</td></tr>
+            <tr><td>肥大細胞穩定劑</td><td>抑制去顆粒化（Cromolyn、Nedocromil）</td></tr>
+            <tr><td>白三烯路徑抑制劑</td><td>阻斷LT合成或受體</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義此處的分層表格未把β-agonist明列在「短期緩解」欄位下，但後續β-Adrenergic Agonists章節明確描述其「Used for acute therapy」，故此處依講義整體脈絡歸入短期緩解類，並非講義原始表格逐字呈現。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2）為主，教科書交叉核對詳見後續章節標註。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- BRONCHODILATORS -->
+    <div class="section" id="section-bronchodilators">
+      <div class="section-head"><div class="section-num">4</div><h2>支氣管擴張劑 Bronchodilators</h2></div>
+      <p class="section-desc">依講義順序：非選擇性→β2選擇性腎上腺素受體致效劑，再到Methylxanthine（Theophylline為主角），最後是抗膽鹼藥；三類機轉互不重疊，是氣喘急性期最重要的救援藥物群。</p>
+
+      <h3 id="drug-epinephrine">Epinephrine（腎上腺素）<span class="tag tag-exam">重要</span></h3>
+      <p>非選擇性 catecholamine，直接活化 α（升血壓）、β1（心臟效果）與 β2（支氣管擴張）受體。<strong>給藥途徑：Parenteral（注射）</strong>，用於急性期治療。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">臨床應用（EP／NE／DA 共同給藥方式：Parenteral 或 Topical）</div>
+        <p><strong>Epinephrine</strong>：治療嚴重過敏反應（如過敏性休克，血壓下降＋支氣管痙攣）；心跳停止後的心肺復甦；因減少皮膚血流可延長局部麻醉藥效果；局部使用可控制局部出血。<strong>Norepinephrine</strong>：可矯正脊髓麻醉引起的低血壓，但因多數休克狀態下交感神經活性已偏高，NE進一步血管收縮可能危及腎與腸繫膜血流，故不用於大多數休克；人醫用於敗血症急性低血壓與心跳停止。</p>
+      </div>
+
+      <h3 id="drug-isoproterenol">Isoproterenol（Isoprenaline）</h3>
+      <p>非選擇性 β1＋β2 致效劑，<strong>無 α 活性</strong>。<strong>給藥途徑：不可口服（Not PO）；以 Parenteral 或 Aerosol 給藥治療急性支氣管收縮、完全性房室傳導阻滯（A-V block）。</strong></p>
+      <div class="flow">
+        <div class="flow-node">IV輸注</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">β2骨骼肌血管擴張→血壓↓；β1↑心率與收縮力→心輸出量↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">支氣管與腸胃道平滑肌鬆弛；代謝經COMT/MAO；副作用：心搏過速、心律不整</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10（Ch.48）核對確認：Isoproterenol因心臟β1效果明顯，<strong>不適合長期使用</strong>，可經吸入或注射給藥，作用時間短（少於1小時），故臨床上多被更長效的β2選擇性藥物（如Terbutaline、Albuterol）取代。</p>
+      </div>
+
+      <h3 id="drug-terbutaline">β2 選擇性致效劑：Terbutaline（含 Isoetharine）<span class="tag tag-exam">重要</span></h3>
+      <p><strong>Isoetharine</strong>：β2選擇性catecholamine，起效快，<strong>Aerosol劑型</strong>用於小動物。</p>
+      <p><strong>Terbutaline</strong>：非catecholamine結構，β2活性類似isoproterenol，但作用時間更長（6–8小時）。<strong>給藥途徑：PO 與 Parenteral 皆可。</strong>犬貓：用於支氣管收縮治療；亦可作為診斷性氣管內插管或支氣管肺泡灌洗（BAL）前的預防用藥，避免急性支氣管痙攣；也用於犬的早產安胎。<strong>馬：治療復發性氣道阻塞（RAO，類似人的氣喘），因口服生體可用率過低，須使用注射劑型。</strong></p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充（核對無誤並補充實際劑量）</div>
+        <p>VPT10核對確認Terbutaline作用時間6–8h與馬需注射給藥的敘述無誤，並補充具體劑量：犬 PO 2.5 mg q8h；貓 PO 0.625 mg（1/4顆2.5mg錠劑）q12h；貓注射（SC/IV/IM）0.01 mg/kg可用於急性支氣管痙攣。Handbook of Veterinary Pharmacology 進一步指出馬口服吸收率<strong>&lt;1%</strong>、約30分鐘內即被代謝，因此馬應以<strong>持續輸注（constant infusion）</strong>方式給藥，而非單次口服。</p>
+      </div>
+
+      <h3 id="drug-albuterol">β2 選擇性致效劑：Albuterol（含 Salmeterol）</h3>
+      <p><strong>Albuterol（Salbutamol）</strong>：作用類似Terbutaline，β2/β1選擇性約4倍（Clenbuterol亦同）。<strong>給藥途徑：Aerosol</strong>，用於小動物與馬的支氣管收縮；也用於治療麻醉中馬匹的低血氧（hypoxemia）。</p>
+      <p><strong>Salmeterol</strong>：長效型（作用時間 &gt;12小時），<strong>與Fluticasone併用（吸入劑型）為貓氣喘的長期控制方案之一</strong>。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>氣霧化給藥可降低全身性副作用；但糖尿病、甲狀腺功能亢進、高血壓或心臟病（心律不整風險）動物須謹慎使用β2致效劑。<strong>長期使用會導致耐受性（tolerance／refractoriness）</strong>，機轉為β受體數量下調（down regulation）。</p>
+      </div>
+
+      <h3 id="drug-clenbuterol">Clenbuterol</h3>
+      <p>Albuterol的類似物，β2/β1選擇性約4倍。<strong>FDA核准用於馬，給藥途徑為PO，T½約12小時</strong>（品牌 Ventipulmin®）。主要用於治療RAO，也能抑制促發炎細胞激素的釋放。副作用：震顫、出汗、躁動不安、心搏過速。<strong>慢性使用會誘發合成代謝（anabolic）效果</strong>，因此在賽馬產業受到嚴格的用藥規範管制。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10核對確認FDA於1998年核准Clenbuterol（Ventipulmin®）用於馬匹，作用時間12小時的敘述一致；並補充：部分文獻顯示Clenbuterol的臨床療效<strong>低於</strong>Terbutaline等其他β2致效劑，選藥時可納入考量。</p>
+      </div>
+
+      <h3 id="drug-theophylline">Methylxanthines：Theophylline<span class="tag tag-exam">重要</span></h3>
+      <p>Methylxanthine家族（Caffeine、Theophylline、Theobromine）分別來自咖啡、茶、可可。</p>
+      <h4>機轉</h4>
+      <div class="flow">
+        <div class="flow-node">治療濃度：競爭性拮抗腺苷 A1 受體（A1偶聯Gi–adenylyl cyclase–cAMP路徑，腺苷本身會引發支氣管收縮）</div>
+        <span class="flow-arrow">＋</span>
+        <div class="flow-node">高濃度：抑制PDE（分解cAMP/cGMP的酵素）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">cAMP↑ → 支氣管平滑肌鬆弛（部分研究支持PDE抑制參與此擴張效果）</div>
+      </div>
+      <h4>Methylxanthine 藥理效果比較（相對強度）</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥理效果</th><th>Caffeine</th><th>Theophylline</th><th>Theobromine</th></tr></thead>
+          <tbody>
+            <tr><td>CNS與呼吸刺激</td><td>+++</td><td>++</td><td>+</td></tr>
+            <tr><td>骨骼肌刺激</td><td>+++</td><td>++</td><td>+</td></tr>
+            <tr><td>心臟刺激</td><td>+</td><td>+++</td><td>++</td></tr>
+            <tr><td>平滑肌鬆弛</td><td>+</td><td>+++</td><td>++</td></tr>
+            <tr><td>冠狀動脈擴張</td><td>+</td><td>+++</td><td>++</td></tr>
+            <tr><td>利尿</td><td>+</td><td>+++</td><td>++</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Theophylline對急性氣喘發作有效，Caffeine／Theobromine則無效</strong>，這是三者臨床角色分家的關鍵。</p>
+      <h4>臨床應用與給藥</h4>
+      <p>藥理效果：支氣管擴張（↑cAMP）、抑制肥大細胞去顆粒化、增加黏液纖毛清除、增加腎上腺EP釋放（可能協助支氣管擴張）、增加呼吸肌力量——對慢性支氣管肺疾病動物可能特別重要。<strong>用於犬、貓、馬；給藥途徑為PO。</strong>非緩釋劑型口服生體可用率約100%；緩釋劑型30–80%，可降低給藥頻次。<strong>Aminophylline</strong>（theophylline ethylenediamine鹽）講義標示含86% theophylline；<strong>Oxtriphylline</strong>依重量計算約含64% theophylline。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充（核對後有數字差異，兩者併陳）</div>
+        <p>VPT10（Table 48.2）記載Aminophylline之theophylline含量為<strong>80%</strong>（講義為86%）、Oxtriphylline為<strong>65%</strong>（講義為64%）——兩者數值接近但不完全一致，可能因不同水合形式的計算方式不同，兩個數字在文獻中皆有被引用，此處誠實併陳供參考，不代表講義有誤。VPT10並補充治療血中濃度建議為10–20 μg/ml；口服生體可用率：犬91%、貓96–100%、馬100%，與講義「非緩釋約100%」的敘述一致。</p>
+      </div>
+      <h4>藥動學與副作用</h4>
+      <p>代謝物3-methylxanthine與caffeine仍有微弱支氣管擴張活性；腎排除：僅10%以原型藥物及代謝物型式排出。<strong>消除半衰期：貓約8小時、犬約6小時、馬12–17小時。</strong></p>
+      <div class="alert alert-warn">
+        <div class="alert-label">副作用</div>
+        <p>犬貓：（腸胃道）噁心、嘔吐、胃酸分泌↑、腹瀉、躁動不安（CNS刺激）、多渴多尿多食；馬：緊張、興奮、震顫、出汗（diaphoresis）、心搏過速、運動失調；嚴重時可能出現癲癇發作或心律不整。<strong>需留意會抑制肝CYP450的藥物（如cimetidine、fluoroquinolones）併用，會使theophylline血中濃度升高。</strong></p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10核對確認犬（5.7h）、貓（7.8h IV，緩釋口服可達11.7–18h）、馬（12–15h）之半衰期與講義數字大致吻合（貓、馬緩釋劑型的較高數值屬正常劑型差異）；並具體指出Enrofloxacin透過<strong>抑制CYP1A2酵素</strong>顯著提高犬的theophylline血中峰濃度、降低其清除率，是fluoroquinolone交互作用的分子機轉。</p>
+      </div>
+
+      <h3 id="drug-atropine">抗膽鹼藥（Muscarinic 拮抗劑）：Atropine 與 Glycopyrrolate</h3>
+      <p><strong>機轉：</strong>Muscarinic受體活化會導致氣道平滑肌收縮＋黏液分泌增加；抗Muscarinic藥物阻斷迷走神經媒介的Ach對氣道Muscarinic受體的作用。<strong>僅能預防膽鹼性媒介的支氣管痙攣</strong>，對其他誘因無效。<strong>給藥途徑：Atropine與Glycopyrrolate為注射（Injectable），全身副作用明顯。</strong>副作用：口乾、尿滯留、喪失眼睛調節能力、心搏過速。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充：馬的特殊風險</div>
+        <p>VPT10核對指出：Atropine於馬可短期使用（5 mg IV曾用作RAO反應性測試），但<strong>不建議在馬反覆使用</strong>，因為可能引發腸阻塞（ileus）；Glycopyrrolate等季銨結構藥物較不易穿過血腦障壁，CNS副作用比Atropine更小，臨床上常優先選用。</p>
+      </div>
+
+      <h3 id="drug-ipratropium">Ipratropium</h3>
+      <p><strong>給藥途徑：Aerosol（定量吸入器MDI），較Atropine注射劑型更優先使用。</strong>季銨結構（quaternary nitrogen）使其氣霧化吸入後全身吸收有限。副作用：全身副作用比Atropine少。<strong>犬的支氣管擴張效果約為Atropine的2倍。</strong></p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10形容Ipratropium為「局部化版本的Atropine（topical form of atropine）」——因不會從氣道黏膜吸收進入全身，是人醫史上第一個核准作為支氣管擴張劑的抗膽鹼藥；核對補充：馬RAO使用劑量約2 μg/kg，效果可持續6小時。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.（Ch.48）與 Handbook of Veterinary Pharmacology（CNS興奮劑／麻醉輔助用藥相關章節）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ANTI-INFLAMMATORY -->
+    <div class="section" id="section-antiinflammatory">
+      <div class="section-head"><div class="section-num">5</div><h2>氣喘抗發炎藥物 Anti-inflammatories Used to Control Asthma</h2></div>
+      <p class="section-desc">支氣管擴張劑只處理「症狀」，這節的藥物處理的是氣喘的發炎「病因」——講義依類固醇→肥大細胞穩定劑→白三烯路徑抑制劑→新一代生物製劑的順序介紹，效力與研究成熟度大致遞減。</p>
+
+      <h3 id="drug-corticosteroids-resp">類固醇 Corticosteroids<span class="tag tag-exam">重要</span></h3>
+      <p>以Glucocorticoid為主。效果：降低支氣管反應性、減少氣喘發作頻率。</p>
+      <h4>機轉</h4>
+      <div class="flow">
+        <div class="flow-node">主要：抑制發炎細胞介導的氣道發炎反應</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">核心抗發炎作用：抑制cytokine產生</div>
+        <span class="flow-arrow">＋</span>
+        <div class="flow-node">次要：增強β受體致效劑效果（permissive effect，容許效應）</div>
+      </div>
+      <p>因慢性使用有嚴重副作用，類固醇僅用於：<strong>急性重症動物的處置</strong>、<strong>病情惡化且支氣管擴張劑無效時</strong>。<strong>給藥途徑：口服（Prednisolone、Prednisone）用於全身治療；氣霧劑（Aerosol，MDI）用Fluticasone</strong>——脂溶性佳的類固醇，是<strong>降低全身性類固醇不良反應最適當的給藥方式</strong>。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10所引用之獸醫文獻補充兩點臨床重要細節：①吸入型Fluticasone propionate對<strong>預防</strong>馬RAO發作的效果優於<strong>治療</strong>已發作之RAO（Robinson et al., 2009）——說明吸入類固醇更適合長期預防而非急性搶救；②吸入型Flunisolide雖會抑制健康貓的下視丘–腦垂體–腎上腺軸（HPA axis），但對全身免疫系統的影響很小（Reinero et al., 2006），支持「吸入劑型能降低但無法完全消除全身性副作用」的敘述。</p>
+      </div>
+
+      <h3 id="drug-cromolyn">肥大細胞穩定劑 Mast Cell Stabilizers：Cromolyn 與 Nedocromil</h3>
+      <p>機轉：抑制肥大細胞去顆粒化（機轉未完全明瞭，可能與Ca²⁺流入抑制、Cl⁻通道有關）。<strong>必須預防性使用；對氣道平滑肌張力無直接作用，無法逆轉已發生的氣喘性支氣管痙攣。</strong>口服吸收差、生體可用率低。<strong>給藥途徑：Aerosol（定量吸入器）、鼻噴劑。</strong></p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10（Intal®）核對確認Cromolyn機轉描述為「抑制肥大細胞釋放Histamine」，並補充其已被用於氣霧化治療馬的RAO，與講義敘述一致。</p>
+      </div>
+
+      <h3 id="drug-leukotriene">白三烯路徑抑制劑 Leukotriene Pathway Inhibitors</h3>
+      <p>背景：白三烯是花生四烯酸經<strong>5-LOX</strong>代謝的產物，由呼吸道發炎細胞合成。<strong>LTB4</strong>：白血球趨化；<strong>LTC4、D4、E4</strong>（合稱 <strong>SRS-A，slow-reacting substance of anaphylaxis</strong>，效力為histamine的100–1000倍）——引發氣喘症狀：支氣管收縮、血管通透性↑、氣道反應性↑、黏膜水腫與黏液過度分泌。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉</th><th>臨床定位</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Zileuton</strong></td><td>5-LOX抑制劑，抑制白三烯合成</td><td>因成本高、具肝毒性，獸醫使用受限</td></tr>
+            <tr><td><strong>Zafirlukast、Montelukast</strong></td><td>白三烯受體拮抗劑</td><td>人類輕中度氣喘之維持治療，效果不如吸入類固醇，可能減少類固醇需求量；<strong>對急性氣喘發作無效</strong>；已被用作犬異位性皮膚炎與貓氣喘的輔助治療，獸醫學仍需更多研究</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10核對補充：<strong>Zafirlukast（Accolate®）具有明顯CYP450藥物交互作用</strong>，而<strong>Montelukast的不良反應較少</strong>——這是臨床選擇輔助性白三烯拮抗劑時傾向優先考慮Montelukast的原因（人用劑量參考：Zafirlukast 20 mg/人 BID，Montelukast兒童5 mg／成人10 mg；教科書未提供犬貓劑量，僅供背景參考，不可直接套用犬貓劑量）。</p>
+      </div>
+
+      <h3 id="drug-benralizumab">生物製劑：Benralizumab（重度嗜酸性球氣喘）</h3>
+      <p>重度嗜酸性球氣喘（Severe Eosinophilic Asthma, SEA）占重度氣喘病患的50%。<strong>Benralizumab（Fasenra®）</strong>是抗IL-5受體的單株抗體，抑制IL-5介導的嗜酸性球增生；2017年11月經美國FDA核准，後續於其他國家核准，作為現行氣喘藥物控制不佳之SEA病患的附加維持治療，可降低重度發作51%、降低每日口服類固醇劑量75%；目前也在進行特發性嗜酸性球增多症候群的臨床試驗。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：人醫新興生物製劑，非既定獸醫用藥</div>
+        <p>Benralizumab是近年（2017年後）核准的人用單株抗體藥物，本頁兩本核對教科書（成書年代或收錄範圍）皆未收錄相關內容，<strong>本段完全依講義原文呈現，未經教科書核對</strong>，目前無獸醫臨床實證支持其動物用途，僅作機轉層面的延伸認識。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.（Ch.48）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ANTITUSSIVE -->
+    <div class="section" id="section-antitussive">
+      <div class="section-head"><div class="section-num">6</div><h2>鎮咳藥 Antitussives (Cough Suppressants)</h2></div>
+      <p class="section-desc">咳嗽反射接收來自支氣管與氣管感覺神經的傳入訊號，氣道刺激／發炎會活化這些傳入神經，進而啟動位於延腦的咳嗽中樞。咳嗽刺激來源：支氣管收縮（最重要）、其他刺激物（痰液過多或過於黏稠，常因脫水造成；病毒／細菌感染；發炎反應）。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌：生產性咳嗽（Productive Cough）</div>
+        <p><strong>應先治療咳嗽的根本病因；若咳嗽是生產性（有痰能咳出），禁止使用鎮咳藥</strong>，否則痰液滯留會惡化下呼吸道感染或阻塞。周邊性鎮咳作用來自黏液溶解劑、袪痰藥、支氣管擴張劑（透過治療病因間接止咳）；中樞性鎮咳藥則直接作用於咳嗽中樞。</p>
+      </div>
+
+      <h3 id="drug-opioid-antitussive">中樞性鎮咳藥：Opioid 類<span class="tag tag-exam">重要</span></h3>
+      <p>講義列出的中樞性鎮咳Opioid：<strong>Codeine、Hydrocodone、Butorphanol</strong>；Morphine亦有效；Tramadol也可能使用。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>給藥途徑</th><th>臨床定位</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Butorphanol</strong>（Torbutrol®）</td><td><strong>PO</strong></td><td>FDA核准犬用鎮咳錠劑；貓亦可使用</td></tr>
+            <tr><td><strong>Hydrocodone</strong></td><td><strong>PO</strong></td><td>犬常規處方鎮咳藥</td></tr>
+            <tr><td><strong>Codeine</strong></td><td><strong>PO</strong></td><td>犬口服生體可用率差，可能無法達到有效鎮咳效果</td></tr>
+            <tr><td><strong>Morphine</strong></td><td><strong>Parenteral</strong></td><td>鎮咳效果佳，但臨床上少專為此用途單獨使用</td></tr>
+            <tr><td><strong>Tramadol</strong></td><td>—</td><td>貓實驗模型中經活性代謝物形成鎮咳效果，尚未臨床評估</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充（提供講義未列出的實際給藥途徑與細節）</div>
+        <p>講義本身未逐一標注個別鴉片類鎮咳藥的給藥途徑，VPT10核對補充：<strong>Butorphanol錠劑（Torbutrol®）確為FDA核准之犬用鎮咳藥物，口服有效</strong>；<strong>Hydrocodone也常規以口服處方用於犬的鎮咳</strong>；但<strong>Codeine在犬體內口服生體可用率差，可能無法有效鎮咳</strong>（人醫文獻對其鎮咳效果也存有疑慮）；理論上所有Opioid致效劑經<strong>非經腸道（parenteral）</strong>給藥都預期具有鎮咳效果。Tramadol錠劑於貓的實驗模型中確有鎮咳效果，透過形成鴉片類活性代謝物達成，但尚未經臨床評估驗證。</p>
+      </div>
+
+      <h3 id="drug-dextromethorphan">Dextromethorphan</h3>
+      <p>非鴉片類止咳藥，鎮咳機轉不明確。<strong>給藥途徑：PO</strong>，為人類OTC感冒藥常見成分。<strong>犬體內給藥後血中濃度下降迅速，不建議於犬使用。</strong></p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.（Ch.13 疼痛管理／鴉片類藥物章節與Ch.48）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- MUCOKINETICS -->
+    <div class="section" id="section-mucokinetics">
+      <div class="section-head"><div class="section-num">7</div><h2>化痰藥與袪痰藥 Mucokinetics, Mucolytics &amp; Expectorants</h2></div>
+      <p class="section-desc">促進呼吸道分泌物排除有兩條路：改善纖毛活動（mucokinetics）與改變分泌物黏稠度（mucolytics／expectorants）。</p>
+
+      <h3>化痰概論 Mucokinetics</h3>
+      <p>促進呼吸道黏液分泌物清除，主要透過兩條路徑：<strong>改善纖毛活動</strong>——β-agonist、methylxanthine皆有此效果；<strong>改變支氣管分泌物黏稠度</strong>——補充水分（居家以加濕器／噴霧器或蒸氣浴進行氣霧化，<strong>0.5–3微米粒徑的氣霧最能到達下呼吸道</strong>），可降低黏液黏稠度，但整體效果仍具爭議。</p>
+
+      <h3 id="drug-nac">Mucolytics：N-Acetylcysteine (NAC)<span class="tag tag-exam">重要</span></h3>
+      <p>機轉：打斷黏液中的雙硫鍵（S-S linkage），降低黏稠度（黏液溶解作用）。<strong>給藥途徑：口服（粉劑，需泡製）與氣霧化（Aerosol）。</strong></p>
+      <div class="alert alert-warn">
+        <div class="alert-label">教科書補充：貓需謹慎</div>
+        <p>VPT10核對確認NAC（Mucomyst®）為10%水溶液，臨床上常以氣霧化方式每日吸入3–4次；但同時引用研究指出：<strong>氣管內霧化NAC在貓氣喘動物實驗模型中，反而會增加呼吸道阻力</strong>（Reinero et al., 2011），這是講義未提及的重要安全訊息，貓咪氣喘患者使用氣霧化NAC前應格外謹慎評估。</p>
+      </div>
+
+      <h3 id="drug-bromhexine">Bromhexine 與其活性代謝物 Ambroxol</h3>
+      <p>機轉：增加第二型肺泡細胞（type II pneumocytes）表面張力素（surfactant）的產生；<strong>分泌溶解效果（secretolytic）</strong>——增加酸性黏多醣的水解、增加漿液性（較稀）黏液的產生；<strong>對黏液中的蛋白質沒有作用</strong>（與NAC打斷雙硫鍵的機轉不同）。</p>
+
+      <h3 id="drug-expectorants">袪痰藥 Expectorants</h3>
+      <p>機轉：增加呼吸道分泌物的流動性——多數透過<strong>輕度刺激胃黏膜→迷走反射→增加支氣管分泌</strong>的間接路徑達成。</p>
+      <ul>
+        <li><strong>Potassium Iodide（碘化鉀）</strong>：增加分泌物約150%</li>
+        <li><strong>Ethylenediamine Dihydroiodide</strong>：治療<strong>牛</strong>的輕度呼吸道疾病</li>
+        <li><strong>Ammonium Chloride</strong>：同時具有酸化尿液的作用</li>
+        <li><strong>Guaifenesin（glyceryl guaiacolate）</strong>：wood tar（guaiacol）衍生物；效果存疑；人類OTC鎮咳配方常見成分</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">注意：Guaifenesin 一藥兩種完全不同的臨床情境</div>
+        <p>VPT10核對顯示，Guaifenesin在獸醫文獻中<strong>更常被討論的角色是麻醉誘導用的中樞性骨骼肌鬆弛劑</strong>（常與α2 agonist如xylazine併用組成「triple drip」誘導配方），而非本頁講義所述的口服袪痰用途。兩種臨床情境的劑量差異極大，<strong>看到Guaifenesin醫囑時務必先確認是「袪痰止咳」還是「麻醉誘導肌肉鬆弛」的處方情境，不可混淆套用劑量</strong>。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.（Ch.48 與麻醉相關章節）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- DECONGESTANTS -->
+    <div class="section" id="section-decongestants">
+      <div class="section-head"><div class="section-num">8</div><h2>鼻充血解除劑 Decongestants</h2></div>
+      <p class="section-desc">依講義分為兩類：H1抗組織胺（間接緩解鼻塞）與腎上腺素受體致效劑（局部α致效劑、全身性間接擬交感神經藥物）。</p>
+
+      <h3 id="drug-h1-decongestant">H1-抗組織胺類</h3>
+      <p>用於治療過敏性鼻炎與一般感冒，症狀包含鼻漏（rhinorrhea）；H1拮抗劑可能緩解鼻充血。藥物：Diphenhydramine、Dimenhydrinate、Chlorpheniramine、Hydroxyzine等。常與袪痰藥及Pseudoephedrine併用治療感冒症狀；主要用於治療<strong>人類</strong>的過敏症狀（講義原文強調此點）。</p>
+
+      <h3 id="drug-phenylephrine">局部（Topical）α 致效劑：Phenylephrine、Oxymetazoline、Xylometazoline</h3>
+      <p>短效腎上腺素受體（α）致效劑：</p>
+      <p><strong>Phenylephrine</strong>——<strong>給藥途徑：鼻噴劑（Nasal spray）。</strong>用於馬匹麻醉甦醒前約30分鐘給藥，緩解麻醉引起的鼻充血；也用於減少犬、馬鼻甲手術相關的出血。</p>
+      <p><strong>Oxymetazoline 與 Xylometazoline</strong>：長效型。局部（鼻噴劑）使用可避免全身性效應，但可能導致黏膜缺血與損傷；因給藥不便，動物臨床上很少使用。</p>
+
+      <h3 id="drug-pseudoephedrine">全身性：Pseudoephedrine 與 Phenylpropanolamine (PPA)</h3>
+      <p>機轉：間接性擬交感神經作用——促使內生性NE釋放，作用於α1、α2、β1、β3受體；<strong>對β2無作用（因此無支氣管擴張效果）</strong>。適應症：鼻充血解除劑（血管收縮）。<strong>給藥途徑：以口服為主，產生全身性效果。</strong>CNS副作用低於（-)-ephedrine（濫用可能性較低）。<strong>PPA可能於女性引發出血性中風，美國與台灣人用已不再使用</strong>；但<strong>PPA用於犬的尿失禁治療</strong>——α受體作用可增加尿道括約肌張力，β受體作用可放鬆逼尿肌。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10多篇引用文獻（含Claeys et al., 2001等研究）核對確認PPA確實用於犬（及部分貓病例）的尿失禁治療，與講義敘述一致。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed.（泌尿與腎上腺素受體藥物相關章節）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- OTHER -->
+    <div class="section" id="section-other">
+      <div class="section-head"><div class="section-num">9</div><h2>其他呼吸／循環相關用藥：肺動脈高壓、高海拔疾病與表面張力素替代療法</h2></div>
+      <p class="section-desc">這節收錄講義最後幾頁的周邊應用，機轉彼此不同，但都與呼吸／肺循環系統直接相關；最後補充講義大綱提及但投影片未實際涵蓋的Doxapram。</p>
+
+      <h3 id="drug-sildenafil">肺動脈高壓：Sildenafil、Tadalafil（PDE-V 抑制劑）</h3>
+      <p>治療肺動脈高壓時，治療根本病因是首要考量。</p>
+      <p><strong>Sildenafil（Viagra®）</strong>：口服活性PDE type V 抑制劑，機轉為↑血管平滑肌細胞內cGMP濃度，誘發血管擴張、降低肺動脈高壓（犬與人皆適用）。<strong>給藥途徑：PO</strong>，口服生體可用率接近100%；Tmax &lt; 60分鐘；犬的T½約6小時。副作用：全身性低血壓。</p>
+      <div class="flow">
+        <div class="flow-node">Guanylyl cyclase（第三型：Kinase-linked receptor）活化</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Protein Kinase G↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Ca²⁺通道關閉＋K⁺通道開啟 → 血管平滑肌舒張</div>
+      </div>
+      <p><strong>Tadalafil（Cialis®）</strong>：同屬PDE-V抑制劑，用於高海拔疾病相關的血管擴張（見下）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10核對確認Sildenafil為口服PDE-V抑制劑之敘述無誤，並補充犬用實際劑量文獻：0.5–1 mg/kg，每日1–2次口服；亦有研究使用到2 mg/kg，每8–24小時一次（講義本身未列出具體mg/kg劑量，此劑量範圍為教科書補充）。</p>
+      </div>
+
+      <h3 id="drug-altitude">高海拔疾病輔助用藥：Acetazolamide、Nifedipine、Dexamethasone</h3>
+      <p>高海拔疾病（High Altitude Illness）：腦部因血管擴張導致腦水腫；肺部則因血管收縮導致肺動脈高壓與肺水腫（與腦部血管反應方向相反，是此疾病病理生理的重點）。</p>
+      <ul>
+        <li><strong>Sildenafil、Tadalafil</strong>：促進血管擴張，處理肺部血管收縮的部分</li>
+        <li><strong>Acetazolamide</strong>（利尿藥）：誘發輕度代謝性酸中毒，藉此刺激呼吸中樞、增加換氣代償</li>
+        <li><strong>Nifedipine</strong>：Ca²⁺通道阻斷劑，促進血管擴張</li>
+        <li><strong>Dexamethasone</strong>：緩解水腫症狀，機轉未明</li>
+      </ul>
+
+      <h3 id="drug-surfactant">肺表面張力素替代療法：Poractant alfa、Calfactant、Beractant</h3>
+      <p>肺表面張力素（Pulmonary Surfactant）是由第二型肺泡細胞（type II pneumocytes）產生的界面活性脂蛋白複合物（phospholipoprotein）。<strong>表面張力素缺乏會導致呼吸窘迫症候群（Respiratory Distress Syndrome, RDS）。</strong></p>
+      <p>藥物：<strong>Poractant alfa、Calfactant、Beractant</strong>——皆為豬或牛肺的表面張力素萃取物。<strong>給藥途徑：直接灌注於氣管內（Instilled directly into the trachea）。</strong>用於患有RDS的新生動物，也用於治療早產人類新生兒。</p>
+
+      <h3 id="drug-doxapram">補充：Doxapram（大綱提及但投影片未實際涵蓋）</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">內容缺口說明</div>
+        <p>這份講義第1頁大綱把「Respiratory stimulant: doxapram (CNS stimulant)」列為最後一項，但整份投影片（26頁）到Pulmonary Surfactant即結束，<strong>沒有Doxapram的任何實際內容</strong>——這是大綱涵蓋範圍比投影片實際內容更廣的落差。以下內容<strong>完全整理自教科書（Handbook of Veterinary Pharmacology, CNS Stimulants章節），非本堂課實際教授內容</strong>，僅供讀者知道這個藥物的存在與基本概念，使用時應另外查證完整資料。</p>
+      </div>
+      <p><strong>機轉：</strong>直接刺激延腦（medullary）呼吸中樞，可能也透過活化頸動脈體與主動脈體化學受器；呼吸速率與潮氣容積短暫性增加，確切的短暫刺激機轉尚未完全明瞭。</p>
+      <p><strong>給藥途徑：IV（效果持續5–10分鐘）、IM、局部塗抹於頰黏膜（新生動物適用）。</strong></p>
+      <p><strong>臨床應用：</strong>用於喚醒吸入或注射麻醉後的動物、或麻醉過量時；用於協助生產／剖腹產後新生動物的呼吸刺激；低劑量可透過刺激頸動脈體增加每分鐘換氣量，用於評估輕度麻醉犬隻的喉部功能。<strong>對嚴重抑制的新生兒無效，不能取代氣管內插管與人工換氣。</strong></p>
+      <p>藥動學：犬體內分布廣泛，經肝臟快速代謝，多數代謝物於給藥後24–48小時內經尿液排出。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">副作用</div>
+        <p>高劑量可能誘發癲癇；亦可能出現高血壓、心律不整、癲癇發作、換氣過度導致呼吸性鹼中毒，這些副作用在重複或高劑量給藥時最容易發生。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2）為主；Doxapram段落例外，完全整理自 Handbook of Veterinary Pharmacology（CNS Stimulants章節），已於段落內明確標示。教科書核對另包含 Veterinary Pharmacology and Therapeutics 10th ed.（Sildenafil相關章節）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考題常見「機轉配對」「給藥途徑與物種限制」「productive vs non-productive cough能不能用鎮咳藥」三種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>三大類支氣管擴張劑</strong>：β2致效劑（↑cAMP，Gs路徑）、Theophylline（腺苷A1拮抗＋高濃度PDE抑制）、抗膽鹼藥（阻斷M受體，只防膽鹼性痙攣）——機轉互不重疊，可合併使用。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Terbutaline作用6–8h，馬因口服吸收率&lt;1%須改注射；Clenbuterol PO、T½約12h，FDA核准馬用於RAO，長期使用有合成代謝作用、受賽馬用藥規範限制。</strong></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Theophylline半衰期物種差異大（犬~6h、貓~8h、馬12–17h）</strong>，且與Cimetidine、Fluoroquinolones（尤其Enrofloxacin抑制CYP1A2）併用會使血中濃度升高，需監測治療血中濃度（10–20 μg/ml）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Ipratropium是「局部化的Atropine」</strong>，季銨結構不易吸收入全身循環，氣霧化給藥全身副作用遠低於注射用Atropine，犬支氣管擴張效果為Atropine的2倍。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>吸入劑型（Fluticasone、Cromolyn）是氣喘長期控制藥物的優先給藥途徑</strong>，能大幅降低全身性副作用；Cromolyn僅能預防性使用，無法逆轉已發生的支氣管痙攣。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>白三烯路徑抑制劑對急性氣喘發作無效</strong>，僅用於長期輔助控制（人醫維持治療效果不如吸入類固醇；犬異位性皮膚炎、貓氣喘可作輔助）；Zafirlukast有明顯CYP450交互作用，Montelukast副作用較少。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>生產性咳嗽（productive cough）禁止使用鎮咳藥</strong>；中樞性鎮咳藥全為Opioid類（Butorphanol、Hydrocodone為犬常用口服選擇，Codeine犬口服吸收差）或非鴉片類Dextromethorphan（犬不建議使用）。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>NAC經氣霧化吸入在貓氣喘動物實驗中反而會增加呼吸道阻力</strong>，貓使用前需謹慎；Guaifenesin除了袪痰用途外，在麻醉領域另作中樞性骨骼肌鬆弛劑使用，兩種情境劑量差異極大不可混淆。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>Sildenafil／Tadalafil（PDE-V抑制劑）用於肺動脈高壓與高海拔疾病的血管擴張</strong>；肺表面張力素替代療法（Poractant alfa等）須氣管內直接灌注，用於新生兒呼吸窘迫症候群（RDS）。</div></div>
+      <div class="step"><div class="step-num">10</div><div class="step-text"><strong>Doxapram是這份講義大綱列出但投影片未實際涵蓋的內容</strong>：直接刺激延腦呼吸中樞，用於麻醉甦醒與新生兒呼吸刺激，但無法取代氣管內插管與人工換氣，是常考的CNS興奮劑代表藥物。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 5 Respiratory v2）為主，並以 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology 核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋氣喘病理生理、支氣管擴張劑、氣喘抗發炎藥物、鎮咳藥、化痰袪痰藥、鼻充血解除劑與其他周邊應用各章節重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列關於三大類支氣管擴張劑機轉的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) β2致效劑、Theophylline、抗膽鹼藥三者機轉完全相同，合併使用沒有意義</li>
+          <li>(B) β2致效劑經Gs偶聯↑cAMP；Theophylline在治療濃度下競爭性拮抗腺苷A1受體；抗膽鹼藥阻斷M受體移除膽鹼性收縮訊號——三者機轉不重疊，可合併使用達加成效果</li>
+          <li>(C) 抗膽鹼藥能主動放鬆已經收縮的支氣管平滑肌</li>
+          <li>(D) Theophylline的主要機轉是阻斷β2受體</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">三類藥物機轉互不重疊：β2致效劑透過Gs-adenylyl cyclase↑cAMP直接放鬆平滑肌；Theophylline在治療濃度下主要拮抗腺苷A1受體（高濃度時才抑制PDE）；抗膽鹼藥只是阻斷膽鹼性收縮訊號，屬於「防止痙攣」而非主動放鬆已收縮的平滑肌，因此臨床上常合併使用。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. Terbutaline在馬可以直接口服給藥，效果與犬貓相同。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">馬的Terbutaline口服吸收率極低（教科書指出&lt;1%），且約30分鐘內即被代謝，因此馬治療RAO時必須使用注射劑型（甚至以持續輸注方式給藥），不能比照犬貓口服使用。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻長期使用Theophylline控制慢性支氣管疾病的犬，最近因細菌性皮膚感染開始併用Enrofloxacin，兩週後出現躁動不安與心搏過速。最可能的原因是？</div>
+        <ul class="quiz-options">
+          <li>(A) Enrofloxacin本身的副作用，與Theophylline無關</li>
+          <li>(B) Enrofloxacin抑制肝臟CYP1A2酵素，降低Theophylline清除率，使其血中濃度上升而出現中毒症狀</li>
+          <li>(C) Theophylline與Enrofloxacin無藥物交互作用</li>
+          <li>(D) Enrofloxacin會加速Theophylline代謝，導致藥效不足</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Enrofloxacin透過抑制肝臟CYP1A2酵素，顯著降低Theophylline的清除率並提高其血中峰濃度，是fluoroquinolone類藥物與Theophylline交互作用的分子機轉；血中濃度過高會出現CNS刺激（躁動不安）與心臟毒性（心搏過速、心律不整）等中毒症狀，臨床上併用時需留意減量或監測血中濃度。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 為什麼氣喘的長期控制藥物（如Fluticasone、Cromolyn）優先發展成吸入劑型？請說明其藥理基礎。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">吸入（氣霧化）給藥可以把藥物直接送達肺部作用部位，讓局部濃度足夠達到治療效果，同時大幅降低藥物進入全身循環的量，因而降低全身性副作用的發生率與嚴重度。以Fluticasone為例，講義明確指出「吸入是降低全身性類固醇不良反應最適當的給藥方式」；Cromolyn更因為口服吸收差、生體可用率低，幾乎只能以吸入或鼻噴劑型使用才有臨床意義。這也是為什麼慢性長期使用的抗發炎藥物比急性期的注射／口服藥物更傾向發展吸入劑型。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 只要是咳嗽，都應該優先使用中樞性鎮咳藥（如Butorphanol）快速止咳。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">鎮咳藥的使用有明確禁忌：若咳嗽是生產性（productive，能咳出痰液），使用鎮咳藥會讓痰液滯留在呼吸道，反而惡化下呼吸道感染或阻塞。正確做法是先找出並治療咳嗽的根本病因，只有在非生產性（乾）咳的情況下才考慮使用中樞性鎮咳藥。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 關於Ipratropium的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 是Atropine的口服長效劑型</li>
+          <li>(B) 季銨結構使其氣霧化吸入後不易被全身吸收，因此全身副作用遠低於注射用Atropine，被形容為「局部化版本的Atropine」</li>
+          <li>(C) 犬的支氣管擴張效果只有Atropine的一半</li>
+          <li>(D) 主要用於治療心律不整</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Ipratropium是季銨（quaternary nitrogen）結構的抗膽鹼藥，氣霧化吸入後幾乎不被氣道黏膜吸收進入全身循環，因此全身副作用（口乾、心搏過速等）遠低於注射用Atropine；犬的支氣管擴張效果約為Atropine的2倍，是人醫史上第一個核准作為支氣管擴張劑使用的抗膽鹼藥。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q7. 這份講義的大綱（第1頁）提到了Doxapram，但正文投影片卻完全沒有相關內容，這代表什麼？如果臨床上需要用到呼吸興奮劑，應該怎麼處理這種筆記缺口？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">這代表教授原本規劃的教學大綱比實際授課投影片涵蓋的範圍更廣——大綱列出的主題不一定每個都會被完整教授，這是讀講義時需要留意的落差，不能假設大綱列出的東西＝投影片一定有教。臨床上如果需要用到呼吸興奮劑相關知識，不應該憑印象或訓練資料臆測內容，而應該明確查閱教科書或其他可靠來源並標明是補充資料，不要跟講義原文混在一起，讓讀者清楚知道哪些是課堂教授的內容、哪些是額外補充。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】一隻7歲米克斯貓因反覆咳嗽、喘鳴就診，X光顯示典型貓氣喘影像。獸醫師打算開立長期控制藥物，同時飼主詢問能不能加開NAC氣霧化來幫助化痰。請問：(1) 這隻貓的長期氣喘控制建議選擇哪個藥物組合？給藥途徑為何？(2) 為什麼優先選擇吸入劑型而非口服類固醇？(3) 對於NAC氣霧化的提議，你會如何回應飼主？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 藥物選擇與途徑：</strong>講義明確提到<strong>Salmeterol（長效β2致效劑）併用Fluticasone（吸入型類固醇）</strong>是貓氣喘長期控制的組合，兩者皆以<strong>氣霧化（Aerosol，MDI）</strong>給藥。<br><strong>(2) 優先吸入劑型的原因：</strong>吸入劑型能把藥物濃度集中在肺部作用部位，大幅降低藥物進入全身循環的量，進而降低長期使用類固醇常見的全身性副作用（如醫源性庫欣氏症候群、免疫抑制、多渴多尿等），這正是講義強調「吸入是降低全身性類固醇不良反應最適當的給藥方式」的原因。<br><strong>(3) 對NAC氣霧化提議的回應：</strong>應提醒飼主，雖然NAC是常見的黏液溶解劑，但教科書實證研究顯示<strong>氣管內霧化NAC在貓氣喘動物實驗模型中反而會增加呼吸道阻力</strong>，對貓氣喘患者可能弊大於利，建議不要貿然加開，若飼主堅持要處理痰液問題，應與獸醫師討論其他更安全的替代方案（如充分水合、環境氣霧加濕）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q9.【臨床情境】一匹賽馬確診復發性氣道阻塞（RAO），教練希望盡快讓馬恢復訓練與比賽。獸醫師考慮在急性期使用支氣管擴張劑合併長期控制藥物。請問：(1) 急性期可選擇哪些支氣管擴張劑？給藥途徑為何？(2) 長期使用哪一種β2致效劑需要特別注意賽馬用藥規範？為什麼？(3) 這匹馬同時因蹄部感染需要注射Enrofloxacin，若牠也在使用Theophylline，需要注意什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 急性期支氣管擴張劑：</strong>Terbutaline（馬僅能注射，口服吸收率&lt;1%）、Ipratropium（氣霧化，馬RAO劑量約2 μg/kg可維持6小時）皆可用於急性期；Albuterol氣霧劑也可用於馬的支氣管收縮。<br><strong>(2) 需注意賽馬用藥規範的藥物：</strong>Clenbuterol（FDA核准馬用、口服）長期使用會誘發合成代謝（anabolic）效果，因此受到賽馬產業的嚴格用藥規範管制，不能單純為了增強運動表現而使用，臨床開立時需確認符合比賽用藥規則與停藥期規定。<br><strong>(3) Theophylline與Enrofloxacin併用的注意事項：</strong>Enrofloxacin會抑制肝臟CYP1A2酵素，降低Theophylline的清除率並提高其血中峰濃度，可能誘發躁動不安、心搏過速、甚至癲癇發作等中毒症狀；兩藥併用期間應密切監測馬匹的臨床症狀，必要時調整Theophylline劑量或監測其血中濃度。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  asthma: '氣喘病理生理與治療策略',
+  bronchodilators: '支氣管擴張劑',
+  antiinflammatory: '氣喘抗發炎藥物',
+  antitussive: '鎮咳藥',
+  mucokinetics: '化痰藥與袪痰藥',
+  decongestants: '鼻充血解除劑',
+  other: '肺高壓、高海拔與表面張力素',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

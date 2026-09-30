@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：血清素受體藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">血清素受體藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">血清素受體藥物 Serotonin (5-HT) &amp; Antagonists</h1>
+      <p class="page-subtitle">5-HT 合成代謝與受體分型、血小板／心血管／腸胃道／神經系統藥理效果、受體致效劑與拮抗劑；腸胃道用藥中已詳述的止吐／促腸蠕動藥物（Ondansetron、Maropitant、Metoclopramide、Cisapride）本頁僅從受體機轉角度簡述，完整臨床劑量請見〈腸胃道用藥〉</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三・不分上下學期）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 2 HT，17頁）為主；教科書核對：Handbook of Veterinary Pharmacology、Veterinary Pharmacology and Therapeutics 10th Ed（ondansetron/dolasetron、maropitant、cisapride、buspirone、cyproheptadine、ketanserin、ergonovine／ergot alkaloids、serotonin syndrome 等關鍵字已逐一 grep 核對，詳見各段落）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-25</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記；教科書核對已完成</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">基礎生理</div>
+    <a onclick="showSection('physiology')" id="nav-physiology"><span class="nav-icon">🧬</span> 5-HT 合成代謝與受體分型</a>
+    <a onclick="showSection('effects')" id="nav-effects"><span class="nav-icon">⚙️</span> 血清素的藥理效果</a>
+    <div class="section-label" style="margin-top:8px;">藥物</div>
+    <a onclick="showSection('agonists')" id="nav-agonists"><span class="nav-icon">➕</span> 血清素受體致效劑</a>
+    <a onclick="showSection('antagonists')" id="nav-antagonists"><span class="nav-icon">➖</span> 血清素受體拮抗劑</a>
+    <div class="section-label" style="margin-top:8px;">臨床安全</div>
+    <a onclick="showSection('safety')" id="nav-safety"><span class="nav-icon">⚠️</span> 血清素症候群與交互作用</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>血清素（Serotonin, 5-Hydroxytryptamine, 5-HT）是這學期第二個 Autacoid（第一個是 NSAID 那章的花生四烯酸/前列腺素）。跟前列腺素一樣，5-HT 是身體到處都在用的局部化學訊號，差別在於它同時橫跨<strong>神經傳導物質</strong>（CNS 情緒/睡眠/嘔吐）與<strong>周邊自泌／旁泌介質</strong>（血小板凝集、血管張力、腸道蠕動）兩種身分，這也是這一章內容看起來分散（一下講血小板、一下講腸胃道、一下講頭痛藥）的原因——其實都是同一個分子在不同組織表現不同受體亞型的結果。讀法建議：先弄懂 5-HT 怎麼合成/代謝/由哪個受體做什麼事（生理骨架），再看 5-HT 本身在各系統造成什麼效果（為什麼藥物要介入），最後才是藥物本身——照受體「致效 vs 拮抗」分兩條線記憶，會比死背藥名有效率。腸胃道用藥裡已經講得很細的止吐藥（Ondansetron、Maropitant）與促腸蠕動藥（Metoclopramide、Cisapride），這裡只從受體機轉角度帶過、不重複完整劑量。</p>
+        <div class="grid-3" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('physiology')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">合成代謝與受體</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Trp→5-HT→melatonin；7大亞型、僅5-HT3是離子通道</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('effects')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">藥理效果</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">血小板凝集、血管張力、GI蠕動、嘔吐反射</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('agonists')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體致效劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Buspirone、Sumatriptan、天然的麥角生物鹼</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('antagonists')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體拮抗劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Cyproheptadine、Ketanserin、5-HT3拮抗劑家族</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('safety')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">臨床安全</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">血清素症候群、藥物交互作用</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個臨床與國考重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>5-HT3 是唯一的離子通道型（ionotropic）5-HT 受體，其餘都是 GPCR：</strong>5-HT3 是配體門控 Na⁺-K⁺通道，反應快（毫秒等級），這是它能媒介「反射」（Bezold-Jarisch reflex、嘔吐反射）而不是慢速代謝性訊號的結構基礎；其餘亞型（1A/1D/2/4…）都是 G 蛋白偶聯受體。</li>
+          <li><strong>5-HT3 受體在腦內分布不均，是選擇性止吐藥「不太會鎮靜」的解剖學理由：</strong>area postrema（CTZ 所在）與 tractus solitarius 高密度表現、但邊緣系統／海馬迴／大腦皮質低密度——5-HT3拮抗劑（Ondansetron等）因此能精準阻斷嘔吐路徑，副作用遠少於作用範圍廣的 phenothiazines。</li>
+          <li><strong>血小板與血管壁的 5-HT 是一體兩面的止血/血栓平衡：</strong>血管損傷→血小板釋放 5-HT→5-HT2A 受體加速血小板凝集（促血栓）同時也活化血管平滑肌 5-HT2A 收縮（vasoconstriction）；但內皮 5-HT1 受體會釋放 NO 造成血管擴張——這套「凝血 vs 擴血管」平衡跟 NSAID 那章 TXA2/PGI2 的邏輯完全同構，值得對照記憶。</li>
+          <li><strong>Bezold-Jarisch reflex 是心臟迷走傳入的 5-HT3 反射：</strong>5-HT（或 5-HT3 agonist如phenylbiguanide）活化心臟迷走傳入神經上的 5-HT3 受體→訊號經迷走神經傳到延腦孤束核（NTS）→副交感輸出增加→反射性心搏過緩＋低血壓＋呼吸暫停，此反射可被 Atropine 阻斷（迷走傳出端）。</li>
+          <li><strong>GI 蠕動的兩條 5-HT 路徑分工不同：</strong>5-HT2 直接作用平滑肌受體（張力＋蠕動增加）；5-HT4 作用在腸肌叢神經節細胞、增加 ACh 釋放（間接促進蠕動）——後者正是 Metoclopramide／Cisapride 這類促腸蠕動藥的藥理基礎，完整臨床應用見〈腸胃道用藥〉。</li>
+          <li><strong>致效劑跟拮抗劑分屬完全不同的臨床領域，不要混記：</strong>致效劑多用在 CNS（Buspirone 抗焦慮、Sumatriptan 偏頭痛）；拮抗劑多用在周邊（Cyproheptadine 食慾促進/止癢、5-HT3拮抗劑止吐）；例外是 Ketanserin（5-HT2拮抗劑）專門用來對抗牧草毒素 ergovaline 造成的血管收縮——同一個 5-HT2 受體，天然致效劑（ergovaline）與人工拮抗劑（Ketanserin）在牛馬臨床上直接對打。</li>
+          <li><strong>多種血清素性藥物併用有「血清素症候群」風險：</strong>SSRI、MAOI、TCA、甚至 Tramadol 併用都可能造成 CNS 血清素過量，臨床表現包含躁動、高熱、肌陣攣、自律神經失調，是獸醫藥理學跨章節（止痛藥＋精神科用藥＋止吐藥）都可能考到的用藥安全題型。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <p class="section-desc">依頁面內出現順序排列；給藥途徑無論講義或教科書都沒有明確資料的藥物，如實標註「途徑未載明」，不臆測。Ondansetron／Maropitant／Metoclopramide／Cisapride 的完整劑量與副作用比較表見〈<a href="腸胃道用藥.html">腸胃道用藥</a>〉。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉／標的</th><th>臨床應用與原因</th><th>段落</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Buspirone<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Buspar®</div></td><td>5-HT1A受體部分致效劑（＋D2部分致效）</td><td><strong>PO</strong>（人t½短，需每日2–3次；動物無正式藥動學資料）；犬攻擊性/刻板行為、貓亂尿等焦慮相關行為</td><td class="drug-locations"><a href="#drug-buspirone" class="drug-link">犬貓行為問題輔助用藥</a></td></tr>
+            <tr><td>Sumatriptan</td><td>5-HT1B/1D受體致效劑</td><td><strong>PO</strong>（人用，獸醫臨床未使用）；人醫偏頭痛/叢集性頭痛首選之一</td><td class="drug-locations"><a href="#drug-sumatriptan" class="drug-link">人醫偏頭痛，非獸醫臨床用藥</a></td></tr>
+            <tr><td>Ergonovine<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">麥角生物鹼</div></td><td>天然5-HT致效劑；主要經α-adrenergic受體，另涉及5-HT/DA受體調節</td><td><strong>PO（犬0.2mg）或IM（馬1–3mg）</strong>；子宮收縮劑，產後出血、胎盤滯留（＋oxytocin）</td><td class="drug-locations"><a href="#drug-ergotalkaloids" class="drug-link">產科子宮收縮劑</a></td></tr>
+            <tr><td>Cyproheptadine</td><td>5-HT2A＋5-HT1A＋H1受體拮抗劑</td><td><strong>PO</strong>；貓食慾促進、貓氣喘/搔癢、馬光敏性甩頭症</td><td class="drug-locations"><a href="#drug-cyproheptadine" class="drug-link">貓食慾促進/止癢；馬甩頭症</a></td></tr>
+            <tr><td>Ketanserin</td><td>5-HT2受體拮抗劑（弱H1/α1阻斷）</td><td>途徑未載明；拮抗ergovaline誘發之血管收縮（牧草毒素中毒）；亦可降眼壓（青光眼）</td><td class="drug-locations"><a href="#drug-ketanserin" class="drug-link">拮抗牧草毒素血管收縮</a></td></tr>
+            <tr><td>Ritanserin</td><td>5-HT2受體拮抗劑（無α阻斷）</td><td>途徑未載明；講義列為血清素拮抗劑代表藥物之一，可能影響血小板功能，無明確獸醫臨床應用</td><td class="drug-locations"><a href="#drug-ritanserin" class="drug-link">研究性用藥，臨床應用有限</a></td></tr>
+            <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Ondansetron<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Zofran®</div></td><td>5-HT3受體拮抗劑（不影響DA/組織胺/腎上腺素性/膽鹼性受體）</td><td><strong>IV（犬建議；口服生體利用率&lt;10%）或PO/SC（貓吸收較佳）</strong>；化療/術後嘔吐預防與治療</td><td class="drug-locations"><a href="#drug-ondansetron" class="drug-link">化療/術後止吐；犬貓口服吸收差異大</a></td></tr>
+            <tr><td>Tropisetron／Granisetron／Dolasetron</td><td>5-HT3受體拮抗劑（選擇性更高）</td><td><strong>PO或IV（Dolasetron建議IV，每日一次）</strong>；類癌症候群、化療/放療性嘔吐、術前預防PONV</td><td class="drug-locations"><a href="#drug-other5ht3" class="drug-link">化療/放療/術後止吐輔助選項</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PHYSIOLOGY -->
+    <div class="section" id="section-physiology">
+      <div class="section-head"><div class="section-num">3</div><h2>5-HT 合成代謝與受體分型 Synthesis, Metabolism &amp; Receptor Subtypes</h2></div>
+      <p class="section-desc">要理解「為什麼某顆藥挑某個受體亞型」，得先知道 5-HT 在體內怎麼被製造、儲存、代謝掉，以及受體家族怎麼分工。</p>
+
+      <h3>分布與儲存</h3>
+      <p>高濃度 5-HT 見於<strong>中縫核（raphe nuclei，位於橋腦與延腦）</strong>，其投射廣泛分布到大腦皮質、下視丘、海馬迴與邊緣系統，參與睡眠、認知、感覺知覺、運動活動、體溫調節、嘔吐、痛覺、食慾、荷爾蒙調節與血壓等多種生理功能。全身儲存分布：<strong>&gt;90% 儲存於腸胃道腸嗜鉻細胞（enterochromaffin cells）</strong>；血液中則儲存在血小板（透過類似神經末梢的主動載體運輸系統攝入）；CNS 內另有獨立的儲存/釋放系統。松果體（pineal gland）是 5-HT 轉為褪黑激素（melatonin）的場所。</p>
+
+      <h3 id="drug-synthesis">合成路徑與 5-HT Turnover</h3>
+      <div class="flow">
+        <div class="flow-node">Tryptophan（色胺酸）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">5-Hydroxytryptophan（5-HTP）</div>
+        <span class="flow-arrow">→（去CO₂）</span>
+        <div class="flow-node accent">5-Hydroxytryptamine（5-HT，血清素）</div>
+        <span class="flow-arrow">→（乙醯化）</span>
+        <div class="flow-node">N-Acetylserotonin</div>
+        <span class="flow-arrow">→（甲基化）</span>
+        <div class="flow-node">Melatonin（N-acetyl-5-methoxyserotonin）</div>
+      </div>
+      <p>Melatonin 因主要在夜間（松果體感知光暗週期後）分泌而被稱作「<strong>The Hormone of Darkness</strong>」。5-HT 骨架核心是 <strong>Indole（吲哚）環</strong>，這也是辨認血清素相關分子（含麥角生物鹼，見下方「受體致效劑」章節）的結構特徵。</p>
+      <p>突觸端的 5-HT Turnover：突觸前神經元由 Tryptophan 合成 5-HT 並儲存於囊泡，釋放後作用於突觸後 5-HT 受體，同時也回饋作用於突觸前<strong>自體受體（autoreceptor）</strong>抑制further release；多餘的 5-HT 由<strong>血清素轉運蛋白（Serotonin Transporter, SERT）</strong>再回收（reuptake）進突觸前神經元，回收後的 5-HT 由 <strong>MAO（Monoamine Oxidase）</strong>代謝為主要終產物 <strong>5-HIAA（5-Hydroxyindole Acetic Acid）</strong>。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ SERT 是 SSRI（選擇性血清素回收抑制劑）的藥物標的，MAO 是 MAOI（單胺氧化酶抑制劑）的標的——兩類藥物與本頁「血清素症候群」風險直接相關，見第 7 節。</p>
+
+      <h3 id="drug-receptorsubtypes">受體分型：至少 7 大亞型，僅 5-HT3 是離子通道<span class="tag tag-exam">重要</span></h3>
+      <p>至少已辨識出 7 大類 5-HT 受體亞型，<strong>絕大多數是 G 蛋白偶聯受體（GPCR）</strong>；唯一的例外是 <strong>5-HT3</strong>，屬於配體門控離子通道（與 Nicotinic R、GABA<sub>A</sub> R、Ionotropic glutamate R、Glycine R 同屬「離子通道型受體」大類），這個結構差異解釋了 5-HT3 為何能媒介毫秒等級的快速反射（嘔吐反射、Bezold-Jarisch reflex），而其他 GPCR 亞型多半調節較慢速的生理歷程。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>亞型</th><th>主要分布</th><th>偶聯機制</th><th>代表藥物</th></tr></thead>
+          <tbody>
+            <tr><td><strong>5-HT1A</strong></td><td>中縫核、海馬迴</td><td>Gi → ↓cAMP、開啟K⁺通道</td><td>Buspirone（部分致效劑）</td></tr>
+            <tr><td><strong>5-HT1D</strong>（與1B高度相似）</td><td>腦</td><td>Gi → ↓cAMP</td><td>Sumatriptan（致效劑）</td></tr>
+            <tr><td><strong>5-HT2</strong>（含2A）</td><td>血小板、血管平滑肌、GI平滑肌</td><td>Gq</td><td>Cyproheptadine／Ketanserin／Ritanserin（拮抗劑）</td></tr>
+            <tr><td><strong>5-HT3</strong>（唯一離子通道型）</td><td>Area postrema、腸道神經（enteric nerves）</td><td>Na⁺-K⁺配體門控通道</td><td>Ondansetron（拮抗劑）</td></tr>
+            <tr><td><strong>5-HT4</strong></td><td>CNS、平滑肌（腸肌叢）</td><td>Gs → ↑cAMP</td><td>Metoclopramide（致效劑，見〈腸胃道用藥〉）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10 補充：5-HT1 受體偶聯 Gi、5-HT2 偶聯 Gq，其餘亞型多偶聯 Gs（例外是 5-HT5，可能偶聯 Gi）——與講義表格的 cAMP／K⁺通道描述互相對應。5-HT3 受體也被認為可能參與吸入性麻醉藥的部分作用機轉（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 2 HT）為主，並以 Veterinary Pharmacology and Therapeutics 10th Ed 核對補充受體偶聯機制。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- EFFECTS -->
+    <div class="section" id="section-effects">
+      <div class="section-head"><div class="section-num">4</div><h2>血清素的藥理效果 Pharmacological Effects of Serotonin</h2></div>
+      <p class="section-desc">這節講的是「5-HT 這個分子本身」在各系統做了什麼，是理解後面所有致效劑/拮抗劑臨床用途的生理基礎。</p>
+
+      <h3>血小板與心血管系統</h3>
+      <ul>
+        <li><strong>血小板聚集：</strong>活化血小板表面 5-HT2 受體，促進血小板聚集；血小板本身攜帶並儲存 5-HT，聚集時會釋放出來，形成正回饋。</li>
+        <li><strong>血管平滑肌：</strong>5-HT2 受體直接作用平滑肌，多數血管呈現<strong>收縮</strong>反應；例外是骨骼肌血管床（擴張）與經內皮細胞依賴的血管擴張（5-HT1 受體介導，經 NO 釋放）；對肺血管與腎血管的收縮效果特別強。</li>
+      </ul>
+      <div class="flow">
+        <div class="flow-node">血管損傷</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">初步血小板聚集 → 釋放5-HT</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">① 5-HT2A（血小板）→加速聚集→血栓　② 5-HT2A（平滑肌）→血管收縮　③ 5-HT1（內皮）→NO釋放→血管擴張</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">止血 vs 血管阻塞的動態平衡</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 這套「促凝血受體 vs 擴血管受體」互相制衡的邏輯，跟〈NSAID非類固醇消炎藥〉章節 TXA2（血小板）vs PGI2（內皮）的平衡是同一種生理設計，可對照複習。</p>
+
+      <h3 id="drug-bezoldjarisch">Bezold-Jarisch 反射<span class="tag tag-exam">重要</span></h3>
+      <p>5-HT3 受體活化化學感受器神經末梢（chemoreceptor nerve endings）可引發<strong>反射性心搏過緩</strong>。<strong>Bezold-Jarisch reflex</strong> 是一個由 5-HT3 受體媒介的心臟抑制反射：心臟迷走傳入神經上的 5-HT3 受體被 5-HT 或 5-HT3 致效劑（如 phenylbiguanide）活化 → 訊號經迷走神經傳至延腦<strong>孤束核（nucleus tractus solitarii, NTS）</strong> → 副交感輸出增加 → 造成<strong>低血壓、心搏過緩與呼吸暫停</strong>。</p>
+
+      <h3>腸胃道</h3>
+      <p>5-HT 使 GI 平滑肌收縮（張力增加、蠕動增加），機轉有二：</p>
+      <div class="flow">
+        <div class="flow-node">5-HT2受體：直接作用平滑肌受體</div>
+        <span class="flow-arrow">＋</span>
+        <div class="flow-node">5-HT4受體：刺激腸肌叢神經節細胞→↑ACh釋放</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">GI張力↑、蠕動↑（促動力效果）</div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床案例</div>
+        <p>類癌腫瘤（carcinoid tumor）造成血清素過度分泌時，可導致<strong>嚴重腹瀉</strong>，正是 5-HT 過量刺激腸道蠕動的直接後果。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 5-HT4致效（Metoclopramide、Cisapride）作為促腸蠕動藥的完整臨床劑量、跟D2拮抗/motilin agonist等其他促動力機轉的比較，見〈<a href="腸胃道用藥.html#section-prokinetics">腸胃道用藥：促腸蠕動藥</a>〉。</p>
+
+      <h3 id="drug-vomitingreflex">神經系統與嘔吐反射</h3>
+      <p>5-HT 也參與癢覺與痛覺；<strong>5-HT3 受體活化化學敏感性迷走神經末梢（chemosensitive vagal nerve endings）</strong>會觸發化學感受器反射（chemoreceptor reflex），造成負性變時反應（反射性心搏過緩）合併低血壓——此心搏過緩可被 <strong>Atropine 阻斷</strong>；<strong>Digitalis（毛地黃類強心配糖體）也會活化同一化學感受器反射</strong>，是強心配糖體心搏過緩副作用的機轉之一。5-HT3 受體活化 GI 道與 <strong>area postrema</strong> 則會誘發<strong>嘔吐反射</strong>——化學治療（抗癌藥物）誘發嘔吐正是透過這條路徑（藥物損傷 GI 黏膜的腸嗜鉻細胞 → 大量釋放 5-HT → 活化迷走傳入的 5-HT3 受體）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">為什麼 5-HT3 拮抗劑是「精準」止吐藥</div>
+        <p>5-HT3 受體在腦內分布並不均勻：<strong>area postrema（CTZ所在）與孤束核（tractus solitarius）高密度表現；邊緣系統、海馬迴、大腦皮質則是低密度</strong>。這解釋了為什麼 Ondansetron 這類選擇性 5-HT3 拮抗劑能有效阻斷嘔吐路徑，卻不太會產生鎮靜、情緒等廣泛 CNS 副作用——因為 area postrema 剛好又在血腦障壁保護較弱的區域，藥物容易到達、作用侷限。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 2 HT）為主。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- AGONISTS -->
+    <div class="section" id="section-agonists">
+      <div class="section-head"><div class="section-num">5</div><h2>血清素受體致效劑 Serotonin Receptor Agonists</h2></div>
+      <p class="section-desc">本節涵蓋講義中的兩個合成致效劑（Buspirone、Sumatriptan）與一大類天然致效劑（麥角生物鹼），臨床應用領域彼此差異很大，不要互相混記。</p>
+
+      <h3 id="drug-buspirone">Buspirone（Azapirones 類）— 5-HT1A 部分致效劑<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>機轉：</strong>5-HT1A 受體部分致效劑（partial agonist）；不與 GABA 受體作用（因此無抗痙攣、無肌肉鬆弛作用）；也是 D2 受體部分致效劑；<strong>無成癮、無戒斷症候群</strong>——這幾點是它跟 Benzodiazepine 類抗焦慮藥最大的區別。</li>
+        <li><strong>適應症：</strong>犬攻擊性行為、犬貓刻板行為（stereotypic behavior）、社交情境相關焦慮；貓的排尿障礙（不當如廁行為）。</li>
+        <li><strong>同類藥物：</strong>Tandospirone（日本、中國使用）、Gepirone（美國 FDA 核准，人用抗憂鬱藥）。</li>
+        <li><strong>給藥途徑：</strong><strong>PO</strong>。教科書指出其代謝主要經 CYP450 系統產生一個活性代謝物（1-pyrimidinylpiperazine），血漿蛋白結合率高（95%）；人類 t½ 僅約 2.5 小時，因半衰期短需每日給藥 2–3 次；<strong>動物的正式藥動學資料尚未建立</strong>，臨床劑量多為經驗性外推。副作用發生率低，人類不會鎮靜但動物已有鎮靜報告；不似 BZD 類會有長期使用的戒斷或依賴風險。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>Buspirone 的抗焦慮效果來自其 5-HT1A 部分致效作用位於<strong>中縫核（dorsal raphe nucleus）</strong>；犬臨床上對廣泛性焦慮效果較好，對雷雨恐懼症或分離焦慮效果較差；也可作為 SSRI（如 fluoxetine）治療 OCD 或複雜行為問題（焦慮＋攻擊性＋刻板行為）的輔助藥物（核對自 Handbook of Veterinary Pharmacology）。</p>
+      </div>
+
+      <h3 id="drug-sumatriptan">Sumatriptan 與其他 Triptans — 5-HT1B/1D 致效劑</h3>
+      <p>5-HT1B 與 5-HT1D 受體高度相似；Sumatriptan 作用於這兩型受體：作為自體受體時抑制促發炎神經胜肽釋放，並造成顱內血管收縮。臨床用於人類的<strong>偏頭痛（migraine）與叢集性頭痛（cluster headache）</strong>，效果與選擇性均優於傳統的麥角生物鹼（ergotamine），副作用也較輕微；2006 年 5 月 26 日於英國核准為第一個非處方（OTC）偏頭痛藥。同類藥物尚有 Rizatriptan、Almotriptan。</p>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：這是人醫用藥</div>
+        <p>Sumatriptan／Triptans 講義中並未提及任何獸醫臨床適應症或劑量，也未在教科書 grep 中找到獸醫使用紀錄——這類藥物在課程中主要是作為「5-HT1B/1D 受體致效劑」的代表藥物教學，幫助理解受體亞型與麥角生物鹼的機轉差異，<strong>不是獸醫臨床常用藥物</strong>。</p>
+      </div>
+
+      <h3 id="drug-ergotalkaloids">天然的血清素致效劑：麥角生物鹼與牧草毒素<span class="tag tag-exam">重要</span></h3>
+      <p><strong>Claviceps purpurea</strong> 是常見的麥角真菌，寄生於黑麥、燕麥、小麥與大麥的種子上，產生一系列麥角生物鹼（ergotamine、ergonovine／ergometrine、ergocryptine、ergocornine、ergocristine、ergosine 等）；另一種真菌 <strong>Acremonium coenophialum</strong> 則寄生於高狐草（tall fescue grass）並產生 <strong>ergovaline</strong>，是牧草毒症（fescue toxicosis）的主要毒性成分。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物質</th><th>來源</th><th>機轉</th><th>效果／中毒表現</th></tr></thead>
+          <tbody>
+            <tr><td>麥角生物鹼群（ergotamine等）</td><td>Claviceps purpurea（黑麥/燕麥/小麥/大麥）</td><td>複雜藥理：可作用腎上腺素性與血清素性受體，兼具部分致效／拮抗性質</td><td>影響CNS與平滑肌；Ergotism：癡呆、幻覺、持續血管痙攣（壞疽）、子宮收縮（流產）</td></tr>
+            <tr><td>Ergovaline</td><td>Acremonium coenophialum（高狐草）</td><td><strong>強效 5-HT2 受體血管收縮劑</strong>，作用於牛/羊子宮、臍帶、胎盤及尾動脈</td><td>牛：慢性→壞疽；急性→神經質、抽搐；小劑量持續數日→無乳症、流產、產仔數減少、出生體重下降</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Ergotamine + Caffeine</strong>：用於人類偏頭痛治療，機轉複雜、經 5-HT1B/1D 受體造成顱內血管收縮。<strong>Ergonovine（子宮收縮劑）</strong>：機轉主要透過 α-adrenergic 受體，也可能調節血清素性與多巴胺性受體，作用為延長平滑肌（含子宮肌層與血管）收縮；<strong>給藥途徑：犬 PO 0.2 mg，或馬 IM 1–3 mg</strong>，作用持續 2–4 小時；用於誘發子宮復舊、控制產後出血、協助胎盤排出（常與 oxytocin 併用，尤其牛與母犬）；過量可能造成 CNS 興奮、肌肉無力、高血壓與嘔吐（犬），並可能因抑制 prolactin 分泌而導致無乳症。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌／中毒</div>
+        <p>Ergot alkaloids 因藥理效果複雜，臨床上一般<strong>不作為血清素致效劑使用</strong>（例外是 Ergonovine 的子宮收縮用途）；牧草毒症在牛：慢性攝食→壞疽；急性→神經質、抽搐；長期小量攝食→無乳症、流產、產仔數與出生體重下降，均由 ergovaline 的 5-HT2 血管收縮效應所致。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10 對牧草毒症提供了另一個互補角度：ergovaline 除了直接的 5-HT2 血管收縮效應外，也被歸類為一種<strong>多巴胺受體致效劑</strong>，會抑制腦下垂體 prolactin 分泌，這是馬匹圍產期無乳症的另一個機轉；文獻曾嘗試以 Domperidone（周邊 D2 拮抗劑，不穿血腦障壁，能刺激 prolactin 分泌）治療馬牧草毒症相關無乳症，並已有 FDA 核准的馬用 Domperidone 凝膠劑型（Equidone®）用於預防；Domperidone 完整藥理見〈<a href="腸胃道用藥.html">腸胃道用藥</a>〉（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 2 HT）為主，並以 Handbook of Veterinary Pharmacology、Veterinary Pharmacology and Therapeutics 10th Ed 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- ANTAGONISTS -->
+    <div class="section" id="section-antagonists">
+      <div class="section-head"><div class="section-num">6</div><h2>血清素受體拮抗劑 Serotonin Receptor Antagonists</h2></div>
+      <p class="section-desc">拮抗劑依受體亞型分兩群：5-HT2 拮抗劑（Cyproheptadine／Ketanserin／Ritanserin）多用於周邊（食慾、搔癢、血管張力）；5-HT3 拮抗劑（Ondansetron等）是止吐藥的主力。</p>
+
+      <h3 id="drug-cyproheptadine">Cyproheptadine — 5-HT2A ＋ 5-HT1A ＋ H1 受體拮抗劑<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>結構與機轉：</strong>結構類似 phenothiazines；同時阻斷 5-HT2A、5-HT1A 與 H1 受體；<strong>對 H2 受體（胃酸分泌）無作用</strong>；具顯著抗毒蕈鹼（antimuscarinic）效果。</li>
+        <li><strong>副作用：</strong>鎮靜（第一代 H1 抗組織胺／phenothiazine類共同特性）、抗膽鹼副作用。</li>
+        <li><strong>臨床應用：</strong>透過 H1 拮抗——貓的搔癢症（pruritus）、皮膚炎/皮膚發炎；透過 5-HT 拮抗——食慾促進（用於孩童與貓）。</li>
+        <li><strong>給藥途徑：</strong><strong>PO</strong>。教科書補充：口服吸收良好，經糞便與尿液排出（尿液主要以四級銨葡萄醣醛酸共軛物形式），高劑量可能造成多食（polyphagia）；機轉上被認為是抑制下視丘飽食中樞；<strong>貓與人類對其食慾促進效果反應較好，犬反應較差</strong>；貓另有<strong>矛盾性 CNS 興奮與明顯攻擊行為</strong>的報告（發生率約 20%）；教科書並提及馬用於治療光敏性甩頭症（photic head shaking）（核對自 Handbook of Veterinary Pharmacology）。</li>
+      </ul>
+
+      <h3 id="drug-ketanserin">Ketanserin — 5-HT2 受體選擇性拮抗劑</h3>
+      <p>阻斷 5-HT2 受體，對其他 5-HT 亞型或組織胺受體無活性；弱度阻斷 H1 與 α1 受體。<strong>獸醫用途：拮抗 ergovaline（牧草毒素）媒介的血管收縮</strong>（與第 5 節麥角生物鹼章節相呼應——天然 5-HT2 致效劑 vs 人工 5-HT2 拮抗劑的臨床對打）；因 α1 阻斷作用也具有效的降血壓效果。給藥途徑講義與教科書均未載明明確劑型/途徑。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10 補充 Ketanserin 也可用於降低眼內壓，作為青光眼輔助治療選項之一（核對自 Veterinary Pharmacology and Therapeutics 10th ed.）。</p>
+      </div>
+
+      <h3 id="drug-ritanserin">Ritanserin — 5-HT2 受體拮抗劑</h3>
+      <p>阻斷 5-HT2 受體，不具 α 受體阻斷性質；可能影響血小板功能。講義中僅列為血清素拮抗劑代表藥物之一，並未提供明確的獸醫臨床適應症或劑量，教科書 grep 亦未找到相關獸醫用藥紀錄，暫列為認識性藥物，非臨床常用。</p>
+
+      <h3 id="drug-ondansetron">Ondansetron — 5-HT3 受體拮抗劑（止吐藥代表）<span class="tag tag-exam">重要</span></h3>
+      <ul>
+        <li><strong>機轉：</strong>特異性阻斷 5-HT3 受體，對多巴胺、組織胺、腎上腺素性或膽鹼性受體無作用；用於<strong>化療或手術誘發之噁心嘔吐的預防與治療</strong>；講義稱其為止吐藥領域的「重大突破」——效果非常好，且副作用遠少於 phenothiazines 與抗組織胺類等傳統止吐藥。</li>
+        <li><strong>副作用：</strong>手術病患中約 3% 出現肝轉氨酶上升、3% 頭痛；<strong>不會造成鎮靜（H1機轉副作用）、低血壓（α機轉）、煩躁不安或錐體外症狀</strong>（這些是其他止吐藥如 phenothiazines/D2拮抗劑常見的副作用）。</li>
+        <li><strong>給藥途徑與物種差異：</strong>教科書資料顯示<strong>犬口服生體利用率極低（&lt;10%）、半衰期僅約30分鐘</strong>，臨床效果存疑，<strong>建議靜脈給藥（IV）</strong>；<strong>貓的口服吸收較佳（約32%）、皮下注射吸收更好（約75%）</strong>，半衰期IV 1.8小時／PO 1.2小時／SC 3.2小時。劑量：化療前 0.5–1.0 mg/kg IV或PO（給藥前30分鐘）；其他原因嘔吐則 0.1–0.2 mg/kg，必要時可增至0.5 mg/kg，最快每12小時一次。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：與〈腸胃道用藥〉合併閱讀</div>
+        <p>〈腸胃道用藥〉頁面已對 Ondansetron 的臨床定位（vs Maropitant/Metoclopramide 的選藥邏輯）與嘔吐反射路徑整理得很完整，本頁補充的重點是<strong>犬貓口服生體利用率差異極大</strong>這項容易被忽略的藥動學細節——同一顆藥同一個劑型，在犬身上可能因口服吸收太差而效果不足，貓則相對可靠（核對自 Veterinary Pharmacology and Therapeutics 10th ed. 與 Handbook of Veterinary Pharmacology）。</p>
+      </div>
+
+      <h3 id="drug-other5ht3">Tropisetron、Granisetron、Dolasetron — 其他 5-HT3 受體拮抗劑</h3>
+      <p><strong>Tropisetron</strong>：5-HT3 受體拮抗劑；有效控制類癌症候群（carcinoid syndrome）相關症狀；有效預防化療/放療誘發之嘔吐；於全身麻醉誘導前給藥可有效預防術後噁心嘔吐（PONV）。<strong>Granisetron 與 Dolasetron</strong>：講義描述為「更具選擇性」的 5-HT3 受體拮抗劑。</p>
+      <p>給藥途徑：<strong>Dolasetron 建議 IV，每日給藥一次</strong>（教科書指出其活性代謝物 hydrolasetron 由血漿羰基還原酶轉化，約 2/3 經肝代謝、1/3 經尿液原形排出，抗嘔吐效果會在血中濃度消失後仍持續一段時間，推測與受體持續結合有關）；Tropisetron／Granisetron 講義與教科書均未載明明確獸醫給藥途徑/劑量，多以 PO 或 IV 使用（核對自 Handbook of Veterinary Pharmacology）。</p>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 2 HT）為主，並以 Handbook of Veterinary Pharmacology、Veterinary Pharmacology and Therapeutics 10th Ed 核對補充。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SAFETY -->
+    <div class="section" id="section-safety">
+      <div class="section-head"><div class="section-num">7</div><h2>血清素症候群與藥物交互作用 Serotonin Syndrome &amp; Drug Interactions</h2></div>
+      <p class="section-desc">講義本身沒有獨立講這個主題，但既然整頁都在講「操縱血清素系統的藥物」，併用風險是臨床安全不可省略的一塊，這節完全來自教科書核對。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：血清素症候群（Serotonin Syndrome）</div>
+        <p>當多種提升 CNS 血清素活性的藥物併用，可能造成血清素蓄積過量，出現「血清素症候群」：<strong>意識狀態改變</strong>（躁動、焦慮、癲癇發作，甚至嗜睡至昏迷）、<strong>自律神經失調</strong>（中樞與周邊5-HT作用造成高熱、流汗、心搏過速、高血壓、呼吸急促、瞳孔放大）、<strong>神經肌肉症狀</strong>（肌陣攣、反射亢進、共濟失調）。獸醫臨床上常見的觸發情境是<strong>合併使用 SSRI、單胺氧化酶抑制劑（MAOI）與三環抗憂鬱藥（TCA）</strong>，這類組合應盡量避免併用。</p>
+      </div>
+      <p>教科書另指出較簡化的臨床表現版本：噁心、嘔吐、瞳孔放大（mydriasis）、流涎（hypersalivation）、高熱，統稱「血清素毒性（serotonin toxicity）」，機轉核心都是 CNS 血清素過量。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 行為用藥（Buspirone、SSRI類）、鴉片類止痛藥中的 Tramadol（具血清素回收抑制活性）、以及本頁的 5-HT3/5-HT4 拮抗致效劑，理論上都可能是併用風險的一環，開立多重用藥時建議檢視是否有重疊的血清素路徑作用。</p>
+
+      <footer class="note-footer">
+        資料來源：Veterinary Pharmacology and Therapeutics 10th Ed（核對自該書關於血清素性藥物交互作用與血清素症候群段落）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
+      </footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考題常見「受體亞型配對」「致效劑vs拮抗劑分類」「反射機轉」三種題型，複習前先快速掃過本節。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>合成路徑：</strong>Tryptophan→5-HTP→5-HT→N-Acetylserotonin→Melatonin；Melatonin別名「黑暗荷爾蒙」；5-HT代謝終產物是5-HIAA（經MAO氧化），SERT負責突觸前再回收。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>受體分型：</strong>至少7大亞型，<strong>只有5-HT3是離子通道（Na⁺-K⁺）</strong>，其餘皆為GPCR；5-HT1A（cAMP/K⁺通道，Buspirone標的）、5-HT1D（cAMP，Sumatriptan標的）、5-HT3（Ondansetron標的）、5-HT4（cAMP，Metoclopramide標的）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>血小板/心血管：</strong>5-HT2活化血小板聚集＋血管收縮（肺腎血管尤強）；5-HT1內皮媒介NO→血管擴張；骨骼肌血管例外呈擴張。Bezold-Jarisch reflex：心臟迷走傳入5-HT3受體活化→NTS→副交感↑→心搏過緩+低血壓+呼吸暫停，可被Atropine阻斷；Digitalis也會活化同一反射。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>GI與嘔吐：</strong>5-HT2直接刺激平滑肌、5-HT4經腸肌叢↑ACh促進蠕動（Metoclopramide/Cisapride機轉，詳見腸胃道用藥）；5-HT3活化area postrema/迷走傳入→嘔吐反射，化療藥物誘發嘔吐正是此路徑；<strong>area postrema/NTS高密度5-HT3、邊緣系統/海馬迴/皮質低密度</strong>，是5-HT3拮抗劑精準止吐、少鎮靜的解剖基礎。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>致效劑：</strong>Buspirone（5-HT1A部分致效＋D2部分致效，PO，無成癮性，犬貓行為問題）；Sumatriptan（5-HT1B/1D致效，人醫偏頭痛，非獸醫用藥）；麥角生物鹼（天然致效劑，ergovaline是牧草毒症的5-HT2血管收縮元凶；Ergonovine子宮收縮劑，犬PO 0.2mg或馬IM 1–3mg）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>拮抗劑：</strong>Cyproheptadine（5-HT2A+5-HT1A+H1，PO，貓食慾促進/止癢，犬效果差，20%貓矛盾性興奮）；Ketanserin（5-HT2拮抗，拮抗ergovaline血管收縮，兼降眼壓/降血壓）；Ondansetron（5-HT3拮抗，犬IV較可靠/貓PO或SC可用，副作用少）；Tropisetron/Granisetron/Dolasetron為選擇性更高的5-HT3拮抗劑家族。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>安全性：</strong>SSRI+MAOI+TCA併用有血清素症候群風險（躁動、高熱、肌陣攣、自律神經失調），是跨章節（行為用藥、止痛藥Tramadol、止吐藥）都可能整合命題的用藥安全概念。</div></div>
+
+      <footer class="note-footer">
+        資料來源：NTU 獸醫藥理學課程講義（詹東榮，Handout Autacoid 2 HT）為主，並以教科書核對補充。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
+      </footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">涵蓋受體分型、藥理效果、致效劑與拮抗劑各章節重點，最後兩題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪個 5-HT 受體亞型是離子通道型受體，而非 G 蛋白偶聯受體？</div>
+        <ul class="quiz-options">
+          <li>(A) 5-HT1A</li>
+          <li>(B) 5-HT1D</li>
+          <li>(C) 5-HT3</li>
+          <li>(D) 5-HT4</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">5-HT3 是唯一的離子通道型（Na⁺-K⁺配體門控通道）5-HT受體，其餘亞型（1A/1D/2/4…）皆為GPCR。這個結構差異使5-HT3能媒介毫秒等級的快速反射（嘔吐反射、Bezold-Jarisch reflex）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. Bezold-Jarisch reflex 的訊號傳遞路徑，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 5-HT2受體活化交感神經→心搏過速</li>
+          <li>(B) 5-HT3受體活化心臟迷走傳入神經→NTS→副交感輸出增加→心搏過緩、低血壓、呼吸暫停</li>
+          <li>(C) 5-HT4受體活化竇房結→心搏過緩</li>
+          <li>(D) 與迷走神經無關，是純粹的心肌局部效應</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Bezold-Jarisch reflex由心臟迷走傳入神經上的5-HT3受體媒介，訊號經迷走神經傳至延腦孤束核（NTS），造成副交感輸出增加，臨床表現為心搏過緩、低血壓與呼吸暫停，可被Atropine（阻斷迷走傳出端）中止。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. Buspirone 與 Benzodiazepine 類抗焦慮藥一樣，都是透過 GABA<sub>A</sub> 受體產生抗焦慮效果。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer wrong">答案：錯（False）</div>
+          <p class="quiz-explain">Buspirone的抗焦慮效果來自5-HT1A受體部分致效作用，明確不與GABA受體作用，因此沒有BZD類的抗痙攣、肌肉鬆弛效果，也沒有成癮性與戒斷症候群——這正是Buspirone被選用於長期行為治療的原因。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 關於 Ondansetron 在犬與貓的口服使用，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 犬與貓口服生體利用率相近，都建議口服給藥</li>
+          <li>(B) 犬口服生體利用率極低（&lt;10%）且半衰期短，建議靜脈給藥；貓口服/皮下吸收較佳</li>
+          <li>(C) 貓完全無法口服吸收此藥</li>
+          <li>(D) 兩種動物皆建議肌肉注射為主要途徑</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">教科書藥動學資料顯示犬口服生體利用率&lt;10%、半衰期僅約30分鐘，口服臨床效果存疑，建議IV給藥；貓口服吸收約32%、皮下注射吸收約75%，相對可靠——同一顆藥在不同物種給藥途徑選擇可能完全不同。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q5. 為什麼 5-HT3 受體拮抗劑（如 Ondansetron）能有效止吐、卻不太會造成明顯的鎮靜等廣泛 CNS 副作用？請從受體分布的角度說明。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">因為5-HT3受體在腦內分布並不均勻：在area postrema（化學受體觸發區CTZ所在）與孤束核（tractus solitarius）呈高密度表現，而邊緣系統、海馬迴、大腦皮質等廣泛調節情緒/認知的區域則是低密度表現。5-HT3拮抗劑因此能選擇性阻斷嘔吐反射相關路徑，而不太影響情緒/鎮靜相關的腦區，加上area postrema血腦障壁保護較弱、藥物容易到達作用，整體副作用profile遠優於作用範圍廣（同時阻斷H1、α、D2等多種受體）的傳統止吐藥如phenothiazines。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. Ketanserin 在獸醫臨床上的典型用途是？</div>
+        <ul class="quiz-options">
+          <li>(A) 作為5-HT3拮抗劑治療化療誘發嘔吐</li>
+          <li>(B) 拮抗ergovaline（牧草毒素）媒介的5-HT2血管收縮</li>
+          <li>(C) 作為5-HT1A致效劑治療行為問題</li>
+          <li>(D) 作為子宮收縮劑用於產科</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Ketanserin是5-HT2受體選擇性拮抗劑，獸醫臨床用途是拮抗高狐草毒素ergovaline經5-HT2受體造成的血管收縮（牧草毒症），另因具α1阻斷作用也有降血壓效果。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】一匹母馬懷孕接近預產期，長期放牧於高狐草（tall fescue）牧場。生產後主人發現母馬幾乎無乳，仔馬吸乳困難；獸醫師另外注意到母馬近期偶有輕微肢端血液循環不良的表現。請問：(1) 最可能的致病物質與其對子宮/血管的主要受體機轉是什麼？(2) 教科書補充提到的另一個互補機轉（與 prolactin 相關）是什麼？(3) 有哪一類藥物曾被研究用於治療/預防這個情境下的無乳症？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 致病物質與機轉：</strong>高狐草寄生真菌 Acremonium coenophialum 產生的 ergovaline，是強效的 5-HT2 受體血管收縮劑，作用於牛/馬的子宮、臍帶、胎盤與尾動脈等血管，長期小量攝食會造成無乳症、流產、產仔數減少與出生體重下降，也可能造成肢端血液循環不良（慢性嚴重時可致壞疽）。<br><strong>(2) 補充機轉：</strong>教科書補充指出 ergovaline 也具有多巴胺受體致效活性，會抑制腦下垂體 prolactin 分泌，這是牧草毒症造成無乳症的另一條（非5-HT2）路徑。<br><strong>(3) 治療/預防藥物：</strong>Domperidone（周邊選擇性D2拮抗劑，不穿血腦障壁，可刺激prolactin分泌）已有FDA核准的馬用凝膠劑型（Equidone®），於預產期前10–15天開始給藥以預防牧草毒症相關無乳症；完整藥理見〈腸胃道用藥〉。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】一隻因分離焦慮長期服用 SSRI 類藥物的犬，近期因後肢跛行由另一位獸醫師加開了 Tramadol 作為止痛藥。給藥後兩天，飼主發現犬隻出現躁動不安、體溫偏高、肌肉不自主抽動與流涎的情形帶回急診。請問：(1) 最可能的診斷是什麼？(2) 為什麼這兩種藥物併用會造成這個問題？(3) 臨床處置的第一步應該是什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1) 診斷：</strong>血清素症候群（Serotonin Syndrome / Serotonin Toxicity）——意識狀態改變（躁動）、自律神經失調（高熱、流涎）、神經肌肉症狀（肌陣攣）三大類表現在此病例中都有出現。<br><strong>(2) 機轉：</strong>SSRI 透過抑制 SERT（血清素轉運蛋白）阻斷突觸前再回收，使突觸間隙 5-HT 濃度上升；Tramadol 除了鴉片類鎮痛作用外，也具有血清素（與正腎上腺素）回收抑制活性，兩者併用會使 CNS 血清素蓄積過量，超過受體系統可以代償的範圍，誘發血清素症候群。<br><strong>(3) 處置：</strong>立即停用所有具血清素性活性的藥物（SSRI、Tramadol），並給予支持性治療（降溫、鎮靜控制躁動與肌陣攣、監測生命徵象）；後續選擇止痛藥時應避開血清素性機轉的藥物（如改用非血清素性鴉片類藥物），並在病歷中註記藥物交互作用史。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
+      </footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  drugtable: '本頁藥物總覽',
+  physiology: '5-HT 合成代謝與受體分型',
+  effects: '血清素的藥理效果',
+  agonists: '血清素受體致效劑',
+  antagonists: '血清素受體拮抗劑',
+  safety: '血清素症候群與交互作用',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
