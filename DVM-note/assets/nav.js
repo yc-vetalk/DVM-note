@@ -80,3 +80,37 @@ function initSiteNav(containerId, panelId) {
     if (e.key === 'Escape') closePanel();
   });
 }
+
+/* 圖片載入失敗時（公開網站上不收錄的教科書／講義截圖），改顯示佔位卡，
+   標出「這裡本來有圖」並保留說明文字；本機版圖片存在時不受影響。 */
+(function () {
+  function placeholder(img) {
+    if (img.dataset.missingHandled) return;
+    img.dataset.missingHandled = '1';
+    var fig = img.closest('.figure, .fig');
+    var cap = fig ? fig.querySelector('.figure-caption, figcaption') : null;
+    var src = fig ? fig.querySelector('.figure-source') : null;
+    var box = document.createElement('div');
+    box.className = 'figure-missing';
+    box.innerHTML =
+      '<div class="figure-missing__label">📖 此處有圖（教科書／講義截圖）</div>' +
+      '<div class="figure-missing__desc"></div>' +
+      '<div class="figure-missing__hint">版權因素未放上公開網站，請用本機版開啟查看' +
+      (src ? '（' + src.textContent.replace(/^來源[:：]\s*/, '') + '）' : '') + '</div>';
+    box.querySelector('.figure-missing__desc').textContent = img.alt || (cap ? cap.textContent : '');
+    img.replaceWith(box);
+  }
+  window.addEventListener('error', function (e) {
+    var t = e.target;
+    if (t && t.tagName === 'IMG') placeholder(t);
+  }, true);
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('img').forEach(function (img) {
+      if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+        var probe = new Image();               // SVG 的 naturalWidth 可能是 0，重新載入一次確認真的失敗
+        probe.onerror = function () { placeholder(img); };
+        probe.src = img.src;
+      }
+    });
+  });
+})();
