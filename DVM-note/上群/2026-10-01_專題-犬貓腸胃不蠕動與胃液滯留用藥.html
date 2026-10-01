@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上群病例：專題 - 犬貓腸胃不蠕動與胃液滯留用藥 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">上群病例筆記</a><span class="sep">›</span><span class="current">專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥</h1>
+      <p class="page-subtitle">住院中常見的 ileus／胃排空延遲／嚴重胃腸炎：先排除阻塞、找出讓腸胃停下來的原因，再依受體選藥——每一類藥物作用在哪個受體、會影響什麼、怎麼觀察有沒有效</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">臨床專題討論（非單一個案，未含任何病患識別資料）</div></div>
+      <div class="meta-item"><div class="meta-label">主要問題</div><div class="meta-value">腸胃蠕動低下（ileus）、胃擴張與胃液滯留、嚴重胃腸炎；含癲癇犬不宜 Metoclopramide 等共病考量</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學講義（腸胃道用藥）；Veterinary Pharmacology and Therapeutics 10th ed. Ch.46；Handbook of Veterinary Pharmacology Ch.4、Ch.11 與劑量附表</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-10-01</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">結論</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 核心結論</a>
+    <a onclick="showSection('receptor')" id="nav-receptor"><span class="nav-icon">🧭</span> 腸胃蠕動的受體地圖</a>
+    <div class="section-label" style="margin-top:8px;">臨床推理</div>
+    <a onclick="showSection('problems')" id="nav-problems"><span class="nav-icon">🔀</span> 三種問題先分清楚</a>
+    <a onclick="showSection('causes')" id="nav-causes"><span class="nav-icon">🛑</span> 是什麼讓腸胃停下來</a>
+    <div class="section-label" style="margin-top:8px;">藥物</div>
+    <a onclick="showSection('prokinetics')" id="nav-prokinetics"><span class="nav-icon">🌀</span> 促蠕動藥</a>
+    <a onclick="showSection('antiemetics')" id="nav-antiemetics"><span class="nav-icon">🤢</span> 止吐藥</a>
+    <a onclick="showSection('acid')" id="nav-acid"><span class="nav-icon">🧪</span> 抑酸與黏膜保護</a>
+    <a onclick="showSection('comorbid')" id="nav-comorbid"><span class="nav-icon">⚠️</span> 共病與禁忌對照表</a>
+    <div class="section-label" style="margin-top:8px;">照護</div>
+    <a onclick="showSection('monitor')" id="nav-monitor"><span class="nav-icon">👀</span> 如何觀察與評估療效</a>
+    <a onclick="showSection('scenarios')" id="nav-scenarios"><span class="nav-icon">🩺</span> 情境演練</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('lessons')" id="nav-lessons"><span class="nav-icon">⭐</span> 學習重點與自我測驗</a>
+    <a onclick="showSection('followup')" id="nav-followup"><span class="nav-icon">📌</span> 待確認事項</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>核心結論</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">結論</div>
+        <p>面對「不蠕動、胃很脹、胃液很多、嚴重發炎」的毛孩，用藥順序是：<strong>① 先排除機械性阻塞</strong>（有阻塞時促蠕動藥是禁忌，教科書明寫 Metoclopramide 可能造成出血或穿孔）→ <strong>② 找出並移除抑制蠕動的原因</strong>（μ-opioid、α2 促效劑、抗膽鹼藥、疼痛、發炎、電解質異常、脫水）→ <strong>③ 依問題的「位置」選藥</strong>（胃／十二指腸 vs 小腸 vs 結腸，每種促蠕動藥的作用範圍不同）→ <strong>④ 依共病排除不適合的藥</strong>（癲癇、腎病、貓、懷孕、併用藥）→ <strong>⑤ 用客觀指標追蹤</strong>，不是只看「今天有沒有吐」。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">這個專題在教什麼？</div>
+        <p>腸胃蠕動本質上是 <strong>ACh（M3）驅動的平滑肌收縮</strong>，其他受體多半是在「調高或調低 ACh 釋放」：D2 與 μ-opioid、α2 踩煞車，5-HT4 與 motilin 踩油門。所以促蠕動藥的邏輯只有兩種——<strong>放開煞車（D2 拮抗）或踩油門（5-HT4／motilin 促效、抑制 AChE）</strong>。同一個受體在中樞也有功能，這就是 Metoclopramide（穿過 BBB 的 D2 拮抗劑）會出現錐體外症狀、並可能讓控制良好的癲癇犬發作的原因。</p>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">癲癇犬需要促蠕動</div><p>避開 Metoclopramide（HBK 列為會降低癲癇閾值的藥物），改考慮 Ranitidine／Nizatidine（AChE 抑制）、低劑量 Erythromycin（motilin）或 Cisapride（5-HT4），並注意 Phenobarbital 的酵素誘導與 Cisapride＋azole 的交互作用。止吐可選 Maropitant（不結合 dopamine 等其他 CNS 受體）。</p></div>
+        <div class="card"><div class="card-title">「不吐了」不等於「好了」</div><p>Maropitant 對嘔吐很有效但對噁心較差；止吐藥不會讓胃排空。胃內滯留液體仍要用胃管回抽量、超音波胃大小與收縮頻率、食慾與噁心表現來追蹤。</p></div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.4、Ch.11；NTU 獸醫藥理學講義。本頁為個人學習整理，僅供學習與院內討論使用，不作為正式診斷或用藥依據；劑量以院內規範與最新仿單為準。</footer>
+    </div>
+
+    <!-- 2 RECEPTOR MAP -->
+    <div class="section" id="section-receptor">
+      <div class="section-head"><div class="section-num">2</div><h2>腸胃蠕動的受體地圖</h2></div>
+      <p class="section-desc">腸神經系統（myenteric plexus）最後的共同出口是 ACh 作用在平滑肌 M3 受體。記住這一點，所有會讓腸胃「動」或「不動」的藥都能放回這張地圖上。</p>
+
+      <div class="flow">
+        <div class="flow-node">5-HT4（興奮性中間神經元）／Motilin／AChE 抑制</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">myenteric neuron 釋放 ACh ↑</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">平滑肌 M3 → 收縮、推進</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node danger">Dopamine（D2）／μ-opioid／α2 活化</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">ACh 釋放 ↓</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">蠕動 ↓、胃排空延遲、ileus</div>
+      </div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>受體</th><th>在腸胃道的作用</th><th>活化它的藥（→ 對蠕動）</th><th>阻斷它的藥（→ 對蠕動）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>M3（muscarinic）</strong></td><td>平滑肌收縮的最終執行者；也驅動胃酸分泌</td><td>Bethanechol（直接收縮，非專一，副作用多）</td><td>Atropine、Glycopyrrolate、Aminopentamide 等抗膽鹼藥 → <strong>蠕動↓、可致 ileus</strong></td></tr>
+          <tr><td><strong>D2（dopamine）</strong></td><td>周邊：抑制 ACh 釋放（煞車）；中樞：CRTZ 催吐、基底核運動控制</td><td>Apomorphine（犬催吐）</td><td>Metoclopramide（穿 BBB）、Domperidone（不穿 BBB）→ 放開煞車；Phenothiazines（中樞止吐為主）</td></tr>
+          <tr><td><strong>5-HT4</strong></td><td>興奮性中間神經元，促進 ACh 釋放（油門）</td><td>Cisapride（主要機轉）、Metoclopramide（次要）、Mosapride</td><td>—</td></tr>
+          <tr><td><strong>5-HT3</strong></td><td>迷走神經傳入與 CRTZ 的催吐訊號（化療藥傷害腸黏膜 → 釋放 5-HT）</td><td>—</td><td>Ondansetron、Dolasetron（止吐）；高劑量 Metoclopramide、Cisapride 亦有此作用</td></tr>
+          <tr><td><strong>Motilin receptor</strong></td><td>空腹期的 migrating motor complex（housekeeper wave）；集中在胃竇與近端小腸</td><td>低劑量 Erythromycin（貓：直接活化 motilin 受體；犬：間接經膽鹼性與 neurokinin 路徑）</td><td>—</td></tr>
+          <tr><td><strong>μ-opioid</strong></td><td>腸肌叢／黏膜下叢：抑制推進性收縮</td><td>Morphine、Hydromorphone、Loperamide → <strong>推進↓</strong></td><td>周邊型拮抗劑（Methylnaltrexone、Alvimopan；人／馬資料）</td></tr>
+          <tr><td><strong>α2-adrenergic</strong></td><td>抑制副交感神經末梢 ACh 釋放；貓的 α2 活化容易誘發嘔吐</td><td>Dexmedetomidine、Xylazine → <strong>蠕動與分泌↓</strong></td><td>Atipamezole（逆轉）</td></tr>
+          <tr><td><strong>NK-1（substance P）</strong></td><td>嘔吐中樞（nucleus tractus solitarius）的最後共同路徑</td><td>—</td><td>Maropitant（廣效止吐；<strong>不影響蠕動</strong>）</td></tr>
+          <tr><td><strong>H2</strong></td><td>壁細胞 cAMP 路徑 → 胃酸分泌</td><td>—</td><td>Famotidine、Ranitidine（Ranitidine／Nizatidine 另有 AChE 抑制 → 促蠕動）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書根據</div>
+        <p>VPT10 Ch.46：Metoclopramide 為 DA2 拮抗＋5-HT4 促效＋5-HT3 拮抗；Cisapride 為 myenteric neuron 上的 5-HT4 促效劑；Erythromycin 經 motilin 受體作用，受體集中在胃與近端小腸；腸道 μ 受體活化會降低推進性蠕動。HBK Ch.11：Erythromycin 在貓直接活化 motilin 受體、在犬經膽鹼性與 neurokinin 路徑；Ch.4（CNS 藥物）：α2 促效劑經抑制副交感神經 ACh 釋放而降低 GI 蠕動與分泌。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 課堂版的受體機轉與全部藥物列表見 <a href="../大三/獸醫藥理學/腸胃道用藥.html">獸醫藥理學：腸胃道用藥</a>；神經傳導物質與 BBB 的基礎見 <a href="../大三/獸醫藥理學/中樞神經藥理總論.html">中樞神經藥理總論</a>。</p>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.4、Ch.11。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 3 PROBLEMS -->
+    <div class="section" id="section-problems">
+      <div class="section-head"><div class="section-num">3</div><h2>三種問題先分清楚</h2></div>
+      <p class="section-desc">「不蠕動」「胃很脹、胃液多」「嚴重發炎」常同時出現，但治療重點不同。先分辨目前主要是哪一種，才知道該用哪一類藥。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>腸胃蠕動低下／功能性 ileus</th><th>胃擴張、胃液滯留（胃排空延遲）</th><th>嚴重胃腸炎</th></tr></thead>
+        <tbody>
+          <tr><td><strong>主要問題</strong></td><td>推進力不足，內容物停留</td><td>胃出不去：胃竇／幽門功能不良，或出口阻塞</td><td>黏膜受損、分泌增加、嘔吐腹瀉、疼痛；發炎本身會抑制蠕動</td></tr>
+          <tr><td><strong>最優先排除</strong></td><td>機械性阻塞（異物、腸套疊、腫塊）、腹膜炎</td><td><strong>胃出口阻塞</strong>、GDV；阻塞時禁用促蠕動藥</td><td>阻塞、胰臟炎、感染性原因（決定能否用止瀉藥）</td></tr>
+          <tr><td><strong>藥物主軸</strong></td><td>移除抑制因素 → 依部位選促蠕動藥</td><td>減壓（胃管）＋近端作用的促蠕動藥＋抑酸</td><td>止吐＋抑酸／黏膜保護＋止痛（避免 NSAID）＋輸液</td></tr>
+          <tr><td><strong>選藥的關鍵點</strong></td><td>Metoclopramide 只作用近端，對結腸幾乎無效；結腸問題考慮 Cisapride</td><td>Metoclopramide、Erythromycin、Cisapride 都作用於胃；教科書指出 Metoclopramide 對 gastroparesis 效益有限</td><td>Maropitant 止吐不影響蠕動；感染性腹瀉禁用 opioid 止瀉藥</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>臨床決策流程</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>有沒有阻塞？</strong>影像（X 光／超音波）評估胃出口與腸道。<strong>有阻塞 → 手術或內視鏡處理，不用促蠕動藥。</strong>VPT10：Metoclopramide 刺激上段 GI，有阻塞時不應給予；HBK：胃出口阻塞為禁忌，可能導致出血或穿孔。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>有什麼在踩煞車？</strong>檢視醫囑中的 μ-opioid、α2 促效劑、抗膽鹼藥；評估疼痛、腹膜發炎、電解質（尤其 K⁺）、脫水（見第 4 節）。能停或換的先處理。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>問題在哪一段？</strong>胃／十二指腸 → Metoclopramide、Erythromycin、Cisapride；小腸 → Cisapride、Ranitidine；結腸（貓便秘）→ Cisapride、Ranitidine，Metoclopramide 無效。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>有什麼共病？</strong>癲癇、腎病、貓、懷孕、脫水、併用藥（azole、fluoroquinolone、tetracycline、Phenobarbital），對照第 8 節排除不適合的藥物。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>訂好觀察指標與時間點</strong>，用客觀數據判斷藥物有沒有效，不是只看有沒有吐（第 9 節）。</div></div>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.11。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 4 CAUSES -->
+    <div class="section" id="section-causes">
+      <div class="section-head"><div class="section-num">4</div><h2>是什麼讓腸胃停下來</h2></div>
+      <p class="section-desc">住院動物的 ileus 很多是「醫源性＋疾病本身」疊加。促蠕動藥只是在踩油門，如果煞車一直踩著，效果有限。</p>
+
+      <h3>藥物因素（教科書有明確記載）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物類別</th><th>受體機轉</th><th>臨床意義</th><th>出處</th></tr></thead>
+        <tbody>
+          <tr><td><strong>μ-opioid 促效劑</strong>（Morphine、Hydromorphone 等）</td><td>腸肌叢與縱肌上的 μ 受體 → 推進性蠕動↓</td><td>術後疼痛控制常用；止痛需求與 ileus 要權衡。周邊型 opioid 拮抗劑（Methylnaltrexone、Alvimopan）可逆轉腸道作用而不影響止痛，但資料主要來自人與馬；<strong>Naloxone 不適合</strong>，因為會穿過 BBB 逆轉止痛</td><td>VPT10 Ch.46</td></tr>
+          <tr><td><strong>Butorphanol</strong></td><td>opioid</td><td>HBK 記載在馬可降低腸蠕動並誘發 ileus</td><td>HBK（馬）</td></tr>
+          <tr><td><strong>α2 促效劑</strong>（Dexmedetomidine、Xylazine）</td><td>抑制副交感神經 ACh 釋放</td><td>GI 蠕動與分泌同時下降；貓容易經 α2 誘發嘔吐</td><td>HBK Ch.4；VPT10 Ch.46</td></tr>
+          <tr><td><strong>抗膽鹼藥</strong>（Atropine、Glycopyrrolate、Aminopentamide 等）</td><td>M 受體拮抗</td><td>副作用包括胃排空變慢、ileus、便秘、尿滯留；青光眼患者需謹慎。HBK 在馬疝痛段落直接寫「避免抗膽鹼藥，可能加重 ileus」</td><td>VPT10 Ch.46；HBK Ch.11</td></tr>
+          <tr><td><strong>止瀉用 opioid</strong>（Loperamide）</td><td>腸神經 μ 受體</td><td>副作用：便秘、腹脹、鎮靜；少見但可能麻痺性 ileus；<strong>感染性腹瀉禁用</strong></td><td>HBK Ch.11；講義</td></tr>
+          <tr><td><strong>Metoclopramide 本身</strong></td><td>—</td><td>HBK 記載犬貓服用期間可能出現便秘（它只作用近端 GI，對結腸無效）</td><td>HBK Ch.3（Autacoids）</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>非藥物因素（臨床常規與生理學推理）</h3>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p>以下是臨床常規與生理學推理，不是本頁兩本藥理教科書的引文。處置細節請以內科／急重症教科書與院內流程為準。</p>
+      </div>
+      <ul>
+        <li><strong>低血鉀：</strong>平滑肌興奮性下降，是住院動物 ileus 最常被忽略、也最容易矯正的原因之一。長期嘔吐、厭食、利尿劑或大量無鉀輸液都容易造成。</li>
+        <li><strong>腹腔發炎與疼痛：</strong>腹膜炎、胰臟炎或術後疼痛時，交感神經張力升高，加上局部發炎介質，會抑制蠕動。VPT10 在馬術後 ileus 的段落也列出交感刺激、疼痛、發炎三個原因（Lidocaine 的作用被認為與抑制發炎有關）。</li>
+        <li><strong>脫水與灌流不足：</strong>腸壁血流下降、黏膜受損；也會放大 Phenothiazine 的低血壓副作用（HBK）。</li>
+        <li><strong>長時間禁食：</strong>腸道缺乏管腔內營養刺激。在可行範圍內及早恢復少量腸道餵食，是常用的支持策略。</li>
+      </ul>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.3、Ch.4、Ch.11；非藥物因素部分為臨床常規整理。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 5 PROKINETICS -->
+    <div class="section" id="section-prokinetics">
+      <div class="section-head"><div class="section-num">5</div><h2>促蠕動藥：作用在哪、影響什麼</h2></div>
+      <p class="section-desc">選促蠕動藥時要問兩件事：<strong>它作用在 GI 的哪一段</strong>，以及<strong>它會不會進入中樞</strong>。前者決定有沒有效，後者決定能不能用。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>受體／機轉</th><th>作用範圍</th><th>途徑與參考劑量（犬貓）</th><th>主要限制</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Metoclopramide</strong></td><td>D2 拮抗（主）＋5-HT4 促效＋高劑量 5-HT3 拮抗；增加 ACh 釋放與平滑肌對 ACh 的敏感度</td><td>胃、十二指腸、LES；<strong>對遠端腸道很少、對結腸無效</strong></td><td>PO／SC／IM 0.2–0.4 mg/kg q6–8h；IV CRI 1–2 mg/kg/day（HBK）；VPT10 列 0.25–0.5 mg/kg q8–12h，可增至 1–2 mg/kg</td><td><strong>穿過 BBB</strong>：興奮、行為改變、錐體外症狀（EPS），貓可能出現狂躁；<strong>降低癲癇閾值</strong>；胃出口阻塞禁用；prolactin 與 aldosterone 暫時上升</td></tr>
+          <tr><td><strong>Cisapride</strong></td><td>5-HT4 促效（myenteric neuron → ACh↑）；也有 5-HT3 拮抗；貓另有非膽鹼性直接刺激平滑肌</td><td><strong>全段</strong>：LES 至降結腸；是本頁促蠕動藥中效果最強的一個</td><td>PO 0.1–0.5 mg/kg q8h（HBK／VPT10 犬）；貓約 2.5 mg/隻 q8–12h（VPT10）；只有調劑藥局配製的劑型</td><td>人醫因 QT 延長下市；動物尚未見報告，但<strong>避免與 Ketoconazole、Itraconazole 併用</strong>（抑制代謝→濃度升高）；犬巨食道症效果差（食道為橫紋肌）</td></tr>
+          <tr><td><strong>Erythromycin（低劑量）</strong></td><td>Motilin 受體促效（貓直接活化；犬經膽鹼性與 neurokinin 間接作用）</td><td>胃竇、近端小腸；遠端反應弱</td><td>PO 0.5–1.0 mg/kg q8h（HBK），遠低於抗菌劑量</td><td>高劑量反而造成嘔吐；VPT10 指出犬貓臨床療效尚未被驗證；長期使用有抗藥性疑慮</td></tr>
+          <tr><td><strong>Ranitidine／Nizatidine</strong></td><td>H2 拮抗＋<strong>AChE 抑制</strong> → ACh 作用延長（Cimetidine、Famotidine 沒有此作用）</td><td>胃排空、小腸、結腸；以胃最明顯</td><td>Ranitidine：犬貓 PO 或 IV 2 mg/kg q12h（HBK 附表；內文另列 IM）</td><td>腎功能不全者謹慎；高劑量超過 7 天需監測 ALT；人用品項 2020 年起在美國因 NDMA 雜質下市，<strong>院內是否取得得到需確認</strong></td></tr>
+          <tr><td><strong>Domperidone</strong></td><td>D2 拮抗；<strong>不穿過 BBB</strong>（但可到 CRTZ）</td><td>近端</td><td>犬 0.05–0.1 mg/kg（VPT10）</td><td>理論上沒有中樞副作用，但教科書指出在動物效果不突出，未被推薦為常規臨床用藥</td></tr>
+          <tr><td><strong>Bethanechol</strong></td><td>M3 促效，直接收縮平滑肌</td><td>非專一</td><td>—</td><td>副作用常見（腹瀉等膽鹼作用），多數劑型已停產；臨床較常用於膀胱無力</td></tr>
+          <tr><td><strong>Lidocaine CRI</strong></td><td>可能經抑制發炎、再灌流傷害與疼痛訊號而恢復蠕動，本身不一定是直接促蠕動</td><td>—</td><td>證據來自馬術後 ileus（1.3 mg/kg bolus → 0.05 mg/kg/min）</td><td><strong>犬貓用於 ileus 屬外推</strong>；貓對 lidocaine 較敏感，劑量以院內流程為準；過量可能肌肉顫動、運動失調、癲癇</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>Metoclopramide 的證據比印象中弱。</strong>VPT10 整理：它常用於止吐，但促蠕動效果「比以前認為的更不確定」——對 gastroparesis 或慢性逆流的胃排空效益有限；在 GDV 犬術後不改變胃的運動；麻醉犬 1 mg/kg 可以減少但無法預防胃食道逆流。胃排空問題若單用 Metoclopramide 效果不佳，應回頭找原因或換藥，而不是一直加劑量（高劑量 EPS 風險上升）。</p>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <p><strong>部位對藥：</strong>胃排空 → Metoclopramide／Erythromycin／Cisapride；逆流食道炎 → Cisapride 提高 LES 張力的效果優於 Metoclopramide（VPT10）；貓便秘、巨結腸 → Cisapride（Metoclopramide 對結腸平滑肌無作用）。</p>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.3、Ch.11 與劑量附表；NTU 獸醫藥理學講義。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 6 ANTIEMETICS -->
+    <div class="section" id="section-antiemetics">
+      <div class="section-head"><div class="section-num">6</div><h2>止吐藥：擋住訊號，不等於讓胃排空</h2></div>
+      <p class="section-desc">嘔吐訊號從 GI 迷走神經傳入、CRTZ、前庭與高階大腦，最後匯集到嘔吐中樞。止吐藥在不同位置攔截，選哪一個取決於嘔吐的來源與病患共病。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>受體</th><th>途徑與參考劑量</th><th>對蠕動的影響</th><th>臨床重點</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Maropitant</strong>（Cerenia®）</td><td>NK-1 拮抗（嘔吐中樞）</td><td>SC 1 mg/kg q24h（最多 5 天）；PO 2 mg/kg q24h；暈車 PO 8 mg/kg；另有 IV 核准（麻醉相關嘔吐）</td><td>無直接影響</td><td>廣效；<strong>止吐強、止噁心較弱</strong>；肝代謝（CYP2D15／3A12），腎病不需調整；<strong>不結合 GABA、opioid、adrenergic、serotonin、histamine、muscarinic、dopamine 受體</strong>；SC 注射痛可藉冷藏減輕；在貓口服吸收約 50%，半衰期 13–17 小時</td></tr>
+          <tr><td><strong>Ondansetron</strong></td><td>5-HT3 拮抗（迷走傳入、CRTZ）</td><td>化療前 0.5–1.0 mg/kg IV 或 PO；其他原因 0.1–0.2 mg/kg 緩慢 IV，必要時 0.5 mg/kg，q6–12h</td><td>HBK 列便秘為副作用</td><td><strong>犬口服生體可用率 &lt;10%、半衰期約 30 分鐘</strong>，VPT10 建議犬以 IV 給予；貓口服 32%、SC 75%。副作用少見：便秘、EPS、低血壓、心律不整</td></tr>
+          <tr><td><strong>Metoclopramide</strong></td><td>D2（CRTZ）＋高劑量 5-HT3</td><td>見上一節</td><td>促進近端蠕動</td><td>同時止吐＋促胃排空；但有中樞副作用與癲癇閾值問題</td></tr>
+          <tr><td><strong>Phenothiazines</strong>（Chlorpromazine、Prochlorperazine、Acepromazine）</td><td>D2＋α1＋H1＋M1（廣效）</td><td>Prochlorperazine IM 0.1 mg/kg q8h（HBK）</td><td>抗膽鹼作用可能不利蠕動</td><td><strong>脫水動物容易低血壓</strong>（α1 阻斷）；低血壓用 phenylephrine 處理，<strong>不可用 epinephrine</strong>（epinephrine reversal）；Acepromazine 在 HBK 降低癲癇閾值清單中</td></tr>
+          <tr><td><strong>Mirtazapine</strong></td><td>推測經 5-HT3 拮抗等</td><td>貓 PO 1.88 mg/隻（VPT10）</td><td>—</td><td>貓促食慾＋抗噁心；<strong>CKD 貓清除變慢（半衰期約 15 小時）→ 改隔天給</strong>；高劑量造成嚎叫、躁動</td></tr>
+          <tr><td>抗膽鹼藥</td><td>M1</td><td>—</td><td><strong>蠕動↓、ileus</strong></td><td>VPT10：在獸醫常見嘔吐原因中不實用，且 ileus 風險高；<strong>不適合用在 ileus 動物</strong></td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>止吐藥會把「胃排不出去」的症狀藏起來。</strong>Maropitant 擋住的是嘔吐反射，胃內液體仍然滯留，而且 VPT10 在犬、貓（包括 CKD 貓）的研究都顯示它對噁心與食慾的改善不如對嘔吐明顯。給了強效止吐藥之後，要改用胃管回抽量、胃的超音波大小與收縮、流涎舔唇、食慾等指標來評估，不能用「沒有再吐」代表胃已經排空。</p>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.11 與劑量附表。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 7 ACID -->
+    <div class="section" id="section-acid">
+      <div class="section-head"><div class="section-num">7</div><h2>抑酸與黏膜保護：嚴重胃腸炎、胃液多時怎麼用</h2></div>
+      <p class="section-desc">壁細胞受三種訊號刺激分泌胃酸：gastrin（CCK-B）、ACh（M3）與 histamine（H2），三者最後都作用在 H⁺/K⁺-ATPase。抑酸藥的選擇取決於要擋在哪一層。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>作用點</th><th>途徑與參考劑量</th><th>使用細節</th><th>注意事項</th></tr></thead>
+        <tbody>
+          <tr><td><strong>PPI</strong>（Omeprazole、Pantoprazole、Esomeprazole）</td><td>H⁺/K⁺-ATPase（最終共同路徑），共價結合、作用持久</td><td>Omeprazole PO 0.7–1 mg/kg q12–24h；<strong>Pantoprazole 有 IV 劑型</strong></td><td>前驅藥，需在分泌中的壁細胞酸性環境活化；<strong>第一天只有最大抑酸效果的約 30%，2–4 天才達最大效果</strong>；空腹、餐前 30–60 分鐘給；VPT10 指出犬貓 BID 較能達到抑酸目標</td><td>最常見副作用為犬腹瀉；長期使用：gastrin 上升、停藥反彈、SIBO；<strong>降低 azole 抗黴菌藥、鐵劑與 mycophenolate 吸收</strong>；Omeprazole 抑制 CYP（HBK：可能延長 phenytoin、phenobarbital 作用）；與 H2 blocker 合用在動物沒有額外好處</td></tr>
+          <tr><td><strong>Famotidine</strong></td><td>H2 拮抗</td><td>PO 0.5–1.0 mg/kg q24h（HBK）；VPT10：0.5 mg/kg q12–24h，0.1–0.2 mg/kg q12h 可能同樣有效；可 IV</td><td>效力為 Cimetidine 的 20–50 倍；不抑制 P450</td><td><strong>貓快速 IV 曾有溶血報告</strong>，研究顯示 5 分鐘以上緩慢 IV 無風險；H2 blocker 以腎排除為主，腎病需減量</td></tr>
+          <tr><td><strong>Sucralfate</strong></td><td>酸性環境下形成黏稠物，貼附潰瘍面；抑制 pepsin、吸附膽酸、增加 PG</td><td>犬 PO 0.5–1 g q8h；貓 PO 0.25–0.5 g q12h（HBK）</td><td>適合<strong>已經有潰瘍</strong>的情況，預防效果沒有證據；<strong>錠劑在犬不易崩解，磨碎做成懸浮液較有效</strong></td><td>含鋁：會螯合 fluoroquinolone、tetracycline → <strong>抗生素先給，間隔 30 分鐘至 2 小時再給 Sucralfate</strong>；慢性腎病長期使用有鋁累積疑慮（講義）；副作用主要為便秘</td></tr>
+          <tr><td><strong>Misoprostol</strong></td><td>PGE1 類似物（EP3 → cAMP↓）＋細胞保護</td><td>犬 PO 2–5 μg/kg（VPT10）；HBK 附表 3–5 μg/kg q8h</td><td>用在 <strong>NSAID 相關潰瘍的預防</strong>；治療已形成的潰瘍效果較差；對類固醇相關胃腸出血沒有保護效果</td><td>大於 5 μg/kg 常見腹瀉；<strong>懷孕動物禁用</strong>（會造成流產）</td></tr>
+          <tr><td><strong>制酸劑</strong>（Al(OH)₃、Mg(OH)₂、CaCO₃）</td><td>直接中和胃酸</td><td>PO；需要一天多次</td><td>只能短期使用</td><td><strong>腎病動物鎂會累積</strong>；會螯合 tetracycline、fluoroquinolone、digoxin；鋁造成便秘、鎂造成腹瀉</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <p><strong>急性、嚴重、還在吐的胃腸炎</strong>：口服吸收不可靠，PPI 口服又需要數天才有完整效果，所以 VPT10 提到用 IV（如 Pantoprazole）或腸溶劑型開始，可以縮短這段延遲。能口服、要長期抑酸時，再轉成 PO Omeprazole，BID、餐前給。</p>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p><strong>嚴重胃腸炎患者止痛時避免 NSAID</strong>：NSAID 抑制 COX → PGE 減少 → 黏液、HCO₃⁻、黏膜血流與抑酸四種保護機制全部喪失（詳見講義 NSAID 專節）。類固醇也是 VPT10 列出的致潰瘍藥物。</p>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.11 與劑量附表；NTU 獸醫藥理學講義。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 8 COMORBID -->
+    <div class="section" id="section-comorbid">
+      <div class="section-head"><div class="section-num">8</div><h2>共病與禁忌對照表</h2></div>
+      <p class="section-desc">同一個 GI 問題，在有其他疾病的動物身上可能要換藥。下表是住院時最常碰到的組合。</p>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p><strong>癲癇犬需要促蠕動時，避免 Metoclopramide。</strong>HBK Ch.4（CNS 藥物：抗癲癇段落）列出可能降低癲癇閾值、讓原本控制良好的病患發作的藥物：phenothiazine（如 acepromazine）、部分抗寄生蟲藥（pyrantel、levamisole、pyrethroids、methoxychlor、lindane、抗膽鹼酯酶類）以及 <strong>metoclopramide</strong>。機轉上，Metoclopramide 是會進入 CNS 的 D2 拮抗劑（HBK：分布範圍包括 CNS），這也是它會造成 EPS 與行為改變的原因。</p>
+      </div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>共病／狀況</th><th>避免或謹慎</th><th>理由</th><th>可考慮的替代</th></tr></thead>
+        <tbody>
+          <tr><td><strong>癲癇</strong></td><td>Metoclopramide、Acepromazine 等 phenothiazines</td><td>降低癲癇閾值（HBK Ch.4）</td><td>促蠕動：Ranitidine（AChE 抑制）、低劑量 Erythromycin、Cisapride；止吐：Maropitant（不結合 dopamine 等 CNS 受體）、Ondansetron。<strong>注意</strong>：Phenobarbital 是酵素誘導劑，會改變併用藥代謝；Omeprazole 抑制 CYP，可能延長 phenobarbital 作用（HBK）</td></tr>
+          <tr><td><strong>機械性阻塞／胃出口阻塞</strong></td><td>所有促蠕動藥</td><td>刺激近端收縮 → 可能出血、穿孔（HBK）</td><td>先解決阻塞；胃管減壓、止吐、抑酸、輸液</td></tr>
+          <tr><td><strong>脫水、低血容</strong></td><td>Phenothiazines；Lactulose 等滲透性瀉劑</td><td>α1 阻斷致低血壓（HBK）；滲透性瀉劑加重脫水（講義）</td><td>先輸液矯正；止吐改 Maropitant／Ondansetron</td></tr>
+          <tr><td><strong>慢性腎病</strong></td><td>含鎂制酸劑；長期 Sucralfate；H2 blocker 劑量；Mirtazapine（貓）</td><td>鎂累積（VPT10）；鋁累積（講義）；H2 blocker 腎排除；CKD 貓 Mirtazapine 半衰期延長</td><td>Maropitant 不需調整（肝代謝）；PPI 以肝代謝為主；Mirtazapine 改隔天給</td></tr>
+          <tr><td><strong>貓</strong></td><td>Famotidine 快速 IV；Bismuth subsalicylate；Scopolamine</td><td>溶血報告；水楊酸敏感；興奮反應</td><td>Famotidine 超過 5 分鐘緩慢 IV；貓便秘用 Cisapride</td></tr>
+          <tr><td><strong>青光眼</strong></td><td>抗膽鹼藥</td><td>眼壓上升（VPT10）</td><td>—</td></tr>
+          <tr><td><strong>懷孕</strong></td><td>Misoprostol</td><td>子宮收縮、流產</td><td>PPI／Sucralfate 保護黏膜</td></tr>
+          <tr><td><strong>正在用 fluoroquinolone／tetracycline</strong></td><td>Sucralfate、制酸劑同時給</td><td>Al³⁺、Mg²⁺ 螯合 → 抗生素吸收下降</td><td>抗生素先給，間隔 30 分鐘至 2 小時</td></tr>
+          <tr><td><strong>正在用 azole 抗黴菌藥</strong></td><td>PPI／H2 blocker／制酸劑；Cisapride</td><td>胃 pH 上升 → Ketoconazole、Itraconazole 溶解與吸收下降；azole 抑制 Cisapride 代謝 → 濃度升高</td><td>評估是否真的需要抑酸；azole 隨餐給；促蠕動改其他藥</td></tr>
+          <tr><td><strong>感染性腹瀉</strong></td><td>Loperamide 等 opioid 止瀉藥</td><td>病原滯留腸道（講義）</td><td>支持療法、輸液</td></tr>
+          <tr><td><strong>用 NSAID 止痛中</strong></td><td>—</td><td>胃腸潰瘍風險</td><td>Misoprostol 預防（證據最直接）；PPI</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 抗癲癇藥的酵素誘導與交互作用細節見 <a href="../大三/獸醫藥理學/抗癲癇藥物.html">抗癲癇藥物</a>；藥物代謝與共病的通則見 <a href="../大三/獸醫藥理學/藥理學總論.html">藥理學總論</a>。</p>
+      <footer class="note-footer">資料來源：HBK Ch.4、Ch.11；VPT10 Ch.46；NTU 獸醫藥理學講義。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 9 MONITOR -->
+    <div class="section" id="section-monitor">
+      <div class="section-head"><div class="section-num">9</div><h2>如何觀察與評估療效</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p>本節的監測項目是臨床常規整理，不是藥理教科書的引文；各院的正常參考值與判讀門檻以院內流程為準。和藥物副作用直接相關的項目，才標註教科書出處。</p>
+      </div>
+      <h3>療效：腸胃有沒有真的在動</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>指標</th><th>怎麼看</th><th>判讀重點</th></tr></thead>
+        <tbody>
+          <tr><td><strong>胃管回抽量</strong>（有放 NG／NE tube 時）</td><td>固定時間間隔回抽並記錄量與性狀（清澈、膽汁色、咖啡渣樣）</td><td>比較趨勢而不是看單次；咖啡渣樣提示上消化道出血，應加強抑酸與黏膜保護並重新評估</td></tr>
+          <tr><td><strong>腹部超音波</strong></td><td>胃的大小與內容物；胃竇與小腸每分鐘收縮次數；腸道是否擴張積液</td><td>同一個體在給藥前後比較；排除阻塞與腸套疊</td></tr>
+          <tr><td><strong>嘔吐／逆流次數與性狀</strong></td><td>區分嘔吐（主動、有前驅噁心）與逆流（被動）</td><td>給了止吐藥之後，這項會失去敏感度</td></tr>
+          <tr><td><strong>噁心表現與食慾</strong></td><td>流涎、舔唇、吞嚥動作、對食物有興趣但不吃</td><td>Maropitant 對噁心效果較差，這些表現仍可能存在</td></tr>
+          <tr><td><strong>腸音、排便排氣</strong></td><td>聽診；記錄第一次排便時間與糞便性狀</td><td>結腸問題的主要指標</td></tr>
+          <tr><td><strong>疼痛分數</strong></td><td>固定量表</td><td>疼痛會抑制蠕動；止痛不足與 opioid 過量都要考慮</td></tr>
+        </tbody>
+      </table></div>
+      <h3>實驗室數據</h3>
+      <ul>
+        <li><strong>電解質：</strong>K⁺（低血鉀抑制蠕動）；大量胃液流失時追蹤 Cl⁻ 與酸鹼（胃液富含 H⁺ 與 Cl⁻，大量流失容易造成低氯性代謝性鹼中毒）。</li>
+        <li><strong>PCV／TP：</strong>評估脫水、出血與蛋白流失，也要注意輸液稀釋（見 <a href="2026-09-24_Hana-PCV判讀與DPO決策.html">Hana 病例</a>）。</li>
+        <li><strong>腎、肝指數：</strong>決定 H2 blocker、Mirtazapine、含鎂或含鋁製劑是否需要調整；Ranitidine 高劑量超過 7 天時監測 ALT（HBK）。</li>
+      </ul>
+      <h3>副作用：給了藥之後要特別看什麼</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>觀察項目</th><th>出處</th></tr></thead>
+        <tbody>
+          <tr><td>Metoclopramide</td><td>躁動、過度活動、定向感喪失、不自主動作（EPS）；貓狂躁；腹部不適；便秘；<strong>癲癇病患觀察發作頻率</strong></td><td>VPT10、HBK</td></tr>
+          <tr><td>Phenothiazines</td><td>血壓、心跳（低血壓、心搏過緩），尤其脫水動物</td><td>HBK</td></tr>
+          <tr><td>Famotidine IV（貓）</td><td>溶血跡象（血漿顏色、PCV 變化）；以超過 5 分鐘緩慢推注</td><td>VPT10、HBK</td></tr>
+          <tr><td>PPI</td><td>腹瀉；長期使用時注意停藥反彈</td><td>VPT10</td></tr>
+          <tr><td>Maropitant SC</td><td>注射疼痛反應（冷藏藥品可減輕）</td><td>VPT10</td></tr>
+          <tr><td>Lidocaine CRI</td><td>肌肉顫動、運動失調、癲癇 → 降低輸注速率</td><td>VPT10（馬）</td></tr>
+          <tr><td>Misoprostol</td><td>腹瀉、腹部痙攣</td><td>VPT10、講義</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.11；監測項目為臨床常規整理。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 10 SCENARIOS -->
+    <div class="section" id="section-scenarios">
+      <div class="section-head"><div class="section-num">10</div><h2>情境演練</h2></div>
+      <p class="section-desc">以下是虛構的組合情境，用來練習把上面的受體邏輯串起來，不對應任何特定病患。</p>
+
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q"><strong>情境 A｜癲癇犬術後胃排空延遲</strong><br>長期服用 Phenobarbital、癲癇控制良好的犬，腹部手術後第 2 天，以 opioid CRI 止痛。超音波顯示胃內大量液體、胃竇收縮很少，無阻塞證據。(1) 首先要檢查哪些「煞車」？(2) 促蠕動藥怎麼選？(3) 止吐藥怎麼選？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-explain">(1) μ-opioid CRI 會降低推進性蠕動 → 評估能否降低劑量或改用多模式止痛；檢查 K⁺、疼痛分數、脫水與腹膜發炎。(2) <strong>避開 Metoclopramide</strong>（HBK 列為會降低癲癇閾值的藥物）。可考慮低劑量 Erythromycin（motilin，作用在胃竇與近端小腸，最符合這個部位）、Ranitidine（AChE 抑制，同時抑酸；先確認院內能否取得）或 Cisapride（5-HT4）。(3) Maropitant 是合理選擇：作用於 NK-1，不結合 dopamine 等 CNS 受體；避免 Acepromazine 類 phenothiazine。用藥後以胃管回抽量與超音波追蹤，不以「沒有再吐」判定胃已排空。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q"><strong>情境 B｜嚴重胃腸炎貓</strong><br>一隻貓持續嘔吐 2 天、厭食、中度脫水，腎指數輕度上升。(1) 止吐選擇與要避免的藥？(2) 抑酸怎麼給？(3) 還有哪些貓特有的注意事項？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-explain">(1) Maropitant 在貓已核准，半衰期長，腎功能不需調整；Ondansetron 在貓的口服與 SC 吸收比犬好。脫水時避免 phenothiazine（α1 阻斷→低血壓）；也避免抗膽鹼藥（可能造成 ileus）。(2) 還在吐時口服不可靠，可用 IV 抑酸（Pantoprazole IV 或 Famotidine 緩慢 IV，推注超過 5 分鐘）；H2 blocker 以腎排除為主，腎指數上升時要考慮減量。(3) 避免 Bismuth subsalicylate（水楊酸敏感）；若要用 Mirtazapine 促食慾，腎病貓清除變慢，改隔天給；Maropitant 止吐後仍要追蹤食慾與噁心，因為它對噁心的效果較差。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q"><strong>情境 C｜胃很脹、胃液很多</strong><br>一隻犬反覆嘔吐大量液體，超音波顯示胃極度擴張、幽門區有可疑的高回音結構。有人建議先給 Metoclopramide CRI 看看。你的看法？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-explain">先排除胃出口阻塞（異物、腫塊、幽門肥厚）。HBK 明列胃出口阻塞為 Metoclopramide 的禁忌，因為刺激胃收縮可能導致出血或穿孔；VPT10 也寫有阻塞時不應給予。處置先放胃管減壓、輸液矯正電解質與酸鹼（大量胃液流失 → 低氯、低鉀、代謝性鹼中毒）、止吐、抑酸，再依影像結果決定內視鏡或手術。確認沒有阻塞後，才考慮促蠕動藥。</div>
+        </details>
+      </div>
+      <footer class="note-footer">情境為虛構的教學組合。資料來源：HBK Ch.4、Ch.11；VPT10 Ch.46。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 11 LESSONS -->
+    <div class="section" id="section-lessons">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點與自我測驗</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <ul>
+          <li>蠕動的最終出口是 ACh→M3；D2、μ、α2 踩煞車，5-HT4、motilin、AChE 抑制踩油門。</li>
+          <li><strong>先排除阻塞</strong>，再移除抑制因素，最後才加促蠕動藥。</li>
+          <li>Metoclopramide 只作用近端、會進入 CNS、會降低癲癇閾值；促蠕動證據比印象中弱。</li>
+          <li>Cisapride 是全段作用、效果最強的促蠕動藥，也是貓便秘的選擇；避免併用 azole。</li>
+          <li>Maropitant 止吐不止噁心、不影響蠕動；止吐之後要改用其他客觀指標追蹤。</li>
+          <li>PPI 第一天只有約 30% 效果，2–4 天才達最大效果；急性期可先用 IV。</li>
+        </ul>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 以下題目方向為依教科書重點推測的國考／課堂常見考點，並非出自歷屆國考題目。</p>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 下列哪一個促蠕動藥對貓結腸平滑肌有明確刺激作用，可用於慢性便秘？(A) Metoclopramide (B) Cisapride (C) Domperidone (D) Maropitant</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。VPT10：Cisapride 刺激貓整段 GI，包括結腸；Metoclopramide 對結腸平滑肌沒有作用；Domperidone 作用近端且效果不突出；Maropitant 是止吐藥。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. Ranitidine 除了抑制胃酸外，還能促進胃腸蠕動，其機轉為？(A) 5-HT4 促效 (B) D2 拮抗 (C) 抑制乙醯膽鹼酯酶 (D) Motilin 受體促效</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。VPT10 與 HBK 都指出 Ranitidine、Nizatidine 經抑制 AChE 促進蠕動；Cimetidine 與 Famotidine 沒有此作用。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">3. 是非題：Maropitant 同時阻斷 NK-1 與 dopamine D2 受體，因此對各種原因的嘔吐都有效。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。Maropitant 只對 NK-1 有親和力，不結合 dopamine、serotonin、histamine、muscarinic 等受體。它之所以廣效，是因為 NK-1 位在嘔吐中樞這個最後共同路徑，而不是因為阻斷多種受體。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">4. 簡答：為什麼 PPI 的藥效時間遠長於它的血漿半衰期？為什麼第一天的抑酸效果較差？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">PPI 是弱鹼前驅藥，在壁細胞分泌小管的酸性環境中質子化而被困住（濃度可達血漿的 1000 倍），再以雙硫鍵共價結合 H⁺/K⁺-ATPase；酸分泌要等新的幫浦合成才能恢復，所以藥效與血漿半衰期無關。第一天只有部分幫浦處於活化狀態可以被結合，加上 PPI 對酸不穩定、口服時部分在胃中被破壞，所以效果約只有最大值的 30%，重複給藥 2–4 天才達最大效果。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">5. 一隻脫水犬需要止吐，下列何者最需要注意低血壓？(A) Maropitant (B) Ondansetron (C) Chlorpromazine (D) Famotidine</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。Phenothiazines 有 α1 阻斷作用，HBK 指出脫水動物較容易出現低血壓與心搏過緩；處理用 phenylephrine，不可用 epinephrine（epinephrine reversal）。</div></details>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.46；HBK Ch.4、Ch.11。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 12 FOLLOWUP -->
+    <div class="section" id="section-followup">
+      <div class="section-head"><div class="section-num">12</div><h2>待確認事項</h2></div>
+      <ul>
+        <li><strong>院內品項：</strong>Ranitidine、Cisapride（調劑）、Erythromycin 口服液、Pantoprazole IV 是否有庫存；可取得的品項決定癲癇犬實際能用的替代藥。</li>
+        <li><strong>院內劑量流程：</strong>本頁劑量取自兩本藥理教科書，與院內習慣劑量（例如 Metoclopramide CRI、Lidocaine CRI 在犬貓的用法）可能不同，以院內流程與主治醫師指示為準。</li>
+        <li><strong>犬貓 Lidocaine CRI 的促蠕動證據：</strong>藥理教科書只有馬的資料，犬貓需另查內科／急重症文獻。</li>
+        <li><strong>超音波蠕動頻率的參考值：</strong>本頁沒有列出數字，需另查影像教科書或院內標準。</li>
+      </ul>
+      <footer class="note-footer">本頁內容僅供個人學習與院內討論使用，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 核心結論",
+  "receptor": "🧭 腸胃蠕動的受體地圖",
+  "problems": "🔀 三種問題先分清楚",
+  "causes": "🛑 是什麼讓腸胃停下來",
+  "prokinetics": "🌀 促蠕動藥",
+  "antiemetics": "🤢 止吐藥",
+  "acid": "🧪 抑酸與黏膜保護",
+  "comorbid": "⚠️ 共病與禁忌對照表",
+  "monitor": "👀 如何觀察與評估療效",
+  "scenarios": "🩺 情境演練",
+  "lessons": "⭐ 學習重點與自我測驗",
+  "followup": "📌 待確認事項"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

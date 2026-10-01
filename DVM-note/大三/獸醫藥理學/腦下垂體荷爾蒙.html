@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：腦下垂體、甲狀腺與胰臟激素藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">腦下垂體、甲狀腺與胰臟激素藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">腦下垂體、甲狀腺與胰臟激素藥物 Pituitary, Thyroid &amp; Pancreatic Hormones</h1>
+      <p class="page-subtitle">下視丘釋放激素、生長激素、泌乳素相關藥物、診斷用刺激試驗、Oxytocin 與 ADH／Desmopressin；甲狀腺激素的合成代謝、替代療法與抗甲狀腺藥；Insulin 製劑、口服降血糖藥、Glucagon 與胰島素瘤用藥</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三下）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，Hormone 1-3：〈Pituitary Hormones〉〈Thyroid Hormones &amp; Antithyroid Drugs〉〈Drugs Influencing Glucose Metabolism〉，共 88 張投影片）為主；教科書核對：Handbook of Veterinary Pharmacology Ch.12 與劑量附表、Veterinary Pharmacology and Therapeutics 10th ed. Ch.25、Ch.26、Ch.30；課程內分泌考古題</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-01</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對完成）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">腦下垂體</div>
+    <a onclick="showSection('hypothalamic')" id="nav-hypothalamic"><span class="nav-icon">🧠</span> 下視丘釋放激素</a>
+    <a onclick="showSection('gh')" id="nav-gh"><span class="nav-icon">📏</span> 生長激素</a>
+    <a onclick="showSection('prolactin')" id="nav-prolactin"><span class="nav-icon">🍼</span> 促性腺激素與泌乳素</a>
+    <a onclick="showSection('diagnostic')" id="nav-diagnostic"><span class="nav-icon">🔬</span> TSH、ACTH 與刺激試驗</a>
+    <a onclick="showSection('posterior')" id="nav-posterior"><span class="nav-icon">💧</span> 後葉：Oxytocin 與 ADH</a>
+    <div class="section-label" style="margin-top:8px;">甲狀腺</div>
+    <a onclick="showSection('thyroidphys')" id="nav-thyroidphys"><span class="nav-icon">🦋</span> 甲狀腺激素的合成與代謝</a>
+    <a onclick="showSection('thyroidrx')" id="nav-thyroidrx"><span class="nav-icon">💊</span> 甲狀腺疾病與替代療法</a>
+    <a onclick="showSection('antithyroid')" id="nav-antithyroid"><span class="nav-icon">🛑</span> 抗甲狀腺藥物</a>
+    <div class="section-label" style="margin-top:8px;">胰臟</div>
+    <a onclick="showSection('insulin')" id="nav-insulin"><span class="nav-icon">🧩</span> 胰島與 Insulin</a>
+    <a onclick="showSection('insulinprep')" id="nav-insulinprep"><span class="nav-icon">💉</span> Insulin 製劑與糖尿病治療</a>
+    <a onclick="showSection('oral')" id="nav-oral"><span class="nav-icon">💊</span> 口服降血糖藥</a>
+    <a onclick="showSection('hypogly')" id="nav-hypogly"><span class="nav-icon">⚡</span> Glucagon 與胰島素瘤用藥</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🏥</span> 臨床整合：共病與用藥</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎓</span> 考點整理</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>Hormone 1-3 是三份講義合併：<strong>腦下垂體</strong>（下視丘發號施令、前葉分泌促激素、後葉放出 oxytocin 與 ADH）、<strong>甲狀腺</strong>（T4 是前驅激素、T3 才是主角；狗常甲低、貓常甲亢）、<strong>胰臟</strong>（insulin 讓血糖進細胞，glucagon 把血糖拉回來）。讀藥物時一直問兩件事：<strong>這是胜肽還是類固醇／甲狀腺素</strong>（胜肽口服會被分解，只能注射；甲狀腺素口服有效），以及<strong>這個藥是在補激素、擋激素，還是拿來做診斷</strong>。</p>
+        <div class="grid-4" style="margin-top:10px;">
+          <div class="card" onclick="showSection('posterior')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">01</div><div class="card-title">ADH／Desmopressin</div></div>
+          <div class="card" onclick="showSection('antithyroid')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">02</div><div class="card-title">貓甲亢：Methimazole</div></div>
+          <div class="card" onclick="showSection('insulinprep')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">03</div><div class="card-title">Insulin 製劑</div></div>
+          <div class="card" onclick="showSection('oral')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">04</div><div class="card-title">口服降血糖藥</div></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>Bromocriptine、Cabergoline 是 D2 促效劑</strong> → 抑制 prolactin → 治療假懷孕、溢乳、誘發黃體溶解；反過來，phenothiazine 等 D2 拮抗劑會增加 prolactin。</li>
+          <li><strong>Somatotropin（GH）</strong>：幼犬腦下垂體侏儒症（豬 GH = 犬 GH）；<strong>Sometribove</strong> 增加乳牛泌乳量（2025 期末考題）；副作用是糖尿病。</li>
+          <li><strong>ADH 由後葉釋放</strong>（下視丘製造）；V1 管血管收縮、V2 管腎臟水再吸收。<strong>Desmopressin 是 V2 選擇性長效類似物</strong>：治療中樞性尿崩症，並可提高 vWF 治療 von Willebrand disease——但<strong>不能預防血栓</strong>。</li>
+          <li><strong>T4 是前驅激素，T3 活性高 3–10 倍</strong>；甲狀腺激素主要經<strong>脫碘</strong>代謝。替代療法首選 <strong>levothyroxine（T4）</strong>，不建議用 T3。</li>
+          <li><strong>Methimazole 是貓甲亢首選</strong>，抑制甲狀腺過氧化酶；因為只抑制合成不影響釋放，<strong>需 1–3 週</strong>等體內儲存的 T4 消耗完。Carbimazole 在體內轉成 methimazole。</li>
+          <li><strong>Insulin 作用時間</strong>：regular（短效、清澈，可 IV，用於 DKA）＜ NPH／Lente（中效、混濁懸浮）＜ PZI、glargine（長效）。</li>
+          <li><strong>Sulfonylureas（glipizide）阻斷 β 細胞 ATP-敏感 K⁺ 通道 → 促進 insulin 分泌</strong>；<strong>Metformin 不促進 insulin 分泌</strong>，是降低肝糖輸出、增加胰島素敏感性（2025 期末考題）。</li>
+          <li><strong>Glucagon 治療 insulin 過量的低血糖</strong>，但不可用於胰島素瘤與嗜鉻細胞瘤；<strong>Diazoxide 打開 K⁺ 通道</strong>抑制 insulin 釋放，用於無法手術的胰島素瘤；Octreotide 為 somatostatin 類似物。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1-3；HBK Ch.12；VPT10 Ch.26、Ch.30。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 2 DRUG TABLE -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽</h2></div>
+      <p class="section-desc">劑量與途徑取自講義、HBK Ch.12 劑量附表與 VPT10；臨床使用以院內規範為準。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>機轉／類別</th><th>途徑與參考劑量</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TRH、GnRH、CRH、GHRF</strong></td><td>下視丘釋放激素（胜肽）</td><td>注射</td><td>診斷；GnRH：隱睪、誘發排卵、免疫去勢疫苗</td></tr>
+          <tr><td><strong>豬 GH</strong></td><td>生長激素（經 IGF-1 作用）</td><td>SC 0.1 IU/kg 每週 3 次，共 4–6 週（講義）</td><td>幼犬腦下垂體侏儒症</td></tr>
+          <tr><td><strong>Sometribove</strong>（Posilac®）</td><td>重組牛 somatotropin 長效劑</td><td>SC 500 mg 每 2 週，產後第 9 週起</td><td>增加乳牛泌乳量（美國使用、歐盟禁用）</td></tr>
+          <tr><td><strong>Bromocriptine</strong></td><td>麥角衍生物，D2 促效劑</td><td>PO 10–15 μg/kg q12h（HBK：3–5 天終止妊娠；10–14 天治假懷孕）</td><td>溢乳、假懷孕、黃體溶解</td></tr>
+          <tr><td><strong>Cabergoline</strong></td><td>麥角衍生物，D2 促效劑（比 bromocriptine 強）</td><td>PO 5 μg/kg q24h 5–10 天（HBK）</td><td>假懷孕、誘發發情</td></tr>
+          <tr><td><strong>Ergonovine</strong></td><td>α、5-HT、DA 受體促效 → 平滑肌收縮</td><td>犬 PO 0.2 mg；母馬 IM 1–3 mg（HBK）</td><td>子宮收縮、產後出血（併 oxytocin）</td></tr>
+          <tr><td><strong>ACTH（1-24）、CRH、TSH、TRH</strong></td><td>促激素／釋放激素</td><td>IV（ACTH：犬 250 μg、貓 125 μg）</td><td>刺激試驗</td></tr>
+          <tr><td><strong>Oxytocin</strong></td><td>九胜肽，子宮收縮＋乳汁排出</td><td>注射</td><td>誘發分娩、子宮無力、無乳（排乳，非催乳）</td></tr>
+          <tr><td><strong>Vasopressin（ADH）</strong></td><td>V1（血管）＋V2（腎）</td><td>IV／IM／SC（胜肽，不可口服）</td><td>尿崩症診斷與治療</td></tr>
+          <tr><td><strong>Desmopressin（DDAVP）</strong></td><td>長效合成類似物，V2 選擇性</td><td>SC／IV；另有鼻用與口服錠（VPT10）；vWD：1 μg/kg SC 或稀釋後 IV 10 分鐘</td><td>中樞性尿崩症、von Willebrand disease</td></tr>
+          <tr><td><strong>Lysine-8-vasopressin（LVP）</strong></td><td>豬型 ADH，作用較短</td><td>鼻噴</td><td>中樞性尿崩症</td></tr>
+          <tr><td><strong>Levothyroxine（T4）</strong></td><td>合成甲狀腺素</td><td>PO 犬 20 μg/kg q24h、貓 50–100 μg/隻 q24h（HBK）；有注射劑（黏液水腫昏迷）</td><td>甲狀腺低下（所有物種首選）</td></tr>
+          <tr><td><strong>Liothyronine（T3）</strong></td><td>合成 T3</td><td>PO 犬 4–6 μg/kg q8h（HBK）</td><td>不建議用於替代療法</td></tr>
+          <tr><td><strong>Methimazole</strong></td><td>Thioamide，抑制甲狀腺過氧化酶</td><td>PO 貓 2.5–10 mg/隻 q8–12h（HBK）</td><td>貓甲亢首選</td></tr>
+          <tr><td><strong>Carbimazole</strong></td><td>前驅藥 → methimazole</td><td>PO</td><td>貓甲亢；GI 副作用較少</td></tr>
+          <tr><td><strong>Propylthiouracil（PTU）</strong></td><td>Thioamide</td><td>PO</td><td>副作用嚴重，已不建議用於貓</td></tr>
+          <tr><td><strong>Ipodate</strong></td><td>含碘顯影劑；抑制 T4→T3</td><td>PO 100–200 mg/貓/天（HBK）</td><td>無法耐受 methimazole 的貓；甲狀腺風暴輔助</td></tr>
+          <tr><td><strong>Lugol's solution</strong>（KI）、perchlorate、thiocyanate</td><td>碘化物／陰離子抑制劑</td><td>PO</td><td>甲亢輔助</td></tr>
+          <tr><td><strong>¹³¹I（Na¹³¹I）</strong></td><td>β 射線破壞甲狀腺濾泡</td><td>SC 1–5 mCi（貓，HBK）</td><td>貓甲亢最有效的根治法</td></tr>
+          <tr><td><strong>Regular insulin</strong></td><td>短效結晶鋅胰島素</td><td>SC／IM／<strong>IV</strong>（唯一可 IV 的胰島素）</td><td>糖尿病酮酸中毒</td></tr>
+          <tr><td><strong>NPH、Lente（Vetsulin®）</strong></td><td>中效</td><td>SC：Vetsulin 犬 0.5–1.0 IU/kg q12–24h（HBK）</td><td>穩定期糖尿病</td></tr>
+          <tr><td><strong>PZI Vet®</strong></td><td>長效（90% 牛＋10% 豬）</td><td>SC：貓 1–5 IU/隻 q12–24h（HBK）</td><td>貓糖尿病</td></tr>
+          <tr><td><strong>Insulin glargine</strong>（Lantus®）</td><td>長效人胰島素類似物</td><td>SC</td><td>糖尿病</td></tr>
+          <tr><td><strong>Glipizide</strong></td><td>Sulfonylurea，阻斷 ATP-敏感 K⁺ 通道</td><td>PO（隨食物）2.5–5 mg/貓 q8–12h（HBK）</td><td>貓糖尿病（部分有效）</td></tr>
+          <tr><td><strong>Metformin</strong></td><td>Biguanide，↓肝糖輸出、↑胰島素敏感性</td><td>PO 貓 2–5 mg/kg q12h（HBK），隨餐</td><td>貓糖尿病，常與 sulfonylurea 合用</td></tr>
+          <tr><td><strong>Acarbose</strong></td><td>α-glucosidase 抑制</td><td>PO（隨餐）</td><td>與 insulin 合用可降低 insulin 需求量</td></tr>
+          <tr><td><strong>Glucagon</strong></td><td>升血糖激素</td><td>IM（講義：低血糖時 IV glucose 或 IM glucagon）</td><td>insulin 誘發的低血糖</td></tr>
+          <tr><td><strong>Octreotide</strong></td><td>Somatostatin 八胜肽類似物</td><td>深部 SC；犬胰島素瘤 10–20 μg q8–12h（VPT10）</td><td>胰島素瘤、胃泌素瘤</td></tr>
+          <tr><td><strong>Diazoxide</strong></td><td>打開 β 細胞 K⁺ 通道 → 抑制 insulin 釋放</td><td>PO 起始 10 mg/kg/day 分兩次，不超過 40 mg/kg/day（VPT10）</td><td>無法手術的胰島素瘤</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1-3；HBK Ch.12 劑量附表；VPT10 Ch.25、Ch.26、Ch.30。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 3 HYPOTHALAMIC -->
+    <div class="section" id="section-hypothalamic">
+      <div class="section-head"><div class="section-num">3</div><h2>腦下垂體分區與下視丘釋放激素</h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">前葉（Anterior）</div><p>受下視丘調控，調節多個內分泌器官（甲狀腺、腎上腺、胰臟、性腺）；分泌生長激素與各種促激素（tropic hormones）。</p></div>
+        <div class="card"><div class="card-title">後葉（Posterior）</div><p>與自主神經系統、鹽水恆定有關；釋放<strong>抗利尿激素（vasopressin）與 oxytocin</strong>——兩者都在下視丘合成，經軸突運到後葉儲存釋放。</p></div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>下視丘激素</th><th>結構</th><th>作用</th><th>藥理應用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TRH</strong></td><td>三胜肽；t½ 5 分鐘；cAMP</td><td>促 TSH 釋放</td><td>甲狀腺疾病診斷</td></tr>
+          <tr><td><strong>GnRH（LHRH）</strong></td><td>十胜肽</td><td>促 LH、FSH 釋放</td><td>隱睪症、誘發排卵；<strong>GnRH 疫苗做免疫去勢</strong>（產生抗 GnRH 抗體 → LH／FSH 下降 → 睪固酮下降）</td></tr>
+          <tr><td><strong>CRH</strong></td><td>41 胺基酸多胜肽</td><td>促 ACTH 釋放；壓力反應的中樞整合者</td><td>HPA 軸診斷</td></tr>
+          <tr><td><strong>Prolactin 釋放抑制因子</strong></td><td>Dopamine</td><td>抑制 prolactin</td><td>Bromocriptine（DA 促效劑）模擬此作用</td></tr>
+          <tr><td><strong>GHRF</strong></td><td>40 胺基酸</td><td>促 GH 釋放</td><td>診斷</td></tr>
+          <tr><td><strong>GH-RIH（Somatostatin）</strong></td><td>十四胜肽；也由消化道與胰臟分泌</td><td>抑制 GH，也抑制 TSH、ACTH、insulin、glucagon 分泌</td><td>Octreotide（見第 14 節）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：為什麼這些藥都要注射</div>
+        <p>HBK Ch.12：胜肽與蛋白質激素口服後在消化道被破壞，只能注射；它們通常不穿過 BBB，血漿半衰期只有 5–20 分鐘，但生物作用可持續數小時。相反地，類固醇與甲狀腺激素口服吸收良好（天然類固醇因肝臟代謝快，只有甲狀腺素與合成類固醇口服有效），且 90% 以上與血漿蛋白結合，半衰期以小時到天計。這就是講義在 ADH 投影片上問「為什麼要 IV、IM、SC？」的答案。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1（p1–5）；HBK Ch.12。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 4 GH -->
+    <div class="section" id="section-gh">
+      <div class="section-head"><div class="section-num">4</div><h2>生長激素 Growth Hormone（Somatotropin）</h2></div>
+      <div class="flow">
+        <div class="flow-node">GHRF（+）／Somatostatin（−）</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">腦下垂體分泌 GH（約占腦下垂體乾重 10%）</div><span class="flow-arrow">→</span>
+        <div class="flow-node">肝臟與肝外組織產生 IGF-1（somatomedin）</div><span class="flow-arrow">→</span>
+        <div class="flow-node green">組織生長、蛋白質合成、胺基酸運輸、N／Na／Cl／K／P／Ca 滯留</div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>用途</th><th>藥物與用法</th><th>副作用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>幼犬腦下垂體侏儒症</strong></td><td>豬 GH（與犬 GH 相同）0.1 IU/kg <strong>SC</strong> 每週 3 次，4–6 週</td><td><strong>糖尿病</strong>：治療前與治療期間每週驗血糖</td></tr>
+          <tr><td><strong>增加乳牛泌乳</strong></td><td>Sometribove（重組牛 somatotropin 類似物長效注射劑）<strong>SC 500 mg 每 2 週</strong>，產後第 9 週起；美國使用，歐盟禁用（牛奶 IGF-1 疑慮）</td><td>初期採食量下降、乳房炎；類 prolactin 黃體作用（黃體囊腫、促性腺激素下降、子宮疾病）；懷孕動物妊娠期縮短、出生體重下降、胎衣滯留</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>HBK Ch.12：GH 受體活化 JAK2–STAT 路徑促進轉錄；GH 結構與 prolactin、胎盤泌乳素相似，泌乳效果可能與類 prolactin 活性有關。HBK 列出的 sometribove 副作用另有注射部位刺激、跛行、懷孕率下降與雙胎增加。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1（p6–7）；HBK Ch.12。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 5 PROLACTIN -->
+    <div class="section" id="section-prolactin">
+      <div class="section-head"><div class="section-num">5</div><h2>促性腺激素與泌乳素相關藥物</h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">FSH</div><p>雌：卵泡成熟、分泌 estrogen（LH 也參與）；雄：促進精子生成。</p></div>
+        <div class="card"><div class="card-title">LH（ICSH）</div><p>雄：Leydig 細胞產生 testosterone；雌：排卵、形成黃體、合成分泌 progesterone。臨床用 hCG 取代。</p></div>
+      </div>
+      <h3>Prolactin</h3>
+      <ul>
+        <li>由腦下垂體與胎盤合成；作用於乳腺產乳；抑制促性腺激素（哺乳期不排卵）；吸吮時釋放；睡眠時分泌高峰。</li>
+        <li><strong>Prolactin 是黃體營養激素（luteotropic）</strong>：維持黃體 → 抑制 prolactin 就能造成黃體溶解。</li>
+        <li><strong>D2 拮抗劑（phenothiazines 等主要鎮靜劑）會增加 prolactin 釋放</strong>；Metoclopramide 也有此作用（見 <a href="腸胃道用藥.html">腸胃道用藥</a>）。</li>
+      </ul>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>機轉</th><th>獸醫用途</th><th>途徑與劑量（HBK）</th><th>副作用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Bromocriptine</strong></td><td>麥角衍生物、D2 促效 → prolactin↓</td><td>溢乳、假懷孕、誘發黃體溶解（有時是誘發分娩的前提）；人：退奶、高泌乳素血症</td><td>PO 10–15 μg/kg q12h</td><td>嘔吐、鎮靜、低血壓（α 拮抗）；泌乳動物無乳</td></tr>
+          <tr><td><strong>Cabergoline</strong></td><td>同上，D2 作用較強；t½ 60 h（人）</td><td>假懷孕、誘發發情</td><td>PO 5 μg/kg q24h 5–10 天</td><td>同上</td></tr>
+          <tr><td><strong>Ergonovine</strong>（ergometrine）</td><td>α、5-HT、DA 受體促效 → 子宮平滑肌收縮</td><td>併 oxytocin 處理產後出血</td><td>犬 PO 0.2 mg；母馬 IM 1–3 mg</td><td>過量：CNS 興奮、高血壓、嘔吐</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">麥角中毒與牛毛草中毒</div>
+        <p>麥角生物鹼由真菌產生：<em>Claviceps purpurea</em> 感染黑麥、燕麥、小麥、大麥；<em>Acremonium coenophialum</em> 產生 <strong>ergovaline</strong>，是<strong>牛毛草（fescue）中毒</strong>的主要毒素。Ergovaline 是強力 5-HT2 血管收縮劑，作用於牛羊的子宮、臍帶、胎盤與尾動脈。症狀稱為 ergotism：急性神經症狀與痙攣、慢性壞疽；少量時造成無乳、窩仔數少、出生體重低、增重下降與流產。人用 ergotamine＋caffeine 治偏頭痛（5-HT1B/1D）。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1（p8–10）；HBK Ch.12。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 6 DIAGNOSTIC -->
+    <div class="section" id="section-diagnostic">
+      <div class="section-head"><div class="section-num">6</div><h2>TSH、ACTH 與刺激試驗</h2></div>
+      <ul>
+        <li><strong>TSH</strong>：刺激甲狀腺激素合成與釋放；用於診斷甲狀腺疾病。</li>
+        <li><strong>ACTH</strong>：39 個胺基酸，刺激皮質類固醇合成與釋放；診斷上廣泛使用 <strong>ACTH 1-24</strong>。</li>
+      </ul>
+      <div class="table-wrap"><table>
+        <thead><tr><th>試驗</th><th>評估什麼</th><th>用法（講義）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>CRH 刺激試驗</strong></td><td>腦下垂體分泌 ACTH 的能力</td><td>CRH 1 μg/kg <strong>IV</strong>；0 與 0.5 小時測血漿 ACTH</td></tr>
+          <tr><td><strong>ACTH 刺激試驗</strong></td><td>腎上腺功能；腎上腺皮質增生與腫瘤</td><td><strong>IV</strong>：犬 250 μg、貓 125 μg；cortisol 在 60–90 分鐘達峰值</td></tr>
+          <tr><td>TRH 刺激試驗</td><td>甲狀腺軸</td><td>—</td></tr>
+          <tr><td>TSH 刺激試驗</td><td>甲狀腺軸</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10 Ch.29 的 ACTH 刺激試驗：犬與馬在 IV 後 1 小時採樣，<strong>貓在 IV 後 30 分鐘</strong>測 cortisol 峰值；健康動物刺激後 cortisol 上升 50–100%。長期使用糖皮質素的犬可能基礎值正常但刺激後上升不到 50%，這類犬在壓力時需要補充（見 <a href="類固醇藥理.html#section-toxicity">類固醇藥理</a>）。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1（p11）；VPT10 Ch.29。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 7 POSTERIOR -->
+    <div class="section" id="section-posterior">
+      <div class="section-head"><div class="section-num">7</div><h2>後葉激素：Oxytocin 與 ADH<span class="tag tag-exam">重要</span></h2></div>
+      <h3>Oxytocin</h3>
+      <ul>
+        <li>刺激子宮協調性收縮 → <strong>誘發分娩</strong>。</li>
+        <li><strong>排乳</strong>：收縮乳腺肌上皮細胞，治療無乳症，但<strong>不是催乳劑（not galactopoietic）</strong>——它不增加產乳量，只讓已產生的乳汁排出。</li>
+        <li>副作用：子宮過度刺激、子宮難產。</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>HBK Ch.12：使用 oxytocin 誘發分娩時，<strong>子宮頸必須已擴張、胎兒胎位必須正常</strong>；有黃體存在時效果差。否則強力收縮推不出胎兒，反而造成難產或子宮破裂。</p>
+      </div>
+      <h3>ADH（Vasopressin）</h3>
+      <div class="flow">
+        <div class="flow-node">血漿滲透壓↑、低血容、Angiotensin II</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">下視丘合成、後葉釋放 ADH</div><span class="flow-arrow">→</span>
+        <div class="flow-node">V1：血管與 GI 平滑肌收縮</div><span class="flow-arrow">＋</span>
+        <div class="flow-node green">V2：腎小管水再吸收</div>
+      </div>
+      <ul>
+        <li><strong>Arginine-vasopressin</strong>：貓、犬、馬、人；<strong>Lysine-ADH</strong>：豬。</li>
+        <li><strong>ACTH 不會刺激 ADH 分泌</strong>（考古題）；反過來 VPT10 列出 V1 受體在腦下垂體前葉會<strong>增加 ACTH 釋放</strong>，並抑制 renin 釋放。</li>
+      </ul>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>受體</th><th>途徑</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vasopressin（水溶液）</strong></td><td>V1＋V2</td><td>IV、IM、SC（胜肽，口服被分解）；t½ 約 20 分鐘</td><td>尿崩症診斷（修正式禁水試驗後給予）與治療</td></tr>
+          <tr><td><strong>Desmopressin（DDAVP，desamino-D-arginine vasopressin）</strong></td><td><strong>V2 選擇性</strong>，長效、幾乎無升壓作用</td><td>SC 注射；鼻用與口服錠（VPT10）</td><td><strong>中樞性尿崩症</strong>；von Willebrand disease 與肝硬化或藥物相關的出血</td></tr>
+          <tr><td><strong>LVP（lysine-8-vasopressin）</strong></td><td>—</td><td>鼻噴</td><td>中樞性尿崩症；作用時間較短</td></tr>
+        </tbody>
+      </table></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">中樞性 vs 腎性尿崩症</div><p><strong>中樞性</strong>：缺 ADH，給外源 ADH 後尿液濃縮 → 用 ADH／desmopressin 治療。<strong>腎性</strong>：腎小管對 ADH 沒反應 → 給 ADH 無效（VPT10：常見次發原因包括子宮蓄膿、肝病、腎上腺皮質功能亢進、甲亢、高血鈣、腎衰竭、腎盂腎炎）。</p></div>
+        <div class="card"><div class="card-title">毒性</div><p><strong>水分過多、腦水腫</strong>——使用 ADH 類藥物時要<strong>限制飲水</strong>（考古題：LVP 治療尿崩症若不限水 → 腦水腫）。</p></div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：Desmopressin 的止血作用</div>
+        <p>講義把 desmopressin 也列為<strong>全身性止血劑</strong>：經 V2 受體從內皮細胞釋放儲存的 vWF → 縮短出血時間，用於 vWD 動物的微血管出血。VPT10 Ch.25 補充：犬 1 μg/kg SC，或稀釋於 20 mL 生理食鹽水 IV 10 分鐘以上；作用約 2 小時，重複給藥效果下降（儲存池耗盡）。<strong>它是讓血比較容易凝，所以「預防血栓」不是它的作用</strong>（2025 期末考第 34 題）。同一張投影片的 protamine sulfate 是 heparin 解毒劑（見 <a href="凝血相關藥物.html">凝血相關藥物</a>）。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1（p12–13）；HBK Ch.12；VPT10 Ch.25、Ch.26；課程 2025 期末考與內分泌考古題。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 8 THYROID PHYS -->
+    <div class="section" id="section-thyroidphys">
+      <div class="section-head"><div class="section-num">8</div><h2>甲狀腺激素的合成、運輸與代謝</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/腦下垂體荷爾蒙/thyroxine.svg" alt="Thyroxine 結構式"><div class="figure-caption">T4（levothyroxine）：兩個環上共 4 個碘</div></div>
+        <div class="figure"><img src="img/腦下垂體荷爾蒙/liothyronine.svg" alt="Liothyronine 結構式"><div class="figure-caption">T3（liothyronine）：外環少一個碘 → 活性高 3–10 倍</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。兩者都是由酪胺酸（tyrosine）碘化後偶合而成。</p>
+      <h3>合成步驟（講義）</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>攝取碘離子（iodide trapping）</strong>：甲狀腺從血漿抓取 I⁻（腎、唾液腺、消化腺也會）。← thiocyanate、perchlorate 抑制</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>氧化</strong>：甲狀腺過氧化酶把 I⁻ 氧化成碘。← thioamides 抑制</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>有機化（organification）</strong>：碘接到 thyroglobulin 的酪胺酸上，形成 MIT、DIT。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>偶合</strong>：2 個 DIT → T4；1 個 DIT＋1 個 MIT → T3。← thioamides 也阻斷偶合</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>釋放</strong>：thyroglobulin 經胞飲進入溶酶體被分解，釋出 T4、T3。犬儲存的 T4:T3 = 12:1，釋出時 = 4:1。</div></div>
+      <h3>運輸與代謝</h3>
+      <ul>
+        <li><strong>血漿蛋白結合</strong>：主要為 thyroxine-binding globulin（TBG），其次 TBPA、白蛋白、脂蛋白。犬 T4：60% TBG、17% TBPA、12% 白蛋白、11% HDL。</li>
+        <li><strong>代謝以脫碘（deiodination）為主</strong>（約 70%），其次葡萄糖醛酸與硫酸結合。</li>
+        <li>T4 外環單脫碘 → <strong>T3（活性高 3–10 倍）</strong>；30–40% T4 轉成 T3，所以 T4 的代謝作用幾乎都來自轉換出的 T3——<strong>T4 可視為前驅激素</strong>。</li>
+        <li>T4 內環脫碘（40%）→ <strong>reverse T3（無活性）</strong>。</li>
+      </ul>
+      <div class="table-wrap"><table>
+        <thead><tr><th>半衰期</th><th>人</th><th>犬</th><th>貓</th></tr></thead>
+        <tbody>
+          <tr><td>T3</td><td>1 天</td><td>約 8 小時</td><td>—</td></tr>
+          <tr><td>T4</td><td>7 天</td><td>12–24 小時</td><td>11 小時</td></tr>
+        </tbody>
+      </table></div>
+      <h3>生理作用</h3>
+      <ul>
+        <li>決定基礎代謝率：產熱、增加 Na⁺/K⁺-ATPase 表現與活性。</li>
+        <li>生理量為<strong>同化</strong>作用（生長發育必需，與 GH、insulin 協同）；過量為<strong>異化</strong>作用（糖質新生、蛋白質分解）。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>HBK Ch.12：T3 是心血管興奮劑，增加心輸出量並提高心肌對兒茶酚胺的敏感度（增加 α、β 受體表現）——這是甲亢貓心搏過速、高血壓與心肌肥厚的藥理基礎。T3 也降低 LDL（增加肝臟 LDL 受體）。犬與人的血漿蛋白結合不同，所以人的劑量不能直接用在犬。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 2（p27–39、p43）；HBK Ch.12。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 9 THYROID RX -->
+    <div class="section" id="section-thyroidrx">
+      <div class="section-head"><div class="section-num">9</div><h2>甲狀腺疾病與替代療法</h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">甲狀腺功能亢進</div><p><strong>貓最常見的內分泌疾病</strong>（中老年貓）；貓多為甲狀腺增生或腺瘤，犬多為腺癌。症狀：體重下降、過動、多渴多尿、腹瀉、心搏過速、掉毛。末期可能變成<strong>淡漠型甲亢</strong>（嗜睡、厭食）。HBK：其他物種多為腺癌、預後差，所以抗甲狀腺藥只建議用於貓。</p></div>
+        <div class="card"><div class="card-title">甲狀腺功能低下</div><p><strong>犬最常見的內分泌疾病</strong>；馬也有，貓少見（HBK：貓甲亢治療過度也會造成）。常見原因：缺碘、環境或食物中的致甲狀腺腫物質。症狀：基礎代謝率下降、皮膚冰冷、嗜睡、沉鬱、無力。</p></div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>製劑</th><th>特性</th><th>評價</th></tr></thead>
+        <tbody>
+          <tr><td>動物甲狀腺乾燥製劑</td><td>T3／T4 含量不穩定、便宜</td><td>大動物仍有些使用</td></tr>
+          <tr><td><strong>Levothyroxine（合成 T4）</strong></td><td>符合生理；口服與注射劑（黏液水腫昏迷）</td><td><strong>所有物種首選</strong></td></tr>
+          <tr><td>Liothyronine（合成 T3）</td><td>半衰期較短、不符合生理</td><td><strong>不建議</strong>用於替代療法</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：為什麼補 T4 不補 T3</div>
+        <p>T4 半衰期長、血中濃度穩定，由組織依需要轉成 T3（符合生理）；直接補 T3 半衰期短、濃度起伏大。HBK 另補充：T4 能維持腦部較高的甲狀腺激素活性。考古題「賀爾蒙補充療法建議優先使用 T3」是錯誤敘述。</p>
+      </div>
+      <h3>終生替代療法的原則（講義）</h3>
+      <ul>
+        <li>初始診斷要謹慎（犬 TSH 檢測），因為一旦開始就是終生用藥。</li>
+        <li>監測：臨床表現（被毛、體重）＋血清 T3、T4 濃度。</li>
+        <li>考慮生理：老年動物減少 T4 劑量；人類冬天需要增加劑量——<strong>戶外飼養的犬是否也需要？</strong></li>
+        <li>犬起始劑量：levothyroxine <strong>PO 20 μg/kg q24h</strong>（HBK），之後依監測調整。過量會出現甲亢症狀。</li>
+      </ul>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 2（p40–44）；HBK Ch.12；課程內分泌考古題。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 10 ANTITHYROID -->
+    <div class="section" id="section-antithyroid">
+      <div class="section-head"><div class="section-num">10</div><h2>抗甲狀腺藥物<span class="tag tag-exam">重要</span></h2></div>
+      <p class="section-desc">兩種策略：用藥物改變甲狀腺激素的合成或作用，或用手術、放射線破壞甲狀腺。<strong>致甲狀腺腫物質（goitrogens）</strong>抑制 T3、T4 分泌 → TSH 上升 → 甲狀腺腫大。例子：thiocyanate（抑制碘攝取）、thiourea 衍生物、十字花科（<em>Brassica</em>）種子中的 goitrin。</p>
+      <div class="grid-3">
+        <div class="figure"><img src="img/腦下垂體荷爾蒙/methimazole.svg" alt="Methimazole 結構式"><div class="figure-caption">Methimazole：咪唑硫酮</div></div>
+        <div class="figure"><img src="img/腦下垂體荷爾蒙/carbimazole.svg" alt="Carbimazole 結構式"><div class="figure-caption">Carbimazole：methimazole 接上乙氧羰基 → 體內水解成 methimazole</div></div>
+        <div class="figure"><img src="img/腦下垂體荷爾蒙/propylthiouracil.svg" alt="Propylthiouracil 結構式"><div class="figure-caption">Propylthiouracil：硫脲嘧啶</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪；三者都含 thioamide（C=S 與 N 相連）結構，這是抑制過氧化酶的關鍵。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>藥物</th><th>機轉</th><th>重點</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. Thioamides</strong></td><td>Propylthiouracil、<strong>Methimazole</strong>、Carbimazole</td><td>主要：抑制甲狀腺過氧化酶催化的反應 → 阻斷碘有機化（與偶合）；次要：抑制周邊 T4、T3 脫碘</td><td>治療甲狀腺毒症的主要藥物；<strong>只影響合成不影響釋放，需 1–3 週</strong>等儲存的 T4 耗盡</td></tr>
+          <tr><td><strong>2. 陰離子抑制劑</strong></td><td>Perchlorate、thiocyanate（SCN⁻）</td><td>阻斷甲狀腺攝取 I⁻</td><td>用於碘誘發的甲亢</td></tr>
+          <tr><td><strong>3. 碘化物</strong></td><td>Potassium iodide（Lugol's solution）</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>4. Ipodate</strong></td><td>放射顯影劑</td><td>抑制 T4→T3 轉換；也干擾甲狀腺激素作用</td><td>甲狀腺風暴輔助治療；無法耐受 thioamides 或碘化物時；毒性與碘化物相似、相對低</td></tr>
+          <tr><td><strong>5. 放射性碘</strong></td><td>¹³¹I</td><td>被甲狀腺濃縮吸收，β 射線破壞濾泡</td><td>貓甲狀腺腫最有效、最適合的根治法</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Thioamide 個別比較</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Propylthiouracil</th><th>Methimazole</th><th>Carbimazole</th></tr></thead>
+        <tbody>
+          <tr><td>效力</td><td>1</td><td><strong>約 10 倍</strong></td><td>體內轉成 methimazole</td></tr>
+          <tr><td>口服生體可用率</td><td>50–80%</td><td>貓約 80%</td><td>—</td></tr>
+          <tr><td>半衰期</td><td>1.5 h</td><td>貓 2–10 h（HBK 平均 6.6 h）</td><td>—</td></tr>
+          <tr><td>副作用</td><td>厭食、嘔吐、嗜睡；<strong>自體免疫溶血性貧血、血小板減少、顆粒性白血球缺乏</strong></td><td>與 PTU 相似（HBK 另列搔癢、肝病變、出血、白血球減少、嗜酸性球增多）</td><td><strong>GI 副作用較少</strong></td></tr>
+          <tr><td>評價</td><td><strong>已不建議用於貓</strong></td><td><strong>貓首選</strong>；PO 2.5–10 mg/隻 q8–12h（HBK）</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">放射性碘（講義＋HBK）</div>
+        <p>講義列出四大優點：效果好、給藥容易、費用低、無痛。HBK 補充：¹³¹I 半衰期 8 天，放出 β 粒子與 X 射線；貓 SC 1–5 mCi，約 5% 需要第二劑；T4、T3 在 1–2 週內恢復正常；可避免手術切除傷到副甲狀腺；治療後需住院 1–4 週，排泄物要妥善保存至放射性消失。也用於貓犬的甲狀腺腺癌。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 2（p45–53）；HBK Ch.12 與劑量附表；課程內分泌考古題。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 11 INSULIN -->
+    <div class="section" id="section-insulin">
+      <div class="section-head"><div class="section-num">11</div><h2>胰島與 Insulin</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>胰島細胞</th><th>比例</th><th>激素</th><th>作用</th></tr></thead>
+        <tbody>
+          <tr><td>A（α）</td><td>~25%</td><td>Glucagon</td><td>升血糖、動用肝醣</td></tr>
+          <tr><td>B（β）</td><td>~70%</td><td><strong>Insulin</strong></td><td>同化／儲存激素</td></tr>
+          <tr><td>D（δ）</td><td>&lt;5%</td><td>Somatostatin</td><td>旁分泌抑制 insulin、glucagon</td></tr>
+          <tr><td>F</td><td>微量</td><td>Pancreatic polypeptide</td><td>協助消化</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li><strong>結構</strong>：A、B 兩條鏈；β 細胞先合成單鏈 proinsulin → 高基氏體處理、包進顆粒 → 水解成 insulin 與 <strong>C-peptide</strong>；顆粒內以 2 個鋅原子配 6 個 insulin 分子的結晶儲存。</li>
+        <li><strong>拮抗 insulin 的激素</strong>（升血糖）：glucagon、epinephrine、growth hormone、glucocorticoids。</li>
+        <li><strong>清除</strong>：肝臟清除胰臟釋出 insulin 的 60%；腎臟清除內生性 insulin 的 35–40%（接受 insulin 治療的糖尿病患者可高達 60%）。分解從切斷 A、B 鏈之間的雙硫鍵開始。</li>
+        <li><strong>葡萄糖運輸</strong>：葡萄糖是水溶性，需要 GLUT 載體。<strong>Insulin 讓 GLUT4 插入肌肉與脂肪細胞膜</strong>；腦使用 GLUT3，不依賴 insulin。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>HBK Ch.12：insulin 受體是酪胺酸激酶，活化後經 IRS 促進 GLUT4 移到細胞膜、肝醣與蛋白質合成。血漿半衰期只有 5–10 分鐘，但生物半衰期長達數小時。<strong>Insulin 受體不是轉錄因子</strong>（考古題：與 cortisol、estradiol、T3 的核受體不同）。</p>
+      </div>
+      <h3>糖尿病</h3>
+      <p>最重要的胰臟內分泌疾病：不適當的高血糖與代謝異常。Type I（IDDM）與 Type II（NIDDM）；高血糖造成「三多」：多尿、多渴、多食。</p>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 3（p55–64）；HBK Ch.12；課程內分泌考古題。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 12 INSULIN PREP -->
+    <div class="section" id="section-insulinprep">
+      <div class="section-head"><div class="section-num">12</div><h2>Insulin 製劑與糖尿病治療<span class="tag tag-exam">重要</span></h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>製劑</th><th>作用時間</th><th>外觀與配方</th><th>途徑</th><th>教科書補充（HBK）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Regular insulin</strong>（crystalline zinc）</td><td><strong>短效</strong>：&lt;15 分鐘起效，持續 5–7 h</td><td>磷酸緩衝液加鋅，<strong>清澈溶液</strong></td><td>SC、IM、<strong>IV</strong></td><td>2–4 h 達峰；用於快速矯正 DKA；維持治療需一天打 4–5 次，不方便</td></tr>
+          <tr><td><strong>NPH（isophane）</strong></td><td>中效至長效：18–24 h</td><td>加 protamine 減緩吸收；<strong>混濁懸浮液</strong>，SC 後慢慢溶解</td><td>SC</td><td>2 h 內起效、8–12 h 達峰、持續 24 h</td></tr>
+          <tr><td><strong>Lente</strong></td><td>中效：18–24 h</td><td>醋酸緩衝液加鋅，不含 protamine；大結晶</td><td>SC</td><td>7 份 ultralente＋3 份 semilente；豬 Lente（Vetsulin®）主要用於犬</td></tr>
+          <tr><td><strong>PZI</strong>（PZI Vet®）</td><td>長效</td><td>90% 牛＋10% 豬 insulin，與 protamine 鋅形成微結晶懸浮液</td><td>SC</td><td>4 h 起效、16–18 h 達峰、最長 36 h；核准用於貓</td></tr>
+          <tr><td><strong>Insulin glargine</strong></td><td>超長效（人可達 24 h）</td><td>人胰島素類似物；pH 4 時可溶，注射到 pH 7.4 組織形成微沉澱</td><td>SC</td><td>沒有明顯峰值，降血糖效果超過 24 h</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <p><strong>只有清澈的 regular insulin 可以 IV</strong>，混濁的懸浮液（NPH、Lente、PZI）只能 SC。2025 期末考第 36 題：作用時間最短的是 regular insulin。獸醫專用製劑只有兩種：<strong>Vetsulin®（Caninsulin®，豬 insulin zinc，犬貓核准）</strong>與 <strong>PZI Vet®（貓核准）</strong>。</p>
+      </div>
+      <h3>犬貓糖尿病治療（講義）</h3>
+      <ul>
+        <li>目標：把血糖維持在<strong>輕度高血糖（150–200 mg/dL）</strong>，避免低血糖。</li>
+        <li><strong>複雜型</strong>（嘔吐的酮酸中毒病患）：IV 輸注或 IM 短效 regular insulin → 能進食不吐後轉為非複雜型方案。</li>
+        <li><strong>非複雜型</strong>：中效或長效製劑，監測血糖。</li>
+        <li><strong>牛酮症</strong>：insulin 是非常有效的抗酮劑，作為輔助治療，用於泌乳第一週發生、對葡萄糖或糖皮質素無反應的酮症；protamine zinc insulin 200–300 IU／頭（考古題：對乳牛 ketosis 最有療效的是 insulin）。</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：急性低血糖</div>
+        <p>Insulin 最主要的副作用。CNS 症狀：意識混亂、過度興奮、<strong>痙攣</strong>。處理：<strong>IV glucose 或 IM glucagon</strong>。HBK：早期徵兆（心搏過速、飢餓）來自 epinephrine 釋放；嚴重低血糖最好用 IV glucose 輸注。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：insulin 阻抗（HBK）</div>
+        <p>貓比犬更容易對人或豬 insulin 產生抗體；壓力會增加 epinephrine 與皮質類固醇 → 急性 insulin 阻抗；受體去敏感化也會造成阻抗。<strong>這就是糖尿病動物併用糖皮質素時 insulin 需求上升的原因</strong>（見第 15 節）。</p>
+      </div>
+      <h3>注射以外的給藥途徑（講義）</h3>
+      <p>貼片、幫浦、抗消化的口服劑型、<strong>吸入式 insulin</strong>（最有前景）。Exubera® 是第一個吸入式人用 insulin（2006 年核准，峰值 49 分鐘 vs regular insulin 105 分鐘；氣喘、支氣管炎、肺氣腫患者不建議），因售價高、銷售差於 2007 年下市；之後有 Afrezza®。</p>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 3（p65–76）；HBK Ch.12 與劑量附表；課程 2025 期末考與內分泌考古題。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 13 ORAL -->
+    <div class="section" id="section-oral">
+      <div class="section-head"><div class="section-num">13</div><h2>口服降血糖藥<span class="tag tag-exam">重要</span></h2></div>
+      <p class="section-desc">四大類：sulfonylureas、biguanides、α-glucosidase 抑制劑、thiazolidinediones（glitazones，主要用於人）。HBK 指出 sulfonylureas 在獸醫很少用，因為多數糖尿病動物診斷時 β 細胞已大量喪失——<strong>沒有 β 細胞，促分泌藥就沒有作用對象</strong>。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/腦下垂體荷爾蒙/glipizide.svg" alt="Glipizide 結構式"><div class="figure-caption">Glipizide：sulfonylurea（-SO₂-NH-CO-NH-）結構</div></div>
+        <div class="figure"><img src="img/腦下垂體荷爾蒙/metformin.svg" alt="Metformin 結構式"><div class="figure-caption">Metformin：N,N-dimethylbiguanide，小而極性高 → 腎臟原形排除</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <div class="flow">
+        <div class="flow-node">Glucose 經 GLUT2 進入 β 細胞 → 代謝產生 ATP</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">ATP（或 sulfonylurea）關閉 ATP-敏感 K⁺ 通道</div><span class="flow-arrow">→</span>
+        <div class="flow-node">去極化 → L 型 Ca²⁺ 通道打開</div><span class="flow-arrow">→</span>
+        <div class="flow-node green">Ca²⁺ 內流 → insulin 胞吐</div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">※ Diazoxide 的作用正好相反：<strong>打開</strong> ATP-敏感 K⁺ 通道 → 過極化 → insulin 不釋放（第 14 節）。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Sulfonylureas（Glipizide）</th><th>Metformin</th><th>Acarbose</th></tr></thead>
+        <tbody>
+          <tr><td><strong>機轉</strong></td><td>抑制 ATP 依賴性 K⁺ 通道 → <strong>刺激 insulin 分泌</strong></td><td><strong>不影響 insulin 分泌</strong>；↓肝臟糖質新生／糖輸出、↑肌肉與脂肪的 insulin 敏感性（HBK 另列：減少 GI 葡萄糖吸收）</td><td>α-glucosidase 抑制：抑制分解澱粉的 α-amylase 與切出葡萄糖的寡糖／雙糖酶 → 延緩醣類吸收</td></tr>
+          <tr><td><strong>降血糖性質</strong></td><td>降血糖（可造成低血糖）</td><td><strong>抗高血糖，但不會造成低血糖</strong></td><td>延緩餐後血糖上升</td></tr>
+          <tr><td><strong>藥動</strong></td><td>人：GI 吸收佳、高蛋白結合、肝代謝腎排除；犬貓資料少；<strong>貓的作用很短（約 1 小時回到基線）</strong></td><td>口服吸收 35–65%；t½ 約 12 h；<strong>主要經腎臟排除</strong></td><td>微生物來源的寡糖</td></tr>
+          <tr><td><strong>獸醫使用</strong></td><td>可用於部分糖尿病貓；PO 隨食物（HBK）</td><td>貓，常與 sulfonylurea 合用；PO 隨餐</td><td>與 insulin 或口服藥合用；<strong>犬併用可減少 insulin 用量</strong>；昂貴</td></tr>
+          <tr><td><strong>副作用</strong></td><td>低血糖、肝毒性（HBK：過量造成的低血糖遠比 insulin 輕）</td><td><strong>腎功能不全禁用</strong></td><td>GI 不適</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>2025 期末考第 37 題：「metformin 與 glipizide 都促進胰島素分泌」是<strong>錯誤</strong>敘述。考古題：acarbose 最正確的敘述是「與 insulin 合併使用可降低 insulin 所需劑量」，而不是單獨使用或促進 insulin 分泌。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 3（p77–82）；HBK Ch.12 與劑量附表；課程 2025 期末考與內分泌考古題。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 14 HYPOGLY -->
+    <div class="section" id="section-hypogly">
+      <div class="section-head"><div class="section-num">14</div><h2>Glucagon、胰島素瘤與 Somatostatin 類似物</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>作用</th><th>用途</th><th>禁忌與注意</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Glucagon</strong></td><td>升血糖、減少肝醣；也促進 β 細胞釋放 insulin；刺激嗜鉻細胞瘤釋放兒茶酚胺</td><td><strong>insulin 誘發的低血糖</strong></td><td><strong>不可用於胰島素瘤與嗜鉻細胞瘤</strong>：會誘發腫瘤釋放激素</td></tr>
+          <tr><td><strong>Octreotide</strong></td><td>Somatostatin 的八胜肽類似物</td><td>人：肢端肥大症（GH 過多）；<strong>犬胰島素瘤與胃泌素瘤</strong></td><td>VPT10：深部 SC，犬 t½ 約 75 分鐘，作用可達 12 h；胰島素瘤 10–20 μg q8–12h；並非所有腫瘤有反應（缺乏受體）</td></tr>
+          <tr><td><strong>Diazoxide</strong></td><td>增加 β 細胞 ATP-敏感 K⁺ 通道開放時間 → 過極化 → <strong>抑制 insulin 釋放</strong>；強力升血糖</td><td><strong>無法手術的胰島素瘤</strong>；（人）高血壓急症的血管擴張劑</td><td>VPT10：PO 起始 10 mg/kg/day 分兩次，不超過 40 mg/kg/day；當血管擴張劑時副作用為鈉水滯留、反射性交感與 renin 活化、高血糖、心肌缺血</td></tr>
+        </tbody>
+      </table></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">胰島素瘤</div><p>腺瘤或腺癌自主分泌 insulin → 高胰島素血症、低血糖；報告於犬、貓、雪貂、牛、小型馬。</p></div>
+        <div class="card"><div class="card-title">Somatostatin</div><p>存在於胰島 D 細胞、下視丘與消化道；前驅物 → 24 胺基酸 → 14 胺基酸 somatostatin。旁分泌抑制 insulin 與 glucagon；延長胃排空；減少 gastrin 與胃酸；抑制 GH。</p></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">記憶：同一個 K⁺ 通道，兩個方向</div>
+        <p>Sulfonylurea <strong>關閉</strong> ATP-敏感 K⁺ 通道 → 去極化 → insulin 釋放 → 降血糖。Diazoxide <strong>打開</strong>同一種通道 → 過極化 → insulin 不釋放 → 升血糖（考古題：diazoxide 抑制 β 細胞分泌 insulin 的機轉是「增加鉀離子通透性」）。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 3（p83–88）；VPT10 Ch.30；課程內分泌考古題。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 15 CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">15</div><h2>臨床整合：共病與用藥</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>情境</th><th>藥理考量</th><th>處理方向</th><th>出處</th></tr></thead>
+        <tbody>
+          <tr><td><strong>糖尿病動物需要糖皮質素</strong></td><td>糖皮質素是拮抗 insulin 的激素，促進糖質新生並造成 insulin 阻抗</td><td>盡量避免；必須使用時增加血糖監測，預期 insulin 需求上升；停用類固醇後要回頭調降 insulin，避免低血糖</td><td>講義；HBK</td></tr>
+          <tr><td><strong>甲亢貓合併腎病</strong></td><td>甲亢增加心輸出量與腎血流，可能掩蓋腎功能下降</td><td>開始 methimazole 後追蹤腎指數；治療過度會造成醫源性甲低</td><td>HBK（甲低段落）；腎血流部分為生理推理</td></tr>
+          <tr><td><strong>糖尿病貓合併腎病</strong></td><td>Metformin 主要經腎臟排除</td><td><strong>腎功能不全禁用 metformin</strong></td><td>講義</td></tr>
+          <tr><td><strong>胰島素瘤動物低血糖發作</strong></td><td>Glucagon 會刺激腫瘤釋放 insulin</td><td>不用 glucagon；改用 IV glucose；長期以 diazoxide、octreotide、糖皮質素控制</td><td>講義；VPT10</td></tr>
+          <tr><td><strong>使用 D2 拮抗劑</strong>（phenothiazine、metoclopramide）</td><td>Prolactin 上升</td><td>假懷孕或溢乳的動物要注意；bromocriptine、cabergoline 正好相反</td><td>講義；VPT10 Ch.46</td></tr>
+          <tr><td><strong>尿崩症動物使用 ADH 類藥物</strong></td><td>水中毒、腦水腫</td><td>限制飲水；監測體重與血鈉</td><td>講義</td></tr>
+          <tr><td><strong>vWD 犬術前</strong></td><td>Desmopressin 釋放 vWF，作用約 2 小時、重複給效果下降</td><td>術前給予，搭配血液製品備用</td><td>VPT10 Ch.25</td></tr>
+          <tr><td><strong>懷孕動物</strong></td><td>Bromocriptine／cabergoline 造成黃體溶解；oxytocin 只能在子宮頸已開時使用</td><td>避免在不想終止妊娠的懷孕動物使用 D2 促效劑</td><td>HBK</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1-3；HBK Ch.12；VPT10 Ch.25、Ch.30、Ch.46。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 16 EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">16</div><h2>考點整理</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">課程考古出現過的考點</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>2025 期末</strong>：Q33 促進乳牛泌乳 → <strong>sometribove</strong>；Q34 不是 desmopressin 作用 → <strong>預防血栓</strong>；Q36 作用最短 → <strong>regular insulin</strong>；Q37 「metformin 與 glipizide 都促進 insulin 分泌」錯誤。</li>
+          <li><strong>內分泌考古</strong>：bromocriptine 主要用途 → 抑制乳汁分泌；octreotide 類似 somatostatin；ADH 由<strong>後葉</strong>分泌（前葉是錯的）；GH 在大動物用於促進泌乳；somatotropin 促進蛋白質合成、適應症為 pituitary dwarfism；ACTH 不會刺激 ADH 分泌；desmopressin 主要用於<strong>中樞性</strong>尿崩症；LVP 不限水 → 腦水腫；T4 主要代謝為脫碘；不建議優先用 T3；carbimazole 抑制 thyroxine 合成；ipodate 用於甲亢；triiodothyronine 不能治甲亢；methimazole 需 2–3 週是因為<strong>體內甲狀腺激素需時間消耗</strong>；insulin 受體不是轉錄因子；glipizide 屬口服降血糖藥；乳牛 ketosis 用 insulin；acarbose 與 insulin 併用可減少 insulin 用量；glucagon 治 insulin 誘發低血糖；diazoxide 增加 K⁺ 通透性。</li>
+        </ul>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">推測國考方向</div>
+        <p>以下是依講義與教科書推測的方向，並非出自歷屆國考題目：貓甲亢首選 methimazole 與放射性碘、犬甲低用 levothyroxine；desmopressin 的 V2 選擇性與 vWD 用途；insulin 製劑作用時間與可否 IV；sulfonylurea 與 diazoxide 的 K⁺ 通道相反作用；glucagon 在胰島素瘤的禁忌；bromocriptine／cabergoline 治療假懷孕。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程 2025 期末考與內分泌考古題；NTU 講義 Hormone 1-3。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 17 SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">17</div><h2>學習重點整理</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>主題</th><th>一句話</th></tr></thead>
+        <tbody>
+          <tr><td>胜肽激素</td><td>口服被分解、只能注射；類固醇與甲狀腺素可口服</td></tr>
+          <tr><td>GH</td><td>經 IGF-1 作用；犬侏儒症用豬 GH SC；sometribove 增加牛乳；副作用糖尿病</td></tr>
+          <tr><td>Prolactin</td><td>D2 促效劑（bromocriptine、cabergoline）抑制 → 假懷孕、黃體溶解</td></tr>
+          <tr><td>Oxytocin</td><td>子宮收縮＋排乳；不是催乳劑；子宮頸要開</td></tr>
+          <tr><td>ADH</td><td>V1 血管、V2 腎；desmopressin 為 V2 長效，治中樞性尿崩症與 vWD；限水防腦水腫</td></tr>
+          <tr><td>甲狀腺</td><td>T4 為前驅、T3 活性高；脫碘代謝；levothyroxine 首選</td></tr>
+          <tr><td>抗甲狀腺</td><td>Methimazole 貓首選、需 1–3 週；PTU 不建議；ipodate 抑制 T4→T3；¹³¹I 根治</td></tr>
+          <tr><td>Insulin</td><td>Regular 短效清澈可 IV；NPH／Lente 中效；PZI／glargine 長效；低血糖用 IV glucose 或 IM glucagon</td></tr>
+          <tr><td>口服藥</td><td>Sulfonylurea 關 K⁺ 通道促分泌；metformin 不促分泌、腎病禁用；acarbose 延緩吸收</td></tr>
+          <tr><td>胰島素瘤</td><td>Diazoxide 開 K⁺ 通道；octreotide；不可用 glucagon</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1-3；HBK Ch.12；VPT10。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 18 QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">18</div><h2>練習題</h2></div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 下列何者是 desmopressin 的作用受體與主要用途？(A) V1；高血壓急症 (B) V2；中樞性尿崩症 (C) V2；腎性尿崩症 (D) V1；預防血栓</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Desmopressin 是 V2 選擇性長效類似物，治療中樞性尿崩症；腎性尿崩症的腎小管對 ADH 沒有反應，給藥無效。它會提高 vWF，與預防血栓相反。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. Methimazole 治療貓甲亢需要 1–3 週才見效，主要原因是？(A) 藥物需要時間累積到穩定濃度 (B) 只抑制合成，體內儲存的甲狀腺激素需時間消耗 (C) 需要先抑制 TSH (D) 需要轉換成活性代謝物</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Thioamides 抑制甲狀腺過氧化酶、阻斷有機化，不影響已合成激素的釋放；加上 T4 與血漿蛋白高度結合，濃度下降較慢。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">3. 下列何種 insulin 可以靜脈注射治療糖尿病酮酸中毒？(A) NPH (B) Lente (C) Regular (D) PZI</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。Regular insulin 是清澈溶液、短效，可 IV；其他是混濁懸浮液，只能 SC。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">4. 是非題：Metformin 刺激 β 細胞分泌 insulin，因此可能造成嚴重低血糖。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。Metformin 不影響 insulin 分泌，是降低肝臟糖輸出、增加 insulin 敏感性，屬於「抗高血糖但不降血糖」的藥物。主要經腎臟排除，腎功能不全禁用。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">5. 一隻胰島素瘤犬發生低血糖，下列何者不適合？(A) IV glucose (B) Glucagon (C) Diazoxide (D) Octreotide</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Glucagon 會刺激腫瘤釋放 insulin，講義列為胰島素瘤（與嗜鉻細胞瘤）不可使用。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">6. 下列有關 oxytocin 的敘述何者錯誤？(A) 由下視丘製造 (B) 可誘發分娩 (C) 可增加乳汁的產量 (D) 過量可能造成難產</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。Oxytocin 讓乳汁排出（milk ejection），不是催乳劑（not galactopoietic）。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">7. 簡答：說明 sulfonylurea 與 diazoxide 對 β 細胞的作用為何正好相反。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">Sulfonylurea 關閉 ATP-敏感 K⁺ 通道 → K⁺ 留在細胞內 → 去極化 → L 型 Ca²⁺ 通道打開 → Ca²⁺ 內流 → insulin 胞吐。Diazoxide 增加同一通道的開放時間 → K⁺ 外流 → 過極化 → Ca²⁺ 通道不開 → insulin 不釋放，因此用於胰島素瘤。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">8. 簡答：為什麼甲狀腺替代療法選 levothyroxine 而不是 liothyronine？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">T4 半衰期較長、濃度穩定，由組織依需要轉成 T3，符合生理；T3 半衰期短、不符合生理，講義不建議用於替代療法。HBK 另指出 T4 能維持腦部較高的甲狀腺激素活性。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">9. 臨床情境：一隻 12 歲貓體重下降、多食、多渴多尿、心搏過速，T4 升高，BUN 與肌酸酐在參考範圍上緣。(1) 首選藥物與機轉？(2) 多久能看到效果？(3) 開始治療後要特別追蹤什麼？(4) 根治選項？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) Methimazole（PO），抑制甲狀腺過氧化酶，阻斷碘有機化與偶合；若 GI 副作用明顯可考慮 carbimazole。(2) 1–3 週，因為只抑制合成，儲存的 T4 需時間耗盡。(3) T4 是否降到參考範圍、血球（顆粒性白血球缺乏、血小板減少）、肝指數；甲亢增加腎血流，治療後腎指數可能上升，需要追蹤；治療過度會造成醫源性甲低。(4) 放射性碘（¹³¹I），講義稱為最有效、最適合的根治法；或手術切除（有傷到副甲狀腺的風險）。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">10. 臨床情境：一隻糖尿病犬以 Vetsulin 控制良好，因過敏性皮膚炎被開了 prednisolone。(1) 預期血糖會怎麼變？為什麼？(2) 如何處理？(3) 若主人自行加倍 insulin 後犬出現痙攣，第一步處置？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) 血糖上升：糖皮質素是拮抗 insulin 的激素，促進糖質新生、抑制周邊葡萄糖攝取並造成 insulin 阻抗。(2) 盡量改用不影響血糖的止癢方案（例如 lokivetmab、cyclosporine，見 <a href="類固醇藥理.html#section-immuno">類固醇藥理</a>）；若必須使用類固醇，增加血糖監測、調整 insulin，停用後再調回。(3) insulin 過量造成的低血糖：IV glucose（講義：IV glucose 或 IM glucagon），之後重新評估 insulin 劑量。</div></details>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 Hormone 1-3；HBK Ch.12；VPT10；課程考古題。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 重點摘要",
+  "drugtable": "💊 本頁藥物總覽",
+  "hypothalamic": "🧠 下視丘釋放激素",
+  "gh": "📏 生長激素",
+  "prolactin": "🍼 促性腺激素與泌乳素",
+  "diagnostic": "🔬 TSH、ACTH 與刺激試驗",
+  "posterior": "💧 後葉：Oxytocin 與 ADH",
+  "thyroidphys": "🦋 甲狀腺激素的合成與代謝",
+  "thyroidrx": "💊 甲狀腺疾病與替代療法",
+  "antithyroid": "🛑 抗甲狀腺藥物",
+  "insulin": "🧩 胰島與 Insulin",
+  "insulinprep": "💉 Insulin 製劑與糖尿病治療",
+  "oral": "💊 口服降血糖藥",
+  "hypogly": "⚡ Glucagon 與胰島素瘤用藥",
+  "clinical": "🏥 臨床整合：共病與用藥",
+  "exam": "🎓 考點整理",
+  "summary": "⭐ 學習重點整理",
+  "quiz": "📝 練習題"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

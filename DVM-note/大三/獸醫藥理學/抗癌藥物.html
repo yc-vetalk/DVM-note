@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：抗癌藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">抗癌藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">抗癌藥物 Anticancer Drugs</h1>
+      <p class="page-subtitle">癌症病因與多步驟致癌、細胞數量與合併化療原則；烷化劑與鉑類、抗代謝物、植物生物鹼、細胞毒性抗生素、L-asparaginase、荷爾蒙、NSAID 與酪胺酸激酶抑制劑；化療共通副作用與物種禁忌</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三下）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（柯喬修，〈Anticancer/Antineoplastic drugs〉Intro 7 張＋本文 59 張）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.44（Chemotherapy of Neoplastic Diseases）；課程 2025 期末考題</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-01</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對完成）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <a onclick="showSection('principles')" id="nav-principles"><span class="nav-icon">📐</span> 癌症與化療原則</a>
+    <div class="section-label" style="margin-top:8px;">藥物</div>
+    <a onclick="showSection('alkylating')" id="nav-alkylating"><span class="nav-icon">🔗</span> 烷化劑</a>
+    <a onclick="showSection('platinum')" id="nav-platinum"><span class="nav-icon">⚪</span> 鉑類：Cisplatin、Carboplatin</a>
+    <a onclick="showSection('antimetabolite')" id="nav-antimetabolite"><span class="nav-icon">🧬</span> 抗代謝物</a>
+    <a onclick="showSection('plant')" id="nav-plant"><span class="nav-icon">🌿</span> 植物生物鹼</a>
+    <a onclick="showSection('antibiotic')" id="nav-antibiotic"><span class="nav-icon">🧫</span> 細胞毒性抗生素</a>
+    <a onclick="showSection('misc')" id="nav-misc"><span class="nav-icon">🎯</span> 其他：酵素、荷爾蒙、NSAID、TKI</a>
+    <a onclick="showSection('adverse')" id="nav-adverse"><span class="nav-icon">⚠️</span> 化療共通副作用</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🏥</span> 臨床整合：物種與共病</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎓</span> 考點整理</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>化療藥物的共同目標是<strong>快速分裂的細胞</strong>——所以它們同時傷害骨髓、腸胃黏膜與毛囊，這三個就是所有化療的共通副作用。藥物依作用方式分類：<strong>烷化劑與鉑類</strong>直接在 DNA 上（鳥嘌呤 N7）接上烷基或交聯，不分細胞週期；<strong>抗代謝物</strong>偽裝成核酸原料或阻斷葉酸，專打 S 期；<strong>植物生物鹼</strong>干擾微管或拓樸異構酶，打 M 期；<strong>細胞毒性抗生素</strong>嵌入 DNA、產生自由基。每一類各有「招牌毒性」，而且<strong>物種差異非常大</strong>：cisplatin 在貓造成致命肺水腫、5-FU 在貓造成致命神經毒性、dacarbazine 貓不能用，這些都是考試與臨床最常出現的點。</p>
+        <div class="grid-4" style="margin-top:10px;">
+          <div class="card" onclick="showSection('alkylating')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">01</div><div class="card-title">Cyclophosphamide 與 acrolein</div></div>
+          <div class="card" onclick="showSection('platinum')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">02</div><div class="card-title">貓不能用 cisplatin</div></div>
+          <div class="card" onclick="showSection('antibiotic')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">03</div><div class="card-title">Doxorubicin 心毒性</div></div>
+          <div class="card" onclick="showSection('adverse')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">04</div><div class="card-title">共通副作用</div></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>Cyclophosphamide、ifosfamide 是前驅藥</strong>：肝 P450 活化 → <strong>phosphoramide mustard</strong>（真正的抗癌活性物，2025 期末考題）＋<strong>acrolein</strong>（膀胱炎）；<strong>Mesna</strong> 結合 acrolein。</li>
+          <li><strong>Cisplatin</strong>：強烈嘔吐與腎毒性；<strong>貓禁用（致命肺毒性）</strong>。<strong>Carboplatin</strong>：貓可安全使用、較少嘔吐與腎毒性（2025 期末考題），劑量限制毒性為骨髓抑制。</li>
+          <li><strong>抗代謝物專打 S 期</strong>：purine 拮抗劑（6-MP、<strong>6-TG</strong>，2025 期末考題）、pyrimidine 拮抗劑（5-FU、Ara-C、gemcitabine）、葉酸拮抗劑（methotrexate，解毒劑 leucovorin）。<strong>5-FU 貓禁用（致命神經毒性）</strong>。</li>
+          <li><strong>Vinca 生物鹼</strong>（vincristine、vinblastine）讓微管解聚 → 有絲分裂停滯；<strong>可治癒犬傳染性性病腫瘤（CTVT）</strong>；外滲造成組織壞死。<strong>Taxanes</strong> 相反，讓微管不能解聚。</li>
+          <li><strong>Doxorubicin</strong>：獸醫最常用的抗癌抗生素；<strong>累積性心毒性</strong>（自由基＋鐵在心肌粒線體累積）→ 犬累積劑量上限；<strong>Dexrazoxane 螯合鐵</strong>保護心臟（2025 期末考題）；只能 IV（外滲壞死）。</li>
+          <li><strong>Bleomycin</strong> 不太抑制骨髓與腸胃，劑量限制毒性是<strong>肺纖維化</strong>；<strong>L-asparaginase</strong> 利用腫瘤缺乏 asparagine synthase，用於犬淋巴瘤，主要風險是過敏。</li>
+          <li><strong>Toceranib</strong>（c-KIT、PDGFR、VEGFR 抑制）用於無法手術的犬肥大細胞瘤；<strong>Piroxicam</strong> 用於移行上皮細胞癌等。</li>
+          <li><strong>劑量依體表面積（mg/m²）</strong>，但會高估小型動物的代謝率 → 小型犬與貓用 doxorubicin 容易過量（VPT10：&lt;15 kg 犬與所有貓改用 1 mg/kg）。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Anticancer/Antineoplastic drugs〉；VPT10 Ch.44；課程 2025 期末考。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽</h2></div>
+      <p class="section-desc">劑量取自 VPT10 Ch.44（以體表面積 mg/m² 表示）；化療劑量與流程必須依院內腫瘤科規範，這裡只作為了解途徑與尺度的參考。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>類別／機轉</th><th>途徑與參考劑量（VPT10）</th><th>主要用途</th><th>招牌毒性</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cyclophosphamide</strong></td><td>Nitrogen mustard 烷化劑（前驅藥）</td><td><strong>PO 或 IV</strong>；犬 250 mg/m² 單次或分次 50 mg/m²；節拍化療 10–15 mg/m²/day</td><td>淋巴瘤等多種腫瘤；免疫抑制</td><td>骨髓抑制、<strong>無菌性出血性膀胱炎</strong>（acrolein）</td></tr>
+          <tr><td><strong>Ifosfamide</strong></td><td>同上</td><td><strong>IV</strong>，配合 saline 利尿與 mesna</td><td>犬貓淋巴瘤、軟組織肉瘤</td><td>腎毒性、膀胱炎</td></tr>
+          <tr><td><strong>Chlorambucil</strong></td><td>Nitrogen mustard</td><td><strong>PO</strong></td><td>白血病、淋巴瘤；免疫抑制；發生膀胱炎時取代 cyclophosphamide</td><td>骨髓抑制</td></tr>
+          <tr><td><strong>Melphalan</strong></td><td>Nitrogen mustard</td><td><strong>PO</strong></td><td>多發性骨髓瘤</td><td>骨髓抑制</td></tr>
+          <tr><td><strong>Mechlorethamine</strong></td><td>Nitrogen mustard</td><td>IV（現配，t½ 數分鐘）</td><td>很少用</td><td>明顯 GI 毒性</td></tr>
+          <tr><td><strong>Lomustine（CCNU）、Carmustine</strong></td><td>Nitrosourea 烷化劑，高脂溶性</td><td>CCNU <strong>PO</strong>：犬 70–80 mg/m² q3wk、貓 50–60 mg/m² q4–6wk</td><td>犬 CNS 腫瘤、復發淋巴瘤、肥大細胞瘤</td><td>犬累積性<strong>肝毒性</strong>；嚴重嗜中性球減少</td></tr>
+          <tr><td><strong>Streptozotocin</strong></td><td>Nitrosourea，選擇性作用 β 細胞</td><td>IV，配合 saline 利尿</td><td>犬胰島素瘤</td><td>腎毒性、低血糖</td></tr>
+          <tr><td><strong>Procarbazine</strong></td><td>肝活化成烷化中間物；口服吸收好、穿 BBB</td><td><strong>PO</strong></td><td>犬復發淋巴瘤、腦瘤（合併用藥）</td><td>—</td></tr>
+          <tr><td><strong>Dacarbazine</strong></td><td>同 procarbazine</td><td><strong>IV</strong>，先給止吐藥</td><td>復發淋巴瘤、上皮趨向性淋巴瘤</td><td><strong>貓不可用</strong>（肝代謝不足）</td></tr>
+          <tr><td><strong>Cisplatin</strong></td><td>鉑類：DNA 交聯（鳥嘌呤 N7）</td><td><strong>IV</strong>，給藥前 4 h、後 2 h saline 利尿；犬 50–70 mg/m² q3wk</td><td>癌、肉瘤、黑色素瘤；生殖泌尿道腫瘤</td><td><strong>嘔吐、腎毒性；貓禁用（致命肺水腫）</strong></td></tr>
+          <tr><td><strong>Carboplatin</strong></td><td>Cisplatin 類似物</td><td><strong>IV</strong>（不需 saline 利尿）；犬 300、貓 240 mg/m² q3wk；可混芝麻油瘤內注射</td><td>同 cisplatin；黑色素瘤較有效；犬骨肉瘤（併 doxorubicin）</td><td>骨髓抑制（第 14 天最低點）、GI</td></tr>
+          <tr><td><strong>Mercaptopurine（6-MP）、Thioguanine（6-TG）</strong></td><td>Purine 拮抗劑</td><td>PO</td><td>犬貓白血病；類似物 azathioprine 為免疫抑制劑</td><td>白血球、血小板減少</td></tr>
+          <tr><td><strong>5-Fluorouracil</strong></td><td>Pyrimidine 拮抗劑 → FdUMP 抑制 thymidylate synthase</td><td><strong>IV、瘤內、局部</strong>；犬 150 mg/m² IV 每週</td><td>各種癌</td><td>骨髓、GI；<strong>貓禁用（致命神經毒性）</strong></td></tr>
+          <tr><td><strong>Cytarabine（Ara-C）</strong></td><td>Pyrimidine 拮抗劑，Ara-CTP 插入 DNA</td><td><strong>IV 持續輸注</strong>數小時（代謝以分鐘計）；SC</td><td>犬貓白血病、淋巴瘤；<strong>CNS 淋巴瘤</strong>（穿 BBB）；犬腦脊髓膜炎</td><td>骨髓抑制</td></tr>
+          <tr><td><strong>Gemcitabine</strong></td><td>Pyrimidine 拮抗劑；dFdCDP 抑制核糖核苷酸還原酶</td><td><strong>IV 緩慢輸注</strong></td><td>各種癌</td><td>骨髓抑制</td></tr>
+          <tr><td><strong>Methotrexate</strong></td><td>葉酸拮抗劑，抑制 DHFR</td><td>PO／注射</td><td>淋巴瘤、癌、肉瘤；類風濕性關節炎（免疫抑制）</td><td>GI（骨髓較少）；過量解毒劑 <strong>leucovorin</strong></td></tr>
+          <tr><td><strong>Vincristine、Vinblastine</strong></td><td>Vinca：微管解聚 → M 期停滯</td><td><strong>IV only</strong>；vincristine 0.5–0.75 mg/m² 每週</td><td><strong>CTVT（可治癒）</strong>、淋巴瘤、肥大細胞瘤（vinblastine）</td><td>白血球減少、神經毒性；<strong>外滲壞死</strong></td></tr>
+          <tr><td><strong>Vinorelbine</strong></td><td>半合成 vinca</td><td>IV</td><td>犬貓肺癌</td><td>—</td></tr>
+          <tr><td><strong>Paclitaxel、Docetaxel</strong></td><td>Taxane：穩定微管</td><td>IV</td><td>人卵巢癌、乳癌；Paccal Vet</td><td>骨髓抑制；溶劑 cremophor EL 過敏</td></tr>
+          <tr><td><strong>Etoposide、Teniposide</strong></td><td>Topoisomerase II 抑制</td><td><strong>犬 PO</strong>（不 IV：polysorbate 80 過敏）</td><td>血管肉瘤（持續低劑量）</td><td>輕度血液與 GI</td></tr>
+          <tr><td><strong>Doxorubicin</strong>（Adriamycin）</td><td>Anthracycline：DNA 嵌入、topo II、自由基</td><td><strong>IV only</strong>：犬 30 mg/m² q3wk（&lt;15 kg 犬與貓 1 mg/kg），20–30 分鐘緩慢輸注</td><td>廣譜：淋巴瘤、骨肉瘤、血管肉瘤等</td><td><strong>累積性心毒性</strong>、骨髓、掉毛、外滲壞死；貓腎衰竭</td></tr>
+          <tr><td><strong>Mitoxantrone</strong></td><td>合成 anthracenedione</td><td><strong>IV</strong> 5–6 mg/m²</td><td>譜較窄</td><td>骨髓、GI；犬貓無心毒性報告</td></tr>
+          <tr><td><strong>Dexrazoxane</strong></td><td>EDTA 衍生物，螯合鐵</td><td>IV（與 anthracycline 併用）</td><td>心臟保護</td><td>—</td></tr>
+          <tr><td><strong>Bleomycin</strong></td><td>DNA 斷裂＋自由基</td><td>注射</td><td>犬貓鱗狀上皮細胞癌、淋巴瘤</td><td><strong>肺纖維化</strong>（劑量限制）</td></tr>
+          <tr><td><strong>L-Asparaginase</strong></td><td>耗盡 asparagine</td><td><strong>IV 或 IM</strong>（IM 不刺激組織、過敏較少）</td><td>犬淋巴瘤、部分肥大細胞瘤</td><td><strong>過敏</strong>（建議先測試劑量）</td></tr>
+          <tr><td><strong>Prednisolone、Dexamethasone</strong></td><td>糖皮質素</td><td>PO／注射</td><td>肥大細胞瘤、白血病、淋巴瘤；腦轉移水腫</td><td>快速產生抗藥性</td></tr>
+          <tr><td><strong>Tamoxifen</strong></td><td>ER 部分促效-拮抗劑</td><td>PO</td><td>犬乳腺腫瘤</td><td>—</td></tr>
+          <tr><td><strong>Piroxicam</strong></td><td>NSAID（COX-1／COX-2）</td><td><strong>PO</strong></td><td>移行上皮細胞癌、鱗狀上皮細胞癌、乳腺與鼻腔癌</td><td>GI 與腎毒性（貓較嚴重）</td></tr>
+          <tr><td><strong>Toceranib</strong>（Palladia®）</td><td>TKI：c-KIT、PDGFR、VEGFR</td><td><strong>PO</strong> q48h（t½ 30 h、吸收 75%）</td><td>無法手術的犬肥大細胞瘤；部分癌與肉瘤</td><td>—</td></tr>
+          <tr><td><strong>Masitinib</strong></td><td>TKI：c-KIT、PDGFR、FGFR3</td><td>PO</td><td>肥大細胞瘤</td><td>GI、腎、肝、輕度嗜中性球減少</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.44。本頁為個人課堂筆記整理，不作為正式診斷依據；化療劑量必須依院內腫瘤科規範。</footer>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="section-principles">
+      <div class="section-head"><div class="section-num">3</div><h2>癌症與化療原則</h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">影響癌症的因素</div><p>遺傳、年齡、性別與物種；病毒（B 型肝炎病毒、乳突病毒 → 癌症疫苗）；環境與化學致癌物（菸草成分、PM2.5、<strong>黃麴毒素</strong>、苯、戴奧辛、多氯聯苯）。</p></div>
+        <div class="card"><div class="card-title">多步驟致癌（大腸癌）</div><p>APC 抑癌基因（5q）→ Ras 原致癌基因（12）→ DCC 抑癌基因（18）→ <strong>p53</strong> 抑癌基因（17）→ 其他染色體變化；從正常細胞、腺瘤 I–III、癌到轉移。</p></div>
+      </div>
+      <h3>為什麼化療要合併用藥</h3>
+      <div class="flow">
+        <div class="flow-node">腫瘤負荷可達 10¹² 個細胞</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">殺死 99.9%（3 log）達到臨床緩解</div><span class="flow-arrow">→</span>
+        <div class="flow-node danger">仍剩 10⁹ 個細胞</div>
+      </div>
+      <p>相比之下，細菌感染殺死 99.9% 可能就治癒了。所以化療要：</p>
+      <ul>
+        <li><strong>合併用藥</strong>：毒性不同、機轉不同、有協同作用；加上手術與放射治療（多模式治療）。</li>
+        <li>藥物之間<strong>不共用抗藥機轉</strong>、主要毒性<strong>不重疊</strong>。</li>
+        <li>接近各藥最大劑量使用（最大化劑量強度），追求最大細胞殺滅。</li>
+        <li><strong>劑量以體表面積（BSA，mg/m²）計算</strong>，但<strong>會高估小型動物的代謝率</strong> → doxorubicin 在小型動物毒性增加。VPT10：&lt;15 kg 犬與所有貓改用 1 mg/kg。</li>
+      </ul>
+      <ul>
+        <li>治療方式：手術、放射、化療、免疫治療、標靶治療；藥物治療以化療與標靶（後者主要在人醫）。</li>
+        <li>化療即使在轉移時也可能治癒；但某些癌對現有藥物較有抗性（肺癌、大腸癌）。</li>
+      </ul>
+      <h3>細胞週期與藥物</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>期別</th><th>內容</th><th>作用於此期的藥</th></tr></thead>
+        <tbody>
+          <tr><td>G1</td><td>RNA／蛋白質合成（p53 在此檢查 DNA 損傷）</td><td>—</td></tr>
+          <tr><td><strong>S</strong></td><td>DNA 合成</td><td><strong>抗代謝物</strong>（6-MP、5-FU、Ara-C、gemcitabine、methotrexate）</td></tr>
+          <tr><td>G2</td><td>分裂前 RNA／蛋白質合成</td><td>Bleomycin、etoposide（topo II）</td></tr>
+          <tr><td><strong>M</strong></td><td>有絲分裂</td><td><strong>Vinca、taxanes</strong></td></tr>
+          <tr><td>G0</td><td>休止期</td><td>—</td></tr>
+          <tr><td>不分週期</td><td>—</td><td><strong>烷化劑、鉑類</strong>、anthracyclines</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義（Intro p1–7；本文 p27、p38）；VPT10 Ch.44。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="section-alkylating">
+      <div class="section-head"><div class="section-num">4</div><h2>烷化劑 Alkylating Agents<span class="tag tag-exam">重要</span></h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗癌藥物/cyclophosphamide.svg" alt="Cyclophosphamide 結構式"><div class="figure-caption">Cyclophosphamide：兩條 2-氯乙基（雙功能烷化 → DNA 交聯）</div></div>
+        <div class="card"><div class="card-title">共同特性（講義）</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li>具細胞毒性，多數也致癌</li><li><strong>不分細胞週期</strong></li><li>轉移烷基到 DNA，主要位置是<strong>鳥嘌呤 N7</strong></li><li>雙功能（dialkylating）→ 同股或兩股<strong>交聯</strong></li><li>毒性：劑量相關，影響所有快速分裂細胞；<strong>骨髓抑制為劑量限制毒性</strong>；1 小時內噁心嘔吐</li></ul></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <h3>Cyclophosphamide 與 Ifosfamide 的活化</h3>
+      <div class="flow">
+        <div class="flow-node">Cyclophosphamide／Ifosfamide（前驅藥）</div><span class="flow-arrow">→ 肝 P450 →</span>
+        <div class="flow-node">4-hydroxycyclophosphamide ⇌ aldophosphamide</div><span class="flow-arrow">→</span>
+        <div class="flow-node green"><strong>Phosphoramide mustard</strong>（抗癌活性）</div><span class="flow-arrow">＋</span>
+        <div class="flow-node danger"><strong>Acrolein</strong>（膀胱毒性）← Mesna 結合</div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：無菌性出血性膀胱炎</div>
+        <p>Cyclophosphamide 的代謝物 acrolein 刺激膀胱 → 犬貓膀胱炎，長期可能造成<strong>膀胱移行上皮細胞癌</strong>。預防：<strong>mesna（2-mercaptoethane sulfonate）結合 acrolein</strong>。VPT10：犬較貓常見；<strong>同時 IV furosemide</strong> 可降低犬的發生率；在家口服時要早上給、多喝水、讓動物有充分機會排尿。發生膀胱炎時以 <strong>chlorambucil</strong> 取代。Ifosfamide 另有<strong>腎毒性</strong>，以 saline 利尿降低。</p>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>藥物</th><th>重點（講義）</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="4"><strong>Nitrogen mustards</strong></td><td>Mechlorethamine</td><td>不穩定需現配、IV、t½ 數分鐘、GI 毒性明顯，很少用</td></tr>
+          <tr><td>Melphalan</td><td>口服，多發性骨髓瘤</td></tr>
+          <tr><td>Cyclophosphamide</td><td>口服，獸醫廣泛使用</td></tr>
+          <tr><td>Chlorambucil</td><td>口服，白血病與淋巴瘤；也是免疫抑制劑；<strong>cyclophosphamide 膀胱炎時的替代</strong></td></tr>
+          <tr><td rowspan="2"><strong>Nitrosoureas</strong></td><td>Carmustine、<strong>Lomustine</strong></td><td><strong>高脂溶性 → 犬 CNS 腫瘤</strong>；犬復發淋巴瘤、肥大細胞瘤；犬<strong>累積劑量相關肝毒性</strong>（肝病禁用）；犬貓嚴重嗜中性球減少。VPT10：近 90% 犬肝指數上升，可併用 denamarin（SAMe＋silybin）減少</td></tr>
+          <tr><td>Streptozotocin</td><td>選擇性作用 <strong>β 細胞</strong> → 只用於<strong>犬胰島素瘤</strong>；腎毒性（saline 利尿）、低血糖</td></tr>
+          <tr><td rowspan="2"><strong>其他</strong></td><td>Procarbazine</td><td>肝活化成高反應烷化中間物；口服吸收好、穿 BBB；犬復發淋巴瘤與腦瘤</td></tr>
+          <tr><td>Dacarbazine</td><td>機轉同 procarbazine；復發淋巴瘤、上皮趨向性淋巴瘤；IV、先給止吐藥；<strong>貓不可用</strong>（肝代謝不足）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p9–19；VPT10 Ch.44；課程 2025 期末考。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="section-platinum">
+      <div class="section-head"><div class="section-num">5</div><h2>鉑類：Cisplatin 與 Carboplatin<span class="tag tag-exam">必考</span></h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗癌藥物/cisplatin.svg" alt="Cisplatin 結構式"><div class="figure-caption">Cisplatin：順式 Pt(NH₃)₂Cl₂</div></div>
+        <div class="figure"><img src="img/抗癌藥物/carboplatin.svg" alt="Carboplatin 結構式"><div class="figure-caption">Carboplatin：氯被環丁烷二羧酸取代 → 離去較慢、毒性較低</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。Cisplatin 是 1965 年電解實驗中從鉑電極釋出、意外發現能抑制大腸桿菌增殖，1978 年 FDA 核准（Barnett Rosenberg）。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Cisplatin</th><th>Carboplatin</th></tr></thead>
+        <tbody>
+          <tr><td>機轉</td><td colspan="2">DNA 交聯（鳥嘌呤 N7）、抑制 DNA 合成</td></tr>
+          <tr><td>用途</td><td>生殖泌尿道腫瘤：癌、肉瘤、黑色素瘤；睪丸、卵巢、膀胱；人併 bleomycin＋vinblastine 可治癒非精原細胞瘤</td><td>與 cisplatin 相似；<strong>對移行上皮細胞癌較差、對惡性黑色素瘤較好</strong>；VPT10：併 doxorubicin 治犬四肢骨肉瘤</td></tr>
+          <tr><td>給藥</td><td><strong>IV 輸注</strong>；VPT10：給藥前 4 h、後 2 h 生理食鹽水利尿</td><td><strong>IV，不需 saline 利尿</strong>；瘤內注射（混芝麻油）</td></tr>
+          <tr><td>主要毒性</td><td><strong>嘔吐（最強的催吐化療藥）、強腎毒性</strong>；輕度骨髓</td><td>GI 與<strong>骨髓抑制</strong>（劑量限制，嗜中性球最低點約第 14 天）；嘔吐與腎毒性較輕</td></tr>
+          <tr><td>貓</td><td><strong>禁用：致命肺毒性</strong>（VPT10：猛爆性肺水腫）</td><td><strong>可安全使用</strong></td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <p>2025 期末考第 7 題：carboplatin 相較 cisplatin 的主要特點 → <strong>貓的耐受性較佳</strong>。VPT10 也指出 cisplatin 需要長時間利尿、嘔吐常見，所以臨床常改用 carboplatin。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p20–25；VPT10 Ch.44；課程 2025 期末考。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="section-antimetabolite">
+      <div class="section-head"><div class="section-num">6</div><h2>抗代謝物 Antimetabolites（S 期專一）</h2></div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/抗癌藥物/mercaptopurine.svg" alt="Mercaptopurine 結構式"><div class="figure-caption">6-Mercaptopurine：purine 的 6 位換成 -SH</div></div>
+        <div class="figure"><img src="img/抗癌藥物/fluorouracil.svg" alt="5-FU 結構式"><div class="figure-caption">5-Fluorouracil：uracil 的 5 位換成 F</div></div>
+        <div class="figure"><img src="img/抗癌藥物/uracil.svg" alt="Uracil 結構式"><div class="figure-caption">Uracil（天然）：對照 5-FU</div></div>
+        <div class="figure"><img src="img/抗癌藥物/cytarabine.svg" alt="Cytarabine 結構式"><div class="figure-caption">Cytarabine：cytosine＋arabinose（2'-OH 方向相反）</div></div>
+        <div class="figure"><img src="img/抗癌藥物/methotrexate.svg" alt="Methotrexate 結構式"><div class="figure-caption">Methotrexate：pteridine 環接 PABA 與麩胺酸</div></div>
+        <div class="figure"><img src="img/抗癌藥物/folic_acid.svg" alt="Folic acid 結構式"><div class="figure-caption">Folic acid：對照 methotrexate，結構幾乎相同</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。抗代謝物的設計原理就是「長得像原料」：5-FU 像 uracil、methotrexate 像葉酸、6-MP 像 purine。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>藥物</th><th>機轉</th><th>用途</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2"><strong>Purine 拮抗劑</strong></td><td>6-MP、<strong>6-TG</strong></td><td>磷酸化成 6-thioinosinic acid → 抑制 DNA、RNA 合成</td><td>犬貓白血病；類似物 <strong>azathioprine</strong> 為免疫抑制劑</td><td>肝代謝腎排除：6-MP 經 <strong>xanthine oxidase</strong> 成 6-thiouric acid；6-TG 甲基化（活性較低）；白血球、血小板減少</td></tr>
+          <tr><td colspan="4" style="font-size:.85em;color:var(--fg-faint);">※ 2025 期末考第 6 題：purine 拮抗劑 → <strong>thioguanine</strong>（adriamycin 為抗生素、Ara-C 為 pyrimidine 拮抗劑、methotrexate 為葉酸拮抗劑）。</td></tr>
+          <tr><td rowspan="3"><strong>Pyrimidine 拮抗劑</strong></td><td><strong>5-FU</strong></td><td>① FdUMP 抑制 <strong>thymidylate synthase</strong>（dUMP→dTMP 被擋，dTTP 耗竭）；② FdUTP 插入 DNA；③ FUTP 干擾 RNA</td><td>癌；IV、瘤內、局部</td><td>骨髓、GI；<strong>貓致命神經毒性 → 禁用</strong></td></tr>
+          <tr><td><strong>Cytarabine（Ara-C）</strong></td><td>Ara-CTP 插入 DNA → 阻斷鏈延長</td><td>犬貓白血病、淋巴瘤；<strong>穿 BBB → CNS 淋巴瘤</strong></td><td>代謝以分鐘計 → 需數小時<strong>持續輸注</strong>；骨髓抑制</td></tr>
+          <tr><td><strong>Gemcitabine</strong></td><td>dFdCDP 抑制核糖核苷酸還原酶；dFdCTP 插入 DNA</td><td>各種癌</td><td>緩慢 IV 提高效果；腎排除；骨髓抑制</td></tr>
+          <tr><td><strong>葉酸拮抗劑</strong></td><td><strong>Methotrexate</strong></td><td>抑制 <strong>DHFR</strong> → 四氫葉酸耗竭</td><td>淋巴瘤、癌、肉瘤；類風濕性關節炎（免疫抑制）</td><td>腎排除、不經肝代謝；GI 為主、骨髓較少；人大劑量致命 → <strong>leucovorin</strong>（N⁵-formyl THF，folinic acid）數小時內解救</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">為什麼 leucovorin 能解救 methotrexate</div>
+        <p>Methotrexate 擋的是 DHFR（把二氫葉酸還原成四氫葉酸那一步）。Leucovorin 本身<strong>已經是四氫葉酸的形式</strong>，繞過被擋住的 DHFR，直接補上下游需要的一碳單位，讓正常細胞得以合成核酸。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p26–37；VPT10 Ch.44；課程 2025 期末考。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="section-plant">
+      <div class="section-head"><div class="section-num">7</div><h2>植物生物鹼 Plant Alkaloids</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>機轉</th><th>用途</th><th>藥動與毒性</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vinca 生物鹼</strong>（vinblastine、vincristine）</td><td><strong>微管解聚</strong> → 有絲分裂停滯、染色體無法分離</td><td><strong>治癒犬傳染性性病腫瘤（CTVT）</strong>；肉瘤、癌、淋巴瘤；肥大細胞瘤（vinblastine 單用或合併）</td><td>肝代謝、膽汁糞便排出；白血球與嗜中性球減少、神經毒性；<strong>外滲 → 組織壞死</strong>（只能 IV）</td></tr>
+          <tr><td>Vinorelbine</td><td>半合成 vinca</td><td>犬貓肺癌</td><td>—</td></tr>
+          <tr><td><strong>Taxanes</strong>（paclitaxel、docetaxel）</td><td>高濃度：<strong>抑制微管解聚（穩定化）</strong>、抑制紡錘體；低濃度：染色體錯誤分離</td><td>人卵巢癌、乳癌</td><td>骨髓抑制、貓厭食；溶劑 <strong>cremophor EL</strong>（聚氧乙基蓖麻油）造成過敏；<strong>Paccal Vet</strong> 改用水溶性微胞，耐受性與效果良好</td></tr>
+          <tr><td><strong>Epipodophyllotoxins</strong>（etoposide、teniposide）</td><td>結合 <strong>topoisomerase II</strong> → 抑制 DNA 複製、轉錄</td><td>持續低劑量治療血管肉瘤</td><td><strong>犬 PO，不 IV</strong>（溶劑 polysorbate 80 過敏）；肝葡萄糖醛酸結合後經尿；輕度血液與 GI</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：微管兩種方向</div>
+        <p><strong>Vinca 讓微管散掉</strong>（解聚）；<strong>taxane 讓微管散不掉</strong>（穩定）。兩者都讓紡錘體無法正常運作 → M 期停滯。另外，抗黴菌藥 griseofulvin 也作用在微管（見 <a href="抗黴菌藥物.html#section-griseofulvin">抗黴菌藥物</a>）。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p38–43。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="section-antibiotic">
+      <div class="section-head"><div class="section-num">8</div><h2>細胞毒性抗生素<span class="tag tag-exam">重要</span></h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗癌藥物/doxorubicin.svg" alt="Doxorubicin 結構式"><div class="figure-caption">Doxorubicin：四環 anthracycline（醌類 → 氧化還原循環產生自由基）＋胺基糖</div></div>
+        <div class="card"><div class="card-title">Anthracyclines</div><p>來自 <em>Streptomyces</em>：doxorubicin、daunorubicin、epirubicin；mitoxantrone 為合成品。<strong>Doxorubicin 是獸醫最常用的</strong>，劑量受嚴重心毒性限制。</p><p><strong>機轉</strong>：topoisomerase II 抑制、<strong>DNA 嵌入</strong>、抑制 DNA 與 RNA 聚合酶；doxorubicin 另產生<strong>自由基</strong>。</p></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <h3>Doxorubicin（Adriamycin）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>面向</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td>來源</td><td><em>Streptomyces peucetius</em>；1974 年核准；廣譜抗癌</td></tr>
+          <tr><td>途徑</td><td><strong>只能 IV</strong>：口服不吸收；SC、IM 或外滲造成嚴重組織壞死</td></tr>
+          <tr><td>藥動學</td><td>廣泛分布但不進 CNS；肝 aldo-keto reductase 代謝成活性 doxorubicinol；經膽汁糞便排除；犬三相排除（0.04 h、0.44 h、19.8 h；代謝物 30 h，可能是組織蛋白緩慢釋出）</td></tr>
+          <tr><td>副作用</td><td>骨髓抑制、掉毛、厭食、嘔吐；<strong>心毒性</strong>（自由基＋鐵累積在心肌粒線體）→ 心律不整、心衰竭、心肌病變；VPT10 另列貓腎衰竭、快速推注時的組織胺釋放反應</td></tr>
+          <tr><td>累積劑量上限</td><td><strong>犬 180–240 mg/m²（約 5 個療程）</strong>；人 300 mg/m²（講義）。VPT10：犬累積超過 180–240 mg/m² 時出現擴張型心肌病變，實務上常把終身上限設在 150 mg/m²</td></tr>
+          <tr><td>減少心毒性</td><td><strong>微脂體劑型</strong>（t½ 延長、心毒性下降）；<strong>Dexrazoxane</strong>：EDTA 衍生物，水解成活性形後<strong>螯合鐵</strong> → 減少鐵-anthracycline 複合物與自由基生成</td></tr>
+          <tr><td>標準劑量（VPT10）</td><td>犬 30 mg/m² 稀釋於 50–100 mL saline，20–30 分鐘 IV，每 3 週；&lt;15 kg 犬與所有貓 1 mg/kg（BSA 計算會讓小型動物過量）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">Mitoxantrone（合成）</div><p>機轉同 anthracycline；譜比 doxorubicin 窄；劑量限制為骨髓抑制與 GI；<strong>犬貓沒有心毒性報告</strong>。</p></div>
+        <div class="card"><div class="card-title">Bleomycin</div><p>醣胜肽混合物（<em>Streptomyces verticillus</em>，1962）；造成 DNA 斷裂並產生自由基；<strong>幾乎不影響骨髓與 GI</strong> → 適合放在多藥方案中；<strong>劑量限制毒性為肺纖維化</strong>；皮膚色素沉著、搔癢紅斑；犬貓鱗狀上皮細胞癌與淋巴瘤。其他抗生素：dactinomycin、plicamycin、mitomycin。</p></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">※ 人的手足症候群（化療引起的肢端紅斑）：機轉不明，維生素 B6 可減輕（講義）。</p>
+      <footer class="note-footer">資料來源：NTU 講義 p44–51；VPT10 Ch.44；課程 2025 期末考。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="section-misc">
+      <div class="section-head"><div class="section-num">9</div><h2>其他：酵素、荷爾蒙、NSAID、TKI</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>機轉</th><th>用途</th><th>注意（講義）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>L-Asparaginase</strong></td><td>來自大腸桿菌等細菌；腫瘤 <strong>asparagine synthase 很低</strong> → 耗盡 asparagine 殺死腫瘤</td><td><strong>犬淋巴瘤</strong>、部分肥大細胞瘤</td><td>IV 或 IM（IM 無組織刺激）；<strong>過敏</strong>（IV 較常見，建議先給測試劑量）：發燒、蕁麻疹、過敏性休克；PEG 結合可避免被網狀內皮細胞攝取</td></tr>
+          <tr><td><strong>糖皮質素</strong>（prednisolone、dexamethasone）</td><td>—</td><td>肥大細胞瘤、白血病、淋巴瘤</td><td>快速產生抗藥性（出現缺乏 GR 的細胞族群）；也用來處理其他藥物的副作用（過敏、出血性膀胱炎）；dexamethasone 緩解末期疼痛與腦轉移水腫</td></tr>
+          <tr><td><strong>性荷爾蒙</strong></td><td>—</td><td>乳癌、攝護腺癌</td><td>—</td></tr>
+          <tr><td><strong>Tamoxifen</strong></td><td>ER 部分促效-拮抗劑，對 ER 選擇性高</td><td>人 ER 陽性乳癌與化學預防；<strong>犬乳腺腫瘤</strong></td><td>副作用輕（見 <a href="性腺與生殖賀爾蒙藥物.html#section-estrogen">性腺與生殖賀爾蒙藥物</a>）</td></tr>
+          <tr><td><strong>Piroxicam</strong> 與其他 NSAID</td><td>抑制 COX-1、COX-2；許多腫瘤過度表現 COX-2；抗癌機轉不明</td><td>犬貓<strong>膀胱移行上皮細胞癌</strong>、鱗狀上皮細胞癌、乳腺癌、鼻腔癌；部分研究延長攝護腺癌犬存活</td><td>GI 與腎毒性，<strong>貓較嚴重</strong>（見 <a href="NSAID非類固醇消炎藥.html">NSAID</a>）</td></tr>
+          <tr><td><strong>Toceranib</strong>（Palladia®）</td><td>小分子 TKI：c-KIT、PDGFR、VEGFR（抗血管新生）；VPT10 另列 FLT3、CSF1R</td><td><strong>無法手術的犬肥大細胞瘤</strong>；部分癌與肉瘤</td><td>口服吸收 75%、t½ 30 h → <strong>隔日給藥</strong>。VPT10：轉移或復發的中高等級 MCT 整體反應率約 60%，c-KIT 有活化突變者反應率加倍</td></tr>
+          <tr><td><strong>Masitinib</strong></td><td>TKI：c-KIT、PDGFR、FGFR3</td><td>肥大細胞瘤</td><td>GI、腎、肝副作用、輕度嗜中性球減少</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p52–56；VPT10 Ch.44。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="section-adverse">
+      <div class="section-head"><div class="section-num">10</div><h2>化療共通副作用</h2></div>
+      <p class="section-desc">化療藥物對所有快速分裂的細胞都有毒性：<strong>骨髓、毛囊、腸胃道</strong>；輸注期間也可能發生過敏。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>副作用</th><th>重點（講義）</th><th>處理</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. 噁心嘔吐</strong></td><td>化療的主要副作用；刺激 <strong>CTZ</strong> 與<strong>腸胃化學受器（5-HT3）</strong>；不同藥物催吐程度不同，<strong>cisplatin 最強</strong></td><td><strong>事先給止吐藥</strong>（ondansetron、maropitant 等，見 <a href="腸胃道用藥.html">腸胃道用藥</a>）</td></tr>
+          <tr><td><strong>2. 骨髓抑制</strong></td><td><strong>最常見的劑量限制毒性</strong>；白血球減少 → 感染風險上升；血小板減少較少成為劑量限制；貧血</td><td>造血生長因子：G-CSF、GM-CSF</td></tr>
+          <tr><td><strong>3. 掉毛</strong></td><td>人非常困擾、通常可逆；明顯掉毛的藥：cyclophosphamide、dactinomycin、doxorubicin、paclitaxel、vincristine</td><td><strong>與飼主溝通</strong>；VPT10：cyclophosphamide 可讓貓掉鬍鬚</td></tr>
+          <tr><td><strong>4. 組織壞死</strong></td><td>細胞毒性藥物<strong>外滲</strong>；可在治療後 2–4 週才出現；最嚴重：<strong>doxorubicin、vinca 生物鹼</strong></td><td>確保靜脈導管通暢、只 IV</td></tr>
+          <tr><td>過敏</td><td>輸注期間可能發生（L-asparaginase、paclitaxel 溶劑、etoposide 溶劑）</td><td>測試劑量、改變途徑或劑型</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p57–59；VPT10 Ch.44。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">11</div><h2>臨床整合：物種與共病</h2></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">貓禁用或高風險的抗癌藥（必背）</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>Cisplatin</strong>：致命肺毒性（猛爆性肺水腫）→ 改用 carboplatin</li>
+          <li><strong>5-FU</strong>：致命神經毒性</li>
+          <li><strong>Dacarbazine</strong>：肝代謝不足</li>
+          <li><strong>Doxorubicin</strong>：以 mg/kg 而非 mg/m² 給藥；VPT10 列出可能造成貓腎衰竭</li>
+          <li><strong>Piroxicam 等 NSAID</strong>：GI 與腎毒性較嚴重</li>
+        </ul>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>病患狀況</th><th>避免或謹慎</th><th>理由</th></tr></thead>
+        <tbody>
+          <tr><td><strong>心臟病</strong>（如擴張型心肌病、易感品種）</td><td>Doxorubicin</td><td>累積性心毒性；考慮 dexrazoxane、微脂體劑型，或改用 mitoxantrone</td></tr>
+          <tr><td><strong>肝病</strong></td><td>Lomustine、carmustine</td><td>累積性肝毒性（講義：肝病禁用）</td></tr>
+          <tr><td><strong>腎病</strong></td><td>Cisplatin、ifosfamide、streptozotocin、methotrexate、piroxicam</td><td>腎毒性或腎排除</td></tr>
+          <tr><td><strong>肺病</strong></td><td>Bleomycin</td><td>肺纖維化</td></tr>
+          <tr><td><strong>膀胱炎病史</strong></td><td>Cyclophosphamide</td><td>Acrolein；改用 chlorambucil，或併用 mesna、furosemide</td></tr>
+          <tr><td><strong>MDR1 突變犬</strong>（Collie 等）</td><td>Vincristine、vinblastine、doxorubicin 等 P-gp 受質</td><td>P-gp 缺陷 → 毒性增加（見 <a href="藥理學總論.html">藥理學總論</a> P-gp 段落）。此項為臨床常規提醒，非講義內容</td></tr>
+          <tr><td><strong>骨髓已抑制</strong>（白血球低）</td><td>多數細胞毒性藥物</td><td>延後療程或減量；bleomycin、L-asparaginase、vincristine 骨髓抑制較輕</td></tr>
+          <tr><td><strong>使用 azathioprine 或 6-MP</strong>＋allopurinol</td><td>—</td><td>6-MP 經 xanthine oxidase 代謝，allopurinol 抑制此酶 → 濃度上升（藥理推理；講義列出 xanthine oxidase 路徑）</td></tr>
+          <tr><td><strong>化療期間嘔吐</strong></td><td>—</td><td>止吐藥預防；cisplatin 前一定要給（見 <a href="../../上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html">上群：腸胃用藥專題</a>）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.44。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">12</div><h2>考點整理</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">課程考古出現過的考點（2025 期末）</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li>Q4：ifosfamide 在體內發揮抗癌作用的活性代謝物 → <strong>phosphoramide mustard</strong>（acrolein 是膀胱毒性代謝物、mesna 是解毒劑）。</li>
+          <li>Q5：dexrazoxane 減低 doxorubicin 心臟毒性的原理 → <strong>與鐵離子結合</strong>（螯合鐵、減少自由基）。</li>
+          <li>Q6：purine 拮抗劑 → <strong>thioguanine</strong>。</li>
+          <li>Q7：carboplatin 相較於 cisplatin 的主要特點 → <strong>貓的耐受性較佳</strong>。</li>
+        </ul>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">推測國考方向</div>
+        <p>以下是依講義與教科書推測的方向，並非出自歷屆國考題目：各類抗癌藥的細胞週期專一性；cyclophosphamide 的活化與 acrolein／mesna；貓禁用 cisplatin、5-FU、dacarbazine；doxorubicin 心毒性與 dexrazoxane；methotrexate 與 leucovorin；vincristine 治療 CTVT；L-asparaginase 機轉與過敏；toceranib 用於肥大細胞瘤；骨髓抑制為最常見劑量限制毒性。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程 2025 期末考；NTU 講義。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">13</div><h2>學習重點整理</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>代表藥</th><th>機轉</th><th>招牌毒性／重點</th></tr></thead>
+        <tbody>
+          <tr><td>烷化劑</td><td>Cyclophosphamide、chlorambucil、lomustine</td><td>鳥嘌呤 N7 烷化、交聯；不分週期</td><td>膀胱炎（acrolein／mesna）；lomustine 肝毒性</td></tr>
+          <tr><td>鉑類</td><td>Cisplatin、carboplatin</td><td>DNA 交聯</td><td>Cisplatin 嘔吐腎毒性、貓禁用；carboplatin 骨髓、貓可用</td></tr>
+          <tr><td>Purine 拮抗</td><td>6-MP、6-TG</td><td>6-thioinosinic acid</td><td>白血病；azathioprine</td></tr>
+          <tr><td>Pyrimidine 拮抗</td><td>5-FU、Ara-C、gemcitabine</td><td>TS 抑制、插入 DNA</td><td>5-FU 貓禁用；Ara-C 進 CNS、需持續輸注</td></tr>
+          <tr><td>葉酸拮抗</td><td>Methotrexate</td><td>DHFR</td><td>Leucovorin 解救</td></tr>
+          <tr><td>Vinca</td><td>Vincristine、vinblastine</td><td>微管解聚</td><td>CTVT；外滲壞死、神經毒性</td></tr>
+          <tr><td>Taxane</td><td>Paclitaxel</td><td>微管穩定</td><td>Cremophor 過敏</td></tr>
+          <tr><td>Topo II</td><td>Etoposide</td><td>Topoisomerase II</td><td>犬口服</td></tr>
+          <tr><td>Anthracycline</td><td>Doxorubicin、mitoxantrone</td><td>嵌入、topo II、自由基</td><td>心毒性（dexrazoxane）、外滲</td></tr>
+          <tr><td>Bleomycin</td><td>—</td><td>DNA 斷裂</td><td>肺纖維化、不抑制骨髓</td></tr>
+          <tr><td>酵素</td><td>L-asparaginase</td><td>耗盡 asparagine</td><td>犬淋巴瘤；過敏</td></tr>
+          <tr><td>TKI</td><td>Toceranib、masitinib</td><td>c-KIT 等</td><td>犬肥大細胞瘤</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.44。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 14 -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">14</div><h2>練習題</h2></div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 下列何者是 ifosfamide 於體內發揮抗癌作用的活性代謝物？(A) Acrolein (B) Cyclophosphamide (C) Mesna (D) Phosphoramide mustard</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(D)。（2025 期末考第 4 題）Acrolein 造成膀胱炎，mesna 結合 acrolein。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. 下列何種抗癌藥禁用於貓，因為會造成致命的肺毒性？(A) Carboplatin (B) Cisplatin (C) Vincristine (D) Chlorambucil</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Cisplatin 在貓造成猛爆性肺水腫；carboplatin 在貓可安全使用。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">3. Methotrexate 過量的解毒劑是？(A) Mesna (B) Dexrazoxane (C) Leucovorin (D) Allopurinol</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。Leucovorin 已是四氫葉酸形式，繞過被 methotrexate 抑制的 DHFR。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">4. 下列何者幾乎不抑制骨髓，但劑量限制毒性為肺纖維化？(A) Doxorubicin (B) Bleomycin (C) Cyclophosphamide (D) Carboplatin</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Bleomycin 不太影響骨髓與 GI，所以常放在多藥方案中。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">5. 是非題：Vinca 生物鹼與 taxanes 都作用於微管，且都促進微管解聚。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。Vinca 促進微管解聚；taxanes 抑制解聚（穩定微管）。兩者都造成 M 期停滯。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">6. 簡答：為什麼以體表面積（mg/m²）計算 doxorubicin 劑量時，小型犬與貓容易發生毒性？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">BSA 換算會高估小型動物的代謝率，使小型動物每公斤得到的劑量相對偏高 → 相對過量。VPT10 因此建議 &lt;15 kg 犬與所有貓改用 1 mg/kg。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">7. 簡答：說明 doxorubicin 心毒性的機轉與兩種降低心毒性的方法。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">機轉：產生自由基，以及鐵在心肌粒線體累積 → 心律不整、心衰竭、心肌病變，且具累積性（犬約 180–240 mg/m²）。方法：dexrazoxane 螯合鐵，減少鐵-anthracycline 複合物與自由基；微脂體劑型；緩慢輸注；限制累積劑量，必要時改用 mitoxantrone。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">8. 臨床情境：一隻淋巴瘤犬在多藥方案中接受口服 cyclophosphamide 後出現血尿與頻尿，尿液培養陰性。(1) 最可能原因？(2) 如何處理與預防？(3) 若需要替代藥物？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) 無菌性出血性膀胱炎：cyclophosphamide 肝活化產生的 acrolein 刺激膀胱。(2) 停用 cyclophosphamide；預防上早上給藥、多喝水、多讓動物排尿；IV 給藥時可併用 furosemide（VPT10）或 mesna 結合 acrolein。(3) Chlorambucil（講義：cyclophosphamide 膀胱炎時的替代）。長期還要注意膀胱移行上皮細胞癌風險。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">9. 臨床情境：一隻 4 kg 的貓罹患淋巴瘤，飼主問能不能用「狗在用的那些藥」。請說明哪些藥要避免或調整。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">避免 cisplatin（致命肺水腫）、5-FU（致命神經毒性）、dacarbazine（肝代謝不足）；doxorubicin 以 1 mg/kg 而非 mg/m² 計算，並注意腎毒性；NSAID（如 piroxicam）的 GI 與腎毒性在貓較嚴重；lomustine 劑量與間隔不同於犬（VPT10：貓 50–60 mg/m² 每 4–6 週）。可用 carboplatin、cyclophosphamide、vincristine、L-asparaginase、chlorambucil、prednisolone 等，並事先給止吐藥、監測血球。</div></details>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.44；課程 2025 期末考。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 重點摘要",
+  "drugtable": "💊 本頁藥物總覽",
+  "principles": "📐 癌症與化療原則",
+  "alkylating": "🔗 烷化劑",
+  "platinum": "⚪ 鉑類：Cisplatin、Carboplatin",
+  "antimetabolite": "🧬 抗代謝物",
+  "plant": "🌿 植物生物鹼",
+  "antibiotic": "🧫 細胞毒性抗生素",
+  "misc": "🎯 其他：酵素、荷爾蒙、NSAID、TKI",
+  "adverse": "⚠️ 化療共通副作用",
+  "clinical": "🏥 臨床整合：物種與共病",
+  "exam": "🎓 考點整理",
+  "summary": "⭐ 學習重點整理",
+  "quiz": "📝 練習題"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

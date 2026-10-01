@@ -2605,55 +2605,6 @@ const SEARCH_INDEX = [
     snippet: "全站藥品依英文學名字母排序索引，可依英文/中文/商品名篩選查找，每個藥品連結至對應主題頁段落。"
   },
   {
-    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
-    url: "大三/獸醫藥理學/藥理學總論.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 藥理學總論 general pharmacology CYP450 受體 ADME 生體可用率 半衰期",
-    snippet: "六個貫穿全科的基礎重點：CYP450抑制誘導、四大受體家族、生體可用率F值計算、一級動力學半衰期公式、血漿蛋白結合、給藥途徑起效速度。"
-  },
-  {
-    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
-    url: "大三/獸醫藥理學/藥理學總論.html",
-    section: "cyp450", sectionName: "CYP450 藥物代謝系統",
-    keywords: "CYP450 P450 cytochrome 藥物代謝 Phase I Phase II biotransformation glucuronidation 誘導 抑制 induction inhibition prodrug 前藥",
-    snippet: "CYP450是肝臟主要藥物代謝酵素家族；Phase I氧化還原水解使藥物失活，Phase II結合反應增加水溶性利排除；抑制CYP450使其他藥物濃度上升，誘導則使濃度下降。"
-  },
-  {
-    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
-    url: "大三/獸醫藥理學/藥理學總論.html",
-    section: "receptors", sectionName: "受體分類與訊息傳遞總論",
-    keywords: "受體分類 GPCR 離子通道 核內受體 酵素活性受體 receptor classification 反應速度",
-    snippet: "四大受體家族：配體閘門離子通道（最快）、GPCR、本質酵素活性受體、核內受體（最慢最持久），反應速度與受體種類高度相關。"
-  },
-  {
-    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
-    url: "大三/獸醫藥理學/藥理學總論.html",
-    section: "pkbasics", sectionName: "ADME 與藥動學基礎公式",
-    keywords: "ADME 生體可用率 bioavailability AUC 一級動力學 first-order kinetics 半衰期 half-life Ke 血漿蛋白結合 計算題",
-    snippet: "F=(AUC)口服÷(AUC)靜脈，IV定義F=100%；一級動力學Cp=Cp0e^-Ket，t½=0.693/Ke，半衰期與起始濃度無關，含計算範例。"
-  },
-  {
-    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
-    url: "大三/獸醫藥理學/藥理學總論.html",
-    section: "routes", sectionName: "給藥途徑與劑型基礎",
-    keywords: "給藥途徑 route of administration ROA 腸道 enteral 腸道外 parenteral 劑型 dosage form 賦形劑 excipients",
-    snippet: "給藥途徑分腸道（口服等，起效較慢）與腸道外（IV/IM/SC，起效快）；起效速度由途徑決定，作用時間可由劑型設計獨立延長。"
-  },
-  {
-    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
-    url: "大三/獸醫藥理學/藥理學總論.html",
-    section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 考試 藥理學總論 國考",
-    snippet: "六點總複習：CYP450代謝兩階段、誘導抑制方向、四大受體速度排序、F值公式、一級動力學計算、蛋白結合交互作用。"
-  },
-  {
-    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
-    url: "大三/獸醫藥理學/藥理學總論.html",
-    section: "quiz", sectionName: "練習題",
-    keywords: "練習題 是非題 選擇題 簡答題 計算題 quiz 自我測驗 藥理學總論 國考",
-    snippet: "涵蓋CYP450、受體分類、生體可用率、一級動力學計算的練習題（共5題，含1題完整計算題），點擊即可顯示答案與解析。"
-  },
-  {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "NSAID 非類固醇消炎藥",
     url: "大三/獸醫藥理學/NSAID非類固醇消炎藥.html",
     section: "abstract", sectionName: "重點摘要",
@@ -4203,9 +4154,9 @@ const SEARCH_INDEX = [
   {
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 3, weekTitle: "脊椎影像解剖圖譜",
     url: "大四上/獸醫臨床及影像診斷學/week03_脊椎影像解剖圖譜.html",
-    section: "sacrum", sectionName: "腰薦交界／薦椎 VD",
-    keywords: "腰薦 lumbosacral 薦椎 sacrum VD 薦骨翼 wing of sacrum 髂薦關節 iliosacral junction 薦孔 sacral foramen 陰莖骨 os penis",
-    snippet: "腰薦交界／薦椎VD投照標記圖，含薦骨翼、髂薦關節、薦孔辨識，與腰薦椎不穩定好發位置提醒。"
+    section: "sacrum", sectionName: "腰薦交界／薦椎：外側位與VD",
+    keywords: "腰薦 lumbosacral 薦椎 sacrum 外側位 lateral VD S1 S2 S3 薦骨翼 wing of sacrum 髂薦關節 iliosacral junction 薦孔 sacral foramen 陰莖骨 os penis 椎間孔疊加",
+    snippet: "腰薦交界／薦椎外側位與VD投照標記圖，外側位含S1-S3分節與薦骨翼疊加L7-S1椎間孔，VD含薦骨翼、髂薦關節、薦孔辨識。"
   },
   {
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 3, weekTitle: "脊椎影像解剖圖譜",
@@ -4282,7 +4233,175 @@ const SEARCH_INDEX = [
     url: "Textbook/犬貓正常影像解剖圖譜/ch03_脊椎.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 選擇題 是非題 臨床情境題 脊椎",
-    snippet: "涵蓋寰樞椎判讀、貓種間差異、anticlinal vertebra、糞便假影辨識的練習題（共5題，含1題臨床情境整合題）。"
+    snippet: "10題：寰樞椎判讀、貓種間差異、anticlinal vertebra、糞便假影、頸神經8對、C1–C2椎間孔、C2椎弓不規則、L7薦化與馬尾症候群、椎間盤礦化。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "腹腔X光 abdomen 重點摘要",
+    snippet: "腹腔X光判讀基礎、各器官正常表現與判讀陷阱總覽。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "general", sectionName: "腹膜、脂肪與標準投照",
+    keywords: "腹膜 peritoneum 腹膜後腔 retroperitoneal 漿膜邊緣 serosal margin 鐮狀韌帶 falciform 投照 擺位",
+    snippet: "脂肪提供對比、腹膜內外脂肪、標準三張投照與擺位原則。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "liver", sectionName: "肝臟與膽囊",
+    keywords: "肝臟 liver 胃軸 gastric axis 肋弓 costal arch 膽囊 gallbladder",
+    snippet: "以胃軸、肋弓、幽門位置評估肝臟大小；膽囊通常不可見。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "spleen", sectionName: "脾臟",
+    keywords: "脾臟 spleen 近端 遠端 副脾 splenunculus",
+    snippet: "犬貓脾臟在側位與VD的可見段，脾臟與肝葉鑑別、副脾。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "pancreaskidney", sectionName: "胰臟、腎臟與旋髂深血管",
+    keywords: "胰臟 pancreas 腎臟 kidney L2 比值 旋髂深血管 deep circumflex iliac",
+    snippet: "貓胰臟左肢、腎長/L2比值、犬右腎埋於肝腎窩、旋髂深血管似結石。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "urinary", sectionName: "膀胱、前列腺、尿道與陰莖骨",
+    keywords: "膀胱 bladder 前列腺 prostate BPH 尿道 urethra 陰莖骨 os penis fabella 籽骨",
+    snippet: "膀胱壁造影、前列腺增大的三角形脂肪、公犬尿道擺位、陰莖骨變異。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "stomach", sectionName: "胃",
+    keywords: "胃 stomach 幽門 pylorus 胃底 fundus 左側躺 右側躺 氣體分布 rugal folds 黏膜下脂肪",
+    snippet: "胃內氣液分布隨姿勢改變：右側躺液體積幽門似腫塊，左側躺氣體到幽門。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "intestine", sectionName: "小腸與大腸",
+    keywords: "十二指腸 duodenum 假潰瘍 pseudoulcer 串珠 string of pearls fimbriation 盲腸 cecum 結腸 colon",
+    snippet: "十二指腸走向、小腸正常變異與直徑、盲腸犬貓差異、結腸走向與變異。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "misc", sectionName: "其他構造與人為假影",
+    keywords: "淋巴結 腎上腺鈣化 止血夾 hemoclip 縫線肉芽腫 超音波膠 假影",
+    snippet: "淋巴結、腎上腺鈣化、手術止血夾、縫線肉芽腫、超音波膠假影。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "dogcat", sectionName: "犬貓差異總表",
+    keywords: "犬貓差異 dog cat 幽門 脾臟 胰臟 腎臟 黏膜下脂肪 盲腸 陰莖骨",
+    snippet: "17項腹腔X光犬貓差異對照，附原書圖號。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "fakeouts", sectionName: "判讀陷阱總表",
+    keywords: "fakeouts 判讀陷阱 正常變異",
+    snippet: "25項像病灶的正常表現對照表，附原書圖號。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "checklist", sectionName: "系統性判讀順序",
+    keywords: "判讀順序 checklist 看片流程 系統性判讀",
+    snippet: "依本章重點整理的11步腹腔X光看片清單（非原書內容）。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "glossary", sectionName: "雙語詞彙表",
+    keywords: "雙語詞彙表 bilingual glossary 中英對照",
+    snippet: "本頁核心術語中英對照表。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 腹腔",
+    snippet: "八點總複習：脂肪對比、投照、肝脾腎、胃氣液分布、腸道變異、泌尿生殖。"
+  },
+  {
+    subject: "犬貓正常影像解剖圖譜", semester: "Textbook", week: null, weekTitle: "第7章：腹腔",
+    url: "Textbook/犬貓正常影像解剖圖譜/ch07_腹腔.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 腹腔 臨床情境題",
+    snippet: "10題：幽門液體、肋弓、腎長比值、鐮狀韌帶脂肪、尿道結石鑑別、貓脾臟與胰臟、幽門異物投照、肝葉與脾臟鑑別。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 解剖學術語 anatomical terminology",
+    snippet: "解剖實習指南第1章總覽：方位術語、動作術語、部位同義詞、X光投照命名、解剖標本製作原則。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "subfields", sectionName: "解剖學次領域與命名系統沿革",
+    keywords: "肉眼解剖學 gross anatomy 局部解剖學 應用解剖學 微觀解剖學 病理解剖學 胚胎學 NAV Nomina Anatomica Veterinaria",
+    snippet: "解剖學次領域中英對照表，以及NAV命名系統從BNA到現行版本的沿革。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "directional", sectionName: "方位與平面術語",
+    keywords: "方位術語 directional terms dorsal ventral 背側 腹側 medial lateral 內側 外側 cranial caudal rostral 顱側 尾側 吻側 proximal distal 近端 遠端 palmar plantar 掌側 蹠側 axial abaxial",
+    snippet: "正中矢狀面、橫切面、背切面三個基準切面，以及背腹內外顱尾吻側等全套方位術語，附自繪犬隻方位示意圖。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "movement", sectionName: "動作相關術語",
+    keywords: "動作術語 movement terms flexion extension 屈曲 伸展 abduction adduction 外展 內收 circumduction rotation supination pronation 旋後 旋前",
+    snippet: "屈曲伸展、外展內收、迴旋旋轉、旋後旋前等關節動作術語定義。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "synonyms", sectionName: "部位同義詞與X光投照命名慣例",
+    keywords: "brachium antebrachium 臂 前臂 thigh crus 股 小腿 X光投照命名 dorsopalmar view oblique view",
+    snippet: "肢體區段同義詞（臂/前臂/股/小腿）與X光投照命名邏輯（X光管到底片路徑方向）。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "dissection", sectionName: "解剖標本製作原則",
+    keywords: "解剖標本製作 pentobarbital 安樂死 固定液 formalin latex 乳膠灌注 防腐",
+    snippet: "教學用解剖標本從安樂死、放血、固定液灌注到乳膠灌注的標本製作流程。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "glossary", sectionName: "雙語詞彙表",
+    keywords: "雙語詞彙表 bilingual glossary 中英對照",
+    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 解剖學術語",
+    snippet: "五點總複習：方位術語相對性、三套系統交界處、ventral不用於四肢、動作術語、X光投照命名邏輯。"
+  },
+  {
+    subject: "犬隻解剖實習指南", semester: "Textbook", week: null, weekTitle: "第1章：解剖學術語",
+    url: "Textbook/犬隻解剖實習指南/ch01_解剖學術語.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 解剖學術語",
+    snippet: "涵蓋方位術語、X光投照命名、肢體區段同義詞的練習題，含骨折描述臨床情境整合題。"
   },
   {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗心律不整藥物",
@@ -5088,5 +5207,1279 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 眼科疾病",
     snippet: "涵蓋感染/發炎光譜、IBK、OSCC、淋巴肉瘤的練習題，含臨床情境整合題。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "abstract", sectionName: "重點摘要與閱讀清單",
+    keywords: "神經影像 課前預習 BSAVA 閱讀清單",
+    snippet: "老師指定BSAVA 5個脊椎疾病的閱讀清單與一句話重點。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "ivdd", sectionName: "Hansen type I IVDD",
+    keywords: "IVDD 椎間盤疾病 Hansen type I extrusion 軟骨發育不良 脊髓造影 myelography CT MRI 脊髓軟化 myelomalacia nociception",
+    snippet: "Type I IVDD流行病學、臨床、X光四徵象與準確率、脊髓造影／CT／MRI表現、治療重點。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "annpe", sectionName: "外傷性椎間盤疾病（ANNPE）",
+    keywords: "ANNPE acute non-compressive nucleus pulposus extrusion 外傷性椎間盤 high velocity low volume type III",
+    snippet: "高速少量非壓迫性髓核突出；X光可能正常，MRI椎間盤背側脊髓T2高訊號。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "spondylosis", sectionName: "脊椎黏連性關節病",
+    keywords: "spondylosis deformans 脊椎黏連性關節病 骨贅 osteophyte DISH",
+    snippet: "腹側骨贅／骨橋，通常偶然發現、不壓迫神經；與DISH區別。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "disco", sectionName: "椎間盤脊椎炎",
+    keywords: "discospondylitis 椎間盤脊椎炎 Staphylococcus Brucella canis L7-S1 終板 endplate",
+    snippet: "病原、好發位置、培養、X光早期可能正常、CT／MRI表現與治療。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "aai", sectionName: "寰樞椎不穩定",
+    keywords: "atlantoaxial instability subluxation 寰樞椎 齒突 dens 橫韌帶 透視 fluoroscopy",
+    snippet: "C1–C2韌帶、齒突異常、側位C1椎板與C2棘突間距、VD看齒突、治療。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "imaging", sectionName: "五種疾病影像比較總表",
+    keywords: "影像比較 X光 脊髓造影 CT MRI",
+    snippet: "五個疾病在X光、脊髓造影、CT、MRI上的表現對照。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "glossary", sectionName: "雙語詞彙表",
+    keywords: "雙語詞彙表 bilingual glossary",
+    snippet: "神經影像預習中英對照術語。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 神經影像",
+    snippet: "七點總複習。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
+    url: "大四上/獸醫臨床及影像診斷學/week05_神經影像課前預習.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 IVDD ANNPE discospondylitis atlantoaxial",
+    snippet: "7題：X光徵象、anticlinal正常變異、ANNPE、椎間盤脊椎炎、寰樞椎投照、脊椎黏連性關節病臨床情境。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "藥理學總論 藥物動力學 pharmacokinetics 劑型",
+    snippet: "PK講義與劑型講義總覽，加上教科書補充的代謝、物種差異與藥效學。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "formulas", sectionName: "公式總表",
+    keywords: "公式 Ke t1/2 Vd clearance 清除率 AUC 生體可用率 負荷劑量 維持劑量 輸注速率 治療指數",
+    snippet: "PK計算題所需公式一次整理。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "pkbasic", sectionName: "PK基本概念",
+    keywords: "ADME onset duration efficacy 物種差異 疾病",
+    snippet: "ADME、藥效量化與講義PK通則。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "compartment", sectionName: "房室模型與再分布",
+    keywords: "一室模型 二室模型 alpha beta 分布相 排除相 thiopental 再分布 redistribution 灌流",
+    snippet: "一室與二室模型、器官灌流、thiopental再分布與物種差異。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "absorption", sectionName: "吸收與生體可用率",
+    keywords: "吸收 Fick 擴散 bioavailability 生體可用率 首渡效應 first-pass AUC 梯形法 bioequivalence 生物相等性",
+    snippet: "一級吸收、F=AUC比值、首渡效應與生物相等性。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "elimination", sectionName: "排除：一級與零級動力學",
+    keywords: "first-order zero-order 一級動力學 零級動力學 Michaelis-Menten Km 半衰期 aspirin 中毒",
+    snippet: "一級與零級排除、Michaelis-Menten、半衰期計算與aspirin中毒例。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "vdcl", sectionName: "分布體積與清除率",
+    keywords: "Vd 分布體積 volume of distribution clearance 清除率 腎清除率 離子捕捉 ion trapping metoclopramide 三聚氰胺 melamine",
+    snippet: "Vd解讀、全身清除率、離子捕捉、metoclopramide計算題與三聚氰胺PK。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "regimen", sectionName: "給藥方案與靜脈輸注",
+    keywords: "multiple dose 重複給藥 穩定狀態 steady state Cpss loading dose 負荷劑量 maintenance dose 維持劑量 IV infusion CRI",
+    snippet: "重複給藥與穩定狀態、負荷與維持劑量、靜脈輸注公式。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "dosageform", sectionName: "劑型與給藥途徑",
+    keywords: "劑型 dosage form excipient 賦形劑 API enteral parenteral IV IM SC IP 關節內 depot 長效 耳部植入 trenbolone dexmedetomidine 口腔黏膜凝膠",
+    snippet: "賦形劑、各給藥途徑優缺點、口服與注射劑型、長效製劑。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "metabolism", sectionName: "藥物代謝與物種差異",
+    keywords: "Phase I Phase II CYP450 葡萄糖醛酸化 glucuronidation 貓 乙醯化 P-glycoprotein collie ivermectin 酵素誘導 phenobarbital 蛋白結合",
+    snippet: "兩階段代謝、物種代謝差異、肝腸循環、酵素誘導與蛋白結合（教科書）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "pd", sectionName: "藥效學：受體與劑量反應",
+    keywords: "agonist partial agonist inverse agonist antagonist 拮抗劑 ED50 LD50 therapeutic index 治療指數 potency efficacy",
+    snippet: "受體致效與拮抗、分級與量子劑量反應、治療指數（教科書）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "clinical", sectionName: "臨床整合：共病與用藥",
+    keywords: "共病 癲癇 metoclopramide 癲癇閾值 ranitidine erythromycin 促動藥 肝病 腎病",
+    snippet: "癲癇犬腸胃不蠕動的用藥考量與其他共病原則。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "exam", sectionName: "推測國考考點",
+    keywords: "國考 推測 考點",
+    snippet: "依內容推測的國考重點（未核對歷屆試題）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 重點整理 藥理學總論",
+    snippet: "八點總複習。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
+    url: "大三/獸醫藥理學/藥理學總論.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 計算題 Vd 清除率 治療指數",
+    snippet: "10題：Vd、零級、半衰期、depot、F、輸注清除率、物種差異、TI、綜合計算、癲癇犬情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "中樞神經藥理 CNS pharmacology 總論",
+    snippet: "A1講義總覽：血腦屏障、突觸傳遞、神經傳導物質與受體。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "receptormap", sectionName: "受體與藥物對照總表",
+    keywords: "GABAA NMDA ketamine propofol barbiturate α2 自體受體 D2 acepromazine metoclopramide 鴉片受體 蕈毒鹼 菸鹼 5-HT3",
+    snippet: "中樞受體類型、作用與本站代表藥物對照。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "categories", sectionName: "中樞神經藥物分類",
+    keywords: "注射麻醉 鎮靜 寧神劑 抗精神病 鴉片 吸入麻醉 局部麻醉 中樞興奮劑 抗憂鬱 抗痙攣",
+    snippet: "講義十大類中樞神經藥物與本站頁面。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "brain", sectionName: "腦與脊髓功能",
+    keywords: "大腦皮質 小腦 腦幹 延腦 下視丘 視丘 邊緣系統 海馬 基底核 脊髓反射",
+    snippet: "各腦區功能、邊緣系統組成與脊髓。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "bbb", sectionName: "血腦屏障",
+    keywords: "blood-brain barrier 血腦屏障 緊密連接 脂溶性 P-glycoprotein collie ivermectin area postrema",
+    snippet: "血腦屏障形態基礎、影響因素、破壞因素與P-gp（教科書）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "neuron", sectionName: "神經元、膠細胞與動作電位",
+    keywords: "神經元 膠細胞 astrocyte microglia oligodendroglia Schwann 軸突 樹突 動作電位 Na通道 跳躍式傳導",
+    snippet: "膠細胞種類、軸突樹突比較、Na通道三狀態。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "synapse", sectionName: "突觸傳遞",
+    keywords: "突觸 神經傳導物質釋放 Ca2+ 胞吐 自體受體 autoreceptor α2 突觸前抑制 突觸後抑制 再回收",
+    snippet: "神經傳導物質釋放五步驟、自體受體、突觸前後抑制與終止機制。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "nt", sectionName: "神經傳導物質與受體",
+    keywords: "acetylcholine dopamine norepinephrine serotonin 5-HT GABA glycine glutamate NMDA AMPA kainate MAO 5-HIAA 結構式",
+    snippet: "各神經傳導物質重點、glutamate受體、受體分類與結構式。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "neuropharm", sectionName: "藥物如何影響中樞",
+    keywords: "專一性 組織專一性 中樞抑制 劑量連續譜 barbiturate TCA SSRI MAOI clomipramine fluoxetine selegiline 行為用藥",
+    snippet: "藥物專一性、CNS抑制連續譜、四種介入點與行為用藥（教科書）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "clinical", sectionName: "臨床整合：共病與用藥",
+    keywords: "癲癇閾值 血清素症候群 serotonin syndrome SSRI MAOI TCA 併用禁忌 collie 新生動物",
+    snippet: "癲癇病患、牧羊犬、SSRI併用、血腦屏障破壞等用藥考量。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "exam", sectionName: "推測國考考點",
+    keywords: "國考 推測",
+    snippet: "依內容推測的國考重點（未核對歷屆試題）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "複習 中樞神經",
+    snippet: "六點總複習。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "中樞神經藥理總論",
+    url: "大三/獸醫藥理學/中樞神經藥理總論.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 中樞神經 受體",
+    snippet: "7題：離子通道受體、α2、ketamine、血腦屏障、5-HIAA、組織專一性、行為用藥情境題。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "abstract", sectionName: "核心結論",
+    keywords: "ileus 胃排空延遲 胃液滯留 不蠕動 胃脹 促蠕動 癲癇 Metoclopramide 用藥順序",
+    snippet: "先排除阻塞→移除抑制蠕動因素→依部位選藥→依共病排除→客觀指標追蹤；癲癇犬避開 Metoclopramide。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "receptor", sectionName: "腸胃蠕動的受體地圖",
+    keywords: "受體 receptor M3 D2 5-HT4 5-HT3 motilin μ opioid α2 NK1 H2 ACh myenteric plexus",
+    snippet: "ACh→M3 是蠕動最終出口；D2、μ、α2 踩煞車，5-HT4、motilin、AChE 抑制踩油門。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "problems", sectionName: "三種問題先分清楚",
+    keywords: "機械性阻塞 胃出口阻塞 GDV 功能性 ileus 嚴重胃腸炎 決策流程",
+    snippet: "蠕動低下、胃液滯留、嚴重胃腸炎的治療重點不同；有阻塞時禁用促蠕動藥。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "causes", sectionName: "是什麼讓腸胃停下來",
+    keywords: "opioid 嗎啡 butorphanol dexmedetomidine xylazine atropine 抗膽鹼 低血鉀 疼痛 發炎 脫水 methylnaltrexone",
+    snippet: "μ-opioid、α2 促效劑、抗膽鹼藥會抑制蠕動；低血鉀、疼痛、腹腔發炎、脫水也是常見原因。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "prokinetics", sectionName: "促蠕動藥",
+    keywords: "Metoclopramide Cisapride Erythromycin Ranitidine Nizatidine Domperidone Bethanechol Lidocaine CRI 促蠕動 prokinetic 劑量",
+    snippet: "Metoclopramide 只作用近端且穿 BBB；Cisapride 全段作用、可用於貓便秘；低劑量 Erythromycin 作用在 motilin 受體。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "antiemetics", sectionName: "止吐藥",
+    keywords: "Maropitant Cerenia Ondansetron Phenothiazine Chlorpromazine Prochlorperazine Mirtazapine NK-1 5-HT3 止吐 噁心",
+    snippet: "Maropitant 止吐強、止噁心較弱且不影響蠕動；Ondansetron 犬口服生體可用率低；脫水動物避免 phenothiazine。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "acid", sectionName: "抑酸與黏膜保護",
+    keywords: "PPI Omeprazole Pantoprazole Famotidine Sucralfate Misoprostol 制酸劑 胃酸 潰瘍 胃腸炎",
+    snippet: "PPI 第一天約 30% 效果、2–4 天達最大；貓 Famotidine 緩慢 IV；Sucralfate 磨碎並與抗生素間隔給藥。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "comorbid", sectionName: "共病與禁忌對照表",
+    keywords: "癲癇 腎病 CKD 貓 青光眼 懷孕 脫水 azole fluoroquinolone tetracycline phenobarbital 交互作用 禁忌",
+    snippet: "癲癇、阻塞、脫水、腎病、貓、懷孕與併用藥物各自要避開的 GI 藥物與替代選擇。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "monitor", sectionName: "如何觀察與評估療效",
+    keywords: "胃管回抽量 超音波 胃竇收縮 噁心 食慾 電解質 鉀 氯 代謝性鹼中毒 副作用 EPS 監測",
+    snippet: "用胃管回抽量、超音波、噁心與食慾、排便、電解質追蹤療效，並觀察各藥物的特有副作用。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "scenarios", sectionName: "情境演練",
+    keywords: "癲癇犬 術後 胃排空延遲 貓 胃腸炎 胃出口阻塞 情境題",
+    snippet: "三個虛構情境：癲癇犬術後胃排空延遲、脫水腎指數上升的胃腸炎貓、疑似胃出口阻塞的胃擴張犬。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "lessons", sectionName: "學習重點與自我測驗",
+    keywords: "學習重點 練習題 國考 Cisapride Ranitidine AChE Maropitant PPI",
+    snippet: "受體邏輯與選藥重點整理，附 5 題自我測驗。"
+  },
+  {
+    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
+    section: "followup", sectionName: "待確認事項",
+    keywords: "院內品項 劑量 Lidocaine 超音波 參考值",
+    snippet: "院內可取得品項、院內劑量流程、犬貓 Lidocaine CRI 證據與超音波參考值待確認。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "類固醇 corticosteroid glucocorticoid 糖皮質素 礦物皮質素 重點",
+    snippet: "GR 位於細胞質；抑制 PLA2／COX-2；prednisone 貓馬避免；短中長效分類；Addison's／Cushing's 用藥。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "prednisolone dexamethasone fludrocortisone DOCP trilostane mitotane cyclosporine 劑量 途徑",
+    snippet: "本頁所有藥物的機轉、途徑與參考劑量總表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "synthesis", sectionName: "腎上腺皮質激素與調控",
+    keywords: "cortisol aldosterone ACTH angiotensin II P450scc CYP11A1 3β-HSD 11β-hydroxylase",
+    snippet: "糖皮質素受 ACTH 調控、礦物皮質素受 angiotensin II 調控；合成路徑上的酵素是抑制藥的作用點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "mechanism", sectionName: "作用機轉：核受體",
+    keywords: "GR glucocorticoid receptor 核受體 transactivation transrepression HSP lipocortin",
+    snippet: "細胞質 GR 結合後進核，促進或抑制基因表現；起效慢、作用長。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "effects", sectionName: "生理與藥理效應",
+    keywords: "糖質新生 異化 骨質疏鬆 PTH PU/PD 鈉滯留 低血鉀 permissive 抗發炎 免疫抑制 stress leukogram β受體",
+    snippet: "代謝、骨骼、電解質、心血管、抗發炎、免疫抑制、呼吸道等效應，以及 HBK 的血球變化。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "sar", sectionName: "構效關係與結構式",
+    keywords: "structure activity relationship 結構式 11-OH 16-methyl 9-fluoro 21-OH 前驅藥 11β-HSD",
+    snippet: "3-keto、Δ4 必要；11-OH 為活性形；16 位取代降低保鈉；21-OH 為礦物皮質活性必要；附結構式。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "potency", sectionName: "作用時間與效價",
+    keywords: "效價 potency 短效 中效 長效 biological half-life hydrocortisone dexamethasone 30 25 fludrocortisone 125",
+    snippet: "短效 1、中效 5、長效 30（講義；HBK 為 25）；fludrocortisone 保鈉 125。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "pk", sectionName: "藥動學、劑型與給藥途徑",
+    keywords: "CBG 首渡效應 prednisone 貓 馬 succinate phosphate acetate 懸浮液 不可IV 劑型",
+    snippet: "合成藥口服吸收佳；天然 cortisol 口服無效；貓馬避免 prednisone；懸浮液不可 IV。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "uses", sectionName: "臨床用途與用法分類",
+    keywords: "隔日療法 alternate-day 休克 免疫抑制 關節內注射 眼科 角膜潰瘍 適應症",
+    snippet: "六種用法；隔日療法只用中效藥；關節內注射與眼科使用的風險。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "toxicity", sectionName: "毒性、禁忌與停藥",
+    keywords: "副作用 禁忌 Cushingoid 脫毛 犬肝毒性 貓 CHF 蹄葉炎 流產 HPA軸 停藥 減量 taper",
+    snippet: "毒性與禁忌總表；犬每日給藥 2 週即抑制腎上腺；減量與壓力補充原則。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "adrenal", sectionName: "腎上腺疾病治療藥",
+    keywords: "Addison Cushing fludrocortisone DOCP metyrapone mifepristone mitotane trilostane ketoconazole selegiline",
+    snippet: "Addison's 用 fludrocortisone／DOCP；Cushing's 用 trilostane、mitotane、ketoconazole、selegiline；metyrapone 用於診斷。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "immuno", sectionName: "異位性皮膚炎免疫調節藥",
+    keywords: "cyclosporine tacrolimus pimecrolimus calcineurin cyclophilin lokivetmab Cytopoint IL-31 異位性皮膚炎 KCS",
+    snippet: "CsA／tacrolimus 抑制 calcineurin；lokivetmab 中和 IL-31；CsA 主要用於乾眼症。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "clinical", sectionName: "臨床整合：共病與用藥",
+    keywords: "糖尿病 心臟病 貓 CHF NSAID 併用 角膜潰瘍 感染 懷孕 手術 壓力補充",
+    snippet: "依共病決定能否使用類固醇與替代方案。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "考古 期末考 國考 metyrapone fludrocortisone optic neuritis GR",
+    snippet: "2025 期末考第 38–41 題考點與推測國考方向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習",
+    snippet: "類固醇藥理一句話重點表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
+    url: "大三/獸醫藥理學/類固醇藥理.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題 隔日療法 DOCP metyrapone",
+    snippet: "10 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "腦下垂體 甲狀腺 胰臟 insulin 激素 hormone 重點",
+    snippet: "胜肽激素只能注射；desmopressin V2；methimazole 貓甲亢首選；insulin 製劑作用時間；sulfonylurea vs metformin。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "GH sometribove bromocriptine cabergoline oxytocin vasopressin desmopressin levothyroxine methimazole insulin glipizide metformin 劑量",
+    snippet: "本頁所有激素藥物的機轉、途徑與參考劑量。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "hypothalamic", sectionName: "下視丘釋放激素",
+    keywords: "TRH GnRH CRH GHRF somatostatin 免疫去勢 GnRH vaccine 腦下垂體前葉 後葉",
+    snippet: "下視丘釋放激素的結構、作用與診斷應用；胜肽激素為何只能注射。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "gh", sectionName: "生長激素",
+    keywords: "growth hormone somatotropin IGF-1 somatomedin 侏儒症 dwarfism sometribove 泌乳",
+    snippet: "豬 GH 治療幼犬侏儒症；sometribove 增加乳牛泌乳；副作用糖尿病。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "prolactin", sectionName: "促性腺激素與泌乳素",
+    keywords: "FSH LH hCG prolactin bromocriptine cabergoline ergonovine 麥角 ergot fescue 牛毛草 假懷孕",
+    snippet: "D2 促效劑抑制 prolactin，用於假懷孕與黃體溶解；麥角生物鹼與牛毛草中毒。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "diagnostic", sectionName: "TSH、ACTH 與刺激試驗",
+    keywords: "ACTH stimulation test CRH TSH TRH 刺激試驗 cosyntropin",
+    snippet: "ACTH 刺激試驗犬 250 μg、貓 125 μg IV；CRH 刺激試驗。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "posterior", sectionName: "後葉：Oxytocin 與 ADH",
+    keywords: "oxytocin ADH vasopressin desmopressin DDAVP V1 V2 尿崩症 diabetes insipidus vWD 腦水腫 LVP",
+    snippet: "Oxytocin 排乳非催乳；desmopressin V2 治中樞性尿崩症與 vWD；限水防腦水腫。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "thyroidphys", sectionName: "甲狀腺激素的合成與代謝",
+    keywords: "T4 T3 thyroxine 碘 iodide 過氧化酶 thyroglobulin MIT DIT TBG 脫碘 deiodination reverse T3",
+    snippet: "甲狀腺激素合成五步驟、蛋白結合、脫碘代謝；T4 為前驅激素。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "thyroidrx", sectionName: "甲狀腺疾病與替代療法",
+    keywords: "甲狀腺功能低下 hypothyroidism 甲亢 hyperthyroidism levothyroxine liothyronine 替代療法",
+    snippet: "犬常甲低、貓常甲亢；levothyroxine 為首選，不建議 T3。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "antithyroid", sectionName: "抗甲狀腺藥物",
+    keywords: "methimazole carbimazole propylthiouracil ipodate Lugol 放射性碘 131I goitrogen thioamide",
+    snippet: "Methimazole 貓首選、1–3 週見效；PTU 不建議；ipodate 抑制 T4→T3；¹³¹I 根治。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "insulin", sectionName: "胰島與 Insulin",
+    keywords: "胰島 islet α β δ insulin C-peptide GLUT4 糖尿病 diabetes mellitus",
+    snippet: "胰島細胞、insulin 結構與清除、GLUT4、糖尿病分型。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "insulinprep", sectionName: "Insulin 製劑與糖尿病治療",
+    keywords: "regular NPH lente Vetsulin Caninsulin PZI glargine 酮酸中毒 DKA 低血糖 牛酮症 ketosis",
+    snippet: "Regular 可 IV；NPH／Lente 中效；PZI／glargine 長效；低血糖處理。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "oral", sectionName: "口服降血糖藥",
+    keywords: "sulfonylurea glipizide metformin acarbose ATP-sensitive K channel 口服降血糖",
+    snippet: "Sulfonylurea 關 K⁺ 通道促分泌；metformin 不促分泌、腎病禁用；acarbose 減少 insulin 需求。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "hypogly", sectionName: "Glucagon 與胰島素瘤用藥",
+    keywords: "glucagon insulinoma 胰島素瘤 octreotide somatostatin diazoxide 嗜鉻細胞瘤",
+    snippet: "Glucagon 治 insulin 低血糖但胰島素瘤禁用；diazoxide 開 K⁺ 通道；octreotide。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "clinical", sectionName: "臨床整合：共病與用藥",
+    keywords: "糖尿病 類固醇 甲亢 腎病 metformin 胰島素瘤 vWD 懷孕 共病",
+    snippet: "糖尿病合併類固醇、甲亢貓合併腎病、胰島素瘤低血糖等情境的用藥考量。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "考古 期末考 國考 desmopressin sometribove regular insulin metformin",
+    snippet: "課程 2025 期末與內分泌考古題考點，以及推測國考方向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習",
+    snippet: "腦下垂體、甲狀腺、胰臟激素藥物一句話重點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腦下垂體、甲狀腺與胰臟激素藥物",
+    url: "大三/獸醫藥理學/腦下垂體荷爾蒙.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題 甲亢貓 糖尿病犬",
+    snippet: "10 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "生殖 reproduction 黃體 corpus luteum estrogen progestin androgen PGF2α 重點",
+    snippet: "黃體是核心；estrogen 犬貓骨髓抑制；altrenogest 同期化；PGF2α 不可 IV；finasteride 治攝護腺肥大。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "estradiol DES altrenogest megestrol testosterone finasteride gonadorelin deslorelin dinoprost cloprostenol 劑量 途徑",
+    snippet: "本頁所有生殖激素藥物的機轉、途徑與參考劑量。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "cycle", sectionName: "動情週期與激素調控",
+    keywords: "動情週期 estrus cycle 卵泡期 黃體期 LH 高峰 犬黃體",
+    snippet: "各藥物在動情週期的介入點；犬黃體不論懷孕與否都持續。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "estrogen", sectionName: "Estrogens",
+    keywords: "estradiol estriol estrone DES diethylstilbestrol zeranol aromatase 尿失禁 phenylpropanolamine 再生不良性貧血 tamoxifen",
+    snippet: "Estrogen 種類、酯類劑型、用途與更好的替代；犬貓骨髓抑制；DES 只剩括約肌失禁。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "progestin", sectionName: "Progestins",
+    keywords: "progesterone altrenogest melengestrol megestrol medroxyprogesterone 同期化 避孕 子宮蓄膿 糖尿病",
+    snippet: "Progestin 延長黃體期、停藥後同期發情；副作用子宮蓄膿、糖尿病、腎上腺抑制。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "androgen", sectionName: "Androgens、同化類固醇與抗雄性素",
+    keywords: "testosterone DHT stanozolol boldenone trenbolone danazol finasteride 5α-reductase 攝護腺肥大 同化",
+    snippet: "雄性素作用與用途；danazol 輔助 IMHA／ITP；finasteride 抑制 DHT。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "gnrh", sectionName: "GnRH 與類似物",
+    keywords: "GnRH gonadorelin deslorelin leuprolide 去敏感 化學去勢 Ovsynch 定時人工授精 雪貂 鸚鵡",
+    snippet: "GnRH 類似物脈衝刺激、持續抑制；deslorelin 可逆不孕；Ovsynch 方案。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "gonadotropin", sectionName: "促性腺激素",
+    keywords: "hCG eCG PMSG FSH LH 半衰期 醣類 超級排卵 胚胎移植 隱睪",
+    snippet: "hCG LH 樣、eCG FSH 樣；醣類越多半衰期越長；跨物種過敏。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "pgf", sectionName: "PGF2α 與類似物",
+    keywords: "PGF2α dinoprost cloprostenol fenprostalene 黃體溶解 luteolysis 流產 分娩 子宮蓄膿 母豬",
+    snippet: "PGF2α 黃體溶解與子宮收縮；IM 不可 IV；母豬不適用；cloprostenol 劑量 1–5%。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "prolactin", sectionName: "泌乳素、D2 促效劑與 Mifepristone",
+    keywords: "prolactin bromocriptine cabergoline mifepristone RU-486 domperidone 誤配 mismating 終止妊娠",
+    snippet: "D2 促效劑溶解犬黃體終止妊娠；mifepristone 為 PR 拮抗劑。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "scenarios", sectionName: "依臨床目的選藥",
+    keywords: "誤配 假懷孕 子宮蓄膿 尿失禁 攝護腺肥大 同期化 選藥",
+    snippet: "依臨床目的整理首選與不建議的生殖藥物。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "clinical", sectionName: "臨床整合：共病與用藥",
+    keywords: "糖尿病 子宮蓄膿 骨髓抑制 懷孕 肝病 休藥期 共病",
+    snippet: "Progestin 與糖尿病、estrogen 與骨髓、懷孕禁用藥物、產食動物休藥期。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "考古 期末考 altrenogest DES leuprolide finasteride 國考",
+    snippet: "2025 期末考第 35、42、43、44 題與內分泌考古題考點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習",
+    snippet: "生殖激素藥物一句話重點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "性腺與生殖賀爾蒙藥物",
+    url: "大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題 Ovsynch 誤配",
+    snippet: "9 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "利尿劑 diuretics 作用位點 低血鉀 高血鉀 鈣 重點",
+    snippet: "位置決定效力與副作用；loop 排鈣、thiazide 保鈣；上游利尿劑低血鉀、保鉀利尿劑高血鉀。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "acetazolamide mannitol furosemide torsemide hydrochlorothiazide spironolactone amiloride 劑量 途徑",
+    snippet: "本頁所有利尿劑的作用位點、途徑與參考劑量。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "kidney", sectionName: "腎臟功能與尿液形成",
+    keywords: "腎臟 過濾 再吸收 分泌 有機酸分泌 有機鹼分泌 probenecid",
+    snippet: "尿液形成三步驟；loop 與 thiazide 經有機酸分泌系統到達作用點。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "nephron", sectionName: "腎元各段與作用位點",
+    keywords: "近曲小管 亨利氏環 上行粗段 遠曲小管 集尿管 Na/K/2Cl Na/Cl aldosterone ADH 管腔正電位",
+    snippet: "各段重吸收比例、轉運體與作用的利尿劑；鈣的走向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "cai", sectionName: "碳酸酐酶抑制劑",
+    keywords: "acetazolamide methazolamide dichlorphenamide 碳酸酐酶 青光眼 高海拔 高氯性酸中毒 肝性腦病",
+    snippet: "CAI 用於青光眼；毒性為高氯性代謝性酸中毒、結石、失鉀；肝病禁用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "osmotic", sectionName: "滲透性利尿劑",
+    keywords: "mannitol glycerol 滲透性 少尿 腦水腫 青光眼 肺水腫 禁忌",
+    snippet: "Mannitol 緩慢 IV；不可用於肺水腫與 CHF。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "loop", sectionName: "Loop 利尿劑",
+    keywords: "furosemide torsemide bumetanide ethacrynic acid EIPH 耳毒性 aminoglycoside 低血鉀 馬 口服",
+    snippet: "Furosemide 抑制 Na⁺/K⁺/2Cl⁻、增加 PGE2；馬口服 5%；耳毒性與低血鉀；torsemide 效力 10 倍。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "thiazide", sectionName: "Thiazides",
+    keywords: "hydrochlorothiazide chlorothiazide 草酸鈣 腎性尿崩症 高血糖 Naquasone 乳房水腫",
+    snippet: "Thiazide 保鈣治草酸鈣結石、矛盾性治療腎性尿崩症；高血糖。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "ksparing", sectionName: "保鉀利尿劑",
+    keywords: "spironolactone amiloride triamterene canrenone 高血鉀 ACEI aldosterone 拮抗",
+    snippet: "Na⁺ 通道阻斷劑與 aldosterone 拮抗劑；高血鉀風險與作用位點總表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "others", sectionName: "其他：Methylxanthines、酒精、酸鹼化劑",
+    keywords: "theophylline caffeine adenosine ethanol ADH NH4Cl ammonium chloride potassium citrate NaHCO3 struvite",
+    snippet: "Methylxanthine 拮抗 adenosine；酒精抑制 ADH；尿液酸化與鹼化劑（講義 NH₄Cl 結石種類待確認）。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "nephrotox", sectionName: "常見腎毒性藥物",
+    keywords: "腎毒性 aminoglycoside amphotericin NSAID cyclosporine sulfonamide",
+    snippet: "四種腎毒性型態與代表藥物；利尿劑本身也會降低腎灌流。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "clinical", sectionName: "臨床整合：共病與用藥",
+    keywords: "digoxin 低血鉀 ACEI spironolactone NSAID aminoglycoside 肺水腫 貓 糖尿病 肝病 高血鈣 共病",
+    snippet: "Digoxin＋低血鉀、ACEI＋spironolactone、NSAID 減弱 furosemide 等情境。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "考古 國考 methylxanthine adenosine",
+    snippet: "課程考古的 methylxanthine 題與推測國考方向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習 位點 毒性",
+    snippet: "五類利尿劑位點、代表藥、用途與毒性總表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "利尿劑",
+    url: "大三/獸醫藥理學/利尿劑.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題 青光眼 二尖瓣",
+    snippet: "9 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "抗黴菌 antifungal ergosterol cholesterol 重點",
+    snippet: "選擇性來自 ergosterol；多烯結合、唑類與 terbinafine 抑制合成；griseofulvin 微管；flucytosine 核酸。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "amphotericin nystatin ketoconazole itraconazole fluconazole terbinafine griseofulvin flucytosine 劑量",
+    snippet: "所有抗黴菌藥的標的、途徑與參考劑量。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "background", sectionName: "真菌感染背景與藥物分類",
+    keywords: "真菌 雙型性 皮癬菌 念珠菌 隱球菌 芽生菌 組織胞漿菌 分類",
+    snippet: "真菌感染背景與依作用標的的藥物分類。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "polyene", sectionName: "多烯類：Amphotericin B 等",
+    keywords: "amphotericin B nystatin natamycin 多烯 polyene 腎毒性 脂質劑型 AmBisome Abelcet 角膜黴菌",
+    snippet: "Amphotericin B 腎毒性機轉與預防；nystatin、natamycin 局部使用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "azole", sectionName: "唑類 Azoles",
+    keywords: "azole imidazole triazole ketoconazole itraconazole fluconazole voriconazole posaconazole enilconazole P450 lanosterol CSF 胃酸",
+    snippet: "唑類抑制 lanosterol demethylase；fluconazole 進 CSF、不需胃酸；ketoconazole 抑制類固醇合成。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "interaction", sectionName: "唑類毒性與交互作用",
+    keywords: "肝毒性 貓 ketoconazole digoxin midazolam cyclosporine warfarin cisapride phenobarbital 交互作用 致畸胎",
+    snippet: "唑類副作用與藥物交互作用表；amphotericin B、griseofulvin、flucytosine 交互作用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "terbinafine", sectionName: "Terbinafine",
+    keywords: "terbinafine allylamine squalene epoxidase 皮癬菌",
+    snippet: "Terbinafine 抑制 squalene epoxidase、無 P450 交互作用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "griseofulvin", sectionName: "Griseofulvin",
+    keywords: "griseofulvin 微管 角質 皮癬菌 FIV 懷孕貓 致畸胎",
+    snippet: "Griseofulvin 沉積新生角質；FIV 貓白血球減少、懷孕貓禁用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "flucytosine", sectionName: "Flucytosine 與其他",
+    keywords: "flucytosine 5-FC cytosine deaminase 5-FU 隱球菌腦膜炎 lufenuron iodide mefenoxam 腐黴菌",
+    snippet: "Flucytosine 選擇性來自 cytosine deaminase；其他抗黴菌藥。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "clinical", sectionName: "臨床整合：選藥與共病",
+    keywords: "選藥 皮癬菌 隱球菌 麴菌 腎病 肝病 貓 懷孕 digoxin PPI phenobarbital cyclosporine",
+    snippet: "依臨床情境選藥與共病禁忌。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "考古 期末考 posaconazole ketoconazole 國考",
+    snippet: "2025 期末考第 49 題與推測國考方向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習",
+    snippet: "抗黴菌藥標的、特點與毒性總表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗黴菌藥物",
+    url: "大三/獸醫藥理學/抗黴菌藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題",
+    snippet: "8 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "抗病毒 antiviral 核苷類似物 鏈終止 重點",
+    snippet: "四種作用點；核苷類似物鏈終止；famciclovir 貓 FHV-1；AZT FIV；ω-interferon。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "idoxuridine acyclovir famciclovir zidovudine amantadine oseltamivir interferon 劑量",
+    snippet: "所有抗病毒藥的機轉、途徑與參考劑量。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "lifecycle", sectionName: "病毒生活史與作用點",
+    keywords: "病毒生活史 脫殼 轉錄 轉譯 釋出 潛伏感染 pyrimidine purine 核苷",
+    snippet: "病毒生活史四種作用點與核苷類似物分類。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "herpes", sectionName: "抗疱疹病毒核苷類似物",
+    keywords: "acyclovir famciclovir penciclovir thymidine kinase FHV-1 貓疱疹 idoxuridine trifluridine cidofovir ganciclovir vidarabine cytarabine",
+    snippet: "Acyclovir 機轉；FHV-1 對 acyclovir 不敏感、貓用 famciclovir；眼用抗疱疹藥。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "azt", sectionName: "Zidovudine（FIV）",
+    keywords: "zidovudine AZT FIV 反轉錄酶 NRTI 貧血",
+    snippet: "AZT 用於 FIV、不清除病毒血症、貧血。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "influenza", sectionName: "Amantadine 與 Oseltamivir",
+    keywords: "amantadine M2 NMDA 慢性疼痛 rimantadine oseltamivir neuraminidase 犬小病毒 parvovirus",
+    snippet: "Amantadine 抑制脫殼、NMDA 拮抗止痛；oseltamivir 抑制 neuraminidase。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "immune", sectionName: "Interferon、Ribavirin、L-Lysine",
+    keywords: "interferon omega ribavirin lysine arginine 免疫調節 FeLV 卡里西",
+    snippet: "ω-interferon 免疫調節；ribavirin 對貓有毒；L-lysine 競爭 arginine。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "clinical", sectionName: "臨床整合：物種與共病",
+    keywords: "貓 FHV-1 FIV 犬小病毒 慢性疼痛 腎病 懷孕 家禽",
+    snippet: "依物種與共病選擇抗病毒藥。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "考古 期末考 omega interferon 國考",
+    snippet: "2025 期末考第 50 題與推測國考方向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習",
+    snippet: "抗病毒藥作用點、用途與注意事項總表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗病毒藥物",
+    url: "大三/獸醫藥理學/抗病毒藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題 FHV-1",
+    snippet: "6 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "抗癌 化療 anticancer chemotherapy 重點 貓禁用",
+    snippet: "化療打快速分裂細胞；phosphoramide mustard、carboplatin 貓可用、5-FU 與 cisplatin 貓禁用、doxorubicin 心毒性。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "cyclophosphamide cisplatin carboplatin 5-FU methotrexate vincristine doxorubicin L-asparaginase toceranib 劑量 mg/m2",
+    snippet: "所有抗癌藥的機轉、途徑、劑量與招牌毒性。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "principles", sectionName: "癌症與化療原則",
+    keywords: "致癌 p53 Ras APC 腫瘤負荷 合併化療 體表面積 BSA 細胞週期",
+    snippet: "10¹² 細胞負荷、合併用藥原則、BSA 劑量與細胞週期專一性。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "alkylating", sectionName: "烷化劑",
+    keywords: "烷化劑 alkylating cyclophosphamide ifosfamide acrolein mesna chlorambucil lomustine CCNU streptozotocin dacarbazine 出血性膀胱炎",
+    snippet: "Cyclophosphamide 經 P450 活化成 phosphoramide mustard 與 acrolein；lomustine 肝毒性；dacarbazine 貓不可用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "platinum", sectionName: "鉑類：Cisplatin、Carboplatin",
+    keywords: "cisplatin carboplatin 鉑 腎毒性 嘔吐 貓 肺水腫",
+    snippet: "Cisplatin 嘔吐腎毒性、貓致命肺水腫；carboplatin 貓可用、骨髓抑制。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "antimetabolite", sectionName: "抗代謝物",
+    keywords: "抗代謝物 mercaptopurine thioguanine 5-FU fluorouracil thymidylate synthase cytarabine gemcitabine methotrexate DHFR leucovorin",
+    snippet: "S 期專一；6-TG purine 拮抗；5-FU 貓禁用；methotrexate 與 leucovorin。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "plant", sectionName: "植物生物鹼",
+    keywords: "vincristine vinblastine vinca 微管 CTVT taxane paclitaxel etoposide topoisomerase 外滲",
+    snippet: "Vinca 微管解聚、治 CTVT；taxane 穩定微管；etoposide 犬口服。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "antibiotic", sectionName: "細胞毒性抗生素",
+    keywords: "doxorubicin 心毒性 dexrazoxane 鐵 mitoxantrone bleomycin 肺纖維化 anthracycline",
+    snippet: "Doxorubicin 累積心毒性與 dexrazoxane；bleomycin 肺纖維化。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "misc", sectionName: "其他：酵素、荷爾蒙、NSAID、TKI",
+    keywords: "L-asparaginase 過敏 prednisolone tamoxifen piroxicam toceranib masitinib 肥大細胞瘤 TKI",
+    snippet: "L-asparaginase、糖皮質素、tamoxifen、piroxicam 與 TKI。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "adverse", sectionName: "化療共通副作用",
+    keywords: "副作用 嘔吐 骨髓抑制 G-CSF 掉毛 外滲 組織壞死",
+    snippet: "嘔吐、骨髓抑制（最常見劑量限制）、掉毛、外滲壞死。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "clinical", sectionName: "臨床整合：物種與共病",
+    keywords: "貓 禁用 cisplatin 5-FU dacarbazine 心臟病 肝病 腎病 膀胱炎 MDR1",
+    snippet: "貓禁用抗癌藥與共病禁忌。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "考古 期末考 phosphoramide mustard dexrazoxane thioguanine carboplatin 國考",
+    snippet: "2025 期末考第 4–7 題與推測國考方向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習",
+    snippet: "各類抗癌藥代表藥、機轉與招牌毒性。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癌藥物",
+    url: "大三/獸醫藥理學/抗癌藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題 淋巴瘤",
+    snippet: "9 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "抗寄生蟲 驅蟲 anthelmintic 重點 MDR1 心絲蟲",
+    snippet: "BZD 抑制 β-tubulin；nicotinic 促效痙攣麻痺；ML 對絛蟲吸蟲無效、MDR1；melarsomine 貓不可用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "drugtable", sectionName: "本頁藥物總覽",
+    keywords: "albendazole fenbendazole levamisole pyrantel ivermectin milbemycin melarsomine praziquantel clorsulon 劑量",
+    snippet: "所有抗蠕蟲藥的機轉、途徑與注意事項。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "intro", sectionName: "選擇性毒性與作用機轉",
+    keywords: "選擇性毒性 endectocide pyrethrin 除蟲菊 神經傳導物質 nAChR glutamate GABA latrophilin",
+    snippet: "選擇性毒性、作用方式分類、寄生蟲神經傳導物質與抗線蟲藥作用位置。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "bzd", sectionName: "Benzimidazoles",
+    keywords: "benzimidazole albendazole fenbendazole oxfendazole thiabendazole β-tubulin 致畸胎 休藥期",
+    snippet: "BZD 抑制 β-tubulin 聚合；albendazole 廣效致畸胎；fenbendazole 腸道首選。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "nicotinic", sectionName: "Nicotinic agonists",
+    keywords: "levamisole pyrantel morantel nicotinic 痙攣性麻痺 免疫刺激 癲癇",
+    snippet: "Nicotinic 促效劑；levamisole 安全範圍窄；癲癇犬謹慎。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "ml", sectionName: "Macrocyclic lactones 與 MDR1",
+    keywords: "ivermectin doramectin selamectin avermectin milbemycin glutamate-gated chloride MDR1 P-glycoprotein Collie Australian Shepherd",
+    snippet: "Macrocyclic lactones 機轉、對絛蟲吸蟲無效、MDR1 品種與 P-gp 抑制劑交互作用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "othernema", sectionName: "其他抗線蟲藥",
+    keywords: "piperazine emodepside latrophilin dichlorvos 有機磷 豬",
+    snippet: "Piperazine GABA 促效；emodepside latrophilin；dichlorvos 只用於豬。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "heartworm", sectionName: "心絲蟲治療與預防",
+    keywords: "心絲蟲 heartworm melarsomine 殺成蟲 微絲蟲 milbemycin ivermectin moxidectin 預防 L4 血栓性肺炎",
+    snippet: "Melarsomine 殺成蟲（貓不可用）；殺微絲蟲劑量；每月 ML 殺 L4 預防。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "cestode", sectionName: "抗絛蟲藥",
+    keywords: "praziquantel epsiprantel dichlorophene 絛蟲 Dipylidium Taenia Echinococcus 中間宿主",
+    snippet: "Praziquantel 所有絛蟲；BZD 對 Dipylidium 無效；dichlorophene 去耦聯。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "trematode", sectionName: "抗吸蟲藥",
+    keywords: "clorsulon albendazole 肝吸蟲 Fasciola hepatica 糖解",
+    snippet: "Clorsulon 對成熟與未成熟肝吸蟲有效、懷孕安全。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "resistance", sectionName: "抗藥性管理",
+    keywords: "抗藥性 resistance refugia FECRT 糞卵數減少試驗 小型反芻獸 輪牧",
+    snippet: "抗藥機轉、FECRT <95%、refugia 與管理策略。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "clinical", sectionName: "臨床整合：共病與用藥",
+    keywords: "MDR1 癲癇 貓 心絲蟲 懷孕 肝腎 休藥期 共病",
+    snippet: "MDR1、癲癇犬、貓心絲蟲、懷孕與產食動物的驅蟲藥選擇。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "考古 期末考 β-tubulin melarsomine clorsulon 國考",
+    snippet: "2025 期末考第 45–47 題與推測國考方向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習",
+    snippet: "抗蠕蟲藥類別、標的與關鍵點總表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗寄生蟲藥物 I：抗蠕蟲藥",
+    url: "大三/獸醫藥理學/抗寄生蟲藥物.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題 Australian Shepherd",
+    snippet: "8 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "消毒劑 防腐劑 disinfectant antiseptic 重點",
+    snippet: "先清潔再消毒；Spaulding；酒精對無套膜病毒無效；chlorhexidine 與 saline 沉澱；酚類貓禁用。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "drugtable", sectionName: "本頁藥劑總覽",
+    keywords: "肥皂 QAC 酒精 碘 漂白水 chlorhexidine glutaraldehyde H2O2 PPMS Virkon phenol triclosan ethylene oxide",
+    snippet: "所有消毒防腐藥劑的機轉、抗菌譜、用途與限制。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "concepts", sectionName: "清潔、防腐、消毒與滅菌",
+    keywords: "清潔劑 防腐劑 消毒劑 滅菌 Spaulding critical semicritical noncritical 消毒等級",
+    snippet: "三者定義比較、防腐劑適應症、消毒等級與 Spaulding 分類。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "surfactant", sectionName: "界面活性劑",
+    keywords: "肥皂 陰離子 QAC 四級銨 陽離子 沉澱 失活",
+    snippet: "肥皂與 QAC 混合沉澱；QAC 受有機物與材質吸附影響。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "alcohol", sectionName: "酒精",
+    keywords: "酒精 乙醇 異丙醇 70% 無套膜病毒 芽孢 易燃",
+    snippet: "70% 乙醇或 50% 異丙醇；對芽孢與無套膜病毒無效。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "halogen", sectionName: "鹵素：碘與氯",
+    keywords: "碘 povidone-iodine iodophor 碘酊 甲狀腺 次氯酸鈉 漂白水 HOCl pH Microsporum canis 氯氣",
+    snippet: "PI 稀釋 1% 與全身毒性；HOCl pH 依賴、漂白水限制。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "biguanide", sectionName: "Biguanides：Chlorhexidine、PHMB",
+    keywords: "chlorhexidine 殘留活性 生理食鹽水 沉澱 肥皂 PHMB 洗耳 MRSA",
+    snippet: "Chlorhexidine 優點與限制；PHMB 用途。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "aldehyde", sectionName: "醛類",
+    keywords: "formaldehyde formalin glutaraldehyde 烷化 高階消毒 致癌 PPE",
+    snippet: "醛類殺芽孢、禁作防腐劑、需 PPE。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "oxidizer", sectionName: "氧化劑",
+    keywords: "過氧化氫 H2O2 纖維母細胞 AHP PPMS Virkon 小病毒",
+    snippet: "3% H₂O₂ 傷纖維母細胞；AHP 表面消毒；PPMS 對小病毒有效。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "phenol", sectionName: "酚類與 Triclosan",
+    keywords: "phenol 石炭酸 貓 葡萄糖醛酸 triclosan enoyl-ACP reductase",
+    snippet: "酚類只用於非 critical 物品、貓敏感；triclosan 濃度依賴機轉。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "gas", sectionName: "氣體滅菌",
+    keywords: "ethylene oxide EtO 氣體電漿 formaldehyde gas 濕度 滅菌",
+    snippet: "EtO、H₂O₂ 氣體電漿、甲醛氣體的特性與條件。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "clinical", sectionName: "臨床整合：場景與選擇",
+    keywords: "犬小病毒 籠舍 皮癬菌 術前 傷口沖洗 內視鏡 貓 腎病 碘",
+    snippet: "院內場景的消毒劑選擇與病患禁忌。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "exam", sectionName: "考點整理",
+    keywords: "國考 考點",
+    snippet: "推測國考方向。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "重點 整理 複習 芽孢 無套膜病毒 有機物",
+    snippet: "各藥劑對芽孢、無套膜病毒與有機物的比較表。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "消毒劑與防腐劑",
+    url: "大三/獸醫藥理學/消毒劑與防腐劑.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 情境題 小病毒",
+    snippet: "7 題選擇、是非、簡答與臨床情境題。"
   }
 ];

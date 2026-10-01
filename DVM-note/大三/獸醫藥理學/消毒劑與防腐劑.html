@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：消毒劑與防腐劑 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">消毒劑與防腐劑</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">消毒劑與防腐劑 Antiseptics &amp; Disinfectants</h1>
+      <p class="page-subtitle">清潔劑、防腐劑（皮膚組織）與消毒劑（無生命物體）的區別；消毒等級與 Spaulding 分類；酒精、碘與氯、chlorhexidine 與 PHMB、醛類、氧化劑、酚類與 triclosan、氣體滅菌的機轉、抗菌譜與限制</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三下）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（柯喬修，〈Antiseptics and Disinfectants〉，40 張）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.31</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-01</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對完成）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">🧴</span> 本頁藥劑總覽</a>
+    <a onclick="showSection('concepts')" id="nav-concepts"><span class="nav-icon">📚</span> 清潔、防腐、消毒與滅菌</a>
+    <div class="section-label" style="margin-top:8px;">藥劑</div>
+    <a onclick="showSection('surfactant')" id="nav-surfactant"><span class="nav-icon">🫧</span> 界面活性劑</a>
+    <a onclick="showSection('alcohol')" id="nav-alcohol"><span class="nav-icon">🍶</span> 酒精</a>
+    <a onclick="showSection('halogen')" id="nav-halogen"><span class="nav-icon">🟤</span> 鹵素：碘與氯</a>
+    <a onclick="showSection('biguanide')" id="nav-biguanide"><span class="nav-icon">🧼</span> Biguanides：Chlorhexidine、PHMB</a>
+    <a onclick="showSection('aldehyde')" id="nav-aldehyde"><span class="nav-icon">⚗️</span> 醛類</a>
+    <a onclick="showSection('oxidizer')" id="nav-oxidizer"><span class="nav-icon">💥</span> 氧化劑</a>
+    <a onclick="showSection('phenol')" id="nav-phenol"><span class="nav-icon">🧪</span> 酚類與 Triclosan</a>
+    <a onclick="showSection('gas')" id="nav-gas"><span class="nav-icon">💨</span> 氣體滅菌</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🏥</span> 臨床整合：場景與選擇</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎓</span> 考點整理</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>三個名詞先分清楚：<strong>清潔劑</strong>用界面活性劑把髒污與有機物移除——這是<strong>第一步</strong>，因為有機物會讓後續的化學藥劑失效；<strong>防腐劑</strong>用在<strong>活組織</strong>（皮膚、黏膜、傷口），要在效果與組織安全之間取捨；<strong>消毒劑</strong>用在<strong>無生命物體</strong>（桌面、籠子、器械），可以比較強。<strong>滅菌</strong>才會殺死細菌芽孢。每一類藥劑都要記：殺什麼、不殺什麼（芽孢、無套膜病毒）、會不會被有機物或其他藥劑失活、對誰有毒。</p>
+        <div class="grid-4" style="margin-top:10px;">
+          <div class="card" onclick="showSection('concepts')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">01</div><div class="card-title">Spaulding 分類</div></div>
+          <div class="card" onclick="showSection('biguanide')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">02</div><div class="card-title">Chlorhexidine</div></div>
+          <div class="card" onclick="showSection('halogen')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">03</div><div class="card-title">漂白水與 pH</div></div>
+          <div class="card" onclick="showSection('clinical')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">04</div><div class="card-title">小病毒怎麼消毒</div></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>先清潔再消毒</strong>（first step rule）：有機物（bioburden）會讓多數藥劑失效。</li>
+          <li><strong>Spaulding 分類</strong>：穿透皮膚黏膜的 critical items 要滅菌；接觸完整黏膜的 semicritical 要高階消毒；只接觸完整皮膚的 noncritical 用低到中階消毒。</li>
+          <li><strong>肥皂（陰離子）與 QAC（陽離子）混用會沉澱</strong>；chlorhexidine 也被肥皂與陰離子清潔劑失活。</li>
+          <li><strong>酒精</strong>：70% 乙醇或 50% 異丙醇；殺細菌、結核菌、<strong>有套膜病毒</strong>；<strong>對芽孢與無套膜病毒無效</strong>。</li>
+          <li><strong>碘</strong>：廣效（包括芽孢）；povidone-iodine 稀釋到 <strong>1%</strong> 殺菌最佳；全身吸收可造成代謝性酸中毒、腎衰竭、甲狀腺異常（腎病與新生兒注意）。</li>
+          <li><strong>氯（次氯酸鹽）</strong>：有效成分是 <strong>HOCl</strong>，<strong>pH &lt; 8 時比例高、效果好</strong>；被有機物失活、怕光、<strong>與酸混合產生氯氣</strong>；對 <em>Microsporum canis</em> 很有效。</li>
+          <li><strong>Chlorhexidine</strong>：對 G(+) 最強、病毒與芽孢最弱；<strong>持續作用、不受有機物影響、毒性極低</strong>；<strong>用生理食鹽水稀釋會沉澱</strong>。</li>
+          <li><strong>酚類對貓特別危險</strong>（葡萄糖醛酸結合能力差）；<strong>3% H₂O₂ 對纖維母細胞有毒</strong>，不適合常規傷口照護；<strong>PPMS（Virkon® S）對小病毒等頑強病毒非常有效</strong>、不受有機物失活。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Antiseptics and Disinfectants〉；VPT10 Ch.31。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥劑總覽</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥劑</th><th>類別／機轉</th><th>抗菌譜</th><th>用途</th><th>主要限制</th></tr></thead>
+        <tbody>
+          <tr><td><strong>肥皂</strong></td><td>陰離子界面活性劑（R-COO⁻Na⁺），乳化溶解</td><td>G(+)、抗酸菌</td><td>清潔</td><td>被 Ca²⁺、陽離子清潔劑失活；與 QAC 混合沉澱</td></tr>
+          <tr><td><strong>QACs</strong>（四級銨）</td><td>陽離子界面活性劑</td><td>—</td><td>獸醫常用清潔／消毒</td><td>受有機物干擾、被材質吸附</td></tr>
+          <tr><td><strong>Ethanol 70%、Isopropanol 50%</strong></td><td>脂質溶劑＋蛋白質變性</td><td>G(+)、G(−)、結核菌、有套膜病毒</td><td>皮膚、表面</td><td>芽孢、無套膜病毒無效；蛋白質固定；易燃</td></tr>
+          <tr><td><strong>碘酊</strong></td><td>1–2% 碘溶於 70% 乙醇</td><td>廣效（含芽孢）</td><td>皮膚</td><td>刺激、染色、腐蝕金屬、延遲傷口癒合</td></tr>
+          <tr><td><strong>Povidone-iodine</strong></td><td>碘與載體複合（iodophor），緩慢釋放</td><td>廣效</td><td>術前、傷口（稀釋到 1%）</td><td>全身吸收：酸中毒、腎衰竭、甲狀腺異常</td></tr>
+          <tr><td><strong>次氯酸鈉（漂白水）</strong></td><td>形成 HOCl：抑制酵素、蛋白變性、核酸失活</td><td>細菌、黴菌（M. canis）、病毒、原蟲</td><td>籠舍、乳品設備、地板；稀釋後用於犬表淺膿皮症</td><td>有機物失活、怕光、與酸產生氯氣、腐蝕</td></tr>
+          <tr><td><strong>N-halamines</strong></td><td>新型鹵素</td><td>殺細菌、黴菌、病毒、原蟲</td><td>—</td><td>穩定、不腐蝕</td></tr>
+          <tr><td><strong>Chlorhexidine</strong></td><td>Biguanide：破壞細胞膜、細胞質沉澱、抑制酵素</td><td>G(+) 最強；G(−)、黴菌、結核菌；病毒與芽孢最弱</td><td>術前刷手（4%）、傷口沖洗、乳頭浸泡</td><td>被肥皂、陰離子清潔劑失活；<strong>與 saline 沉澱</strong></td></tr>
+          <tr><td><strong>PHMB</strong></td><td>聚合型 biguanide</td><td>MRSA、綠膿桿菌、馬腺疫鏈球菌</td><td>洗耳液、傷口敷料、黏膜</td><td>—</td></tr>
+          <tr><td><strong>Formaldehyde／Formalin</strong></td><td>烷化（蛋白質胺基與硫氫基）</td><td>細菌、芽孢、黴菌、病毒</td><td>消毒、氣體燻蒸</td><td>不可作防腐劑；刺激；潛在致癌</td></tr>
+          <tr><td><strong>Glutaraldehyde</strong></td><td>二醛，烷化 RNA、DNA、蛋白質</td><td>比 formaldehyde 更強，含芽孢</td><td>器械高階消毒</td><td>不可作防腐劑；刺激；需 PPE</td></tr>
+          <tr><td><strong>H₂O₂ 3%</strong></td><td>產生羥自由基</td><td>殺細菌、病毒、黴菌</td><td>—</td><td>對纖維母細胞有毒</td></tr>
+          <tr><td><strong>AHP</strong>（加速型過氧化氫）</td><td>H₂O₂＋界面活性劑＋穩定劑</td><td>比一般 H₂O₂ 強</td><td>診療台、籠子、高接觸表面</td><td>—</td></tr>
+          <tr><td><strong>PPMS</strong>（Virkon® S）</td><td>過氧單硫酸鉀（氧化劑）</td><td>G(+)、G(−)、<strong>病毒（小病毒）</strong>、黴菌、黴漿菌</td><td>環境消毒</td><td>溶液約 1 週有效；不被有機物失活</td></tr>
+          <tr><td><strong>Phenol（石炭酸）</strong></td><td>穿透破壞細胞壁</td><td>葡萄球菌、綠膿桿菌、結核菌、黴菌、親脂性病毒、部分寄生蟲卵</td><td>非 critical 物品</td><td>毒性與腐蝕性強，不再作防腐劑；<strong>貓敏感</strong></td></tr>
+          <tr><td><strong>Triclosan</strong></td><td>Bisphenol；低濃度抑制 enoyl-ACP reductase，高濃度破壞膜</td><td>G(+)、G(−)、黴菌、酵母</td><td>刷手液、肥皂、洗毛精、塑膠</td><td>—</td></tr>
+          <tr><td><strong>Ethylene oxide</strong></td><td>氣體滅菌</td><td>含芽孢</td><td>器械滅菌</td><td>高度易燃、刺激；只用於無生命物體</td></tr>
+          <tr><td><strong>H₂O₂ 氣體電漿</strong></td><td>真空＋射頻產生活性離子</td><td>含芽孢</td><td>器械滅菌</td><td>週轉快、無毒性殘留</td></tr>
+          <tr><td><strong>Formaldehyde gas</strong></td><td>氣體</td><td>含芽孢；相對濕度 &lt;50% 效果最好</td><td>醫院布品、家禽與食品業終末消毒</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.31。本頁為個人課堂筆記整理，不作為正式診斷依據；使用濃度依產品標示。</footer>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="section-concepts">
+      <div class="section-head"><div class="section-num">3</div><h2>清潔、防腐、消毒與滅菌<span class="tag tag-exam">重要</span></h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>清潔劑 Cleansers</th><th>防腐劑 Antiseptics</th><th>消毒劑 Disinfectants</th></tr></thead>
+        <tbody>
+          <tr><td>對象</td><td>髒污、有機物與污染微生物</td><td><strong>活組織</strong>（皮膚、黏膜、傷口）</td><td><strong>無生命物體</strong>（桌面、籠子、器械）</td></tr>
+          <tr><td>目標</td><td>物理移除與溶解大量污染</td><td>減少微生物數量、預防感染</td><td>消滅大部分或全部病原，<strong>不含芽孢</strong></td></tr>
+          <tr><td>機轉</td><td>界面活性劑乳化油脂髒污</td><td>非專一性破壞細胞膜或酵素</td><td>不同程度的化學或物理作用</td></tr>
+          <tr><td>臨床角色</td><td><strong>第一步</strong>，讓後續步驟效果最大</td><td>天然防禦受損時（手術）</td><td>依風險（Spaulding）與等級分類</td></tr>
+          <tr><td>理想特性</td><td>溶解力好；與水和表面相容</td><td>廣效；<strong>效果與安全的平衡</strong></td><td>快速、不腐蝕、在有機物中穩定</td></tr>
+          <tr><td>例子</td><td>肥皂、QACs</td><td>酒精、chlorhexidine、碘</td><td>酒精、醛類、酚類</td></tr>
+        </tbody>
+      </table></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">防腐劑的適應症（講義）</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li>防禦機制受損：術後傷口、放置導管或植入物</li><li>免疫受損：免疫缺陷、化療</li><li>極端年齡（很老或很小）</li><li>大面積皮膚損傷：嚴重燒燙傷、開放性傷口</li></ul></div>
+        <div class="card"><div class="card-title">理想消毒劑</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li>廣效、快速</li><li>在有機物存在下仍有效</li><li>可與清潔劑併用，不腐蝕金屬、不傷橡膠塑膠</li><li>低毒、便宜、無味、易用</li><li>表面有殘留活性</li></ul></div>
+      </div>
+      <h3>消毒等級</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>等級</th><th>可消滅</th><th>限制</th></tr></thead>
+        <tbody>
+          <tr><td><strong>高階</strong></td><td>所有微生物</td><td>高濃度細菌芽孢時可能失敗</td></tr>
+          <tr><td><strong>中階</strong></td><td>抗酸菌（結核菌）、大部分病毒、黴菌</td><td>不一定殺死芽孢</td></tr>
+          <tr><td><strong>低階</strong></td><td>大部分細菌、部分病毒與黴菌</td><td>不殺結核菌與芽孢；通常 &lt;10 分鐘</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Spaulding 分類（1968）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>物品</th><th>接觸</th><th>要求</th><th>例子（臨床推理）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Critical</strong></td><td>進入或穿透皮膚黏膜</td><td><strong>滅菌</strong></td><td>手術器械、植入物、導管</td></tr>
+          <tr><td><strong>Semicritical</strong></td><td>接觸完整黏膜</td><td><strong>高階消毒</strong></td><td>內視鏡、氣管內管、喉鏡</td></tr>
+          <tr><td><strong>Noncritical</strong></td><td>只接觸完整皮膚</td><td><strong>低到中階消毒</strong></td><td>診療台、聽診器、籠子</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>滅菌</strong>殺死所有微生物（含芽孢）；<strong>化學滅菌劑</strong>是 EPA 登記、通常可在 10 小時內殺死包括芽孢在內所有感染性生物的藥劑。消毒方式包括表面消毒與浸泡消毒。</p>
+      <footer class="note-footer">資料來源：NTU 講義 p3–13。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="section-surfactant">
+      <div class="section-head"><div class="section-num">4</div><h2>界面活性劑</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>代表</th><th>重點（講義）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>陰離子</strong></td><td>肥皂（R-COO⁻Na⁺）</td><td>親水端＋疏水端，乳化溶解疏水性髒污、脂肪與原生質膜；抗菌譜：<strong>G(+) 與抗酸菌</strong>；<strong>被 Ca²⁺ 與陽離子清潔劑失活</strong>；<strong>與 QAC 混合會沉澱</strong></td></tr>
+          <tr><td><strong>陽離子</strong></td><td>四級銨化合物（QACs）</td><td>獸醫常用；限制：<strong>受有機物干擾</strong>、價值下降、<strong>被材質吸附</strong>（棉、紗布等會吸走有效成分）</td></tr>
+          <tr><td>非離子</td><td>—</td><td>不帶電</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：陰陽離子不能混</div>
+        <p>肥皂（陰離子）會中和陽離子藥劑：QAC 與 chlorhexidine（陽離子）都會被肥皂與陰離子清潔劑失活。手術刷手時先把肥皂沖乾淨，再用 chlorhexidine。VPT10 也提到 chlorhexidine 會被硬水、非離子界面活性劑、無機陰離子與肥皂失活。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p4–6；VPT10 Ch.31。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="section-alcohol">
+      <div class="section-head"><div class="section-num">5</div><h2>酒精 Alcohol</h2></div>
+      <ul>
+        <li><strong>種類</strong>：乙醇、異丙醇。</li>
+        <li><strong>雙重機轉</strong>：<strong>脂質溶劑</strong>（溶解細胞膜脂質 → 漏出）＋<strong>蛋白質變性</strong>。</li>
+        <li><strong>最佳濃度：70% 乙醇或 50% 異丙醇</strong>（需要水才能讓蛋白質變性）。</li>
+        <li><strong>有效</strong>：G(+)、G(−)、結核菌、<strong>有套膜病毒</strong>。</li>
+        <li><strong>無效</strong>：<strong>細菌芽孢、無套膜病毒</strong>。</li>
+        <li><strong>限制</strong>：受有機物干擾；<strong>蛋白質固定</strong>（把有機物黏在表面上）；材質相容性與安全性：腐蝕、<strong>高度易燃</strong>。</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">臨床意義：無套膜病毒</div>
+        <p>犬小病毒、貓泛白血球減少症病毒、貓卡里西病毒都是<strong>無套膜病毒</strong>，酒精對它們無效。處理這些病例的環境要用次氯酸鈉、PPMS 或 AHP（見第 12 節）。這是臨床常規推理，基礎是講義中「酒精對無套膜病毒無效」與「PPMS 對小病毒非常有效」兩點。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p15–16。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="section-halogen">
+      <div class="section-head"><div class="section-num">6</div><h2>鹵素：碘與氯</h2></div>
+      <h3>碘</h3>
+      <ul>
+        <li><strong>廣效</strong>：G(+)、G(−)、<strong>細菌芽孢</strong>、黴菌、大部分病毒。</li>
+        <li><strong>機轉</strong>：擴散進細胞，干擾代謝反應，破壞蛋白質與核酸的結構與合成。</li>
+        <li><strong>碘酊</strong>：1–2% 碘溶於 70% 乙醇；<strong>高度刺激</strong>、染色皮膚衣物、腐蝕金屬、損傷組織而<strong>延遲傷口癒合</strong>。</li>
+        <li><strong>Iodophors</strong>：碘與界面活性劑或載體複合；<strong>povidone-iodine</strong> 是獸醫院最常用的；優點：緩慢釋放、毒性較低、清潔與殺菌雙重作用。</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：Povidone-iodine 濃度與全身風險</div>
+        <p><strong>稀釋到 1% 才有最大殺菌效果</strong>（稀釋後釋出更多游離碘）。VPT10：1% PI 被建議為傷口沖洗最有效、組織毒性最低的濃度；含界面活性劑的 PI 刷洗液會傷害傷口組織，不建議用於傷口。<strong>全身吸收的風險</strong>：代謝性酸中毒、腎衰竭、甲狀腺功能異常（甲亢與甲狀腺增生）——<strong>腎功能受損與新生動物</strong>要注意。</p>
+      </div>
+      <h3>氯（次氯酸鹽）</h3>
+      <div class="flow">
+        <div class="flow-node">Cl₂ 或 NaOCl 與水反應</div><span class="flow-arrow">→</span>
+        <div class="flow-node green"><strong>HOCl</strong>（殺菌形式）</div><span class="flow-arrow">⇌</span>
+        <div class="flow-node">OCl⁻ ＋ H⁺（效果較差）</div>
+      </div>
+      <ul>
+        <li><strong>機轉</strong>：抑制細胞酵素、蛋白質變性、核酸失活。</li>
+        <li><strong>pH 依賴</strong>：<strong>pH &lt; 8 偏向 HOCl（有效）</strong>；pH &gt; 8 偏向 OCl⁻（效果較差）。</li>
+        <li><strong>用途</strong>：動物籠舍、乳品設備、地板消毒；<strong>對 <em>Microsporum canis</em>（貓皮癬菌）非常有效</strong>。</li>
+        <li><strong>限制</strong>：<strong>被有機物失活</strong>、<strong>照光不穩定</strong>、<strong>與酸混合產生有毒氯氣</strong>。</li>
+        <li><strong>防腐用途</strong>：一般對組織太刺激；但稀釋漂白水有時用於<strong>犬表淺膿皮症</strong>。</li>
+        <li><strong>N-halamines</strong>（新型鹵素）：殺細菌、黴菌、病毒、原蟲；極低鹵素濃度就有效；比傳統氯穩定、不腐蝕、易用。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充（VPT10 Ch.31）</div>
+        <p>家用漂白水為 5.25%（52,500 ppm），1:100–1:250 稀釋即可達有效殺菌濃度，但常建議更濃的 1:10–1:100。氯溶液會腐蝕金屬、破壞布料；因為怕光，<strong>需每天現配</strong>。用於傷口時，全濃度 Dakin's solution（0.5% NaOCl）會殺死纖維母細胞、延遲上皮化；0.025% 被報告具殺菌力且無組織毒性。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p17–22；VPT10 Ch.31。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="section-biguanide">
+      <div class="section-head"><div class="section-num">7</div><h2>Biguanides：Chlorhexidine 與 PHMB<span class="tag tag-exam">重要</span></h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/消毒劑與防腐劑/chlorhexidine.svg" alt="Chlorhexidine 結構式"><div class="figure-caption">Chlorhexidine：兩個 biguanide 由六碳鏈相連，兩端接氯苯——帶正電（陽離子）</div></div>
+        <div class="card"><div class="card-title">Chlorhexidine（Chx）</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li><strong>機轉</strong>：破壞細胞膜、細胞質沉澱、抑制酵素</li><li><strong>最強</strong>：G(+)；<strong>有效</strong>：G(−)、黴菌、結核菌；<strong>最弱</strong>：病毒、細菌芽孢</li><li><strong>優點</strong>：<strong>殘留活性</strong>（持續作用）、<strong>不受有機物影響</strong>、快速且安全、<strong>毒性極低</strong></li></ul></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">限制</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>被肥皂與陰離子清潔劑失活</strong>。</li>
+          <li><strong>用生理食鹽水（0.9% NaCl）稀釋會沉澱</strong> → 用滅菌水稀釋。</li>
+        </ul>
+      </div>
+      <ul>
+        <li><strong>劑型</strong>：4% 溶液（清潔劑基底）用於術前刷手；2% 液態泡沫；酒精／chlorhexidine 合併製劑（提高效果）。</li>
+        <li>VPT10：殘留活性可達 5–6 小時（可能與角質層蛋白結合），在血液與有機物中仍有活性；對新生兒完整皮膚也毒性極低；傳統用途為術前防腐、傷口沖洗、乳頭浸泡。</li>
+        <li>VPT10 傷口研究：0.05–1% chlorhexidine diacetate 沖洗的感染比 PI 少；但 &gt;0.05% 對馬纖維母細胞致死，且在部分研究中延遲癒合比 PI 更明顯。</li>
+      </ul>
+      <h3>PHMB（Polyhexamethylene biguanide）</h3>
+      <p>Chlorhexidine 的聚合型親戚。對 <strong>MRSA、綠膿桿菌、馬腺疫鏈球菌（<em>Streptococcus equi</em>）</strong>有效；獸醫用途：<strong>洗耳液、傷口敷料、黏膜使用</strong>。</p>
+      <footer class="note-footer">資料來源：NTU 講義 p23–26；VPT10 Ch.31。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="section-aldehyde">
+      <div class="section-head"><div class="section-num">8</div><h2>醛類 Aldehydes</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/消毒劑與防腐劑/glutaraldehyde.svg" alt="Glutaraldehyde 結構式"><div class="figure-caption">Glutaraldehyde：兩端各一個醛基（二醛）→ 交聯能力強</div></div>
+        <div class="card"><div class="card-title">Formaldehyde</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li>氣體或液體；<strong>Formalin = 37% formaldehyde</strong>（重量比）</li><li><strong>機轉：烷化</strong>，針對蛋白質的胺基與硫氫基</li><li><strong>抗菌譜</strong>：細菌、<strong>芽孢</strong>、黴菌、病毒</li><li><strong>優點</strong>：不受有機物影響；不腐蝕金屬、油漆、布料</li></ul></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <p><strong>Glutaraldehyde（GLT）</strong>：飽和二醛，<strong>比 formaldehyde 更強</strong>的殺細菌、殺病毒、殺芽孢作用；烷化 RNA、DNA、蛋白質；表面張力低、不傷材質、在大量有機物中仍有活性 → 適合 semicritical 器械（如內視鏡）高階消毒。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌與安全</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>禁止作為防腐劑</strong>（不可用在活組織）。</li>
+          <li>呼吸道與眼睛刺激；<strong>formaldehyde 為潛在致癌物</strong>。</li>
+          <li>操作時需<strong>個人防護裝備（PPE）</strong>。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p27–29。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="section-oxidizer">
+      <div class="section-head"><div class="section-num">9</div><h2>氧化劑 Oxidizing Agents</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥劑</th><th>重點（講義）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H₂O₂</strong></td><td>殺細菌、病毒、黴菌；產生具破壞性的<strong>羥自由基</strong>；作用短暫但穩定；<strong>3% H₂O₂ 對纖維母細胞有毒</strong>（傷口癒合必需的細胞）→ VPT10：不適合常規傷口照護</td></tr>
+          <tr><td><strong>AHP</strong>（Accelerated hydrogen peroxide）</td><td>H₂O₂＋界面活性劑＋穩定劑；抗菌效果明顯優於一般 H₂O₂；界面活性劑讓溶液穿透並清潔表面；殺菌時間更短 → 常用於<strong>診療台、籠子、高接觸表面</strong></td></tr>
+          <tr><td><strong>PPMS</strong>（Potassium peroxymonosulfate，Virkon® S）</td><td>粉末，加水配製；廣效：G(+)、G(−)、<strong>病毒（對小病毒等頑強病毒非常有效）</strong>、黴菌、黴漿菌；粉末穩定，<strong>配成溶液後約 1 週有效</strong>；<strong>不被有機物失活</strong></td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p30–32；VPT10 Ch.31。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="section-phenol">
+      <div class="section-head"><div class="section-num">10</div><h2>酚類與 Triclosan</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/消毒劑與防腐劑/phenol.svg" alt="Phenol 結構式"><div class="figure-caption">Phenol（石炭酸）</div></div>
+        <div class="figure"><img src="img/消毒劑與防腐劑/triclosan.svg" alt="Triclosan 結構式"><div class="figure-caption">Triclosan：含氯的 bisphenol 類</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <h3>Phenol（石炭酸）</h3>
+      <ul>
+        <li>因嚴重毒性與腐蝕性，<strong>不再作為防腐劑</strong>。</li>
+        <li><strong>機轉</strong>：穿透並破壞細胞壁 → 溶解。</li>
+        <li><strong>有效</strong>：葡萄球菌、綠膿桿菌、結核菌、黴菌、親脂性病毒；部分寄生蟲卵與幼蟲（蛔蟲、圓線蟲、鞭蟲）。</li>
+        <li><strong>限制</strong>：只建議用於 <strong>noncritical 物品</strong>；多孔材質會吸收殘留；環境問題；氣味強烈持久；會被飼料吸收。</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌：貓</div>
+        <p><strong>貓對酚類特別敏感</strong>，因為葡萄糖醛酸結合路徑有限。這與貓對 acetaminophen、aspirin、posaconazole 等藥物的敏感性是同一個代謝缺陷（見 <a href="藥理學總論.html">藥理學總論</a>）。貓舍與住院區避免使用酚類消毒劑。</p>
+      </div>
+      <h3>Triclosan</h3>
+      <ul>
+        <li>Bisphenol；對 G(+)、G(−)、黴菌、酵母有廣效；廣泛用於刷手液、肥皂、洗毛精、除臭劑，以及塑膠（玩具）與纖維防止細菌分解。</li>
+        <li><strong>濃度依賴的機轉</strong>：<strong>低濃度抑菌</strong>——競爭性抑制 enoyl-acyl carrier protein reductase，阻斷細菌脂肪酸延長；<strong>高濃度殺菌</strong>——親脂性讓它插入細菌脂雙層，擾亂磷脂排列、直接破壞細胞膜。</li>
+      </ul>
+      <footer class="note-footer">資料來源：NTU 講義 p33–36。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="section-gas">
+      <div class="section-head"><div class="section-num">11</div><h2>氣體滅菌</h2></div>
+      <p>毒性高，<strong>只用於無生命物體，絕不用於防腐</strong>。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/消毒劑與防腐劑/ethylene_oxide.svg" alt="Ethylene oxide 結構式"><div class="figure-caption">Ethylene oxide：三元環醚，高反應性</div></div>
+        <div class="card"><div class="card-title">三種氣體滅菌</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li><strong>Ethylene oxide（EtO）</strong>：水溶性、<strong>高度易燃</strong>；殺細菌、黴菌、酵母、病毒與<strong>芽孢</strong>；成敗關鍵為<strong>相對濕度與有機物</strong>；刺激皮膚與眼睛</li><li><strong>H₂O₂ 氣體電漿</strong>：真空＋射頻／微波能量產生活性離子電漿；廣效、對芽孢活性高；<strong>週轉快、無毒性殘留</strong></li><li><strong>Formaldehyde gas</strong>：殺所有微生物含芽孢；<strong>相對濕度 &lt;50% 時效果最好</strong>；傳統用於醫院布品、家禽與食品業終末消毒</li></ul></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <footer class="note-footer">資料來源：NTU 講義 p37–40。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">12</div><h2>臨床整合：場景與選擇</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p>本節把講義內容套到院內常見場景。各藥劑特性出自講義與 VPT10；場景對應屬臨床推理，實際流程以院內感控規範與產品標示為準。</p>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>場景</th><th>建議藥劑</th><th>理由與注意</th></tr></thead>
+        <tbody>
+          <tr><td><strong>犬小病毒、貓泛白、卡里西病例的籠舍</strong></td><td>次氯酸鈉、PPMS（Virkon® S）、AHP</td><td>無套膜病毒；<strong>酒精、QAC 效果差</strong>；先清除糞便嘔吐物（漂白水會被有機物失活）</td></tr>
+          <tr><td><strong>貓皮癬菌（M. canis）環境</strong></td><td>次氯酸鈉</td><td>講義：對 M. canis 非常有效</td></tr>
+          <tr><td><strong>術前皮膚準備</strong></td><td>Chlorhexidine 或 povidone-iodine，常配合酒精</td><td>Chlorhexidine 有殘留活性、不受有機物影響；先沖淨肥皂</td></tr>
+          <tr><td><strong>傷口沖洗</strong></td><td>稀釋的 chlorhexidine 或 1% povidone-iodine；許多情況生理食鹽水即可</td><td><strong>Chlorhexidine 不可用 saline 稀釋</strong>（沉澱）；避免 3% H₂O₂、碘酊、全濃度漂白水、含界面活性劑的刷洗液（損傷纖維母細胞）</td></tr>
+          <tr><td><strong>耳道沖洗</strong></td><td>PHMB</td><td>講義：洗耳液用途</td></tr>
+          <tr><td><strong>內視鏡等 semicritical 器械</strong></td><td>Glutaraldehyde 等高階消毒</td><td>需 PPE；不可接觸組織</td></tr>
+          <tr><td><strong>手術器械</strong></td><td>滅菌（EtO、H₂O₂ 氣體電漿等）</td><td>Critical items</td></tr>
+          <tr><td><strong>診療台、高接觸表面</strong></td><td>AHP、QAC</td><td>先清潔</td></tr>
+        </tbody>
+      </table></div>
+      <h3>病患相關的禁忌</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>病患</th><th>避免或謹慎</th><th>理由</th></tr></thead>
+        <tbody>
+          <tr><td><strong>貓</strong></td><td>酚類消毒劑</td><td>葡萄糖醛酸結合能力差</td></tr>
+          <tr><td><strong>腎功能不全、新生動物</strong></td><td>大面積或長期 povidone-iodine</td><td>全身吸收：酸中毒、腎衰竭、甲狀腺異常</td></tr>
+          <tr><td><strong>開放傷口</strong></td><td>3% H₂O₂、碘酊、高濃度次氯酸鈉、醛類</td><td>組織毒性、延遲癒合；醛類禁作防腐劑</td></tr>
+          <tr><td><strong>甲狀腺疾病</strong>的動物</td><td>大量碘劑</td><td>碘吸收影響甲狀腺（見 <a href="腦下垂體荷爾蒙.html#section-thyroidphys">甲狀腺</a>）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">工作安全</div>
+        <p><strong>漂白水不可與酸性清潔劑混合</strong>（氯氣）；醛類與 EtO 需通風與 PPE；酒精與 EtO 易燃。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.31；場景對應為臨床推理。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">13</div><h2>考點整理</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">課程考古</div>
+        <p>手邊的課程考古（2025 期末、內分泌考古、藥理下期中考古）沒有消毒劑題目；本講義日期為 2026 年，屬新加入的範圍。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">推測國考方向</div>
+        <p>以下是依講義與教科書推測的方向，並非出自歷屆國考題目：防腐劑與消毒劑的定義差異；Spaulding 分類；酒精的最佳濃度與對芽孢、無套膜病毒無效；HOCl 的 pH 依賴性與漂白水的限制；povidone-iodine 1% 稀釋與全身毒性；chlorhexidine 的抗菌譜、優點與 saline 沉澱；醛類禁作防腐劑；貓對酚類敏感；PPMS 對小病毒有效；氣體滅菌的濕度條件。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 14 -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">14</div><h2>學習重點整理</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥劑</th><th>殺芽孢？</th><th>無套膜病毒？</th><th>有機物影響</th><th>一句話</th></tr></thead>
+        <tbody>
+          <tr><td>酒精</td><td>否</td><td>否</td><td>受影響</td><td>70% 乙醇；易燃</td></tr>
+          <tr><td>碘</td><td>是</td><td>大部分病毒有效</td><td>—</td><td>PI 稀釋 1%；全身毒性</td></tr>
+          <tr><td>次氯酸鈉</td><td>—</td><td>有效</td><td><strong>失活</strong></td><td>HOCl、pH &lt;8；怕光；不可混酸</td></tr>
+          <tr><td>Chlorhexidine</td><td>最弱</td><td>最弱</td><td><strong>不受影響</strong></td><td>殘留活性；saline 沉澱；肥皂失活</td></tr>
+          <tr><td>Glutaraldehyde</td><td>是</td><td>是</td><td>不受影響</td><td>高階消毒；禁作防腐</td></tr>
+          <tr><td>PPMS</td><td>—</td><td><strong>有效（小病毒）</strong></td><td>不受影響</td><td>溶液 1 週</td></tr>
+          <tr><td>酚類</td><td>—</td><td>親脂病毒</td><td>—</td><td>貓禁用</td></tr>
+          <tr><td>EtO</td><td>是</td><td>是</td><td>受影響</td><td>滅菌；濕度關鍵；易燃</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.85em;color:var(--fg-faint);">「—」表示講義未明確說明。</p>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.31。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 15 -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">15</div><h2>練習題</h2></div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 下列何者對無套膜病毒（如犬小病毒）效果最差？(A) 次氯酸鈉 (B) PPMS (C) 70% 乙醇 (D) Accelerated H₂O₂</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。酒精對芽孢與無套膜病毒無效。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. Chlorhexidine 用下列何者稀釋會產生沉澱？(A) 滅菌水 (B) 0.9% 生理食鹽水 (C) 70% 乙醇 (D) 蒸餾水</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">3. 依 Spaulding 分類，內視鏡（接觸完整黏膜）至少需要？(A) 滅菌 (B) 高階消毒 (C) 中階消毒 (D) 低階消毒</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Semicritical items 需要高階消毒；critical items（穿透組織）才需要滅菌。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">4. 是非題：次氯酸鈉在 pH 值高於 8 時殺菌效果最好。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。殺菌形式是 HOCl；pH &lt;8 時 HOCl 比例高，pH &gt;8 時偏向效果較差的 OCl⁻。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">5. 是非題：Glutaraldehyde 殺芽孢能力強，可作為傷口防腐劑。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。醛類禁止作為防腐劑（刺激、潛在致癌）。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">6. 簡答：列出 chlorhexidine 的三個優點與兩個限制。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">優點：殘留活性（持續作用）、不受有機物影響、快速且毒性極低。限制：被肥皂與陰離子清潔劑失活；用生理食鹽水稀釋會沉澱；對病毒與芽孢效果最弱。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">7. 臨床情境：住院區收治一隻犬小病毒陽性幼犬，同一區也住著一隻慢性腎病貓。(1) 籠舍消毒要用什麼？步驟？(2) 有哪些消毒劑要避免或不建議？(3) 腎病貓若需要清創，碘劑要注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) 先清除糞便嘔吐物並清潔（有機物讓漂白水失活），再用次氯酸鈉（每日新配、避光）、PPMS（Virkon® S，不被有機物失活）或 AHP。(2) 酒精與 QAC 對無套膜病毒效果差；酚類對貓有毒，貓所在區域避免；漂白水不可與酸性清潔劑混合。(3) Povidone-iodine 全身吸收可能造成代謝性酸中毒、腎衰竭與甲狀腺異常，腎功能受損者要小心；稀釋到 1% 並限制使用面積與時間，或改用稀釋 chlorhexidine（不可用 saline 稀釋）。</div></details>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.31。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 重點摘要",
+  "drugtable": "🧴 本頁藥劑總覽",
+  "concepts": "📚 清潔、防腐、消毒與滅菌",
+  "surfactant": "🫧 界面活性劑",
+  "alcohol": "🍶 酒精",
+  "halogen": "🟤 鹵素：碘與氯",
+  "biguanide": "🧼 Biguanides：Chlorhexidine、PHMB",
+  "aldehyde": "⚗️ 醛類",
+  "oxidizer": "💥 氧化劑",
+  "phenol": "🧪 酚類與 Triclosan",
+  "gas": "💨 氣體滅菌",
+  "clinical": "🏥 臨床整合：場景與選擇",
+  "exam": "🎓 考點整理",
+  "summary": "⭐ 學習重點整理",
+  "quiz": "📝 練習題"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：中樞神經藥理總論 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">中樞神經藥理總論</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">中樞神經藥理總論 Introduction to CNS Pharmacology</h1>
+      <p class="page-subtitle">中樞神經藥物分類、腦與脊髓功能、血腦屏障、神經元與膠細胞、突觸傳遞、主要神經傳導物質與受體，以及藥物影響神經傳導的方式——後續鎮靜、麻醉、鴉片類、抗癲癇各頁的共同基礎</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三上）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，A1〈Introduction to the CNS Pharmacology〉）為主；教科書核對：Handbook of Veterinary Pharmacology Ch.1（血腦屏障）、Ch.4／Ch.5（麻醉藥作用受體）、行為用藥章節（TCA、SSRI、MAOI、血清素症候群）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-01</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對完成，見「教科書補充」框）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('receptormap')" id="nav-receptormap"><span class="nav-icon">🗺️</span> 受體與藥物對照總表</a>
+    <div class="section-label" style="margin-top:8px;">構造基礎</div>
+    <a onclick="showSection('categories')" id="nav-categories"><span class="nav-icon">📚</span> 中樞神經藥物分類</a>
+    <a onclick="showSection('brain')" id="nav-brain"><span class="nav-icon">🧠</span> 腦與脊髓功能</a>
+    <a onclick="showSection('bbb')" id="nav-bbb"><span class="nav-icon">🧱</span> 血腦屏障</a>
+    <a onclick="showSection('neuron')" id="nav-neuron"><span class="nav-icon">⚡</span> 神經元、膠細胞與動作電位</a>
+    <div class="section-label" style="margin-top:8px;">神經傳導</div>
+    <a onclick="showSection('synapse')" id="nav-synapse"><span class="nav-icon">🔗</span> 突觸傳遞</a>
+    <a onclick="showSection('nt')" id="nav-nt"><span class="nav-icon">🧪</span> 神經傳導物質與受體</a>
+    <a onclick="showSection('neuropharm')" id="nav-neuropharm"><span class="nav-icon">💊</span> 藥物如何影響中樞</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🩺</span> 臨床整合：共病與用藥</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎓</span> 推測國考考點</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這頁在讀什麼？</div>
+        <p>A1 是整個中樞神經藥理的「地圖」：先認識腦的哪個區域負責什麼、藥物要怎麼穿過血腦屏障，再看神經元之間怎麼用化學物質溝通（突觸傳遞），最後落到<strong>每一種神經傳導物質有哪些受體、藥物從哪一個環節介入</strong>。讀後面的鎮靜劑、麻醉藥、鴉片類、抗癲癇藥時，只要回頭問一句「它作用在哪個受體、是興奮還是抑制」，就能把藥效與副作用串起來。第2節的「受體與藥物對照總表」就是這張地圖的索引。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">六個重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>血腦屏障的形態基礎是腦微血管內皮細胞的緊密連接</strong>，胞飲小泡與窗孔很少；分子量、電荷、脂溶性、載體決定藥物能否進入，<strong>脂溶性越高越容易穿過</strong>。發炎、感染、外傷、缺血、高血壓、新生動物都會讓血腦屏障變鬆。</li>
+          <li><strong>神經傳導物質的釋放依賴 Ca²⁺</strong>：動作電位到達神經末梢 → 電壓依賴性 Ca²⁺ 通道打開 → 胞吐釋放 → 與受體結合。</li>
+          <li><strong>α2 受體是 NE 神經元的自體受體</strong>：活化後負回饋降低 NE 釋放。這正是 α2 致效劑在獸醫當鎮靜劑、在人醫當降血壓藥的原因。</li>
+          <li><strong>胺基酸類：glutamate、aspartate 是主要的興奮性傳導物質；GABA、glycine 是抑制性</strong>。GABA-A 是配體閘門 Cl⁻ 通道（Cl⁻ 內流 → 過極化 → IPSP），GABA-B 是 G 蛋白偶聯受體；glycine 負責脊髓的突觸後抑制。</li>
+          <li><strong>受體兩大類</strong>：離子通道型（菸鹼型 ACh、GABA-A、離子型 glutamate、glycine、5-HT3）與 G 蛋白偶聯型（蕈毒鹼型 ACh、代謝型 glutamate、鴉片類受體與其他胺類、胜肽類受體）。</li>
+          <li><strong>中樞抑制是一條劑量連續譜</strong>：解除焦慮 → 去抑制 → 鎮靜 → 催眠 → 全身麻醉 → 昏迷 → 死亡；以 barbiturate 為例，相對劑量約為 1/3（鎮靜）、1（催眠）、5（麻醉）、10（死亡）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RECEPTOR MAP -->
+    <div class="section" id="section-receptormap">
+      <div class="section-head"><div class="section-num">2</div><h2>受體與藥物對照總表<span class="tag tag-exam">重要</span></h2></div>
+      <p class="section-desc">把講義的受體分類，對應到本站其他頁面的代表藥物。點最後一欄可以跳到該頁。受體與作用方向來自講義與教科書，代表藥物的詳細內容見各頁。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:17%;">受體</th><th style="width:15%;">類型</th><th style="width:14%;">作用</th><th>代表藥物與作用方式</th><th style="width:16%;">相關頁面</th></tr></thead>
+          <tbody>
+            <tr><td><strong>GABA-A</strong></td><td>配體閘門 Cl⁻ 通道</td><td>抑制</td><td>Barbiturates、propofol、etomidate 作用於 GABA 受體（教科書）；benzodiazepines 促進 GABA 介導的 Cl⁻ 傳導（教科書）</td><td><a href="注射式麻醉藥.html">注射式麻醉藥</a>、<a href="鎮靜與術前用藥.html">鎮靜</a>、<a href="抗癲癇藥物.html">抗癲癇</a></td></tr>
+            <tr><td><strong>NMDA</strong>（離子型 glutamate）</td><td>配體閘門陽離子通道（Ca²⁺ 通透性高）</td><td>興奮</td><td><strong>Ketamine 是 NMDA 受體拮抗劑</strong>，負責大部分麻醉與止痛作用（教科書）</td><td><a href="注射式麻醉藥.html">注射式麻醉藥</a></td></tr>
+            <tr><td><strong>α2 腎上腺素性</strong></td><td>GPCR（突觸前自體受體）</td><td>抑制 NE 釋放</td><td>α2 致效劑：獸醫當鎮靜劑（xylazine、dexmedetomidine 等）；拮抗劑 atipamezole、yohimbine 可反轉</td><td><a href="鎮靜與術前用藥.html">鎮靜與術前用藥</a>、<a href="腎上腺素性藥物.html">腎上腺素性藥物</a></td></tr>
+            <tr><td><strong>D2 多巴胺</strong></td><td>GPCR</td><td>—</td><td>部分抗精神病藥是 D2 拮抗劑（講義）；phenothiazine（acepromazine）；metoclopramide 也是 D2 拮抗劑（教科書）</td><td><a href="鎮靜與術前用藥.html">鎮靜</a>、<a href="腸胃道用藥.html">腸胃道用藥</a></td></tr>
+            <tr><td><strong>鴉片類受體</strong></td><td>GPCR</td><td>突觸前、後抑制</td><td>鴉片類止痛藥；拮抗劑 naloxone</td><td><a href="鴉片類止痛藥.html">鴉片類止痛藥</a></td></tr>
+            <tr><td><strong>蕈毒鹼型 M1–M5</strong></td><td>GPCR</td><td>—</td><td>拮抗劑 atropine</td><td><a href="抗膽鹼與神經肌肉阻斷劑.html">抗膽鹼</a>、<a href="膽鹼性藥物.html">膽鹼性</a></td></tr>
+            <tr><td><strong>菸鹼型 N<sub>N</sub>／N<sub>M</sub></strong></td><td>配體閘門離子通道</td><td>興奮</td><td>N<sub>N</sub>：自主神經節與中樞；N<sub>M</sub>：骨骼肌（神經肌肉阻斷劑作用處）</td><td><a href="抗膽鹼與神經肌肉阻斷劑.html">神經肌肉阻斷劑</a></td></tr>
+            <tr><td><strong>5-HT3</strong></td><td>配體閘門離子通道</td><td>—</td><td>5-HT 受體中唯一的離子通道型（講義）；止吐藥的標的</td><td><a href="血清素受體藥物.html">血清素受體藥物</a></td></tr>
+            <tr><td><strong>神經傳導物質轉運體</strong></td><td>再回收蛋白</td><td>終止訊號</td><td>TCA 阻斷 NE 再回收；SSRI 阻斷 5-HT 再回收；cocaine、amphetamine 阻斷 DA 再回收（講義）</td><td>本頁第9節</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學課程講義（詹東榮，A1）；Handbook of Veterinary Pharmacology（麻醉藥與行為用藥章節）。</footer>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="section" id="section-categories">
+      <div class="section-head"><div class="section-num">3</div><h2>中樞神經藥物分類 Categories of CNS Drugs</h2></div>
+      <p>藥理學家研究中樞神經藥物有兩個目的：<strong>把藥物當研究工具</strong>，了解正常中樞如何運作；以及<strong>開發治療中樞疾病的藥物</strong>。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:36%;">類別（講義）</th><th>中文</th><th style="width:26%;">本站頁面</th></tr></thead>
+          <tbody>
+            <tr><td>Injectable anesthetics</td><td>注射用麻醉劑</td><td><a href="注射式麻醉藥.html">注射式麻醉藥</a></td></tr>
+            <tr><td>Sedatives／hypnotics（minor tranquilizers）</td><td>鎮靜劑／安眠藥</td><td><a href="鎮靜與術前用藥.html">鎮靜與術前用藥</a></td></tr>
+            <tr><td>Major tranquilizers／neuroleptics（antipsychotics）</td><td>寧神劑／精神安定劑（抗精神病藥物）</td><td><a href="鎮靜與術前用藥.html">鎮靜與術前用藥</a>（A5）</td></tr>
+            <tr><td>Narcotic analgesics</td><td>麻醉鎮痛藥／類鴉片藥物</td><td><a href="鴉片類止痛藥.html">鴉片類止痛藥</a></td></tr>
+            <tr><td>Inhalation anesthetics</td><td>吸入性麻醉劑</td><td><a href="吸入性麻醉藥.html">吸入性麻醉藥</a></td></tr>
+            <tr><td>Preanesthetic medication</td><td>麻醉前給藥</td><td><a href="鎮靜與術前用藥.html">鎮靜與術前用藥</a></td></tr>
+            <tr><td>Local anesthetics</td><td>局部麻醉劑</td><td><a href="局部麻醉藥.html">局部麻醉藥</a></td></tr>
+            <tr><td>CNS stimulants</td><td>中樞興奮劑</td><td>—</td></tr>
+            <tr><td>Antidepressants</td><td>抗憂鬱劑</td><td>本頁第9節（教科書補充）</td></tr>
+            <tr><td>Anticonvulsants</td><td>抗痙攣劑</td><td><a href="抗癲癇藥物.html">抗癲癇藥物</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學課程講義（詹東榮，A1 p1–2）。</footer>
+    </div>
+
+    <!-- BRAIN -->
+    <div class="section" id="section-brain">
+      <div class="section-head"><div class="section-num">4</div><h2>腦與脊髓功能 Brain &amp; Spinal Cord</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">區域</th><th>功能（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>大腦皮質 Cerebral cortex</td><td>最高指揮中心：思考、記憶、學習、隨意運動、語言、推理、知覺</td></tr>
+            <tr><td>小腦 Cerebellum</td><td>非隨意運動、平衡、姿勢</td></tr>
+            <tr><td>腦幹 Brainstem（中腦＋橋腦＋延腦）</td><td>呼吸、心率、血壓；<strong>延腦含呼吸中樞等生命中樞</strong>；橋腦含感覺與運動路徑</td></tr>
+            <tr><td>下視丘 Hypothalamus</td><td>體溫、情緒、飢餓、口渴、晝夜節律</td></tr>
+            <tr><td>視丘 Thalamus</td><td>感覺與運動整合</td></tr>
+            <tr><td>邊緣系統 Limbic system</td><td>人格、行為、情緒表現；組成：視丘、下視丘、中隔區（中隔核＋依核）、杏仁核、海馬</td></tr>
+            <tr><td>海馬 Hippocampus</td><td>學習、記憶</td></tr>
+            <tr><td>基底核 Basal ganglia</td><td>運動</td></tr>
+            <tr><td>中腦 Midbrain</td><td>視覺、聽覺、運動</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>脊髓</strong>位於脊椎內、與腦解剖上連續：內部灰質是短纖維的神經細胞，外圍白質是上下傳遞訊息的神經纖維，可執行脊髓反射（如膝跳反射）。講義也比較了腦重：人 1,300–1,400 g、犬 72 g、貓 30 g。</p>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學課程講義（詹東榮，A1 p3–6）。</footer>
+    </div>
+
+    <!-- BBB -->
+    <div class="section" id="section-bbb">
+      <div class="section-head"><div class="section-num">5</div><h2>血腦屏障 Blood–Brain Barrier<span class="tag tag-exam">重要</span></h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">形態基礎與影響因素（講義）</div><p style="font-size:.9em;color:var(--fg-muted);margin:6px 0 0;">腦微血管內皮細胞層：<strong>緊密連接</strong>，胞飲小泡與窗孔很少。影響穿透的因素：<strong>分子量、電荷、脂溶性、載體</strong>。脂溶性藥物較易通過；部分營養物質可經主動運輸穿過。</p></div>
+        <div class="card"><div class="card-title">功能與破壞（講義）</div><p style="font-size:.9em;color:var(--fg-muted);margin:6px 0 0;">功能：保護腦部免於外來或有害物質（如荷爾蒙）、維持腦部恆定環境。會被破壞的情況：<strong>高血壓、新生、高滲透壓、微波、輻射、感染、外傷、缺血、發炎</strong>。</p></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：讓中樞藥物濃度維持低的三個機制</div>
+        <p>核對自 Handbook of Veterinary Pharmacology Ch.1：<br>① 中樞大部分區域內皮緊密連接、膠細胞包圍微血管前端（<strong>例外：最後區 area postrema、松果體、下視丘後葉</strong>），藥物必須穿過細胞膜，取決於脂溶性。<br>② 腦脊髓液持續流入靜脈，不斷稀釋藥物濃度。<br>③ 脈絡叢有有機酸、鹼的主動運輸，把藥物從 CSF 送回血液；<strong>P-glycoprotein</strong> 是其中之一。Ivermectin、selamectin（moxidectin 較少）靠 P-gp 排出腦部，<strong>部分 Collie 的 P-gp 有缺陷，ivermectin 會累積在中樞造成中毒</strong>。Penicillin（弱酸）因有機離子轉運系統而在中樞維持低濃度。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學課程講義（詹東榮，A1 p7）；Handbook of Veterinary Pharmacology Ch.1。</footer>
+    </div>
+
+    <!-- NEURON -->
+    <div class="section" id="section-neuron">
+      <div class="section-head"><div class="section-num">6</div><h2>神經元、膠細胞與動作電位</h2></div>
+      <p>神經組織由<strong>神經元</strong>與<strong>膠細胞</strong>組成；腦內約1000億個神經元，膠細胞是神經元的10–50倍。<strong>傳入神經</strong>把衝動送往中樞，<strong>傳出神經</strong>把衝動送離中樞。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">膠細胞</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td>星狀膠細胞 Astrocyte</td><td>提供神經元物理與營養支持；清除碎屑、消化死亡神經元、運送養分、固定神經元、調節細胞外空間</td></tr>
+            <tr><td>微膠細胞 Microglia</td><td>中樞的巨噬細胞與免疫細胞</td></tr>
+            <tr><td>寡突膠細胞 Oligodendroglia</td><td>中樞神經元的髓鞘</td></tr>
+            <tr><td>許旺細胞 Schwann cells</td><td>周邊神經元的髓鞘</td></tr>
+            <tr><td>衛星細胞 Satellite cells</td><td>周邊神經元的物理支持</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">軸突 Axon</div><p style="font-size:.9em;color:var(--fg-muted);margin:6px 0 0;">把訊息帶離細胞本體；通常每個細胞只有1條；沒有核糖體；可有髓鞘；在離細胞本體較遠處分支。</p></div>
+        <div class="card"><div class="card-title">樹突 Dendrite</div><p style="font-size:.9em;color:var(--fg-muted);margin:6px 0 0;">把訊息帶到細胞本體；通常很多條；沒有髓鞘；在細胞本體附近分支。</p></div>
+      </div>
+      <h4>動作電位與 Na⁺ 通道</h4>
+      <div class="flow">
+        <div class="flow-node">靜止態 Resting</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">活化態：Na⁺ 內流 → 去極化（興奮）</div><span class="flow-arrow">→</span>
+        <div class="flow-node">去活化態：不反應期，不能再發放</div><span class="flow-arrow">→</span>
+        <div class="flow-node">回到靜止態</div>
+      </div>
+      <p>超過閾值才會產生動作電位；過極化代表抑制。有髓鞘的神經以<strong>跳躍式傳導（saltatory conduction）</strong>加快傳導速度。局部麻醉藥就是阻斷電壓門控 Na⁺ 通道（見<a href="局部麻醉藥.html">局部麻醉藥</a>）。</p>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學課程講義（詹東榮，A1 p8–14）。</footer>
+    </div>
+
+    <!-- SYNAPSE -->
+    <div class="section" id="section-synapse">
+      <div class="section-head"><div class="section-num">7</div><h2>突觸傳遞 Synaptic Transmission<span class="tag tag-exam">重要</span></h2></div>
+      <h4>神經傳導物質釋放的五個步驟</h4>
+      <div class="flow">
+        <div class="flow-node">① 軸突傳來動作電位</div><span class="flow-arrow">→</span>
+        <div class="flow-node">② 到達神經末梢</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">③ 電壓依賴性 Ca²⁺ 通道打開</div><span class="flow-arrow">→</span>
+        <div class="flow-node">④ 胞吐釋放（依賴 Ca²⁺）</div><span class="flow-arrow">→</span>
+        <div class="flow-node">⑤ 穿過突觸間隙與受體結合</div>
+      </div>
+      <p>神經傳導是<strong>電化學過程</strong>。受體所在的效應細胞包括突觸前、突觸後神經元與周圍細胞。<strong>神經胜肽調節物</strong>釋放量比神經傳導物質少，用來放大或減弱神經活性。</p>
+      <h4>突觸的完整流程與自體受體</h4>
+      <p>前驅物合成神經傳導物質 → 儲存與釋放 → 作用在突觸後受體 → 以<strong>再回收（轉運體）</strong>或<strong>酵素分解</strong>終止。突觸前的<strong>自體受體（autoreceptor）</strong>會負回饋抑制釋放；<strong>α2 是 NE 神經元的自體受體</strong>，活化後降低 NE 神經元活性（講義）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：α2 的抑制機轉</div>
+        <p>核對自 Handbook of Veterinary Pharmacology（行為用藥章節）：α2 受體活化 → K⁺ 傳導增加 → 神經元過極化；<strong>突觸前 α2 活化使 Ca²⁺ 傳導下降 → NE 釋放減少</strong>。</p>
+      </div>
+      <h4>突觸前抑制 vs. 突觸後抑制</h4>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">突觸前抑制</div><p style="font-size:.9em;color:var(--fg-muted);margin:6px 0 0;">「突觸上的突觸」（軸突－軸突突觸）：抑制性神經末梢作用在興奮性神經末梢上，減少其釋放。講義：<strong>GABA、鴉片類</strong>。</p></div>
+        <div class="card"><div class="card-title">突觸後抑制</div><p style="font-size:.9em;color:var(--fg-muted);margin:6px 0 0;">直接讓突觸後神經元過極化。講義：<strong>glycine、GABA</strong>。</p></div>
+      </div>
+      <p>突觸型態：軸突－樹突、軸突－胞體、軸突－軸突。</p>
+      <h4>神經傳導物質的判定與終止</h4>
+      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>判定條件：</strong>釋放後必須被失活（再回收或酵素）；直接施用在突觸後膜時，要與神經元釋放時有相同效果。</li>
+        <li><strong>終止作用的四種機制：</strong>擴散、酵素分解、膠細胞、再回收。</li>
+      </ul>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學課程講義（詹東榮，A1 p14–19、p30）；Handbook of Veterinary Pharmacology。</footer>
+    </div>
+
+    <!-- NT -->
+    <div class="section" id="section-nt">
+      <div class="section-head"><div class="section-num">8</div><h2>神經傳導物質與受體 Neurotransmitters &amp; Receptors<span class="tag tag-exam">重要</span></h2></div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/中樞神經藥理總論/acetylcholine.svg" alt="Acetylcholine 結構式"><div class="figure-caption">乙醯膽鹼：四級銨，帶正電</div></div>
+        <div class="figure"><img src="img/中樞神經藥理總論/dopamine.svg" alt="Dopamine 結構式"><div class="figure-caption">多巴胺：兒茶酚＋乙胺</div></div>
+        <div class="figure"><img src="img/中樞神經藥理總論/norepinephrine.svg" alt="Norepinephrine 結構式"><div class="figure-caption">正腎上腺素：多巴胺多一個 -OH</div></div>
+        <div class="figure"><img src="img/中樞神經藥理總論/serotonin.svg" alt="Serotonin 結構式"><div class="figure-caption">血清素（5-HT）：吲哚胺，由色胺酸合成</div></div>
+        <div class="figure"><img src="img/中樞神經藥理總論/gaba.svg" alt="GABA 結構式"><div class="figure-caption">GABA：抑制性胺基酸</div></div>
+        <div class="figure"><img src="img/中樞神經藥理總論/glutamate.svg" alt="Glutamate 結構式"><div class="figure-caption">麩胺酸：興奮性胺基酸，脫羧後成為 GABA</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。從結構可以看出：DA、NE 都有兒茶酚環（兒茶酚胺），5-HT 是吲哚環；GABA 是 glutamate 脫去一個羧基（glutamic acid decarboxylase）的產物。</p>
+
+      <h4>小分子神經傳導物質總表（講義）</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">傳導物質</th><th>細胞本體位置</th><th style="width:22%;">主要作用</th></tr></thead>
+          <tbody>
+            <tr><td>ACh</td><td>各層級都有</td><td>興奮（也有抑制）</td></tr>
+            <tr><td>NE</td><td>橋腦與腦幹（藍斑核、延腦）</td><td>主要為興奮</td></tr>
+            <tr><td>DA</td><td>各層級（邊緣系統）</td><td>主要為興奮</td></tr>
+            <tr><td>5-HT</td><td>中縫核</td><td>主要為興奮</td></tr>
+            <tr><td>GABA</td><td>中間神經元</td><td>抑制</td></tr>
+            <tr><td>Glycine</td><td>中間神經元</td><td>抑制</td></tr>
+            <tr><td>Glutamate、aspartate</td><td>各層級</td><td>興奮</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>各傳導物質重點</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">物質</th><th>講義重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ACh</strong></td><td>膽鹼性受體分布在腦、副交感神經、自主神經節與神經肌肉接合處；中樞膽鹼神經元位於基底前腦、橋腦、延腦；與人類阿茲海默症（膽鹼神經元功能下降）相關。<strong>蕈毒鹼型 M1–M5</strong>（自主神經與中樞）；<strong>菸鹼型 N<sub>N</sub></strong>（自主神經與中樞）、<strong>N<sub>M</sub></strong>（主要在骨骼肌）。ACh 被乙醯膽鹼酯酶分解成膽鹼與醋酸，膽鹼再被回收重新合成</td></tr>
+            <tr><td><strong>NE</strong></td><td>腦中只有數千個神經元製造 NE，細胞本體在腦幹（藍斑核、延腦），軸突廣泛投射；NE 釋放產生警覺、專注、定向反應，也參與飢餓、口渴、情緒等本能行為；投射到脊髓背角可產生止痛。EP 神經元在中樞較少</td></tr>
+            <tr><td><strong>DA</strong></td><td>中樞最主要的兒茶酚胺；位於基底核（尾核）、依核、杏仁核、額葉皮質（邊緣系統，「愉悅—獎賞」系統）；受體 D1–D5；<strong>D2 與人類思覺失調、帕金森氏症及動物的僵直症（catalepsy：失去隨意運動，四肢停在被擺放的位置）有關</strong>；部分抗精神病藥是 D2 拮抗劑；L-dopa（DA 前驅物）治療帕金森氏症</td></tr>
+            <tr><td><strong>5-HT</strong></td><td>大量存在於中縫核（橋腦、延腦），廣泛投射到皮質、下視丘、海馬、邊緣系統；參與睡眠、認知、感覺、運動、體溫、痛覺、食慾、性行為、荷爾蒙調節。由<strong>色胺酸</strong>合成，經 SERT 再回收，被 <strong>MAO</strong> 分解為 <strong>5-HIAA</strong></td></tr>
+            <tr><td><strong>Glutamate、aspartate</strong></td><td>腦中濃度高，幾乎所有中樞區域的<strong>主要興奮性傳導物質</strong>；突觸的 glutamate 被星狀膠細胞吸收轉成 glutamine，glutamine 再回到突觸前末梢合成 glutamate</td></tr>
+            <tr><td><strong>GABA、glycine</strong></td><td>單羧酸胺基酸，負責突觸前與突觸後抑制；GABA 介導腦中大部分局部中間神經元的抑制與脊髓的突觸前抑制；<strong>GABA-A：配體閘門 Cl⁻ 通道</strong>（Cl⁻ 內流 → 過極化 → IPSP）；<strong>GABA-B：GPCR</strong>；glycine 介導脊髓突觸後抑制</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Glutamate 受體</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;"></th><th>離子型 Ionotropic</th><th>代謝型 Metabotropic</th></tr></thead>
+          <tbody>
+            <tr><td>受體</td><td>NMDA、AMPA、kainate</td><td>G 蛋白偶聯受體</td></tr>
+            <tr><td>結構</td><td>多次單元複合體</td><td>單一胜肽、7次穿膜</td></tr>
+            <tr><td>位置</td><td>突觸後</td><td>突觸前與突觸後</td></tr>
+            <tr><td>作用</td><td>↑陽離子傳導（Ca²⁺、Na⁺、K⁺）。AMPA、kainate：Na⁺、K⁺ 通透，Ca²⁺ 通透性有限；<strong>NMDA：Ca²⁺ 通透性高（Ca²⁺:Na⁺:K⁺ = 20:1:1）</strong></td><td>突觸前：↓Ca²⁺ 傳導；突觸後：↓K⁺、產生第二訊息</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>受體分類</h4>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">離子通道受體</div><p style="font-size:.9em;color:var(--fg-muted);margin:6px 0 0;">菸鹼型 ACh 受體、GABA-A、離子型 glutamate 受體、glycine 受體、<strong>5-HT3</strong>。</p></div>
+        <div class="card"><div class="card-title">G 蛋白偶聯受體</div><p style="font-size:.9em;color:var(--fg-muted);margin:6px 0 0;">蕈毒鹼型 ACh、代謝型 glutamate、鴉片類受體，以及其他所有胺類、胜肽類受體。下游：腺苷酸環化酶–cAMP、磷酸二酯酶、磷脂酶 C、Ca²⁺／K⁺ 通道。</p></div>
+      </div>
+      <p><strong>神經活性胜肽（部分）：</strong>bradykinin、β-endorphin、calcitonin、cholecystokinin、enkephalin、insulin、gastrin、dynorphin、glucagon、secretin、somatostatin、vasopressin、oxytocin、prolactin、angiotensin II、substance P、neurotensin、neuropeptide Y。</p>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學課程講義（詹東榮，A1 p20–31）；結構式依 PubChem 資料自繪。</footer>
+    </div>
+
+    <!-- NEUROPHARM -->
+    <div class="section" id="section-neuropharm">
+      <div class="section-head"><div class="section-num">9</div><h2>藥物如何影響中樞 Neuropharmacology</h2></div>
+      <h4>藥物作用的專一性</h4>
+      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>專一性作用：</strong>透過可辨識的分子機轉（受體、酵素）作用在特定目標細胞。<strong>非專一性作用：</strong>以多種機轉影響多種細胞——全身麻醉藥相對非專一。</li>
+        <li><strong>腦外的作用也會影響腦</strong>（例：注射 epinephrine 引起焦慮、發燒、恐慌）。</li>
+        <li><strong>劑量：</strong>低劑量（治療劑量）較專一；大劑量出現非專一副作用。</li>
+        <li><strong>組織專一性：</strong>只有特定細胞有藥物的標的（例：L-dopa 選擇性影響 DA、NE 神經元）；不同組織敏感度不同（例：<strong>大腦皮質比延腦對乙醇與麻醉藥更敏感</strong>——所以麻醉時意識先消失，呼吸中樞較晚受抑制）。</li>
+      </ul>
+      <h4>中樞抑制的劑量連續譜</h4>
+      <div class="flow">
+        <div class="flow-node">正常</div><span class="flow-arrow">→</span>
+        <div class="flow-node">解除焦慮</div><span class="flow-arrow">→</span>
+        <div class="flow-node">去抑制（阻斷抑制性神經元）</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">鎮靜（1/3）</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">催眠（1）</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">全身麻醉（5）</div><span class="flow-arrow">→</span>
+        <div class="flow-node danger">昏迷 → 死亡（10）</div>
+      </div>
+      <p style="font-size:.9em;color:var(--fg-muted);">括號內為講義以 barbiturate 為例的相對劑量（具完整連續譜的藥物）。抗焦慮藥作用在前段，鎮靜劑作用在中段。</p>
+      <h4>影響神經傳導物質量的四種方式（講義）</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:28%;">介入點</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td>儲存與釋放</td><td>Amphetamine</td></tr>
+            <tr><td>生合成</td><td>L-dopa</td></tr>
+            <tr><td>酵素分解</td><td>膽鹼酯酶抑制劑</td></tr>
+            <tr><td>再回收</td><td>NE 再回收：被<strong>三環抗憂鬱劑（TCA）</strong>阻斷；5-HT 再回收：被 <strong>SSRI</strong> 阻斷；DA 再回收：被 <strong>cocaine、amphetamine</strong> 阻斷</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充：獸醫行為用藥分類</div>
+        <p>核對自 Handbook of Veterinary Pharmacology 行為用藥章節：<br><strong>抗焦慮：</strong>benzodiazepines（diazepam、alprazolam 等，促進 GABA 介導的 Cl⁻ 傳導）、buspirone。<br><strong>抗憂鬱：</strong>TCA（amitriptyline、clomipramine、imipramine、doxepin）、SSRI（fluoxetine、paroxetine、sertraline、fluvoxamine）、MAOI（selegiline）；另有 progestins（medroxyprogesterone acetate、megestrol acetate，部分作用類似 BZD 活化 GABA-A）。<br><strong>Clomipramine：</strong>抑制 NE 與 5-HT 再回收，是 TCA 中對 5-HT 回收最有選擇性者；美國 FDA 核准配合行為治療用於<strong>犬分離焦慮</strong>；也用於犬強迫行為（追尾、舔舐性皮膚炎）、支配型攻擊；貓的噴尿與心因性脫毛。PO 給藥。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學課程講義（詹東榮，A1 p30–33）；Handbook of Veterinary Pharmacology 行為用藥章節。</footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">10</div><h2>臨床整合：共病與用藥<span class="tag tag-exam">重要</span></h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:26%;">情境</th><th>考量與依據</th></tr></thead>
+          <tbody>
+            <tr><td><strong>癲癇控制中的病患</strong></td><td>避免降低癲癇閾值的藥：phenothiazine（acepromazine）、metoclopramide、部分抗寄生蟲藥（pyrantel、levamisole、pyrethroids 等）。依據：Handbook Ch.4。詳見<a href="藥理學總論.html#section-clinical">總論的案例</a>與<a href="抗癲癇藥物.html">抗癲癇藥物</a>頁</td></tr>
+            <tr><td><strong>Collie 等牧羊犬種</strong></td><td>P-glycoprotein 缺陷 → ivermectin 在一般劑量下就可能累積在中樞造成中毒（Handbook Ch.1）</td></tr>
+            <tr><td><strong>正在使用 SSRI（如 fluoxetine）</strong></td><td><strong>不可併用 MAOI 或 TCA</strong>：突觸 5-HT 過高可能引起致命的<strong>血清素症候群</strong>（躁動、不安、意識混亂、癲癇、腸胃症狀、嚴重高血壓）；MAOI 與 TCA 併用可能造成危及生命的高血壓危象；教科書建議換藥時有<strong>2週洗藥期</strong>。SSRI 也明顯抑制 CYP2D6，會升高 TCA 等藥物濃度（Handbook 行為用藥章節）</td></tr>
+            <tr><td><strong>腦部發炎、感染、外傷</strong></td><td>血腦屏障會被打開（講義），原本不易進入中樞的藥物可能進入更多——對治療（例如抗生素）與中樞副作用都有影響</td></tr>
+            <tr><td><strong>新生動物</strong></td><td>血腦屏障尚未發育完全（講義），中樞藥物敏感度可能較高</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義（A1 p7）；Handbook of Veterinary Pharmacology Ch.1、Ch.4、行為用藥章節。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">11</div><h2>推測國考考點</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">說明</div><p>以下是我依內容特性做的<strong>個人推測</strong>，<strong>沒有核對過國考歷屆試題</strong>，只供安排複習參考。</p></div>
+      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+        <li>興奮性 vs. 抑制性傳導物質的配對（glutamate／aspartate vs. GABA／glycine）。</li>
+        <li>受體屬於離子通道型或 GPCR（GABA-A、5-HT3、菸鹼型 vs. 蕈毒鹼型、鴉片類受體）。</li>
+        <li>藥物作用受體配對：ketamine–NMDA、propofol／barbiturate–GABA-A、α2 致效劑–突觸前自體受體、acepromazine–D2。</li>
+        <li>血腦屏障的影響因素與 Collie ivermectin 中毒。</li>
+        <li>再回收阻斷劑：TCA–NE、SSRI–5-HT、cocaine–DA；血清素症候群的併用禁忌。</li>
+      </ul>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">12</div><h2>學習重點整理</h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>血腦屏障：</strong>內皮緊密連接；分子量、電荷、脂溶性、載體決定穿透；發炎、外傷、新生會打開；P-gp 把 ivermectin 排出腦部。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>突觸傳遞：</strong>動作電位 → 電壓依賴 Ca²⁺ 通道 → 胞吐；終止靠擴散、酵素、膠細胞、再回收。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>α2 是 NE 自體受體</strong>，負回饋降低 NE 釋放 → 獸醫鎮靜、人醫降壓。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>興奮：</strong>glutamate、aspartate（NMDA 高 Ca²⁺ 通透）；<strong>抑制：</strong>GABA（A 型 Cl⁻ 通道、B 型 GPCR）、glycine（脊髓突觸後）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>DA：</strong>D2 與僵直症、抗精神病藥相關；<strong>5-HT：</strong>中縫核、色胺酸合成、MAO 分解為 5-HIAA。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>中樞抑制連續譜：</strong>鎮靜 → 催眠 → 麻醉 → 昏迷 → 死亡（barbiturate 約 1/3 : 1 : 5 : 10）。</div></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪一種受體屬於配體閘門離子通道？</div>
+        <ul class="quiz-options"><li>(A) 蕈毒鹼型 ACh 受體</li><li>(B) GABA-B 受體</li><li>(C) 5-HT3 受體</li><li>(D) 鴉片類受體</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">講義列出的離子通道受體：菸鹼型 ACh、GABA-A、離子型 glutamate、glycine、5-HT3。蕈毒鹼型、GABA-B、鴉片類受體都是 GPCR。</p></details></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. α2 受體位於 NE 神經元突觸前時是自體受體，活化後會增加 NE 釋放。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain">α2 自體受體活化後是<strong>負回饋</strong>，降低 NE 神經元活性與 NE 釋放（教科書：突觸前 Ca²⁺ 傳導下降）。</p></details></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. Ketamine 的麻醉與止痛作用主要來自哪一個受體？</div>
+        <ul class="quiz-options"><li>(A) GABA-A 致效</li><li>(B) NMDA 拮抗</li><li>(C) μ 鴉片受體致效</li><li>(D) α2 致效</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">Handbook：ketamine 是 NMDA 受體拮抗劑，負責大部分麻醉與止痛作用；thiopental、propofol、etomidate 才是作用於 GABA 受體。</p></details></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 下列何者<strong>不會</strong>破壞血腦屏障（依講義）？</div>
+        <ul class="quiz-options"><li>(A) 高血壓</li><li>(B) 感染與發炎</li><li>(C) 高滲透壓</li><li>(D) 低血糖</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">講義列出：高血壓、新生、高滲透壓、微波、輻射、感染、外傷、缺血、發炎。低血糖不在其中。</p></details></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 5-HT 在突觸被 MAO 分解後，主要代謝物是？</div>
+        <ul class="quiz-options"><li>(A) 5-HIAA</li><li>(B) VMA</li><li>(C) Glutamine</li><li>(D) Tryptophan</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">5-HT 由色胺酸合成，經 SERT 再回收，被 MAO 分解為 5-HIAA（5-hydroxyindole acetic acid）。</p></details></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. 大腦皮質對乙醇與麻醉藥的敏感度比延腦高。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：TRUE</div><p class="quiz-explain">講義以此作為「組織專一性」的例子；也解釋了為什麼麻醉時意識先消失，延腦的呼吸中樞到較高劑量才被抑制。</p></details></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】一隻因分離焦慮長期服用 clomipramine 的犬，飼主詢問能不能加上 selegiline，另一位醫師則考慮改用 fluoxetine。(1) 這三種藥各作用在哪裡？(2) 併用或換藥時要注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> Clomipramine（TCA）抑制 NE 與 5-HT 再回收（對 5-HT 較有選擇性）；fluoxetine（SSRI）抑制 5-HT 再回收；selegiline 是 MAO（B 型）抑制劑，減少單胺分解。<br><strong>(2)</strong> 三者都會增加突觸單胺，Handbook 指出 SSRI 不應與 MAOI、TCA 併用，可能引發致命的血清素症候群；MAOI 與 TCA 併用可能造成高血壓危象。換藥時需要洗藥期（教科書建議2週）。SSRI 也會抑制 CYP2D6，升高 TCA 濃度。</p></details></div>
+      <footer class="note-footer">練習題依本頁內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 重點摘要",
+  "receptormap": "🗺️ 受體與藥物對照總表",
+  "categories": "📚 中樞神經藥物分類",
+  "brain": "🧠 腦與脊髓功能",
+  "bbb": "🧱 血腦屏障",
+  "neuron": "⚡ 神經元、膠細胞與動作電位",
+  "synapse": "🔗 突觸傳遞",
+  "nt": "🧪 神經傳導物質與受體",
+  "neuropharm": "💊 藥物如何影響中樞",
+  "clinical": "🩺 臨床整合：共病與用藥",
+  "exam": "🎓 推測國考考點",
+  "summary": "⭐ 學習重點整理",
+  "quiz": "📝 練習題"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

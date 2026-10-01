@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：利尿劑 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">利尿劑</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">利尿劑 Diuretics</h1>
+      <p class="page-subtitle">腎元各段的轉運機制與利尿劑作用位點；碳酸酐酶抑制劑、滲透性利尿劑、Loop 利尿劑、Thiazides、保鉀利尿劑的機轉、用途與毒性；Methylxanthines、酒精、尿液酸化與鹼化劑，以及常見腎毒性藥物</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三下）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（詹東榮，〈Diuretics 利尿劑〉v2，49 張投影片）為主；教科書核對：Handbook of Veterinary Pharmacology Ch.9（Diuretics）與劑量附表、Ch.8、Ch.18；Veterinary Pharmacology and Therapeutics 10th ed. Ch.24</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-01</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對完成；講義一處待確認已標註）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <div class="section-label" style="margin-top:8px;">腎臟生理</div>
+    <a onclick="showSection('kidney')" id="nav-kidney"><span class="nav-icon">🫘</span> 腎臟功能與尿液形成</a>
+    <a onclick="showSection('nephron')" id="nav-nephron"><span class="nav-icon">🗺️</span> 腎元各段與作用位點</a>
+    <div class="section-label" style="margin-top:8px;">利尿劑</div>
+    <a onclick="showSection('cai')" id="nav-cai"><span class="nav-icon">👁️</span> 碳酸酐酶抑制劑</a>
+    <a onclick="showSection('osmotic')" id="nav-osmotic"><span class="nav-icon">💧</span> 滲透性利尿劑</a>
+    <a onclick="showSection('loop')" id="nav-loop"><span class="nav-icon">➰</span> Loop 利尿劑</a>
+    <a onclick="showSection('thiazide')" id="nav-thiazide"><span class="nav-icon">🔷</span> Thiazides</a>
+    <a onclick="showSection('ksparing')" id="nav-ksparing"><span class="nav-icon">🟢</span> 保鉀利尿劑</a>
+    <a onclick="showSection('others')" id="nav-others"><span class="nav-icon">☕</span> 其他：Methylxanthines、酒精、酸鹼化劑</a>
+    <a onclick="showSection('nephrotox')" id="nav-nephrotox"><span class="nav-icon">☠️</span> 常見腎毒性藥物</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🏥</span> 臨床整合：共病與用藥</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎓</span> 考點整理</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>腎絲球每天濾出大量濾液，<strong>99% 會被再吸收</strong>。利尿劑就是在腎小管不同段落「擋住鈉的再吸收」，鈉留在管腔、水跟著出去。關鍵是<strong>位置決定效力與副作用</strong>：越上游、該段負責的鈉越多，利尿越強（loop 擋 ~35%，最強）；所有擋在集尿管上游的利尿劑都會把更多鈉送到集尿管，<strong>以鈉換鉀 → 低血鉀</strong>；只有擋在集尿管本身的保鉀利尿劑會反過來<strong>保鉀甚至高血鉀</strong>。鈣的走向也取決於位置：loop 讓鈣流失（治高血鈣），thiazide 讓鈣保留（治草酸鈣結石）。</p>
+        <div class="grid-4" style="margin-top:10px;">
+          <div class="card" onclick="showSection('nephron')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">01</div><div class="card-title">作用位點總圖</div></div>
+          <div class="card" onclick="showSection('loop')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">02</div><div class="card-title">Furosemide</div></div>
+          <div class="card" onclick="showSection('thiazide')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">03</div><div class="card-title">Thiazide 與鈣</div></div>
+          <div class="card" onclick="showSection('ksparing')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">04</div><div class="card-title">保鉀與高血鉀</div></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">八個重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>作用位點</strong>：CAI → 近曲小管；滲透性 → 整段腎小管；loop → 亨利氏環上行粗段（Na⁺/K⁺/2Cl⁻）；thiazide → 遠曲小管前段（Na⁺/Cl⁻）；保鉀與 aldosterone 拮抗劑 → 集尿管。</li>
+          <li><strong>Loop 利尿劑讓 Ca²⁺、Mg²⁺ 流失</strong>（破壞 K⁺ 回收造成的管腔正電位）；<strong>thiazide 不影響這個電位</strong>，反而減少尿鈣。</li>
+          <li><strong>Furosemide 要經近曲小管有機酸分泌才能到達作用位點</strong>；NSAID 阻斷它誘導的 PGE2，減弱利尿作用。</li>
+          <li><strong>Furosemide 在馬口服吸收只有 5%</strong> → 馬用 IV；用於預防賽馬運動誘發性肺出血（EIPH）。</li>
+          <li><strong>Torsemide 效力約 furosemide 10 倍、作用較長</strong>；貓 CHF 時排鉀較少。<strong>貓對 loop 利尿劑很敏感</strong>，從低劑量開始。</li>
+          <li><strong>Loop 毒性</strong>：低血鉀代謝性鹼中毒、脫水、<strong>耳毒性</strong>（ethacrynic acid ＞ furosemide ＞ torsemide；避免併用 aminoglycoside）、高尿酸、低血鎂。</li>
+          <li><strong>Mannitol 不可用於急性肺水腫與全身性水腫</strong>：會先擴張血容，加重 CHF。</li>
+          <li><strong>保鉀利尿劑</strong>（amiloride、triamterene、spironolactone）的風險是<strong>高血鉀</strong>，尤其在腎功能不全或併用 β 阻斷劑、ACEI、ARB 時。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉；HBK Ch.9；VPT10 Ch.24。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽</h2></div>
+      <p class="section-desc">劑量與途徑取自 HBK 劑量附表（Chapter 9）與 VPT10 Ch.24；臨床使用以院內規範為準。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>類別／作用位點</th><th>途徑與參考劑量（犬貓）</th><th>主要用途</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Acetazolamide</strong></td><td>CAI／近曲小管、眼睫狀體</td><td>PO 犬 5–10 mg/kg q8–12h、貓 7 mg/kg q8h；急性青光眼可先 IV 一劑</td><td>青光眼、高海拔疾病、代謝性鹼中毒</td></tr>
+          <tr><td><strong>Methazolamide、Dichlorphenamide</strong></td><td>CAI</td><td>PO：methazolamide 2–6 mg/kg q8–12h；dichlorphenamide 犬 2.2–5 mg/kg、貓 1 mg/kg q8–12h</td><td>青光眼</td></tr>
+          <tr><td><strong>Mannitol</strong></td><td>滲透性／整段腎小管</td><td><strong>IV 緩慢</strong>（5–20% 溶液，15–60 分鐘）：一般 1–3 g/kg；急性青光眼 0.25–0.5 g/kg；腦水腫 1 g/kg 30 分鐘、q4–6h 可重複</td><td>少尿性腎衰竭、中毒、腦水腫、青光眼</td></tr>
+          <tr><td><strong>Glycerol</strong></td><td>滲透性</td><td>PO 1–1.5 g/kg 起始</td><td>青光眼（口服替代 mannitol）</td></tr>
+          <tr><td><strong>Furosemide</strong>（Lasix®）</td><td>Loop／上行粗段 Na⁺/K⁺/2Cl⁻</td><td><strong>IV／IM／SC／PO</strong>：犬 2–6 mg/kg q8–12h、貓 1–4 mg/kg q12h（HBK）；馬 IV</td><td>各種水腫、CHF、高血鈣、少尿、EIPH</td></tr>
+          <tr><td><strong>Torsemide</strong></td><td>Loop</td><td>PO 0.2 mg/kg q24h–q8h（VPT10，犬）</td><td>CHF（效力 10×、作用較長；貓排鉀較少）</td></tr>
+          <tr><td><strong>Bumetanide</strong></td><td>Loop</td><td>IV 0.02–0.1 mg/kg q8–24h</td><td>水腫（效力約 furosemide 40–50 倍，VPT10）</td></tr>
+          <tr><td><strong>Ethacrynic acid</strong></td><td>Loop（phenoxyacetic acid，非磺胺）</td><td>IV／IM 0.2–0.4 mg/kg q4–12h</td><td>耳毒性最強</td></tr>
+          <tr><td><strong>Hydrochlorothiazide</strong></td><td>Thiazide／遠曲小管 Na⁺/Cl⁻</td><td><strong>PO</strong> 犬 2–4 mg/kg q12h、貓 1–2 mg/kg q12h；牛 IV／IM</td><td>CHF 輔助、草酸鈣結石、腎性尿崩症、乳房水腫</td></tr>
+          <tr><td><strong>Chlorothiazide</strong></td><td>Thiazide</td><td><strong>PO</strong> 20–40 mg/kg q12h</td><td>同上</td></tr>
+          <tr><td><strong>Trichlormethiazide＋Dexamethasone</strong>（Naquasone®）</td><td>Thiazide＋糖皮質素</td><td><strong>PO</strong> q24h</td><td>牛乳房水腫、馬發炎性水腫</td></tr>
+          <tr><td><strong>Spironolactone</strong></td><td>Aldosterone 拮抗／集尿管</td><td><strong>PO</strong> 1–4 mg/kg q12h（HBK）；VPT10：2 mg/kg q24h</td><td>難治性水腫輔助、CHF、礦物皮質素過多</td></tr>
+          <tr><td><strong>Triamterene</strong></td><td>Na⁺ 通道阻斷／集尿管</td><td><strong>PO</strong> 1–2 mg/kg q12h</td><td>與 thiazide 或 loop 合用減少失鉀</td></tr>
+          <tr><td><strong>Amiloride</strong></td><td>Na⁺ 通道阻斷／集尿管</td><td><strong>PO</strong> q24h</td><td>同上</td></tr>
+          <tr><td><strong>Theophylline、Aminophylline、Caffeine</strong></td><td>Methylxanthine，adenosine A1 拮抗</td><td>Theophylline IV／IM／PO</td><td>支氣管擴張（非利尿用途）</td></tr>
+          <tr><td><strong>Ammonium chloride</strong></td><td>尿液酸化劑</td><td><strong>PO</strong> 犬 100 mg/kg q12h、貓 800 mg/隻（HBK）</td><td>尿液酸化、祛痰、矯正低氯性代謝性鹼中毒</td></tr>
+          <tr><td><strong>NaHCO₃、Potassium citrate</strong></td><td>尿液鹼化劑</td><td>PO（NaHCO₃ 亦可 IV）</td><td>代謝性酸中毒；預防胱胺酸與尿酸結石</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉；HBK Ch.9 劑量附表；VPT10 Ch.24。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="section-kidney">
+      <div class="section-head"><div class="section-num">3</div><h2>腎臟功能與尿液形成</h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">腎臟功能（講義）</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li>排除含氮廢物（尿素）與外來物、代謝物</li><li>回收葡萄糖、胺基酸等</li><li>調節體液（水與鈉的滯留）與電解質</li><li>調節 pH：持續排出 H⁺、調節 HCO₃⁻</li><li>內分泌：EPO、renin</li></ul></div>
+        <div class="card"><div class="card-title">尿液形成三步驟</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li><strong>過濾</strong>：小分子離開腎絲球微血管；初始濾液與血漿相似，但沒有蛋白質與血球</li><li><strong>選擇性再吸收</strong>：Na⁺ 主動運回（帶著葡萄糖等），陰離子被動跟隨，水以滲透方式回收；<strong>99% 濾液被再吸收</strong></li><li><strong>分泌</strong>：H⁺、NH₄⁺、肌酸酐與部分藥物由轉運體分泌</li></ul></div>
+      </div>
+      <p>講義問：「為什麼不只分泌不需要的東西？」——因為先大量過濾再選擇性回收，才能排除身體不認得的外來物，不必為每一種毒物準備專屬的分泌系統。</p>
+      <h3>近曲小管的有機酸與有機鹼分泌系統</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>系統</th><th>受質</th><th>藥理意義</th></tr></thead>
+        <tbody>
+          <tr><td><strong>有機酸（陰離子）分泌</strong></td><td>尿酸、penicillins、p-aminohippuric acid；<strong>loop 利尿劑與 thiazides</strong></td><td>利尿劑靠這條路進入管腔才能作用；<strong>probenecid</strong> 抑制此系統，過去用來延長 penicillin 作用</td></tr>
+          <tr><td><strong>有機鹼（陽離子）分泌</strong></td><td>肌酸酐、procainamide、choline；<strong>triamterene、amiloride</strong></td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>VPT10 Ch.24：loop 利尿劑與血漿蛋白結合 &gt;95%，幾乎不經腎絲球過濾，<strong>必須靠近曲小管有機酸分泌才能到達管腔內的作用位點</strong>。這也解釋了為什麼腎功能差、或與其他有機酸（如 NSAID）競爭時，利尿效果會下降。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p1–7；VPT10 Ch.24。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="section-nephron">
+      <div class="section-head"><div class="section-num">4</div><h2>腎元各段與利尿劑作用位點<span class="tag tag-exam">必考</span></h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>段落</th><th>重吸收</th><th>主要轉運</th><th>作用的利尿劑</th></tr></thead>
+        <tbody>
+          <tr><td><strong>近曲小管</strong></td><td>NaHCO₃ 85%、NaCl 40%、水 60%；幾乎所有葡萄糖與胺基酸</td><td>Na⁺/H⁺ 交換（碳酸酐酶）；水與鹽等比例吸收</td><td><strong>CAI（acetazolamide）</strong>、滲透性</td></tr>
+          <tr><td><strong>亨利氏環下行細段</strong></td><td>水 ~10%</td><td>髓質高張驅動的被動吸水；無主動鹽吸收</td><td><strong>滲透性</strong>（mannitol、葡萄糖等不被吸收的溶質阻止水吸收；糖尿病多尿即同理）</td></tr>
+          <tr><td><strong>亨利氏環上行粗段</strong></td><td>NaCl ~35%；不透水</td><td><strong>Na⁺/K⁺/2Cl⁻ 共同轉運</strong>；K⁺ 回收產生管腔正電位 → 驅動 Ca²⁺、Mg²⁺ 吸收</td><td><strong>Loop</strong>（furosemide、bumetanide、torsemide、ethacrynic acid，結合 Cl⁻ 位點）</td></tr>
+          <tr><td><strong>遠曲小管</strong></td><td>Na⁺ ~10%；不透水</td><td><strong>Na⁺/Cl⁻ 共同轉運</strong>；無 K⁺ 回收、無管腔正電位</td><td><strong>Thiazides</strong>（結合 Cl⁻ 位點；不影響 Ca²⁺／Mg²⁺ 的電位驅動）</td></tr>
+          <tr><td><strong>晚期遠曲小管與集尿管</strong></td><td>NaCl 2–5%（決定最終尿鈉）</td><td>主細胞：Na⁺ 通道進、K⁺ 通道出（Na⁺/K⁺ 交換）；間細胞：H⁺ 分泌；aldosterone 增加 Na⁺ 通道；ADH 增加水通透</td><td><strong>保鉀</strong>（amiloride、triamterene）、<strong>aldosterone 拮抗劑</strong>（spironolactone）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="flow">
+        <div class="flow-node">上游利尿劑（CAI、loop、thiazide）</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">更多 Na⁺ 被送到集尿管</div><span class="flow-arrow">→</span>
+        <div class="flow-node">主細胞以 Na⁺ 換 K⁺（與 H⁺）</div><span class="flow-arrow">→</span>
+        <div class="flow-node danger">低血鉀（與代謝性鹼中毒）</div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：鈣的走向</div>
+        <p><strong>Loop</strong>：Na⁺/K⁺/2Cl⁻ 被擋 → 細胞內 K⁺ 不再回流到管腔 → <strong>管腔正電位消失 → Ca²⁺、Mg²⁺ 無法被電位推回血液 → 尿鈣、尿鎂增加</strong>（治高血鈣、副作用低血鎂）。<br><strong>Thiazide</strong>：遠曲小管本來就沒有這個電位，所以不會造成鈣流失；HBK 進一步指出 thiazide 增加遠曲小管 Ca²⁺ 吸收，<strong>減少尿鈣</strong>（治草酸鈣結石）。</p>
+      </div>
+      <h3>Aldosterone 與 ADH</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">Aldosterone</div><p>腎上腺皮質分泌，受 angiotensin II 刺激；活化礦物皮質素受體 → 表現 aldosterone 誘導蛋白（Na⁺ 通道增加）→ 在遠曲小管再吸收 Na⁺、排出 K⁺ → 血容與血壓上升。</p></div>
+        <div class="card"><div class="card-title">ADH（vasopressin）</div><p>後葉分泌的九胜肽；增加集尿管水通透 → 濃縮尿液；ADH 減少 → 尿量增加。用於尿崩症與人的敗血性休克（升壓作用）。詳見 <a href="腦下垂體荷爾蒙.html#section-posterior">腦下垂體荷爾蒙</a>。</p></div>
+      </div>
+      <h3>利尿劑的臨床用途（講義）</h3>
+      <ul>
+        <li>消除水腫（腎、肝等原因）</li>
+        <li>矯正離子失衡（高血鈣）</li>
+        <li>降低心臟充填壓（鬱血性心衰竭）</li>
+        <li>降血壓</li>
+        <li>降眼壓（青光眼）</li>
+      </ul>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p4–16、p23；HBK Ch.9。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="section-cai">
+      <div class="section-head"><div class="section-num">5</div><h2>碳酸酐酶抑制劑 Carbonic Anhydrase Inhibitors</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/利尿劑/acetazolamide.svg" alt="Acetazolamide 結構式"><div class="figure-caption">Acetazolamide：含 -SO₂NH₂（磺胺）基團</div></div>
+        <div class="card"><div class="card-title">藥物與機轉</div><p><strong>Acetazolamide、methazolamide、dichlorphenamide</strong>，都是磺胺衍生物。抑制近曲小管碳酸酐酶 → 可交換的 H⁺ 減少 → Na⁺、HCO₃⁻ 流失增加 → <strong>鹼性尿</strong>；利尿作用輕微。碳酸酐酶也存在於眼、胃黏膜、胰臟與 CNS。</p></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>用途</th><th>機轉</th></tr></thead>
+        <tbody>
+          <tr><td><strong>青光眼（最常見適應症）</strong></td><td>睫狀體房水生成依賴碳酸酐酶 → 房水減少 → 眼壓下降</td></tr>
+          <tr><td>尿液鹼化、矯正代謝性鹼中毒</td><td>排出 HCO₃⁻</td></tr>
+          <tr><td>高海拔疾病</td><td>造成輕度代謝性酸中毒 → 刺激呼吸中樞（講義：「application?」的答案）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：毒性</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>代謝性酸中毒</strong>：體內 HCO₃⁻ 儲存減少、Cl⁻ 滯留 → <strong>高氯性酸中毒</strong>；HBK：酸中毒最後造成耐藥、利尿減弱。</li>
+          <li><strong>腎結石</strong>：鈣鹽在鹼性尿中相對不溶。</li>
+          <li><strong>腎臟失鉀</strong>：集尿管 HCO₃⁻ 增加 → 管腔負電位增加 → K⁺ 排出增加。</li>
+          <li>HBK：口服常見嘔吐；<strong>肝病禁用</strong>——尿液鹼化讓腎臟產生的氨回到全身循環，可能誘發肝性腦病。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p16–17；HBK Ch.9 與劑量附表。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="section-osmotic">
+      <div class="section-head"><div class="section-num">6</div><h2>滲透性利尿劑 Mannitol</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/利尿劑/mannitol.svg" alt="Mannitol 結構式"><div class="figure-caption">Mannitol：六碳糖醇，被過濾但幾乎不被再吸收</div></div>
+        <div class="card"><div class="card-title">特性（講義）</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li>5–20% 溶液<strong>緩慢 IV 輸注</strong>（口服吸收差）；也可用 glycerin</li><li>血漿 t½ 1–2 h</li><li>在整段腎小管以滲透壓留住水分</li></ul></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>適應症（講義）</th><th>教科書補充（HBK）</th></tr></thead>
+        <tbody>
+          <tr><td>犬貓<strong>少尿性腎衰竭</strong></td><td>作為 furosemide 的輔助；必須監測尿量</td></tr>
+          <tr><td>藥物過量與中毒</td><td>強迫利尿，加速經腎排除的毒物排出</td></tr>
+          <tr><td>降低<strong>顱內壓或眼壓</strong>（腦水腫、青光眼）</td><td>急性青光眼 0.25–0.5 g/kg IV；腦水腫 1 g/kg IV 30 分鐘</td></tr>
+          <tr><td>預防低血容性休克</td><td>腦水腫時可預防常見的低血容性休克</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p><strong>不可用於急性肺水腫與全身性水腫</strong>：mannitol 一開始會把水從細胞內拉到細胞外、<strong>擴張血容</strong>，可能造成肺水腫、使 CHF 失代償；而它排鈉的效果又小。其他副作用不常見：體液流失若沒有補充 → <strong>脫水與高血鈉</strong>。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p17–18；HBK Ch.9 與劑量附表。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="section-loop">
+      <div class="section-head"><div class="section-num">7</div><h2>Loop 利尿劑<span class="tag tag-exam">重要</span></h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/利尿劑/furosemide.svg" alt="Furosemide 結構式"><div class="figure-caption">Furosemide：磺胺基＋羧酸（有機酸 → 經有機酸系統分泌）</div></div>
+        <div class="figure"><img src="img/利尿劑/torsemide.svg" alt="Torsemide 結構式"><div class="figure-caption">Torsemide：磺醯脲結構，作用較長</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。Furosemide、torsemide、bumetanide 是磺胺衍生物，ethacrynic acid 是 phenoxyacetic acid（VPT10：雖是磺胺衍生物，但沒有磺胺類抗生素的副作用）。</p>
+      <h3>機轉</h3>
+      <ul>
+        <li>抑制上行粗段 <strong>Na⁺/K⁺/2Cl⁻ 共同轉運體</strong>（結合 Cl⁻ 位點）。</li>
+        <li><strong>增加 PGE2 生成</strong> → furosemide 增加腎血流、增加靜脈容量（venous capacitance）、降低肺血管阻力——這就是 furosemide 在肺水腫時「還沒開始利尿就先改善呼吸」的原因。</li>
+        <li><strong>NSAID 會減弱 furosemide 的利尿、排鈉、排氯作用</strong>（阻斷 PGE2）。</li>
+      </ul>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥動學</th><th>Furosemide（F）</th><th>Torsemide（T）</th></tr></thead>
+        <tbody>
+          <tr><td>口服吸收</td><td>良好，<strong>馬例外（5%）→ 馬用 IV</strong></td><td>良好</td></tr>
+          <tr><td>到達作用點</td><td colspan="2">近曲小管有機酸分泌 → 到達亨利氏環</td></tr>
+          <tr><td>排除</td><td>80% 原形經尿、20% 葡萄糖醛酸結合</td><td>—</td></tr>
+          <tr><td>半衰期</td><td>多數動物 1–2 h</td><td>犬 8 h</td></tr>
+          <tr><td>利尿作用時間</td><td>3–6 h（HBK：IV 2–20 分鐘起效、持續 2 h）</td><td>12 h</td></tr>
+          <tr><td>效力</td><td>1</td><td><strong>約 10 倍</strong></td></tr>
+        </tbody>
+      </table></div>
+      <h3>主要用途（講義）</h3>
+      <ul>
+        <li><strong>水腫</strong>：心因性、肺、全身性等（HBK：快速消除水腫的首選）。</li>
+        <li><strong>預防賽馬運動誘發性肺出血（EIPH）與鼻出血</strong>：降低左心室（HBK：左心房）壓力；賽前 1–2 h IV，受賽馬規則管制。</li>
+        <li><strong>高血鈣</strong>：增加尿鈣；HBK：以含 KCl 的生理食鹽水 IV。</li>
+        <li><strong>鬱血性心衰竭</strong>：<strong>貓用 torsemide 比 furosemide 好，因為排鉀較少</strong>（機轉未明）。</li>
+        <li><strong>急性腎衰竭與少尿</strong>：可合併 mannitol。</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：毒性</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>低血鉀代謝性鹼中毒</strong>：更多 NaCl 與水送到集尿管 → K⁺、H⁺ 分泌增加。</li>
+          <li><strong>脫水</strong>。</li>
+          <li><strong>耳毒性</strong>：劑量相關聽力喪失（通常可逆）；<strong>ethacrynic acid ＞ furosemide ＞ torsemide</strong>；<strong>避免併用 aminoglycosides</strong>。</li>
+          <li><strong>高尿酸血症</strong>：低血容狀態下尿酸再吸收增加。</li>
+          <li><strong>低血鎂</strong>。</li>
+          <li><strong>貓非常敏感，從低劑量開始</strong>。HBK 另列：短暫顆粒性白血球減少與血小板減少；高劑量造成肌肉無力、CNS 抑制、循環衰竭。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p8–9、p18–20；HBK Ch.9 與劑量附表；VPT10 Ch.24。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="section-thiazide">
+      <div class="section-head"><div class="section-num">8</div><h2>Thiazides</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/利尿劑/hydrochlorothiazide.svg" alt="Hydrochlorothiazide 結構式"><div class="figure-caption">Hydrochlorothiazide：苯環接未取代的 -SO₂NH₂（HBK）</div></div>
+        <div class="card"><div class="card-title">機轉</div><p>阻斷遠曲小管前段 <strong>Na⁺/Cl⁻ 共同轉運</strong>。因為 90% 的鈉在到這裡之前已被吸收，<strong>利尿作用中等</strong>，離子排出接近生理比例，對細胞外液電解質的干擾較小（HBK）。對碳酸酐酶只有微弱抑制，常用劑量下不參與利尿。</p></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <h3>臨床用途（講義）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>用途</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td>犬貓鬱血性心衰竭</td><td>HBK：長期利尿、作為心臟藥物的輔助；PO q12h</td></tr>
+          <tr><td><strong>犬草酸鈣結石</strong></td><td>減少尿鈣排出（HBK：hydrochlorothiazide PO q12h，用於高尿鈣犬的復發性草酸鈣結石）</td></tr>
+          <tr><td>水腫</td><td>furosemide 比較常用</td></tr>
+          <tr><td>Naquasone®（trichlormethiazide＋dexamethasone）</td><td>牛乳房水腫（HBK：產後不超過 48 h）、馬發炎性水腫</td></tr>
+          <tr><td><strong>腎性尿崩症</strong>（矛盾效果）</td><td>① 利尿造成血容收縮 → 近曲小管再吸收增加；② 恢復集尿管 aquaporin-2 表現 → 尿量反而減少</td></tr>
+          <tr><td>人的高血壓</td><td>過去使用</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：毒性</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>低血鉀代謝性鹼中毒</strong></li>
+          <li><strong>高尿酸血症</strong></li>
+          <li><strong>高血糖</strong>：減少 proinsulin 轉成 insulin、減少 insulin 釋放 → 可能加重糖尿病</li>
+          <li>人：高血脂（膽固醇增加 5–15%、LDL 增加）</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p10–11、p20–21；HBK Ch.9。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="section-ksparing">
+      <div class="section-head"><div class="section-num">9</div><h2>保鉀利尿劑 Potassium-Sparing Agents</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/利尿劑/spironolactone.svg" alt="Spironolactone 結構式"><div class="figure-caption">Spironolactone：aldosterone 的類固醇類似物</div></div>
+        <div class="figure"><img src="img/利尿劑/amiloride.svg" alt="Amiloride 結構式"><div class="figure-caption">Amiloride：環狀 amidine（有機鹼）</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Amiloride、Triamterene</th><th>Spironolactone</th></tr></thead>
+        <tbody>
+          <tr><td>機轉</td><td><strong>Na⁺ 通道阻斷劑</strong>（集尿管主細胞）；不依賴 aldosterone</td><td><strong>Aldosterone 競爭性拮抗劑</strong>；減少 aldosterone 媒介的 Na⁺/K⁺ 交換；aldosterone 高時最有效（HBK）</td></tr>
+          <tr><td>藥動學</td><td>經有機鹼分泌系統；triamterene 在肝臟變成活性代謝物 hydroxytriamterene，再行硫酸結合；amiloride 原形經腎排出</td><td>活性代謝物 <strong>canrenone</strong>，t½ 16–20 h；利尿作用持續 2–3 天</td></tr>
+          <tr><td>用途</td><td>與 thiazide 或 loop 合用以減少失鉀</td><td>同左；也用於<strong>礦物皮質素過多</strong>（例如腎上腺腫瘤）</td></tr>
+          <tr><td>途徑</td><td>PO（triamterene q12h、amiloride q24h）</td><td>PO（犬貓 q12h）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：毒性</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>高血鉀</strong>：風險在<strong>腎功能不全</strong>、<strong>RAS 被抑制</strong>（β 阻斷劑、ACEI 如 enalapril／benazepril、ARB 如 telmisartan）、<strong>單獨使用</strong>保鉀利尿劑時上升。HBK 另列糖尿病、血栓栓塞疾病；保鉀利尿劑之間不可併用，高血鉀病患禁用。</li>
+          <li><strong>代謝性酸中毒</strong>：H⁺ 過度滯留、HCO₃⁻ 排出。</li>
+          <li><strong>不孕與性功能障礙</strong>：spironolactone 阻斷性類固醇受體（VPT10：作用於 progesterone 與 androgen 受體）。</li>
+        </ul>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">教科書補充</div>
+        <p>HBK Ch.8（心血管）：即使使用 ACEI，aldosterone 仍可能被釋放（aldosterone escape），所以 spironolactone 在 CHF 有其角色；但併用 ACEI 或補鉀時要小心。VPT10 Ch.24：spironolactone 可能改變 digoxin 的吸收與腎清除，<strong>併用時建議監測 digoxin 濃度</strong>。</p>
+      </div>
+      <h3>作用位點總整理（講義）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>作用位點</th><th>對 K⁺</th><th>對 Ca²⁺</th></tr></thead>
+        <tbody>
+          <tr><td>CAI</td><td>近曲小管</td><td>↓（流失）</td><td>—（鹼性尿易結石）</td></tr>
+          <tr><td>滲透性</td><td>整段腎小管</td><td>—</td><td>—</td></tr>
+          <tr><td>Loop</td><td>上行粗段</td><td>↓↓</td><td><strong>流失</strong></td></tr>
+          <tr><td>Thiazides</td><td>遠曲小管前段</td><td>↓</td><td><strong>保留</strong></td></tr>
+          <tr><td>保鉀／aldosterone 拮抗劑</td><td>集尿管</td><td><strong>↑（保鉀）</strong></td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p12–13、p22–23；HBK Ch.8、Ch.9；VPT10 Ch.24。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="section-others">
+      <div class="section-head"><div class="section-num">10</div><h2>其他：Methylxanthines、酒精、尿液酸鹼化劑</h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">Theophylline、Caffeine（Methylxanthines）</div><p><strong>Adenosine A1 受體拮抗劑</strong> → 擴張腎絲球前血管 → GFR 上升 → 利尿。Theophylline 臨床上用於支氣管擴張，不是用來利尿。HBK：利尿在鹼性尿時較強，所以草食動物比肉食動物明顯；副作用為興奮、肌肉顫動、嘔吐、心悸與低血壓。</p></div>
+        <div class="card"><div class="card-title">Ethanol</div><p>CNS 抑制劑；<strong>抑制腦下垂體釋放 ADH</strong> → 增加水（不是離子）的流失 → 非常稀的尿；宿醉。</p></div>
+      </div>
+      <h3>尿液酸化與鹼化劑</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>機轉</th><th>用途</th><th>禁忌</th></tr></thead>
+        <tbody>
+          <tr><td><strong>NH₄Cl</strong></td><td>肝臟代謝成尿素、H⁺、Cl⁻；也是祛痰劑（輕度刺激胃黏膜）</td><td>矯正低氯血症與代謝性鹼中毒；降低尿液 pH、輕度利尿；溶解或預防尿結石；HBK：以離子捕捉加速可解離藥物或毒物排出</td><td><strong>腎功能受損</strong>（無法代償的酸中毒）；<strong>肝功能受損</strong>（無法代謝）</td></tr>
+          <tr><td><strong>NaHCO₃</strong></td><td>鹼化</td><td>提高尿液 pH；矯正代謝性酸中毒</td><td>—</td></tr>
+          <tr><td><strong>Potassium citrate</strong></td><td>鹼化；citrate 結合 Ca²⁺</td><td>提高尿液 pH → 預防胱胺酸與尿酸結石；citrate 與鈣結合可減少含鈣結石</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">講義待確認</div>
+        <p>講義在 NH₄Cl 投影片寫「溶解／預防尿結石（calcium oxalate）」。但草酸鈣結石在酸性尿中較容易形成，同一份講義也把 thiazide（減少尿鈣）與 potassium citrate（鹼化並結合鈣）列為處理含鈣結石的方法；尿液酸化通常用於磷酸銨鎂（struvite）結石。HBK 只寫「尿液酸化以溶解或預防尿結石」，沒有指明種類。<strong>這一點建議與老師確認</strong>；考試若照講義出題，以講義文字為準。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p24–25；HBK Ch.9 與劑量附表。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="section-nephrotox">
+      <div class="section-head"><div class="section-num">11</div><h2>常見腎毒性藥物</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>毒性型態</th><th>藥物（講義）</th></tr></thead>
+        <tbody>
+          <tr><td>腎小管壞死、急性腎衰竭</td><td><strong>Aminoglycosides</strong>、重金屬、<strong>Amphotericin B</strong></td></tr>
+          <tr><td>腎灌流受損</td><td><strong>NSAIDs</strong>、ACE 抑制劑、Cyclosporine、利尿劑</td></tr>
+          <tr><td>急性間質性腎炎</td><td>Sulfonamides（結晶尿）、NSAIDs、利尿劑</td></tr>
+          <tr><td>慢性腎衰竭</td><td>NSAIDs、Cyclosporine</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：利尿劑本身也在名單上</div>
+        <p>過度利尿 → 脫水、腎灌流下降 → 腎前性氮血症。當利尿劑與 NSAID、ACEI 同時使用時（心臟病老犬常見的組合），三者都會降低腎灌流，要監測腎指數與電解質。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉p24。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">12</div><h2>臨床整合：共病與用藥</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>情境</th><th>問題</th><th>處理方向</th><th>出處</th></tr></thead>
+        <tbody>
+          <tr><td><strong>使用 digoxin 的心臟病犬</strong>＋loop 或 thiazide</td><td>低血鉀增加 digoxin 毒性，可能造成嚴重心律不整</td><td>監測 K⁺，必要時補鉀或合併保鉀利尿劑；見 <a href="強心配糖體.html">強心配糖體</a></td><td>HBK Ch.18</td></tr>
+          <tr><td><strong>ACEI＋spironolactone</strong></td><td>高血鉀</td><td>監測血鉀；避免同時補鉀</td><td>講義；HBK Ch.8；VPT10 Ch.24</td></tr>
+          <tr><td><strong>使用 aminoglycoside 的動物</strong>需要利尿</td><td>耳毒性加成；兩者都傷腎</td><td>改用其他類利尿劑（HBK）</td><td>講義；HBK</td></tr>
+          <tr><td><strong>使用 NSAID 的動物</strong>需要 furosemide</td><td>NSAID 阻斷 PGE2 → 利尿效果下降；兩者都降低腎灌流</td><td>評估能否停用 NSAID；監測腎指數</td><td>講義</td></tr>
+          <tr><td><strong>CHF 合併肺水腫</strong></td><td>Mannitol 擴張血容 → 惡化</td><td>用 loop 利尿劑，不用 mannitol</td><td>講義；HBK</td></tr>
+          <tr><td><strong>貓 CHF</strong></td><td>對 loop 利尿劑敏感、易脫水與低血鉀</td><td>低劑量開始；torsemide 排鉀較少</td><td>講義</td></tr>
+          <tr><td><strong>糖尿病</strong></td><td>Thiazide 造成高血糖</td><td>避免或密切監測血糖</td><td>講義；HBK</td></tr>
+          <tr><td><strong>肝病</strong></td><td>CAI 鹼化尿液 → 血氨上升 → 肝性腦病；NH₄Cl 無法代謝</td><td>避免 CAI 與 NH₄Cl</td><td>講義；HBK</td></tr>
+          <tr><td><strong>腎功能不全</strong></td><td>保鉀利尿劑 → 高血鉀；NH₄Cl → 無法代償的酸中毒</td><td>避免</td><td>講義；HBK</td></tr>
+          <tr><td><strong>高血鈣</strong>（腫瘤、中毒）</td><td>需要排鈣</td><td>先補足水分，再用 furosemide（含 KCl 的生理食鹽水 IV）；不用 thiazide（會保鈣）</td><td>講義；HBK</td></tr>
+          <tr><td><strong>馬</strong></td><td>Furosemide 口服吸收 5%</td><td>IV 給藥</td><td>講義</td></tr>
+          <tr><td><strong>產食動物</strong></td><td>殘留</td><td>VPT10：牛用 furosemide 口服與注射劑型乳與屠宰休藥期 48 h</td><td>VPT10</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 降血壓與 RAAS 相關的藥物見 <a href="降血壓藥物.html">降血壓藥物</a>、<a href="腎素血管收縮素系統藥物.html">腎素血管收縮素系統藥物</a>。</p>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉；HBK Ch.8、Ch.9、Ch.18；VPT10 Ch.24。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">13</div><h2>考點整理</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">課程考古出現過的考點</div>
+        <p>手邊的課程考古中，利尿相關題目只有 methylxanthines：caffeine 具有刺激心臟、支氣管鬆弛、利尿作用（「抑制胃酸分泌」不是它的作用）；methylxanthines 的機轉是 <strong>adenosine 拮抗劑</strong>。2025 期末考未出利尿劑題目。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">推測國考方向</div>
+        <p>以下是依講義與教科書推測的方向，並非出自歷屆國考題目：各類利尿劑的作用位點與轉運體；loop 與 thiazide 對鈣的相反作用（高血鈣用 furosemide、草酸鈣結石用 thiazide）；低血鉀代謝性鹼中毒 vs 保鉀利尿劑的高血鉀；furosemide 耳毒性與 aminoglycoside 併用禁忌；馬口服 furosemide 吸收差、EIPH；mannitol 不可用於肺水腫；CAI 治療青光眼；thiazide 治療腎性尿崩症的矛盾效果。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程考古題；NTU 講義〈Diuretics〉。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 14 -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">14</div><h2>學習重點整理</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>位點</th><th>代表藥</th><th>關鍵用途</th><th>關鍵毒性</th></tr></thead>
+        <tbody>
+          <tr><td>CAI</td><td>近曲小管</td><td>Acetazolamide</td><td>青光眼、高海拔疾病</td><td>高氯性代謝性酸中毒、結石、失鉀；肝病禁用</td></tr>
+          <tr><td>滲透性</td><td>整段</td><td>Mannitol</td><td>少尿、中毒、腦水腫、青光眼</td><td>擴張血容 → 肺水腫；脫水、高血鈉</td></tr>
+          <tr><td>Loop</td><td>上行粗段</td><td>Furosemide、Torsemide</td><td>水腫、CHF、高血鈣、EIPH</td><td>低血鉀鹼中毒、耳毒性、低血鎂；貓敏感</td></tr>
+          <tr><td>Thiazide</td><td>遠曲小管</td><td>Hydrochlorothiazide</td><td>CHF 輔助、草酸鈣結石、腎性尿崩症</td><td>低血鉀、高尿酸、高血糖</td></tr>
+          <tr><td>保鉀</td><td>集尿管</td><td>Spironolactone、Amiloride、Triamterene</td><td>減少失鉀、礦物皮質素過多</td><td>高血鉀、酸中毒、性功能障礙</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉；HBK Ch.9。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 15 -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">15</div><h2>練習題</h2></div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 下列何種利尿劑會減少尿鈣排出，可用於犬復發性草酸鈣結石？(A) Furosemide (B) Hydrochlorothiazide (C) Acetazolamide (D) Mannitol</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Thiazide 作用在遠曲小管，該處沒有 K⁺ 回收造成的管腔正電位，不會造成鈣流失，反而增加鈣吸收。Furosemide 會增加尿鈣（用於高血鈣）。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. Loop 利尿劑造成低血鎂的原因是？(A) 直接抑制 Mg²⁺ 通道 (B) 消除上行粗段的管腔正電位 (C) 增加 aldosterone (D) 抑制碳酸酐酶</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Na⁺/K⁺/2Cl⁻ 被抑制後，K⁺ 回收產生的管腔正電位消失，原本由這個電位推動的 Ca²⁺、Mg²⁺ 再吸收下降。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">3. 下列何者的耳毒性最強？(A) Torsemide (B) Furosemide (C) Ethacrynic acid (D) Hydrochlorothiazide</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。耳毒性：ethacrynic acid ＞ furosemide ＞ torsemide；應避免併用 aminoglycoside。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">4. 是非題：Mannitol 是治療急性肺水腫的首選利尿劑。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。Mannitol 一開始擴張血容，可能加重肺水腫與 CHF；急性肺水腫用 loop 利尿劑。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">5. 馬需要 furosemide 時，最適合的途徑是？(A) PO (B) IV (C) 直腸 (D) 吸入</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Furosemide 在馬的口服吸收只有約 5%，所以用 IV（例如賽前預防 EIPH）。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">6. 簡答：為什麼 thiazide 能減少腎性尿崩症的尿量？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">① 利尿造成血容收縮 → 近曲小管再吸收鹽與水增加 → 送到遠端的水量減少；② thiazide 可恢復集尿管 aquaporin-2 表現。結果尿量反而減少（講義）。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">7. 簡答：列出三個增加保鉀利尿劑造成高血鉀風險的情況。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">腎功能不全；RAS 被抑制（β 阻斷劑、ACEI、ARB）；單獨使用保鉀利尿劑（沒有搭配排鉀的 loop 或 thiazide）。HBK 另列糖尿病與血栓栓塞疾病。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">8. 臨床情境：一隻 11 歲小型犬二尖瓣疾病合併肺水腫，正在使用 digoxin、benazepril，同時因關節炎長期吃 NSAID。今天開始給 furosemide。(1) 要監測哪兩個電解質？為什麼？(2) 哪個藥會讓 furosemide 效果變差？(3) 若想加 spironolactone，要注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) K⁺：furosemide 造成低血鉀，而低血鉀會增加 digoxin 毒性（嚴重心律不整）；Mg²⁺：loop 利尿劑造成低血鎂，同樣不利於心律。(2) NSAID：阻斷 furosemide 誘導的 PGE2，減弱利尿；NSAID、ACEI、利尿劑三者都降低腎灌流，需監測腎指數。(3) Spironolactone 與 benazepril（ACEI）併用 → 高血鉀風險，需監測血鉀；也可能改變 digoxin 動力學，需監測 digoxin 濃度（VPT10）。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">9. 臨床情境：一隻犬急性青光眼，眼壓很高。(1) 哪兩類利尿相關藥物可降眼壓？機轉各為何？(2) 若此犬同時有肝病，哪一類要避免？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) 滲透性利尿劑（mannitol IV 緩慢、或 glycerol PO）：提高血漿滲透壓，把眼內液拉出；碳酸酐酶抑制劑（acetazolamide、methazolamide、dichlorphenamide）：減少睫狀體房水生成，急性時可先 IV 一劑。(2) 碳酸酐酶抑制劑：鹼化尿液使腎臟產生的氨回到全身，可能誘發肝性腦病（HBK）。</div></details>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Diuretics〉；HBK Ch.8、Ch.9、Ch.18；VPT10 Ch.24。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 重點摘要",
+  "drugtable": "💊 本頁藥物總覽",
+  "kidney": "🫘 腎臟功能與尿液形成",
+  "nephron": "🗺️ 腎元各段與作用位點",
+  "cai": "👁️ 碳酸酐酶抑制劑",
+  "osmotic": "💧 滲透性利尿劑",
+  "loop": "➰ Loop 利尿劑",
+  "thiazide": "🔷 Thiazides",
+  "ksparing": "🟢 保鉀利尿劑",
+  "others": "☕ 其他：Methylxanthines、酒精、酸鹼化劑",
+  "nephrotox": "☠️ 常見腎毒性藥物",
+  "clinical": "🏥 臨床整合：共病與用藥",
+  "exam": "🎓 考點整理",
+  "summary": "⭐ 學習重點整理",
+  "quiz": "📝 練習題"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

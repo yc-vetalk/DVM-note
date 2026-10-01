@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：抗病毒藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">抗病毒藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">抗病毒藥物 Antiviral Agents</h1>
+      <p class="page-subtitle">病毒生活史與抗病毒藥的四種作用點；核苷類似物（Acyclovir、Famciclovir、Zidovudine、Idoxuridine 等）、Amantadine、Oseltamivir、Interferon、Ribavirin、L-Lysine 的機轉、物種差異與毒性</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三下）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（王家琪，〈Antifungal and Antiviral Agents〉2025，p40–72，含 MSD Veterinary Manual 抗病毒藥表）為主；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.38、Handbook of Veterinary Pharmacology；課程 2025 期末考題</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-01</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（講義內部不一致處已標註）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <a onclick="showSection('lifecycle')" id="nav-lifecycle"><span class="nav-icon">🔄</span> 病毒生活史與作用點</a>
+    <div class="section-label" style="margin-top:8px;">藥物</div>
+    <a onclick="showSection('herpes')" id="nav-herpes"><span class="nav-icon">🧬</span> 抗疱疹病毒核苷類似物</a>
+    <a onclick="showSection('azt')" id="nav-azt"><span class="nav-icon">🐱</span> Zidovudine（FIV）</a>
+    <a onclick="showSection('influenza')" id="nav-influenza"><span class="nav-icon">🦠</span> Amantadine 與 Oseltamivir</a>
+    <a onclick="showSection('immune')" id="nav-immune"><span class="nav-icon">🛡️</span> Interferon、Ribavirin、L-Lysine</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🏥</span> 臨床整合：物種與共病</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎓</span> 考點整理</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>病毒是<strong>專性細胞內寄生</strong>，借用宿主的能量、蛋白質與核酸合成系統複製，所以抗病毒藥比抗生素更難有選擇性、<strong>治療窗更窄</strong>。控制病毒病的主流仍是疫苗。抗病毒藥依作用點分四類：<strong>脫殼</strong>（amantadine）、<strong>轉錄／核酸合成</strong>（acyclovir、famciclovir、zidovudine）、<strong>轉譯</strong>（idoxuridine）、<strong>釋出</strong>（oseltamivir）。大部分是<strong>核苷類似物</strong>：長得像 dGTP 或 thymidine，被磷酸化成三磷酸後插入病毒 DNA，造成<strong>鏈終止</strong>。選擇性來自<strong>病毒的 thymidine kinase 先做第一步磷酸化</strong>。</p>
+        <div class="grid-4" style="margin-top:10px;">
+          <div class="card" onclick="showSection('lifecycle')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">01</div><div class="card-title">四種作用點</div></div>
+          <div class="card" onclick="showSection('herpes')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">02</div><div class="card-title">貓疱疹：Famciclovir</div></div>
+          <div class="card" onclick="showSection('azt')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">03</div><div class="card-title">FIV：AZT</div></div>
+          <div class="card" onclick="showSection('immune')" style="cursor:pointer;"><div style="font-size:.68em;color:var(--fg-faint);">04</div><div class="card-title">ω-Interferon</div></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>Acyclovir</strong>：guanosine 類似物，病毒 thymidine kinase 磷酸化 → 三磷酸競爭 dGTP、抑制病毒 DNA 聚合酶、鏈終止。<strong>貓疱疹病毒（FHV-1）對 acyclovir 敏感性很低</strong>，講義所附 MSD 表與 VPT10 都不建議用於貓。</li>
+          <li><strong>Famciclovir</strong>：penciclovir 的口服前驅藥；<strong>目前唯一常規用於貓 FHV-1 的全身性抗病毒藥</strong>（PO 90 mg/kg q8–12h）。</li>
+          <li><strong>Zidovudine（AZT）</strong>：thymidine 類似物、反轉錄酶抑制劑，<strong>用於 FIV 貓</strong>；不能清除病毒血症；主要副作用<strong>貧血</strong>（Hct &lt;20% 停藥）。</li>
+          <li><strong>Idoxuridine、trifluridine、cidofovir、vidarabine、ganciclovir</strong>：眼用治療疱疹性角膜炎。</li>
+          <li><strong>Amantadine</strong>：阻斷流感 M2 離子通道（抑制脫殼）；獸醫主要用途是 <strong>NMDA 拮抗 → 輔助 NSAID 治療犬貓慢性疼痛</strong>；馬 IV 可能致命性癲癇。</li>
+          <li><strong>Oseltamivir</strong>：neuraminidase 抑制劑 → 阻止病毒出芽；犬小病毒 PO 2 mg/kg q12h（禁止用於家禽）。</li>
+          <li><strong>ω-Interferon</strong>：不直接攻擊病毒，而是誘導宿主產生抗病毒蛋白（2025 期末考第 50 題：調節免疫系統）；貓卡里西、FeLV、FIV、犬小病毒。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Antifungal and Antiviral Agents〉p40–72；VPT10 Ch.38；HBK；課程 2025 期末考。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽</h2></div>
+      <p class="section-desc">劑量取自講義所附的 MSD Veterinary Manual 抗病毒藥表（講義 p68–70）與講義內文；<strong>表中所有藥物都未核准用於產食動物</strong>。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>類別／機轉</th><th>途徑與參考劑量</th><th>適應症</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Idoxuridine</strong></td><td>Pyrimidine（thymidine 類似）</td><td><strong>眼用</strong> 0.1% 溶液或 0.5% 軟膏，q2–3h × 48 h，之後 q4–6h 至症狀消失後一週</td><td>FHV-1、CHV-1、EHV-2 眼部感染</td></tr>
+          <tr><td><strong>Trifluridine</strong></td><td>Pyrimidine</td><td><strong>眼用</strong> 1%，q2h × 2 天，之後每日 3–8 次；勿超過 3 週</td><td>FHV-1、CHV-1；貓刺痛感較明顯；青光眼謹慎</td></tr>
+          <tr><td><strong>Vidarabine</strong></td><td>Purine（adenine 類似）</td><td><strong>眼用</strong> 3% 軟膏 q5–6h</td><td>FHV-1 角膜炎</td></tr>
+          <tr><td><strong>Cidofovir</strong></td><td>Nucleotide 類似物</td><td><strong>眼用</strong> 0.5%，貓 q12h × 5 天</td><td>FHV-1</td></tr>
+          <tr><td><strong>Acyclovir</strong></td><td>Guanosine 類似物</td><td>犬 PO 10 mg/kg q6h（新生犬 CHV-1）；犬 IV 20 mg/kg q8h（預防犬小病毒）；馬 IV 10 mg/kg q12h（EHV）；<strong>貓禁用</strong>（MSD 表）</td><td>CHV-1、EHV、鳥 Pacheco's disease</td></tr>
+          <tr><td><strong>Valacyclovir</strong></td><td>Acyclovir 的 valine 酯前驅藥</td><td>馬 PO 27–40 mg/kg q8h × 2 天，之後 18–20 mg/kg q12h；<strong>貓禁用</strong></td><td>EHM、EHV-1、EHV-3</td></tr>
+          <tr><td><strong>Ganciclovir</strong></td><td>Guanosine 類似物</td><td>眼用 0.15%（犬貓）；馬 IV</td><td>貓疱疹角膜炎、EHM</td></tr>
+          <tr><td><strong>Famciclovir</strong></td><td>Penciclovir 前驅藥</td><td><strong>PO</strong> 貓 90 mg/kg q8–12h 至症狀消失後一週</td><td>FHV-1</td></tr>
+          <tr><td><strong>Zidovudine（AZT）</strong></td><td>Thymidine 類似物、NRTI</td><td><strong>PO 或 SC</strong> 貓 5–10 mg/kg q12h</td><td>FIV、FeLV</td></tr>
+          <tr><td><strong>Amantadine</strong></td><td>M2 阻斷；NMDA 拮抗</td><td>PO（犬貓慢性疼痛）</td><td>流感 A；犬貓慢性疼痛（輔助 NSAID）</td></tr>
+          <tr><td><strong>Rimantadine</strong></td><td>Amantadine 衍生物</td><td>馬 PO 30 mg/kg q12h</td><td>馬流感；美國禁用於家禽</td></tr>
+          <tr><td><strong>Oseltamivir</strong>（Tamiflu®）</td><td>Neuraminidase 抑制</td><td><strong>PO</strong> 犬 2 mg/kg q12h × 5 天；馬同劑量</td><td>犬小病毒、馬流感；美國禁用於家禽</td></tr>
+          <tr><td><strong>Interferon alfa-2</strong></td><td>細胞激素</td><td>貓 60 IU/隻 PO 或頰黏膜 q24h，給 7 天停 7 天</td><td>FeLV；使用期間勿接種疫苗</td></tr>
+          <tr><td><strong>Feline ω-interferon</strong>（rFeIFN-ω）</td><td>細胞激素，誘導宿主抗病毒蛋白</td><td>注射</td><td>貓卡里西、FeLV、FIV；犬小病毒</td></tr>
+          <tr><td><strong>Ribavirin</strong></td><td>Guanosine 類似物</td><td>—</td><td>貓禁用（加重卡里西病毒感染、骨髓抑制）</td></tr>
+          <tr><td><strong>L-Lysine</strong></td><td>競爭 arginine</td><td>PO</td><td>FHV-1 輔助（效果令人失望）</td></tr>
+          <tr><td><strong>Cytarabine</strong></td><td>Cytosine 類似物</td><td>SC、IV</td><td>抗癌（白血病、淋巴瘤）；犬腦脊髓膜炎</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義（含 MSD Veterinary Manual 表）；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="section-lifecycle">
+      <div class="section-head"><div class="section-num">3</div><h2>病毒生活史與抗病毒藥作用點</h2></div>
+      <div class="flow">
+        <div class="flow-node">進入宿主細胞</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">脫殼（uncoating）← Amantadine</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">轉錄／核酸複製 ← Acyclovir、Famciclovir、Zidovudine</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">轉譯 ← Idoxuridine</div><span class="flow-arrow">→</span>
+        <div class="flow-node">組裝</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">釋出（shedding）← Oseltamivir</div>
+      </div>
+      <h3>抗病毒治療的難處（講義）</h3>
+      <ul>
+        <li>病毒由核酸核心與蛋白殼（capsid）組成，部分外有脂蛋白套膜；無法獨立複製，借用宿主的能量、蛋白質與 DNA／RNA 合成系統。</li>
+        <li><strong>潛伏感染</strong>：病毒基因體整合到宿主基因體中休眠，之後可在沒有再暴露的情況下重新活化（例如 FHV-1）。</li>
+        <li><strong>需要頻繁給藥</strong>（一天數次）才有效。</li>
+        <li>在動物研究少；HIV 研究以貓為模式後，貓的知識才增加。</li>
+        <li><strong>產食動物使用會讓人類病原產生抗藥性</strong>：2006 年 FDA 禁止在雞、火雞、鴨仿單外使用 adamantanes 與 neuraminidase 抑制劑（擔心 H5N1 等流感 A 產生抗藥株）。</li>
+        <li>抗病毒藥的<strong>治療窗比抗菌藥窄</strong>；腎毒性在人醫逐漸成為重要不良反應。</li>
+      </ul>
+      <h3>核苷類似物的分類（講義）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類別</th><th>機轉</th><th>藥物與用途</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pyrimidine nucleosides</strong></td><td>以 pyrimidine 取代 thymidine → 有缺陷的 DNA</td><td>疱疹：<strong>idoxuridine</strong>（角膜與皮膚表層）；肝炎病毒與巨細胞病毒：trifluridine、cidofovir；FIV：<strong>zidovudine</strong></td></tr>
+          <tr><td><strong>Purine nucleosides</strong></td><td>可作為全身性藥物</td><td>疱疹：<strong>acyclovir</strong>、vidarabine、cytarabine；呼吸道病毒：amantadine（講義歸類於此）；肝炎病毒與巨細胞病毒：penciclovir、famciclovir、valacyclovir</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p41–48。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="section-herpes">
+      <div class="section-head"><div class="section-num">4</div><h2>抗疱疹病毒核苷類似物<span class="tag tag-exam">重要</span></h2></div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/抗病毒藥物/deoxyguanosine.svg" alt="Deoxyguanosine 結構式"><div class="figure-caption">Deoxyguanosine（天然）：有完整的去氧核糖環與 3'-OH</div></div>
+        <div class="figure"><img src="img/抗病毒藥物/acyclovir.svg" alt="Acyclovir 結構式"><div class="figure-caption">Acyclovir：鳥嘌呤＋開環側鏈，<strong>沒有 3'-OH</strong> → 插入後無法再接下一個核苷酸</div></div>
+        <div class="figure"><img src="img/抗病毒藥物/penciclovir.svg" alt="Penciclovir 結構式"><div class="figure-caption">Penciclovir：famciclovir 的活性形</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。比較 deoxyguanosine 與 acyclovir，就能看出「鏈終止」從哪裡來。</p>
+      <h3>Acyclovir 的作用機轉</h3>
+      <div class="flow">
+        <div class="flow-node">病毒 <strong>thymidine kinase</strong> 磷酸化成單磷酸（對病毒的活性遠高於宿主）</div><span class="flow-arrow">→</span>
+        <div class="flow-node">宿主酵素轉成三磷酸</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">競爭 dGTP、抑制病毒 DNA 聚合酶</div><span class="flow-arrow">→</span>
+        <div class="flow-node danger">插入後無法接下一個核苷酸 → 鏈終止</div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Acyclovir</th><th>Famciclovir</th></tr></thead>
+        <tbody>
+          <tr><td>化學</td><td>Guanosine 衍生物，對特定疱疹病毒有選擇性</td><td>Penciclovir 的二乙酸酯口服前驅藥（Famvir®）；體內迅速轉成 penciclovir，機轉同 acyclovir</td></tr>
+          <tr><td>講義用途</td><td>貓 FHV-1 眼部與呼吸道感染（PO BID）；馬疱疹病毒脊髓腦病（EHM）治療與預防</td><td>貓 FHV-1（PO）</td></tr>
+          <tr><td>藥動學</td><td><strong>口服生體可用率差</strong>；VPT10：犬 &gt;80%、人 10–30%、馬 &lt;5%</td><td>VPT10：貓吸收慢、變異大、可飽和（40 mg/kg 時 12.5% → 90 mg/kg 時 7%）；貓 penciclovir t½ 3–4 h</td></tr>
+          <tr><td>副作用</td><td>白血球減少、掉毛、貧血（停藥可逆）；注射可致腎毒性與神經毒性</td><td>貓使用 ≤3 週耐受良好；90 mg/kg q8h 部分貓厭食、多渴</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：講義內部不一致——貓能不能用 acyclovir？</div>
+        <p>講義第 55 張寫 acyclovir「治療貓第 I 型疱疹病毒感染所引起的眼部和呼吸道症狀，口服一天兩次」（與 HBK 敘述相同）；但講義第 69 張附的 MSD Veterinary Manual 表寫「<strong>Cats: Contraindicated due to risk of myelosuppression and nephrotoxicity</strong>」，valacyclovir 也是「貓禁用（肝、腎、骨髓毒性）」。VPT10 Ch.38 支持後者：<strong>FHV-1 對 acyclovir 只有微弱敏感性（IC50 比人的 HSV-1 高 100 倍以上）</strong>，貓口服高劑量 valacyclovir 不但沒有抑制 FHV-1，還出現毒性；並指出 <strong>famciclovir 是目前唯一常規用於貓 FHV-1 的全身性抗病毒藥</strong>（FHV-1 對 penciclovir 比對 acyclovir 敏感）。<strong>臨床上貓 FHV-1 選 famciclovir</strong>；考試若問 acyclovir 的「講義用途」，照講義第 55 張作答。</p>
+      </div>
+      <h3>眼用抗疱疹藥</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>機轉（講義）</th><th>注意（MSD 表）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Idoxuridine</strong></td><td>類似 uridine 的假 RNA 類似物；宿主細胞先磷酸化 → 以錯誤配對取代 thymidine 插入 → 鏈終止、阻止轉錄物轉譯</td><td>只有眼用劑型；局部刺激；可能致畸胎，孕婦避免接觸；美國已無市售（可調劑）</td></tr>
+          <tr><td><strong>Trifluridine</strong></td><td>Pyrimidine 類似物</td><td>貓刺痛感明顯；可能升高眼壓（青光眼謹慎）；勿超過 3 週（角膜毒性）</td></tr>
+          <tr><td><strong>Vidarabine</strong></td><td>Adenine 類似物，三磷酸形競爭抑制 DNA 聚合酶</td><td>3% 調劑軟膏</td></tr>
+          <tr><td><strong>Cidofovir</strong></td><td>Nucleotide 類似物</td><td>可能致畸胎</td></tr>
+          <tr><td><strong>Ganciclovir</strong></td><td>Guanosine 類似物</td><td>0.15% 眼用；可能致畸胎</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Cytarabine 與 Vidarabine</strong>（講義）：分別是 cytosine 與 adenine 的核苷類似物，轉成三磷酸後競爭抑制 DNA 聚合酶，對疱疹病毒、痘病毒、狂犬病毒、巨細胞病毒等 DNA 病毒有效。<strong>Cytarabine 在犬貓主要當抗癌藥</strong>（白血病、淋巴瘤），也以 SC、IV 治療犬腦脊髓膜炎；vidarabine 偶以 3% 軟膏治疱疹性角膜炎。見 <a href="抗癌藥物.html">抗癌藥物</a>。</p>
+      <footer class="note-footer">資料來源：NTU 講義 p46–48、p55–57、p61–62、p66、p68–69（MSD 表）；VPT10 Ch.38；HBK。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="section-azt">
+      <div class="section-head"><div class="section-num">5</div><h2>Zidovudine（AZT）與 FIV</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗病毒藥物/thymidine.svg" alt="Thymidine 結構式"><div class="figure-caption">Thymidine（天然）：3'-OH</div></div>
+        <div class="figure"><img src="img/抗病毒藥物/zidovudine.svg" alt="Zidovudine 結構式"><div class="figure-caption">Zidovudine：3'-OH 被<strong>疊氮基（-N₃）</strong>取代 → 鏈終止</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <ul>
+        <li><strong>機轉</strong>：前驅藥，需磷酸化成活性的 5'-三磷酸（AZTTP）→ 與 thymidine 競爭插入病毒 DNA → <strong>鏈終止</strong>，抑制反轉錄酶（NRTI）。</li>
+        <li><strong>用途</strong>：低濃度即對多種反轉錄病毒有效；<strong>貓 FIV</strong>。<strong>不能抑制病毒血症</strong>，開始治療約 14 天後臨床改善；在出現明顯免疫缺陷症狀時能暫時減輕臨床症狀；非毒性劑量下無法有效對抗 FeLV。</li>
+        <li><strong>給藥</strong>：口服每日 2–3 次，至少 4 週（MSD 表：PO 或 SC 5–10 mg/kg q12h）。</li>
+        <li><strong>藥動學</strong>：貓口服生體可用率 95%；迅速代謝經尿排出，貓 t½ 約 1.5 h。</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>貧血、血紅素下降</strong>（貓常見）；抑制葡萄糖醛酸結合或腎排除的藥物會增加骨髓抑制風險，在貓可能更明顯。MSD 表：骨髓抑制動物謹慎，監測貧血，<strong>Hct &lt;20% 停藥</strong>。</li>
+          <li>腹瀉、無力。</li>
+          <li><strong>抗藥性</strong>：反轉錄酶點突變，長期使用預期會產生抗藥性。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p58–60、p70（MSD 表）。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="section-influenza">
+      <div class="section-head"><div class="section-num">6</div><h2>Amantadine 與 Oseltamivir</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗病毒藥物/amantadine.svg" alt="Amantadine 結構式"><div class="figure-caption">Amantadine：1-aminoadamantane（籠狀結構）</div></div>
+        <div class="figure"><img src="img/抗病毒藥物/oseltamivir.svg" alt="Oseltamivir 結構式"><div class="figure-caption">Oseltamivir：模擬 sialic acid 的 neuraminidase 抑制劑</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <h3>Amantadine（金剛胺）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>面向</th><th>內容（講義）</th></tr></thead>
+        <tbody>
+          <tr><td>抗病毒機轉</td><td>結合流感病毒 <strong>M2 蛋白</strong>、阻斷其離子通道 → 抑制<strong>脫殼</strong>與後續複製；也可能干擾早期 mRNA 轉錄。對流感 A、流感 C、Sendai 病毒、假性狂犬病毒有效</td></tr>
+          <tr><td>地位</td><td>第一個抑制流感複製的合成化合物；<strong>抗藥性嚴重</strong>，美國已不建議用於人流感；FDA 禁止用於家禽</td></tr>
+          <tr><td>止痛機轉</td><td><strong>CNS 中拮抗 NMDA 受體</strong>；另抑制 dopamine 與兒茶酚胺回收、促進 dopamine 釋出、輕微抗膽鹼（帕金森氏症）</td></tr>
+          <tr><td><strong>獸醫主要用途</strong></td><td><strong>輔助 NSAID 或 opioid 治療犬貓慢性與神經性疼痛</strong></td></tr>
+          <tr><td>藥動學</td><td>人：GI 幾乎完全吸收，約 90% 原形經尿排出；犬貓資料不足；馬 t½ 約 3.5 h（IV）</td></tr>
+          <tr><td>副作用</td><td>躁動、軟便、脹氣、腹瀉；<strong>馬 IV 15 mg/kg 可能毫無預警地發生致命性癲癇</strong>，10 mg/kg 在癲癇閾值低的個體仍可能發作；人罕見不可逆肝酵素上升</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Rimantadine</strong>：amantadine 衍生物，作用在病毒附著於細胞受體後的早期步驟；美國、澳洲無核准動物用藥。</p>
+      <h3>Oseltamivir（Tamiflu®）</h3>
+      <ul>
+        <li><strong>機轉</strong>：抑制病毒表面的 <strong>neuraminidase</strong> → 新病毒無法從宿主細胞出芽 → 阻止複製與感染力。</li>
+        <li><strong>用途</strong>：控制流感病毒；<strong>對抗犬小病毒</strong>，有助於緩解臨床症狀（發燒）、減少排毒與繼發性細菌性肺炎；其他病毒的輔助治療缺乏研究。</li>
+        <li><strong>給藥</strong>：犬 <strong>PO 2 mg/kg q12h</strong>；馬 q10h 或更頻繁（MSD 表：馬犬 2 mg/kg q12h × 5 天）。</li>
+        <li><strong>藥動學</strong>：是 <strong>P-glycoprotein 的良好受質 → 幾乎不穿過 BBB</strong>。</li>
+        <li><strong>FDA：不允許仿單外使用</strong>（尤其家禽）。動物副作用目前無資料；人有噁心、嘔吐、暈眩、失眠。</li>
+      </ul>
+      <footer class="note-footer">資料來源：NTU 講義 p49–53、p63–64、p70（MSD 表）。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="section-immune">
+      <div class="section-head"><div class="section-num">7</div><h2>Interferon、Ribavirin、L-Lysine</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>機轉</th><th>用途</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Feline ω-interferon</strong>（rFeIFN-ω，貓源重組）</td><td>細胞激素；<strong>不直接攻擊病毒</strong>，改變宿主細胞代謝、誘導抗病毒蛋白 → 破壞 mRNA、阻斷轉譯</td><td>貓卡里西病毒、FeLV、FIV 等貓病毒感染；<strong>犬小病毒</strong></td><td>2025 期末考第 50 題：調節免疫系統的抗病毒機制</td></tr>
+          <tr><td><strong>Interferon alfa-2</strong></td><td>同上</td><td>貓 FeLV：60 IU/隻 PO 或頰黏膜 q24h，給 7 天停 7 天</td><td>需調劑；<strong>使用期間勿接種疫苗</strong></td></tr>
+          <tr><td><strong>Ribavirin</strong></td><td>Guanosine 類似物，體外抑制多種 RNA 與 DNA 病毒</td><td>人：C 型肝炎、RSV、拉薩熱、流感 A、B</td><td><strong>貓口服反而使實驗感染卡里西病毒的貓惡化</strong>，出現骨髓抑制、體重下降、肝指數上升、黃疸；犬較耐受</td></tr>
+          <tr><td><strong>L-Lysine</strong></td><td>必需胺基酸，<strong>阻礙疱疹病毒複製所需的 arginine</strong></td><td>FHV-1 輔助</td><td>臨床效果令人失望；可能在急性期早期或壓力期減少發病與排毒</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p65、p67、p70（MSD 表）；課程 2025 期末考。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">8</div><h2>臨床整合：物種與共病</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>情境</th><th>建議</th><th>避免或注意</th></tr></thead>
+        <tbody>
+          <tr><td><strong>貓 FHV-1 眼部或上呼吸道感染</strong></td><td>全身：<strong>famciclovir</strong>；眼用：idoxuridine、cidofovir、ganciclovir、trifluridine、vidarabine；L-lysine 輔助</td><td><strong>Acyclovir、valacyclovir</strong>（FHV-1 不敏感、貓骨髓與腎毒性）；trifluridine 刺痛、勿超過 3 週</td></tr>
+          <tr><td><strong>FIV 貓出現免疫缺陷症狀</strong></td><td>Zidovudine；ω-interferon</td><td>監測 Hct（&lt;20% 停藥）；避免併用抑制葡萄糖醛酸結合或腎排除的藥物；<strong>griseofulvin 增加嗜中性球減少風險</strong>（見 <a href="抗黴菌藥物.html#section-griseofulvin">抗黴菌藥物</a>）</td></tr>
+          <tr><td><strong>犬小病毒</strong></td><td>支持療法為主；oseltamivir、ω-interferon 可作輔助</td><td>—</td></tr>
+          <tr><td><strong>犬貓慢性疼痛、神經性疼痛</strong></td><td>Amantadine 輔助 NSAID 或 opioid</td><td>躁動、腹瀉；理論上癲癇閾值低的個體要小心（馬 IV 有致死性癲癇報告）</td></tr>
+          <tr><td><strong>腎病</strong></td><td>—</td><td>Acyclovir、valacyclovir 謹慎；避免併用其他腎毒性藥物</td></tr>
+          <tr><td><strong>懷孕動物、懷孕操作人員</strong></td><td>—</td><td>Idoxuridine、cidofovir、ganciclovir 可能致畸胎；孕婦避免接觸或穿戴防護</td></tr>
+          <tr><td><strong>產食動物、家禽</strong></td><td>—</td><td>不核准；adamantanes、neuraminidase 抑制劑在美國禁用於家禽（抗藥性與公衛）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">9</div><h2>考點整理</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">課程考古出現過的考點</div>
+        <p><strong>2025 期末 Q50</strong>：以調節免疫系統的細胞機制抑制病毒複製 → <strong>omega interferon</strong>（其他選項：amantadine 抑制脫殼、famciclovir 抑制 DNA 聚合酶、L-lysine 競爭 arginine）。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">推測國考方向</div>
+        <p>以下是依講義與教科書推測的方向，並非出自歷屆國考題目：四種作用點對應的代表藥；acyclovir 經病毒 thymidine kinase 活化與鏈終止機轉；famciclovir 是 penciclovir 前驅藥、用於貓 FHV-1；AZT 用於 FIV、副作用貧血；amantadine 的 M2 與 NMDA 雙重角色；oseltamivir 抑制 neuraminidase、用於犬小病毒；ribavirin 對貓有毒；產食動物禁用抗病毒藥的公衛理由。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程 2025 期末考；NTU 講義。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>作用點</th><th>主要用途</th><th>關鍵注意</th></tr></thead>
+        <tbody>
+          <tr><td>Amantadine</td><td>脫殼（M2）；NMDA</td><td>流感 A；犬貓慢性疼痛</td><td>抗藥性；馬 IV 癲癇</td></tr>
+          <tr><td>Acyclovir</td><td>DNA 聚合酶（鏈終止）</td><td>EHV、CHV；講義列貓 FHV-1</td><td>FHV-1 不敏感、貓毒性（MSD、VPT10）</td></tr>
+          <tr><td>Famciclovir</td><td>DNA 聚合酶（penciclovir）</td><td>貓 FHV-1 全身治療</td><td>貓吸收可飽和</td></tr>
+          <tr><td>Zidovudine</td><td>反轉錄酶（鏈終止）</td><td>FIV</td><td>貧血；不清除病毒血症</td></tr>
+          <tr><td>Idoxuridine 等眼用藥</td><td>轉譯／DNA 合成</td><td>疱疹性角膜炎</td><td>局部刺激；致畸胎</td></tr>
+          <tr><td>Oseltamivir</td><td>釋出（neuraminidase）</td><td>流感、犬小病毒</td><td>P-gp 受質、不入 BBB；家禽禁用</td></tr>
+          <tr><td>ω-Interferon</td><td>宿主免疫調節</td><td>貓病毒、犬小病毒</td><td>—</td></tr>
+          <tr><td>Ribavirin</td><td>Guanosine 類似物</td><td>人 RNA 病毒</td><td>貓有毒</td></tr>
+          <tr><td>L-Lysine</td><td>競爭 arginine</td><td>FHV-1 輔助</td><td>效果有限</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題</h2></div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 下列何者為調節免疫系統之抗病毒的細胞機制以達到抑制病毒複製的作用？(A) Amantadine (B) Famciclovir (C) L-lysine (D) Omega interferon</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(D)。Interferon 不直接攻擊病毒，而是誘導宿主細胞產生抗病毒蛋白。（2025 期末考第 50 題）</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. Oseltamivir 的作用點是？(A) 脫殼 (B) 轉錄 (C) 轉譯 (D) 病毒釋出</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(D)。抑制 neuraminidase，使新病毒無法從細胞出芽。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">3. Acyclovir 對病毒感染細胞具有選擇性的主要原因是？(A) 只能進入病毒感染的細胞 (B) 需要病毒的 thymidine kinase 進行第一步磷酸化 (C) 宿主沒有 DNA 聚合酶 (D) 病毒沒有 P-glycoprotein</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。病毒 thymidine kinase 磷酸化 acyclovir 的效率遠高於宿主酵素；之後宿主酵素轉成三磷酸，競爭 dGTP 並造成鏈終止。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">4. 是非題：Zidovudine 可以清除 FIV 貓的病毒血症。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。AZT 不能抑制病毒血症，只能在出現免疫缺陷症狀時暫時減輕臨床症狀。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">5. 簡答：Amantadine 在獸醫臨床最常見的用途是什麼？機轉為何？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">輔助 NSAID 或 opioid 治療犬貓慢性與神經性疼痛；機轉是拮抗 CNS 的 NMDA 受體（減少中樞敏感化）。抗病毒機轉（阻斷流感 M2 通道）因抗藥性與法規，在獸醫實用性低。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">6. 臨床情境：一隻 4 個月大幼貓結膜炎、角膜樹枝狀潰瘍、打噴嚏，懷疑 FHV-1。同事建議口服 acyclovir。(1) 你的看法？(2) 替代方案？(3) 還要注意哪些貓特有的藥物問題？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) 不建議：FHV-1 對 acyclovir 敏感性很低（VPT10），講義所附 MSD 表列為貓禁用（骨髓抑制、腎毒性）；講義第 55 張雖列為用途，但與同份講義的表格與教科書矛盾。(2) 全身用 famciclovir（PO 90 mg/kg q8–12h，至症狀消失後一週）；局部用 idoxuridine、cidofovir、ganciclovir 等眼用抗病毒藥；L-lysine 輔助。(3) Ribavirin 對貓有毒；trifluridine 在貓刺痛明顯；有角膜潰瘍時不可使用眼用類固醇（見 <a href="類固醇藥理.html#section-uses">類固醇藥理</a>）。</div></details>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.38；課程 2025 期末考。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 重點摘要",
+  "drugtable": "💊 本頁藥物總覽",
+  "lifecycle": "🔄 病毒生活史與作用點",
+  "herpes": "🧬 抗疱疹病毒核苷類似物",
+  "azt": "🐱 Zidovudine（FIV）",
+  "influenza": "🦠 Amantadine 與 Oseltamivir",
+  "immune": "🛡️ Interferon、Ribavirin、L-Lysine",
+  "clinical": "🏥 臨床整合：物種與共病",
+  "exam": "🎓 考點整理",
+  "summary": "⭐ 學習重點整理",
+  "quiz": "📝 練習題"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

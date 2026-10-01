@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫藥理學：抗黴菌藥物 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大三"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫藥理學</a><span class="sep">›</span><span class="current">抗黴菌藥物</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">抗黴菌藥物 Antifungal Agents</h1>
+      <p class="page-subtitle">真菌感染的背景；多烯類（Amphotericin B、Nystatin、Natamycin）、唑類（Imidazoles、Triazoles）、Allylamine（Terbinafine）、Griseofulvin、Flucytosine 的作用標的、抗菌譜、藥動學、毒性與藥物交互作用</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫藥理學（大三下）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學課程講義（王家琪，〈Antifungal and Antiviral Agents〉2025，p1–39）為主；講義內附 MSD Veterinary Manual 劑量表與 VPT10 Table 38.3；教科書核對：Veterinary Pharmacology and Therapeutics 10th ed. Ch.38；課程 2025 期末考題</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-01</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（教科書核對完成）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
+    <a onclick="showSection('background')" id="nav-background"><span class="nav-icon">🍄</span> 真菌感染背景與藥物分類</a>
+    <div class="section-label" style="margin-top:8px;">藥物</div>
+    <a onclick="showSection('polyene')" id="nav-polyene"><span class="nav-icon">🧱</span> 多烯類：Amphotericin B 等</a>
+    <a onclick="showSection('azole')" id="nav-azole"><span class="nav-icon">⭕</span> 唑類 Azoles</a>
+    <a onclick="showSection('interaction')" id="nav-interaction"><span class="nav-icon">🔗</span> 唑類毒性與交互作用</a>
+    <a onclick="showSection('terbinafine')" id="nav-terbinafine"><span class="nav-icon">🧪</span> Terbinafine</a>
+    <a onclick="showSection('griseofulvin')" id="nav-griseofulvin"><span class="nav-icon">🧶</span> Griseofulvin</a>
+    <a onclick="showSection('flucytosine')" id="nav-flucytosine"><span class="nav-icon">🧬</span> Flucytosine 與其他</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🏥</span> 臨床整合：選藥與共病</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎓</span> 考點整理</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這章在讀什麼？</div>
+        <p>真菌和動物一樣是真核生物，所以抗黴菌藥很難做到「只打真菌」。選擇性的來源主要只有一個：<strong>真菌細胞膜用 ergosterol，動物用 cholesterol</strong>。多烯類直接<strong>抓住 ergosterol</strong> 在膜上打洞；唑類與 terbinafine <strong>阻斷 ergosterol 的合成</strong>（分別在 lanosterol 去甲基與 squalene 環氧化兩個步驟）。另外兩條路：griseofulvin 阻斷有絲分裂（微管），flucytosine 被真菌自己轉成 5-FU 破壞核酸合成。毒性也跟選擇性不夠有關：amphotericin B 也會抓 cholesterol（腎毒性），唑類也會抑制動物的 P450（交互作用、抑制類固醇合成）。</p>
+        <div class="grid-3" style="margin-top:10px;">
+          <div class="figure"><img src="img/抗黴菌藥物/ergosterol.svg" alt="Ergosterol 結構式"><div class="figure-caption">Ergosterol（真菌）：B 環多一個雙鍵、側鏈多一個甲基與雙鍵</div></div>
+          <div class="figure"><img src="img/抗黴菌藥物/cholesterol.svg" alt="Cholesterol 結構式"><div class="figure-caption">Cholesterol（動物）：結構相近 → 選擇性有限</div></div>
+          <div class="card"><div class="card-title">作用標的速記</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li>膜：多烯（抓 ergosterol）</li><li>Ergosterol 合成：唑類（lanosterol 14α-demethylase，P450）、terbinafine（squalene epoxidase）</li><li>有絲分裂：griseofulvin</li><li>核酸：flucytosine</li></ul></div>
+        </div>
+        <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">七個重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>Amphotericin B</strong> 是全身性黴菌感染的主力；主要毒性是<strong>腎毒性</strong>（腎血管收縮＋直接傷害腎小管 → 失鉀、腎小管酸中毒）；脂質劑型可提高劑量、降低腎毒性。<strong>對皮癬菌無效</strong>。</li>
+          <li><strong>Nystatin、Natamycin</strong> 注射太毒，只局部或口服用；natamycin 是<strong>馬 Fusarium 角膜黴菌病</strong>的首選。</li>
+          <li><strong>唑類抑制真菌 P450（lanosterol 去甲基）</strong>；imidazole（2 個 N）選擇性比 triazole（3 個 N）差，交互作用與副作用較多（2025 期末考：posaconazole 的作用與抑制 P450 有關）。</li>
+          <li><strong>Ketoconazole</strong>：抑制動物類固醇合成（可治 Cushing's）、<strong>貓肝毒性</strong>；全身性黴菌病已多被 itraconazole、fluconazole 取代。</li>
+          <li><strong>Itraconazole、ketoconazole 需要胃酸溶解</strong> → 併用 PPI、H2 blocker、制酸劑會降低吸收；<strong>fluconazole 例外</strong>（口服近 100%、進入 CSF 50–90%）。</li>
+          <li><strong>Terbinafine</strong> 抑制 squalene epoxidase、<strong>不影響 P450、幾乎沒有交互作用</strong>；<strong>Griseofulvin</strong> 是 P450 誘導劑、沉積在新生角質，<strong>懷孕貓禁用、FIV 貓易白血球減少</strong>。</li>
+          <li><strong>Flucytosine</strong> 被真菌 cytosine deaminase 轉成 5-FU（哺乳類沒有此酶）；與 amphotericin B 協同治療<strong>隱球菌腦膜炎</strong>；腎衰竭時排除受阻。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義〈Antifungal and Antiviral Agents〉；VPT10 Ch.38；課程 2025 期末考。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 2 -->
+    <div class="section" id="section-drugtable">
+      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽</h2></div>
+      <p class="section-desc">劑量取自講義所附的 MSD Veterinary Manual 劑量表（講義 p18、p23、p35）與講義內文；臨床使用以院內規範為準。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>類別／標的</th><th>途徑與參考劑量（犬貓）</th><th>主要用途</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Amphotericin B</strong>（deoxycholate）</td><td>多烯／結合 ergosterol</td><td><strong>IV 緩慢</strong> 0.25–1 mg/kg 每週 3 次，總劑量 4–11 mg/kg 或至出現氮血症</td><td>全身性黴菌病（隱球菌、芽生菌、組織胞漿菌等）</td></tr>
+          <tr><td><strong>Amphotericin B lipid complex</strong>（Abelcet®）</td><td>脂質劑型</td><td><strong>IV</strong> 1–3 mg/kg 隔日或每週 3 次，總劑量 12–24 mg/kg</td><td>同上，腎毒性較低</td></tr>
+          <tr><td><strong>Liposomal amphotericin B</strong>（AmBisome®）</td><td>微脂體劑型</td><td><strong>IV</strong> 3–4 mg/kg 隔日或每週 3 次，總劑量 12–30 mg/kg</td><td>可達 CNS、腎毒性最低</td></tr>
+          <tr><td><strong>Nystatin</strong></td><td>多烯</td><td><strong>PO</strong> 犬 50,000–150,000 U q8h；局部（耳、眼）</td><td>腸道念珠菌、馬拉色菌耳炎、火雞嗉囊黴菌症</td></tr>
+          <tr><td><strong>Natamycin</strong>（Pimaricin）</td><td>多烯</td><td><strong>眼用</strong> 5% 懸浮液 1 滴 q1–2h 起，之後每日 6–8 次</td><td>馬 Fusarium 角膜黴菌病首選</td></tr>
+          <tr><td><strong>Ketoconazole</strong></td><td>Imidazole／抑制 P450</td><td><strong>PO</strong> 犬 5–20 mg/kg q12h、貓 10 mg/kg q12h；隨餐</td><td>全身性黴菌病（已多被取代）、Cushing's</td></tr>
+          <tr><td><strong>Miconazole、Clotrimazole、Econazole</strong></td><td>Imidazole</td><td><strong>局部</strong></td><td>念珠菌、麴菌、皮癬菌</td></tr>
+          <tr><td><strong>Enilconazole</strong></td><td>Imidazole</td><td><strong>鼻內</strong> 10 mg/kg q12h 7–14 天；0.2% 溶液局部每週兩次</td><td>犬鼻腔麴菌病（蒸氣作用）、皮癬菌</td></tr>
+          <tr><td><strong>Itraconazole</strong></td><td>Triazole</td><td><strong>PO</strong> 犬 5–10 mg/kg q12–24h；貓 2.5 mg/kg q12h 或 5 mg/kg q24h</td><td>全身性黴菌病、皮癬菌、麴菌</td></tr>
+          <tr><td><strong>Fluconazole</strong></td><td>Triazole</td><td><strong>PO</strong> 犬 5–10 mg/kg q12–24h；貓 50 mg/隻 q12h</td><td>隱球菌（含 CNS）、念珠菌</td></tr>
+          <tr><td><strong>Voriconazole</strong></td><td>Triazole</td><td><strong>PO</strong> 犬貓 4–5 mg/kg q12h（空腹）；馬角膜 1% 眼用</td><td>麴菌；治療窗窄需 TDM</td></tr>
+          <tr><td><strong>Posaconazole</strong></td><td>Triazole</td><td><strong>PO</strong> 犬 5 mg/kg q12h；有耳用製劑</td><td>麴菌等；犬神經元磷脂質沉積</td></tr>
+          <tr><td><strong>Terbinafine</strong></td><td>Allylamine／squalene epoxidase</td><td><strong>PO</strong> 30 mg/kg/day 或局部</td><td>犬貓皮癬菌；鳥全身性黴菌</td></tr>
+          <tr><td><strong>Griseofulvin</strong></td><td>結合微管／抑制有絲分裂</td><td><strong>PO</strong> 犬貓 microsized 10–50（至 130）mg/kg/day；ultramicrosized 5–20（至 50）mg/kg/day；隨高脂食物</td><td>皮癬菌（Microsporum、Trichophyton、Epidermophyton）</td></tr>
+          <tr><td><strong>Flucytosine</strong>（5-FC）</td><td>真菌內轉成 5-FU</td><td><strong>PO</strong> 犬 25–50 mg/kg、貓 30–40 mg/kg q6–8h</td><td>隱球菌腦膜炎（併 amphotericin B）</td></tr>
+          <tr><td><strong>Lufenuron</strong></td><td>幾丁質合成抑制</td><td>PO</td><td>犬貓除蚤；抗黴菌效果有爭議</td></tr>
+          <tr><td><strong>Sodium／potassium iodide</strong></td><td>機轉不明</td><td>PO</td><td>最早的抗黴菌藥之一</td></tr>
+          <tr><td><strong>Mefenoxam</strong></td><td>抑制 rRNA 聚合酶</td><td>PO</td><td>犬腸道腐黴菌病（併 itraconazole＋terbinafine）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義（含 MSD Veterinary Manual 劑量表）；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 3 -->
+    <div class="section" id="section-background">
+      <div class="section-head"><div class="section-num">3</div><h2>真菌感染背景與藥物分類</h2></div>
+      <ul>
+        <li>致病真菌是<strong>真核生物</strong>：絲狀黴菌（菌絲）或細胞內酵母菌。<strong>原發性感染多由絲狀真菌造成，伺機性感染多由酵母菌造成</strong>。</li>
+        <li><strong>雙型性真菌</strong>：在宿主體內呈酵母樣，在室溫培養時呈黴菌型。例：<em>Candida</em> 念珠菌、<em>Blastomyces dermatitidis</em>、<em>Coccidioides immitis</em>、<em>Histoplasma capsulatum</em>、<em>Sporothrix schenckii</em>、<em>Rhinosporidium</em>。</li>
+        <li>真菌侵襲性與毒力低；<strong>壞死組織、潮濕環境、免疫抑制</strong>是促成感染的因素。</li>
+        <li>感染可為<strong>表淺且刺激性</strong>（皮癬菌病）或<strong>全身性且致命</strong>（芽生菌病、隱球菌病、組織胞漿菌病、球孢子菌病）。</li>
+      </ul>
+      <div class="table-wrap"><table>
+        <thead><tr><th>作用標的</th><th>類別</th><th>藥物</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3"><strong>細胞膜</strong></td><td>多烯類（結合 ergosterol 改變細胞膜）</td><td>Nystatin、Amphotericin B、Natamycin</td></tr>
+          <tr><td>唑類（抑制 P450 → ergosterol 合成）</td><td>Imidazole：ketoconazole、miconazole、clotrimazole、econazole、thiabendazole（也是驅蟲藥）<br>Triazole：itraconazole、fluconazole、voriconazole、posaconazole</td></tr>
+          <tr><td>Allylamine（squalene → ergosterol 轉換）</td><td>Terbinafine</td></tr>
+          <tr><td><strong>細胞核分裂</strong></td><td>結合微管、阻斷有絲分裂</td><td>Griseofulvin</td></tr>
+          <tr><td><strong>核酸合成</strong></td><td>破壞 thymidylate synthase 與 DNA、RNA 合成</td><td>5-Flucytosine</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p3–6。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 4 -->
+    <div class="section" id="section-polyene">
+      <div class="section-head"><div class="section-num">4</div><h2>多烯類 Polyene Macrolides</h2></div>
+      <p class="section-desc">最古老的全身性抗黴菌藥：大分子，含一長段多烯（脂溶性部分）。在水與常見有機溶劑中溶解度差，在水溶液、酸、鹼中不穩定；乾燥、避光避熱時穩定。</p>
+      <h3>作用機轉</h3>
+      <div class="flow">
+        <div class="flow-node">結合真菌膜上的 ergosterol</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">形成複合物、改變膜流動性與通透性</div><span class="flow-arrow">→</span>
+        <div class="flow-node danger">電解質漏出 → 細胞死亡</div>
+      </div>
+      <ul>
+        <li>對宿主細胞膜的 cholesterol 也有些親和力 → <strong>毒性閾值低</strong>。Amphotericin B 對 ergosterol 的親和力大於 cholesterol，所以比較適合 IV 使用。</li>
+        <li>臨床濃度下多為<strong>抑菌</strong>；高濃度且 pH 6.0–7.3 時可殺菌。</li>
+        <li>Amphotericin B 也有<strong>免疫調節</strong>作用（體液與細胞免疫）。</li>
+        <li><strong>抗菌譜</strong>：酵母菌到絲狀真菌都有效，但<strong>對皮癬菌無效</strong>。Nystatin 對 <em>Aspergillus</em> 與皮癬菌無效。</li>
+      </ul>
+      <h3>Amphotericin B</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">來源與劑型</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li><em>Streptomyces nodosus</em> 產物；兩性（weak acid＋weak base）</li><li>沒有 FDA 核准的獸醫劑型 → 仿單外使用</li><li>Deoxycholate 膠體：溶於 5% 葡萄糖做 IV 輸注</li><li><strong>脂質劑型</strong>（Abelcet®、AmBisome®）：網狀內皮細胞吞噬脂質，把藥送到感染部位、減少腎臟暴露 → 可給更高劑量、肝腎毒性較低、作用較長；AmBisome 可達 CNS，犬可耐受 4 mg/kg × 30 天</li></ul></div>
+        <div class="card"><div class="card-title">藥動學</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li>口服吸收差 → IV</li><li><strong>雙相排除</strong>：前 24 h 快速下降；第二相 t½ 約 15 天 → 每 48–72 h IV 一次，直到達累積總劑量</li><li>每日原形經尿約 5%，2 週約 20%；膽汁占 20–30%</li></ul></div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：腎毒性</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>腎血管收縮</strong>：IV 後 15 分鐘內出現、持續 4–6 h → 腎血流與 GFR 下降。</li>
+          <li><strong>直接腎小管傷害</strong>：結合 cholesterol → 電解質漏出（<strong>失鉀</strong>）與<strong>腎小管酸中毒</strong>。</li>
+          <li><strong>預防</strong>：電解質負荷（先給 NaCl IV）、輸液利尿、<strong>緩慢輸注</strong>。VPT10：單次超過 1 mg/kg 很可能造成急性腎傷；監測尿沉渣、BUN、肌酸酐、電解質，出現活動性尿沉渣或肌酸酐上升時暫停。</li>
+          <li>其他：直接造成肥大細胞去顆粒 → 類過敏反應；角膜穿透差、&gt;3% 刺激角膜；厭食、嘔吐、藥物熱、正球性正色素性貧血、心律不整、肝功能異常、神經症狀；VPT10 另列靜脈炎。</li>
+        </ul>
+      </div>
+      <p><strong>臨床用途</strong>：犬、貓、馬、鳥的全身性黴菌感染；可併用 ketoconazole、fluconazole、itraconazole（降低毒性）或 flucytosine（治療 CNS、骨與眼部感染）。</p>
+      <h3>Nystatin 與 Natamycin</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Nystatin</th><th>Natamycin（Pimaricin）</th></tr></thead>
+        <tbody>
+          <tr><td>來源</td><td><em>Streptomyces noursei</em></td><td>—</td></tr>
+          <tr><td>全身使用</td><td><strong>注射太毒</strong>，任何物種都不建議</td><td>價格與毒性都不允許</td></tr>
+          <tr><td>用途</td><td>多藥耳用製劑治犬貓<strong>馬拉色菌耳炎</strong>；眼用治黴菌性角膜炎；FDA 核准飼料添加劑治火雞<strong>嗉囊黴菌症</strong>與黴菌性下痢；口服治<strong>腸道念珠菌</strong></td><td><strong>馬 Fusarium 角膜黴菌病首選</strong>；鼻腔麴菌、喉囊黴菌病、皮癬菌局部治療</td></tr>
+          <tr><td>吸收</td><td>局部與完整黏膜幾乎不吸收（家禽口服 1,400 mg/kg × 66 天仍無全身吸收）；<strong>但腸道屏障受損的產食動物可能吸收 → 殘留</strong></td><td>人用 5% 眼用懸浮液</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p7–18；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 5 -->
+    <div class="section" id="section-azole">
+      <div class="section-head"><div class="section-num">5</div><h2>唑類 Azoles<span class="tag tag-exam">重要</span></h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗黴菌藥物/ketoconazole.svg" alt="Ketoconazole 結構式"><div class="figure-caption">Ketoconazole：imidazole（五元環 2 個 N）</div></div>
+        <div class="figure"><img src="img/抗黴菌藥物/fluconazole.svg" alt="Fluconazole 結構式"><div class="figure-caption">Fluconazole：triazole（五元環 3 個 N），小而親水 → 口服近 100%、進入 CSF</div></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <h3>作用機轉</h3>
+      <div class="flow">
+        <div class="flow-node">抑制真菌 P450（lanosterol 14α-demethylase）</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">Ergosterol 無法合成</div><span class="flow-arrow">→</span>
+        <div class="flow-node danger">細胞膜通透性改變、胞器破壞、細胞內 H₂O₂ 累積 → 死亡</div>
+      </div>
+      <ul>
+        <li>也抑制脂肪酸合成、氧化與過氧化酶活性。</li>
+        <li>宿主 cholesterol 不受影響，但某些藥物會抑制宿主的類固醇合成與藥物代謝酵素。</li>
+        <li><strong>因為是抑制合成，藥效有延遲</strong>，半衰期長更延長起效時間（相對於 amphotericin B）。</li>
+        <li><strong>Imidazole 選擇性低於 triazole</strong> → 交互作用與副作用較多。</li>
+      </ul>
+      <h3>獸醫用途（講義）</h3>
+      <ul>
+        <li>有效對抗念珠菌與<strong>對 griseofulvin 有抗藥性的皮癬菌</strong>。</li>
+        <li><strong>Ketoconazole</strong>：犬、貓、馬、鳥的全身性黴菌症與嚴重酵母菌感染；高劑量治療犬貓腎上腺皮質功能亢進；抑制 testosterone 與腎上腺類固醇合成，可輔助治療 Cushing's、攝護腺癌（抗黴菌劑量下也可能抑制，停藥後恢復）。見 <a href="類固醇藥理.html#section-adrenal">類固醇藥理</a>。</li>
+        <li>全身性黴菌症中，<strong>itraconazole、fluconazole 已取代 ketoconazole</strong>：半衰期較長、活性較強、毒性較低。</li>
+        <li>Clotrimazole、miconazole 局部治療念珠菌、麴菌、皮癬菌；posaconazole 有耳用製劑；<strong>enilconazole 鼻內灌注治療犬鼻腔麴菌病</strong>（蒸氣作用）。</li>
+      </ul>
+      <h3>藥動學</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>吸收</th><th>分布與排除</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ketoconazole</strong></td><td>小動物口服吸收差，<strong>馬不吸收</strong>；需胃酸溶解</td><td>劑量依賴性排除（劑量越大半衰期越長）；雙相；通常 q12h</td></tr>
+          <tr><td><strong>Itraconazole</strong></td><td>需胃酸；<strong>膠囊不可磨碎</strong>（降低生體可用率）；有口服液</td><td>半衰期長（貓可達 48 h）→ q12–24h</td></tr>
+          <tr><td><strong>Fluconazole</strong></td><td><strong>口服近 100%</strong>，不需胃酸</td><td><strong>CSF 達血漿 50–90%</strong>（其他唑類 CSF 穿透差）；蛋白結合低</td></tr>
+          <tr><td><strong>Voriconazole</strong></td><td>空腹服用；雞的生體可用率 &lt;20%</td><td><strong>非線性藥動</strong>（肝代謝飽和）、治療窗窄（1–5.5 mg/L）→ 建議 TDM</td></tr>
+          <tr><td>共通</td><td>Triazole 快速但不穩定吸收，2 h 達峰；<strong>調劑藥局製劑生體可用率可能很差</strong>，建議監測</td><td>除 fluconazole 外蛋白結合 &gt;95%；肝、腎上腺、肺、腎濃度最高；唾液、乳汁、耳垢中可測得</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：胃酸與吸收</div>
+        <p>除了 fluconazole，triazole 溶解需要酸性環境；<strong>制酸劑、PPI、H2 blocker（cimetidine、ranitidine）與抗膽鹼藥</strong>會降低吸收與療效。Itraconazole、ketoconazole 隨餐給（刺激胃酸）。見 <a href="腸胃道用藥.html">腸胃道用藥</a>。</p>
+      </div>
+      <h3>抗菌譜與抗藥性</h3>
+      <ul>
+        <li><strong>Miconazole</strong>：廣譜（芽生菌、組織胞漿菌、念珠菌、球孢子菌、隱球菌、<em>A. fumigatus</em>）；ketoconazole 類似，對 <em>C. immitis</em> 更有效。</li>
+        <li><strong>Itraconazole、fluconazole 最具活性</strong>：雙型性真菌與皮癬菌；部分麴菌病（60–70%）與皮膚孢子絲菌病；<strong>fluconazole 對麴菌效果較差</strong>。</li>
+        <li>Clotrimazole、econazole：表淺黴菌病；econazole 也用於眼黴菌病。Thiabendazole 對 <em>Aspergillus</em>、<em>Penicillium</em> 有效但已被取代。</li>
+        <li><strong>抗藥性機轉</strong>：ABC 轉運體（CDR1、CDR2）上調 → 外排增加；ERG11（lanosterol demethylase）突變 → 結合力下降；major facilitator 轉運體表現增加。馬子宮分離株有 itraconazole、fluconazole 抗藥；隱球菌有 fluconazole 抗藥；犬貓 <em>A. fumigatus</em> 尚無唑類抗藥證據；歐洲禽類 <em>A. fumigatus</em> 有 itraconazole、voriconazole 抗藥報告。</li>
+      </ul>
+      <footer class="note-footer">資料來源：NTU 講義 p19–29（含 MSD 劑量表）；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 6 -->
+    <div class="section" id="section-interaction">
+      <div class="section-head"><div class="section-num">6</div><h2>唑類毒性與藥物交互作用<span class="tag tag-exam">重要</span></h2></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：副作用</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li>最常見：輕微腸胃不適（厭食、嘔吐、腹瀉），<strong>貓用 ketoconazole 時特別明顯</strong>。</li>
+          <li><strong>肝毒性</strong>：所有唑類都可能造成肝指數異常，極少數臨床肝炎；<strong>ketoconazole 尤其在貓</strong>。</li>
+          <li>抑制動物 P450 → 交互作用；抑制性類固醇與 cortisol 合成 → 犬生殖障礙、<strong>對 ACTH 的反應下降</strong>（尤其 ketoconazole）。</li>
+          <li><strong>Itraconazole</strong>：人有黑框警語（負性肌力）→ 心室功能受損者可能發生 CHF；<strong>非洲灰鸚鵡</strong>較敏感。</li>
+          <li><strong>Posaconazole</strong>：犬神經元磷脂質沉積；以葡萄糖醛酸結合代謝 → 貓謹慎。</li>
+          <li><strong>Fluconazole、ketoconazole 有致畸胎性</strong> → 懷孕動物避免（VPT10 也記載 ketoconazole 致畸胎）。</li>
+          <li><strong>Ketoconazole＋griseofulvin</strong> 併用 → 肝毒性風險增加。</li>
+        </ul>
+      </div>
+      <h3>唑類與其他藥物的交互作用（講義 p32）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>併用藥物</th><th>結果</th><th>機轉</th></tr></thead>
+        <tbody>
+          <tr><td><strong>提高胃 pH 的藥物</strong></td><td>Ketoconazole、itraconazole 吸收下降</td><td>pH 依賴的溶解度</td></tr>
+          <tr><td><strong>Digoxin</strong></td><td>Digoxin 濃度上升 → 毛地黃中毒</td><td>P450 抑制</td></tr>
+          <tr><td><strong>Benzodiazepines</strong>（尤其 midazolam）</td><td>鎮靜作用增強</td><td>P450 抑制</td></tr>
+          <tr><td>Glipizide</td><td>低血糖</td><td>P450 抑制</td></tr>
+          <tr><td>第二代抗組織胺</td><td>心律不整（torsades de pointes；人）</td><td>P450 抑制</td></tr>
+          <tr><td><strong>Warfarin</strong></td><td>抗凝增強、出血</td><td>P450 抑制</td></tr>
+          <tr><td><strong>Cisapride</strong></td><td>心室心律不整（人）</td><td>P450 抑制</td></tr>
+          <tr><td><strong>Cyclosporine</strong></td><td>Cyclosporine 濃度上升 → 需調整劑量；<strong>臨床上被拿來降低 cyclosporine 費用</strong></td><td>P450／P-gp 抑制</td></tr>
+          <tr><td>Quinidine、Nifedipine</td><td>濃度上升</td><td>P450／P-gp 抑制</td></tr>
+          <tr><td>Hydrochlorothiazide</td><td>Fluconazole 濃度上升</td><td>減少 fluconazole 腎排除</td></tr>
+          <tr><td>Carbamazepine、Rifampin、Phenytoin、<strong>Phenobarbital</strong></td><td>抗黴菌藥濃度下降</td><td>P450 誘導</td></tr>
+          <tr><td>Prednisolone</td><td>口服 prednisolone AUC 上升</td><td>下調腸道 P-gp</td></tr>
+          <tr><td>Methadone</td><td>犬口服 methadone 濃度大幅上升</td><td>P450 抑制</td></tr>
+          <tr><td>Colchicine</td><td>毒性增加</td><td>—</td></tr>
+          <tr><td>其他唑類</td><td>Ketoconazole 抑制自身排除 → 濃度隨時間上升</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <h3>其他抗黴菌藥的交互作用（講義 p38，VPT10 Table 38.3）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>併用</th><th>結果</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2"><strong>Griseofulvin</strong></td><td>Coumarin／indandione 抗凝劑</td><td>Griseofulvin 為肝酵素誘導劑 → 抗凝效果下降</td></tr>
+          <tr><td>Barbiturates</td><td>Griseofulvin 吸收受損、效果可能下降</td></tr>
+          <tr><td rowspan="6"><strong>Amphotericin B</strong></td><td>骨髓抑制藥</td><td>貧血或血液異常風險上升</td></tr>
+          <tr><td>Corticosteroids</td><td>低血鉀加重（尤其礦物皮質作用強者）</td></tr>
+          <tr><td><strong>Digoxin</strong></td><td>AmB 造成的低血鉀 → 毛地黃中毒</td></tr>
+          <tr><td>神經肌肉阻斷劑</td><td>低血鉀增強非去極化阻斷劑作用</td></tr>
+          <tr><td>排鉀利尿劑</td><td>低血鉀加重</td></tr>
+          <tr><td>Flucytosine</td><td>協同 → 可降低 AmB 劑量與腎毒性；但 AmB 造成的腎功能下降會讓 5-FC 濃度上升 → 血液異常</td></tr>
+          <tr><td rowspan="2"><strong>Flucytosine</strong></td><td>骨髓抑制藥</td><td>骨髓毒性加重</td></tr>
+          <tr><td>腎毒性藥物</td><td>5-FC 清除下降 → 骨髓毒性</td></tr>
+          <tr><td><strong>Terbinafine</strong></td><td colspan="2">目前沒有已報告的交互作用</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p30–32、p38（VPT10 Table 38.3）；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 7 -->
+    <div class="section" id="section-terbinafine">
+      <div class="section-head"><div class="section-num">7</div><h2>Allylamine：Terbinafine（Lamisil®）</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗黴菌藥物/terbinafine.svg" alt="Terbinafine 結構式"><div class="figure-caption">Terbinafine：合成 allylamine</div></div>
+        <div class="card"><div class="card-title">重點</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li><strong>抑制 squalene monooxygenase（epoxidase）</strong> → squalene 無法轉成 lanosterol → ergosterol 無法合成，且 <strong>squalene 堆積對真菌有毒</strong></li><li><strong>不影響 P450</strong>，目前沒有明顯交互作用</li><li>對皮癬菌<strong>殺菌</strong>（尤其灰指甲）</li><li>副作用少見：腸胃不適、頭痛；動物耐受性良好</li><li><strong>用途</strong>：口服 30 mg/kg/day 或局部，有效治療犬貓皮癬菌；也用於鳥類全身性黴菌感染</li></ul></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <div class="flow">
+        <div class="flow-node">Squalene</div><span class="flow-arrow">→（squalene epoxidase ← Terbinafine）→</span>
+        <div class="flow-node">Lanosterol</div><span class="flow-arrow">→（14α-demethylase，P450 ← Azoles）→</span>
+        <div class="flow-node green">Ergosterol</div><span class="flow-arrow">←（結合 ← Polyenes）</span>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p33。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 8 -->
+    <div class="section" id="section-griseofulvin">
+      <div class="section-head"><div class="section-num">8</div><h2>Griseofulvin（灰黃黴素）</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗黴菌藥物/griseofulvin.svg" alt="Griseofulvin 結構式"><div class="figure-caption">Griseofulvin</div></div>
+        <div class="card"><div class="card-title">機轉與分布</div><ul style="margin:6px 0 0 0;padding-left:1.2em;"><li><strong>結合微管、阻止有絲分裂</strong>（抑制紡錘體形成）</li><li>口服後 4–8 h 沉積在<strong>角質前驅細胞</strong>，與新生角質結合 → <strong>保護新長出的皮膚與毛髮不被感染</strong>（不是殺死已存在於舊角質的真菌）→ 療程需 2–6 週以上</li><li><strong>P450 酵素誘導劑</strong></li></ul></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <ul>
+        <li><strong>用途</strong>：<em>Microsporum</em>、<em>Epidermophyton</em>、<em>Trichophyton</em>；犬、貓、馬多發局部性皮膚真菌感染、毛髮與爪的感染，長期口服。</li>
+        <li><strong>劑型</strong>：microsize（250、500 mg 錠）與 ultramicrosize（125、250 mg 錠）；ultramicrosize 吸收較好，劑量較低。</li>
+        <li><strong>交互作用</strong>：warfarin（誘導代謝 → 抗凝下降）、phenobarbital（griseofulvin 吸收下降）。</li>
+      </ul>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌與警告</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li>類血清病的過敏症候群、肝炎。</li>
+          <li><strong>貓</strong>：白血球減少、貧血（幼貓可能致死）。VPT10：<strong>FIV 陽性貓發生嗜中性球減少的風險較高</strong>；毒性可能是特異體質性。</li>
+          <li><strong>懷孕母貓禁用</strong>：致畸胎（VPT10：顱骨與骨骼畸形、眼、腸道與心臟問題）。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義 p34–35；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 9 -->
+    <div class="section" id="section-flucytosine">
+      <div class="section-head"><div class="section-num">9</div><h2>Flucytosine（5-FC）與其他抗黴菌藥</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/抗黴菌藥物/flucytosine.svg" alt="Flucytosine 結構式"><div class="figure-caption">Flucytosine：氟化嘧啶</div></div>
+        <div class="card"><div class="card-title">機轉</div><p>真菌的 <strong>cytosine deaminase</strong> 把 5-FC 去胺基成 <strong>5-fluorouracil</strong> → 抑制 thymidylate synthase、干擾 DNA 與 RNA 合成。<strong>哺乳類細胞沒有 cytosine deaminase</strong>，所以不受影響——這是選擇性的來源。</p></div>
+      </div>
+      <p style="font-size:.85em;color:var(--fg-faint);">結構式依 PubChem 資料以 RDKit 自繪。</p>
+      <ul>
+        <li><strong>抗菌譜</strong>：<em>C. neoformans</em>、<em>Candida albicans</em> 等、<em>Torulopsis glabrata</em>、<em>S. schenckii</em>、<em>Aspergillus</em>、著色芽生菌病病原。</li>
+        <li><strong>藥動學</strong>：PO 或 IV；口服吸收快且好；Vd 約等於全身水分；蛋白結合低；<strong>CSF、關節液、房水穿透極佳</strong>；<strong>&gt;80% 經腎絲球過濾</strong> → 腎衰竭時排除明顯受阻。</li>
+        <li><strong>用途</strong>：與 amphotericin B 併用有協同作用，治療犬貓<strong>隱球菌症（特別是腦膜隱球菌症）</strong>；鸚鵡可單獨用於麴菌症與念珠菌症。</li>
+        <li><strong>劑量</strong>：犬 25–50 mg/kg、貓 30–40 mg/kg，PO q6–8h。</li>
+        <li><strong>不良反應</strong>：毒性低，輕度腸胃不適；可逆性肝與血液異常（肝指數上升、貧血、嗜中性球減少、血小板減少）；罕見骨髓抑制。</li>
+      </ul>
+      <h3>其他抗黴菌藥（講義）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>機轉</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lufenuron</strong></td><td>口服幾丁質合成抑制劑</td><td>犬貓除蚤；可能對非真菌皮膚病有正面效果與免疫調節作用。VPT10：用於皮癬菌的效果有爭議、復發率高</td></tr>
+          <tr><td><strong>Sodium／potassium iodide</strong></td><td>機轉不明，可能刺激宿主免疫或增加經皮毛排除</td><td>最早的抗黴菌藥之一，獸醫仍在使用</td></tr>
+          <tr><td><strong>Mefenoxam</strong></td><td>農用殺菌劑，抑制核糖體 RNA 聚合酶</td><td>口服，與 itraconazole＋terbinafine 合併治療<strong>腸道腐黴菌病</strong>；犬耐受性佳</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義 p36–39；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 10 -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">10</div><h2>臨床整合：選藥與共病</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>臨床情境</th><th>常用選擇</th><th>理由</th></tr></thead>
+        <tbody>
+          <tr><td>犬貓皮癬菌</td><td>Itraconazole、terbinafine、griseofulvin；局部 miconazole、clotrimazole、enilconazole</td><td>多烯類對皮癬菌無效</td></tr>
+          <tr><td>犬貓隱球菌，尤其 CNS</td><td><strong>Fluconazole</strong>；嚴重時 amphotericin B＋flucytosine</td><td>Fluconazole 與 5-FC 進入 CSF</td></tr>
+          <tr><td>全身性雙型性真菌</td><td>Itraconazole；嚴重時 amphotericin B</td><td>—</td></tr>
+          <tr><td>犬鼻腔麴菌病</td><td>Enilconazole 鼻內灌注</td><td>蒸氣作用</td></tr>
+          <tr><td>馬 Fusarium 角膜黴菌病</td><td><strong>Natamycin</strong> 眼用</td><td>首選</td></tr>
+          <tr><td>犬貓馬拉色菌耳炎</td><td>含 nystatin 或 posaconazole 等的耳用製劑</td><td>—</td></tr>
+          <tr><td>犬腸道腐黴菌病</td><td>Itraconazole＋terbinafine＋mefenoxam</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <h3>共病與禁忌</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>病患狀況</th><th>避免或謹慎</th><th>理由</th></tr></thead>
+        <tbody>
+          <tr><td><strong>腎病</strong></td><td>Amphotericin B（改用脂質劑型並監測）；flucytosine 減量</td><td>AmB 腎毒性；5-FC 經腎排除</td></tr>
+          <tr><td><strong>肝病</strong></td><td>Ketoconazole（尤其貓）；ketoconazole＋griseofulvin</td><td>肝毒性</td></tr>
+          <tr><td><strong>貓</strong></td><td>Ketoconazole；griseofulvin（尤其 FIV 陽性、幼貓）；posaconazole 謹慎</td><td>肝毒性、骨髓抑制、葡萄糖醛酸結合能力差</td></tr>
+          <tr><td><strong>懷孕</strong></td><td>Griseofulvin（貓禁用）、ketoconazole、fluconazole</td><td>致畸胎</td></tr>
+          <tr><td><strong>心臟病</strong>（心室功能差）</td><td>Itraconazole</td><td>負性肌力（人的黑框警語）</td></tr>
+          <tr><td><strong>使用 digoxin</strong></td><td>唑類、amphotericin B</td><td>P450 抑制／低血鉀 → 毛地黃中毒</td></tr>
+          <tr><td><strong>使用 PPI、H2 blocker、制酸劑</strong></td><td>Ketoconazole、itraconazole</td><td>吸收下降；改用 fluconazole 或調整時間</td></tr>
+          <tr><td><strong>使用 phenobarbital</strong>的癲癇犬</td><td>唑類、griseofulvin</td><td>P450 誘導 → 抗黴菌藥濃度下降；griseofulvin 吸收下降</td></tr>
+          <tr><td><strong>使用 cyclosporine</strong></td><td>Ketoconazole、itraconazole</td><td>Cyclosporine 濃度上升 → 需監測與調整</td></tr>
+          <tr><td><strong>使用 mitotane</strong></td><td>Ketoconazole</td><td>抑制 mitotane 代謝（見 <a href="類固醇藥理.html#section-adrenal">類固醇藥理</a>）</td></tr>
+          <tr><td><strong>產食動物</strong></td><td>多數抗黴菌藥</td><td>無核准製劑；腸道受損時 nystatin 可能吸收 → 殘留</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 11 -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">11</div><h2>考點整理</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">課程考古出現過的考點</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>2025 期末 Q49</strong>：作用機轉與抑制 cytochrome P450 有關的抗黴菌藥 → <strong>posaconazole</strong>（其他選項：5-flucytosine 為核酸合成、terbinafine 為 squalene epoxidase、griseofulvin 為微管）。</li>
+          <li><strong>內分泌考古</strong>：兼具抗黴菌和抑制類固醇生合成作用 → <strong>ketoconazole</strong>。</li>
+        </ul>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">推測國考方向</div>
+        <p>以下是依講義與教科書推測的方向，並非出自歷屆國考題目：各類抗黴菌藥的作用標的（ergosterol 結合 vs 合成抑制）；amphotericin B 腎毒性機轉與預防；fluconazole 進入 CSF、口服不需胃酸；ketoconazole 抑制類固醇合成與貓肝毒性；griseofulvin 沉積角質、懷孕貓禁用；terbinafine 沒有 P450 交互作用；flucytosine 選擇性來自 cytosine deaminase；natamycin 治馬角膜黴菌病。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程 2025 期末考與內分泌考古題；NTU 講義。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 12 -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">12</div><h2>學習重點整理</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>標的</th><th>關鍵特點</th><th>關鍵毒性</th></tr></thead>
+        <tbody>
+          <tr><td>Amphotericin B</td><td>結合 ergosterol</td><td>全身性主力；IV；脂質劑型；對皮癬菌無效</td><td>腎毒性、低血鉀、腎小管酸中毒</td></tr>
+          <tr><td>Nystatin／Natamycin</td><td>結合 ergosterol</td><td>局部／口服；natamycin 治馬角膜</td><td>注射太毒</td></tr>
+          <tr><td>Ketoconazole</td><td>P450（imidazole）</td><td>抑制類固醇合成；需胃酸</td><td>貓肝毒性、交互作用多</td></tr>
+          <tr><td>Itraconazole</td><td>P450（triazole）</td><td>需胃酸、膠囊不可磨碎；長半衰期</td><td>肝、負性肌力</td></tr>
+          <tr><td>Fluconazole</td><td>P450（triazole）</td><td>口服近 100%、進 CSF；對麴菌差</td><td>致畸胎</td></tr>
+          <tr><td>Voriconazole</td><td>P450（triazole）</td><td>非線性、TDM</td><td>—</td></tr>
+          <tr><td>Terbinafine</td><td>Squalene epoxidase</td><td>皮癬菌殺菌；無 P450 交互作用</td><td>少</td></tr>
+          <tr><td>Griseofulvin</td><td>微管</td><td>沉積新生角質；P450 誘導劑</td><td>貓骨髓抑制（FIV）、懷孕貓致畸胎</td></tr>
+          <tr><td>Flucytosine</td><td>轉成 5-FU</td><td>進 CSF；併 AmB 治隱球菌腦膜炎；腎排除</td><td>骨髓（腎衰時加重）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.38。本頁為個人課堂筆記整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 13 -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題</h2></div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 下列哪一個抗黴菌藥的作用機轉與抑制 cytochrome P450 有關？(A) Posaconazole (B) 5-Flucytosine (C) Terbinafine (D) Griseofulvin</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(A)。唑類抑制真菌 P450（lanosterol 14α-demethylase）。（2025 期末考第 49 題）</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. 治療犬隱球菌腦膜炎，下列哪一個唑類最能進入 CSF？(A) Ketoconazole (B) Itraconazole (C) Fluconazole (D) Clotrimazole</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。Fluconazole 蛋白結合低、CSF 濃度可達血漿 50–90%；其他唑類 CSF 穿透差。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">3. 下列何者對皮癬菌無效？(A) Griseofulvin (B) Terbinafine (C) Itraconazole (D) Amphotericin B</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(D)。多烯類對皮癬菌無效。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">4. 是非題：Terbinafine 與 ketoconazole 一樣，都會抑制哺乳類 P450 而造成許多藥物交互作用。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。Terbinafine 抑制 squalene epoxidase，不影響 P450，目前沒有已報告的交互作用。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">5. 簡答：說明 amphotericin B 腎毒性的兩個機轉，以及三個降低腎毒性的方法。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">機轉：① 腎動脈收縮（IV 後 15 分鐘內、持續 4–6 h）→ 腎血流與 GFR 下降；② 結合腎小管細胞膜 cholesterol → 電解質漏出（失鉀）與腎小管酸中毒。方法：電解質負荷（先 IV NaCl）、輸液利尿、緩慢輸注；改用脂質劑型；監測尿沉渣、BUN、肌酸酐與電解質，必要時暫停。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">6. 簡答：為什麼 flucytosine 對哺乳類細胞毒性低？為什麼常與 amphotericin B 合用？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">哺乳類細胞缺乏 cytosine deaminase，無法把 5-FC 轉成有活性的 5-FU。與 amphotericin B 合用有協同作用，可降低 AmB 劑量與腎毒性，並利用 5-FC 良好的 CSF 穿透治療隱球菌腦膜炎；但 AmB 造成腎功能下降時，5-FC 排除受阻，骨髓毒性風險上升。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">7. 臨床情境：一隻 FIV 陽性、懷孕中的貓被診斷皮癬菌。(1) 哪個藥要避免？為什麼？(2) 如果這隻貓同時在吃 omeprazole，選 itraconazole 時要注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) Griseofulvin：懷孕貓禁用（致畸胎），且 FIV 陽性貓發生嗜中性球減少的風險較高。Ketoconazole、fluconazole 也有致畸胎疑慮，且 ketoconazole 在貓肝毒性較高。可優先考慮局部治療，必要時評估其他藥物的風險。(2) Itraconazole 需胃酸溶解，PPI 會降低吸收；應評估是否需要 PPI、隨餐給藥，膠囊不可磨碎；若改用調劑藥局製劑，要注意生體可用率可能很差。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q">8. 臨床情境：一隻長期服用 digoxin 的心臟病犬罹患全身性芽生菌病，需要 amphotericin B。(1) 兩者併用的風險？(2) 如何監測？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) AmB 造成腎小管失鉀 → 低血鉀增加 digoxin 毒性；AmB 降低 GFR 也可能讓經腎排除的 digoxin 濃度上升。若改用唑類，則 P450 抑制同樣讓 digoxin 濃度上升。(2) 監測血鉀、腎指數、尿沉渣與 digoxin 濃度、心電圖；AmB 前給 NaCl、緩慢輸注，考慮脂質劑型。</div></details>
+      </div>
+      <footer class="note-footer">資料來源：NTU 講義；VPT10 Ch.38；課程 2025 期末考。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 重點摘要",
+  "drugtable": "💊 本頁藥物總覽",
+  "background": "🍄 真菌感染背景與藥物分類",
+  "polyene": "🧱 多烯類：Amphotericin B 等",
+  "azole": "⭕ 唑類 Azoles",
+  "interaction": "🔗 唑類毒性與交互作用",
+  "terbinafine": "🧪 Terbinafine",
+  "griseofulvin": "🧶 Griseofulvin",
+  "flucytosine": "🧬 Flucytosine 與其他",
+  "clinical": "🏥 臨床整合：選藥與共病",
+  "exam": "🎓 考點整理",
+  "summary": "⭐ 學習重點整理",
+  "quiz": "📝 練習題"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
