@@ -22,6 +22,11 @@ const SITE_NAV = [
         title: "貓慢性腎病（CKD）照護指南",
         url: "內科/貓慢性腎病CKD照護指南.html",
         desc: "IRIS 分期系統、依分期治療原則、常見併發症與共病處置、居家照護與監測預後"
+      },
+      {
+        title: "犬化療照護與副作用管理指南",
+        url: "內科/犬化療照護與副作用管理指南.html",
+        desc: "CHOP 淋巴瘤方案、doxorubicin 心臟毒性監測、AGASACA／腸道腺癌化療實證、不良反應分級處置與腹瀉管理"
       }
     ]
   },

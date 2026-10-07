@@ -9,10 +9,12 @@
 const SITE_NAV = [
   {
     id: "上群",
-    label: "上群",
+    label: "住院醫師筆記",
     icon: "📋",
     url: "index.html",
     topics: [
+      { title: "藥名對照", url: "上群/藥名對照.html", desc: "院內商品名 ↔ 學名查詢" },
+      { title: "急救流程：犬貓 CPR", url: "上群/急救流程_犬貓CPR.html", desc: "2024 RECOVER；劑量計算與 2 分鐘計時器" },
       { title: "病例筆記", url: "上群/index.html", desc: "住院／門診期間之病例回顧，與臨床推理及決策過程紀錄" }
     ]
   },
@@ -26,7 +28,7 @@ const SITE_NAV = [
       { title: "禽病學", url: "大四上/禽病學/index.html", desc: "已整理第2週：新城病(ND)、第3週：傳染性支氣管炎(IB)" },
       { title: "豬病學", url: "大四上/豬病學/index.html", desc: "已整理第2週：豬病毒性疾病(I)（ASF／CSF／JEV／HEV）" },
       { title: "反芻動物疾病學", url: "大四上/反芻動物疾病學/index.html", desc: "已整理第1-2週：乳牛營養與飼養管理、轉換期／低血鈣症／DCAD、臨床檢查、眼科疾病" },
-      { title: "伴侶動物復健及物理治療學", url: "大四上/伴侶動物復健及物理治療學/index.html", desc: "已整理 2 週：常見神經科疾病復健、常見骨科疾病復健" },
+      { title: "伴侶動物復健及物理治療學", url: "大四上/伴侶動物復健及物理治療學/index.html", desc: "已整理 3 週：常見神經科疾病復健、常見骨科疾病復健、儀器物理治療" },
       { title: "水產動物疾病學", url: "大四上/水產動物疾病學/index.html", desc: "尚無筆記" },
       { title: "獸醫臨床及影像診斷學", url: "大四上/獸醫臨床及影像診斷學/index.html", desc: "已整理第2週：超音波診斷入門；第3週X光學：X光學基礎、脊椎影像判讀、脊椎影像解剖圖譜；第4週：CT與MRI原理；第5週：神經影像課前預習（IVDD／ANNPE／脊椎黏連性關節病／椎間盤脊椎炎／寰樞椎不穩定）" }
     ]

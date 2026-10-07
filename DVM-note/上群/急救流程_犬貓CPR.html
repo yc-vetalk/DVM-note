@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：急救流程（犬貓 CPR） - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">急救流程：犬貓 CPR</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">急救流程：犬貓心肺復甦（CPR）</h1>
+      <p class="page-subtitle">依 2024 RECOVER 指引整理：辨識心跳停止 → 基本生命支持（壓胸＋通氣）→ 進階生命支持（監測、給藥、去顫）→ 恢復自發循環後照護。頁首附體重劑量計算與 2 分鐘循環計時器，急救現場可直接用手機操作。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">臨床流程（急救 SOP）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">2024 RECOVER Guidelines（Burkitt-Creedon et al., JVECC 2024）之專業摘要（Clinician's Brief、Today's Veterinary Nurse／Practice）；Small Animal Anesthesia and Pain Management 3rd ed. Ch.20</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-10-01</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">初版；RECOVER 原文全文尚未取得，復甦後照護目標待補</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">現場用</div>
+    <a class="active" onclick="showSection('quick')" id="nav-quick"><span class="nav-icon">⏱️</span> 劑量計算與計時器</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">🗺️</span> 流程總覽</a>
+    <div class="section-label" style="margin-top:8px;">流程</div>
+    <a onclick="showSection('recognize')" id="nav-recognize"><span class="nav-icon">🚨</span> 辨識與啟動</a>
+    <a onclick="showSection('bls')" id="nav-bls"><span class="nav-icon">🫀</span> 基本生命支持 BLS</a>
+    <a onclick="showSection('als')" id="nav-als"><span class="nav-icon">📈</span> 進階生命支持 ALS</a>
+    <a onclick="showSection('rhythm')" id="nav-rhythm"><span class="nav-icon">⚡</span> 依心律處置</a>
+    <a onclick="showSection('drugs')" id="nav-drugs"><span class="nav-icon">💉</span> 急救藥物總表</a>
+    <a onclick="showSection('special')" id="nav-special"><span class="nav-icon">🔧</span> 可逆原因與特殊情況</a>
+    <a onclick="showSection('rosc')" id="nav-rosc"><span class="nav-icon">✅</span> ROSC 與停止 CPR</a>
+    <div class="section-label" style="margin-top:8px;">準備</div>
+    <a onclick="showSection('team')" id="nav-team"><span class="nav-icon">👥</span> 團隊分工與急救車</a>
+    <a onclick="showSection('sources')" id="nav-sources"><span class="nav-icon">📚</span> 來源差異與待確認</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 QUICK -->
+    <div class="section" id="section-quick">
+      <div class="section-head"><div class="section-num">1</div><h2>劑量計算與計時器</h2></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告</div>
+        <p>藥品濃度預設為常見規格，<strong>請先改成院內急救車實際濃度</strong>（會記在這支手機上）。計算結果只是輔助，給藥前仍要口頭複誦確認。</p>
+      </div>
+
+      <div class="card" style="margin-bottom:14px;">
+        <div class="card-title">體重</div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <input id="cpr-wt" type="number" inputmode="decimal" step="0.1" min="0" placeholder="kg" style="font-size:1.6em; width:7em; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg);">
+          <span style="font-size:1.2em;">kg</span>
+          <label style="margin-left:8px;"><input type="radio" name="cpr-sp" value="dog" checked> 犬</label>
+          <label><input type="radio" name="cpr-sp" value="cat"> 貓</label>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="cpr-table">
+          <thead><tr><th>藥物</th><th>劑量</th><th>濃度（可改）</th><th>抽取量</th><th>時機</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">去顫能量依 RECOVER 的 J/kg 換算（雙相去顫器）；機器只能選固定檔位時取最接近的檔位。</p>
+
+      <h3>2 分鐘循環計時器</h3>
+      <div class="card" id="cpr-timer-card">
+        <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:baseline;">
+          <div><div style="font-size:.8em; color:var(--fg-faint);">本輪剩餘</div><div id="cpr-cycle" style="font-size:3em; font-weight:700; font-variant-numeric:tabular-nums;">2:00</div></div>
+          <div><div style="font-size:.8em; color:var(--fg-faint);">第幾輪</div><div id="cpr-n" style="font-size:2em; font-weight:700;">0</div></div>
+          <div><div style="font-size:.8em; color:var(--fg-faint);">CPR 總時間</div><div id="cpr-total" style="font-size:2em; font-weight:700; font-variant-numeric:tabular-nums;">0:00</div></div>
+        </div>
+        <div id="cpr-prompt" style="margin-top:10px; padding:10px 12px; border-radius:6px; background:var(--bg-faint); font-size:1.05em; line-height:1.6;">按「開始」後立刻開始壓胸。</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
+          <button type="button" id="cpr-start" class="cpr-btn">開始</button>
+          <button type="button" id="cpr-next" class="cpr-btn">提前進入下一輪</button>
+          <button type="button" id="cpr-reset" class="cpr-btn">重設</button>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
+          <button type="button" class="cpr-btn cpr-log" data-ev="Epinephrine">💉 Epi 已給</button>
+          <button type="button" class="cpr-btn cpr-log" data-ev="Atropine">💉 Atropine 已給</button>
+          <button type="button" class="cpr-btn cpr-log" data-ev="去顫">⚡ 已去顫</button>
+          <button type="button" class="cpr-btn cpr-log" data-ev="換壓胸者">🔄 換人</button>
+          <button type="button" class="cpr-btn cpr-log" data-ev="ROSC">✅ ROSC</button>
+        </div>
+        <div style="margin-top:12px;"><div style="font-size:.8em; color:var(--fg-faint);">事件紀錄（急救後可截圖寫進病歷）</div><ol id="cpr-log" style="margin:6px 0 0 1.2em; font-variant-numeric:tabular-nums;"></ol></div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">每輪結束前 10 秒會嗶一聲並震動（手機需開聲音）。提示依 RECOVER：每輪結束「暫停 &lt;10 秒」看心律、換壓胸者；Epinephrine 每隔一輪（約每 3–5 分鐘）。</p>
+      <footer class="note-footer">計算與計時器僅為輔助工具；劑量以院內急救流程與主治醫師指示為準。</footer>
+    </div>
+
+    <!-- 2 OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>流程總覽</h2></div>
+      <div class="flow">
+        <div class="flow-node danger">無意識、無呼吸（或僅喘息）</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">立刻壓胸 100–120 次／分＋呼叫支援</div><span class="flow-arrow">→</span>
+        <div class="flow-node">插管、100% O₂、10 次／分</div><span class="flow-arrow">→</span>
+        <div class="flow-node">接 ECG、ETCO₂、建立 IV／IO</div><span class="flow-arrow">→</span>
+        <div class="flow-node">每 2 分鐘：暫停 &lt;10 秒看心律、換人</div>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">⚡ 可電擊心律（VF／無脈 VT）</div><p><strong>先去顫，再給藥。</strong>去顫 2 J/kg → 立刻壓胸 2 分鐘 → 仍是可電擊心律則下一次 4 J/kg（之後維持 4 J/kg）。難治性：加血管加壓劑與抗心律不整藥。</p></div>
+        <div class="card"><div class="card-title">🫥 不可電擊心律（Asystole／PEA）</div><p><strong>Epinephrine 0.01 mg/kg</strong> IV／IO，每隔一輪（3–5 分鐘）。疑似迷走張力過高時，<strong>單次</strong> Atropine 0.04 mg/kg。<strong>不去顫</strong>。</p></div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：2024 版最重要的幾個改變</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li>不再使用<strong>高劑量 Epinephrine（0.1 mg/kg）</strong>。</li>
+          <li><strong>Atropine 不重複給</strong>，只給一次。</li>
+          <li>可電擊心律：<strong>去顫優先於 Epinephrine</strong>；第二次起能量加倍為 <strong>4 J/kg</strong>。</li>
+          <li>ETCO₂ 目標提高到 <strong>≥18 mmHg</strong>。</li>
+          <li>小型犬與貓：不再用雙手壓胸，改單手、環抱或單臂技巧。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：2024 RECOVER 專業摘要（Clinician's Brief、Today's Veterinary Nurse、Today's Veterinary Practice）。</footer>
+    </div>
+
+    <!-- 3 RECOGNIZE -->
+    <div class="section" id="section-recognize">
+      <div class="section-head"><div class="section-num">3</div><h2>辨識與啟動</h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>確認</strong>：無意識、無呼吸或只有瀕死喘息（agonal breathing）。教科書列出的評估項目：心音、脈搏、呼吸、黏膜顏色。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>立刻開始壓胸</strong>，同時大聲呼叫支援並記錄時間。不要為了反覆摸脈搏或接儀器而延後壓胸；疑似心跳停止時，先壓胸的風險遠低於延誤。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>麻醉中的病患</strong>：立刻關閉吸入麻醉（vaporizer）、給 100% O₂，並給予所用藥物的拮抗劑（見第 8 節）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>確認 DNR 狀態</strong>（如果病歷上已有飼主的急救意願紀錄）。</div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊</div>
+        <p>教科書指出：住院犬貓心跳停止後的存活率 <strong>&lt;6%</strong>（人約 20%）。正因如此，<strong>住院期間預先和飼主確認急救意願</strong>、急救車與團隊事先演練，才是提升存活率的關鍵。</p>
+      </div>
+      <footer class="note-footer">資料來源：Small Animal Anesthesia and Pain Management 3rd ed. Ch.20；第 2 點的「不延誤壓胸」原則為臨床常規。</footer>
+    </div>
+
+    <!-- 4 BLS -->
+    <div class="section" id="section-bls">
+      <div class="section-head"><div class="section-num">4</div><h2>基本生命支持 BLS<span class="tag tag-exam">重要</span></h2></div>
+      <h3>壓胸</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>2024 RECOVER</th></tr></thead>
+        <tbody>
+          <tr><td>速率</td><td><strong>100–120 次／分</strong></td></tr>
+          <tr><td>深度（側躺）</td><td>胸廓寬度的 <strong>1/3–1/2</strong></td></tr>
+          <tr><td>深度（仰躺）</td><td>胸廓前後徑的約 <strong>1/4</strong>（寬胸犬）</td></tr>
+          <tr><td>回彈</td><td>每次壓完讓胸壁<strong>完全回彈</strong>，不要靠在病患身上；壓放比 1:1</td></tr>
+          <tr><td>循環</td><td>每 <strong>2 分鐘</strong>一輪不中斷；輪與輪之間暫停 <strong>&lt;10 秒</strong>（看心律、換人）</td></tr>
+          <tr><td>換人</td><td>每 2 分鐘換壓胸者，避免疲勞降低品質</td></tr>
+          <tr><td>只在有強烈客觀證據顯示 ROSC 時</td><td>才中斷壓胸循環</td></tr>
+        </tbody>
+      </table></div>
+      <h3>手的位置（依胸型）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>體型</th><th>姿勢與手位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>多數中大型犬</strong></td><td>側躺，壓在胸廓最寬處（胸泵原理）。教科書：施救者站在病患背側，防止病患滑動</td></tr>
+          <tr><td><strong>深胸犬</strong>（如靈緹）</td><td>側躺，手掌根直接壓在心臟上方（心泵原理）</td></tr>
+          <tr><td><strong>桶狀胸犬</strong>（如鬥牛犬）</td><td>仰躺，壓在胸骨上（深度約前後徑 1/4）</td></tr>
+          <tr><td><strong>貓與小型犬</strong></td><td>不再用雙手。改用：① <strong>環抱法</strong>（雙拇指在一側、其餘手指在對側）、② <strong>單手法</strong>（慣用手環抱胸廓、另一手扶住背）、③ <strong>單臂掌根</strong>壓在心室上方</td></tr>
+        </tbody>
+      </table></div>
+      <h3>通氣</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>情況</th><th>做法</th></tr></thead>
+        <tbody>
+          <tr><td><strong>已插管</strong></td><td><strong>10 次／分</strong>（每 6 秒一次）、吸氣時間 <strong>1 秒</strong>、潮氣量約 <strong>10 mL/kg</strong>、100% O₂；<strong>和壓胸同時進行，不停壓胸</strong></td></tr>
+          <tr><td><strong>無法插管</strong></td><td>緊密面罩＋氧氣袋（優先於口對鼻）；<strong>30:2</strong>（壓 30 下、給 2 口氣）</td></tr>
+          <tr><td><strong>單人、無面罩、施救者風險高</strong></td><td>只壓胸不通氣</td></tr>
+          <tr><td><strong>插管位置確認</strong></td><td>直視、胸部起伏、觸診氣管內管、capnography（ETCO₂ ≥12 mmHg 支持插在氣管內）。注意：沒有循環時 ETCO₂ 可能偏低，不能單獨用來否定插管位置</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>不要過度通氣</strong>：通氣太快、太多會提高胸內壓、減少靜脈回流，降低心肌與腦灌流。胸部擴張困難時，檢查氣管內管是否阻塞，或是否有氣胸、血胸。</p>
+      </div>
+      <footer class="note-footer">資料來源：2024 RECOVER 專業摘要；Small Animal Anesthesia and Pain Management 3rd ed. Ch.20（潮氣量、站位、氣胸血胸檢查）。</footer>
+    </div>
+
+    <!-- 5 ALS -->
+    <div class="section" id="section-als">
+      <div class="section-head"><div class="section-num">5</div><h2>進階生命支持 ALS</h2></div>
+      <p>有足夠人手時，BLS 與 ALS 同時進行：一人壓胸、一人通氣，其他人接監測、建立血管通路、準備藥物。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>重點</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ECG</strong></td><td>每輪暫停時判讀心律：可電擊（VF、無脈 VT）或不可電擊（asystole、PEA）</td></tr>
+          <tr><td><strong>ETCO₂</strong></td><td>反映壓胸產生的血流：<strong>目標 ≥18 mmHg</strong>，越高越好。持續偏低 → 換人、調整手位或深度。<strong>突然大幅上升</strong>（例如上升 ≥10 mmHg 到 ≥35 mmHg）可能是 ROSC</td></tr>
+          <tr><td><strong>血管通路</strong></td><td>IV 或 IO 優先。2 分鐘內建立不了時，部分藥物可經氣管內給（IT）</td></tr>
+          <tr><td><strong>拮抗劑</strong></td><td>有用過可拮抗的鎮靜麻醉藥（opioid、α2、benzodiazepine）就給拮抗劑</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：2024 RECOVER 專業摘要；Small Animal Anesthesia and Pain Management 3rd ed. Ch.20。</footer>
+    </div>
+
+    <!-- 6 RHYTHM -->
+    <div class="section" id="section-rhythm">
+      <div class="section-head"><div class="section-num">6</div><h2>依心律處置<span class="tag tag-exam">重要</span></h2></div>
+      <h3>⚡ 可電擊心律：VF、無脈 VT</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>立刻去顫 2 J/kg</strong>（雙相）。病患側躺，電極板一片在下側胸壁、一片在上側胸壁，塗導電膠；放電前大聲喊「Clear」，確認沒有人碰到病患或檯面。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>電擊後立刻恢復壓胸 2 分鐘</strong>，不要停下來看心律；一次只電一下，不連續電三下。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">下一輪暫停時仍是可電擊心律 → <strong>4 J/kg</strong>，之後維持 4 J/kg。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>難治性</strong>（電擊後仍持續）：加血管加壓劑（epinephrine 或 vasopressin）；抗心律不整藥 <strong>lidocaine 2 mg/kg IV／IO（犬）</strong>；β 阻斷劑 <strong>esmolol 0.5 mg/kg IV／IO 3–5 分鐘推完，接 50 µg/kg/min CRI</strong>。</div></div>
+      <h3>🫥 不可電擊心律：Asystole、PEA</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">持續高品質 BLS。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Epinephrine 0.01 mg/kg IV／IO</strong>，之後<strong>每隔一輪（約 3–5 分鐘）</strong>重複。<strong>不用高劑量。</strong></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">疑似<strong>迷走張力過高</strong>（例如嘔吐、呼吸道操作、腹部手術牽拉後停止）：<strong>單次 Atropine 0.04 mg/kg</strong> IV／IO，<strong>不重複</strong>。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">同時找<strong>可逆原因</strong>（第 8 節）並處理。</div></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p><strong>Asystole 不去顫。</strong>教科書表格把 asystole 列在去顫適應症內，與 RECOVER 不符；以 RECOVER 為準，去顫只用於 VF 與無脈 VT。</p>
+      </div>
+      <footer class="note-footer">資料來源：2024 RECOVER 專業摘要（去顫能量、esmolol、lidocaine、epinephrine 時機、atropine 單次）；Small Animal Anesthesia and Pain Management 3rd ed. Ch.20（電極板位置、單次電擊、Clear）。</footer>
+    </div>
+
+    <!-- 7 DRUGS -->
+    <div class="section" id="section-drugs">
+      <div class="section-head"><div class="section-num">7</div><h2>急救藥物總表</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>劑量與途徑</th><th>適應症與時機</th><th>出處</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Epinephrine</strong></td><td><strong>0.01 mg/kg IV／IO</strong>；IT 0.03–0.1 mg/kg（教科書）</td><td>Asystole、PEA；每隔一輪（3–5 分鐘）；難治性 VF／VT。<strong>不再用高劑量 0.1 mg/kg</strong></td><td>RECOVER；IT 劑量：教科書</td></tr>
+          <tr><td><strong>Vasopressin</strong></td><td>0.8 U/kg IV（教科書範圍 0.2–0.8 U/kg；IT 0.4–1.0 U/kg）</td><td>Epinephrine 的替代血管加壓劑</td><td>RECOVER 摘要；教科書</td></tr>
+          <tr><td><strong>Atropine</strong></td><td><strong>0.04 mg/kg IV／IO</strong>；IT 0.08–0.1 mg/kg（教科書）</td><td>疑似迷走張力過高時<strong>單次</strong>，<strong>不重複</strong></td><td>RECOVER；IT 劑量：教科書</td></tr>
+          <tr><td><strong>Lidocaine</strong></td><td><strong>2 mg/kg IV／IO</strong>（犬）</td><td>難治性 VF／無脈 VT</td><td>RECOVER 摘要；教科書</td></tr>
+          <tr><td><strong>Esmolol</strong></td><td><strong>0.5 mg/kg IV／IO 3–5 分鐘推完 → 50 µg/kg/min CRI</strong></td><td>難治性可電擊心律</td><td>RECOVER 摘要</td></tr>
+          <tr><td><strong>Naloxone</strong></td><td>0.02–0.04 mg/kg IV；IT 0.04–0.06 mg/kg</td><td>拮抗 opioid</td><td>教科書</td></tr>
+          <tr><td><strong>Atipamezole</strong></td><td>0.1–0.2 mg/kg IV（教科書）</td><td>拮抗 α2 促效劑（dexmedetomidine 等）造成的心搏過緩</td><td>教科書</td></tr>
+          <tr><td><strong>Calcium gluconate 10%</strong></td><td>0.5–1.5 mL/kg IV 緩慢；<strong>不可 IT</strong></td><td>高血鉀、確認的低游離鈣</td><td>教科書</td></tr>
+          <tr><td><strong>Sodium bicarbonate</strong></td><td>0.5–1 mEq/kg IV</td><td>代謝性酸中毒（一般用於長時間 CPR，而不是常規給）</td><td>教科書</td></tr>
+          <tr><td><strong>Magnesium sulfate</strong></td><td>0.15–0.3 mEq/kg IV，10 分鐘以上緩慢給</td><td>難治性心室心律不整</td><td>教科書</td></tr>
+          <tr><td><strong>去顫</strong></td><td>外部 <strong>2 J/kg → 4 J/kg</strong>；開胸內部 0.2–0.5 J/kg</td><td>VF、無脈 VT</td><td>RECOVER；內部：教科書</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">氣管內給藥（IT）</div>
+        <p>只在 IV／IO 建立不了時使用；劑量通常是 IV 的 2–10 倍（見上表教科書的 IT 劑量），以導管深入氣管後用生理食鹽水稀釋推入。</p>
+      </div>
+      <footer class="note-footer">資料來源：2024 RECOVER 專業摘要；Small Animal Anesthesia and Pain Management 3rd ed. Table 20.3。IT 給藥的稀釋方式為臨床常規。</footer>
+    </div>
+
+    <!-- 8 SPECIAL -->
+    <div class="section" id="section-special">
+      <div class="section-head"><div class="section-num">8</div><h2>可逆原因與特殊情況</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>原因</th><th>線索</th><th>處置</th></tr></thead>
+        <tbody>
+          <tr><td><strong>麻醉藥過量</strong></td><td>麻醉中或剛誘導後</td><td>關閉 vaporizer、100% O₂；naloxone、atipamezole 等拮抗劑</td></tr>
+          <tr><td><strong>迷走張力過高</strong></td><td>嘔吐、插管、眼或腹部手術牽拉後</td><td>單次 atropine</td></tr>
+          <tr><td><strong>低血容／出血</strong></td><td>術中出血、創傷、休克病史</td><td>只在停止前已<strong>低血容</strong>時給大量輸液（教科書：犬 90、貓 45 mL/kg/h 的休克劑量）；血液製品</td></tr>
+          <tr><td><strong>血容正常的病患</strong></td><td>—</td><td>教科書：小劑量 bolus（犬 20、貓 10 mL/kg）；<strong>過量輸液會降低冠狀動脈灌流壓</strong></td></tr>
+          <tr><td><strong>高血鉀</strong></td><td>尿道阻塞貓、Addison's、急性腎傷；ECG 高 T 波、P 波消失</td><td>Calcium gluconate；之後 insulin＋dextrose 等降鉀處置</td></tr>
+          <tr><td><strong>低血氧／通氣問題</strong></td><td>氣管內管阻塞、食道插管、氣胸、血胸</td><td>重新確認插管、胸腔穿刺</td></tr>
+          <tr><td><strong>低體溫</strong></td><td>長時間麻醉</td><td>保溫；低體溫時心搏過緩對 atropine 反應差（教科書）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">開胸 CPR</div>
+        <p>已開腹或開胸的手術病患，或有胸腔疾病（氣胸、心包積液、胸壁創傷）使閉胸壓胸無效時，考慮開胸直接按摩心臟。內部去顫能量 0.2–0.5 J/kg（教科書）。是否開胸由主治醫師決定。</p>
+      </div>
+      <footer class="note-footer">資料來源：Small Animal Anesthesia and Pain Management 3rd ed. Ch.20（輸液、低體溫、拮抗劑、內部去顫）；可逆原因清單與開胸適應症為臨床常規整理。高血鉀細節見 <a href="../大三/獸醫藥理學/腦下垂體荷爾蒙.html#section-insulinprep">胰島素</a>。</footer>
+    </div>
+
+    <!-- 9 ROSC -->
+    <div class="section" id="section-rosc">
+      <div class="section-head"><div class="section-num">9</div><h2>ROSC 與停止 CPR</h2></div>
+      <h3>怎麼判斷恢復自發循環（ROSC）</h3>
+      <ul>
+        <li>每輪暫停時<strong>摸得到股動脈脈搏</strong>。</li>
+        <li>或 ETCO₂ <strong>突然持續上升</strong>（例如上升 ≥10 mmHg、達到 ≥35 mmHg），且摸得到不是壓胸造成的動脈脈搏。</li>
+        <li>只有在有<strong>強烈客觀證據</strong>時才中斷壓胸循環；不確定就繼續壓。</li>
+      </ul>
+      <h3>ROSC 之後</h3>
+      <ul>
+        <li>持續監測 ECG、血壓、SpO₂、ETCO₂、體溫；ROSC 後再次心跳停止很常見。</li>
+        <li>找出並處理造成心跳停止的原因；依嚴重程度提供支持照護（教科書）。</li>
+        <li>血壓、氧合、通氣、體溫的具體目標值：<strong>待取得 RECOVER 復甦後照護原文後補上</strong>。</li>
+      </ul>
+      <h3>停止 CPR</h3>
+      <p>RECOVER 摘要：盡了全力仍沒有 ROSC 或改善時，依病患狀況與預後決定停止。實務上由主治醫師與飼主溝通後決定；建議事先在病歷記錄飼主的急救意願（DNR）。</p>
+      <footer class="note-footer">資料來源：2024 RECOVER 專業摘要；Small Animal Anesthesia and Pain Management 3rd ed. Ch.20。</footer>
+    </div>
+
+    <!-- 10 TEAM -->
+    <div class="section" id="section-team">
+      <div class="section-head"><div class="section-num">10</div><h2>團隊分工與急救車</h2></div>
+      <p>教科書：CPR 一定要多人進行，一個人做不好。建議分工如下（臨床常規整理）：</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>角色</th><th>工作</th></tr></thead>
+        <tbody>
+          <tr><td><strong>指揮者（leader）</strong></td><td>看全局、判讀心律、下醫囑、決定去顫與給藥；不親手壓胸</td></tr>
+          <tr><td><strong>壓胸者 ×2</strong></td><td>每 2 分鐘輪替</td></tr>
+          <tr><td><strong>呼吸道</strong></td><td>插管、通氣 10 次／分、看 ETCO₂</td></tr>
+          <tr><td><strong>給藥／通路</strong></td><td>IV／IO、抽藥、給藥前<strong>複誦</strong>（藥名、劑量、毫升數）</td></tr>
+          <tr><td><strong>記錄者</strong></td><td>計時、記錄每次給藥與去顫時間、提醒下一輪（可用第 1 節的計時器）</td></tr>
+        </tbody>
+      </table></div>
+      <h3>急救車檢查清單（建議每班確認）</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">呼吸道</div><p>各尺寸氣管內管、喉頭鏡（含電池）、Ambu bag 或麻醉機、面罩、抽吸設備、紗布綁帶</p></div>
+        <div class="card"><div class="card-title">藥物</div><p>Epinephrine、Atropine、Vasopressin、Lidocaine、Naloxone、Atipamezole、Flumazenil、Calcium gluconate、Sodium bicarbonate；預先貼好的<strong>體重劑量表</strong></p></div>
+        <div class="card"><div class="card-title">通路與輸液</div><p>IV 留置針、IO 針、注射器、延長管、生理食鹽水沖洗、晶體輸液</p></div>
+        <div class="card"><div class="card-title">監測與去顫</div><p>ECG、capnograph、去顫器（確認可充電）、導電膠、計時器</p></div>
+      </div>
+      <footer class="note-footer">資料來源：Small Animal Anesthesia and Pain Management 3rd ed. Ch.20（多人進行）；分工與清單為臨床常規整理，請依院內急救車實際配置修改。</footer>
+    </div>
+
+    <!-- 11 SOURCES -->
+    <div class="section" id="section-sources">
+      <div class="section-head"><div class="section-num">11</div><h2>來源差異與待確認</h2></div>
+      <p>手邊的麻醉教科書（2025 年第 3 版）已引用 2024 RECOVER，但書中部分圖表仍是舊版內容。本頁以 RECOVER 為準：</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>教科書 Ch.20</th><th>2024 RECOVER（本頁採用）</th></tr></thead>
+        <tbody>
+          <tr><td>流程順序</td><td>Fig. 20.3 為 Airway → Breathing → Compression</td><td>先壓胸（文字部分也說 RECOVER 建議從 BLS、壓胸開始）</td></tr>
+          <tr><td>通氣頻率</td><td>Fig. 20.3 寫 8–20 次／分；Table 20.2 寫 10–12 次／分</td><td><strong>10 次／分</strong></td></tr>
+          <tr><td>Atropine</td><td>每 3–5 分鐘可重複，最多 3 次</td><td><strong>單次，不重複</strong></td></tr>
+          <tr><td>去顫能量</td><td>50／100／200 J 依體型；無效時加倍</td><td><strong>2 J/kg → 4 J/kg</strong></td></tr>
+          <tr><td>去顫適應症</td><td>表中列入 asystole</td><td><strong>只用於 VF、無脈 VT</strong></td></tr>
+          <tr><td>Epinephrine</td><td>0.01 mg/kg 每 3–5 分鐘</td><td>同（不再用高劑量）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">待確認</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>RECOVER 原文</strong>：Wiley 原文無法自動取得，本頁數字來自三篇專業摘要交叉比對（至少兩篇一致才採用）。建議到 recoverinitiative.org 下載官方 CPR 演算法海報與原文，放進 Guideline 資料夾，我再逐條核對。</li>
+          <li><strong>復甦後照護目標</strong>（血壓、氧合、通氣、體溫）：待補。</li>
+          <li><strong>院內規範</strong>：急救車藥品濃度、去顫器型號（單相或雙相）、院內 DNR 流程。</li>
+        </ul>
+      </div>
+      <p style="font-size:.85em;">參考：<a href="https://onlinelibrary.wiley.com/doi/10.1111/vec.13391" target="_blank" rel="noopener">2024 RECOVER Guidelines（JVECC）</a>｜<a href="https://www.cliniciansbrief.com/article/veterinary-cpr-updates-2024" target="_blank" rel="noopener">Clinician's Brief</a>｜<a href="https://todaysveterinarynurse.com/emergency-medicine-critical-care/updates-from-the-2024-recover-guidelines/" target="_blank" rel="noopener">Today's Veterinary Nurse</a>｜<a href="https://todaysveterinarypractice.com/emergency-medicine-critical-care/need-to-know-2024-recover-cpr-guidelines-update/" target="_blank" rel="noopener">Today's Veterinary Practice</a>｜<a href="https://recoverinitiative.org/2024-guidelines/" target="_blank" rel="noopener">RECOVER Initiative</a></p>
+      <footer class="note-footer">本頁內容僅供學習與院內討論使用，不作為正式診斷或用藥依據；實際急救依院內流程與主治醫師指示。</footer>
+    </div>
+
+  </main>
+</div>
+
+<style>
+.cpr-btn { font: inherit; font-size: 1em; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); cursor: pointer; }
+.cpr-btn:active { transform: scale(.97); }
+#cpr-start { background: #b42318; color: #fff; border-color: #b42318; font-weight: 700; }
+#cpr-table input { width: 5.5em; padding: 4px 6px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--fg); font: inherit; }
+#cpr-table td.vol { font-size: 1.25em; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cpr-flash { animation: cprflash 1s ease 3; }
+@keyframes cprflash { 50% { background: #fde68a; } }
+</style>
+<script>
+(function () {
+  // 藥物：劑量（每 kg）、預設濃度、單位
+  var DRUGS = [
+    { id: 'epi', name: 'Epinephrine', dose: 0.01, unit: 'mg', conc: 1, cu: 'mg/mL', when: '不可電擊心律；每隔一輪（3–5 分鐘）' },
+    { id: 'atr', name: 'Atropine', dose: 0.04, unit: 'mg', conc: 0.5, cu: 'mg/mL', when: '疑似迷走張力；只給一次' },
+    { id: 'vas', name: 'Vasopressin', dose: 0.8, unit: 'U', conc: 20, cu: 'U/mL', when: 'Epinephrine 的替代' },
+    { id: 'lid', name: 'Lidocaine', dose: 2, unit: 'mg', conc: 20, cu: 'mg/mL', when: '難治性 VF／無脈 VT（犬）', dogOnly: true },
+    { id: 'esm', name: 'Esmolol（負荷）', dose: 0.5, unit: 'mg', conc: 10, cu: 'mg/mL', when: '難治性可電擊心律；3–5 分鐘推完' },
+    { id: 'nal', name: 'Naloxone', dose: 0.04, unit: 'mg', conc: 0.4, cu: 'mg/mL', when: '拮抗 opioid（0.02–0.04 mg/kg，取上限）' },
+    { id: 'ati', name: 'Atipamezole', dose: 0.1, unit: 'mg', conc: 5, cu: 'mg/mL', when: '拮抗 α2（教科書 0.1–0.2 mg/kg，取下限）' },
+    { id: 'cag', name: 'Ca gluconate 10%', dose: 0.5, unit: 'mL', conc: null, cu: '—', when: '高血鉀；緩慢 IV（0.5–1.5 mL/kg，取下限）' }
+  ];
+  var LS = 'cpr-conc-v1', saved = {};
+  try { saved = JSON.parse(localStorage.getItem(LS) || '{}'); } catch (e) {}
+  var tbody = document.querySelector('#cpr-table tbody');
+  function fmt(x) { return x >= 10 ? x.toFixed(1) : x >= 1 ? x.toFixed(2) : x.toFixed(3); }
+  function render() {
+    var wt = parseFloat(document.getElementById('cpr-wt').value) || 0;
+    var sp = (document.querySelector('input[name=cpr-sp]:checked') || {}).value;
+    var html = '';
+    DRUGS.forEach(function (d) {
+      var conc = saved[d.id] != null ? saved[d.id] : d.conc;
+      var amt = wt * d.dose, vol = d.conc === null ? amt : (conc ? amt / conc : 0);
+      var na = d.dogOnly && sp === 'cat';
+      html += '<tr><td><strong>' + d.name + '</strong></td><td>' + d.dose + ' ' + d.unit + '/kg' + (wt ? '<br><span style="color:var(--fg-faint)">= ' + fmt(amt) + ' ' + d.unit + '</span>' : '') + '</td>' +
+        '<td>' + (d.conc === null ? '—' : '<input type="number" step="any" data-id="' + d.id + '" value="' + conc + '"> ' + d.cu) + '</td>' +
+        '<td class="vol">' + (na ? '<span style="font-size:.7em;color:var(--fg-faint)">貓：依院內流程</span>' : (wt ? fmt(vol) + ' mL' : '—')) + '</td><td>' + d.when + '</td></tr>';
+    });
+    var j1 = wt * 2, j2 = wt * 4;
+    html += '<tr><td><strong>去顫（雙相）</strong></td><td>2 J/kg → 4 J/kg</td><td>—</td><td class="vol">' + (wt ? Math.round(j1) + ' J → ' + Math.round(j2) + ' J' : '—') + '</td><td>VF／無脈 VT；第一次 2 J/kg，之後 4 J/kg</td></tr>';
+    var fl = sp === 'cat' ? 10 : 20;
+    html += '<tr><td><strong>晶體輸液 bolus</strong></td><td>' + fl + ' mL/kg</td><td>—</td><td class="vol">' + (wt ? Math.round(wt * fl) + ' mL' : '—') + '</td><td>只用於血容正常者的小量 bolus（教科書）；低血容才給大量</td></tr>';
+    tbody.innerHTML = html;
+    tbody.querySelectorAll('input[data-id]').forEach(function (inp) {
+      inp.addEventListener('change', function () {
+        var v = parseFloat(inp.value); if (v > 0) { saved[inp.dataset.id] = v; try { localStorage.setItem(LS, JSON.stringify(saved)); } catch (e) {} }
+        render();
+      });
+    });
+  }
+  document.getElementById('cpr-wt').addEventListener('input', render);
+  document.querySelectorAll('input[name=cpr-sp]').forEach(function (r) { r.addEventListener('change', render); });
+  render();
+
+  // 計時器
+  var CYCLE = 120, t0 = null, cycleStart = null, n = 0, tick = null, beeped = false;
+  var $c = document.getElementById('cpr-cycle'), $n = document.getElementById('cpr-n'), $t = document.getElementById('cpr-total'), $p = document.getElementById('cpr-prompt'), $log = document.getElementById('cpr-log');
+  var actx = null;
+  function beep() {
+    try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); var o = actx.createOscillator(), g = actx.createGain(); o.frequency.value = 880; o.connect(g); g.connect(actx.destination); g.gain.value = .2; o.start(); o.stop(actx.currentTime + .4); } catch (e) {}
+    try { navigator.vibrate && navigator.vibrate([300, 150, 300]); } catch (e) {}
+  }
+  function mmss(s) { s = Math.max(0, Math.floor(s)); return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }
+  function promptFor(k) {
+    var epi = k % 2 === 1 ? '<br>💉 <strong>本輪：給 Epinephrine</strong>（不可電擊心律）' : '<br>本輪不給 Epinephrine（隔輪給）';
+    return '<strong>第 ' + k + ' 輪</strong>：壓胸 100–120／分、通氣 10／分。' + epi;
+  }
+  function newCycle() {
+    n++; cycleStart = Date.now(); beeped = false; $n.textContent = n; $p.innerHTML = promptFor(n);
+    addLog('第 ' + n + ' 輪開始');
+  }
+  function addLog(txt) {
+    if (!t0) return;
+    var li = document.createElement('li'); li.textContent = mmss((Date.now() - t0) / 1000) + '　' + txt; $log.appendChild(li);
+  }
+  function loop() {
+    var now = Date.now(), left = CYCLE - (now - cycleStart) / 1000;
+    $t.textContent = mmss((now - t0) / 1000);
+    $c.textContent = mmss(left);
+    if (left <= 10 && !beeped) { beeped = true; beep(); $p.innerHTML = '⏸️ <strong>準備暫停（&lt;10 秒）</strong>：看心律／摸脈、<strong>換壓胸者</strong>；可電擊心律 → 去顫後立刻繼續壓胸。'; document.getElementById('cpr-timer-card').classList.add('cpr-flash'); setTimeout(function () { document.getElementById('cpr-timer-card').classList.remove('cpr-flash'); }, 3000); }
+    if (left <= 0) newCycle();
+  }
+  document.getElementById('cpr-start').addEventListener('click', function () {
+    if (tick) return;
+    if (!t0) { t0 = Date.now(); n = 0; newCycle(); }
+    else { cycleStart = Date.now() - (CYCLE - parseTime($c.textContent)) * 1000; }
+    tick = setInterval(loop, 250); this.textContent = '進行中';
+    try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+  });
+  function parseTime(s) { var a = s.split(':'); return (+a[0]) * 60 + (+a[1]); }
+  document.getElementById('cpr-next').addEventListener('click', function () { if (t0) newCycle(); });
+  document.getElementById('cpr-reset').addEventListener('click', function () {
+    if (t0 && !confirm('確定重設計時器與紀錄？')) return;
+    clearInterval(tick); tick = null; t0 = null; n = 0; $c.textContent = '2:00'; $n.textContent = '0'; $t.textContent = '0:00';
+    $p.textContent = '按「開始」後立刻開始壓胸。'; $log.innerHTML = ''; document.getElementById('cpr-start').textContent = '開始';
+  });
+  document.querySelectorAll('.cpr-log').forEach(function (b) {
+    b.addEventListener('click', function () { if (!t0) { alert('請先按「開始」'); return; } addLog(b.dataset.ev); });
+  });
+})();
+</script>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "quick": "⏱️ 劑量計算與計時器",
+  "overview": "🗺️ 流程總覽",
+  "recognize": "🚨 辨識與啟動",
+  "bls": "🫀 基本生命支持 BLS",
+  "als": "📈 進階生命支持 ALS",
+  "rhythm": "⚡ 依心律處置",
+  "drugs": "💉 急救藥物總表",
+  "special": "🔧 可逆原因與特殊情況",
+  "rosc": "✅ ROSC 與停止 CPR",
+  "team": "👥 團隊分工與急救車",
+  "sources": "📚 來源差異與待確認"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

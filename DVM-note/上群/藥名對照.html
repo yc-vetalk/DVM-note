@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：藥名對照 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">藥名對照：商品名 ↔ 學名</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">藥名對照：商品名 ↔ 學名</h1>
+      <p class="page-subtitle">院內醫囑和藥櫃常寫商品名，筆記與教科書寫學名。打任何一個名字，查出它是什麼藥、屬於哪一類、筆記在哪裡。</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">工具頁（查詢）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">藥理學筆記中教科書／講義記載的商品名（多為美國獸醫或人用原廠名）；院內名稱由使用者提供</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-10-02</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">持續新增（院內台灣商品名待補）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">工具</div>
+    <a class="active" onclick="showSection('lookup')" id="nav-lookup"><span class="nav-icon">🔎</span> 查詢</a>
+    <a onclick="showSection('mine')" id="nav-mine"><span class="nav-icon">✍️</span> 我遇到的新藥名</a>
+    <a onclick="showSection('names')" id="nav-names"><span class="nav-icon">📖</span> 學名、商品名怎麼分</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-lookup">
+      <div class="section-head"><div class="section-num">1</div><h2>查詢</h2></div>
+      <input id="dn-q" type="search" placeholder="輸入商品名或學名，例如 Pilian、Cerenia、cyproheptadine" autocomplete="off" style="width:100%; font-size:1.15em; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--bg); color:var(--fg); margin-bottom:12px;">
+      <div class="table-wrap"><table>
+        <thead><tr><th>商品名</th><th>學名（成分）</th><th>是什麼藥</th><th>筆記</th></tr></thead>
+        <tbody id="dn-body"></tbody>
+      </table></div>
+      <p id="dn-count" style="font-size:.85em; color:var(--fg-faint);"></p>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>表中大多是教科書記載的<strong>國外原廠商品名</strong>（例如 Lasix®、Cerenia®）；台灣院內用的常是<strong>國產或進口代理商品名</strong>，名稱可能完全不同。查不到時，在下一節記下來，之後貼給我補進來。<strong>同一學名的不同廠牌，含量與劑型可能不同，給藥前看清楚包裝上的濃度。</strong></p>
+      </div>
+      <footer class="note-footer">本頁僅供學習與院內討論使用；院內藥品以藥局實際品項與標示為準。</footer>
+    </div>
+
+    <div class="section" id="section-mine">
+      <div class="section-head"><div class="section-num">2</div><h2>我遇到的新藥名</h2></div>
+      <p class="section-desc">在院內聽到不認識的藥名就先記在這裡（只存在這支手機或這台電腦上）。整理好後按「複製全部」，貼給我，我會查清楚學名再正式加進對照表和藥品索引。</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+        <input id="dn-new-b" placeholder="院內名稱（例如 Pilian）" style="flex:1 1 10em; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); font:inherit;">
+        <input id="dn-new-g" placeholder="學名（知道的話）" style="flex:1 1 10em; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); font:inherit;">
+        <input id="dn-new-n" placeholder="備註（用途、劑型、哪位醫師開的…）" style="flex:2 1 14em; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); font:inherit;">
+        <button type="button" id="dn-add" class="dn-btn">新增</button>
+      </div>
+      <ul id="dn-mine" style="line-height:1.9;"></ul>
+      <button type="button" id="dn-copy" class="dn-btn">複製全部</button>
+      <span id="dn-copied" style="margin-left:8px; font-size:.85em; color:var(--fg-faint);"></span>
+      <footer class="note-footer">記錄存在瀏覽器裡；換手機、清除瀏覽資料會消失，記得定期複製出來。</footer>
+    </div>
+
+    <div class="section" id="section-names">
+      <div class="section-head"><div class="section-num">3</div><h2>學名、商品名怎麼分</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>類型</th><th>說明</th><th>例子</th></tr></thead>
+        <tbody>
+          <tr><td><strong>學名</strong>（generic name）</td><td>成分本身的名字，全世界通用；教科書、考試、文獻都用這個。英文通常小寫開頭</td><td>cyproheptadine、maropitant、simethicone</td></tr>
+          <tr><td><strong>商品名</strong>（brand／trade name）</td><td>藥廠取的名字，各國、各廠不同；同一個學名可能有很多商品名。英文大寫開頭，原文常加 ®</td><td>Cerenia®（maropitant）、Lasix®（furosemide）；院內：Pilian（cyproheptadine）</td></tr>
+          <tr><td><strong>複方商品名</strong></td><td>一個商品名包含兩種以上成分</td><td>Clavamox®（amoxicillin＋clavulanate）、Telazol®（tiletamine＋zolazepam）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">小技巧</div>
+        <p>看到一個不認識的藥名時：英文<strong>大寫開頭、聽起來像品牌</strong>的多半是商品名；查藥品包裝或仿單上「成分」那一欄，就會寫學名。藥理學筆記一律用學名整理，找到學名後就能在藥品索引查到機轉與用途。</p>
+      </div>
+      <footer class="note-footer">本頁僅供學習與院內討論使用。</footer>
+    </div>
+
+  </main>
+</div>
+
+<style>
+.dn-btn { font: inherit; padding: 8px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); cursor: pointer; }
+#dn-body td:first-child { font-weight: 600; }
+.dn-src { font-size: .78em; color: var(--fg-faint); }
+mark { background: #fde68a; color: inherit; padding: 0 1px; }
+</style>
+<script>
+(function () {
+  var DATA = [{"b": ["Regu-Mate"], "g": "Altrenogest", "m": "口服合成 progestin → 延長黃體期", "u": "../大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html#section-progestin", "t": "性腺與生殖賀爾蒙藥物：發情同期化", "src": "教科書／講義"}, {"b": ["Clavamox"], "g": "Amoxicillin-Clavulanate", "m": "Amoxicillin＋Clavulanic acid（β-lactamase自殺性抑制劑）", "u": "../大三/獸醫藥理學/Beta-Lactam類抗生素.html#drug-potentiatedpen", "t": "Beta-Lactam類抗生素：犬貓皮膚/尿道/呼吸道感染常用複方", "src": "教科書／講義"}, {"b": ["Abelcet", "AmBisome"], "g": "Amphotericin B", "m": "多烯：結合真菌膜 ergosterol → 膜通透性↑", "u": "../大三/獸醫藥理學/抗黴菌藥物.html#section-polyene", "t": "抗黴菌藥物：全身性黴菌主力", "src": "教科書／講義"}, {"b": ["Unasyn"], "g": "Ampicillin-Sulbactam", "m": "Ampicillin＋Sulbactam", "u": "../大三/獸醫藥理學/Beta-Lactam類抗生素.html#drug-potentiatedpen", "t": "Beta-Lactam類抗生素：腹腔/婦科/軟組織感染", "src": "教科書／講義"}, {"b": ["Fortekor"], "g": "Benazepril", "m": "前驅藥，肝轉化為Benazeprilat，抑制ACE", "u": "../大三/獸醫藥理學/腎素血管收縮素系統藥物.html#drug-benazepril", "t": "腎素血管收縮素系統藥物：ACE抑制劑", "src": "教科書／講義"}, {"b": ["Equipoise"], "g": "Boldenone", "m": "同化雄性類固醇（弱雄性）", "u": "../大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html#section-androgen", "t": "性腺與生殖賀爾蒙藥物：同化類固醇", "src": "教科書／講義"}, {"b": ["Torbutrol"], "g": "Butorphanol", "m": "κ受體agonist／μ受體拮抗劑（混合型）；中樞性鎮咳", "u": "../大三/獸醫藥理學/鴉片類止痛藥.html#drug-butorphanol", "t": "鴉片類止痛藥：混合型，內臟痛管理，馬匹偏好使用", "src": "教科書／講義"}, {"b": ["Rimadyl"], "g": "Carprofen", "m": "—", "u": "../大三/獸醫藥理學/NSAID非類固醇消炎藥.html#drug-coxibs", "t": "NSAID非類固醇消炎藥：犬OA/術後疼痛首選之一", "src": "教科書／講義"}, {"b": ["Convenia"], "g": "Cefovecin", "m": "第3代頭孢，高蛋白結合率延長作用", "u": "../大三/獸醫藥理學/Beta-Lactam類抗生素.html#drug-ceph3rd", "t": "Beta-Lactam類抗生素：獸醫專用第3代，單次SC注射血中濃度維持7天", "src": "教科書／講義"}, {"b": ["Excenel", "Naxcel"], "g": "Ceftiofur", "m": "第3代頭孢，對cephalosporinase穩定", "u": "../大三/獸醫藥理學/Beta-Lactam類抗生素.html#drug-ceph3rd", "t": "Beta-Lactam類抗生素：獸醫專用第3代，牛羊豬馬呼吸道感染，不宜用於Staph", "src": "教科書／講義"}, {"b": ["Estrumate"], "g": "Cloprostenol", "m": "PGF2α 類似物（耐代謝）", "u": "../大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html#section-pgf", "t": "性腺與生殖賀爾蒙藥物：PGF2α 類似物", "src": "教科書／講義"}, {"b": ["Atopica", "Optimmune"], "g": "Cyclosporine A", "m": "結合 cyclophilin → 抑制 calcineurin → NF-AT 不活化 → IL-2↓", "u": "../大三/獸醫藥理學/類固醇藥理.html#section-immuno", "t": "類固醇藥理：異位性皮膚炎／KCS", "src": "教科書／講義"}, {"b": ["Pilian"], "g": "Cyproheptadine", "m": "H1＋5-HT 受體拮抗", "u": "../大三/獸醫藥理學/腸胃道用藥.html#drug-appetite", "t": "腸胃道用藥：食慾促進", "src": "院內（使用者提供）"}, {"b": ["Deramaxx"], "g": "Deracoxib", "m": "—", "u": "../大三/獸醫藥理學/NSAID非類固醇消炎藥.html#drug-coxibs", "t": "NSAID非類固醇消炎藥：犬OA/骨科術後", "src": "教科書／講義"}, {"b": ["Ovuplant", "Suprelorin"], "g": "Deslorelin", "m": "長效 GnRH 類似物；持續給予 → 受體去敏感", "u": "../大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html#section-gnrh", "t": "性腺與生殖賀爾蒙藥物：GnRH 類似物", "src": "教科書／講義"}, {"b": ["Surpass"], "g": "Diclofenac", "m": "—", "u": "../大三/獸醫藥理學/NSAID非類固醇消炎藥.html#drug-diclofenac", "t": "NSAID非類固醇消炎藥：馬外用；禿鷹生態事件", "src": "教科書／講義"}, {"b": ["Digibind"], "g": "Digoxin Immune FAB", "m": "羊源性抗Digoxin抗體，結合並中和游離Digoxin", "u": "../大三/獸醫藥理學/強心配糖體.html#drug-digoxinintoxicationtx", "t": "強心配糖體：中毒處置流程", "src": "教科書／講義"}, {"b": ["Lutalyse"], "g": "Dinoprost", "m": "FP 受體 → 黃體血管收縮、黃體溶解＋子宮收縮", "u": "../大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html#section-pgf", "t": "性腺與生殖賀爾蒙藥物：PGF2α", "src": "教科書／講義"}, {"b": ["Slentrol"], "g": "Dirlotapide", "m": "抑制MTP（microsomal triglyceride transfer protein）→↓脂蛋白組裝", "u": "../大三/獸醫藥理學/腸胃道用藥.html#drug-dirlotapide", "t": "腸胃道用藥：犬抗肥胖藥", "src": "教科書／講義"}, {"b": ["Adriamycin"], "g": "Doxorubicin", "m": "Anthracycline：DNA 嵌入、topo II、自由基", "u": "../大三/獸醫藥理學/抗癌藥物.html#section-antibiotic", "t": "抗癌藥物：Anthracycline", "src": "教科書／講義"}, {"b": ["Innovar-Vet"], "g": "Droperidol", "m": "Butyrophenone類，阻斷中樞多巴胺(D2)受體", "u": "../大三/獸醫藥理學/鎮靜與術前用藥.html#drug-butyrophenones", "t": "鎮靜與術前用藥：犬術前鎮定劑，與Fentanyl組成Innovar-Vet®", "src": "教科書／講義"}, {"b": ["Enacard"], "g": "Enalapril", "m": "前驅藥，肝轉化為Enalaprilat，抑制ACE", "u": "../大三/獸醫藥理學/腎素血管收縮素系統藥物.html#drug-enalapril", "t": "腎素血管收縮素系統藥物：ACE抑制劑", "src": "教科書／講義"}, {"b": ["Cestex"], "g": "Epsiprantel", "m": "Praziquantel 類似物", "u": "../大三/獸醫藥理學/抗寄生蟲藥物.html#section-cestode", "t": "抗寄生蟲藥物：抗絛蟲", "src": "教科書／講義"}, {"b": ["EtoGesic"], "g": "Etodolac", "m": "—", "u": "../大三/獸醫藥理學/NSAID非類固醇消炎藥.html#drug-coxibs", "t": "NSAID非類固醇消炎藥：犬OA", "src": "教科書／講義"}, {"b": ["Famvir"], "g": "Famciclovir", "m": "Penciclovir 前驅藥 → 抑制疱疹 DNA 聚合酶", "u": "../大三/獸醫藥理學/抗病毒藥物.html#section-herpes", "t": "抗病毒藥物：貓 FHV-1", "src": "教科書／講義"}, {"b": ["Proscar"], "g": "Finasteride", "m": "5α-reductase 抑制 → DHT↓（抗雄性素）", "u": "../大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html#section-androgen", "t": "性腺與生殖賀爾蒙藥物：攝護腺肥大", "src": "教科書／講義"}, {"b": ["Previcox"], "g": "Firocoxib", "m": "—", "u": "../大三/獸醫藥理學/NSAID非類固醇消炎藥.html#drug-coxibs", "t": "NSAID非類固醇消炎藥：犬馬最高COX-2選擇性之一", "src": "教科書／講義"}, {"b": ["Lasix"], "g": "Furosemide", "m": "Loop：抑制上行粗段 Na⁺/K⁺/2Cl⁻；↑PGE2（↑靜脈容量）", "u": "../大三/獸醫藥理學/利尿劑.html#section-loop", "t": "利尿劑：Loop 利尿劑", "src": "教科書／講義"}, {"b": ["Primaxin"], "g": "Imipenem-Cilastatin", "m": "廣效結合多種PBP；Cilastatin抑制腎DHP酵素避免腎毒性代謝物", "u": "../大三/獸醫藥理學/Beta-Lactam類抗生素.html#drug-imipenem", "t": "Beta-Lactam類抗生素：超廣譜，需Cilastatin保護腎臟", "src": "教科書／講義"}, {"b": ["Caninsulin", "Vetsulin"], "g": "Insulin, NPH／Lente", "m": "Insulin 受體致效；protamine 或鋅結晶延緩吸收", "u": "../大三/獸醫藥理學/腦下垂體荷爾蒙.html#section-insulinprep", "t": "腦下垂體荷爾蒙：中效 insulin", "src": "教科書／講義"}, {"b": ["Lantus", "PZI Vet"], "g": "Insulin, PZI／glargine", "m": "Insulin 受體致效；長效懸浮或微沉澱", "u": "../大三/獸醫藥理學/腦下垂體荷爾蒙.html#section-insulinprep", "t": "腦下垂體荷爾蒙：長效 insulin", "src": "教科書／講義"}, {"b": ["Darbazine"], "g": "Isopropamide", "m": "M receptor拮抗（antimuscarinic），Darbazine成分", "u": "../大三/獸醫藥理學/腸胃道用藥.html#drug-antimuscarinicgi", "t": "腸胃道用藥：Darbazine成分", "src": "教科書／講義"}, {"b": ["Cytopoint"], "g": "Lokivetmab", "m": "犬化 IgG anti-IL-31 單株抗體", "u": "../大三/獸醫藥理學/類固醇藥理.html#section-immuno", "t": "類固醇藥理：anti-IL-31", "src": "教科書／講義"}, {"b": ["Imodium"], "g": "Loperamide", "m": "Opioid receptor致效（腸神經）→↓ACh釋放；不穿BBB", "u": "../大三/獸醫藥理學/腸胃道用藥.html#drug-opioidantidiarrheal", "t": "腸胃道用藥：OTC止瀉首選", "src": "教科書／講義"}, {"b": ["Program"], "g": "Lufenuron", "m": "幾丁質合成抑制", "u": "../大三/獸醫藥理學/抗黴菌藥物.html#section-flucytosine", "t": "抗黴菌藥物：其他抗黴菌", "src": "教科書／講義"}, {"b": ["Cerenia"], "g": "Maropitant", "m": "NK1（Substance P）receptor拮抗，作用於嘔吐中樞", "u": "../大三/獸醫藥理學/腸胃道用藥.html#drug-maropitant", "t": "腸胃道用藥：NK1廣效止吐首選", "src": "教科書／講義"}, {"b": ["Ovaban"], "g": "Megestrol acetate", "m": "合成 progestin（類糖皮質素作用）", "u": "../大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html#section-progestin", "t": "性腺與生殖賀爾蒙藥物：Progestin", "src": "教科書／講義"}, {"b": ["Immiticide"], "g": "Melarsomine", "m": "三價砷，結合 cysteine 硫氫基", "u": "../大三/獸醫藥理學/抗寄生蟲藥物.html#section-heartworm", "t": "抗寄生蟲藥物：心絲蟲成蟲", "src": "教科書／講義"}, {"b": ["Metacam"], "g": "Meloxicam", "m": "—", "u": "../大三/獸醫藥理學/NSAID非類固醇消炎藥.html#drug-meloxicam", "t": "NSAID非類固醇消炎藥：唯一廣泛核准貓用", "src": "教科書／講義"}, {"b": ["Glucophage"], "g": "Metformin", "m": "Biguanide，↓肝糖輸出、↑insulin 敏感性；不促分泌", "u": "../大三/獸醫藥理學/腦下垂體荷爾蒙.html#section-oral", "t": "腦下垂體荷爾蒙：口服降血糖", "src": "教科書／講義"}, {"b": ["Sandostatin"], "g": "Octreotide", "m": "Somatostatin 八胜肽類似物", "u": "../大三/獸醫藥理學/腦下垂體荷爾蒙.html#section-hypogly", "t": "腦下垂體荷爾蒙：胰島素瘤", "src": "教科書／講義"}, {"b": ["Tamiflu"], "g": "Oseltamivir", "m": "Neuraminidase 抑制 → 阻止病毒出芽", "u": "../大三/獸醫藥理學/抗病毒藥物.html#section-influenza", "t": "抗病毒藥物：犬小病毒", "src": "教科書／講義"}, {"b": ["Paccal Vet", "Taxol"], "g": "Paclitaxel", "m": "Taxane：穩定微管", "u": "../大三/獸醫藥理學/抗癌藥物.html#section-plant", "t": "抗癌藥物：Taxane", "src": "教科書／講義"}, {"b": ["Zosyn"], "g": "Piperacillin-Tazobactam", "m": "Piperacillin＋Tazobactam", "u": "../大三/獸醫藥理學/Beta-Lactam類抗生素.html#drug-potentiatedpen", "t": "Beta-Lactam類抗生素：嚴重G(-)含Pseudomonas感染", "src": "教科書／講義"}, {"b": ["Feldene"], "g": "Piroxicam", "m": "NSAID：抑制 COX-1／COX-2（腫瘤常過度表現 COX-2）", "u": "../大三/獸醫藥理學/抗癌藥物.html#section-misc", "t": "抗癌藥物：抗癌 NSAID", "src": "教科書／講義"}, {"b": ["Virkon"], "g": "Potassium peroxymonosulfate", "m": "氧化劑", "u": "../大三/獸醫藥理學/消毒劑與防腐劑.html#section-oxidizer", "t": "消毒劑與防腐劑：氧化劑", "src": "教科書／講義"}, {"b": ["Darbazine"], "g": "Prochlorperazine", "m": "D2 receptor拮抗（Phenothiazine類），Darbazine成分", "u": "../大三/獸醫藥理學/腸胃道用藥.html#drug-antimuscarinicgi", "t": "腸胃道用藥：Darbazine成分", "src": "教科書／講義"}, {"b": ["Onsior"], "g": "Robenacoxib", "m": "—", "u": "../大三/獸醫藥理學/NSAID非類固醇消炎藥.html#drug-coxibs", "t": "NSAID非類固醇消炎藥：犬貓術後疼痛≤3天", "src": "教科書／講義"}, {"b": [], "g": "Simethicone", "m": "消泡劑（polymerized methyl silicone）", "u": "../大三/獸醫藥理學/腸胃道用藥.html#drug-simethicone", "t": "腸胃道用藥：消脹氣劑", "src": "院內商品名待補"}, {"b": ["Posilac"], "g": "Sometribove", "m": "重組牛 somatotropin 長效劑", "u": "../大三/獸醫藥理學/腦下垂體荷爾蒙.html#section-gh", "t": "腦下垂體荷爾蒙：乳牛泌乳", "src": "教科書／講義"}, {"b": ["Aldactone"], "g": "Spironolactone", "m": "醛固酮受體競爭性拮抗劑", "u": "../大三/獸醫藥理學/腎素血管收縮素系統藥物.html#drug-spironolactone", "t": "腎素血管收縮素系統藥物：醛固酮拮抗劑", "src": "教科書／講義"}, {"b": ["Nolvadex"], "g": "Tamoxifen", "m": "Estrogen 受體拮抗劑", "u": "../大三/獸醫藥理學/性腺與生殖賀爾蒙藥物.html#section-estrogen", "t": "性腺與生殖賀爾蒙藥物：抗 estrogen", "src": "教科書／講義"}, {"b": ["Zubrin"], "g": "Tepoxalin", "m": "—", "u": "../大三/獸醫藥理學/NSAID非類固醇消炎藥.html#drug-tepoxalin", "t": "NSAID非類固醇消炎藥：犬，COX+5-LOX雙重抑制", "src": "教科書／講義"}, {"b": ["Lamisil"], "g": "Terbinafine", "m": "Allylamine：抑制 squalene epoxidase → squalene 堆積", "u": "../大三/獸醫藥理學/抗黴菌藥物.html#section-terbinafine", "t": "抗黴菌藥物：Allylamine", "src": "教科書／講義"}, {"b": ["Timentin"], "g": "Ticarcillin-Clavulanate", "m": "Ticarcillin＋Clavulanic acid", "u": "../大三/獸醫藥理學/Beta-Lactam類抗生素.html#drug-potentiatedpen", "t": "Beta-Lactam類抗生素：嚴重G(-)及混合感染", "src": "教科書／講義"}, {"b": ["Telazol"], "g": "Tiletamine", "m": "NMDA受體非競爭性拮抗劑（解離性麻醉成分）", "u": "../大三/獸醫藥理學/注射式麻醉藥.html#drug-ketamineclinical", "t": "注射式麻醉藥：與Zolazepam組成Telazol®", "src": "教科書／講義"}, {"b": ["Palladia"], "g": "Toceranib", "m": "TKI：c-KIT、PDGFR、VEGFR", "u": "../大三/獸醫藥理學/抗癌藥物.html#section-misc", "t": "抗癌藥物：TKI", "src": "教科書／講義"}, {"b": ["Naquasone"], "g": "Trichlormethiazide", "m": "Thiazide", "u": "../大三/獸醫藥理學/利尿劑.html#section-thiazide", "t": "利尿劑：Thiazide", "src": "教科書／講義"}, {"b": ["Vetoryl"], "g": "Trilostane", "m": "3β-HSD 可逆競爭性抑制；活性代謝物 ketotrilostane", "u": "../大三/獸醫藥理學/類固醇藥理.html#section-adrenal", "t": "類固醇藥理：Cushing's", "src": "教科書／講義"}];
+  var $q = document.getElementById('dn-q'), $b = document.getElementById('dn-body'), $c = document.getElementById('dn-count');
+  function esc(x) { return String(x).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function hl(x, q) { x = esc(x); if (!q) return x; var i = x.toLowerCase().indexOf(q); return i < 0 ? x : x.slice(0, i) + '<mark>' + x.slice(i, i + q.length) + '</mark>' + x.slice(i + q.length); }
+  function render() {
+    var q = $q.value.trim().toLowerCase(), n = 0, html = '';
+    DATA.forEach(function (r) {
+      var hay = (r.b.join(' ') + ' ' + r.g + ' ' + r.m).toLowerCase();
+      if (q && hay.indexOf(q) < 0) return;
+      n++;
+      html += '<tr><td>' + (r.b.length ? r.b.map(function (b) { return hl(b, q); }).join('<br>') : '<span class="dn-src">（待補）</span>') + '<div class="dn-src">' + esc(r.src) + '</div></td><td>' + hl(r.g, q) + '</td><td>' + hl(r.m, q) + '</td><td>' + (r.u ? '<a href="' + esc(r.u) + '">' + esc(r.t) + '</a>' : '') + '</td></tr>';
+    });
+    $b.innerHTML = html || '<tr><td colspan="4">查不到「' + esc($q.value) + '」——記到下一節「我遇到的新藥名」，之後貼給我補進來。</td></tr>';
+    $c.textContent = '共 ' + n + ' 筆';
+  }
+  $q.addEventListener('input', render); render();
+
+  var KEY = 'drugnames-mine-v1', mine = [];
+  try { mine = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) {}
+  var $m = document.getElementById('dn-mine');
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(mine)); } catch (e) {} }
+  function renderMine() {
+    $m.innerHTML = mine.map(function (x, i) { return '<li><strong>' + esc(x.b) + '</strong>' + (x.g ? ' = ' + esc(x.g) : '') + (x.n ? '　<span class="dn-src">' + esc(x.n) + '</span>' : '') + ' <button type="button" data-i="' + i + '" class="dn-btn" style="padding:2px 8px;font-size:.8em;">刪除</button></li>'; }).join('') || '<li class="dn-src">還沒有記錄</li>';
+    $m.querySelectorAll('button[data-i]').forEach(function (b) { b.onclick = function () { mine.splice(+b.dataset.i, 1); save(); renderMine(); }; });
+  }
+  document.getElementById('dn-add').onclick = function () {
+    var b = document.getElementById('dn-new-b'), g = document.getElementById('dn-new-g'), n = document.getElementById('dn-new-n');
+    if (!b.value.trim()) { b.focus(); return; }
+    mine.push({ b: b.value.trim(), g: g.value.trim(), n: n.value.trim() }); save(); renderMine(); b.value = g.value = n.value = ''; b.focus();
+  };
+  document.getElementById('dn-copy').onclick = function () {
+    var txt = mine.map(function (x) { return x.b + (x.g ? ' = ' + x.g : '') + (x.n ? '（' + x.n + '）' : ''); }).join('\n');
+    var done = function () { document.getElementById('dn-copied').textContent = '已複製 ' + mine.length + ' 筆'; };
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, function () { prompt('複製以下內容：', txt); });
+    else prompt('複製以下內容：', txt);
+  };
+  renderMine();
+})();
+</script>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {"lookup": "查詢", "mine": "我遇到的新藥名", "names": "學名、商品名怎麼分"};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

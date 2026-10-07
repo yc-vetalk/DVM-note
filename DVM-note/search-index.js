@@ -2516,6 +2516,13 @@ const SEARCH_INDEX = [
   {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腸胃道用藥",
     url: "大三/獸醫藥理學/腸胃道用藥.html",
+    section: "receptormap", sectionName: "受體地圖",
+    keywords: "受體 位置 D2 5-HT3 5-HT4 NK1 H1 H2 M1 M3 α2 μ-opioid motilin EP3 質子幫浦 H+/K+-ATPase CTZ 嘔吐中樞 前庭 迷走神經 壁細胞 腸肌叢 副作用 物種差異 receptor map",
+    snippet: "可點選的腸胃道示意圖：腦（CTZ、嘔吐中樞、前庭、下視丘）、胃（壁細胞、黏膜）、腸（腸肌叢、黏膜、腸腔）、瘤胃各位置的受體、作用藥物、連帶副作用與物種差異。"
+  },
+  {
+    subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腸胃道用藥",
+    url: "大三/獸醫藥理學/腸胃道用藥.html",
     section: "abstract", sectionName: "重點摘要",
     keywords: "重點摘要 GI pharmacology 腸胃道用藥 胃酸 消化性潰瘍 促腸蠕動 止吐 止瀉 IBD 食慾促進",
     snippet: "八個臨床與國考重點：PPI/H2blocker/Antacids抑酸效力排序、Famotidine與Cimetidine反比關係、Misoprostol NSAID潰瘍預防首選、促腸蠕動藥受體邏輯、止吐藥四條路徑選藥、犬貓催吐物種差異、Opioid止瀉禁忌、NSAID雙重潰瘍機轉。"
@@ -2580,7 +2587,7 @@ const SEARCH_INDEX = [
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "腸胃道用藥",
     url: "大三/獸醫藥理學/腸胃道用藥.html",
     section: "appetite", sectionName: "食慾促進劑與抗肥胖藥",
-    keywords: "食慾促進 Mirtazapine Cyproheptadine Diazepam 抗肥胖 Dirlotapide Slentrol MTP 消脹氣 Poloxalene",
+    keywords: "食慾促進 Mirtazapine Cyproheptadine Diazepam 抗肥胖 Dirlotapide Slentrol MTP 消脹氣 Poloxalene 消脹氣 anti-bloat simethicone 二甲基矽油 polymerized methyl silicone poloxalene 瘤胃鼓脹 frothy bloat 消泡劑",
     snippet: "Mirtazapine為貓食慾促進+止吐首選；Dirlotapide（Slentrol）為第一個FDA核准犬用抗肥胖藥，抑制MTP。"
   },
   {
@@ -3536,6 +3543,69 @@ const SEARCH_INDEX = [
     snippet: "涵蓋物理治療模式、骨折復健原則、CCL斷裂、髖關節手術復健差異的練習題，含臨床情境整合題。"
   },
   {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 儀器物理治療 物理治療儀器 physical modalities 冷敷 熱敷 超音波 電刺激",
+    snippet: "四種儀器的總覽：冷熱分界時間、局部與全身冷療相反、超音波兩種效應、頻率依深度選、NMES與TENS、共通禁忌。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "overview", sectionName: "四種儀器怎麼選",
+    keywords: "時機 深度 組織癒合 急性期 72小時 48小時 作用深度 比較表",
+    snippet: "組織癒合階段與四種儀器使用時機的示意圖、各儀器作用深度比較、四種儀器一表比較。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "cryo", sectionName: "冷凍療法（冰敷）",
+    keywords: "冰敷 冷敷 cryotherapy 冷療 IBAN 冰按摩 冷壓縮 cold compression 全身冷浸 肌梭 血管收縮 凍傷",
+    snippet: "冰敷的生物效應、適應症（72小時內）、局部vs全身冷浸、禁忌症、IBAN、裝置與治療時間（10–20分鐘、一天3–6次）。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "thermo", sectionName: "溫熱療法（熱敷）",
+    keywords: "熱敷 溫熱療法 thermotherapy 熱敷包 紅外線燈 微波 透熱 電熱毯 暖暖包 低溫燙傷 45度",
+    snippet: "淺層與深層熱療、生理反應鏈、適應症、禁忌（48小時內）、熱敷包紅外線微波等方法、15–30分鐘、居家熱敷經驗。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "ultrasound", sectionName: "治療用超音波",
+    keywords: "治療用超音波 therapeutic ultrasound 1 MHz 3.3 MHz 連續式 脈衝式 duty cycle 總效率週期 ERA 熱效應 機械效應 膠原 椎板切除",
+    snippet: "超音波熱效應與機械效應、癒合三階段、目標溫度、頻率強度面積時間設定、決策流程、加熱速率、參數試算工具、禁忌症。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "estim", sectionName: "電刺激（NMES／TENS）",
+    keywords: "電刺激 NMES TENS 神經肌肉電刺激 經皮神經電刺激 門控理論 腦內啡 運動點 干擾波 蘇聯波 Russian current 雙動態波 坡度 ramp 電極 脊髓節段",
+    snippet: "NMES與TENS比較、脈衝參數、常見電流種類、低頻vs中頻、電極放置與關節對應神經節段、禁忌（癲癇等）、治療時間與居家使用。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "contra", sectionName: "禁忌症總表與篩選",
+    keywords: "禁忌症 contraindication 篩選 腫瘤 懷孕 心律調節器 癲癇 骨折 金屬植入物 生長板 感覺缺失",
+    snippet: "勾選病患狀況，標出冰敷、熱敷、超音波、電刺激哪些在講義中列為禁忌或需注意。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 儀器物理治療",
+    snippet: "七條考前重點：冷熱時間分界、皮膚顏色判讀、局部vs全身冷療、超音波參數四步驟、機械效應、NMES vs TENS、特殊禁忌。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
+    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 計算題 臨床情境題",
+    snippet: "8題：冰敷皮膚反應、全身冷浸、超音波參數選擇、治療時間計算、NMES/TENS、機械效應、IVDD術後癲癇犬、老犬居家熱敷。"
+  },
+  {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癲癇藥物",
     url: "大三/獸醫藥理學/抗癲癇藥物.html",
     section: "abstract", sectionName: "重點摘要",
@@ -3711,63 +3781,63 @@ const SEARCH_INDEX = [
     snippet: "涵蓋Atropine/Glycopyrrolate選擇、NMJ痛覺觀念、逆轉方式、SuCh風險的練習題（共5題，含1題臨床情境整合題）。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "abstract", sectionName: "核心結論",
     keywords: "Hana PCV HCT DPO Darbepoetin 貧血 SUB 輸尿管阻塞",
     snippet: "PCV一天掉6點是抽血時間差造成的稀釋假象非真貧血惡化；9/21當下就不該給DPO（給藥前RETIC已153.7）；不建議繼續給藥。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "basics", sectionName: "基礎知識：EPO／DPO／鐵劑",
     keywords: "EPO Erythropoietin 紅血球生成素 DPO Darbepoetin alfa 鐵劑 功能性缺鐵 CHr 腎性貧血",
     snippet: "EPO是腎臟發的造血訊號，DPO是人工補訊號，鐵劑是造血原料；三者處理不同層級問題，Hana骨髓從未缺訊號故DPO指徵不成立。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "dilution", sectionName: "關鍵發現：抽血時間決定數字",
     keywords: "稀釋 dilution 血容積計算 抽血時間 輸液速率 TP Alb",
     snippet: "血容積計算預期HCT與實測幾乎吻合；RBC/HCT/RETIC三項同步下降是稀釋而非出血溶血的指紋。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "regenerative", sectionName: "再生性貧血怎麼判斷",
     keywords: "RETIC reticulocyte 絕對值 MCV RDW CHr 貓 再生性貧血分級",
     snippet: "RETIC看絕對值不看百分比；貓的aggregate reticulocyte分級表；MCV/RDW上升+CHr正常=典型再生性型態。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "dpotiming", sectionName: "DPO：適應症與時間尺度",
     keywords: "DPO Darbepoetin 腎性貧血 EPO缺乏 高血壓 PRCA 治療時間尺度",
     snippet: "DPO給藥到RETIC反應需3-7天、PCV上升需2-4週，時間軸對不上；風險為高血壓與PRCA。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "differential", sectionName: "急性PCV下降鑑別流程",
     keywords: "PCV下降鑑別 稀釋 出血 溶血 TP Albumin 貓輸血觸發點",
     snippet: "急性PCV下降三個機轉鑑別表；關鍵是TP/Albumin不是CBC；貓輸血觸發點PCV<15-18%或有症狀。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "retrospective", sectionName: "回顧：9/21 決策複盤",
     keywords: "決策複盤 retrospective RETIC 153.7 時間尺度 EPO缺乏 鑑別診斷順序",
     snippet: "9/21當下已有4個訊號指向不該給DPO：給藥前RETIC已153.7、時間尺度不符、EPO缺乏機轉不成立、未先排除稀釋。問題是順序錯了不是選錯藥。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "decision", sectionName: "9/23 決策",
     keywords: "DPO停用 鐵劑繼續 臨床決策 行動項目",
     snippet: "整合分析後決定：DPO不繼續（PCV已達標、時間軸對不上、風險反轉），鐵劑因加速造血消耗繼續給予。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "Hana：PCV 判讀與 DPO 決策",
     url: "上群/2026-09-24_Hana-PCV判讀與DPO決策.html",
     section: "lessons", sectionName: "學習重點",
     keywords: "複習 重點整理 PCV HCT 濃度 稀釋 臨床推理",
@@ -4092,8 +4162,8 @@ const SEARCH_INDEX = [
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 3, weekTitle: "脊椎影像判讀",
     url: "大四上/獸醫臨床及影像診斷學/week03_脊椎影像判讀.html",
     section: "technique", sectionName: "脊椎攝影技術與擺位",
-    keywords: "脊椎攝影技術 擺位 positioning restraint 投照方向 projection lateral VD 減少疊加結構 攝影中心 center 頸椎 胸椎 腰椎",
-    snippet: "脊椎節區解剖總覽、良好攝影五要素、病患擺位、標準投照方向、減少疊加結構技巧、各區域攝影中心對照表。"
+    keywords: "脊椎攝影技術 擺位 positioning restraint 投照方向 projection lateral VD 減少疊加結構 攝影中心 center 頸椎 胸椎 腰椎 脊髓節段 椎體編號 spinal cord segment 頸膨大 腰膨大 馬尾 cauda equina 脊神經出口",
+    snippet: "脊椎節區解剖總覽、良好攝影五要素、病患擺位、標準投照方向、減少疊加結構技巧、脊髓節段與椎體編號對照（L4–S3 節段位於 L3–L5 椎體）、各區域攝影中心對照表。"
   },
   {
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 3, weekTitle: "脊椎影像判讀",
@@ -5475,88 +5545,158 @@ const SEARCH_INDEX = [
     snippet: "7題：離子通道受體、α2、ketamine、血腦屏障、5-HIAA、組織專一性、行為用藥情境題。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "abstract", sectionName: "核心結論",
     keywords: "ileus 胃排空延遲 胃液滯留 不蠕動 胃脹 促蠕動 癲癇 Metoclopramide 用藥順序",
     snippet: "先排除阻塞→移除抑制蠕動因素→依部位選藥→依共病排除→客觀指標追蹤；癲癇犬避開 Metoclopramide。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "receptor", sectionName: "腸胃蠕動的受體地圖",
     keywords: "受體 receptor M3 D2 5-HT4 5-HT3 motilin μ opioid α2 NK1 H2 ACh myenteric plexus",
     snippet: "ACh→M3 是蠕動最終出口；D2、μ、α2 踩煞車，5-HT4、motilin、AChE 抑制踩油門。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "problems", sectionName: "三種問題先分清楚",
     keywords: "機械性阻塞 胃出口阻塞 GDV 功能性 ileus 嚴重胃腸炎 決策流程",
     snippet: "蠕動低下、胃液滯留、嚴重胃腸炎的治療重點不同；有阻塞時禁用促蠕動藥。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "causes", sectionName: "是什麼讓腸胃停下來",
     keywords: "opioid 嗎啡 butorphanol dexmedetomidine xylazine atropine 抗膽鹼 低血鉀 疼痛 發炎 脫水 methylnaltrexone",
     snippet: "μ-opioid、α2 促效劑、抗膽鹼藥會抑制蠕動；低血鉀、疼痛、腹腔發炎、脫水也是常見原因。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "prokinetics", sectionName: "促蠕動藥",
     keywords: "Metoclopramide Cisapride Erythromycin Ranitidine Nizatidine Domperidone Bethanechol Lidocaine CRI 促蠕動 prokinetic 劑量",
     snippet: "Metoclopramide 只作用近端且穿 BBB；Cisapride 全段作用、可用於貓便秘；低劑量 Erythromycin 作用在 motilin 受體。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "antiemetics", sectionName: "止吐藥",
     keywords: "Maropitant Cerenia Ondansetron Phenothiazine Chlorpromazine Prochlorperazine Mirtazapine NK-1 5-HT3 止吐 噁心",
     snippet: "Maropitant 止吐強、止噁心較弱且不影響蠕動；Ondansetron 犬口服生體可用率低；脫水動物避免 phenothiazine。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "acid", sectionName: "抑酸與黏膜保護",
     keywords: "PPI Omeprazole Pantoprazole Famotidine Sucralfate Misoprostol 制酸劑 胃酸 潰瘍 胃腸炎",
     snippet: "PPI 第一天約 30% 效果、2–4 天達最大；貓 Famotidine 緩慢 IV；Sucralfate 磨碎並與抗生素間隔給藥。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "comorbid", sectionName: "共病與禁忌對照表",
     keywords: "癲癇 腎病 CKD 貓 青光眼 懷孕 脫水 azole fluoroquinolone tetracycline phenobarbital 交互作用 禁忌",
     snippet: "癲癇、阻塞、脫水、腎病、貓、懷孕與併用藥物各自要避開的 GI 藥物與替代選擇。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "monitor", sectionName: "如何觀察與評估療效",
     keywords: "胃管回抽量 超音波 胃竇收縮 噁心 食慾 電解質 鉀 氯 代謝性鹼中毒 副作用 EPS 監測",
     snippet: "用胃管回抽量、超音波、噁心與食慾、排便、電解質追蹤療效，並觀察各藥物的特有副作用。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "scenarios", sectionName: "情境演練",
     keywords: "癲癇犬 術後 胃排空延遲 貓 胃腸炎 胃出口阻塞 情境題",
     snippet: "三個虛構情境：癲癇犬術後胃排空延遲、脫水腎指數上升的胃腸炎貓、疑似胃出口阻塞的胃擴張犬。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "lessons", sectionName: "學習重點與自我測驗",
     keywords: "學習重點 練習題 國考 Cisapride Ranitidine AChE Maropitant PPI",
     snippet: "受體邏輯與選藥重點整理，附 5 題自我測驗。"
   },
   {
-    subject: "上群病例筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：犬貓腸胃不蠕動、胃脹與胃液滯留的用藥",
     url: "上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html",
     section: "followup", sectionName: "待確認事項",
     keywords: "院內品項 劑量 Lidocaine 超音波 參考值",
     snippet: "院內可取得品項、院內劑量流程、犬貓 Lidocaine CRI 證據與超音波參考值待確認。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "overview", sectionName: "先看全貌",
+    keywords: "受體總論 腸胃道 big picture 蠕動 胃酸 嘔吐 三個舞台 BBB 血腦屏障",
+    snippet: "腸胃道的藥只作用在約 13 個受體上，分布在蠕動、胃酸、嘔吐三個舞台；腸道的煞車長在神經上而不是肌肉上。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "basics", sectionName: "從零開始：受體是什麼",
+    keywords: "受體 receptor 配體 ligand 促效劑 agonist 拮抗劑 antagonist 突觸前 presynaptic Gq Gs Gi 離子通道 血腦屏障",
+    snippet: "受體是鎖、配體是鑰匙；促效劑開鎖、拮抗劑塞鎖孔；受體長在哪種細胞決定結果，同一受體在多處造成副作用。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "roster", sectionName: "受體名冊",
+    keywords: "M3 α2 D2 H1 H2 5-HT3 5-HT4 μ-opioid NK1 motilin EP3 gastrin H+/K+-ATPase AChE 油門 煞車",
+    snippet: "13 個腸胃道相關受體的天然配體、所在細胞與角色（油門／煞車／執行者／嘔吐訊號）。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "motility", sectionName: "舞台一：蠕動",
+    keywords: "腸肌叢 myenteric plexus 膽鹼性運動神經元 ACh M3 5-HT4 motilin D2 α2 μ disinhibition 去抑制 Metoclopramide Cisapride Erythromycin",
+    snippet: "ACh→平滑肌 M3 是執行者；5-HT4、motilin 是油門，D2、α2、μ 是煞車，都長在神經上調整 ACh 釋放量。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "acid", sectionName: "舞台二：胃酸",
+    keywords: "壁細胞 parietal cell H2 M3 gastrin EP3 ECL 質子幫浦 PPI Misoprostol NSAID 潰瘍",
+    snippet: "H2、M3、gastrin 三個油門通到 H⁺/K⁺-ATPase，EP3 是煞車；PPI 擋共同出口所以最強。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "emesis", sectionName: "舞台三：嘔吐",
+    keywords: "嘔吐中樞 CTZ area postrema 孤束核 NST 前庭 暈車 NK1 5-HT3 Maropitant Ondansetron Apomorphine Xylazine 催吐",
+    snippet: "前庭、CTZ、迷走神經三條路匯到嘔吐中樞 NK1；依訊號來源選止吐藥，催吐藥作用在 CTZ。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "bodymap", sectionName: "全身受體地圖（互動）",
+    keywords: "互動 受體地圖 副作用 同一受體 全身分布 心臟 眼 膀胱 唾液腺 胰島 子宮 prolactin",
+    snippet: "點受體看它在全身哪些位置、各做什麼；腸胃道以外亮起的位置就是副作用來源。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "drugs", sectionName: "回頭看藥：每個藥踩哪個點",
+    keywords: "Metoclopramide Domperidone Cisapride Erythromycin Bethanechol Neostigmine Atropine Loperamide Famotidine Omeprazole Misoprostol Maropitant Ondansetron Mirtazapine Cyproheptadine Pilian 途徑",
+    snippet: "每個腸胃道藥物的途徑、踩的受體、腸胃道效果與其他部位的連帶影響。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "quiz", sectionName: "自我測驗",
+    keywords: "練習題 臨床情境 D2 位置 Atropine 副作用 催吐 犬 貓 化療嘔吐 青光眼",
+    snippet: "8 題：選擇、是非、簡答與 2 題臨床情境題。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：腸胃道受體總論",
+    url: "上群/2026-10-02_專題-腸胃道受體總論.html",
+    section: "followup", sectionName: "待確認與下一步",
+    keywords: "Metoclopramide 主要機轉 5-HT4 predominant CTZ 受體 全身受體總論",
+    snippet: "講義與藥品索引對 Metoclopramide 主要機轉寫法不一致等待確認事項。"
   },
   {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
@@ -6481,5 +6621,103 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 選擇題 情境題 小病毒",
     snippet: "7 題選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "quick", sectionName: "劑量計算與計時器",
+    keywords: "CPR 急救 劑量計算 體重 計時器 epinephrine atropine 去顫 J/kg",
+    snippet: "輸入體重自動算急救藥物抽取量與去顫能量；2 分鐘循環計時器與事件紀錄。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "overview", sectionName: "流程總覽",
+    keywords: "CPR 流程 RECOVER 2024 可電擊 不可電擊 心跳停止",
+    snippet: "壓胸→通氣→監測→每 2 分鐘看心律；2024 RECOVER 主要改變。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "recognize", sectionName: "辨識與啟動",
+    keywords: "心跳停止 cardiac arrest 辨識 DNR 麻醉中",
+    snippet: "辨識心跳停止、立即壓胸、麻醉病患關閉 vaporizer 並拮抗。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "bls", sectionName: "基本生命支持 BLS",
+    keywords: "BLS 壓胸 100-120 深度 手位 深胸 桶狀胸 貓 小型犬 通氣 10 次 30:2",
+    snippet: "壓胸速率深度與手位、通氣 10 次／分、未插管 30:2。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "als", sectionName: "進階生命支持 ALS",
+    keywords: "ALS ECG ETCO2 18 mmHg IV IO 氣管內給藥 拮抗劑",
+    snippet: "ECG、ETCO₂ ≥18 mmHg、IV／IO 通路、拮抗劑。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "rhythm", sectionName: "依心律處置",
+    keywords: "VF 心室顫動 無脈 VT asystole PEA 去顫 2 J/kg 4 J/kg esmolol lidocaine",
+    snippet: "可電擊心律先去顫；不可電擊心律 epinephrine 每隔一輪、atropine 單次。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "drugs", sectionName: "急救藥物總表",
+    keywords: "epinephrine vasopressin atropine lidocaine esmolol naloxone atipamezole calcium bicarbonate magnesium",
+    snippet: "急救藥物劑量、途徑、適應症與出處。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "special", sectionName: "可逆原因與特殊情況",
+    keywords: "可逆原因 高血鉀 低血容 輸液 低體溫 開胸 CPR",
+    snippet: "可逆原因處置、輸液原則、開胸 CPR。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "rosc", sectionName: "ROSC 與停止 CPR",
+    keywords: "ROSC 恢復自發循環 ETCO2 上升 停止 CPR",
+    snippet: "ROSC 判斷與之後的監測、停止 CPR 的決定。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "team", sectionName: "團隊分工與急救車",
+    keywords: "團隊 分工 指揮者 急救車 清單",
+    snippet: "急救團隊角色與急救車檢查清單。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "急救流程：犬貓 CPR",
+    url: "上群/急救流程_犬貓CPR.html",
+    section: "sources", sectionName: "來源差異與待確認",
+    keywords: "教科書 RECOVER 差異 待確認",
+    snippet: "麻醉教科書與 2024 RECOVER 的差異對照與待補項目。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "藥名對照：商品名 ↔ 學名",
+    url: "上群/藥名對照.html",
+    section: "lookup", sectionName: "查詢",
+    keywords: "商品名 學名 藥名對照 brand generic Abelcet Adriamycin Aldactone Altrenogest AmBisome Amoxicillin-Clavulanate Amphotericin B Ampicillin-Sulbactam Atopica Benazepril Boldenone Butorphanol Caninsulin Carprofen Cefovecin Ceftiofur Cerenia Cestex Clavamox Cloprostenol Convenia Cyclosporine A Cyproheptadine Cytopoint Darbazine Deracoxib Deramaxx Deslorelin Diclofenac Digibind Digoxin Immune FAB Dinoprost Dirlotapide Doxorubicin Droperidol Enacard Enalapril Epsiprantel Equipoise Estrumate EtoGesic Etodolac Excenel Famciclovir Famvir Feldene Finasteride Firocoxib Fortekor Furosemide Glucophage Imipenem-Cilastatin Immiticide Imodium Innovar-Vet Insulin, NPH／Lente Insulin, PZI／glargine Isopropamide Lamisil Lantus Lasix Lokivetmab Loperamide Lufenuron Lutalyse Maropitant Megestrol acetate Melarsomine Meloxicam Metacam Metformin Naquasone Naxcel Nolvadex Octreotide Onsior Optimmune Oseltamivir Ovaban Ovuplant PZI Vet Paccal Vet Paclitaxel Palladia Pilian Piperacillin-Tazobactam Piroxicam Posilac Potassium peroxymonosulfate Previcox Primaxin Prochlorperazine Program Proscar Regu-Mate Rimadyl Robenacoxib Sandostatin Simethicone Slentrol Sometribove Spironolactone Suprelorin Surpass Tamiflu Tamoxifen Taxol Telazol Tepoxalin Terbinafine Ticarcillin-Clavulanate Tiletamine Timentin Toceranib Torbutrol Trichlormethiazide Trilostane Unasyn Vetoryl Vetsulin Virkon Zosyn Zubrin",
+    snippet: "輸入院內商品名或學名，查出是什麼藥、類別與筆記位置（例如 Pilian = Cyproheptadine）。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "藥名對照：商品名 ↔ 學名",
+    url: "上群/藥名對照.html",
+    section: "mine", sectionName: "我遇到的新藥名",
+    keywords: "院內藥名 記錄",
+    snippet: "在院內遇到的新藥名先記在手機，之後整理補進對照表。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "藥名對照：商品名 ↔ 學名",
+    url: "上群/藥名對照.html",
+    section: "names", sectionName: "學名、商品名怎麼分",
+    keywords: "學名 商品名 generic name brand name 複方",
+    snippet: "學名是成分名、商品名是藥廠品牌；看包裝成分欄找學名。"
   }
 ];

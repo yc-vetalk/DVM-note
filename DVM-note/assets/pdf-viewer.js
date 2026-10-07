@@ -206,10 +206,21 @@ body.pv-open .pagewrap{margin-right:50vw}
   }
 
   if (location.protocol === 'file:' && (document.querySelector('a.fig-link') || document.querySelector('details.pdf-inline'))) {
-    const b = document.createElement('div');
-    b.style.cssText = 'background:#fff3cd;color:#664d03;border:1px solid #ffe69c;padding:10px 14px;margin:0 0 14px;border-radius:6px;font-size:.92em;line-height:1.6';
-    b.innerHTML = '⚠️ 目前是直接開啟檔案，原書頁面無法顯示。請到「上群」資料夾雙擊 <b>開啟筆記網站.command</b> 開啟網站，再回到這一頁。';
-    const m = document.querySelector('main.pagebody') || document.body; m.prepend(b);
+    // 直接雙擊開檔時，瀏覽器不允許讀取本機 PDF；若本機伺服器已在跑，自動跳到伺服器版同一頁
+    const path = decodeURIComponent(location.pathname);
+    const i = path.indexOf('/DVM-note/');
+    const target = i >= 0 ? 'http://localhost:8765' + encodeURI(path.slice(i)) + location.hash : null;
+    const showNote = () => {
+      const b = document.createElement('div');
+      b.style.cssText = 'background:var(--bg-faint,#f6f3ee);color:var(--fg-muted,#555);border:1px solid var(--line,#ddd);padding:8px 12px;margin:0 0 14px;border-radius:6px;font-size:.85em;line-height:1.6';
+      b.innerHTML = '這頁的原書頁面需要從筆記網站開啟才看得到（直接點開檔案時瀏覽器不允許讀取 PDF）。雙擊「上群」資料夾裡的 <b>開啟筆記網站</b>，這頁就會自動切過去。';
+      (document.querySelector('main.pagebody') || document.body).prepend(b);
+    };
+    if (target) {
+      fetch('http://localhost:8765/DVM-note/assets/pdf-viewer.js', { mode: 'no-cors', cache: 'no-store' })
+        .then(() => location.replace(target))
+        .catch(showNote);
+    } else showNote();
   }
   document.querySelectorAll('details.pdf-inline').forEach(el => {
     el.addEventListener('toggle', () => { if (el.open) renderInline(el); });

@@ -228,6 +228,67 @@ const SEARCH_INDEX = [
   },
 
   {
+    subject: "內科",
+    week: null,
+    weekTitle: "犬化療照護與副作用管理指南",
+    url: "內科/犬化療照護與副作用管理指南.html",
+    section: "chop",
+    sectionName: "淋巴瘤化療：CHOP-19 方案",
+    keywords: "CHOP UW-Madison lymphoma 淋巴瘤 vincristine cyclophosphamide doxorubicin prednisone furosemide 週次劑量",
+    snippet: "UW-Madison CHOP-19方案每週用藥：vincristine 0.5-0.7mg/m² IV、cyclophosphamide 250mg/m² PO搭配furosemide 1mg/kg、doxorubicin 30mg/m² IV..."
+  },
+  {
+    subject: "內科",
+    week: null,
+    weekTitle: "犬化療照護與副作用管理指南",
+    url: "內科/犬化療照護與副作用管理指南.html",
+    section: "mdr1",
+    sectionName: "MDR1 基因型與毒性放大",
+    keywords: "MDR1 ABCB1 P-glycoprotein P-gp Collie 柯利犬 Australian Shepherd 澳洲牧羊犬 牧羊犬 基因檢測 vincristine doxorubicin loperamide 中樞神經毒性",
+    snippet: "Collie帶因率約70%、Australian Shepherd約50%；帶ABCB1突變犬vincristine標準劇量下嗜中性球低下75% vs野生型11.5%(P=.0005)；doxorubicin腸道暴露量增加約174%..."
+  },
+  {
+    subject: "內科",
+    week: null,
+    weekTitle: "犬化療照護與副作用管理指南",
+    url: "內科/犬化療照護與副作用管理指南.html",
+    section: "doxorubicin",
+    sectionName: "Doxorubicin：劑量、給藥與心臟毒性",
+    keywords: "doxorubicin 心臟毒性 cardiotoxicity Boxer 外滲 extravasation dexrazoxane EF ejection fraction vesicant 小型犬劑量",
+    snippet: "doxorubicin ≥15kg用30mg/m²、<15kg改1mg/kg；Boxer犬心臟毒性15.4% vs其他品種3.0%；外滲3-6小時內給dexrazoxane解毒..."
+  },
+  {
+    subject: "內科",
+    week: null,
+    weekTitle: "犬化療照護與副作用管理指南",
+    url: "內科/犬化療照護與副作用管理指南.html",
+    section: "carboplatin",
+    sectionName: "腺癌化療實證：AGASACA 與腸道腺癌",
+    keywords: "carboplatin AGASACA 肛門腺腺癌 anal sac adenocarcinoma Wouda 輔助化療 存活期 腸道腺癌 intestinal adenocarcinoma 5-FU 5-fluorouracil gemcitabine",
+    snippet: "Wouda 2016研究n=74：手術+carboplatin組723天 vs單純手術581天存活期,P=.174無統計顯著差異；腸道腺癌目前無良好對照試驗支持任何化療方案，單純手術中位存活期僅2-4個月..."
+  },
+  {
+    subject: "內科",
+    week: null,
+    weekTitle: "犬化療照護與副作用管理指南",
+    url: "內科/犬化療照護與副作用管理指南.html",
+    section: "grading",
+    sectionName: "不良反應分級與處置流程",
+    keywords: "VCOG-CTCAE 分級 grading 嗜中性球低下 neutropenia ANC 血小板低下 thrombocytopenia 嘔吐 腹瀉 vomiting diarrhea 劑量調整",
+    snippet: "VCOG-CTCAE Grade1-5通用分級；嗜中性球ANC<500為Grade4；CHOP-19依ANC門檻決定照常給藥/暫緩/住院給抗生素..."
+  },
+  {
+    subject: "內科",
+    week: null,
+    weekTitle: "犬化療照護與副作用管理指南",
+    url: "內科/犬化療照護與副作用管理指南.html",
+    section: "supportive",
+    sectionName: "支持性照護",
+    keywords: "maropitant 止吐 禁食 fasting G-CSF 嗜中性球 出血性膀胱炎 hemorrhagic cystitis furosemide vincristine 便秘 腹瀉 diarrhea CID smectite 蒙脫石 crofelemer Canalevia metronidazole loperamide Imodium 禁忌 MDR1",
+    snippet: "禁食24小時降低doxorubicin延遲性嘔吐67%→10%；smectite 0.5g/kg PO縮短CID緩解時間19.5小時vs對照53小時；crofelemer為FDA核准CID專用藥；loperamide因MDR1風險不建議作常規止瀉選擇..."
+  },
+
+  {
     subject: "研討會",
     week: null,
     weekTitle: "犬淋巴瘤照護與診斷新趨勢",

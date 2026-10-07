@@ -48,6 +48,7 @@
   <nav class="toc">
     <div class="section-label">總覽</div>
     <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('receptormap')" id="nav-receptormap"><span class="nav-icon">🗺️</span> 受體地圖</a>
     <a onclick="showSection('drugtable')" id="nav-drugtable"><span class="nav-icon">💊</span> 本頁藥物總覽</a>
     <div class="section-label" style="margin-top:8px;">胃酸與潰瘍</div>
     <a onclick="showSection('acid')" id="nav-acid"><span class="nav-icon">🧪</span> 胃酸分泌與消化性潰瘍用藥</a>
@@ -102,8 +103,152 @@
     </div>
 
     <!-- DRUG TABLE -->
+    <!-- RECEPTOR MAP -->
+    <div class="section" id="section-receptormap">
+      <div class="section-head"><div class="section-num">2</div><h2>受體地圖：藥物作用在哪裡、還會影響什麼<span class="tag tag-exam">重要</span></h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">看全部</div>
+        <p>還不熟受體位置的話，建議先讀 <a href="../../上群/2026-10-02_專題-腸胃道受體總論.html"><strong>專題：腸胃道受體總論</strong></a>：從「受體是什麼」開始，用三張細胞層級的圖畫出受體長在哪裡（例如 D2 長在腸神經上而不是肌肉上），並有可以點受體、看它在全身分布的互動地圖。</p>
+      </div>
+      <p class="section-desc">點圖上任一個位置，下方表格只顯示那個位置的受體與藥物；點「全部」看完整表。各藥物的給藥途徑與劑量見<a onclick="showSection('drugtable')" style="cursor:pointer;">本頁藥物總覽</a>。同一個受體常出現在好幾個地方（例如 D2 在腦部負責催吐、在腸道負責減慢蠕動），藥物擋了一處，另一處也會受影響——這就是「連帶影響」那一欄要記的。</p>
+
+      <div class="gimap-wrap">
+        <svg id="gimap" viewBox="0 0 360 590" role="img" aria-label="腸胃道受體位置示意圖">
+          <!-- brain -->
+          <ellipse cx="180" cy="72" rx="150" ry="58" class="gm-organ"/>
+          <text x="180" y="24" class="gm-title">腦（中樞）</text>
+          <g class="gm-hot" data-loc="ctz"><rect x="36" y="40" width="120" height="30" rx="15"/><text x="96" y="60">CTZ 化學受器觸發區</text></g>
+          <g class="gm-hot" data-loc="vc"><rect x="150" y="80" width="90" height="30" rx="15"/><text x="195" y="100">嘔吐中樞</text></g>
+          <g class="gm-hot" data-loc="vest"><rect x="246" y="40" width="74" height="30" rx="15"/><text x="283" y="60">前庭</text></g>
+          <g class="gm-hot" data-loc="hypo"><rect x="54" y="84" width="86" height="28" rx="14"/><text x="97" y="103">下視丘（食慾）</text></g>
+          <!-- vagus -->
+          <path d="M300 112 C 330 170, 320 210, 268 236" class="gm-vagus"/>
+          <g class="gm-hot" data-loc="vagal"><rect x="262" y="150" width="92" height="30" rx="15"/><text x="308" y="170">迷走神經傳入</text></g>
+          <!-- esophagus -->
+          <path d="M180 130 L180 186" class="gm-tube"/>
+          <!-- stomach -->
+          <path d="M180 186 C 150 190, 110 200, 104 240 C 98 285, 150 305, 200 300 C 245 296, 270 270, 262 240 C 256 215, 225 205, 205 200 Z" class="gm-organ"/>
+          <text x="112" y="200" class="gm-title" text-anchor="end">胃</text>
+          <g class="gm-hot" data-loc="parietal"><rect x="114" y="216" width="92" height="30" rx="15"/><text x="160" y="236">壁細胞（胃酸）</text></g>
+          <g class="gm-hot" data-loc="mucosa"><rect x="150" y="256" width="104" height="30" rx="15"/><text x="202" y="276">胃黏膜（保護）</text></g>
+          <!-- small intestine -->
+          <path d="M250 292 C 292 305, 292 336, 250 342 C 200 348, 120 334, 110 362 C 100 392, 170 396, 230 392 C 272 388, 282 412, 240 422 C 200 432, 130 424, 100 440" class="gm-gut"/>
+          <text x="312" y="372" class="gm-title">小腸</text>
+          <g class="gm-hot" data-loc="enteric"><rect x="94" y="314" width="132" height="30" rx="15"/><text x="160" y="334">腸肌叢／平滑肌（蠕動）</text></g>
+          <g class="gm-hot" data-loc="ibd"><rect x="186" y="374" width="116" height="30" rx="15"/><text x="244" y="394">腸黏膜（發炎、IBD）</text></g>
+          <!-- colon -->
+          <path d="M100 440 C 66 446, 50 462, 60 486 L 296 486 C 318 486, 324 504, 320 520" class="gm-gut gm-colon"/>
+          <text x="30" y="472" class="gm-title" style="text-anchor:start">大腸</text>
+          <g class="gm-hot" data-loc="lumen"><rect x="110" y="471" width="148" height="30" rx="15"/><text x="184" y="491">腸腔（瀉劑、吸附劑）</text></g>
+          <!-- rumen (ruminants only) -->
+          <rect x="30" y="540" width="300" height="42" rx="10" class="gm-organ" style="stroke-dasharray:5 4"/>
+          <text x="46" y="566" class="gm-title" style="text-anchor:start;font-size:11px">反芻獸另有：</text>
+          <g class="gm-hot" data-loc="rumen"><rect x="140" y="546" width="170" height="30" rx="15"/><text x="225" y="566">瘤胃（泡沫型脹氣）</text></g>
+        </svg>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 12px;">
+          <button type="button" class="gm-btn gm-active" data-loc="all">全部</button>
+          <span id="gm-cur" style="align-self:center; font-size:.9em; color:var(--fg-muted);"></span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="gm-table">
+          <thead><tr><th>受體／標的</th><th>位置</th><th>正常功能</th><th>活化它的藥</th><th>阻斷它的藥</th><th>連帶影響（其他器官）</th><th>物種差異</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-success">
+        <div class="alert-label">重點：三條記憶線</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>嘔吐</strong>：訊號從 CTZ、前庭、迷走神經傳入，最後都匯到嘔吐中樞的 <strong>NK1</strong> → 所以 maropitant 廣效；其他止吐藥只擋某一條路。</li>
+          <li><strong>胃酸</strong>：H2、M3、gastrin 三條路都匯到 <strong>H⁺/K⁺-ATPase</strong> → 所以 PPI 擋最後一關最有效；PGE（EP3）是唯一的煞車。</li>
+          <li><strong>蠕動</strong>：平滑肌靠 <strong>ACh → M3</strong> 收縮；D2、μ-opioid、α2 是煞車，5-HT4、motilin、AChE 抑制是油門。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">示意圖為自繪，非解剖比例。資料來源：NTU 獸醫藥理學講義（詹東榮）；Veterinary Pharmacology and Therapeutics 10th ed. Ch.46；Handbook of Veterinary Pharmacology Ch.4、Ch.11。</footer>
+    </div>
+
+<style>
+.gimap-wrap { max-width: 420px; margin: 0 auto; }
+#gimap { width: 100%; height: auto; display: block; }
+#gimap .gm-organ { fill: var(--bg-faint); stroke: var(--line); stroke-width: 1.5; }
+#gimap .gm-tube, #gimap .gm-gut { fill: none; stroke: #c8a98a; stroke-width: 16; stroke-linecap: round; opacity: .55; }
+#gimap .gm-colon { stroke: #a88466; }
+#gimap .gm-vagus { fill: none; stroke: #7a8fb3; stroke-width: 2; stroke-dasharray: 5 4; }
+#gimap .gm-title { font-size: 13px; font-weight: 700; fill: var(--fg-muted); text-anchor: middle; }
+#gimap .gm-hot { cursor: pointer; }
+#gimap .gm-hot rect { fill: var(--bg); stroke: #b4651e; stroke-width: 1.5; }
+#gimap .gm-hot text { font-size: 11px; text-anchor: middle; fill: var(--fg); pointer-events: none; }
+#gimap .gm-hot:hover rect, #gimap .gm-hot.gm-on rect { fill: #b4651e; }
+#gimap .gm-hot:hover text, #gimap .gm-hot.gm-on text { fill: #fff; }
+.gm-btn { font: inherit; padding: 6px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); cursor: pointer; }
+.gm-btn.gm-active { background: #b4651e; color: #fff; border-color: #b4651e; }
+#gm-table td:first-child { font-weight: 700; }
+@media (max-width: 720px) {
+  #gm-table thead { display: none; }
+  #gm-table, #gm-table tbody, #gm-table tr, #gm-table td { display: block; width: auto; }
+  #gm-table tr { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 12px; padding: 4px 0; }
+  #gm-table td { border: 0; padding: 6px 12px; }
+  #gm-table td::before { content: attr(data-label); display: block; font-size: .78em; font-weight: 700; color: var(--fg-faint); }
+  #gm-table td:first-child { font-size: 1.05em; background: var(--bg-faint); }
+  #gm-table td:first-child::before { display: none; }
+}
+</style>
+<script>
+(function () {
+  var LOC = { ctz: '化學受器觸發區（Chemoreceptor Trigger Zone, CTZ）', vc: '嘔吐中樞', vest: '前庭', hypo: '下視丘（食慾）', vagal: '迷走神經傳入', parietal: '壁細胞（胃酸）', mucosa: '胃黏膜（保護）', enteric: '腸肌叢／平滑肌', ibd: '腸黏膜（發炎）', lumen: '腸腔', rumen: '瘤胃' };
+  var R = [
+    ['D2（多巴胺）', ['ctz'], '催吐', 'Apomorphine（犬催吐首選）', 'Phenothiazines（acepromazine、chlorpromazine、prochlorperazine）、Metoclopramide、Domperidone（不入 BBB，但 CTZ 在 BBB 外）', '中樞 D2 被擋 → 錐體外症狀、行為改變、<strong>降低癲癇閾值</strong>（metoclopramide、acepromazine）；prolactin 上升；phenothiazine 另有 α1 阻斷 → 低血壓（脫水動物）', '犬對 apomorphine 催吐反應好'],
+    ['D2（多巴胺）', ['enteric'], '抑制 ACh 釋放 → 減慢蠕動（煞車）', '—', 'Metoclopramide（放開煞車，胃與十二指腸為主，對結腸無效）、Domperidone', '同上：metoclopramide 穿過 BBB，所以中樞副作用跟著來；domperidone 不穿 BBB', '—'],
+    ['5-HT3（血清素）', ['ctz', 'vagal'], '腸道受損（化療、腸炎）釋放 5-HT → 經迷走神經與 CTZ 催吐', '—', 'Ondansetron、Dolasetron、Tropisetron；高劑量 Metoclopramide；Cisapride 也有部分作用；Mirtazapine', '便秘；少見錐體外症狀、低血壓、心律不整（HBK）', 'Ondansetron 犬口服生體可用率 &lt;10% → 犬建議 IV；貓口服 32%、SC 75%'],
+    ['NK1（P 物質）', ['vc'], '嘔吐中樞的最後共同路徑', '—', '<strong>Maropitant</strong>、Aprepitant（人）', '<strong>止吐強、止噁心較弱</strong>；不影響蠕動；SC 注射痛（冷藏可減輕）；不結合其他 CNS 受體', '貓口服約 50%、半衰期 13–17 h；犬口服 24–37%'],
+    ['H1（組織胺）', ['vest', 'ctz'], '暈車（前庭）嘔吐', '—', 'Diphenhydramine、Dimenhydrinate、Meclizine、Cyclizine、Promethazine', '鎮靜（H1 管睡醒週期）；部分有抗膽鹼作用', '貓的組織胺催吐路徑不重要；部分抗組織胺會讓貓興奮'],
+    ['M1（蕈毒鹼）', ['vest', 'vc'], '暈車嘔吐', '—', 'Scopolamine、Aminopentamide、Isopropamide（Darbazine® 成分）', '口乾、胃排空變慢、<strong>腸胃停滯（ileus）</strong>、尿滯留、便秘；青光眼禁用', 'Scopolamine 在貓易興奮；犬貓暈車效果比人差'],
+    ['α2（腎上腺素）', ['ctz'], '催吐', '<strong>Xylazine、Dexmedetomidine</strong>（貓催吐首選）', 'Atipamezole（逆轉）；phenothiazine 部分阻斷', 'α2 促效劑同時降低腸胃蠕動與分泌（HBK）、鎮靜、心搏過緩', '<strong>貓</strong>對 α2 催吐反應比犬明顯'],
+    ['α2（腎上腺素）', ['enteric'], '抑制副交感末梢 ACh 釋放 → 蠕動與分泌下降', 'Dexmedetomidine、Xylazine', 'Atipamezole', '術後腸胃停滯的原因之一', '—'],
+    ['H2（組織胺）', ['parietal'], '胃酸分泌（cAMP 路徑）', '—', 'Famotidine（最強）、Nizatidine、Ranitidine、Cimetidine（最弱）', 'Cimetidine 抑制 P450 → 交互作用；Ranitidine／Nizatidine 另抑制 AChE → <strong>促蠕動</strong>；以腎排除為主 → 腎病減量', 'Famotidine 快速 IV 給貓有溶血報告 → 緩慢推注'],
+    ['M3（蕈毒鹼）', ['parietal'], '胃酸分泌（迷走神經 ACh，Ca²⁺ 路徑）', '—', '抗膽鹼藥（抑酸效果不如 H2 blocker 與 PPI，少用於此目的）', '同 M3 平滑肌：蠕動↓、心搏過速、尿滯留', '—'],
+    ['Gastrin 受體（CCK-B）', ['parietal'], '胃酸分泌（Ca²⁺ 路徑）；也刺激 ECL 細胞放組織胺', '—', '（無常用拮抗藥）；PPI 長期使用 → gastrin 上升', '長期 PPI：高胃泌素、停藥反彈', '—'],
+    ['H⁺/K⁺-ATPase（質子幫浦）', ['parietal'], '三條路的最終共同出口，把 H⁺ 打進胃腔', '—', '<strong>PPI</strong>：Omeprazole、Pantoprazole（IV）、Esomeprazole（不可逆共價結合）', '犬腹瀉；長期：小腸細菌過度增生（Small Intestinal Bacterial Overgrowth, SIBO）、反彈；胃 pH↑ → azole 抗黴菌藥、鐵吸收下降；omeprazole 抑制 CYP', '犬貓 BID 較能達到抑酸目標（VPT10）'],
+    ['EP3（PGE 受體）', ['parietal', 'mucosa'], '煞車：↓胃酸；↑黏液、HCO₃⁻、黏膜血流', '<strong>Misoprostol</strong>（PGE1 類似物，NSAID 潰瘍預防首選）', '<strong>NSAIDs</strong>（抑制 COX → PGE 不足 → 保護機制全失）', 'Misoprostol：腹瀉、腹痛、<strong>子宮收縮 → 懷孕禁用</strong>；對類固醇相關潰瘍無保護效果', '—'],
+    ['（無受體）物理保護', ['mucosa'], '覆蓋潰瘍、中和胃酸', 'Sucralfate（pH &lt;4 活化）、Bismuth subsalicylate、制酸劑 Al(OH)₃／Mg(OH)₂', '—', 'Sucralfate、制酸劑螯合 fluoroquinolone、tetracycline → 間隔給藥；鎂劑腎病累積；鋁便秘、鎂腹瀉', '<strong>Bismuth subsalicylate 貓禁用</strong>（水楊酸）'],
+    ['M3（蕈毒鹼）', ['enteric'], '平滑肌收縮的最終執行者（ACh）', 'Bethanechol（直接收縮，非專一）', '抗膽鹼藥：Atropine、Aminopentamide、Isopropamide、Propantheline、Methscopolamine', '抗膽鹼：口乾、心搏過速、尿滯留、<strong>ileus</strong>、青光眼惡化；Bethanechol：腹瀉、流涎等膽鹼作用', '—'],
+    ['5-HT4（血清素）', ['enteric'], '興奮性中間神經元 → ↑ACh 釋放（油門）', '<strong>Cisapride</strong>（胃到結腸全段，最強）、Metoclopramide（近端）', '—', 'Cisapride：人 QT 延長；<strong>勿併用 ketoconazole、itraconazole</strong>（代謝被抑制）', 'Cisapride 刺激<strong>貓結腸</strong>平滑肌 → 貓便秘、巨結腸'],
+    ['Motilin 受體', ['enteric'], '空腹期移行性複合運動（胃竇、近端小腸）', '<strong>Erythromycin 低劑量</strong>（0.5–1 mg/kg PO，低於抗菌劑量）', '—', '高劑量反而造成嘔吐；長期使用有抗藥性疑慮', '貓：直接活化 motilin 受體；犬：經膽鹼性與 neurokinin 間接作用（HBK）'],
+    ['AChE（乙醯膽鹼酯酶）', ['enteric'], '分解 ACh', '—', 'Ranitidine、Nizatidine（抑制 → ACh 作用延長 → 促蠕動）；Neostigmine', '膽鹼作用增加；neostigmine 副作用多', '—'],
+    ['μ-opioid', ['enteric'], '↓推進性蠕動、↑分節收縮、延長通過時間、↑水分吸收', 'Loperamide（不入 BBB）、Diphenoxylate（入 BBB）、Morphine 等止痛 opioid', '周邊型拮抗劑 Methylnaltrexone、Alvimopan（人／馬資料）；Naloxone 會逆轉止痛', '便秘、腸胃停滯；<strong>感染性腹瀉禁用</strong>（病原留在腸道）；Diphenoxylate 有中樞作用', '貓使用 opioid 止瀉要小心（興奮反應）'],
+    ['腸黏膜免疫反應', ['ibd'], '發炎性腸病（Inflammatory Bowel Disease, IBD）的慢性發炎', '—', 'Prednisolone（GR）、Azathioprine（purine 合成抑制）、Sulfasalazine／Olsalazine（腸道菌釋放 5-ASA 局部抗炎）、Metronidazole、Tylosin', '類固醇全身副作用；azathioprine 骨髓抑制；sulfasalazine 的磺胺成分 → 乾性角結膜炎（Keratoconjunctivitis Sicca, KCS）', '—'],
+    ['5-HT2／5-HT3／H1／α2', ['hypo'], '食慾與噁心調控', '—', '<strong>Mirtazapine</strong>（拮抗多種受體 → 促食慾＋止噁心）、Cyproheptadine（H1＋5-HT 拮抗）', 'Mirtazapine 高劑量：嚎叫、躁動', '<strong>貓</strong>促食慾首選；<strong>慢性腎病（Chronic Kidney Disease, CKD）貓</strong>清除變慢 → 改隔天給'],
+    ['GABA-A（BZD 位點）', ['hypo'], '抑制下視丘飽足中樞', 'Diazepam、Oxazepam', '（Flumazenil 逆轉）', '鎮靜；diazepam 口服在貓有特異性肝壞死報告（臨床常規）', '—'],
+    ['（無受體）滲透與刺激', ['lumen'], '增加腸內水分或刺激腸壁反射蠕動', '滲透性：Lactulose、PEG、MgSO₄、Sorbitol；膨脹性：Psyllium、Methylcellulose；潤滑：Mineral oil、Docusate；刺激性：Bisacodyl、Castor oil、Anthraquinones（Senna 等）', '—', '<strong>滲透性瀉劑脫水動物禁用</strong>；mineral oil 口服有吸入性肺炎風險；刺激性長期使用 → 腸肌叢退化', '—'],
+    ['（無受體）吸附', ['lumen'], '吸附細菌毒素、保護黏膜', 'Kaolin-pectin、Bismuth subsalicylate', '—', '影響其他口服藥吸收；bismuth 黑便', 'Bismuth subsalicylate 貓禁用'],
+    ['（無受體）消泡', ['rumen', 'lumen'], '降低泡沫表面張力 → 小氣泡合併排出', 'Poloxalene、Simethicone（polymerized methyl silicone）、植物油', '—', '不吸收、副作用極少；解決不了扭轉或阻塞', '泡沫型瘤胃鼓脹（牛、羊）']
+  ];
+  var HEAD = ['受體／標的', '位置', '正常功能', '活化它的藥', '阻斷它的藥', '連帶影響（其他器官）', '物種差異'];
+  var tb = document.querySelector('#gm-table tbody'), cur = document.getElementById('gm-cur');
+  function render(loc) {
+    var html = '';
+    R.forEach(function (r) {
+      if (loc !== 'all' && r[1].indexOf(loc) < 0) return;
+      var cells = [r[0], r[1].map(function (k) { return LOC[k]; }).join('、'), r[2], r[3], r[4], r[5], r[6]];
+      html += '<tr>' + cells.map(function (c, i) { return '<td data-label="' + HEAD[i] + '">' + c + '</td>'; }).join('') + '</tr>';
+    });
+    tb.innerHTML = html;
+    document.querySelectorAll('#gimap .gm-hot').forEach(function (g) { g.classList.toggle('gm-on', g.dataset.loc === loc); });
+    document.querySelector('.gm-btn[data-loc="all"]').classList.toggle('gm-active', loc === 'all');
+    cur.textContent = loc === 'all' ? '顯示全部 ' + R.length + ' 列' : '目前位置：' + LOC[loc];
+  }
+  document.querySelectorAll('#gimap .gm-hot').forEach(function (g) {
+    g.addEventListener('click', function () { render(g.dataset.loc); document.getElementById('gm-table').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+  });
+  document.querySelector('.gm-btn[data-loc="all"]').addEventListener('click', function () { render('all'); });
+  render('all');
+})();
+</script>
+
     <div class="section" id="section-drugtable">
-      <div class="section-head"><div class="section-num">2</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
+      <div class="section-head"><div class="section-num">3</div><h2>本頁藥物總覽 Drug Summary Table</h2></div>
       <p class="section-desc">本頁提到的藥物一覽，機轉與臨床應用欄位與全站〈<a href="藥品索引.html">藥品索引</a>〉同步；點最後一欄可跳到頁面內對應段落。</p>
       <div class="table-wrap">
         <table>
@@ -184,7 +329,8 @@
             <tr><td>Diazepam</td><td>Benzodiazepine受體致效劑（GABAA正向調節）</td><td>食慾促進；術前用藥；★癲癇重積症IV首選（犬不適合長期維持，貓可口服）</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">食慾促進</a></td></tr>
             <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Mirtazapine</td><td>5-HT2／5-HT3／H1／α2 receptor拮抗（人用抗憂鬱藥）</td><td><strong>PO</strong>；貓食慾促進+止吐首選</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">貓食慾促進+止吐首選</a></td></tr>
             <tr><td>Oxazepam</td><td>GABA-mediated抑制下視丘飽足中樞</td><td><strong>PO</strong>；食慾促進</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">食慾促進</a></td></tr>
-            <tr><td>Poloxalene</td><td>Surfactant，改變瘤胃氣泡表面張力</td><td><strong>PO（拌料或灌服）</strong>；反芻動物消脹氣</td><td class="drug-locations"><a href="#drug-appetite" class="drug-link">反芻動物消脹氣</a></td></tr>
+            <tr><td>Poloxalene</td><td>Surfactant，改變瘤胃氣泡表面張力</td><td><strong>PO（拌料或灌服）</strong>；反芻動物消脹氣</td><td class="drug-locations"><a href="#drug-antibloat" class="drug-link">反芻動物消脹氣</a></td></tr>
+            <tr><td>Simethicone<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Polymerized methyl silicone，二甲基矽油</div></td><td>消泡劑：降低泡沫表面張力，小氣泡合併後排出；口服幾乎不吸收</td><td><strong>PO（灌服或胃管；小動物口服）</strong>；泡沫型瘤胃鼓脹；小動物脹氣、超音波／內視鏡前減少腸道氣泡</td><td class="drug-locations"><a href="#drug-simethicone" class="drug-link">消脹氣劑</a></td></tr>
             <tr><td><span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">常用</span> Dirlotapide<div style="font-size:.8em; color:var(--fg-faint); margin-top:2px;">Slentrol®</div></td><td>抑制MTP（microsomal triglyceride transfer protein）→↓脂蛋白組裝</td><td><strong>PO（口服液）</strong>；犬抗肥胖藥</td><td class="drug-locations"><a href="#drug-dirlotapide" class="drug-link">犬抗肥胖藥</a></td></tr>
             <tr><td>Lomitapide</td><td>抑制MTP（人用降血脂藥，機轉同Dirlotapide）</td><td><strong>PO</strong>；MTP抑制劑</td><td class="drug-locations"><a href="#drug-dirlotapide" class="drug-link">MTP抑制劑</a></td></tr>
           </tbody>
@@ -194,7 +340,7 @@
 
 <!-- ACID -->
     <div class="section" id="section-acid">
-      <div class="section-head"><div class="section-num">3</div><h2>胃酸分泌與消化性潰瘍用藥 Acid Secretion &amp; Peptic Ulcer Drugs</h2></div>
+      <div class="section-head"><div class="section-num">4</div><h2>胃酸分泌與消化性潰瘍用藥 Acid Secretion &amp; Peptic Ulcer Drugs</h2></div>
       <p class="section-desc">胃酸分泌由三條路徑匯聚至 parietal cell，理解這張總圖是所有抑酸藥物作用位點的共同座標。</p>
 
       <h3 id="drug-acidpath">胃酸分泌機制（必考）</h3>
@@ -247,7 +393,7 @@
       </ul>
       <div class="alert alert-warn">
         <div class="alert-label">藥物交互作用</div>
-        <p>PPI ↓ BZDs／phenobarbital／phenytoin／warfarin 清除率；抑制 clopidogrel 活化代謝；肝臟疾病患者需謹慎使用。長期副作用：貓可能出現慢性高胃泌素血症（chronic hypergastrinemia）；胃 pH↑ → SIBO（小腸菌叢過度生長）；↓ Azole 抗黴藥（ketoconazole、itraconazole 等需酸性環境吸收）、mycophenolate mofetil、鐵劑吸收。</p>
+        <p>PPI ↓ BZDs／phenobarbital／phenytoin／warfarin 清除率；抑制 clopidogrel 活化代謝；肝臟疾病患者需謹慎使用。長期副作用：貓可能出現慢性高胃泌素血症（chronic hypergastrinemia）；胃 pH↑ → SIBO（Small Intestinal Bacterial Overgrowth）（小腸菌叢過度生長）；↓ Azole 抗黴藥（ketoconazole、itraconazole 等需酸性環境吸收）、mycophenolate mofetil、鐵劑吸收。</p>
       </div>
 
       <h3 id="drug-misoprostol">Misoprostol（PGE1 類似物）</h3>
@@ -321,7 +467,7 @@
 
     <!-- NSAID GASTRIC -->
     <div class="section" id="section-nsaidgastric">
-      <div class="section-head"><div class="section-num">4</div><h2>NSAID 誘發胃黏膜損傷機轉</h2></div>
+      <div class="section-head"><div class="section-num">5</div><h2>NSAID 誘發胃黏膜損傷機轉</h2></div>
       <p class="section-desc">本節整理 NSAID 造成腸胃副作用的前列腺素機轉，是連接「胃酸用藥」與後續 NSAID 專頁的橋樑。</p>
 
       <h3>前列腺素保護胃黏膜的四大機制</h3>
@@ -358,7 +504,7 @@
 
     <!-- LAXATIVES -->
     <div class="section" id="section-laxatives">
-      <div class="section-head"><div class="section-num">5</div><h2>瀉劑與緩瀉劑 Laxatives &amp; Cathartics</h2></div>
+      <div class="section-head"><div class="section-num">6</div><h2>瀉劑與緩瀉劑 Laxatives &amp; Cathartics</h2></div>
       <p class="section-desc">Laxatives（緩瀉劑）產生軟便、效果溫和、起效慢；Cathartics（峻瀉劑）大量增加腸內容積，促進液體排空、效果強烈。</p>
 
       <h3 id="drug-laxatives">各類瀉劑比較</h3>
@@ -404,7 +550,7 @@
 
     <!-- PROKINETICS -->
     <div class="section" id="section-prokinetics">
-      <div class="section-head"><div class="section-num">6</div><h2>促腸蠕動藥 Prokinetics</h2></div>
+      <div class="section-head"><div class="section-num">7</div><h2>促腸蠕動藥 Prokinetics</h2></div>
       <p class="section-desc">促腸蠕動藥的作用機轉圍繞抑制性受體（D2、5-HT3）的「解除抑制」與興奮性受體（5-HT4、M3、Motilin）的「直接活化」兩條路徑。</p>
 
       <h3>促腸蠕動藥作用機轉全圖</h3>
@@ -450,7 +596,7 @@
 
     <!-- ANTIDIARRHEAL -->
     <div class="section" id="section-antidiarrheal">
-      <div class="section-head"><div class="section-num">7</div><h2>止瀉藥 Anti-Diarrheal Drugs</h2></div>
+      <div class="section-head"><div class="section-num">8</div><h2>止瀉藥 Anti-Diarrheal Drugs</h2></div>
       <p class="section-desc">Opioids 是最有效的止瀉藥，但使用時機需嚴格排除感染性腹瀉。</p>
 
       <h3 id="drug-opioidantidiarrheal">鴉片類止瀉機制</h3>
@@ -495,7 +641,7 @@
 
     <!-- ANTIEMETICS -->
     <div class="section" id="section-antiemetics">
-      <div class="section-head"><div class="section-num">8</div><h2>嘔吐路徑與止吐藥 Emesis Pathways &amp; Antiemetics</h2></div>
+      <div class="section-head"><div class="section-num">9</div><h2>嘔吐路徑與止吐藥 Emesis Pathways &amp; Antiemetics</h2></div>
       <p class="section-desc">理解嘔吐訊號匯聚到 emetic center 的四條路徑，是選擇止吐藥（尤其化療嘔吐）的關鍵邏輯。</p>
 
       <h3>嘔吐觸發路徑（化療嘔吐重要）</h3>
@@ -549,7 +695,7 @@
 
     <!-- EMETICS -->
     <div class="section" id="section-emetics">
-      <div class="section-head"><div class="section-num">9</div><h2>催吐藥 Emetics</h2></div>
+      <div class="section-head"><div class="section-num">10</div><h2>催吐藥 Emetics</h2></div>
       <p class="section-desc">催吐藥物種特異性極強，是臨床誤食毒物急診最常用到的知識。</p>
 
       <ul>
@@ -583,7 +729,7 @@
 
     <!-- IBD -->
     <div class="section" id="section-ibd">
-      <div class="section-head"><div class="section-num">10</div><h2>IBD 用藥 Drugs for Inflammatory Bowel Disease</h2></div>
+      <div class="section-head"><div class="section-num">11</div><h2>IBD 用藥 Drugs for Inflammatory Bowel Disease</h2></div>
       <p class="section-desc">Sulfasalazine 的腸道菌分解路徑是本節必考重點。</p>
 
       <h3 id="drug-sulfasalazine">Sulfasalazine 分解路徑</h3>
@@ -614,7 +760,7 @@
 
     <!-- APPETITE -->
     <div class="section" id="section-appetite">
-      <div class="section-head"><div class="section-num">11</div><h2>食慾促進劑與抗肥胖藥</h2></div>
+      <div class="section-head"><div class="section-num">12</div><h2>食慾促進劑與抗肥胖藥</h2></div>
       <p class="section-desc">食慾促進劑的物種特異性（貓犬效果差異）是這節的核心考點。</p>
 
       <h3 id="drug-appetite">食慾促進劑比較</h3>
@@ -648,8 +794,39 @@
       </div>
       <p style="font-size:.85em; color:var(--fg-faint);">※ Lomitapide：FDA 2012 核准，用於人類家族性高膽固醇血症。</p>
 
-      <h3>消脹氣劑（反芻動物瘤胃積氣）</h3>
-      <p><strong>Poloxalene</strong>：polymer of ethylene and propylene oxides，surfactant，每日飼料或灌服，改變表面張力以消氣泡；也可用 Polymerized methyl silicone、Vegetable oil。</p>
+      <h3 id="drug-antibloat">消脹氣劑 Anti-Bloat Agents（反芻動物瘤胃積氣）</h3>
+      <p><strong>瘤胃鼓脹（ruminal bloat／tympany）</strong>是瘤胃內氣體過多累積，原因是氣體<strong>排不出去</strong>，而不是產生太多（HBK）。氣體有兩種型態：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">游離氣體型（free-gas bloat）</div><p>氣體集中在瘤胃上方，<strong>插胃管就能排氣</strong>。</p></div>
+        <div class="card"><div class="card-title">泡沫型（frothy bloat，較常見）</div><p>氣體被包在細小泡沫裡，插胃管也排不出來，<strong>需要消泡劑</strong>把泡沫打破。</p></div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">消泡劑降低泡沫的表面張力</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">小氣泡破裂、合併成大氣泡</div><span class="flow-arrow">→</span>
+        <div class="flow-node green">游離氣體可經噯氣或胃管排出</div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>藥物</th><th>性質</th><th>途徑與劑量（HBK）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Poloxalene</strong></td><td>Ethylene oxide 與 propylene oxide 的聚合物，界面活性劑；也可每日拌料預防</td><td>灌服或胃管：牛 25–50 g</td></tr>
+          <tr><td id="drug-simethicone"><strong>Polymerized methyl silicone（Simethicone 類）</strong></td><td>聚合甲基矽氧烷，<strong>消泡劑（antifoaming agent）</strong></td><td>灌服或胃管：3% 乳劑，牛 30–60 mL、羊 7–15 mL</td></tr>
+          <tr><td><strong>植物油</strong>（大豆油、花生油、葵花油）</td><td>改變表面張力</td><td>牛 60 mL、羊 10–15 mL</td></tr>
+        </tbody>
+      </table></div>
+
+      <h4>Simethicone 是什麼？</h4>
+      <p><strong>Simethicone（二甲基矽油，消泡劑）</strong>＝ dimethicone（聚二甲基矽氧烷，polydimethylsiloxane）加少量二氧化矽。它就是講義中「polymerized methyl silicone」這一類消泡劑；人用的消脹氣藥（如市售胃腸消脹氣錠、嬰兒脹氣滴劑）主要成分就是它。</p>
+      <ul>
+        <li><strong>機轉</strong>：純物理作用，降低腸胃道內泡沫的表面張力，讓小氣泡合併成大氣泡，比較容易經噯氣或排氣排出。<strong>不減少氣體產生</strong>，也不影響腸胃蠕動。</li>
+        <li><strong>藥動學</strong>：化學上惰性、<strong>口服幾乎不被吸收</strong>，原形隨糞便排出，所以全身副作用極少。</li>
+        <li><strong>大動物</strong>：用於泡沫型瘤胃鼓脹（上表）。</li>
+        <li><strong>小動物</strong>：有時用於腸胃脹氣不適；也常在<strong>腹部超音波或內視鏡前</strong>給，減少腸道氣泡干擾影像。</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p><strong>消泡劑解決不了阻塞或扭轉</strong>：犬的胃擴張扭轉（Gastric Dilatation-Volvulus, GDV）或腸阻塞需要減壓與手術。脹氣病患要先排除這些急症，不能只給消脹氣藥觀察。見 <a href="../../上群/2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html">住院醫師筆記：腸胃用藥專題</a>。</p>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義與 HBK 只列出大動物瘤胃鼓脹的用法；Simethicone 的化學組成、不吸收的藥動學、小動物用途與影像檢查前使用，屬於一般藥理與臨床常規知識，兩本教科書沒有寫，<strong>小動物劑量請依院內規範或 Plumb's</strong>。</p>
 
       <h3>非特異性治療</h3>
       <p>禁食 12–18 小時（急性 GI 擾亂）；補液與電解質補充（脫水預防首要措施）；飲食調整；Probiotics 可能有益。</p>
@@ -661,7 +838,7 @@
 
     <!-- SUMMARY -->
     <div class="section" id="section-summary">
-      <div class="section-head"><div class="section-num">12</div><h2>學習重點整理</h2></div>
+      <div class="section-head"><div class="section-num">13</div><h2>學習重點整理</h2></div>
       <p class="section-desc">考試最愛出「機轉配對」「受體→副作用」「物種差異」三種題型，複習前先快速掃過本節。</p>
 
       <div class="step"><div class="step-num">1</div><div class="step-text"><strong>PPI（不可逆）＞H2 blocker＞Antacids（速效）</strong>— 抑酸效力排序；Histamine「markedly enhances」ACh＋Gastrin 誘發的胃酸分泌。</div></div>
@@ -680,7 +857,7 @@
 
     <!-- QUIZ -->
     <div class="section" id="section-quiz">
-      <div class="section-head"><div class="section-num">13</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="section-head"><div class="section-num">14</div><h2>練習題 Practice Quiz</h2></div>
       <p class="section-desc">涵蓋胃酸抑制、瀉劑、促腸蠕動、止吐、催吐、止瀉、IBD、食慾促進各章節重點，最後三題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
 
       <div class="quiz-item">
@@ -863,6 +1040,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const SECTION_NAMES = {
   abstract: '重點摘要',
+  receptormap: '受體地圖',
   drugtable: '本頁藥物總覽',
   acid: '胃酸分泌與消化性潰瘍用藥',
   nsaidgastric: 'NSAID 誘發胃黏膜損傷機轉',

@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：專題 - 腸胃道受體總論 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">專題：腸胃道受體總論</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">專題：腸胃道受體總論</h1>
+      <p class="page-subtitle">先認識受體，再看藥。腸胃道一共有哪些受體、長在哪一種細胞上、扮演油門還是煞車，以及同一個受體在全身還出現在哪裡（副作用就是從這裡來的）</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">主題討論（觀念總論，非單一個案）</div></div>
+      <div class="meta-item"><div class="meta-label">適合誰</div><div class="meta-value">從零開始：不需要先記得任何受體</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">NTU 獸醫藥理學講義（詹東榮）：Autacoid 3 GI、Autacoid 1 Histamine、Autacoid 2 5-HT、ANS 1、A6 CNS Narcotic；教科書核對：VPT10 Ch.26、Ch.46；HBK Ch.11</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-10-02</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">全貌</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">⭐</span> 先看全貌</a>
+    <a onclick="showSection('basics')" id="nav-basics"><span class="nav-icon">🔑</span> 從零開始：受體是什麼</a>
+    <a onclick="showSection('roster')" id="nav-roster"><span class="nav-icon">📇</span> 受體名冊</a>
+    <div class="section-label" style="margin-top:8px;">三個舞台</div>
+    <a onclick="showSection('motility')" id="nav-motility"><span class="nav-icon">🌀</span> 舞台一：蠕動</a>
+    <a onclick="showSection('acid')" id="nav-acid"><span class="nav-icon">🧪</span> 舞台二：胃酸</a>
+    <a onclick="showSection('emesis')" id="nav-emesis"><span class="nav-icon">🤢</span> 舞台三：嘔吐</a>
+    <div class="section-label" style="margin-top:8px;">連到全身</div>
+    <a onclick="showSection('bodymap')" id="nav-bodymap"><span class="nav-icon">🗺️</span> 全身受體地圖（互動）</a>
+    <a onclick="showSection('drugs')" id="nav-drugs"><span class="nav-icon">💊</span> 回頭看藥：每個藥踩哪個點</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 自我測驗</a>
+    <a onclick="showSection('followup')" id="nav-followup"><span class="nav-icon">📌</span> 待確認與下一步</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>先看全貌</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這頁在講什麼</div>
+        <p>腸胃道的藥看起來很多，但它們只作用在大約 13 個受體上，這些受體分布在三個「舞台」：</p>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>蠕動</strong>：腸壁裡的神經放出 ACh，接到平滑肌的 M3，腸子就收縮。其他受體大多不在肌肉上，而是在<strong>神經上</strong>，負責調整「ACh 放多少」。</li>
+          <li><strong>胃酸</strong>：壁細胞上有三個「油門」（H2、M3、gastrin 受體）和一個「煞車」（EP3）。三個油門最後都通到同一個幫浦（H⁺/K⁺-ATPase）。</li>
+          <li><strong>嘔吐</strong>：嘔吐訊號從三條路進到腦（血液 → CTZ、腸胃 → 迷走神經、內耳 → 前庭），最後全部匯到嘔吐中樞的 NK1。</li>
+        </ul>
+        <p style="margin-top:8px;">讀法：先認識受體（第 2、3 節）→ 看它們在三個舞台的位置（第 4–6 節）→ 再看同一個受體在全身還出現在哪（第 7 節）→ 最後才放上藥物（第 8 節）。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('basics')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體是什麼</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">鎖、鑰匙、音量鈕</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('roster')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">受體名冊</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">13 個受體一覽</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('motility')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04–06</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">三個舞台</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">蠕動／胃酸／嘔吐</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('bodymap')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">07</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">全身地圖</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">點受體看它在哪</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>腸道的 D2、α2、μ-opioid 都長在神經上，不在肌肉上</strong>：它們都是讓神經少放 ACh 的「煞車」。所以 Metoclopramide 擋 D2，等於放開煞車 → 腸子動起來（講義稱為 disinhibition）。</li>
+          <li><strong>真正讓腸胃平滑肌收縮的是 M3</strong>：抗膽鹼藥擋 M3 → 蠕動停下來（ileus）。</li>
+          <li><strong>同一個受體會出現在好幾個器官</strong>：擋掉腸道的 M3，眼睛、膀胱、唾液腺的 M3 也一起被擋 → 散瞳、尿滯留、口乾。副作用就是這樣來的。</li>
+          <li><strong>血腦屏障（Blood-Brain Barrier, BBB）決定有沒有中樞副作用</strong>：Domperidone、Loperamide 進不去腦，Metoclopramide 進得去。CTZ 的 BBB 本來就弱，所以不必進腦也能作用在 CTZ。</li>
+        </ul>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 這頁是觀念總論。每類藥的完整內容（劑量、藥動學、所有副作用）見 <a href="../大三/獸醫藥理學/腸胃道用藥.html">獸醫藥理學：腸胃道用藥</a>；住院病患的臨床選藥流程見 <a href="2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html">專題：腸胃不蠕動與胃液滯留用藥</a>。</p>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學講義 Autacoid 3 GI。本頁為個人學習整理，僅供學習與院內討論使用，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 2 BASICS -->
+    <div class="section" id="section-basics">
+      <div class="section-head"><div class="section-num">2</div><h2>從零開始：受體是什麼</h2></div>
+
+      <h3>細胞之間怎麼傳話</h3>
+      <div class="flow">
+        <div class="flow-node">細胞 A（例如神經）放出<strong>訊號分子</strong>（例如 ACh）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">訊號分子接到細胞 B 表面的<strong>受體</strong></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">細胞 B 做出反應（例如平滑肌收縮）</div>
+      </div>
+      <p>受體就像一把鎖，訊號分子是鑰匙。身體自己做的鑰匙叫<strong>天然配體</strong>（例如 ACh、組織胺、血清素）。藥物是「仿製的鑰匙」，分兩種：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>角色</th><th>做什麼</th><th>以 M3 受體為例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>天然配體</strong></td><td>身體自己的鑰匙，開鎖</td><td>ACh（乙醯膽鹼）接上 M3 → 平滑肌收縮</td></tr>
+            <tr><td><strong>促效劑（agonist）</strong></td><td>仿製的鑰匙，也能開鎖 → 模仿天然配體的效果</td><td>Bethanechol 接上 M3 → 平滑肌收縮</td></tr>
+            <tr><td><strong>拮抗劑（antagonist）</strong></td><td>塞住鎖孔但不開鎖 → 天然配體進不來，效果消失</td><td>Atropine 塞住 M3 → ACh 沒作用 → 平滑肌放鬆、蠕動停止</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>四個貫穿全頁的觀念</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">① 受體長在哪種細胞，決定結果</div><p>同樣是 ACh 接上 M3：長在腸平滑肌上 → 收縮；長在胃壁細胞上 → 分泌胃酸；長在唾液腺上 → 分泌口水（ANS 1 講義）。受體名字一樣，結果取決於它所在的細胞。</p></div>
+        <div class="card"><div class="card-title">② 同一受體分布在全身好幾處 → 副作用</div><p>藥物不會只去你想要的地方。擋 M3 想讓腸子別痙攣，眼睛、膀胱、唾液腺的 M3 也一起被擋 → 散瞳、尿滯留、口乾。講義列的抗膽鹼副作用正是這些：口乾、便秘、麻痺性腸阻塞、胃排空變慢、視力模糊、尿滯留（Autacoid 3 GI）。</p></div>
+        <div class="card"><div class="card-title">③ 有些受體長在「神經末梢」上，是音量鈕</div><p>受體不一定長在做事的細胞上。有些長在神經自己身上，調整這條神經放出多少訊號。例如 α2 長在神經末梢 → 神經少放 ACh → 腸胃蠕動與分泌下降（ANS 1 講義）。<strong>腸道的煞車幾乎都是這種「調音量」的受體。</strong></p></div>
+        <div class="card"><div class="card-title">④ 腦有一道牆：血腦屏障</div><p>藥物要能穿過 BBB 才會影響腦。Domperidone 不穿 BBB → 沒有錐體外症狀；Metoclopramide 穿得過 → 有（Autacoid 3 GI）。例外是 <strong>CTZ</strong>：它位在 area postrema，BBB 很弱，專門偵測血液中的致吐物質（Autacoid 3 GI）。</p></div>
+      </div>
+
+      <h3>受體接上之後，細胞裡發生什麼（訊號類型）</h3>
+      <p>受體接到鑰匙後，會透過不同的「二級訊號」改變細胞。知道類型，就比較容易猜出它是油門還是煞車：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>訊號類型</th><th>細胞內變化</th><th>本頁出現的受體</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Gq</strong></td><td>細胞內 Ca²⁺ ↑ → 收縮、分泌</td><td>M1、M3、H1</td><td>ANS 1（M1/M3 接 Gq）；Histamine（H1：細胞內鈣上升）</td></tr>
+            <tr><td><strong>Gs</strong></td><td>cAMP ↑</td><td>H2、5-HT4</td><td>Histamine（H2：adenylyl cyclase-cAMP）；5-HT 講義（5-HT4：cAMP）</td></tr>
+            <tr><td><strong>Gi／Go</strong></td><td>cAMP ↓、抑制神經放訊號</td><td>M2、α2、D2、μ-opioid、EP3</td><td>ANS 1（M2、α2、D2 接 Gi/o）；A6（μ：Gi-adenylate cyclase-cAMP）；Autacoid 3 GI（EP3：壁細胞 cAMP ↓）</td></tr>
+            <tr><td><strong>離子通道</strong></td><td>受體本身是通道，一接上就開 → 快速去極化</td><td>5-HT3（另有菸鹼受體）</td><td>5-HT 講義（5-HT3：Na⁺-K⁺ 離子通道）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">記憶法（本頁自行歸納，講義沒有這樣整理）</div>
+        <p>腸道的三個煞車 <strong>D2、α2、μ</strong> 都是 <strong>Gi</strong>。看到 Gi 受體長在神經末梢，大致可以猜：「它會讓這條神經少放訊號」。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學講義 ANS 1、Autacoid 1 Histamine、Autacoid 2 5-HT、Autacoid 3 GI、A6 CNS Narcotic。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 3 ROSTER -->
+    <div class="section" id="section-roster">
+      <div class="section-head"><div class="section-num">3</div><h2>受體名冊：腸胃道相關的 13 個受體</h2></div>
+      <p class="section-desc">這一節先不講藥，只認識受體本身。顏色代表角色：<span class="tag" style="background:var(--green-100);color:var(--green-700);">油門</span> 讓功能增加，<span class="tag" style="background:var(--rust-100);color:var(--rust-700);">煞車</span> 讓功能減少，<span class="tag" style="background:var(--slate-100);color:var(--slate-700);">執行者</span> 是最後動手的受體，<span class="tag" style="background:var(--amber-100);color:var(--amber-700);">嘔吐訊號</span> 負責把「想吐」往腦傳。</p>
+      <div class="table-wrap">
+        <table class="rr-table rx-cards">
+          <thead><tr><th>受體</th><th>天然配體（誰來開鎖）</th><th>在腸胃系統的哪種細胞上</th><th>角色</th></tr></thead>
+          <tbody>
+            <tr><td colspan="4" class="rr-group">乙醯膽鹼（ACh）家族：膽鹼受體</td></tr>
+            <tr><td><strong>M3</strong></td><td>ACh（副交感神經、腸神經放出）</td><td>腸胃平滑肌；胃壁細胞</td><td><span class="tag" style="background:var(--slate-100);color:var(--slate-700);">執行者</span> 平滑肌收縮；壁細胞分泌胃酸</td></tr>
+            <tr><td><strong>M（嘔吐路徑）</strong></td><td>ACh</td><td>前庭傳入路徑、CTZ、孤束核（講義只寫 M，圖上 CTZ 標 M1）</td><td><span class="tag" style="background:var(--amber-100);color:var(--amber-700);">嘔吐訊號</span> 暈車嘔吐</td></tr>
+            <tr><td colspan="4" class="rr-group">正腎上腺素家族</td></tr>
+            <tr><td><strong>α2</strong></td><td>正腎上腺素（NE）</td><td>腸神經末梢；CTZ</td><td><span class="tag" style="background:var(--rust-100);color:var(--rust-700);">煞車</span> 神經少放 ACh → 蠕動與分泌↓；<span class="tag" style="background:var(--amber-100);color:var(--amber-700);">嘔吐訊號</span> 貓的 CTZ</td></tr>
+            <tr><td colspan="4" class="rr-group">多巴胺家族</td></tr>
+            <tr><td><strong>D2</strong></td><td>多巴胺（DA）</td><td>腸肌叢運動神經元；CTZ／嘔吐中樞</td><td><span class="tag" style="background:var(--rust-100);color:var(--rust-700);">煞車</span> 神經少放 ACh → 下食道括約肌與胃內壓↓；<span class="tag" style="background:var(--amber-100);color:var(--amber-700);">嘔吐訊號</span> CTZ</td></tr>
+            <tr><td colspan="4" class="rr-group">組織胺家族</td></tr>
+            <tr><td><strong>H1</strong></td><td>組織胺</td><td>前庭路徑、孤束核、CTZ；腸平滑肌</td><td><span class="tag" style="background:var(--amber-100);color:var(--amber-700);">嘔吐訊號</span> 暈車嘔吐；腸平滑肌收縮</td></tr>
+            <tr><td><strong>H2</strong></td><td>組織胺（胃的 ECL 細胞旁分泌）</td><td>胃壁細胞</td><td><span class="tag" style="background:var(--green-100);color:var(--green-700);">油門</span> 胃酸分泌（cAMP）</td></tr>
+            <tr><td colspan="4" class="rr-group">血清素（5-HT）家族：體內超過 90% 的 5-HT 存在腸道 EC 細胞</td></tr>
+            <tr><td><strong>5-HT3</strong></td><td>5-HT（腸黏膜 EC 細胞受刺激時釋放）</td><td>迷走神經傳入末梢；CTZ、孤束核；腸肌叢抑制性中間神經元</td><td><span class="tag" style="background:var(--amber-100);color:var(--amber-700);">嘔吐訊號</span> 化療、腸道受損時的嘔吐</td></tr>
+            <tr><td><strong>5-HT4</strong></td><td>5-HT</td><td>腸肌叢興奮性中間神經元、膽鹼性運動神經元</td><td><span class="tag" style="background:var(--green-100);color:var(--green-700);">油門</span> 神經多放 ACh → 蠕動↑</td></tr>
+            <tr><td colspan="4" class="rr-group">其他</td></tr>
+            <tr><td><strong>μ-opioid</strong></td><td>體內的 opioid 胜肽（enkephalin、endorphin 等）</td><td>腸神經；CTZ</td><td><span class="tag" style="background:var(--rust-100);color:var(--rust-700);">煞車</span> 神經少放 ACh → 推進性蠕動↓、分節收縮↑；<span class="tag" style="background:var(--amber-100);color:var(--amber-700);">嘔吐訊號</span> CTZ</td></tr>
+            <tr><td><strong>NK1</strong></td><td>P 物質（substance P）</td><td>嘔吐中樞（VPT10：CTZ 也有，但以嘔吐中樞最重要）</td><td><span class="tag" style="background:var(--amber-100);color:var(--amber-700);">嘔吐訊號</span> 所有嘔吐路徑的最終共同路徑</td></tr>
+            <tr><td><strong>Motilin 受體</strong></td><td>Motilin（十二指腸黏膜內分泌細胞分泌的 22 胺基酸胜肽）</td><td>膽鹼性運動神經元、平滑肌；集中在胃與近端小腸</td><td><span class="tag" style="background:var(--green-100);color:var(--green-700);">油門</span> 上段腸胃道收縮</td></tr>
+            <tr><td><strong>EP3（前列腺素 E 受體）</strong></td><td>PGE2、PGI2（黏膜自己產生）</td><td>胃壁細胞；胃黏膜上皮</td><td><span class="tag" style="background:var(--rust-100);color:var(--rust-700);">煞車</span> 胃酸↓；同時↑黏液與 HCO₃⁻（保護）</td></tr>
+            <tr><td><strong>Gastrin 受體</strong></td><td>Gastrin（胃竇 G 細胞分泌，經血液送達）</td><td>胃壁細胞；ECL 細胞</td><td><span class="tag" style="background:var(--green-100);color:var(--green-700);">油門</span> 胃酸分泌（Ca²⁺）；並刺激 ECL 細胞放組織胺</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充：兩個不是受體、但很常被藥物瞄準的標的</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>H⁺/K⁺-ATPase（質子幫浦）</strong>：壁細胞把 H⁺ 打進胃腔的幫浦，是胃酸三個油門的共同出口。PPI 不可逆地破壞它。</li>
+          <li><strong>乙醯膽鹼酯酶（Acetylcholinesterase, AChE）</strong>：在突觸裡分解 ACh 的酵素。抑制它 → ACh 留得比較久 → 蠕動↑（Neostigmine、Ranitidine）。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學講義 Autacoid 3 GI（受體位置、角色）、Autacoid 1 Histamine（H1 平滑肌）、Autacoid 2 5-HT（EC 細胞儲存 >90% 5-HT）、ANS 1（α2 抑制 ACh 釋放）、A6 CNS Narcotic；VPT10 Ch.46（NK1 分布、motilin 來源與分布）。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 4 MOTILITY -->
+    <div class="section" id="section-motility">
+      <div class="section-head"><div class="section-num">4</div><h2>舞台一：蠕動（腸神經 → 平滑肌）</h2></div>
+      <p class="section-desc">這一張圖是理解「腸道受體在哪裡」的關鍵。主角是腸肌叢（myenteric plexus）裡的<strong>膽鹼性運動神經元</strong>：它放出 ACh → 平滑肌的 M3 → 收縮。其他受體幾乎都長在這條神經上，調整它放多少 ACh。</p>
+
+      <figure class="rx-fig">
+        <svg viewBox="0 0 680 380" role="img" aria-label="腸神經與平滑肌的受體位置示意圖">
+          <!-- neuron body -->
+          <path d="M40 120 C 40 70, 120 50, 190 70 C 240 84, 260 120, 300 150 L 390 160 C 410 140, 450 120, 470 150 C 490 180, 470 240, 440 250 C 410 258, 400 230, 390 220 L 300 228 C 260 250, 230 300, 170 310 C 100 320, 40 280, 40 220 Z" class="rx-cell"/>
+          <text x="140" y="190" class="rx-cap">膽鹼性運動神經元</text>
+          <text x="140" y="208" class="rx-sub">（腸肌叢內）</text>
+          <!-- vesicles -->
+          <circle cx="420" cy="170" r="7" class="rx-ach"/><circle cx="440" cy="195" r="7" class="rx-ach"/><circle cx="418" cy="215" r="7" class="rx-ach"/>
+          <!-- released ACh -->
+          <circle cx="500" cy="170" r="6" class="rx-ach"/><circle cx="512" cy="200" r="6" class="rx-ach"/><circle cx="498" cy="228" r="6" class="rx-ach"/>
+          <text x="505" y="140" class="rx-lab" text-anchor="middle">ACh</text>
+          <text x="505" y="268" class="rx-lab rx-enz" text-anchor="middle">AChE</text>
+          <text x="505" y="284" class="rx-sub" text-anchor="middle">分解 ACh</text>
+          <!-- smooth muscle -->
+          <path d="M560 60 C 600 80, 640 150, 640 200 C 640 260, 600 320, 560 340 C 545 290, 540 120, 560 60 Z" class="rx-muscle"/>
+          <text x="600" y="355" class="rx-cap" text-anchor="middle">平滑肌細胞</text>
+          <!-- M3 on muscle -->
+          <g class="rx-rec rx-exec"><rect x="530" y="186" width="46" height="26" rx="5"/><text x="553" y="204">M3</text></g>
+          <text x="600" y="232" class="rx-sub">收縮</text>
+          <!-- motilin on muscle -->
+          <g class="rx-rec rx-go"><rect x="560" y="270" width="64" height="24" rx="5"/><text x="592" y="287">Motilin</text></g>
+          <!-- accelerators on neuron top -->
+          <g class="rx-rec rx-go"><rect x="96" y="56" width="56" height="26" rx="5"/><text x="124" y="74">5-HT4</text></g>
+          <text x="124" y="44" class="rx-sub" text-anchor="middle">5-HT ↓</text>
+          <g class="rx-rec rx-go"><rect x="200" y="62" width="64" height="26" rx="5"/><text x="232" y="80">Motilin</text></g>
+          <text x="232" y="50" class="rx-sub" text-anchor="middle">motilin ↓</text>
+          <!-- brakes on terminal bottom -->
+          <g class="rx-rec rx-stop"><rect x="290" y="215" width="44" height="26" rx="5"/><text x="312" y="233">D2</text></g>
+          <text x="312" y="258" class="rx-sub" text-anchor="middle">↑ 多巴胺</text>
+          <g class="rx-rec rx-stop"><rect x="340" y="215" width="44" height="26" rx="5"/><text x="362" y="233">α2</text></g>
+          <text x="362" y="258" class="rx-sub" text-anchor="middle">↑ NE</text>
+          <g class="rx-rec rx-stop"><rect x="390" y="215" width="44" height="26" rx="5"/><text x="412" y="233">μ</text></g>
+          <text x="412" y="258" class="rx-sub" text-anchor="middle">↑ opioid</text>
+          <!-- legend -->
+          <g transform="translate(40,340)">
+            <rect x="0" y="0" width="14" height="14" rx="3" class="rx-leg-go"/><text x="20" y="12" class="rx-sub" style="text-anchor:start">油門：ACh 放更多</text>
+            <rect x="150" y="0" width="14" height="14" rx="3" class="rx-leg-stop"/><text x="170" y="12" class="rx-sub" style="text-anchor:start">煞車：ACh 放更少</text>
+            <rect x="300" y="0" width="14" height="14" rx="3" class="rx-leg-exec"/><text x="320" y="12" class="rx-sub" style="text-anchor:start">執行者</text>
+          </g>
+        </svg>
+        <figcaption class="figure-caption">自繪示意圖，非解剖比例。依講義 Autacoid 3 GI 投影片 49、52、56 的內容重畫：D2、5-HT4、motilin 畫在膽鹼性運動神經元上，M3 與 motilin 畫在平滑肌上；α2 與 μ 依 ANS 1 與 Autacoid 3 GI 的文字敘述（「抑制 ACh 釋放」）放在神經末梢。</figcaption>
+      </figure>
+
+      <h3>用一句話讀這張圖</h3>
+      <div class="flow">
+        <div class="flow-node green">油門（5-HT4、motilin）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">神經放出更多 ACh</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">平滑肌 M3 被活化</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node green">收縮、蠕動↑</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node danger">煞車（D2、α2、μ）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">神經放出較少 ACh</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">蠕動↓</div>
+      </div>
+
+      <h3>藥物在這張圖上「踩」哪裡</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>想做的事</th><th>踩的點</th><th>藥物</th></tr></thead>
+          <tbody>
+            <tr><td>踩油門</td><td>活化 5-HT4</td><td>Cisapride；Metoclopramide（講義：5-HT4 作用為主）</td></tr>
+            <tr><td>踩油門</td><td>活化 motilin 受體</td><td>低劑量 Erythromycin</td></tr>
+            <tr><td>放開煞車</td><td>擋 D2</td><td>Metoclopramide、Domperidone（講義稱為 disinhibition，去抑制）</td></tr>
+            <tr><td>讓 ACh 留久一點</td><td>抑制 AChE</td><td>Neostigmine；Ranitidine、Nizatidine（H2 阻斷劑的附加作用）</td></tr>
+            <tr><td>直接當執行者</td><td>活化 M3</td><td>Bethanechol</td></tr>
+            <tr><td>踩煞車（止瀉）</td><td>活化 μ</td><td>Loperamide、Diphenoxylate</td></tr>
+            <tr><td>拔掉執行者（止痙攣）</td><td>擋 M3</td><td>Atropine、Aminopentamide、Propantheline 等抗膽鹼藥</td></tr>
+            <tr><td>意外踩到煞車（副作用）</td><td>活化 α2、μ</td><td>α2 鎮靜劑（Xylazine、Dexmedetomidine）、止痛用 opioid → 腸胃蠕動↓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>促蠕動藥大多是「讓神經放更多 ACh」，所以前提是腸神經和平滑肌本身還能正常運作。另外，講義在 5-HT 的部分還提到一層：<strong>5-HT3 在抑制性中間神經元上</strong>（活化 → 抑制腸肌叢神經），<strong>5-HT4 在興奮性中間神經元上</strong>（活化 → 增強）。圖上為了簡化，把 5-HT4 直接畫在運動神經元上（講義投影片 56 也是這樣畫），兩種畫法的結論相同：5-HT4 活化 → ACh 變多。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充：Metoclopramide 的主要機轉</div>
+        <p>講義（Autacoid 3 GI）寫 Metoclopramide 的作用是「D2 拮抗（disinhibition）＋ 5-HT4 促效（<strong>predominant</strong>）＋ 高劑量 5-HT3 拮抗」，也就是 5-HT4 為主。VPT10 Ch.46 與 HBK Ch.11 都同時列出 D2 拮抗與 5-HT4 促效，沒有說哪個為主。本站<a href="../大三/獸醫藥理學/藥品索引.html">藥品索引</a>目前寫的是「D2 拮抗（主）」，跟講義不一致，見第 10 節。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學講義 Autacoid 3 GI（Prokinetic agents、Dopamine in GI、5-HT in GI、Cisapride、Metoclopramide、Erythromycin、Bethanechol、Anti-diarrheal drugs）、ANS 1（α2）；VPT10 Ch.46；HBK Ch.11。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 5 ACID -->
+    <div class="section" id="section-acid">
+      <div class="section-head"><div class="section-num">5</div><h2>舞台二：胃酸（壁細胞）</h2></div>
+      <p class="section-desc">胃底部的壁細胞負責分泌胃酸。它有三個油門、一個煞車，三個油門最後都通到同一個幫浦。</p>
+
+      <figure class="rx-fig">
+        <svg viewBox="0 0 680 400" role="img" aria-label="胃壁細胞的受體位置示意圖">
+          <!-- lumen -->
+          <rect x="540" y="30" width="120" height="340" rx="10" class="rx-lumen"/>
+          <text x="600" y="56" class="rx-cap" text-anchor="middle">胃腔</text>
+          <text x="600" y="210" class="rx-big" text-anchor="middle">H⁺</text>
+          <text x="600" y="232" class="rx-sub" text-anchor="middle">（胃酸）</text>
+          <!-- parietal cell -->
+          <rect x="250" y="70" width="270" height="260" rx="30" class="rx-cell"/>
+          <text x="385" y="100" class="rx-cap" text-anchor="middle">壁細胞</text>
+          <!-- pump -->
+          <g class="rx-rec rx-pump"><rect x="480" y="180" width="64" height="44" rx="6"/><text x="512" y="198">H⁺/K⁺</text><text x="512" y="215">ATPase</text></g>
+          <path d="M546 202 L 575 202" class="rx-arrow" marker-end="url(#rxa)"/>
+          <!-- second messengers -->
+          <text x="385" y="175" class="rx-lab" text-anchor="middle">cAMP ↑</text>
+          <text x="385" y="245" class="rx-lab" text-anchor="middle">Ca²⁺ ↑</text>
+          <path d="M420 172 L 478 192" class="rx-arrow" marker-end="url(#rxa)"/>
+          <path d="M420 240 L 478 212" class="rx-arrow" marker-end="url(#rxa)"/>
+          <!-- receptors on basolateral side -->
+          <g class="rx-rec rx-go"><rect x="226" y="150" width="48" height="26" rx="5"/><text x="250" y="168">H2</text></g>
+          <path d="M276 163 L 350 170" class="rx-arrow" marker-end="url(#rxa)"/>
+          <g class="rx-rec rx-go"><rect x="226" y="206" width="48" height="26" rx="5"/><text x="250" y="224">M3</text></g>
+          <g class="rx-rec rx-go"><rect x="226" y="256" width="48" height="26" rx="5"/><text x="250" y="274">G</text></g>
+          <path d="M276 219 L 350 240" class="rx-arrow" marker-end="url(#rxa)"/>
+          <path d="M276 269 L 350 246" class="rx-arrow" marker-end="url(#rxa)"/>
+          <g class="rx-rec rx-stop"><rect x="226" y="100" width="48" height="26" rx="5"/><text x="250" y="118">EP3</text></g>
+          <path d="M276 113 L 350 160" class="rx-arrow rx-arrow-stop" marker-end="url(#rxs)"/>
+          <text x="300" y="100" class="rx-sub rx-stoptxt">（−）</text>
+          <!-- ECL cell -->
+          <ellipse cx="90" cy="150" rx="62" ry="40" class="rx-cell2"/>
+          <text x="90" y="146" class="rx-cap" text-anchor="middle">ECL 細胞</text>
+          <text x="90" y="164" class="rx-sub" text-anchor="middle">放出組織胺</text>
+          <path d="M152 155 L 222 162" class="rx-arrow" marker-end="url(#rxa)"/>
+          <!-- vagus -->
+          <text x="60" y="222" class="rx-cap">迷走神經</text>
+          <text x="60" y="240" class="rx-sub" style="text-anchor:start">ACh</text>
+          <path d="M140 225 L 222 220" class="rx-arrow" marker-end="url(#rxa)"/>
+          <!-- gastrin -->
+          <text x="40" y="280" class="rx-cap" style="text-anchor:start">G 細胞（胃竇）</text>
+          <text x="40" y="298" class="rx-sub" style="text-anchor:start">gastrin 經血液送達</text>
+          <path d="M160 276 L 222 270" class="rx-arrow" marker-end="url(#rxa)"/>
+          <!-- PGE -->
+          <text x="40" y="80" class="rx-cap" style="text-anchor:start">黏膜的 PGE2／PGI2</text>
+          <path d="M170 90 L 222 110" class="rx-arrow rx-arrow-stop" marker-end="url(#rxs)"/>
+          <text x="40" y="366" class="rx-sub" style="text-anchor:start">（ACh 與 gastrin 也會刺激 ECL 細胞放組織胺，圖上省略這兩條箭頭）</text>
+          <defs>
+            <marker id="rxa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="rx-head"/></marker>
+            <marker id="rxs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="rx-head-stop"/></marker>
+          </defs>
+        </svg>
+        <figcaption class="figure-caption">自繪示意圖，依講義 Autacoid 3 GI 投影片 7–16 的壁細胞圖重畫。G＝gastrin 受體。</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>入口</th><th>誰來開鎖</th><th>細胞內</th><th>擋住它的藥</th></tr></thead>
+          <tbody>
+            <tr><td><strong>H2</strong>（油門）</td><td>組織胺（ECL 細胞旁分泌）</td><td>cAMP ↑</td><td>H2 阻斷劑：Famotidine（最強）＞Nizatidine、Ranitidine＞Cimetidine</td></tr>
+            <tr><td><strong>M3</strong>（油門）</td><td>ACh（迷走神經）</td><td>Ca²⁺ ↑</td><td>抗膽鹼藥（抑酸效果不如 H2 阻斷劑與 PPI，高劑量副作用明顯）</td></tr>
+            <tr><td><strong>Gastrin 受體</strong>（油門）</td><td>Gastrin（G 細胞，經血液）</td><td>Ca²⁺ ↑</td><td>（講義未列專一拮抗藥）</td></tr>
+            <tr><td><strong>H⁺/K⁺-ATPase</strong>（共同出口）</td><td>—</td><td>把 H⁺ 打進胃腔</td><td>PPI：Omeprazole、Pantoprazole 等（共價結合，不可逆）</td></tr>
+            <tr><td><strong>EP3</strong>（煞車）</td><td>PGE2、PGI2</td><td>cAMP ↓</td><td>反過來「加強煞車」：Misoprostol（PGE1 類似物，EP3 促效）；<strong>NSAID</strong> 抑制 PG 合成 → 煞車消失</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>為什麼 PPI 最強</strong>：H2 阻斷劑只關掉三個油門中的一個，PPI 直接關掉三條路共同的出口（講義：PPI 是抗潰瘍最有效的藥物）。</li>
+          <li><strong>為什麼組織胺這麼重要</strong>：講義寫「組織胺明顯增強 ACh 與 gastrin 引起的胃酸分泌」，所以只擋 H2 也有相當效果。</li>
+          <li><strong>為什麼 NSAID 會造成潰瘍</strong>：PG 同時負責「減少胃酸」和「增加黏液、HCO₃⁻」，NSAID 一次把兩種保護都拿掉。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學講義 Autacoid 3 GI（Gastric acid secretion、H2 receptor antagonists、Antimuscarinic drugs、PPI、Misoprostol）。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 6 EMESIS -->
+    <div class="section" id="section-emesis">
+      <div class="section-head"><div class="section-num">6</div><h2>舞台三：嘔吐（三條路 → 嘔吐中樞）</h2></div>
+      <p class="section-desc">嘔吐中樞在延腦，受 BBB 保護。它自己不直接偵測毒物，而是接收三條路送來的訊號。每條路上的受體不同，所以止吐藥要看「訊號從哪條路來」。</p>
+
+      <figure class="rx-fig">
+        <svg viewBox="0 0 680 420" role="img" aria-label="嘔吐路徑與受體示意圖">
+          <!-- BBB band -->
+          <rect x="0" y="196" width="680" height="26" class="rx-bbb"/>
+          <text x="8" y="214" class="rx-sub" style="text-anchor:start">血腦屏障（BBB）</text>
+          <text x="8" y="40" class="rx-sub" style="text-anchor:start">腦內</text>
+          <text x="8" y="250" class="rx-sub" style="text-anchor:start">周邊</text>
+          <!-- emetic center -->
+          <rect x="250" y="30" width="180" height="62" rx="10" class="rx-box rx-box-key"/>
+          <text x="340" y="56" class="rx-cap" text-anchor="middle">嘔吐中樞（延腦）</text>
+          <text x="340" y="78" class="rx-lab" text-anchor="middle">NK1</text>
+          <!-- CTZ straddles BBB -->
+          <rect x="250" y="160" width="180" height="76" rx="10" class="rx-box"/>
+          <text x="340" y="182" class="rx-cap" text-anchor="middle">CTZ（area postrema）</text>
+          <text x="340" y="202" class="rx-lab" text-anchor="middle">5-HT3・D2・M・H1・α2</text>
+          <text x="340" y="222" class="rx-sub" text-anchor="middle">BBB 弱，可直接偵測血液</text>
+          <!-- NST -->
+          <rect x="480" y="100" width="180" height="62" rx="10" class="rx-box"/>
+          <text x="570" y="124" class="rx-cap" text-anchor="middle">孤束核（NST）</text>
+          <text x="570" y="146" class="rx-lab" text-anchor="middle">5-HT3・D2・M・H1</text>
+          <!-- vestibular -->
+          <rect x="20" y="100" width="180" height="62" rx="10" class="rx-box"/>
+          <text x="110" y="124" class="rx-cap" text-anchor="middle">前庭路徑</text>
+          <text x="110" y="146" class="rx-lab" text-anchor="middle">M・H1</text>
+          <!-- arrows to center -->
+          <path d="M340 158 L 340 96" class="rx-arrow" marker-end="url(#rxa2)"/>
+          <path d="M560 98 L 434 70" class="rx-arrow" marker-end="url(#rxa2)"/>
+          <path d="M120 98 L 246 70" class="rx-arrow" marker-end="url(#rxa2)"/>
+          <path d="M432 180 L 500 164" class="rx-arrow" marker-end="url(#rxa2)"/>
+          <!-- peripheral sources -->
+          <rect x="250" y="300" width="180" height="70" rx="10" class="rx-box2"/>
+          <text x="340" y="324" class="rx-cap" text-anchor="middle">血液中的致吐物質</text>
+          <text x="340" y="344" class="rx-sub" text-anchor="middle">尿毒、內毒素、藥物</text>
+          <text x="340" y="360" class="rx-sub" text-anchor="middle">（如 opioid、apomorphine）</text>
+          <path d="M340 298 L 340 240" class="rx-arrow" marker-end="url(#rxa2)"/>
+          <rect x="470" y="300" width="190" height="70" rx="10" class="rx-box2"/>
+          <text x="565" y="320" class="rx-cap" text-anchor="middle">腸胃道受損</text>
+          <text x="565" y="340" class="rx-sub" text-anchor="middle">EC 細胞放出 5-HT</text>
+          <text x="565" y="356" class="rx-sub" text-anchor="middle">→ 迷走神經傳入的 5-HT3</text>
+          <path d="M590 298 L 590 166" class="rx-arrow" marker-end="url(#rxa2)"/>
+          <rect x="20" y="300" width="180" height="70" rx="10" class="rx-box2"/>
+          <text x="110" y="326" class="rx-cap" text-anchor="middle">內耳前庭</text>
+          <text x="110" y="346" class="rx-sub" text-anchor="middle">動暈症（暈車）</text>
+          <path d="M110 298 L 110 166" class="rx-arrow" marker-end="url(#rxa2)"/>
+          <defs>
+            <marker id="rxa2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="rx-head"/></marker>
+          </defs>
+        </svg>
+        <figcaption class="figure-caption">自繪簡化圖，依講義 Autacoid 3 GI 投影片 59–61 的文字與 60、67 的路徑圖重畫；NK1 位置依講義投影片 78 與 VPT10 Ch.46。CTZ 的受體清單採講義投影片 59 的文字（路徑圖上的 CTZ 只標 5-HT3、D2、M1）。省略了高級中樞（恐懼、氣味）與咽部傳入。</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>嘔吐從哪裡來</th><th>經過的受體</th><th>對應的止吐藥（擋這條路）</th></tr></thead>
+          <tbody>
+            <tr><td>內耳前庭（暈車）</td><td>M、H1</td><td>H1 阻斷劑（Diphenhydramine、Dimenhydrinate、Meclizine 等）；Scopolamine</td></tr>
+            <tr><td>血液中的毒物、藥物（CTZ）</td><td>5-HT3、D2、M、H1、α2</td><td>D2 阻斷劑（Metoclopramide、Phenothiazine 類）；5-HT3 阻斷劑</td></tr>
+            <tr><td>腸胃道受損、化療（迷走神經 → 孤束核）</td><td>5-HT3（另有 D2、M、H1）</td><td>5-HT3 阻斷劑（Ondansetron 等），化療嘔吐最有效</td></tr>
+            <tr><td><strong>所有路徑的終點</strong>（嘔吐中樞）</td><td><strong>NK1</strong></td><td><strong>Maropitant</strong>：擋最終共同路徑，所以對多種原因的嘔吐都有效</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">反過來用：催吐</div>
+        <p>同一張圖也能解釋催吐藥。<strong>犬用 Apomorphine</strong>（D2 促效劑 → 刺激 CTZ）；<strong>貓用 Xylazine</strong>（α2 促效劑，貓的嘔吐由 α2 受體介導）。兩者都作用在 CTZ，不必進入受 BBB 保護的嘔吐中樞。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>VPT10 Ch.46 指出 NK1 阻斷劑「止吐有效，但對噁心的緩解較差」。動物不吐了，不代表不噁心。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學講義 Autacoid 3 GI（Emesis、Antiemetics、NK1 antagonist、Emetics、Apomorphine）；VPT10 Ch.46。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 7 BODY MAP -->
+    <div class="section" id="section-bodymap">
+      <div class="section-head"><div class="section-num">7</div><h2>全身受體地圖：同一個受體還在哪裡<span class="tag tag-exam">互動</span></h2></div>
+      <p class="section-desc">點一個受體，下方會亮出它在全身出現的位置，並列出每個位置的功能。腸胃道以外亮起來的位置，就是用這個受體的藥最可能出現副作用的地方。也可以反過來點位置，看那裡有哪些受體。</p>
+
+      <div class="bm-chips" id="bmChips"></div>
+      <div class="bm-body" id="bmBody"></div>
+      <div class="bm-detail" id="bmDetail"></div>
+
+      <div class="alert alert-info" style="margin-top:16px;">
+        <div class="alert-label">資訊</div>
+        <p>這張地圖只收錄這頁講到的 13 個受體，資料取自講義。心血管、呼吸道、泌尿道各自還有其他受體（例如 β1、β2、α1），會在之後的「全身受體總論」補上。</p>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學講義 ANS 1（膽鹼與腎上腺素受體的組織分布、α2、D2 分布）、Autacoid 1 Histamine（H1、H2 分布與作用）、Autacoid 2 5-HT（5-HT2、5-HT3、5-HT4 分布與作用）、Autacoid 3 GI、A6 CNS Narcotic（μ 的作用與物種差異）；VPT10 Ch.26（多巴胺抑制 prolactin 分泌）、Ch.46。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+<style>
+/* ---- shared diagram styles (rx-) ---- */
+.rx-fig { margin: 16px 0 20px; }
+.rx-fig svg { width: 100%; max-width: 680px; height: auto; display: block; margin: 0 auto; }
+.rx-cell { fill: var(--bg-faint); stroke: var(--line-soft); stroke-width: 1.5; }
+.rx-cell2 { fill: var(--bg-soft); stroke: var(--line-soft); stroke-width: 1.5; }
+.rx-muscle { fill: var(--slate-100); stroke: var(--slate-700); stroke-width: 1.2; }
+.rx-lumen { fill: var(--amber-100); stroke: var(--line); }
+.rx-ach { fill: var(--accent-tint); stroke: var(--accent-mid); }
+.rx-cap { font-size: 13px; font-weight: 700; fill: var(--fg); }
+.rx-big { font-size: 26px; font-weight: 800; fill: var(--amber-700); }
+.rx-lab { font-size: 12px; font-weight: 700; fill: var(--accent); }
+.rx-enz { fill: var(--fg-muted); }
+.rx-sub { font-size: 11px; fill: var(--fg-muted); text-anchor: middle; }
+.rx-rec text { font-size: 12px; font-weight: 700; text-anchor: middle; }
+.rx-go rect { fill: var(--green-100); stroke: var(--green-700); stroke-width: 1.5; }
+.rx-go text { fill: var(--green-700); }
+.rx-stop rect { fill: var(--rust-100); stroke: var(--rust-700); stroke-width: 1.5; }
+.rx-stop text { fill: var(--rust-700); }
+.rx-exec rect { fill: var(--bg); stroke: var(--slate-700); stroke-width: 2; }
+.rx-exec text { fill: var(--slate-700); }
+.rx-pump rect { fill: var(--amber-100); stroke: var(--amber-700); stroke-width: 1.5; }
+.rx-pump text { fill: var(--amber-700); font-size: 11px; }
+.rx-leg-go { fill: var(--green-100); stroke: var(--green-700); }
+.rx-leg-stop { fill: var(--rust-100); stroke: var(--rust-700); }
+.rx-leg-exec { fill: var(--bg); stroke: var(--slate-700); stroke-width: 2; }
+.rx-arrow { fill: none; stroke: var(--fg-faint); stroke-width: 1.6; }
+.rx-arrow-stop { stroke: var(--rust-700); stroke-dasharray: 4 3; }
+.rx-stoptxt { fill: var(--rust-700); }
+.rx-head { fill: var(--fg-faint); }
+.rx-head-stop { fill: var(--rust-700); }
+.rx-bbb { fill: var(--amber-100); opacity: .8; }
+.rx-box { fill: var(--bg); stroke: var(--line-soft); stroke-width: 1.5; }
+.rx-box-key { stroke: var(--accent); stroke-width: 2.2; }
+.rx-box2 { fill: var(--bg-faint); stroke: var(--line); stroke-dasharray: 4 3; }
+.rr-table .rr-group { background: var(--bg-faint); font-weight: 700; font-size: .85em; color: var(--fg-muted); }
+
+/* ---- body map (bm-) ---- */
+.bm-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; }
+.bm-chip { font: inherit; font-size: .85em; font-weight: 700; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line-soft); background: var(--bg); color: var(--fg); cursor: pointer; }
+.bm-chip.bm-on { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.bm-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.bm-region { border: 1px solid var(--line); border-radius: 10px; padding: 10px; background: var(--bg-faint); }
+.bm-region h4 { margin: 0 0 8px; font-size: .78em; letter-spacing: .06em; color: var(--fg-faint); }
+.bm-loc { display: block; width: 100%; text-align: left; font: inherit; font-size: .86em; padding: 6px 9px; margin: 0 0 5px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--fg-dim); cursor: pointer; }
+.bm-loc.bm-lit { color: var(--amber-700); border-color: var(--amber-700); background: var(--amber-100); font-weight: 700; }
+.bm-loc.bm-lit.bm-gi { border-color: var(--green-700); background: var(--green-100); color: var(--green-700); }
+.bm-loc.bm-sel { outline: 2px solid var(--accent); }
+.bm-detail { margin-top: 14px; }
+.bm-detail h3 { margin-top: 0; }
+.bm-detail .bm-legend { font-size: .82em; color: var(--fg-muted); margin: 0 0 10px; }
+.bm-swatch { display: inline-block; width: 11px; height: 11px; border-radius: 3px; vertical-align: -1px; margin-right: 3px; }
+@media (max-width: 720px) {
+  .bm-body { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 460px) {
+  .bm-body { grid-template-columns: 1fr; }
+}
+</style>
+<script>
+(function () {
+  // 位置：key → [名稱, 區域, 是否屬於腸胃道/嘔吐系統]
+  var LOC = {
+    vc: ['嘔吐中樞', '腦', true], ctz: ['CTZ（化學受器觸發區）', '腦', true], nst: ['孤束核（NST）', '腦', true], vest: ['前庭路徑', '腦', true],
+    brain: ['其他腦區（意識、行為、運動、止痛）', '腦', false], resp: ['呼吸中樞', '腦', false], cough: ['咳嗽中樞', '腦', false], pit: ['腦下垂體', '腦', false],
+    eye: ['眼（虹膜、睫狀肌）', '頭頸', false], saliv: ['唾液腺', '頭頸', false],
+    heart: ['心臟', '胸腔', false], lung: ['支氣管（平滑肌、腺體）', '胸腔', false],
+    vessel: ['血管（平滑肌、內皮）', '全身', false], platelet: ['血小板', '全身', false], skin: ['皮膚感覺神經末梢', '全身', false], symp: ['交感神經末梢', '全身', false],
+    parietal: ['胃壁細胞', '腸胃道', true], ecl: ['胃 ECL 細胞', '腸胃道', true], epith: ['胃黏膜上皮', '腸胃道', true],
+    enteric: ['腸神經叢（腸肌叢）', '腸胃道', true], smooth: ['腸胃平滑肌', '腸胃道', true], vagal: ['迷走神經傳入末梢', '腸胃道', true],
+    islet: ['胰島 β 細胞', '腹腔其他', false], kidney: ['腎（集尿管）', '腹腔其他', false], bladder: ['膀胱', '腹腔其他', false], uterus: ['子宮', '腹腔其他', false]
+  };
+  var REGIONS = ['腦', '頭頸', '胸腔', '全身', '腸胃道', '腹腔其他'];
+  // 受體：名稱、說明、[位置key, 在這裡做什麼, 出處]
+  var REC = [
+    { id: 'M', name: 'M（毒蕈鹼）', note: '分 M1–M5 亞型；Atropine 等抗膽鹼藥不分亞型全部擋掉。', at: [
+      ['smooth', 'M3：平滑肌收縮，蠕動的執行者', 'Autacoid 3 GI'],
+      ['parietal', 'M3：迷走神經 ACh → 胃酸分泌', 'Autacoid 3 GI'],
+      ['ecl', 'M（亞型未定，講義標 M?）：ACh 刺激 ECL 細胞', 'Autacoid 3 GI'],
+      ['vest', 'M：暈車嘔吐訊號', 'Autacoid 3 GI'],
+      ['ctz', 'M（路徑圖標 M1）：嘔吐訊號', 'Autacoid 3 GI'],
+      ['nst', 'M：嘔吐訊號', 'Autacoid 3 GI'],
+      ['brain', 'M1：神經元興奮；M4：中樞', 'ANS 1'],
+      ['heart', 'M2：心跳↓、收縮力↓、房室傳導↓ → 擋掉就心跳加快（Atropine 矯正麻醉中心搏過緩）', 'ANS 1'],
+      ['eye', 'M3：虹膜括約肌收縮（縮瞳）、睫狀肌收縮 → 擋掉就散瞳、視力模糊；青光眼要小心', 'ANS 1；Autacoid 1 Histamine'],
+      ['saliv', 'M3：分泌↑ → 擋掉就口乾', 'ANS 1'],
+      ['lung', 'M3：支氣管收縮、腺體分泌↑', 'ANS 1'],
+      ['bladder', 'M3：逼尿肌收縮 → 擋掉就尿滯留', 'ANS 1'],
+      ['vessel', 'M3（內皮）：血管本身沒有膽鹼神經支配，生理意義不大', 'ANS 1']
+    ]},
+    { id: 'a2', name: 'α2', note: '腎上腺素受體；在突觸前、突觸後都有。', at: [
+      ['enteric', '抑制 ACh 釋放 → 腸胃蠕動與分泌↓', 'ANS 1'],
+      ['ctz', '貓的嘔吐由 α2 介導（Xylazine 給貓催吐）', 'Autacoid 3 GI'],
+      ['symp', '突觸前自體受體：抑制 NE 釋放（負回饋）', 'ANS 1'],
+      ['brain', '中樞：交感張力↓、鎮靜', 'ANS 1'],
+      ['heart', '交感張力↓ → 心臟功能↓', 'ANS 1'],
+      ['islet', '胰島素分泌↓ → 高血糖（反芻獸可超過 24 小時）', 'ANS 1'],
+      ['pit', '後葉 ADH（AVP）分泌↓', 'ANS 1'],
+      ['kidney', '抑制 ADH 在集尿管的作用 → 利尿', 'ANS 1']
+    ]},
+    { id: 'D2', name: 'D2（多巴胺）', note: 'Gi 偶聯，降低神經分泌。', at: [
+      ['enteric', '腸肌叢運動神經元：ACh 釋放↓ → 下食道括約肌與胃內壓↓', 'Autacoid 3 GI'],
+      ['ctz', '多巴胺刺激 CTZ → 嘔吐（Apomorphine 給犬催吐）', 'Autacoid 3 GI'],
+      ['vc', '多巴胺也是嘔吐中樞的神經傳導物質', 'Autacoid 3 GI'],
+      ['nst', '嘔吐訊號', 'Autacoid 3 GI'],
+      ['brain', '中樞特定區域 → 擋掉會出現錐體外症狀（Extrapyramidal Signs, EPS）', 'ANS 1；Autacoid 3 GI'],
+      ['pit', '多巴胺抑制 prolactin 分泌 → 擋掉 D2 會讓 prolactin↑（講義列為 Domperidone、Metoclopramide 的副作用）', 'VPT10 Ch.26；Autacoid 3 GI'],
+      ['symp', '交感神經節與腎上腺素性神經末梢', 'ANS 1']
+    ]},
+    { id: 'H1', name: 'H1（組織胺）', note: '第一代 H1 阻斷劑會進腦，也常帶抗膽鹼作用。', at: [
+      ['vest', '暈車嘔吐訊號', 'Autacoid 3 GI'],
+      ['nst', '嘔吐訊號', 'Autacoid 3 GI'],
+      ['ctz', '嘔吐訊號（講義 CTZ 受體清單）', 'Autacoid 3 GI'],
+      ['brain', '中樞：擋掉 → 鎮靜、嗜睡', 'Autacoid 1 Histamine'],
+      ['smooth', '腸平滑肌收縮', 'Autacoid 1 Histamine'],
+      ['lung', '支氣管收縮', 'Autacoid 1 Histamine'],
+      ['vessel', '內皮：微血管通透性↑、小動脈擴張 → 水腫、低血壓', 'Autacoid 1 Histamine'],
+      ['skin', '感覺神經末梢：癢、痛', 'Autacoid 1 Histamine']
+    ]},
+    { id: 'H2', name: 'H2（組織胺）', note: 'cAMP 路徑。', at: [
+      ['parietal', '胃酸分泌（cAMP）', 'Autacoid 3 GI'],
+      ['heart', '心肌：收縮力與心跳↑（組織胺的心血管作用 H1、H2 都有參與）', 'Autacoid 1 Histamine'],
+      ['brain', '中樞也有分布', 'Autacoid 1 Histamine']
+    ]},
+    { id: '5HT2', name: '5-HT2', note: 'Mirtazapine、Cyproheptadine 都會擋它，用來促進食慾。', at: [
+      ['smooth', '腸平滑肌直接收縮、張力↑', 'Autacoid 2 5-HT'],
+      ['vessel', '血管平滑肌收縮', 'Autacoid 2 5-HT'],
+      ['platelet', '血小板凝集', 'Autacoid 2 5-HT'],
+      ['brain', '5-HT 參與食慾調控；擋 5-HT2 用於促進食慾（亞型在腦的位置講義未細分）', 'Autacoid 3 GI']
+    ]},
+    { id: '5HT3', name: '5-HT3', note: '唯一一個本身是離子通道的 5-HT 受體。', at: [
+      ['vagal', '腸黏膜 EC 細胞放出 5-HT → 迷走神經傳入 → 嘔吐（化療嘔吐）', 'Autacoid 3 GI'],
+      ['ctz', '嘔吐訊號（area postrema 的 5-HT3 密度很高）', 'Autacoid 3 GI；Autacoid 2 5-HT'],
+      ['nst', '嘔吐訊號', 'Autacoid 3 GI'],
+      ['enteric', '抑制性中間神經元 → 抑制腸肌叢神經活性', 'Autacoid 3 GI'],
+      ['heart', '心臟迷走傳入末梢 → Bezold–Jarisch 反射：心搏過緩、低血壓、呼吸暫停', 'Autacoid 2 5-HT']
+    ]},
+    { id: '5HT4', name: '5-HT4', note: 'cAMP 路徑。', at: [
+      ['enteric', '興奮性中間神經元、膽鹼性運動神經元 → ACh 釋放↑ → 蠕動↑', 'Autacoid 3 GI；Autacoid 2 5-HT'],
+      ['smooth', '講義受體表列「smooth muscle」', 'Autacoid 2 5-HT'],
+      ['brain', '講義受體表列「CNS」', 'Autacoid 2 5-HT']
+    ]},
+    { id: 'mu', name: 'μ-opioid', note: 'Gi 偶聯。', at: [
+      ['enteric', '腸神經 ACh 釋放↓ → 推進性收縮↓、分節收縮↑、水分吸收↑ → 止瀉；也造成便秘', 'Autacoid 3 GI；A6'],
+      ['ctz', '直接刺激 CTZ → 噁心嘔吐（犬、貓、人）', 'A6'],
+      ['brain', '止痛、欣快；物種差異：貓、馬高劑量可能興奮', 'A6；ANS 1'],
+      ['resp', '呼吸中樞對 CO₂ 的反應↓ → 呼吸抑制（過量致死的主因）', 'A6'],
+      ['eye', '犬縮瞳；貓、馬、羊散瞳', 'A6'],
+      ['heart', '心搏過緩（Gi 打開 K⁺ 通道），可用抗膽鹼藥矯正', 'A6'],
+      ['uterus', '子宮收縮力↓ → 產程延長', 'A6']
+    ]},
+    { id: 'NK1', name: 'NK1', note: '天然配體是 P 物質（substance P）。', at: [
+      ['vc', '嘔吐中樞：所有嘔吐路徑的最終共同路徑', 'Autacoid 3 GI；VPT10 Ch.46'],
+      ['ctz', 'CTZ 也有 NK1，但以嘔吐中樞的最重要', 'VPT10 Ch.46'],
+      ['brain', '痛覺傳遞：Maropitant 可降低犬腹腔手術的麻醉需求量', 'Autacoid 3 GI'],
+      ['cough', '咳嗽中樞：Maropitant 可減少慢性支氣管炎犬的咳嗽（推測為中樞作用）', 'Autacoid 3 GI']
+    ]},
+    { id: 'motilin', name: 'Motilin 受體', note: '集中在胃與近端小腸，所以 Erythromycin 對結腸效果小。', at: [
+      ['smooth', '胃竇、近端小腸平滑肌收縮', 'Autacoid 3 GI；VPT10 Ch.46'],
+      ['enteric', '膽鹼性運動神經元上也有', 'Autacoid 3 GI']
+    ]},
+    { id: 'EP', name: 'EP（前列腺素 E 受體）', note: '胃的部分講義標 EP3；子宮收縮講義未標亞型。', at: [
+      ['parietal', 'EP3：cAMP↓ → 胃酸↓（煞車）', 'Autacoid 3 GI'],
+      ['epith', '黏液與 HCO₃⁻ 分泌↑ → 黏膜保護', 'Autacoid 3 GI'],
+      ['uterus', 'Misoprostol 造成子宮收縮 → 懷孕禁用；也用於流產與子宮蓄膿', 'Autacoid 3 GI']
+    ]},
+    { id: 'G', name: 'Gastrin 受體', note: 'Gastrin 由胃竇 G 細胞分泌，經血液到達。', at: [
+      ['parietal', '胃酸分泌（Ca²⁺）', 'Autacoid 3 GI'],
+      ['ecl', '刺激 ECL 細胞放出組織胺', 'Autacoid 3 GI']
+    ]}
+  ];
+
+  var chips = document.getElementById('bmChips'), body = document.getElementById('bmBody'), detail = document.getElementById('bmDetail');
+  var cur = null, curLoc = null;
+
+  chips.innerHTML = REC.map(function (r) { return '<button type="button" class="bm-chip" data-r="' + r.id + '">' + r.name + '</button>'; }).join('');
+  body.innerHTML = REGIONS.map(function (g) {
+    var items = Object.keys(LOC).filter(function (k) { return LOC[k][1] === g; });
+    return '<div class="bm-region"><h4>' + g + '</h4>' + items.map(function (k) { return '<button type="button" class="bm-loc" data-l="' + k + '">' + LOC[k][0] + '</button>'; }).join('') + '</div>';
+  }).join('');
+
+  function showRec(id) {
+    cur = id; curLoc = null;
+    var r = REC.filter(function (x) { return x.id === id; })[0];
+    var lit = {};
+    r.at.forEach(function (a) { lit[a[0]] = true; });
+    chips.querySelectorAll('.bm-chip').forEach(function (c) { c.classList.toggle('bm-on', c.dataset.r === id); });
+    body.querySelectorAll('.bm-loc').forEach(function (b) {
+      var on = !!lit[b.dataset.l];
+      b.classList.toggle('bm-lit', on);
+      b.classList.toggle('bm-gi', on && LOC[b.dataset.l][2]);
+      b.classList.remove('bm-sel');
+    });
+    var gi = r.at.filter(function (a) { return LOC[a[0]][2]; }), other = r.at.filter(function (a) { return !LOC[a[0]][2]; });
+    function rows(list) { return list.map(function (a) { return '<tr><td data-label="位置"><strong>' + LOC[a[0]][0] + '</strong></td><td data-label="在這裡做什麼">' + a[1] + '</td><td data-label="出處" style="font-size:.8em;color:var(--fg-faint);">' + a[2] + '</td></tr>'; }).join(''); }
+    detail.innerHTML = '<h3>' + r.name + '：出現在 ' + r.at.length + ' 個位置</h3>' +
+      '<p class="bm-legend"><span class="bm-swatch" style="background:var(--green-100);border:1px solid var(--green-700);"></span>腸胃道與嘔吐路徑　<span class="bm-swatch" style="background:var(--amber-100);border:1px solid var(--amber-700);"></span>腸胃道以外（副作用可能出現的地方）　' + r.note + '</p>' +
+      '<div class="table-wrap"><table class="bm-table"><thead><tr><th>位置</th><th>在這裡做什麼</th><th>出處</th></tr></thead><tbody>' +
+      (gi.length ? '<tr><td colspan="3" class="rr-group">腸胃道與嘔吐路徑</td></tr>' + rows(gi) : '') +
+      (other.length ? '<tr><td colspan="3" class="rr-group">腸胃道以外</td></tr>' + rows(other) : '') +
+      '</tbody></table></div>';
+  }
+  function showLoc(k) {
+    curLoc = k;
+    var hits = [];
+    REC.forEach(function (r) { r.at.forEach(function (a) { if (a[0] === k) hits.push([r, a]); }); });
+    chips.querySelectorAll('.bm-chip').forEach(function (c) { c.classList.remove('bm-on'); });
+    body.querySelectorAll('.bm-loc').forEach(function (b) { b.classList.remove('bm-lit', 'bm-gi'); b.classList.toggle('bm-sel', b.dataset.l === k); });
+    detail.innerHTML = '<h3>' + LOC[k][0] + '：本頁收錄的受體有 ' + hits.length + ' 個</h3>' +
+      '<div class="table-wrap"><table class="bm-table"><thead><tr><th>受體</th><th>在這裡做什麼</th><th>出處</th></tr></thead><tbody>' +
+      hits.map(function (h) { return '<tr><td data-label="受體"><a style="cursor:pointer;" data-jump="' + h[0].id + '"><strong>' + h[0].name + '</strong></a></td><td data-label="在這裡做什麼">' + h[1][1] + '</td><td data-label="出處" style="font-size:.8em;color:var(--fg-faint);">' + h[1][2] + '</td></tr>'; }).join('') +
+      '</tbody></table></div>';
+  }
+  chips.addEventListener('click', function (e) { var b = e.target.closest('.bm-chip'); if (b) showRec(b.dataset.r); });
+  body.addEventListener('click', function (e) { var b = e.target.closest('.bm-loc'); if (b) showLoc(b.dataset.l); });
+  detail.addEventListener('click', function (e) { var a = e.target.closest('[data-jump]'); if (a) showRec(a.dataset.jump); });
+  showRec('M');
+  // 手機版表格轉卡片：把表頭文字複製成每格的 data-label
+  document.querySelectorAll('table.rx-cards').forEach(function (t) {
+    var heads = [].map.call(t.querySelectorAll('thead th'), function (th) { return th.textContent; });
+    t.querySelectorAll('tbody tr').forEach(function (tr) {
+      var tds = tr.querySelectorAll('td');
+      if (tds.length !== heads.length) return;
+      tds.forEach(function (td, i) { td.setAttribute('data-label', heads[i]); });
+    });
+  });
+})();
+</script>
+<style>
+@media (max-width: 720px) {
+  .rx-fig { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .rx-fig svg { min-width: 600px; }
+  .rx-fig .figure-caption::before { content: "← 圖可左右滑動 →　"; font-weight: 700; }
+  .rx-cards thead { display: none; }
+  .rx-cards, .rx-cards tbody, .rx-cards tr, .rx-cards td { display: block; width: auto; }
+  .rx-cards tr { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 10px; padding: 4px 0; }
+  .rx-cards td { border: 0; padding: 4px 12px; }
+  .rx-cards td[data-label]::before { content: attr(data-label); display: block; font-size: .75em; font-weight: 700; color: var(--fg-faint); }
+  .rx-cards td:first-child { background: var(--bg-faint); }
+  .bm-table thead { display: none; }
+  .bm-table, .bm-table tbody, .bm-table tr, .bm-table td { display: block; width: auto; }
+  .bm-table tr { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 10px; padding: 4px 0; }
+  .bm-table td { border: 0; padding: 4px 12px; }
+  .bm-table td[data-label]::before { content: attr(data-label); display: block; font-size: .75em; font-weight: 700; color: var(--fg-faint); }
+  .bm-table td.rr-group { border-radius: 8px; }
+}
+</style>
+
+    <!-- 8 DRUGS -->
+    <div class="section" id="section-drugs">
+      <div class="section-head"><div class="section-num">8</div><h2>回頭看藥：每個藥踩哪個點</h2></div>
+      <p class="section-desc">每一列照「踩哪個受體 → 腸胃道的效果 → 同一受體在別處 → 連帶影響」讀。最後一欄可以對照第 7 節的地圖。途徑取自本站<a href="../大三/獸醫藥理學/藥品索引.html">藥品索引</a>（該索引的途徑已依講義與教科書核對）。</p>
+      <div class="table-wrap">
+        <table class="rx-cards">
+          <thead><tr><th>藥物</th><th>途徑</th><th>踩的點</th><th>腸胃道效果</th><th>同一受體在別處 → 連帶影響</th></tr></thead>
+          <tbody>
+            <tr><td colspan="5" class="rr-group">蠕動</td></tr>
+            <tr><td><strong>Metoclopramide</strong></td><td>PO／SC／IM／IV（含 CRI）</td><td>5-HT4 促效（講義：為主）＋D2 拮抗；高劑量 5-HT3 拮抗</td><td>胃、十二指腸蠕動↑；中樞 D2 → 止吐</td><td>會穿 BBB → 腦的 D2 被擋 → 錐體外症狀；腦下垂體 → prolactin↑；馬會興奮</td></tr>
+            <tr><td><strong>Domperidone</strong></td><td>PO</td><td>D2 拮抗</td><td>蠕動↑（去抑制）</td><td>不穿 BBB → 沒有錐體外症狀；但可到達 CTZ（BBB 弱）→ 對 CTZ 來源的嘔吐可能有效（VPT10 Ch.46）；prolactin 仍↑ → 泌乳</td></tr>
+            <tr><td><strong>Cisapride</strong></td><td>PO</td><td>5-HT4 促效；也擋 5-HT3</td><td>下食道括約肌到結腸全段蠕動↑；有止吐性質</td><td>不作用在 D2 → 沒有 D2 相關副作用；人類嚴重心律不整，2000 年下市（講義未說明機轉）</td></tr>
+            <tr><td><strong>Erythromycin（低劑量）</strong></td><td>PO（犬貓 0.5–1 mg/kg，低於抗菌劑量）</td><td>Motilin 受體促效</td><td>胃、小腸收縮↑、胃排空↑；結腸效果小</td><td>高劑量 → 胃強烈收縮 → 嘔吐、逆流。物種差異：貓直接活化 motilin 受體，犬是間接的膽鹼與 neurokinin 作用（HBK Ch.11）</td></tr>
+            <tr><td><strong>Bethanechol</strong></td><td>PO／SC</td><td>M3 促效（直接當執行者）</td><td>平滑肌收縮</td><td>膀胱 M3 → 收縮（這也是它治膀胱擴張的用途）；SC 給藥要非常小心，避免器官破裂</td></tr>
+            <tr><td><strong>Neostigmine</strong></td><td>SC／IM／IV</td><td>抑制 AChE</td><td>ACh 留久 → 蠕動↑（麻痺性腸阻塞）</td><td>全身的 ACh 都變多（膀胱、神經肌肉接合處）</td></tr>
+            <tr><td><strong>Ranitidine</strong></td><td>PO／IV</td><td>H2 拮抗＋抑制 ChE</td><td>抑酸，同時促蠕動</td><td>—</td></tr>
+            <tr><td><strong>Atropine</strong>（抗膽鹼代表）</td><td>PO／IV／IM／SC（注射為主）</td><td>M 拮抗（不分亞型）</td><td>蠕動↓、分泌↓（止痙攣）；過頭 → 麻痺性腸阻塞</td><td>心臟 M2 → 心跳↑；眼 → 散瞳（青光眼小心）；唾液腺 → 口乾；膀胱 → 尿滯留</td></tr>
+            <tr><td><strong>Loperamide</strong></td><td>PO</td><td>μ 促效（腸神經）</td><td>ACh↓ → 推進性蠕動↓ → 止瀉</td><td>不穿 BBB → 中樞作用少；仍可能便秘、腹脹、鎮靜；貓要小心（興奮反應）；感染性腹瀉禁用</td></tr>
+            <tr><td><strong>Morphine 等止痛 opioid</strong></td><td>SC／IM（口服生體可用率 5–20%，不建議）</td><td>μ 促效</td><td>蠕動↓、便秘（副作用）</td><td>CTZ → 嘔吐；呼吸中樞 → 呼吸抑制；心臟 → 心搏過緩；眼 → 犬縮瞳、貓散瞳</td></tr>
+            <tr><td><strong>Xylazine／Dexmedetomidine</strong></td><td>Xylazine：IM／IV／SC；Dexmedetomidine：IV 或 IM</td><td>α2 促效</td><td>腸神經 ACh↓ → 蠕動與分泌↓；貓 CTZ → 嘔吐</td><td>中樞 → 鎮靜；胰島 → 高血糖；ADH↓ → 利尿；交感張力↓</td></tr>
+            <tr><td colspan="5" class="rr-group">胃酸</td></tr>
+            <tr><td><strong>Famotidine</strong></td><td>PO／IV</td><td>H2 拮抗（效力最強）</td><td>胃酸↓</td><td>IV 給貓可能溶血；腎排除為主 → 腎功能差要減量</td></tr>
+            <tr><td><strong>Omeprazole</strong>／<strong>Pantoprazole</strong></td><td>Omeprazole：PO；Pantoprazole：PO／IV</td><td>H⁺/K⁺-ATPase（不可逆）</td><td>胃酸↓（最強）</td><td>不是受體藥，非胃的 ATPase 不受影響；但抑制 P450 → 其他藥濃度↑；胃 pH↑ → azole 抗黴菌藥與鐵吸收↓</td></tr>
+            <tr><td><strong>Misoprostol</strong></td><td>PO</td><td>EP3 促效（PGE1 類似物）</td><td>胃酸↓＋黏液、HCO₃⁻↑；預防 NSAID 潰瘍</td><td>子宮 → 收縮 → 懷孕禁用；IBD 禁用；腹瀉、腹痛</td></tr>
+            <tr><td colspan="5" class="rr-group">嘔吐</td></tr>
+            <tr><td><strong>Maropitant</strong></td><td>SC 或 PO（亦有 IV 劑型）</td><td>NK1 拮抗（嘔吐中樞）</td><td>多種原因的嘔吐都有效；暈車預防</td><td>痛覺傳遞 → 降低麻醉需求；咳嗽中樞 → 減少咳嗽；止噁心較弱</td></tr>
+            <tr><td><strong>Ondansetron</strong></td><td>犬建議 IV（口服 &lt;10%）；貓 PO 或 SC</td><td>5-HT3 拮抗</td><td>化療嘔吐最有效</td><td>不作用在 D2、H1、α、M → 沒有鎮靜、低血壓、錐體外症狀</td></tr>
+            <tr><td><strong>Diphenhydramine</strong></td><td>PO／IM／IV</td><td>H1 拮抗（第一代）</td><td>暈車嘔吐（預防性使用）</td><td>腦 → 鎮靜；第一代常帶抗膽鹼作用 → 口乾、尿滯留</td></tr>
+            <tr><td><strong>Acepromazine</strong>（Phenothiazine 代表）</td><td>PO 或 IV／IM／SC</td><td>D2 拮抗（另擋 M1、H1）</td><td>止吐（CTZ）</td><td>腦 → 鎮靜；講義：抗精神病藥阻斷 D2、M1、H1</td></tr>
+            <tr><td><strong>Apomorphine</strong></td><td>IV 低劑量（IM／SC 亦可）</td><td>D2 促效（CTZ）</td><td>犬催吐首選</td><td>高劑量反而經 μ 止吐；不宜重複給（嘔吐中樞會被抑制）</td></tr>
+            <tr><td colspan="5" class="rr-group">食慾</td></tr>
+            <tr><td><strong>Mirtazapine</strong></td><td>PO</td><td>5-HT2、5-HT3、H1、α2 拮抗</td><td>促食慾＋止吐（犬貓）</td><td>H1 → 鎮靜，用最低劑量</td></tr>
+            <tr><td><strong>Cyproheptadine</strong>（院內：Pilian）</td><td>PO</td><td>H1＋5-HT2A、5-HT1A 拮抗</td><td>促食慾（貓有效，犬無效）</td><td>鎮靜；明顯抗膽鹼作用；不作用在 H2（不影響胃酸）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：NTU 獸醫藥理學講義 Autacoid 3 GI、Autacoid 1 Histamine、Autacoid 2 5-HT、ANS 1、A6 CNS Narcotic；HBK Ch.11（Cisapride 作用範圍、Erythromycin 物種差異）；VPT10 Ch.46（Domperidone 與 CTZ）；給藥途徑取自本站藥品索引。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量與途徑以院內規範為準。</footer>
+    </div>
+
+    <!-- 9 QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>自我測驗</h2></div>
+      <p class="section-desc">先自己作答，再點開答案。答錯時，看看是錯在哪一步：受體位置？同一受體在別處？還是 BBB？</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 腸道的 D2 受體主要長在哪裡？</div>
+        <ul class="quiz-options">
+          <li>(A) 腸胃平滑肌細胞上，活化後直接讓肌肉放鬆</li>
+          <li>(B) 腸肌叢的運動神經元上，活化後讓神經少放 ACh</li>
+          <li>(C) 胃壁細胞上，活化後增加胃酸</li>
+          <li>(D) 腸黏膜 EC 細胞上，活化後釋放 5-HT</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義：多巴胺透過活化 D2 受體減少腸肌叢運動神經元的 ACh 釋放，降低下食道括約肌與胃內壓。所以擋 D2 是「放開煞車」，不是直接刺激肌肉。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 下列哪一個受體是腸胃平滑肌收縮的「執行者」？</div>
+        <ul class="quiz-options">
+          <li>(A) 5-HT4</li>
+          <li>(B) D2</li>
+          <li>(C) M3</li>
+          <li>(D) NK1</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">ACh 接上平滑肌的 M3 → 收縮。5-HT4 是油門（讓神經多放 ACh），D2 是煞車，NK1 在嘔吐中樞。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. Domperidone 不會通過血腦屏障，所以完全不會影響任何位於腦部的受體，也不會有止吐作用。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：✗</div>
+          <p class="quiz-explain">CTZ 位在 area postrema，BBB 很弱，所以不進腦的藥仍可作用在 CTZ。VPT10 Ch.46 寫 Domperidone「可能有止吐作用，但只限於刺激來自 CTZ 的嘔吐」，因為它能到達不受 BBB 保護的 area postrema。Domperidone 沒有的是錐體外症狀（那些 D2 在 BBB 內）。另外它仍會讓 prolactin 上升、刺激泌乳。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q4. PPI 比 H2 阻斷劑抑酸更強，是因為 PPI 擋住的是三條胃酸路徑共同的出口。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：○</div>
+          <p class="quiz-explain">H2、M3、gastrin 三個入口最後都靠 H⁺/K⁺-ATPase 把 H⁺ 打進胃腔。H2 阻斷劑只關掉其中一個入口。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q5. 為什麼給 Atropine 治療腸痙攣時，動物可能出現心跳加快和散瞳？請用「同一受體在別處」的邏輯回答。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">Atropine 擋所有 M 亞型。心臟的 M2 原本讓心跳變慢 → 被擋掉 → 心跳加快。虹膜括約肌的 M3 原本讓瞳孔縮小 → 被擋掉 → 散瞳。腸道的 M3 被擋才是想要的效果，其他位置的 M 受體一起被擋，就成了副作用。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 犬誤食毒物要催吐時用 Apomorphine，貓卻改用 Xylazine。請從受體說明原因。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">兩者都作用在 CTZ，但踩的受體不同。Apomorphine 是 D2 促效劑，犬的反應好；講義寫 Apomorphine 用於犬、不用於貓。貓的嘔吐由 α2 受體介導，所以用 α2 促效劑 Xylazine。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】一隻犬剛做完開腹手術，術中與術後用了 Dexmedetomidine 與 Morphine 止痛。術後第一天食慾差、腸音很弱，超音波看到胃內有液體滯留。請問：(1) 這兩個藥分別踩到哪個受體、在腸胃道的哪個位置？(2) 為什麼兩個不同類的藥會造成同樣的結果？(3) 如果想用促蠕動藥，從受體的角度，你會想選踩哪一個點的藥？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> Dexmedetomidine 活化 α2，Morphine 活化 μ-opioid，兩者都在腸神經上。<br><strong>(2)</strong> α2 和 μ 都是腸神經上的「煞車」，都讓神經少放 ACh → 平滑肌 M3 得到的訊號變少 → 蠕動↓。兩種藥的類別不同，但最後都匯到同一件事：ACh 變少。<br><strong>(3)</strong> 思考方向：踩油門（5-HT4：Metoclopramide、Cisapride；motilin：低劑量 Erythromycin）、放開另一個煞車（D2：Metoclopramide），或讓 ACh 留久（Ranitidine 的 AChE 抑制）。前提是先排除機械性阻塞。實際選藥還要看共病，見<a href="2026-10-01_專題-犬貓腸胃不蠕動與胃液滯留用藥.html">腸胃不蠕動專題</a>。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】一隻接受化療的犬持續嘔吐，同時有輕度青光眼病史。請問：(1) 這種嘔吐的訊號主要走哪一條路、經過哪個受體？(2) 你會優先考慮哪一類止吐藥？(3) 有一類止吐藥對暈車有效，但對這隻犬不適合，是哪一類？為什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> 化療殺死腸黏膜 EC 細胞 → 放出 5-HT → 迷走神經傳入末梢的 5-HT3 → 孤束核 → 嘔吐中樞（講義）。<br><strong>(2)</strong> 5-HT3 阻斷劑（Ondansetron，講義列為化療嘔吐首選且較有效）；也可考慮擋終點的 NK1 阻斷劑 Maropitant。<br><strong>(3)</strong> 抗膽鹼藥（Scopolamine）。擋 M 受體可治暈車，但眼睛的 M3 也被擋 → 散瞳 → 青光眼惡化。另外講義也提到大多數抗膽鹼藥用於動物止吐並不實用。</p>
+        </details>
+      </div>
+      <footer class="note-footer">情境為虛構的教學組合。資料來源：NTU 獸醫藥理學講義 Autacoid 3 GI、ANS 1、A6 CNS Narcotic；VPT10 Ch.46。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 10 FOLLOWUP -->
+    <div class="section" id="section-followup">
+      <div class="section-head"><div class="section-num">10</div><h2>待確認與下一步</h2></div>
+      <ul>
+        <li><strong>Metoclopramide 的主要機轉：</strong>講義寫 5-HT4 促效為主（predominant）；本站藥品索引寫「D2 拮抗（主）」；VPT10 Ch.46 與 HBK Ch.11 兩者並列、未分主次。需要決定藥品索引要不要改成跟講義一致。</li>
+        <li><strong>CTZ 的受體清單：</strong>講義文字寫 5-HT3、D2、M、H1、α2；同一份講義的路徑圖只標 5-HT3、D2、M1。本頁採文字版本。</li>
+        <li><strong>Cisapride 的心律不整：</strong>講義只寫「人類嚴重心律不整，2000 年下市」，沒有說明機轉，本頁沒有補。</li>
+        <li><strong>下一步：</strong>以同樣的寫法擴充成「全身受體總論」，加入心血管（β1、β2、α1）、呼吸道、泌尿道與中樞的受體，第 7 節的地圖直接擴充。</li>
+      </ul>
+      <footer class="note-footer">本頁內容僅供個人學習與院內討論使用，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "overview": "⭐ 先看全貌",
+  "basics": "🔑 從零開始：受體是什麼",
+  "roster": "📇 受體名冊",
+  "motility": "🌀 舞台一：蠕動",
+  "acid": "🧪 舞台二：胃酸",
+  "emesis": "🤢 舞台三：嘔吐",
+  "bodymap": "🗺️ 全身受體地圖",
+  "drugs": "💊 回頭看藥",
+  "quiz": "📝 自我測驗",
+  "followup": "📌 待確認與下一步"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

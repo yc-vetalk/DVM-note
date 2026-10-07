@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>犬化療照護與副作用管理指南 - 上群動物醫院</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群動物醫院" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="內科"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">上群動物醫院 首頁</a>
+      <span class="sep">›</span>
+      <a href="index.html">內科</a>
+      <span class="sep">›</span>
+      <span class="current">犬化療照護與副作用管理指南</span>
+    </div>
+
+    <div class="page-head">
+      <h1 class="page-title">犬化療照護與副作用管理指南</h1>
+      <p class="page-subtitle">以淋巴瘤 CHOP 方案與肛門腺腺癌（AGASACA）carboplatin 輔助治療為主軸，整理 doxorubicin 用藥細節、VCOG-CTCAE 不良反應分級與實際劑量調整、支持性照護做法。</p>
+    </div>
+
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科別</div><div class="meta-value">內科（腫瘤）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">VCOG-CTCAE v2（2021）、UW-Madison CHOP-19 方案、Hallman 2019、Wouda 2016 等原文全文，詳見第 11 節</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">已逐篇讀取可取得之原文全文；少數論文僅能取得摘要層級資訊，內文已逐一標註</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-03</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 總覽</a>
+    <div class="section-label">方案與藥物</div>
+    <a onclick="showSection('chop')" id="nav-chop"><span class="nav-icon">💊</span> 淋巴瘤化療：CHOP-19 方案</a>
+    <a onclick="showSection('mdr1')" id="nav-mdr1"><span class="nav-icon">🧬</span> MDR1 基因型與毒性放大</a>
+    <a onclick="showSection('doxorubicin')" id="nav-doxorubicin"><span class="nav-icon">❤️</span> Doxorubicin：劑量、給藥與心臟毒性</a>
+    <a onclick="showSection('carboplatin')" id="nav-carboplatin"><span class="nav-icon">🎗️</span> 腺癌化療實證：AGASACA 與腸道腺癌</a>
+    <div class="section-label">不良反應管理</div>
+    <a onclick="showSection('grading')" id="nav-grading"><span class="nav-icon">📊</span> 不良反應分級與處置流程</a>
+    <a onclick="showSection('supportive')" id="nav-supportive"><span class="nav-icon">🩹</span> 支持性照護</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('glossary')" id="nav-glossary"><span class="nav-icon">🔤</span> 縮寫對照表</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <a onclick="showSection('references')" id="nav-references"><span class="nav-icon">📚</span> 參考資料</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">六個臨床重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>牧羊犬血統在開始 CHOP 前應先排除 MDR1（ABCB1）突變：</strong>vincristine 與 doxorubicin 都是 P-glycoprotein 主要底物，帶突變犬（Collie 約 70%、Australian Shepherd 約 50%）標準劑量下血液學毒性風險大增（嗜中性球低下 75% vs 11.5%，P=.0005），doxorubicin 腸道暴露量也可能增加約 174%；loperamide 止瀉也因同一機轉對這類犬有中樞神經毒性風險，應避免使用。</li>
+          <li><strong>Doxorubicin 劑量不是單純套公式：</strong>體重 ≥15 kg 用 <span class="dose">30 mg/m²</span> IV，但<strong>體重 &lt;15 kg 要改用 <span class="dose">1 mg/kg</span>（或機構慣例的 25 mg/m²）</strong>，因為以體表面積計算會讓小型犬實際暴露劑量偏高，腸胃毒性與嗜中性球低下的發生率也較高。</li>
+          <li><strong>心臟毒性風險不是「有無」而是品種與累積劑量的連續風險：</strong>一篇 494 隻犬的回溯研究顯示整體發生率 4.0%，<strong>Boxer 犬風險顯著較高（15.4% vs 3.0%，P&lt;.001）</strong>，累積劑量 &gt;240 mg/m² 後心臟毒性才明顯增加，多數機構會把總劑量上限設在 ~180 mg/m² 左右；高風險品種建議在第 1、4、6 劑前安排心臟超音波／ECG。</li>
+          <li><strong>血球分級決定的是「打不打」，不是「打多少」：</strong>UW-Madison CHOP-19 方案的實際做法是用當天 CBC 的嗜中性球與血小板數值，決定<strong>照常給藥 / 延後給藥在家觀察 / 住院給抗生素</strong>三條路徑，而非一律套用某個百分比減量公式——劑量調整幅度其實因方案而異。</li>
+          <li><strong>AGASACA（犬肛門腺腺癌）術後輔助化療的實證比想像中薄弱：</strong>目前規模最大的 carboplatin 輔助治療研究（n=74）顯示，手術＋化療組與單純手術組的存活期<strong>並無統計上顯著差異</strong>（723 天 vs 581 天，P=.174），這代表「加打化療」不保證延長存活，需要誠實告知飼主現有證據的局限。</li>
+          <li><strong>非藥物介入也有實證支持、成本低：</strong>兩篇隨機交叉研究顯示，<strong>給藥前一晚開始禁食約 24 小時</strong>可顯著降低 doxorubicin 延遲性嘔吐（67%→10%，P=.020）與 vincristine 相關噁心（53%→7%）、食慾不振（60%→7%）的發生率，是現有止吐藥之外值得常規建議的輔助做法。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>總覽</h2></div>
+      <p class="section-desc">本頁整理犬腫瘤科最常遇到的兩個化療情境——<strong>多中心淋巴瘤的 CHOP 多藥併用方案</strong>與<strong>肛門腺腺癌（AGASACA）術後輔助 carboplatin</strong>——並以這兩個情境為骨架，統整 doxorubicin 的用藥細節、VCOG-CTCAE 不良反應分級系統，以及實際可執行的支持性照護做法。</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">為什麼放在同一頁</div>
+          <p style="margin:0;">doxorubicin 同時是 CHOP 方案的核心藥物，也是其他腺癌（如乳腺腫瘤）常用的化療藥；carboplatin 則是 AGASACA 術後輔助治療最常被討論的選項。兩個情境共用同一套不良反應分級邏輯與支持性照護原則，分開寫會大量重複，因此整合成一頁。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">閱讀本頁前的心理準備</div>
+          <p style="margin:0;">腫瘤科的實證強度落差很大：doxorubicin 心臟毒性、CHOP 分級處置有高品質研究支持；但 AGASACA 輔助化療、部分止吐／G-CSF 使用細節目前仍只有小樣本或摘要層級的資料。本頁會在每個段落明確標註證據等級，<strong>不會把摘要層級的數字包裝成定論</strong>。</p>
+        </div>
+      </div>
+
+      <h3>名詞釐清：腺癌（Adenocarcinoma）不是單一種癌症</h3>
+      <p>「腺癌」是依組織來源分類的廣義病理學名詞，泛指源自腺體上皮的惡性腫瘤，臨床行為、治療反應與化療藥物選擇會因<strong>原發部位</strong>差異極大（例如 AGASACA、乳腺腺癌、肺腺癌、甲狀腺腺癌彼此的生物學行為並不相同）。本頁聚焦在犬最常見、也最常被問到是否該加打化療的 <strong>AGASACA</strong>，不代表其他部位腺癌可以直接套用相同的 carboplatin 劑量或結論。</p>
+    </div>
+
+    <!-- CHOP -->
+    <div class="section" id="section-chop">
+      <div class="section-head"><div class="section-num">3</div><h2>淋巴瘤化療：CHOP-19 方案</h2></div>
+      <p class="section-desc">CHOP（Cyclophosphamide／Hydroxydaunorubicin [doxorubicin]／Oncovin [vincristine]／Prednisone）是犬多中心淋巴瘤最廣泛使用的誘導化療方案。以下整理自 <strong>University of Wisconsin–Madison 的 CHOP-19 方案</strong>原始病歷用表，是目前教學與臨床最常引用的版本之一；其他機構常用的「UW-25」等變化版會在誘導後加入額外的維持劑量，實際週次安排請以該院方案為準，不要直接套用本表延伸。</p>
+
+      <h3>每週用藥與劑量</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>週次</th><th>藥物</th><th>劑量／途徑</th></tr></thead>
+          <tbody>
+            <tr><td>Week 1</td><td>Vincristine<br>Prednisone</td><td><span class="dose">0.5–0.7 mg/m²</span> IV<br><span class="dose">2 mg/kg</span> PO，SID</td></tr>
+            <tr><td>Week 2</td><td>Cyclophosphamide（Cytoxan）<br>Furosemide<br>Prednisone</td><td><span class="dose">250 mg/m²</span> PO<br><span class="dose">1 mg/kg</span> PO<br><span class="dose">1.5 mg/kg</span> PO，SID</td></tr>
+            <tr><td>Week 3</td><td>Vincristine<br>Prednisone</td><td><span class="dose">0.5–0.7 mg/m²</span> IV<br><span class="dose">1 mg/kg</span> PO，SID</td></tr>
+            <tr><td>Week 4</td><td>Doxorubicin<br>Prednisone</td><td><span class="dose">30 mg/m²</span> IV（&lt;15 kg 降至 <span class="dose">25 mg/m²</span>）<br><span class="dose">0.5 mg/kg</span> PO，SID（本週後停用）</td></tr>
+            <tr><td>Week 6</td><td>Vincristine</td><td><span class="dose">0.5–0.7 mg/m²</span> IV</td></tr>
+            <tr><td>Week 7</td><td>Cyclophosphamide<br>Furosemide</td><td><span class="dose">250 mg/m²</span> PO<br><span class="dose">1 mg/kg</span> PO</td></tr>
+            <tr><td>Week 8</td><td>Vincristine</td><td><span class="dose">0.5–0.7 mg/m²</span> IV</td></tr>
+            <tr><td>Week 9</td><td>Doxorubicin</td><td><span class="dose">30 mg/m²</span> IV（&lt;15 kg 降至 25 mg/m²）</td></tr>
+            <tr><td>Week 11</td><td>Vincristine</td><td><span class="dose">0.5–0.7 mg/m²</span> IV</td></tr>
+            <tr><td>Week 12</td><td>Cyclophosphamide<br>Furosemide</td><td><span class="dose">250 mg/m²</span> PO<br><span class="dose">1 mg/kg</span> PO</td></tr>
+            <tr><td>Week 13</td><td>Vincristine</td><td><span class="dose">0.5–0.7 mg/m²</span> IV</td></tr>
+            <tr><td>Week 14</td><td>Doxorubicin</td><td><span class="dose">30 mg/m²</span> IV（&lt;15 kg 降至 25 mg/m²）</td></tr>
+            <tr><td>Week 16</td><td>Vincristine</td><td><span class="dose">0.5–0.7 mg/m²</span> IV</td></tr>
+            <tr><td>Week 17</td><td>Cyclophosphamide<br>Furosemide</td><td><span class="dose">250 mg/m²</span> PO<br><span class="dose">1 mg/kg</span> PO</td></tr>
+            <tr><td>Week 18</td><td>Vincristine</td><td><span class="dose">0.5–0.7 mg/m²</span> IV</td></tr>
+            <tr><td>Week 19</td><td>Doxorubicin</td><td><span class="dose">30 mg/m²</span> IV（&lt;15 kg 降至 25 mg/m²）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>若 <strong>Week 19 達到完全緩解（CR）</strong>，原方案建議停止所有治療、改為每月回診追蹤。方案全程 doxorubicin 累積總劑量會被記錄（mg 與 mg/m²），用於後續心臟毒性風險評估（見第 5 節）。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>每次給藥前都必須先完成 <strong>CBC 與理學檢查</strong>，依當天嗜中性球與血小板數值決定是否照常給藥——這套血球門檻判斷邏輯是本方案「如何降低副作用衝擊」的核心做法，完整規則見第 7 節。Cyclophosphamide 固定搭配 <strong>furosemide（1 mg/kg PO）</strong>同時給藥，用意是誘導利尿、縮短藥物代謝物與膀胱黏膜的接觸時間，降低無菌性出血性膀胱炎風險（機轉詳見第 8 節）。</p>
+      </div>
+    </div>
+
+    <!-- MDR1 -->
+    <div class="section" id="section-mdr1">
+      <div class="section-head"><div class="section-num">4</div><h2>MDR1（ABCB1）基因型：決定毒性嚴重度的隱藏變數</h2></div>
+      <p class="section-desc">CHOP 方案裡的 <strong>vincristine 與 doxorubicin 都是 P-glycoprotein（P-gp）的主要底物</strong>——這個運輸蛋白負責把藥物從細胞內（尤其血腦屏障、腸道上皮、骨髓）主動排出。部分犬品種帶有 <strong>MDR1（現稱 ABCB1-1Δ）基因突變</strong>，P-gp 功能缺損或喪失，標準劑量的 vincristine／doxorubicin 會造成遠超預期的全身暴露與毒性。這不是罕見的學術細節，而是<strong>開始 CHOP 前就該問的問題</strong>。</p>
+
+      <h3>好發品種與帶因率</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>品種</th><th>帶因率（估計值，依來源略有差異）</th></tr></thead>
+          <tbody>
+            <tr><td>Collie（柯利犬）</td><td>約 <span class="dose">70%</span></td></tr>
+            <tr><td>Long-haired Whippet、Australian Shepherd（澳洲牧羊犬）</td><td>約 <span class="dose">50%</span></td></tr>
+            <tr><td>Silken Windhound</td><td>約 <span class="dose">30%</span></td></tr>
+            <tr><td>Shetland Sheepdog（Sheltie）、English Shepherd</td><td>約 <span class="dose">15%</span></td></tr>
+            <tr><td>German Shepherd（德國牧羊犬）</td><td>約 <span class="dose">10%</span></td></tr>
+            <tr><td>Border Collie、Old English Sheepdog、混種犬</td><td>約 <span class="dose">5%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">任何有牧羊犬血統的混種犬都不能單靠外觀排除帶因可能；上述數字為品種普查估計值，個體仍須以基因檢測確認。</p>
+
+      <h3>Vincristine：血液學毒性的直接證據</h3>
+      <p>一篇前瞻性研究（34 隻淋巴瘤犬：26 隻 wt/wt 野生型、4 隻 wt/mut 異型合子、4 隻 mut/mut 同型合子）在標準劑量 <span class="dose">0.5–0.7 mg/m²</span> vincristine 下比較基因型與血液學毒性：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>帶有 ABCB1-1Δ 突變（wt/mut＋mut/mut 合併）</th><th>野生型（wt/wt）</th></tr></thead>
+          <tbody>
+            <tr><td>嗜中性球低下發生率</td><td><span class="dose">75%</span>（6/8）</td><td><span class="dose">11.5%</span>（3/26），P=.0005</td></tr>
+            <tr><td>血小板低下發生率</td><td><span class="dose">62.5%</span>（5/8）</td><td><span class="dose">4%</span>（1/26），P=.0001</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>作者結論：標準劑量下 vincristine<strong>極可能對帶突變犬造成血液學毒性</strong>，進而導致治療延遲與不可接受的罹病率／死亡率。</p>
+
+      <h3>Doxorubicin：藥物動力學模擬顯示腸道暴露暴增</h3>
+      <p>另一篇藥物動力學模擬研究（Monte Carlo 模擬，非活體臨床試驗）比較 ABCB1 正常與完全缺損犬在標準 <span class="dose">30 mg/m²</span> doxorubicin 劇量下的組織暴露量：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>組織</th><th>ABCB1 缺損犬 vs 正常犬暴露量增幅</th></tr></thead>
+          <tbody>
+            <tr><td>血清</td><td>增加約 <span class="dose">24%</span></td></tr>
+            <tr><td>腸道組織</td><td>增加約 <span class="dose">174%</span>——幾乎是正常犬的近 3 倍</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>模擬計算顯示，若要讓 ABCB1 缺損犬的血清暴露量與正常犬相當，劑量需降至 <span class="dose">24.8 mg/m²</span>（約正常劇量的 83%）；若要讓<strong>腸道</strong>暴露量也相當，劑量需降到 <span class="dose">10.7 mg/m²</span>（僅約 36%）——但此時腫瘤部位的藥物濃度可能已低於有效治療閾值。作者因此認為 <strong>ABCB1 完全缺損犬可能根本不存在安全又有效的 doxorubicin 治療窗</strong>。腸道組織暴露量大幅增加，正是這類犬使用標準劑量 doxorubicin 後<strong>腸胃毒性（包含腹瀉）特別容易偏重、偏久</strong>的機轉基礎（支持性照護細節見第 8 節）。</p>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床建議</div>
+        <p>牧羊犬血統（Collie、Australian Shepherd、Sheltie 等）或其混種犬，<strong>開始 CHOP 前應先做 MDR1／ABCB1 基因檢測</strong>（口腔黏膜拭子送檢，結果通常數個工作日內可取得）。常見的臨床處置慣例（並非單一 RCT 驗證的固定公式，而是多篇二手文獻與臨床指引引用的起始建議）：<strong>異型合子（wt/mut）起始劑量下修約 25–30%</strong>，<strong>同型合子（mut/mut）下修約 50%</strong>，之後依第 7 節的血球與腸胃分級反應再微調。若無法及時完成基因檢測，至少應提高監測頻率、給藥後更早安排 CBC 複查。</p>
+      </div>
+    </div>
+
+    <!-- DOXORUBICIN -->
+    <div class="section" id="section-doxorubicin">
+      <div class="section-head"><div class="section-num">5</div><h2>Doxorubicin：劑量、給藥與心臟毒性監測</h2></div>
+      <p class="section-desc">Doxorubicin（蒽環類抗生素）是 CHOP 方案與多種犬腺癌（如乳腺腫瘤）化療的核心藥物之一，但也是本頁所有藥物中<strong>心臟毒性與局部組織傷害風險最需要主動管理</strong>的一個。</p>
+
+      <h3>劑量規則</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>體重</th><th>劑量</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr><td>≥15 kg</td><td><span class="dose">30 mg/m²</span> IV</td><td>標準劑量</td></tr>
+            <tr><td>&lt;15 kg（多數機構以 10–15 kg 為界）</td><td><span class="dose">1 mg/kg</span> IV（部分機構採 25 mg/m²）</td><td>以體表面積（BSA）換算小型犬劑量會<strong>高估</strong>實際代謝清除率，體重 ≤10 kg 犬以 30 mg/m² 給藥後，腸胃毒性與嗜中性球低下（&lt;1000/μL）的發生率都高於較大型犬</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>給藥細節：vesicant（發泡性藥物）的安全規範</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">輸注方式</div><p style="margin:0;">必須透過<strong>確認完全在血管內、新放置的留置針</strong>給藥，以緩慢速度輸注（約 <span class="dose">1 mg/min</span>）；若病患術前心臟超音波已顯示收縮功能異常，建議改以<strong>1 小時</strong>輸注降低急性心臟負荷。</p></div>
+        <div class="card"><div class="card-title">外滲（extravasation）處置</div><p style="margin:0;">Doxorubicin 是強效發泡性藥物，一旦外滲可能造成組織壞死。懷疑外滲時立即停止輸注，可於 <strong>3–6 小時內</strong>給予 <strong>dexrazoxane</strong>（第 1、2 天各 1000 mg/m² IV，第 3 天 500 mg/m² IV，皆緩慢輸注 15 分鐘以上）作為解毒劑，越早給予效果越好。</p></div>
+      </div>
+
+      <h3>心臟毒性：發生率、風險因子與監測時機</h3>
+      <p>一篇回溯性研究（Hallman 等人，2019；<strong>494 隻犬</strong>）分析接受 doxorubicin 化療犬隻的臨床心臟毒性：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>數據</th></tr></thead>
+          <tbody>
+            <tr><td>整體發生率</td><td><span class="dose">4.0%</span>（20/494）</td></tr>
+            <tr><td>發生心臟毒性 vs 未發生，累積劑量平均值</td><td><span class="dose">144.78 mg/m²</span> vs <span class="dose">121.9 mg/m²</span>（P=.01）</td></tr>
+            <tr><td>Boxer 犬風險 vs 其他品種</td><td><span class="dose">15.4%</span> vs <span class="dose">3.0%</span>（P&lt;.001）——<strong>品種是目前最明確的風險因子</strong></td></tr>
+            <tr><td>監測建議</td><td>高風險品種（如 Boxer、Doberman 等好發心肌病品種）建議在<strong>第 1、4、6 劑前</strong>安排心臟超音波與 ECG；短軸縮短率（FS）較基礎值<strong>下降 &gt;15%</strong> 是需要提高警覺的門檻</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>累積劑量方面，一般認為 doxorubicin 心臟毒性在<strong>累積劑量 &lt;240 mg/m²</strong> 時並不常見，但多數機構基於安全餘裕，實務上會把總累積劑量上限設在 <span class="dose">~180 mg/m²</span> 左右，而非等到理論上限才喊停。</p>
+
+      <h3>VCOG-CTCAE：左心室收縮功能障礙分級</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Grade</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>無症狀，靜息 EF 45–50%</td></tr>
+            <tr><td>2</td><td>無症狀，靜息 EF 40–45%</td></tr>
+            <tr><td>3</td><td>有症狀之 CHF，治療後可改善；EF 20–40%</td></tr>
+            <tr><td>4</td><td>頑固性或控制不佳之 CHF；EF &lt;20%</td></tr>
+            <tr><td>5</td><td>死亡</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">資料來源：VCOG-CTCAE v2（LeBlanc 等人，2021，CC BY-NC-ND 開放授權），完整分級表見第 7 節與參考資料。</p>
+    </div>
+
+    <!-- CARBOPLATIN / AGASACA -->
+    <div class="section" id="section-carboplatin">
+      <div class="section-head"><div class="section-num">6</div><h2>腺癌化療實證：AGASACA 與腸道腺癌</h2></div>
+      <p class="section-desc">「腺癌」依原發部位不同，治療反應與證據等級差異很大。本節整理犬最常見、也最常被問到是否該加打化療的兩種腺癌：證據相對完整的<strong>肛門腺腺癌（AGASACA）</strong>，以及證據薄弱、多屬個案層級的<strong>腸道腺癌（Intestinal Adenocarcinoma）</strong>。</p>
+
+      <h3>肛門腺腺癌（Apocrine Gland Anal Sac Adenocarcinoma, AGASACA）</h3>
+      <p>犬肛門腺腺癌是常見的犬肛門周圍惡性腫瘤，臨床上手術切除後是否該加打輔助性化療，是飼主最常提出的問題之一。目前規模最大、追蹤最完整的證據來自 Wouda 等人 2016 年發表於 <i>Veterinary and Comparative Oncology</i> 的回溯性研究（原文全文可於 PMC 取得）。</p>
+
+      <h3>研究設計與結果（Wouda 等人，2016，n=74）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>數據</th></tr></thead>
+          <tbody>
+            <tr><td>族群</td><td>共 74 隻犬：<strong>44 隻</strong>手術＋輔助 carboplatin，<strong>30 隻</strong>單純手術</td></tr>
+            <tr><td>Carboplatin 劑量與排程</td><td><span class="dose">300 mg/m²</span> IV，每 <span class="dose">3 週</span>一次；中位數給藥 4 次（範圍 2–4 次），91% 完成預定療程</td></tr>
+            <tr><td>整體中位存活期（OS）</td><td>703 天（全部病例）</td></tr>
+            <tr><td>手術＋化療 vs 單純手術 OS</td><td><strong>723 天 vs 581 天，P=.174（無統計顯著差異）</strong></td></tr>
+            <tr><td>中位疾病無惡化時間（TTP）</td><td>384 天（組間比較 P=.370，同樣無顯著差異）</td></tr>
+            <tr><td>多變量分析顯著預後因子</td><td>僅<strong>原發腫瘤大小</strong>與<strong>診斷時是否已有轉移</strong>，<strong>是否接受化療本身並非顯著預後因子</strong></td></tr>
+            <tr><td>不良反應發生率</td><td>整體 30%（13/44）；劑量限制性毒性（DLT）18%（8/44）；主要為<strong>嗜中性球低下、血小板低下與腸胃不適</strong>；7%（3/44）因副作用中止治療</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">臨床解讀</div>
+        <p>這篇研究的結論是：輔助性 carboplatin <strong>耐受性良好，但並未在統計上顯著延長存活期或無惡化時間</strong>。换句话說，目前最佳證據<strong>無法保證</strong>「加打化療＝活得更久」，臨床上是否建議化療，應該誠實呈現這個結果，並與飼主討論腫瘤大小、是否已轉移、經濟與照護負擔等因素，而不是把「術後常規輔助化療」當成理所當然的標準答案。樣本數（n=74，化療組僅 44 隻）也偏小，無法排除是檢定力不足而非真正無效的可能，这点同样需要向飼主說明清楚。</p>
+      </div>
+
+      <h3>犬腸道腺癌（Intestinal Adenocarcinoma）</h3>
+      <p>犬腸道腺癌好發於腸道（尤其大腸、直腸），確診時常已因腫瘤體積大、瀰漫性生長與高轉移率而預後不佳。與 AGASACA 不同，這個腫瘤<strong>目前沒有設計良好的前瞻性臨床試驗支持任何一種化療方案</strong>——現有資料多半是病例回顧或個案報告層級。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>目前所知（證據等級偏低，詳見下方提醒）</th></tr></thead>
+          <tbody>
+            <tr><td>單純手術預後</td><td>因確診時腫瘤體積常已偏大、生長瀰漫、轉移率高，中位存活期一般僅 <span class="dose">2–4 個月</span></td></tr>
+            <tr><td>曾被報告使用的輔助化療藥物</td><td>Carboplatin（± 5-fluorouracil）、doxorubicin、gemcitabine，給藥間隔多為每 1–3 週一次，共 4–6 次</td></tr>
+            <tr><td>加打化療是否延長存活</td><td><strong>效果未知／未建立</strong>（"efficacy unknown"）——文獻原話是「尚未確立對腸胃道腺癌有效的化療方案」，報告多屬個案層級，不是對照試驗</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>腸道腺癌的化療證據<strong>遠比 AGASACA 薄弱</strong>，不應與上方 AGASACA 的證據等級混為一談。目前對飼主的誠實說法是：手術切除（若腫瘤可切除、未廣泛轉移）仍是主要治療手段，輔助化療是否加打屬於<strong>個案討論、證據有限</strong>的決策，不存在公認有效的標準化療方案；5-fluorouracil 用於犬時需特別留意其<strong>犬隻神經毒性風險</strong>（貓與犬皆對 5-FU 極為敏感，誤用或過量可能致命），給藥前務必確認劑量與種屬安全性。</p>
+      </div>
+    </div>
+
+    <!-- GRADING -->
+    <div class="section" id="section-grading">
+      <div class="section-head"><div class="section-num">7</div><h2>不良反應分級（VCOG-CTCAE）與處置流程</h2></div>
+      <p class="section-desc">VCOG-CTCAE（Veterinary Cooperative Oncology Group – Common Terminology Criteria for Adverse Events）是目前犬貓腫瘤臨床試驗與臨床照護共通使用的不良反應分級系統（v2，2021 年發表，CC BY-NC-ND 開放授權）。它只負責<strong>定義嚴重度</strong>，實際劑量調整幅度由各方案或各院 SOP 自訂——這點本身就是容易被誤解的地方。</p>
+
+      <h3>通用分級邏輯（Grade 1–5）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Grade</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>輕微；無症狀或輕微症狀；僅臨床或診斷性發現；不需介入</td></tr>
+            <tr><td>2</td><td>中度；需門診或非侵入性介入；中度限制日常生活活動（ADL）</td></tr>
+            <tr><td>3</td><td>嚴重或具醫療意義但非立即威脅生命；需住院或延長住院；明顯限制 ADL</td></tr>
+            <tr><td>4</td><td>危及生命；需緊急介入</td></tr>
+            <tr><td>5</td><td>因該不良反應死亡（含人道安樂死或自然死亡）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>血液／骨髓：嗜中性球低下分級</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Grade</th><th>嗜中性球絕對值（ANC）</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>1500/μL – 低於正常值下限（LLN）</td></tr>
+            <tr><td>2</td><td>1000–1499/μL</td></tr>
+            <tr><td>3</td><td>500–999/μL</td></tr>
+            <tr><td>4</td><td>&lt;500/μL</td></tr>
+            <tr><td>5</td><td>死亡</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>血液／骨髓：血小板低下與貧血（PCV）分級</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Grade</th><th>血小板低下（無出血徵象）</th><th>PCV</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>100,000/μL – LLN</td><td>犬 30%–LLN／貓 25%–LLN</td></tr>
+            <tr><td>2</td><td>50,000–99,000/μL</td><td>犬 20–&lt;30%／貓 20–&lt;25%</td></tr>
+            <tr><td>3</td><td>25,000–49,000/μL</td><td>犬 15–&lt;20%／貓 15–&lt;20%（需輸血）</td></tr>
+            <tr><td>4</td><td>&lt;25,000/μL</td><td>犬 &lt;15%／貓 &lt;15%，危及生命</td></tr>
+            <tr><td>5</td><td>死亡</td><td>死亡</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>腸胃：嘔吐與腹瀉分級</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Grade</th><th>嘔吐</th><th>腹瀉</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>≤24 小時，用藥或不用藥、輸液或不輸液皆可緩解</td><td>輕度，≤24 小時，用藥或不用藥皆可緩解</td></tr>
+            <tr><td>2</td><td>持續 &gt;24 小時</td><td>持續 &gt;24 小時</td></tr>
+            <tr><td>3</td><td>需住院；影響 ADL</td><td>需住院；影響 ADL</td></tr>
+            <tr><td>4</td><td>危及生命（如血行動力學崩潰）</td><td>危及生命（如血行動力學崩潰）</td></tr>
+            <tr><td>5</td><td>死亡</td><td>死亡</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>一個實際運作中的方案如何落實：UW-Madison CHOP-19 的血球門檻判斷</h3>
+      <p>VCOG-CTCAE 定義了嚴重度，但「打不打、怎麼處理」仍要靠各方案自訂規則。以下是 UW-Madison CHOP-19 方案病歷用表上，依<strong>給藥當天 CBC</strong>決定處置的實際做法：</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>情境</th><th>處置</th></tr></thead>
+          <tbody>
+            <tr><td>ANC &gt;1500/μL</td><td>可照常給予化療</td></tr>
+            <tr><td>ANC 750–1500/μL，無發燒</td><td>暫緩化療，可回家密切監測，<strong>不需使用抗生素</strong></td></tr>
+            <tr><td>ANC &lt;750/μL</td><td>暫緩化療，<strong>2–3 天後複查 CBC</strong></td></tr>
+            <tr><td>發燒（&gt;39.2°C／102.5°F）且精神不佳，ANC &lt;1500/μL</td><td><strong>住院</strong>，給予 IV 輸液與 IV 抗生素（首選 enrofloxacin ＋ ampicillin），<strong>24 小時後複查 CBC</strong></td></tr>
+            <tr><td>血小板 &lt;50,000/μL</td><td>暫緩化療，2–3 天後複查 CBC</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>這套門檻是<strong>單一機構單一方案</strong>的實際做法，不是 VCOG-CTCAE 本身規定的通則；不同醫院、不同化療藥物組合的「打不打」門檻與抗生素選擇可能不同。引用時務必說明出處，不要當成放諸四海皆準的硬性規定。</p>
+      </div>
+    </div>
+
+    <!-- SUPPORTIVE -->
+    <div class="section" id="section-supportive">
+      <div class="section-head"><div class="section-num">8</div><h2>支持性照護</h2></div>
+      <p class="section-desc">除了依血球分級調整給藥時機，以下幾類支持性照護措施各有不同程度的實證支持，由藥物到非藥物、由高品質 RCT 到摘要層級逐一整理。</p>
+
+      <h3>止吐：藥物與非藥物雙軌並行</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>介入方式</th><th>研究設計</th><th>關鍵結果</th></tr></thead>
+          <tbody>
+            <tr><td>Maropitant（2 mg/kg PO，SID）＋doxorubicin</td><td>隨機、雙盲、安慰劑對照交叉研究，n=59（Rau 等人，2010）</td><td>服用 maropitant 組嘔吐發生率與嚴重度皆顯著降低（P=.001），腹瀉亦顯著改善（P=.041）——是目前證據等級最高的止吐介入</td></tr>
+            <tr><td>給藥前一晚起禁食 ~24 小時＋doxorubicin</td><td>隨機交叉研究，20 隻犬、35 劑次（PMC 全文可取得）</td><td>禁食組延遲性嘔吐發生率 <span class="dose">10%</span> vs 正常進食組 <span class="dose">67%</span>（P=.020）；其餘腸胃、骨髓毒性與 IGF-1 無顯著差異</td></tr>
+            <tr><td>給藥前後禁食（約 24–28 小時）＋vincristine</td><td>隨機交叉研究（Duckett 等人，2021，PMC 全文可取得）</td><td>噁心 53%→7%（P=.016）、食慾不振 60%→7%（P=.008）、嗜睡 73%→40%（P=.016）皆顯著改善；嘔吐、腹瀉、嗜中性球數無顯著差異</td></tr>
+            <tr><td>Maropitant（2 mg/kg PO，連續 5 天）＋單劑 doxorubicin（25 mg/m²，小型犬 5–10 kg）</td><td>前瞻性觀察研究，n=19，與歷史對照組比較（Matsuyama 等人，2022）</td><td>嘔吐 10.5% vs 歷史對照 27.8%、腹瀉 31.6% vs 50%，但<strong>組間比較與歷史對照劑量不同（25 mg/m² vs 1 mg/kg），且未達統計顯著</strong>，只能視為摘要層級的參考數字</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>整體而言，<strong>Maropitant 是目前證據最紮實的止吐藥物選擇</strong>；而「給藥前一晚開始禁食」這類<strong>幾乎零成本的非藥物介入</strong>，在兩篇獨立隨機交叉研究中都顯示能顯著降低特定症狀發生率，值得常規建議給飼主，但仍應搭配個別病患狀況（如是否有低血糖風險）調整。</p>
+
+      <h3>持續性腹瀉（Chemotherapy-Induced Diarrhoea, CID）的處置與預防</h3>
+      <p>腹瀉是化療最常見的腸胃副作用之一，多數屬 VCOG-CTCAE Grade 1–2（見第 7 節），但處置得當與否會直接影響病患是否需要暫緩下一劑化療。以下兩種介入目前都有專門針對犬 CID 設計的隨機對照試驗支持，證據等級高於單純「觀察等它自己好」。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>介入方式</th><th>研究設計與劑量</th><th>關鍵結果</th></tr></thead>
+          <tbody>
+            <tr><td>Smectite（蒙脫石）</td><td>單中心、開放標籤隨機對照試驗，n=60（Fournier 等人，2021）；劑量 <span class="dose">0.5 g/kg</span> PO，分 2–3 次於 24 小時內給完，腹瀉出現即開始給藥</td><td>腹瀉緩解時間中位數 <span class="dose">19.5 小時</span> vs 對照組 <span class="dose">53 小時</span>；需要 metronidazole 救援治療的比例 <strong>5/54 次 vs 對照組 40/56 次</strong>；因腹瀉持續、需住院或須調整化療劑量的嚴重個案 3 例 vs 對照組 10 例——<strong>目前證據等級最高的第一線選擇</strong></td></tr>
+            <tr><td>Crofelemer（Canalevia-CA1®）</td><td>FDA 條件式核准（2021 年 12 月）<strong>專門用於犬化療相關腹瀉（CID）</strong>的口服藥；劑量 <span class="dose">2–4 mg/kg</span> PO，BID，腹瀉出現時開始給藥</td><td>可使腹瀉發生率與嚴重度降低約 <span class="dose">30%</span>（統計上顯著），多數病患於治療第 3 天糞便即恢復正常；是目前唯一針對此適應症專門核准的動物用藥</td></tr>
+            <tr><td>Metronidazole（15 mg/kg PO，BID）</td><td>作為<strong>救援治療</strong>，而非第一線預防用藥；適用於精神食慾正常、非血便非水瀉的大腸性腹瀉（colitis）表現</td><td>在 smectite 試驗中，對照組（未使用 smectite）高達 71.4% 需要以此救援，smectite 組僅 9.3%——顯示<strong>先用 smectite／crofelemer 可大幅減少不必要的抗生素使用</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點提醒</div>
+        <p>腹瀉的預防與處置可分兩個層次：<strong>（1）急性發作時</strong>——以 smectite 或 crofelemer 為第一線，精神食慾正常、非血便非水瀉者先不急著用抗生素；<strong>（2）預防下次復發</strong>——若本次腹瀉已達 Grade 3 以上（需住院或明顯影響 ADL），下一劑化療前應依第 7 節的分級邏輯考慮延後給藥或與主治獸醫師討論劑量調整，而不是處理完這次腹瀉就照原劑量繼續；曾經發生過化療相關腹瀉的病患，也可考慮在下次給藥後提前預防性給予 smectite，而非等腹瀉出現才開始治療。高纖維、易消化或低敏飲食調整對部分慢性腸炎型腹瀉有輔助效果，但<strong>目前缺乏專門針對 CID 設計的飲食介入試驗</strong>，僅供參考。</p>
+      </div>
+
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p><strong>Loperamide（Imodium®）不建議作為犬 CID 的常規止瀉選擇</strong>。牧羊犬血統或帶有 MDR1／ABCB1 突變的犬隻，loperamide 會因為無法被 P-glycoprotein 有效排出血腦屏障，在一般止瀉劇量下就造成中樞神經毒性（嗜睡、共濟失調、流涎、甚至癲癇），且這類犬正是本頁第 4 節討論的、化療本身毒性就已經放大的高風險族群——同一隻狗同時踩到「loperamide 中樞毒性」與「vincristine／doxorubicin 暴露量暴增」兩個風險，不是單純的理論疑慮。除非已確認該犬 MDR1／ABCB1 基因型為野生型（wt/wt），否則 <strong>smectite 或 crofelemer 都是風險更低的第一線選擇</strong>，不需要用到 loperamide。</p>
+      </div>
+
+      <h3>嗜中性球低下的支持性處置：G-CSF</h3>
+      <p>除了依第 7 節的門檻暫緩給藥，部分情況（如預期下次治療前骨髓恢復較慢、或方案本身骨髓抑制性較強）會考慮使用顆粒性白血球群落刺激因子（G-CSF）加速嗜中性球恢復。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物／情境</th><th>劑量與用法</th><th>效果（摘要層級資料，詳見第 11 節）</th></tr></thead>
+          <tbody>
+            <tr><td>重組犬用 G-CSF，搭配 cyclophosphamide</td><td>於嗜中性球谷底（nadir）後 <span class="dose">2.5 µg/kg</span>，一天 3 次 SC，給予 2–5 天</td><td>加速嗜中性球恢復約 <span class="dose">1–3 天</span>，並降低低下程度的嚴重度</td></tr>
+            <tr><td>重組犬用 G-CSF，搭配 mitoxantrone</td><td>（原始研究為摘要層級資訊）</td><td>能縮短 mitoxantrone 誘發骨髓抑制的持續時間與嚴重度</td></tr>
+            <tr><td>重組人用 G-CSF，自體骨髓移植前使用（淋巴瘤犬）</td><td><span class="dose">5 µg/kg</span>，每 12 小時 SC，連續 7 天</td><td>2 週內嗜中性球數可上升 10 倍以上；未見明顯歸因於 G-CSF 的不良反應</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">以上 G-CSF 相關數字多來自較舊、樣本數有限的研究，且部分僅能取得摘要或二手文獻引用，實際使用時機與劑量建議以主治獸醫師與當下病患整體狀況為準，不宜單憑本表直接套用。</p>
+
+      <h3>Cyclophosphamide 無菌性出血性膀胱炎的預防</h3>
+      <p>Cyclophosphamide 的代謝物（acrolein）會刺激膀胱黏膜，長期或高劑量使用可能誘發無菌性出血性膀胱炎（表現為血尿、頻尿、排尿困難，但尿液培養陰性）。CHOP-19 方案的做法是<strong>每次給予 cyclophosphamide 當天同時口服 furosemide（1 mg/kg PO）</strong>，利用其利尿作用增加尿液產生與排尿頻率，縮短代謝物與膀胱黏膜的接觸時間，是目前最常見的預防做法。一旦發生出血性膀胱炎，通常需停用 cyclophosphamide（換用其他烷化劑或方案），並給予支持性治療。</p>
+
+      <h3>Vincristine：另一個發泡性藥物，但處置邏輯不同</h3>
+      <p>Vincristine 同樣是發泡性藥物，外滲處置原則與 doxorubicin 類似（立即停止輸注、必要時照會腫瘤科評估局部處置），但給藥方式不同——vincristine 一般以較快速度靜脈<strong>推注</strong>給藥，不像 doxorubicin 需要刻意放慢輸注速度；其特徵性副作用除腸胃症狀外，還包含因自主神經病變造成的<strong>腸躁動不足／便秘甚至腸阻塞</strong>，臨床評估噁心嘔吐病患時不要忽略觸診腹部與排便狀況。</p>
+    </div>
+
+    <!-- GLOSSARY -->
+    <div class="section" id="section-glossary">
+      <div class="section-head"><div class="section-num">9</div><h2>縮寫對照表</h2></div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td style="white-space:nowrap;"><strong>CHOP</strong></td><td>Cyclophosphamide, Hydroxydaunorubicin (doxorubicin), Oncovin (vincristine), Prednisone——淋巴瘤多藥併用化療方案</td><td style="white-space:nowrap;"><strong>VCOG-CTCAE</strong></td><td>Veterinary Cooperative Oncology Group – Common Terminology Criteria for Adverse Events（獸醫腫瘤不良反應分級系統）</td></tr>
+            <tr><td><strong>AGASACA</strong></td><td>Apocrine Gland Anal Sac Adenocarcinoma（肛門腺腺癌）</td><td><strong>ANC</strong></td><td>Absolute Neutrophil Count（嗜中性球絕對值）</td></tr>
+            <tr><td><strong>DLT</strong></td><td>Dose-Limiting Toxicity（劑量限制性毒性）</td><td><strong>CR</strong></td><td>Complete Remission（完全緩解）</td></tr>
+            <tr><td><strong>OS</strong></td><td>Overall Survival（整體存活期）</td><td><strong>TTP</strong></td><td>Time To Progression（疾病無惡化時間）</td></tr>
+            <tr><td><strong>LLN</strong></td><td>Lower Limit of Normal（正常值下限）</td><td><strong>PCV</strong></td><td>Packed Cell Volume（血球容積比）</td></tr>
+            <tr><td><strong>EF</strong></td><td>Ejection Fraction（心臟射出分率）</td><td><strong>FS</strong></td><td>Fractional Shortening（短軸縮短率）</td></tr>
+            <tr><td><strong>CHF</strong></td><td>Congestive Heart Failure（鬱血性心衰竭）</td><td><strong>G-CSF</strong></td><td>Granulocyte Colony-Stimulating Factor（顆粒性白血球群落刺激因子）</td></tr>
+            <tr><td><strong>ADL</strong></td><td>Activities of Daily Living（日常生活活動：進食、飲水、睡眠、排便排尿）</td><td><strong>BSA</strong></td><td>Body Surface Area（體表面積）</td></tr>
+            <tr><td><strong>CID</strong></td><td>Chemotherapy-Induced Diarrhoea（化療引發之腹瀉）</td><td><strong>5-FU</strong></td><td>5-Fluorouracil（氟尿嘧啶，犬貓需特別留意神經毒性）</td></tr>
+            <tr><td><strong>MDR1／ABCB1</strong></td><td>Multidrug Resistance 1（現稱 ABCB1-1Δ），編碼 P-glycoprotein 的基因，突變會造成藥物排出功能缺損</td><td><strong>P-gp</strong></td><td>P-glycoprotein（P 醣蛋白，負責把藥物主動排出細胞的運輸蛋白）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題</h2></div>
+      <p class="section-desc">以臨床情境呈現，先自行作答再點「顯示答案」核對。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q1. 25 kg 拉布拉多犬確診多中心淋巴瘤，依 CHOP-19 方案第 4 週要給 doxorubicin。這一劑怎麼算？輸注時要注意什麼，為什麼不能像 vincristine 一樣用推注的方式給藥？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">體重 ≥15 kg，依標準劑量以 <strong>30 mg/m²</strong> IV 計算（依犬隻體表面積換算，不是直接用 30 乘以體重）。給藥須經<strong>確認完全在血管內的新留置針</strong>，以約 <strong>1 mg/min</strong> 的速度緩慢輸注（心臟收縮功能若已有異常，建議改為 1 小時輸注）。不能用推注給藥，是因為 doxorubicin 是強效<strong>發泡性藥物（vesicant）</strong>，快速或不慎外滲可能造成嚴重組織壞死，緩慢輸注可降低外滲風險並減少急性心臟負荷；vincristine 雖然也是發泡性藥物，但給藥方式不同，一般以較快速度推注。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q2. 8 kg 的約克夏犬同樣要接受 doxorubicin 化療，若直接套用 30 mg/m² 計算劑量，可能有什麼問題？正確做法是什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">體重 &lt;15 kg 的小型犬若仍以 30 mg/m² 的體表面積公式計算，會<strong>高估</strong>其實際代謝清除能力，導致相對過量，腸胃毒性與嗜中性球低下（&lt;1000/μL）的發生率都會高於較大型犬。正確做法是<strong>改用 1 mg/kg（或機構慣例的 25 mg/m²）</strong>計算劑量，而不是直接沿用大型犬的體表面積公式。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q3. Boxer 犬正在接受 doxorubicin 化療方案，飼主問「為什麼我的狗需要比別人的狗做更多次心臟檢查？」會怎麼回答？監測時程該怎麼安排？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">Boxer 是 doxorubicin 心臟毒性的<strong>高風險品種</strong>，一篇 494 隻犬的回溯研究顯示 Boxer 犬心臟毒性發生率達 15.4%，顯著高於其他品種的 3.0%（P&lt;.001）。因此建議在<strong>第 1、4、6 劑給藥前</strong>安排心臟超音波與 ECG 檢查，監測短軸縮短率（FS）是否較基礎值下降超過 15%，比一般風險品種的監測頻率更密集，目的是在心臟功能明顯受損前及早發現、必要時調整治療計畫。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q4. 化療輸注 doxorubicin 時發現針頭部分外滲，皮下已出現輕微腫脹。接下來怎麼處置？時間點重要嗎？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">應<strong>立即停止輸注</strong>，評估外滲範圍與留置針狀況。因 doxorubicin 是強效發泡性藥物，外滲可能導致組織壞死，建議盡快（最好在 <strong>3–6 小時內</strong>）給予解毒劑 <strong>dexrazoxane</strong>（第 1、2 天各 1000 mg/m² IV，第 3 天 500 mg/m² IV，皆緩慢輸注 15 分鐘以上）。時間點非常重要——dexrazoxane 的效果與給藥時機密切相關，超過建議時間窗效果會下降，因此外滲後應盡快處置，不要等到腫脹明顯惡化才開始治療。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q5. AGASACA 術後飼主詢問：「醫生，如果我們再加打化療，是不是活得比較久？」依目前最佳證據，會怎麼回答？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">目前規模最大的相關研究（Wouda 等人，2016，n=74）顯示，手術＋輔助 carboplatin 組與單純手術組的中位存活期<strong>並無統計上顯著差異</strong>（723 天 vs 581 天，P=.174），疾病無惡化時間也無顯著差異；多變量分析顯示真正影響預後的是<strong>原發腫瘤大小與診斷時是否已轉移</strong>，而非是否接受化療。應誠實告知飼主：輔助化療耐受性雖好，但<strong>目前證據無法保證能延長存活期</strong>，是否加打需要綜合腫瘤分期、飼主期待與照護負擔共同決定，而不是當成理所當然會有效的標準做法。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q6. 犬依 CHOP-19 方案進行第 9 週 doxorubicin 治療，當天 CBC 顯示 ANC 為 600/μL，體溫正常、精神食慾良好。這一劑該怎麼處置？若同樣的 ANC 數值但合併發燒、精神沉鬱，處置又會有什麼不同？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">ANC 600/μL 落在 &lt;750/μL 區間，<strong>應暫緩給藥</strong>，安排 <strong>2–3 天後複查 CBC</strong>，此時因無發燒、精神食慾正常，<strong>不需要立即使用抗生素</strong>。若同樣 ANC &lt;1500/μL 但合併<strong>發燒（&gt;39.2°C／102.5°F）且精神沉鬱</strong>，則代表可能已發生嗜中性球低下合併感染的高風險狀態，應改為<strong>住院</strong>處置，給予 IV 輸液與 IV 抗生素（如 enrofloxacin＋ampicillin），並於 <strong>24 小時後複查 CBC</strong>，而不是單純在家觀察。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q7. 犬即將接受 cyclophosphamide 口服化療，飼主問要怎麼降低血尿風險；另外，院內想在下次 doxorubicin 治療前，用低成本的方式降低延遲性嘔吐發生率，有什麼做法？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">Cyclophosphamide 的代謝物（acrolein）會刺激膀胱黏膜，長期使用可能誘發無菌性出血性膀胱炎；預防做法是<strong>給藥當天同時口服 furosemide（1 mg/kg PO）</strong>，利用利尿作用增加排尿頻率、縮短代謝物與膀胱黏膜的接觸時間，這也是 CHOP-19 方案的固定做法。降低延遲性嘔吐方面，除了給予 maropitant，兩篇獨立隨機交叉研究都顯示<strong>給藥前一晚開始禁食約 24 小時</strong>可顯著降低 doxorubicin 延遲性嘔吐（67%→10%，P=.020）與 vincristine 相關噁心、食慾不振的發生率，是幾乎零成本、可常規建議飼主配合的做法，但仍需留意個別病患是否有低血糖等不適合長時間禁食的狀況。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q8. 12 歲米克斯犬確診腸道腺癌，手術切除部分腸段後，飼主詢問是否該加打化療、能不能用治療 AGASACA 的那套 carboplatin 邏輯來預期效果。會怎麼回答？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">不能直接套用。AGASACA 的 carboplatin 輔助治療至少有一篇 n=74 的回溯性研究提供具體存活期數字（雖然結果顯示無統計顯著差異）；但犬腸道腺癌<strong>目前沒有設計良好的前瞻性試驗支持任何化療方案</strong>，曾被報告使用的 carboplatin、doxorubicin、gemcitabine 等藥物效力都屬「未知／未建立」，證據多為個案層級。應誠實告知飼主：單純手術預後本身就偏差（中位存活期約 2–4 個月，因確診時腫瘤常已偏大且轉移率高），是否加打化療屬於證據有限的個案討論，不存在公認有效的標準方案，不能比照 AGASACA 的數據給予具體的存活期預期。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q9. 犬完成一劑化療後第 2 天開始腹瀉，精神食慾正常，糞便軟便無血無水瀉。飼主已經很緊張要求「直接上抗生素」。會怎麼處置？若這隻狗之前也有過類似腹瀉病史，下一劑化療前還要注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">精神食慾正常、非血便非水瀉，屬於 VCOG-CTCAE 分級較輕的腹瀉，<strong>不需要直接使用抗生素</strong>。第一線建議為 <strong>smectite（0.5 g/kg PO，分 2–3 次於 24 小時內給完）</strong>，一篇 n=60 的隨機對照試驗顯示可將腹瀉緩解時間從對照組中位數 53 小時縮短到 19.5 小時，且需要 metronidazole 救援的比例遠低於未使用組（9.3% vs 71.4%）；若院內有 crofelemer（Canalevia-CA1®，2–4 mg/kg PO BID）也是專門核准用於此適應症的選項。Metronidazole 應保留作為<strong>救援治療</strong>而非直接第一線使用。若這次腹瀉已達 Grade 3 以上（需住院或明顯影響日常生活），下一劑化療前應依血球與腸胃分級邏輯考慮延後給藥或劑量調整；若只是輕度復發，則可考慮下次給藥後<strong>提前預防性給予 smectite</strong>，而不是每次都等腹瀉發生才處理。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q10. 澳洲牧羊犬確診多中心淋巴瘤，飼主希望盡快開始 CHOP 方案。開始前，除了常規理學檢查與 CBC，還有什麼基因檢測值得建議？如果飼主說「之前拉肚子時獸醫有開 loperamide 效果不錯」，這點提示你什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">Australian Shepherd 是 MDR1（ABCB1-1Δ）突變的高帶因率品種（約 50%），開始 CHOP 前應建議<strong>先做 MDR1／ABCB1 基因檢測</strong>（口腔黏膜拭子）：vincristine 與 doxorubicin 都是 P-glycoprotein 主要底物，帶突變犬在標準劑量下血液學毒性風險顯著較高（研究顯示嗜中性球低下 75% vs 野生型 11.5%，P=.0005），doxorubicin 在腸道組織的暴露量也可能增加約 174%，造成腸胃毒性特別嚴重。若確認異型合子或同型合子，應依臨床慣例下修起始劑量（約 25–30% 或 50%）並加強監測。飼主提到「loperamide 效果不錯」這點<strong>反而是警訊，不是安心的理由</strong>——若這隻狗帶有 MDR1 突變卻用了 loperamide，理論上該出現中樞神經毒性徵象（嗜睡、共濟失調等），需要回頭確認當時是否真的有觀察到這類表現、劇量與使用情形，而不能單憑「效果不錯」就推論這隻狗一定是安全的野生型，基因檢測結果出來前都應該謹慎對待。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">
+        本頁內容整理自 VCOG-CTCAE v2、UW-Madison CHOP-19 方案與多篇原文文獻，僅供住院醫師教學複習使用，實際治療決策需依個別病患狀況由主治獸醫師判斷，不作為單獨診斷或治療依據。
+      </footer>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="section" id="section-references">
+      <div class="section-head"><div class="section-num">11</div><h2>參考資料</h2></div>
+      <p class="section-desc">已逐篇讀取原文全文的文獻列於上段；下段為僅能取得摘要或二手文獻引用層級資訊的來源，內文已個別標註。</p>
+
+      <h3>已讀取原文全文</h3>
+      <ul style="margin:0 0 1em 0;padding-left:1.2em;line-height:1.9;">
+        <li>LeBlanc AK, Atherton M, Bentley RT, et al. (2021). Veterinary Cooperative Oncology Group—Common Terminology Criteria for Adverse Events (VCOG-CTCAE v2) following investigational therapy in dogs and cats. <i>Veterinary and Comparative Oncology</i>, 19(2), 311–352. DOI: <a href="https://doi.org/10.1111/vco.12677" target="_blank" rel="noopener">10.1111/vco.12677</a>（CC BY-NC-ND，UC Davis eScholarship 開放取用全文）</li>
+        <li>Hallman BE, Hauck ML, Williams LE, et al. (2019). Incidence and risk factors associated with development of clinical cardiotoxicity in dogs receiving doxorubicin. <i>Journal of Veterinary Internal Medicine</i>, 33(2), 783–791. PMC6430885。</li>
+        <li>Wouda RM, Borrego J, Keuler NS, Stein T. (2016). Evaluation of adjuvant carboplatin chemotherapy in the management of surgically excised anal sac apocrine gland adenocarcinoma in dogs. <i>Veterinary and Comparative Oncology</i>, 14(1), 67–80. DOI: 10.1111/vco.12068，PMC6880235。</li>
+        <li>Rau SE, Barber LG, Burgess KE. (2010). Efficacy of maropitant in the prevention of delayed vomiting associated with administration of doxorubicin to dogs. <i>Journal of Veterinary Internal Medicine</i>, 24(6), 1452–1457.</li>
+        <li>Vail DM, et al. Fasting reduces the incidence of delayed-type vomiting associated with doxorubicin treatment in dogs with lymphoma. <i>Veterinary and Comparative Oncology</i>（PMC4145391 全文可取得）。</li>
+        <li>Duckett S, et al. (2021). Fasting reduces the incidence of vincristine-associated adverse events in dogs. <i>Veterinary and Comparative Oncology</i>. PMC7891372。</li>
+        <li>University of Wisconsin–Madison Veterinary Care. CHOP-19 Lymphoma Chemotherapy Protocol（機構臨床病歷用表，公開發布於院方網站）。</li>
+      </ul>
+
+      <h3>摘要或二手文獻引用層級（內文已標註，未取得完整原文全文）</h3>
+      <ul style="margin:0;padding-left:1.2em;line-height:1.9;">
+        <li>Matsuyama F, Harada K, Fukazawa E, et al. (2022). Evaluation of adverse events in small-breed dogs treated with maropitant and a single dose of doxorubicin. <i>Journal of Veterinary Internal Medicine</i>, 36(4), 1409–. DOI: 10.1111/jvim.16439。</li>
+        <li>Wang SL, Lee JJ, Liao AT. (2015). Chemotherapy-induced neutropenia is associated with prolonged remission duration and survival time in canine lymphoma. <i>The Veterinary Journal</i>（僅取得摘要層級數據）。</li>
+        <li>重組犬用 G-CSF 搭配 cyclophosphamide／mitoxantrone 之骨髓抑制改善相關研究（<i>Journal of Veterinary Internal Medicine</i> 等期刊，僅取得摘要或二手引用層級資訊）。</li>
+        <li>Fournier Q, et al. (2021). Chemotherapy-induced diarrhoea in dogs and its management with smectite: results of a monocentric open-label randomized clinical trial. <i>Veterinary and Comparative Oncology</i>. DOI: 10.1111/vco.12631（原文全文遭出版社封鎖，數據引用自二手摘要整理）。</li>
+        <li>Jaguar Health, Inc. Crofelemer（Canalevia-CA1®）FDA 條件式核准新聞稿與效力試驗摘要（藥廠公開新聞稿層級資訊，非同儕審查論文，實際處方建議仍應核對藥品仿單）。</li>
+        <li>犬腸道腺癌（Intestinal Adenocarcinoma）相關化療藥物使用與預後描述，整理自腫瘤科臨床摘要與教學資料（NC State Veterinary Hospital 腫瘤科臨床資料、WSAVA 會議摘要等二手層級來源，非對照試驗）。</li>
+        <li>Mealey KL, Fidel J, Gay JM, et al. (2008). ABCB1-1Δ polymorphism can predict hematologic toxicity in dogs treated with vincristine. <i>Journal of Veterinary Internal Medicine</i>, 22(4), 996–1000. DOI: 10.1111/j.1939-1676.2008.0122.x。</li>
+        <li>Gustafson DL, Thamm DH. (2010). Pharmacokinetic modeling of doxorubicin pharmacokinetics in dogs deficient in ABCB1 drug transporters. <i>Journal of Veterinary Internal Medicine</i>. DOI: 10.1111/j.1939-1676.2010.0496.x（屬電腦模擬／PBPK 建模研究，非活體臨床試驗，數字為模擬估計值）。</li>
+        <li>MDR1／ABCB1-1Δ 品種帶因率數據，整理自 Washington State University College of Veterinary Medicine（WADDL）與相關品種普查二手資料。</li>
+      </ul>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  overview: '總覽',
+  chop: '淋巴瘤化療：CHOP-19 方案',
+  mdr1: 'MDR1 基因型與毒性放大',
+  doxorubicin: 'Doxorubicin：劑量、給藥與心臟毒性',
+  carboplatin: '腺癌化療實證：AGASACA 與腸道腺癌',
+  grading: '不良反應分級與處置流程',
+  supportive: '支持性照護',
+  glossary: '縮寫對照表',
+  quiz: '練習題',
+  references: '參考資料'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

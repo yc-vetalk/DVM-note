@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伴侶動物復健：儀器物理治療 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">伴侶動物復健及物理治療學</a><span class="sep">›</span><span class="current">儀器物理治療</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">儀器物理治療：冷敷、熱敷、治療用超音波、電刺激</h1>
+      <p class="page-subtitle">Physical Modalities · 四種儀器各自的原理、生物效應、適應症、禁忌症、參數設定與治療時間，附超音波參數試算與禁忌症篩選工具</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">伴侶動物復健及物理治療學（大四上）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈2026 物理治療及水療（理論及儀器介紹）〉，徐淑孄 醫師（臺大附設動物醫院復健及整合醫學科）。手邊沒有復健教科書，未做教科書交叉核對</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-07</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（講義前四項儀器）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">🗺️</span> 四種儀器怎麼選</a>
+    <div class="section-label" style="margin-top:8px;">溫度療法</div>
+    <a onclick="showSection('cryo')" id="nav-cryo"><span class="nav-icon">🧊</span> 冷凍療法（冰敷）</a>
+    <a onclick="showSection('thermo')" id="nav-thermo"><span class="nav-icon">🔥</span> 溫熱療法（熱敷）</a>
+    <div class="section-label" style="margin-top:8px;">儀器療法</div>
+    <a onclick="showSection('ultrasound')" id="nav-ultrasound"><span class="nav-icon">〰️</span> 治療用超音波</a>
+    <a onclick="showSection('estim')" id="nav-estim"><span class="nav-icon">⚡</span> 電刺激（NMES／TENS）</a>
+    <div class="section-label" style="margin-top:8px;">臨床工具</div>
+    <a onclick="showSection('contra')" id="nav-contra"><span class="nav-icon">🚫</span> 禁忌症總表與篩選</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這堂課在讀什麼？</div>
+        <p><a href="week02_骨科疾病復健.html#section-painmodalities">骨科疾病復健</a>那份講義用一張表帶過七種物理治療模式，這份講義則把其中四種儀器拆開來細講。每一種儀器都照同一個順序講：治療簡介 → 儀器原理 → 生物效應 → 適應症 → 禁忌症 → 注意事項 → 治療內容（參數、時間、頻率）。</p>
+        <p>四種儀器可以用兩個問題串起來：<strong>現在是組織癒合的哪個階段？</strong>（急性出血發炎，還是亞急性、慢性？）<strong>要處理的組織有多深？</strong>（皮下 1–2 公分，還是 2–5 公分？）冷敷用在急性期，熱敷用在慢性期；超音波和電刺激則靠調整參數，同一台機器可以從急性用到慢性。</p>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('cryo')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">冰敷</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">急性期 72 小時內</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('thermo')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">熱敷</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">慢性退化、運動前暖身</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('ultrasound')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">治療用超音波</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">熱效應／機械效應</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('estim')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">電刺激</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">NMES 練肌力、TENS 止痛</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">六個重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>冷熱分界是時間：</strong>冰敷用在受傷或術後 72 小時內的急性期；熱敷在受傷後 48 小時內禁用。原因是熱會擴張血管，急性期用熱只會讓腫脹和出血更嚴重。</li>
+          <li><strong>局部冰敷和全身冷浸的效果相反：</strong>局部冰敷減少肌肉痙攣；全身或大面積冷浸反而會提高肌梭敏感度、增加痙攣與肌張力。</li>
+          <li><strong>超音波有兩種效應，用模式切換：</strong>連續式（高強度）產生熱效應，處理慢性攣縮、疤痕；脈衝式（低強度）產生機械效應，在出血停止後就可以用來加速傷口癒合。</li>
+          <li><strong>超音波頻率依深度選：</strong>2–5 公分深用 1 MHz，0.5–2 公分深用 3.3 MHz。頻率越高，能量越集中在淺層。</li>
+          <li><strong>電刺激分兩種目的：</strong>神經肌肉電刺激（Neuromuscular Electrical Stimulation, NMES）讓肌肉收縮、對抗萎縮，例如椎間盤疾病（Intervertebral Disc Disease, IVDD）犬後肢肌肉量 3 週內可流失 50%；經皮神經電刺激（Transcutaneous Electrical Nerve Stimulation, TENS）靠門控理論和腦內啡止痛。</li>
+          <li><strong>幾個儀器共通的禁忌：</strong>腫瘤、懷孕（子宮）、心律調節器、急性出血或發炎、感覺缺失的區域。電刺激另外禁用於癲癇病患，超音波禁用於椎板切除術後的脊髓和開放的生長板。</li>
+        </ul>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">講義範圍</div>
+        <p>講義開頭的大綱列了七項物理治療：冷凍療法、溫熱療法、治療用超音波、電刺激、體外震波療法（Extracorporeal Shockwave Therapy, ESWT）、雷射、水療。<strong>這份 PDF 實際只講到前四項</strong>，所以這頁只整理這四項，體外震波、雷射、水療等拿到講義後再補。講義最後幾頁（p.78–83）是人類電極貼法的網路圖片，與動物無關，沒有收錄。</p>
+      </div>
+
+      <footer class="note-footer">
+        資料來源：課程講義〈2026 物理治療及水療（理論及儀器介紹）〉（徐淑孄 醫師）。講義列出的參考書：Canine Rehabilitation and Physical Therapy（Millis &amp; Levine, 2014）、Essential Facts of Physical Medicine, Rehabilitation and Sports Medicine in Companion Animals（2019）、《物理因子治療學》冷熱光水療篇與電磁療學篇（2019）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或治療依據</strong>。
+      </footer>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>四種儀器怎麼選：時機與深度<span class="tag tag-exam">重要</span></h2></div>
+      <p class="section-desc">先畫兩張圖：一張是「組織癒合的哪個階段用什麼」，一張是「每種儀器能作用到多深」。這兩張圖記住，後面每一節的適應症和參數設定大多能推出來。</p>
+
+      <h3>時機：組織癒合階段</h3>
+      <div class="figure">
+        <svg viewBox="0 0 480 300" class="rp-svg" role="img" aria-label="組織癒合階段與四種儀器的使用時機">
+          <rect x="74" y="8" width="110" height="34" class="rp-ph1"/><text x="129" y="24" class="rp-t">出血＋</text><text x="129" y="38" class="rp-t">急性發炎</text>
+          <rect x="184" y="8" width="130" height="34" class="rp-ph2"/><text x="249" y="30" class="rp-t">亞急性</text>
+          <rect x="314" y="8" width="160" height="34" class="rp-ph3"/><text x="394" y="30" class="rp-t">慢性</text>
+          <text x="74" y="60" class="rp-s" text-anchor="start" style="text-anchor:start">受傷</text>
+          <text x="184" y="60" class="rp-s">48–72 h</text>
+          <text x="314" y="60" class="rp-s">約 3 週</text>
+          <line x1="74" y1="66" x2="474" y2="66" class="rp-axis"/>
+          <text x="66" y="95" class="rp-l">冰敷</text>
+          <rect x="74" y="78" width="110" height="24" rx="4" class="rp-bar rp-cold"/><text x="129" y="95" class="rp-bt">72 h 內</text>
+          <text x="66" y="131" class="rp-l">熱敷</text>
+          <rect x="74" y="114" width="100" height="24" rx="4" class="rp-no"/><text x="124" y="131" class="rp-nt">48 h 內禁用</text>
+          <rect x="178" y="114" width="296" height="24" rx="4" class="rp-bar rp-heat"/><text x="326" y="131" class="rp-bt">慢性退化、運動前暖身</text>
+          <text x="66" y="167" class="rp-l">超音波</text>
+          <rect x="74" y="150" width="18" height="24" rx="4" class="rp-no"/>
+          <rect x="96" y="150" width="200" height="24" rx="4" class="rp-bar rp-us1"/><text x="196" y="167" class="rp-bt">脈衝式（機械效應）</text>
+          <rect x="230" y="180" width="244" height="24" rx="4" class="rp-bar rp-us2"/><text x="352" y="197" class="rp-bt">連續式（熱效應）</text>
+          <text x="74" y="197" class="rp-nt" style="text-anchor:start">↑出血期禁用</text>
+          <text x="66" y="237" class="rp-l">TENS</text>
+          <rect x="74" y="220" width="400" height="24" rx="4" class="rp-bar rp-es"/><text x="274" y="237" class="rp-bt">急慢性疼痛（避開急性發炎部位）</text>
+          <text x="66" y="279" class="rp-l">NMES</text>
+          <rect x="74" y="262" width="400" height="24" rx="4" class="rp-bar rp-es2"/><text x="274" y="279" class="rp-bt">術後與神經病患：防萎縮、練肌力</text>
+        </svg>
+        <div class="figure-caption">自繪示意圖，時間軸不按比例。熱敷「48 小時內禁用」與冰敷「72 小時內使用」都是講義原文；兩者之間（48–72 小時）依腫脹與發熱程度判斷。</div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：講義裡的兩處張力</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>超音波與急性發炎：</strong>禁忌症寫「急性炎症（出血期）」，適應症又寫「發炎期用脈衝式可加速癒合」。兩者不衝突：禁的是<strong>還在出血</strong>的時候，出血停止後（通常受傷後幾小時內）就可以開始用低強度脈衝式。</li>
+          <li><strong>TENS 與急性發炎：</strong>適應症包含急性疼痛，禁忌症卻寫「治療區域的急性炎症」。<a href="week02_骨科疾病復健.html#section-painmodalities">骨科講義</a>也寫急性發炎期避免 TENS。我的理解（推測）：急性疼痛可以用，但電極不要直接貼在急性發炎的部位上，可以改貼在支配該區的神經根附近。這點建議上課或實習時跟老師確認。</li>
+        </ul>
+      </div>
+
+      <h3>深度：每種儀器能作用到多深</h3>
+      <div class="figure">
+        <svg viewBox="0 0 480 260" class="rp-svg" role="img" aria-label="各儀器作用深度比較">
+          <line x1="104" y1="34" x2="464" y2="34" class="rp-axis"/>
+          <g class="rp-s"><text x="104" y="24">0</text><text x="176" y="24">1</text><text x="248" y="24">2</text><text x="320" y="24">3</text><text x="392" y="24">4</text><text x="464" y="24" style="text-anchor:end">5 cm</text></g>
+          <line x1="176" y1="34" x2="176" y2="252" class="rp-grid"/><line x1="248" y1="34" x2="248" y2="252" class="rp-grid"/><line x1="320" y1="34" x2="320" y2="252" class="rp-grid"/><line x1="392" y1="34" x2="392" y2="252" class="rp-grid"/>
+          <text x="96" y="63" class="rp-l">淺層熱敷</text><rect x="104" y="46" width="144" height="24" rx="4" class="rp-bar rp-heat" style="opacity:.55"/><text x="176" y="63" class="rp-bt">≈2 cm，越深越弱</text>
+          <text x="96" y="99" class="rp-l">3.3 MHz 超音波</text><rect x="140" y="82" width="108" height="24" rx="4" class="rp-bar rp-us1"/><text x="194" y="99" class="rp-bt">0.5–2</text>
+          <text x="96" y="135" class="rp-l">1 MHz 超音波</text><rect x="248" y="118" width="216" height="24" rx="4" class="rp-bar rp-us2"/><text x="356" y="135" class="rp-bt">2–5</text>
+          <text x="96" y="171" class="rp-l">微波熱療</text><rect x="320" y="154" width="144" height="24" rx="4" class="rp-bar rp-heat"/><text x="392" y="171" class="rp-bt">3–5</text>
+          <text x="96" y="207" class="rp-l">低頻電刺激</text><rect x="176" y="190" width="72" height="24" rx="4" class="rp-bar rp-es"/><text x="212" y="207" class="rp-bt">1–2</text>
+          <text x="96" y="243" class="rp-l">中頻電刺激</text><rect x="248" y="226" width="216" height="24" rx="4" class="rp-bar rp-es2"/><text x="356" y="243" class="rp-bt">2–5</text>
+        </svg>
+        <div class="figure-caption">自繪示意圖。淺層熱敷：表層升溫 10°C，皮下 1 cm 升不到 3°C，皮下 2 cm 升不到 1.3°C，所以實際有效範圍比 2 cm 淺得多。低頻與中頻電刺激的深度來自講義引用的網路比較表（人類資料）。</div>
+      </div>
+
+      <h3>四種儀器一表比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:15%;">儀器</th><th>主要效應</th><th>使用時機</th><th>作用深度</th><th>單次時間與頻率</th></tr></thead>
+          <tbody>
+            <tr><td><strong>冰敷</strong><br>Cryotherapy</td><td>血管收縮、減少腫脹、降低代謝與發炎酵素、止痛、減少肌肉痙攣</td><td>受傷／術後 72 小時內；運動後預防發炎</td><td>淺層</td><td>10–20 分鐘；前 24–48 小時每 2–4 小時一次，常規一天 3–6 次</td></tr>
+            <tr><td><strong>熱敷</strong><br>Thermotherapy</td><td>血管擴張、提高代謝、增加結締組織延展性、止痛</td><td>慢性退化疾病、亞急性與慢性發炎、運動或按摩前暖身</td><td>淺層約 2 cm；微波 3–5 cm</td><td>15–30 分鐘，一天 3–4 次</td></tr>
+            <tr><td><strong>治療用超音波</strong><br>Therapeutic Ultrasound</td><td>熱效應（連續式）／機械效應（脈衝式）</td><td>熱效應：攣縮、疤痕、慢性發炎、痙攣、激痛點；機械效應：傷口癒合</td><td>3.3 MHz：0.5–2 cm；1 MHz：2–5 cm</td><td>每個探頭面積 4 分鐘；急性每週 3 次共 1–2 週，慢性每週 1–2 次共數週</td></tr>
+            <tr><td><strong>電刺激</strong><br>NMES／TENS</td><td>NMES：肌肉收縮；TENS：門控理論與腦內啡止痛</td><td>NMES：術後與神經病患防萎縮；TENS：急慢性疼痛、支持神經再生</td><td>低頻 1–2 cm；中頻 2–5 cm</td><td>急性每天 1–2 次各 15 分鐘共 1–2 週；慢性每週 2–3 次各 30 分鐘共 6 週</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義（徐淑孄 醫師）。示意圖為自繪。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CRYO -->
+    <div class="section" id="section-cryo">
+      <div class="section-head"><div class="section-num">3</div><h2>冷凍療法（冰敷） Cryotherapy</h2></div>
+      <p class="section-desc">最古老的物理治療方法。用在組織受傷與癒合的急性期，減輕損傷和後遺症；也用在復健運動之後，減少繼發性發炎反應。</p>
+
+      <h3>生物效應</h3>
+      <div class="flow">
+        <div class="flow-node">冷</div><div class="flow-arrow">→</div>
+        <div class="flow-node">血管收縮</div><div class="flow-arrow">→</div>
+        <div class="flow-node">血流量減少</div><div class="flow-arrow">→</div>
+        <div class="flow-node">減緩水腫形成、減少腫脹</div>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">減少酵素造成的組織損傷</div><p>降低組織代謝率，減慢急性發炎反應的速度，抑制發炎相關酵素，減少組織胺釋放，減少組織損傷。</p></div>
+        <div class="card"><div class="card-title">減少肌肉痙攣</div><p>局部冰敷可以減少肌肉痙攣。注意：全身冷浸的效果相反（見下方注意事項）。</p></div>
+        <div class="card"><div class="card-title">止痛</div><p>過度刺激冷感受器，感覺依序是冷 → 痛 → 麻木 → 無感覺；並透過<strong>脊髓門控理論</strong>阻止疼痛訊號往更高的中樞傳。</p></div>
+      </div>
+
+      <h3>適應症</h3>
+      <ul>
+        <li><strong>急性發炎期</strong>：創傷急性期，通常是受傷或手術後 <strong>72 小時內</strong>；術後止痛、減少發炎反應。</li>
+        <li><strong>急性關節炎發作</strong>：減輕疼痛、水腫、膠原溶解、滑膜發炎與關節破壞。</li>
+        <li><strong>預防運動後發炎反應</strong>：復健運動後冰敷。</li>
+      </ul>
+
+      <h3>注意事項：局部與全身的效果不同</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;"></th><th>局部冰敷</th><th>全身或大面積冷浸</th></tr></thead>
+          <tbody>
+            <tr><td><strong>做法</strong></td><td>冰袋、冰按摩等貼在患部</td><td>部分身體浸入 2–16°C 冷水，通常 10–20 分鐘</td></tr>
+            <tr><td><strong>對肌肉</strong></td><td>減少痙攣；但暫時增加肌肉黏度，<strong>快速動作能力下降</strong></td><td>肌梭敏感度增加，<strong>痙攣增加</strong>；肌張力增加、顫抖</td></tr>
+            <tr><td><strong>對結締組織</strong></td><td>硬度增加、拉伸強度下降</td><td>—</td></tr>
+            <tr><td><strong>全身反應</strong></td><td>—</td><td>呼吸頻率下降；下視丘溫度下降，引起全身血管收縮；全身冷敷可能讓<strong>血壓上升</strong></td></tr>
+            <tr><td><strong>臨床意義</strong></td><td>冰敷後建議休息不動，避免二次受傷</td><td>運動神經反應遲鈍的動物，可用來暫時促進肌肉收縮</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>禁忌症</h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p>開放性傷口；骨折；以前凍傷過的位置；高血壓病患（全身冰敷可能讓血壓升高）；感覺或運動神經障礙的區域；感覺減弱或消失的區域；非常年老或非常年輕的動物。</p>
+      </div>
+
+      <h3>操作安全</h3>
+      <ul>
+        <li><strong>不要把冰塊直接放在皮膚上</strong>（冰按摩法除外），冷源與皮膚之間墊毛巾，防止凍傷。</li>
+        <li>治療中持續觀察皮膚：結束時<strong>皮膚變紅是正常反應</strong>，<strong>變蒼白代表發生損傷</strong>。</li>
+        <li>皮膚色素沉澱的狗顏色變化不明顯，有疑慮就縮短時間。</li>
+        <li>預期的感覺變化依序是 <strong>IBAN</strong>：強烈燒灼感（Intense burning）→ 疼痛（Aching）→ 麻木（Numbness）。</li>
+      </ul>
+
+      <h3>裝置</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">裝置</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td>毛巾包冰塊、可重複使用冰袋</td><td>最常用、居家可做</td></tr>
+            <tr><td><strong>冰按摩</strong>（冰杯）</td><td>杯子裝水冷凍成冰柱，握端用紗布和彈繃包好，冰面直接接觸皮膚。5–10 分鐘或直到出現紅斑、麻木。適合<strong>小而不規則</strong>的區域</td></tr>
+            <tr><td><strong>冷壓縮裝置</strong><br>Cold-Compression Units</td><td>套在肢體上的袖套交替輸送冷水和空氣，間歇充氣有按摩效果、減少水腫。水溫 2–10°C。市售只用於狗，常用在<strong>膝關節術後</strong>。效果好，但貴、受體型限制</td></tr>
+            <tr><td>冷水循環毯、冷浴、蒸氣冷卻劑噴霧</td><td>講義列出，未詳述</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>治療時間與頻率</h3>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">什麼時候開始</div><p>受傷或手術後<strong>越早越好</strong>。</p></div>
+        <div class="card"><div class="card-title">單次多久</div><p><strong>10–20 分鐘</strong>。</p></div>
+        <div class="card"><div class="card-title">一天幾次</div><p>受傷後前 24–48 小時每 2–4 小時一次；常規一天 3–6 次，在動物清醒時進行，依腫脹與發熱程度調整。</p></div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ <a href="week02_骨科疾病復健.html#section-painmodalities">骨科講義</a>寫「每日 3–4 次、每次 15–20 分鐘」，落在這份講義的範圍內。</p>
+
+      <footer class="note-footer">資料來源：課程講義 p.5–16（徐淑孄 醫師）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- THERMO -->
+    <div class="section" id="section-thermo">
+      <div class="section-head"><div class="section-num">4</div><h2>溫熱療法（熱敷） Thermotherapy</h2></div>
+      <p class="section-desc">三個目標：緩解疼痛、改變組織癒合的生理過程、增加結締組織（肌肉、肌腱、韌帶、關節囊）的彈性。</p>
+
+      <h3>淺層與深層熱療</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;"></th><th>淺層熱敷 Superficial heat</th><th>深層熱療 Deep heat</th></tr></thead>
+          <tbody>
+            <tr><td><strong>溫度／深度</strong></td><td>熱源 40–45°C，組織溫度變化約達 2 cm 深</td><td>可穿透到 5 cm 深（超音波、微波）</td></tr>
+            <tr><td><strong>升溫分布</strong></td><td>表層 +10°C；皮下 1 cm 不到 +3°C；皮下 2 cm 不到 +1.3°C</td><td>微波：富含水分的組織（肌肉、脂肪）升溫比皮膚高</td></tr>
+            <tr><td><strong>用途</strong></td><td>軟組織和關節損傷；伸展運動前熱敷可<strong>改善關節活動範圍（Range of Motion, ROM）</strong></td><td>深層肌肉與關節</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義 p.17 的深層熱敷英文誤植為「Superficial thermal」，依上下文應為深層（deep）。</p>
+
+      <h3>生物效應：局部淺層熱療的生理反應鏈</h3>
+      <div class="flow">
+        <div class="flow-node">局部熱刺激溫度受器</div><div class="flow-arrow">→</div>
+        <div class="flow-node">止痛、鎮定（肌肉放鬆）、局部流汗增加</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">組織溫度上升</div><div class="flow-arrow">→</div>
+        <div class="flow-node">代謝率增加（吞噬作用增加）</div><div class="flow-arrow">＋</div>
+        <div class="flow-node">小動脈擴張</div>
+      </div>
+      <div class="flow">
+        <div class="flow-node">微血管血流與細胞膜通透性增加</div><div class="flow-arrow">→</div>
+        <div class="flow-node">加速清除代謝廢物、增加氧氣與養分供應</div><div class="flow-arrow">→</div>
+        <div class="flow-node">促進組織癒合</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 依講義 p.19 引用《物理因子治療學》圖 1.1 的內容整理。</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">血管</div><p>組織釋放組織胺、緩激肽、前列腺素等介質，作用於血管周圍平滑肌 → 血管舒張。</p></div>
+        <div class="card"><div class="card-title">結締組織</div><p>代謝率增加；韌帶、肌腱、疤痕組織等纖維組織的<strong>延展性提高</strong>，所以熱敷適合排在伸展運動之前。</p></div>
+      </div>
+
+      <h3>適應症</h3>
+      <ul>
+        <li><strong>慢性退化性疾病</strong>：關節炎（<strong>急性發作期不用</strong>）、脊椎病與脊椎關節病（spondylosis／spondylarthrosis）。</li>
+        <li><strong>運動前預熱</strong>：被動、主動運動或按摩之前，預熱治療區域；鍛鍊韌帶和肌腱前的準備。</li>
+        <li><strong>亞急性和慢性發炎或創傷</strong>：挫傷、扭傷、拉傷、肌炎。</li>
+      </ul>
+
+      <h3>禁忌症與注意事項</h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p><strong>急性發炎（受傷後 48 小時內）</strong>；活動性出血或瘀傷；血栓；腫瘤；開放性傷口；嚴重循環功能不全。感覺受損的部位要特別小心。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>懷孕、極度肥胖、血液循環受損、體溫調節能力差、心功能不全的動物要採取預防措施。<strong>老年動物</strong>體溫調節可能較差、對痛的敏感度可能下降，加上心血管和呼吸儲備能力下降，耐熱性較差。</p>
+      </div>
+
+      <h3>方法</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">方法</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>熱敷包</strong> Hot packs</td><td>至少維持高溫 20–30 分鐘。種類：熱水袋；可微波的加熱袋（內填豆類、膨潤土、矽酸鹽凝膠）；電熱墊（連布套一起用，效果類似濕熱）；即熱暖袋（按壓金屬片使液體結晶放熱）。<br><strong>測溫：</strong>放在治療師頸後覺得舒適，對動物就是安全溫度。熱源與皮膚間墊毛巾；皮膚過燙或發紅就加一層毛巾或暫時移開</td></tr>
+            <tr><td><strong>紅外線燈</strong></td><td>加熱較大範圍（也用於低體溫），距治療區 30–40 cm，各機器有自己的設定距離。<strong>無法行走、無法自己躲開熱源的動物要小心</strong></td></tr>
+            <tr><td><strong>溫水浴、漩渦浴</strong></td><td>漩渦水柱浴缸（按摩浴缸）另有減少水腫的好處</td></tr>
+            <tr><td><strong>微波深層熱療</strong></td><td>高頻交替磁場使組織分子快速碰撞產熱（類似微波爐），富含水分的肌肉、脂肪升溫比皮膚高。治療深度皮下 3–5 cm，15–30 分鐘，非接觸式，距患部 5–10 cm。<strong>禁用於體內有金屬植入物的區域</strong>；風險是燙傷；機器成本高</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>治療時間與頻率</h3>
+      <ul>
+        <li>依受傷嚴重度、組織癒合階段、受傷面積、期望結果決定。</li>
+        <li>通常 <strong>15 分鐘到最多 30 分鐘</strong>，一天可重複 3–4 次。</li>
+        <li>組織升溫 <strong>2–4°C</strong> 效果最好；<strong>超過 45°C 會造成蛋白質變性</strong>，要避免。</li>
+        <li>皮膚出現<strong>白色區域</strong>（反彈性血管收縮）或<strong>鮮紅斑點</strong>（出血）就停止。</li>
+      </ul>
+
+      <h3>講師的臨床經驗：居家熱敷</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">乾熱</div>
+          <ul style="margin:6px 0 0; padding-left:1.2em; font-size:.92em;">
+            <li><strong>電熱毯：</strong>開最低溫；以覆蓋為主，不要讓身體壓在上面；面積不超過全身 1/3。</li>
+            <li><strong>暖暖包：</strong>不可直接接觸皮毛，用布料隔開，搭配衣服、圍巾；請飼主多次確認溫度與皮膚，避免<strong>低溫燙傷</strong>。</li>
+            <li><strong>吹風機：</strong>盡量不用，溫度難控制，太低沒效、太高易燙傷；神經麻痺的動物尤其小心。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">濕熱</div>
+          <ul style="margin:6px 0 0; padding-left:1.2em; font-size:.92em;">
+            <li>濕熱的組織穿透度<strong>比乾熱深</strong>，但溫度不好控制、需要監控；可能引起濕疹。</li>
+            <li><strong>濕熱毛巾（50–70°C）：</strong>無法維持太久。</li>
+            <li><strong>濕熱電毯：</strong>搭配擰乾的濕毛巾使用。</li>
+            <li><strong>溫水浴：</strong>水溫約 27–35°C，監控呼吸與心跳。</li>
+          </ul>
+        </div>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義 p.17–27（徐淑孄 醫師）。示意圖為自繪。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ULTRASOUND -->
+    <div class="section" id="section-ultrasound">
+      <div class="section-head"><div class="section-num">5</div><h2>治療用超音波 Therapeutic Ultrasound<span class="tag tag-exam">重要</span></h2></div>
+      <p class="section-desc">電流通過晶體產生高頻聲波（高速振動），遇到纖維組織時引起振動而產熱，屬於深層加熱方式。用於肌肉骨骼疾病復健：關節攣縮造成的活動範圍受限、疼痛與肌肉痙攣、傷口癒合。</p>
+
+      <h3>兩種效應</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>熱效應 Thermal</th><th>機械效應 Mechanical（非熱效應）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>參數</strong></td><td>高強度、連續式（總效率週期 100%）</td><td>低強度、脈衝式（例如 20%）</td></tr>
+            <tr><td><strong>作用</strong></td><td>組織升溫 → 血流、酵素活性、代謝增加；膠原蛋白延展性、結締組織彈性提高；痛覺閾值提高；改變神經傳導速度；輕度發炎反應；疤痕組織拉伸強度增加</td><td>刺激肥大細胞、血小板、嗜中性球、巨噬細胞，<strong>加速</strong>發炎期；增加蛋白質、纖維母細胞、膠原蛋白合成；促進膠原纖維重新排列，<strong>第三型轉為第一型</strong>為主</td></tr>
+            <tr><td><strong>適應症</strong></td><td>造成組織縮短的軟組織狀況（攣縮、疤痕）、亞急性與慢性發炎、肌肉痙攣、激痛點</td><td>傷口癒合；長期慢性發炎、組織無法自行修復時</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充：超音波為什麼對肌腱、韌帶特別有效</div>
+        <p>超音波穿透皮膚和皮下脂肪的能力相對好（所以這兩層<strong>不容易升溫</strong>），<strong>富含膠原蛋白</strong>的組織吸收較多能量：肌腱、關節軟骨、肌肉、韌帶、關節囊、肌間筋膜、較大的神經根、骨膜。要達到治療性熱效應，組織溫度須升高 1–4°C。</p>
+      </div>
+
+      <h4>機械效應在癒合三階段的作用</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">階段</th><th>脈衝式超音波的作用</th></tr></thead>
+          <tbody>
+            <tr><td><strong>發炎期</strong></td><td>促進肥大細胞去顆粒化，活化白血球、嗜中性球。<strong>不是擴大發炎，而是加速發炎走完</strong>，讓組織順利進入下一個階段。在韌帶、肌腱、疤痕這類高膠原密度組織尤其明顯</td></tr>
+            <tr><td><strong>增生期</strong></td><td>活化纖維母細胞、內皮細胞、肌纖維母細胞，加速纖維化、促進膠原蛋白合成</td></tr>
+            <tr><td><strong>重塑期</strong></td><td>讓新生膠原蛋白排列整齊；調整第一型（結痂、強度）與第三型（彈性）膠原的比例，使修復組織張力強度增加、活動度提升</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>依目標溫度選擇效應</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>效應</th><th>組織溫度</th><th>適用狀況</th></tr></thead>
+          <tbody>
+            <tr><td>非熱效應</td><td>不升溫（37.5°C 基準）</td><td>急性損傷、水腫、組織癒合</td></tr>
+            <tr><td>微熱效應</td><td>+1°C（38.5°C）</td><td>亞急性損傷、血腫</td></tr>
+            <tr><td>中度熱效應</td><td>+2°C（39.5°C）</td><td>慢性發炎、疼痛、激痛點</td></tr>
+            <tr><td>強力熱效應</td><td>+4°C（41.5°C）</td><td>伸展膠原組織（攣縮）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 依講義 p.36 引用《物理因子治療學》表 6.2 整理。</p>
+
+      <h3>參數</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">參數</th><th>定義</th><th>怎麼設定</th></tr></thead>
+          <tbody>
+            <tr><td><strong>模式</strong></td><td>連續式：整段時間持續發射；脈衝式：發射一段、關閉一段、反覆</td><td>連續式 → 慢性疾病、提高結締組織伸展性；脈衝式 → 急性病症、促進傷口癒合、關節與肌腱發炎</td></tr>
+            <tr><td><strong>總效率週期</strong><br>Duty cycle</td><td>脈衝開啟時間占開＋關總時間的百分比</td><td>例：一個週期 10 ms，其中發射 2 ms → 20%</td></tr>
+            <tr><td><strong>頻率</strong></td><td>最常用 1.0 MHz 與 3.3 MHz（常簡稱 3 MHz）</td><td>目標深度 2–5 cm → <strong>1 MHz</strong>；0.5–2 cm → <strong>3.3 MHz</strong></td></tr>
+            <tr><td><strong>強度</strong></td><td>單位面積傳遞能量的速率（W/cm²）</td><td>急性、淺層 → 低強度 <strong>0.5 W/cm²</strong>；慢性、深層 → <strong>1–2 W/cm²</strong>。強度越高、總效率週期越高，升溫越快。連續式要讓目標組織升溫 2°C，需要 1–2 W/cm²</td></tr>
+            <tr><td><strong>治療面積</strong></td><td>—</td><td>不超過探頭面積的 2–4 倍。5 cm² 探頭 → 治療區 10 cm²，最多 20 cm²</td></tr>
+            <tr><td><strong>治療時間</strong></td><td>—</td><td>經驗法則：治療區可以放幾個探頭面積，就乘以 <strong>4 分鐘</strong>。5 cm² 探頭治療 10 cm² → 2 × 4 = <strong>8 分鐘</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>參數決策流程</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>功能障礙</th><th colspan="2">軟組織縮短、疼痛</th><th colspan="2">組織癒合不良、持續發炎</th></tr></thead>
+          <tbody>
+            <tr><td><strong>生理效應</strong></td><td colspan="2">熱效應</td><td colspan="2">非熱效應</td></tr>
+            <tr><td><strong>總效率週期</strong></td><td colspan="2">100%</td><td colspan="2">20%</td></tr>
+            <tr><td><strong>問題深度</strong></td><td>1–2 cm</td><td>≤ 5 cm</td><td>1–2 cm</td><td>≤ 5 cm</td></tr>
+            <tr><td><strong>頻率</strong></td><td>3 MHz</td><td>1 MHz</td><td>3 MHz</td><td>1 MHz</td></tr>
+            <tr><td><strong>強度</strong></td><td>0.5 W/cm²</td><td>1.5–2.0 W/cm²</td><td colspan="2">0.5–1.0 W/cm²</td></tr>
+            <tr><td><strong>治療時間</strong></td><td colspan="4">5–10 分鐘／2 倍有效輻射面積（Effective Radiating Area, ERA）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 依講義 p.49 引用《物理因子治療學》表 6.4 整理。</p>
+
+      <h4>每分鐘加熱速率</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>強度（W/cm²）</th><th>1 MHz（深 5 cm）</th><th>3 MHz（深 1–2 cm）</th></tr></thead>
+          <tbody>
+            <tr><td>0.5</td><td>0.04°C／分</td><td>0.3°C／分</td></tr>
+            <tr><td>1.0</td><td>0.2°C／分</td><td>0.6°C／分</td></tr>
+            <tr><td>1.5</td><td>0.3°C／分</td><td>0.9°C／分</td></tr>
+            <tr><td>2.0</td><td>0.4°C／分</td><td>1.4°C／分</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 依講義 p.50 引用《物理因子治療學》表 6.3 整理，條件為以 2–3 倍 ERA 的治療面積施打。講義沒有註明模式，這類加熱速率資料一般是連續式（推測）。可以看出 3 MHz 升溫快很多：能量集中在淺層，同樣強度下淺層組織吸收更多。</p>
+
+      <h3>超音波參數試算</h3>
+      <div class="card rp-calc">
+        <div class="rp-form">
+          <label>目標組織深度
+            <select id="usDepth"><option value="shallow">0.5–2 cm（淺）</option><option value="deep" selected>2–5 cm（深）</option><option value="beyond">超過 5 cm</option></select>
+          </label>
+          <label>病程與目的
+            <select id="usGoal">
+              <option value="bleed">急性，仍在出血</option>
+              <option value="acute">急性或亞急性（出血已停），促進癒合</option>
+              <option value="chronic" selected>慢性：攣縮、疤痕、肌肉痙攣</option>
+              <option value="nonheal">癒合不良、持續發炎</option>
+            </select>
+          </label>
+          <label>治療面積（cm²）<input id="usArea" type="number" min="1" step="1" value="10"></label>
+          <label>探頭面積 ERA（cm²）<input id="usEra" type="number" min="1" step="0.5" value="5"></label>
+        </div>
+        <div id="usOut" class="rp-out"></div>
+        <p style="font-size:.8em; color:var(--fg-faint); margin:8px 0 0;">依講義的參數規則計算，僅供學習對照；實際設定以機器說明書與臨床判斷為準，治療中仍需觀察動物反應。</p>
+      </div>
+
+      <h3>操作技巧</h3>
+      <ul>
+        <li>治療前<strong>剃毛</strong>；超音波凝膠均勻塗滿整個治療區，確保正確傳導。</li>
+        <li>探頭<strong>盡量垂直皮膚</strong>，以畫圓或螺旋方式緩慢移動，建議速度 <strong>4 cm/秒</strong>，可施加輕柔壓力。</li>
+        <li><strong>關節部位</strong>皮膚與骨膜貼得緊，能量容易堆積、刺激骨膜。動物出現疼痛或痠的反應時，要<strong>調低強度或加快探頭移動</strong>。</li>
+        <li>凝膠墊（例如大凝膠墊 Aquaflex Gel Pad®、探頭小墊 GelShot™）不用另外塗凝膠，但動物較少用。</li>
+      </ul>
+
+      <h3>禁忌症</h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p>裝有心律調節器的動物；<strong>椎板切除術後的脊髓</strong>；頸動脈竇或頸神經節；眼睛、懷孕的子宮、心臟、腫瘤、睪丸、污染的傷口；<strong>開放的生長板</strong>（幼齡動物）；急性發炎（出血期）。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">臨床連結</div>
+        <p>椎間盤疾病（Intervertebral Disc Disease, IVDD）術後是復健科的大宗病患。椎板切除術（hemilaminectomy、dorsal laminectomy）後，脊髓上方失去骨頭保護，超音波不可以打在手術部位的脊髓上；背部肌肉要處理時，避開手術區域。</p>
+      </div>
+
+      <h3>治療頻率與療程</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">急性至亞急性</div><p>間隔短：<strong>每週 3 次</strong>；療程短：<strong>1–2 週</strong>。</p></div>
+        <div class="card"><div class="card-title">慢性</div><p>間隔長：<strong>每週 1–2 次</strong>；療程長：<strong>通常數週</strong>。</p></div>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義 p.28–51（徐淑孄 醫師），表格依講義引用的《物理因子治療學》表 6.2–6.4 重新整理。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- E-STIM -->
+    <div class="section" id="section-estim">
+      <div class="section-head"><div class="section-num">6</div><h2>電刺激 Electrical Stimulation：NMES 與 TENS<span class="tag tag-exam">重要</span></h2></div>
+      <p class="section-desc">同一類機器，兩種目的：NMES 讓肌肉收縮，TENS 止痛。差別主要在參數（頻率、開關時間比）和電極貼的位置。</p>
+
+      <h3>NMES 與 TENS 比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>神經肌肉電刺激<br>Neuromuscular Electrical Stimulation, NMES</th><th>經皮神經電刺激<br>Transcutaneous Electrical Nerve Stimulation, TENS</th></tr></thead>
+          <tbody>
+            <tr><td><strong>作用方式</strong></td><td>經由<strong>完整的神經</strong>刺激目標肌肉；<strong>去神經支配</strong>的肌肉則直接刺激肌纖維</td><td>低頻 NMES 的一種，主要用於止痛</td></tr>
+            <tr><td><strong>治療目的</strong></td><td>增加肌力、肌肉再教育、增加關節活動範圍、矯正結構異常、改善肌張力</td><td>疼痛控制、加速傷口癒合、減少水腫</td></tr>
+            <tr><td><strong>生物效應</strong></td><td>受神經支配的正常肌肉受刺激後收縮；增加肌肉有氧收縮；治療期間血流增加，<strong>但關掉後效果不持續</strong></td><td><strong>門控理論</strong>：電刺激活化內源性神經疼痛控制系統；<strong>腦內啡</strong>：腦下垂體釋放內源性腦內啡</td></tr>
+            <tr><td><strong>開關時間比</strong></td><td><strong>1:1</strong>（肌力訓練）</td><td><strong>1:4</strong>（舒適、止痛）</td></tr>
+            <tr><td><strong>適應症</strong></td><td>骨科術後；神經疾病的保守治療；預防肌肉萎縮，並與運動療法結合強化肌肉</td><td>肌肉骨骼系統的急性與慢性疼痛：骨關節炎、脊椎關節病、骨科術後、肌肉緊繃；<strong>支持神經再生</strong>（臂神經叢撕脫傷、橈神經麻痺）</td></tr>
+            <tr><td><strong>電極位置</strong></td><td>肌肉的<strong>運動點</strong>（神經進入肌肉處），通常在肌肉近端起點到肌腹 1/3 之間（肌肉量較大處）</td><td>疼痛區邊緣；脊椎左右兩側、靠近支配目標區的神經起點；穴位；激痛點</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：為什麼 IVDD 病患要早做 NMES</div>
+        <p>椎間盤疾病（IVDD）的動物，脊髓損傷後 <strong>3 週內後肢肌肉量會流失 50%</strong>；透過 NMES，肌肉量可以恢復到接近正常。所以神經病患在等待神經功能恢復的期間，就要開始用 NMES 維持肌肉，不要等到能走了才開始。神經科病患的整體復健規劃見<a href="week01_神經科疾病復健.html">第 1 週：神經科疾病復健</a>。</p>
+      </div>
+
+      <h3>脈衝參數</h3>
+      <div class="figure">
+        <svg viewBox="0 0 480 230" class="rp-svg" role="img" aria-label="電刺激的坡度、收縮時間與休息時間示意圖">
+          <line x1="30" y1="170" x2="470" y2="170" class="rp-axis"/>
+          <line x1="30" y1="40" x2="30" y2="170" class="rp-axis"/>
+          <text x="34" y="30" class="rp-s" style="text-anchor:start">電流幅度</text>
+          <text x="470" y="160" class="rp-s" style="text-anchor:end">時間 →</text>
+          <g class="rp-pulses"></g>
+          <path d="M40 170 L110 70 L250 70 L320 170" class="rp-env"/>
+          <text x="180" y="60" class="rp-s">幅度</text>
+          <line x1="40" y1="186" x2="110" y2="186" class="rp-dim"/><text x="75" y="206" class="rp-s">上升 3 秒</text>
+          <line x1="110" y1="186" x2="250" y2="186" class="rp-dim"/><text x="180" y="206" class="rp-s">收縮 6 秒</text>
+          <line x1="250" y1="186" x2="320" y2="186" class="rp-dim"/><text x="285" y="206" class="rp-s">下降 3 秒</text>
+          <line x1="320" y1="186" x2="460" y2="186" class="rp-dim"/><text x="390" y="206" class="rp-s">休息（off）</text>
+          <text x="390" y="100" class="rp-t">開／關時間比</text>
+          <text x="390" y="122" class="rp-s">NMES 1:1</text>
+          <text x="390" y="140" class="rp-s">TENS 1:4</text>
+        </svg>
+        <div class="figure-caption">自繪示意圖。每一道直線代表一個脈衝，脈衝寬度就是「脈衝時間」；外框的梯形是一次收縮的包絡。坡度讓電流慢慢升到最大，動物比較舒服。</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">參數</th><th>定義與重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>頻率</strong></td><td>低頻 1–1000 Hz（TENS，最常用 1–150 Hz）；中頻 1–100 kHz（例如蘇聯波 2.5 kHz）；高頻 &gt; 100 kHz</td></tr>
+            <tr><td><strong>波形</strong> Waveform</td><td>電流／時間圖或電壓／時間圖上脈衝的形狀</td></tr>
+            <tr><td><strong>幅度</strong> Amplitude</td><td>單相脈衝，或雙相脈衝任一相的電流值</td></tr>
+            <tr><td><strong>脈衝時間</strong> Pulse duration</td><td>一相或一個脈衝的持續時間，以<strong>微秒（μs）</strong>計。講義寫「微秒(ms)」，ms 應為 μs 的誤植</td></tr>
+            <tr><td><strong>開關時間</strong> Duty cycle／On-off</td><td>通電時間與收縮之間休息時間的比；TENS 1:4，NMES 1:1</td></tr>
+            <tr><td><strong>坡度</strong> Ramp</td><td>從開始通電到峰值電流的秒數，例如上升 3 秒、收縮 6 秒、下降 3 秒，增加舒適度</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>常見電流種類</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">頻段</th><th style="width:24%;">電流</th><th>特徵與用途</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="2">低頻（0–100 Hz）</td><td>正弦波電流 Sinusoidal</td><td>50 Hz 正弦波，每個波形 20 ms；止痛、降低水腫</td></tr>
+            <tr><td>雙動態波 Diadynamic</td><td>正弦波去掉下半部成 50 Hz 波形（單相 MF），或下半部翻上來成 100 Hz（雙相 DF）；通電／休息 10 秒／10 秒。止痛、消炎、肌肉再教育、增加局部循環、促進癒合</td></tr>
+            <tr><td rowspan="2">中頻（1000–5000 Hz）</td><td>干擾波 Interferential current</td><td>兩組中頻（4000 Hz 與 4100 Hz）互相干擾，在組織內產生 1–100 Hz 的低頻，可做<strong>深層</strong>經皮刺激止痛</td></tr>
+            <tr><td>蘇聯波 Russian current</td><td>2500 Hz 雙相正弦中頻電流，每秒 50 個脈衝群，每群 20 ms（開／關 10 ms／10 ms）；人類資料顯示可增加肌力 30–40%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義 p.56 另有一張傳統電流波形圖（直流電、法拉第波、交流電、微電流、高壓脈衝直流電等），p.76 有一張人類的電刺激治療參數表。講義特別註明那張表「是人類治療條件，非動物的，使用前要充分了解原理」，所以這裡不收錄細節。</p>
+
+      <h4>低頻與中頻比較</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;"></th><th>低頻</th><th>中頻</th></tr></thead>
+          <tbody>
+            <tr><td><strong>電流頻率</strong></td><td>0.1–1000 Hz</td><td>1000–10000 Hz</td></tr>
+            <tr><td><strong>使用時間</strong></td><td>約 15–30 分鐘／次</td><td>約 10–30 分鐘／次</td></tr>
+            <tr><td><strong>適用範圍</strong></td><td>表層 1–2 cm 的肌肉疼痛、痙攣，促進血液循環</td><td>深層 2–5 cm 的肌肉疼痛、痙攣、骨骼痛、關節痛、水腫、發炎</td></tr>
+            <tr><td><strong>禁忌部位</strong></td><td>心臟、頭部、重要脈管區</td><td>心臟、頭部、頸部、喉部、肺部</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 依講義 p.77 引用的網路資料整理，原始資料為人類用途。</p>
+
+      <h3>電極</h3>
+      <ul>
+        <li>治療區域<strong>剃毛</strong>，治療前用<strong>酒精清潔</strong>皮膚。</li>
+        <li>電極需要介質傳導電流：超音波凝膠均勻塗在電極上，或用濕海綿（吸盤式電極）。</li>
+        <li>電極尺寸要適當（可手工裁剪），只刺激目標肌肉、不刺激旁邊的肌肉。<strong>電極越小，電流密度越高</strong>，刺激越強、越不舒服。小型動物肌肉體積小，比較難操作。</li>
+      </ul>
+
+      <h4>TENS 電極貼法：關節與支配神經的脊髓節段</h4>
+      <p>電極貼在支配患部關節的神經起點附近，有疼痛抑制效果；做法是把電極貼在對應的脊椎節段兩側。正確放置需要了解神經解剖。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">關節</th><th>神經</th><th style="width:22%;">脊髓節段</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="2"><strong>肩關節</strong></td><td>肩胛上神經 Suprascapular n.</td><td>C6–C7</td></tr>
+            <tr><td>腋神經 Axillary n.</td><td>C7–C8</td></tr>
+            <tr><td rowspan="4"><strong>肘關節</strong></td><td>肌皮神經 Musculocutaneous n.</td><td>C7</td></tr>
+            <tr><td>橈神經 Radial n.</td><td>C7–T1</td></tr>
+            <tr><td>尺神經 Ulnar n.</td><td>C8–T1</td></tr>
+            <tr><td>正中神經 Median n.</td><td>C8–T1</td></tr>
+            <tr><td><strong>腕關節</strong></td><td>橈神經、尺神經、正中神經</td><td>C7–T1、C8–T1、C8–T1</td></tr>
+            <tr><td rowspan="4"><strong>髖關節</strong></td><td>股神經 Femoral n.</td><td>L4–L5</td></tr>
+            <tr><td>前臀神經 Cranial gluteal n.</td><td>L6–S1</td></tr>
+            <tr><td>閉孔神經 Obturator n.</td><td>L6</td></tr>
+            <tr><td>坐骨神經 Sciatic n.</td><td>L6–S1</td></tr>
+            <tr><td rowspan="3"><strong>膝關節</strong></td><td>隱神經 Saphenous n.</td><td>講義圖標「L5–L5」*</td></tr>
+            <tr><td>腓神經 Fibular n.</td><td>L6–L7</td></tr>
+            <tr><td>脛神經 Tibial n.</td><td>L6–L7</td></tr>
+            <tr><td><strong>跗關節</strong></td><td>腓神經、脛神經</td><td>L6–L7</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 依講義 p.69 圖（引自 Essential Facts of Physical Medicine…, Figure 15）整理。*隱神經是股神經的分支，股神經在同一張圖標 L4–L5，「L5–L5」可能是原圖誤植，建議跟老師確認。</p>
+
+      <h3>禁忌症</h3>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <p>治療區域有急性發炎；腫瘤；在心臟部位高強度刺激（動物會激動、喘）；<strong>癲癇</strong>；心律調節器；血管疾病（血栓）；頸動脈竇；懷孕。</p>
+      </div>
+
+      <h3>治療時間與頻率</h3>
+      <p>文獻差異很大：單次 15、30 到 60 分鐘都有；頻率從每天 3 次持續 3 週，到每週 2 次持續 4 週都有。參數依疾病階段調整：</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">急性期</div><p>強度較低、時間短、間隔短：<strong>每天 1–2 次，每次 15 分鐘，持續 1–2 週</strong>。</p></div>
+        <div class="card"><div class="card-title">慢性疾病</div><p>強度較高、時間長、間隔長：<strong>每週 2–3 次，每次 30 分鐘，持續 6 週</strong>。</p></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充：居家使用</div>
+        <p>有些 TENS、NMES 機器適合居家使用，但要仔細教飼主正確操作，以免動物受傷；居家治療的效果每 7–21 天要回診評估一次。講義介紹的動物用機型（PT 3010-P）把 TENS 分成：急性疼痛用高頻低強度、慢性疼痛用高強度低頻。這跟<a href="week02_骨科疾病復健.html#section-painmodalities">骨科講義</a>「急性痛用高頻 50–150 Hz、慢性痛用低頻 &lt;50 Hz」一致。</p>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義 p.52–77（徐淑孄 醫師）。示意圖為自繪。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CONTRAINDICATIONS -->
+    <div class="section" id="section-contra">
+      <div class="section-head"><div class="section-num">7</div><h2>禁忌症總表與篩選</h2></div>
+      <p class="section-desc">勾選病患有的狀況，表格會標出哪些儀器在講義中列為禁忌或需要注意。<strong>「—」代表講義沒有提到，不代表一定安全</strong>，要另外判斷。</p>
+
+      <div class="rp-chips" id="ciChips"></div>
+      <div id="ciVerdict" class="rp-out" style="margin-bottom:12px;"></div>
+      <div class="table-wrap">
+        <table id="ciTable">
+          <thead><tr><th>狀況</th><th>冰敷</th><th>熱敷</th><th>超音波</th><th>電刺激</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">✕ 禁忌　△ 注意或有條件　— 講義未提及。微波深層熱療只列一項禁忌（體內金屬植入物），併入「熱敷」欄。</p>
+
+      <footer class="note-footer">資料來源：課程講義各儀器的禁忌症與注意事項頁（徐淑孄 醫師）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考前快速掃過。</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>冷熱的時間分界：</strong>冰敷用在受傷或術後 72 小時內，越早越好，每次 10–20 分鐘；熱敷在受傷後 48 小時內禁用，每次 15–30 分鐘，組織升溫 2–4°C 最好，不可超過 45°C。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>皮膚顏色判讀：</strong>冰敷後變紅正常、變白是損傷；熱敷出現白色區域（反彈性血管收縮）或鮮紅斑點（出血）要停止。冰敷的感覺順序是 IBAN：燒灼 → 疼痛 → 麻木。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>局部冰敷 vs. 全身冷浸：</strong>局部減少痙攣；全身冷浸增加肌梭敏感度、增加痙攣和肌張力，並可能升高血壓（高血壓禁忌）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>超音波參數四步驟：</strong>先看目的決定效應（熱 → 連續 100%；非熱 → 脈衝 20%），再看深度選頻率（2–5 cm 用 1 MHz；0.5–2 cm 用 3.3 MHz），再依病程選強度（急性 0.5、慢性 1–2 W/cm²），最後算時間（探頭面積數 × 4 分鐘，治療區不超過探頭 2–4 倍）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>超音波機械效應：</strong>加速發炎期走完（不是擴大發炎）、增加膠原合成、膠原由第三型轉為第一型；出血期禁用，出血停止後就能用。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>NMES vs. TENS：</strong>NMES 開關比 1:1、貼運動點、練肌力防萎縮（IVDD 3 週流失 50% 肌肉）；TENS 開關比 1:4、貼疼痛區邊緣或支配神經的脊髓節段兩側、靠門控理論與腦內啡止痛。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>特殊禁忌：</strong>超音波禁打椎板切除術後的脊髓、開放的生長板、眼睛、睪丸、心臟；電刺激禁用於癲癇；微波禁用於金屬植入物區域；冰敷禁用於骨折與凍傷過的部位。</div></div>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。最後兩題是臨床情境題。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 冰敷結束時，下列哪一種皮膚反應代表可能發生組織損傷？</div>
+        <ul class="quiz-options"><li>(A) 皮膚變紅</li><li>(B) 皮膚變蒼白</li><li>(C) 動物出現麻木反應</li><li>(D) 皮膚溫度下降</li></ul>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">冰敷結束時皮膚變紅是正常反應，變蒼白是發生損傷的異常反應。麻木是 IBAN 預期感覺變化的最後階段，屬於預期反應。皮膚色素深的狗顏色變化不明顯，要縮短時間保守處理。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 把犬的後肢浸在 10°C 冷水中 15 分鐘，和局部冰敷一樣可以減少肌肉痙攣。</div>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">全身或大面積冷浸（2–16°C、10–20 分鐘）會增加肌梭敏感度，<strong>反而增加痙攣</strong>，同時肌張力增加、出現顫抖，效果與局部冰敷相反。講義提到可以利用這點，讓運動神經反應遲鈍的動物暫時促進肌肉收縮。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 要治療一隻慢性肩關節周圍肌腱攣縮的犬，目標組織約在皮下 3 cm。下列超音波設定何者最合適？</div>
+        <ul class="quiz-options"><li>(A) 3.3 MHz、脈衝 20%、0.5 W/cm²</li><li>(B) 1 MHz、連續式、1.5–2.0 W/cm²</li><li>(C) 3.3 MHz、連續式、2.0 W/cm²</li><li>(D) 1 MHz、脈衝 20%、0.5 W/cm²</li></ul>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">攣縮屬於「軟組織縮短」，需要熱效應 → 連續式（100%）；深度 3 cm 落在 2–5 cm → 1 MHz；慢性、深層 → 高強度 1.5–2.0 W/cm²。3.3 MHz 的能量在 0–3 cm 就被吸收，處理不到 3 cm 深的組織。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">計算題</span>
+        <div class="quiz-q">Q4. 使用 5 cm² 的超音波探頭，治療區域為 15 cm²，依講義的經驗法則治療時間應為多久？如果治療區域是 40 cm²，要怎麼處理？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">15 ÷ 5 = 3 個探頭面積，3 × 4 分鐘 = <strong>12 分鐘</strong>。治療區不應超過探頭的 2–4 倍（5 cm² 探頭最多 20 cm²），40 cm² 已經是 8 倍，應該<strong>分成兩個以上的區域</strong>分別治療，否則每個點分到的能量不足，達不到治療溫度。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 下列關於 NMES 與 TENS 的敘述，何者錯誤？</div>
+        <ul class="quiz-options"><li>(A) NMES 的開關時間比通常為 1:1，用於肌力訓練</li><li>(B) TENS 透過門控理論與內源性腦內啡產生止痛效果</li><li>(C) NMES 的電極放在肌肉的運動點</li><li>(D) NMES 增加的血流量在關機後可持續數小時</li></ul>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">講義寫：大量研究證實 NMES 治療期間血流量增加，但<strong>刺激關閉後效果不會持續</strong>。運動點是神經進入肌肉的位置，通常在肌肉近端起點到肌腹 1/3 之間。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. 治療用超音波的機械效應在發炎期會擴大發炎反應，所以急性期應全面避免使用超音波。</div>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">脈衝式超音波在發炎期是<strong>加速</strong>發炎反應走完，不是擴大發炎，讓組織順利進入增生期。禁用的是<strong>出血期</strong>，因為超音波會增加局部血流；出血停止後（通常受傷後幾小時內）就應盡快開始低強度脈衝治療。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】一隻 7 歲臘腸犬因胸腰段椎間盤突出，3 天前接受半椎板切除術（hemilaminectomy），目前後肢無法自主行走但有深部痛覺。病史有特發性癲癇，以 phenobarbital 控制中。請問：(1) 術後這段時間適合用哪些儀器治療？(2) 哪些儀器或部位要避開？為什麼？(3) 為什麼不能等狗恢復行走才開始維持肌肉？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> 術後 72 小時內可在手術傷口周圍（避開傷口本身）冰敷消腫止痛，每次 10–20 分鐘。注意感覺減弱的區域是冰敷禁忌，後肢若有感覺缺失要避開或密切觀察。進入亞急性期後，可對後肢肌肉做溫熱療法、被動關節活動。<br><strong>(2)</strong> <strong>超音波</strong>不可打在椎板切除術後的脊髓上（失去骨頭保護）；<strong>電刺激</strong>在講義中列<strong>癲癇為禁忌</strong>，這隻狗有癲癇病史，NMES 和 TENS 都要先跟主治醫師討論，不能照常規使用；<strong>熱敷</strong>在術後 48 小時內禁用，且傷口未癒合不可熱敷（開放性傷口禁忌）。<br><strong>(3)</strong> IVDD 動物脊髓損傷後 3 週內後肢肌肉量可流失 50%，等到能走才開始會已經大量萎縮。一般會用 NMES 維持肌肉，但這隻狗因為癲癇不適合，要改用被動關節活動、按摩、輔助站立等不用電的方式，並和神經科討論。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】一隻 12 歲拉布拉多犬有慢性髖關節骨關節炎，近半年活動量下降。飼主想在家幫牠熱敷，問你可不可以用吹風機或暖暖包。請問：(1) 熱敷對這隻狗有什麼好處？什麼時候做效果最好？(2) 你會怎麼建議居家熱敷的方式與安全注意事項？(3) 老年犬熱敷要特別注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> 熱敷適用於慢性退化性疾病（關節炎非急性發作期），能擴張血管、增加代謝、提高肌腱韌帶延展性、止痛。<strong>在伸展或運動前熱敷</strong>可改善關節活動範圍，效果最好。<br><strong>(2)</strong> 吹風機溫度難控制，盡量不要用。暖暖包不可直接接觸皮毛，要用布料隔開，並請飼主多次確認溫度與皮膚，避免低溫燙傷。也可以用熱敷包墊毛巾（先放在自己頸後測試溫度）、電熱毯開最低溫覆蓋不重壓（面積不超過全身 1/3）。每次 15–30 分鐘，一天 3–4 次；皮膚出現白色區域或鮮紅斑點就停止。<br><strong>(3)</strong> 老年動物體溫調節較差、對痛的敏感度可能下降，心血管與呼吸儲備能力下降、耐熱性差，所以要更頻繁檢查皮膚、縮短時間；若急性發作（突然更痛、關節腫熱）則改冰敷，不要熱敷。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考，不作為正式臨床診斷或治療依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<style>
+.rp-svg { width: 100%; max-width: 640px; height: auto; display: block; margin: 0 auto; }
+.rp-svg text { fill: var(--fg); font-size: 14px; }
+.rp-svg .rp-t { text-anchor: middle; font-size: 13px; }
+.rp-svg .rp-s { text-anchor: middle; font-size: 12px; fill: var(--fg-muted); }
+.rp-svg .rp-l { text-anchor: end; font-size: 13px; font-weight: 700; }
+.rp-svg .rp-bt { text-anchor: middle; font-size: 12.5px; fill: #fff; }
+.rp-svg .rp-nt { text-anchor: middle; font-size: 12px; fill: var(--red); }
+.rp-svg .rp-axis { stroke: var(--fg-muted); stroke-width: 1.2; }
+.rp-svg .rp-grid { stroke: var(--line); stroke-dasharray: 3 4; }
+.rp-svg .rp-ph1 { fill: var(--red-bg); } .rp-svg .rp-ph2 { fill: var(--amber-bg); } .rp-svg .rp-ph3 { fill: var(--green-bg); }
+.rp-svg .rp-cold { fill: #4f7fb0; } .rp-svg .rp-heat { fill: #c0622d; }
+.rp-svg .rp-us1 { fill: #6e8f5a; } .rp-svg .rp-us2 { fill: #4e6b3d; }
+.rp-svg .rp-es { fill: #7b6aa8; } .rp-svg .rp-es2 { fill: #5a4a87; }
+.rp-svg .rp-no { fill: none; stroke: var(--red); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.rp-svg .rp-box { fill: var(--bg-soft); stroke: var(--line); stroke-width: 1.2; }
+.rp-svg .rp-key { stroke: var(--red); stroke-width: 2; }
+.rp-svg .rp-ln { stroke: var(--fg-muted); stroke-width: 1.3; fill: none; }
+.rp-svg .rp-arrowhead { fill: var(--fg-muted); }
+.rp-svg .rp-env { fill: none; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 3; }
+.rp-svg .rp-pulse { stroke: var(--fg); stroke-width: 2; }
+.rp-svg .rp-dim { stroke: var(--fg-muted); stroke-width: 1; }
+.rp-calc .rp-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+.rp-calc label { display: flex; flex-direction: column; gap: 4px; font-size: .88em; font-weight: 700; color: var(--fg-muted); }
+.rp-calc select, .rp-calc input { font: inherit; font-weight: 400; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); min-width: 0; }
+.rp-out { margin-top: 12px; padding: 10px 14px; border-radius: 8px; background: var(--bg-faint); border: 1px solid var(--line); font-size: .92em; line-height: 1.75; }
+.rp-out .rp-warn { color: var(--red); font-weight: 700; }
+.rp-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.rp-chip { font: inherit; font-size: .88em; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--fg); cursor: pointer; }
+.rp-chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+#ciTable td:not(:first-child), #ciTable th:not(:first-child) { text-align: center; }
+#ciTable tr.rp-hit td { background: var(--accent-tint); }
+#ciTable .rp-x { color: var(--red); font-weight: 700; }
+#ciTable .rp-c { color: var(--amber); font-weight: 700; }
+@media (max-width: 720px) { .rp-calc .rp-form { grid-template-columns: 1fr; } }
+</style>
+<script>
+(function () {
+  // pulse train for the e-stim diagram
+  var g = document.querySelector('.rp-pulses');
+  if (g) {
+    var env = function (x) { if (x < 40 || x > 320) return 0; if (x < 110) return (x - 40) / 70; if (x <= 250) return 1; return (320 - x) / 70; };
+    var s = '';
+    for (var x = 46; x < 320; x += 10) { var h = 100 * env(x); if (h > 2) s += '<line class="rp-pulse" x1="' + x + '" y1="170" x2="' + x + '" y2="' + (170 - h) + '"/>'; }
+    g.innerHTML = s;
+  }
+
+  // ultrasound calculator
+  var RATE = { '1': { 0.5: 0.04, 1.0: 0.2, 1.5: 0.3, 2.0: 0.4 }, '3.3': { 0.5: 0.3, 1.0: 0.6, 1.5: 0.9, 2.0: 1.4 } };
+  function calc() {
+    var depth = document.getElementById('usDepth').value, goal = document.getElementById('usGoal').value;
+    var area = parseFloat(document.getElementById('usArea').value), era = parseFloat(document.getElementById('usEra').value);
+    var out = document.getElementById('usOut');
+    if (goal === 'bleed') { out.innerHTML = '<span class="rp-warn">不建議使用：</span>出血期禁用超音波，因為超音波會增加局部血流。先冰敷，出血停止後（通常受傷後幾小時內）再開始低強度脈衝式。'; return; }
+    if (depth === 'beyond') { out.innerHTML = '<span class="rp-warn">超出範圍：</span>講義列出的超音波作用深度最深約 5 cm（1 MHz），超過 5 cm 的組織這份講義沒有提供參數。'; return; }
+    if (!(area > 0) || !(era > 0)) { out.textContent = '請輸入治療面積與探頭面積。'; return; }
+    var freq = depth === 'shallow' ? '3.3' : '1';
+    var thermal = goal === 'chronic';
+    var mode = thermal ? '連續式（總效率週期 100%）→ 熱效應' : '脈衝式（總效率週期 20%）→ 機械效應（非熱）';
+    var inten, rateNote = '';
+    if (thermal) {
+      inten = freq === '3.3' ? 0.5 : 1.5;
+      var hi = freq === '3.3' ? '0.5 W/cm²' : '1.5–2.0 W/cm²';
+      var r = RATE[freq][inten];
+      rateNote = '<br>預估升溫：' + inten + ' W/cm² 時約 ' + r + '°C／分；要達中度熱效應（+2°C）約需 ' + Math.ceil(2 / r) + ' 分鐘，強力熱效應（+4°C）約需 ' + Math.ceil(4 / r) + ' 分鐘（依加熱速率表推算，實際受組織與移動速度影響）。';
+      inten = hi;
+    } else {
+      inten = goal === 'acute' ? '0.5 W/cm²（急性、淺層用低強度）' : '0.5–1.0 W/cm²';
+    }
+    var n = area / era, mins = Math.round(n * 4 * 10) / 10;
+    var areaWarn = '';
+    if (n > 4) areaWarn = '<br><span class="rp-warn">面積過大：</span>治療區是探頭的 ' + n.toFixed(1) + ' 倍，超過講義上限 2–4 倍，建議分成 ' + Math.ceil(n / 4) + ' 區以上分別治療。';
+    else if (n < 2) areaWarn = '<br>治療區小於探頭 2 倍，探頭移動空間有限，注意不要停在同一點。';
+    var sched = (goal === 'chronic' || goal === 'nonheal') ? '每週 1–2 次，療程通常數週' : '每週 3 次，療程 1–2 週';
+    out.innerHTML = '<strong>頻率：</strong>' + freq + ' MHz' + (freq === '1' ? '（深 2–5 cm）' : '（深 0.5–2 cm）') +
+      '<br><strong>模式：</strong>' + mode +
+      '<br><strong>強度：</strong>' + inten +
+      '<br><strong>時間：</strong>' + area + ' ÷ ' + era + ' = ' + n.toFixed(1) + ' 個探頭面積 × 4 分鐘 ≈ <strong>' + mins + ' 分鐘</strong>' + rateNote + areaWarn +
+      '<br><strong>療程：</strong>' + sched +
+      '<br><strong>操作：</strong>剃毛、塗凝膠、探頭垂直皮膚、畫圓移動約 4 cm／秒；關節處若動物疼痛或痠，調低強度或加快移動。';
+  }
+  ['usDepth', 'usGoal', 'usArea', 'usEra'].forEach(function (id) { var el = document.getElementById(id); el.addEventListener('input', calc); el.addEventListener('change', calc); });
+  calc();
+
+  // contraindication filter: [label, cold, heat, us, estim, note]  X=禁忌 C=注意 ''=未提及
+  var CI = [
+    ['急性發炎／出血', '', 'X', 'X', 'X', '冰敷正是急性期的適應症；熱敷禁用於 48 小時內與活動性出血；超音波禁用於出血期（出血停止後可用脈衝式）；電刺激禁用於治療區急性發炎'],
+    ['開放或污染的傷口', 'X', 'X', 'X', '', '超音波講義寫「污染的傷口」；機械效應本身有促進傷口癒合的適應症'],
+    ['腫瘤', '', 'X', 'X', 'X', ''],
+    ['懷孕', '', 'C', 'X', 'X', '超音波禁打懷孕的子宮；熱敷列為需預防措施'],
+    ['血栓、血管疾病', '', 'X', '', 'X', '熱敷另禁用於嚴重循環功能不全'],
+    ['心律調節器', '', '', 'X', 'X', ''],
+    ['心臟疾病、心功能不全', '', 'C', 'X', 'C', '超音波禁打心臟；電刺激禁止在心臟部位高強度刺激；熱敷列為需預防措施'],
+    ['感覺減弱或缺失', 'X', 'C', '', '', '冰敷另禁用於運動神經障礙的區域'],
+    ['癲癇', '', '', '', 'X', ''],
+    ['骨折', 'X', '', '', '', ''],
+    ['以前凍傷過的部位', 'X', '', '', '', ''],
+    ['高血壓', 'X', '', '', '', '全身冰敷可能升高血壓'],
+    ['體內金屬植入物', '', 'X', '', '', '僅限微波深層熱療'],
+    ['開放的生長板（幼齡）', '', '', 'X', '', ''],
+    ['椎板切除術後', '', '', 'X', '', '超音波禁打術後的脊髓'],
+    ['頸動脈竇、頸部神經節', '', '', 'X', 'X', ''],
+    ['眼睛、睪丸', '', '', 'X', '', ''],
+    ['非常年老或非常年輕', 'X', 'C', '', '', '老年動物體溫調節與心肺儲備較差，耐熱性差'],
+    ['極度肥胖、體溫調節差', '', 'C', '', '', '']
+  ];
+  var MOD = ['冰敷', '熱敷', '超音波', '電刺激'];
+  var sel = {};
+  var chips = document.getElementById('ciChips'), tb = document.querySelector('#ciTable tbody'), verdict = document.getElementById('ciVerdict');
+  chips.innerHTML = CI.map(function (r, i) { return '<button type="button" class="rp-chip" data-i="' + i + '">' + r[0] + '</button>'; }).join('');
+  function sym(v) { return v === 'X' ? '<span class="rp-x">✕</span>' : v === 'C' ? '<span class="rp-c">△</span>' : '—'; }
+  function render() {
+    tb.innerHTML = CI.map(function (r, i) {
+      return '<tr' + (sel[i] ? ' class="rp-hit"' : '') + '><td>' + r[0] + (r[5] ? '<div style="font-size:.8em;color:var(--fg-faint);font-weight:400;">' + r[5] + '</div>' : '') + '</td>' +
+        [1, 2, 3, 4].map(function (k) { return '<td>' + sym(r[k]) + '</td>'; }).join('') + '</tr>';
+    }).join('');
+    var picked = Object.keys(sel).filter(function (k) { return sel[k]; });
+    if (!picked.length) { verdict.innerHTML = '尚未勾選任何狀況。'; return; }
+    var lines = MOD.map(function (m, k) {
+      var x = [], c = [];
+      picked.forEach(function (i) { var v = CI[i][k + 1]; if (v === 'X') x.push(CI[i][0]); else if (v === 'C') c.push(CI[i][0]); });
+      if (x.length) return '<strong>' + m + '：</strong><span class="rp-warn">禁忌</span>（' + x.join('、') + '）';
+      if (c.length) return '<strong>' + m + '：</strong>注意（' + c.join('、') + '）';
+      return '<strong>' + m + '：</strong>講義未列為禁忌（仍需臨床判斷）';
+    });
+    verdict.innerHTML = lines.join('<br>');
+  }
+  chips.addEventListener('click', function (e) {
+    var b = e.target.closest('.rp-chip'); if (!b) return;
+    var i = b.dataset.i; sel[i] = !sel[i]; b.classList.toggle('on', sel[i]); render();
+  });
+  render();
+})();
+</script>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  overview: '四種儀器怎麼選',
+  cryo: '冷凍療法（冰敷）',
+  thermo: '溫熱療法（熱敷）',
+  ultrasound: '治療用超音波',
+  estim: '電刺激（NMES／TENS）',
+  contra: '禁忌症總表與篩選',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
