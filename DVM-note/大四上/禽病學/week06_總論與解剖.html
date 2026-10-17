@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：總論與解剖 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">總論與解剖</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">家禽總論與解剖 Poultry Overview &amp; Anatomy</h1>
+      <p class="page-subtitle">家禽的種類與育種目標、禽類和哺乳類的差異、大體解剖（消化、呼吸、生殖、免疫器官）、採樣部位與正常組織</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《禽病學》課程講義〈Poultry Diseases: Overview, Anatomy〉（吳乃慧 DVM, PhD），含講義引用之中央畜產會資料。講義以圖為主，功能與臨床意義的說明多為補充並逐段標示</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-11</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（期中考導向）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">家禽</div>
+    <a onclick="showSection('poultry')" id="nav-poultry"><span class="nav-icon">🐔</span> 家禽與禽類特徵</a>
+    <a onclick="showSection('breeding')" id="nav-breeding"><span class="nav-icon">🧬</span> 雞、鴨、鵝的育種目標</a>
+    <a onclick="showSection('industry')" id="nav-industry"><span class="nav-icon">📈</span> 台灣家禽產業</a>
+    <div class="section-label" style="margin-top:8px;">解剖與組織</div>
+    <a onclick="showSection('anatomy')" id="nav-anatomy"><span class="nav-icon">🫀</span> 大體解剖與臨床意義</a>
+    <a onclick="showSection('histology')" id="nav-histology"><span class="nav-icon">🔬</span> 正常組織與血液</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 考試方向（推測）</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">這份講義的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>整個禽病學的入門：家禽有哪些、各自為什麼而養（育種目標），禽類和哺乳類在構造上哪裡不一樣，以及剖檢時每個器官長在哪裡、正常長什麼樣子。</dd>
+          <dt>為什麼重要</dt>
+          <dd>後面每一個病都是「侵犯哪個器官」：新城病的腺胃、傳染性支氣管炎的腎與輸卵管、ILT 的氣管、馬立克病的神經與華氏囊、傳染性華氏囊病的華氏囊。<strong>不認得正常的華氏囊、腺胃、盲腸扁桃，就看不出異常。</strong>講義也提醒：不同品種用不同的育種策略與免疫計畫。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-poultry">禽類 vs. 哺乳類</a>：ZW 性別決定（雌性決定子代性別）、沒有橫膈、靠氣囊、單一排泄孔、沒有汗腺、沒有牙齒。</li>
+              <li><a href="#section-breeding">白肉雞、蛋雞、有色雞的育種目標</a>，以及土番鴨（騾鴨）沒有後代。</li>
+              <li><a href="#section-anatomy">特有器官</a>：嗉囊、腺胃、肌胃、盲腸、泄殖腔、<strong>華氏囊</strong>、氣囊（9 個）、胸腺（頸部一串）。</li>
+              <li><a href="#section-anatomy">採樣部位</a>：氣管拭子、泄殖腔拭子。</li>
+            </ol>
+          </dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>ZW 與 XY 比較；禽類呼吸系統（無橫膈、氣囊的功能）；華氏囊的位置與功能；消化道順序；雞的分類階層；白肉雞的飼料換肉率；土番鴨為何不能繁殖；異嗜球是什麼。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Overview, Anatomy〉（吳乃慧 DVM, PhD）；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。</footer>
+    </div>
+
+    <!-- POULTRY -->
+    <div class="section" id="section-poultry">
+      <div class="section-head"><div class="section-num">2</div><h2>家禽與禽類特徵</h2></div>
+
+      <h3>什麼是家禽<span class="lv lv-know">理解</span></h3>
+      <p>家禽是人類為了<strong>蛋、肉或羽毛</strong>而飼養的馴化鳥類。產品：肉、蛋、羽毛、絨羽（down）、肥肝（foie gras）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">禽種</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td>雞</td><td>肉、蛋、羽毛</td></tr>
+            <tr><td>鴨、鵝</td><td>肉、蛋、羽毛、<strong>絨羽</strong>（防水、保暖）、<strong>肥肝</strong>（鵝肝，來自匈牙利）</td></tr>
+            <tr><td>火雞</td><td>歐洲、美洲</td></tr>
+            <tr><td>鴕鳥</td><td><strong>紅肉</strong></td></tr>
+            <tr><td>鴿子</td><td>法國、美國、北非、亞洲（肉鴿，不是賽鴿）</td></tr>
+            <tr><td>鵪鶉</td><td>日本、東南亞</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>雞的分類：</strong>動物界 → 脊索動物門 → 鳥綱（Aves）→ <strong>鶉雞目（Galliformes）</strong>→ <strong>雉科（Phasianidae）</strong>→ <strong>雞屬（Gallus）</strong>。祖先是原雞（jungle fowl）。</p>
+
+      <h3>性別決定：ZW 系統<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;"></th><th>禽類</th><th>哺乳類</th></tr></thead>
+          <tbody>
+            <tr><td><strong>雄性</strong></td><td><strong>ZZ</strong></td><td>XY</td></tr>
+            <tr><td><strong>雌性</strong></td><td><strong>ZW</strong></td><td>XX</td></tr>
+            <tr><td><strong>誰決定子代性別</strong></td><td><strong>雌性</strong></td><td>雄性</td></tr>
+            <tr><td><strong>染色體長度</strong></td><td>Z &gt; W</td><td>X &gt; Y</td></tr>
+            <tr><td><strong>染色體數（2n）</strong></td><td>雞 78；火雞、鴨、其他鳥 80</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_總論與解剖/an_p05.jpg" alt="禽類ZW與哺乳類XY性別決定系統比較" loading="lazy"><div class="figure-caption">ZW 與 XY 性別決定系統。</div><div class="figure-source">來源：課程講義 p.5</div></div>
+
+      <h3>禽類和哺乳類的差異<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">禽類的特徵</th><th>臨床意義（補充）</th></tr></thead>
+          <tbody>
+            <tr><td>羽毛取代毛髮</td><td>PBFD、多瘤病毒、營養不良都會表現在羽毛</td></tr>
+            <tr><td>沒有牙齒</td><td>靠<strong>肌胃</strong>磨碎食物</td></tr>
+            <tr><td>產蛋</td><td>產蛋下降、蛋殼異常是很多病（IB、ND、AI、ILT）的重要指標</td></tr>
+            <tr><td>能漂浮、飛行</td><td>骨骼中空（hollow bone，見下）</td></tr>
+            <tr><td>只有<strong>一個排泄孔</strong>（泄殖腔）</td><td>泄殖腔拭子可同時採到消化道與泌尿生殖道的病原</td></tr>
+            <tr><td><strong>沒有汗腺</strong></td><td>靠喘氣散熱，熱緊迫風險高</td></tr>
+            <tr><td><strong>沒有橫膈</strong></td><td>不能靠橫膈讓肺膨脹</td></tr>
+            <tr><td><strong>有氣囊</strong>（頸部與體腔）</td><td>氣囊負責讓空氣進出；<strong>氣體交換在肺</strong>。氣囊炎是大腸桿菌、黴漿菌、IB 合併感染的常見病變</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Overview, Anatomy〉p.3–8；「臨床意義」欄為補充。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BREEDING -->
+    <div class="section" id="section-breeding">
+      <div class="section-head"><div class="section-num">3</div><h2>雞、鴨、鵝的育種目標</h2></div>
+      <p class="section-desc">講義的提醒：<strong>不同品種用不同的育種策略，也用不同的免疫計畫。</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">類型</th><th>育種目標</th><th style="width:28%;">代表品系</th></tr></thead>
+          <tbody>
+            <tr><td><strong>白肉雞</strong>（肉雞）</td><td>改善<strong>飼料換肉率</strong>（從約 2 降到 1.4–1.5）、肌肉發育、低脂、骨骼穩定、肉質、整體存活率、抗緊迫（如病原）</td><td>Ross（樂絲）、Arbor Acres（愛拔益加）、Cobb（科寶）、Hubbard</td></tr>
+            <tr><td><strong>蛋雞</strong></td><td>雞：飼料轉換率、存活率、抗緊迫；蛋：<strong>產蛋性能、蛋殼品質</strong></td><td>Lohmann、Hy-Line、Hendrix、ISA</td></tr>
+            <tr><td><strong>有色雞</strong>（土雞）</td><td><strong>外觀</strong>（體型、羽色：紅羽、黑羽、黃羽等）、肉質、雜交優勢帶來的抗緊迫能力；要注意基因與遺傳疾病</td><td>紅羽、黃羽、黑羽土雞；另有鬥雞、珍珠雞、閹雞、烏骨雞</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義 p.9 的圖：1957 年的肉雞要養到 12 週才有 2001 年肉雞 6 週的體型。補充：白肉雞生長快、飼養期短（約 5–6 週），疾病多發生在早期；土雞飼養期長，所以 ND、IB 疫苗計畫要多一劑補強。</p>
+      <div class="figure"><img src="img/week06_總論與解剖/an_p09.jpg" alt="1957與2001年肉雞生長比較與育種目標" loading="lazy"><div class="figure-caption">1957 vs. 2001 年肉雞生長速度；飼料換肉率從 2 降到 1.4–1.5。</div><div class="figure-source">來源：課程講義 p.9（Ross｜Aviagen）</div></div>
+
+      <h3>鴨與鵝<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>鴨：</strong>北京鴨、番鴨、日耳曼綠頭鴨、菜鴨；英國櫻桃鴨。</li>
+        <li>雜交肉鴨：二品種白色土番鴨（夏季肉用）、三品種白色土番鴨（全年肉用）；褐色菜鴨等為蛋用（依講義 p.22 圖）。</li>
+        <li><strong>土番鴨（騾鴨，mule duck）沒有後代</strong>：番鴨和一般家鴨（菜鴨、北京鴨）是不同屬的雜交（補充），所以子代不孕，每一批都要重新雜交。</li>
+        <li><strong>鵝：</strong>華鵝、白羅曼鵝、法國土魯斯鵝、德國艾姆登鵝；產品包括肉、蛋、羽毛、絨羽、肥肝。</li>
+      </ul>
+      <div class="figure"><img src="img/week06_總論與解剖/an_p22.jpg" alt="鴨的育種：北京鴨、番鴨與菜鴨雜交產生土番鴨" loading="lazy"><div class="figure-caption">鴨的育種：雜交產生二品種、三品種白色土番鴨（肉用）；土番鴨不能繁殖。</div><div class="figure-source">來源：課程講義 p.22</div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Overview, Anatomy〉p.8–23。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- INDUSTRY -->
+    <div class="section" id="section-industry">
+      <div class="section-head"><div class="section-num">4</div><h2>台灣家禽產業<span class="lv lv-skim">看過</span></h2></div>
+      <ul>
+        <li><strong>113 年第 1 季雞隻在養量</strong>：1 億 269 萬隻，較前一年同季增加 8.8%。種雞 508 萬（4.9%）、<strong>蛋雞 4,674 萬（45.5%）</strong>、<strong>肉雞 5,087 萬（49.5%）</strong>；肉雞中白肉雞 52.8%、有色肉雞 47.2%。</li>
+        <li><strong>雞以外</strong>：鴨 739 萬、鵝 118 萬、鵪鶉 206 萬、火雞 9 萬、鴕鳥 645 隻；除鴕鳥減少 23.6% 外，其他都增加。</li>
+        <li><strong>111 年</strong>：白肉雞屠宰 26,091 萬隻、有色肉雞 8,695 萬隻；國內需求成長以白肉雞為主。</li>
+      </ul>
+      <div class="figure"><img src="img/week06_總論與解剖/an_p17.jpg" alt="113年第1季家禽在養情形" loading="lazy"><div class="figure-caption">113 年第 1 季家禽在養情形（中央畜產會）。</div><div class="figure-source">來源：課程講義 p.17</div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Overview, Anatomy〉p.16–19（中央畜產會、農業部）。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- ANATOMY -->
+    <div class="section" id="section-anatomy">
+      <div class="section-head"><div class="section-num">5</div><h2>大體解剖與臨床意義<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">左欄是講義標出的器官，右欄是之後的課會用到的地方（補充）。</p>
+      <div class="figure"><img src="img/week06_總論與解剖/an_p24.jpg" alt="雞的內臟解剖示意圖" loading="lazy"><div class="figure-caption">雞的內臟：嗉囊、腺胃、肌胃、膽囊、盲腸、泄殖腔、卵巢、輸卵管、腎、肺等。</div><div class="figure-source">來源：課程講義 p.24（www.ca.uky.edu）</div></div>
+
+      <h3>消化道</h3>
+      <div class="flow">
+        <div class="flow-node">口（喙）</div><div class="flow-arrow">→</div><div class="flow-node">食道</div><div class="flow-arrow">→</div><div class="flow-node">嗉囊</div><div class="flow-arrow">→</div><div class="flow-node">腺胃</div><div class="flow-arrow">→</div><div class="flow-node">肌胃</div><div class="flow-arrow">→</div><div class="flow-node">十二指腸環（夾著胰臟）</div><div class="flow-arrow">→</div><div class="flow-node">空腸、迴腸</div><div class="flow-arrow">→</div><div class="flow-node">兩條盲腸</div><div class="flow-arrow">→</div><div class="flow-node">大腸（短）</div><div class="flow-arrow">→</div><div class="flow-node">泄殖腔</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">器官</th><th style="width:34%;">講義</th><th>之後會遇到（補充）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>嗉囊</strong> Crop</td><td>食道的膨大，儲存食物</td><td>寵物鳥多瘤病毒的嗉囊停滯</td></tr>
+            <tr><td><strong>腺胃</strong> Proventriculus</td><td>化學性消化的胃</td><td><strong>新城病、禽流感的腺胃乳突部出血</strong>；IB 親腺胃型；鸚鵡 PDD 腺胃擴張</td></tr>
+            <tr><td><strong>肌胃</strong> Gizzard</td><td>機械性磨碎（取代牙齒）</td><td>—</td></tr>
+            <tr><td><strong>十二指腸環、胰臟</strong></td><td>胰臟夾在十二指腸環中</td><td>台灣 H5 禽流感的胰臟出血壞死</td></tr>
+            <tr><td><strong>盲腸</strong> Caeca</td><td>兩條；發酵剩餘食物、吸收水分</td><td>盲腸扁桃（新城病潰瘍出血）；球蟲</td></tr>
+            <tr><td><strong>泄殖腔</strong> Cloaca</td><td>消化、泌尿、生殖共同出口</td><td>泄殖腔拭子</td></tr>
+            <tr><td><strong>華氏囊</strong> Bursa of Fabricius</td><td>位於泄殖腔背側</td><td><strong>B 細胞的初級淋巴器官</strong>；傳染性華氏囊病、馬立克病、禽白血病都和它有關</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week06_總論與解剖/an_p36.jpg" alt="雞消化道展開：十二指腸環、胰臟、小腸、盲腸、大腸、泄殖腔、華氏囊" loading="lazy"><div class="figure-caption">十二指腸環、胰臟、小腸、盲腸、大腸、泄殖腔、華氏囊。</div><div class="figure-source">來源：課程講義 p.36</div></div>
+        <div class="figure"><img src="img/week06_總論與解剖/an_p41.jpg" alt="雞消化道各段標示" loading="lazy"><div class="figure-caption">喙到泄殖腔的完整消化道，含脾臟、膽囊、肝臟。</div><div class="figure-source">來源：課程講義 p.41</div></div>
+      </div>
+
+      <h3>呼吸與其他器官</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">器官</th><th style="width:34%;">講義</th><th>之後會遇到（補充）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>喉、氣管</strong></td><td>口腔內可見聲門、喉</td><td>ILT 的出血與偽膜、IB 與 ND 的氣管病變</td></tr>
+            <tr><td><strong>氣囊</strong></td><td><strong>9 個</strong>；膨脹與收縮讓肺通氣</td><td>氣囊炎（大腸桿菌、黴漿菌）</td></tr>
+            <tr><td><strong>肺</strong></td><td>緊貼在肋骨間，氣體交換的地方</td><td>—</td></tr>
+            <tr><td><strong>腎</strong></td><td>貼在背側、分葉</td><td>IB 親腎型的腫脹與尿酸鹽沉積</td></tr>
+            <tr><td><strong>胸腺</strong></td><td>頸部一串淡粉紅色小葉，藏在脂肪中</td><td><strong>T 細胞</strong>的初級淋巴器官</td></tr>
+            <tr><td><strong>脾</strong></td><td>腺胃與肌胃交界附近</td><td>馬立克病、禽白血病的腫瘤</td></tr>
+            <tr><td><strong>骨骼</strong></td><td>中空骨（hollow bone）；鎖骨、烏喙骨、胸骨</td><td>部分骨頭與氣囊相通（補充）</td></tr>
+            <tr><td><strong>羽毛</strong></td><td>保護身體免於割傷瘀傷、調節體溫</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week06_總論與解剖/an_p30.jpg" alt="雞剖檢：氣管、嗉囊、心臟、氣囊、肝臟、肌胃" loading="lazy"><div class="figure-caption">剖檢：氣管、嗉囊、心、氣囊（9 個）、肝、肌胃。</div><div class="figure-source">來源：課程講義 p.30</div></div>
+        <div class="figure"><img src="img/week06_總論與解剖/an_p37.jpg" alt="雞的肺、腎與華氏囊" loading="lazy"><div class="figure-caption">肺、腎、華氏囊。</div><div class="figure-source">來源：課程講義 p.37</div></div>
+        <div class="figure"><img src="img/week06_總論與解剖/an_p33.jpg" alt="雞頸部胸腺小葉、氣管與嗉囊" loading="lazy"><div class="figure-caption">頸部：胸腺（藏在脂肪中、一串淡粉紅色小葉）、氣管、嗉囊。</div><div class="figure-source">來源：課程講義 p.33</div></div>
+        <div class="figure"><img src="img/week06_總論與解剖/an_p25.jpg" alt="雞骨骼系統與中空骨" loading="lazy"><div class="figure-caption">骨骼系統與中空骨。</div><div class="figure-source">來源：課程講義 p.25</div></div>
+      </div>
+
+      <h3>生殖系統</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>構造</th></tr></thead>
+          <tbody>
+            <tr><td><strong>母雞</strong></td><td>卵巢 → <strong>漏斗部 → 膨大部 → 峽部 → 子宮（殼腺）→ 陰道</strong> → 泄殖腔</td></tr>
+            <tr><td><strong>公雞</strong></td><td>睪丸（腹腔內）→ 輸精管 → 泄殖腔</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 補充（非講義）：母雞只有左側卵巢與輸卵管有功能。漏斗部受精、膨大部分泌蛋白、峽部形成殼膜、子宮形成蛋殼，所以 IB 損傷輸卵管會造成水樣蛋白、軟殼、畸形蛋。</p>
+      <div class="figure"><img src="img/week06_總論與解剖/an_p40.jpg" alt="母雞卵巢輸卵管與公雞睪丸" loading="lazy"><div class="figure-caption">母雞卵巢與輸卵管各段；公雞睪丸與輸精管。</div><div class="figure-source">來源：課程講義 p.40</div></div>
+
+      <h3>採樣<span class="lv lv-must">必考</span></h3>
+      <p>講義示範：<strong>氣管拭子</strong>（翻開喙、拭子伸入聲門）與<strong>泄殖腔拭子</strong>。前面幾個病毒病的診斷都用到這兩種檢體。</p>
+      <div class="figure"><img src="img/week06_總論與解剖/an_p27.jpg" alt="採集雞氣管拭子與泄殖腔拭子" loading="lazy"><div class="figure-caption">採氣管拭子與泄殖腔拭子。</div><div class="figure-source">來源：課程講義 p.27</div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Overview, Anatomy〉p.24–42；「之後會遇到」欄與生殖道功能為補充。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- HISTOLOGY -->
+    <div class="section" id="section-histology">
+      <div class="section-head"><div class="section-num">6</div><h2>正常組織與血液<span class="lv lv-know">理解</span></h2></div>
+      <p class="section-desc">講義最後幾頁是正常組織切片，多數沒有文字標示。下面只對講義有標示的部分做說明，其餘標為推測。</p>
+      <ul>
+        <li><strong>血液抹片</strong>：禽類紅血球<strong>有核、橢圓形</strong>；講義標出<strong>異嗜球（heterophil）</strong>與淋巴球。補充：異嗜球相當於哺乳類的嗜中性球，細胞質內有紅色棒狀顆粒。</li>
+        <li><strong>華氏囊</strong>：由很多淋巴濾泡組成，每個濾泡有<strong>皮質（C）與髓質（M）</strong>（講義 p.45，3 月齡雞）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week06_總論與解剖/an_p43.jpg" alt="雞血液抹片：有核紅血球、異嗜球、淋巴球" loading="lazy"><div class="figure-caption">血液抹片：有核紅血球、異嗜球、淋巴球（Korean J. Poult. Sci. 2020）。</div><div class="figure-source">來源：課程講義 p.43</div></div>
+        <div class="figure"><img src="img/week06_總論與解剖/an_p45.jpg" alt="正常華氏囊淋巴濾泡的皮質與髓質" loading="lazy"><div class="figure-caption">正常華氏囊：淋巴濾泡的皮質（C）、髓質（M）與皮髓交界（箭頭）。</div><div class="figure-source">來源：課程講義 p.45（Avian Histopathology, 4th ed.）</div></div>
+        <div class="figure"><img src="img/week06_總論與解剖/an_p44.jpg" alt="正常淋巴組織低倍組織切片" loading="lazy"><div class="figure-caption">講義未標示；外觀為分隔成許多濾泡的淋巴組織，推測為華氏囊低倍。</div><div class="figure-source">來源：課程講義 p.44</div></div>
+        <div class="figure"><img src="img/week06_總論與解剖/an_p49.jpg" alt="禽類肺組織切片" loading="lazy"><div class="figure-caption">肺組織（histology-of-birds.com）。補充：禽類肺由副支氣管（parabronchi）組成，沒有哺乳類的肺泡。</div><div class="figure-source">來源：課程講義 p.49</div></div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義 p.46–48、p.50 另有幾張未標示的組織切片，沒有收錄。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Overview, Anatomy〉p.43–50（Avian Histopathology 4th ed.、histology-of-birds.com）。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">7</div><h2>考試方向（推測）</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能的考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>ZW 與 XY</td><td>雄 ZZ、雌 ZW；雌性決定子代性別；Z &gt; W；雞 2n＝78</td></tr>
+            <tr><td>禽類 vs. 哺乳類</td><td>羽毛、無牙、產蛋、飛行、單一排泄孔、無汗腺、無橫膈、氣囊</td></tr>
+            <tr><td>氣囊的功能</td><td>讓空氣進出呼吸系統；氣體交換在肺；共 9 個</td></tr>
+            <tr><td>雞的分類</td><td>鳥綱、鶉雞目、雉科、雞屬</td></tr>
+            <tr><td>消化道順序</td><td>嗉囊 → 腺胃 → 肌胃 → 十二指腸環 → 小腸 → 盲腸 → 大腸 → 泄殖腔</td></tr>
+            <tr><td>華氏囊</td><td>泄殖腔背側；B 細胞初級淋巴器官（補充）；濾泡分皮質與髓質</td></tr>
+            <tr><td>各雞種育種目標</td><td>白肉雞：飼料換肉率等；蛋雞：產蛋與蛋殼；土雞：外觀與肉質</td></tr>
+            <tr><td>土番鴨</td><td>沒有後代</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。</footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>家禽：</strong>為蛋、肉、羽毛而養；鴨鵝另有絨羽與肥肝；鴕鳥是紅肉。雞屬鳥綱鶉雞目雉科雞屬。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>ZW：</strong>雄 ZZ、雌 ZW，雌性決定子代性別；雞 2n＝78，火雞鴨 80。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>禽類特徵：</strong>無牙（肌胃）、無汗腺、無橫膈、氣囊 9 個（通氣）、肺負責氣體交換、單一排泄孔、中空骨。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>育種：</strong>白肉雞（Ross、AA、Cobb）飼料換肉率 1.4–1.5；蛋雞（Lohmann、Hy-Line、ISA）；土雞重外觀；土番鴨不能繁殖。不同品種用不同免疫計畫。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>器官：</strong>嗉囊、腺胃、肌胃、十二指腸環夾胰臟、兩條盲腸、泄殖腔、華氏囊、頸部胸腺；採樣用氣管與泄殖腔拭子。</div></div>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。Q8 是臨床情境題。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 關於禽類的性別決定，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 雄性 ZW、雌性 ZZ</li><li>(B) 雄性 ZZ、雌性 ZW，由雌性決定子代性別</li><li>(C) 與哺乳類相同，由雄性決定子代性別</li><li>(D) W 染色體比 Z 長</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">禽類雄性 ZZ、雌性 ZW，雌性決定子代性別；Z 比 W 長。哺乳類則是雄性 XY 決定子代性別。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 禽類的氣體交換主要在氣囊進行。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain">禽類沒有橫膈，靠頸部與體腔的氣囊膨脹收縮讓空氣進出；<strong>氣體交換在肺</strong>，氣囊只負責通氣。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 雞的分類階層，下列何者正確？</div>
+        <ul class="quiz-options"><li>(A) 鳥綱－雁形目－鴨科</li><li>(B) 鳥綱－鶉雞目－雉科－雞屬</li><li>(C) 鳥綱－鸚形目－鸚鵡科</li><li>(D) 鳥綱－鴿形目－鳩鴿科</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">動物界－脊索動物門－鳥綱（Aves）－鶉雞目（Galliformes）－雉科（Phasianidae）－雞屬（Gallus）。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 雞的消化道由前到後，下列順序何者正確？</div>
+        <ul class="quiz-options"><li>(A) 嗉囊 → 肌胃 → 腺胃 → 十二指腸</li><li>(B) 嗉囊 → 腺胃 → 肌胃 → 十二指腸</li><li>(C) 腺胃 → 嗉囊 → 肌胃 → 盲腸</li><li>(D) 肌胃 → 腺胃 → 嗉囊 → 十二指腸</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">食道 → 嗉囊 → 腺胃 → 肌胃 → 十二指腸環 → 小腸 → 盲腸 → 大腸 → 泄殖腔。新城病與禽流感的腺胃出血，就是在腺胃與肌胃交界附近（乳突部、移行部）。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q5. 白肉雞、蛋雞、有色雞（土雞）的育種目標各是什麼？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">白肉雞：改善飼料換肉率（約 2 降到 1.4–1.5）、肌肉發育、低脂、骨骼穩定、肉質、存活率、抗緊迫。蛋雞：雞的飼料轉換率、存活率、抗緊迫，以及蛋的產蛋性能與蛋殼品質。有色雞：外觀（體型、羽色）、肉質、雜交優勢的抗緊迫能力，並注意遺傳疾病。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. 土番鴨可以自行繁殖下一代，因此不需要每批重新雜交。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain">講義：土番鴨（mule duck）沒有後代。補充：它是番鴨與家鴨的屬間雜交，子代不孕，每一批都要重新雜交。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 華氏囊位於哪裡？</div>
+        <ul class="quiz-options"><li>(A) 頸部，沿氣管兩側</li><li>(B) 泄殖腔背側</li><li>(C) 腺胃與肌胃交界</li><li>(D) 十二指腸環中</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">華氏囊在泄殖腔背側，由很多淋巴濾泡組成（皮質、髓質）。(A) 是胸腺、(C) 附近是脾臟、(D) 是胰臟。補充：華氏囊是 B 細胞的初級淋巴器官，傳染性華氏囊病就是破壞它造成免疫抑制。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】你第一次跟老師去雞場採樣，老師要你同時送呼吸道與消化道的病毒檢驗。請問：(1) 活雞要採哪兩種拭子？(2) 為什麼泄殖腔拭子可以同時代表消化道與泌尿生殖道？(3) 剖檢時，你要怎麼找到華氏囊和胸腺？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 氣管（或喉頭、咽喉）拭子與泄殖腔拭子（講義 p.27）。<br><strong>(2)</strong> 禽類只有一個排泄孔（泄殖腔），消化道、泌尿道、生殖道都開口在這裡。泄殖腔拭子要沾到糞便。<br><strong>(3)</strong> 華氏囊：泄殖腔背側的圓形囊狀器官。胸腺：頸部沿氣管與頸靜脈的一串淡粉紅色小葉，藏在脂肪中。</p></details>
+      </div>
+
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  poultry: '家禽與禽類特徵',
+  breeding: '雞、鴨、鵝的育種目標',
+  industry: '台灣家禽產業',
+  anatomy: '大體解剖與臨床意義',
+  histology: '正常組織與血液',
+  exam: '考試方向（推測）',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

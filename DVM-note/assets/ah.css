@@ -383,3 +383,29 @@ body.ah footer.note-footer { background: none; border: 0; }
 .figure-missing__label { font-weight: 600; font-size: var(--text-sm); color: var(--fg); }
 .figure-missing__desc { margin-top: .35rem; font-size: var(--text-sm); color: var(--fg-muted); line-height: 1.5; }
 .figure-missing__hint { margin-top: .35rem; font-size: var(--text-xs); color: var(--fg-dim); }
+
+/* 目錄太長時：桌面版限制在一個螢幕高，目錄自己可以捲動（2026-10-11 修正：原本超出螢幕的項目點不到） */
+@media (min-width: 1040px) {
+  .toc { max-height: calc(100vh - var(--nav-h) - 2 * var(--sp-5)); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding-right: 4px; }
+}
+
+/* ============================ 章節重要程度標籤＋講義大方向摘要（2026-10-11 起，禽病學先用） ==== */
+/* 用法：<h2>標題<span class="lv lv-must">必考</span></h2>；lv-know＝理解、lv-skim＝看過 */
+.lv { display: inline-block; margin-left: .5em; padding: .12em .6em; font-size: .7rem; font-weight: 700; letter-spacing: .02em; line-height: 1.5; border-radius: 999px; vertical-align: .35em; white-space: nowrap; }
+.lv-must { background: var(--rust-100); color: var(--rust-700); }
+.lv-know { background: var(--slate-100); color: var(--slate-700); }
+.lv-skim { background: var(--gray-100); color: var(--fg-faint); }
+[data-theme="dark"] .lv-skim { background: #26211c; }
+.section h3 .lv, .section h4 .lv { vertical-align: .15em; }
+.lv-legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: var(--sp-3) 0 0; font-size: var(--text-xs); color: var(--fg-muted); }
+.lv-legend .lv { margin-left: 0; margin-right: .3em; vertical-align: 0; }
+
+/* 講義大方向：這是什麼病／為什麼重要／要抓的重點／最容易混淆／考試可能怎麼問 */
+.overview { margin: 0 0 var(--sp-5); padding: var(--sp-5); border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--bg-soft); }
+.overview__title { margin: 0 0 var(--sp-4); font-size: var(--text-h3); font-weight: 700; color: var(--accent-deep); }
+.overview dl { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: var(--sp-3) var(--sp-4); margin: 0; }
+.overview dt { font-weight: 700; color: var(--accent); font-size: var(--text-sm); padding-top: .1em; }
+.overview dd { margin: 0; line-height: 1.75; }
+.overview dd ol, .overview dd ul { margin: 0; padding-left: 1.3em; }
+.overview dd li + li { margin-top: .3rem; }
+@media (max-width: 720px) { .overview dl { grid-template-columns: 1fr; gap: .2rem; } .overview dd { margin-bottom: var(--sp-3); } }

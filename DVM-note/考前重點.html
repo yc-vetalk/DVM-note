@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考前重點 - yc._vetalk</title>
+<link rel="stylesheet" href="assets/nav.css">
+<link rel="stylesheet" href="assets/ah.css?v=5">
+</head>
+<body class="ah" data-page="review">
+
+<header>
+  <a class="header-brand" href="index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="" data-current=""></div>
+  <div class="header-right">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="index.html">網頁筆記首頁</a><span class="sep">›</span><span class="current">考前重點</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">考前重點</h1>
+      <p class="page-subtitle">在各筆記頁點表格、提示框、圖片右上角的 ☆，那一塊就會收進這裡，依科目與頁面排好，考前快速看過一次</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">已收藏</div><div class="meta-value" id="rvCount">0 則</div></div>
+      <div class="meta-item"><div class="meta-label">存在哪裡</div><div class="meta-value">這台裝置的瀏覽器（不會上傳）。換手機或電腦要用下方「匯出／匯入」搬過去</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc" id="rvToc">
+    <div class="section-label">目錄</div>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+    <div class="rv-bar">
+      <div class="rv-chips" id="rvChips"></div>
+      <div class="rv-actions">
+        <button type="button" id="rvOpen">展開所有答案</button>
+        <button type="button" id="rvPrint">列印</button>
+        <button type="button" id="rvExport">匯出</button>
+        <label class="rv-file">匯入<input type="file" id="rvImport" accept="application/json,.json" hidden></label>
+        <button type="button" id="rvClear" class="rv-danger">全部清除</button>
+      </div>
+    </div>
+    <div id="rvList"></div>
+    <footer class="note-footer">收藏的是當時的內容快照；原頁之後更新，這裡不會自動跟著改，需要的話到原頁重新收藏。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+  </main>
+</div>
+
+<style>
+.rv-bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; margin: 0 0 18px; }
+.rv-chips, .rv-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.rv-chips button, .rv-actions button, .rv-file { font: inherit; font-size: .88em; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--fg); cursor: pointer; }
+.rv-chips button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.rv-danger { color: var(--rust-700) !important; }
+.rv-subject { margin: 32px 0 6px; font-size: var(--text-h2); font-weight: 700; color: var(--accent-deep); scroll-margin-top: calc(var(--nav-h) + 1rem); }
+.rv-page { margin: 18px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line); font-size: 1.15rem; font-weight: 700; scroll-margin-top: calc(var(--nav-h) + 1rem); }
+.rv-page a { text-decoration: none; }
+.rv-item { margin: 14px 0 22px; }
+.rv-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-bottom: 6px; font-size: .85em; color: var(--fg-faint); }
+.rv-meta strong { color: var(--fg-muted); }
+.rv-meta a, .rv-meta button { font: inherit; font-size: .95em; }
+.rv-meta button { margin-left: auto; padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--fg-faint); cursor: pointer; }
+.rv-empty { padding: 40px 20px; text-align: center; color: var(--fg-muted); border: 1px dashed var(--line); border-radius: var(--radius); line-height: 1.9; }
+@media print {
+  header, .nav-panel, .toc, .rv-bar, .rv-meta button, .pin-fab { display: none !important; }
+  .pagewrap { display: block !important; padding-top: 0 !important; }
+  .rv-item { break-inside: avoid; }
+}
+</style>
+<script src="assets/nav-data.js"></script>
+<script src="assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+function toggleTheme() {
+  var html = document.documentElement, btn = document.getElementById('themeBtn');
+  var dark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', dark ? 'light' : 'dark'); btn.textContent = dark ? '🌙' : '☀️';
+  try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+}
+(function () { try { var t = localStorage.getItem('theme'); if (t) { document.documentElement.setAttribute('data-theme', t); document.getElementById('themeBtn').textContent = t === 'dark' ? '☀️' : '🌙'; } } catch (e) {} })();
+
+(function () {
+  var P = window.ReviewPins, filter = '';
+  var list = document.getElementById('rvList'), toc = document.getElementById('rvToc'), chips = document.getElementById('rvChips');
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function render() {
+    var a = P.load();
+    document.getElementById('rvCount').textContent = a.length + ' 則';
+    var subjects = [];
+    a.forEach(function (x) { var s = x.subject || '其他'; if (subjects.indexOf(s) < 0) subjects.push(s); });
+    if (filter && subjects.indexOf(filter) < 0) filter = '';
+    chips.innerHTML = subjects.length > 1 ? ['<button type="button" data-s=""' + (filter ? '' : ' class="on"') + '>全部</button>'].concat(subjects.map(function (s) {
+      return '<button type="button" data-s="' + esc(s) + '"' + (filter === s ? ' class="on"' : '') + '>' + esc(s) + '</button>'; })).join('') : '';
+    if (!a.length) {
+      list.innerHTML = '<div class="rv-empty">還沒有收藏任何重點。<br>到任何一頁筆記，把滑鼠移到表格、提示框、圖片上（手機直接看右上角），點 <strong>☆</strong> 就會收進來。</div>';
+      toc.innerHTML = '<div class="section-label">目錄</div>'; return;
+    }
+    var groups = {}, order = [];
+    a.forEach(function (x, i) {
+      var s = x.subject || '其他';
+      if (filter && s !== filter) return;
+      if (!groups[s]) { groups[s] = {}; groups[s]._o = []; order.push(s); }
+      if (!groups[s][x.page]) { groups[s][x.page] = { title: x.pageTitle, items: [] }; groups[s]._o.push(x.page); }
+      groups[s][x.page].items.push({ x: x, i: i });
+    });
+    var h = '', t = '<div class="section-label">目錄</div>', n = 0;
+    order.forEach(function (s, si) {
+      h += '<h2 class="rv-subject" id="rv-s' + si + '">' + esc(s) + '</h2>';
+      t += '<div class="section-label" style="margin-top:8px;">' + esc(s) + '</div>';
+      groups[s]._o.forEach(function (pg) {
+        var g = groups[s][pg], pid = 'rv-p' + (n++);
+        h += '<h3 class="rv-page" id="' + pid + '"><a href="' + esc(pg) + '">' + esc(g.title) + '</a></h3>';
+        t += '<a href="#' + pid + '">' + esc(g.title) + '（' + g.items.length + '）</a>';
+        g.items.forEach(function (it) {
+          var x = it.x;
+          h += '<div class="rv-item"><div class="rv-meta"><strong>' + esc(x.section || '') + '</strong>' + (x.sub ? '<span>› ' + esc(x.sub) + '</span>' : '') +
+            '<a href="' + esc(x.page + (x.anchor ? '#' + x.anchor : '')) + '">回原文 →</a><button type="button" data-del="' + it.i + '">移除</button></div>' + x.html + '</div>';
+        });
+      });
+    });
+    list.innerHTML = h; toc.innerHTML = t;
+  }
+  chips.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; filter = b.getAttribute('data-s'); render(); });
+  list.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-del]'); if (!b) return;
+    var a = P.load(); a.splice(+b.getAttribute('data-del'), 1); P.save(a); render();
+  });
+  document.getElementById('rvOpen').addEventListener('click', function () {
+    var ds = list.querySelectorAll('details'), any = [].some.call(ds, function (d) { return !d.open; });
+    ds.forEach(function (d) { d.open = any; }); this.textContent = any ? '收起所有答案' : '展開所有答案';
+  });
+  document.getElementById('rvPrint').addEventListener('click', function () { window.print(); });
+  document.getElementById('rvExport').addEventListener('click', function () {
+    var blob = new Blob([JSON.stringify(P.load(), null, 1)], { type: 'application/json' });
+    var u = URL.createObjectURL(blob), l = document.createElement('a');
+    l.href = u; l.download = '考前重點-' + new Date().toISOString().slice(0, 10) + '.json'; document.body.appendChild(l); l.click(); l.remove();
+    setTimeout(function () { URL.revokeObjectURL(u); }, 1000);
+  });
+  document.getElementById('rvImport').addEventListener('change', function () {
+    var f = this.files[0]; if (!f) return; var self = this;
+    f.text().then(function (s) {
+      var inc = JSON.parse(s); if (!Array.isArray(inc)) throw 0;
+      var a = P.load(), ids = {}; a.forEach(function (x) { ids[x.id] = 1; });
+      var add = inc.filter(function (x) { return x && x.id && x.html && !ids[x.id]; });
+      P.save(a.concat(add)); render(); alert('已匯入 ' + add.length + ' 則（重複的略過）');
+    }).catch(function () { alert('檔案格式不正確'); }).finally(function () { self.value = ''; });
+  });
+  document.getElementById('rvClear').addEventListener('click', function () {
+    if (confirm('確定要清除所有考前重點嗎？清除後無法復原（建議先匯出）。')) { P.save([]); render(); }
+  });
+  render();
+})();
+</script>
+</body>
+</html>

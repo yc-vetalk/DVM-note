@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：專題 - 常用藥物交互作用卡 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">專題：常用藥物交互作用卡</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">專題：常用藥物交互作用卡</h1>
+      <p class="page-subtitle">先用五個問題建立主軸，再看每個藥落在主軸的哪裡；每張卡最上面一行「為什麼」，把這個藥連回主軸。目前收錄：止痛鎮靜麻醉 11 個藥、抗生素 9 個藥</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">主題討論（藥物卡，持續擴充中）</div></div>
+      <div class="meta-item"><div class="meta-label">搭配閱讀</div><div class="meta-value"><a href="2026-10-11_專題-常見藥物交互作用.html">專題：常見藥物交互作用</a>（總論與速查表）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">VPT10 Ch.12、Ch.13、Ch.14、Ch.17、Ch.18、Ch.32、Ch.33、Ch.34、Ch.36、Ch.37、Ch.38、Ch.42；HBK Ch.11、Ch.19；NTU 獸醫藥理學講義（A2、A3、A5、A6、Antimicrobial 1–4）</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-10-11（第一、二批）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">主軸</div>
+    <a class="active" onclick="showSection('axes')" id="nav-axes"><span class="nav-icon">🧭</span> 五個問題</a>
+    <a onclick="showSection('endpoints')" id="nav-endpoints"><span class="nav-icon">🎯</span> 共同終點：誰會疊加</a>
+    <div class="section-label" style="margin-top:8px;">止痛鎮靜麻醉</div>
+    <a onclick="showSection('sed')" id="nav-sed"><span class="nav-icon">💤</span> 這一類的主軸</a>
+    <a onclick="showSection('dex')" id="nav-dex"><span class="nav-icon">·</span> Dexmedetomidine</a>
+    <a onclick="showSection('mid')" id="nav-mid"><span class="nav-icon">·</span> Midazolam</a>
+    <a onclick="showSection('but')" id="nav-but"><span class="nav-icon">·</span> Butorphanol</a>
+    <a onclick="showSection('bup')" id="nav-bup"><span class="nav-icon">·</span> Buprenorphine</a>
+    <a onclick="showSection('muop')" id="nav-muop"><span class="nav-icon">·</span> Methadone／Fentanyl</a>
+    <a onclick="showSection('tram')" id="nav-tram"><span class="nav-icon">·</span> Tramadol</a>
+    <a onclick="showSection('gaba')" id="nav-gaba"><span class="nav-icon">·</span> Gabapentin</a>
+    <a onclick="showSection('traz')" id="nav-traz"><span class="nav-icon">·</span> Trazodone</a>
+    <a onclick="showSection('ace')" id="nav-ace"><span class="nav-icon">·</span> Acepromazine</a>
+    <a onclick="showSection('prop')" id="nav-prop"><span class="nav-icon">·</span> Propofol</a>
+    <a onclick="showSection('ket')" id="nav-ket"><span class="nav-icon">·</span> Ketamine</a>
+    <div class="section-label" style="margin-top:8px;">抗生素</div>
+    <a onclick="showSection('abx')" id="nav-abx"><span class="nav-icon">🦠</span> 這一類的主軸</a>
+    <a onclick="showSection('enro')" id="nav-enro"><span class="nav-icon">·</span> Enrofloxacin／Marbofloxacin</a>
+    <a onclick="showSection('doxy')" id="nav-doxy"><span class="nav-icon">·</span> Doxycycline</a>
+    <a onclick="showSection('bl')" id="nav-bl"><span class="nav-icon">·</span> β-lactam 三劑</a>
+    <a onclick="showSection('metro')" id="nav-metro"><span class="nav-icon">·</span> Metronidazole</a>
+    <a onclick="showSection('clin')" id="nav-clin"><span class="nav-icon">·</span> Clindamycin</a>
+    <a onclick="showSection('tms')" id="nav-tms"><span class="nav-icon">·</span> TMP-sulfa</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 自我測驗</a>
+    <a onclick="showSection('next')" id="nav-next"><span class="nav-icon">📌</span> 下一批與待確認</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 AXES -->
+    <div class="section" id="section-axes">
+      <div class="section-head"><div class="section-num">1</div><h2>主軸：看到任何一個藥，都問這五個問題</h2></div>
+      <p class="section-desc">交互作用不用一個一個背。HBK Ch.19 把它分成吸收、分布、代謝、排除、藥效五種，換成臨床上可以直接問的問題，就是下面五個。每張藥物卡都照這五題寫，最後一欄的「主軸標籤」告訴你這個藥的重點落在哪幾題。</p>
+      <div class="ax-grid">
+        <div class="ax-card ax-q1"><div class="ax-no">Q1</div><div class="ax-t">怎麼進來？</div><p>口服時，腸道裡有沒有東西會抓住它、包住它、改變胃酸？</p><div class="ax-a">→ 有的話：<strong>錯開給藥時間</strong></div></div>
+        <div class="ax-card ax-q2"><div class="ax-no">Q2</div><div class="ax-t">怎麼離開？</div><p>它靠肝臟酵素代謝，還是腎臟、腸道排除？誰會讓它清除變慢或變快？</p><div class="ax-a">→ <strong>濃度會被別人改變</strong>，要調劑量</div></div>
+        <div class="ax-card ax-q3"><div class="ax-no">Q3</div><div class="ax-t">會不會改變別人？</div><p>它本身是不是肝酵素抑制劑或誘導劑？會不會搶結合位置？</p><div class="ax-a">→ 看併用藥裡有沒有<strong>被它影響的藥</strong></div></div>
+        <div class="ax-card ax-q4"><div class="ax-no">Q4</div><div class="ax-t">效果跟誰疊加？</div><p>它在身體造成什麼效果？有沒有別的藥也走到同一個終點（或剛好相反）？</p><div class="ax-a">→ 見第 2 節<strong>共同終點表</strong></div></div>
+        <div class="ax-card ax-q5"><div class="ax-no">Q5</div><div class="ax-t">誰特別危險？</div><p>哪些共病、物種、年齡會讓這個藥出問題？</p><div class="ax-a">→ <strong>共病與物種</strong>是最後一道檢查</div></div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">記憶法</div>
+        <p><strong>進來（Q1）→ 離開（Q2）→ 影響別人（Q3）→ 效果疊加（Q4）→ 誰危險（Q5）</strong>。前三題看「濃度」，第四題看「效果」，第五題看「病人」。只有 Q1 可以靠錯開時間解決，其餘都要靠調劑量、換藥或監測（見<a href="2026-10-11_專題-常見藥物交互作用.html#section-map">總論第 2 節</a>）。</p>
+      </div>
+      <footer class="note-footer">「五個問題」是本頁依 HBK Ch.19 的交互作用分類改寫成的提問方式，HBK 原文沒有這樣歸納。本頁為個人學習整理，僅供學習與院內討論使用，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 2 ENDPOINTS -->
+    <div class="section" id="section-endpoints">
+      <div class="section-head"><div class="section-num">2</div><h2>共同終點：哪些藥會走到同一個地方</h2></div>
+      <p class="section-desc">Q4 的答案大多落在下面幾個「終點」。看到兩個藥出現在同一列，就要想到效果會疊加。</p>
+      <div class="table-wrap">
+        <table class="ec-cards">
+          <thead><tr><th>終點</th><th>會走到這裡的藥</th><th>後果</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td><strong>中樞抑制</strong></td><td>Benzodiazepine、α2 促效劑、Opioid、Propofol、Ketamine、吸入麻醉劑</td><td>鎮靜、麻醉加深 → 彼此劑量都要下修</td><td>VPT10 Ch.14</td></tr>
+            <tr><td><strong>呼吸抑制</strong></td><td>Opioid、α2 促效劑</td><td>併用時較容易高碳酸血症、低血氧</td><td>VPT10 Ch.14</td></tr>
+            <tr><td><strong>心跳變慢、心輸出量下降</strong></td><td>α2 促效劑；Opioid（心搏過緩）</td><td>心臟病、低血容的病患風險高</td><td>講義 A5、A6；VPT10 Ch.14</td></tr>
+            <tr><td><strong>腸胃蠕動下降</strong></td><td>α2 促效劑、Opioid、抗膽鹼藥</td><td>術後腸胃停滯；抵消促蠕動藥</td><td>講義 A5、A6、Autacoid 3 GI</td></tr>
+            <tr><td><strong>癲癇閾值</strong></td><td>Enrofloxacin（服用 Phenobarbital 的癲癇犬）；Xylazine；高劑量 Tramadol；Metronidazole 神經毒性；Ketamine（多數建議癲癇病史避免）。反例：Propofol 有抗癲癇作用；Acepromazine 的癲癇禁忌證據薄弱</td><td>誘發癲癇</td><td>講義 Antimicrobial 1、Antimicrobial 4、A5；VPT10 Ch.12、Ch.13、Ch.14</td></tr>
+            <tr><td><strong>血糖上升</strong></td><td>α2 促效劑（抑制胰島素分泌）</td><td>糖尿病病患要小心</td><td>講義 A5；VPT10 Ch.14</td></tr>
+            <tr><td><strong>血清素症候群</strong></td><td>Tramadol、Methadone、Meperidine、TCA、SSRI、Trazodone 之間，或與 MAO 抑制劑（Selegiline、Amitraz）併用</td><td>高血壓、高體溫、躁動、顫抖、癲癇、意識改變；MAO 抑制劑與抗憂鬱藥切換要間隔 14 天</td><td>VPT10 Ch.13、Ch.18</td></tr>
+            <tr><td><strong>低血壓</strong></td><td>Acepromazine（α1 阻斷）＋其他血管擴張劑；硬膜外局部麻醉；Epinephrine（epinephrine reversal）</td><td>低血容、休克的動物尤其危險</td><td>VPT10 Ch.14；HBK Ch.19</td></tr>
+            <tr><td><strong>神經肌肉阻斷</strong></td><td>Clindamycin（高劑量或麻醉中）；Aminoglycoside ＋ 吸入麻醉劑</td><td>肌肉無力、呼吸受影響</td><td>講義 Antimicrobial 4；HBK Ch.19</td></tr>
+            <tr><td><strong>抗菌效果互相抵消</strong></td><td>抑菌藥（四環黴素）＋ 殺菌藥（β-lactam）</td><td>β-lactam 對快速生長的細菌最有效，被抑菌藥拖慢</td><td>HBK Ch.19</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 腎毒性、血鉀、出血等其他終點，見<a href="2026-10-11_專題-常見藥物交互作用.html#section-pd">總論第 8 節</a>，之後做到 NSAID 與心臟藥時會補進這張表。</p>
+      <footer class="note-footer">資料來源：如各列標示。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 3 SED -->
+    <div class="section" id="section-sed">
+      <div class="section-head"><div class="section-num">3</div><h2>止痛鎮靜麻醉：這一類的主軸</h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">主軸 1：中樞與呼吸抑制會疊加（Q4）</div>
+          <p>Benzodiazepine 與其他中樞抑制劑併用，效果是加成甚至協同，劑量需要調整（VPT10 Ch.14）。α2 促效劑讓誘導藥用量大幅下降，吸入麻醉劑用量最多可省下 90%，所以多藥合併麻醉時，<strong>每加一個藥，其他藥都要重新評估劑量</strong>。</p>
+        </div>
+        <div class="card"><div class="card-title">主軸 2：每一類都有「解藥」（Q3）</div>
+          <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+            <li>α2 促效劑 → <strong>Atipamezole</strong>（IM 為佳）</li>
+            <li>Benzodiazepine → <strong>Flumazenil</strong></li>
+            <li>μ 促效劑 → <strong>Naloxone</strong>；<strong>Butorphanol</strong> 可部分逆轉並保留一些止痛</li>
+            <li>例外：<strong>Buprenorphine</strong> 跟受體結合太緊，Naloxone 要給很高劑量</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">主軸 3：Opioid 之間會互搶受體（Q3）</div>
+          <p>部分促效劑或拮抗劑（Butorphanol、Buprenorphine）會把完全促效劑（Morphine 等）從受體上擠下來。連續用 μ 促效劑超過 5–7 天的動物，給它們可能誘發戒斷症狀（VPT10 Ch.13）。</p>
+        </div>
+        <div class="card"><div class="card-title">主軸 5：Chloramphenicol 是這一類最大的外來威脅（Q2）</div>
+          <p>Chloramphenicol 抑制 P450，會影響 Phenobarbital、Propofol、Benzodiazepine 與其他麻醉藥（VPT10 Ch.36）；已證實讓 Methadone 暴露量大增（Ch.13），讓 Ketamine 恢復變慢（Ch.12）。住院動物在吃 Chloramphenicol 時，鎮靜麻醉藥都要重新評估。</p>
+        </div>
+        <div class="card"><div class="card-title">主軸 6：血清素路線（Q4）</div>
+          <p>Tramadol、Methadone、Trazodone 都碰到血清素系統；跟彼此、跟 SSRI、TCA，或跟 MAO 抑制劑（Selegiline、Amitraz 項圈）疊加，可能造成血清素症候群（VPT10 Ch.13、Ch.18）。</p>
+        </div>
+        <div class="card"><div class="card-title">主軸 4：共病看心臟、血容量、血糖（Q5）</div>
+          <p>α2 促效劑不能用在心輸出量已經不足的動物：心臟病、心搏過緩、脫水、低血容、敗血症；糖尿病也要小心（VPT10 Ch.14）。</p>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.13、Ch.14；講義 A2、A5、A6。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 4 DEX -->
+    <div class="section" id="section-dex">
+      <div class="section-head"><div class="section-num">4</div><h2>Dexmedetomidine（Dexdomitor®）</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> α2 促效劑</span><span><strong>途徑</strong> IM、IV；IV CRI</span><span><strong>間隔</strong> 注射劑，沒有吸收站（Q1）的交互作用</span><span><strong>主軸標籤</strong> <em class="tg">Q3 解藥</em><em class="tg">Q4 中樞／呼吸／心臟／腸胃／血糖</em><em class="tg">Q5 心臟病・糖尿病</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>α2 是「讓神經少放訊號」的受體 → 在腦造成鎮靜、止痛；在腸神經少放 ACh → 蠕動下降；在胰島抑制胰島素 → 高血糖（講義 A5、ANS 1）。所以它的交互作用幾乎都落在 <strong>Q4 疊加</strong>：跟其他中樞抑制劑、跟 opioid 的腸胃與呼吸抑制疊在一起。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li>加強 Propofol、Ketamine、Opioid 的中樞抑制 → 誘導藥用量大幅下降，吸入麻醉劑最多省 90%；多藥合併麻醉時要監測並調整其他藥的劑量（VPT10 Ch.14）。</li>
+            <li>與 Opioid 等呼吸抑制劑併用 → 呼吸抑制加強，比單用 α2 更容易高碳酸血症、低血氧（VPT10 Ch.14）。</li>
+            <li>抑制腸神經 ACh 釋放 → 腸胃蠕動下降，會抵消促蠕動藥（講義 A5）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>Atipamezole</strong>：逆轉。犬貓 0.1–0.3 mg/kg <strong>IM</strong>；犬的仿單劑量以體表面積（3750 μg/m²）計，很多獸醫用與 Dexmedetomidine 等體積給（VPT10 Ch.14）。講義：IM 為佳。部分動物需要重複給藥，或之後再度鎮靜（VPT10 Ch.14）。</li>
+            <li><strong>抗膽鹼藥（Atropine、Glycopyrrolate）</strong>：見下方「使用重點：抗膽鹼藥要不要給、什麼時候給」。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>心輸出量已經不足</strong>：心臟病（特別是心搏過緩、收縮力差、阻塞性瓣膜疾病）、脫水、低血容、敗血症，不應使用（VPT10 Ch.14）。治療劑量就會讓心輸出量下降約 50%（講義 A5）。</li>
+            <li><strong>糖尿病</strong>：抑制胰島素分泌 → 高血糖（講義 A5；VPT10 Ch.14）。</li>
+            <li><strong>貓</strong>：活化 CTZ 的 α2 → 嘔吐（講義 A5）。</li>
+            <li><strong>體溫</strong>：恢復期體溫調節變差，可能過冷或過熱；必要時用 α2 拮抗劑（講義 A5）。</li>
+            <li><strong>尚未確認</strong>：講義把「癲癇（可能誘發癲癇）」「脫水或尿道阻塞（強烈利尿）」寫在 Xylazine 的禁忌下，Dexmedetomidine 是否相同，講義沒有分開說明。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點：抗膽鹼藥要不要給、什麼時候給</div>
+          <ul>
+            <li>給 α2 之前或同時給抗膽鹼藥<strong>有爭議</strong>。初期的心搏過緩是保護性的壓力感受器反射，通常不該治療（VPT10 Ch.14）。</li>
+            <li>抗膽鹼藥只能<strong>部分</strong>預防心輸出量下降，卻會增加心律不整與高血壓的風險（VPT10 Ch.14）。</li>
+            <li><strong>時機會改變風險</strong>（VPT10 Ch.14）：
+              <ul>
+                <li>在 α2 的<strong>初期血管收縮期</strong>給 → 比在後期低血壓期給更容易高血壓。</li>
+                <li><strong>看到高血壓、心搏過緩之後</strong>才給 → 比事先或同時給更容易心律不整。</li>
+              </ul>
+            </li>
+            <li>反過來，用 α2 拮抗劑時，也要小心已經高血壓、或正在用正強心藥、抗膽鹼藥的動物（VPT10 Ch.14）。</li>
+          </ul>
+        </div>
+      </div>
+      <details class="dc-more"><summary>延伸：Atipamezole 與 Amitraz</summary>
+        <p>Amitraz（殺蟎劑）本身有 α2 作用，Atipamezole 也能用來逆轉 Amitraz 中毒（講義 A5；VPT10 Ch.14）。</p>
+      </details>
+      <footer class="note-footer">資料來源：VPT10 Ch.14（Alpha-2-Adrenergic Agonists、Dexmedetomidine、Atipamezole）；講義 A5、ANS 1。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 5 MID -->
+    <div class="section" id="section-mid">
+      <div class="section-head"><div class="section-num">5</div><h2>Midazolam</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> Benzodiazepine</span><span><strong>途徑</strong> 鎮靜 IV、IM、SC 或鼻內；麻醉輔助與抗癲癇 IV</span><span><strong>間隔</strong> 注射劑，沒有吸收站的交互作用</span><span><strong>主軸標籤</strong> <em class="tg">Q2 肝臟代謝</em><em class="tg">Q3 解藥</em><em class="tg">Q4 中樞</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>Benzodiazepine 結合 GABA-A 受體，增加氯離子通道打開的<strong>頻率</strong>，但需要 GABA 存在，所以<strong>單獨使用不太會造成嚴重中樞抑制</strong>（講義 A2）。危險來自兩件事：跟其他中樞抑制劑疊加（Q4），以及經肝臟氧化代謝、容易被酵素抑制劑拖慢（Q2）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li>與吸入麻醉劑、Propofol、Opioid、α2 促效劑併用 → 中樞抑制加成或協同，Benzodiazepine 或其他藥的劑量可能都要調整（VPT10 Ch.14）。</li>
+            <li>對非去極化型肌肉鬆弛劑的影響不明：貓肌肉的體外實驗顯示會加強神經肌肉阻斷，人類研究則沒有改變（VPT10 Ch.14）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>代謝變慢、作用延長</strong>：Cimetidine、Erythromycin、Isoniazid、Ketoconazole、Propranolol、Valproic acid（VPT10 Ch.14）；Azole 類抗黴菌藥讓 Midazolam 濃度上升、鎮靜加強（VPT10 Ch.38）。</li>
+            <li><strong>代謝變快</strong>：Rifampin（VPT10 Ch.14）。</li>
+            <li><strong>Flumazenil</strong>：Benzodiazepine 專一性拮抗劑（講義 A2；VPT10 Ch.14）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li>經肝臟氧化代謝（VPT10 Ch.14）→ 正在用上面那些酵素抑制劑時，鎮靜會比預期深、久。</li>
+            <li>臨床劑量就可能造成運動失調，部分物種會躺下起不來（VPT10 Ch.14）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li><strong>沒有止痛作用</strong>，常搭配 Ketamine 或 Opioid 使用（講義 A2；VPT10 Ch.14）。</li>
+            <li><strong>配伍</strong>：水溶性製劑、pH 3.5，可與生理食鹽水、乳酸林格氏液相容（VPT10 Ch.14）。</li>
+            <li><strong>過量的表現</strong>：運動失調、定向感混亂、中樞抑制或反而躁動、呼吸抑制、虛弱、顫抖、叫、心搏過速、呼吸急促、低體溫；處理是 Flumazenil 加支持療法（VPT10 Ch.14）。</li>
+          </ul>
+        </div>
+      </div>
+      <details class="dc-more"><summary>延伸：同類的 Diazepam 會被點滴管吸附</summary>
+        <p>VPT10 Ch.14：Diazepam 會被 PVC 材質的點滴管、點滴袋吸附，最多可達 50%，做 CRI 時有臨床意義；硬塑膠針筒則不會。這段講的是 Diazepam，不是 Midazolam。</p>
+      </details>
+      <footer class="note-footer">資料來源：VPT10 Ch.14（Benzodiazepines、Midazolam、Flumazenil）、Ch.38；講義 A2。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 6 BUT -->
+    <div class="section" id="section-but">
+      <div class="section-head"><div class="section-num">6</div><h2>Butorphanol（Torbutrol®）</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> κ 促效劑；μ 部分促效／拮抗</span><span><strong>途徑</strong> IV、IM、SC、PO</span><span><strong>主軸標籤</strong> <em class="tg">Q1 口服吸收差</em><em class="tg">Q3 逆轉 μ</em><em class="tg">Q4 中樞／腸胃</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>止痛主要靠 κ，對 μ 只是部分促效或拮抗 → 對自己來說，止痛有天花板、只適合輕到中度疼痛；對別人來說，它會<strong>把 μ 促效劑從受體上擠下來</strong>（Q3），所以可以用來部分逆轉 Morphine 等，也可能讓長期用 μ 促效劑的動物戒斷（講義 A6；VPT10 Ch.13）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li><strong>逆轉 μ 促效劑</strong>：可逆轉 Morphine 造成的鎮靜與呼吸抑制，同時保留部分 κ 止痛（講義 A6）。</li>
+            <li><strong>誘發戒斷</strong>：連續用 μ 促效劑超過 5–7 天的動物，給 μ 拮抗劑或部分促效劑可能誘發戒斷；VPT10 記錄過一隻狗用 Morphine 一週後給 Butorphanol 出現戒斷。戒斷表現：噁心、攻擊、叫、嘔吐、過動、高體溫、顫抖、流涎（VPT10 Ch.13）。</li>
+            <li>常與 α2 促效劑（Medetomidine 等）併用加強鎮靜（講義 A6）→ 中樞抑制疊加。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li>Naloxone 可拮抗（講義 A6）。</li>
+            <li><strong>MAO 抑制劑</strong>（Selegiline、Amitraz）：Butorphanol 不影響血清素代謝，交互作用不太可能；犬的研究中 Selegiline 併用 Butorphanol 也沒有出現不良反應（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>頭部外傷</strong>：opioid 的呼吸抑制 → 血中 CO₂ 上升 → 腦血管擴張，可能讓腦水腫惡化，要謹慎使用（VPT10 Ch.13，opioid 通則）。不過 Butorphanol 的呼吸抑制比 μ 促效劑輕（VPT10 Ch.13）。</li>
+            <li><strong>貓</strong>：散瞳（講義 A6；VPT10 Ch.13）；清除比犬慢很多（VPT10 Ch.13）。</li>
+            <li>腸胃蠕動下降、便秘（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li><strong>鎮靜不等於止痛</strong>：鎮靜出現的劑量比止痛低，看到動物睡了不代表不痛（講義 A6；VPT10 Ch.13）。</li>
+            <li><strong>止痛有天花板</strong>：貓超過 0.8 mg/kg 不再增加效果，作用時間也不會變長；作用時間多在 3 小時以內，犬可能不到 1–1.5 小時（VPT10 Ch.13）。</li>
+            <li><strong>口服</strong>：生體可用率差，口服可止咳，但要止痛需高劑量（1–2 mg/kg PO q2–4h）（VPT10 Ch.13）。</li>
+            <li>IM、SC 注射會痛（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.13（Butorphanol；Contraindications, Warnings, and Drug Interactions）；講義 A6。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 7 BUP -->
+    <div class="section" id="section-bup">
+      <div class="section-head"><div class="section-num">7</div><h2>Buprenorphine</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> μ 高親和力部分促效劑；κ 拮抗</span><span><strong>途徑</strong> IV、IM、SC、經皮；貓口腔黏膜給藥</span><span><strong>間隔</strong> 沒有查到需要跟食物或其他藥間隔的資料</span><span><strong>主軸標籤</strong> <em class="tg">Q3 搶受體</em><em class="tg">Q4 呼吸抑制有天花板</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>它抓 μ 受體抓得比其他 opioid 都緊、而且放開得很慢 → <strong>它會擠掉別人</strong>（Q3），<strong>別人也很難擠掉它</strong>（Naloxone 要用很高劑量）。同時它只是部分促效劑，所以止痛與呼吸抑制都有天花板（講義 A6；VPT10 Ch.13）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li>親和力比其他 opioid 高 → 會把其他 opioid 擠下來；在 opioid 依賴的個體會誘發戒斷（VPT10 Ch.13）。</li>
+            <li>理論上可能削弱併用 opioid 的止痛效果，但<strong>沒有臨床證據</strong>；實驗動物中先給 Buprenorphine，並沒有讓 μ 受體在它的止痛作用結束後仍被佔住（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>Naloxone 逆轉效果有限</strong>：需要比逆轉 Morphine 高得多的劑量（講義 A6；VPT10 Ch.13）。</li>
+            <li>犬主要經葡萄糖醛酸化代謝（講義 A6）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>頭部外傷</strong>：opioid 通則，呼吸抑制 → CO₂ 上升 → 腦血管擴張（VPT10 Ch.13）；Buprenorphine 的呼吸抑制有天花板。</li>
+            <li>長期使用 μ 促效劑、已經依賴的動物，換成 Buprenorphine 可能誘發戒斷（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li><strong>安全範圍大</strong>：治療指數（LD50／ED50）12,313，Morphine 為 464；犬 LD50 79 mg/kg，治療劑量通常不超過 0.04 mg/kg（VPT10 Ch.13）。</li>
+            <li><strong>起效慢、作用長</strong>：脂溶性高但進出中樞慢，IV 後起效延遲；作用約 8 小時；半衰期犬 5 小時、貓 7 小時（講義 A6）。</li>
+            <li><strong>貓</strong>：比完全 μ 促效劑少煩躁、興奮、嘔吐（VPT10 Ch.13）。口腔黏膜給藥的吸收率：一篇研究 100%，後續研究約 30%，差異可能來自採血位置（講義 A6；VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.13（Buprenorphine）；講義 A6。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- MUOP -->
+    <div class="section" id="section-muop">
+      <div class="section-head"><div class="section-num">8</div><h2>Methadone 與 Fentanyl（完全 μ 促效劑）</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> μ 完全促效劑</span><span><strong>途徑</strong> Methadone：IV、IM、SC（犬口服生體可用率低且不穩定）；Fentanyl：IV、IV CRI、IM、SC、經皮</span><span><strong>主軸標籤</strong> <em class="tg">Q2 肝血流・酵素</em><em class="tg">Q3 被部分促效劑擠下</em><em class="tg">Q4 中樞／呼吸／腸胃／血清素</em><em class="tg">Q5 心臟病</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>完全促效劑沒有天花板 → 止痛最強，呼吸抑制、腸胃蠕動下降也跟著劑量走（Q4）。Opioid 是高清除率藥物，主要靠<strong>肝臟血流</strong>清除，所以心臟病、低血壓、低血容會讓清除變慢（Q2）。Methadone 另外有 NMDA 拮抗、抑制血清素與正腎上腺素再回收的作用，多了一條<strong>血清素</strong>路線（VPT10 Ch.13）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li><strong>鎮靜劑</strong>：opioid 最常見的交互作用就是與鎮靜劑併用，臨床上常用來加深鎮靜（VPT10 Ch.13）。與 α2 促效劑併用時呼吸抑制加強（VPT10 Ch.14）。</li>
+            <li><strong>其他 opioid</strong>：Methadone 與 Morphine 併用止痛呈協同；與 Oxymorphone、Fentanyl、Meperidine 等呈加成（VPT10 Ch.13）。</li>
+            <li><strong>MAO 抑制劑（Selegiline、Amitraz）</strong>：Methadone 會影響血清素代謝，有血清素症候群的疑慮；Fentanyl 不影響血清素代謝，交互作用不太可能（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>Chloramphenicol</strong>：明顯改變 Methadone 藥動學 → 暴露量增加、高峰濃度變高、opioid 作用更明顯（VPT10 Ch.13、Ch.36）。Fentanyl 等其他經 CYP 代謝的 opioid 沒有報告但可能發生；需要併用時，不經 CYP 代謝的 Morphine 是比較好的選擇（VPT10 Ch.13）。</li>
+            <li><strong>部分促效劑或拮抗劑</strong>（Butorphanol、Buprenorphine）：會把它擠下來 → 逆轉，或在長期使用的動物誘發戒斷（VPT10 Ch.13）。</li>
+            <li><strong>Naloxone</strong>：逆轉（講義 A6）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>肝臟血流減少</strong>：心臟病、低血壓、低血容 → opioid 清除明顯變慢（VPT10 Ch.13）。</li>
+            <li><strong>Methadone 與心臟</strong>：健康犬 0.5–1 mg/kg IV 後心輸出量下降約 20%、全身血管阻力上升約 50–100%；容易鬱血性心衰竭、有心臟病或高血壓的動物要謹慎（VPT10 Ch.13）。</li>
+            <li><strong>頭部外傷</strong>：呼吸抑制 → CO₂ 上升 → 腦血管擴張；低劑量多次或 CRI 可減輕（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li><strong>Methadone</strong>：效力與 Morphine 相近但清除較慢，給藥間隔較長；犬 0.5 mg/kg IV q4–6h，或 0.5–1 mg/kg IV、IM、SC q6–8h；較少出現 Morphine 常見的噁心、嘔吐、排便、煩躁；反覆 IM、SC 會刺激組織（VPT10 Ch.13）。</li>
+            <li><strong>Fentanyl</strong>：脂溶性是 Morphine 的 1,000 倍以上 → IV 後 2.5–10 分鐘就在腦脊髓液達高峰，呼吸中樞的影響也立刻出現；安全範圍大；經皮製劑可避開肝臟首渡代謝（貼片在犬貓屬標示外使用）（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.13（Methadone、Fentanyl；Interactions with Drug Clearance；Interactions with Other Analgesics and Antidepressants）、Ch.14、Ch.36；講義 A6。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- TRAM -->
+    <div class="section" id="section-tram">
+      <div class="section-head"><div class="section-num">9</div><h2>Tramadol</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> 中樞作用止痛藥（弱 μ＋血清素、正腎上腺素再回收抑制）</span><span><strong>途徑</strong> PO（可 IV，但 VPT10 指出美國沒有 IV 製劑）</span><span><strong>主軸標籤</strong> <em class="tg">Q2 需要 CYP2D 活化</em><em class="tg">Q4 血清素・癲癇</em><em class="tg">Q5 癲癇・犬效果不穩</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>Tramadol 不是單純的 opioid。主要的 μ 作用來自<strong>活性代謝物 O-desmethyltramadol（M1）</strong>，要靠 CYP2D 產生（Q2）；另外抑制血清素與正腎上腺素再回收（Q4）。所以有兩條交互作用路線：<strong>抑制 CYP2D 的藥讓它沒效</strong>，<strong>血清素類藥物讓它危險</strong>（VPT10 Ch.13）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li><strong>血清素類藥物</strong>：避免與三環抗憂鬱藥（TCA）、選擇性血清素再回收抑制劑（SSRI）、SNRI、Meperidine 併用 → 血清素症候群風險（VPT10 Ch.13）。</li>
+            <li><strong>MAO 抑制劑（Selegiline、Amitraz）</strong>：Tramadol 影響血清素代謝，屬於可能受影響的止痛藥（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>CYP2D 抑制劑</strong>：Quinidine、Fluoxetine、Paroxetine、Sertraline → M1 產生減少 → 止痛效果明顯下降（VPT10 Ch.13）。</li>
+            <li>人類中 M1 轉換差的人，術後止痛失敗率 60–80%；犬的代謝型態與這群人類似（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>癲癇</strong>：高劑量可能降低癲癇閾值，容易癲癇的動物應避免反覆高劑量（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點：犬與貓差很多</div>
+          <ul>
+            <li><strong>犬</strong>：主要代謝成沒有活性的 N-desmethyltramadol，血中 M1 很低（M1／Tramadol 比值 0.003）；口服生體可用率從 65% 到低至 4%，連續給藥第 7 天相對生體可用率約剩 18%；犬的療效<strong>尚未被一致證實</strong>（VPT10 Ch.13）。</li>
+            <li><strong>貓</strong>：口服吸收約 93%，M1／Tramadol 比值約 1–1.2，貓會產生大量 M1（VPT10 Ch.13）。</li>
+            <li>副作用：鎮靜、噁心、嘔吐；對腸胃蠕動的影響比 opioid 小（VPT10 Ch.13）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.13（Tramadol；Interactions with Other Analgesics and Antidepressants）。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- GABA -->
+    <div class="section" id="section-gaba">
+      <div class="section-head"><div class="section-num">10</div><h2>Gabapentin</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> GABA 類似物（作用在電壓依賴性鈣通道 α2δ 次單元）</span><span><strong>途徑</strong> PO</span><span><strong>間隔</strong> 食物不影響吸收（VPT10 Ch.17）</span><span><strong>主軸標籤</strong> <em class="tg">Q2 腎臟排除</em><em class="tg">Q5 腎病・xylitol</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>它幾乎不經肝臟代謝、幾乎不與蛋白結合，靠<strong>腎臟</strong>排除（VPT10 Ch.17）→ Q2、Q3 的交互作用很少，要擔心的是 <strong>Q5：腎功能</strong>，以及口服液裡的 <strong>xylitol</strong>。它不結合 GABA 受體，而是結合脊髓背角電壓依賴性鈣通道的 α2δ 次單元 → 減少麩胺酸釋放（講義 A6）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li>講義：在人類作為部分性癲癇的輔助用藥，<strong>與其他一線抗癲癇藥沒有交互作用</strong>（A6）。</li>
+            <li>手邊教科書沒有查到它在犬貓改變其他藥濃度的資料。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li>不依賴肝臟代謝，所以肝酵素抑制劑或誘導劑理論上影響不大；VPT10 指出肝病或代謝能力受損時可以考慮使用（Ch.17）。</li>
+            <li>沒有查到其他藥物改變它濃度的資料。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>腎功能不佳</strong>：主要經腎排除 → 要減量（講義 A6；VPT10 Ch.17）。</li>
+            <li><strong>口服液含 xylitol</strong>：xylitol 對犬有毒；犬使用口服液要計算 xylitol 的量，若已在吃其他含 xylitol 的藥，避免使用這個劑型（VPT10 Ch.17）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li><strong>停藥要慢慢減量</strong>，避免疼痛反彈（講義 A6）。</li>
+            <li>半衰期短：犬 2–4 小時、貓約 3 小時 → 需要頻繁給藥；犬抗癲癇常用 10–20 mg/kg PO q6–8h（VPT10 Ch.17）。</li>
+            <li>用途：神經性疼痛、癌症相關疼痛（講義 A6）；難治型癲癇的輔助藥，動物沒有單獨用來抗癲癇（VPT10 Ch.17）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.17（Gabapentin）；講義 A6。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- TRAZ -->
+    <div class="section" id="section-traz">
+      <div class="section-head"><div class="section-num">11</div><h2>Trazodone</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> 非典型抗憂鬱藥（血清素混合促效／拮抗）</span><span><strong>途徑</strong> PO</span><span><strong>主軸標籤</strong> <em class="tg">Q2 CYP2D6（人類）</em><em class="tg">Q4 血清素・鎮靜</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>它是血清素混合促效／拮抗劑，有中度抗組織胺作用、阻斷 α1 受體、沒有抗膽鹼作用（VPT10 Ch.18）→ 交互作用主要在 <strong>Q4：血清素</strong>與<strong>鎮靜</strong>的疊加。人類經 CYP2D6 代謝（Q2）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li><strong>SSRI、TCA</strong>：犬有與這些藥合併使用來加強鎮定的做法（VPT10 Ch.18）。</li>
+            <li><strong>MAO 抑制劑（Selegiline、Amitraz）</strong>：VPT10 指出 MAO 抑制劑不應與抗憂鬱藥（文中舉 TCA、SSRI 為例）併用，可能造成血清素症候群，兩類藥的切換要間隔 14 天（Ch.18）。Trazodone 在 VPT10 歸在非典型抗憂鬱藥，本頁推論同樣要小心，但 VPT10 沒有直接寫 Trazodone 與 MAO 抑制劑。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>抑制 CYP2D6 的 SSRI</strong>：人類併用時要小心；不過 Trazodone 安全劑量範圍寬，比 TCA 不那麼麻煩（VPT10 Ch.18）。動物資料沒有查到。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病與副作用</div>
+          <ul>
+            <li>犬：鎮靜、嘔吐、腹瀉等腸胃症狀，尤其前幾天；建議低劑量開始，幾天到幾週內慢慢往上調（VPT10 Ch.18）。</li>
+            <li>手邊教科書沒有查到特定的共病禁忌。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點：血清素症候群長什麼樣</div>
+          <ul>
+            <li>表現：高血壓、高體溫、躁動、顫抖、癲癇、意識改變；可能致命（VPT10 Ch.18）。</li>
+            <li>用途：犬輕度雷聲恐懼、骨科術後幫助平靜；貓搭車與看診焦慮（VPT10 Ch.18）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.18（Trazodone；Monoamine Oxidase Inhibitors）。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- ACE -->
+    <div class="section" id="section-ace">
+      <div class="section-head"><div class="section-num">12</div><h2>Acepromazine</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> Phenothiazine 鎮定劑（沒有止痛作用）</span><span><strong>途徑</strong> PO 或 IV、IM、SC</span><span><strong>主軸標籤</strong> <em class="tg">Q4 中樞・低血壓</em><em class="tg">Q5 低血容・Boxer・凝血</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>阻斷中樞多巴胺受體 → 鎮定；同時阻斷<strong>周邊血管的 α1 受體</strong> → 血管擴張、低血壓（VPT10 Ch.14）。所以它的交互作用幾乎都是 <strong>Q4 疊加</strong>：任何也會擴張血管、降血壓或抑制中樞的藥。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li><strong>其他中樞抑制劑</strong>：中樞抑制過度 → 其中一個或兩個藥都要減量（VPT10 Ch.14）。</li>
+            <li><strong>會擴張血管、降血壓的藥</strong>：要小心併用；硬膜外或脊髓腔局部麻醉時，可能加重局部麻醉劑造成的低血壓（VPT10 Ch.14）。</li>
+            <li><strong>Epinephrine</strong>：α 作用被擋掉、只剩 β 作用 → 反而低血壓（epinephrine reversal）（HBK Ch.19）；同時提高 Epinephrine 誘發心室心律不整的劑量（VPT10 Ch.14）。</li>
+            <li><strong>α2 促效劑</strong>：α1 阻斷可平衡 α2 造成的血管收縮（VPT10 Ch.14，馬的段落）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>Phenylephrine</strong> 等血管收縮劑可減輕它造成的低血壓（VPT10 Ch.14）。</li>
+            <li>沒有查到改變它濃度的藥物資料。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>避免</strong>：脫水、低血容、出血、休克（VPT10 Ch.14）。</li>
+            <li><strong>小心</strong>：凝血異常或血小板減少（會降低血小板凝集，但臨床上很少造成出血，有爭議）；Boxer（鎮靜與低血壓比預期嚴重，有昏厥報告）、短吻犬、迷走張力高的犬、衰弱動物（VPT10 Ch.14）。</li>
+            <li><strong>癲癇（說法有爭議）</strong>：傳統上把 Phenothiazine 列為癲癇禁忌，根據的是兔子與 Chlorpromazine 的實驗；VPT10 指出 Acepromazine 誘發癲癇的證據很少，近年研究反而認為它可能有抗癲癇作用（Ch.14）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li>血管擴張作用比鎮靜作用持續更久；環境溫度劇烈變化時低血壓更明顯（VPT10 Ch.14）。</li>
+            <li>清醒動物的治療指數很高（犬口服超過建議量 100 倍沒有死亡），但麻醉中保護性反射減弱，安全範圍會縮小（VPT10 Ch.14）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.14（Phenothiazines：Cardiovascular effects、Drug Interactions、Contraindications）；HBK Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- PROP -->
+    <div class="section" id="section-prop">
+      <div class="section-head"><div class="section-num">13</div><h2>Propofol</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> 注射麻醉誘導藥</span><span><strong>途徑</strong> IV；IV CRI</span><span><strong>主軸標籤</strong> <em class="tg">Q2 Chloramphenicol</em><em class="tg">Q4 呼吸</em><em class="tg">Q5 貓・長時間輸注</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>它本身起效快、清除快，劑量由「其他藥已經抑制了多少」決定（Q4：α2 與 Benzodiazepine 都會大幅降低誘導劑量）。真正會拖慢它的是 <strong>Chloramphenicol</strong> 這類肝酵素抑制劑（Q2）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥／和誰疊加</div>
+          <ul>
+            <li>與 α2 促效劑、Benzodiazepine、Opioid 等併用 → 中樞與呼吸抑制疊加，誘導劑量大幅降低（VPT10 Ch.14）。</li>
+            <li><strong>呼吸</strong>：推注後常見呼吸暫停，推得越快越容易發生；自主呼吸的犬會有輕度高碳酸血症與酸血症（VPT10 Ch.12）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它／配伍</div>
+          <ul>
+            <li><strong>Chloramphenicol</strong>：P450 抑制劑，Propofol 列在可能受影響的藥物中（VPT10 Ch.36）。</li>
+            <li><strong>配伍</strong>：可用 5% 葡萄糖稀釋做 CRI（VPT10 Ch.12）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>貓</strong>：誘導劑量接 30 分鐘 CRI 可造成紅血球氧化傷害 → Heinz body、厭食、腹瀉、倦怠；不過一天兩次誘導劑量連續 5 天，沒有出現血液學變化（VPT10 Ch.12）。</li>
+            <li><strong>長時間輸注</strong>：Propofol 症候群（代謝性酸中毒、橫紋肌溶解、腎損傷、心律不整、心衰竭），新生兒與敗血症病患風險較高，要監測（VPT10 Ch.12）。</li>
+            <li><strong>癲癇</strong>：可能出現肌陣攣，但 Propofol 有抗癲癇作用，也用於控制重積癲癇（VPT10 Ch.12）。</li>
+            <li><strong>眼壓</strong>：麻醉劑量讓眼壓下降 30–40%（VPT10 Ch.12）。</li>
+            <li><strong>胰臟炎</strong>：獸醫沒有報告，常用於急性胰臟炎病患（VPT10 Ch.12）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li>無防腐劑製劑：術後傷口感染風險約 4 倍，要嚴格無菌操作，開封後 24 小時內丟棄（VPT10 Ch.12）。</li>
+            <li>注射會痛，小靜脈更明顯；Greyhound 誘導劑量相同，但恢復比較久（VPT10 Ch.12）。</li>
+            <li>過量：嚴重心血管與呼吸抑制，以插管通氣、輸液、正強心藥支持（VPT10 Ch.12）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.12（Propofol）、Ch.14、Ch.36。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- KET -->
+    <div class="section" id="section-ket">
+      <div class="section-head"><div class="section-num">14</div><h2>Ketamine</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> 解離性麻醉藥（NMDA 拮抗）</span><span><strong>途徑</strong> IV 或 IM（FDA 核准貓 IM）</span><span><strong>主軸標籤</strong> <em class="tg">Q2 貓靠腎排</em><em class="tg">Q4 交感刺激</em><em class="tg">Q5 顱內壓・眼壓・心臟・甲亢</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>它透過中樞增加正腎上腺素 → <strong>交感刺激</strong>，所以 Q5 怕的是交感張力已經很高、心臟負擔大、顱內壓或眼壓高的病患。貓缺乏部分葡萄糖醛酸化路徑，Ketamine 只轉成 norketamine 後<strong>原形經尿液排出</strong> → 腎臟或尿道出問題時作用延長（Q2）（VPT10 Ch.12）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥／和誰疊加</div>
+          <ul>
+            <li>與其他中樞抑制劑併用 → 呼吸與心血管抑制增加（VPT10 Ch.12）。</li>
+            <li><strong>不應單獨使用</strong>：要搭配鎮靜劑或安定劑，減少恢復期譫妄並提供肌肉鬆弛（VPT10 Ch.12）；常見搭配 Benzodiazepine、α2 促效劑（講義 A3、A5）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>Chloramphenicol</strong>：延長 Ketamine 與 Telazol 的恢復時間（VPT10 Ch.12）。</li>
+            <li><strong>沒有專一拮抗劑</strong>：過量時以其他鎮靜劑與肌肉鬆弛劑支持處理（VPT10 Ch.12）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心（VPT10 Ch.12）</div>
+          <ul>
+            <li><strong>不應使用</strong>：顱內壓升高；眼壓升高或開放性眼球外傷（青光眼）。</li>
+            <li><strong>小心</strong>：冠狀動脈疾病、未控制的高血壓、心肌病、心衰竭；交感張力高（甲狀腺功能亢進、嗜鉻細胞瘤）。</li>
+            <li><strong>貓的尿道阻塞或無尿性腎衰竭</strong>：活性代謝物排不掉 → 作用延長。</li>
+            <li><strong>癲癇病史</strong>：證據兩面都有，但多數麻醉醫師建議避免。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li>pH 3.5 → IM 會痛、刺激（VPT10 Ch.12）。</li>
+            <li><strong>流涎</strong>：可用抗膽鹼藥（如 Glycopyrrolate）減少；但小氣道的動物要小心，分泌物會變黏稠而阻塞氣道或氣管內管（VPT10 Ch.12）。</li>
+            <li>喉部反射保留但不協調，仍可能吸入，建議插管（VPT10 Ch.12）。</li>
+            <li>治療指數大（VPT10 Ch.12）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.12（Dissociative Anesthetics：Ketamine）；講義 A3、A5。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 8 ABX -->
+    <div class="section" id="section-abx">
+      <div class="section-head"><div class="section-num">15</div><h2>抗生素：這一類的主軸</h2></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">主軸 1：口服最怕腸道裡的陽離子（Q1）</div>
+          <p>四環黴素類與喹諾酮類都會跟 Ca²⁺、Mg²⁺、Al³⁺、Fe、Zn²⁺ 螯合。<strong>四環黴素最敏感</strong>（食物、乳製品也會降低吸收），喹諾酮在動物的證據則不一致（VPT10 Ch.34、Ch.37）。這是抗生素裡最需要「錯開時間」的一群。</p>
+        </div>
+        <div class="card"><div class="card-title">主軸 2：少數抗生素會抑制肝酵素（Q3）</div>
+          <p>HBK Ch.19 列出的 P450 抑制劑包括 <strong>Chloramphenicol、Enrofloxacin</strong>。<strong>Erythromycin</strong> 也是著名的肝酵素抑制劑，可能讓 Theophylline、Cyclosporine、Digoxin、Warfarin 濃度上升（VPT10 Ch.36），並減慢 Benzodiazepine 代謝（Ch.14）。看到這幾個抗生素，要回頭檢查併用藥。相反地，<strong>β-lactam 幾乎沒有 Q2、Q3 的交互作用</strong>（大多原形經腎排除）。</p>
+        </div>
+        <div class="card"><div class="card-title">主軸 3：抑菌藥會拖慢殺菌藥（Q4）</div>
+          <p>β-lactam 對快速生長的細菌最有效，四環黴素抑制細菌生長 → 降低 β-lactam 的效果（HBK Ch.19）。</p>
+        </div>
+        <div class="card"><div class="card-title">主軸 4：物種與年齡毒性（Q5）</div>
+          <p>貓：Enrofloxacin 視網膜退化；Doxycycline、Clindamycin 錠劑傷食道。幼犬：喹諾酮軟骨侵蝕；四環黴素牙齒染色。兔子、天竺鼠、倉鼠：Clindamycin 與口服 β-lactam 造成 Clostridium 腸炎。Doberman：磺胺過敏（講義 Antimicrobial 1–4；VPT10 Ch.33、Ch.34、Ch.36）。</p>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：HBK Ch.19；VPT10 Ch.14、Ch.34、Ch.37；講義 Antimicrobial 1、Antimicrobial 3。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 9 ENRO -->
+    <div class="section" id="section-enro">
+      <div class="section-head"><div class="section-num">16</div><h2>Enrofloxacin（Baytril®）與 Marbofloxacin</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> 喹諾酮類（Fluoroquinolone）</span><span><strong>途徑</strong> PO 或注射，一天一次或兩次</span><span><strong>主軸標籤</strong> <em class="tg">Q1 螯合</em><em class="tg">Q3 酵素抑制</em><em class="tg">Q4 癲癇</em><em class="tg">Q5 貓・幼犬</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>三個特性各對應一題：分子上有可以抓金屬的羧基 → 會被多價陽離子螯合（Q1；VPT10 Ch.37）；會抑制肝臟 CYP1A2 → 改變別人的濃度（Q3；VPT10 Ch.37）；能穿過血腦屏障、可能引起中樞興奮 → 癲癇的動物要小心（Q5；講義 Antimicrobial 1）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li><strong>Theophylline</strong>：Enrofloxacin 抑制 CYP1A2 → 犬的 Theophylline 高峰濃度上升、清除下降（VPT10 Ch.37）。</li>
+            <li>列在 HBK 的 P450 抑制劑名單中（Ch.19）。</li>
+            <li>與部分 NSAID 的藥動學交互作用在動物有觀察到，但結果不一致（VPT10 Ch.37）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>多價陽離子</strong>：制酸劑、含鈣鐵鋅產品、乳製品會降低口服吸收（講義 Antimicrobial 1）。</li>
+            <li>但 VPT10 Ch.37 指出動物證據不一致：犬的研究中 Sucralfate <strong>沒有</strong>降低 Enrofloxacin 吸收。若跟含鐵、含鋁產品<strong>調配在同一份製劑</strong>則確定會螯合失效。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">要不要間隔</div>
+          <p>食物會延後達到高峰的時間，但不影響總吸收量（講義 Antimicrobial 1）。和陽離子產品錯開是合理的保守做法；講義與 VPT10 都沒有給具體間隔時間。</p>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>癲癇</strong>：曾在服用 Phenobarbital 的癲癇犬誘發癲癇；容易癲癇的動物要小心（講義 Antimicrobial 1）。</li>
+            <li><strong>貓</strong>：視網膜退化、失明，急性、廣泛且不可逆；Orbifloxacin、Marbofloxacin 最不傷視網膜，Pradofloxacin 似乎不會（講義 Antimicrobial 1）。</li>
+            <li><strong>幼犬（4–28 週）</strong>：高劑量、超過 14 天會侵蝕關節軟骨，停藥後可恢復；懷孕期也不建議（講義 Antimicrobial 1）。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-info" style="margin-top:12px;"><div class="alert-label">同類比較：Marbofloxacin（PO）</div>
+        <p>同樣是喹諾酮，所以 Q1 的陽離子螯合、Q5 的幼犬軟骨與癲癇注意事項，講義是以整類一起寫的。差別在：<strong>對貓視網膜的毒性是喹諾酮裡最低的之一</strong>（Orbifloxacin、Marbofloxacin；Pradofloxacin 似乎不傷視網膜），以及半衰期較長，犬貓 9–12 小時（Enrofloxacin 犬 3–5 小時、貓 6 小時）（講義 Antimicrobial 1）。VPT10 沒有查到 Marbofloxacin 專屬的藥物交互作用資料，例如是否同樣抑制 CYP1A2。</p></div>
+      <footer class="note-footer">資料來源：講義 Antimicrobial 1（Fluoroquinolones）；VPT10 Ch.37；HBK Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 10 DOXY -->
+    <div class="section" id="section-doxy">
+      <div class="section-head"><div class="section-num">17</div><h2>Doxycycline</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> 四環黴素類（抑菌）</span><span><strong>途徑</strong> PO 或 IV（四環黴素類 IM 會痛、易造成無菌性膿瘍）</span><span><strong>主軸標籤</strong> <em class="tg">Q1 螯合（最敏感）</em><em class="tg">Q4 拮抗 β-lactam</em><em class="tg">Q5 貓食道</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>四環結構很容易跟多價陽離子形成不溶性螯合物 → 抗生素裡<strong>最怕腸道裡有鈣、鎂、鐵、鋁</strong>（Q1；講義 Antimicrobial 3；VPT10 Ch.34）。它是抑菌藥 → 會拖慢需要細菌快速生長才有效的 β-lactam（Q4；HBK Ch.19）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li><strong>β-lactam</strong>（Amoxicillin、Cephalexin 等）：抑菌作用拖慢細菌生長 → β-lactam 效果下降（HBK Ch.19）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li><strong>降低口服吸收</strong>：食物、乳製品、多價陽離子（Ca²⁺、Mg²⁺、Fe²⁺、Al³⁺）、Kaolin／pectin、含鐵補充劑、制酸劑（VPT10 Ch.34）。</li>
+            <li><strong>Sucralfate</strong>：併用時 Doxycycline 吸收明顯下降，<strong>除非 Sucralfate 在 Doxycycline 之後 2 小時才給</strong>（VPT10 Ch.34）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">要不要間隔（這一類最需要）</div>
+          <ul>
+            <li>講義：口服前 <strong>3 小時</strong>內避免牛奶、制酸劑、鐵鹽（Antimicrobial 3）。</li>
+            <li>Sucralfate：先給 Doxycycline，<strong>2 小時後</strong>再給 Sucralfate（VPT10 Ch.34）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>貓</strong>：錠劑碎片或沒溶完的膠囊卡在食道 → 食道損傷與狹窄；給藥後要補水。主要和 Doxycycline hyclate 有關（VPT10 Ch.34）。貓也常見腸胃副作用（講義 Antimicrobial 3）。</li>
+            <li><strong>腎病</strong>：多數四環黴素有腎毒性，Doxycycline 與 Minocycline 例外；Doxycycline 75% 經腸道排除，所以<strong>不適合治療泌尿道感染</strong>（講義 Antimicrobial 3）。</li>
+            <li><strong>幼齡</strong>：牙齒染色，Doxycycline 較少見（講義 Antimicrobial 3）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：VPT10 Ch.34（Tetracycline Antibiotics）；講義 Antimicrobial 3（Tetracyclines）；HBK Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- BL -->
+    <div class="section" id="section-bl">
+      <div class="section-head"><div class="section-num">18</div><h2>β-lactam：Amoxicillin-Clavulanate、Cephalexin、Cefovecin</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> 殺菌、時間依賴性</span><span><strong>主軸標籤</strong> <em class="tg">Q4 被抑菌藥拖慢</em><em class="tg">Q5 過敏・囓齒類與兔子</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>Penicillin 類超過 90% 以原形經腎絲球過濾與腎小管分泌排出（講義 Antimicrobial 2），也不是肝酵素抑制劑 → <strong>Q2、Q3 的交互作用很少</strong>。它們的重點落在 Q4（β-lactam 要細菌快速生長才有效，會被抑菌藥拖慢）與 Q5（過敏、物種）。β-lactam 屬時間依賴性，關鍵是讓血中濃度高於 MIC 的時間夠長（講義 Antimicrobial 2）。</div>
+      <div class="table-wrap">
+        <table class="ec-cards">
+          <thead><tr><th>藥物</th><th>途徑與給藥</th><th>跟食物</th><th>特別注意</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Amoxicillin-Clavulanate</strong>（Clavamox®）</td><td>PO</td><td>手邊資料沒有查到食物影響</td><td>Clavulanic acid 本身沒有抗菌力，是 β-lactamase 抑制劑（講義 Antimicrobial 2）</td></tr>
+            <tr><td><strong>Cephalexin</strong></td><td>PO，犬每 12 小時可維持在 MIC 以上（VPT10 Ch.33）</td><td>犬的研究：Cephalexin 吸收<strong>受食物影響小</strong>（同類的 Cefadroxil 與食物併服吸收較好）（VPT10 Ch.33）</td><td>耐酸、可口服的第一代頭孢（講義 Antimicrobial 2）</td></tr>
+            <tr><td><strong>Cefovecin</strong>（Convenia®）</td><td>單次 SC 注射；標示間隔 14 天（VPT10 Ch.33）</td><td>注射劑，不適用</td><td>蛋白結合率貓 &gt;99%、犬 &gt;98% → 半衰期貓約 7 天、犬約 5 天；一旦給了就無法很快停藥（VPT10 Ch.33）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">交互作用</div>
+          <ul>
+            <li><strong>四環黴素等抑菌藥</strong>：降低 β-lactam 效果（HBK Ch.19）。</li>
+            <li><strong>Aminoglycoside</strong>：Ureido-penicillin（如 Piperacillin）與 Aminoglycoside 有良好的協同作用（VPT10 Ch.33）。</li>
+            <li><strong>Probenecid</strong>：競爭腎小管分泌 → 延長 Penicillin 半衰期，但臨床上很少這樣用（VPT10 Ch.33）。</li>
+            <li>VPT10 沒有提到 Cefovecin 與其他高蛋白結合藥物的交互作用。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病與物種</div>
+          <ul>
+            <li><strong>過敏</strong>：皮疹、血管性水腫、過敏性休克；Penicillin 過敏是臨床最常見的第一型過敏（講義 Antimicrobial 2；HBK Ch.19）。</li>
+            <li><strong>天竺鼠、倉鼠、沙鼠、兔子</strong>：口服會打亂腸道菌 → Clostridium 過度生長（VPT10 Ch.33）。</li>
+            <li><strong>Procaine penicillin</strong>：鳥、蛇、龜、天竺鼠、絨鼠對 procaine 敏感，不可使用（講義 Antimicrobial 2）。</li>
+            <li><strong>頭孢菌素長期或高劑量</strong>：可能貧血、骨髓抑制（講義 Antimicrobial 2）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：講義 Antimicrobial 2（β-lactam）；VPT10 Ch.33；HBK Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- METRO -->
+    <div class="section" id="section-metro">
+      <div class="section-head"><div class="section-num">19</div><h2>Metronidazole</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> Nitroimidazole（厭氧菌、原蟲）</span><span><strong>途徑</strong> PO（犬貓）</span><span><strong>主軸標籤</strong> <em class="tg">Q5 神經毒性・懷孕</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>它被厭氧菌與原蟲吸收後還原成破壞 DNA 的代謝物（講義 Antimicrobial 4）；分布廣、<strong>會進入中樞</strong>，神經毒性被認為與<strong>抑制 GABA</strong> 有關（VPT10 Ch.42）。所以它的重點不在藥物之間，而在 <strong>Q5：劑量與療程造成的神經毒性</strong>。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li>手邊講義與教科書（講義、VPT10、HBK）<strong>沒有查到</strong>它在犬貓改變其他藥濃度的資料。</li>
+            <li>常與 Clindamycin 併用，用來預防 Clindamycin 相關的偽膜性大腸炎（講義 Antimicrobial 4）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li>手邊資料<strong>沒有查到</strong>。它有 1/3 到 1/2 經肝臟氧化與結合代謝（講義 Antimicrobial 4）。</li>
+            <li><strong>Diazepam</strong>：用來治療它的神經毒性，可讓恢復快很多（VPT10 Ch.42）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>神經毒性</strong>：高劑量或長期使用 → 眼球震顫、運動失調、癲癇；貓流涎（講義 Antimicrobial 4）。犬在 67–129 mg/kg/day 出現運動失調、嗜睡、本體感覺缺損、眼球震顫、類癲癇症狀；停藥後恢復需 1–2 週（VPT10 Ch.42）。</li>
+            <li><strong>懷孕</strong>：不應使用（HBK Ch.11）。</li>
+            <li><strong>貓</strong>：7 天內就可能在周邊血液單核細胞造成 DNA 傷害，停藥 7 天後消失（VPT10 Ch.42）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li>貓：Metronidazole benzoate 溶解度低、味道較不苦（20 mg/kg benzoate 相當於 12.4 mg/kg metronidazole）（VPT10 Ch.42）。</li>
+            <li>尿液可能變深褐或黑色（講義 Antimicrobial 4）。</li>
+            <li>肝性腦病的輔助治療：10–20 mg/kg PO BID（犬貓）（HBK Ch.11）。</li>
+            <li>食用動物嚴格禁用（VPT10 Ch.42）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：講義 Antimicrobial 4（Nitroimidazoles）；VPT10 Ch.42；HBK Ch.11。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- CLIN -->
+    <div class="section" id="section-clin">
+      <div class="section-head"><div class="section-num">20</div><h2>Clindamycin</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> Lincosamide（抑菌）</span><span><strong>途徑</strong> PO 或 IM，犬貓一天兩次</span><span><strong>主軸標籤</strong> <em class="tg">Q4 神經肌肉阻斷</em><em class="tg">Q5 兔子囓齒類馬・貓食道</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>口服吸收約 90%，約 90% 經肝臟代謝；鹼性藥物，會在酸性組織（膿瘍、前列腺）累積（講義 Antimicrobial 4）。交互作用的重點有兩個：<strong>高劑量或麻醉中的神經肌肉阻斷</strong>（Q4），以及<strong>打亂腸道菌</strong>造成致命腹瀉的物種（Q5）。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥</div>
+          <ul>
+            <li><strong>麻醉藥</strong>：犬貓副作用少見，例外是高劑量時，或<strong>與麻醉藥併用時</strong>的神經肌肉阻斷（講義 Antimicrobial 4）。</li>
+            <li>與 Macrolide 常有交叉抗藥性（MLS<sub>B</sub> 抗藥性）（講義 Antimicrobial 4）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些藥會影響它</div>
+          <ul>
+            <li>手邊資料<strong>沒有查到</strong>其他藥物改變它濃度的資料。</li>
+            <li><strong>Metronidazole</strong>：常一起用，預防 Clindamycin 相關的偽膜性大腸炎（講義 Antimicrobial 4）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病與物種</div>
+          <ul>
+            <li><strong>禁用：馬、兔子、倉鼠、天竺鼠</strong> → 腸道菌改變、Clostridium difficile 造成嚴重甚至致命的腹瀉（講義 Antimicrobial 4）。</li>
+            <li><strong>貓</strong>：口服 Clindamycin HCl 與食道傷害有關（同 Doxycycline hyclate）；嘔吐、腹瀉是最常見的副作用，50 mg/kg 時最多（VPT10 Ch.36）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li>穿透骨頭與軟組織很好（含腱鞘）；腦脊髓液濃度低（蛋白結合率約 90%）（講義 Antimicrobial 4）。</li>
+            <li>貓連續 6 週每天 25 mg/kg PO，沒有影響維生素 K 依賴的凝血（第七因子）（VPT10 Ch.36）。</li>
+            <li>口服給貓後記得補水，避免卡在食道（依 VPT10 Ch.34 對 Doxycycline 的建議類推）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：講義 Antimicrobial 4（Lincosamides）；VPT10 Ch.34、Ch.36。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- TMS -->
+    <div class="section" id="section-tms">
+      <div class="section-head"><div class="section-num">21</div><h2>TMP-sulfa（Trimethoprim-Sulfonamide）</h2></div>
+      <div class="dc-meta"><span><strong>類別</strong> 增效磺胺</span><span><strong>途徑</strong> PO</span><span><strong>主軸標籤</strong> <em class="tg">Q3 蛋白結合置換・甲狀腺數值</em><em class="tg">Q4 刻意的協同</em><em class="tg">Q5 Doberman・乾眼・肝・凝血</em></span></div>
+      <div class="dc-why"><strong>為什麼：</strong>Sulfonamide 與 Trimethoprim 分別擋住細菌葉酸合成的兩個步驟 → <strong>刻意的協同作用</strong>（Q4；HBK Ch.19）。磺胺會搶白蛋白結合位置（Q3），而且免疫媒介與特異性反應很多，所以 <strong>Q5 是這張卡最長的一格</strong>。</div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">它會影響哪些藥／檢驗</div>
+          <ul>
+            <li><strong>Barbiturate</strong>：Sulfonamide 讓巴比妥麻醉時間延長（蛋白結合置換）（HBK Ch.19）。</li>
+            <li><strong>甲狀腺數值</strong>：Trimethoprim、Ormetoprim 讓血中甲狀腺素短暫下降（假性甲狀腺功能低下），停藥後改善（講義 Antimicrobial 1）；VPT10 也記錄犬的甲狀腺功能低下（Ch.32）。正在吃 TMP-sulfa 時判讀甲狀腺要小心。</li>
+            <li><strong>葉酸</strong>：可能降低血清葉酸，最後導致貧血（VPT10 Ch.32）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">哪些東西會影響它</div>
+          <ul>
+            <li><strong>膿瘍</strong>：膿液裡有大量游離葉酸與 PABA → 磺胺失效，屬禁忌（講義 Antimicrobial 1）。</li>
+            <li><strong>立克次體疾病</strong>：磺胺反而促進這些胞內菌生長，屬禁忌（講義 Antimicrobial 1）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">共病要小心</div>
+          <ul>
+            <li><strong>乾性角結膜炎（Keratoconjunctivitis Sicca, KCS）</strong>：含嘧啶核的磺胺（如 Sulfadiazine）（講義 Antimicrobial 1）。</li>
+            <li><strong>凝血異常</strong>：少見的免疫媒介低凝血酶原、血小板減少、貧血 → 凝血異常的動物不要用（講義 Antimicrobial 1）。</li>
+            <li><strong>Doberman</strong>：延遲性過敏反應、關節炎較常見（講義 Antimicrobial 1）。</li>
+            <li><strong>肝壞死</strong>：TMP-sulfadiazine、TMP-sulfamethoxazole 在犬有報告（VPT10 Ch.32）。</li>
+            <li><strong>種公犬</strong>：精子數下降，禁用（講義 Antimicrobial 1）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">使用重點</div>
+          <ul>
+            <li><strong>結晶尿</strong>：尿液 pH &lt; 7、劑量大或療程長、喝水不足時析出；補充水分與鹼化尿液可預防；療程 ≤ 5 天很少見（講義 Antimicrobial 1）。</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="note-footer">資料來源：講義 Antimicrobial 1（Sulfonamides）；VPT10 Ch.32；HBK Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 11 QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">22</div><h2>自我測驗：用五個問題推推看</h2></div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q1.【臨床情境】一隻服用 Phenobarbital 控制癲癇的犬，因尿道感染想開 Enrofloxacin PO，同時在吃 Sucralfate。請用五個問題檢查：(1) 哪一題會出問題？(2) Sucralfate 要不要錯開？依據是什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> Q5 共病：講義記錄 Enrofloxacin 曾在服用 Phenobarbital 的癲癇犬誘發癲癇。Q1：喹諾酮與陽離子可能螯合。<br><strong>(2)</strong> 講義寫含多價陽離子的產品會降低吸收；但 VPT10 Ch.37 指出犬的研究中 Sucralfate 並沒有降低 Enrofloxacin 吸收。錯開給藥是合理的保守做法，但真正需要擔心的是 Q5。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q2.【臨床情境】一隻術後犬已經連續 6 天用 Methadone CRI 止痛，現在想改成 Buprenorphine。請問：(1) 依主軸 3，可能發生什麼事？(2) 如果改用之後出現過度呼吸抑制，給一般劑量的 Naloxone 會有用嗎？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> Buprenorphine 親和力比其他 opioid 高，會把原本的 μ 促效劑擠下來；連續用 μ 促效劑超過 5–7 天的動物可能出現戒斷（VPT10 Ch.13）。<br><strong>(2)</strong> 效果有限：Buprenorphine 結合太緊，需要比逆轉 Morphine 高得多的 Naloxone 劑量（講義 A6；VPT10 Ch.13）。不過 Buprenorphine 的呼吸抑制本身有天花板。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q3. 一隻貓要回家吃 Doxycycline 錠劑和 Sucralfate。請排出給藥順序，並說明要額外交代飼主什麼。</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">先給 Doxycycline，2 小時後再給 Sucralfate（VPT10 Ch.34）；口服前 3 小時內避免牛奶等含鈣產品（講義）。另外交代：給錠劑後要接著餵水，避免卡在食道造成食道炎與狹窄（VPT10 Ch.34）。</p>
+        </details>
+      </div>
+            <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q4.【臨床情境】一隻老犬長期吃 Selegiline（認知障礙），戴 Amitraz 驅蟲項圈，這次因關節痛想開 Tramadol，焦慮再加 Trazodone。請問：(1) 用主軸 6 找出風險；(2) 要觀察哪些症狀？(3) 如果想換掉 Tramadol，哪一類 opioid 在這方面比較不用擔心？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> Selegiline 與 Amitraz 都有 MAO 抑制作用；Tramadol 影響血清素代謝；Trazodone 是抗憂鬱藥 → 疊加可能造成血清素症候群（VPT10 Ch.13、Ch.18）。<br><strong>(2)</strong> 高血壓、高體溫、躁動、顫抖、癲癇、意識改變（VPT10 Ch.18）。<br><strong>(3)</strong> 不影響血清素代謝的 opioid，例如 Morphine、Hydromorphone、Fentanyl、Butorphanol，交互作用不太可能（VPT10 Ch.13）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻住院犬正在吃 Chloramphenicol，明天要用 Methadone 止痛、Ketamine＋Midazolam 麻醉。請問：(1) 哪些藥會被 Chloramphenicol 影響？(2) 止痛藥可以怎麼換比較保險？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> Methadone 暴露量增加、作用更明顯（VPT10 Ch.13）；Ketamine 恢復時間延長（Ch.12）；Benzodiazepine、Propofol、Phenobarbital 也列在可能受影響的藥中（Ch.36）。<br><strong>(2)</strong> VPT10 Ch.13 建議在資料不足時，選不經 CYP 代謝的 Morphine。麻醉藥則要預期作用延長並減量監測。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 為什麼 β-lactam 幾乎不需要擔心藥物動力學層級的交互作用，卻仍然不適合跟 Doxycycline 一起用？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">Penicillin 類大多以原形經腎排除，也不是肝酵素抑制劑，所以 Q2、Q3 很少出事（講義 Antimicrobial 2）。但這是 Q4 的問題：β-lactam 要細菌快速生長才有效，四環黴素抑制細菌生長 → 降低 β-lactam 效果（HBK Ch.19）。</p>
+        </details>
+      </div>
+<footer class="note-footer">情境為虛構的教學組合。資料來源：講義 A6、Antimicrobial 1–3；VPT10 Ch.12、Ch.13、Ch.18、Ch.34、Ch.36、Ch.37；HBK Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 12 NEXT -->
+    <div class="section" id="section-next">
+      <div class="section-head"><div class="section-num">23</div><h2>下一批與待確認</h2></div>
+      <ul>
+        <li><strong>下一類候選：</strong>NSAID 與類固醇（Meloxicam、Robenacoxib、Carprofen、Prednisolone、Dexamethasone）、腸胃、心臟與利尿、內分泌、神經（Phenobarbital、Levetiracetam）。</li>
+        <li><strong>Acepromazine 與癲癇：</strong>VPT10 Ch.14 指出傳統禁忌證據薄弱；交接說明與站上部分頁面仍寫「癲癇 → 避免 Acepromazine」，待決定是否統一。</li>
+        <li><strong>Dexmedetomidine 與癲癇：</strong>講義的癲癇禁忌寫在 Xylazine 下，Dexmedetomidine 是否相同，還沒查到明確依據。</li>
+        <li><strong>Trazodone 與 MAO 抑制劑：</strong>VPT10 只寫抗憂鬱藥（舉 TCA、SSRI）不可與 MAO 抑制劑併用，沒有直接點名 Trazodone。</li>
+        <li><strong>查無資料：</strong>Metronidazole、Clindamycin 改變或被改變濃度的交互作用；Marbofloxacin 是否抑制 CYP1A2；Enrofloxacin 與陽離子的具體間隔時間。</li>
+      </ul>
+      <footer class="note-footer">本頁內容僅供個人學習與院內討論使用，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<style>
+/* 本頁為卡片版面：放寬內容欄寬，讓每張卡盡量一個螢幕看完 */
+@media (min-width: 1040px) { .pagebody { max-width: 1080px; } }
+.pagebody footer.note-footer { margin-top: 12px; padding-top: 8px; padding-bottom: 8px; }
+.section .grid-2 { gap: 12px; }
+.section .grid-2 .card { padding: 12px 14px; }
+.ax-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 14px 0 18px; }
+.ax-card { border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 8px; padding: 10px 12px; background: var(--bg); }
+.ax-card p { font-size: .84em; margin: 6px 0; color: var(--fg-muted); }
+.ax-no { font-size: .72em; font-weight: 800; letter-spacing: .08em; color: var(--fg-faint); }
+.ax-t { font-weight: 800; font-size: 1em; }
+.ax-a { font-size: .8em; color: var(--fg); }
+.ax-q1 { border-top-color: var(--green-700); }
+.ax-q2 { border-top-color: var(--slate-700); }
+.ax-q3 { border-top-color: var(--amber-700); }
+.ax-q4 { border-top-color: var(--rust-700); }
+.ax-q5 { border-top-color: var(--accent); }
+.dc-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .86em; color: var(--fg-muted); margin: 0 0 12px; padding: 8px 12px; background: var(--bg-faint); border-radius: 8px; }
+.dc-meta strong { color: var(--fg); margin-right: 4px; }
+.dc-why { font-size: .92em; line-height: 1.65; margin: 0 0 12px; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--accent-tint); border-radius: 0 8px 8px 0; color: var(--fg); }
+.section .grid-2 .card ul ul { margin-top: 3px; font-size: 1em; }
+.tg { font-style: normal; display: inline-block; font-size: .85em; font-weight: 700; padding: 1px 8px; margin: 0 4px 2px 0; border-radius: 999px; background: var(--accent-tint); color: var(--accent-deep); }
+.section .grid-2 .card ul { margin: 6px 0 0; padding-left: 1.15em; font-size: .9em; }
+.section .grid-2 .card p { font-size: .9em; }
+.section .grid-2 .card li { margin-bottom: 3px; }
+.dc-more { margin: 10px 0 0; font-size: .88em; }
+.dc-more summary { cursor: pointer; font-weight: 700; color: var(--fg-muted); }
+@media (max-width: 1100px) { .ax-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 720px) {
+  .ax-grid { grid-template-columns: 1fr 1fr; }
+  .ec-cards thead { display: none; }
+  .ec-cards, .ec-cards tbody, .ec-cards tr, .ec-cards td { display: block; width: auto; }
+  .ec-cards tr { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 10px; padding: 4px 0; }
+  .ec-cards td { border: 0; padding: 4px 12px; }
+  .ec-cards td[data-label]::before { content: attr(data-label); display: block; font-size: .75em; font-weight: 700; color: var(--fg-faint); }
+  .ec-cards td:first-child { background: var(--bg-faint); }
+}
+</style>
+<script>
+document.querySelectorAll('table.ec-cards').forEach(function (t) {
+  var heads = [].map.call(t.querySelectorAll('thead th'), function (th) { return th.textContent; });
+  t.querySelectorAll('tbody tr').forEach(function (tr) {
+    tr.querySelectorAll('td').forEach(function (td, i) { td.setAttribute('data-label', heads[i] || ''); });
+  });
+});
+</script>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "axes": "五個問題",
+  "endpoints": "共同終點：誰會疊加",
+  "sed": "這一類的主軸",
+  "dex": "Dexmedetomidine",
+  "mid": "Midazolam",
+  "but": "Butorphanol",
+  "bup": "Buprenorphine",
+  "muop": "Methadone／Fentanyl",
+  "tram": "Tramadol",
+  "gaba": "Gabapentin",
+  "traz": "Trazodone",
+  "ace": "Acepromazine",
+  "prop": "Propofol",
+  "ket": "Ketamine",
+  "abx": "這一類的主軸",
+  "enro": "Enrofloxacin／Marbofloxacin",
+  "doxy": "Doxycycline",
+  "bl": "β-lactam 三劑",
+  "metro": "Metronidazole",
+  "clin": "Clindamycin",
+  "tms": "TMP-sulfa",
+  "quiz": "自我測驗",
+  "next": "下一批與待確認"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/cite-links.js" data-base="../"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="../assets/pdf-viewer.js"></script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

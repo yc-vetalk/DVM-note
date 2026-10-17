@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：種禽生產醫學與生物安全 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">種禽生產醫學與生物安全</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">種禽場的生產醫學與生物安全 Poultry Production Medicine &amp; Biosecurity</h1>
+      <p class="page-subtitle">種雞金字塔、種雞生產週期（育雛、育成、產蛋、孵化）的管理重點、垂直傳播、生物安全的風險來源與消毒</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《禽病學》課程講義〈種禽場的生產醫學 Poultry production medicine in breeder farm〉（吳乃慧 DVM, PhD），含講義引用之畜試所《種原雞隻復養手冊》、獸醫所、中央畜產會資料</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-11</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（期中考導向）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <a onclick="showSection('structure')" id="nav-structure"><span class="nav-icon">🔺</span> 種雞的層級與金字塔</a>
+    <div class="section-label" style="margin-top:8px;">生產週期</div>
+    <a onclick="showSection('brooding')" id="nav-brooding"><span class="nav-icon">🐣</span> 育雛</a>
+    <a onclick="showSection('rearing')" id="nav-rearing"><span class="nav-icon">⚖️</span> 育成：整齊度</a>
+    <a onclick="showSection('laying')" id="nav-laying"><span class="nav-icon">🥚</span> 開產與產蛋：光照與種蛋</a>
+    <a onclick="showSection('incubation')" id="nav-incubation"><span class="nav-icon">🌡️</span> 孵化與疫苗</a>
+    <div class="section-label" style="margin-top:8px;">生物安全</div>
+    <a onclick="showSection('biosecurity')" id="nav-biosecurity"><span class="nav-icon">🛡️</span> 生物安全與風險來源</a>
+    <a onclick="showSection('disinfection')" id="nav-disinfection"><span class="nav-icon">🧴</span> 清潔與消毒</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 考試方向（推測）</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">這份講義的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>種雞場怎麼養：從<strong>種雞金字塔</strong>看一隻商用雞從哪裡來，再依<strong>育雛 → 育成 → 產蛋 → 孵化</strong>四個階段講管理重點（溫度、整齊度、光照、種蛋品質），最後講<strong>生物安全</strong>：病原從哪裡進來、怎麼擋。</dd>
+          <dt>為什麼重要</dt>
+          <dd>金字塔頂端一隻純系雞，三年後可以變成數百萬隻商用雞，所以<strong>種雞場的病會沿著金字塔往下垂直傳播</strong>到整個產業（例如禽白血病，台灣 2010 年 ALV-J 陽性 70%）。講義的結論：<strong>生物安全＝錢</strong>；疫苗只是生物安全計畫的一部分。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-structure">種雞層級</a>：純系 → 曾祖代／祖代（GP）→ 父母代（PS）→ 商用代；繁殖週期約 3 年。</li>
+              <li><a href="#section-brooding">育雛的數字</a>：雛雞體溫 40–41°C、各日齡舍溫、濕度 60–70%、空氣品質（氨 &lt; 20 ppm）；看雛雞行為判斷溫度。</li>
+              <li><a href="#section-rearing">育成看整齊度</a>，靠秤重分欄；<a href="#section-laying">光照原則</a>：育成期不能越來越長、產蛋期不能越來越短。</li>
+              <li><a href="#section-biosecurity">生物安全</a>：風險來源（人、車、水、設備、動物、野鳥、鄰場）、淨區與汙染區、單向動線。</li>
+              <li><a href="#section-disinfection">先清潔再消毒</a>；各消毒劑對不同病原的效力。</li>
+            </ol>
+          </dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>種雞層級與垂直傳播；育雛溫度表與雛雞行為判讀；整齊度與分欄；光照計畫；種蛋儲存溫度與孵化（入孵器 1–18 天、出雛器 19–21 天）；生物安全的定義與風險來源；消毒劑效力表（芽胞與寄生蟲難殺）；先清潔再消毒的原因。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="figure"><img src="img/week07_種禽生產醫學/pr_p37.jpg" alt="父母代種雞生產週期：育雛、育成、產蛋、孵化與各階段重點" loading="lazy"><div class="figure-caption">父母代生產週期總整理：育雛（保溫、避免賊風、體溫 40–41°C）、育成（整齊度、秤重分欄、光照）、產蛋（配種）、孵化（翻蛋、通風、入孵器到出雛器）。</div><div class="figure-source">來源：課程講義 p.37</div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈種禽場的生產醫學〉（吳乃慧 DVM, PhD）；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- STRUCTURE -->
+    <div class="section" id="section-structure">
+      <div class="section-head"><div class="section-num">2</div><h2>種雞的層級與金字塔<span class="lv lv-must">必考</span></h2></div>
+      <div class="flow">
+        <div class="flow-node">純系 Pure lines</div><div class="flow-arrow">→</div>
+        <div class="flow-node">祖代 Grandparents（GP）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">父母代 Parent Stock（PS）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">商用代 Commercials（肉雞公母都用；蛋雞只用母雞）</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層級</th><th>數量（白肉雞例）</th></tr></thead>
+          <tbody>
+            <tr><td>純系（遺傳改良）</td><td>1 × 10</td></tr>
+            <tr><td>祖代（GP）</td><td>600</td></tr>
+            <tr><td>父母代（PS）</td><td>72,000</td></tr>
+            <tr><td>商用肉雞／蛋雞</td><td>8,540,000</td></tr>
+            <tr><td>商用蛋</td><td>2,940 萬顆</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>一個繁殖週期約 <strong>3 年</strong>。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">重點：為什麼種雞場的病最可怕</div>
+        <p>疾病可以沿金字塔<strong>垂直傳播</strong>（經蛋傳到下一代）。頂端一隻感染，往下可以影響數百萬隻商用雞。所以歐美的 GP、PS 都清除了<strong>禽白血病病毒（ALV）</strong>與<strong>雛白痢（PD，pullorum disease）</strong>。台灣：白肉雞與蛋雞種雞的 ALV 為 free，PD 狀況未知；<strong>有色雞種雞兩者都未知</strong>；2010 年台灣 <strong>ALV-J 陽性 70%</strong>。</p>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p04.jpg" alt="種雞金字塔：純系、祖代、父母代、商用代數量" loading="lazy"><div class="figure-caption">種雞金字塔。</div><div class="figure-source">來源：課程講義 p.4</div></div>
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p41.jpg" alt="歐美與台灣種雞的ALV與PD狀況" loading="lazy"><div class="figure-caption">垂直傳播：歐美與台灣種雞的 ALV、PD 狀況。</div><div class="figure-source">來源：課程講義 p.41</div></div>
+      </div>
+
+      <h3>蛋雞的公雞怎麼辦<span class="lv lv-skim">看過</span></h3>
+      <p>蛋雞只用母雞，公雛的處理是動物福利問題。改善方式：<strong>兼用型雞</strong>（公雞 7–8 週約 2 kg 供肉用、母雞每年約 250 顆蛋；Lohmann／TiHo-Hannover）；<strong>種蛋性別鑑定</strong>（孵化第 9 天，SELEGGT 與 HatchTech）。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈種禽場的生產醫學〉p.3–6、p.40–41。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- BROODING -->
+    <div class="section" id="section-brooding">
+      <div class="section-head"><div class="section-num">3</div><h2>育雛 Brooding<span class="lv lv-must">必考</span></h2></div>
+      <h3>入雛前的準備</h3>
+      <ul>
+        <li>雞舍、設備、周圍環境<strong>徹底沖洗、消毒</strong>。</li>
+        <li>保溫與飼養器具定位、功能正常；<strong>24 小時（夏）或 48 小時（冬）前</strong>先開保溫系統到 35–36°C。</li>
+        <li>啟動通風（最低通風量），舍內溫度均勻；相對濕度至少 60%。</li>
+        <li>飲水器高度適當、水溫 20–25°C、調低水壓（乳頭飲水器懸掛水滴）。</li>
+        <li>育雛方式：傘型局部育雛（spot brooding）或全舍育雛（whole-house brooding），都要監測溫濕度。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">各雞齡建議舍溫</div>
+          <table style="font-size:.9em;"><tbody>
+            <tr><td>1–2 日齡</td><td>35–36°C</td></tr><tr><td>3–4 日齡</td><td>33–34°C</td></tr><tr><td>5–7 日齡</td><td>31–32°C</td></tr><tr><td>2 週齡</td><td>28–29°C</td></tr><tr><td>3 週齡</td><td>26–27°C</td></tr><tr><td>4 週齡</td><td>22–24°C</td></tr><tr><td>5 週齡後</td><td>18–20°C</td></tr>
+          </tbody></table>
+          <p style="font-size:.85em;margin-top:6px;">雛雞理想體溫 <strong>40–41°C</strong>（泄殖腔），相對濕度 60–70%。</p></div>
+        <div class="card"><div class="card-title">雞舍空氣品質</div>
+          <table style="font-size:.9em;"><tbody>
+            <tr><td>氧氣 O₂</td><td>大於 20%</td></tr><tr><td>二氧化碳 CO₂</td><td>小於 0.3%</td></tr><tr><td>一氧化碳 CO</td><td>小於 40 ppm</td></tr><tr><td>氨氣 NH₃</td><td>小於 20 ppm</td></tr><tr><td>硫化氫 H₂S</td><td>小於 5 ppm</td></tr>
+          </tbody></table>
+          <p style="font-size:.85em;margin-top:6px;">補充：氨氣過高會傷害呼吸道纖毛，讓呼吸道病更容易發生。</p></div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義 p.9 另寫「1 週 30–32°C、5 週 22–24°C」，與 p.11 的表數字略有不同，考試以老師上課說的為準。</p>
+
+      <h3>看雛雞判斷環境<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:28%;">雛雞表現</th><th>代表</th></tr></thead>
+          <tbody>
+            <tr><td>翅膀下垂、張嘴哈氣、遠離熱源</td><td><strong>太熱</strong></td></tr>
+            <tr><td>聚集在一起、擠在熱源下、吵雜</td><td><strong>太冷</strong></td></tr>
+            <tr><td>偏聚一側</td><td>有<strong>賊風</strong>、噪音或光照不均</td></tr>
+            <tr><td>均勻分布、安靜活動</td><td>適當</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>入雛後 <strong>24 小時內檢查嗉囊</strong>：飽滿表示有吃到飼料與水，空的要找原因。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p14.jpg" alt="雛雞行為判斷環境溫度" loading="lazy"><div class="figure-caption">環境是否合適：翅膀下垂、張嘴哈氣、聚集、吵雜。</div><div class="figure-source">來源：課程講義 p.14</div></div>
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p17.jpg" alt="檢查雛雞嗉囊飽滿或空" loading="lazy"><div class="figure-caption">入雛後 24 小時檢查嗉囊：飽滿 vs. 空。</div><div class="figure-source">來源：課程講義 p.17</div></div>
+      </div>
+      <p><strong>育雛重點：</strong>保暖、適度通風避免缺氧、經常巡視觀察、找出雛雞不舒服的原因並排除、疫苗接種。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈種禽場的生產醫學〉p.7–18。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- REARING -->
+    <div class="section" id="section-rearing">
+      <div class="section-head"><div class="section-num">4</div><h2>育成：整齊度 Rearing &amp; Uniformity<span class="lv lv-must">必考</span></h2></div>
+      <ul>
+        <li>目標是雞群體重<strong>整齊</strong>：開產時體重分布集中，才能同時開產、表現一致。</li>
+        <li>做法：<strong>體重監測、分欄（grading）飼養</strong>（講義圖示約 4 週齡做雞群分級）；有分級的雞群到開產時體重分布比較集中。</li>
+        <li>確保每隻雞的<strong>採食量、飲水量</strong>：採食位置與間距、飲水器高度。<strong>吃不夠會影響整齊度與生產性能。</strong></li>
+        <li>時間軸：約 9 週、15 週為體重曲線節點；約 15 週進入開產前期（prelay）；約 22 週（140–168 天）配種與開產。</li>
+        <li>體重發育的順序：器官 → 骨骼 → 肌肉 → 生殖道、髓質骨與脂肪（講義 p.21 圖）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p20.jpg" alt="育成期整齊度與分級前後體重分布" loading="lazy"><div class="figure-caption">整齊度：分級前後的體重分布比較。</div><div class="figure-source">來源：課程講義 p.20</div></div>
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p21.jpg" alt="種雞體重發育各組織生長曲線" loading="lazy"><div class="figure-caption">體重發育：各組織生長高峰的時間。</div><div class="figure-source">來源：課程講義 p.21</div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈種禽場的生產醫學〉p.19–22。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- LAYING -->
+    <div class="section" id="section-laying">
+      <div class="section-head"><div class="section-num">5</div><h2>開產與產蛋：光照與種蛋品質</h2></div>
+      <h3>光照計畫<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>時期</th><th>光照時數</th><th>原則</th></tr></thead>
+          <tbody>
+            <tr><td>0–2 日齡</td><td>22–24 小時</td><td>讓雛雞找到飼料與水</td></tr>
+            <tr><td>8–15 週（育成）</td><td>8–10 小時</td><td>育成期<strong>減少</strong>光照</td></tr>
+            <tr><td>22 週起（產蛋）</td><td>13–16 小時</td><td>22 週<strong>光照刺激</strong>進入產蛋期；產蛋期<strong>增加</strong>光照</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：兩個不可以</div>
+        <p><strong>育成期到刺激開產前：光照時數不可越來越長</strong>（會提早性成熟）；<strong>產蛋期：光照時間不可越來越短</strong>（產蛋會下降）。開放式雞舍要考慮自然日照的影響。</p>
+      </div>
+      <div class="figure"><img src="img/week07_種禽生產醫學/pr_p24.jpg" alt="開產前光照刺激計畫" loading="lazy"><div class="figure-caption">光照計畫：0–2 天 22–24 h → 8–15 週 8–10 h → 22 週起 13–16 h。</div><div class="figure-source">來源：課程講義 p.24</div></div>
+
+      <h3>配種與產蛋<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>公母<strong>分開餵飼的設備</strong>：母雞料槽的格柵讓公雞頭太大進不去（「too small for me」）。</li>
+        <li>產蛋率與蛋重曲線：約 20 週開產、約 30 週達產蛋高峰，之後慢慢下降；蛋重則持續增加（講義 p.26）。</li>
+      </ul>
+
+      <h3>種蛋品質<span class="lv lv-know">理解</span></h3>
+      <p>不合格的種蛋：破裂、穿孔、畸形、薄殼、皺紋殼、汙染（cross soiling）。各種異常蛋與可能原因：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">異常蛋</th><th>可能原因（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>蛋白蛋（淡殼）</td><td>蛋殼腺色素沉積不足：傳染性支氣管炎、新城病、產蛋下降症、鳥群壓力、用抗生素</td></tr>
+            <tr><td>軟殼蛋、無殼蛋</td><td>殼腺發育不全或疾病（新城病、傳染性支氣管炎）、鈣磷與維生素 D₃ 缺乏</td></tr>
+            <tr><td>波紋蛋、皺紋蛋</td><td>新城病、傳染性支氣管炎、殼腺功能異常</td></tr>
+            <tr><td>畸形蛋</td><td>雞隻未成熟、新城病、傳染性支氣管炎、喉頭氣管炎、壓力、過度擁擠</td></tr>
+            <tr><td>血汙蛋、髒汙蛋</td><td>飼養管理、衛生與飼料問題</td></tr>
+            <tr><td>鈣塗層蛋、白斑或褐斑蛋</td><td>蛋停留在殼腺過久、鈣質過量、營養不均</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 依講義 p.28–30（林文郁攝影整理）的蛋殼異常表摘要。這張表把前面的呼吸道病毒病和蛋殼異常連起來，可以和<a href="week03_傳染性支氣管炎.html">傳染性支氣管炎</a>一起讀。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p27.jpg" alt="好的種蛋與不合格種蛋" loading="lazy"><div class="figure-caption">好的種蛋 vs. 破裂、穿孔、畸形、薄殼、皺紋、汙染蛋。</div><div class="figure-source">來源：課程講義 p.27</div></div>
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p29.jpg" alt="無殼蛋軟殼蛋波紋蛋皺紋蛋小突起蛋與原因" loading="lazy"><div class="figure-caption">無殼蛋、軟殼蛋、波紋蛋、皺紋蛋、小突起蛋及原因。</div><div class="figure-source">來源：課程講義 p.29</div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈種禽場的生產醫學〉p.23–31。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- INCUBATION -->
+    <div class="section" id="section-incubation">
+      <div class="section-head"><div class="section-num">6</div><h2>孵化與疫苗</h2></div>
+      <h3>孵化流程<span class="lv lv-must">必考</span></h3>
+      <div class="flow">
+        <div class="flow-node">種蛋儲存 16–18°C</div><div class="flow-arrow">→</div>
+        <div class="flow-node">入孵器 第 1–18 天（翻蛋、溫度、濕度、通風）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">移蛋到出雛籃</div><div class="flow-arrow">→</div>
+        <div class="flow-node">出雛器 第 19–21 天</div><div class="flow-arrow">→</div>
+        <div class="flow-node">商用雛雞</div>
+      </div>
+      <div class="figure"><img src="img/week07_種禽生產醫學/pr_p34.jpg" alt="孵化場流程：種蛋儲存、入孵器、出雛器" loading="lazy"><div class="figure-caption">孵化場流程。講義 p.33 另有雞胚每日發育圖（第 1–20 天）。</div><div class="figure-source">來源：課程講義 p.34</div></div>
+      <h3>疫苗<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>免疫計畫因場而異</strong>：疫苗種類、免疫時機、接種途徑。常見：新城病、傳染性支氣管炎、馬立克病（蛋雞、種雞）。</li>
+        <li>疫苗保存、接種器具消毒、注射人員培訓或專業疫苗注射隊。</li>
+        <li><strong>接種方式：</strong>皮下、噴霧、點眼點鼻、飲水、肌肉注射、翼膜穿刺。</li>
+      </ul>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 各病的接種計畫見<a href="week02_新城病.html#section-vaccine">新城病</a>、<a href="week03_傳染性支氣管炎.html#section-vaccine">傳染性支氣管炎</a>、<a href="week04_傳染性喉頭氣管炎.html#section-vaccine">傳染性喉頭氣管炎</a>。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈種禽場的生產醫學〉p.32–36。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- BIOSECURITY -->
+    <div class="section" id="section-biosecurity">
+      <div class="section-head"><div class="section-num">7</div><h2>生物安全與風險來源<span class="lv lv-must">必考</span></h2></div>
+      <p><strong>生物安全（biosecurity）</strong>：降低傳染病<strong>進入</strong>雞場的機會，並降低疾病<strong>傳播</strong>的機會。</p>
+      <div class="figure"><img src="img/week07_種禽生產醫學/pr_p39.jpg" alt="雞場疾病的風險來源：車輛、水、雛雞、人員、鄰近養禽場、設備、動物、野鳥" loading="lazy"><div class="figure-caption">風險來源：車輛、水線、雛雞、人員、鄰近養禽場、家禽設備、其他動物、野鳥。</div><div class="figure-source">來源：課程講義 p.39</div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">風險</th><th>做法（講義）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>地點與建築</strong></td><td>遠離城市、家禽密度低的地區（例：德國 Aviagen，歐洲最大 PS 孵化場，每週 100 萬顆蛋）</td></tr>
+            <tr><td><strong>場區配置</strong></td><td>①<strong>淨區與汙染區分開</strong>；②各棟建築仔細分隔；③<strong>單向動線（one way）</strong></td></tr>
+            <tr><td><strong>人與車</strong></td><td>警告標示、限制訪客、警衛門與圍籬；車輛清洗消毒（飼料車、運禽車、化製車、自家車，尤其<strong>輪胎</strong>）；飼料桶放在場外；訪客與工作人員進場消毒、更衣、淋浴；挪威標準為雙重屏障；場內與場外衣物分開；飾品、眼鏡、手機、鞋子也要處理；<strong>不要拜訪其他飼養場</strong></td></tr>
+            <tr><td><strong>水</strong></td><td>水源與水線管理；加藥、維生素、疫苗前後要充分沖水，避免化學藥劑殘留</td></tr>
+            <tr><td><strong>設備</strong></td><td>器具清潔消毒</td></tr>
+            <tr><td><strong>動物</strong></td><td>建築之間鋪硬地、不種植物與樹；防鼠（鼠爬不上去的高度）；<strong>圍網要確實</strong>；防蒼蠅（保持雞舍乾燥最有效）</td></tr>
+            <tr><td><strong>野鳥</strong></td><td>野鳥＝禽流感病毒；<strong>密閉式禽舍</strong>（水簾、負壓通風）最好；半開放式要防鳥網、飼料桶在舍內；<strong>開放式禽場家禽與野鳥共食，不可行</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p43.jpg" alt="雞場配置：淨區汙染區分開與單向動線" loading="lazy"><div class="figure-caption">場區配置：淨區與汙染區、各棟分隔、單向動線。</div><div class="figure-source">來源：課程講義 p.43</div></div>
+        <div class="figure"><img src="img/week07_種禽生產醫學/pr_p75.jpg" alt="密閉式與非開放式禽場防野鳥設計" loading="lazy"><div class="figure-caption">密閉式與非開放式禽場的防鳥設計（Chou, 2017）。</div><div class="figure-source">來源：課程講義 p.75</div></div>
+      </div>
+      <h3>德國的預防措施<span class="lv lv-skim">看過</span></h3>
+      <p>每棟有門與消毒；車輛只在同一場使用；清潔通道；進場更衣；場內場外用不同車輛；儲藏區乾淨乾燥；死禽小心移除並送化製場；<strong>一人只負責一場</strong>；滅鼠；氣候控制（Laves-Niedersachsen, 2013）。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義最後附〈養禽場防疫生物安全監控評估表〉（外部動線、飼料與飲水、畜舍消毒與環境管理三部分）。例：出雞後空舍至少 14 天、消毒週期 5–8 小時噴霧一次、死禽與不明原因死亡要通報。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈種禽場的生產醫學〉p.38–55、p.66–81。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- DISINFECTION -->
+    <div class="section" id="section-disinfection">
+      <div class="section-head"><div class="section-num">8</div><h2>清潔與消毒<span class="lv lv-must">必考</span></h2></div>
+      <p><strong>目的：</strong>①清除禽類病原；②清除可能威脅人類的病原；③清潔可以減少病原數量。</p>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <p><strong>先清潔，再使用消毒劑！</strong>消毒在<strong>出雞後到進雞前的空欄期</strong>進行。補充：有機物（糞便、墊料）會讓消毒劑失效，所以要先清掉。</p>
+      </div>
+      <div class="figure"><img src="img/week07_種禽生產醫學/pr_p57.jpg" alt="清洗、消毒、燻煙對細菌菌叢數目的影響" loading="lazy"><div class="figure-caption">清洗、消毒、燻煙對細菌菌叢數目的影響：出雞後清洗消毒燻煙，空舍約 15 天、3 週後準備入雛（法國 SASSO 育種公司提供）。</div><div class="figure-source">來源：課程講義 p.57</div></div>
+      <h3>各種消毒劑的效力</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病原</th><th>醛類</th><th>氯劑</th><th>碘劑</th><th>四級銨</th><th>酚類</th><th>過氧化物</th></tr></thead>
+          <tbody>
+            <tr><td>病毒</td><td>++</td><td>++</td><td>++</td><td>+/–</td><td>+</td><td>++</td></tr>
+            <tr><td>細菌</td><td>++</td><td>+</td><td>++</td><td>+*</td><td>+*</td><td>++</td></tr>
+            <tr><td>分枝桿菌</td><td>++</td><td>+</td><td>+</td><td>–</td><td>++</td><td>+</td></tr>
+            <tr><td><strong>芽胞菌</strong></td><td>+</td><td>–</td><td>+</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><td><strong>寄生蟲</strong>**</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><td>黴菌</td><td>++</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ ++ 有效、+ 中等、+/– 僅對某些有效、– 無效；* 對革蘭氏陽性菌比陰性菌更有效；** 球蟲、隱孢子蟲、蟲卵。來源：講義引用獸醫所資料。<strong>重點：寄生蟲（球蟲卵囊）所有化學消毒劑都無效；芽胞只有醛類、碘劑中等有效；四級銨對病毒效果差。</strong></p>
+      <h3>清洗飲水器的化學物質<span class="lv lv-skim">看過</span></h3>
+      <p>檸檬酸、醋酸、5% 次氯酸鈉、氫氧化氨、50% 四級胺鹽、35% 與 3% 過氧化氫；部分只能在「無雞在舍內」時使用。加藥、維生素、疫苗使用前要充分沖水線，以免化學藥劑殘留。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈種禽場的生產醫學〉p.56–65（獸醫所、畜試所）。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">9</div><h2>考試方向（推測）</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能的考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>種雞層級</td><td>純系 → GP → PS → 商用；週期約 3 年</td></tr>
+            <tr><td>為什麼種雞要清除 ALV、PD</td><td>垂直傳播沿金字塔擴大；台灣 2010 ALV-J 陽性 70%</td></tr>
+            <tr><td>育雛溫度與體溫</td><td>1–2 日齡 35–36°C，每週降約 2–3°C，5 週後 18–20°C；雛雞 40–41°C</td></tr>
+            <tr><td>雛雞行為</td><td>張嘴哈氣、翅下垂＝熱；擠成一團＝冷；偏一側＝賊風</td></tr>
+            <tr><td>空氣品質</td><td>NH₃ &lt; 20 ppm、CO₂ &lt; 0.3%、O₂ &gt; 20%</td></tr>
+            <tr><td>光照原則</td><td>育成期不可越來越長；產蛋期不可越來越短；22 週光照刺激</td></tr>
+            <tr><td>孵化</td><td>種蛋 16–18°C；入孵器 1–18 天、出雛器 19–21 天</td></tr>
+            <tr><td>生物安全</td><td>定義；風險來源；淨區汙染區、單向動線；不拜訪其他場</td></tr>
+            <tr><td>消毒</td><td>先清潔再消毒；空欄期；寄生蟲與芽胞難殺</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。</footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">10</div><h2>學習重點整理</h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>金字塔：</strong>純系 1×10 → GP 600 → PS 72,000 → 商用 854 萬；週期 3 年；垂直傳播病（ALV、PD）要在頂端清除。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>育雛：</strong>提前 24／48 小時預熱、徹底清消；1–2 日齡 35–36°C 逐週降；體溫 40–41°C；濕度 60–70%；NH₃ &lt; 20 ppm；看行為；24 小時查嗉囊。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>育成：</strong>整齊度靠秤重分欄、足夠的採食飲水位置；約 22 週配種開產。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>光照：</strong>0–2 天 22–24 h、育成 8–10 h、22 週起 13–16 h；育成不可越來越長、產蛋不可越來越短。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>孵化：</strong>種蛋 16–18°C；入孵器 1–18 天、出雛器 19–21 天；疫苗因場而異。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>生物安全：</strong>防病原進入與傳播；人、車、水、設備、動物、野鳥、鄰場；淨區汙染區、單向動線；密閉式禽舍防野鳥。生物安全＝錢，疫苗是其中一部分。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>消毒：</strong>先清潔再消毒，空欄期進行；寄生蟲都殺不了、芽胞難殺。</div></div>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。Q8–Q9 是臨床情境題。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 種雞層級由上到下的順序為？</div>
+        <ul class="quiz-options"><li>(A) 父母代 → 祖代 → 純系 → 商用代</li><li>(B) 純系 → 祖代 → 父母代 → 商用代</li><li>(C) 祖代 → 純系 → 父母代 → 商用代</li><li>(D) 純系 → 父母代 → 祖代 → 商用代</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">Pure lines → Grandparents（GP）→ Parent Stock（PS）→ Commercials；週期約 3 年。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 1–2 日齡雛雞的建議舍溫與理想體溫為何？</div>
+        <ul class="quiz-options"><li>(A) 28–29°C；38°C</li><li>(B) 35–36°C；40–41°C</li><li>(C) 22–24°C；42°C</li><li>(D) 18–20°C；40–41°C</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">1–2 日齡 35–36°C，之後逐步降低，5 週後 18–20°C；雛雞理想體溫 40–41°C、濕度 60–70%。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q3. 育雛舍的雛雞都擠在熱源下、很吵；另一舍的雛雞翅膀下垂、張嘴哈氣。各代表什麼？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">擠在一起、吵雜 → 太冷；翅膀下垂、張嘴哈氣 → 太熱。偏聚一側要想到賊風、噪音或光照不均。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q4. 種雞育成期為了讓雞早點開產，應該讓光照時數逐漸增加。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain">育成期到刺激開產前，光照時數<strong>不可越來越長</strong>（育成期 8–10 小時），到約 22 週才以光照刺激開產（13–16 小時）；產蛋期則不可越來越短。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 種蛋孵化時，入孵器與出雛器的使用時間分別為？</div>
+        <ul class="quiz-options"><li>(A) 第 1–10 天、第 11–21 天</li><li>(B) 第 1–18 天、第 19–21 天</li><li>(C) 第 1–21 天、不需要出雛器</li><li>(D) 第 1–15 天、第 16–21 天</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">種蛋儲存 16–18°C；入孵器第 1–18 天（翻蛋、溫度、濕度、通風）；移蛋到出雛籃；出雛器第 19–21 天。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 依講義的消毒劑效力表，哪一種病原對所有列出的化學消毒劑都無效？</div>
+        <ul class="quiz-options"><li>(A) 病毒</li><li>(B) 細菌</li><li>(C) 寄生蟲（球蟲、隱孢子蟲、蟲卵）</li><li>(D) 黴菌</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">寄生蟲在醛類、氯劑、碘劑、四級銨、酚類、過氧化物全部為「–」；芽胞菌也很難殺（只有醛類、碘劑中等）。四級銨對病毒效果差（+/–）。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q7. 為什麼要「先清潔再消毒」？什麼時候做？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">清潔本身就能減少病原數量；補充：糞便、墊料等有機物會讓消毒劑失效，所以要先清除。消毒在出雞後到進雞前的空欄期進行（講義圖：出雞後清洗、消毒、燻煙，空舍後才入雛）。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】一個種雞場想降低禽流感風險。場內現況：開放式禽舍、飼料桶在場內每天有飼料車進出、員工下班會去親戚的養鴨場幫忙、圍網有破洞、周圍有水塘。請列出問題與改善方式。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">①開放式禽舍：家禽與野鳥共食，不可行 → 改密閉式或至少非開放式、防鳥網、飼料桶在舍內。②飼料車進場：飼料桶設在場區外圍，車不進淨區；車輛與輪胎消毒。③員工去別的禽場：<strong>不要拜訪其他飼養場</strong>，一人只負責一場；場內外衣物分開、進場淋浴更衣。④圍網破洞：定期維修。⑤水塘：吸引水禽與野鳥，建築之間不種植物、鋪硬地。另外要設淨區汙染區與單向動線、防鼠。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q9.【臨床情境】一批種雞開產後，發現體重差異很大，有的已經在產蛋、有的還沒開產，產蛋高峰很低。回頭看育成期：只有少數料槽、飲水器高度一致沒有隨雞調整、從沒秤重。請問問題在哪？怎麼改？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">問題是<strong>整齊度差</strong>：採食位置不足、飲水器高度不適當，強勢的雞吃得多、弱勢的吃不夠，吃不夠會影響整齊度與生產性能。改善：育成期定期<strong>秤重監測</strong>、依體重<strong>分欄飼養</strong>（約 4 週齡開始分級），確保每隻雞的採食量與飲水量（足夠的採食位置與間距、飲水器高度隨雞調整）；同時遵守光照原則，在約 22 週統一光照刺激開產。</p></details>
+      </div>
+
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  structure: '種雞的層級與金字塔',
+  brooding: '育雛',
+  rearing: '育成：整齊度',
+  laying: '開產與產蛋：光照與種蛋',
+  incubation: '孵化與疫苗',
+  biosecurity: '生物安全與風險來源',
+  disinfection: '清潔與消毒',
+  exam: '考試方向（推測）',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

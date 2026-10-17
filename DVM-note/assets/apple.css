@@ -1,0 +1,301 @@
+/* ══════════════════════════════════════════════════════
+   試用版面：Apple 產品頁的版面結構 × 站台原本的品牌棕
+   ──────────────────────────────────────────────────────
+   只對 <body class="ah apple"> 生效，必須在 ah.css 之後載入。
+   要套用到某頁：加 <link rel="stylesheet" href="…/assets/apple.css">，
+   並在 body 加上 class="apple"。要還原：把這兩處拿掉即可。
+
+   版面原則：
+   - 暖灰底＋白色大圓角章節磚，章節之間靠留白分隔，不靠線
+   - 顏色克制：棕色只用在連結、目前位置、編號；提示框以中性灰為底，
+     只有標籤帶語意色，避免一頁出現太多色塊
+   - 標題大而緊，內文維持舒適的行高與行長
+   ══════════════════════════════════════════════════════ */
+
+body.ah.apple {
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Noto Sans TC", "Helvetica Neue", sans-serif;
+  --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang TC", "Noto Sans TC", "Helvetica Neue", sans-serif;
+
+  --page: #f4f2ef;   /* 頁面底：帶一點暖的淺灰 */
+  --tile: #ffffff;   /* 章節磚 */
+  --well: #f7f5f2;   /* 磚內的卡片、表格、提示框 */
+  --hair: rgba(60, 45, 35, .10);   /* 髮絲線 */
+
+  --bg: var(--tile); --bg-soft: var(--well); --bg-faint: var(--well);
+  --fg: #1d1a17; --fg-muted: #6b645d; --fg-faint: #8c857e; --fg-dim: #b0a9a2;
+  --line: #e2ddd7; --line-soft: #ece8e3;
+  --accent: #7a5c45; --accent-deep: #4a382b; --accent-mid: #a08670; --accent-tint: #efe7df;
+  --nav-accent: #7a5c45; --nav-accent-bg: #efe7df;
+
+  /* 語意色只給標籤與小記號用 */
+  --c-info: #50677c; --c-ok: #3d7254; --c-warn: #9a6a1c; --c-danger: #a8432a;
+
+  --r-tile: 26px; --r-card: 16px; --r-small: 10px; --r-pill: 980px;
+  --radius: 16px; --radius-sm: 10px;
+  --shadow-hover: 0 10px 30px rgba(60, 40, 25, .10);
+
+  background: var(--page);
+  color: var(--fg);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html[data-theme="dark"] body.ah.apple {
+  --page: #0e0c0b; --tile: #1a1715; --well: #241f1c; --hair: rgba(255, 240, 225, .08);
+  --fg: #f2ede8; --fg-muted: #b3aaa2; --fg-faint: #8f877f; --fg-dim: #6a635c;
+  --line: #342e29; --line-soft: #2b2622;
+  --accent: #d2b195; --accent-deep: #f2ede8; --accent-mid: #a8907b; --accent-tint: #2e251e;
+  --nav-accent: #d2b195; --nav-accent-bg: #2e251e;
+  --c-info: #9fb6cc; --c-ok: #8dc9a3; --c-warn: #e5b467; --c-danger: #f09a82;
+  --shadow-hover: 0 10px 30px rgba(0, 0, 0, .45);
+}
+
+/* ── 頂列：毛玻璃 ─────────────────────────────────────── */
+body.ah.apple > header {
+  background: rgba(250, 248, 246, .78);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--hair);
+}
+html[data-theme="dark"] body.ah.apple > header { background: rgba(26, 23, 21, .78); }
+body.ah.apple .header-brand h1 { font-family: var(--display); font-weight: 600; letter-spacing: -.01em; }
+body.ah.apple .search-wrap input { border-radius: var(--r-pill); border: 0; background: rgba(60, 45, 35, .06); }
+body.ah.apple .search-wrap input:focus { background: var(--tile); box-shadow: 0 0 0 3px var(--accent-tint); }
+html[data-theme="dark"] body.ah.apple .search-wrap input { background: rgba(255, 240, 225, .08); }
+body.ah.apple .theme-btn { border-radius: 50%; border: 0; background: rgba(60, 45, 35, .06); }
+html[data-theme="dark"] body.ah.apple .theme-btn { background: rgba(255, 240, 225, .08); }
+body.ah.apple .search-results { border: 0; border-radius: var(--r-card); box-shadow: 0 16px 48px rgba(40, 25, 15, .16); overflow: hidden; }
+
+/* ── 大標題帶 ─────────────────────────────────────────── */
+body.ah.apple .pagehead { background: transparent; border: 0; }
+body.ah.apple .pagehead__inner {
+  max-width: 980px; text-align: center;
+  padding-top: clamp(2.75rem, 1.5rem + 4vw, 5.5rem); padding-bottom: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+}
+body.ah.apple .breadcrumb, body.ah.apple .pagehead__eyebrow {
+  justify-content: center; margin-bottom: 1.25rem;
+  font-size: .8rem; font-weight: 500; letter-spacing: 0; color: var(--fg-faint);
+}
+body.ah.apple .breadcrumb a, body.ah.apple .pagehead__eyebrow a { color: var(--accent); }
+body.ah.apple .breadcrumb .sep, body.ah.apple .pagehead__eyebrow i { color: var(--fg-dim); }
+body.ah.apple .page-title, body.ah.apple .pagehead__title {
+  margin: 0 auto; max-width: 22ch;
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(2.1rem, 1.3rem + 3.2vw, 3.75rem); line-height: 1.08; letter-spacing: -.022em;
+  color: var(--fg); text-wrap: balance;
+}
+body.ah.apple .page-subtitle, body.ah.apple .pagehead__lede {
+  max-width: 46ch; margin: 1rem auto 0;
+  font-size: clamp(1.05rem, .98rem + .4vw, 1.3rem); line-height: 1.5; font-weight: 400;
+  color: var(--fg-muted); text-wrap: balance;
+}
+
+/* 規格條：像產品頁的「技術規格」一列，用髮絲線分隔，不做色塊 */
+body.ah.apple .meta-bar {
+  display: grid; grid-template-columns: auto minmax(0, 1.8fr) auto auto; gap: 0;
+  max-width: 900px; margin: 2.25rem auto 0; padding: 1rem 0; border: 0;
+  border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); text-align: left;
+}
+body.ah.apple .meta-item { padding: 0 1.25rem; border-left: 1px solid var(--hair); min-width: 0; }
+body.ah.apple .meta-item:first-child { border-left: 0; }
+body.ah.apple .meta-label { margin-bottom: .2rem; font-size: .72rem; font-weight: 600; letter-spacing: .02em; color: var(--fg-faint); }
+body.ah.apple .meta-value { font-size: .85rem; line-height: 1.45; color: var(--fg); }
+@media (max-width: 760px) {
+  body.ah.apple .meta-bar { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
+  body.ah.apple .meta-item { padding: 0 .9rem; }
+  body.ah.apple .meta-item:nth-child(odd) { border-left: 0; }
+  body.ah.apple .meta-item:nth-child(2) { grid-column: 1 / -1; order: 9; border-left: 0; padding-top: 1rem; border-top: 1px solid var(--hair); }
+}
+
+/* ── 內頁版面 ─────────────────────────────────────────── */
+body.ah.apple .pagewrap { max-width: 1200px; padding-top: 0; }
+@media (min-width: 1040px) { body.ah.apple .pagewrap { grid-template-columns: 13.5rem minmax(0, 1fr); gap: 2.25rem; } }
+body.ah.apple .pagebody { max-width: 52rem; }
+
+/* 章節磚 */
+body.ah.apple .section {
+  background: var(--tile); border-radius: var(--r-tile);
+  padding: clamp(1.5rem, .9rem + 2.4vw, 3rem) clamp(1.25rem, .6rem + 2.8vw, 3.25rem);
+  box-shadow: 0 1px 2px rgba(60, 40, 25, .04);
+}
+body.ah.apple .section + .section { margin-top: 1.5rem; }
+
+/* 章節標題：編號是小字眉標 */
+body.ah.apple .section-head { display: block; margin: 0 0 1rem; padding: 0; border: 0; }
+body.ah.apple .section-num {
+  display: block; min-width: 0; margin: 0 0 .5rem;
+  font-family: var(--font); font-size: .78rem; font-weight: 600; letter-spacing: .08em; color: var(--accent);
+}
+body.ah.apple .section-num::before { content: "SECTION "; }
+body.ah.apple .section-head h2 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.35rem); line-height: 1.15; letter-spacing: -.02em;
+  color: var(--fg); text-wrap: balance;
+}
+body.ah.apple .section-head h2 .tag { margin-left: .5rem; font-family: var(--font); font-size: .78rem; letter-spacing: 0; vertical-align: .35em; }
+body.ah.apple .section-desc { margin-bottom: 2rem; font-size: clamp(1.02rem, .97rem + .3vw, 1.18rem); line-height: 1.6; color: var(--fg-muted); }
+body.ah.apple .section h3 {
+  margin: 2.75rem 0 1rem; font-family: var(--display); font-size: 1.32rem; font-weight: 700; letter-spacing: -.012em; color: var(--fg);
+}
+body.ah.apple .section h4 { margin: 2rem 0 .75rem; font-size: 1.02rem; font-weight: 600; color: var(--fg); }
+body.ah.apple .pagebody p, body.ah.apple .pagebody li { line-height: 1.75; }
+body.ah.apple .pagebody li::marker { color: var(--fg-dim); }
+body.ah.apple .pagebody a { text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+
+/* 標籤 */
+body.ah.apple .tag { border-radius: var(--r-pill); padding: .18em .65em; font-weight: 600; border: 0; }
+body.ah.apple .tag-exam { background: var(--accent-tint); color: var(--accent); }
+
+/* ── 左側目錄 ─────────────────────────────────────────── */
+body.ah.apple .toc { padding: .25rem 0; background: transparent; border: 0; }
+body.ah.apple .toc .section-label { margin: 1.1rem 0 .35rem; padding-left: .75rem; font-size: .7rem; font-weight: 600; letter-spacing: .06em; color: var(--fg-faint); }
+body.ah.apple .toc .section-label:first-child { margin-top: 0; }
+body.ah.apple .toc > a {
+  border: 0; border-radius: var(--r-small); padding: .38rem .75rem;
+  font-size: .88rem; color: var(--fg-muted); transition: background .15s ease, color .15s ease;
+}
+body.ah.apple .toc > a:hover { background: rgba(60, 45, 35, .05); color: var(--fg); }
+html[data-theme="dark"] body.ah.apple .toc > a:hover { background: rgba(255, 240, 225, .06); }
+body.ah.apple .toc > a.active { background: var(--tile); color: var(--accent); font-weight: 600; box-shadow: 0 1px 3px rgba(60, 40, 25, .08); }
+body.ah.apple .toc .nav-icon { display: none; }
+@media (max-width: 1039px) {
+  body.ah.apple .toc { background: var(--tile); border-radius: var(--r-card); padding: 1rem .75rem; }
+  body.ah.apple .toc > a.active { background: var(--accent-tint); box-shadow: none; }
+}
+
+/* ── 卡片 ─────────────────────────────────────────────── */
+body.ah.apple .card { background: var(--well); border: 0; border-radius: var(--r-card); padding: 1.25rem 1.4rem; }
+body.ah.apple .card-title { font-family: var(--display); font-weight: 650; font-size: 1.02rem; color: var(--fg); letter-spacing: -.008em; }
+body.ah.apple .card p { color: var(--fg-muted); }
+body.ah.apple .grid-2, body.ah.apple .grid-3, body.ah.apple .grid-4 { gap: .75rem; }
+body.ah.apple .card[onclick] { transition: transform .25s ease, box-shadow .25s ease; }
+body.ah.apple .card[onclick]:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
+/* ── 提示框：中性底，語意色只在左上角的小標與圓點 ─────── */
+body.ah.apple .alert {
+  margin: 1.5rem 0; padding: 1.25rem 1.5rem; border: 0; border-radius: var(--r-card);
+  background: var(--well); font-size: .97rem; line-height: 1.7;
+}
+body.ah.apple .alert p { font-size: inherit; }
+body.ah.apple .alert p + p { margin-top: .6rem; }
+body.ah.apple .alert-label {
+  display: flex; align-items: center; gap: .45rem; margin-bottom: .55rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .02em;
+}
+body.ah.apple .alert-label::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: currentColor; flex: none; }
+body.ah.apple .alert-info .alert-label    { color: var(--c-info); }
+body.ah.apple .alert-success .alert-label { color: var(--c-ok); }
+body.ah.apple .alert-warn .alert-label    { color: var(--c-warn); }
+body.ah.apple .alert-danger { background: color-mix(in srgb, var(--c-danger) 7%, var(--tile)); }
+body.ah.apple .alert-danger .alert-label  { color: var(--c-danger); }
+/* 提示框裡的卡片改白底，才分得出層次 */
+body.ah.apple .alert .card { background: var(--tile); }
+body.ah.apple .alert .table-wrap { background: var(--tile); }
+
+/* ── 表格 ─────────────────────────────────────────────── */
+body.ah.apple .table-wrap { margin: 1.5rem 0; border: 0; border-radius: var(--r-card); background: var(--well); }
+body.ah.apple .pagebody th, body.ah.apple .pagebody td { padding: .8rem 1rem; }
+body.ah.apple .pagebody thead th, body.ah.apple .section thead th {
+  background: transparent; border-bottom: 1px solid var(--line); color: var(--fg-faint);
+  font-size: .76rem; font-weight: 600; letter-spacing: .02em;
+}
+body.ah.apple .pagebody tbody tr + tr, body.ah.apple .section tbody tr + tr { border-top: 1px solid var(--line-soft); }
+body.ah.apple .pagebody tbody td, body.ah.apple .section tbody td { color: var(--fg); }
+body.ah.apple .pagebody tbody tr:hover, body.ah.apple .section tbody tr:hover { background: transparent; }
+
+/* ── 流程、步驟 ───────────────────────────────────────── */
+body.ah.apple .flow { gap: .5rem; }
+body.ah.apple .flow-node { border: 0; border-radius: var(--r-small); padding: .5rem .9rem; background: var(--well); color: var(--fg); font-weight: 500; }
+body.ah.apple .flow-arrow { color: var(--accent-mid); }
+body.ah.apple .step { gap: 1rem; padding: 1.1rem 0; border-top: 1px solid var(--line-soft); }
+body.ah.apple .step:last-of-type { border-bottom: 1px solid var(--line-soft); }
+body.ah.apple .step-num { width: 1.9rem; height: 1.9rem; background: var(--accent-tint); color: var(--accent); font-weight: 700; font-size: .85rem; }
+body.ah.apple .step-text { font-size: 1rem; line-height: 1.7; color: var(--fg-muted); }
+
+/* ── 圖片 ─────────────────────────────────────────────── */
+body.ah.apple .figure { margin: 2rem 0; }
+body.ah.apple .figure img { border: 0; border-radius: var(--r-card); background: #fff; box-shadow: 0 0 0 1px var(--hair); }
+body.ah.apple .figure svg { border: 0; border-radius: var(--r-card); background: var(--well); }
+body.ah.apple .figure-caption { margin-top: .85rem; padding: 0 1rem; border: 0; text-align: center; font-size: .86rem; line-height: 1.6; color: var(--fg-muted); }
+body.ah.apple .figure-source { padding: 0 1rem; text-align: center; font-size: .75rem; color: var(--fg-dim); }
+
+/* ── 練習題 ───────────────────────────────────────────── */
+body.ah.apple .quiz-item { padding: 1.4rem 1.5rem; border: 0; border-radius: var(--r-card); background: var(--well); }
+body.ah.apple .quiz-item + .quiz-item { margin-top: .75rem; }
+body.ah.apple .quiz-type { border-radius: var(--r-pill); padding: .15em .7em; font-weight: 600; background: var(--tile); color: var(--fg-muted); }
+body.ah.apple .quiz-type-vignette { background: var(--accent-tint); color: var(--accent); }
+body.ah.apple .quiz-q { font-weight: 600; line-height: 1.6; }
+body.ah.apple .quiz-reveal { border: 0; border-radius: var(--r-small); background: var(--tile); }
+body.ah.apple .quiz-reveal summary { color: var(--accent); font-weight: 600; }
+body.ah.apple .quiz-reveal summary::before { content: "顯示答案 ›"; }
+body.ah.apple .quiz-reveal[open] summary::before { content: "隱藏答案 ⌃"; }
+
+/* ── 頁尾：每節最後的來源說明，壓低存在感 ───────────── */
+body.ah.apple .pagebody footer.note-footer {
+  margin-top: 2.25rem; padding-top: 1rem; border-top: 1px solid var(--line-soft);
+  font-size: .75rem; line-height: 1.6; color: var(--fg-dim);
+}
+body.ah.apple .pagebody footer.note-footer strong { color: var(--fg-faint); font-weight: 600; }
+body.ah.apple .sitefoot { background: transparent; border-top: 1px solid var(--hair); }
+
+/* ── 頁面內的互動元件（牛蹄病位置圖、物理治療試算等） ── */
+body.ah.apple .hf-legend button, body.ah.apple .rp-chip, body.ah.apple .gm-btn {
+  border: 0; border-radius: var(--r-small); background: var(--well); color: var(--fg); transition: background .15s ease;
+}
+body.ah.apple .hf-legend button:hover, body.ah.apple .rp-chip:hover { background: var(--accent-tint); }
+body.ah.apple .hf-legend button.on, body.ah.apple .rp-chip.on, body.ah.apple .gm-btn.gm-active { background: var(--accent); color: #fff; }
+body.ah.apple .hf-panel, body.ah.apple .rp-out { border: 0; border-radius: var(--r-card); background: var(--well); }
+body.ah.apple .hf-svg .hf-hot circle { fill: var(--accent); }
+body.ah.apple .hf-svg .hf-hot:hover circle, body.ah.apple .hf-svg .hf-hot.on circle { fill: var(--c-danger); }
+body.ah.apple .hf-svg .hf-claw { fill: var(--tile); }
+
+/* ── 科目首頁 ─────────────────────────────────────────── */
+body.ah.apple .homewrap { max-width: 1200px; padding-top: 0; }
+body.ah.apple .homewrap h2 {
+  margin: 0 0 1.5rem; border: 0; text-align: left;
+  font-family: var(--display); font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); font-weight: 700; letter-spacing: -.018em; color: var(--fg);
+}
+body.ah.apple .doors, body.ah.apple .hero-doors { grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr)); gap: 1rem; }
+body.ah.apple .hero-door {
+  border: 0; border-radius: var(--r-tile); background: var(--tile);
+  box-shadow: 0 1px 2px rgba(60, 40, 25, .04);
+  transition: transform .3s cubic-bezier(.25, .1, .25, 1), box-shadow .3s ease;
+}
+body.ah.apple .hero-door::before { display: none; }
+body.ah.apple a.hero-door:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+body.ah.apple .hero-door--multi:hover { transform: none; }
+body.ah.apple .hero-door__body { padding: 1.6rem 1.6rem 1.4rem; }
+body.ah.apple .hero-door__index, body.ah.apple .hero-door__week {
+  font-family: var(--font); font-size: .75rem; font-weight: 600; letter-spacing: .06em; color: var(--accent);
+}
+body.ah.apple .hero-door__title { margin-top: .45rem; font-family: var(--display); font-size: 1.4rem; line-height: 1.2; font-weight: 700; letter-spacing: -.018em; }
+body.ah.apple .hero-door__desc { margin-top: .6rem; font-size: .92rem; line-height: 1.6; color: var(--fg-muted); }
+body.ah.apple .hero-door__link { margin-top: auto; padding-top: 1.1rem; font-size: .9rem; font-weight: 500; letter-spacing: 0; color: var(--accent); }
+body.ah.apple .hero-door__doclist { border-top: 0; padding-top: .25rem; gap: .5rem; }
+body.ah.apple .hero-door__doc { border: 0; border-radius: var(--r-small); background: var(--well); padding: .65rem .9rem; transition: background .15s ease; }
+body.ah.apple .hero-door__doc:hover { background: var(--accent-tint); }
+/* 還沒整理的週次：縮成一小塊、退到背景 */
+body.ah.apple .hero-door--pending { background: transparent; box-shadow: inset 0 0 0 1px var(--hair); opacity: 1; }
+body.ah.apple .hero-door--pending .hero-door__body { padding: 1.1rem 1.4rem; }
+body.ah.apple .hero-door--pending .hero-door__index { color: var(--fg-dim); }
+body.ah.apple .hero-door--pending .hero-door__title { margin-top: .2rem; font-size: 1.05rem; color: var(--fg-faint); }
+body.ah.apple .hero-door--pending .hero-door__empty { margin-top: .2rem; padding: 0; border: 0; font-size: .78rem; font-style: normal; color: var(--fg-dim); }
+body.ah.apple .hero-door--pending:hover { transform: none; box-shadow: inset 0 0 0 1px var(--hair); }
+
+@media (max-width: 720px) {
+  body.ah.apple .section { border-radius: 20px; }
+  body.ah.apple .hero-door { border-radius: 20px; }
+}
+
+/* 未整理的週次不撐高到跟旁邊的卡片一樣 */
+body.ah.apple .doors > li:has(.hero-door--pending), body.ah.apple .hero-doors > li:has(.hero-door--pending) { align-self: start; }
+
+/* 手機上寬表格改成左右滑動，不把欄位擠成兩三個字一行 */
+@media (max-width: 720px) {
+  body.ah.apple .table-wrap { -webkit-overflow-scrolling: touch; }
+  body.ah.apple .table-wrap table { min-width: 40rem; }
+  body.ah.apple .table-wrap::after {
+    content: "← 左右滑動看完整表格 →"; display: block; padding: .5rem 1rem .7rem;
+    font-size: .72rem; color: var(--fg-dim); text-align: center; position: sticky; left: 0;
+  }
+}

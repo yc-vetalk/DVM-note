@@ -657,6 +657,7 @@
       (gi.length ? '<tr><td colspan="3" class="rr-group">腸胃道與嘔吐路徑</td></tr>' + rows(gi) : '') +
       (other.length ? '<tr><td colspan="3" class="rr-group">腸胃道以外</td></tr>' + rows(other) : '') +
       '</tbody></table></div>';
+    if (window.linkCitations) window.linkCitations();
   }
   function showLoc(k) {
     curLoc = k;
@@ -668,6 +669,7 @@
       '<div class="table-wrap"><table class="bm-table"><thead><tr><th>受體</th><th>在這裡做什麼</th><th>出處</th></tr></thead><tbody>' +
       hits.map(function (h) { return '<tr><td data-label="受體"><a style="cursor:pointer;" data-jump="' + h[0].id + '"><strong>' + h[0].name + '</strong></a></td><td data-label="在這裡做什麼">' + h[1][1] + '</td><td data-label="出處" style="font-size:.8em;color:var(--fg-faint);">' + h[1][2] + '</td></tr>'; }).join('') +
       '</tbody></table></div>';
+    if (window.linkCitations) window.linkCitations();
   }
   chips.addEventListener('click', function (e) { var b = e.target.closest('.bm-chip'); if (b) showRec(b.dataset.r); });
   body.addEventListener('click', function (e) { var b = e.target.closest('.bm-loc'); if (b) showLoc(b.dataset.l); });
@@ -971,6 +973,9 @@ function doSearch(q) {
   input.classList.add('has-results');
 }
 </script>
+<script src="../assets/cite-links.js" data-base="../"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="../assets/pdf-viewer.js"></script>
 <script src="../assets/nav-data.js"></script>
 <script src="../assets/nav.js"></script>
 <script>

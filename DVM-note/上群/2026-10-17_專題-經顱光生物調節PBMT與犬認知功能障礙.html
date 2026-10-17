@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：專題 - 經顱光生物調節與犬認知功能障礙 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">專題：經顱光生物調節與犬認知功能障礙</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">專題：經顱光生物調節（tPBMT）與犬認知功能障礙症候群（CCDS）</h1>
+      <p class="page-subtitle">用四級雷射照犬頭部時，參數怎麼設、劑量怎麼算、哪些是教科書的建議、哪些是外推或個人推論——附小型犬計算範例與可輸入數字的劑量計算機</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">院內參考專題（治療參數與操作；非單一個案，未含病患識別資料）</div></div>
+      <div class="meta-item"><div class="meta-label">主要問題</div><div class="meta-value">犬認知功能障礙症候群（Canine Cognitive Dysfunction Syndrome, CCDS）的經顱光生物調節療法（transcranial Photobiomodulation Therapy, tPBMT）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">Winkler & Miller (eds.), <em>Laser Therapy in Veterinary Medicine: Photobiomodulation</em>, 2nd ed., Wiley, 2025，第 16 章 Neurological Conditions（書頁 pp.198–203、病例 p.179）</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-10-17</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">結論</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 核心結論</a>
+    <div class="section-label" style="margin-top:8px;">背景</div>
+    <a onclick="showSection('pbmt')" id="nav-pbmt"><span class="nav-icon">💡</span> PBMT 是什麼</a>
+    <a onclick="showSection('why')" id="nav-why"><span class="nav-icon">🧠</span> 為什麼可能對 CCDS 有效</a>
+    <div class="section-label" style="margin-top:8px;">參數與計算</div>
+    <a onclick="showSection('params')" id="nav-params"><span class="nav-icon">📋</span> 書上建議的參數</a>
+    <a onclick="showSection('calc')" id="nav-calc"><span class="nav-icon">🧮</span> 劑量怎麼算＋計算機</a>
+    <a onclick="showSection('device')" id="nav-device"><span class="nav-icon">🖥️</span> 範例：4.5 kg 小型犬與 GBOX</a>
+    <div class="section-label" style="margin-top:8px;">操作</div>
+    <a onclick="showSection('sop')" id="nav-sop"><span class="nav-icon">🪜</span> 操作流程與安全</a>
+    <a onclick="showSection('course')" id="nav-course"><span class="nav-icon">📅</span> 療程頻率與療效評估</a>
+    <div class="section-label" style="margin-top:8px;">出處</div>
+    <a onclick="showSection('quotes')" id="nav-quotes"><span class="nav-icon">📖</span> 原文摘錄與中譯</a>
+    <a onclick="showSection('case')" id="nav-case"><span class="nav-icon">🐕</span> 書中病例與相關適應症</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 自我測驗</a>
+    <a onclick="showSection('refs')" id="nav-refs"><span class="nav-icon">📚</span> 參考資料</a>
+    <a onclick="showSection('followup')" id="nav-followup"><span class="nav-icon">📌</span> 待確認事項</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>核心結論</h2></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">證據等級</div>
+        <p><strong>目前沒有已發表的獸醫研究證實 tPBMT 對犬認知功能障礙症候群（CCDS）有效，理想參數也尚未確立。</strong>書中的數字是從囓齒類與人類阿茲海默症（Alzheimer's disease, AD）研究外推而來，再加上作者群的臨床經驗（「多數病例 4–6 週內症狀改善」是作者觀察，不是對照試驗）。使用前應向飼主說明這是外推、非標準的用法。</p>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點</div>
+        <p>書上的建議可濃縮成一行：<strong>810 nm 等近紅外線 → 手持件接觸顱骨背側、左右半球都照、全程移動 → 皮膚表面輻照度 0.25–1.5 W/cm²、約 20 J/cm² → 中大型犬約 1000–1400 J（小型犬依面積縮小）→ 第 1 週 2–3 次，之後逐步減到每 2–3 週維持。</strong></p>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">一定要知道的三個數字</div>
+          <p><strong>0.25–1.5 W/cm²</strong>：皮膚表面輻照度範圍<br><strong>約 20 J/cm²</strong>：皮膚表面目標劑量（人類頭皮建議 20–60）<br><strong>5–10 J/cm²</strong>：皮質層最低有效劑量</p></div>
+        <div class="card"><div class="card-title">一定要知道的三個安全點</div>
+          <p>① 懷疑顱內持續出血、亞急性頭部外傷 → <strong>不要用</strong><br>② 四級雷射（或接近輻照度上限）→ <strong>手持件全程移動</strong><br>③ <strong>病患與操作者都戴對應波長的護目鏡</strong></p></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">本頁怎麼讀</div>
+        <p>標註「書上」的是教科書原意；標註「推論」或「臨床常規」的是我自己的整理，不是書上的說法。第 9 節有原文摘錄（短句）與中譯可核對；完整內容請看原書。</p>
+      </div>
+      <footer class="note-footer">資料來源：Winkler & Miller (eds.), Laser Therapy in Veterinary Medicine: Photobiomodulation, 2nd ed., Ch.16。本頁為個人學習整理，僅供學習與院內討論使用，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 2 PBMT -->
+    <div class="section" id="section-pbmt">
+      <div class="section-head"><div class="section-num">2</div><h2>光生物調節療法（Photobiomodulation Therapy, PBMT）是什麼</h2></div>
+      <p class="section-desc">用特定波長的光（紅光到近紅外線，約 600–1100 nm）照射組織，在細胞層級引發生化反應，促進修復、減輕發炎與疼痛。以前叫低能量雷射治療（Low-Level Laser Therapy, LLLT）或冷雷射，現在改稱 PBM／PBMT，因為重點是光對細胞的「生物調節」作用，光源可以是雷射也可以是 LED。</p>
+
+      <div class="flow">
+        <div class="flow-node">光被粒線體的細胞色素 c 氧化酶（Cytochrome C Oxidase, CCO）吸收</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">粒線體功能↑、ATP↑、少量 ROS、NO 釋出</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">基因轉錄改變 → 修復↑、發炎↓、血流↑</div>
+      </div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>名詞</th><th>全名</th><th>意思</th></tr></thead>
+        <tbody>
+          <tr><td><strong>PBM／PBMT</strong></td><td>Photobiomodulation (Therapy)</td><td>光生物調節（療法）</td></tr>
+          <tr><td><strong>tPBM／tPBMT</strong></td><td>transcranial PBM</td><td>經顱光生物調節：光從頭皮穿過顱骨照到腦</td></tr>
+          <tr><td><strong>LLLT</strong></td><td>Low-Level Laser Therapy</td><td>舊稱，現多改稱 PBMT</td></tr>
+          <tr><td><strong>CCO</strong></td><td>Cytochrome C Oxidase</td><td>粒線體電子傳遞鏈第 IV 複合體，PBM 主要的光受體（書上）</td></tr>
+          <tr><td><strong>CW</strong></td><td>Continuous Wave</td><td>連續波（相對於脈衝）</td></tr>
+          <tr><td><strong>Class 3B／Class IV</strong></td><td>雷射安全分級</td><td>3B 功率約 5–500 mW；四級 &gt;500 mW（分級數字為一般知識，非本章內容）</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p>書上說經顱 PBM 的作用是非熱效應，且不限於特定的近紅外線波長（p.199–200）。PBM 的劑量反應常被描述為雙相（太少沒效、太多反而抑制），這是一般文獻的說法，不是本章原文，所以才需要計算 J/cm² 與 W/cm²。</p>
+      </div>
+      <footer class="note-footer">資料來源：書 Ch.16 pp.199–200（機轉）；名詞對照為整理。本頁為個人學習整理，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 3 WHY -->
+    <div class="section" id="section-why">
+      <div class="section-head"><div class="section-num">3</div><h2>為什麼可能對犬認知功能障礙症候群（CCDS）有效</h2></div>
+      <p class="section-desc">CCDS 是自然發生的退化性腦部疾病，起病緩慢、進程隱匿，與人類阿茲海默症（AD）相似；典型表現有意識混亂、定向力喪失、夜間踱步、焦慮、發聲等。貓則是排便盆問題、遊蕩與夜間活動。目前無法治癒，常用的有 L-deprenyl、SAMe、抗氧化與粒線體輔因子飲食、必需脂肪酸，以及環境調整（書 p.200）。</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>CCDS／AD 的病理環節</th><th>書上說的 PBMT 可能作用</th><th>證據來源</th></tr></thead>
+        <tbody>
+          <tr><td><strong>血管受損、腦血流不足</strong></td><td>PBMT 可促進血流；囓齒類研究見腦血管密度增加</td><td>囓齒類</td></tr>
+          <tr><td><strong>神經元粒線體功能障礙</strong></td><td>作用於 CCO，恢復／增強粒線體功能，ATP↑</td><td>機轉層級</td></tr>
+          <tr><td><strong>β-類澱粉蛋白（Aβ）沉積</strong></td><td>抑制 β-secretase、刺激降解 Aβ 的酵素 → Aβ 解聚；囓齒類腦中 Aβ 下降</td><td>囓齒類</td></tr>
+          <tr><td><strong>發炎與微膠細胞活化</strong></td><td>促使微膠細胞偏向抗發炎、神經保護的 M2 表型；降低 IL-1β、IL-6、TNF-α 等</td><td>囓齒類／細胞</td></tr>
+          <tr><td><strong>氧化壓力、腦中甲醛（FA）升高</strong></td><td>囓齒類研究見 FA 下降、認知測試成績改善</td><td>囓齒類</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>書的邏輯是：「血流受損、粒線體功能障礙、氧化壓力、發炎」正是 CCDS 的核心，也剛好是 PBMT 最擅長處理的環節。這是機轉層級的合理推測；<strong>臨床療效在犬並未有對照試驗證實。</strong>人類方面，書中提到近年有 tPBM 用於 AD（TRAP-AD 等試驗）、帕金森氏症、創傷性腦損傷、憂鬱症的研究，且 NEST 試驗（&gt;1400 位患者）顯示 tPBM 安全，但療效結果不一致，原因是疾病不同與劑量不一致（書 p.200）。</p>
+      </div>
+      <footer class="note-footer">資料來源：書 Ch.16 pp.200–201。本頁為個人學習整理，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 4 PARAMS -->
+    <div class="section" id="section-params">
+      <div class="section-head"><div class="section-num">4</div><h2>書上建議的參數</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>書上建議</th><th>備註</th></tr></thead>
+        <tbody>
+          <tr><td><strong>波長</strong></td><td>660、810、980、1064 nm 都有人研究過</td><td>各波長穿透力不同，且受皮膚色素與顱骨上方肌肉厚度影響（犬通常比囓齒類與人類厚）。書中的貓示範圖用 810 nm、500 mW 多探頭手持件。</td></tr>
+          <tr><td><strong>皮膚表面輻照度</strong></td><td>0.25–1.5 W/cm²</td><td>需知道光斑面積、功率設定與 duty cycle</td></tr>
+          <tr><td><strong>皮質層目標劑量</strong></td><td>至少 5–10 J/cm²</td><td>來自 Enengl 2020 文獻回顧（人類 AD）</td></tr>
+          <tr><td><strong>皮膚表面劑量</strong></td><td>約 20 J/cm²</td><td>人類頭皮建議 20–60 J/cm²；大到超大型犬可比照。一例人類研究：頭皮 60 J/cm² 約 3.7%（2.1 J/cm²）到達硬腦膜</td></tr>
+          <tr><td><strong>治療面積與總能量</strong></td><td>中大型犬背側顱骨約 50–70 cm² → 1000–1400 J（20 J/cm²）</td><td>較小的病患依面積縮小；書上沒有給小型犬的面積</td></tr>
+          <tr><td><strong>波形</strong></td><td>CW、100 Hz、1000 Hz 最常被研究；可考慮 alpha（10 Hz）或 gamma（40 Hz）脈衝</td><td>書上明說脈衝的真正好處尚待釐清；50% duty cycle 要把時間加倍</td></tr>
+          <tr><td><strong>接觸方式</strong></td><td>手持件接觸顱骨背側，左右半球都治療</td><td>高功率時持續移動；三級 B 雷射可逐點定位照射</td></tr>
+          <tr><td><strong>頻率</strong></td><td>第 1 週 2–3 次 → 每週 2 次 → 每週 1 次 → 每 2–3 週維持</td><td>書上另說「每兩個月一次的維持治療」最有機會持續維持療效</td></tr>
+        </tbody>
+      </table></div>
+      <h3>為什麼是 810 nm？</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>依據</th><th>內容</th><th>來源</th></tr></thead>
+        <tbody>
+          <tr><td><strong>書上</strong></td><td>660、810、980、1064 nm 都有人研究過；書中引用的人類研究（Schiffer 等人，2009）用 810 nm 的 LED；貓的示範圖用 810 nm、500 mW 手持件。書也說各波長穿透力不同，且經顱 PBM 的效果不限於特定近紅外線波長。</td><td>書 pp.199–201、圖 16.6</td></tr>
+          <tr><td><strong>一般光學知識（非書上）</strong></td><td>810 nm 屬近紅外線，可被粒線體的細胞色素 c 氧化酶（CCO）吸收；被水與血紅素吸收較少，穿透比紅光深。980 nm 落在水的吸收峰附近，光能較易被水分吸收而變成熱，穿透較淺、發熱較多。</td><td>一般知識，未在書中查到對應頁碼</td></tr>
+          <tr><td><strong>本機限制</strong></td><td>GBOX 只有 810 nm 與 980 nm 兩個波長可選；兩者之間，810 nm 較符合「要到達深部」的目標，所以 980 nm 設 0 W。</td><td>本院設備</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">結論</div>
+        <p><strong>書上沒有說 810 nm 最好。</strong>選 810 nm 是「書中有人用過」加上「一般光學上較適合深部」再加上「本機只有兩個波長可選」的綜合結果；哪個波長對犬 CCDS 最好，目前沒有證據。院內既有能量表用的是 810 + 980 nm 合併功率，針對一般身體部位，目標不同，不能直接對照頭部。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>犬的光穿透資料目前只有遺體研究：書 p.198 引用 Piao 等人（2017），單點光電二極體在犬遺體測得經顱光穿透約 0.00114%，與人類遺體 5 cm 深度的結果相近。這是單一個體的數值，不能直接當作劑量換算係數。</p>
+      </div>
+      <footer class="note-footer">資料來源：書 Ch.16 pp.198、200–202。本頁為個人學習整理，不作為正式診斷或治療依據；參數以原廠說明與主治醫師指示為準。</footer>
+    </div>
+
+    <!-- 5 CALC -->
+    <div class="section" id="section-calc">
+      <div class="section-head"><div class="section-num">5</div><h2>劑量怎麼算＋計算機</h2></div>
+      <div class="flow">
+        <div class="flow-node accent">總能量 J = 治療面積 cm² × 目標劑量 J/cm²</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">時間 s = 總能量 ÷（功率 W × duty）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">輻照度 W/cm² = 功率 ÷ 光斑面積</div>
+      </div>
+      <p class="section-desc">輻照度要落在 0.25–1.5 W/cm²，所以功率的範圍是：<strong>光斑面積 × 0.25 ≤ 功率 ≤ 光斑面積 × 1.5</strong>。例如光斑 1 cm² 時，1.5 W 已經是上限。</p>
+
+      <h3>先搞懂七個詞：用「水龍頭澆花」來想</h3>
+      <p class="section-desc">功率是水龍頭開多大，能量是總共澆了多少水，光斑是手持件「印章」的大小，治療面積是整張「紙」，輻照度是印章下水噴得多猛，劑量是每一小塊紙上累積了多少水。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>名稱</th><th>單位</th><th>它在回答什麼</th><th>怎麼算</th></tr></thead>
+        <tbody>
+          <tr><td><strong>光斑面積</strong></td><td>cm²</td><td>手持件一次照多大</td><td>π × 半徑²（30 mm → 約 7.1 cm²；10 mm → 約 0.79 cm²；5 mm → 約 0.20 cm²）</td></tr>
+          <tr><td><strong>功率</strong></td><td>W</td><td>每秒給多少能量（1 W = 1 J／秒）</td><td>機器設定</td></tr>
+          <tr><td><strong>輻照度</strong></td><td>W/cm²</td><td>光斑下每一小塊被打得多猛 → <strong>安全</strong></td><td>功率 ÷ 光斑面積</td></tr>
+          <tr><td><strong>能量</strong></td><td>J</td><td>總共給了多少</td><td>功率 × 時間</td></tr>
+          <tr><td><strong>治療面積</strong></td><td>cm²</td><td>整個頭頂要照多大（不是光斑）</td><td>實測</td></tr>
+          <tr><td><strong>劑量</strong></td><td>J/cm²</td><td>頭頂每個地方累積多少 → <strong>夠不夠</strong></td><td>總能量 ÷ 治療面積</td></tr>
+          <tr><td><strong>時間</strong></td><td>s</td><td>要照多久</td><td>總能量 ÷ 功率</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <p>光斑是「印章」，治療面積是「整張紙」：手持件一邊移動一邊蓋章，把總能量平均分散到整個頭頂。<strong>兩個檢查缺一不可：輻照度決定安不安全（0.25–1.5 W/cm²），劑量決定夠不夠（約 20 J/cm²）。</strong>先用輻照度決定功率，再用劑量決定時間。</p>
+      </div>
+
+      <div class="card" id="calcCard">
+        <div class="card-title">劑量計算機（輸入數字即時計算）</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.75rem; margin-bottom:1rem;">
+          <label style="font-size:.85em;">頭頂治療面積（cm²）<input id="cArea" type="number" min="1" step="1" value="22" style="width:100%; padding:.4rem; border:1px solid var(--line); border-radius:4px; background:var(--bg); color:var(--fg);"></label>
+          <label style="font-size:.85em;">目標劑量（J/cm²）<input id="cFlu" type="number" min="1" step="1" value="20" style="width:100%; padding:.4rem; border:1px solid var(--line); border-radius:4px; background:var(--bg); color:var(--fg);"></label>
+          <label style="font-size:.85em;">功率設定（W）<input id="cPow" type="number" min="0.1" step="0.1" value="1.5" style="width:100%; padding:.4rem; border:1px solid var(--line); border-radius:4px; background:var(--bg); color:var(--fg);"></label>
+          <label style="font-size:.85em;">手持件光斑面積（cm²）<input id="cSpot" type="number" min="0.1" step="0.1" value="2" style="width:100%; padding:.4rem; border:1px solid var(--line); border-radius:4px; background:var(--bg); color:var(--fg);"></label>
+          <label style="font-size:.85em;">Duty cycle（%，CW = 100）<input id="cDuty" type="number" min="1" max="100" step="1" value="100" style="width:100%; padding:.4rem; border:1px solid var(--line); border-radius:4px; background:var(--bg); color:var(--fg);"></label>
+        </div>
+        <div id="calcOut" style="font-size:.95em; line-height:1.8;"></div>
+        <p style="font-size:.8em; color:var(--fg-faint); margin-top:.75rem;">預設值是「22 cm²、20 J/cm²、1.5 W、光斑 2 cm²」，光斑面積是佔位數字，請改成你手持件的實際值。脈衝模式下 Power 是尖峰還是平均功率，要看原廠手冊；本計算機以「平均功率 = 設定功率 × duty」估算時間，輻照度以設定功率計。</p>
+      </div>
+
+      <h3>同樣的總能量，不同手持件怎麼設（4.5 kg 小型犬範例，22 cm²、20 J/cm² → 440 J）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>30 mm 手持件</th><th>10 mm 手持件</th><th>光纖（400 µm）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>光斑面積</strong></td><td>約 7.1 cm²</td><td>約 0.79 cm²</td><td>約 0.00126 cm²</td></tr>
+          <tr><td><strong>1.5 W 的輻照度</strong></td><td>約 0.21（略低於下限）</td><td>約 1.9（超過上限）</td><td>約 1190（遠超範圍，不可用於經顱）</td></tr>
+          <tr><td><strong>功率可用範圍（光斑 × 0.25～1.5）</strong></td><td>約 1.8–10.6 W</td><td>約 0.2–1.2 W</td><td>—</td></tr>
+          <tr><td><strong>範例選擇</strong></td><td>3 W → 輻照度約 0.42；時間 440 ÷ 3 ≈ <strong>147 s</strong></td><td>1 W → 輻照度約 1.27；時間 440 ÷ 1 = <strong>440 s</strong></td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li><strong>總能量不變，功率越大時間越短。</strong>手持件越大，可開的功率越高（能量攤得比較開）。</li>
+        <li>以上面積是用「鏡頭直徑」換算的，<strong>實際光斑可能因設計（可變焦、離皮膚距離）而不同</strong>，請量自己的手持件或問原廠，這是整理用的估算，不是原廠數字。</li>
+        <li>書上只給了 0.25–1.5 W/cm² 的範圍，沒有說明下限的理由。</li>
+      </ul>
+
+      <h3>書上中大型犬的對照（供比較）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>治療面積</th><th>20 J/cm² 總能量</th><th>1.5 W 需要</th><th>4 W 需要</th></tr></thead>
+        <tbody>
+          <tr><td>50 cm²</td><td>1000 J</td><td>約 667 s（11 分鐘）</td><td>250 s</td></tr>
+          <tr><td>70 cm²</td><td>1400 J</td><td>約 933 s（16 分鐘）</td><td>350 s</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 這張表是依書上的公式計算的數字，不是書上的原表。4 W 是否可用，要看光斑面積（4 W 需光斑 ≥ 約 2.7 cm² 才不超過 1.5 W/cm²）與機器的 810 nm 最大功率。</p>
+      <footer class="note-footer">資料來源：公式依書 Ch.16 p.201–202 的劑量計算原則整理；計算機為整理工具。本頁為個人學習整理，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 6 DEVICE -->
+    <div class="section" id="section-device">
+      <div class="section-head"><div class="section-num">6</div><h2>範例：4.5 kg 小型犬與 GBOX 面板設定</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">說明</div>
+        <p>本節是用書上的公式套用到一隻約 4.5 kg 的雪納瑞與院內 GBOX 機型的<strong>推論範例</strong>，書上沒有小型犬的面積或功率建議。頭頂治療面積的估計值（約 20–30 cm²）是我的推估，使用前請實際量測。</p>
+      </div>
+
+      <h3>GBOX 面板上跟這次治療有關的欄位</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>面板欄位</th><th>本次建議</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td><strong>810 nm POWER</strong></td><td>1.5 W</td><td>只用 810 nm 通道；需確認手持件光斑面積，使 1.5 W 落在 0.25–1.5 W/cm²</td></tr>
+          <tr><td><strong>980 nm POWER</strong></td><td>0.0 W</td><td>不使用</td></tr>
+          <tr><td><strong>LASER EMISSION MODES</strong></td><td>CW</td><td>書上以 CW 為基準；脈衝（Repeat）的 Frequency、Ton／Toff 單位與功率定義要先看手冊</td></tr>
+          <tr><td><strong>Time</strong></td><td>見下表</td><td>= 20 J/cm² × 面積 ÷ 1.5 W</td></tr>
+          <tr><td><strong>Pre-Set Protocols</strong></td><td>—</td><td>面板有原廠 "Canine Cognitive Dysfunction…" 預設，內容需核對（見第 13 節）</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>依治療面積決定時間（1.5 W、CW、20 J/cm²）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>頭頂治療面積（實測）</th><th>總能量</th><th>時間（1.5 W）</th><th>1.5 W 設 300 s（450 J）的實際劑量</th></tr></thead>
+        <tbody>
+          <tr><td>15 cm²</td><td>300 J</td><td>200 s</td><td>30 J/cm²（偏高，仍在 20–60 範圍內）</td></tr>
+          <tr><td>22 cm²</td><td>440 J</td><td>約 293 s</td><td>約 20 J/cm²（剛好）</td></tr>
+          <tr><td>30 cm²</td><td>600 J</td><td>400 s</td><td>15 J/cm²（略低，建議延長）</td></tr>
+          <tr><td>40 cm²</td><td>800 J</td><td>約 533 s</td><td>約 11 J/cm²（偏低）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-success">
+        <div class="alert-label">結論</div>
+        <p>1.5 W、CW、300 s（450 J）對治療面積約 20–25 cm² 的小型犬剛好；面積較大時，用「時間 = 20 × 面積 ÷ 1.5」延長時間。300 s 可平均分給左右兩側各約 150 s。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意（推論，書上沒有）</div>
+        <p>① 毛色深（黑色、鹽椒色）的犬吸光較多，更要持續移動並用手背摸皮膚確認不燙。② 小型犬頭小、眼睛離治療區近，護目鏡與手持件方向要特別留意。③ 小型犬顱骨上的肌肉比大型犬薄，穿透可能較好，所以不必刻意往高功率調；這是推論，書上沒有針對小型犬說明。</p>
+      </div>
+      <footer class="note-footer">資料來源：書 Ch.16 的公式與參數；GBOX 面板為院內機型畫面；面積與毛色相關為個人推論。本頁為個人學習整理，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 7 SOP -->
+    <div class="section" id="section-sop">
+      <div class="section-head"><div class="section-num">7</div><h2>操作流程與安全</h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>確認適應症與排除條件</strong>：確認是 CCDS 的臨床表現；排除其他造成行為改變的原因（疼痛、內科疾病、腦部腫瘤等，為臨床常規）；<strong>懷疑顱內持續出血或亞急性頭部外傷時不用</strong>（書 p.202）。向飼主說明證據等級。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>量測與計算</strong>：量頭頂面積、查手持件光斑面積，用第 5 節算功率、時間與輻照度。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>護目</strong>：病患戴對應波長的雷射護目鏡；操作者、助手也戴。書上建議為病患配戴護目鏡（p.201）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>保定與位置</strong>：讓病患舒適（站、坐或趴皆可）；手持件接觸顱骨背側皮膚。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>照射</strong>：左右半球都要治療；<strong>手持件持續移動</strong>（四級雷射或接近輻照度上限時書上要求）；中途用手背確認皮膚溫度。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>記錄</strong>：波長、功率、模式、時間、總能量、面積、光斑、病患反應，下次可對照。</div></div>
+
+      <div class="grid-2" style="margin-top:1rem;">
+        <div class="card"><div class="card-title">不要用的情況（書上）</div>
+          <ul><li>懷疑顱內持續出血</li><li>亞急性頭部外傷（可能造成血流短暫增加而出血）</li></ul></div>
+        <div class="card"><div class="card-title">耐受性（書上）</div>
+          <p>治療無痛、耐受良好；部分病患前 24 小時可能稍微疲倦。</p></div>
+      </div>
+      <footer class="note-footer">資料來源：書 Ch.16 pp.201–202；步驟 1、2、6 的臨床常規部分為整理，非書上原文。本頁為個人學習整理，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 8 COURSE -->
+    <div class="section" id="section-course">
+      <div class="section-head"><div class="section-num">8</div><h2>療程頻率與療效評估</h2></div>
+      <div class="flow">
+        <div class="flow-node accent">第 1 週：2–3 次</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">每週 2 次</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">每週 1 次</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">每 2–3 週維持（症狀最小化為準）</div>
+      </div>
+      <ul>
+        <li><strong>書上的預期：</strong>臨床症狀通常在前 1–2 次治療內開始緩解，第一個月逐步進步；作者觀察多數病例 4–6 週內改善（作者經驗，非對照試驗）。</li>
+        <li><strong>維持：</strong>書上說每兩個月一次的維持治療最有機會維持療效；「每 2–3 週一次」與「每兩個月一次」是書中兩處不完全一致的說法，需依個別病患的症狀決定。</li>
+        <li><strong>評估（臨床常規，非書上）：</strong>治療前先跟飼主一起記錄基線，例如定向力（Disorientation）、與人互動、睡眠週期、排泄習慣、活動量、焦慮等，每次回診用同一套問題追蹤。CCDS 常用的行為問卷與分級，建議另查專科文獻或使用院內表單。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">補充</div>
+        <p>CCDS 目前常用的處置（飲食、補充劑、藥物、環境調整）可以和 tPBMT 並行，書中也將 PBMT 定位為這些方法之外的選項，不是取代。</p>
+      </div>
+      <footer class="note-footer">資料來源：書 Ch.16 pp.200、202；評估方式為臨床常規整理。本頁為個人學習整理，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 9 QUOTES -->
+    <div class="section" id="section-quotes">
+      <div class="section-head"><div class="section-num">9</div><h2>原文摘錄與中譯</h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">說明</div>
+        <p>下列為書中與參數、安全性、證據等級最相關的<strong>短句摘錄</strong>，附書頁與中譯，方便核對；完整段落請看原書（Winkler & Miller, 2nd ed., Wiley, 2025, Ch.16 pp.199–202）。本站為公開網頁，所以只摘錄關鍵句，不轉載整章。</p>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:5%">頁</th><th style="width:50%">原文（摘錄）</th><th>中譯</th></tr></thead>
+        <tbody>
+          <tr><td>p.200</td><td>"…the use of transcranial PBMT seems to be very effective in improving the symptoms of CCDS within 4–6 weeks in most cases."</td><td>作者與同儕觀察到，經顱 PBMT 在多數病例似乎能於 4–6 週內有效改善 CCDS 症狀。（作者觀察）</td></tr>
+          <tr><td>p.201</td><td>"…there are no veterinary studies published regarding the efficacy of use of tPBMT for the treatment of CCDS…"</td><td>目前沒有已發表的獸醫研究探討 tPBMT 治療 CCDS 的療效。</td></tr>
+          <tr><td>p.201</td><td>"The ideal parameters for use of tPBMT for CCDS are not well established."</td><td>tPBMT 治療 CCDS 的理想參數尚未確立。</td></tr>
+          <tr><td>p.201</td><td>"…a dose in the minimum effective range between 5 and 10 J/cm² at the level of the cortex."</td><td>劑量應達到皮質層 5–10 J/cm² 的最低有效範圍。</td></tr>
+          <tr><td>p.201</td><td>"…a 50% duty cycle would necessitate a doubling of the calculated treatment time…"</td><td>50% duty cycle 需要把計算出的治療時間加倍，才能達到與 CW 相同的劑量。</td></tr>
+          <tr><td>p.201</td><td>"…the handpiece be held on-contact with the dorsal surface of the skull, treating both the right and left hemispheres…"</td><td>手持件以接觸方式放在顱骨背側，左右兩個半球都要治療。</td></tr>
+          <tr><td>p.201</td><td>"…keep the treatment head in continuous motion at all times."</td><td>使用較高功率時，讓治療頭全程持續移動。</td></tr>
+          <tr><td>p.201</td><td>"An irradiance between 0.250 and 1.5 W/cm² at the skin surface is recommended."</td><td>建議皮膚表面輻照度為 0.250–1.5 W/cm²。</td></tr>
+          <tr><td>p.201–202</td><td>"…1000–1400 total joules delivered over the entire area if using a fluence of 20 J/cm²…"</td><td>中大型犬的治療面積 50–70 cm²，以 20 J/cm² 計算，整個區域總劑量約 1000–1400 J；較小病患依比例縮小。</td></tr>
+          <tr><td>p.202</td><td>"…PBMT should be started with 2–3 sessions the first week…"</td><td>PBMT 第一週宜做 2–3 次，之後減為較低頻率的過渡期，再每 2–3 週維持。</td></tr>
+          <tr><td>p.202</td><td>"If there is any reason to suspect that intracranial bleeding is ongoing, PBMT should not be used."</td><td>只要有理由懷疑顱內出血仍在進行，就不應使用 PBMT。</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">摘錄自：Winkler CJ, Miller LA (eds.). Laser Therapy in Veterinary Medicine: Photobiomodulation. 2nd ed. Wiley; 2025. Ch.16 Neurological Conditions。中譯為個人翻譯。</footer>
+    </div>
+
+    <!-- 10 CASE -->
+    <div class="section" id="section-case">
+      <div class="section-head"><div class="section-num">10</div><h2>書中病例與相關適應症</h2></div>
+      <h3>書中病例（p.179）</h3>
+      <div class="card">
+        <p>17 歲、5.1 kg、已結紮母犬（Jack Russell terrier），慢性腎病（Chronic Kidney Disease, CKD），另有頸肩疼痛與牙周病。以 PBM 處理肩頸與腎臟，肩頸壓痛約 2 個月（共 8 次）後緩解並停止 PBM，腎臟則持續每兩週治療。<strong>治療約 5 個月後出現失智，在每次 PBM 療程加上「腦部 protocol」，書上記載「有效逆轉失智症狀」</strong>；腎指數也在 5 個月後逐漸下降。書上沒有列出這個腦部 protocol 的具體參數。</p>
+        <p style="font-size:.85em; color:var(--fg-faint);">這是單一病例報告，不能當作療效證據。</p>
+      </div>
+      <h3>同一章其他經顱／神經適應症（書 p.202–203）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>適應症</th><th>書上說法</th></tr></thead>
+        <tbody>
+          <tr><td><strong>創傷性腦損傷（Traumatic Brain Injury, TBI）</strong></td><td>可使用與 CCDS 相同的參數；治療頻率每 12–24 小時一次視需要；<strong>亞急性頭部外傷或疑似顱內出血不建議用</strong></td></tr>
+          <tr><td><strong>犬退化性脊髓病變（Degenerative Myelopathy, DM）</strong></td><td>回溯性研究（Miller et al., 2020）顯示高劑量 PBMT 組的疾病進展較慢、存活較長；建議每週到每週兩次的門診復健＋PBMT</td></tr>
+          <tr><td><strong>椎間盤疾病（Intervertebral Disc Disease, IVDD）</strong></td><td>深層肌肉骨骼劑量 10–20 J/cm²；術後立即開始，前 3–5 天每天一次，之後至少每週三次</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：書 Ch.14 Case Studies p.179；Ch.16 pp.198–203。本頁為個人學習整理，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 11 QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>自我測驗</h2></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 題目為依本章重點推測的複習題，並非出自歷屆國考題目。</p>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 書上建議 tPBMT 治療犬 CCDS 時，皮膚表面輻照度範圍為何？(A) 0.025–0.15 W/cm² (B) 0.25–1.5 W/cm² (C) 2.5–15 W/cm² (D) 沒有建議範圍</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。0.25–1.5 W/cm²，所以要知道手持件光斑面積才能判斷功率是否合適。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">2. 計算：一隻犬頭頂治療面積 30 cm²，目標 20 J/cm²，用 1.5 W、CW，需要治療多久？若改用 50% duty cycle 呢？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">總能量 = 30 × 20 = 600 J；時間 = 600 ÷ 1.5 = 400 s。50% duty cycle 時間加倍，約 800 s（前提是 1.5 W 為尖峰功率、平均功率減半）。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">3. 是非題：已有獸醫對照試驗證實 tPBMT 能改善犬 CCDS，因此參數已標準化。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。書上明說沒有已發表的獸醫療效研究，理想參數尚未確立；建議參數是從囓齒類與人類 AD 研究外推，加上作者臨床經驗。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">4. 下列何者是書上不建議使用 tPBMT 的情況？(A) 慢性退化性腦病 (B) 懷疑顱內持續出血 (C) 老年犬 (D) 小型犬</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。PBMT 可能造成血流短暫增加，亞急性頭部外傷與疑似顱內出血不建議使用。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">5. 簡答：為什麼皮膚表面劑量（約 20 J/cm²）要比皮質層目標劑量（5–10 J/cm²）高那麼多？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">光穿過皮膚、肌肉與顱骨時能量呈指數衰減，只有一小部分到達腦；書中人類研究舉例頭皮 60 J/cm² 約 3.7% 到達硬腦膜，犬遺體經顱穿透率約 0.00114%（單一個體）。所以表面劑量要設得比目標高。</div></details>
+      </div>
+      <div class="quiz-item quiz-type-vignette">
+        <div class="quiz-q"><strong>情境題｜小型犬</strong><br>4.5 kg 雪納瑞，主人說最近夜間踱步、定向力變差。你要用 GBOX 做 tPBMT，810 nm 設 1.5 W、CW、300 s。(1) 這個設定合不合理？(2) 還要確認什麼？(3) 第一個月的療程安排？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) 450 J 對治療面積約 20–25 cm² 的小型犬約 20 J/cm²，合理；面積更大要延長時間。(2) 手持件光斑面積（1.5 W ÷ 光斑要落在 0.25–1.5 W/cm²）、實際頭頂面積、護目鏡、排除其他造成行為改變的疾病與顱內出血疑慮。(3) 第 1 週 2–3 次，之後每週 2 次、每週 1 次，再視症狀每 2–3 週維持；並向飼主說明這是外推的用法。</div></details>
+      </div>
+      <footer class="note-footer">資料來源：書 Ch.16。本頁為個人學習整理，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 12 REFS -->
+    <div class="section" id="section-refs">
+      <div class="section-head"><div class="section-num">12</div><h2>參考資料</h2></div>
+      <h3>主要來源</h3>
+      <ul>
+        <li>Winkler CJ, Miller LA (eds.). <em>Laser Therapy in Veterinary Medicine: Photobiomodulation</em>. 2nd ed. Hoboken: John Wiley &amp; Sons; 2025. <strong>Ch.16 Neurological Conditions</strong>（本頁引用 pp.198–203；PDF 為頁碼 +18，即 PDF 第 216–221 頁）、<strong>Ch.14 Case Studies</strong> p.179。</li>
+      </ul>
+      <h3>本章為 CCDS 參數所引用的原始文獻（依書後參考文獻列表，未逐篇核對原文）</h3>
+      <ul>
+        <li>Dewey CW, et al. (2022). Transcranial photobiomodulation (laser) therapy for cognitive impairment: a review of molecular mechanisms and potential application to canine cognitive dysfunction (CCD). <em>Open Vet J</em> 12:256–263.</li>
+        <li>Enengl J, Hamblin MR, Dunkl A (2020). Photobiomodulation for Alzheimer's…（題名在書後列表被截斷；文獻回顧；皮質 5–10 J/cm²、頭皮 20–60 J/cm² 的建議來源）。</li>
+        <li>Schiffer F, et al. (2009). Psychological benefits 2 and 4 weeks after a single treatment with near-infrared light to the forehead: a pilot study of 10 patients with major depression and anxiety. <em>Behav Brain Funct</em> 5:46.（人類頭皮 60 J/cm² → 硬腦膜 2.1 J/cm² 的來源）</li>
+        <li>Piao D, et al. (2017). Challenges of transcutaneous laser application for the potential of photobiomodulation of the spinal cord at the scale of a large companion animal. <em>Proc SPIE</em>.（犬遺體光穿透）</li>
+        <li>Iaccarino HF, et al. (2016). Gamma frequency entrainment…（書後列表只看到開頭標題；小鼠 AD 模型脈衝光，書上引用為 alpha／gamma 頻率脈衝的依據，完整題名與期刊請查原書）</li>
+        <li>Godine R (2017). Neurological Conditions. In: <em>Laser Therapy in Veterinary Medicine: Photobiomodulation</em>, 1st ed.（治療反應與頻率的觀察來源）</li>
+        <li>Miller LA, et al. (2020). 犬退化性脊髓病變加入 PBMT 的回溯性研究（書 p.203 引用）。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">說明</div>
+        <p>上列次要文獻的書目細節（期刊、卷期）以書後參考文獻列表為準，部分條目我只抄了書中可見的部分；需要引用時請回到原書確認。</p>
+      </div>
+      <footer class="note-footer">本頁為個人課堂與臨床筆記整理，僅供學習與院內討論使用，不作為正式診斷或治療依據。</footer>
+    </div>
+
+    <!-- 13 FOLLOWUP -->
+    <div class="section" id="section-followup">
+      <div class="section-head"><div class="section-num">13</div><h2>待確認事項</h2></div>
+      <ul>
+        <li><strong>GBOX 手持件的光斑面積：</strong>決定 1.5 W 是否在 0.25–1.5 W/cm² 內，也決定 810 nm 可用的功率上限。</li>
+        <li><strong>機型與規格（已由本機 Device Settings 畫面確認）：</strong>Model Gbox、GaAlAs 二極體雷射、810 nm + 980 nm、<strong>最大功率 30 W</strong>（面板未註明是否為兩波長總和）、瞄準光 650 nm 且小於 5 mW、模式 CW 與 Frequency／Repeat 可變脈衝（脈衝寬度 25 µs–6 s、重複頻率 1 Hz–20 kHz，涵蓋書上提的 10 Hz 與 40 Hz）、光纖接頭 SMA-905。網路上 GigaaMed GBOX 15W 的資料（最大 10–15 W、瞄準光 300 mW）與本機不同，以本機畫面為準。<strong>治療手持件的光斑面積仍未知</strong>：出光窗很小（約為籠外徑的 1/4），光斑要在籠緣貼皮膚的位置量。</li>
+        <li><strong>Pre-Set Protocols 內的 "Canine Cognitive Dysfunction…" 預設：</strong>面板名稱被截斷，需打開確認它的功率、時間、模式，並與本頁計算比對。</li>
+        <li><strong>脈衝模式的功率定義：</strong>Repeat 模式的 Power 是尖峰功率還是平均功率？Frequency、Ton（µs）、Toff 的單位是否與面板標示一致？需查手冊或問原廠。</li>
+        <li><strong>小型犬頭頂面積的實測值：</strong>本頁的 20–30 cm² 是推估，建議累積幾隻不同體型的實測值，建立院內對照表。</li>
+        <li><strong>療效評估表單：</strong>院內採用的 CCDS 行為問卷與追蹤頻率尚未決定。</li>
+        <li><strong>次要文獻：</strong>Dewey 2022、Enengl 2020 等原始文獻我沒有逐篇核對原文，需要時另行查證。</li>
+      </ul>
+      <footer class="note-footer">本頁內容僅供個人學習與院內討論使用，不作為正式診斷或治療依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch (e) {}
+}
+(function(){ try { const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } } catch (e) {} })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+  calcUpdate();
+});
+
+/* ---- 劑量計算機 ---- */
+function calcUpdate() {
+  const v = id => parseFloat(document.getElementById(id).value);
+  const area = v('cArea'), flu = v('cFlu'), pow = v('cPow'), spot = v('cSpot'), duty = v('cDuty');
+  const out = document.getElementById('calcOut');
+  if (![area, flu, pow, spot, duty].every(x => isFinite(x) && x > 0)) {
+    out.innerHTML = '<span style="color:var(--fg-faint);">請輸入大於 0 的數字。</span>';
+    return;
+  }
+  const joules = area * flu;
+  const avgPow = pow * duty / 100;
+  const sec = joules / avgPow;
+  const irr = pow / spot;
+  const pMin = spot * 0.25, pMax = spot * 1.5;
+  const fmt = n => (Math.round(n * 10) / 10).toString();
+  const mmss = s => Math.floor(s / 60) + ' 分 ' + Math.round(s % 60) + ' 秒';
+  let irrTag = '<span style="color:var(--green-700);">在 0.25–1.5 W/cm² 範圍內</span>';
+  if (irr > 1.5) irrTag = '<span style="color:var(--rust-700);">高於書上上限 1.5 W/cm²，請降功率或確認光斑面積</span>';
+  if (irr < 0.25) irrTag = '<span style="color:var(--amber-700);">低於書上下限 0.25 W/cm²</span>';
+  let fluTag = '';
+  if (flu < 5) fluTag = '<br><span style="color:var(--amber-700);">目標劑量低於皮質層最低有效範圍 5–10 J/cm²，而這裡輸入的是皮膚表面劑量，請確認。</span>';
+  if (flu > 60) fluTag = '<br><span style="color:var(--amber-700);">目標劑量高於書上人類頭皮建議上限 60 J/cm²。</span>';
+  out.innerHTML =
+    '總能量：<strong>' + fmt(joules) + ' J</strong>（' + fmt(area) + ' cm² × ' + fmt(flu) + ' J/cm²）<br>' +
+    '所需時間：<strong>' + Math.round(sec) + ' 秒（' + mmss(sec) + '）</strong>；左右兩側各約 ' + Math.round(sec / 2) + ' 秒<br>' +
+    '皮膚表面輻照度：<strong>' + fmt(irr * 100) / 100 + ' W/cm²</strong> — ' + irrTag + '<br>' +
+    '依此光斑面積，功率可用範圍約 <strong>' + fmt(pMin) + '–' + fmt(pMax) + ' W</strong>' + fluTag;
+}
+['cArea','cFlu','cPow','cSpot','cDuty'].forEach(id => {
+  document.addEventListener('input', e => { if (e.target && e.target.id === id) calcUpdate(); });
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 核心結論",
+  "pbmt": "💡 PBMT 是什麼",
+  "why": "🧠 為什麼可能對 CCDS 有效",
+  "params": "📋 書上建議的參數",
+  "calc": "🧮 劑量怎麼算＋計算機",
+  "device": "🖥️ 範例：4.5 kg 小型犬與 GBOX",
+  "sop": "🪜 操作流程與安全",
+  "course": "📅 療程頻率與療效評估",
+  "quotes": "📖 原文摘錄與中譯",
+  "case": "🐕 書中病例與相關適應症",
+  "quiz": "✏️ 自我測驗",
+  "refs": "📚 參考資料",
+  "followup": "📌 待確認事項"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

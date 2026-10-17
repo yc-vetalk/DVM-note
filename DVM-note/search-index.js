@@ -260,6 +260,90 @@ const SEARCH_INDEX = [
     snippet: "涵蓋去勢鉗辨識、產科鉤與鋸線功能區別、瘤胃穿刺、蹄部處置流程的練習題，含胚胎切割術臨床情境整合題。"
   },
   {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "牛蹄病 蹄病 跛行 lameness bovine hoof 重點摘要",
+    snippet: "牛蹄病總覽：後肢外側蹄負重多、蹄底潰瘍成因鏈、白線弱點、草莓蹄踵、口蹄疫水泡、蹄葉炎、荷蘭五步驟數字。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "anatomy", sectionName: "蹄部解剖",
+    keywords: "蹄骨 P3 趾墊 digital cushion 真皮 corium 蹄葉 laminae 白線 冠狀帶 舟狀骨 舟狀囊 深屈肌腱 遠端趾間關節",
+    snippet: "牛蹄矢狀切面各構造與臨床意義：趾墊是避震器、白線是弱點、深部感染沿腱鞘與蹄關節擴散。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "biomech", sectionName: "生物力學與蹄底潰瘍成因",
+    keywords: "生物力學 外側蹄 內側蹄 負重 牛肘姿勢 cow hock 蹄底潰瘍成因 屈肌突",
+    snippet: "為什麼後肢外側蹄最常出問題，以及蹄底過厚→趾墊無法緩衝→真皮壓傷→蹄底潰瘍的成因鏈。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "scoring", sectionName: "跛行評分與腿姿評分",
+    keywords: "跛行評分 locomotion score 拱背 腿姿評分 leg score Sprecher",
+    snippet: "跛行評分1–5分（看站立與行走時的背）、腿姿評分1–3分（後腿外轉角度0–17°、17–24°、>24°）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "inspection", sectionName: "站立觀察與蹄部檢查",
+    keywords: "蹄壁裂 水平裂 困苦溝 hardship groove 斷蹄尖 冠狀帶 口蹄疫 FMD 黏膜病 BVD 螺旋蹄 corkscrew 拖鞋蹄 蹄鉗",
+    snippet: "站立觀察：蹄壁裂、困苦溝、冠狀帶腫脹與水泡糜爛、螺旋蹄、慢性蹄葉炎拖鞋蹄；抬腳檢查與異物。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "lesionmap", sectionName: "病灶位置圖",
+    keywords: "病灶位置 蹄底 趾間 互動圖 Figure 7.2",
+    snippet: "可點選的後肢蹄底病灶位置圖：十種蹄病的好發位置、外觀、病因與處置。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "diseases", sectionName: "十種常見蹄病各論",
+    keywords: "趾皮炎 digital dermatitis 草莓蹄踵 Treponema 蹄底潰瘍 sole ulcer 白線病 white line disease 蹄底膿瘍 腐蹄病 foul Fusobacterium necrophorum 蹄踵糜爛 趾間皮膚炎 Dichelobacter 蹄葉炎 laminitis 雙層蹄底 趾間增生 穿刺傷 蹄尖潰瘍",
+    snippet: "十種蹄病的比較表與各論：位置、外觀、病因病原、治療，附講義照片。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "trimming", sectionName: "荷蘭五步驟修蹄法",
+    keywords: "修蹄 hoof trimming 荷蘭五步驟 Dutch 5 step 7.5 cm 45度 淺碗 functional trimming corrective trimming",
+    snippet: "功能性修蹄三步（蹄尖7.5 cm、蹄底0.5–0.7 cm、45–50°；外側配內側；潰瘍處修淺碗）與治療性修蹄兩步。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "treatment", sectionName: "麻醉、治療與預後",
+    keywords: "靜脈區域麻醉 IVRA Bier block lidocaine 止血帶 橈靜脈 外側隱靜脈 蹄墊 block 截趾 關節固定 化膿性關節炎 蹄浴",
+    snippet: "IVRA注射靜脈位置與步驟；修蹄、蹄墊、局部與全身抗生素、蹄浴、截趾與關節固定的治療原則。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "exam", sectionName: "國考方向（推測）",
+    keywords: "國考 考古 推測 牛蹄病考點",
+    snippet: "依講義重點推測的牛蹄病國考考法與答題重點。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 牛蹄病",
+    snippet: "八條考前重點：後外前內、潰瘍成因鏈、白線、皮膚病外觀、蹄葉炎、評分、五步驟、冠狀帶上方腫脹。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 6, weekTitle: "牛蹄病",
+    url: "大四上/大動物外科手術及實習/week06_牛蹄病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 蹄底潰瘍 腐蹄病",
+    snippet: "10題：外側蹄、潰瘍位置、蹄底厚度、跛行評分、水泡糜爛、白線病擴散、五步驟、蹄葉炎、兩題臨床情境。"
+  },
+  {
     subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",
     url: "總複習/解剖生理學/骨骼系統.html",
     section: "overview", sectionName: "骨骼系統總論",
@@ -2292,149 +2376,716 @@ const SEARCH_INDEX = [
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 IB 傳染性支氣管炎 病原型 血清型 false layer syndrome 親腎型 國考重點",
-    snippet: "八個臨床與國考重點：高發病率低死亡率、五種病原型、血清型決定疫苗保護、感染日齡與輸卵管永久損傷、產蛋損失、胚胎矮小化、多型別輪替疫苗。"
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "傳染性支氣管炎 IB infectious bronchitis 大方向 乙類 冠狀病毒 考試方向",
+    snippet: "IB的定位：冠狀病毒、乙類；發病率高死亡率低；要抓血清型與疫苗、五種病原型、輸卵管與日齡、親腎機轉、疫苗策略。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
-    section: "virology", sectionName: "病原學與基因型／血清型",
-    keywords: "IBV Coronaviridae group 3 coronavirus ssRNA 基因型 genotype S1基因 血清型 serotype 麻州 Mass 康州 Conn 阿肯色 Ark 台灣第七型",
-    snippet: "IBV屬冠狀病毒科Group 3，S1基因分32基因型(台灣第七型)；血清型依中和反應分類，決定疫苗保護力。"
+    section: "virology", sectionName: "病原學：基因型與血清型",
+    keywords: "Coronaviridae group 3 coronavirus 27.6 kb 基因型 S1 32型 第七型 血清型 Mass Conn Ark 中和反應",
+    snippet: "冠狀病毒科Group 3；基因型依S1（32型，台灣第七型），血清型依中和反應、決定疫苗保護。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
-    section: "pathotype", sectionName: "病原型分類",
-    keywords: "病原型 pathotype 親呼吸道型 respirotropic M41 Ark99 親腎型 nephrotropic 親輸卵管型 oviducttropic 親腺胃型 proventriculotropic QX-IBV 793B 胸肌壞死",
-    snippet: "五種病原型：親呼吸道型、親腎型(多數台灣分離株)、親輸卵管型(致false layer)、親腺胃型(QX-IBV)、793B致胸肌壞死。"
+    section: "pathotype", sectionName: "病原型",
+    keywords: "病原型 親呼吸道 M41 Ark99 親腎 Australia T Gray Holte TM-86 親輸卵管 false layer 親腺胃 QX-IBV 793B 胸肌壞死",
+    snippet: "五種病原型與代表毒株、主要病變；台灣多為親腎型且有呼吸症狀。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
     section: "clinical", sectionName: "臨床症狀",
-    keywords: "IB臨床症狀 潛伏期 發病率 死亡率 氣管囉音 產蛋下降 軟殼蛋 cystic oviduct D388 QX-IBV",
-    snippet: "潛伏期1-3天，發病率近100%但死亡率低；產蛋雞感染後產蛋下降可達50%，6-8週後回升但多數無法恢復正常。"
+    keywords: "潛伏期 1-3天 發病率100% 死亡率 25% 水便 產蛋下降 50% 軟殼 畸形蛋 蛋白水樣 D388 cystic oviduct",
+    snippet: "潛伏期1–3天、發病率近100%、6週齡以上幾乎不死；產蛋下降可達50%、6–8週回升多數無法回復。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
     section: "lesions", sectionName: "病理病變",
-    keywords: "IB病變 氣管纖毛脫落 氣囊混濁 支氣管肺炎 腎臟腫脹 尿酸鹽沉積 urate deposition 間質性腎炎 腺胃黏膜增厚 輸卵管永久傷害",
-    snippet: "氣管纖毛脫落、腎臟尿酸鹽沉積與間質性腎炎、輸卵管病變依感染日齡決定是否永久損傷。"
+    keywords: "氣管 纖毛 乾酪物 大腸桿菌 腎 尿酸鹽沉積 微絨毛 酸血症 脫水 間質性腎炎 輸卵管 1日齡 永久性傷害 6週齡",
+    snippet: "氣管纖毛脫落；親腎型微絨毛消失→多尿→酸血症脫水、尿酸鹽沉積；1日齡感染輸卵管永久損傷。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
-    section: "epidemiology", sectionName: "傳播與台灣流行病學",
-    keywords: "IB傳播 空氣傳播 排毒 台灣IB TW-I TW-II 1958 1964 屠宰場監測 基因重組",
-    snippet: "傳播力強(R=19.95)、排毒可達數月；台灣1958首例、1964分離病毒，本土株分TW-I/TW-II兩型，持續有重組株出現。"
+    section: "epidemiology", sectionName: "傳播與台灣流行",
+    keywords: "傳播 R 19.95 1公里 排毒 20週 台灣一型 TW-I 台灣二型 TW-II 變異株 基因重組 屠宰場監測",
+    snippet: "R=19.95、空氣傳1公里以上、排毒數月；台灣本土株TW-I、TW-II，易重組；歷年監測結果。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
-    section: "diagnosis", sectionName: "診斷",
-    keywords: "IB診斷 RT-PCR 病毒分離 SPF雞胚 allantoic cavity 尿囊腔 胚胎矮小化 dwarfing curling IFA IHC ELISA HI VN",
-    snippet: "病毒分離接種9-11日齡SPF雞胚尿囊腔，陽性見胚胎矮小化捲曲；抗體偵測ELISA/IFA/HI/VN具血清型特異性。"
+    section: "differential", sectionName: "鑑別診斷",
+    keywords: "鑑別診斷 新城病 禽流感 ILT 死亡率 腎尿酸鹽 IB vs ND 疫苗策略",
+    snippet: "IB、ND、HPAI、ILT四病比較；禽流感腎尿酸鹽無法與IB區分；IB與ND疫苗策略比較。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
-    section: "vaccine", sectionName: "疫苗與免疫計畫",
-    keywords: "IB疫苗 活毒疫苗 H120 死毒疫苗 肉雞接種計畫 蛋雞接種計畫 種雞接種計畫 交叉保護 多型別輪替 圓桌會議",
-    snippet: "肉雞與蛋雞/種雞接種計畫比較、活毒與死毒併用優缺點、交叉保護不佳須多型別輪替接種。"
+    section: "diagnosis", sectionName: "實驗室診斷",
+    keywords: "病毒分離 SPF雞胚 尿囊腔 矮小化 捲曲 RT-PCR IFA IHC ELISA HI VN 血清型特異性 WOAH 診斷方法用途",
+    snippet: "樣本與方法；雞胚矮小化捲曲；抗體檢測具血清型特異性；WOAH各方法適用用途表。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
+    url: "大四上/禽病學/week03_傳染性支氣管炎.html",
+    section: "vaccine", sectionName: "疫苗與接種計畫",
+    keywords: "疫苗 H120 減毒 繼代 M41 Ma5 H52 4/91 TM86W 台灣型 接種計畫 粗噴霧 死毒 開產前4週 圓桌會議 多型別 混合疫苗 不良反應",
+    snippet: "減毒原理、台灣商用疫苗株、四種接種計畫時程途徑、活毒vs活毒＋死毒優缺點、圓桌會議建議、多型別輪替、接種後反應原因。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
     section: "control", sectionName: "疫苗品管與場內處置",
-    keywords: "IB疫苗品管 EID50 力價試驗 安全試驗 場內處置 糖水 電解質 酸血症 消毒 福馬林 紫外線",
-    snippet: "疫苗法定品管要點；場內支持性照護：保溫防擁擠、糖水降尿酸、徹底消毒同進同出，病毒對紫外線敏感。"
+    keywords: "場內處置 保溫 糖水 尿酸 酸血症 消毒 同進同出 紫外線 福馬林 疫苗品管 300 EID50 中和指數",
+    snippet: "支持療法：保溫、糖水、補鹽、消毒同進同出；疫苗法定品管要點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
+    url: "大四上/禽病學/week03_傳染性支氣管炎.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 IB",
+    snippet: "依講義推測的考法：病原型配對、基因型vs血清型、false layer、親腎機轉、糖水、胚胎變化、疫苗策略。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
     section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 考試 IB 傳染性支氣管炎",
-    snippet: "九點IB總複習：病毒分類、病原型、臨床症狀死亡率對比、輸卵管年齡依賴損傷、腎病機轉、流行病學、診斷、疫苗策略、場內處置。"
+    keywords: "學習重點 考前複習 傳染性支氣管炎",
+    snippet: "九條考前重點整理。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 3, weekTitle: "傳染性支氣管炎 (IB)",
     url: "大四上/禽病學/week03_傳染性支氣管炎.html",
     section: "quiz", sectionName: "練習題",
-    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 IB 傳染性支氣管炎 國考",
-    snippet: "涵蓋病原學、病原型、臨床病理、流行病學、診斷、疫苗計畫等重點的練習題（共14題），點擊即可顯示答案與解析。"
+    keywords: "練習題 選擇題 是非題 臨床情境題 IB 傳染性支氣管炎",
+    snippet: "18題：分類、血清型、病原型、輸卵管、親腎機轉、診斷、疫苗計畫、三題臨床情境。"
   },
   {
-    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
-    url: "大四上/禽病學/week02_新城病.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 ND 新城病 APMV-1 病原型 F蛋白 ICPI 國考重點",
-    snippet: "八個臨床與國考重點：甲類傳染病宿主範圍廣、單一血清型五病原型、F蛋白切位毒力機轉、WOAH判定標準、內臟型神經型病程、台灣三次大流行、免疫策略、人畜共通輕微。"
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "傳染性喉頭氣管炎 ILT infectious laryngotracheitis 大方向 疱疹病毒 考試方向",
+    snippet: "ILT的定位：GaHV-1疱疹病毒、咳血、病變侷限呼吸道、三叉神經節潛伏、接種雞也帶毒；與ND、AI、IB的區分點。"
   },
   {
-    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
-    url: "大四上/禽病學/week02_新城病.html",
-    section: "virology", sectionName: "病原學：病毒分類與病原型",
-    keywords: "NDV APMV-1 Paramyxoviridae Avulavirus ssRNA HN蛋白 F蛋白 病原型 vvND nvND mesogenic lentogenic 內臟強毒型 神經強毒型 中間毒型 弱毒型",
-    snippet: "NDV屬副黏液病毒科Avulavirus屬，單一血清型五種病原型：vvND、nvND、中間毒型、弱毒型、無病原性型。"
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "virology", sectionName: "病原：疱疹病毒",
+    keywords: "Herpesviridae Alphaherpesvirinae Iltovirus GaHV-1 DNA 二十面體 封套 核內包涵體",
+    snippet: "疱疹病毒科α亞科Iltovirus屬；DNA病毒、核內複製造成嗜酸性核內包涵體、潛伏再發。"
   },
   {
-    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
-    url: "大四上/禽病學/week02_新城病.html",
-    section: "pathogenesis", sectionName: "致病機轉：F蛋白切位與毒力",
-    keywords: "F0蛋白 F1 F2 cleavage site 鹼性胺基酸 trypsin furin 病毒血症 WOAH ICPI intracerebral pathogenicity index phenylalanine 117",
-    snippet: "強毒株F0切位多鹼性胺基酸可被廣泛蛋白酶切開全身感染；弱毒株只能被trypsin切開侷限呼吸消化道；WOAH新城病判定標準。"
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "latency", sectionName: "發生情形與潛伏感染",
+    keywords: "潛伏期 6-14天 嚴重型 90-100% 5-70% 輕微型 三叉神經節 15個月 緊迫 再發 間歇排毒 無病毒血症 接觸傳染 機械傳播 無介蛋傳播",
+    snippet: "嚴重型發病率90–100%死亡率5–70%；三叉神經節潛伏長達15個月、緊迫再發；無病毒血症；無介蛋傳播。"
   },
   {
-    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
-    url: "大四上/禽病學/week02_新城病.html",
-    section: "epidemiology", sectionName: "宿主、傳播與台灣流行病學",
-    keywords: "ND宿主 250種鳥類 鴨感受性低 空氣傳染 介蛋傳染 垂直傳播 台灣ND 1968 1984 1994 大流行 甲類動物傳染病",
-    snippet: "宿主範圍達250種以上鳥類，鴨感受性最低；台灣三次大流行(1968-69/1984-85/1994-95)具體死亡數字。"
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "clinical", sectionName: "臨床症狀",
+    keywords: "咳血 帶血黏液 伸頸呼吸 囉音 喘息 結膜炎 鼻竇炎 產蛋下降 5-15%",
+    snippet: "急性重度：伸頸呼吸、咳出帶血黏液（特徵）；輕度：結膜炎、鼻竇炎、產蛋下降5–15%，兩週內回復。"
   },
   {
-    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
-    url: "大四上/禽病學/week02_新城病.html",
-    section: "clinical", sectionName: "臨床症狀與病理病變",
-    keywords: "ND臨床症狀 潛伏期 綠色下痢便 扭頸 神經症狀 內臟型 神經型 腺胃出血 腸道潰瘍出血壞死 非化膿性腦膜腦炎 perivascular cuffing",
-    snippet: "潛伏期5-6天，綠色下痢便；內臟型腸道出血猝死，神經型先呼吸症狀後扭頸；腺胃出血需與AI鑑別。"
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "lesions", sectionName: "病變",
+    keywords: "喉頭 氣管 出血 乾酪樣物 偽膜 diphtheritic membrane 纖毛消失 syncytia 融合細胞 嗜酸性核內包涵體 侷限呼吸道",
+    snippet: "喉頭氣管出血、乾酪樣物、偽膜；融合細胞與嗜酸性核內包涵體；病變侷限呼吸道、無腸腎病變。"
   },
   {
-    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
-    url: "大四上/禽病學/week02_新城病.html",
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "differential", sectionName: "鑑別診斷",
+    keywords: "鑑別診斷 新城病 禽流感 傳染性支氣管炎 咳血 核內包涵體 CAM 病毒血症",
+    snippet: "ILT、ND、HPAI、IB比較：DNA病毒、咳血、只有呼吸道病變、核內包涵體、CAM分離、潛伏帶毒。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "diagnosis", sectionName: "實驗室診斷",
+    keywords: "PCR 初代細胞培養 雞胚肝 CAM 絨毛尿囊膜 白色斑塊 plaques 電顯 ELISA VN IFA AGID WOAH",
+    snippet: "PCR、細胞培養、9–11日齡雞胚CAM接種見白色斑塊；抗體ELISA、VN、IFA、AGID；WOAH方法用途表。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "vaccine", sectionName: "疫苗與接種計畫",
+    keywords: "疫苗 點眼 飲水最差 翼穿刺 死毒 載體疫苗 HVT 醣蛋白D I 種雞 2劑 開產前4週 單一血清型 細胞性免疫 ELISA 10天 潛伏帶毒 混養",
+    snippet: "點眼最佳飲水最差；死毒少用、HVT載體疫苗；主要免疫種雞、2劑；ELISA力價與保護無關；前後10天不打其他活毒；接種雞不與未接種雞混養。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "control", sectionName: "疫苗品管與場內處置",
+    keywords: "祛痰劑 支持療法 全面接種 脂溶劑 氯仿 乙醚 消毒 效力試驗 100 CID50 80%",
+    snippet: "支持療法與爆發時全面接種；病毒對脂溶劑、熱、消毒水敏感；活毒疫苗國內檢驗標準。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 ILT",
+    snippet: "依講義推測的考法與答題重點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 ILT Summary",
+    snippet: "講義Summary五條。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 4, weekTitle: "傳染性喉頭氣管炎 (ILT)",
+    url: "大四上/禽病學/week04_傳染性喉頭氣管炎.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 ILT 傳染性喉頭氣管炎",
+    snippet: "12題：潛伏部位、鑑別、病毒血症、CAM、接種途徑、ELISA、疫苗注意事項、包涵體、三題臨床情境。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "寵物鳥 鸚鵡 病毒病 pet bird 大方向 PDD 多瘤 PBFD 痘 高雄 剖檢 考試方向",
+    snippet: "鸚鵡四大病毒病的定位：剖檢死亡鸚鵡58%為病毒病；要抓構造與包涵體、症狀三圈、PDD、多瘤PCR判讀、PBFD。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "compare", sectionName: "四病比較與症狀篩選",
+    keywords: "比較 症狀篩選 神經 消化道 羽毛 皮膚 包涵體 核內 細胞質內 疫苗 消毒 三圈圖",
+    snippet: "依神經、消化道、羽毛皮膚症狀篩選四種病毒；四病一表：核酸、封套、易感鳥、症狀、包涵體、檢體、疫苗、消毒。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "pdd", sectionName: "玻那病毒（PDD）",
+    keywords: "玻那病毒 bornavirus PaBV ABV 腺胃擴張症 proventricular dilatation disease 金剛鸚鵡消瘦病 灰鸚鵡 神經節神經炎 腺胃龍骨比 0.48 泄殖腔拭子 53% QM7 celecoxib metoclopramide",
+    snippet: "2008年確認玻那病毒；親神經；神經症狀66%、未消化食物、逆流；腺胃/龍骨比>0.48；泄殖腔拭子RT-PCR 53%、血液0%；無疫苗無藥。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "polyoma", sectionName: "多瘤病毒",
+    keywords: "多瘤病毒 polyomavirus APyV 虎皮鸚鵡雛鳥病 budgerigar fledgling disease French molt runners creepers 嗜鹼性核內包涵體 PCR判讀 Psittimune",
+    snippet: "環狀dsDNA無封套；虎皮、愛情鳥、玄鳳易感、鳳頭有抵抗力；French molt；嗜鹼性核內包涵體；血液/泄殖腔PCR判讀；有疫苗。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "pbfd", sectionName: "環狀病毒（PBFD）",
+    keywords: "鸚鵡喙羽病 PBFD circovirus 環狀病毒 羽毛脫落 喙異常 免疫抑制 全血球減少 嗜鹼性細胞質內包涵體 羽髓 戊二醛 進口鳥 72%",
+    snippet: "環狀ssDNA最小極穩定；進口鳥陽性72%；對稱性羽毛脫落、喙異常、免疫抑制；細胞質內包涵體；PCR血液羽髓糞便；2%戊二醛；無疫苗。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "pox", sectionName: "痘病毒",
+    keywords: "痘病毒 avipoxvirus 金絲雀痘 乾性痘 濕性痘 dry pox wet pox Bollinger bodies 吸血昆蟲 痂皮 CAM 痘斑 POXIMUNE",
+    snippet: "磚形dsDNA有封套；物種專一，金絲雀痘死亡率>70%；傷口與吸血昆蟲傳播；乾性與濕性；Bollinger bodies；金絲雀疫苗。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 寵物鳥",
+    snippet: "依講義推測的考法與答題重點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 寵物鳥病毒病",
+    snippet: "六條考前重點整理。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 5, weekTitle: "寵物鳥病毒病",
+    url: "大四上/禽病學/week05_寵物鳥病毒病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 鸚鵡 PDD 多瘤 PBFD",
+    snippet: "12題：包涵體、PDD病原與檢體、腺胃比、多瘤PCR判讀、易感鳥、PBFD機轉、疫苗、痘病毒、三題臨床情境。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "總論 解剖 家禽 overview anatomy 大方向",
+    snippet: "禽病學入門：家禽與育種目標、禽類與哺乳類差異、大體解剖與各病病變位置、採樣。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "poultry", sectionName: "家禽與禽類特徵",
+    keywords: "家禽 鴕鳥 紅肉 鴨 鵝 絨羽 肥肝 分類 鶉雞目 雉科 雞屬 ZW ZZ 性別決定 78 無橫膈 氣囊 無汗腺 泄殖腔",
+    snippet: "家禽產品與種類；雞的分類；ZW性別決定（雌性決定子代性別、雞2n=78）；禽類無牙、無汗腺、無橫膈、氣囊通氣。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "breeding", sectionName: "雞、鴨、鵝的育種目標",
+    keywords: "育種 白肉雞 飼料換肉率 Ross Arbor Acres Cobb 蛋雞 Lohmann Hy-Line ISA 有色雞 土雞 土番鴨 騾鴨 mule duck 番鴨 北京鴨 菜鴨 鵝",
+    snippet: "白肉雞、蛋雞、有色雞的育種目標與品系；鴨鵝品種；土番鴨沒有後代。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "industry", sectionName: "台灣家禽產業",
+    keywords: "在養量 113年 蛋雞 肉雞 白肉雞 有色肉雞 中央畜產會",
+    snippet: "113年第1季雞隻在養量1億269萬隻；肉雞49.5%、蛋雞45.5%。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "anatomy", sectionName: "大體解剖與臨床意義",
+    keywords: "嗉囊 腺胃 肌胃 十二指腸環 胰臟 盲腸 泄殖腔 華氏囊 氣囊 9個 胸腺 脾 腎 肺 中空骨 輸卵管 漏斗部 膨大部 峽部 子宮 氣管拭子 泄殖腔拭子",
+    snippet: "消化道順序與各器官在之後疾病的意義；呼吸、免疫、生殖器官；採樣：氣管與泄殖腔拭子。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "histology", sectionName: "正常組織與血液",
+    keywords: "血液抹片 有核紅血球 異嗜球 heterophil 華氏囊 皮質 髓質 肺 副支氣管",
+    snippet: "禽類有核紅血球、異嗜球；正常華氏囊濾泡的皮質與髓質；肺組織。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 解剖",
+    snippet: "依講義推測的考法。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 總論 解剖",
+    snippet: "五條考前重點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 6, weekTitle: "總論與解剖",
+    url: "大四上/禽病學/week06_總論與解剖.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 解剖 ZW 華氏囊",
+    snippet: "8題：ZW、氣囊、分類、消化道順序、育種目標、土番鴨、華氏囊、採樣情境。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "種禽 生產醫學 生物安全 production medicine biosecurity 大方向",
+    snippet: "種雞金字塔、生產週期四階段與生物安全的定位。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "structure", sectionName: "種雞的層級與金字塔",
+    keywords: "純系 祖代 GP 父母代 PS 商用代 金字塔 3年 垂直傳播 ALV PD 雛白痢 ALV-J 70% 兼用型 種蛋性別鑑定",
+    snippet: "純系→GP→PS→商用；週期3年；垂直傳播病ALV、PD；台灣2010 ALV-J陽性70%。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "brooding", sectionName: "育雛",
+    keywords: "育雛 入雛前 預熱 舍溫 35-36 體溫 40-41 濕度 60% 空氣品質 氨 20ppm 二氧化碳 雛雞行為 賊風 嗉囊",
+    snippet: "入雛前準備、各雞齡舍溫、雛雞體溫40–41°C、空氣品質、以行為判斷溫度、24小時查嗉囊。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "rearing", sectionName: "育成：整齊度",
+    keywords: "育成 整齊度 uniformity 秤重 分欄 grading 採食 飲水 22週",
+    snippet: "整齊度靠秤重分欄與足夠採食飲水；約22週配種開產。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "laying", sectionName: "開產與產蛋：光照與種蛋",
+    keywords: "光照 22-24h 8-10h 13-16h 光照刺激 22週 種蛋品質 軟殼 畸形蛋 蛋白蛋 公母分飼",
+    snippet: "光照計畫與兩個不可以；公母分飼；異常蛋與原因（ND、IB等）。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "incubation", sectionName: "孵化與疫苗",
+    keywords: "孵化 種蛋儲存 16-18度 入孵器 1-18天 出雛器 19-21天 翻蛋 疫苗 接種方式 翼膜穿刺",
+    snippet: "種蛋16–18°C；入孵器1–18天、出雛器19–21天；疫苗因場而異與接種方式。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "biosecurity", sectionName: "生物安全與風險來源",
+    keywords: "生物安全 biosecurity 風險 人 車 水 設備 野鳥 鼠 淨區 汙染區 單向動線 one way 密閉式禽舍 圍網 不拜訪其他場",
+    snippet: "定義、風險來源與對策：場區配置、人車消毒、防鳥防鼠、密閉式禽舍；德國預防措施。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "disinfection", sectionName: "清潔與消毒",
+    keywords: "清潔 消毒 空欄期 燻煙 醛類 氯劑 碘劑 四級銨 酚類 過氧化物 芽胞 寄生蟲 球蟲 飲水器",
+    snippet: "先清潔再消毒、空欄期進行；消毒劑效力表：寄生蟲全部無效、芽胞難殺、四級銨對病毒差。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 生產醫學",
+    snippet: "依講義推測的考法。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 種禽 生物安全",
+    snippet: "七條考前重點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
+    url: "大四上/禽病學/week07_種禽生產醫學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 育雛 光照 生物安全 消毒",
+    snippet: "9題：層級、溫度、雛雞行為、光照、孵化、消毒劑、先清潔再消毒、兩題臨床情境。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "馬立克病 MD Marek's disease 大方向 腫瘤 T細胞 淋巴瘤 免疫抑制 考試方向",
+    snippet: "MD的定位：疱疹病毒T細胞淋巴瘤、毒力漸強、第一個抗腫瘤疫苗但不防感染；要抓血清型、傳播、病型、診斷、鑑別。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "neoplasia", sectionName: "家禽腫瘤性疾病總覽",
+    keywords: "家禽腫瘤 感染性 非感染性 MDV ALV REV 疱疹病毒 反轉錄病毒",
+    snippet: "感染性與非感染性腫瘤比較；MD（疱疹DNA）、禽白血病與網狀內皮增生症（反轉錄RNA）。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "virology", sectionName: "病原與血清型",
+    keywords: "Mardivirus Gallid herpesvirus 2 dsDNA 175kb 血清型 1 2 3 CVI988 Rispens SB-1 HVT 火雞疱疹病毒 vv+MDV vvMDV vMDV mMDV",
+    snippet: "疱疹病毒科Mardivirus屬；三血清型：1型致腫瘤（CVI988）、2型SB-1、3型HVT。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "epidemiology", sectionName: "宿主與傳播",
+    keywords: "宿主 家雞 傳播 空氣 羽毛毛囊上皮 FFE 皮屑 終身帶毒 年紀越小 母雞",
+    snippet: "經羽毛毛囊上皮排毒、皮屑空氣吸入；終身帶毒；越小越易發病；母雞腫瘤多。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "pathogenesis", sectionName: "致病機轉",
+    keywords: "致病機轉 吸入 肺 吞噬細胞 B細胞 T細胞 溶細胞期 潛伏 轉形 meq 免疫抑制",
+    snippet: "吸入→肺→B細胞→活化T細胞（1週）→潛伏T細胞轉形（3週）→神經與內臟淋巴瘤；毛囊排毒。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "clinical", sectionName: "臨床型與病型",
+    keywords: "潛伏期4週 6週齡 典型 急性 急性溶細胞型 早期死亡症候群 暫時性麻痺 神經型 坐骨神經 內臟型 腺胃 燒瓶 卵巢 花椰菜 皮膚型 毛囊 眼型 灰眼 瞳孔變形",
+    snippet: "臨床型依毒力；四種病型：神經（坐骨神經單側腫大）、內臟（腺胃燒瓶、卵巢花椰菜）、皮膚（毛囊）、眼（灰眼）。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
     section: "diagnosis", sectionName: "診斷",
-    keywords: "ND診斷 ICPI intracerebral pathogenicity index HI 血球凝集抑制試驗 VN ELISA IFA 血清學監測",
-    snippet: "病原性鑑定用ICPI(≥0.7判定強毒)；血清學HI最常用，未疫苗地區主動監測、疫苗地區監測抗體。"
+    keywords: "診斷 腫瘤非感染 OIE 多形性 淋巴細胞 病毒分離 CEF DEF PCR meq 疫苗株 野外株 羽毛尖 IFA 細胞依附性 中和抗體",
+    snippet: "確診要診斷腫瘤非感染；PCR meq區分疫苗株與野外株；細胞依附性病毒，中和抗體只擋游離病毒。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "differential", sectionName: "MD／LL／RE 鑑別",
+    keywords: "鑑別 淋巴性白血病 LL 網狀內皮增生症 RE 16週 華氏囊 濾泡間 濾泡內 結節 神經病變",
+    snippet: "MD、LL、RE比較表：年齡、麻痺、神經、華氏囊瀰漫/濾泡間vs結節/濾泡內、肝脾。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "vaccine", sectionName: "疫苗與疫苗失敗",
+    keywords: "疫苗 第一個抗腫瘤疫苗 HVT SB-1 CVI988 雙價 in ovo 蛋內接種 17-18天 液態氮 -196 解凍90秒 1小時 疫苗失敗 母源抗體 抗生素 Aureomycin Terramycin 台灣",
+    snippet: "疫苗組合與蛋內接種；液態氮保存與配製；台灣量身訂做計畫；疫苗失敗原因。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 馬立克病",
+    snippet: "依講義推測的考法。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 馬立克病",
+    snippet: "七條考前重點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
+    url: "大四上/禽病學/week08_馬立克病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 馬立克病 MD",
+    snippet: "12題：血清型、傳播、病型、機轉、疫苗不防感染、鑑別、保存、PCR、疫苗失敗、三題臨床情境。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "禽白血病 ALV 網狀內皮增生症 REV 反轉錄病毒 大方向 腫瘤 免疫耐受 考試方向",
+    snippet: "兩種反轉錄病毒腫瘤；無疫苗只能清除；ALV垂直傳播造成免疫耐受；REV汙染疫苗。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "alv", sectionName: "ALV 病毒與亞群",
+    keywords: "Alpharetrovirus ssRNA provirus 前病毒 gag p27 pol env gp85 亞群 A B C D E J 內源性 外源性 慢性轉形 急性轉形 LTR 原致癌基因 ALV-K",
+    snippet: "ALV構造與蛋白（p27、gp85決定亞群）；慢性vs急性轉形；亞群A–J與E內源性不致腫瘤；ALV-K。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "transmission", sectionName: "傳播與 V／A／S 判讀",
+    keywords: "水平傳播 垂直傳播 免疫耐受 immune tolerance V+A-S+ 病毒血症 抗體 排毒 配子 內源性 EAV-HP ALV-J",
+    snippet: "外源性水平（J>A）與垂直（母雞→蛋→免疫耐受）；內源性經配子；V/A/S四種組合判讀。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "allesions", sectionName: "臨床與病變：LL 與 ML",
+    keywords: "淋巴性白血病 LL ALV-A 4個月 腹部膨大 華氏囊 結節 骨髓性白血病 ML ALV-J 肝脾腫大 17週 9週 20週",
+    snippet: "症狀非特異；LL（ALV-A、4月齡以上、華氏囊結節）vs ML（ALV-J、肝脾腫大）。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "alcontrol", sectionName: "診斷、清除與處置",
+    keywords: "病毒分離 黃金標準 PCR RT-PCR 多重PCR p27 ELISA DF-1 無CPE 清除 eradication 胎糞 蛋白 陰道拭子 HPRS-103 淘汰 空欄四週",
+    snippet: "診斷方法與困難；清除歷史與ALV-J清除計畫採樣；場內處置。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "re", sectionName: "REV 病毒與疾病",
+    keywords: "REV Gammaretrovirus 無亞群 A株 非缺陷 helper T株 缺陷 v-rel 矮小症候群 runting 白羅曼鵝 土番鴨 昆蟲 蚊 禽痘疫苗 馬立克疫苗 汙染 LTR",
+    snippet: "REV：A株非缺陷helper、慢性、矮小症候群；T株缺陷v-rel急性；台灣鴨鵝病例；昆蟲傳播與疫苗汙染；無疫苗。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "differential", sectionName: "MD／LL／ML／RE 鑑別",
+    keywords: "鑑別 MD LL ML RE 年齡 4週 14週 水平 垂直 神經 眼 羽毛毛囊 免疫抑制 免疫耐受",
+    snippet: "四病比較：MD最早、只水平、神經與眼；LL/ML/RE >14週、可垂直；兩份講義年齡數字差異。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 禽白血病",
+    snippet: "依講義推測的考法。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 禽白血病 網狀內皮增生症",
+    snippet: "八條考前重點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 9, weekTitle: "禽白血病與網狀內皮增生症",
+    url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 ALV REV 免疫耐受",
+    snippet: "11題：亞群、gp85、免疫耐受、p27 ELISA、LL vs ML、轉形、DF-1、REV、四病鑑別、兩題臨床情境。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "禽流感 AI avian influenza HPAI LPAI 大方向 H5 H7 通報 考試方向",
+    snippet: "禽流感的定位：A型流感、水禽天然宿主、H5/H7須通報、H5N1 2.3.4.4b跨物種；要抓HA/NA、HA切位、IVPI、典型病變、抗原變異與疫苗。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "virology", sectionName: "病毒構造與命名",
+    keywords: "Orthomyxoviridae 正黏液病毒科 Alphainfluenzavirus 8段 RNA RNP NP PA PB1 PB2 命名 HxNy",
+    snippet: "正黏液病毒科A型；80–120 nm有封套、8段(–)ssRNA；命名：型別/宿主/地點/株號/年份(HxNy)。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "proteins", sectionName: "HA 與 NA",
+    keywords: "HA 血球凝集素 三聚體 H1-19 HA1 受體 HA2 融合 低pH NA 神經胺酸酶 四聚體 N1-11 oseltamivir 克流感 SAα2,3Gal SAα2,6Gal 受體 HA0 融合胜肽 M2 amantadine 脫殼 鑰匙 剪刀 中和抗體 血球凝集",
+    snippet: "HA是鑰匙、NA是剪刀；HA0切開才有感染力；HA1結合受體、HA2融合；NA切斷受體釋出病毒、oseltamivir抑制；禽型α2,3、人型α2,6受體。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "pathogenicity", sectionName: "HPAI vs. LPAI",
+    keywords: "鹼性胺基酸 精胺酸 離胺酸 R K 正電 furin trypsin 前蛋白轉化酶 高基氏體 HPAI LPAI HA0 切位 鹼性胺基酸 trypsin 蛋白酶 突變 水禽",
+    snippet: "HPAI的HA0切位多個鹼性胺基酸、全身感染、由LPAI突變而來；LPAI只被trypsin樣酶切開、在水禽中維持。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "ecology", sectionName: "生態、宿主與傳播",
+    keywords: "自然循環 水禽 濱鳥 豬 跨物種 傳播 糞便 結膜 候鳥 遷徙路線",
+    snippet: "水禽與濱鳥間的自然循環、跨物種傳播；呼吸道、結膜、糞便排毒，禽類消化道感染重要；候鳥攜帶。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "clinical", sectionName: "臨床症狀與病變",
+    keywords: "潛伏期 3天 頭臉水腫 雞冠腫大 眼眶水腫 足出血 腺胃移行部出血 胰臟出血壞死 腦炎 圍管現象",
+    snippet: "潛伏期3天；典型病變雞冠腫大、眼眶水腫、足出血、腺胃出血；台灣株與ND、IB肉眼無法區分；台灣H5胰臟出血壞死。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "differential", sectionName: "鑑別診斷",
+    keywords: "鑑別診斷 新城病 傳染性支氣管炎 ILT 腺胃出血 通報",
+    snippet: "HPAI、ND、IB、ILT四病比較；急性高死亡＋腺胃出血先當必須通報疾病處理。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "diagnosis", sectionName: "檢驗與病原性判定",
+    keywords: "採檢 3日內 PBS 4度 -80度 病毒分離 雞胚 血球凝集 AGID HI NI RT-PCR RT-LAMP IVPI 1.2 6週齡 8隻 75% HA切位 OFFLU LPAI 判定 ICPI 比較",
+    snippet: "採檢保存、病毒分離流程、IVPI≥1.2與8隻死6–8隻與切位序列判定HPAI、LPAI判定、IVPI vs ICPI、病毒排出與抗體時間。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "epidemiology", sectionName: "疫情現況與跨物種傳播",
+    keywords: "疫情 2022 67國 1.3億 H5N1 clade 2.3.4.4b 失去季節性 台灣 115年 撲殺 水貂 海獅 貓 乳牛 genotype B3.13 人傳人",
+    snippet: "全球與台灣疫情；H5N1 2.3.4.4b跨物種傳播至水貂、海獅、貓、美國乳牛與人；台灣乳牛監測陰性。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "control", sectionName: "防疫檢疫與生物安全",
+    keywords: "防疫 檢疫 法規 緊急應變 生物安全 非開放式禽舍 防鳥 消毒踏槽 15-20秒 飼料桶 通報",
+    snippet: "相關法規；生物安全金口訣與常見錯誤：非開放式禽舍、防鳥防鼠、人車消毒、消毒踏槽、飼料桶位置。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "vaccine", sectionName: "抗原變異與疫苗",
+    keywords: "抗原漂變 antigenic drift 抗原移型 antigenic shift 重組 八質體 反向遺傳 mRNA疫苗 RESPONS Volvac 疫苗定位 WOAH EFSA 預防性接種 緊急保護性接種 3公里 監測 DIVA",
+    snippet: "抗原漂變vs移型；八質體、mRNA與重組疫苗；WOAH與EFSA：疫苗是補充工具、需配合監測、爆發時3公里緊急接種。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 禽流感",
+    snippet: "依講義推測的考法與答題重點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 禽流感",
+    snippet: "八條考前重點整理。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
+    url: "大四上/禽病學/week01_禽流感.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 計算題 臨床情境題 IVPI 禽流感",
+    snippet: "14題：HA/NA、受體、切位機轉、HPAI定義、病變鑑別、病毒分離、抗原移型、疫苗、IVPI計算、三題臨床情境。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
     url: "大四上/禽病學/week02_新城病.html",
-    section: "vaccine", sectionName: "疫苗與免疫計畫",
-    keywords: "ND疫苗 B1 La Sota clone 30 點眼接種 噴霧接種 肉雞接種計畫 蛋雞種雞接種計畫 活毒死毒併用 載體疫苗 vector vaccine 疫苗接種後不良反應",
-    snippet: "單一血清型使弱毒疫苗廣效保護；點眼接種優於噴霧；肉雞與蛋雞/種雞各三種接種計畫比較。"
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "新城病 ND Newcastle disease 大方向 重點摘要 甲類 WOAH 通報 考試方向",
+    snippet: "新城病的定位：APMV-1、甲類動物傳染病與WOAH通報；要抓F蛋白切位、法定定義、病原性試驗、vvND/nvND、疫苗；最易與HPAI混淆。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
     url: "大四上/禽病學/week02_新城病.html",
-    section: "zoonotic", sectionName: "人畜共通與公衛",
-    keywords: "ND人畜共通 zoonotic 結膜炎 conjunctivitis 實驗室工作人員 屠宰場 疫苗施用者 HI抗體陰性",
-    snippet: "人類感染輕微，多為職業暴露，通常僅3-4天結膜炎、1-2週痊癒，HI抗體通常陰性。"
+    section: "virology", sectionName: "病原學與病原型",
+    keywords: "APMV-1 Paramyxoviridae Avulavirus HN F 血清型 病原型 vvND nvND mesogenic lentogenic 內臟強毒型 神經強毒型",
+    snippet: "副黏液病毒科Avulavirus屬，HN凝集紅血球、F膜融合；1個血清型5個病原型。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
+    url: "大四上/禽病學/week02_新城病.html",
+    section: "pathogenesis", sectionName: "F 蛋白切位與毒力",
+    keywords: "F蛋白 F0 F1 F2 切位 鹼性胺基酸 trypsin furin 113 116 117 苯丙胺酸 ICPI 0.7 1.5 WOAH定義",
+    snippet: "強毒株切位多個鹼性胺基酸被全身蛋白酶切開、弱毒株只被trypsin切；WOAH定義ICPI≥0.7或113–116≥3鹼性胺基酸＋117為F；ICPI≥1.5強毒。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
+    url: "大四上/禽病學/week02_新城病.html",
+    section: "epidemiology", sectionName: "宿主、傳播與台灣流行史",
+    keywords: "宿主 鴨 感受性最低 2-6週齡肉雞 傳播 介蛋傳染 台灣流行史 1940 甲類",
+    snippet: "宿主廣、鴨最低；空氣糞便飲水器具野鳥與介蛋傳播；台灣三次大流行。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
+    url: "大四上/禽病學/week02_新城病.html",
+    section: "clinical", sectionName: "臨床症狀與病變",
+    keywords: "潛伏期 綠色下痢 顏面水腫 扭頸 腺胃乳突部出血 盲腸扁桃 潰瘍 非化膿性腦膜腦炎 圍管現象",
+    snippet: "潛伏期5–6天；vvND腸管出血近100%、nvND呼吸神經10–90%；腺胃出血要與AI鑑別；免疫雞可能僅神經症狀。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
+    url: "大四上/禽病學/week02_新城病.html",
+    section: "differential", sectionName: "鑑別診斷",
+    keywords: "鑑別診斷 禽流感 HPAI 傳染性支氣管炎 IB 傳染性喉頭氣管炎 ILT 腺胃出血 IVPI 1.2 核內包涵體",
+    snippet: "ND、HPAI、IB、ILT四病比較：病毒、分級、毒力決定、症狀、特徵病變、毒力試驗；ND與HPAI肉眼無法區分。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
+    url: "大四上/禽病學/week02_新城病.html",
+    section: "diagnosis", sectionName: "實驗室診斷與病原性鑑定",
+    keywords: "採樣 病毒分離 SPF雞胚 尿囊腔 HA 盲目繼代 RT-PCR 序列分析 MDT ICPI IVPI 試算 HI 血清學",
+    snippet: "採樣保存、雞胚分離與HA、F基因定序；MDT<60h強毒、ICPI 0–2、IVPI 0–3判讀；互動ICPI試算；HI監測。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
+    url: "大四上/禽病學/week02_新城病.html",
+    section: "vaccine", sectionName: "疫苗與接種計畫",
+    keywords: "疫苗 B1 La Sota clone 30 Mukteswar 點眼 噴霧 飲水 混合疫苗 接種計畫 肉雞 蛋雞 種雞 死毒 母源抗體 載體疫苗 rHVT-ND in ovo 接種後反應",
+    snippet: "單一血清型弱毒疫苗；點眼最佳；疫苗株強弱與黴漿菌雞群；六種接種計畫時程途徑；rHVT-ND載體疫苗；接種後反應。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
+    url: "大四上/禽病學/week02_新城病.html",
+    section: "zoonotic", sectionName: "人畜共通",
+    keywords: "人畜共通 結膜炎 實驗室 屠宰場 疫苗施用者",
+    snippet: "人類偶發感染，多為3–4天結膜炎，1–2週痊癒，HI常陰性。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
+    url: "大四上/禽病學/week02_新城病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "國考 期中考 考試方向 推測 新城病",
+    snippet: "依講義推測的考法與答題重點：機轉、法定定義、病原性試驗數字、ICPI計算、病原型、鑑別、疫苗。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
     url: "大四上/禽病學/week02_新城病.html",
     section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 考試 ND 新城病",
-    snippet: "八點ND總複習：病毒分類、F蛋白毒力機轉、WOAH定義、內臟型神經型對比、鑑別診斷、台灣流行史、疫苗策略、人畜共通。"
+    keywords: "學習重點 考前複習 新城病",
+    snippet: "八條考前重點整理。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 2, weekTitle: "新城病 (ND)",
     url: "大四上/禽病學/week02_新城病.html",
     section: "quiz", sectionName: "練習題",
-    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 ND 新城病 國考",
-    snippet: "涵蓋病原學、致病機轉、流行病學、臨床病理、診斷、疫苗計畫等重點的練習題（共14題），點擊即可顯示答案與解析。"
+    keywords: "練習題 選擇題 是非題 計算題 臨床情境題 ICPI 新城病",
+    snippet: "18題：病毒分類、血清型、機轉、WOAH定義、MDT、病原型、鑑別、疫苗計畫、ICPI計算、三題臨床情境。"
   },
   {
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 2, weekTitle: "超音波診斷入門",
@@ -3574,14 +4225,14 @@ const SEARCH_INDEX = [
     subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
     url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
     section: "ultrasound", sectionName: "治療用超音波",
-    keywords: "治療用超音波 therapeutic ultrasound 1 MHz 3.3 MHz 連續式 脈衝式 duty cycle 總效率週期 ERA 熱效應 機械效應 膠原 椎板切除",
+    keywords: "治療用超音波 therapeutic ultrasound 1 MHz 3.3 MHz 連續式 脈衝式 duty cycle 總效率週期 ERA 熱效應 機械效應 膠原 椎板切除 參數解釋 強度 W/cm2 有效輻射面積 治療時間 探頭移動 頻率 深度",
     snippet: "超音波熱效應與機械效應、癒合三階段、目標溫度、頻率強度面積時間設定、決策流程、加熱速率、參數試算工具、禁忌症。"
   },
   {
     subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
     url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
     section: "estim", sectionName: "電刺激（NMES／TENS）",
-    keywords: "電刺激 NMES TENS 神經肌肉電刺激 經皮神經電刺激 門控理論 腦內啡 運動點 干擾波 蘇聯波 Russian current 雙動態波 坡度 ramp 電極 脊髓節段",
+    keywords: "電刺激 NMES TENS 神經肌肉電刺激 經皮神經電刺激 門控理論 腦內啡 運動點 干擾波 蘇聯波 Russian current 雙動態波 坡度 ramp 電極 脊髓節段 參數解釋 頻率 波形 幅度 脈衝時間 開關時間比 電極大小",
     snippet: "NMES與TENS比較、脈衝參數、常見電流種類、低頻vs中頻、電極放置與關節對應神經節段、禁忌（癲癇等）、治療時間與居家使用。"
   },
   {
@@ -4176,8 +4827,8 @@ const SEARCH_INDEX = [
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 3, weekTitle: "脊椎影像判讀",
     url: "大四上/獸醫臨床及影像診斷學/week03_脊椎影像判讀.html",
     section: "diseases", sectionName: "常見脊椎疾病影像特徵",
-    keywords: "先天性脊椎異常 congenital transitional vertebrae block vertebra hemivertebrae butterfly vertebra spina bifida 脊椎黏連性關節病 spondylosis deformans 椎間盤感染 discospondylitis 脊椎腫瘤 neoplasia 創傷 trauma fracture luxation 退化性椎間盤突出 IVDD ANNPE 急性非壓迫性髓核突出",
-    snippet: "先天性異常、脊椎黏連性關節病、椎間盤感染（影像變化落後臨床症狀）、脊椎腫瘤、創傷、退化性IVDD vs. ANNPE比較表。"
+    keywords: "先天性脊椎異常 congenital transitional vertebrae block vertebra hemivertebrae butterfly vertebra spina bifida 寰樞椎不穩定 atlantoaxial instability subluxation neutral flexion extension dens 齒突 脊椎黏連性關節病 spondylosis deformans 椎間盤感染 discospondylitis 病程追蹤 1st visit 4th week 10th week 脊椎腫瘤 neoplasia 創傷 trauma fracture luxation L4-5 subluxation CT spinal fracture L2 L3 退化性椎間盤突出 IVDD ANNPE 急性非壓迫性髓核突出",
+    snippet: "先天性異常、寰樞椎不穩定（中立/屈曲/伸展位比較）、脊椎黏連性關節病、椎間盤感染（含病程追蹤案例）、脊椎腫瘤、創傷（含CT確認椎管內碎骨片案例）、退化性IVDD vs. ANNPE比較表。"
   },
   {
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 3, weekTitle: "脊椎影像判讀",
@@ -5349,6 +6000,195 @@ const SEARCH_INDEX = [
     snippet: "7題：X光徵象、anticlinal正常變異、ANNPE、椎間盤脊椎炎、寰樞椎投照、脊椎黏連性關節病臨床情境。"
   },
   {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "消化道 digestive system 口腔檢查 肛門囊 嘔吐 逆流 下痢 鋇劑 重點摘要",
+    snippet: "消化道從口腔到直腸的理學檢查與影像：黏膜三件事、貓看舌下、肛門囊4與8點鐘、嘔吐vs逆流、L2當尺、鋇劑時間順序。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "oral", sectionName: "口腔檢查",
+    keywords: "口腔檢查 牙結石 牙根膿瘍 epulis 牙齦腫塊 黃疸 貧血 點狀出血 IMTP 齒式 乳齒滯留 扁桃腺 硬顎 唾液腺 舌下腺 ranula 舌繫帶 SLE 卡里西病毒 FCV",
+    snippet: "口腔檢查順序與每個發現的臨床意義：牙齒、黏膜（貧血黃疸點狀出血）、齒式28/42與26/30、乳齒滯留、扁桃腺、硬顎、唾液腺、舌潰瘍。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "cases", sectionName: "講義病例",
+    keywords: "口鼻瘻管 oronasal fistula 臘腸犬 吃喝後打噴嚏 線狀異物 string foreign body 貓 舌根 腸道摺疊 plication",
+    snippet: "兩個病例：老臘腸犬吃喝後打噴嚏→口鼻瘻管；年輕貓嘔吐不吃→舌下線狀異物，不可直接拉。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "analsac", sectionName: "肛門囊觸診與擠壓",
+    keywords: "肛門囊 anal sac 擠壓 4點 8點 肛門囊炎 膿瘍 AGASACA 高血鈣 scooting",
+    snippet: "肛門囊位置與擠壓步驟、正常分泌物、異常發現（阻塞、膿瘍、頂漿腺腺癌合併高血鈣）。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "symptoms", sectionName: "嘔吐、逆流與下痢",
+    keywords: "嘔吐 vomiting 逆流 regurgitation 巨食道症 吸入性肺炎 小腸性下痢 大腸性下痢 裡急後重 黏液 血便",
+    snippet: "嘔吐與逆流的區別與要查的部位；小腸性與大腸性下痢比較表與下一步檢查。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "palpation", sectionName: "腹部觸診與聽診",
+    keywords: "腹部觸診 肝臟 脾臟 小腸 結腸 巨結腸 便祕 老貓 聽診 腸鳴 濺潑聲 胃排空不良",
+    snippet: "觸診肝脾腸道的重點與臨床應用；腸鳴與上腹／全腹濺潑聲的意義。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "radanatomy", sectionName: "腹部 X 光正常解剖",
+    keywords: "腹部X光 左側躺 右側躺 腹背照 VD L2 腎臟 2.5-3倍 幽門 胃底 氣體 乳頭 皮膚皺褶 陰莖骨 小腸阻塞 L5 1.6",
+    snippet: "各擺位可辨認的構造、L2當尺、左右側躺氣體分布的臨床用途、假影、小腸阻塞量化標準。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "barium", sectionName: "鋇劑造影時間軸",
+    keywords: "鋇劑 barium 造影 消化道攝影 胃排空 30分鐘 1小時 4小時 6小時 12小時 迴結腸交界 盲腸 結腸 碘劑 穿孔",
+    snippet: "互動時間軸：鋇劑在0、30分、1、4、6、12小時的位置；犬盲腸與迴結腸交界；鋇劑造影注意事項。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "abnormal", sectionName: "異常影像",
+    keywords: "肝腫大 脾腫大 脾臟腫瘤 血管肉瘤 胃異物 充填缺損 腸套疊 intussusception coiled spring 彈簧徵象 標靶徵象 target sign",
+    snippet: "肝腫大、脾腫大、胃異物、腸套疊的影像特徵與下一步處置，以及講義討論題的答題順序。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "exam", sectionName: "國考方向（推測）",
+    keywords: "國考 考古 推測 消化道",
+    snippet: "依講義重點推測的考法：齒式、嘔吐逆流、下痢、濺潑聲、肛門囊、L2、鋇劑時間、腸套疊。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前複習 消化道",
+    snippet: "八條考前重點整理。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 6, weekTitle: "消化道臨床檢查與影像",
+    url: "大四上/獸醫臨床及影像診斷學/week06_消化道臨床檢查與影像.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 線狀異物 腸套疊 鋇劑",
+    snippet: "10題：齒式、點狀出血、逆流、大腸性下痢、濺潑聲、左側躺、鋇劑時間、腸套疊、兩題臨床情境。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "COHAT Comprehensive Oral Health Assessment Treatment 八步 牙科 洗牙 牙周病",
+    snippet: "COHAT 八步總覽：麻醉前評估、插管監控、探查、洗牙、X 光、治療、居家保健。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "perio", sectionName: "牙周病是什麼",
+    keywords: "牙周病 periodontal disease 牙齦炎 gingivitis 牙周炎 periodontitis 牙菌斑 plaque 牙結石 calculus 菌血症 發生率",
+    snippet: "2 歲時 70% 貓、80% 犬有牙周病；元兇是細菌不是結石；牙齦炎可逆、牙周炎不可逆。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "anatomy", sectionName: "牙齒解剖與齒式",
+    keywords: "齒式 dental formula 42 28 30 26 Triadan 牙釉質 enamel dentin cementum pulp 牙齦溝 gingival sulcus 牙周韌帶 PDL mesial distal",
+    snippet: "成犬 42、幼犬 28、成貓 30、幼貓 26；牙齦溝貓 <0.5 mm、犬 <3 mm；方向用語與牙周組織。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "step1", sectionName: "第一步：門診與麻醉前評估",
+    keywords: "麻醉前評估 ASA 理學檢查 血液檢查 清醒口腔檢查 壓舌板",
+    snippet: "清醒口腔檢查原則、理學與血液檢查必須、ASA I–V 麻醉分級。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "step23", sectionName: "第二、三步：麻醉計畫、插管、監控與術後",
+    keywords: "氣管內插管 吸入 咽喉填塞 IV catheter 麻醉監控 血氧 血壓 體溫 術後餵食 潔牙骨",
+    snippet: "插管防止吸入水、血、結石；水的功能與擺位；監控五項；術後先喝水、兩週避免潔牙骨。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "pain", sectionName: "疼痛管理與神經阻斷",
+    keywords: "疼痛管理 神經阻斷 nerve block lidocaine bupivacaine mepivacaine ropivacaine 眶下孔 infraorbital 下顎孔 mandibular inferior alveolar 中頦孔 mental NSAIDs gabapentin",
+    snippet: "術前術中術後止痛；局部麻醉劑比較表；每點犬 0.2–1 mL、貓 0.1–0.2 mL；三個阻斷位置。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "step4", sectionName: "第四步：麻醉下軟、硬組織檢查",
+    keywords: "麻醉下口腔檢查 chlorhexidine 0.12% 開嘴器 彈簧式 失明 探查器 explorer 牙周探針 probe 口鼻廔管 oronasal fistula",
+    snippet: "11 步驟、人與動物的防護、禁用彈簧式開嘴器、探查器 vs. 探針、口鼻廔管。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "grading", sectionName: "牙周檢查分級",
+    keywords: "牙結石分級 C0 C3 牙齦炎 G0 G3 根分叉 furcation F1 F2 F3 鬆動度 mobility M0 M3 牙周病分級 PD0 PD4 附著流失 AAHA dental chart",
+    snippet: "C、G、F、M、PD 五套分級的切點，含互動 PD 判定練習。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "scaling", sectionName: "第五步：移除牙菌斑與牙結石",
+    keywords: "洗牙 scaling 超音波洗牙機 磁伸式 magnetostrictive 壓電式 piezoelectric scaler curette 拋光 polishing 無麻醉洗牙",
+    snippet: "磁伸式 vs. 壓電式、scaler 牙齦上 vs. curette 牙齦下、拋光避免過熱、無麻醉洗牙 BSAVA 五點。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "xray", sectionName: "第六步：牙科 X 光拍攝",
+    keywords: "牙科 X 光 dental radiography 70 kVp CR DR 平行法 parallel 角平分線法 bisecting angle 全口 X 光 40% SLOB",
+    snippet: "全口 X 光多 40% 發現；X 光在洗牙後；平行法只用於下顎中後段，其他用角平分線法（互動示意）。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "xrayread", sectionName: "X 光品質與判讀",
+    keywords: "延長 elongation 縮短 foreshortening 曝光 lamina dura 下顎管 頦孔 腭裂 orientation Chevron effect 根尖骨流失 apical ageing 牙髓腔",
+    snippet: "延長、縮短、曝光的修正；正常解剖；影像方向；Chevron effect vs. 根尖骨流失；年齡變化。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "step78", sectionName: "第七、八步：治療、拔牙與居家保健",
+    keywords: "拔牙 extraction 縫合 居家保健 刷牙 潔牙產品 VOHC 牙齦溝",
+    snippet: "治療流程；居家保健排序：刷牙＋潔牙產品最好；每天刷、刷毛進牙齦溝、每顆 5–10 秒。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "cases", sectionName: "牙 X 光病例分享",
+    keywords: "病例 Old English Sheepdog 拔牙 貓 犬齒 牙冠斷裂 crown fracture 翻瓣",
+    snippet: "Case 1 老犬未保健拔牙；Case 2 貓上顎犬齒牙冠斷裂手術拔牙；Case 3 X 光判讀練習。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試 國考 推測 COHAT 牙科",
+    snippet: "依講義推測的考法：八步、齒式、分級、神經阻斷、無麻醉洗牙、X 光技術與判讀。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 7, weekTitle: "犬貓完整口腔評估與治療COHAT",
+    url: "大四上/獸醫臨床及影像診斷學/week07_犬貓完整口腔評估與治療COHAT.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 選擇題 是非題 臨床情境題 牙周病 分級 bupivacaine 劑量 口鼻廔管",
+    snippet: "14 題：分級判定、齒式、X 光錯誤、Chevron effect、神經阻斷，含兩題臨床情境（劑量計算、口鼻廔管）。"
+  },
+  {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "藥理學總論",
     url: "大三/獸醫藥理學/藥理學總論.html",
     section: "abstract", sectionName: "重點摘要",
@@ -5697,6 +6537,251 @@ const SEARCH_INDEX = [
     section: "followup", sectionName: "待確認與下一步",
     keywords: "Metoclopramide 主要機轉 5-HT4 predominant CTZ 受體 全身受體總論",
     snippet: "講義與藥品索引對 Metoclopramide 主要機轉寫法不一致等待確認事項。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "overview", sectionName: "重點摘要",
+    keywords: "藥物交互作用 drug interaction 間隔給藥 錯開時間 螯合 吸附 代謝 鐵 心臟藥",
+    snippet: "判斷能不能靠錯開時間避免：腸道裡碰面（螯合、吸附、胃 pH、食物）有用；血液、肝臟、腎臟、受體層級沒用。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "map", sectionName: "交互作用發生在哪一站",
+    keywords: "藥動學 藥效學 配伍禁忌 pharmacokinetic pharmacodynamic incompatibility 吸收 分布 代謝 排除",
+    snippet: "HBK Ch.19 三大類交互作用，依藥物在體內的旅程對應到腸道、血液、肝臟、腎臟、受體五站。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "absorption", sectionName: "為什麼要間隔：吸收站",
+    keywords: "螯合 chelation 四環黴素 doxycycline 喹諾酮 enrofloxacin 制酸劑 sucralfate 胃pH ketoconazole itraconazole 食物 pimobendan",
+    snippet: "螯合、吸附、胃 pH、胃排空、食物五種機轉；四環黴素口服前 3 小時避開鐵與制酸劑，Sucralfate 前後間隔 1–2 小時。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "iron", sectionName: "口服鐵劑",
+    keywords: "鐵劑 iron ferrous sulfate 四環黴素 喹諾酮 PPI 維生素C 咖啡 茶 chloramphenicol 糞便潛血 偽陽性",
+    snippet: "口服鐵會螯合四環黴素與喹諾酮；磷酸鹽、制酸劑、PPI 降低鐵吸收；口服鐵讓糞便潛血偽陽性。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "cardiac", sectionName: "心臟藥",
+    keywords: "pimobendan 食物 digoxin quinidine verapamil amiodarone spironolactone 低血鉀 furosemide ACEI 高血鉀 毛地黃中毒",
+    snippet: "Pimobendan 要跟食物間隔；Digoxin 的交互作用多在代謝排除與低血鉀層級，錯開時間沒用，要監測濃度與血鉀。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "metabolism", sectionName: "代謝站：酵素與幫浦",
+    keywords: "P450 CYP 抑制劑 誘導劑 cimetidine omeprazole ketoconazole enrofloxacin theophylline phenobarbital cyclosporine P-glycoprotein",
+    snippet: "P450 抑制劑讓其他藥濃度上升、誘導劑讓其他藥失效更快；Azole 類影響 Cyclosporine、Digoxin、Midazolam；P-醣蛋白受質。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "distribution", sectionName: "分布站與排除站",
+    keywords: "蛋白結合 置換 NSAID warfarin barbiturate 甲狀腺素 TBG 腎小管分泌 尿液pH",
+    snippet: "白蛋白結合位置置換（NSAID＋Warfarin）、腎小管分泌競爭與尿液 pH 對排除的影響。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "pd", sectionName: "藥效學：受體層級",
+    keywords: "拮抗 協同 加成 epinephrine reversal acepromazine TMP sulfa furosemide aminoglycoside 腎毒性",
+    snippet: "拮抗、加成、協同的實例：Phenothiazine＋Epinephrine、Furosemide＋Aminoglycoside、促蠕動藥＋Opioid。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "incompat", sectionName: "配伍禁忌：針筒與點滴",
+    keywords: "配伍禁忌 鈣 碳酸氫鈉 酸鹼不相容 xylazine ketamine gentamicin 點滴 針筒",
+    snippet: "含鈣溶液、酸鹼溶液、氧化還原與溶解度造成的體外不相容。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "lookup", sectionName: "速查表（互動）",
+    keywords: "速查 查詢 交互作用表 藥名 篩選",
+    snippet: "41 組常見交互作用，可輸入藥名或依類別篩選，並標示錯開時間有沒有用。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "quiz", sectionName: "自我測驗",
+    keywords: "練習題 臨床情境 鐵 doxycycline sucralfate omeprazole pimobendan ketoconazole digoxin",
+    snippet: "6 題：選擇、是非、簡答與 2 題臨床情境題。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常見藥物交互作用",
+    url: "上群/2026-10-11_專題-常見藥物交互作用.html",
+    section: "followup", sectionName: "待確認事項",
+    keywords: "心臟藥 間隔 仿單 pimobendan 喹諾酮 tramadol trazodone",
+    snippet: "心臟藥間隔通則未查到依據等待確認事項。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "axes", sectionName: "五個問題",
+    keywords: "主軸 big picture 交互作用 五個問題 吸收 代謝 排除 疊加 共病",
+    snippet: "看到任何藥都問：怎麼進來、怎麼離開、會不會改變別人、效果跟誰疊加、誰特別危險。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "endpoints", sectionName: "共同終點：誰會疊加",
+    keywords: "中樞抑制 呼吸抑制 心搏過緩 腸胃蠕動 癲癇 血糖 血清素症候群 抑菌 殺菌",
+    snippet: "會走到同一終點的藥：中樞與呼吸抑制、心搏過緩、腸胃蠕動下降、癲癇閾值、血糖、血清素症候群。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "sed", sectionName: "止痛鎮靜麻醉主軸",
+    keywords: "鎮靜 麻醉 止痛 MAC sparing atipamezole flumazenil naloxone 逆轉",
+    snippet: "中樞與呼吸抑制疊加、每類都有逆轉藥、opioid 之間互搶受體、共病看心臟血容量血糖。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "dex", sectionName: "Dexmedetomidine",
+    keywords: "dexmedetomidine dexdomitor α2 atipamezole 抗膽鹼 atropine glycopyrrolate 心搏過緩 糖尿病",
+    snippet: "α2 促效劑：加強其他麻醉藥、與 opioid 併用呼吸抑制加強；Atipamezole IM 逆轉；抗膽鹼藥處理心搏過緩有爭議。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "mid", sectionName: "Midazolam",
+    keywords: "midazolam benzodiazepine flumazenil cimetidine erythromycin ketoconazole rifampin 鎮靜",
+    snippet: "中樞抑制加成；Cimetidine、Erythromycin、Ketoconazole 減慢代謝，Rifampin 加快；Flumazenil 逆轉。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "but", sectionName: "Butorphanol",
+    keywords: "butorphanol torbutrol κ 逆轉 morphine 戒斷 止咳 selegiline",
+    snippet: "κ 促效、μ 部分促效／拮抗：可部分逆轉 μ 促效劑；口服止痛需高劑量；鎮靜不等於止痛。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "bup", sectionName: "Buprenorphine",
+    keywords: "buprenorphine naloxone 部分促效劑 天花板 口腔黏膜 貓",
+    snippet: "高親和力 μ 部分促效劑：Naloxone 逆轉需高劑量；呼吸抑制有天花板；可能擠下其他 opioid。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "abx", sectionName: "抗生素主軸",
+    keywords: "抗生素 螯合 陽離子 P450 抑制 抑菌 殺菌 拮抗 貓 幼犬",
+    snippet: "口服最怕陽離子；Chloramphenicol、Enrofloxacin、Erythromycin 影響肝酵素；抑菌拖慢殺菌；物種年齡毒性。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "enro", sectionName: "Enrofloxacin",
+    keywords: "enrofloxacin baytril 喹諾酮 theophylline CYP1A2 螯合 sucralfate 癲癇 phenobarbital 貓 視網膜 幼犬 軟骨",
+    snippet: "抑制 CYP1A2 使 Theophylline 上升；陽離子螯合（犬證據不一致）；癲癇犬、貓視網膜、幼犬軟骨。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "doxy", sectionName: "Doxycycline",
+    keywords: "doxycycline 四環黴素 螯合 牛奶 鐵 sucralfate 2小時 貓 食道 狹窄 β-lactam",
+    snippet: "最怕陽離子與食物：口服前 3 小時避開牛奶鐵制酸劑；Sucralfate 要在之後 2 小時給；貓錠劑卡食道要補水。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "quiz", sectionName: "自我測驗",
+    keywords: "練習題 臨床情境 enrofloxacin phenobarbital buprenorphine methadone doxycycline sucralfate",
+    snippet: "6 題：用五個問題推交互作用，含血清素症候群、Chloramphenicol 情境。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "next", sectionName: "下一批與待確認",
+    keywords: "methadone tramadol gabapentin trazodone acepromazine propofol ketamine amoxicillin cephalexin metronidazole",
+    snippet: "下一批藥物清單與待確認事項。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "muop", sectionName: "Methadone／Fentanyl",
+    keywords: "methadone fentanyl 完全促效劑 chloramphenicol 肝血流 MAO selegiline amitraz 經皮 貼片",
+    snippet: "完全 μ 促效劑：Chloramphenicol 讓 Methadone 暴露量大增；opioid 靠肝血流清除；Methadone 有血清素路線。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "tram", sectionName: "Tramadol",
+    keywords: "tramadol CYP2D M1 fluoxetine 血清素症候群 SSRI TCA 癲癇 犬 貓",
+    snippet: "需 CYP2D 產生活性代謝物 M1；CYP2D 抑制劑讓它無效、血清素藥讓它危險；犬幾乎不產生 M1。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "gaba", sectionName: "Gabapentin",
+    keywords: "gabapentin 腎臟排除 xylitol 口服液 減量 神經痛 α2δ",
+    snippet: "腎臟排除、交互作用少；腎病要減量；口服液含 xylitol 對犬有毒；停藥要慢慢減量。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "traz", sectionName: "Trazodone",
+    keywords: "trazodone 血清素 SSRI MAO 抑制劑 selegiline 14天 鎮靜 焦慮",
+    snippet: "血清素混合作用、抗組織胺、α1 阻斷；與 MAO 抑制劑的血清素症候群風險；低劑量開始。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "ace", sectionName: "Acepromazine",
+    keywords: "acepromazine phenothiazine α1 低血壓 epinephrine reversal 硬膜外 Boxer 癲癇 爭議 血小板",
+    snippet: "α1 阻斷造成低血壓，與血管擴張劑、硬膜外局麻疊加；低血容休克避免；癲癇禁忌證據薄弱。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "prop", sectionName: "Propofol",
+    keywords: "propofol 呼吸暫停 chloramphenicol 貓 Heinz body propofol症候群 無菌 24小時 5%葡萄糖",
+    snippet: "與其他中樞抑制劑疊加；Chloramphenicol 可能影響；貓長時間輸注 Heinz body；開封 24 小時丟棄。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "ket", sectionName: "Ketamine",
+    keywords: "ketamine 解離 交感 chloramphenicol 顱內壓 眼壓 甲亢 貓 尿道阻塞 腎 流涎",
+    snippet: "交感刺激：避免顱內壓眼壓高、心臟病、甲亢；貓經腎排活性代謝物，尿道阻塞時作用延長。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "bl", sectionName: "β-lactam 三劑",
+    keywords: "amoxicillin clavulanate clavamox cephalexin cefovecin convenia 食物 蛋白結合 probenecid 兔 天竺鼠 過敏",
+    snippet: "β-lactam 幾乎沒有代謝層級交互作用；重點是抑菌藥拮抗、過敏、兔子囓齒類腸炎；Cefovecin 半衰期 5–7 天。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "metro", sectionName: "Metronidazole",
+    keywords: "metronidazole 神經毒性 眼球震顫 diazepam 懷孕 貓 benzoate GABA",
+    snippet: "重點在神經毒性：高劑量或長療程出現眼球震顫、運動失調；Diazepam 加速恢復；懷孕不用。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "clin", sectionName: "Clindamycin",
+    keywords: "clindamycin 神經肌肉阻斷 麻醉 兔 倉鼠 天竺鼠 馬 C. difficile 貓 食道",
+    snippet: "高劑量或麻醉中神經肌肉阻斷；馬兔囓齒類禁用；貓錠劑傷食道。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：常用藥物交互作用卡",
+    url: "上群/2026-10-11_專題-常用藥物交互作用卡.html",
+    section: "tms", sectionName: "TMP-sulfa",
+    keywords: "TMP sulfa trimethoprim sulfadiazine KCS 乾眼 甲狀腺 Doberman 肝壞死 結晶尿 barbiturate",
+    snippet: "刻意協同；延長巴比妥麻醉；假性甲狀腺低下；KCS、凝血、Doberman 過敏、肝壞死。"
   },
   {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "類固醇藥理",
@@ -6719,5 +7804,75 @@ const SEARCH_INDEX = [
     section: "names", sectionName: "學名、商品名怎麼分",
     keywords: "學名 商品名 generic name brand name 複方",
     snippet: "學名是成分名、商品名是藥廠品牌；看包裝成分欄找學名。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "abstract", sectionName: "核心結論",
+    keywords: "PBMT tPBMT 經顱 光生物調節 雷射 犬認知功能障礙 CCDS 失智 證據等級 外推",
+    snippet: "書上建議：近紅外線、手持件接觸顱骨背側左右半球、0.25–1.5 W/cm²、約20 J/cm²、中大型犬1000–1400 J；沒有獸醫研究證實療效，參數為外推。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "pbmt", sectionName: "PBMT 是什麼",
+    keywords: "Photobiomodulation 光生物調節 LLLT 冷雷射 CCO 細胞色素c氧化酶 粒線體 ATP",
+    snippet: "用紅光到近紅外線在細胞層級促進修復、減輕發炎；主要光受體為粒線體的細胞色素c氧化酶。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "why", sectionName: "為什麼可能對 CCDS 有效",
+    keywords: "CCDS 阿茲海默 Aβ 類澱粉蛋白 微膠細胞 M2 粒線體 血流 氧化壓力 發炎",
+    snippet: "血流受損、粒線體功能障礙、氧化壓力與發炎是CCDS核心，也是PBMT擅長處理的環節；證據多為囓齒類與機轉層級。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "params", sectionName: "書上建議的參數",
+    keywords: "波長 為什麼810 810nm 980nm 660 1064 輻照度 W/cm2 J/cm2 皮質 5-10 脈衝 10Hz 40Hz duty cycle 療程",
+    snippet: "皮膚表面0.25–1.5 W/cm²、約20 J/cm²、皮質最低5–10 J/cm²；CW或alpha/gamma脈衝；50% duty cycle時間加倍。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "calc", sectionName: "劑量怎麼算＋計算機",
+    keywords: "劑量計算 計算機 焦耳 功率 時間 光斑面積 duty",
+    snippet: "總能量=面積×J/cm²；時間=總能量÷功率；輻照度=功率÷光斑面積，需落在0.25–1.5 W/cm²。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "device", sectionName: "範例：4.5 kg 小型犬與 GBOX",
+    keywords: "GBOX 4.5kg 雪納瑞 小型犬 810nm 1.5W 300s 450J 面板 Pre-Set",
+    snippet: "1.5 W、CW、300 s（450 J）對頭頂面積約20–25 cm²的小型犬約20 J/cm²；面積較大時用時間=20×面積÷1.5延長。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "sop", sectionName: "操作流程與安全",
+    keywords: "護目鏡 禁忌 顱內出血 亞急性頭部外傷 持續移動 接觸",
+    snippet: "病患與操作者戴護目鏡、手持件全程移動；懷疑顱內持續出血或亞急性頭部外傷不要用。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "course", sectionName: "療程頻率與療效評估",
+    keywords: "療程 頻率 維持 每週 2-3次 4-6週 評估",
+    snippet: "第1週2–3次，之後每週2次、每週1次，再每2–3週維持；作者觀察多數4–6週內改善（非對照試驗）。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "quotes", sectionName: "原文摘錄與中譯",
+    keywords: "原文 摘錄 中譯 Winkler Miller Wiley Laser Therapy in Veterinary Medicine",
+    snippet: "書Ch.16關鍵句摘錄與中譯：4–6週改善、無獸醫研究、理想參數未確立、輻照度、總焦耳數、療程、顱內出血禁忌。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
+    url: "上群/2026-10-17_專題-經顱光生物調節PBMT與犬認知功能障礙.html",
+    section: "case", sectionName: "書中病例與相關適應症",
+    keywords: "病例 Jack Russell CKD 失智 TBI 創傷性腦損傷 DM 退化性脊髓病變 IVDD",
+    snippet: "書p.179病例：17歲CKD犬5個月後出現失智，加腦部protocol後症狀逆轉（單一病例）；TBI可用相同參數但亞急性不建議。"
   }
 ];

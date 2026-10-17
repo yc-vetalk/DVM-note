@@ -143,9 +143,9 @@ body.pv-open .pagewrap{margin-right:50vw}
     updateCur();
   }
 
-  async function open(url, page, label) {
+  async function open(url, page, label, rawLabel) {
     pv.classList.add('open'); document.body.classList.add('pv-open');
-    $('pvLabel').textContent = label ? 'Fig. ' + label : '';
+    $('pvLabel').textContent = rawLabel || (label ? 'Fig. ' + label : '');
     try {
       if (!doc || docUrl !== url) {
         msg('載入原書PDF中…（第一次需要幾秒）');
@@ -233,6 +233,6 @@ body.pv-open .pagewrap{margin-right:50vw}
     document.querySelectorAll('a.fig-link.active').forEach(x => x.classList.remove('active'));
     a.classList.add('active');
     const [url, p] = a.getAttribute('href').split('#page=');
-    open(url, parseInt(p, 10), a.textContent);
+    open(url, parseInt(p, 10), a.textContent, a.dataset.label);   // data-label：不加 Fig. 前綴（出處「原文」連結用）
   });
 })();

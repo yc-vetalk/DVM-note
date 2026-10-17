@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：專題 - 常見藥物交互作用 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">專題：常見藥物交互作用</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">專題：常見藥物交互作用</h1>
+      <p class="page-subtitle">為什麼有些藥要「間隔幾小時再吃」、有些藥間隔再久也沒用？依交互作用發生在藥物旅程的哪一站來理解，並整理口服鐵劑與心臟藥這兩個最常被問到的情境</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">主題討論（觀念總論＋速查表，非單一個案）</div></div>
+      <div class="meta-item"><div class="meta-label">核心問題</div><div class="meta-value">間隔給藥是在處理什麼？口服鐵會影響哪些藥？心臟藥要注意什麼？</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">HBK Ch.19（Drug Interactions and Adverse Drug Reactions）為架構；HBK Ch.1、Ch.8；VPT10 Ch.21、Ch.24、Ch.37、Ch.38；SAIM6 Ch.27、Ch.28、Ch.82；NTU 獸醫藥理學講義（Autacoid 3 GI、Autacoid 4 NSAID、CV1 Cardiac glycoside、CV5 Antianemics、Antimicrobial 1、Antimicrobial 3）</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-10-11</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">全貌</div>
+    <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('map')" id="nav-map"><span class="nav-icon">🗺️</span> 交互作用發生在哪一站</a>
+    <div class="section-label" style="margin-top:8px;">間隔給藥</div>
+    <a onclick="showSection('absorption')" id="nav-absorption"><span class="nav-icon">⏱️</span> 為什麼要間隔：吸收站</a>
+    <a onclick="showSection('iron')" id="nav-iron"><span class="nav-icon">🩸</span> 口服鐵劑</a>
+    <a onclick="showSection('cardiac')" id="nav-cardiac"><span class="nav-icon">❤️</span> 心臟藥</a>
+    <div class="section-label" style="margin-top:8px;">間隔沒用的</div>
+    <a onclick="showSection('metabolism')" id="nav-metabolism"><span class="nav-icon">🧪</span> 代謝站：酵素與幫浦</a>
+    <a onclick="showSection('distribution')" id="nav-distribution"><span class="nav-icon">🔀</span> 分布站與排除站</a>
+    <a onclick="showSection('pd')" id="nav-pd"><span class="nav-icon">🎯</span> 藥效學：受體層級</a>
+    <a onclick="showSection('incompat')" id="nav-incompat"><span class="nav-icon">💉</span> 配伍禁忌：針筒與點滴</a>
+    <div class="section-label" style="margin-top:8px;">工具與複習</div>
+    <a onclick="showSection('lookup')" id="nav-lookup"><span class="nav-icon">🔍</span> 速查表（互動）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 自我測驗</a>
+    <a onclick="showSection('followup')" id="nav-followup"><span class="nav-icon">📌</span> 待確認事項</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 1 OVERVIEW -->
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
+      <div class="alert alert-success">
+        <div class="alert-label">這頁在講什麼</div>
+        <p>藥物交互作用的定義是：第二個藥的存在，改變了第一個藥的反應（HBK Ch.19）。要判斷「該不該間隔、間隔有沒有用」，先問<strong>兩個藥在哪裡碰面</strong>：</p>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>在腸胃道裡碰面</strong>（螯合、吸附、胃 pH、食物）：兩個藥要同時在腸道裡才會互相干擾，所以<strong>錯開時間就能避開</strong>。這就是「間隔一兩個小時再吃」的原因。</li>
+          <li><strong>在血液、肝臟、腎臟、受體碰面</strong>（蛋白結合置換、代謝酵素、腎排除、受體作用）：藥物吸收後會在體內停留數小時到數天，<strong>錯開幾個小時通常沒用</strong>，要靠調整劑量、換藥或監測。</li>
+          <li><strong>在針筒或點滴袋裡碰面</strong>（配伍禁忌）：還沒進到動物體內就已經沉澱或失效，處理方式是不要混在一起。</li>
+        </ul>
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('absorption')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">為什麼要間隔</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">吸收站的五種機轉</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('iron')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">口服鐵劑</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">影響別人、被別人影響</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('cardiac')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">05</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">心臟藥</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">Pimobendan、Digoxin</p></div>
+          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('lookup')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">10</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">速查表</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">輸入藥名篩選</p></div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+          <li><strong>多價金屬離子（鈣、鎂、鋁、鐵、鋅）會螯合四環黴素與喹諾酮類</strong>：講義寫四環黴素口服前 3 小時內要避開牛奶、制酸劑、鐵劑。但 VPT10 也提醒，喹諾酮的螯合在人醫證據充分，在動物身上結果不一致。</li>
+          <li><strong>Sucralfate 會吸附其他藥</strong>：其他口服藥最好在它之前或之後 1–2 小時給（SAIM6）；講義寫間隔 2 小時。</li>
+          <li><strong>胃 pH 升高會降低 Ketoconazole、Itraconazole 與鐵的吸收</strong>：PPI、H2 阻斷劑、制酸劑都會造成。</li>
+          <li><strong>心臟藥：</strong>Pimobendan 的「間隔」是跟<strong>食物</strong>間隔（VPT10：食物會降低生體可用率）。Digoxin 安全範圍很窄，最需要注意的是<strong>代謝與排除</strong>層級的交互作用（Quinidine、Verapamil、Amiodarone、Azole 類）和<strong>低血鉀</strong>，這些錯開時間都沒用。</li>
+          <li><strong>代謝酵素抑制劑</strong>：Cimetidine、Omeprazole、Ketoconazole、Enrofloxacin、Chloramphenicol 等會讓其他藥濃度上升；<strong>誘導劑</strong> Phenobarbital 等會讓其他藥失效得更快。</li>
+        </ul>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 個別藥物的交互作用（依「五個問題」整理的藥物卡），見 <a href="2026-10-11_專題-常用藥物交互作用卡.html">專題：常用藥物交互作用卡</a>。</p>
+      <footer class="note-footer">資料來源：HBK Ch.19；講義 Antimicrobial 3（Tetracyclines）、Antimicrobial 1（Fluoroquinolones）、Autacoid 3 GI；VPT10 Ch.21、Ch.37、Ch.38；SAIM6 Ch.28。本頁為個人學習整理，僅供學習與院內討論使用，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 2 MAP -->
+    <div class="section" id="section-map">
+      <div class="section-head"><div class="section-num">2</div><h2>交互作用發生在哪一站</h2></div>
+      <p class="section-desc">HBK Ch.19 把交互作用分成三大類：<strong>藥動學</strong>（一個藥改變另一個藥在血液或組織的濃度）、<strong>藥效學</strong>（一個藥改變另一個藥的作用）、<strong>配伍禁忌</strong>（藥物在體外混合時發生化學或物理反應）。把口服藥在體內走的路畫出來，每一類就對應到一站：</p>
+
+      <figure class="dd-fig">
+        <svg viewBox="0 0 700 300" role="img" aria-label="藥物在體內的旅程與交互作用發生位置">
+          <!-- stations -->
+          <g class="dd-st dd-st-key"><rect x="10" y="60" width="118" height="96" rx="10"/><text x="69" y="88" class="dd-cap">① 腸胃道</text><text x="69" y="108" class="dd-sub">吸收</text><text x="69" y="128" class="dd-sub">螯合・吸附・胃 pH</text><text x="69" y="144" class="dd-sub">胃排空・食物</text></g>
+          <g class="dd-st"><rect x="150" y="60" width="118" height="96" rx="10"/><text x="209" y="88" class="dd-cap">② 血液</text><text x="209" y="108" class="dd-sub">分布</text><text x="209" y="128" class="dd-sub">蛋白結合</text><text x="209" y="144" class="dd-sub">互相置換</text></g>
+          <g class="dd-st"><rect x="290" y="60" width="118" height="96" rx="10"/><text x="349" y="88" class="dd-cap">③ 肝臟</text><text x="349" y="108" class="dd-sub">代謝</text><text x="349" y="128" class="dd-sub">P450 抑制／誘導</text><text x="349" y="144" class="dd-sub">P-醣蛋白</text></g>
+          <g class="dd-st"><rect x="430" y="60" width="118" height="96" rx="10"/><text x="489" y="88" class="dd-cap">④ 腎臟</text><text x="489" y="108" class="dd-sub">排除</text><text x="489" y="128" class="dd-sub">腎小管分泌競爭</text><text x="489" y="144" class="dd-sub">尿液 pH</text></g>
+          <g class="dd-st"><rect x="570" y="60" width="118" height="96" rx="10"/><text x="629" y="88" class="dd-cap">⑤ 受體</text><text x="629" y="108" class="dd-sub">藥效</text><text x="629" y="128" class="dd-sub">加成・協同</text><text x="629" y="144" class="dd-sub">拮抗</text></g>
+          <path d="M130 108 L 146 108" class="dd-arrow" marker-end="url(#dda)"/>
+          <path d="M270 108 L 286 108" class="dd-arrow" marker-end="url(#dda)"/>
+          <path d="M410 108 L 426 108" class="dd-arrow" marker-end="url(#dda)"/>
+          <path d="M550 108 L 566 108" class="dd-arrow" marker-end="url(#dda)"/>
+          <!-- brackets -->
+          <path d="M14 172 L 14 182 L 124 182 L 124 172" class="dd-brk dd-brk-go"/>
+          <text x="69" y="202" class="dd-lab dd-go">錯開時間有用</text>
+          <text x="69" y="220" class="dd-sub">兩個藥要同時在腸道</text>
+          <text x="69" y="236" class="dd-sub">才會互相干擾</text>
+          <path d="M154 172 L 154 182 L 684 182 L 684 172" class="dd-brk dd-brk-stop"/>
+          <text x="419" y="202" class="dd-lab dd-stop">錯開幾小時通常沒用</text>
+          <text x="419" y="220" class="dd-sub">吸收後藥物會在體內停留好幾個半衰期，兩個藥照樣同時存在</text>
+          <text x="419" y="236" class="dd-sub">→ 要靠調整劑量、換藥、監測血中濃度或電解質</text>
+          <!-- incompat -->
+          <rect x="10" y="10" width="200" height="34" rx="8" class="dd-box2"/>
+          <text x="110" y="32" class="dd-sub">⓪ 針筒／點滴袋：配伍禁忌</text>
+          <path d="M60 44 L 60 58" class="dd-arrow" marker-end="url(#dda)"/>
+          <text x="10" y="280" class="dd-sub" style="text-anchor:start">（另有「藥物與食物」：發生在第 ① 站，處理方式同樣是錯開時間）</text>
+          <defs><marker id="dda" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="dd-head"/></marker></defs>
+        </svg>
+        <figcaption class="figure-caption">自繪示意圖。分類依 HBK Ch.19；「錯開時間有沒有用」是本頁依藥動學原理整理的判斷方式，HBK 沒有這樣歸納。</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>定義（HBK Ch.19）</th><th>處理方向</th><th>本頁位置</th></tr></thead>
+          <tbody>
+            <tr><td><strong>藥動學：吸收</strong></td><td>改變胃排空、胃 pH，或形成不溶性複合物</td><td>錯開給藥時間</td><td>第 3–5 節</td></tr>
+            <tr><td><strong>藥動學：分布</strong></td><td>競爭血漿白蛋白結合位置 → 游離藥物變多</td><td>減量、監測</td><td>第 7 節</td></tr>
+            <tr><td><strong>藥動學：代謝</strong></td><td>抑制或誘導肝臟 P450 等酵素</td><td>減量／加量、換藥、監測血中濃度</td><td>第 6 節</td></tr>
+            <tr><td><strong>藥動學：排除</strong></td><td>競爭腎小管主動分泌；改變尿液 pH；利尿</td><td>減量、監測</td><td>第 7 節</td></tr>
+            <tr><td><strong>藥效學</strong></td><td>拮抗、加成、協同</td><td>避免併用，或刻意利用（例如 TMP-sulfa）</td><td>第 8 節</td></tr>
+            <tr><td><strong>配伍禁忌</strong></td><td>藥物在體外混合時的物理、化學反應</td><td>不要混在同一支針筒或點滴裡</td><td>第 9 節</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：HBK Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+<style>
+.dd-fig { margin: 16px 0 20px; }
+.dd-fig svg { width: 100%; max-width: 700px; height: auto; display: block; margin: 0 auto; }
+.dd-st rect { fill: var(--bg-faint); stroke: var(--line-soft); stroke-width: 1.5; }
+.dd-st-key rect { fill: var(--green-100); stroke: var(--green-700); }
+.dd-cap { font-size: 13px; font-weight: 700; fill: var(--fg); text-anchor: middle; }
+.dd-sub { font-size: 11px; fill: var(--fg-muted); text-anchor: middle; }
+.dd-lab { font-size: 13px; font-weight: 700; text-anchor: middle; }
+.dd-go { fill: var(--green-700); }
+.dd-stop { fill: var(--rust-700); }
+.dd-arrow { fill: none; stroke: var(--fg-faint); stroke-width: 1.6; }
+.dd-head { fill: var(--fg-faint); }
+.dd-brk { fill: none; stroke-width: 1.6; }
+.dd-brk-go { stroke: var(--green-700); }
+.dd-brk-stop { stroke: var(--rust-700); }
+.dd-box2 { fill: var(--amber-100); stroke: var(--amber-700); stroke-dasharray: 4 3; }
+@media (max-width: 720px) {
+  .dd-fig { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .dd-fig svg { min-width: 620px; }
+  .dd-fig .figure-caption::before { content: "← 圖可左右滑動 →　"; font-weight: 700; }
+}
+</style>
+
+    <!-- 3 ABSORPTION -->
+    <div class="section" id="section-absorption">
+      <div class="section-head"><div class="section-num">3</div><h2>為什麼要間隔：吸收站的五種機轉</h2></div>
+      <p class="section-desc">口服藥要先溶解、再穿過腸壁才進得了血液。只要另一個東西在這段時間內「抓住它、包住它、改變胃的環境、或改變它在胃裡停留多久」，吸收就會受影響。這些都發生在腸道裡，所以<strong>只要兩者不同時出現在腸道，問題就不會發生</strong>。</p>
+
+      <div class="table-wrap">
+        <table class="dd-cards">
+          <thead><tr><th>機轉</th><th>發生了什麼</th><th>代表例子</th><th>建議間隔</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td><strong>① 螯合／錯合</strong></td><td>多價陽離子（Ca²⁺、Mg²⁺、Al³⁺、Fe、Zn²⁺）跟藥物結合成不溶性複合物 → 吸收不了</td><td>四環黴素類 PO ＋ 牛奶、制酸劑、鐵劑；喹諾酮類 PO ＋ 制酸劑、含鈣鐵鋅產品、乳製品</td><td>四環黴素：口服前 <strong>3 小時</strong>內避開（講義）；喹諾酮：講義未給時間</td><td>講義 Antimicrobial 1、3；HBK Ch.19</td></tr>
+            <tr><td><strong>② 吸附／包覆</strong></td><td>藥物被黏在保護劑上，吸收變慢</td><td><strong>Sucralfate</strong> PO ＋ 其他口服藥</td><td>其他口服藥在 Sucralfate 前或後 <strong>1–2 小時</strong>（SAIM6）；講義寫間隔 2 小時</td><td>SAIM6 Ch.28；講義 Autacoid 3 GI</td></tr>
+            <tr><td><strong>③ 胃 pH 改變</strong></td><td>需要酸性環境才能溶解的藥，在胃酸被壓低時溶不開</td><td>PPI、H2 阻斷劑、制酸劑 → <strong>Ketoconazole、Itraconazole</strong>、鐵、Mycophenolate 吸收下降</td><td>錯開時間無法完全解決（PPI 的抑酸作用持續存在）</td><td>VPT10 Ch.38；講義 Autacoid 3 GI</td></tr>
+            <tr><td><strong>④ 胃排空速度</strong></td><td>胃排空變快 → 藥物較早進入小腸、吸收較快；變慢則相反</td><td>Metoclopramide、Cisapride 加快；Atropine 減慢</td><td>通常影響的是吸收速度</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>⑤ 食物</strong></td><td>食物改變藥物的溶解或吸收</td><td><strong>Pimobendan</strong> 生體可用率因食物下降；<strong>Ketoconazole</strong> 反而要有胃酸分泌（例如餐後）才吸收得好</td><td>Pimobendan：VPT10 寫「at least 1 hour after feeding」</td><td>VPT10 Ch.21、Ch.38</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>螯合：用一句話理解</h3>
+      <div class="flow">
+        <div class="flow-node">藥物分子上有可以抓金屬的位置（喹諾酮：3 號碳上的羧基，VPT10 Ch.37）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">腸道裡同時有鈣、鎂、鋁、鐵、鋅</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">結合成不溶性複合物 → 穿不過腸壁 → 隨糞便排出</div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：人醫證據 ≠ 動物證據</div>
+        <p>VPT10 Ch.37 指出，喹諾酮與陽離子的交互作用在人醫（尤其是 Ciprofloxacin）有充分記錄，但<strong>在動物身上的結果並不一致</strong>：犬的研究中，Sucralfate（含 Al³⁺）並沒有降低 Enrofloxacin 的口服吸收；Ciprofloxacin 的吸收則變異太大，看不出統計差異。相對地，若把陽離子和喹諾酮<strong>調配在同一份製劑裡</strong>（例如自製口服液、混入含鐵的維生素礦物質補充劑），就確定會螯合而失效。所以臨床上錯開給藥仍是合理的保守做法，但不必把它當成絕對禁忌。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充：Ketoconazole 的方向剛好相反</div>
+        <p>講義（Autacoid 3 GI）把 Azole 類列在「PPI 會降低吸收」的藥物中，原因是這些弱鹼需要低 pH 才能溶解。VPT10 Ch.38 也寫 Ketoconazole 只在酸性環境下溶解，需要有胃酸分泌（例如餐後）才吸收得好，而且胃 pH 升高的影響只限 Ketoconazole 與 Itraconazole。HBK Ch.19 則把 Ketoconazole 與四環黴素、水楊酸一起寫成「弱酸」，跟講義的說法不同，本頁採講義與 VPT10 的寫法。</p>
+      </div>
+      <footer class="note-footer">資料來源：HBK Ch.19；講義 Antimicrobial 1（Fluoroquinolones）、Antimicrobial 3（Tetracyclines）、Autacoid 3 GI（Sucralfate、PPI）；VPT10 Ch.21、Ch.37、Ch.38；SAIM6 Ch.28。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 4 IRON -->
+    <div class="section" id="section-iron">
+      <div class="section-head"><div class="section-num">4</div><h2>口服鐵劑：影響別人，也被別人影響</h2></div>
+      <p class="section-desc">口服鐵劑（Ferrous sulfate 等，<strong>PO</strong>；注射型如 Iron dextran 為 <strong>IM／SC</strong>，講義 CV5）同時扮演兩個角色：它會抓住別的藥，它自己的吸收也很容易被別的東西干擾。</p>
+
+      <div class="grid-2">
+        <div class="card"><div class="card-title">鐵 → 影響別的藥</div>
+          <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+            <li><strong>四環黴素類 PO</strong>：螯合 → 吸收↓；講義：口服前 3 小時內避免鐵鹽（Antimicrobial 3）。</li>
+            <li><strong>喹諾酮類 PO</strong>：螯合 → 吸收↓（講義 Antimicrobial 1）；動物證據不一致，但混在同一份製劑裡確定會失效（VPT10 Ch.37）。</li>
+            <li><strong>Phenothiazine 類溶液</strong>：會被三價鐵鹽氧化，屬於配伍禁忌（HBK Ch.19）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">別的東西 → 影響鐵</div>
+          <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+            <li><strong>降低吸收</strong>：磷酸鹽、制酸劑、咖啡、茶（講義 CV5）；PPI 讓胃 pH 升高 → 鐵吸收↓（講義 Autacoid 3 GI）。</li>
+            <li><strong>增加吸收</strong>：維生素 C（維持 Fe²⁺ 型態）、胃酸；Fe²⁺ 比 Fe³⁺ 容易吸收（講義 CV5）。</li>
+            <li><strong>Chloramphenicol</strong>：可能抑制骨髓紅血球前驅細胞的粒線體攝取鐵 → 骨髓抑制（講義 Antimicrobial 3）。這發生在骨髓，錯開吃藥時間沒有幫助。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：口服鐵也會干擾檢驗</div>
+        <p>SAIM6 Ch.27：口服鐵劑會讓<strong>糞便潛血檢查</strong>出現偽陽性（Cimetidine 與某些蔬菜也會）。正在吃鐵劑的動物，糞便潛血陽性不能直接當作腸胃道出血的證據。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充：到底需不需要補鐵</div>
+        <p>SAIM6 Ch.82：缺鐵性貧血在病因去除後通常 6–8 週內會恢復，作者寫「如果病因可以去除，我不使用鐵劑補充」，均衡的商業飼料通常就能達到相同效果；成犬與成貓每日飲食鐵需求約 1.3 mg/kg。另外，SAIM6 也指出成貓的缺鐵性貧血極少見。若要搭配紅血球生成刺激劑（ESA）治療腎性貧血，則需要在治療期間（最好在開始之前）就補鐵（SAIM6 Ch.41）。</p>
+      </div>
+      <footer class="note-footer">資料來源：講義 CV5 Antianemics、Antimicrobial 1、Antimicrobial 3、Autacoid 3 GI；VPT10 Ch.37；HBK Ch.19；SAIM6 Ch.27、Ch.41、Ch.82。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 5 CARDIAC -->
+    <div class="section" id="section-cardiac">
+      <div class="section-head"><div class="section-num">5</div><h2>心臟藥：要間隔的是食物，要小心的是血中濃度</h2></div>
+      <p class="section-desc">「心臟藥要跟其他東西間隔」在手邊的教科書裡，查得到的是 <strong>Pimobendan 與食物</strong>。Digoxin 真正危險的交互作用則幾乎都發生在代謝、排除和電解質層級，錯開時間沒有用。</p>
+
+      <h3>Pimobendan（PO；也有 IV）：跟食物間隔</h3>
+      <div class="flow">
+        <div class="flow-node">口服吸收很快，約 1 小時達到血中高峰</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">生體可用率 60–65%（最高約 70%）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">有食物時生體可用率下降</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">VPT10：「at least 1 hour after feeding」給藥，直到達到穩定狀態</div>
+      </div>
+      <p style="font-size:.9em;">另外，犬的半衰期約 1 小時或更短，主要經膽汁、糞便排除，蛋白結合率 90–95%（VPT10 Ch.21）。講義 CV1 寫 Pimobendan 主要口服、也可 IV。</p>
+
+      <h3>Digoxin（PO 為主；也有 IV）：安全範圍很窄</h3>
+      <p>講義 CV1：治療濃度 0.8–2.0 ng/mL，大於 2.4 ng/mL 即為中毒濃度；主要經腎臟排除；貓比犬敏感。濃度只要被別的藥推高一點，就可能中毒。</p>
+      <div class="table-wrap">
+        <table class="dd-cards">
+          <thead><tr><th>併用</th><th>結果</th><th>機轉</th><th>發生在哪一站</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Quinidine</strong></td><td>Digoxin 濃度↑</td><td>抑制 P-醣蛋白 → Digoxin 排除↓（講義）；並把 Digoxin 從骨骼肌結合位置置換出來、降低腎清除（HBK）</td><td>分布＋排除</td><td>講義 CV1；HBK Ch.8</td></tr>
+            <tr><td><strong>Verapamil、Amiodarone</strong></td><td>Digoxin 濃度↑</td><td>HBK 未詳述機轉；Diltiazem、Prazosin、Spironolactone、Triamterene 也可能</td><td>—</td><td>HBK Ch.8</td></tr>
+            <tr><td><strong>Spironolactone</strong></td><td>方向不一定</td><td>可能增加 P-醣蛋白表現 → 口服生體可用率↓；但也可能降低腎清除 → 建議監測血中濃度</td><td>吸收＋排除</td><td>VPT10 Ch.24</td></tr>
+            <tr><td><strong>Azole 抗黴菌藥</strong></td><td>Digoxin 濃度↑</td><td>P450 抑制</td><td>代謝</td><td>VPT10 Ch.38</td></tr>
+            <tr><td><strong>Neomycin、Sulfasalazine</strong></td><td>Digoxin 生體可用率↓</td><td>HBK 未詳述機轉</td><td>吸收</td><td>HBK Ch.8</td></tr>
+            <tr><td><strong>Furosemide 等排鉀利尿劑；Amphotericin B</strong></td><td>毛地黃中毒風險↑</td><td>低血鉀 → Na⁺/K⁺-ATPase 上空出更多 Digoxin 結合位置</td><td>藥效（電解質）</td><td>HBK Ch.8、Ch.19；講義 CV1；VPT10 Ch.38</td></tr>
+            <tr><td><strong>Cholestyramine</strong>（PO）</td><td>在腸道結合 Digoxin</td><td>只在意外口服過量後很早期給才有用</td><td>吸收</td><td>講義 CV1；HBK Ch.8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：Digoxin 劑量還受身體狀態影響</div>
+        <p>HBK Ch.8：腎功能不佳、肌肉量少或惡病質的動物，用一般計算劑量就容易中毒，劑量應以<strong>瘦體重</strong>計算；高血鈣、高血鈉、甲狀腺功能異常、缺氧也會增加中毒風險。</p>
+      </div>
+
+      <h3>其他心血管藥的組合</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>併用</th><th>結果</th><th>怎麼處理</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ACEI ＋ Spironolactone 或鉀補充</strong></td><td>高血鉀</td><td>小心併用、監測血鉀；高血鉀病患絕對禁用 Spironolactone</td><td>VPT10 Ch.24；HBK Ch.8</td></tr>
+            <tr><td><strong>Furosemide ＋ Digoxin</strong></td><td>Digoxin 的強心作用（與毒性）增強</td><td>Furosemide 造成低血鉀；監測血鉀</td><td>HBK Ch.19</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">資訊：沒有查到的部分</div>
+        <p>「心臟藥要跟其他藥物間隔半小時到一小時」這個說法，在講義、HBK、VPT10、SAIM6 裡都沒有找到通則性的依據。查得到的「間隔」是 Pimobendan 跟食物，以及 Sucralfate 跟所有口服藥。如果院內有特定的間隔規定，可能來自個別藥品的仿單，需要另外查。</p>
+      </div>
+      <footer class="note-footer">資料來源：講義 CV1 Cardiac glycoside；VPT10 Ch.21、Ch.24、Ch.38；HBK Ch.8、Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據；劑量以院內規範為準。</footer>
+    </div>
+
+    <!-- 6 METABOLISM -->
+    <div class="section" id="section-metabolism">
+      <div class="section-head"><div class="section-num">6</div><h2>代謝站：肝臟酵素與 P-醣蛋白</h2></div>
+      <p class="section-desc">很多藥在肝臟被 P450 酵素代謝後才失去作用。如果另一個藥<strong>抑制</strong>這些酵素，第一個藥就代謝得慢、濃度上升、作用延長；如果另一個藥<strong>誘導</strong>酵素，第一個藥就代謝得快、效果下降（HBK Ch.19）。這種交互作用發生在肝臟，而且抑制劑會持續存在好幾個半衰期，所以錯開吃藥時間不能解決。</p>
+
+      <div class="grid-2">
+        <div class="card"><div class="card-title">P450 抑制劑（讓別的藥濃度↑）</div>
+          <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+            <li><strong>HBK Ch.19 列舉</strong>：Chloramphenicol、Enrofloxacin、Ketoconazole、Cimetidine、Ranitidine、Prednisolone、Quinidine。</li>
+            <li><strong>H2 阻斷劑</strong>：Cimetidine 抑制 P450 最明顯，Ranitidine 較弱，Famotidine、Nizatidine 不抑制；所以首選 Ranitidine 與 Famotidine（講義 Autacoid 3 GI）。</li>
+            <li><strong>PPI</strong>：抑制 P450 → Benzodiazepine、Phenobarbital、Phenytoin、Warfarin 清除變慢；也會抑制 Clopidogrel（前驅藥）的活化（講義 Autacoid 3 GI）。</li>
+            <li><strong>Enrofloxacin</strong>：抑制 CYP1A2 → 犬的 Theophylline 濃度上升、清除下降（VPT10 Ch.37）。</li>
+          </ul>
+        </div>
+        <div class="card"><div class="card-title">P450 誘導劑（讓別的藥失效得更快）</div>
+          <ul style="margin:6px 0 0 0;padding-left:1.2em;">
+            <li><strong>HBK Ch.19 列舉</strong>：Phenobarbital、Phenytoin、Griseofulvin、Phenylbutazone、Rifampin，以及有機氯殺蟲劑（Lindane、Methoxychlor）。</li>
+            <li><strong>Griseofulvin</strong>：加速 Coumarin 類抗凝血劑代謝 → 抗凝效果下降（VPT10 Ch.38）。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Azole 抗黴菌藥：最常見的抑制劑（VPT10 Ch.38）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>被影響的藥</th><th>結果</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cyclosporine</strong></td><td>濃度↑（P450／P-醣蛋白抑制）</td><td>需調整 Cyclosporine 劑量；臨床上反過來<strong>利用</strong>這點來降低 Cyclosporine 費用</td></tr>
+            <tr><td><strong>Benzodiazepine</strong>（尤其 Midazolam）</td><td>濃度↑ → 鎮靜加強</td><td>—</td></tr>
+            <tr><td><strong>Digoxin</strong></td><td>濃度↑ → 毛地黃中毒</td><td>—</td></tr>
+            <tr><td><strong>Warfarin</strong></td><td>濃度↑ → 出血</td><td>—</td></tr>
+            <tr><td><strong>Cisapride</strong></td><td>濃度↑ → 心室性心律不整</td><td>人類報告，動物未見</td></tr>
+            <tr><td><strong>Quinidine</strong></td><td>濃度↑</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>P-醣蛋白：把藥物往外打的幫浦</h3>
+      <p>HBK Ch.1：P-醣蛋白是細胞膜上的外排幫浦，存在於腸道、膽道、腎小管上皮與血腦屏障，影響部分口服藥的首渡清除與排除。它的受質包括 <strong>Azole 抗黴菌藥、皮質類固醇、Cyclosporine、Digoxin、Diltiazem、Doxorubicin、Opioid、大環內酯類驅蟲藥（Macrocyclic lactones）、Macrolide 抗生素、Quinidine、Vincristine／Vinblastine</strong>。兩個受質併用時，可能互相影響排除，例如 Quinidine 抑制 P-醣蛋白 → Digoxin 排除下降（講義 CV1）。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 犬的 MDR1（ABCB1）基因突變與 Loperamide、化療藥毒性，見上群AH〈犬化療照護與副作用管理指南〉。</p>
+      <footer class="note-footer">資料來源：HBK Ch.1、Ch.19；講義 Autacoid 3 GI、CV1；VPT10 Ch.37、Ch.38。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 7 DISTRIBUTION & EXCRETION -->
+    <div class="section" id="section-distribution">
+      <div class="section-head"><div class="section-num">7</div><h2>分布站與排除站</h2></div>
+      <h3>分布：搶血漿白蛋白的位置</h3>
+      <div class="flow">
+        <div class="flow-node">兩個藥都高度結合白蛋白</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">結合力較強的藥把另一個擠下來</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node danger">游離（有作用的）藥物變多 → 作用過強</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>例子</th><th>結果</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td><strong>NSAID ＋ Warfarin（Coumarin 類）</strong></td><td>抗凝作用增強。講義指出這是兩層作用：藥動學（白蛋白結合被置換）＋藥效學（抗凝作用加成）</td><td>HBK Ch.19；講義 Autacoid 4 NSAID</td></tr>
+            <tr><td><strong>Barbiturate ＋ Sulfonamide、NSAID 或 Doxycycline</strong></td><td>巴比妥麻醉時間延長</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>NSAID ＋ 甲狀腺素</strong></td><td>NSAID 把甲狀腺素從結合球蛋白（TBG）上置換下來 → 游離甲狀腺素↑</td><td>講義 Autacoid 4 NSAID</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>排除：腎小管的分泌通道是共用的</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>機轉</th><th>內容</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td><strong>競爭腎小管主動分泌</strong></td><td>酸性藥共用一條通道：Penicillin、Cephalosporin、Chlorothiazide、Ethacrynic acid、Furosemide、Probenecid、NSAID（Aspirin、Phenylbutazone、Meclofenamic acid、Flunixin、Ketoprofen、Carprofen、Etodolac）；鹼性藥共用另一條：Histamine、Serotonin、Procainamide、Neostigmine、Trimethoprim、Atropine。同一條通道的藥併用 → 排除變慢</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>H2 阻斷劑</strong></td><td>Cimetidine、Ranitidine 會競爭腎臟的陽離子分泌通道（多為鹼性藥）</td><td>講義 Autacoid 3 GI</td></tr>
+            <tr><td><strong>改變尿液 pH</strong></td><td>鹼化尿液（碳酸氫鈉）加速酸性藥排出；酸化尿液（氯化銨）加速鹼性藥排出（離子捕捉）</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>利尿劑</strong></td><td>尿量增加 → 許多藥物再吸收減少、排出加快</td><td>HBK Ch.19</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：HBK Ch.19；講義 Autacoid 3 GI、Autacoid 4 NSAID。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 8 PD -->
+    <div class="section" id="section-pd">
+      <div class="section-head"><div class="section-num">8</div><h2>藥效學交互作用：在受體層級碰面</h2></div>
+      <p class="section-desc">藥效學交互作用不改變藥物濃度，而是兩個藥的「作用」互相抵消或疊加（HBK Ch.19）。用<a href="2026-10-02_專題-腸胃道受體總論.html">腸胃道受體總論</a>的框架就能預測很多組合。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>例子</th><th>為什麼</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td><strong>拮抗</strong></td><td>縮瞳劑 ＋ H1 抗組織胺</td><td>多數 H1 抗組織胺有抗膽鹼副作用 → 散瞳，抵消縮瞳劑</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>拮抗</strong></td><td>α 促效劑（Epinephrine、Phenylephrine、Phenylpropanolamine）＋ Phenothiazine（Acepromazine、Chlorpromazine）</td><td>Phenothiazine 阻斷 α 受體；Epinephrine 的 α 作用被擋掉後只剩 β 作用 → 低血壓（epinephrine reversal）</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>拮抗</strong></td><td>四環黴素 ＋ β-lactam</td><td>β-lactam 對快速生長的細菌最有效；四環黴素抑制細菌生長 → 降低 β-lactam 效果</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>拮抗</strong></td><td>促蠕動藥 ＋ Opioid 或 α2 促效劑</td><td>促蠕動藥踩油門（5-HT4、D2 拮抗、motilin）；opioid 與 α2 在腸神經上踩煞車 → 效果互相抵消</td><td>講義 Autacoid 3 GI、ANS 1</td></tr>
+            <tr><td><strong>協同</strong></td><td>Sulfonamide ＋ Trimethoprim（或 Ormetoprim）</td><td>阻斷葉酸合成路徑的兩個步驟 → 抗菌效果大於相加</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>協同（毒性）</strong></td><td>Furosemide ＋ Aminoglycoside</td><td>增強 Aminoglycoside 腎毒性</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>協同</strong></td><td>吸入麻醉劑 ＋ Aminoglycoside</td><td>Aminoglycoside 抑制體神經 ACh 釋放 → 肌肉鬆弛作用增強</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>協同</strong></td><td>Furosemide ＋ Digoxin</td><td>低血鉀 → Digoxin 強心作用（與毒性）增強</td><td>HBK Ch.19</td></tr>
+            <tr><td><strong>加成</strong></td><td>NSAID ＋ Warfarin</td><td>兩者都影響凝血 → 抗凝作用加成（另有蛋白結合置換）</td><td>講義 Autacoid 4 NSAID</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：HBK Ch.19；講義 Autacoid 3 GI、Autacoid 4 NSAID、ANS 1。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 9 INCOMPAT -->
+    <div class="section" id="section-incompat">
+      <div class="section-head"><div class="section-num">9</div><h2>配伍禁忌：在針筒與點滴裡碰面</h2></div>
+      <p class="section-desc">HBK Ch.19：除非確定相容，藥物不應該混在同一支針筒或加進點滴裡。不相容不一定看得出來（不一定有混濁或沉澱）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><strong>錯合（Ca²⁺）</strong></td><td>含鈣溶液會跟這些藥形成不溶性複合物：碳酸氫鈉、四環黴素類、Cephalosporin、Barbiturate、喹諾酮類、Penicillin、Furosemide、NSAID（Aspirin、Phenylbutazone、Meclofenamic acid、Flunixin、Ketoprofen、Carprofen、Etodolac）</td></tr>
+            <tr><td><strong>酸鹼不相容</strong></td><td>鹼性溶液（Sulfonamide、Aminophylline、Barbiturate）不可與酸性溶液（Penicillin G、Cephalosporin、Xylazine HCl、Ketamine HCl、Gentamicin sulfate 等）或生物鹼鹽（如 Atropine sulfate）混合</td></tr>
+            <tr><td><strong>氧化還原</strong></td><td>四環黴素被 Riboflavin 氧化；Phenothiazine 鎮靜劑被三價鐵鹽氧化 → 藥效喪失</td></tr>
+            <tr><td><strong>物理性（溶解度）</strong></td><td>大環內酯類驅蟲藥用水稀釋會沉澱，應改用 Propylene glycol；Amphotericin B 不溶於水，需用 Sodium desoxycholate 溶解</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：HBK Ch.19。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 10 LOOKUP -->
+    <div class="section" id="section-lookup">
+      <div class="section-head"><div class="section-num">10</div><h2>速查表<span class="tag tag-exam">互動</span></h2></div>
+      <p class="section-desc">輸入藥名（中英文都可）或點選類別篩選。「錯開有用？」一欄是依第 2 節的原則判斷。</p>
+      <div class="dl-bar">
+        <input type="text" id="dlInput" placeholder="輸入藥名，例如 iron、digoxin、PPI…" autocomplete="off">
+        <div class="dl-chips" id="dlChips"></div>
+      </div>
+      <p id="dlCount" style="font-size:.85em; color:var(--fg-muted); margin:6px 0 10px;"></p>
+      <div class="table-wrap">
+        <table class="dd-cards" id="dlTable">
+          <thead><tr><th>藥物 A</th><th>藥物 B</th><th>結果</th><th>類別</th><th>錯開有用？</th><th>怎麼處理（出處）</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：同第 3–9 節各列標示。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+<style>
+.dl-bar input { width: 100%; font: inherit; padding: 8px 12px; border: 1px solid var(--line-soft); border-radius: 8px; background: var(--bg); color: var(--fg); box-sizing: border-box; }
+.dl-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.dl-chip { font: inherit; font-size: .82em; font-weight: 700; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-soft); background: var(--bg); color: var(--fg); cursor: pointer; }
+.dl-chip.dl-on { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.dl-yes { color: var(--green-700); font-weight: 700; }
+.dl-no { color: var(--rust-700); font-weight: 700; }
+.dl-na { color: var(--fg-muted); font-weight: 700; }
+@media (min-width: 721px) {
+  #dlTable { table-layout: fixed; }
+  #dlTable th { white-space: normal; }
+  #dlTable th:nth-child(1) { width: 17%; } #dlTable th:nth-child(2) { width: 21%; } #dlTable th:nth-child(3) { width: 20%; }
+  #dlTable th:nth-child(4) { width: 10%; } #dlTable th:nth-child(5) { width: 10%; } #dlTable th:nth-child(6) { width: 22%; }
+  #dlTable td { overflow-wrap: anywhere; }
+}
+@media (max-width: 720px) {
+  .dd-cards thead { display: none; }
+  .dd-cards, .dd-cards tbody, .dd-cards tr, .dd-cards td { display: block; width: auto; }
+  .dd-cards tr { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 10px; padding: 4px 0; }
+  .dd-cards td { border: 0; padding: 4px 12px; }
+  .dd-cards td[data-label]::before { content: attr(data-label); display: block; font-size: .75em; font-weight: 700; color: var(--fg-faint); }
+  .dd-cards td:first-child { background: var(--bg-faint); }
+}
+</style>
+<script>
+(function () {
+  // [藥物A, 藥物B, 結果, 類別, 錯開有用(yes/no/na), 怎麼處理, 出處, 額外搜尋字]
+  var D = [
+    ['四環黴素類（PO）', '牛奶、制酸劑、鐵劑', '螯合 → 四環黴素吸收↓', '吸收', 'yes', '口服前 3 小時內避開', '講義 Antimicrobial 3', 'tetracycline doxycycline 牛奶 鈣 iron antacid'],
+    ['喹諾酮類（PO）', '制酸劑；含鈣、鐵、鋅產品；乳製品', '螯合 → 吸收↓（人醫證據充分，動物不一致）', '吸收', 'yes', '錯開給藥（講義未給時間）；不要調配在同一份製劑', '講義 Antimicrobial 1；VPT10 Ch.37', 'fluoroquinolone enrofloxacin marbofloxacin ciprofloxacin iron calcium antacid'],
+    ['Sucralfate（PO）', '其他口服藥', '吸附 → 其他藥吸收變慢', '吸收', 'yes', '其他口服藥在前或後 1–2 小時（講義：2 小時）', 'SAIM6 Ch.28；講義 Autacoid 3 GI', 'sucralfate 硫糖鋁'],
+    ['PPI、H2 阻斷劑、制酸劑', 'Ketoconazole、Itraconazole', '胃 pH↑ → Azole 溶解與吸收↓', '吸收', 'no', '抑酸作用持續存在；考慮換藥', 'VPT10 Ch.38；講義 Autacoid 3 GI', 'omeprazole pantoprazole famotidine antacid azole'],
+    ['PPI', '口服鐵劑', '胃 pH↑ → 鐵吸收↓', '吸收', 'no', '抑酸作用持續存在', '講義 Autacoid 3 GI', 'omeprazole iron 鐵'],
+    ['口服鐵劑', '磷酸鹽、制酸劑、咖啡、茶', '鐵吸收↓（維生素 C 則促進吸收）', '吸收', 'yes', '錯開給藥', '講義 CV5', 'iron ferrous 鐵 vitamin C'],
+    ['Metoclopramide、Cisapride／Atropine', '其他口服藥', '胃排空加快／減慢 → 吸收速度改變', '吸收', 'na', '注意起效時間', 'HBK Ch.19', 'prokinetic 胃排空'],
+    ['Pimobendan（PO）', '食物', '生體可用率↓', '食物', 'yes', 'VPT10：餵食後至少 1 小時給藥', 'VPT10 Ch.21', 'pimobendan vetmedin 心臟'],
+    ['Ketoconazole（PO）', '食物（胃酸）', '需要胃酸才吸收得好', '食物', 'na', '有胃酸分泌時（如餐後）給', 'VPT10 Ch.38', 'ketoconazole azole'],
+    ['Digoxin', 'Quinidine', 'Digoxin 濃度↑', '排除', 'no', '避免併用', '講義 CV1；HBK Ch.8', 'digoxin 心臟 p-glycoprotein'],
+    ['Digoxin', 'Verapamil、Amiodarone（可能：Diltiazem、Prazosin、Spironolactone、Triamterene）', 'Digoxin 濃度↑', '代謝／排除', 'no', '監測血中濃度', 'HBK Ch.8', 'digoxin 心臟'],
+    ['Digoxin', 'Spironolactone', '生體可用率可能↓，腎清除可能↓', '吸收／排除', 'no', '監測血中濃度', 'VPT10 Ch.24', 'digoxin spironolactone 心臟'],
+    ['Digoxin', 'Azole 抗黴菌藥', 'P450 抑制 → Digoxin 濃度↑', '代謝', 'no', '監測、調整劑量', 'VPT10 Ch.38', 'digoxin ketoconazole itraconazole 心臟'],
+    ['Digoxin', 'Neomycin、Sulfasalazine', 'Digoxin 生體可用率↓', '吸收', 'na', '監測療效', 'HBK Ch.8', 'digoxin 心臟'],
+    ['Digoxin', 'Furosemide 等排鉀利尿劑、Amphotericin B', '低血鉀 → 毛地黃中毒', '藥效', 'no', '監測、補充血鉀', 'HBK Ch.8、Ch.19；講義 CV1；VPT10 Ch.38', 'digoxin furosemide 低血鉀 心臟'],
+    ['ACEI', 'Spironolactone、鉀補充', '高血鉀', '藥效', 'no', '小心併用、監測血鉀', 'VPT10 Ch.24；HBK Ch.8', 'benazepril enalapril 心臟 鉀'],
+    ['Cimetidine（Ranitidine 較弱）', '經 P450 代謝的藥', '其他藥濃度↑', '代謝', 'no', '改用 Famotidine', '講義 Autacoid 3 GI；HBK Ch.19', 'cimetidine ranitidine famotidine h2'],
+    ['PPI（Omeprazole 等）', 'Benzodiazepine、Phenobarbital、Phenytoin、Warfarin', '清除↓ → 作用延長', '代謝', 'no', '監測、調整劑量', '講義 Autacoid 3 GI', 'omeprazole diazepam midazolam phenobarbital warfarin'],
+    ['PPI', 'Clopidogrel', '前驅藥活化受抑制 → 效果↓', '代謝', 'no', '—', '講義 Autacoid 3 GI', 'omeprazole clopidogrel 抗血小板'],
+    ['Azole 抗黴菌藥', 'Cyclosporine', 'Cyclosporine 濃度↑', '代謝', 'no', '調整劑量；臨床上用來節省費用', 'VPT10 Ch.38', 'ketoconazole cyclosporine atopica'],
+    ['Azole 抗黴菌藥', 'Benzodiazepine（尤其 Midazolam）', '鎮靜加強', '代謝', 'no', '—', 'VPT10 Ch.38', 'ketoconazole midazolam'],
+    ['Azole 抗黴菌藥', 'Cisapride', 'Cisapride 濃度↑ → 心律不整（人類報告）', '代謝', 'no', '避免併用', 'VPT10 Ch.38', 'ketoconazole itraconazole cisapride'],
+    ['Enrofloxacin', 'Theophylline', 'CYP1A2 抑制 → Theophylline 濃度↑（犬）', '代謝', 'no', '監測、調整劑量', 'VPT10 Ch.37', 'enrofloxacin baytril theophylline 呼吸'],
+    ['Phenobarbital 等 P450 誘導劑', '經 P450 代謝的藥', '其他藥代謝加快 → 效果↓', '代謝', 'no', '可能需要加量', 'HBK Ch.19', 'phenobarbital phenytoin rifampin griseofulvin 誘導'],
+    ['Griseofulvin', 'Coumarin 類抗凝血劑', '誘導代謝 → 抗凝效果↓', '代謝', 'no', '監測凝血', 'VPT10 Ch.38', 'griseofulvin warfarin'],
+    ['NSAID', 'Warfarin（Coumarin 類）', '蛋白結合置換＋抗凝加成 → 出血', '分布＋藥效', 'no', '避免併用', 'HBK Ch.19；講義 Autacoid 4 NSAID', 'nsaid aspirin carprofen meloxicam warfarin'],
+    ['Barbiturate', 'Sulfonamide、NSAID、Doxycycline', '麻醉時間延長', '分布', 'no', '—', 'HBK Ch.19', 'barbiturate thiopental 麻醉'],
+    ['NSAID', '甲狀腺素', '自 TBG 置換 → 游離甲狀腺素↑', '分布', 'no', '判讀甲狀腺數值時留意', '講義 Autacoid 4 NSAID', 'nsaid thyroid t4'],
+    ['酸性藥（Penicillin、Furosemide、NSAID 等）', '其他酸性藥', '競爭腎小管分泌 → 排除變慢', '排除', 'no', '—', 'HBK Ch.19', 'penicillin furosemide probenecid nsaid'],
+    ['Furosemide', 'Aminoglycoside', '腎毒性增強', '藥效', 'no', '避免併用或監測腎功能', 'HBK Ch.19', 'furosemide gentamicin amikacin'],
+    ['吸入麻醉劑', 'Aminoglycoside', '肌肉鬆弛作用增強', '藥效', 'no', '—', 'HBK Ch.19', 'isoflurane sevoflurane gentamicin'],
+    ['Phenothiazine（Acepromazine）', 'Epinephrine 等 α 促效劑', 'Epinephrine reversal → 低血壓', '藥效', 'no', '—', 'HBK Ch.19', 'acepromazine epinephrine phenylpropanolamine'],
+    ['四環黴素', 'β-lactam', '抗菌效果拮抗', '藥效', 'no', '避免併用', 'HBK Ch.19', 'tetracycline doxycycline amoxicillin cephalexin'],
+    ['Sulfonamide', 'Trimethoprim', '抗菌協同', '藥效', 'na', '刻意併用（TMP-sulfa）', 'HBK Ch.19', 'tmp sulfa'],
+    ['促蠕動藥', 'Opioid、α2 促效劑', '油門與煞車互相抵消', '藥效', 'no', '先移除抑制蠕動的因素', '講義 Autacoid 3 GI、ANS 1', 'metoclopramide morphine dexmedetomidine'],
+    ['H1 抗組織胺', '縮瞳劑', '抗膽鹼副作用 → 散瞳，抵消縮瞳', '藥效', 'no', '—', 'HBK Ch.19', 'diphenhydramine pilocarpine 眼'],
+    ['Chloramphenicol', '造血（鐵利用）', '抑制紅血球前驅細胞粒線體攝鐵 → 骨髓抑制', '藥效', 'no', '—', '講義 Antimicrobial 3', 'chloramphenicol iron 貧血'],
+    ['含鈣溶液（IV）', '碳酸氫鈉、四環黴素、Cephalosporin、Barbiturate、喹諾酮、Penicillin、Furosemide、NSAID', '形成不溶性複合物', '配伍', 'na', '不要混在同一支針筒或點滴', 'HBK Ch.19', 'calcium gluconate bicarbonate 輸液'],
+    ['鹼性溶液（Sulfonamide、Aminophylline、Barbiturate）', '酸性溶液（Penicillin G、Cephalosporin、Xylazine、Ketamine、Gentamicin、Atropine）', '酸鹼不相容', '配伍', 'na', '不要混在同一支針筒或點滴', 'HBK Ch.19', 'xylazine ketamine gentamicin atropine 輸液'],
+    ['Phenothiazine 溶液', '三價鐵鹽', '氧化 → 失效', '配伍', 'na', '不要混合', 'HBK Ch.19', 'acepromazine iron 鐵'],
+    ['口服鐵劑', '糞便潛血檢查', '偽陽性', '檢驗干擾', 'na', '判讀時考慮用藥', 'SAIM6 Ch.27', 'iron 鐵 occult blood']
+  ];
+  var CATS = ['全部', '吸收', '食物', '分布', '代謝', '排除', '藥效', '配伍', '檢驗干擾'];
+  var LAB = { yes: '<span class="dl-yes">有用</span>', no: '<span class="dl-no">沒用</span>', na: '<span class="dl-na">不適用</span>' };
+  var HEAD = ['藥物 A', '藥物 B', '結果', '類別', '錯開有用？', '怎麼處理（出處）'];
+  var inp = document.getElementById('dlInput'), chips = document.getElementById('dlChips'), tb = document.querySelector('#dlTable tbody'), cnt = document.getElementById('dlCount');
+  var cat = '全部';
+  chips.innerHTML = CATS.map(function (c) { return '<button type="button" class="dl-chip' + (c === cat ? ' dl-on' : '') + '" data-c="' + c + '">' + c + '</button>'; }).join('');
+  function render() {
+    var q = inp.value.trim().toLowerCase();
+    var rows = D.filter(function (r) {
+      if (cat !== '全部' && r[3].indexOf(cat) < 0) return false;
+      if (!q) return true;
+      return (r[0] + ' ' + r[1] + ' ' + r[2] + ' ' + r[7]).toLowerCase().indexOf(q) >= 0;
+    });
+    tb.innerHTML = rows.map(function (r) {
+      var cells = [r[0], r[1], r[2], r[3], LAB[r[4]], r[5] + '<div style="font-size:.8em;color:var(--fg-faint);margin-top:3px;">' + r[6] + '</div>'];
+      return '<tr>' + cells.map(function (c, i) { return '<td data-label="' + HEAD[i] + '">' + c + '</td>'; }).join('') + '</tr>';
+    }).join('');
+    cnt.textContent = '共 ' + rows.length + ' 筆' + (q ? '（搜尋「' + inp.value.trim() + '」）' : '');
+    if (window.linkCitations) window.linkCitations();
+  }
+  inp.addEventListener('input', render);
+  chips.addEventListener('click', function (e) {
+    var b = e.target.closest('.dl-chip'); if (!b) return;
+    cat = b.dataset.c;
+    chips.querySelectorAll('.dl-chip').forEach(function (x) { x.classList.toggle('dl-on', x.dataset.c === cat); });
+    render();
+  });
+  render();
+  // 靜態表格也加上手機版卡片標籤
+  document.querySelectorAll('table.dd-cards').forEach(function (t) {
+    if (t.id === 'dlTable') return;
+    var heads = [].map.call(t.querySelectorAll('thead th'), function (th) { return th.textContent; });
+    t.querySelectorAll('tbody tr').forEach(function (tr) {
+      tr.querySelectorAll('td').forEach(function (td, i) { td.setAttribute('data-label', heads[i] || ''); });
+    });
+  });
+})();
+</script>
+
+    <!-- 11 QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>自我測驗</h2></div>
+      <p class="section-desc">先自己作答，再點開答案。答錯時，回頭想：兩個藥是在哪一站碰面的？</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪一組交互作用，最可能靠「錯開給藥時間」避免？</div>
+        <ul class="quiz-options">
+          <li>(A) Omeprazole 讓 Diazepam 作用延長</li>
+          <li>(B) Doxycycline 口服與制酸劑併用</li>
+          <li>(C) Furosemide 讓 Digoxin 毒性增加</li>
+          <li>(D) Ketoconazole 讓 Cyclosporine 濃度上升</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">四環黴素類與制酸劑的螯合發生在腸道，兩者不同時在腸道就不會發生（講義：口服前 3 小時內避開）。(A)(D) 是肝臟酵素抑制，(C) 是低血鉀造成的藥效交互作用，都發生在吸收之後，錯開時間沒有用。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 依 VPT10，喹諾酮類與含鋁、鐵產品的螯合在犬已被反覆證實，Sucralfate 會明顯降低 Enrofloxacin 的口服吸收。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：✗</div>
+          <p class="quiz-explain">VPT10 Ch.37：這類交互作用在人醫（尤其 Ciprofloxacin）證據充分，在動物結果不一致；犬的研究中 Sucralfate 並未降低 Enrofloxacin 吸收。但若把陽離子與喹諾酮調配在同一份製劑裡，就確定會螯合。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻犬需要 H2 阻斷劑，同時在吃好幾種經肝臟 P450 代謝的藥。依講義，哪一個最需要避開？</div>
+        <ul class="quiz-options">
+          <li>(A) Famotidine</li>
+          <li>(B) Nizatidine</li>
+          <li>(C) Cimetidine</li>
+          <li>(D) 以上都一樣</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">講義 Autacoid 3 GI：Cimetidine 抑制 P450，Ranitidine 較弱，Famotidine 與 Nizatidine 不抑制；Cimetidine 的副作用與交互作用最多。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 為什麼 Furosemide 會讓 Digoxin 更容易中毒？這種交互作用屬於哪一類？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">Furosemide 造成低血鉀；低血鉀讓心肌 Na⁺/K⁺-ATPase 上空出更多可讓 Digoxin 結合的位置 → 強心作用與毒性都增強（HBK Ch.8、Ch.19）。這是藥效學交互作用（HBK 把 Furosemide＋Digitalis 列為協同作用），Digoxin 的血中濃度不一定改變，所以處理方式是監測並補充血鉀，而不是錯開時間。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q5.【臨床情境】一隻慢性失血後缺鐵的犬，回家用藥包括：口服鐵劑、Omeprazole PO（胃潰瘍）、Sucralfate PO、Doxycycline PO（蜱媒疾病）。請問：(1) 哪些組合會在腸道裡互相干擾？(2) 哪一個組合錯開時間也無法完全解決？(3) 你會怎麼排給飼主的服藥時間表？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> 鐵 ＋ Doxycycline：螯合（講義：口服前 3 小時內避開鐵鹽）；Sucralfate ＋ 其他所有口服藥：吸附（SAIM6：其他口服藥在前或後 1–2 小時）。<br><strong>(2)</strong> Omeprazole ＋ 鐵：Omeprazole 讓胃 pH 持續升高 → 鐵吸收下降（講義 Autacoid 3 GI），抑酸作用不會因為錯開幾小時就消失。<br><strong>(3)</strong> 思考方向：Doxycycline 跟鐵分開至少 3 小時；Sucralfate 單獨一個時段，跟其他藥前後隔 1–2 小時；並跟主治討論補鐵的必要性與時機（SAIM6 作者在病因去除後通常不補鐵）。實際排法依每個藥的頻率與院內規範。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q6.【臨床情境】一隻二尖瓣疾病的犬在吃 Pimobendan、Furosemide、Benazepril，這次因為皮膚黴菌感染想加 Ketoconazole。請問：(1) Pimobendan 跟餵食時間要怎麼安排？依據是什麼？(2) 如果這隻狗同時也在吃 Digoxin，加 Ketoconazole 要擔心什麼？(3) Benazepril 如果再加上 Spironolactone，要監測什麼？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>(1)</strong> 食物會降低 Pimobendan 的生體可用率，VPT10 Ch.21 寫餵食後至少 1 小時給藥。<br><strong>(2)</strong> Azole 抑制 P450 → Digoxin 濃度上升 → 毛地黃中毒（VPT10 Ch.38）；加上 Furosemide 造成的低血鉀，中毒風險更高。要監測 Digoxin 血中濃度與血鉀。另外 Ketoconazole 本身需要胃酸才吸收得好，如果同時用 PPI 或 H2 阻斷劑，吸收會下降。<br><strong>(3)</strong> ACEI ＋ Spironolactone → 高血鉀風險，監測血鉀（VPT10 Ch.24）。</p>
+        </details>
+      </div>
+      <footer class="note-footer">情境為虛構的教學組合。資料來源：講義 Antimicrobial 3、Autacoid 3 GI；HBK Ch.8、Ch.19；VPT10 Ch.21、Ch.24、Ch.37、Ch.38；SAIM6 Ch.28、Ch.82。本頁為個人學習整理，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+    <!-- 12 FOLLOWUP -->
+    <div class="section" id="section-followup">
+      <div class="section-head"><div class="section-num">12</div><h2>待確認事項</h2></div>
+      <ul>
+        <li><strong>「心臟藥跟其他藥間隔半小時到一小時」的來源：</strong>講義、HBK、VPT10、SAIM6 都沒有查到這個通則。若是院內常規，可能來自個別藥品仿單，需要確認是哪個藥、哪份仿單。</li>
+        <li><strong>Pimobendan 的給藥時間：</strong>VPT10 原文是「at least 1 hour after feeding」。本頁照原文寫，沒有另外核對仿單的寫法。</li>
+        <li><strong>喹諾酮與陽離子的間隔時間：</strong>講義只寫會降低吸收、沒有給時間；VPT10 指出動物證據不一致。</li>
+        <li><strong>Ketoconazole 是弱酸還是弱鹼：</strong>HBK Ch.19 與講義、VPT10 寫法不同，本頁採講義與 VPT10。</li>
+        <li><strong>未涵蓋：</strong>Tramadol、Trazodone 等血清素相關藥物的併用風險，手邊教科書還沒查到可引用的內容，之後再補。</li>
+      </ul>
+      <footer class="note-footer">本頁內容僅供個人學習與院內討論使用，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "overview": "⭐ 重點摘要",
+  "map": "🗺️ 交互作用發生在哪一站",
+  "absorption": "⏱️ 為什麼要間隔：吸收站",
+  "iron": "🩸 口服鐵劑",
+  "cardiac": "❤️ 心臟藥",
+  "metabolism": "🧪 代謝站：酵素與幫浦",
+  "distribution": "🔀 分布站與排除站",
+  "pd": "🎯 藥效學：受體層級",
+  "incompat": "💉 配伍禁忌：針筒與點滴",
+  "lookup": "🔍 速查表",
+  "quiz": "📝 自我測驗",
+  "followup": "📌 待確認事項"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/cite-links.js" data-base="../"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="../assets/pdf-viewer.js"></script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

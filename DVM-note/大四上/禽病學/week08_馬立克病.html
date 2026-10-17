@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：馬立克病 (MD) - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">馬立克病 (MD)</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">馬立克病 Marek's Disease (MD)</h1>
+      <p class="page-subtitle">Gallid alphaherpesvirus 2 · T 細胞淋巴瘤；四種病型（神經、內臟、皮膚、眼）；經羽毛毛囊上皮排毒、吸入感染；世界第一個預防腫瘤的疫苗</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《禽病學》課程講義〈家禽腫瘤性疾病：Marek's Disease〉（吳乃慧 DVM, PhD），含講義引用之 OIE Terrestrial Manual 2018、G. Zavala（AAAP 2021）。鑑別表取自講義 p.62–63</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-12</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（期中考導向）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <a onclick="showSection('neoplasia')" id="nav-neoplasia"><span class="nav-icon">🧫</span> 家禽腫瘤性疾病總覽</a>
+    <div class="section-label" style="margin-top:8px;">病原與流行</div>
+    <a onclick="showSection('virology')" id="nav-virology"><span class="nav-icon">🦠</span> 病原與血清型</a>
+    <a onclick="showSection('epidemiology')" id="nav-epidemiology"><span class="nav-icon">🌏</span> 宿主與傳播</a>
+    <a onclick="showSection('pathogenesis')" id="nav-pathogenesis"><span class="nav-icon">🧬</span> 致病機轉</a>
+    <div class="section-label" style="margin-top:8px;">臨床與診斷</div>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🤒</span> 臨床型與病型</a>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis"><span class="nav-icon">🧪</span> 診斷</a>
+    <a onclick="showSection('differential')" id="nav-differential"><span class="nav-icon">⚖️</span> MD／LL／RE 鑑別</a>
+    <div class="section-label" style="margin-top:8px;">防治</div>
+    <a onclick="showSection('vaccine')" id="nav-vaccine"><span class="nav-icon">💉</span> 疫苗與疫苗失敗</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 考試方向（推測）</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">馬立克病的大方向</div>
+        <dl>
+          <dt>這是什麼病</dt>
+          <dd>由雞的疱疹病毒（<strong>Gallid herpesvirus 2，MDV</strong>）引起的<strong>T 細胞淋巴增生性疾病</strong>：周邊神經腫大造成腿翅麻痺，內臟、皮膚、眼睛長淋巴瘤。</dd>
+          <dt>為什麼重要</dt>
+          <dd>全球每年損失 10–20 億美元等級（2004 年估計）；病毒毒力隨時間<strong>越來越強</strong>（vMDV → vvMDV → vv+MDV）。MD 疫苗是<strong>世界上第一個預防腫瘤的疫苗</strong>，但它只減少腫瘤，<strong>不能阻止感染與排毒</strong>。MDV 也是重要的<strong>免疫抑制</strong>病原。台灣靠疫苗控制超過 20 年。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-virology">三個血清型</a>：只有血清型 1 致腫瘤；疫苗用 CVI988（1 型減毒）、SB-1（2 型）、HVT（3 型，火雞疱疹病毒）。</li>
+              <li><a href="#section-epidemiology">傳播</a>：<strong>羽毛毛囊上皮</strong>釋出完整病毒、皮屑經空氣吸入；終身帶毒；越小接觸越易發病。</li>
+              <li><a href="#section-clinical">四種病型</a>：神經型（坐骨神經單側腫大）、內臟型（腺胃圓底燒瓶狀、卵巢花椰菜狀）、皮膚型（毛囊腫大）、眼型（灰眼、瞳孔變形）。</li>
+              <li><a href="#section-diagnosis">診斷原則</a>：要診斷<strong>疾病（腫瘤）</strong>，不是感染；用 PCR 的 meq 基因區分野外株與疫苗株。</li>
+              <li><a href="#section-differential">MD vs. 淋巴性白血病 vs. 網狀內皮增生症</a>：年齡、神經病變、華氏囊腫瘤的位置。</li>
+            </ol>
+          </dd>
+          <dt>最容易混淆</dt>
+          <dd><a href="#section-differential">禽白血病（淋巴性白血病，LL）與網狀內皮增生症（RE）</a>：都是病毒性腫瘤。MD 通常 6 週齡以上任何年齡、常有麻痺與神經病變、腫瘤細胞為多形性 T 細胞；LL 與 RE 不會在 16 週齡以下發生、華氏囊有結節狀腫瘤、通常沒有神經病變。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>三個血清型與疫苗株；傳播途徑（毛囊上皮）；四種病型的典型病變；致病機轉（B 細胞 → T 細胞 → 潛伏 → 轉形）；為什麼中和抗體保護有限（細胞依附性病毒）；疫苗失敗原因；MD／LL／RE 鑑別表。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義 Summary</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>淋巴球增生性疾病、有多種病型。</li>
+          <li>吸入毛囊細胞、皮屑而水平傳播。</li>
+          <li>以病毒學技術、病理學檢查共同診斷。</li>
+          <li>需與其他腫瘤疾病（AL、RE）區別。</li>
+          <li>以細胞型疫苗預防（須注意疫苗保存）。</li>
+          <li>MDV 為重要的免疫抑制性病原，高風險商業雞場應加強生物安全與飼養管理，避免其他病原合併與繼發性感染。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Marek's Disease〉（吳乃慧 DVM, PhD）；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。</footer>
+    </div>
+
+    <!-- NEOPLASIA -->
+    <div class="section" id="section-neoplasia">
+      <div class="section-head"><div class="section-num">2</div><h2>家禽腫瘤性疾病總覽<span class="lv lv-know">理解</span></h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;"></th><th>感染性（病毒性）腫瘤</th><th>非感染性腫瘤</th></tr></thead>
+          <tbody>
+            <tr><td>經濟重要性</td><td><strong>重要</strong></td><td>不大</td></tr>
+            <tr><td>分布</td><td>在商業雞群中<strong>廣泛流行</strong></td><td>零星</td></tr>
+            <tr><td>年齡</td><td>侵犯<strong>相對年輕</strong>的雞</td><td>比商用雞一般壽命更老的雞</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>三種病毒性可傳染腫瘤<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>病毒</th><th>病毒科</th><th>核酸</th></tr></thead>
+          <tbody>
+            <tr><td><strong>馬立克病</strong></td><td>馬立克病病毒（MDV）</td><td>疱疹病毒</td><td>DNA</td></tr>
+            <tr><td><strong>禽白血病／肉瘤</strong></td><td>禽白血病病毒（ALV）</td><td>反轉錄病毒</td><td>RNA</td></tr>
+            <tr><td><strong>網狀內皮增生症</strong></td><td>網狀內皮增生症病毒（REV）</td><td>反轉錄病毒</td><td>RNA</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week08_馬立克病/md_p04.jpg" alt="禽類病毒性腫瘤分類表" loading="lazy"><div class="figure-caption">反轉錄病毒（白血病／肉瘤群、網狀內皮增生群）與疱疹病毒（馬立克病）造成的腫瘤。</div><div class="figure-source">來源：課程講義 p.4</div></div>
+        <div class="figure"><img src="img/week08_馬立克病/md_p05.jpg" alt="家禽腫瘤病的歷史變遷" loading="lazy"><div class="figure-caption">歷史變遷：1960–70 年代 MDV-1 侵犯所有雞；之後 ALV-A/B、ALV-J（肉雞）、REV、MAV-1 依序出現（G. Zavala, AAAP 2021）。</div><div class="figure-source">來源：課程講義 p.5</div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈家禽腫瘤性疾病〉p.2–5。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- VIROLOGY -->
+    <div class="section" id="section-virology">
+      <div class="section-head"><div class="section-num">3</div><h2>病原與血清型</h2></div>
+      <h3>歷史<span class="lv lv-skim">看過</span></h3>
+      <ul>
+        <li><strong>1907</strong> 年匈牙利獸醫病理學家 József Marek 描述：周邊神經病變（多發性神經炎）。1926 年發現內臟腫瘤。</li>
+        <li>1950 年代美國稱為內臟淋巴瘤病／急性白血病。<strong>1967</strong> 年英國 P. M. Biggs 證實是 α 疱疹病毒。</li>
+      </ul>
+      <h3>病毒特性<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>分類</td><td>疱疹病毒科、<strong>Mardivirus 屬</strong>；Gallid herpesvirus 2–3（GaHV）</td></tr>
+            <tr><td>構造</td><td>二十面體、150–200 nm、<strong>有封套的 DNA 病毒</strong>；線性雙股 DNA 約 175 kb、約 190 個蛋白</td></tr>
+            <tr><td>複製</td><td>封套附著 → 脫殼 → 基因依立即早期、早期、晚期表現 → 核鞘組裝 → 出核 → 成熟 → 出芽</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 傳染性喉頭氣管炎病毒（GaHV-1，Iltovirus 屬）也是雞的疱疹病毒，見<a href="week04_傳染性喉頭氣管炎.html">傳染性喉頭氣管炎</a>。</p>
+
+      <h3>三個血清型<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>血清型 1</th><th>血清型 2</th><th>血清型 3</th></tr></thead>
+          <tbody>
+            <tr><td><strong>病毒</strong></td><td>Gallid herpesvirus 2</td><td>Gallid herpesvirus 3</td><td>Meleagrid herpesvirus 1（<strong>火雞疱疹病毒 HVT</strong>）</td></tr>
+            <tr><td><strong>致腫瘤性</strong></td><td><strong>致腫瘤</strong></td><td>不致腫瘤</td><td>不致腫瘤</td></tr>
+            <tr><td><strong>病原型</strong></td><td>vv+MDV（極強毒加）、vvMDV（極強毒）、vMDV（強毒）、mMDV（溫和）</td><td>無毒</td><td>無毒</td></tr>
+            <tr><td><strong>疫苗株</strong></td><td><strong>CVI988／Rispens</strong>（減毒）</td><td><strong>SB-1</strong></td><td><strong>HVT</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week08_馬立克病/md_p14.jpg" alt="馬立克病病毒三個血清型與疫苗株" loading="lazy"><div class="figure-caption">三個血清型、致腫瘤性與疫苗株。</div><div class="figure-source">來源：課程講義 p.14</div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Marek's Disease〉p.8–14。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- EPIDEMIOLOGY -->
+    <div class="section" id="section-epidemiology">
+      <div class="section-head"><div class="section-num">4</div><h2>宿主與傳播<span class="lv lv-must">必考</span></h2></div>
+      <h3>宿主</h3>
+      <ul>
+        <li>主要是<strong>家雞</strong>；部分火雞、鵪鶉；日本的遷徙水禽。</li>
+        <li>可同時感染一株以上的 MDV。</li>
+        <li><strong>品種感受性不同</strong>（產生腫瘤的機率不同）。</li>
+      </ul>
+      <h3>傳播</h3>
+      <ul>
+        <li><strong>直接或間接接觸，經空氣</strong>傳播。</li>
+        <li><strong>羽毛毛囊上皮（feather follicle epithelium, FFE）</strong>中有具感染力的病毒，汙染環境。</li>
+        <li>感染後 2–4 週開始排毒，接著出現症狀；<strong>潛伏感染、終身帶毒</strong>。</li>
+        <li><strong>年紀越小接觸病毒，發病率越高。</strong></li>
+        <li>多重因素：<strong>母雞</strong>的腫瘤比公雞多。</li>
+      </ul>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：為什麼 1 日齡就要打疫苗（推論）</div>
+        <p>雛雞越早接觸越容易發病，而雞舍環境裡的皮屑病毒很難清除（DNA 病毒穩定），所以疫苗要在孵化場 <strong>1 日齡或蛋內（第 17–18 天）</strong>接種，趕在野外病毒之前建立保護；同時要清除舊墊料、徹底消毒、統進統出。</p>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Marek's Disease〉p.15–16、p.52、p.65。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- PATHOGENESIS -->
+    <div class="section" id="section-pathogenesis">
+      <div class="section-head"><div class="section-num">5</div><h2>致病機轉 Pathogenesis<span class="lv lv-must">必考</span></h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text">環境被汙染（羽毛皮屑、雞舍粉塵）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">雛雞<strong>吸入</strong>。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">肺部的<strong>吞噬細胞</strong>攝入病毒，在肺部早期複製。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">感染 <strong>B 細胞</strong>（早期溶細胞期，細胞死亡；華氏囊、胸腺、脾臟）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">感染活化的 <strong>T 細胞</strong>（約 1 週）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>潛伏感染的 T 細胞轉形成腫瘤</strong>（約 3–4 週）。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text">腫瘤細胞浸潤<strong>神經</strong>，或形成<strong>內臟淋巴瘤</strong>。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text">第二次病毒血症到皮膚：<strong>羽毛毛囊上皮</strong>產生成熟完整病毒，隨皮屑釋放到環境。</div></div>
+      <div class="figure"><img src="img/week08_馬立克病/md_p40.jpg" alt="馬立克病致病機轉循環圖" loading="lazy"><div class="figure-caption">吸入 → 肺部早期複製 → B 細胞 → 活化 T 細胞（早期溶細胞期，約 1 週）→ 潛伏 T 細胞 → 轉形（3–4 週）→ 神經浸潤與淋巴瘤；同時羽毛毛囊上皮排毒。</div><div class="figure-source">來源：課程講義 p.40</div></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 補充：早期溶細胞期破壞 B、T 細胞與淋巴器官，這是 MDV 造成免疫抑制、以及極強毒株「急性溶細胞型」淋巴器官萎縮的原因。致腫瘤基因是 <strong>meq</strong>（講義 p.46）。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Marek's Disease〉p.40–43。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">6</div><h2>臨床型與病型<span class="lv lv-must">必考</span></h2></div>
+      <p>感染後<strong>至少 4 週</strong>才會出現症狀（潛伏期）；自然發病通常在 <strong>6 週齡後</strong>，種雞、蛋雞、有色雞（補充：白肉雞飼養期短，較少等到發病）。</p>
+      <h3>依毒力分的臨床型</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">型</th><th>死亡率</th><th>主要表現</th><th>病毒</th></tr></thead>
+          <tbody>
+            <tr><td><strong>典型（慢性）</strong></td><td>&lt; 10–15%</td><td>腿麻痺；神經型、眼型</td><td>—</td></tr>
+            <tr><td><strong>急性</strong></td><td>中到高，迅速增加</td><td>全身性表現、<strong>內臟腫瘤</strong>（發生率 10–30%，可達 70%）</td><td>強於 vMDV</td></tr>
+            <tr><td><strong>急性溶細胞型</strong>（早期死亡症候群）</td><td><strong>非常高</strong>；10–14 日齡死亡</td><td><strong>淋巴器官萎縮</strong>、腫瘤</td><td>強於 vvMDV</td></tr>
+            <tr><td><strong>暫時性麻痺</strong></td><td>低（少見）</td><td>5–18 週發生；運動失調、麻痺</td><td>mMDV</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>四種肉眼病型</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">病型</th><th>怎麼看到</th><th>病變</th></tr></thead>
+          <tbody>
+            <tr><td><strong>① 神經型</strong>（慢性）</td><td>外觀、剖檢</td><td>腿翅麻痺（典型姿勢：一腳前伸一腳後伸，補充）；神經<strong>單側</strong>或雙側腫大，<strong>失去光澤、呈暗灰色</strong>（坐骨神經、背根神經）；組織：成熟淋巴球、水腫、大小不一的淋巴球</td></tr>
+            <tr><td><strong>② 內臟型</strong>（急性）</td><td>剖檢</td><td>內臟廣泛瀰漫性淋巴瘤：肝（多發腫瘤結節）、脾腫大、<strong>腺胃（圓底燒瓶狀、管腔狹窄）</strong>、胰臟、<strong>卵巢（典型花椰菜狀）</strong>、睪丸不對稱（單側）、腎雙側腫大、心臟、肺、<strong>胸肌</strong>多中心腫瘤；組織：<strong>多形性</strong>淋巴細胞增生</td></tr>
+            <tr><td><strong>③ 皮膚型</strong></td><td>外觀（屠宰場拔毛後）</td><td><strong>羽毛毛囊腫大</strong>、結節，可融合，皮膚發紅</td></tr>
+            <tr><td><strong>④ 眼型</strong>（慢性）</td><td>外觀</td><td>虹膜脫色（<strong>灰眼</strong>）、<strong>瞳孔變形</strong>、角膜混濁、失明；虹膜與肌肉淋巴細胞增生。<strong>疫苗無法完全保護眼型</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week08_馬立克病/md_p19.jpg" alt="馬立克病神經型肢體麻痺" loading="lazy"><div class="figure-caption">神經型：肢體麻痺。</div><div class="figure-source">來源：課程講義 p.19</div></div>
+        <div class="figure"><img src="img/week08_馬立克病/md_p20.jpg" alt="馬立克病背根神經與坐骨神經腫大" loading="lazy"><div class="figure-caption">正常 vs. MDV：背根神經、坐骨神經腫大。</div><div class="figure-source">來源：課程講義 p.20</div></div>
+        <div class="figure"><img src="img/week08_馬立克病/md_p26.jpg" alt="馬立克病腺胃腫大呈圓底燒瓶狀" loading="lazy"><div class="figure-caption">內臟型：腺胃圓底燒瓶狀、管腔狹窄。</div><div class="figure-source">來源：課程講義 p.26</div></div>
+        <div class="figure"><img src="img/week08_馬立克病/md_p29.jpg" alt="馬立克病卵巢花椰菜狀與睪丸不對稱" loading="lazy"><div class="figure-caption">卵巢花椰菜狀；睪丸不對稱（單側）。</div><div class="figure-source">來源：課程講義 p.29</div></div>
+        <div class="figure"><img src="img/week08_馬立克病/md_p25.jpg" alt="馬立克病肝臟腫瘤結節與脾臟腫大" loading="lazy"><div class="figure-caption">肝臟腫瘤結節、脾腫大。</div><div class="figure-source">來源：課程講義 p.25</div></div>
+        <div class="figure"><img src="img/week08_馬立克病/md_p36.jpg" alt="馬立克病皮膚型羽毛毛囊腫大" loading="lazy"><div class="figure-caption">皮膚型：羽毛毛囊腫大。</div><div class="figure-source">來源：課程講義 p.36</div></div>
+        <div class="figure"><img src="img/week08_馬立克病/md_p38.jpg" alt="馬立克病眼型虹膜脫色與瞳孔變形" loading="lazy"><div class="figure-caption">眼型：虹膜脫色、瞳孔變形。</div><div class="figure-source">來源：課程講義 p.38</div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Marek's Disease〉p.17–39。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">7</div><h2>診斷 Diagnosis</h2></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">重點：診斷疾病，不是診斷感染（OIE 2018）</div>
+        <p>根據臨床症狀與肉眼或顯微病變。<strong>確診必須診斷出疾病（腫瘤），而不是感染</strong>：雞可以持續感染 MDV 卻不發病，而且<strong>疫苗大幅減少臨床病例，但不能阻止持續感染與排毒</strong>。MD 淋巴瘤由<strong>多形性</strong>（大小不一）淋巴細胞組成，淋巴性白血病則是一致的細胞群。</p>
+      </div>
+      <h3>病原檢測<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">方法</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>病毒分離</td><td>白血球層（buffy coat）或組織，接種雞腎細胞（CK）或雞／鴨胚纖維母細胞（CEF／DEF），數天後出現細胞病變或斑塊。血清型 1、3 用 CEF；血清型 2 用 DEF</td></tr>
+            <tr><td><strong>PCR／qPCR</strong></td><td>腫瘤組織、血液、<strong>羽毛尖端（毛囊）</strong>；可<strong>區分病原株與疫苗株</strong>；<strong>meq</strong> 是相關的致腫瘤基因</td></tr>
+            <tr><td>PCR 判讀例（講義）</td><td>MDV1 產物約 320 bp（HVT 為 505 bp）；meq 基因：野外株約 583 bp 一條帶，<strong>疫苗株（CVI988）兩條帶</strong>約 763 bp 與 583 bp</td></tr>
+            <tr><td>免疫螢光</td><td>MD：活化 T 細胞抗原；淋巴性白血病：B 細胞抗原；但<strong>都不是 MD 腫瘤細胞專一</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>血清學<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>感染後 1–2 週出現中和抗體（IgM → IgY）。</li>
+        <li>MDV 是<strong>細胞依附性病毒（cell-associated）</strong>：中和抗體只能擋<strong>游離病毒</strong>（感染早期、環境中）。</li>
+        <li>方法：瓊脂凝膠免疫擴散、間接螢光抗體。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Marek's Disease〉p.44–51（OIE Terrestrial Manual 2018）。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- DIFFERENTIAL -->
+    <div class="section" id="section-differential">
+      <div class="section-head"><div class="section-num">8</div><h2>MD／LL／RE 鑑別<span class="lv lv-must">必考</span></h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">特徵</th><th>馬立克病（MD）</th><th>淋巴性白血病（LL）</th><th>網狀內皮增生症（RE）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>年齡</strong></td><td>任何年齡，通常 <strong>6 週齡以上</strong></td><td><strong>不會在 16 週齡以下</strong></td><td>不會在 16 週齡以下</td></tr>
+            <tr><td><strong>症狀</strong></td><td>常見<strong>麻痺</strong></td><td>非特異性</td><td>非特異性</td></tr>
+            <tr><td><strong>發生率</strong></td><td>未接種雞群常 &gt; 5%；接種雞群少見</td><td>很少 &gt; 5%</td><td>少見</td></tr>
+            <tr><td colspan="4" style="background:var(--bg-faint);"><strong>肉眼病變</strong></td></tr>
+            <tr><td>神經病變</td><td><strong>常見</strong></td><td><strong>無</strong></td><td>少見</td></tr>
+            <tr><td>華氏囊</td><td><strong>瀰漫性腫大或萎縮</strong></td><td><strong>結節狀腫瘤</strong></td><td>結節狀腫瘤</td></tr>
+            <tr><td>皮膚、肌肉、腺胃腫瘤，灰眼</td><td>可能有</td><td>通常沒有</td><td>通常沒有</td></tr>
+            <tr><td colspan="4" style="background:var(--bg-faint);"><strong>顯微病變</strong></td></tr>
+            <tr><td>神經病變</td><td>有</td><td>無</td><td>少見</td></tr>
+            <tr><td>肝腫瘤</td><td>常在<strong>血管周圍</strong></td><td>局部或瀰漫</td><td>局部</td></tr>
+            <tr><td>脾</td><td>瀰漫</td><td>常為局部</td><td>局部或瀰漫</td></tr>
+            <tr><td>華氏囊</td><td><strong>濾泡間</strong>腫瘤和／或濾泡萎縮</td><td><strong>濾泡內</strong>腫瘤</td><td>濾泡內腫瘤</td></tr>
+            <tr><td>中樞神經</td><td>有</td><td>無</td><td>無</td></tr>
+            <tr><td>皮膚與羽毛毛囊淋巴增生</td><td>有</td><td>無</td><td>無</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">記憶法</div>
+        <p><strong>MD 早、有神經、華氏囊濾泡「間」；LL／RE 晚（&gt; 16 週）、沒神經、華氏囊濾泡「內」結節。</strong>講義 p.63 也把年齡當第一刀：&lt; 14 週看到神經腫大或內臟腫瘤 → 先想 MD；&gt; 14 週的內臟腫瘤或華氏囊腫瘤 → MD、ALV、REV 都要考慮，用組織病理、免疫組化與 real-time PCR 確診。</p>
+      </div>
+      <div class="figure"><img src="img/week08_馬立克病/md_p63.jpg" alt="依年齡與肉眼病變鑑別馬立克病與其他腫瘤" loading="lazy"><div class="figure-caption">依年齡與肉眼病變鑑別 MD 與其他腫瘤及非腫瘤疾病。</div><div class="figure-source">來源：課程講義 p.63</div></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 禽白血病與網狀內皮增生症的完整筆記見<a href="week09_禽白血病與網狀內皮增生症.html">下一頁</a>。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Marek's Disease〉p.62–63。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- VACCINE -->
+    <div class="section" id="section-vaccine">
+      <div class="section-head"><div class="section-num">9</div><h2>疫苗與疫苗失敗</h2></div>
+      <h3>疫苗<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>世界上第一個可用來預防腫瘤的疫苗。</strong></li>
+        <li>機制：產生對抗<strong>游離病毒</strong>的中和抗體；保護、對抗早期複製，<strong>但不能防止感染</strong>。</li>
+        <li>常見組合：<strong>HVT</strong>（對 vMDV）；<strong>HVT＋SB-1 或 CVI988</strong>（對 vvMDV，部分保護）；HVT＋CVI988＋SB-1（對 vvMDV，部分保護）。</li>
+        <li>接種：孵化場 1 日齡，或<strong>蛋內接種（第 17–18 天）</strong>。</li>
+        <li>疫苗史：HPRS-16（1 代）→ HVT（2 代）→ HVT＋SB-1（3 代）→ CVI988（4 代）。</li>
+      </ul>
+      <h3>挑戰<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>MDV 毒力隨時間增加</strong>，出現急性溶細胞型（10–14 天死亡、淋巴器官萎縮）。</li>
+        <li>DNA 病毒穩定；環境中難以清除；細胞依附性；疫苗的使用方式。</li>
+      </ul>
+      <h3>疫苗保存與配製<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>HVT、SB-1、CVI988 是<strong>細胞依附性</strong>疫苗，保存在 <strong>–196°C 液態氮</strong>（細胞株如 CEF、DEF）。</li>
+        <li>配製（講義 Merial 圖）：水浴（約 27°C）解凍，安瓿輕輕搖晃、<strong>完全解凍立刻取出</strong>（不超過 90 秒）；用 18G 針頭慢慢抽入稀釋液、<strong>輕輕旋轉、不可用力搖</strong>；配好後要不時輕搖，<strong>1 小時內用完</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week08_馬立克病/md_p52.jpg" alt="馬立克病疫苗三個血清型與組合" loading="lazy"><div class="figure-caption">疫苗：CVI988（1 型）、SB-1（2 型）、HVT（3 型）的組合。</div><div class="figure-source">來源：課程講義 p.52</div></div>
+
+      <h3>台灣的現況與預防<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>靠疫苗控制<strong>超過 20 年</strong>；<strong>依場量身訂做</strong>的免疫計畫（HVT＋CVI988 或 SB-1）；一般在孵化場施打再運到飼養場。</li>
+        <li>受 IBD、ND 等免疫抑制的影響。</li>
+        <li>疫苗選擇依場內<strong>田間病毒株的強弱、汙染程度、預期感染時間</strong>決定；單價保護不足時用雙價。</li>
+        <li>預防：正確接種技術、劑量要足；嚴格生物安全、統進統出；移除舊墊料、徹底清消；降低緊迫（熱、潮濕、過多氨、缺乏飼料與水）；選育抗病品系；避免免疫抑制疾病；<strong>使用與種雞不同的疫苗</strong>（避免母源抗體干擾，推論）。</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：MD 疫苗失敗的原因</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>疫苗有效力價不足（冷鏈、保存、配製、施打不當）</li>
+          <li>雞場衛生管理或生物安全不確實</li>
+          <li><strong>移行（母源）抗體干擾</strong></li>
+          <li>免疫抑制</li>
+          <li><strong>早期接觸野外毒</strong></li>
+          <li>添加抗生素影響疫苗效價：<strong>不可使用 Aureomycin、Terramycin、Erythromycin、Tetracycline 等</strong></li>
+          <li>野外毒毒力變異</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Marek's Disease〉p.52–66。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">10</div><h2>考試方向（推測）</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能的考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>三個血清型與疫苗株</td><td>1 型致腫瘤（CVI988）；2 型 SB-1；3 型 HVT（火雞）</td></tr>
+            <tr><td>傳播途徑</td><td>羽毛毛囊上皮 → 皮屑 → 吸入；終身帶毒</td></tr>
+            <tr><td>致病機轉</td><td>肺 → B 細胞 → T 細胞（1 週）→ 潛伏 T 細胞轉形（3 週）→ 神經與內臟；毛囊排毒</td></tr>
+            <tr><td>四種病型</td><td>神經（坐骨神經單側腫大灰色）、內臟（腺胃燒瓶、卵巢花椰菜）、皮膚（毛囊）、眼（灰眼瞳孔變形）</td></tr>
+            <tr><td>為什麼疫苗不能阻止感染</td><td>細胞依附性病毒，中和抗體只擋游離病毒</td></tr>
+            <tr><td>診斷原則</td><td>診斷腫瘤不是感染；PCR meq 區分疫苗與野外株</td></tr>
+            <tr><td>MD vs. LL vs. RE</td><td>年齡、神經、華氏囊（瀰漫／濾泡間 vs. 結節／濾泡內）、腫瘤細胞多形性</td></tr>
+            <tr><td>疫苗失敗原因</td><td>力價不足、母源抗體、免疫抑制、早期感染、抗生素、毒力增強</td></tr>
+            <tr><td>疫苗保存</td><td>液態氮 –196°C；解凍不超過 90 秒；1 小時內用完</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。</footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">11</div><h2>學習重點整理</h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>病毒：</strong>疱疹病毒科 Mardivirus 屬，有封套 dsDNA 175 kb；三血清型，只有 1 型致腫瘤；致腫瘤基因 meq。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>傳播：</strong>羽毛毛囊上皮排毒、皮屑空氣吸入；終身帶毒；越小越易發病；母雞腫瘤多。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>機轉：</strong>肺 → B 細胞溶細胞 → T 細胞 → 潛伏 T 細胞轉形成淋巴瘤；免疫抑制。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>臨床：</strong>潛伏期 ≥ 4 週、多在 6 週齡後；典型（麻痺、死亡 &lt; 10–15%）、急性（內臟腫瘤）、急性溶細胞型（10–14 日齡死、淋巴器官萎縮）、暫時性麻痺。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>病型：</strong>神經（單側坐骨神經腫大暗灰）、內臟（腺胃燒瓶、卵巢花椰菜、肝結節）、皮膚（毛囊）、眼（灰眼、瞳孔變形，疫苗保護不全）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>診斷：</strong>診斷腫瘤非感染；多形性淋巴細胞；PCR（腫瘤、羽毛尖）區分疫苗株；與 LL、RE 鑑別。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>疫苗：</strong>第一個抗腫瘤疫苗；HVT、HVT＋SB-1／CVI988；1 日齡或蛋內 17–18 天；液態氮保存；不防感染；失敗原因多。</div></div>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。Q10–Q12 是臨床情境題。</p>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 馬立克病病毒三個血清型中，哪一個會致腫瘤？對應的疫苗株是？</div>
+        <ul class="quiz-options"><li>(A) 血清型 1；CVI988/Rispens</li><li>(B) 血清型 2；SB-1</li><li>(C) 血清型 3；HVT</li><li>(D) 三型都會</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">只有血清型 1（Gallid herpesvirus 2）致腫瘤，疫苗株 CVI988/Rispens 是減毒的 1 型；2 型（SB-1）與 3 型（HVT，火雞疱疹病毒）不致腫瘤。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. MDV 主要從哪裡釋放出具感染力的病毒到環境？</div>
+        <ul class="quiz-options"><li>(A) 糞便</li><li>(B) 羽毛毛囊上皮</li><li>(C) 蛋（垂直傳播）</li><li>(D) 唾液</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">羽毛毛囊上皮（FFE）產生成熟完整病毒，隨皮屑汙染環境，雛雞經空氣吸入感染。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 下列病變與 MD 病型的配對，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options"><li>(A) 坐骨神經單側腫大、暗灰色－神經型</li><li>(B) 腺胃圓底燒瓶狀－內臟型</li><li>(C) 卵巢花椰菜狀－內臟型</li><li>(D) 華氏囊結節狀腫瘤、濾泡內－眼型</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">華氏囊結節狀、濾泡內腫瘤是淋巴性白血病與網狀內皮增生症的特徵；MD 的華氏囊是瀰漫性腫大或萎縮、濾泡間腫瘤。眼型是虹膜脫色、瞳孔變形。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q4. 請依序寫出 MD 的致病機轉。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">環境汙染 → 雛雞吸入 → 肺部吞噬細胞攝入 → 感染 B 細胞（早期溶細胞期）→ 約 1 週感染活化 T 細胞 → 約 3 週潛伏感染的 T 細胞轉形成腫瘤 → 腫瘤細胞浸潤神經或形成內臟淋巴瘤；同時羽毛毛囊上皮釋放病毒到環境。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. MD 疫苗可以防止雞隻感染 MDV 並停止排毒。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain">疫苗大幅減少臨床疾病（腫瘤），但<strong>不能阻止持續感染與排毒</strong>。MDV 是細胞依附性病毒，中和抗體只能擋游離病毒。所以確診要診斷「腫瘤」，而不是「感染」。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 一隻 8 週齡雞腿麻痺，坐骨神經單側腫大；另一隻 25 週齡雞華氏囊有結節狀腫瘤、神經正常。最可能分別是？</div>
+        <ul class="quiz-options"><li>(A) 都是 MD</li><li>(B) MD；淋巴性白血病</li><li>(C) 淋巴性白血病；MD</li><li>(D) 網狀內皮增生症；MD</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">MD 通常 6 週齡以上、常麻痺與神經腫大；淋巴性白血病不會在 16 週齡以下發生、沒有神經病變、華氏囊結節狀腫瘤（濾泡內）。網狀內皮增生症也可能有華氏囊結節，要用 PCR 等確認。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 馬立克病細胞依附性疫苗應如何保存？</div>
+        <ul class="quiz-options"><li>(A) 4°C 冰箱</li><li>(B) –20°C 冷凍庫</li><li>(C) –196°C 液態氮</li><li>(D) 室溫乾燥</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">HVT、SB-1、CVI988 是細胞依附性疫苗，保存在 –196°C 液態氮；解凍要快（不超過 90 秒）、輕輕旋轉不可用力搖，配好 1 小時內用完。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q8. 如何用 PCR 區分 MD 野外株與疫苗株 CVI988？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">檢測致腫瘤基因 <strong>meq</strong>：講義例子中野外株約 583 bp 一條帶，疫苗株（CVI988）可見兩條帶（約 763 bp 與 583 bp）。檢體用腫瘤組織或羽毛毛囊。另外 MDV1 引子產物約 320 bp、HVT 為 505 bp。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 下列何者<strong>不是</strong>講義列出的 MD 疫苗失敗原因？</div>
+        <ul class="quiz-options"><li>(A) 移行抗體干擾</li><li>(B) 早期接觸野外毒</li><li>(C) 飲水中添加 Tetracycline 類抗生素</li><li>(D) 疫苗以液態氮保存</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">液態氮是正確的保存方式。失敗原因：效力價不足、衛生與生物安全不確實、移行抗體、免疫抑制、早期接觸野外毒、添加 Aureomycin、Terramycin、Erythromycin、Tetracycline 等抗生素、野外毒毒力變異。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q10.【臨床情境】一個土雞場 10 週齡的雞陸續出現一腳前伸一腳後伸的麻痺，剖檢見一側坐骨神經腫大、暗灰色，部分雞腺胃壁增厚呈燒瓶狀。飼主說孵化場有打馬立克疫苗。請問：(1) 最可能的診斷？(2) 打過疫苗為什麼還會發病？(3) 怎麼確認不是疫苗株造成的？(4) 下一批怎麼改？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 馬立克病：神經型（單側坐骨神經腫大、暗灰、失去光澤、麻痺）加內臟型（腺胃燒瓶狀）；土雞飼養期長、6 週齡以上發病也符合。<br><strong>(2)</strong> 疫苗不能阻止感染，只減少腫瘤；可能原因：疫苗力價不足（液態氮保存、解凍、配製、1 小時內用完沒做到）、母源抗體干擾、免疫抑制（IBD 等）、雛雞太早接觸野外毒、飲水加了四環黴素類或紅黴素、場內是 vvMDV 而只用 HVT 單價。<br><strong>(3)</strong> 腫瘤組織或羽毛毛囊做 PCR 的 meq 基因：野外株一條帶（約 583 bp），CVI988 疫苗株兩條帶；組織病理看多形性淋巴細胞。<br><strong>(4)</strong> 依場內病毒強弱改雙價（HVT＋CVI988 或 SB-1）；確認疫苗冷鏈與施打技術、劑量；清除舊墊料、徹底清消、統進統出，減少雛雞早期暴露；避免免疫抑制病、不在疫苗前後加這些抗生素；使用與種雞不同的疫苗。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q11.【臨床情境】一個肉雞場 10–14 日齡的雛雞突然大量死亡，剖檢見胸腺、華氏囊明顯萎縮，沒有明顯腫瘤。實驗室 PCR 驗出 MDV 血清型 1 野外株。這是什麼型？為什麼會萎縮？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">急性溶細胞型（早期死亡症候群）：由比 vvMDV 更強的病毒株（vv+MDV）造成，死亡率非常高、10–14 日齡死亡、淋巴器官萎縮。致病機轉中的早期溶細胞期，病毒大量感染並殺死 B 細胞與活化 T 細胞，所以華氏囊、胸腺萎縮；雞在形成腫瘤之前就死亡。這也反映講義說的「MDV 毒力隨時間增加」。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q12.【臨床情境】你在孵化場幫忙配製馬立克疫苗。同事把安瓿從液態氮拿出來後放在桌上自然退冰，用力搖勻稀釋液後擺了一個上午慢慢打。請指出問題。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">①要用乾淨的水浴（約 27°C）快速解凍，完全解凍立刻取出、不超過 90 秒，不能放桌上慢慢退冰（細胞會死，細胞依附性疫苗失效）。②稀釋時要慢慢用 18G 針頭抽取、輕輕旋轉，<strong>不可用力搖</strong>。③配好的疫苗要在 <strong>1 小時內用完</strong>，期間不時輕搖；擺一個上午效價會大幅下降。④器具要清潔消毒、劑量要足。這些就是「疫苗有效力價不足」的典型原因。</p></details></div>
+
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  neoplasia: '家禽腫瘤性疾病總覽',
+  virology: '病原與血清型',
+  epidemiology: '宿主與傳播',
+  pathogenesis: '致病機轉',
+  clinical: '臨床型與病型',
+  diagnosis: '診斷',
+  differential: 'MD／LL／RE 鑑別',
+  vaccine: '疫苗與疫苗失敗',
+  exam: '考試方向（推測）',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

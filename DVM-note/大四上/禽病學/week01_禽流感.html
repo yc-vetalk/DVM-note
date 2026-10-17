@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：禽流感 (AI) - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">禽流感 (AI)</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">禽流感 Avian Influenza (AI)</h1>
+      <p class="page-subtitle">Influenza A virus · 毒力由 HA 切位決定；高病原性株來自低病原性株的突變；H5、H7 必須通報；H5N1 clade 2.3.4.4b 正在跨物種擴散</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《禽病學》課程講義〈Avian influenza〉（陳慧文 DVM PhD），含講義引用之 WOAH、農委會檢驗方法、防檢署、EFSA 資料。鑑別診斷表另參照同課程〈ND〉〈IB〉〈ILT〉講義。未做教科書交叉核對</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-11</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（期中考導向）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">病原與機轉</div>
+    <a onclick="showSection('virology')" id="nav-virology"><span class="nav-icon">🦠</span> 病毒構造與命名</a>
+    <a onclick="showSection('proteins')" id="nav-proteins"><span class="nav-icon">🔑</span> HA 與 NA：受體、融合、釋出</a>
+    <a onclick="showSection('pathogenicity')" id="nav-pathogenicity"><span class="nav-icon">🧬</span> HPAI vs. LPAI：HA 切位</a>
+    <a onclick="showSection('ecology')" id="nav-ecology"><span class="nav-icon">🦆</span> 生態、宿主與傳播</a>
+    <div class="section-label" style="margin-top:8px;">臨床與診斷</div>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🤒</span> 臨床症狀與病變</a>
+    <a onclick="showSection('differential')" id="nav-differential"><span class="nav-icon">⚖️</span> 鑑別診斷</a>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis"><span class="nav-icon">🧪</span> 檢驗與病原性判定</a>
+    <div class="section-label" style="margin-top:8px;">流行與防治</div>
+    <a onclick="showSection('epidemiology')" id="nav-epidemiology"><span class="nav-icon">🌏</span> 疫情現況與跨物種傳播</a>
+    <a onclick="showSection('control')" id="nav-control"><span class="nav-icon">🛡️</span> 防疫檢疫與生物安全</a>
+    <a onclick="showSection('vaccine')" id="nav-vaccine"><span class="nav-icon">💉</span> 抗原變異與疫苗</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 考試方向（推測）</a>
+    <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+
+      <div class="overview">
+        <div class="overview__title">禽流感的大方向</div>
+        <dl>
+          <dt>這是什麼病</dt>
+          <dd>由 <strong>A 型流感病毒</strong>（正黏液病毒科）引起的禽類疾病。病毒天然存在於<strong>水鳥（鴨、鷗、濱鳥）</strong>體內，通常不發病（低病原性，LPAI）；進入家禽後，HA 切位突變成<strong>高病原性（HPAI）</strong>，可以全身出血、整群死亡。</dd>
+          <dt>為什麼重要</dt>
+          <dd>WOAH 規定家禽分離到的 <strong>H5 與 H7 亞型都要通報</strong>；台灣發生時撲殺、清消。2022 年全球 67 國爆發、撲殺 1.3 億隻家禽；目前的主流 <strong>H5N1 clade 2.3.4.4b</strong> 已擴散到海獅、水貂、貓，2024 年起在美國<strong>乳牛</strong>與人類出現病例，是重要的人畜共通與公衛議題。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-proteins">HA 與 NA 的功能</a>：HA1 結合受體（禽型 SAα2,3Gal、人型 SAα2,6Gal）、HA2 融合；NA 切斷受體讓新病毒釋出（克流感的作用點）。</li>
+              <li><a href="#section-pathogenicity">HA 切位決定 HPAI vs. LPAI</a>：和新城病的 F 蛋白同一套邏輯。</li>
+              <li><a href="#section-diagnosis">HPAI 的判定標準</a>：IVPI 數值、接種雞死亡比例、HA 切位序列。</li>
+              <li><a href="#section-clinical">典型病變</a>：雞冠腫大、眼眶水腫、足出血、腺胃出血；台灣株與新城病、IB 在肉眼上分不出來。</li>
+              <li><a href="#section-vaccine">抗原漂變與抗原移型</a>，以及疫苗在防疫中的定位（補充工具，不取代撲殺與監測）。</li>
+            </ol>
+          </dd>
+          <dt>最容易混淆</dt>
+          <dd><a href="#section-differential">新城病</a>：都會急性高死亡、腺胃出血、扭頸，而且都必須通報，<strong>肉眼無法區分</strong>，要靠病毒分離與鑑定。腎尿酸鹽沉積則要和傳染性支氣管炎區分。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>HA／NA 的功能與受體差異（為什麼禽流感不容易傳人）；HPAI 的 WOAH 定義與 IVPI 判讀；HA 切位與毒力的關係（可和新城病一起考）；抗原漂變 vs. 移型；與新城病的鑑別；野鳥與候鳥在傳播中的角色；疫苗使用的條件。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">考前速記：八件事</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>分類：</strong>正黏液病毒科；A 型（Alphainfluenzavirus）感染人、馬、豬、禽。80–120 nm、有封套，<strong>8 段 (–) ssRNA</strong>。</li>
+          <li><strong>表面蛋白：</strong>HA（三聚體，H1–19）與 NA（四聚體，N1–11）。命名：型別／宿主／地點／株號／年份（HxNy）。</li>
+          <li><strong>受體：</strong>禽型 SAα2,3Gal、人型 SAα2,6Gal。HA1 結合受體，HA2 在低 pH 下改變構形、融合、釋出 RNP。NA 切斷受體，抑制 NA（oseltamivir）病毒會聚集在細胞外。</li>
+          <li><strong>毒力：</strong>HPAI 的 HA 切位有多個鹼性胺基酸，被多種細胞內蛋白酶切開 → 全身感染；LPAI 只被 trypsin 樣蛋白酶切開 → 侷限呼吸道與消化道。HPAI 由 LPAI 的 HA 切位突變而來。</li>
+          <li><strong>判定 HPAI：</strong>IVPI ≥ 1.2（講義國內規範寫「≥」，WOAH 原文寫「&gt; 1.2」）；或 8 隻 4–8 週齡雞靜脈接種後 10 天內死 6–8 隻（≥ 75%）；或 H5、H7 的 HA 切位序列與已知 HPAI 相似。</li>
+          <li><strong>症狀與病變：</strong>潛伏期 3 天；頭臉水腫、產蛋下降、下痢、扭頸。HPAI：雞冠腫大、眼眶水腫、足出血、內臟漿膜出血、腺胃移行部出血壞死；台灣 H5 株另有胰臟出血壞死。</li>
+          <li><strong>流行：</strong>H5N1 clade 2.3.4.4b 為主；逐漸失去季節性、持續在野鳥中流行；2024 年美國乳牛感染。</li>
+          <li><strong>防治：</strong>生物安全（非開放式禽舍、防鳥）、通報、撲殺；疫苗是補充工具，用了必須配合病毒監測。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉（陳慧文 DVM PhD）；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。</footer>
+    </div>
+
+    <!-- VIROLOGY -->
+    <div class="section" id="section-virology">
+      <div class="section-head"><div class="section-num">2</div><h2>病毒構造與命名 Virology</h2></div>
+
+      <h3>流感病毒的四個屬<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>屬</th><th>宿主</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Alphainfluenzavirus（A 型）</strong></td><td>人、馬、豬、<strong>禽</strong></td></tr>
+            <tr><td>Betainfluenzavirus（B 型）</td><td>人、海豹</td></tr>
+            <tr><td>Gammainfluenzavirus（C 型）</td><td>人、豬（輕微感染）</td></tr>
+            <tr><td>Deltainfluenzavirus（D 型）</td><td>豬、牛、羊</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>四個屬都在<strong>正黏液病毒科（Orthomyxoviridae）</strong>。禽流感屬於 A 型。</p>
+
+      <h3>病毒顆粒<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>球形（有時絲狀），80–120 nm，<strong>有封套</strong>。</li>
+        <li>基因體：<strong>8 段</strong>負義單股 RNA（A 型與 B 型）。分節的基因體是發生抗原移型的基礎（見<a href="#section-vaccine">抗原變異與疫苗</a>）。</li>
+        <li>核糖核蛋白複合體（RNP）＝ vRNA ＋ 核蛋白（NP）＋ 聚合酶（PA、PB1、PB2）。</li>
+        <li>表面：<strong>HA（血球凝集素）</strong>、<strong>NA（神經胺酸酶）</strong>；另有基質蛋白 M。</li>
+      </ul>
+
+      <h3>命名<span class="lv lv-must">必考</span></h3>
+      <p><strong>型別／宿主／分離地點／株號／年份（HxNy）</strong>。人類株省略宿主。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>例子</th><th>解讀</th></tr></thead>
+          <tbody>
+            <tr><td>A/equine/Miami/1/1963 (H3N8)</td><td>A 型、馬、邁阿密、1 號、1963 年</td></tr>
+            <tr><td>A/swine/Iowa/15/1930 (H1N1)</td><td>A 型、豬、愛荷華</td></tr>
+            <tr><td>A/chicken/Scotland/1959 (H5N1)</td><td>A 型、雞、蘇格蘭</td></tr>
+            <tr><td>A/Hong Kong/1/1968 (H3N2)</td><td>A 型、人（省略宿主）、香港</td></tr>
+            <tr><td>B/Victoria/2/87</td><td>B 型（B 型不標 HxNy）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 和新城病比較：APMV 的命名是「血清型／鳥種／地點／編號／年份」，結構很像。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.2–10。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- PROTEINS -->
+    <div class="section" id="section-proteins">
+      <div class="section-head"><div class="section-num">3</div><h2>HA 與 NA：受體、融合、釋出<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">病毒進出細胞三步驟：HA1 黏上去 → HA2 融進去 → NA 切斷放出來。</p>
+
+      <div class="alert alert-info"><div class="alert-label">一句話記憶</div><p><strong>HA 是鑰匙，負責開門進去；NA 是剪刀，負責剪斷繩子出來。</strong>H5N1 的 H5 與 N1 就是這兩個蛋白的亞型編號。</p></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;"></th><th>血球凝集素 HA</th><th>神經胺酸酶 NA</th></tr></thead>
+          <tbody>
+            <tr><td><strong>結構</strong></td><td>三聚體（trimer）；HA1、HA2 兩個區域</td><td>四聚體（tetramer）</td></tr>
+            <tr><td><strong>亞型</strong></td><td>H1–19</td><td>N1–11</td></tr>
+            <tr><td><strong>功能</strong></td><td>HA1：<strong>結合受體</strong>（唾液酸）<br>HA2：<strong>膜融合</strong>、脫殼</td><td><strong>切斷受體</strong>：讓新生病毒從細胞表面釋出</td></tr>
+            <tr><td><strong>名稱由來</strong>（補充）</td><td>能讓紅血球凝集（hemagglutination），HA／HI 試驗的原理</td><td>是一種酶，切掉唾液酸（neuraminic acid）</td></tr>
+            <tr><td><strong>抗體</strong>（補充）</td><td>主要的<strong>中和抗體</strong>標的（集中在 HA1 球狀頭部）</td><td>抗體只能減輕病情，不能中和感染</td></tr>
+            <tr><td><strong>藥物</strong></td><td>—</td><td><strong>Oseltamivir（克流感）</strong>：NA 抑制劑；病毒無法釋出，聚集在細胞外</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>受體：為什麼禽流感不容易傳人</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受體</th><th>鍵結</th><th>病毒偏好</th></tr></thead>
+          <tbody>
+            <tr><td><strong>禽型</strong></td><td>唾液酸以 <strong>α2,3</strong> 連接半乳糖（SAα2,3Gal）</td><td>禽流感病毒</td></tr>
+            <tr><td><strong>人型</strong></td><td>唾液酸以 <strong>α2,6</strong> 連接半乳糖（SAα2,6Gal）</td><td>人流感病毒</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 補充（非講義）：人類上呼吸道以 α2,6 受體為主，所以禽流感病毒不容易感染人、更不容易人傳人；豬同時有兩種受體，因此被稱為「混合器（mixing vessel）」，是講義 p.3 把豬放在禽與人之間的原因。人的<strong>下呼吸道</strong>仍有 α2,3 受體，所以 H5N1 感染人時會造成深部重症肺炎，卻不容易咳出來傳給下一個人。</p>
+
+      <h3>HA2 的融合過程</h3>
+      <div class="alert alert-warn"><div class="alert-label">前置條件</div><p>HA 一開始是一條前驅蛋白 <strong>HA0</strong>，要被宿主蛋白酶切成 HA1＋HA2（雙硫鍵相連）才有感染力。切開後 HA2 的 N 端露出疏水的<strong>融合胜肽（fusion peptide）</strong>，就是下圖流程中「疏水區」的來源。切位如何決定毒力見第 4 節。</p></div>
+      <div class="flow">
+        <div class="flow-node">病毒經胞吞進入內體</div><div class="flow-arrow">→</div>
+        <div class="flow-node">低 pH 使 HA 構形改變</div><div class="flow-arrow">→</div>
+        <div class="flow-node">HA2 三聚體的疏水區介導膜融合</div><div class="flow-arrow">→</div>
+        <div class="flow-node">RNP 釋放到細胞質</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 補充（非講義）：低 pH 同時會讓 <strong>M2 離子通道</strong>把 H⁺ 送進病毒內部，使 RNP 與 M1 分離（脫殼），amantadine 就是阻斷 M2。RNP 進入細胞質後會再進<strong>細胞核</strong>複製，流感是少數在核內複製的 RNA 病毒。內體膜融合時，HA2 摺成髮夾狀，把病毒套膜與內體膜拉在一起。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_禽流感/ai_p07.jpg" alt="HA1受體結合位與禽型人型唾液酸受體" loading="lazy"><div class="figure-caption">HA1 受體結合位；禽型受體 SAα2,3Gal、人型受體 SAα2,6Gal。</div><div class="figure-source">來源：課程講義 p.7</div></div>
+        <div class="figure"><img src="img/week01_禽流感/ai_p09.jpg" alt="NA切斷受體與神經胺酸酶抑制劑作用" loading="lazy"><div class="figure-caption">NA 切斷受體讓病毒釋出；加入 NA 抑制劑後病毒聚集在細胞外。</div><div class="figure-source">來源：課程講義 p.9</div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.5–9。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- PATHOGENICITY -->
+    <div class="section" id="section-pathogenicity">
+      <div class="section-head"><div class="section-num">4</div><h2>HPAI vs. LPAI：HA 切位決定毒力<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">和新城病的 F 蛋白一模一樣的邏輯：切位上的鹼性胺基酸越多，能切開它的蛋白酶越多，病毒就能到越多器官。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>低病原性 LPAI</th><th>高病原性 HPAI</th></tr></thead>
+          <tbody>
+            <tr><td><strong>HA0 切位</strong></td><td>少數鹼性胺基酸（例：RETR）</td><td><strong>多個鹼性胺基酸</strong>（例：RERRRKKR）</td></tr>
+            <tr><td><strong>切開它的酶</strong></td><td>只有 <strong>trypsin 樣蛋白酶</strong>，只存在於呼吸道與消化道上皮</td><td>很多種<strong>細胞內蛋白酶</strong>，全身都有</td></tr>
+            <tr><td><strong>感染範圍</strong></td><td>侷限呼吸道與消化道</td><td>散佈全身</td></tr>
+            <tr><td><strong>來源與臨床</strong></td><td>在<strong>水禽</strong>（鴨、鷗、濱鳥）中維持，不明顯發病</td><td><strong>由 LPAI 的 HA 切位突變而來</strong>；嚴重疾病</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：為什麼 H5、H7 的低病原性株也要管</div>
+        <p>HPAI 是由 LPAI 在家禽中傳播時，HA 切位突變而來。目前造成高病原性的幾乎都是 H5 與 H7，所以 WOAH 規定家禽分離到的 <strong>H5、H7 都要通報</strong>，即使當下是低病原性，也要定序切位確認。</p>
+      </div>
+      <h3>什麼是鹼性胺基酸？為什麼切位要有它</h3>
+      <div class="alert alert-info"><div class="alert-label">補充（非講義）</div><p>胺基酸側鏈在生理 pH 下帶<strong>正電</strong>就叫鹼性胺基酸：<strong>精胺酸 R（Arg）</strong>、<strong>離胺酸 K（Lys）</strong>，組胺酸 H（His）只有部分帶電。切位序列（如 RERRRKKR）裡看的是 R 與 K。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>LPAI</th><th>HPAI</th></tr></thead>
+          <tbody>
+            <tr><td><strong>切位</strong></td><td>單一個 R（例：RETR）</td><td>連續多個 R／K（例：RERRRKKR）</td></tr>
+            <tr><td><strong>辨識的酶</strong></td><td><strong>Trypsin 樣酶</strong>：活性位帶負電，吸住單一個正電的 R／K，切在它後面</td><td><strong>Furin</strong> 等前蛋白轉化酶（proprotein convertase）：要辨識 R-X-R／K-R 這串 motif，所以需要多個鹼性胺基酸</td></tr>
+            <tr><td><strong>酶的位置與分布</strong></td><td>細胞<strong>外</strong>、黏膜表面；只在呼吸道與消化道上皮</td><td>細胞<strong>內</strong>的高基氏體（trans-Golgi）；幾乎所有細胞都有</td></tr>
+            <tr><td><strong>結果</strong></td><td>病毒要走到有 trypsin 的上皮才被活化</td><td>任何被感染的細胞產出的病毒，一離開就已經有感染力 → 全身擴散</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>答題三句話：</strong>①HA0（ND 是 F0）要被宿主蛋白酶切開才有感染力；②切位的 R／K 越多，越多種蛋白酶（含普遍存在的 furin）能切；③所以強毒株全身感染，弱毒株只在呼吸道與腸道。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 補充（非講義）：「只有 H5、H7 會變成 HPAI」是目前已知的現象，不是絕對規則。成因尚未完全清楚，一般推測與這兩個亞型的 HA 基因 RNA 結構在複製時容易發生插入有關。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_禽流感/ai_p14.jpg" alt="LPAI與HPAI的HA切位與感染器官比較" loading="lazy"><div class="figure-caption">左：LPAI 的蛋白酶只在呼吸道與腸道；右：HPAI 被全身的蛋白酶切開（Nature Reviews Microbiology, 2005）。</div><div class="figure-source">來源：課程講義 p.14</div></div>
+        <div class="figure"><img src="img/week01_禽流感/ai_p15.jpg" alt="1959年以來家禽HPAI爆發病毒株的亞型與HA0切位胺基酸序列" loading="lazy"><div class="figure-caption">1959 年以來家禽 HPAI 爆發株：全部是 H5 或 H7，切位都有多個 R／K。</div><div class="figure-source">來源：課程講義 p.15（Table 26.1）</div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.11–15。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ECOLOGY -->
+    <div class="section" id="section-ecology">
+      <div class="section-head"><div class="section-num">5</div><h2>生態、宿主與傳播</h2></div>
+
+      <h3>自然循環與跨物種傳播<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>自然循環：</strong>濱鳥與水禽之間循環，不明顯發病。</li>
+        <li><strong>大流行循環：</strong>水禽 → 家禽 → 哺乳類（主要是豬）→ 人。</li>
+        <li>野鳥帶有 H1–H16 全部亞型；蝙蝠另有 H17、H18。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_禽流感/ai_p03.jpg" alt="禽流感病毒在動物間的全球循環" loading="lazy"><div class="figure-caption">自然循環（濱鳥、水禽）與大流行循環（家禽、豬、人）。</div><div class="figure-source">來源：課程講義 p.3</div></div>
+        <div class="figure"><img src="img/week01_禽流感/ai_p04.jpg" alt="A型流感的跨物種傳播與各物種的亞型" loading="lazy"><div class="figure-caption">A 型流感的跨物種傳播（Short et al., 2015）。</div><div class="figure-source">來源：課程講義 p.4</div></div>
+      </div>
+
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>感染禽經<strong>呼吸道、結膜、糞便</strong>排出病毒。</li>
+        <li>直接接觸，或間接經空氣飛沫、揚塵、昆蟲、器具、人員傳染。</li>
+        <li><strong>不同於哺乳動物只限於呼吸道感染，鳥禽的消化道感染也很重要</strong>（所以糞便汙染水源是水禽間傳播的主要途徑，補充）。</li>
+        <li><strong>候鳥攜帶病毒</strong>，沿遷徙路線散佈。台灣位於東亞–澳洲遷徙路線上（補充，依講義 p.37 地圖）。</li>
+      </ul>
+      <div class="figure"><img src="img/week01_禽流感/ai_p37.jpg" alt="全球候鳥遷徙路線與帶原水鳥" loading="lazy"><div class="figure-caption">全球候鳥遷徙路線；綠頭鴨、小水鴨、加拿大雁、雪雁等水鳥。</div><div class="figure-source">來源：課程講義 p.37</div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.3–4、p.16、p.37。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">6</div><h2>臨床症狀與病變</h2></div>
+
+      <h3>臨床症狀<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>潛伏期 3 天</strong>。症狀變異大，受品種、年齡、性別、共同感染、環境、病毒毒力影響。</li>
+        <li>呼吸異常、腸炎、生殖道與神經症狀：羽毛膨鬆、活力降低、食慾減退、呼吸症狀、<strong>頭臉水腫</strong>、產蛋下降、下痢、扭頸。</li>
+        <li><strong>發病率與死亡率變異大</strong>：一般發病率高、死亡率低；但也有兩者都達 100% 的。</li>
+      </ul>
+
+      <h3>肉眼病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>LPAI：</strong>輕微的消化道與呼吸道感染。</li>
+        <li><strong>HPAI：</strong>全身臟器充出血，並有各種炎症滲出液。</li>
+        <li><strong>典型病變：雞冠腫大、眼眶水腫、足出血、內臟漿膜出血、腺胃移行部出血腫脹壞死。</strong></li>
+        <li><strong>台灣株：</strong>造成腺胃乳突部出血，<strong>肉眼無法和新城病區分</strong>；造成的腎尿酸鹽沉積<strong>無法和 IB 區分</strong>；台灣的 H5 株也造成<strong>胰臟出血壞死</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_禽流感/ai_p18.jpg" alt="HPAI病雞頭臉水腫、雞冠病變" loading="lazy"><div class="figure-caption">頭臉水腫、雞冠病變。</div><div class="figure-source">來源：課程講義 p.18</div></div>
+        <div class="figure"><img src="img/week01_禽流感/ai_p19.jpg" alt="HPAI雞冠肉垂壞死出血、眼眶水腫與腳部皮下出血" loading="lazy"><div class="figure-caption">雞冠與肉垂多處壞死出血、眼眶水腫、腳部嚴重皮下出血。</div><div class="figure-source">來源：課程講義 p.19</div></div>
+        <div class="figure"><img src="img/week01_禽流感/ai_p21.jpg" alt="HPAI內臟病變：心外膜脂肪點狀出血、腺胃出血、淋巴組織出血、肺出血水腫、胰臟出血壞死" loading="lazy"><div class="figure-caption">心外膜脂肪點狀出血、腺胃腺體周圍出血、腸道淋巴組織出血、肺出血水腫、胰臟出血壞死。</div><div class="figure-source">來源：課程講義 p.21</div></div>
+        <div class="figure"><img src="img/week01_禽流感/ai_p22.jpg" alt="HPAI氣管出血與卵巢卵泡出血" loading="lazy"><div class="figure-caption">氣管出血、卵泡出血等病變。</div><div class="figure-source">來源：課程講義 p.22</div></div>
+      </div>
+
+      <h3>組織學病變<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>各臟器炎症：竇炎、氣管炎、肺炎、氣囊炎、腸炎、腹膜炎，以及充血、出血、水腫、壞死。</li>
+        <li><strong>腦炎、淋巴球圍管現象、神經膠細胞增生</strong>（和新城病的神經病變很像）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.17–23。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIFFERENTIAL -->
+    <div class="section" id="section-differential">
+      <div class="section-head"><div class="section-num">7</div><h2>鑑別診斷 Differential Diagnosis<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">四個呼吸道＋產蛋下降的病毒病，內容取自本課程四份講義。和新城病、傳染性支氣管炎頁面的表格是同一張。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:13%;"></th><th>高病原性禽流感（HPAI）</th><th>新城病（ND）</th><th>傳染性支氣管炎（IB）</th><th>傳染性喉頭氣管炎（ILT）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>病毒</strong></td><td>正黏液病毒科，A 型；8 段 (–) ssRNA</td><td>副黏液病毒科，APMV-1；(–) ssRNA</td><td>冠狀病毒科；(+) ssRNA</td><td>疱疹病毒科，GaHV-1；DNA</td></tr>
+            <tr><td><strong>分級</strong></td><td>H5、H7 須通報 WOAH；發生時撲殺</td><td>甲類；WOAH 通報</td><td>乙類</td><td>—</td></tr>
+            <tr><td><strong>毒力決定</strong></td><td><strong>HA</strong> 切位鹼性胺基酸</td><td><strong>F</strong> 蛋白切位鹼性胺基酸</td><td>多種病原型</td><td>—</td></tr>
+            <tr><td><strong>毒力試驗</strong></td><td>IVPI ≥ 1.2；或 8 隻死 6–8 隻</td><td>ICPI ≥ 0.7</td><td>—</td><td>—</td></tr>
+            <tr><td><strong>特徵病變</strong></td><td><strong>雞冠腫大、眼眶水腫、足出血</strong>、腺胃出血；台灣 H5 株胰臟出血壞死</td><td>腺胃乳突部出血、腸道淋巴組織潰瘍出血壞死</td><td>依型別：氣管、腎（尿酸鹽）、腺胃、輸卵管</td><td>侷限於呼吸道、核內包涵體；咳血</td></tr>
+            <tr><td><strong>死亡率</strong></td><td>變異大，可達 100%</td><td>vvND 近 100%</td><td>低</td><td>嚴重型 5–70%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 其他三病的完整筆記：<a href="week02_新城病.html">新城病</a>、<a href="week03_傳染性支氣管炎.html">傳染性支氣管炎</a>、<a href="week04_傳染性喉頭氣管炎.html">傳染性喉頭氣管炎</a>。</p>
+      <div class="alert alert-danger">
+        <div class="alert-label">警告：現場看到這些，先當作必須通報的疾病處理</div>
+        <p>急性高死亡＋腺胃出血 → 禽流感與新城病<strong>肉眼分不出來</strong>，兩者都要通報。雞冠腫大發紫、腳部皮下出血、胰臟出血壞死是偏向禽流感的線索，但確診仍要靠<strong>病毒分離、亞型鑑定、病原性鑑定</strong>。</p>
+      </div>
+      <footer class="note-footer">資料來源：本課程〈Avian influenza〉〈ND〉〈IB〉〈ILT〉講義（陳慧文 DVM PhD）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">8</div><h2>檢驗與病原性判定 Diagnosis</h2></div>
+      <p class="section-desc">依講義引用的〈高病原性家禽流行性感冒檢驗方法〉（109.10.15 農委會修正）與 WOAH 定義整理。</p>
+
+      <h3>檢驗方法總覽<span class="lv lv-know">理解</span></h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">病毒檢驗</div><ul style="margin:6px 0 0; padding-left:1.2em;"><li>病毒分離</li><li>血球凝集抑制試驗（<strong>可區分病毒亞型</strong>）</li><li>病原性鑑定</li><li>分子檢驗</li></ul></div>
+        <div class="card"><div class="card-title">血清學檢測</div><ul style="margin:6px 0 0; padding-left:1.2em;"><li>ELISA</li><li>瓊脂凝膠免疫擴散（AGID）</li><li>血球凝集抑制試驗（HI）</li></ul></div>
+      </div>
+
+      <h3>採檢送驗<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>以發生臨床症狀 <strong>3 日內</strong>採得的檢體效果最好。</li>
+        <li><strong>死禽：</strong>可採全身各組織臟器（氣管、肺、氣囊、腸、脾、胰、腎、腦、肝、心），也可採喉頭與泄殖腔拭子；可分開或混合。</li>
+        <li><strong>活禽：</strong>喉頭與泄殖腔拭子；幼小個體不易採集時，改採新鮮排遺。</li>
+        <li>拭子保存在含抗生素的 PBS，或含蛋白質與抗生素的輸送培養液。</li>
+        <li>立即以低溫冷藏送驗，或 4°C 最多 4 天；長期保存 –80°C，避免重複冷凍解凍。用乾冰保存或運送要密封，防止二氧化碳滲入使 pH 下降、病毒失活。</li>
+      </ul>
+
+      <h3>病毒分離<span class="lv lv-know">理解</span></h3>
+      <div class="flow">
+        <div class="flow-node">拭子或 10% 組織乳劑，1,000 g 離心 10 分鐘取上清</div><div class="flow-arrow">→</div>
+        <div class="flow-node">接種 9–11 日齡 SPF 或 SAN 雞胚尿囊腔（每批 ≥ 3 個、每個 0.1–0.2 mL），35–39°C 培養 2–7 天</div><div class="flow-arrow">→</div>
+        <div class="flow-node">收尿囊液做血球凝集試驗（陰性至少再盲目繼代一次）</div><div class="flow-arrow">→</div>
+        <div class="flow-node danger">有血球凝集性：AGID 或 RT-PCR 確認 A 型，HI、NI 或 RT-PCR 鑑定亞型</div>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 尿囊液有血球凝集性，不一定是流感：講義提醒也可能是禽副黏液病毒（例如新城病）或家禽里奧病毒，所以還要再鑑定。分子方法可用 RT-PCR、real-time RT-PCR、RT-LAMP。</p>
+
+      <h3>病原性判定<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">方法</th><th>做法</th><th>判為 HPAI</th></tr></thead>
+          <tbody>
+            <tr><td><strong>靜脈接種病原性指數（IVPI）</strong></td><td>HA 力價 &gt; 1:16 的尿囊液 10 倍稀釋，靜脈接種 <strong>10 隻 6 週齡</strong> SPF 或 SAN 雞，每隻 0.1 mL；每 24 小時觀察、持續 <strong>10 天</strong>。正常 0、發病 1、嚴重發病 2、死亡 3（死亡後每天都記 3）。10 天總分 ÷ 100</td><td><strong>IVPI ≥ 1.2</strong><br>（3.00＝全部 24 小時內死亡；0.00＝10 天內都沒症狀）</td></tr>
+            <tr><td><strong>接種雞隻死亡率</strong></td><td>尿囊液 10 倍稀釋，靜脈接種 <strong>8 隻 4–8 週齡</strong> SPF 或 SAN 雞，每隻 0.2 mL，觀察 10 天</td><td>死亡 <strong>6、7 或 8 隻</strong>（死亡率 ≥ 75%）</td></tr>
+            <tr><td><strong>HA0 切位序列</strong></td><td>RT-PCR 增幅 HA 基因片段、定序</td><td>H5、H7 的切位胺基酸序列與已知 HPAI 相似</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充：發病與嚴重發病怎麼分</div>
+        <p>講義定義：出現呼吸症狀、沉鬱、下痢、無毛部皮膚或肉垂發紺、頭或臉水腫、神經症狀其中<strong>一種</strong> → 發病（1 分）；<strong>超過一種</strong> → 嚴重發病（2 分）。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：1.2 前面是 ≥ 還是 &gt;</div>
+        <p>講義 p.27、p.29 的國內規範寫「IVPI <strong>大於等於</strong> 1.2」；p.31 的 WOAH 英文原文寫「<strong>greater than</strong> 1.2」。考試寫 1.2 即可，作答時可註明出處。</p>
+      </div>
+      <h4>LPAI 的判定</h4>
+      <ul>
+        <li>家禽分離的 H5、H7：動物試驗不具高病原性，且切位序列不像 HPAI → H5／H7 LPAI。</li>
+        <li>野鳥與水禽常見的 LPAI 株：切位 –1 到 –3 位的鹼性胺基酸數量在 <strong>2 個以下</strong>（參照 OFFLU 公告序列）。</li>
+      </ul>
+
+      <h3>IVPI 與 ICPI 比較<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>IVPI（禽流感，也用於新城病）</th><th>ICPI（新城病）</th></tr></thead>
+          <tbody>
+            <tr><td>雞</td><td>10 隻 <strong>6 週齡</strong></td><td>10 隻 <strong>1 日齡</strong></td></tr>
+            <tr><td>途徑</td><td><strong>靜脈</strong></td><td><strong>腦內</strong></td></tr>
+            <tr><td>觀察</td><td><strong>10 天</strong></td><td><strong>8 天</strong></td></tr>
+            <tr><td>分數</td><td>0–3（死亡 3）</td><td>0–2（死亡 2）</td></tr>
+            <tr><td>門檻</td><td>禽流感 HPAI：≥ 1.2</td><td>新城病：≥ 0.7</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>病毒排出與抗體的時間<span class="lv lv-know">理解</span></h3>
+      <div class="figure"><img src="img/week01_禽流感/ai_p33.jpg" alt="H5感染後病毒排出與抗體反應的時間曲線" loading="lazy"><div class="figure-caption">發病後前幾天病毒排出量最高，這時用 RT-PCR 或病毒分離偵測病毒；約一週後抗體才上升，之後才適合血清學檢測。講義的說明文字：最靈敏的是 RT-PCR，病毒培養與抗原偵測在發病頭幾天有用。</div><div class="figure-source">來源：課程講義 p.33</div></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義 p.32 另有 WOAH 的方法用途表：確認臨床病例建議用病毒分離與 real-time RT-PCR（+++）；HI 可鑑別 H5 或 H7 抗體，用於疫苗後免疫狀態評估（+++）。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.24–33（農委會 109.10.15 檢驗方法、WOAH）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EPIDEMIOLOGY -->
+    <div class="section" id="section-epidemiology">
+      <div class="section-head"><div class="section-num">9</div><h2>疫情現況與跨物種傳播</h2></div>
+
+      <h3>全球<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>2022 年：全球五大洲 <strong>67 國</strong>發生 HPAI，撲殺 <strong>1.3 億隻</strong>家禽。</li>
+        <li>2023 年至今：新增 14 國頻繁發生，多在中南美洲。</li>
+        <li>主要流行亞型：<strong>H5N1 clade 2.3.4.4b</strong>。</li>
+        <li>WOAH（2023）：禽流感<strong>逐漸失去季節性</strong>，高病原性株<strong>持續在野鳥中流行</strong>，增加病毒演化與跨物種傳播的機會。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_禽流感/ai_p36.jpg" alt="H5N1禽流感病毒的出現與演化時間軸" loading="lazy"><div class="figure-caption">H5N1 的演化：1996 年於中國廣東鵝首次發現（A/goose/Guangdong/1/1996），1997 年香港 18 人感染；2014–2016 出現 H5N6、H5N8；2.3.4.4b 於 2018–2020 年廣泛散佈，2021 年傳到北美（CDC）。</div><div class="figure-source">來源：課程講義 p.36</div></div>
+        <div class="figure"><img src="img/week01_禽流感/ai_p39.jpg" alt="禽流感在野生動物、農業與人類之間的傳播" loading="lazy"><div class="figure-caption">野生動物 ↔ 家禽 ↔ 人：野鳥維持多種病毒株、經覓食傳播；家禽經糞便、汙染物、飼料與飲水外溢；人類經活禽市場與畜牧接觸感染。</div><div class="figure-source">來源：課程講義 p.39</div></div>
+      </div>
+
+      <h3>台灣<span class="lv lv-skim">看過</span></h3>
+      <p>115 年（2026）1–8 月：禽場 HPAI <strong>15 例</strong>（陸禽場 13、水禽場 2；全部 H5N1），撲殺約 <strong>43 萬隻</strong>；另有屠宰場確診 9 例、禽場低病原性 1 例。分布在嘉義、雲林、彰化、臺南、屏東、臺中。案例大多是業者主動通報，也有屠宰場通報回溯、主動監測與檢舉案。</p>
+      <div class="figure"><img src="img/week01_禽流感/ai_p38.jpg" alt="115年高病原性禽流感確診及撲殺養禽場分布圖" loading="lazy"><div class="figure-caption">115 年高病原性禽流感確診及撲殺養禽場分布圖（防檢署，資料更新 115.8.11）。</div><div class="figure-source">來源：課程講義 p.38</div></div>
+
+      <h3>跨物種傳播與人畜共通<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>H5N1 已造成<strong>西班牙水貂</strong>養殖場、<strong>芬蘭毛皮動物</strong>養殖場、<strong>秘魯海獅</strong>大量死亡，以及<strong>南韓、波蘭貓</strong>死亡。</li>
+        <li><strong>美國乳牛</strong>：2024 年 3 月首次報告乳牛感染；講義引述截至報導時 14 州 203 個牛群、14 人；前 13 例都接觸過牛或家禽，第 14 例沒有接觸染病動物（可能的人傳人）。</li>
+        <li>美國乳牛的 H5N1 是 2.3.4.4b 與北美 LPAI 重組而來的 genotype B3.13，2024 年 3 月起在德州乳牛擴散，再傳到其他州、家禽、貓（未殺菌生乳）（講義 p.44 圖）。</li>
+        <li><strong>台灣</strong>（防檢署，113.5.17）：6 縣市 12 場乳牛採樣，全部陰性；國產乳品安全。</li>
+      </ul>
+      <div class="figure"><img src="img/week01_禽流感/ai_p44.jpg" alt="H5N1高病原性禽流感由野鳥傳到美國乳牛再到家禽與貓的路徑" loading="lazy"><div class="figure-caption">H5N1 跨物種傳播：野鳥 → 重組 → 2024 年德州乳牛 → 其他州乳牛、家禽、貓（Science, 2024）。</div><div class="figure-source">來源：課程講義 p.44</div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.34–45（WOAH、CDC、防檢署、新聞報導）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CONTROL -->
+    <div class="section" id="section-control">
+      <div class="section-head"><div class="section-num">10</div><h2>防疫檢疫與生物安全</h2></div>
+
+      <h3>相關法規<span class="lv lv-skim">看過</span></h3>
+      <ul>
+        <li>動物傳染病非疫區之國家（地區）一覽表</li>
+        <li>高病原性家禽流行性感冒檢驗方法</li>
+        <li>防範家禽流行性感冒（H5、H7 亞型）緊急應變措施手冊</li>
+        <li>家禽（批發）市場、家禽理貨場及屠宰場發生禽流感案例處置流程（屠宰場確診案例：屠體依法銷燬）</li>
+      </ul>
+
+      <h3>禽場生物安全<span class="lv lv-must">必考</span></h3>
+      <p>講義引用農委會「生物安全金口訣」與防檢署《2021 禽場生物安全手冊》：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:26%;">原則</th><th>做法</th></tr></thead>
+          <tbody>
+            <tr><td><strong>隔絕野鳥</strong></td><td>非開放式禽舍；防鳥、防鼠；圍網破損要定期維修</td></tr>
+            <tr><td><strong>人車進出</strong></td><td>人車進出必消毒、衣鞋更換；換鞋區畫清楚淨區與汙染區界線；每棟禽舍出入口設消毒踏槽，鞋子至少浸泡 15–20 秒</td></tr>
+            <tr><td><strong>飼料與環境</strong></td><td>飼料桶設在禽場圍牆邊，避免飼料車進場；糞便廢料定時清；死廢動物不亂丟；雜物定期清理</td></tr>
+            <tr><td><strong>消毒</strong></td><td>空場消毒要確實、統進統出；定期檢查消毒藥劑是否在有效期內</td></tr>
+            <tr><td><strong>觀察與通報</strong></td><td>禽群觀察要認真，發現可疑快通報</td></tr>
+            <tr><td><strong>用藥</strong></td><td>用藥前看清楚、非法藥品不使用</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_禽流感/ai_p48.jpg" alt="農委會非開放式禽舍生物安全金口訣" loading="lazy"><div class="figure-caption">非開放式禽舍與生物安全金口訣。</div><div class="figure-source">來源：課程講義 p.48</div></div>
+        <div class="figure"><img src="img/week01_禽流感/ai_p52.jpg" alt="禽場生物安全常見錯誤與改善方式" loading="lazy"><div class="figure-caption">常見錯誤：換鞋區界線模糊、圍網破損、消毒劑過期、未設消毒踏槽、飼料桶在場內、雜物堆積。</div><div class="figure-source">來源：課程講義 p.52</div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.46–52（農委會、防檢署）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VACCINE -->
+    <div class="section" id="section-vaccine">
+      <div class="section-head"><div class="section-num">11</div><h2>抗原變異與疫苗</h2></div>
+
+      <h3>抗原漂變 vs. 抗原移型<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;"></th><th>抗原漂變 Antigenic drift</th><th>抗原移型 Antigenic shift</th></tr></thead>
+          <tbody>
+            <tr><td><strong>機制</strong></td><td>HA、NA 基因<strong>點突變</strong>逐漸累積</td><td>兩種不同病毒感染同一細胞，<strong>基因片段重組</strong>（例如人流感＋豬流感）</td></tr>
+            <tr><td><strong>結果</strong></td><td>抗原小幅改變，原有抗體效果下降</td><td>出現全新的 HA 或 NA 組合，族群幾乎沒有免疫力</td></tr>
+            <tr><td><strong>前提</strong>（補充）</td><td>RNA 病毒複製錯誤率高</td><td>基因體分成 8 段</td></tr>
+            <tr><td><strong>後果</strong>（補充）</td><td>季節性流行；疫苗株需要定期更新</td><td>可能造成大流行</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week01_禽流感/ai_p53.jpg" alt="抗原漂變與抗原移型示意圖" loading="lazy"><div class="figure-caption">上：抗原漂變；下：人流感與豬流感重組造成抗原移型。</div><div class="figure-source">來源：課程講義 p.53</div></div>
+
+      <h3>疫苗技術<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>八質體系統（反向遺傳）：</strong>6 個來自主幹株 A/PR/8/34（H1N1）的內部基因質體，加上 2 個流行株的 HA、NA 質體，在 293T 與 MDCK 細胞中組裝出疫苗株。</li>
+        <li><strong>mRNA 疫苗（Ceva RESPONS AI H5）：</strong>自我複製型合成 RNA，編碼 H5 clade 2.3.4.4b 的 HA；1 μg RNA，<strong>肌肉注射 2 劑、間隔 4 週</strong>，–80°C 保存；每劑含 375 μg 角鯊烯佐劑。</li>
+        <li><strong>重組 HA＋新城病雙價死毒疫苗（BI Volvac BEST AI+ND）：</strong>重組 HA 蛋白 256 HAU＋不活化新城病 La Sota 128 HAU。</li>
+        <li>其他田間試驗疫苗：BI VAXXITEK HVT+IBD+H5、Ceva Vectormune AI（火雞疱疹病毒載體）。</li>
+      </ul>
+      <div class="figure"><img src="img/week01_禽流感/ai_p54.jpg" alt="流感疫苗的八質體系統" loading="lazy"><div class="figure-caption">八質體系統製作疫苗株。</div><div class="figure-source">來源：課程講義 p.54</div></div>
+
+      <h3>疫苗的定位<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">時間</th><th>事件</th></tr></thead>
+          <tbody>
+            <tr><td>2022 年 5 月</td><td>歐盟執委會將禽流感疫苗列為防疫補充工具</td></tr>
+            <tr><td>2023 年 5 月</td><td>WOAH 大會決議：①疫苗作為防疫<strong>補充工具</strong>；②使用後須配合<strong>病毒監測</strong>；③使用疫苗<strong>不應成為貿易障礙</strong></td></tr>
+            <tr><td>2023 年 10 月</td><td>法國肉鴨<strong>強制</strong>施打禽流感疫苗；EFSA 公布使用建議</td></tr>
+            <tr><td>2023–2024 年</td><td>荷蘭蛋雞、法國土番鴨田間試驗多種疫苗</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">重點：歐洲食品安全局（EFSA）的建議</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li><strong>預防性接種</strong>是最佳策略：針對高風險傳播區內最易感、最具傳染性的禽種；多次接種可增強保護。</li>
+          <li>爆發時：以案例場為中心 <strong>3 公里</strong>半徑內做<strong>緊急保護性接種</strong>。</li>
+          <li>疫苗是主動監測、被動監測與生物安全的<strong>補充，不是替代</strong>。</li>
+          <li>接種後要用高靈敏度方法監測；做病毒分離、基因定序與抗原性分析，以早期發現突變株；定期病毒學檢測，證明接種區沒有 HPAI 感染。</li>
+        </ul>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 補充（非講義）：為什麼打疫苗還要監測？疫苗可以讓雞不發病，卻不一定阻止感染與排毒，病毒可能在打過疫苗的雞群中「靜默」傳播與演化。所以要能區分感染與接種（DIVA）並持續監測，這也是貿易上擔心疫苗的原因。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian influenza〉p.53–60（WOAH、EFSA）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">12</div><h2>考試方向（推測）</h2></div>
+      <p class="section-desc">依講義重點推測，<strong>不是</strong>依考古題整理。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能的考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>HA 與 NA 的結構與功能</td><td>HA 三聚體、H1–19，HA1 結合受體、HA2 融合；NA 四聚體、N1–11，切斷受體使病毒釋出</td></tr>
+            <tr><td>禽型與人型受體</td><td>SAα2,3Gal vs. SAα2,6Gal</td></tr>
+            <tr><td>HPAI 與 LPAI 的分子差異</td><td>HA0 切位多個鹼性胺基酸 → 多種蛋白酶可切 → 全身感染；LPAI 只被 trypsin 樣酶切</td></tr>
+            <tr><td>HPAI 的定義</td><td>IVPI ≥ 1.2；或 8 隻 4–8 週齡雞靜脈接種 10 天內死 6–8 隻；或 H5／H7 切位序列像 HPAI</td></tr>
+            <tr><td>IVPI vs. ICPI</td><td>6 週齡靜脈 10 天 0–3 vs. 1 日齡腦內 8 天 0–2</td></tr>
+            <tr><td>典型病變與鑑別</td><td>雞冠腫大、眼眶水腫、足出血、腺胃出血；台灣株與新城病（腺胃）、IB（腎）肉眼分不出</td></tr>
+            <tr><td>抗原漂變 vs. 移型</td><td>點突變累積 vs. 分節基因重組</td></tr>
+            <tr><td>命名法</td><td>型別／宿主／地點／株號／年份（HxNy）</td></tr>
+            <tr><td>為什麼要通報所有 H5、H7</td><td>HPAI 由 LPAI 突變而來，幾乎都是 H5、H7</td></tr>
+            <tr><td>疫苗的使用原則</td><td>補充工具、需配合監測、不應成為貿易障礙；預防性接種最佳；爆發時 3 公里緊急接種</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">13</div><h2>學習重點整理</h2></div>
+      <p class="section-desc">考前快速掃過。</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>A 型流感，正黏液病毒科</strong>；80–120 nm、有封套、8 段 (–) ssRNA；RNP ＝ vRNA＋NP＋PA／PB1／PB2。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>HA</strong>（三聚體 H1–19）：HA1 結合受體、HA2 低 pH 融合；<strong>NA</strong>（四聚體 N1–11）：切斷受體釋出病毒，oseltamivir 抑制。禽型 α2,3、人型 α2,6。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>HPAI：</strong>HA0 切位多個鹼性胺基酸、全身感染、由 LPAI 突變而來；<strong>LPAI：</strong>trypsin 樣酶、侷限呼吸消化道、在水禽中維持。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>傳播：</strong>呼吸道、結膜、糞便；禽類消化道感染也重要；候鳥攜帶。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>臨床：</strong>潛伏期 3 天；頭臉水腫、產蛋下降、下痢、扭頸；雞冠腫大、眼眶水腫、足出血、腺胃移行部出血；台灣 H5 胰臟出血壞死；與 ND、IB 肉眼分不出。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>判定：</strong>IVPI ≥ 1.2（6 週齡、靜脈、10 天、0–3）；或 8 隻死 6–8 隻；或 H5／H7 切位序列。症狀 3 日內採檢最好；4°C 最多 4 天、長期 –80°C。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>流行：</strong>H5N1 clade 2.3.4.4b；失去季節性、在野鳥中持續；跨到水貂、海獅、貓、美國乳牛與人。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>防治：</strong>生物安全（非開放式禽舍、防鳥、消毒、通報）；抗原漂變與移型；疫苗為補充工具，須配合監測。</div></div>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">14</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。Q11 是計算題，Q12–Q14 是臨床情境題。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 關於流感病毒 HA 與 NA，何者正確？</div>
+        <ul class="quiz-options"><li>(A) HA 為四聚體，負責切斷受體</li><li>(B) NA 為三聚體，負責膜融合</li><li>(C) HA1 負責結合受體，HA2 負責膜融合</li><li>(D) NA 抑制劑會使病毒無法進入細胞</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">HA 是三聚體（H1–19），HA1 結合受體、HA2 在低 pH 下介導膜融合；NA 是四聚體（N1–11），切斷受體讓新病毒釋出。NA 抑制劑（oseltamivir）讓病毒聚集在細胞外、無法釋出擴散，而不是不能進入細胞。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 禽流感病毒偏好的受體是？</div>
+        <ul class="quiz-options"><li>(A) SAα2,3Gal</li><li>(B) SAα2,6Gal</li><li>(C) 9-O-acetyl-N-neuraminic acid</li><li>(D) CD4</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">禽型受體 SAα2,3Gal、人型受體 SAα2,6Gal。講義圖說另提到 9-O-acetyl 唾液酸是 C 型流感的受體。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q3. 為什麼高病原性禽流感會全身感染，低病原性株卻只侷限在呼吸道與消化道？這和新城病有什麼共通點？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">HA0 必須被宿主蛋白酶切成 HA1、HA2 病毒才有感染力。HPAI 的切位有多個鹼性胺基酸，可被很多種細胞內蛋白酶切開，病毒散佈全身；LPAI 只能被 trypsin 樣蛋白酶切開，而這種酶只在呼吸道與消化道上皮，所以只在這兩處增殖。新城病的 F 蛋白切位是同一套邏輯：強毒株有多個鹼性胺基酸，弱毒株只能被 trypsin 切。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q4. 高病原性禽流感病毒主要在野生水鳥體內長期維持，進入家禽後才突變成低病原性。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain">相反。在水禽（鴨、鷗、濱鳥）中維持的是 <strong>LPAI</strong>，不明顯發病；HPAI 是 LPAI 的 HA 切位<strong>突變</strong>而來。不過講義也指出，近年高病原性株已持續在野鳥中流行，禽流感逐漸失去季節性。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 依 WOAH 定義，下列哪一項可判定為高病原性禽流感？</div>
+        <ul class="quiz-options"><li>(A) ICPI ≥ 0.7</li><li>(B) 8 隻 4–8 週齡易感雞靜脈接種後，10 天內死亡 6 隻</li><li>(C) MDT &lt; 60 小時</li><li>(D) 雞胚出現矮小化捲曲</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">HPAI：8 隻 4–8 週齡雞靜脈接種 0.2 mL 1/10 稀釋尿囊液，10 天內死 6、7 或 8 隻；或 IVPI &gt; 1.2；H5、H7 低病原性株要再看 HA 切位序列。(A)(C) 是新城病的毒力指標，(D) 是 IB 的病毒分離特徵。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 下列哪一個病變組合最符合高病原性禽流感，而較不像新城病？</div>
+        <ul class="quiz-options"><li>(A) 綠色下痢、腸道淋巴組織潰瘍</li><li>(B) 雞冠腫大發紫、眼眶水腫、腳部皮下出血、胰臟出血壞死</li><li>(C) 胚胎矮小化捲曲</li><li>(D) 咳血、氣管核內包涵體</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">雞冠腫大、眼眶水腫、足出血是 HPAI 的典型病變，台灣 H5 株另有胰臟出血壞死。(A) 偏新城病、(C) 是 IB、(D) 是 ILT。但腺胃出血兩者都有，最後仍要靠實驗室確診。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q7. 雞胚尿囊液出現血球凝集性，就可以確定分離到禽流感病毒。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain">講義提醒：有血球凝集性的尿囊液，最可能是 A 型流感，但也可能是禽副黏液病毒（例如新城病）或家禽里奧病毒，要再用 AGID 或 RT-PCR 確認型別，並用 HI、NI 或 RT-PCR 鑑定亞型。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 「兩種不同的流感病毒感染同一個細胞，基因片段重新組合，產生新的 HA／NA 組合」稱為？</div>
+        <ul class="quiz-options"><li>(A) 抗原漂變</li><li>(B) 抗原移型</li><li>(C) 毒力回歸</li><li>(D) 盲目繼代</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">抗原移型（shift）是分節基因重組；抗原漂變（drift）是點突變逐漸累積。流感基因體分成 8 段，所以能發生移型。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q9. WOAH 在 2023 年對禽流感疫苗做了哪三點決議？EFSA 建議爆發疫情時如何使用疫苗？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">WOAH：①疫苗作為防疫補充工具；②使用後須配合病毒監測；③使用禽流感疫苗不應成為貿易障礙。EFSA：預防性接種是最佳策略；爆發時在高風險傳播區內，以案例場為中心 3 公里半徑內做緊急保護性接種；疫苗是監測與生物安全的補充，不是替代。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 禽流感病毒檢體採樣的最佳時機與保存方式，下列何者正確？</div>
+        <ul class="quiz-options"><li>(A) 發病 2 週後採樣最好；室溫保存</li><li>(B) 發病 3 日內採樣最好；4°C 最多 4 天，長期 –80°C</li><li>(C) 只能採血清</li><li>(D) 可反覆冷凍解凍</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義：以發生臨床症狀 3 日內的檢體效果最好；低溫冷藏送驗或 4°C 最多 4 天；長期保存 –80°C，避免重複冷凍解凍；乾冰保存要密封，以防二氧化碳使 pH 下降、病毒失活。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">計算題</span>
+        <div class="quiz-q">Q11. 一株 H7 病毒做 IVPI：10 隻 6 週齡 SPF 雞靜脈接種，10 天的總分為 135。請計算 IVPI，並判斷是否為 HPAI。若總分是 90 呢？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">IVPI ＝ 10 天總分 ÷（10 隻 × 10 天）＝ 135 ÷ 100 ＝ <strong>1.35</strong>，大於 1.2，判為 HPAI。總分 90 → IVPI 0.90，動物試驗不符合 HPAI；但因為是 <strong>H7</strong>，還要定序 HA 切位：序列與已知 HPAI 相似，仍判為 HPAI；不相似則為 H7 LPAI，仍需通報。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q12.【臨床情境】1 月，嘉義一個鄰近濕地的開放式蛋雞場，兩天內死亡數暴增，雞冠肉垂發紫腫脹、頭臉水腫、腳脛皮下出血，產蛋驟降。請問：(1) 最需要懷疑什麼？還要和什麼鑑別？(2) 你要先做什麼？(3) 怎麼採檢送驗？(4) 這個場的生物安全有哪些可能的漏洞？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 高病原性禽流感：急性高死亡加上雞冠腫大、頭臉水腫、足出血是典型病變，冬季、鄰近濕地（候鳥）也是危險因子。要和強毒型新城病鑑別，兩者都會腺胃出血、肉眼分不出，而且都必須通報。<br><strong>(2)</strong> 立即通報主管機關，限制人車禽移動，不要自行處理死禽。<br><strong>(3)</strong> 症狀 3 日內的檢體最好：死禽採氣管、肺、氣囊、腸、脾、胰、腎、腦、肝、心或喉頭與泄殖腔拭子；活禽採喉頭與泄殖腔拭子；放含抗生素的 PBS，低溫冷藏立即送驗。實驗室會做病毒分離、亞型鑑定與病原性鑑定（IVPI 或 HA 切位定序）。<br><strong>(4)</strong> 開放式禽舍無法隔絕野鳥；可能還有圍網破損、沒有消毒踏槽、換鞋區界線不清、飼料車進場、消毒劑過期等問題。改善方向是非開放式禽舍、防鳥防鼠、人車消毒。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一個鴨場例行監測，分離到 H5 亞型病毒，但鴨隻幾乎沒有症狀。飼主說：「鴨子都沒事，為什麼還要管？」你怎麼解釋？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">水禽本來就是流感病毒的天然宿主，感染後常不明顯發病，但會持續排毒，糞便汙染水源與環境，再傳給雞等陸禽。家禽分離到的 H5、H7 都要通報，因為 HPAI 就是由 H5、H7 的 LPAI 在家禽中傳播時，HA 切位突變而來；而且近年 H5N1 高病原性株也能在鴨、野鳥中不明顯發病地傳播。所以要通報並做病原性鑑定（動物試驗與切位定序），確認是高病原性還是低病原性。</p></details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一位同學問：「既然有禽流感疫苗，為什麼台灣不全面打疫苗，還要撲殺？」請依講義內容回答。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">講義的立場：疫苗是防疫的<strong>補充工具，不是替代</strong>，主要防控仍是監測（主動與被動）與生物安全；用疫苗必須配合病毒監測，包括高靈敏度診斷、病毒分離、基因定序與抗原性分析，以早期發現突變株，並定期證明接種區沒有 HPAI。WOAH 雖決議疫苗不應成為貿易障礙，但實際上仍需完整監測才能維持貿易信任。補充（非講義）：疫苗能減少發病，卻不一定阻止感染與排毒，病毒可能在打過疫苗的雞群中靜默傳播與演化；而流感會抗原漂變，疫苗株也要跟著更新。</p></details>
+      </div>
+
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  virology: '病毒構造與命名',
+  proteins: 'HA 與 NA',
+  pathogenicity: 'HPAI vs. LPAI',
+  ecology: '生態、宿主與傳播',
+  clinical: '臨床症狀與病變',
+  differential: '鑑別診斷',
+  diagnosis: '檢驗與病原性判定',
+  epidemiology: '疫情現況與跨物種傳播',
+  control: '防疫檢疫與生物安全',
+  vaccine: '抗原變異與疫苗',
+  exam: '考試方向（推測）',
+  summary: '學習重點整理',
+  quiz: '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

@@ -349,3 +349,8 @@ body.ah footer.note-footer { background: none; border: 0; }
 }
 .btn:hover { border-color: var(--accent); color: var(--accent-deep); }
 .pagehead__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin: var(--sp-5) 0 0; }
+
+/* 目錄太長時：桌面版限制在一個螢幕高，目錄自己可以捲動（2026-10-11 修正：原本超出螢幕的項目點不到） */
+@media (min-width: 1040px) {
+  .toc { max-height: calc(100vh - var(--nav-h) - 2 * var(--sp-5)); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding-right: 4px; }
+}

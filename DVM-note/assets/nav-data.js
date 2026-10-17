@@ -24,13 +24,13 @@ const SITE_NAV = [
     icon: "🩺",
     url: "index.html",
     topics: [
-      { title: "大動物外科手術及實習", url: "大四上/大動物外科手術及實習/index.html", desc: "術前考量與麻醉、縫合技術、腹腔手術（瘤胃／皺胃）、手術器械圖鑑等週次筆記" },
-      { title: "禽病學", url: "大四上/禽病學/index.html", desc: "已整理第2週：新城病(ND)、第3週：傳染性支氣管炎(IB)" },
+      { title: "大動物外科手術及實習", url: "大四上/大動物外科手術及實習/index.html", desc: "術前考量與麻醉、縫合技術、腹腔手術（瘤胃／皺胃）、手術器械圖鑑、牛蹄病等週次筆記" },
+      { title: "禽病學", url: "大四上/禽病學/index.html", desc: "已整理：禽流感(AI)、新城病(ND)、傳染性支氣管炎(IB)、傳染性喉頭氣管炎(ILT)、寵物鳥病毒病、總論與解剖、種禽生產醫學、馬立克病(MD)、禽白血病與網狀內皮增生症" },
       { title: "豬病學", url: "大四上/豬病學/index.html", desc: "已整理第2週：豬病毒性疾病(I)（ASF／CSF／JEV／HEV）" },
       { title: "反芻動物疾病學", url: "大四上/反芻動物疾病學/index.html", desc: "已整理第1-2週：乳牛營養與飼養管理、轉換期／低血鈣症／DCAD、臨床檢查、眼科疾病" },
       { title: "伴侶動物復健及物理治療學", url: "大四上/伴侶動物復健及物理治療學/index.html", desc: "已整理 3 週：常見神經科疾病復健、常見骨科疾病復健、儀器物理治療" },
       { title: "水產動物疾病學", url: "大四上/水產動物疾病學/index.html", desc: "尚無筆記" },
-      { title: "獸醫臨床及影像診斷學", url: "大四上/獸醫臨床及影像診斷學/index.html", desc: "已整理第2週：超音波診斷入門；第3週X光學：X光學基礎、脊椎影像判讀、脊椎影像解剖圖譜；第4週：CT與MRI原理；第5週：神經影像課前預習（IVDD／ANNPE／脊椎黏連性關節病／椎間盤脊椎炎／寰樞椎不穩定）" }
+      { title: "獸醫臨床及影像診斷學", url: "大四上/獸醫臨床及影像診斷學/index.html", desc: "已整理第2週：超音波診斷入門；第3週X光學：X光學基礎、脊椎影像判讀、脊椎影像解剖圖譜；第4週：CT與MRI原理；第5週：神經影像課前預習（IVDD／ANNPE／脊椎黏連性關節病／椎間盤脊椎炎／寰樞椎不穩定）；第6週：消化道臨床檢查與影像；第7週：犬貓完整口腔評估與治療COHAT" }
     ]
   },
   {
@@ -73,6 +73,20 @@ const SITE_NAV = [
     topics: [
       { title: "犬貓正常影像解剖圖譜", url: "Textbook/犬貓正常影像解剖圖譜/index.html", desc: "Atlas of Normal Radiographic Anatomy and Anatomic Variants in the Dog and Cat, 3rd Ed.（Thrall & Robertson）依章節整理，已完成第3章：脊椎、第7章：腹腔" },
       { title: "犬隻解剖實習指南", url: "Textbook/犬隻解剖實習指南/index.html", desc: "Miller's Guide to the Dissection of the Dog, 8th Ed.（Evans & de Lahunta）依章節整理的原創筆記＋自繪示意圖，已完成第1章：解剖學術語" }
+    ]
+  },
+  {
+    id: "國考",
+    label: "國考",
+    icon: "🎯",
+    url: "國考/index.html",
+    topics: [
+      { title: "獸醫病理學", url: "國考/獸醫病理學/index.html", desc: "尚無筆記" },
+      { title: "獸醫藥理學", url: "國考/獸醫藥理學/index.html", desc: "尚無筆記" },
+      { title: "獸醫實驗診斷學", url: "國考/獸醫實驗診斷學/index.html", desc: "尚無筆記" },
+      { title: "獸醫普通疾病學", url: "國考/獸醫普通疾病學/index.html", desc: "尚無筆記" },
+      { title: "獸醫傳染病學", url: "國考/獸醫傳染病學/index.html", desc: "尚無筆記" },
+      { title: "獸醫公共衛生學", url: "國考/獸醫公共衛生學/index.html", desc: "尚無筆記" }
     ]
   }
 ];
