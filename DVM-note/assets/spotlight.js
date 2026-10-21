@@ -21,7 +21,7 @@
     '.sl-trigger:hover{border-color:var(--accent);color:var(--fg)}',
     '.sl-trigger svg{flex:none}',
     '.sl-trigger kbd,.sl kbd{font:inherit;font-size:.75rem;padding:1px 6px;border:1px solid var(--line);border-radius:5px;background:var(--bg);color:var(--fg-faint)}',
-    '.sl-trigger.wide{min-width:240px;justify-content:flex-start}.sl-trigger.wide kbd{margin-left:auto}',
+    '.sl-trigger.wide{min-width:250px;justify-content:flex-start}.sl-trigger.wide kbd{margin-left:auto}',
     '@media (max-width:900px){.sl-trigger .sl-tlabel,.sl-trigger kbd{display:none}.sl-trigger{padding:0 10px}.sl-trigger.wide{min-width:0}}',
     '.sl{position:fixed;inset:0;z-index:3000;display:none}',
     '.sl.open{display:block}',
@@ -227,8 +227,12 @@
   }
 
   /* ── 畫面 ── */
-  function build() {
+  function injectCSS() {
+    if (document.querySelector('style[data-spotlight]')) return;
     var st = document.createElement('style'); st.setAttribute('data-spotlight', ''); st.textContent = CSS; document.head.appendChild(st);
+  }
+  function build() {
+    injectCSS();
     var root = document.createElement('div');
     root.className = 'sl'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', '全站搜尋');
     root.innerHTML =
@@ -284,8 +288,12 @@
     var ts = res.ts;
     // 摘要列＋科目篩選
     var m = '<span class="sl-sum">「<b>' + esc(q) + '</b>」出現在 <b>' + res.subjects.length + '</b> 個科目、<b>' + res.nPage + '</b> 頁、<b>' + res.nSec + '</b> 個章節</span>';
-    if (res.subjects.length > 1) {
+    var nHere = 0;
+    res.subjects.forEach(function (S) { S.list.forEach(function (P) { if (isHere(P.e)) nHere += P.secs.length; }); });
+    if (state.filter === '§here' && !nHere) state.filter = '';
+    if (res.subjects.length > 1 || nHere) {
       m += '<button type="button" class="sl-chip' + (state.filter ? '' : ' on') + '" data-f="">全部</button>';
+      if (nHere) m += '<button type="button" class="sl-chip' + (state.filter === '§here' ? ' on' : '') + '" data-f="§here">只看本頁<small>' + nHere + '</small></button>';
       res.subjects.forEach(function (S) {
         m += '<button type="button" class="sl-chip' + (state.filter === S.name ? ' on' : '') + '" data-f="' + esc(S.name) + '">' + esc(S.name) + '<small>' + S.list.length + '</small></button>';
       });
@@ -312,8 +320,9 @@
       h += '<div class="sl-topl">最佳結果</div><div class="sl-grid" style="margin-bottom:6px;">' + card(res.top, true) + '</div>';
     }
     res.subjects.forEach(function (S) {
-      if (state.filter && S.name !== state.filter) return;
-      var pages = S.list.filter(function (P) { return state.filter || res.subjects.length === 1 || P !== res.top; });
+      var onlyHere = state.filter === '§here';
+      if (state.filter && !onlyHere && S.name !== state.filter) return;
+      var pages = S.list.filter(function (P) { return onlyHere ? isHere(P.e) : (state.filter || res.subjects.length === 1 || P !== res.top); });
       if (!pages.length) return;
       var lim = state.expanded['§' + S.name] || state.filter ? pages.length : Math.min(pages.length, PAGE_LIMIT);
       h += '<div class="sl-h"><span class="sl-sem">' + esc(S.sem) + '</span>' + esc(S.name) + '<span class="sl-cnt">' + S.list.length + ' 頁・' + S.n + ' 個章節</span></div><div class="sl-grid">';
@@ -440,13 +449,15 @@
   function mount() {
     var right = document.querySelector('header .header-right');
     if (!right || right.querySelector('.sl-trigger')) return;
+    injectCSS();
     var b = document.createElement('button');
     b.type = 'button'; b.className = 'sl-trigger'; b.title = '搜尋全站（' + (isMac ? '⌘' : 'Ctrl') + '+K）';
     b.innerHTML = ICON + '<span class="sl-tlabel">搜尋全站</span><kbd>' + (isMac ? '⌘' : 'Ctrl+') + 'K</kbd>';
     b.addEventListener('click', function () { open(); });
-    // 總覽頁原本的「跨科目搜尋」框改由這個視窗取代
-    var old = right.querySelector('.search-wrap.lg');
-    if (old) { old.style.display = 'none'; b.classList.add('wide'); b.querySelector('.sl-tlabel').textContent = '搜尋全站：疾病、藥物、章節…'; }
+    // 頁首原本的搜尋框（總覽頁的跨科目搜尋、內頁的搜尋本頁）都改由這個視窗取代；
+    // 只搜本頁請在視窗裡點「只看本頁」
+    right.querySelectorAll('.search-wrap').forEach(function (old) { old.style.display = 'none'; });
+    b.classList.add('wide'); b.querySelector('.sl-tlabel').textContent = '搜尋：疾病、藥物、章節…';
     var theme = right.querySelector('.theme-btn');
     right.insertBefore(b, theme || null);
   }
