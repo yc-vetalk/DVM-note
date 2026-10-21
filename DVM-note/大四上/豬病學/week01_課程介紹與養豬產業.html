@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豬病學課程介紹與養豬產業 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">豬病學</a><span class="sep">›</span><span class="current">第 1 週・課程介紹與養豬產業</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">課程介紹與養豬產業</h1>
+      <p class="page-subtitle">Diseases of Swine（VM 4011）· 課程大綱、評量方式、養豬產業現況、豬的一生與品種、台灣豬病防治史</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">豬病學（大四上・第1週・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《豬病學》課程講義〈課程介紹〉（葉光勝教授，2026-09-10）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-21</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/課程介紹與養豬產業.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 大方向與重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">課程資訊</div>
+    <a onclick="showSection('course')" id="nav-course">
+      <span class="nav-icon">📅</span> 課程大綱與評量
+    </a>
+    <div class="section-label" style="margin-top:8px;">養豬產業</div>
+    <a onclick="showSection('industry')" id="nav-industry">
+      <span class="nav-icon">🐖</span> 養豬產業現況
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬的一生</div>
+    <a onclick="showSection('life')" id="nav-life">
+      <span class="nav-icon">🍼</span> 豬的一生與生產階段
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬的品種</div>
+    <a onclick="showSection('breed')" id="nav-breed">
+      <span class="nav-icon">🐷</span> 台灣的豬種
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬病防治史</div>
+    <a onclick="showSection('history')" id="nav-history">
+      <span class="nav-icon">🛡️</span> 台灣豬病防治工作演進
+    </a>
+    <div class="section-label" style="margin-top:8px;">比較與考試</div>
+    <a onclick="showSection('natexam')" id="nav-natexam">
+      <span class="nav-icon">🏛️</span> 講義所附國考題
+    </a>
+    <a onclick="showSection('exam')" id="nav-exam">
+      <span class="nav-icon">🎯</span> 考試方向（推測）
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">這堂課的大方向</div>
+        <dl>
+          <dt>這堂課是什麼</dt>
+          <dd>課程導論：<strong>豬隻疾病由宿主、飼養環境與傳染性病原三大因素共同決定</strong>；豬病學的教學目標是讓學生從原因、臨床症狀、病理變化、致病機制、診斷、治療與防疫，對各項豬病有概括性認識。</dd>
+          <dt>為什麼重要</dt>
+          <dd>豬肉消費量佔台灣肉類消費約 50%、每人每年約 40 公斤；養豬相關產業年產值超過 1,000 億元。老師說<strong>上課內容會適時導入國考題</strong>（課程介紹就舉了 6 題 110–115 年的題目）。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-course">課程與評量</a>：<strong>期中考第 8 週（10/29）</strong>；<strong>出席 10%、期中 40%、豬病學動動腦 10%、期末 40%</strong>；<strong>會點名</strong>。期中範圍＝第 1–7 週。</li>
+              <li><a href="#section-industry">養豬產業</a>：台灣 115 年 5 月 5,416 場、507.1 萬頭；<strong>1,000 頭以上大規模場佔 28.2% 的場數、71.7% 的頭數</strong>。</li>
+              <li><a href="#section-life">豬的一生</a>：<strong>妊娠 114–115 天（3 個月 3 週 3 天）</strong>、哺乳 0–3–4 週、保育 4–12 週、肥育 12–24 週、上市 100 kg。</li>
+              <li><a href="#section-breed">品種</a>：藍瑞斯、約克夏＝<strong>母系</strong>；杜洛克、漢布夏＝<strong>公系</strong>；李宋豬＝實驗動物模式。</li>
+              <li><a href="#section-history">豬病防治史</a>：<strong>LPC 兔化豬瘟弱毒株（李崇道）</strong>；1997 年口蹄疫撲殺近 400 萬頭、防疫費用 133 億元；1990 PRRS、1996 PCV2、2014 PED。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd>
+            <ul style="margin:0; padding-left:1.2em;">
+              <li><strong>母系品種</strong>（藍瑞斯、約克夏）vs <strong>公系品種</strong>（杜洛克、漢布夏）。</li>
+              <li><strong>肥育前期 12–20 週、肥育後期 20–24 週</strong>；保育是 4–12 週。</li>
+              <li>三位老師分工：<strong>葉光勝（細菌與其他）、高啓霏與張家宜（病毒）</strong>。</li>
+            </ul>
+          </dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">閱讀說明</div>
+        <p>內容以老師講義為主，章節順序跟講義一致。課程介紹附的國考題<strong>有老師用紅框標出的答案</strong>。標「補充」的是講義以外的延伸。點任何「p.N」可在右側開啟講義對照。</p>
+      </div>
+      <footer class="note-footer">資料來源：《豬病學》課程講義〈課程介紹〉<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=1">p.1–8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- COURSE -->
+    <div class="section" id="section-course">
+      <div class="section-head"><div class="section-num">2</div><h2>課程大綱、評量與期中考範圍 Course Schedule &amp; Grading</h2></div>
+      <p class="section-desc">豬隻疾病的產生牽涉到<strong>宿主、飼養的環境與傳染性病原感染</strong>三大因素。</p>
+      <h3>授課教師<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>葉光勝</strong>（主授老師；細菌性疾病與其他）。</li>
+        <li><strong>高啓霏</strong>（病毒性疾病）；<strong>張家宜</strong>（病毒性疾病）。</li>
+      </ul>
+      <h3>課程大綱（16 週）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:8%;">週次</th><th style="width:16%;">日期</th><th>課程內容</th><th style="width:26%;">本站筆記</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>115-09-10</td><td>課程介紹與細菌抗藥性警覺性活動演講</td><td>第 1 週（2 份）</td></tr>
+            <tr><td>2</td><td>115-09-17</td><td>病毒性疾病 (I)（張家宜）</td><td>第 2 週</td></tr>
+            <tr><td>3</td><td>115-09-24</td><td>病毒性疾病 (II)（張家宜）</td><td>第 3 週</td></tr>
+            <tr><td>4</td><td>115-10-01</td><td>病毒性疾病 (III)（高啓霏）</td><td>第 4 週（3 份）</td></tr>
+            <tr><td>5</td><td>115-10-08</td><td>病毒性疾病 (IV)（高啓霏）</td><td>第 5 週（2 份）</td></tr>
+            <tr><td>6</td><td>115-10-15</td><td>細菌性疾病 (I)</td><td>第 6 週</td></tr>
+            <tr><td>7</td><td>115-10-22</td><td>細菌性疾病 (II)</td><td>第 7 週</td></tr>
+            <tr><td><strong>8</strong></td><td><strong>115-10-29</strong></td><td><strong>豬病學期中考</strong></td><td>—</td></tr>
+            <tr><td>9</td><td>115-11-05</td><td>細菌性疾病 (III)</td><td>（期中後）</td></tr>
+            <tr><td>10</td><td>115-11-12</td><td>細菌性疾病 (IV)</td><td>（期中後）</td></tr>
+            <tr><td>11</td><td>115-11-19</td><td>豬隻生產醫學</td><td>（期中後）</td></tr>
+            <tr><td>12–13</td><td>11-26、12-03</td><td>活動：豬病學動動腦時間 I、II</td><td>（期中後）</td></tr>
+            <tr><td>14</td><td>115-12-10</td><td>營養與其他原因疾病</td><td>（期中後）</td></tr>
+            <tr><td>15</td><td>115-12-17</td><td>寄生蟲性疾病、黴菌性疾病與黴菌毒素中毒</td><td>（期中後）</td></tr>
+            <tr><td>16</td><td>115-12-24</td><td>豬病學期末考試</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>本學期涵蓋的疾病（講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=12">p.12–15</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">類別</th><th>疾病</th></tr></thead>
+          <tbody>
+            <tr><td>病毒性疾病</td><td>非洲豬瘟、古典豬瘟（Hog cholera）、假性狂犬病、PRRS、口蹄疫、豬水疱病、豬流感、日本腦炎與西尼羅病毒、豬小病毒、TGE 與 PRCV、豬流行性下痢</td></tr>
+            <tr><td>細菌性疾病</td><td><em>Escherichia coli</em>、<em>Actinobacillus pleuropneumoniae</em>、萎縮性鼻炎、<em>Salmonella</em>、鏈球菌、梭菌、豬丹毒、鉤端螺旋體、黴漿菌、豬赤痢、其他細菌感染</td></tr>
+            <tr><td>寄生蟲性疾病</td><td>球蟲、弓蟲、<em>Ascaris suum</em>、外寄生蟲</td></tr>
+            <tr><td>其他</td><td>豬隻生產醫學、營養性疾病</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>評量方式<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th style="width:12%;">比例</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>平時表現</td><td>10%</td><td>出席（<strong>會點名</strong>）</td></tr>
+            <tr><td>期中考試</td><td><strong>40%</strong></td><td>筆試</td></tr>
+            <tr><td>豬病學動動腦討論</td><td>10%</td><td>口頭及書面報告</td></tr>
+            <tr><td>期末考試</td><td><strong>40%</strong></td><td>筆試</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>動動腦活動</strong>（第 12、13 週）：效法問題導向學習（PBL）提出教案；<strong>分組，約 10 人一組</strong>；當日參與討論與口頭報告；學期結束前交一份書面報告。</li>
+        <li><strong>第 1 週活動</strong>：9 月 10 日 10:20，葉光勝老師專題演講「細菌抗藥性警覺性活動」，呼應國家因應細菌抗藥性行動方案（見另一份筆記）。</li>
+        <li><strong>重要參考書</strong>：<em>Diseases of Swine, 12th edition, 2026</em>（Zimmerman、Karriker、Schwartz、Zhang 編，Wiley-Blackwell；本校圖書館有線上版）。</li>
+        <li>老師聯絡：獸醫三館 511 室、Tel 33661289、ksyeh@ntu.edu.tw；Office hour 可用聯絡方式或直接敲門。</li>
+      </ul>
+      <h3>跨科關聯與獸醫師考試<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>相關科目：獸醫病理學、藥理學、實驗診斷學、普通疾病、<strong>傳染病學（紅框標示）</strong>、公共衛生學。</li>
+        <li><strong>上課內容會適時導入國考相關考題，加深印象並做複習</strong>。</li>
+      </ul>
+      <footer class="note-footer">資料來源：課程講義〈課程介紹〉<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=4">p.4–21</a>。</footer>
+    </div>
+
+    <!-- INDUSTRY -->
+    <div class="section" id="section-industry">
+      <div class="section-head"><div class="section-num">3</div><h2>養豬產業現況 Swine Industry</h2></div>
+      <p class="section-desc">這一節是產業背景，數字題少、但要知道大趨勢：<strong>場數減少、規模變大、轉為內需型</strong>。</p>
+      <h3>全球與台灣<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>台灣每年每人豬肉攝取量約接近 <strong>40 公斤</strong>。</li>
+        <li><strong>過去</strong>：毛豬（活豬）生產曾帶來大量外匯；豬肉出口每年賺外匯 <strong>16 億美元</strong>以上，進口玉米大豆約 <strong>12.3 億美元</strong>；豬肉消費量佔國內肉類總消費量約 <strong>50%</strong>。</li>
+        <li>與養豬有關的從業人口（養豬、飼料、動物用藥品、獸醫、屠宰、肉品加工及化製等）約 <strong>60 萬人</strong>，相關產業年產值超過 <strong>1,000 億元</strong>。</li>
+        <li><strong>1997 年口蹄疫</strong>後豬肉出口量大減，<strong>養豬產業轉為內需型</strong>；平均產值仍達 570 億元，約佔農業總產值 16%。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p029.jpg" alt="全球豬肉生產" loading="lazy"><div class="figure-caption">全球豬肉生產：中國、歐盟、美國為前三；台灣排第 14（73.5 萬噸，0.6%）（USDA）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=29">p.29</a></div></div>
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p030.jpg" alt="全球肉類消費趨勢與 2050 年預測。" loading="lazy"><div class="figure-caption">全球肉類消費趨勢與 2050 年預測。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=30">p.30</a></div></div>
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p031.jpg" alt="各國豬肉消費量" loading="lazy"><div class="figure-caption">各國豬肉消費量：台灣每人每年約 38.9 公斤。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=31">p.31</a></div></div>
+      </div>
+      <h3>台灣養豬頭數調查<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>年度</th><th>場數</th><th>在養頭數（萬）</th></tr></thead>
+          <tbody>
+            <tr><td>111</td><td>6,133</td><td>537.5</td></tr>
+            <tr><td>112</td><td>5,804</td><td>531.9</td></tr>
+            <tr><td>113</td><td>5,664</td><td>520.7</td></tr>
+            <tr><td>114</td><td>5,552</td><td>505.8</td></tr>
+            <tr><td>115</td><td>5,416</td><td>507.1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>趨勢</strong>：場數逐年減少，頭數大致持平，代表場均規模變大。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>飼養規模（115 年 5 月）</th><th>場數</th><th>佔總場數</th><th>飼養頭數佔總頭數</th></tr></thead>
+          <tbody>
+            <tr><td>199 頭以下</td><td>1,547</td><td>29.4%</td><td>2.0%</td></tr>
+            <tr><td>200–999 頭</td><td>2,235</td><td>42.4%</td><td>26.2%</td></tr>
+            <tr><td><strong>1,000 頭以上大規模場</strong></td><td>1,485</td><td>28.2%</td><td><strong>71.7%（掌握 7 成豬源）</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p040.jpg" alt="115 年 5 月底豬隻飼養頭數" loading="lazy"><div class="figure-caption">115 年 5 月底豬隻飼養頭數：肉豬 447.3 萬頭（88.2%）、種豬 59.8 萬頭。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=40">p.40</a></div></div>
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p041.jpg" alt="115 年 5 月底各縣市養豬場數及頭數（屏東最多）（行政院農業部）。" loading="lazy"><div class="figure-caption">115 年 5 月底各縣市養豬場數及頭數（屏東最多）（行政院農業部）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=41">p.41</a></div></div>
+      </div>
+      <p>全球趨勢（<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=42">p.42</a>）：養豬<strong>越來越商業化</strong>，養豬戶減少，每場豬隻數與屠體重增加。</p>
+      <h3>豬場的型別與生產系統<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>型別：<strong>種豬場（Breeding Farm）、肉豬場（Fattening Farm）、一貫場（Farrow to finishing farm）</strong>。</li>
+        <li>生產系統（Dr. John Carr）：
+          <ul>
+            <li><strong>一點式（One-site）</strong>：配種分娩、保育、生長、肥育都在同一場。</li>
+            <li><strong>兩點式（Two-site）</strong>：配種分娩場＋（保育、生長、肥育）。</li>
+            <li><strong>三點式（Three-site）</strong>：配種分娩場、保育場、（生長、肥育）場；豬在 <strong>20–30 kg</strong> 轉場。</li>
+            <li><strong>多點式（Multi-site）</strong>：多個配種分娩場與保育場，供應多個生長肥育場。</li>
+          </ul></li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：把不同生長階段放在不同地點，是為了讓各階段的病原不互相傳染（例如把保育豬與母豬隔開）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p044.jpg" alt="一點式、兩點式、三點式生產系統圖。" loading="lazy"><div class="figure-caption">一點式、兩點式、三點式生產系統圖。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=44">p.44</a></div></div>
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p045.jpg" alt="多點式生產系統圖。" loading="lazy"><div class="figure-caption">多點式生產系統圖。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=45">p.45</a></div></div>
+      </div>
+      <h3>養豬產業面臨的問題<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>國際豬肉進口競爭壓力；產業效率有待提升。</li>
+        <li><strong>密集飼養造成疫病防治困難</strong>；食用安全。</li>
+        <li><strong>口蹄疫、豬瘟拔針、海外惡性傳染病如 African swine fever</strong>。</li>
+        <li>環保議題。</li>
+      </ul>
+      <p>老師用「<strong>出得去、進得來</strong>」概括：豬肉出口要靠防疫，海外疫病也可能進來（<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=68">p.68</a>）。</p>
+      <footer class="note-footer">資料來源：課程講義〈課程介紹〉<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=28">p.28–46</a>、<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=67">p.67–68</a>。</footer>
+    </div>
+
+    <!-- LIFE -->
+    <div class="section" id="section-life">
+      <div class="section-head"><div class="section-num">4</div><h2>豬的一生與生產階段 Reproductive Cycle of Swine</h2></div>
+      <p class="section-desc">這張表很短但<strong>考古題出過</strong>（2019 年期中考 Q20：母豬懷孕期約 114–115 天）。</p>
+      <h3>豬的一生<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:28%;">階段</th><th>時間／數字</th></tr></thead>
+          <tbody>
+            <tr><td>性成熟（puberty, gilt）</td><td><strong>7–8 個月</strong></td></tr>
+            <tr><td><strong>妊娠期</strong></td><td><strong>114–115 天</strong>（3 個月、3 週、3 天）</td></tr>
+            <tr><td>繁殖效率</td><td>每頭母豬每年 <strong>2.2 窩</strong>，平均每窩 <strong>10 頭</strong></td></tr>
+            <tr><td>哺乳期（suckling）</td><td>出生至 <strong>3–4 週</strong></td></tr>
+            <tr><td>保育期（nursery）</td><td><strong>4–12 週</strong>（1–3 個月）</td></tr>
+            <tr><td>肥育前期（fattening）</td><td><strong>12–20 週</strong>（3–5 個月）</td></tr>
+            <tr><td>肥育後期（finishing）</td><td><strong>20–24 週</strong>（5–6 個月）</td></tr>
+            <tr><td>上市體重</td><td><strong>100 公斤</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">這些數字怎麼用</div>
+        <p>各疾病的好發年齡就是對照這張表：哺乳期＝E. coli 新生仔豬下痢、TGE/PED；保育期（4–12 週）＝Glässer 病、水腫病、萎縮性鼻炎；肥育期＝APP、豬丹毒。妊娠 114–115 天用來推算 PPV（35、70 天）與 JEV（60–70 天）的感染階段（補充）。</p>
+      </div>
+      <h3>台灣養豬產業發展與飼料<span class="lv lv-skim">看過</span></h3>
+      <ul>
+        <li>1947 年 100 萬頭；1951 年 226 萬頭；<strong>1953 年台糖公司開始大規模養豬</strong>，奠定今日台灣養豬事業基礎。</li>
+        <li>飼料：<strong>甘藷藤煮後餵豬</strong>（纖維多、營養不均衡）→ <strong>甘藷－大豆餅</strong>→ <strong>玉米－豆粉（大豆粕）</strong>。</li>
+        <li><strong>黃豆含豐富的離胺酸（lysine），對豬的營養很重要</strong>；進口黃豆原為製造白絞油（大豆油），豆餅為副產物，但豆餅餵豬長得很快；後來進口黃豆是為了更多豆餅或豆粉。</li>
+        <li>台灣自己能生產的養豬原料有限，<strong>玉米（碳水化合物）、黃豆（蛋白質）、麩皮（小麥製粉後剩下）都需進口</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p047.jpg" alt="台灣養豬產業發展" loading="lazy"><div class="figure-caption">台灣養豬產業發展：1947 年 100 萬頭、1951 年 226 萬頭、1953 年台糖大規模養豬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=47">p.47</a></div></div>
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p051.jpg" alt="早期以豆餅為植物性蛋白質飼料" loading="lazy"><div class="figure-caption">早期以豆餅為植物性蛋白質飼料：黃豆蒸熟，用油壓機擠出油。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=51">p.51</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈課程介紹〉<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=46">p.46–53</a>。</footer>
+    </div>
+
+    <!-- BREED -->
+    <div class="section" id="section-breed">
+      <div class="section-head"><div class="section-num">5</div><h2>台灣的豬種 Pig Breeds in Taiwan</h2></div>
+      <p class="section-desc">品種題在 111 學年期中考出過（附照片認品種、母系 vs 公系）。</p>
+      <h3>台灣的豬種<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>台灣<strong>從 200 年前</strong>就有養豬紀錄。</li>
+        <li>客家人從中國廣東帶來<strong>三個中國土種豬</strong>：在台灣桃園育成<strong>桃園種</strong>、在宜蘭雙溪地區育成<strong>頂雙溪種</strong>、在高雄美濃地區育成<strong>美濃種</strong>。</li>
+        <li>後來逐漸從國外進口<strong>藍瑞斯、約克夏等母系豬</strong>，以及<strong>杜洛克、漢布夏等公系豬種</strong>。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>品種</th><th>系別</th><th>外觀／備註</th><th>代表圖</th></tr></thead>
+          <tbody>
+            <tr><td><strong>藍瑞斯（Landrace）</strong></td><td><strong>母系</strong></td><td>白色、<strong>大耳下垂</strong>（drooping ears）</td><td style="width:170px;"><a href="#section-breed"><img src="img/week01_課程介紹與養豬產業/in_p057.jpg" alt="藍瑞斯" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a></td></tr>
+            <tr><td><strong>約克夏（Yorkshire，大白豬 Large White）</strong></td><td><strong>母系</strong></td><td>白色</td><td style="width:170px;"><img src="img/week01_課程介紹與養豬產業/in_p058.jpg" alt="約克夏" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></td></tr>
+            <tr><td><strong>杜洛克（Duroc）</strong></td><td><strong>公系</strong></td><td>紅棕色</td><td style="width:170px;"><img src="img/week01_課程介紹與養豬產業/in_p059.jpg" alt="杜洛克" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></td></tr>
+            <tr><td><strong>漢布夏（Hampshire）</strong></td><td><strong>公系</strong></td><td>黑色、肩部白帶</td><td style="width:170px;"><img src="img/week01_課程介紹與養豬產業/in_p060.jpg" alt="漢布夏" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></td></tr>
+            <tr><td><strong>桃園豬（Taoyuan pig；俗稱台灣黑豬）</strong></td><td>本地土種</td><td>黑色</td><td style="width:170px;"><img src="img/week01_課程介紹與養豬產業/in_p055.jpg" alt="桃園豬" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></td></tr>
+            <tr><td><strong>李宋豬（Lee-Sung strain pig）</strong></td><td>實驗動物</td><td>成熟體重 &lt;70 公斤，適合生醫研究動物模式</td><td style="width:170px;"><img src="img/week01_課程介紹與養豬產業/in_p056.jpg" alt="李宋豬" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">李宋豬的由來（<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=56">p.56</a>）</div>
+        <p>台灣小耳種豬是小型中國豬，體小、色黑、耳小，分布在赤道與北回歸線的熱帶地區，為蘭嶼鄉民主要豬種。<strong>民國 64 年</strong>由臺大畜牧學系<strong>李登元教授與宋永義副教授</strong>自蘭嶼引種，以近親配種反方向育種，並導入白色大耳的藍瑞斯血統育成白色的<strong>李宋系豬</strong>，揚名國際實驗動物界，已列為國家種原庫保種動物，目前馴養於臺大農業試驗場。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈課程介紹〉<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=54">p.54–60</a>。</footer>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="section" id="section-history">
+      <div class="section-head"><div class="section-num">6</div><h2>台灣豬病防治工作演進 History of Swine Disease Control in Taiwan</h2></div>
+      <p class="section-desc">防疫工作是養豬產業維持國際競爭力的重要後盾。</p>
+      <h3>豬瘟疫苗的發展<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>日治時期與光復初期使用<strong>寺門市福馬林臟器疫苗</strong>防治豬瘟。</li>
+        <li><strong>民國 41 年</strong>李崇道博士由菲律賓引進<strong>兔化豬瘟弱毒株</strong>，加以研究改良。</li>
+        <li>經過 <strong>9 年</strong>研發出對豬病原性已消失、安全且免疫效果強的疫苗株，由李崇道博士命名為 <strong>LPC-China strain</strong>：<strong>L＝lapinized（兔化弱毒株）；P＝Philippines；C＝Coronel 博士贈送</strong>。</li>
+        <li>民國 46–47 年間興建台灣第一棟冷凍乾燥實驗室；相關人物：李崇道博士、林再春博士。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p062.jpg" alt="兔化豬瘟疫苗研發早期，獸醫於農家替豬隻預防注射兼做田間試驗；民國 46–47 年" loading="lazy"><div class="figure-caption">兔化豬瘟疫苗研發早期，獸醫於農家替豬隻預防注射兼做田間試驗；民國 46–47 年興建的台灣第一棟冷凍乾燥實驗室。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=62">p.62</a></div></div>
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_p063.jpg" alt="李崇道博士（左）與林再春博士（右）。" loading="lazy"><div class="figure-caption">李崇道博士（左）與林再春博士（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=63">p.63</a></div></div>
+      </div>
+      <h3>其他重要豬病<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">時間</th><th>事件</th></tr></thead>
+          <tbody>
+            <tr><td>較早期</td><td>日本腦炎病毒、豬丹毒、豬隻傳染性肺炎、豬隻假性狂犬病</td></tr>
+            <tr><td><strong>民國 86 年 3 月</strong></td><td><strong>新竹縣竹北爆發口蹄疫</strong>：撲殺 <strong>385 萬頭</strong>（含斃死豬合計 400 萬頭），防疫費用 <strong>133 億元</strong></td></tr>
+            <tr><td><strong>1990 年</strong></td><td>豬生殖和呼吸綜合症（PRRS）</td></tr>
+            <tr><td><strong>1996 年</strong></td><td>第二型豬環狀病毒（PCV2）</td></tr>
+            <tr><td><strong>2014 年</strong></td><td>豬流行性下痢（PED）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>未來展望</strong>（<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=66">p.66</a>）：改以<strong>業者為主、政府為輔</strong>為共識，養豬場發揮主動改善與提升精神；<strong>疫情報告必須迅速確實，切勿隱瞞不報</strong>。</p>
+      <footer class="note-footer">資料來源：課程講義〈課程介紹〉<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=61">p.61–66</a>。</footer>
+    </div>
+
+    <!-- NATEXAM -->
+    <div class="section" id="section-natexam">
+      <div class="section-head"><div class="section-num">7</div><h2>講義所附國考題 National Exam Examples</h2></div>
+      <p class="section-desc">老師舉這 6 題是要讓大家「感受」國考出題方式，<strong>答案用紅框標出</strong>。這些題目的內容會在第 6、7 週細菌性疾病講到，詳解中附上對應頁面。先自己作答，再點「顯示答案」。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">115 年國考</span>
+        <div class="quiz-q">保育舍仔豬突發性下痢，病豬呈現消瘦及脫水現象，死亡豬隻解剖可見盲腸及結腸鈕扣樣潰瘍病變，最有可能爆發何種疾病？</div>
+        <ul class="quiz-options">
+          <li>(A) 球蟲症</li>
+          <li>(B) 豬流行性下痢</li>
+          <li>(C) 沙門氏菌症</li>
+          <li>(D) 豬赤痢</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對（老師紅框）：保育豬、盲腸與結腸鈕扣狀潰瘍 → 沙門氏菌症（細菌性疾病 (II)）。<br>(A) 錯：仔豬球蟲在小腸，多在哺乳期。<br>(B) 錯：PED 是小腸絨毛萎縮（第 5 週）。<br>(D) 錯：豬赤痢是大腸黏膜壞死的黏液血便。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">114 年國考</span>
+        <div class="quiz-q">下列何種豬致病型大腸桿菌，會造成豬隻腸上皮細胞 attaching and effacing 病灶？</div>
+        <ul class="quiz-options">
+          <li>(A) Enterotoxigenic <em>E. coli</em>（ETEC）</li>
+          <li>(B) Enteropathogenic <em>E. coli</em>（EPEC）</li>
+          <li>(C) Extraintestinal pathogenic <em>E. coli</em>（ExPEC）</li>
+          <li>(D) Enteroaggregative <em>E. coli</em>（EAggEC）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對（老師紅框）：EPEC（豬的 AEEC）緊密附著並抹除微絨毛（細菌性疾病 (I)）。<br>(A) 錯：ETEC 靠毒素。<br>(C)(D) 錯。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">113 年國考</span>
+        <div class="quiz-q">下圖為豬隻傳染病引起之病變，推測致病原因是 <em>Bordetella bronchiseptica</em>，其與下列何病原的感染最為相關？</div>
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_q024.jpg" alt="國考題附圖" loading="lazy"><div class="figure-caption">113 年國考題附圖：鼻吻橫切面，鼻甲骨萎縮。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=24">p.24</a></div></div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Typhimurium</li>
+          <li>(B) <em>Escherichia coli</em></li>
+          <li>(C) <em>Pasteurella multocida</em></li>
+          <li>(D) <em>Staphylococcus aureus</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對（老師紅框）：萎縮性鼻炎中，<em>B. bronchiseptica</em> 幫助產毒型 <em>P. multocida</em> 定殖（細菌性疾病 (I)）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">112 年國考</span>
+        <div class="quiz-q">下列那一種病原廣布於土壤、水、腐敗的有機質、甚至魚類體表黏液，是一種人畜共通傳染病原。此病原感染豬隻後，若造成慢性感染，常見增殖性、非化膿性關節炎？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Typhimurium</li>
+          <li>(B) <em>Brucella suis</em></li>
+          <li>(C) <em>Yersinia pestis</em></li>
+          <li>(D) <em>Erysipelothrix rhusiopathiae</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對（老師紅框）：豬丹毒菌（細菌性疾病 (II)）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 年國考</span>
+        <div class="quiz-q">有關豬鏈球菌（<em>Streptococcus suis</em>）感染之敘述，下列何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 致病原具有多種血清型，其中第三血清型最常感染人類</li>
+          <li>(B) 本病感染初期，病菌會先在扁桃腺增殖</li>
+          <li>(C) 本菌可穿越血腦障壁</li>
+          <li>(D) 本病主要發生在保育階段豬隻</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 錯（老師紅框）：（補充）最常感染人類的是<strong>血清型 2</strong>，不是第 3 型。<br>(B)(C)(D) 對（豬鏈球菌屬期中後的細菌性疾病講義）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">110 年國考</span>
+        <div class="quiz-q">如下圖所示，此斃死豬全身皮膚可見塊狀紫斑及大小不一的出血點，剖檢觀察到脾臟腫大、肝臟腫大且有散發性的粟粒狀大的壞死白點。從病灶處分離出革蘭氏陰性桿菌，且在 MacConkey agar 上呈現無色菌落。其最有可能的致病原為下列何者？</div>
+        <div class="figure"><img src="img/week01_課程介紹與養豬產業/in_q027.jpg" alt="國考題附圖" loading="lazy"><div class="figure-caption">110 年國考題附圖：斃死豬全身皮膚塊狀紫斑。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=27">p.27</a></div></div>
+        <ul class="quiz-options">
+          <li>(A) <em>Escherichia coli</em></li>
+          <li>(B) <em>Salmonella</em> Choleraesuis</li>
+          <li>(C) <em>Pasteurella multocida</em></li>
+          <li>(D) <em>Brucella suis</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對（老師紅框）：敗血型沙門氏菌症，肝壞死點即副傷寒小節；不發酵乳糖 → MacConkey 無色（細菌性疾病 (II)）。</p>
+        </details>
+      </div>
+      <h3>期中考古：品種題<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年期中 Q1</span>
+        <div class="quiz-q">請問以下所示為哪一種豬？這種豬群在台灣主要是用來做為母系豬種（maternal breed），其外觀特徵之一為耳朵下垂（drooping ears）。（考卷附一張耳朵下垂的白色豬照片）</div>
+        <ul class="quiz-options">
+          <li>(A) Yorkshire</li>
+          <li>(B) Hampshire</li>
+          <li>(C) Taoyuan pig</li>
+          <li>(D) Landrace</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">依講義推得 (D)：<strong>藍瑞斯是母系、大耳下垂</strong>（<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=57">p.57</a>）。約克夏雖也是母系，但耳朵直立（補充）；漢布夏是黑色公系；桃園豬是黑色土種。<strong>此題是依講義內容推得，我沒有在考卷照片上看到紅筆答案。</strong></p>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈課程介紹〉<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=22">p.22–27</a>；期中考古：111 學年期中考。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">8</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>課程介紹偏導論，是否出題由老師決定；以下依講義與考古題<strong>推測</strong>。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>豬的一生</td><td>妊娠 114–115 天；哺乳 3–4 週、保育 4–12 週、肥育前期 12–20 週、後期 20–24 週；上市 100 kg</td></tr>
+            <tr><td>品種</td><td>藍瑞斯與約克夏＝母系；杜洛克與漢布夏＝公系；藍瑞斯大耳下垂；桃園豬黑色；李宋豬 &lt;70 kg 實驗動物</td></tr>
+            <tr><td>豬場型別與生產系統</td><td>種豬場／肉豬場／一貫場；一點式、兩點式、三點式（20–30 kg 轉場）、多點式</td></tr>
+            <tr><td>台灣養豬統計</td><td>場數減少、規模變大；千頭以上場佔 71.7% 頭數</td></tr>
+            <tr><td>豬病防治史</td><td>LPC＝Lapinized、Philippines、Coronel；1997 口蹄疫 385 萬頭；1990 PRRS、1996 PCV2、2014 PED</td></tr>
+            <tr><td>評量與考試時間</td><td>期中 40%、期末 40%；期中 10/29</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。</p>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 豬的妊娠期約為多久？</div>
+        <ul class="quiz-options">
+          <li>(A) 90–95 天</li>
+          <li>(B) 114–115 天</li>
+          <li>(C) 135–140 天</li>
+          <li>(D) 150–155 天</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=46">p.46</a>：114–115 天（3 個月、3 週、3 天）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 下列何者為「公系」豬種？</div>
+        <ul class="quiz-options">
+          <li>(A) 藍瑞斯</li>
+          <li>(B) 約克夏</li>
+          <li>(C) 杜洛克</li>
+          <li>(D) 李宋豬</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=57">p.57–60</a>：藍瑞斯與約克夏是母系；杜洛克與漢布夏是公系；李宋豬是實驗動物。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. LPC-China strain 的 P 代表？</div>
+        <ul class="quiz-options">
+          <li>(A) Pig</li>
+          <li>(B) Philippines</li>
+          <li>(C) Pasteur</li>
+          <li>(D) Pathogenic</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">L＝lapinized（兔化）、P＝Philippines、C＝Coronel 博士贈送（<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=61">p.61</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q4. 1997 年台灣口蹄疫爆發後，養豬產業已轉為內需型產業。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=37">p.37</a>：豬肉出口量大減，轉為內需型，但平均產值仍達 570 億元。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 三點式生產系統中，豬在 50–60 公斤時轉場。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=44">p.44</a>：三點式在 20–30 kg 轉場（保育場→生長肥育場）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q6. 為什麼說「豬隻疾病的發生牽涉宿主、環境與病原三大因素」？請各舉一例。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain"><strong>宿主</strong>：年齡與免疫狀態（例如新生仔豬缺乏母源抗體才發病的 pHEV）。<strong>環境</strong>：飼養環境與管理（例如通風差、擁擠、溫差大會加重 APP 與豬流感；皮膚外傷與粗糙地面是滲出性表皮炎的前置因子）。<strong>病原</strong>：傳染性病原的感染（例如 PRRSV、<em>E. coli</em>）。三者交互作用，這也是為什麼混合感染與壓力常讓亞臨床感染變成臨床病。（本題為依課程介紹開宗明義的觀念延伸。）</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  'abstract': '大方向與重點摘要',
+  'course': '課程大綱與評量',
+  'industry': '養豬產業現況',
+  'life': '豬的一生與生產階段',
+  'breed': '台灣的豬種',
+  'history': '台灣豬病防治工作演進',
+  'natexam': '講義所附國考題',
+  'exam': '考試方向（推測）',
+  'quiz': '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

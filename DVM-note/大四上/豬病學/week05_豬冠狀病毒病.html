@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豬冠狀病毒病：TGE／PRCV／PED／PHEV／PDCoV／SADS-CoV - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">豬病學</a><span class="sep">›</span><span class="current">第 5 週・豬冠狀病毒病</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">豬冠狀病毒病</h1>
+      <p class="page-subtitle">Swine Coronaviral Diseases · 傳染性胃腸炎（TGE）、豬呼吸道冠狀病毒（PRCV）、豬流行性下痢（PED）、血球凝集腦脊髓炎病毒（PHEV）、豬戴爾他冠狀病毒（PDCoV）、豬急性下痢症候群冠狀病毒（SADS-CoV）</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">豬病學（大四上・第5週・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《豬病學》課程講義〈Swine Coronaviral Diseases〉（高啓霏老師；PED 台灣病例由中興大學張文發副主任提供，2026-10-08）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-21</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/豬冠狀病毒病.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 大方向與重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">冠狀病毒總論</div>
+    <a onclick="showSection('cov-gen')" id="nav-cov-gen">
+      <span class="nav-icon">🧬</span> 冠狀病毒的共同特性
+    </a>
+    <div class="section-label" style="margin-top:8px;">TGE 與 PRCV</div>
+    <a onclick="showSection('tge-a')" id="nav-tge-a">
+      <span class="nav-icon">🧫</span> 病原、流行病學與致病
+    </a>
+    <a onclick="showSection('tge-b')" id="nav-tge-b">
+      <span class="nav-icon">🩺</span> 臨床、病變、診斷、免疫與防治
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬流行性下痢 PED</div>
+    <a onclick="showSection('ped')" id="nav-ped">
+      <span class="nav-icon">💧</span> PED：病原到防治與台灣病例
+    </a>
+    <div class="section-label" style="margin-top:8px;">PHEV</div>
+    <a onclick="showSection('phev')" id="nav-phev">
+      <span class="nav-icon">🤢</span> 血球凝集腦脊髓炎病毒（嘔吐衰弱病）
+    </a>
+    <div class="section-label" style="margin-top:8px;">PDCoV 與 SADS</div>
+    <a onclick="showSection('pdcov')" id="nav-pdcov">
+      <span class="nav-icon">🆕</span> PDCoV 與 SADS-CoV
+    </a>
+    <div class="section-label" style="margin-top:8px;">比較與考試</div>
+    <a onclick="showSection('compare')" id="nav-compare">
+      <span class="nav-icon">⚖️</span> 鑑別比較
+    </a>
+    <a onclick="showSection('natexam')" id="nav-natexam">
+      <span class="nav-icon">🏛️</span> 講義所附歷屆國考題
+    </a>
+    <a onclick="showSection('exam')" id="nav-exam">
+      <span class="nav-icon">🎯</span> 考試方向（推測）
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">豬冠狀病毒病的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>六種豬冠狀病毒。<strong>腸道型</strong>：傳染性胃腸炎（Transmissible gastroenteritis, TGE）、豬流行性下痢（Porcine epidemic diarrhea, PED）、豬戴爾他冠狀病毒（PDCoV）、豬急性下痢症候群冠狀病毒（SADS-CoV）。<strong>呼吸道型</strong>：豬呼吸道冠狀病毒（PRCV，TGEV 的變異株）。<strong>神經型</strong>：血球凝集腦脊髓炎病毒（pHEV，嘔吐衰弱病）。</dd>
+          <dt>為什麼重要</dt>
+          <dd>TGE 與 PED 都是<strong>高傳染力、2 週內仔豬嘔吐＋嚴重下痢＋高死亡率</strong>的腸道病毒病，而且<strong>臨床症狀幾乎無法區分</strong>。台灣在 2013–2014 年爆發 PED，造成大量仔豬死亡。這份講義附 17 題國考題。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-cov-gen">冠狀病毒共同特性</a>：有封套 (+)ssRNA 約 30 kb；S、E、M、N 四種結構蛋白；S 蛋白負責受體結合、膜融合與誘發中和抗體；複製時產生 3' 端巢式次基因體 RNA、−1 核糖體讀框移位。</li>
+              <li><a href="#section-tge-a">TGEV vs PRCV</a>：PRCV 是 TGEV <strong>S 蛋白 N 端刪除 227 個胺基酸</strong>的自然變異株，嗜性由腸道轉為<strong>呼吸道</strong>；兩者只有<strong>一個血清型</strong>、受體同為胺基肽酶 N（pAPN）。</li>
+              <li><a href="#section-tge-a">TGE 流行病學</a>：冬季好發（凍存穩定、怕熱怕日曬）；<strong>流行性（無抗體豬群）</strong>vs <strong>地方性（持續存在、死亡率 &lt;10–20%）</strong>。</li>
+              <li><a href="#section-tge-b">TGE 致病與病變</a>：12–24 小時空腸腸細胞大量壞死 → <strong>吸收不良性下痢</strong>；<strong>空腸迴腸絨毛萎縮</strong>、十二指腸常無；病變限於消化道；<strong>7 日齡內仔豬 2–7 天死亡</strong>。</li>
+              <li><a href="#section-ped">PED</a>：PEDV 與 TGE 症狀病變類似；G1（傳統、S-INDEL）vs G2（新興高致病性）；新生仔豬腸細胞更新慢（5–7 天 vs 2–3 天）；診斷、反飼；台灣 2014 病例。</li>
+              <li><a href="#section-phev">PHEV</a>：<em>Betacoronavirus</em>；3–4 週齡前感染且母豬無抗體才發病；神經途徑；<strong>嘔吐衰弱病（VWD）</strong>與腦脊髓炎；無疫苗。</li>
+              <li><a href="#section-pdcov">PDCoV 與 SADS-CoV</a>：PDCoV（delta，與 TGE、PED 類似但較輕）；SADS-CoV（alpha，2017 年中國，與蝙蝠 HKU2 &gt;95% 相似）。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd>
+            <ul style="margin:0; padding-left:1.2em;">
+              <li><strong>TGEV、PEDV 是 alphacoronavirus</strong>（不是 beta）；PHEV 是 betacoronavirus（與 COVID-19 最近）；PDCoV 是 delta。</li>
+              <li><strong>豬水疱病是小 RNA 病毒科，不是冠狀病毒</strong>（上一週）。</li>
+              <li><strong>PRCV 只造成呼吸道病變，不會造成小腸絨毛萎縮</strong>，但感染後產生的抗體能部分保護 TGEV。</li>
+              <li><strong>PED 的血樣下痢是錯的</strong>：是水樣下痢。</li>
+            </ul>
+          </dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <h3>六種豬冠狀病毒<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病毒</th><th>屬</th><th>標的</th><th>一句話特徵</th><th>代表圖</th></tr></thead>
+          <tbody>
+            <tr><td>TGEV（傳染性胃腸炎）</td><td>Alphacoronavirus</td><td>小腸（兼肺、乳腺）</td><td>2 週內仔豬嘔吐、嚴重下痢、高死亡率；絨毛萎縮</td><td style="width:170px;" rowspan="1"><a href="#section-tge-b"><img src="img/week05_豬冠狀病毒病/cv_thumb_p028.jpg" alt="PRCV 肺" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">PRCV 肺實質化（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=28">p.28</a>）</div></td></tr>
+            <tr><td>PRCV</td><td>Alphacoronavirus</td><td>呼吸道</td><td>TGEV 的 S 蛋白 N 端刪除變異株；多為亞臨床；使 TGE 族群免疫提高</td><td>同上</td></tr>
+            <tr><td>PEDV（流行性下痢）</td><td>Alphacoronavirus</td><td>小腸</td><td>症狀病變同 TGE；2010 年中國高致病株、台灣 2013–14 爆發</td><td style="width:170px;"><a href="#section-ped"><img src="img/week05_豬冠狀病毒病/cv_thumb_p088.jpg" alt="PED 腸道" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">PED 腸壁變薄含水樣內容物（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=88">p.88</a>）</div></td></tr>
+            <tr><td>pHEV（血球凝集腦脊髓炎）</td><td>Betacoronavirus</td><td>呼吸道、神經</td><td>嘔吐衰弱病與腦脊髓炎；多為亞臨床</td><td style="width:170px;"><a href="#section-phev"><img src="img/week05_豬冠狀病毒病/cv_thumb_p072.jpg" alt="PHEV 肺組織" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">肺組織病變（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=72">p.72</a>）</div></td></tr>
+            <tr><td>PDCoV</td><td>Deltacoronavirus</td><td>小腸</td><td>與 TGE、PED 類似但較輕；宿主廣、散播較慢</td><td style="width:170px;" rowspan="2"><a href="#section-pdcov"><img src="img/week05_豬冠狀病毒病/cv_thumb_p106.jpg" alt="PDCoV 宿主範圍" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">PDCoV 宿主與傳播途徑（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=106">p.106</a>）</div></td></tr>
+            <tr><td>SADS-CoV</td><td>Alphacoronavirus</td><td>小腸</td><td>2017 年中國南方爆發；與蝙蝠 CoV HKU2 &gt;95% 相似</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">閱讀說明</div>
+        <p>內容以老師講義為主。講義附的國考題<strong>沒有標答案</strong>，答案依講義內容推得並註明依據頁碼；少數題目講義證據不足，詳解中會明講。標「補充」的是講義以外的延伸。點任何「p.N」可在右側開啟講義對照。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Coronaviral Diseases〉<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=1">p.1–2</a>。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- COV-GEN -->
+    <div class="section" id="section-cov-gen">
+      <div class="section-head"><div class="section-num">2</div><h2>冠狀病毒的共同特性 Features of Coronaviridae</h2></div>
+      <p class="section-desc">先抓共同特性，後面每個病毒的差異才好比。</p>
+      <h3>病毒構造<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>球形到多形性、<strong>有封套</strong>的病毒顆粒（直徑約 100 nm），表面有 <strong>S 蛋白</strong>。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">蛋白</th><th>功能（講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=3">p.3</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>S（180–220 kDa）</strong></td><td>受體結合、膜融合、<strong>誘發中和抗體</strong></td></tr>
+            <tr><td>E（7 kDa）</td><td>病毒孔蛋白（viroporin）、病毒組裝</td></tr>
+            <tr><td>M（27–32 kDa）</td><td>病毒形態發生、誘發保護性免疫、參與宿主細胞交互作用</td></tr>
+            <tr><td>N（55–58 kDa）</td><td>包裹病毒 RNA、介導聚合酶模板轉換</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>複製特性<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>相似的基因體組織。</li>
+        <li>轉錄出多個 <strong>3' 端巢式次基因體 RNA</strong>。</li>
+        <li>多蛋白（polyprotein）以 <strong>−1 核糖體讀框移位</strong>表現。</li>
+        <li>PEDV、FIPV、CCoV、TGEV 及疑似水貂冠狀病毒的 <strong>N 蛋白有交叉反應</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p003.jpg" alt="冠狀病毒顆粒" loading="lazy"><div class="figure-caption">冠狀病毒顆粒：S、E、M、N 蛋白與脂質封套、核蛋白（RNP）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=3">p.3</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p005.jpg" alt="冠狀病毒在細胞內的複製週期" loading="lazy"><div class="figure-caption">冠狀病毒在細胞內的複製週期：受體結合、轉譯複製酶、雙膜小泡內 RNA 複製、次基因體 RNA、組裝並經 ERGIC 釋出。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=5">p.5</a></div></div>
+      </div>
+      <h3>分類與豬冠狀病毒<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p002.jpg" alt="Nidovirales 目" loading="lazy"><div class="figure-caption">Nidovirales 目：Coronaviridae 下 alpha、beta、gamma、delta 四個屬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=2">p.2</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p006.jpg" alt="TGEV、PRCV、PEDV、PDCoV 的親緣樹（Diseases of Sw" loading="lazy"><div class="figure-caption">TGEV、PRCV、PEDV、PDCoV 的親緣樹（Diseases of Swine 11th）：PEDV 與 TGEV 同屬 alpha，PDCoV 屬 delta。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=6">p.6</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p007.jpg" alt="各豬冠狀病毒的基因體構造" loading="lazy"><div class="figure-caption">各豬冠狀病毒的基因體構造：PRCV 的 S 基因有 170–190 kDa 的刪除。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=7">p.7</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p008.jpg" alt="冠狀病毒四個屬的分類與人畜共通證據" loading="lazy"><div class="figure-caption">冠狀病毒四個屬的分類與人畜共通證據：alpha 與 beta 可能源自蝙蝠，gamma 與 delta 源自鳥類。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=8">p.8</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Coronaviral Diseases〉<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=2">p.2–8</a>。</footer>
+    </div>
+
+    <!-- TGE-A -->
+    <div class="section" id="section-tge-a">
+      <div class="section-head"><div class="section-num">3</div><h2>TGE 與 PRCV：病原、流行病學與致病 Etiology, Epidemiology &amp; Pathogenesis</h2></div>
+      <p class="section-desc">傳染性胃腸炎（TGE）是高傳染力、急性的腸道病毒病：<strong>2 週齡內無抗體仔豬</strong>嘔吐、嚴重下痢、高死亡率；屬 OIE（WOAH）列管疾病。<strong>PRCV</strong> 是 TGEV 的自然變異株（<strong>S 蛋白 N 端缺損</strong>），組織嗜性改變、死亡率大幅下降，並使豬群對 TGE 有廣泛免疫。</p>
+      <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p010.jpg" alt="雲林縣政府公告" loading="lazy"><div class="figure-caption">雲林縣政府公告：為防範傳染性胃腸炎與豬流行性下痢，要求豬場加強防疫措施。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=10">p.10</a></div></div>
+      <h3>TGEV vs PRCV<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>TGEV</th><th>PRCV</th></tr></thead>
+          <tbody>
+            <tr><td>屬</td><td colspan="2">Alphacoronavirus，(+)ssRNA 約 30 kb</td></tr>
+            <tr><td>基因體骨架</td><td>TGEV</td><td>TGEV</td></tr>
+            <tr><td>S 蛋白刪除</td><td>無</td><td><strong>N 端 227 個胺基酸刪除</strong></td></tr>
+            <tr><td>S 蛋白活性</td><td>有血球凝集／結合唾液酸</td><td>失去血球凝集／結合唾液酸活性</td></tr>
+            <tr><td>組織嗜性</td><td><strong>消化道</strong></td><td><strong>呼吸道</strong></td></tr>
+            <tr><td>細胞受體</td><td colspan="2"><strong>胺基肽酶 N（pAPN）</strong></td></tr>
+            <tr><td>血清型</td><td colspan="2"><strong>只有一個血清型</strong>；主要中和抗原決定位（RBD 區與 site A）高度保守</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p013.jpg" alt="TGEV 與 PRCV 的比較表（講義原圖）。" loading="lazy"><div class="figure-caption">TGEV 與 PRCV 的比較表（講義原圖）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=13">p.13</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p014.jpg" alt="S 蛋白嗜性改變" loading="lazy"><div class="figure-caption">S 蛋白嗜性改變：PRCV 與 PTV 的 S1 區域缺損與嗜性（E＝腸、R＝呼吸道）（Sanchez et al., 2019）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=14">p.14</a></div></div>
+      </div>
+      <h3>TGEV 流行病學<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>早在 1943 年就有，美國首次有文獻的爆發在 1946 年。</li>
+        <li>特徵是<strong>冬季好發</strong>：TGEV 在冷凍時穩定，遇熱或日曬較不穩定。</li>
+        <li><strong>流行性（epidemic）TGE</strong>：TGEV／PRCV <strong>血清陰性</strong>的豬群 → 高度易感，快速散播、<strong>幼齡仔豬死亡率高</strong>；感染母豬<strong>厭食與無乳（agalactia）</strong>，加重仔豬死亡。</li>
+        <li><strong>地方性（endemic）TGE</strong>：病毒在豬群中<strong>持續存在</strong>，持續或頻繁引入易感豬；被動泌乳免疫使哺乳仔豬只有輕微下痢、死亡率低（通常 <strong>&lt;10–20%</strong>）；病毒來源不明（帶原或外部再引入）。</li>
+      </ul>
+      <h3>PRCV 流行病學<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>1984 年比利時</strong>首次分離，之後快速散播全球並在豬群持續存在。</li>
+        <li>豬群密度、場間距離與季節影響流行。</li>
+        <li>PRCV 在封閉繁殖場靠規律地感染<strong>剛離乳豬</strong>而持續存在，即使有母源抗體。</li>
+        <li>隨著 PRCV 廣泛散播，<strong>歐洲 TGEV 的血清盛行率下降到很低</strong>。</li>
+      </ul>
+      <h3>傳播（TGEV）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>耐過 TGE 的豬會產生抗體，但仍從<strong>糞便（主要）或鼻分泌物</strong>排毒至少 <strong>2–8 週</strong>（最長紀錄 18 個月）。</li>
+        <li>感染母豬可經<strong>乳汁或糞便</strong>傳給仔豬。</li>
+        <li>TGEV 的帶原者：<strong>狗、貓、狐狸</strong>可從糞便排毒；<strong>椋鳥</strong>吃了 TGEV 後糞便可驗到病毒達 32 小時；野豬與昆蟲。</li>
+      </ul>
+      <h3>致病機制<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>TGEV</th><th>PRCV</th></tr></thead>
+          <tbody>
+            <tr><td>入侵</td><td><strong>口鼻途徑</strong>，吞入後抵達小腸易感上皮細胞</td><td>呼吸道</td></tr>
+            <tr><td>主要病程</td><td><strong>感染後 12–24 小時</strong>空腸腸細胞大量壞死 → 小腸酵素活性下降 → <strong>急性吸收不良性下痢</strong>。絨毛萎縮以<strong>空腸與迴腸</strong>為主，<strong>近端十二指腸常無</strong></td><td>在肺的第 1、2 型肺泡細胞複製到高效價（10⁷–10⁸ TCID₅₀）；也感染鼻、氣管、支氣管、細支氣管、肺泡上皮，偶爾肺泡巨噬細胞；<strong>腸道複製與散播有限</strong></td></tr>
+            <tr><td>腸外部位</td><td>肺（肺泡巨噬細胞）與乳腺</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>各年齡豬都受影響，但臨床嚴重度<strong>依年齡而異</strong>。</li>
+        <li><strong>仔豬</strong>：吸收不良性下痢 → <strong>嚴重致命的脫水＋代謝性酸中毒＋高血鉀 → 心臟功能不全</strong>。</li>
+        <li>新生豬<strong>隱窩細胞替換壞死絨毛的速度較慢</strong>，也是年齡依賴性易感的原因。</li>
+      </ul>
+      <footer class="note-footer">資料來源：課程講義〈Swine Coronaviral Diseases〉<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=9">p.9–21</a>。</footer>
+    </div>
+
+    <!-- TGE-B -->
+    <div class="section" id="section-tge-b">
+      <div class="section-head"><div class="section-num">4</div><h2>TGE 與 PRCV：臨床、病變、診斷、免疫與防治 Clinical Signs, Lesions &amp; Control</h2></div>
+      <p class="section-desc">TGE 的重點是「年齡越小越嚴重」；TGE 與 PRCV 的區別靠組織嗜性與阻斷 ELISA。</p>
+      <h3>臨床症狀<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;"></th><th>表現</th></tr></thead>
+          <tbody>
+            <tr><td><strong>流行性 TGE</strong></td><td><strong>潛伏期短：18 小時到 3 天</strong>；<strong>嘔吐</strong>與大量<strong>黃色水樣下痢</strong>、體重快速下降、脫水；<strong>2 週齡內仔豬高發病率與高死亡率</strong>。<br>&lt;7 日齡：<strong>2–7 天內死亡</strong>；&gt;3 週齡：可存活但可能發育不良；肥育豬與母豬：食慾不振、短暫下痢與嘔吐</td></tr>
+            <tr><td><strong>地方性 TGE</strong></td><td>比同年齡血清陰性豬輕；<strong>死亡率低</strong></td></tr>
+            <tr><td><strong>PRCV</strong></td><td>大多<strong>亞臨床</strong>、自限性的呼吸道感染；咳嗽、腹式呼吸、呼吸困難、沉鬱／厭食、生長速率略降；嚴重度受混合感染影響</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>TGE 肉眼病變限於消化道</strong>：胃可能因嘔吐而空，也可能充滿凝乳；<strong>腸壁很薄、幾乎透明</strong>；腸繫膜淋巴管<strong>很少有乳糜</strong>（脂肪吸收受損）。</li>
+        <li><strong>TGE 顯微</strong>：明顯的<strong>絨毛萎縮</strong>，可能伴隨上皮鱗狀化生，及空腸與迴腸局部<strong>腺窩延長</strong>。</li>
+        <li><strong>PRCV 病變一般只在肺</strong>：肉眼為受累肺葉實質化；顯微為肺泡中隔發炎浸潤增厚、<strong>第 2 型肺泡細胞肥大與增生</strong>、氣道上皮壞死使壞死細胞與發炎白血球堆積在肺泡與細支氣管腔、細支氣管或血管周圍淋巴組織球性袖套。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p025.jpg" alt="TGE 肉眼" loading="lazy"><div class="figure-caption">TGE 肉眼：胃含凝乳、腸壁薄透明、腸繫膜缺乏乳糜。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=25">p.25</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p026.jpg" alt="TGE 顯微" loading="lazy"><div class="figure-caption">TGE 顯微：明顯的絨毛萎縮（左：空腸絨毛正常對照與萎縮），腺窩延長。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p028.jpg" alt="PRCV 感染的肺" loading="lazy"><div class="figure-caption">PRCV 感染的肺：受累肺葉實質化（箭頭）（Keep et al., 2022）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=28">p.28</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p029.jpg" alt="PRCV 顯微" loading="lazy"><div class="figure-caption">PRCV 顯微：肺泡（左）與細支氣管（右）發炎與上皮壞死；下方小圖為 PRCV 免疫組織化學染色。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=29">p.29</a></div></div>
+      <h3>診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>病毒檢測</strong>：TGEV 取<strong>糞便或病灶</strong>；PRCV 取<strong>鼻拭子或肺組織勻漿</strong>。</li>
+        <li>感染性病毒顆粒：免疫電子顯微鏡（IEM）、病毒分離（<strong>PK15、ST 或豬甲狀腺細胞，需盲傳</strong>）。</li>
+        <li>抗原：ELISA、IF、IHC。核酸：RT-PCR、RT-qPCR。</li>
+        <li>血清學：<strong>阻斷 ELISA（blocking ELISA）可區分 TGEV 與 PRCV</strong>；病毒中和試驗。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p031.jpg" alt="TGEV 免疫螢光染色（左）與免疫組織化學染色（右）" loading="lazy"><div class="figure-caption">TGEV 免疫螢光染色（左）與免疫組織化學染色（右）：小腸絨毛上皮細胞。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=31">p.31</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">免疫螢光要採哪一段腸（國考 107 年）</div>
+        <p>TGEV 病變以<strong>空腸與迴腸</strong>最明顯、十二指腸常無（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=19">p.19</a>），所以做免疫螢光診斷時，採<strong>空腸</strong>最適當。</p>
+      </div>
+      <h3>免疫<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>感染誘發的主動免疫</strong>：腸道漿細胞產生的<strong>分泌型 IgA（sIgA）</strong>，可持續至少 6 個月到數年。</li>
+        <li><strong>PRCV 誘發對 TGEV 的免疫</strong>：哺乳或離乳豬先前感染 PRCV，對 TGEV 攻毒有<strong>部分保護</strong>，因為 PRCV 的 <strong>IgG 與 IgA 抗體分泌細胞</strong>從<strong>支氣管相關淋巴組織（BALT）遷移到腸道</strong>。</li>
+        <li><strong>被動免疫</strong>：耐過母豬藉<strong>腸－乳腺免疫軸（gut-mammary immunologic axis）</strong>，經初乳或乳汁把被動免疫傳給哺乳仔豬。</li>
+      </ul>
+      <h3>預防與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>沒有特效治療</strong>；嚴格生物安全，防止帶原者或感染豬群引入。</li>
+        <li><strong>爆發後</strong>：預產期<strong>超過 2 週</strong>的動物 → <strong>刻意暴露於強毒病毒</strong>；預產期<strong>不到 2 週</strong>的動物 → 提供設施與管理，避免暴露於 TGEV 直到產後至少 <strong>3 週</strong>。</li>
+        <li><strong>地方性流行區</strong>：接種<strong>血清陽性的懷孕母豬</strong>；改變管理以打斷感染循環、消除易感豬儲存庫，例如全群暴露後 60 天內不再引進新豬，或在炎熱月份清場、徹底清潔消毒，空欄數週後引進血清陰性種豬。</li>
+        <li><strong>減毒活毒與不活化 TGEV 疫苗</strong>都有。</li>
+      </ul>
+      <footer class="note-footer">資料來源：課程講義〈Swine Coronaviral Diseases〉<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=22">p.22–34</a>。</footer>
+    </div>
+
+    <!-- PED -->
+    <div class="section" id="section-ped">
+      <div class="section-head"><div class="section-num">5</div><h2>豬流行性下痢（PED）：病原、致病、診斷、防治與台灣病例 Porcine Epidemic Diarrhea</h2></div>
+      <p class="section-desc">PED 與 TGE 的症狀與病變幾乎一樣，要靠實驗室區分；台灣 2013–2014 年爆發過。</p>
+      <h3>簡介與病原<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>高傳染力、急性腸道病毒病</strong>：嘔吐、嚴重下痢，<strong>血清陰性幼齡仔豬</strong>高死亡率。</li>
+        <li><strong>1971 年英國</strong>首次描述，原型株 <strong>CV777</strong>；歷史上無經濟重要性。<strong>2010 年底中國出現高毒力的非 S-INDEL 株</strong>後，才成為養豬業重要問題。</li>
+        <li><strong>豬流行性下痢病毒（PEDV）</strong>：<strong>Alphacoronavirus</strong> 屬；(+)ssRNA 約 30 kb；<strong>一個血清型</strong>。</li>
+        <li>依 S 基因的親緣分析：<strong>G1a/b＝歷史株（如 CV777）與 S-INDEL 株</strong>；<strong>G2a/b/c/d＝新興高致病株</strong>（*廣泛接種疫苗的免疫壓力）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p046.jpg" alt="新聞" loading="lazy"><div class="figure-caption">新聞：台灣小豬大量下痢病死（2014 年 PED 疫情）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=46">p.46</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p049.jpg" alt="PEDV 基因型全球分布" loading="lazy"><div class="figure-caption">PEDV 基因型全球分布：G1b、G2b 為主，歐洲 G1a/G1b。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=49">p.49</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p050.jpg" alt="不同 PEDV 株在實驗感染 6 日齡內仔豬的致病比較" loading="lazy"><div class="figure-caption">不同 PEDV 株在實驗感染 6 日齡內仔豬的致病比較：傳統株 CV777 與非 S-INDEL、S-INDEL 株的潛伏期、死亡率與絨毛萎縮部位不同。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=50">p.50</a></div></div>
+      <h3>致病機制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>PED 的致病與<strong>年齡、病毒株、接種途徑與劑量</strong>有關。</li>
+        <li>經<strong>糞口途徑</strong>感染 → 小腸<strong>腸細胞流失</strong> → <strong>吸收不良性下痢</strong>。</li>
+        <li>所有年齡都可感染，但<strong>新生仔豬比離乳豬易感</strong>的原因：
+          <ul>
+            <li>絨毛腸細胞<strong>更新慢</strong>：新生仔豬 <strong>5–7 天</strong>，3 週齡離乳豬 2–3 天。</li>
+            <li>腸幹細胞增加與隱窩細胞增生<strong>發生較晚</strong>：新生仔豬感染後 3 天，離乳豬 1 天。</li>
+            <li>哺乳仔豬<strong>先天免疫較弱</strong>。</li>
+          </ul></li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">跟 TGE 的對照</div>
+        <p>兩者的易感原因都是「腸細胞被病毒殺掉後，新生仔豬補得太慢」：絨毛一旦萎縮，吸收面積少，水分與電解質來不及吸收而大量流失（講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=20">p.20</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=51">p.51</a>）。</p>
+      </div>
+      <h3>臨床症狀與病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>臨床與 TGE 類似：<strong>水樣下痢、嘔吐</strong>、厭食、沉鬱。</li>
+        <li><strong>肉眼病變限於小腸</strong>，小腸充滿水樣黃色液體而擴張。</li>
+        <li>顯微：<strong>絨毛頂端腸細胞退化，出現大型空泡</strong>；空腸橫切面明顯<strong>絨毛變鈍與融合</strong>，腸腔內有出血。</li>
+        <li>組織病理與 TGE、PDCoV 非常相似。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p053.jpg" alt="PED 肉眼" loading="lazy"><div class="figure-caption">PED 肉眼：小腸擴張、充滿水樣黃色液體。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=53">p.53</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p054.jpg" alt="顯微" loading="lazy"><div class="figure-caption">顯微：空腸絨毛變鈍融合、腔內出血（左）；絨毛頂端腸細胞空泡（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=54">p.54</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p055.jpg" alt="十二指腸、空腸、迴腸" loading="lazy"><div class="figure-caption">十二指腸、空腸、迴腸：未感染、強毒株、減毒株的組織病理比較。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=55">p.55</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p056.jpg" alt="PEDV 抗原（N 蛋白單株抗體）免疫組織化學" loading="lazy"><div class="figure-caption">PEDV 抗原（N 蛋白單株抗體）免疫組織化學：強毒株感染的絨毛陽性訊號最多。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=56">p.56</a></div></div>
+      </div>
+      <h3>診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>病毒檢測（糞便或病灶）：IEM、病毒分離（<strong>Vero 細胞，需胰蛋白酶處理並盲傳</strong>）；抗原 ELISA、IF、IHC；核酸 RT-PCR、RT-qPCR。</li>
+        <li>血清學（口腔液、糞便、血液）：ELISA、病毒中和。</li>
+      </ul>
+      <h3>免疫<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>PED 各年齡都會發生，但<strong>1 週齡內仔豬</strong>可能高死亡率，需靠免疫母豬<strong>初乳與乳汁</strong>中的母源抗體（尤其<strong>病毒中和抗體與 sIgA</strong>）保護。</li>
+        <li>母豬<strong>腸道感染 PEDV</strong> 誘發<strong>泌乳免疫（lactogenic immunity）</strong>，活化<strong>腸－乳腺－sIgA 軸（gut–mammary–sIgA axis）</strong>。</li>
+        <li><strong>傳統 PEDV 疫苗</strong>對高毒力非 S-INDEL 株感染<strong>沒有保護效力</strong>。</li>
+      </ul>
+      <h3>預防與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>疫苗</strong>。</li>
+        <li>爆發時，預產期<strong>超過 2 週</strong>的懷孕母豬可<strong>刻意暴露（反飼 feedback）</strong>：餵食急性病豬的水樣糞便或腸內容物；但有<strong>明顯風險會散播其他疾病</strong>。</li>
+        <li>衛生與檢疫措施可減緩散播。</li>
+        <li><strong>除了良好照護與充足飲水對抗脫水外，沒有有效治療</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p079.jpg" alt="新聞" loading="lazy"><div class="figure-caption">新聞：豬流行性下痢蔓延，防檢局研商對策。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=79">p.79</a></div></div>
+      <h3>台灣 PED 病例（2014，中興大學動物疾病診斷中心）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>病史</td><td>一貫場，在養 3,000 頭；<strong>10 日齡</strong>仔豬瘦弱、水樣糊狀下痢與嘔吐；<strong>發病率 23%（60/260）、死亡率 50%</strong>；2014 年 1 月送 5 頭 10 日齡發病仔豬檢驗</td></tr>
+            <tr><td>剖檢</td><td>腸管含水樣液體、腸壁變薄；<strong>乳糜管喪失功能</strong>；空腸腸繫膜淋巴結腫大；胃含少量凝乳；大腸壁變薄含水樣內容物；<strong>小腸絨毛萎縮</strong>（與正常絨毛對照）</td></tr>
+            <tr><td>組織病理</td><td>十二指腸與空腸絨毛萎縮；空腸黏膜上皮細胞脫落。初步診斷：<strong>哺乳豬腸炎</strong></td></tr>
+            <tr><td>確診</td><td><strong>免疫螢光</strong>（單株抗體）陽性；<strong>穿透式電子顯微鏡</strong>見冠狀病毒顆粒；<strong>RT-PCR：PEDV 691 bp 陽性、TGEV 886 bp 陰性</strong>。最終診斷 PED</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p082.jpg" alt="外觀" loading="lazy"><div class="figure-caption">外觀：發病仔豬消瘦、被毛粗糙、擠在一起。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=82">p.82</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p083.jpg" alt="會陰與尾根沾黃色水樣糞便。" loading="lazy"><div class="figure-caption">會陰與尾根沾黃色水樣糞便。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=83">p.83</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p085.jpg" alt="腸管含水樣液體、腸壁變薄（另一角度）。" loading="lazy"><div class="figure-caption">腸管含水樣液體、腸壁變薄（另一角度）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=85">p.85</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p084.jpg" alt="病理解剖" loading="lazy"><div class="figure-caption">病理解剖：腸管含水樣液體、腸壁變薄。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=84">p.84</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p086.jpg" alt="乳糜管喪失功能（腸繫膜無乳糜）。" loading="lazy"><div class="figure-caption">乳糜管喪失功能（腸繫膜無乳糜）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=86">p.86</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p087.jpg" alt="空腸腸繫膜淋巴結腫大。" loading="lazy"><div class="figure-caption">空腸腸繫膜淋巴結腫大。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=87">p.87</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p088.jpg" alt="胃含少量凝乳；大腸壁變薄含水樣內容物。" loading="lazy"><div class="figure-caption">胃含少量凝乳；大腸壁變薄含水樣內容物。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=88">p.88</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p089.jpg" alt="正常小腸絨毛。" loading="lazy"><div class="figure-caption">正常小腸絨毛。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=89">p.89</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p090.jpg" alt="小腸絨毛萎縮。" loading="lazy"><div class="figure-caption">小腸絨毛萎縮。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=90">p.90</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p092.jpg" alt="十二指腸絨毛萎縮（H&amp;amp;E）。" loading="lazy"><div class="figure-caption">十二指腸絨毛萎縮（H&amp;E）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=92">p.92</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p093.jpg" alt="空腸絨毛萎縮。" loading="lazy"><div class="figure-caption">空腸絨毛萎縮。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=93">p.93</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p094.jpg" alt="空腸黏膜上皮細胞脫落。" loading="lazy"><div class="figure-caption">空腸黏膜上皮細胞脫落。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=94">p.94</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p095.jpg" alt="免疫螢光檢驗流程" loading="lazy"><div class="figure-caption">免疫螢光檢驗流程：單株抗體染色 PEDV。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=95">p.95</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p096.jpg" alt="陽性螢光反應。" loading="lazy"><div class="figure-caption">陽性螢光反應。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=96">p.96</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p098.jpg" alt="穿透式電子顯微鏡" loading="lazy"><div class="figure-caption">穿透式電子顯微鏡：冠狀病毒顆粒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=98">p.98</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p099.jpg" alt="RT-PCR" loading="lazy"><div class="figure-caption">RT-PCR：小腸樣本 PEDV 691 bp 陽性、TGEV 886 bp 陰性。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=99">p.99</a></div></div>
+      </div>
+      <p>案例同時做了<strong>小腸細菌培養</strong>，分離到 <em>E. coli</em>（續發感染），藥敏結果如下：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>敏感（S）</th><th>中間（I）</th><th>抗藥（R）</th></tr></thead>
+          <tbody>
+            <tr><td>Cephalexin、Enrofloxacin、Florfenicol、Cefquinome</td><td>Amoxicillin-Clavulanic acid、Ceftiofur</td><td>Ampicillin、Nalidixic acid、Colistin、Doxycycline、Streptomycin、Lincomycin/Spectinomycin</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：這是續發 <em>E. coli</em> 的藥敏，PEDV 本身沒有抗菌藥療效；講義沒有列出劑量或途徑，也沒有給用藥建議。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p101.jpg" alt="該案例分離的 E. coli 藥物敏感性試驗結果表。" loading="lazy"><div class="figure-caption">該案例分離的 <em>E. coli</em> 藥物敏感性試驗結果表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=101">p.101</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p102.jpg" alt="診斷依據彙整" loading="lazy"><div class="figure-caption">診斷依據彙整：外觀、剖檢、組織病理、免疫螢光、RT-PCR；最終診斷 PED。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=102">p.102</a></div></div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">老師總結的未來對策（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=103">p.103</a>）</div>
+        <ol style="margin:6px 0 0; padding-left:1.4em;">
+          <li><strong>快速確診，快速反飼（feedback）</strong>可降低損失。</li>
+          <li><strong>地區性流行、四季發生</strong>（如美國）。</li>
+          <li>一旦發病，仔豬死亡率較低（指疫情進入地方性後）。</li>
+          <li><strong>防疫（biosecurity）不佳之豬場為源頭</strong>。</li>
+          <li>自家疫苗效力受制於保存條件。</li>
+        </ol>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Coronaviral Diseases〉<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=45">p.45–103</a>（台灣病例：中興大學動物疾病診斷中心張文發副主任，2026/10/7）。</footer>
+    </div>
+
+    <!-- PHEV -->
+    <div class="section" id="section-phev">
+      <div class="section-head"><div class="section-num">6</div><h2>血球凝集腦脊髓炎病毒（嘔吐衰弱病）Hemagglutinating Encephalomyelitis Virus</h2></div>
+      <p class="section-desc">pHEV 多為亞臨床，只有在<strong>新生仔豬缺乏母源抗體</strong>時才發病。</p>
+      <h3>簡介與病原<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>1962 年加拿大</strong>首次從腦脊髓炎哺乳仔豬的腦分離；1969 年英國分離到抗原相同的病毒，來自厭食、沉鬱、<strong>嘔吐、發育不良</strong>但沒有腦脊髓炎症狀的哺乳仔豬（<strong>嘔吐衰弱病，vomiting and wasting disease, VWD</strong>）。</li>
+        <li>全球分布、豬群普遍，<strong>多為亞臨床</strong>。</li>
+        <li><strong><em>Betacoronavirus</em></strong> 屬；(+)ssRNA 約 30 kb；<strong>一個血清型</strong>；病毒會<strong>凝集小鼠、大鼠、雞等的紅血球</strong>；<strong>豬是自然宿主，具強烈嗜神經性</strong>。</li>
+        <li>傳播：口鼻排毒，經鼻分泌物、鼻對鼻接觸與氣膠；<strong>沒有帶原者</strong>。</li>
+      </ul>
+      <h3>致病機制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>要發病的條件：<strong>3–4 週齡前口鼻感染</strong>，且<strong>豬來自無免疫力的母豬</strong>。</li>
+        <li>母源抗體能阻止病毒到達神經標的組織，保護豬不發病。</li>
+        <li>病毒在初級部位（呼吸道或消化道）複製，再經不同路徑擴散到周邊神經再到 CNS：
+          <ul>
+            <li>鼻黏膜 → 扁桃腺 → <strong>三叉神經節</strong> → 腦幹三叉感覺核。</li>
+            <li><strong>迷走神經</strong> → 迷走神經節 → 腦幹迷走感覺核。</li>
+            <li><strong>腸神經叢</strong> → 局部感覺神經節 → 脊髓。</li>
+          </ul></li>
+        <li>病毒血症不重要。<strong>嘔吐的原因</strong>：中樞性、感覺性或消化道性。</li>
+      </ul>
+      <h3>臨床與病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>發病率與死亡率不一；多為亞臨床；一開始打噴嚏或咳嗽、發燒。</li>
+        <li>兩種主要表現（與嗜神經性有關，可在同一疫情並存）：<strong>典型嘔吐衰弱病</strong>（頻繁嘔吐導致死亡或後續消瘦）；<strong>急性腦脊髓炎</strong>伴運動障礙。</li>
+        <li>肉眼：惡病質、胃擴張、腹部膨脹。</li>
+        <li>顯微：呼吸道與扁桃腺上皮退化與發炎；<strong>非化膿性腦脊髓炎</strong>；<strong>胃壁神經節退化</strong>與血管周圍袖套。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p072.jpg" alt="肺組織病變" loading="lazy"><div class="figure-caption">肺組織病變：毛細血管鬱血、壞死性細支氣管炎、間質性肺炎（Arunsiripate et al., 2025）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=72">p.72</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p073.jpg" alt="氣管" loading="lazy"><div class="figure-caption">氣管：假複層柱狀上皮萎縮與鱗狀化生；右為 PHEV mRNA 原位雜交訊號。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=73">p.73</a></div></div>
+      </div>
+      <h3>診斷與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>病毒檢測：IEM、病毒分離（<strong>扁桃腺、腦幹、肺</strong>；成功分離可看<strong>合體細胞、血球吸附或血球凝集</strong>）；抗原 ELISA、IF、IHC；RT-PCR。血清學：ELISA、病毒中和。</li>
+        <li>控制：<strong>讓病毒在場內循環，使後備母豬在分娩時已有免疫</strong>，可預防仔豬發病；<strong>目前沒有 pHEV 疫苗</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p077.jpg" alt="病毒分離" loading="lazy"><div class="figure-caption">病毒分離：血漿接種 Vero E6 細胞的細胞病變與電子顯微鏡。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=77">p.77</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Coronaviral Diseases〉<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=64">p.64–77</a>。</footer>
+    </div>
+
+    <!-- PDCOV -->
+    <div class="section" id="section-pdcov">
+      <div class="section-head"><div class="section-num">7</div><h2>豬戴爾他冠狀病毒（PDCoV）與豬急性下痢症候群冠狀病毒（SADS-CoV）</h2></div>
+      <p class="section-desc">這兩個是新興病毒，講義只有簡介，重點是「來源」與「宿主」。</p>
+      <h3>豬戴爾他冠狀病毒（PDCoV）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>新興豬腸道病毒病</strong>，由 PDCoV 引起。</li>
+        <li>可能是涉及<strong>禽戴爾他冠狀病毒</strong>的一次或多次<strong>重組事件</strong>的結果。</li>
+        <li>臨床與病理特徵<strong>與 TGE、PED 類似但較輕</strong>。</li>
+        <li><strong>宿主範圍廣</strong>，可能尚未完全適應豬 → 在豬群中<strong>散播比 PEDV 慢</strong>。</li>
+        <li>外溢到人類？（講義附海地兒童獨立感染 PDCoV 的報告）。</li>
+        <li>診斷、免疫與預防措施與 TGEV、PEDV 類似。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p106.jpg" alt="PDCoV 推定宿主範圍與傳播途徑" loading="lazy"><div class="figure-caption">PDCoV 推定宿主範圍與傳播途徑：禽、豬、哺乳動物、人；直接、間接、氣膠傳播。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=106">p.106</a></div></div>
+        <div class="figure"><img src="img/week05_豬冠狀病毒病/cv_p107.jpg" alt="報告" loading="lazy"><div class="figure-caption">報告：海地兒童獨立感染豬戴爾他冠狀病毒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=107">p.107</a></div></div>
+      </div>
+      <h3>豬急性下痢症候群冠狀病毒（SADS-CoV）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>新興豬腸道病毒病，<strong>Alphacoronavirus</strong> 屬。</li>
+        <li><strong>2017 年</strong>首次在<strong>中國南方</strong>一次嚴重腸道病爆發中偵測到；目前是區域性豬腸道病。</li>
+        <li>與<strong>蝙蝠冠狀病毒 HKU2</strong> 高度相似（&gt;95%）。</li>
+        <li>推測經<strong>糞口途徑</strong>傳播。</li>
+        <li><strong>宿主範圍廣，是否人畜共通？</strong>依賴較保守的宿主因子，可能是其廣泛細胞嗜性與跨物種感染力的原因。</li>
+      </ul>
+      <footer class="note-footer">資料來源：課程講義〈Swine Coronaviral Diseases〉<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=104">p.104–109</a>。</footer>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="section" id="section-compare">
+      <div class="section-head"><div class="section-num">8</div><h2>鑑別比較 TGE PED PRCV PHEV Differential Comparison</h2></div>
+      <p class="section-desc">把仔豬下痢的幾個病原放在一起比，是這幾週最常見的鑑別題。</p>
+      <h3>仔豬下痢病原鑑別<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>TGE</th><th>PED</th><th>輪狀病毒（第 3 週）</th><th>ETEC（第 6 週）</th></tr></thead>
+          <tbody>
+            <tr><td>病原</td><td>TGEV（alphacoronavirus）</td><td>PEDV（alphacoronavirus）</td><td>RV（分段 dsRNA）</td><td><em>E. coli</em>（細菌）</td></tr>
+            <tr><td>好發年齡</td><td>&lt;2 週嚴重；&lt;7 日齡 2–7 天死亡</td><td>各年齡；1 週內高死亡率</td><td>新生與哺乳仔豬</td><td>0–4 日齡</td></tr>
+            <tr><td>機轉</td><td>腸細胞壞死 → 吸收不良</td><td>腸細胞流失 → 吸收不良</td><td>腸細胞流失 → 吸收不良＋分泌</td><td>毒素 → <strong>分泌性</strong></td></tr>
+            <tr><td>絨毛</td><td><strong>萎縮</strong>（空腸、迴腸）</td><td><strong>萎縮</strong></td><td><strong>萎縮</strong></td><td><strong>不萎縮</strong></td></tr>
+            <tr><td>嘔吐</td><td>有</td><td>有</td><td>可有</td><td>少</td></tr>
+            <tr><td>死亡率</td><td>流行性高、地方性低</td><td>新生仔豬高</td><td>較低</td><td>可高</td></tr>
+            <tr><td>疫苗／預防</td><td>減毒活毒與不活化；產前反飼</td><td>疫苗（傳統疫苗對新高毒株無效）；反飼</td><td>母豬產前 RVA 疫苗</td><td>母豬免疫、初乳</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">TGE 與 PED「臨床與病理幾乎無法區分」：確診要靠 RT-PCR 或免疫螢光（國考 107 年：兩者病原都是 coronavirus）。</p>
+      <h3>六種豬冠狀病毒比較<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病毒</th><th>屬</th><th>主要部位</th><th>特別重點</th></tr></thead>
+          <tbody>
+            <tr><td>TGEV</td><td>Alpha</td><td>空腸、迴腸</td><td>冬季、反飼、sIgA 腸乳腺軸；一個血清型</td></tr>
+            <tr><td>PRCV</td><td>Alpha</td><td>呼吸道</td><td>S N 端缺 227 aa；亞臨床；降低 TGE 盛行；阻斷 ELISA 區分</td></tr>
+            <tr><td>PEDV</td><td>Alpha</td><td>小腸</td><td>G1／G2；2010 中國高毒株；台灣 2013–14</td></tr>
+            <tr><td>SADS-CoV</td><td>Alpha</td><td>小腸</td><td>2017 中國；蝙蝠 HKU2 &gt;95%</td></tr>
+            <tr><td>pHEV</td><td><strong>Beta</strong></td><td>呼吸道＋神經</td><td>3–4 週齡前；嘔吐衰弱病；血球凝集；無疫苗</td></tr>
+            <tr><td>PDCoV</td><td><strong>Delta</strong></td><td>小腸</td><td>禽 deltacoronavirus 重組；較輕；散播慢</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：整理自課程講義〈Swine Coronaviral Diseases〉，並參照第 3、6 週講義。</footer>
+    </div>
+
+    <!-- NATEXAM -->
+    <div class="section" id="section-natexam">
+      <div class="section-head"><div class="section-num">9</div><h2>講義所附歷屆國考題 National Exam Questions</h2></div>
+      <p class="section-desc">講義附的國考題<strong>沒有標答案</strong>，下列答案是依講義內容推得，並用<strong>阿摩線上測驗（yamol）</strong>的作答票數與網友詳解核對過（票數最高者與我的答案一致；那邊的官方答案欄與完整詳解需登入才看得到，所以這是旁證，不是官方答案）。先自己作答，再點「顯示答案」。</p>
+      <h3>TGE 與 PRCV（11 題）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">112 年國考</span>
+        <div class="quiz-q">有關豬傳染性胃腸炎之敘述，下列何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 由 betacoronavirus 感染所致</li>
+          <li>(B) 哺乳期仔豬死亡率高</li>
+          <li>(C) 可見小腸絨毛萎縮</li>
+          <li>(D) 豬隻是唯一可自然感染本病的動物</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 錯，所以選它：TGEV 是 <strong>alphacoronavirus</strong>（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=12">p.12</a>）。<br>(B) 對：2 週內仔豬高死亡率（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=11">p.11</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=22">p.22</a>）。<br>(C) 對：絨毛萎縮（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=26">p.26</a>）。<br>(D) 講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=18">p.18</a> 寫狗、貓、狐狸可成為帶原者排毒、椋鳥糞便驗到病毒；此選項字面上有爭議，但 (A) 的錯誤明確。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 年國考</span>
+        <div class="quiz-q">下列豬冠狀病毒中，何者與新冠病毒（COVID-19）親緣最為相近？</div>
+        <ul class="quiz-options">
+          <li>(A) 豬流行性下痢病毒</li>
+          <li>(B) 豬傳染性胃腸炎病毒</li>
+          <li>(C) 血球凝集腦脊髓炎病毒</li>
+          <li>(D) 豬戴爾他冠狀病毒（porcine deltacoronavirus）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對：新冠病毒屬 <strong>betacoronavirus</strong>，豬冠狀病毒中只有 pHEV 是 betacoronavirus（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=66">p.66</a>）；講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=8">p.8</a> 的分類圖顯示 beta 屬包含人類冠狀病毒（補充：SARS-CoV-2 屬 betacoronavirus）。<br>(A)(B) 錯：alpha。<br>(D) 錯：delta。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">110 年國考（獸醫病理學）</span>
+        <div class="quiz-q">有關豬傳染性胃腸炎的病灶，何者正確？①小腸黏膜上皮細胞壞死 ②常伴隨小腸腺窩上皮細胞壞死 ③小腸絨毛萎縮及融合</div>
+        <ul class="quiz-options">
+          <li>(A) 僅①②</li>
+          <li>(B) 僅①③</li>
+          <li>(C) 僅②③</li>
+          <li>(D) ①②③</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">依講義推得 (B)：① 對：空腸腸細胞大量壞死（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=19">p.19</a>）。③ 對：明顯絨毛萎縮（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=26">p.26</a>）。② 錯：講義寫的是腺窩<strong>延長</strong>（elongation of crypts，<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=26">p.26</a>），沒有寫腺窩上皮壞死；（補充）TGE 破壞的是絨毛上皮，腺窩細胞是修復的來源，所以通常保留。<strong>已用阿摩線上測驗核對：該題頁面作答票數最高的是 (B)，與此推論一致</strong>。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">109 年國考</span>
+        <div class="quiz-q">下列何種豬病不是冠狀病毒所引起？</div>
+        <ul class="quiz-options">
+          <li>(A) 傳染性胃腸炎</li>
+          <li>(B) 豬水疱病</li>
+          <li>(C) 血球凝集腦脊髓炎</li>
+          <li>(D) 豬流行性下痢</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 不是，所以選它：豬水疱病由 SVDV 引起，屬 <strong>Picornaviridae</strong>（第 4 週）。<br>(A)(C)(D) 都是冠狀病毒。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">109 年國考</span>
+        <div class="quiz-q">下列有關豬呼吸道冠狀病毒（PRCV）之敘述，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 可感染所有年齡豬隻</li>
+          <li>(B) 可感染呼吸道及消化道</li>
+          <li>(C) 多為不顯性感染</li>
+          <li>(D) 豬隻感染後可產生中和傳染性胃腸炎病毒之中和抗體</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><strong>已用阿摩線上測驗核對：該題作答票數最高的是 (B)</strong>。PRCV 嗜性是呼吸道，<strong>腸道複製與散播有限</strong>（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=21">p.21</a>）；(B) 說「可感染呼吸道及消化道」被判為錯。(C) 對：多為亞臨床（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=24">p.24</a>）。(D) 對：主要中和抗原決定位與 TGEV 高度保守，PRCV 感染對 TGEV 有部分保護（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=13">p.13</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=32">p.32</a>）。(A) 講義沒有排除任何年齡（PRCV 持續感染剛離乳豬，<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=17">p.17</a>），不像是錯的。（講義寫 limited，而非完全不感染腸道，所以此題偏重「以呼吸道為主」的概念。）</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">109 年國考（講義重複放了兩次同一題）</span>
+        <div class="quiz-q">下列有關豬呼吸道冠狀病毒（PRCV）之敘述，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 可感染所有年齡豬隻</li>
+          <li>(B) 可感染呼吸道及消化道</li>
+          <li>(C) 多為不顯性感染</li>
+          <li>(D) 豬隻感染後可產生中和傳染性胃腸炎病毒之中和抗體</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">同上題。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">107 年國考</span>
+        <div class="quiz-q">以免疫螢光法診斷豬傳染性胃腸炎時，應採下列何部位檢體最為適當？</div>
+        <ul class="quiz-options">
+          <li>(A) 十二指腸</li>
+          <li>(B) 空腸</li>
+          <li>(C) 結腸</li>
+          <li>(D) 胃</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對：TGEV 的絨毛萎縮以空腸與迴腸為主（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=19">p.19</a>）；<strong>十二指腸常無病變</strong>。<br>(C)(D) 錯：非主要感染部位。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">107 年國考</span>
+        <div class="quiz-q">豬流行性下痢與豬傳染性胃腸炎的臨床症狀幾乎無法區別，而且二者的致病原都是下列何種病毒？</div>
+        <ul class="quiz-options">
+          <li>(A) coronavirus</li>
+          <li>(B) paramyxovirus</li>
+          <li>(C) picornavirus</li>
+          <li>(D) rhabdovirus</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=12">p.12</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=48">p.48</a>）。<br>(B)(C)(D) 錯。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 年國考</span>
+        <div class="quiz-q">下列有關豬傳染性胃腸炎之致病機序，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 以食入感染為主</li>
+          <li>(B) 致病原可感染胃、小腸及大腸之黏膜上皮</li>
+          <li>(C) 豬隻下痢之主因為腸道絨毛萎縮</li>
+          <li>(D) 高致病性病原對消化道內蛋白質分解酶具有較強之抵抗力</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">依講義推得 (B)：TGEV 感染的是<strong>小腸</strong>上皮，絨毛萎縮以空腸與迴腸為主（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=19">p.19</a>）；講義沒有寫感染胃與大腸黏膜（已用阿摩線上測驗核對：該題作答票數最高的是 (B)）。(A) 對：口鼻途徑吞入（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=19">p.19</a>）。(C) 對：絨毛萎縮造成吸收不良性下痢（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=19">p.19</a>）。(D) 講義沒有寫；（補充）毒力強的病毒對胃酸與蛋白酶有較強抵抗力，才能到達小腸。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">107 年國考</span>
+        <div class="quiz-q">下列有關豬呼吸道冠狀病毒（PRCV）與傳染性胃腸炎病毒（TGEV）的敘述，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 兩者的基因非常相似</li>
+          <li>(B) PRCV 是 TGEV 的變異株</li>
+          <li>(C) 兩者均造成小腸絨毛萎縮</li>
+          <li>(D) 兩者間具有交叉反應</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 錯，所以選它：PRCV 病變一般限於肺，<strong>腸道複製有限</strong>（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=21">p.21</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=27">p.27</a>）。<br>(A)(B) 對：PRCV 是 TGEV 的 S 蛋白 N 端刪除變異株（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=11">p.11</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=13">p.13</a>）。<br>(D) 對：同一血清型、中和抗原決定位保守（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=13">p.13</a>）。</p>
+        </details>
+      </div>
+      <h3>PED（5 題）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 年國考</span>
+        <div class="quiz-q">下列何者不是人畜共通傳染病原？</div>
+        <ul class="quiz-options">
+          <li>(A) E 型肝炎病毒</li>
+          <li>(B) 豬流行性下痢病毒</li>
+          <li>(C) 日本腦炎病毒</li>
+          <li>(D) 第二型豬鏈球菌</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 不是，所以選它：PEDV 無人畜共通證據。<br>(A)(C) 是：HEV、JEV 為人畜共通（第 2 週）。<br>(D) 是：<em>S. suis</em> 血清型 2 可感染人（之後的講義）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">108 年國考</span>
+        <div class="quiz-q">下列有關豬流行性下痢之敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 致病原為 rotavirus</li>
+          <li>(B) 主要之臨床症狀為水樣下痢</li>
+          <li>(C) 主要病變集中在小腸及胃黏膜</li>
+          <li>(D) 小腸絨毛上皮細胞內可見嗜酸性核內包涵體</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對：水樣下痢、嘔吐（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=52">p.52</a>）。<br>(A) 錯：冠狀病毒。<br>(C) 錯：病變限於小腸（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=53">p.53</a>）。<br>(D) 錯：冠狀病毒在細胞質複製，絨毛上皮細胞是空泡與脫落（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=54">p.54</a>），沒有核內包涵體。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">107 年國考（獸醫病理學）</span>
+        <div class="quiz-q">豬流行性下痢病毒屬於下列何種冠狀病毒？</div>
+        <ul class="quiz-options">
+          <li>(A) Alphacoronavirus</li>
+          <li>(B) Betacoronavirus</li>
+          <li>(C) Gammacoronavirus</li>
+          <li>(D) Deltacoronavirus</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=48">p.48</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 年國考</span>
+        <div class="quiz-q">下列有關豬流行性下痢（porcine epidemic diarrhea）之敘述，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 病原為冠狀病毒</li>
+          <li>(B) 主要臨床症狀為血樣下痢</li>
+          <li>(C) 主要病變在小腸</li>
+          <li>(D) 未見結腸有組織病理變化</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 錯，所以選它：是水樣下痢，不是血樣。<br>(A)(C) 對（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=48">p.48</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=53">p.53</a>）。<br>(D) 對：講義寫病變限於小腸（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=53">p.53</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">114 年國考（講義附 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=76">p.76</a>）</span>
+        <div class="quiz-q">下列有關血球凝集腦脊髓炎（hemagglutinating encephalomyelitis）之敘述，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 病原主要感染 3 週齡以下的豬</li>
+          <li>(B) 病原只有一個血清型</li>
+          <li>(C) 病原會引起嘔吐衰弱</li>
+          <li>(D) 病原與日本腦炎病毒類似</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 錯，所以選它：pHEV 是 <strong>coronavirus（betacoronavirus）</strong>；日本腦炎病毒是 flavivirus（第 2 週）。<br>(A) 對：3–4 週齡前感染（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=68">p.68</a>）。<br>(B) 對：一個血清型（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=66">p.66</a>）。<br>(C) 對：嘔吐衰弱病（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=70">p.70</a>）。</p>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Coronaviral Diseases〉<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=35">p.35–44</a>、60–63、76；答案依講義內容推得。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">10</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調與國考題<strong>推測</strong>的出題方向，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>冠狀病毒屬別</td><td>TGEV、PRCV、PEDV、SADS＝alpha；pHEV＝beta；PDCoV＝delta</td></tr>
+            <tr><td>TGEV vs PRCV</td><td>S 蛋白 N 端刪除 227 aa；腸道 vs 呼吸道；一個血清型；阻斷 ELISA 區分；PRCV 提供部分保護</td></tr>
+            <tr><td>TGE 流行病學</td><td>冬季；流行性（無抗體、高死亡率、母豬無乳）vs 地方性（死亡率 &lt;10–20%）</td></tr>
+            <tr><td>TGE／PED 致病（問答）</td><td>口鼻／糞口 → 小腸腸細胞壞死 → 絨毛萎縮 → 吸收不良；新生仔豬更新慢（5–7 天 vs 2–3 天）</td></tr>
+            <tr><td>TGE 病變</td><td>胃凝乳、腸壁薄透明、無乳糜；絨毛萎縮融合；空腸迴腸為主</td></tr>
+            <tr><td>診斷</td><td>TGE 免疫螢光採空腸；PEDV 用 Vero＋胰蛋白酶；RT-PCR 區分（PEDV 691 bp／TGEV 886 bp）</td></tr>
+            <tr><td>免疫與反飼</td><td>sIgA、腸乳腺軸；預產期 &gt;2 週反飼、&lt;2 週避免暴露 3 週；反飼有散播其他病風險</td></tr>
+            <tr><td>PED 台灣與基因型</td><td>G1（傳統、S-INDEL）／G2（新興）；傳統疫苗對高毒株無效；2014 病例</td></tr>
+            <tr><td>pHEV</td><td>beta；3–4 週齡前、母豬無抗體；嘔吐衰弱病與腦脊髓炎；三條神經路徑；無疫苗</td></tr>
+            <tr><td>PDCoV、SADS</td><td>PDCoV 禽 delta 重組較輕；SADS 2017 中國、蝙蝠 HKU2 &gt;95%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。最後 2 題是臨床情境題。</p>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. PRCV 與 TGEV 最主要的差異是？</div>
+        <ul class="quiz-options">
+          <li>(A) PRCV 是 DNA 病毒</li>
+          <li>(B) PRCV 的 S 蛋白 N 端刪除 227 個胺基酸，嗜性改為呼吸道</li>
+          <li>(C) PRCV 的血清型不同</li>
+          <li>(D) PRCV 的受體不是 pAPN</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=13">p.13</a>：兩者同為 alphacoronavirus、同一血清型、同一受體 pAPN。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 新生仔豬對 PEDV 比離乳豬易感，原因「不包括」？</div>
+        <ul class="quiz-options">
+          <li>(A) 絨毛腸細胞更新慢（5–7 天）</li>
+          <li>(B) 腸幹細胞增生發生較晚</li>
+          <li>(C) 先天免疫較弱</li>
+          <li>(D) 離乳豬沒有母源抗體所以不易感</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=51">p.51</a> 列出前三項。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 母豬預產期還有 3 週時，遇到 PED 爆發，講義的建議做法是？</div>
+        <ul class="quiz-options">
+          <li>(A) 立刻給抗病毒藥</li>
+          <li>(B) 可考慮刻意暴露（反飼）使其獲得免疫，但有散播其他疾病的風險</li>
+          <li>(C) 立刻接種傳統 PEDV 疫苗即可完全保護</li>
+          <li>(D) 把仔豬全部提早離乳</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=59">p.59</a>：預產期超過 2 週可刻意暴露；傳統疫苗對高毒株無效（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=58">p.58</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 嘔吐衰弱病（VWD）的病原是？</div>
+        <ul class="quiz-options">
+          <li>(A) PEDV</li>
+          <li>(B) TGEV</li>
+          <li>(C) pHEV</li>
+          <li>(D) PDCoV</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">pHEV，Betacoronavirus，嗜神經。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. PRCV 感染後造成小腸絨毛萎縮，與 TGE 相同。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">PRCV 病變一般限於肺，腸道複製有限（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=21">p.21</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=27">p.27</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. PED 的主要臨床症狀為血樣下痢。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">是水樣下痢與嘔吐（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=52">p.52</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】冬季，一個地方性流行 TGE 的豬場，新引進一批血清陰性的女豬。女豬分娩前 5 週與先前的母豬同欄。分娩後仔豬多頭嘔吐、黃色水樣下痢，7 日齡內仔豬死亡率高，母豬無乳。剖檢小腸壁薄透明、腸繫膜無乳糜。(1) 最可能診斷與依據？(2) 為什麼這批仔豬特別嚴重？(3) 如何確診與區分 PED？(4) 預防建議？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 流行性 TGE（TGEV）：冬季、血清陰性女豬、&lt;7 日齡仔豬嘔吐與水樣下痢、腸壁薄透明、無乳糜（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=22">p.22</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=25">p.25</a>）。<br><strong>(2)</strong> 血清陰性母豬沒有 sIgA 可經腸乳腺軸傳給仔豬；仔豬隱窩細胞替換壞死絨毛太慢；母豬感染後厭食無乳加重（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=16">p.16</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=20">p.20</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=32">p.32</a>）。<br><strong>(3)</strong> 免疫螢光（採空腸）、RT-PCR（TGEV 886 bp／PEDV 691 bp）、IEM、病毒分離（PK15、ST）；TGE 與 PED 臨床與病理幾乎無法區分，一定要實驗室鑑別（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=30">p.30</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=57">p.57</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=99">p.99</a>）。<br><strong>(4)</strong> 嚴格生物安全；預產期超過 2 週的母豬可刻意暴露強毒；少於 2 週的設法避免暴露至產後 3 週；地方性流行區可接種血清陽性母豬、減毒活毒或不活化疫苗（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=33">p.33–34</a>）。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】台灣某一貫場 10 日齡仔豬突然消瘦、水樣下痢與嘔吐，發病率 23%、死亡率 50%；剖檢小腸壁薄含水樣內容、乳糜管無功能、胃有少量凝乳。送檢小腸 RT-PCR 結果：PEDV 陽性、TGEV 陰性；另分離到 <em>E. coli</em>。(1) 診斷？(2) <em>E. coli</em> 是原因嗎？(3) 為什麼死亡率這麼高？(4) 現場應變？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 豬流行性下痢（PED）：10 日齡、水樣下痢嘔吐、絨毛萎縮、RT-PCR PEDV 陽性（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=81">p.81–102</a>）。<br><strong>(2)</strong> 不是主因：<em>E. coli</em> 是小腸被病毒破壞後的續發感染；治療原發病沒有抗菌藥可用，只能補水與照護。<br><strong>(3)</strong> 新生仔豬腸細胞更新慢（5–7 天）、先天免疫較弱，母豬若缺乏腸乳腺軸的 sIgA 抗體則無保護（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=51">p.51</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=58">p.58</a>）。<br><strong>(4)</strong> 快速確診、快速反飼（預產期 &gt;2 週的母豬）降低損失；加強 biosecurity；注意自家疫苗效力受保存條件影響；傳統疫苗對新高毒株無效（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=58">p.58–59</a>、<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=103">p.103</a>）。</p></details></div>
+
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  'abstract': '大方向與重點摘要',
+  'cov-gen': '冠狀病毒的共同特性',
+  'tge-a': '病原、流行病學與致病',
+  'tge-b': '臨床、病變、診斷、免疫與防治',
+  'ped': 'PED：病原到防治與台灣病例',
+  'phev': '血球凝集腦脊髓炎病毒（嘔吐衰弱病）',
+  'pdcov': 'PDCoV 與 SADS-CoV',
+  'compare': '鑑別比較',
+  'natexam': '講義所附歷屆國考題',
+  'exam': '考試方向（推測）',
+  'quiz': '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

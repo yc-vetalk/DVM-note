@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小 RNA 病毒科疾病：口蹄疫／豬水疱病／矽尼卡谷病毒 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">豬病學</a><span class="sep">›</span><span class="current">第 4 週・小 RNA 病毒科疾病</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">小 RNA 病毒科疾病</h1>
+      <p class="page-subtitle">Swine Picornaviral Diseases · 口蹄疫（FMD）、豬水疱病（SVD）、矽尼卡谷病毒感染症（SVV）</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">豬病學（大四上・第4週・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《豬病學》課程講義〈Swine Picornaviral Diseases〉（高啓霏老師，2026-10-01）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-21</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/小RNA病毒科疾病.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 大方向與重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">口蹄疫 FMD</div>
+    <a onclick="showSection('fmd-a')" id="nav-fmd-a">
+      <span class="nav-icon">🦠</span> 口蹄疫：病毒、流行病學與傳播
+    </a>
+    <a onclick="showSection('fmd-path')" id="nav-fmd-path">
+      <span class="nav-icon">🩸</span> 口蹄疫：致病、臨床與病變
+    </a>
+    <a onclick="showSection('fmd-dx')" id="nav-fmd-dx">
+      <span class="nav-icon">🔬</span> 口蹄疫：診斷、DIVA、防治與疫苗
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬水疱病 SVD</div>
+    <a onclick="showSection('svd')" id="nav-svd">
+      <span class="nav-icon">🐖</span> 豬水疱病（SVD）
+    </a>
+    <div class="section-label" style="margin-top:8px;">矽尼卡谷病毒 SVV</div>
+    <a onclick="showSection('svv')" id="nav-svv">
+      <span class="nav-icon">🆕</span> 矽尼卡谷病毒感染症（SVV）
+    </a>
+    <div class="section-label" style="margin-top:8px;">比較與考試</div>
+    <a onclick="showSection('natexam')" id="nav-natexam">
+      <span class="nav-icon">🏛️</span> 講義所附歷屆國考題
+    </a>
+    <a onclick="showSection('exam')" id="nav-exam">
+      <span class="nav-icon">🎯</span> 考試方向（推測）
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">小 RNA 病毒科疾病的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>三種<strong>小 RNA 病毒科（Picornaviridae）</strong>造成的豬<strong>水疱性疾病</strong>：<strong>口蹄疫（Foot-and-mouth disease, FMD）</strong>、<strong>豬水疱病（Swine vesicular disease, SVD）</strong>、<strong>矽尼卡谷病毒感染症（Seneca Valley virus, SVV）</strong>。三者的水疱病灶<strong>無法區分</strong>，所以「<strong>豬的水疱性疾病在確診之前一律視為 FMD</strong>」。</dd>
+          <dt>為什麼重要</dt>
+          <dd>FMD 是偶蹄類高傳染力水疱病，列入 WOAH 名錄，造成嚴重經濟損失。<strong>1997 年台灣口蹄疫撲殺近 400 萬頭豬、經濟損失約 1,700 億元</strong>，豬肉外銷中斷；<strong>2020 年 6 月台澎馬被 WOAH 認定為不施打疫苗的口蹄疫非疫區</strong>。講義附 12 題國考題（FMD 為主）。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-fmd-a">FMDV</a>：<em>Aphthovirus</em>、無封套 ssRNA(+)、<strong>7 個血清型（A、O、C、SAT1、SAT2、SAT3、Asia 1），彼此無交叉保護</strong>；<strong>非人畜共通</strong>。</li>
+              <li><a href="#section-fmd-a">宿主角色</a>：<strong>豬＝增幅者（amplifier）</strong>、<strong>牛＝指示者（indicator，帶毒最久）</strong>、<strong>羊＝維持者（maintenance）</strong>。</li>
+              <li><a href="#section-fmd-path">臨床</a>：發燒、口鼻蹄冠乳房水疱、跛行；<strong>發病率高（可達 100%）、死亡率低</strong>；<strong>仔豬心肌炎（虎斑心 tiger heart）</strong>猝死。</li>
+              <li><a href="#section-fmd-dx">診斷與 DIVA</a>：臨床與病變不具診斷性；病毒分離需 BSL-3；<strong>驗非結構蛋白（NSP，如 3A3B）抗體來區分感染與疫苗</strong>。</li>
+              <li><a href="#section-fmd-dx">防治</a>：撲殺、移動管制、生物安全；疫苗為不活化苗，<strong>不阻止初次感染</strong>、只減少排毒，保護僅 4–6 個月。</li>
+              <li><a href="#section-svd">SVD 與 SVV</a>：SVD 腸病毒屬、單一血清型；SVV 新興、<em>Senecavirus</em> 屬、單一血清型、受體 ANTXR1；兩者都沒有商業疫苗。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd>
+            <ul style="margin:0; padding-left:1.2em;">
+              <li><strong>FMD 有 7 個血清型</strong>，沒有「D 型」（國考 113 年）。</li>
+              <li><strong>O/Taiwan/97 只感染豬（親豬型）</strong>；O/Taiwan/99（泛亞型）牛、羊、豬都感染。</li>
+              <li><strong>豬是最大排毒者（增幅者），牛才是帶毒最久的</strong>。</li>
+              <li>四種水疱病：FMD、SVD、SVV 是 Picornaviridae；<strong>水疱疹（VES）是 Caliciviridae；水疱性口炎（VS）是 Rhabdoviridae，且是唯一人畜共通的</strong>。</li>
+            </ul>
+          </dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <h3>三個病的主線<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>病原</th><th>宿主</th><th>一句話特徵</th><th>代表圖</th></tr></thead>
+          <tbody>
+            <tr><td>口蹄疫（FMD）</td><td>FMDV（<em>Aphthovirus</em>），7 血清型</td><td>偶蹄類（豬、牛、羊、水牛）</td><td>水疱、跛行；高傳染力；仔豬虎斑心</td><td style="width:170px;"><a href="#section-fmd-path"><img src="img/week04_小RNA病毒科疾病/pc_thumb_p022.jpg" alt="FMD 臨床" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">口蹄疫臨床症狀（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=22">p.22</a>）</div></td></tr>
+            <tr><td>豬水疱病（SVD）</td><td>SVDV（<em>Enterovirus</em>），單一血清型</td><td>只有豬</td><td>像 FMD 但輕很多；已自 WOAH 名錄移除</td><td style="width:170px;"><a href="#section-svd"><img src="img/week04_小RNA病毒科疾病/pc_thumb_p062.jpg" alt="SVD 病灶" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">鼻與蹄的水疱（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=62">p.62</a>）</div></td></tr>
+            <tr><td>矽尼卡谷病毒感染症（SVV）</td><td>SVV-1（<em>Senecavirus</em>），單一血清型</td><td>只有豬</td><td>新興；臨床與 FMD 不可區分；台灣 2012 首例</td><td style="width:170px;"><a href="#section-svv"><img src="img/week04_小RNA病毒科疾病/pc_thumb_p076.jpg" alt="SVV 病灶" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">鼻、蹄冠水疱與糜爛（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=76">p.76</a>）</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">閱讀說明</div>
+        <p>內容以老師講義為主。講義附的國考題<strong>沒有標答案</strong>，答案依講義內容推得並註明依據頁碼；標「補充」的是講義以外的延伸。點任何「p.N」可在右側開啟講義對照。</p>
+      </div>
+      <footer class="note-footer">資料來源：《豬病學》課程講義〈Swine Picornaviral Diseases〉<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=1">p.1–2</a>。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- FMD-A -->
+    <div class="section" id="section-fmd-a">
+      <div class="section-head"><div class="section-num">2</div><h2>口蹄疫：病毒、流行病學與傳播 FMD Etiology, Epidemiology &amp; Transmission</h2></div>
+      <p class="section-desc">口蹄疫是偶蹄類動物<strong>高傳染力的水疱性疾病</strong>，造成嚴重經濟損失，列入 <strong>WOAH（OIE）名錄</strong>。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p003.jpg" alt="1997 年台灣口蹄疫的新聞與撲殺場景。" loading="lazy"><div class="figure-caption">1997 年台灣口蹄疫的新聞與撲殺場景。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=3">p.3</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p004.jpg" alt="2020 年台澎馬口蹄疫拔針成功" loading="lazy"><div class="figure-caption">2020 年台澎馬口蹄疫拔針成功：1997 年 3 月爆發撲殺近 400 萬頭豬、損失約 1,700 億元；2016 年啟動撲滅計畫；2020 年 6 月 WOAH 認定不施打疫苗之非疫區。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=4">p.4</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p005.jpg" alt="口蹄疫的衝擊" loading="lazy"><div class="figure-caption">口蹄疫的衝擊：直接損失（產乳、役力、體重減輕、死亡）與間接損失（疫苗、移動管制、市場封鎖、食品安全等）（Humphreys et al., 2025）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=5">p.5</a></div></div>
+      <h3>病毒<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>口蹄疫病毒（FMDV）</strong>：<em>Aphthovirus</em> 屬，<strong>Picornaviridae</strong> 科。</li>
+        <li><strong>無封套</strong>（VP1–4）、二十面體、20–30 nm；<strong>ssRNA(+)</strong>，約 8.3 kb。</li>
+        <li><strong>7 個血清型：A、O、C、SAT1、SAT2、SAT3、Asia 1</strong>；<strong>彼此沒有交叉保護</strong>（C 型自 2004 年起全球未再偵測到）。</li>
+        <li>宿主：<strong>偶蹄目（cloven-hoofed）</strong>；<strong>非人畜共通</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p007.jpg" alt="FMDV 基因體與結構" loading="lazy"><div class="figure-caption">FMDV 基因體與結構：O/ME-SA/PanAsia 與 O/TAW/97 兩個豬適應株（紅框標示突變位置）（Mushtaq et al., 2024）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=7">p.7</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p008.jpg" alt="FMDV 感染週期" loading="lazy"><div class="figure-caption">FMDV 感染週期：吸附（整合素）、內吞、脫殼、複製、組裝、釋出。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=8">p.8</a></div></div>
+      </div>
+      <h3>流行病學<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>各血清型分布：O、A 最廣；SAT 在非洲；Asia 1 在亞洲。</li>
+        <li>美國與加拿大靠<strong>撲殺（stamping out）</strong>根除；墨西哥則是疫苗＋撲殺。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p009.jpg" alt="WOAH 會員國 FMD 狀態圖。" loading="lazy"><div class="figure-caption">WOAH 會員國 FMD 狀態圖。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=9">p.9</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p011.jpg" alt="我國口蹄疫疫情歷程（家畜衛生試驗所）" loading="lazy"><div class="figure-caption">我國口蹄疫疫情歷程（家畜衛生試驗所）：86 年 O/Taiwan/97（親豬型）；88 年 O/Taiwan/99（泛亞型）；101 年金門豬 O 型 SEA；104 年金門牛 A 型；106 年 5 月 OIE 認定台澎馬為施打疫苗非疫區；107 年 7 月停止施打疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=11">p.11</a></div></div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">台灣兩個血清型 O 株（國考常客）</div>
+        <p><strong>O/Taiwan/97（1997）＝親豬型，只感染豬</strong>；<strong>O/Taiwan/99（1999，泛亞型）＝牛、羊、豬都感染</strong>（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=7">p.7</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=11">p.11</a>）。</p>
+      </div>
+      <h3>易感動物<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>最重要：<strong>豬、牛、小反芻獸（山羊、綿羊）、水牛</strong>。</li>
+        <li>有一定風險：麋鹿、鹿、駱馬、羊駝、雙峰駱駝（單峰駱駝不會）。</li>
+        <li>實驗感染：大鼠、刺蝟；曾報告<strong>年輕犬</strong>吃了被污染的肉後發生 FMDV 引起的心肌炎。</li>
+      </ul>
+      <h3>各動物的角色<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>豬</th><th>牛</th><th>綿羊與山羊</th></tr></thead>
+          <tbody>
+            <tr><td>流行病學角色</td><td><strong>增幅者（Amplifier）</strong></td><td><strong>指示者（Indicator）</strong></td><td><strong>維持者（Maintenance）</strong></td></tr>
+            <tr><td>建立感染所需最低病毒量</td><td>10³ TCID₅₀</td><td><strong>10 TCID₅₀</strong></td><td>15 TCID₅₀</td></tr>
+            <tr><td>每隻每天排出氣膠病毒量</td><td><strong>10⁶–10⁸·⁶ TCID₅₀</strong></td><td>10⁴–10⁵</td><td>10⁴–10⁵</td></tr>
+            <tr><td>病毒持續存在時間</td><td>&lt;28 天</td><td><strong>數年</strong></td><td>數個月</td></tr>
+            <tr><td>臨床症狀</td><td>發燒、口蹄水疱、跛行</td><td>發燒、水疱、流涎</td><td>輕微且多變</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">這些數字代表什麼</div>
+        <p>「增幅者」是指豬<strong>排出的病毒量最大</strong>（比牛羊多約 100 倍），但<strong>需要較多病毒才感染</strong>（10³）；「指示者」牛<strong>最容易被感染</strong>（只要 10 TCID₅₀），所以牛先出現症狀、可當警訊。反芻動物的帶毒者最長記錄：牛 3.5 年、綿羊 9 個月、山羊 4 個月、非洲水牛 5 年、水牛 2 個月；<strong>豬不會成為持續帶毒者</strong>（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=13">p.13</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=28">p.28</a>）。國考 110 年與 113 年就考這張表。</p>
+      </div>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p013.jpg" alt="豬、牛、羊的角色比較表（講義原圖，註明 2001 年英國疫情）。" loading="lazy"><div class="figure-caption">豬、牛、羊的角色比較表（講義原圖，註明 2001 年英國疫情）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=13">p.13</a></div></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p014.jpg" alt="FMD 在不同家畜的進展" loading="lazy"><div class="figure-caption">FMD 在不同家畜的進展：牛（A，鼻咽感染）、羊（B）、豬（C，口咽感染）；各階段為原發感染、臨床期、轉換期、持續期（Stenfeldt et al., 2025）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=14">p.14</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p016.jpg" alt="日本 2010 年疫情的感染場、移動管制區與疫苗接種區；右側文字說明" loading="lazy"><div class="figure-caption">日本 2010 年疫情的感染場、移動管制區與疫苗接種區；右側文字說明：疫苗接種的豬抵抗標準劑量攻毒，但接觸高濃度病毒的未接種豬時仍會被感染並傳給同室豬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=16">p.16</a></div></div>
+      </div>
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <p>FMDV 存在於急性感染動物的<strong>所有分泌物與排泄物</strong>，包括呼出的空氣、水疱液。</p>
+      <ul>
+        <li><strong>直接接觸（最常見）</strong>：鼻對鼻或皮膚接觸（<strong>豬</strong>）；吃入受污染或未煮熟的食物（<strong>餿水餵豬 swill feeding</strong>）；<strong>含 FMDV 的氣膠（&lt;20 km，豬傳牛）</strong>。</li>
+        <li><strong>間接</strong>：受污染的人員、車輛、產品等（豬）。</li>
+        <li>最常見的三條擴散途徑：<strong>感染動物的移動、餵食受污染的動物產品、受污染物或媒介的移動</strong>（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=33">p.33</a>）。</li>
+      </ul>
+      <h3>病毒穩定性<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>多數 FMDV 株在<strong>低溫與 pH 7–8</strong> 穩定；在環境中可保持感染力數週（依介質、起始濃度、濕度、溫度、pH 而異）。</li>
+        <li>對<strong>清潔劑與有機溶劑有抵抗力</strong>；<strong>鹼性、酸性與氧化性消毒劑有效</strong>。</li>
+        <li>豬屠體 4°C 保存 11 週仍可從水疱上皮分離到感染性病毒；死後肌肉 pH 下降，但骨髓、淋巴結與某些器官的 pH 不會 → <strong>豬屍體堆肥處理</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p017.jpg" alt="FMDV 穩定性" loading="lazy"><div class="figure-caption">FMDV 穩定性：pH 與死後肌肉酸鹼變化；紅框：豬屍體 4°C 11 週後仍分離到病毒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=17">p.17</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Picornaviral Diseases〉<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=2">p.2–17</a>。</footer>
+    </div>
+
+    <!-- FMD-PATH -->
+    <div class="section" id="section-fmd-path">
+      <div class="section-head"><div class="section-num">3</div><h2>口蹄疫：致病、臨床與病變 FMD Pathogenesis, Clinical Signs &amp; Lesions</h2></div>
+      <p class="section-desc">看到豬的口鼻或蹄冠水疱，要先當成 FMD；仔豬猝死要想到心肌炎。</p>
+      <h3>致病機制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>依宿主、劑量、病毒株、飼養條件而異。排毒：分泌物與水疱。</li>
+        <li><strong>入侵</strong>：<strong>咽黏膜</strong>（複製）→ 淋巴結 → <strong>病毒血症</strong> → 散播到次級部位（複製）；或經受損皮膚。<strong>豬經口咽，反芻動物經鼻咽</strong>（oro-pig vs naso-ruminants）。</li>
+        <li><strong>細胞受體</strong>：<strong>整合素（integrin）</strong>主要是 <strong>αvβ3 與 αvβ6——VP1</strong>；硫酸乙醯肝素（HS）——VP3（細胞培養適應株）；JMJD6——VP1 突變（細胞培養適應株）；巨噬細胞受體未知——VP1。</li>
+        <li><strong>潛伏期（latent period）短於臨床潛伏期（incubation period）</strong>：<strong>還沒有症狀就已經在排毒</strong>（latent &lt; incubation）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p018.jpg" alt="FMDV 在豬的致病" loading="lazy"><div class="figure-caption">FMDV 在豬的致病：原發病毒血症前期（口咽扁桃腺上皮）、臨床期（水疱病灶大量複製）、恢復期（Stenfeldt et al., 2016）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=18">p.18</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p019.jpg" alt="FMDV 與細胞受體" loading="lazy"><div class="figure-caption">FMDV 與細胞受體：整合素（αvβ3、αvβ6，VP1）、肝素、JMJD6（Kotecha et al., 2017）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=19">p.19</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p020.jpg" alt="豬實驗感染的時間軸" loading="lazy"><div class="figure-caption">豬實驗感染的時間軸：氣膠排毒與水疱出現同時、發生在病毒血症期；人為攻毒豬與同欄接觸豬的比較；抗體升高、病毒效價下降。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=20">p.20</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">為什麼這很重要</div>
+        <p>潛伏期短於臨床潛伏期，代表感染豬在看到水疱之前就已排毒（講義寫「沒症狀就在排毒」），所以<strong>靠看症狀才隔離常常來不及</strong>（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=20">p.20</a>）。</p>
+      </div>
+      <h3>典型臨床症狀<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>潛伏期依宿主、劑量、毒株、免疫而異；<strong>場間傳播（氣膠與間接接觸）約 14 天</strong>。</li>
+        <li><strong>發病率高（可達 100%），但死亡率通常低</strong>。</li>
+        <li>急性<strong>發燒</strong>。</li>
+        <li><strong>水疱</strong>出現在<strong>鼻、舌或唇、口腔內、趾間、蹄冠上方、乳頭，以及皮膚壓力點</strong>。</li>
+        <li><strong>沉鬱、流涎、咂嘴（chomping）、跛行、不願走動</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p022.jpg" alt="口蹄疫臨床" loading="lazy"><div class="figure-caption">口蹄疫臨床：豬口鼻、蹄冠水疱，牛舌水疱與口腔糜爛。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=22">p.22</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p024.jpg" alt="豬蹄病變進展" loading="lazy"><div class="figure-caption">豬蹄病變進展：左為接種後 2 天蹄冠水疱（紅箭頭），右為 24 天後上皮增生取代脫落的蹄部（Stenfeldt et al., 2016）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=24">p.24</a></div></div>
+      </div>
+      <h3>病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>棘層角質細胞氣球樣變性（ballooning degeneration）與嗜酸性增加</strong>。</li>
+        <li>受影響角質細胞壞死，繼之單核細胞與顆粒球浸潤。</li>
+        <li><strong>形成水疱</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p025.jpg" alt="FMD 皮膚病灶的組織病理與免疫螢光" loading="lazy"><div class="figure-caption">FMD 皮膚病灶的組織病理與免疫螢光：水疱內 FMDV VP1（紅）、細胞角蛋白（綠）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=25">p.25</a></div></div>
+      <h3>非典型表現：仔豬心肌炎（虎斑心）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>仔豬猝死，因心肌炎（老虎心 tiger heart）</strong>；也可流產。</li>
+        <li>講義特別標註：<strong>相對少見的病變，但國考愛考</strong>。</li>
+        <li>心臟表面<strong>多灶性蒼白</strong>（左右心室）；顯微為心肌壞死與碎裂，間質水腫與混合單核細胞浸潤。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p026.jpg" alt="FMDV 相關心肌炎的豬心" loading="lazy"><div class="figure-caption">FMDV 相關心肌炎的豬心：表面多灶性蒼白（左：心肌炎，右：正常）（Stenfeldt et al., 2025）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p027.jpg" alt="心肌顯微" loading="lazy"><div class="figure-caption">心肌顯微：間質水腫、混合單核細胞浸潤、心肌壞死碎裂；免疫組織化學在心肌細胞內見 FMDV（紅）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=27">p.27</a></div></div>
+      </div>
+      <h3>亞臨床感染<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>新生型亞臨床感染（neoteric SI）</strong>：感染早期沒有臨床症狀，但有口鼻分泌物排毒 → <strong>可傳染</strong>（疫苗、先前暴露或天然抵抗所致）。<strong>可能造成大量傳播</strong>。</li>
+        <li><strong>持續性亞臨床感染（persistent SI）</strong>（主要在反芻動物，<strong>豬不會</strong>）：臨床或亞臨床感染後的帶毒狀態；低度複製，幾乎沒有排毒；帶毒者的傳染力被認為很小；可能促成重組與病毒多樣性。</li>
+      </ul>
+      <footer class="note-footer">資料來源：課程講義〈Swine Picornaviral Diseases〉<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=18">p.18–28</a>。</footer>
+    </div>
+
+    <!-- FMD-DX -->
+    <div class="section" id="section-fmd-dx">
+      <div class="section-head"><div class="section-num">4</div><h2>口蹄疫：鑑別、診斷、DIVA、防治與疫苗 FMD Diagnosis, DIVA, Control &amp; Vaccination</h2></div>
+      <p class="section-desc">口蹄疫防治的難點：病灶不能靠肉眼區分、疫苗只能減少排毒、血清型多又沒有交叉保護。</p>
+      <h3>鑑別診斷：四種水疱性疾病<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>水疱性口炎（VS）</th><th>豬水疱疹（VES）</th><th>口蹄疫（FMD）</th><th>豬水疱病（SVD）</th><th>矽尼卡谷病毒（SVV）</th></tr></thead>
+          <tbody>
+            <tr><td>病毒科</td><td>Rhabdoviridae</td><td>Caliciviridae</td><td>Picornaviridae</td><td>Picornaviridae</td><td>Picornaviridae</td></tr>
+            <tr><td>自然宿主</td><td>馬、牛、豬（<strong>人畜共通</strong>）</td><td>豬</td><td>偶蹄類</td><td>豬</td><td>豬</td></tr>
+            <tr><td>流行區</td><td>美洲</td><td>已根除</td><td>非洲與亞洲</td><td>歐洲與亞洲（含台灣）</td><td>全球（含台灣）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>水疱病灶<strong>與 FMDV 感染引起的無法區分</strong>。</li>
+        <li><strong>豬的水疱性疾病在確診之前一律視為 FMD</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p029.jpg" alt="四種水疱性疾病的比較表（講義原圖）。" loading="lazy"><div class="figure-caption">四種水疱性疾病的比較表（講義原圖）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29</a></div></div>
+      <h3>實驗室診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>臨床症狀與病變不具診斷性</strong>（所有豬水疱性病毒病看起來都類似）。</li>
+        <li><strong>病毒檢測（水疱材料；生物安全第三級 BSL-3）</strong>：分離病毒——感受性細胞株 <strong>BHK-21、LFBK-αVβ6、IB-RS-2</strong>、電子顯微鏡；抗原——<strong>ELISA（確認＋血清型鑑定）</strong>；核酸——<strong>RT-PCR、RT-qPCR</strong>。</li>
+        <li><strong>血清學</strong>目的：①進出口個體證明（貿易）②確認疑似病例③估計感染盛行率或證明無感染④證明疫苗效力。方法：病毒中和、抗體 ELISA、<strong>偵測抗非結構蛋白（NSP）的抗體 → 區分感染與疫苗動物（DIVA）</strong>。</li>
+      </ul>
+      <div class="alert alert-success">
+        <div class="alert-label">DIVA 的整套邏輯（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=32">p.32</a>）</div>
+        <p><strong>DIVA 疫苗 ＋ DIVA 檢驗</strong>。要有一個「可選擇的標記抗原」：自然感染時<strong>抗原性好、持續久</strong>；接種疫苗後<strong>沒有免疫反應性</strong>。例：<strong>FMD 用 3A3B NSP</strong>；<strong>CSF 用 NS3</strong>；<strong>PR 與 IBR 用 gE</strong>。因為不活化的 FMD 疫苗只有結構蛋白（SP）、沒有非結構蛋白（NSP），所以驗到 NSP 抗體就是真的感染過。國考 109 年：「使用疫苗地區，可針對何種抗體進行監測，判定是否有野外病毒感染？」答案是<strong>非結構性蛋白</strong>。</p>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p030.jpg" alt="FMDV 在 BHK-21、LFBK-αVβ6 與 IB-RS-2 細胞的細胞病" loading="lazy"><div class="figure-caption">FMDV 在 BHK-21、LFBK-αVβ6 與 IB-RS-2 細胞的細胞病變（Armer et al., 2008）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=30">p.30</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p032.jpg" alt="DIVA" loading="lazy"><div class="figure-caption">DIVA：血清監測（VNT、LPBE、SPCE）把疫苗動物（只有結構蛋白抗體）與感染動物（另有非結構蛋白抗體）區分開來（Wong et al., 2016）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=32">p.32</a></div></div>
+      </div>
+      <h3>預防與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>最常見擴散途徑：移動感染動物、餵食受污染的動物產品、受污染物或媒介的移動。</li>
+        <li>控制：<strong>撲殺感染與疑似動物（stamping out）</strong> → <strong>移動管制與生物安全措施</strong> → <strong>±疫苗</strong>（全面接種或特定族群）→ <strong>持續監測</strong>。</li>
+        <li>台灣 114 年口蹄疫擴大監測：豬 215 場、草食動物 194 場，結果全部陰性（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=34">p.34</a>）。</li>
+      </ul>
+      <h3>疫苗<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>多數商業 FMD 疫苗是<strong>不活化疫苗，不阻止初次感染</strong>。</li>
+        <li>疫苗<strong>減少排毒、因此減緩傳播</strong>。</li>
+        <li>疫苗策略主要用於<strong>緊急使用，必須搭配嚴格生物安全</strong>（*2010 日本疫情）。</li>
+        <li>考量：<strong>七個血清型無或僅有限的交叉保護；容易擴散；保護反應只持續約 4–6 個月；8–12 週齡前有母源免疫干擾；接種動物可能發展為亞臨床感染</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p034.jpg" alt="台灣 114 年口蹄疫擴大監測結果統計表" loading="lazy"><div class="figure-caption">台灣 114 年口蹄疫擴大監測結果統計表：豬 215 場、草食動物 194 場，全部陰性（防檢署）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=34">p.34</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p036.jpg" alt="日本 2010 年疫情的疫苗策略" loading="lazy"><div class="figure-caption">日本 2010 年疫情的疫苗策略：紅字註記「不進不出、可進不出」；疫苗只能減緩擴散，最終感染與接種區的動物仍被撲殺。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=36">p.36</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p038.jpg" alt="理想 FMD 疫苗的特性" loading="lazy"><div class="figure-caption">理想 FMD 疫苗的特性：安全、免疫力強、長效無帶毒、快速、多價、不需高生物安全製造、可區分感染（DIVA）、不需冷鏈、便宜。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=38">p.38</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">2001 年英國疫情與疫苗（補充說明）</div>
+        <p>講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=40">p.40–41</a>（下圖）以英國 2001 年疫情說明「撲殺 vs 疫苗」的爭議：英國當時未使用疫苗，擔心疫苗會造成「帶毒者」延長疫情，這個說法後來被更正，但可以限制疫情的時機已經錯失（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=41">p.41</a>）。這是延伸閱讀，不是考點。</p>
+      </div>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p041.jpg" alt="英國 2001 年口蹄疫疫情中，關於是否使用疫苗的討論（講義原文）。" loading="lazy"><div class="figure-caption">英國 2001 年口蹄疫疫情中，關於是否使用疫苗的討論（講義原文）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=41">p.41</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Picornaviral Diseases〉<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29–41</a>。</footer>
+    </div>
+
+    <!-- SVD -->
+    <div class="section" id="section-svd">
+      <div class="section-head"><div class="section-num">5</div><h2>豬水疱病 Swine Vesicular Disease</h2></div>
+      <p class="section-desc">豬水疱病的臨床與 FMD <strong>無法區分，只是更輕</strong>。</p>
+      <h3>簡介與病毒<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>1966 年義大利首次報告；臨床與 FMD 無法區分的豬水疱病。</li>
+        <li>病原 SVDV <strong>被懷疑從人類腸病毒演化而來</strong>。</li>
+        <li>SVD 已<strong>自 WOAH 名錄移除</strong>。</li>
+        <li>講義引《Diseases of Swine》：「<strong>1997 年台灣口蹄疫爆發時，國內存在 SVDV 可能延誤了 FMD 病例的通報，這可能造成更多感染 FMDV 的豬場</strong>。」</li>
+        <li><strong>豬水疱病病毒（SVDV）</strong>：<em>Enterovirus</em> 屬，Picornaviridae 科；<strong>無封套</strong>、二十面體、30–32 nm；ssRNA(+)，7.4 kb；<strong>單一血清型，至少 4 個抗原變異</strong>；<strong>只有豬是自然宿主</strong>；<strong>非人畜共通</strong>。</li>
+      </ul>
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>感染豬可在<strong>出現臨床症狀前 48 小時</strong>排毒（latent &lt; incubation）。</li>
+        <li><strong>SVDV 在宿主外異常穩定</strong>。</li>
+        <li>移動亞臨床感染豬；直接接觸感染動物；接觸受污染環境（如排水系統）；<strong>圈欄間傳播（pen disease）</strong>。</li>
+        <li>吃入受污染食物（餿水）。</li>
+      </ul>
+      <h3>病毒穩定性<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>在<strong>廣泛 pH 範圍</strong>穩定；對清潔劑與有機溶劑有抵抗力。</li>
+        <li>在屍體與加工肉品中可<strong>感染數個月</strong>。</li>
+        <li><strong>只有 1% 氫氧化鈉（NaOH）能適當地不活化 SVDV</strong>。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：國考考過「水疱性疾病的病毒在環境中不易被一般消毒劑清除，故使其被名為『pen disease』」這類敘述（2019 期中考古），重點就是 SVDV 對常見消毒劑有抵抗力、經圈欄間傳播。</p>
+      <h3>致病機制<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>經<strong>皮膚或消化道黏膜</strong>進入；主要在<strong>上皮細胞</strong>複製。</li>
+        <li>病變主要在上皮組織，通常<strong>輕微或亞臨床</strong>。</li>
+        <li>嚴重度與<strong>年齡及環境條件</strong>（如潮濕的水泥地）有關；各株毒力因子不明。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p060.jpg" alt="SVDV 實驗感染小豬" loading="lazy"><div class="figure-caption">SVDV 實驗感染小豬：各組織病毒效價（上：神經組織與血漿；下：上皮與淋巴組織）；紅框標示病毒量高的部位。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=60">p.60</a></div></div>
+      <h3>臨床症狀與病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>潛伏期短；發病率不一、死亡率低。</li>
+        <li>症狀與 FMDV 感染<strong>類似但輕微得多</strong>：突然跛行、短暫發燒、<strong>蹄冠（通常在與蹄踵交界處）與趾間水疱</strong>、鼻吻周圍水疱（較少見）。</li>
+        <li>（<span style="text-decoration:line-through;">仔豬猝死與母豬流產</span>——講義將此列為「<strong>不是 SVD 的特徵</strong>」）。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p062.jpg" alt="SVD 病灶" loading="lazy"><div class="figure-caption">SVD 病灶：鼻、蹄冠與趾間水疱（CABI）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=62">p.62</a></div></div>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p063.jpg" alt="豬水疱病的鑑別診斷表（與上一節四種水疱性疾病比較）。" loading="lazy"><div class="figure-caption">豬水疱病的鑑別診斷表（與上一節四種水疱性疾病比較）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=63">p.63</a></div></div>
+      <h3>診斷與防治<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>病毒檢測（水疱材料）：病毒顆粒（電顯、分離）、抗原（ELISA）、核酸（RT-PCR；<strong>亞臨床病例可驗糞便樣本</strong>）。血清學：病毒中和、ELISA。</li>
+        <li><strong>目前沒有商業疫苗</strong>。</li>
+        <li>預防：嚴格衛生、<strong>禁止餿水餵豬</strong>、例行監測、<strong>撲殺所有感染與接觸豬</strong>。</li>
+      </ul>
+      <footer class="note-footer">資料來源：課程講義〈Swine Picornaviral Diseases〉<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=54">p.54–66</a>。</footer>
+    </div>
+
+    <!-- SVV -->
+    <div class="section" id="section-svv">
+      <div class="section-head"><div class="section-num">6</div><h2>矽尼卡谷病毒感染症 Seneca Valley Virus</h2></div>
+      <p class="section-desc">SVV 是近年快速演化、全球散播的<strong>新興豬水疱性疾病</strong>；台灣已有案例。</p>
+      <h3>簡介與病毒<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>2002 年</strong>培養 PER.C6 細胞（永生化初代人類視網膜細胞）時，意外發現為培養液的污染物。</li>
+        <li>序列分析顯示 SVV 自 <strong>1988 年起就在美國豬群流行</strong>，可能 1985 年出現。</li>
+        <li>SVV 是人類癌症的<strong>溶瘤病毒治療（oncolytic virotherapy）</strong>候選。</li>
+        <li><strong>矽尼卡谷病毒（Senecavirus A）</strong>：<em>Senecavirus</em> 屬，Picornaviridae 科；<strong>無封套</strong>、二十面體、約 30 nm；ssRNA(+)，約 7.3 kb；<strong>單一血清型 SVV-1</strong>；<strong>只有豬是自然宿主</strong>；<strong>非人畜共通</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p071.jpg" alt="SVV 病毒顆粒與基因體" loading="lazy"><div class="figure-caption">SVV 病毒顆粒與基因體：(a) 電鏡 (b)(c) 衣殼結構 (d) 基因體（Liu et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=71">p.71</a></div></div>
+      <ul>
+        <li><strong>傳播途徑尚未證實</strong>：可能是直接接觸與糞口；一項研究顯示<strong>小鼠</strong>可帶有活病毒（小腸與糞便），<strong>蒼蠅</strong>可帶有病毒核酸。</li>
+        <li><strong>受體：炭疽毒素受體 1（ANTXR1）</strong>，介導在晚期內體的脫殼；沒有已知的病毒毒力因子。</li>
+      </ul>
+      <h3>臨床、病變與診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>潛伏期短；<strong>發病率通常高，但死亡率低（&lt;1 週齡仔豬例外）</strong>。</li>
+        <li>臨床與水疱病灶<strong>無法與 FMDV 感染區分</strong>：<strong>跛行與昏睡、發燒、鼻與蹄冠水疱與糜爛</strong>、新生仔豬下痢、虛弱與死亡率增加。</li>
+        <li>病毒檢測：電顯、分離；抗原 ELISA、IHC；核酸 RT-PCR、RT-qPCR、ISH。血清學：病毒中和、ELISA。</li>
+        <li><strong>目前沒有商業疫苗</strong>；預防靠嚴格生物安全與例行監測。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p072.jpg" alt="SVV 全球傳播" loading="lazy"><div class="figure-caption">SVV 全球傳播：美國、加拿大、巴西、中國、泰國、哥倫比亞等（Gao et al., 2022）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=72">p.72</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p076.jpg" alt="SVV 感染豬的臨床" loading="lazy"><div class="figure-caption">SVV 感染豬的臨床：鼻吻部與蹄冠水疱與糜爛（中國福建 2017）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=76">p.76</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p077.jpg" alt="SVV 在鼻吻與舌壞死病灶的分布" loading="lazy"><div class="figure-caption">SVV 在鼻吻與舌壞死病灶的分布：HE 染色與原位雜交（紅點）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=77">p.77</a></div></div>
+      <h3>台灣案例（2012 年 12 月，花蓮）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>病史與症狀</td><td>花蓮縣一貫式豬場，在養 1,342 頭；12/22 通報，<strong>上市肉豬</strong>蹄部水疱；肉豬舍 8 欄（<strong>7 月齡</strong>肉豬 164 頭）<strong>45/164（27%）走動困難，鼻鏡與腳蹄病變</strong></td></tr>
+            <tr><td>組織病變</td><td>鼻鏡：角質層增厚、角化過度、角化不全、局部糜爛、附著壞死細胞碎屑。蹄冠：表皮外層壞死、棘細胞增生腫脹空泡化形成水疱、皮釘深入真皮</td></tr>
+            <tr><td>實驗室診斷</td><td>血清學 ELISA 抗體——<strong>FMD 與 SVD 陰性</strong>；RT-PCR——<strong>FMD、SVD、水疱性口炎（VS）、豬水疱疹（VES）都陰性</strong>；EBK（胚胎牛腎）細胞分離病毒；Ag-ELISA FMD、SVD 陰性；電顯見<strong>無封套二十面體顆粒，25 nm（Picornavirus）</strong>；非預期核酸片段定序，<strong>與 SVV 序列相似度 98%</strong></td></tr>
+            <tr><td>疫情控制</td><td>12/22 採樣送驗、移動管制，依「口蹄疫防疫作業標準」對疑患與同欄豬隻<strong>當日預防性撲殺</strong>（4 欄 107 頭，45 頭有水疱病灶）；12/23 完成撲殺並全場補強一劑口蹄疫疫苗；環境消毒；3 公里內偶蹄類動物場訪視皆無異狀</td></tr>
+            <tr><td>後續</td><td><strong>台灣首例 SVV 感染症</strong>；SVV 僅發現於成豬，沒有哺乳或仔豬感染病例；單純 SVV 感染的流行病學調查<strong>致死率 0%</strong>；自然宿主與致病機轉不明，有報告指出可經餵飼被<strong>鼠科動物</strong>污染的飼料感染、經運輸車輛散播 → 推測傳播源為老鼠；<strong>非 OIE 名錄疾病</strong></td></tr>
+            <tr><td>影響</td><td>SVV 資訊納入水疱性疾病基層防疫宣導；防檢局修訂「口蹄疫防疫作業標準」中水疱性病原的實驗室診斷鑑定程序；<strong>2018 年 4 月（清明節）台南肉品市場繫留欄</strong>，2 隻肉豬出現水疱症狀，病毒分離與分子診斷確認為<strong>台灣第二例 SVV</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p081.jpg" alt="新聞" loading="lazy"><div class="figure-caption">新聞：花蓮縣首例豬隻疑似水疱性疾病（畜衛所訊）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=81">p.81</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p083.jpg" alt="病史與臨床症狀" loading="lazy"><div class="figure-caption">病史與臨床症狀：鼻鏡水疱結痂、蹄冠水疱潰爛。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=83">p.83</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p084.jpg" alt="組織病變（一）" loading="lazy"><div class="figure-caption">組織病變（一）：鼻鏡角質層增厚、局部糜爛。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=84">p.84</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p085.jpg" alt="組織病變（二）" loading="lazy"><div class="figure-caption">組織病變（二）：蹄冠表皮壞死、棘細胞空泡化形成水疱。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=85">p.85</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p086.jpg" alt="實驗室診斷（一）" loading="lazy"><div class="figure-caption">實驗室診斷（一）：血清學與分子檢測對 FMD、SVD 陰性；電顯 25 nm 二十面體顆粒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=86">p.86</a></div></div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_p087.jpg" alt="實驗室診斷（二）" loading="lazy"><div class="figure-caption">實驗室診斷（二）：非預期片段定序，與 SVV 相似度 98%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=87">p.87</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Picornaviral Diseases〉<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=68">p.68–91</a>（台灣案例：花蓮縣動植物防疫所、家畜衛生試驗所、臺大高啓霏）。</footer>
+    </div>
+
+    <!-- NATEXAM -->
+    <div class="section" id="section-natexam">
+      <div class="section-head"><div class="section-num">7</div><h2>講義所附歷屆國考題 National Exam Questions</h2></div>
+      <p class="section-desc">講義附的國考題<strong>沒有標答案</strong>，下列答案是依講義內容推得，並用<strong>阿摩線上測驗（yamol）</strong>的作答票數與網友詳解核對過幾題（109 年 FMD 複選 ①④、110 年 FMD、O/Taiwan/99；票數最高者與我的答案一致，官方答案欄需登入才看得到，屬旁證）。先自己作答，再點「顯示答案」。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">（講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=42">p.42</a>，年度未標）</span>
+        <div class="quiz-q">下列何種豬水疱性傳染病會感染人？</div>
+        <ul class="quiz-options">
+          <li>(A) Seneca Valley virus infection</li>
+          <li>(B) swine vesicular disease</li>
+          <li>(C) vesicular stomatitis</li>
+          <li>(D) vesicular exanthema of swine</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對：講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29</a> 的比較表在水疱性口炎（Rhabdoviridae）下標註 <strong>zoonosis</strong>。<br>(A)(B) 錯：SVV 與 SVD 都「非人畜共通」（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=56">p.56</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=70">p.70</a>）。<br>(D) 錯：水疱疹（Caliciviridae）已根除，不是人畜共通。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">109 年國考（獸醫傳染病學）</span>
+        <div class="quiz-q">在使用口蹄疫疫苗地區，可針對下列那一 ELISA 抗體進行監測，以判定是否有野外病毒之感染？</div>
+        <ul class="quiz-options">
+          <li>(A) 結構性蛋白 VP1</li>
+          <li>(B) 結構性蛋白 VP2</li>
+          <li>(C) 結構性蛋白 VP4</li>
+          <li>(D) 非結構性蛋白</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對：<strong>NSP 抗體</strong>可區分感染與疫苗動物（DIVA，<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=31">p.31–32</a>）；不活化疫苗只含結構蛋白。<br>(A)(B)(C) 錯：結構蛋白抗體疫苗接種後也會有。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">109 年國考（獸醫傳染病學）</span>
+        <div class="quiz-q">口蹄疫病毒 O TAIWAN 99 會感染下列何種動物？</div>
+        <ul class="quiz-options">
+          <li>(A) 僅感染牛及羊</li>
+          <li>(B) 僅感染羊及豬</li>
+          <li>(C) 僅感染豬</li>
+          <li>(D) 牛、羊及豬均會感染</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對：O/Taiwan/99 為<strong>泛亞型</strong>，牛、羊、豬都感染（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=7">p.7</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=11">p.11</a>）。<br>(C) 是 O/Taiwan/97（親豬型）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">109 年國考（獸醫公共衛生學）</span>
+        <div class="quiz-q">關於口蹄疫之敘述，下列何者正確？①感染偶蹄動物，例如：牛，羊，豬 ②此病毒為單一血清型 ③為傳染力低的病原 ④人類對此病毒感受性不高，但扮演此病毒攜帶者之角色</div>
+        <ul class="quiz-options">
+          <li>(A) ①②</li>
+          <li>(B) ①④</li>
+          <li>(C) ②③</li>
+          <li>(D) ③④</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">依講義推得 (B)：① 對：偶蹄類（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=6">p.6</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=12">p.12</a>）。② 錯：<strong>7 個血清型</strong>（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=6">p.6</a>）。③ 錯：高傳染力（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=3">p.3</a>）。④ 講義寫 FMD 非人畜共通（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=6">p.6</a>），並提到污染的人員、車輛可間接傳播（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=15">p.15</a>），故人員可機械性攜帶（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">109 年國考（獸醫病理學）</span>
+        <div class="quiz-q">有關水泡性疾病（如：口蹄疫、水泡性口炎、水泡疹與豬水泡病），何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 四種的水泡性疾病，由病理變化無法區別</li>
+          <li>(B) 口蹄疫可感染牛、羊、豬及馬</li>
+          <li>(C) 水泡疹可感染牛及馬</li>
+          <li>(D) 豬水泡病與水泡性口炎同屬一個病毒群</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對：水疱病灶無法區分（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29</a>）。<br>(B) 錯：FMD 感染偶蹄類，馬不是（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=12">p.12</a>）；水疱性口炎才會感染馬。<br>(C) 錯：水疱疹只感染豬（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29</a>）。<br>(D) 錯：SVD 是 Picornaviridae、VS 是 Rhabdoviridae（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">110 年國考（獸醫傳染病學）</span>
+        <div class="quiz-q">下列有關口蹄疫之敘述，何者最正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 牛為口蹄疫病毒最主要增幅者</li>
+          <li>(B) 經呼吸道感染，牛比豬需更高的最低感染劑量才能有效感染</li>
+          <li>(C) 在一般情形下口蹄疫病毒可進行長距離空氣傳播</li>
+          <li>(D) 口蹄疫病毒感染每隻每天經由呼吸道排出之病毒量，豬較牛多</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對：豬排毒 10⁶–10⁸·⁶ TCID₅₀、牛 10⁴–10⁵（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=13">p.13</a>）。<br>(A) 錯：<strong>豬</strong>才是增幅者，牛是指示者。<br>(B) 錯：牛只要 10 TCID₅₀，豬要 10³，牛需要<strong>較低</strong>的劑量。<br>(C) 錯：氣膠傳播距離講義寫 &lt;20 km（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=15">p.15</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">113 年國考（獸醫傳染病學）</span>
+        <div class="quiz-q">口蹄疫病毒有 7 個血清型，下列何者非口蹄疫病毒之血清型？</div>
+        <ul class="quiz-options">
+          <li>(A) O 型</li>
+          <li>(B) A 型</li>
+          <li>(C) Asia 1 型</li>
+          <li>(D) D 型</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 不是，所以選它：7 個血清型是 A、O、C、SAT1、SAT2、SAT3、Asia 1（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=6">p.6</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">113 年國考（講義重複放了兩次同一題）</span>
+        <div class="quiz-q">口蹄疫病毒有 7 個血清型，下列何者非口蹄疫病毒之血清型？</div>
+        <ul class="quiz-options">
+          <li>(A) O 型</li>
+          <li>(B) A 型</li>
+          <li>(C) Asia 1 型</li>
+          <li>(D) D 型</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">同上題。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">113 年國考（獸醫傳染病學）</span>
+        <div class="quiz-q">下列何動物在感染口蹄疫病毒後之平均帶毒時間最長？</div>
+        <ul class="quiz-options">
+          <li>(A) 豬</li>
+          <li>(B) 牛</li>
+          <li>(C) 綿羊</li>
+          <li>(D) 山羊</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對：牛數年（最長記錄 3.5 年）；綿羊 9 個月、山羊 4 個月；豬 &lt;28 天（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=13">p.13</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">113 年國考（獸醫傳染病學）</span>
+        <div class="quiz-q">口蹄疫病毒 O TAIWAN 97 會感染下列何種動物？</div>
+        <ul class="quiz-options">
+          <li>(A) 僅感染牛及羊</li>
+          <li>(B) 僅感染羊及豬</li>
+          <li>(C) 僅感染豬</li>
+          <li>(D) 牛、羊及豬均會感染</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對：O/Taiwan/97 是<strong>親豬型</strong>，只感染豬（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=7">p.7</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=11">p.11</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">113 年國考（獸醫病理學）</span>
+        <div class="quiz-q">仔豬口蹄疫引起下圖心臟病變，稱之為：</div>
+        <div class="figure"><img src="img/week04_小RNA病毒科疾病/pc_q052.jpg" alt="國考題附圖" loading="lazy"><div class="figure-caption">113 年國考題附圖：仔豬心臟表面蒼白病灶（紅箭頭）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=52">p.52</a></div></div>
+        <ul class="quiz-options">
+          <li>(A) white muscle disease</li>
+          <li>(B) cor villosum</li>
+          <li>(C) shaggy heart</li>
+          <li>(D) tiger heart</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對：仔豬 FMD 心肌炎，心臟表面蒼白斑，稱虎斑心（tiger heart）（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=26">p.26</a>）。<br>(A) 白肌病是硒與維生素 E 缺乏。<br>(B) cor villosum（絨毛心）是纖維素性心包炎的絨毛狀外觀。<br>(C) shaggy heart 是纖維素性心外膜炎的另一說法（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">112 年國考（獸醫病理學）</span>
+        <div class="quiz-q">有關水泡性疾病，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 口蹄疫病毒主要感染偶蹄類動物，但可能出現僅感染豬之型別，如 O/Taiwan/97</li>
+          <li>(B) 水泡性口炎（vesicular stomatitis），只會發生於豬及反芻動物，不會發生在馬</li>
+          <li>(C) 口蹄疫病毒因血管炎，導致炎症滲出液蓄積於表皮細胞</li>
+          <li>(D) 豬水泡病（swine vesicular disease）為高傳染性及高致死性傳染病</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對：O/Taiwan/97 是親豬型（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=11">p.11</a>）。<br>(B) 錯：水疱性口炎也會發生於馬（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29</a>）。<br>(C) 錯：FMD 水疱是棘層角質細胞氣球樣變性與壞死形成（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=25">p.25</a>），不是血管炎。<br>(D) 錯：SVD 症狀輕微、死亡率低。</p>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine Picornaviral Diseases〉<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=42">p.42–52</a>、66；答案依講義內容推得。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">8</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調與國考題<strong>推測</strong>的出題方向，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>FMD 病毒特性</td><td>Aphthovirus、無封套 ssRNA(+)、7 血清型無交叉保護、偶蹄類、非人畜共通</td></tr>
+            <tr><td>豬牛羊角色（表格題）</td><td>豬＝增幅者（排毒最多、&lt;28 天）、牛＝指示者（最易感、數年）、羊＝維持者（數月）</td></tr>
+            <tr><td>台灣 FMD 史</td><td>1997 O/Taiwan/97 親豬型 → 1999 O/Taiwan/99 泛亞型 → 2018 停止施打 → 2020 WOAH 非疫區</td></tr>
+            <tr><td>傳播</td><td>直接接觸、餿水、氣膠（&lt;20 km）、污染人車；潛伏期短於臨床潛伏期</td></tr>
+            <tr><td>臨床與病變</td><td>水疱、跛行；棘層氣球樣變性；仔豬虎斑心（國考愛考）</td></tr>
+            <tr><td>水疱性疾病鑑別</td><td>FMD、SVD、SVV（小 RNA）、VES（Calici）、VS（Rhabdo；人畜共通）；一律先當 FMD</td></tr>
+            <tr><td>診斷與 DIVA</td><td>BSL-3；水疱材料；BHK-21 等細胞；ELISA、RT-PCR；NSP（3A3B）區分感染與疫苗</td></tr>
+            <tr><td>FMD 疫苗</td><td>不活化苗、不阻止初次感染、減少排毒；保護 4–6 月；母源干擾 8–12 週；緊急使用</td></tr>
+            <tr><td>SVD</td><td>Enterovirus、單一血清型；1% NaOH；pen disease；台灣 1997 延誤 FMD 通報</td></tr>
+            <tr><td>SVV</td><td>新興；受體 ANTXR1；台灣 2012 花蓮首例、2018 台南第二例；鼠為疑似傳播源</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。最後 2 題是臨床情境題。</p>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 在流行病學上，「豬」在口蹄疫中的角色是？</div>
+        <ul class="quiz-options">
+          <li>(A) 指示者（indicator）</li>
+          <li>(B) 增幅者（amplifier）</li>
+          <li>(C) 維持者（maintenance）</li>
+          <li>(D) 終端宿主</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=13">p.13</a>：豬排毒量最大，是增幅者；牛是指示者；羊是維持者。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 下列何者「不是」DIVA 標記抗原的配對？</div>
+        <ul class="quiz-options">
+          <li>(A) FMD：3A3B NSP</li>
+          <li>(B) CSF：NS3</li>
+          <li>(C) PR：gE</li>
+          <li>(D) PRRS：GP5</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=32">p.32</a>：FMD 用 3A3B NSP、CSF 用 NS3、PR 與 IBR 用 gE。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. FMD 疫苗的限制，何者「不正確」？</div>
+        <ul class="quiz-options">
+          <li>(A) 多為不活化疫苗，不阻止初次感染</li>
+          <li>(B) 只能減少排毒</li>
+          <li>(C) 保護反應可持續 3 年</li>
+          <li>(D) 7 個血清型有限或無交叉保護</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=35">p.35–37</a>：保護反應只持續約 4–6 個月。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. SVD 病毒在環境中非常穩定，講義指出下列哪個消毒劑才能適當不活化？</div>
+        <ul class="quiz-options">
+          <li>(A) 酒精</li>
+          <li>(B) 1% 氫氧化鈉</li>
+          <li>(C) 季銨鹽</li>
+          <li>(D) 碘伏</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=58">p.58</a>。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 豬是 FMDV 的持續帶毒者，可以像牛一樣帶毒數年。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">豬病毒持續 &lt;28 天；持續帶毒主要在反芻動物（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=13">p.13</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=28">p.28</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. 水疱性口炎（VS）是四種水疱性疾病中唯一人畜共通的。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29</a> 的比較表。</p>
+        </details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q7.【臨床情境】冬季，某肥育豬場發現數頭豬突然跛行、不願站立，口鼻與蹄冠有水疱，部分水疱已破潰；兩天內多欄豬都出現類似症狀；體溫升高。有一窩仔豬幾頭突然猝死，剖檢心臟表面有蒼白斑。(1) 現場第一時間怎麼處理？(2) 仔豬猝死的病變叫什麼？(3) 怎麼確診、為什麼要送哪些樣本？(4) 需要和哪些病鑑別？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 豬的水疱性疾病在確診前<strong>一律視為口蹄疫</strong>：立即通報防疫機關、場內封鎖與移動管制、人車消毒；<strong>不要自行採樣帶出場</strong>，依官方程序送驗（FMD 病毒檢驗需 BSL-3，<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=30">p.30</a>）。<br><strong>(2)</strong> 虎斑心（tiger heart）：仔豬 FMD 心肌炎（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=26">p.26</a>）。<br><strong>(3)</strong> 水疱液、水疱上皮等水疱材料：病毒分離（BHK-21 等）、抗原 ELISA（確認並分型）、RT-PCR；血清學驗 NSP 抗體以區分感染與疫苗（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=30">p.30–32</a>）。<br><strong>(4)</strong> SVD、SVV、豬水疱疹（VES）、水疱性口炎（VS，人畜共通）；臨床與病變無法區分，要靠實驗室（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=29">p.29</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=63">p.63</a>、<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=78">p.78</a>）。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q8.【臨床情境】台灣某豬場上市肉豬（7 月齡）有一欄 27% 走動困難，鼻鏡與蹄冠有水疱與糜爛，成年豬以外的哺乳仔豬都正常；送驗結果：FMD、SVD、VS、VES 的 ELISA 與 RT-PCR 全部陰性，細胞分離的病毒電顯為 25 nm 無封套二十面體顆粒，定序與 SVV 相似度 98%。(1) 診斷？(2) 為什麼這個案例對防疫重要？(3) 傳播來源可能是什麼？(4) 這個病有疫苗嗎？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 矽尼卡谷病毒感染症（SVV），台灣 2012 年首例（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=81">p.81–89</a>）。<br><strong>(2)</strong> 臨床與已知四種水疱性疾病無法區分，必須靠實驗室診斷；因此防檢局修訂了「口蹄疫防疫作業標準」中水疱性病原的實驗室鑑定程序（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=89">p.89–90</a>）。<br><strong>(3)</strong> 自然宿主與致病機轉不明；報告指出可經餵飼被鼠科動物污染的飼料感染、經運輸車輛散播，本案推測傳播源為老鼠，針對此防治（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=89">p.89</a>）。<br><strong>(4)</strong> 沒有商業疫苗，靠嚴格生物安全與例行監測（<a class="pdf-link" href="pdf/小RNA病毒科疾病.pdf#page=80">p.80</a>）。</p></details></div>
+
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  'abstract': '大方向與重點摘要',
+  'fmd-a': '口蹄疫：病毒、流行病學與傳播',
+  'fmd-path': '口蹄疫：致病、臨床與病變',
+  'fmd-dx': '口蹄疫：診斷、DIVA、防治與疫苗',
+  'svd': '豬水疱病（SVD）',
+  'svv': '矽尼卡谷病毒感染症（SVV）',
+  'natexam': '講義所附歷屆國考題',
+  'exam': '考試方向（推測）',
+  'quiz': '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

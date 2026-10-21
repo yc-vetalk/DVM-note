@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豬病毒性疾病 (II)：PCVAD／PRRS／豬小病毒／輪狀病毒／豬用疫苗 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">豬病學</a><span class="sep">›</span><span class="current">第 3 週・豬病毒性疾病 (II)</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">豬病毒性疾病 (II)</h1>
+      <p class="page-subtitle">Swine Viral Diseases (II) · 豬環狀病毒相關疾病、豬生殖與呼吸綜合症、豬小病毒感染症、豬輪狀病毒感染症、豬隻疫苗接種</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">豬病學（大四上・第3週・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《豬病學》課程講義〈Swine viral diseases (II)〉（張家宜老師，2026-09-24）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-21</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/病毒性疾病II.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 大方向與重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬環狀病毒 PCVAD</div>
+    <a onclick="showSection('pcv-virus')" id="nav-pcv-virus">
+      <span class="nav-icon">🧬</span> 病毒、基因型與流行病學
+    </a>
+    <a onclick="showSection('pcv-path')" id="nav-pcv-path">
+      <span class="nav-icon">🩸</span> 傳播、致病、臨床與病變
+    </a>
+    <a onclick="showSection('pcv-dx')" id="nav-pcv-dx">
+      <span class="nav-icon">🔬</span> 診斷、免疫與控制
+    </a>
+    <div class="section-label" style="margin-top:8px;">生殖與呼吸綜合症 PRRS</div>
+    <a onclick="showSection('prrs-virus')" id="nav-prrs-virus">
+      <span class="nav-icon">🦠</span> 病毒、分型與傳播
+    </a>
+    <a onclick="showSection('prrs-path')" id="nav-prrs-path">
+      <span class="nav-icon">🫁</span> 致病、臨床、病變與免疫
+    </a>
+    <a onclick="showSection('prrs-dx')" id="nav-prrs-dx">
+      <span class="nav-icon">🧪</span> 診斷、控制與疫苗
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬小病毒 PPV</div>
+    <a onclick="showSection('ppv')" id="nav-ppv">
+      <span class="nav-icon">🤰</span> 豬小病毒感染症
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬輪狀病毒 Rotavirus</div>
+    <a onclick="showSection('rv-a')" id="nav-rv-a">
+      <span class="nav-icon">💧</span> 病毒、流行病學與臨床
+    </a>
+    <a onclick="showSection('rv-b')" id="nav-rv-b">
+      <span class="nav-icon">🍼</span> 診斷、免疫與控制
+    </a>
+    <div class="section-label" style="margin-top:8px;">豬隻疫苗 Vaccination</div>
+    <a onclick="showSection('vacc')" id="nav-vacc">
+      <span class="nav-icon">💉</span> 豬隻疫苗接種
+    </a>
+    <div class="section-label" style="margin-top:8px;">比較與考試</div>
+    <a onclick="showSection('compare')" id="nav-compare">
+      <span class="nav-icon">⚖️</span> 鑑別比較
+    </a>
+    <a onclick="showSection('kaogu')" id="nav-kaogu">
+      <span class="nav-icon">📜</span> 期中考古題
+    </a>
+    <a onclick="showSection('exam')" id="nav-exam">
+      <span class="nav-icon">🎯</span> 考試方向（推測）
+    </a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('summary')" id="nav-summary">
+      <span class="nav-icon">⭐</span> 學習重點整理
+    </a>
+    <a onclick="showSection('quiz')" id="nav-quiz">
+      <span class="nav-icon">📝</span> 練習題
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">病毒性疾病 (II) 的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>四個全球普遍存在（endemic）的豬病毒：<strong>豬環狀病毒相關疾病（Porcine circovirus-associated disease, PCVAD）</strong>、<strong>豬生殖與呼吸綜合症（Porcine reproductive and respiratory syndrome, PRRS）</strong>、<strong>豬小病毒感染症（Porcine parvovirus, PPV）</strong>、<strong>豬輪狀病毒感染症（Porcine rotavirus, RV）</strong>，最後一段是豬用疫苗的原則。</dd>
+          <dt>為什麼重要</dt>
+          <dd>PCV2 被視為全球養豬業最重要的病原之一；PRRS 在美國每年造成約 <strong>12 億美元</strong>損失。這幾個病的共同主題是「<strong>感染很普遍，但不是每頭都發病</strong>」：混合感染、年齡、母源免疫、管理決定了會不會變成臨床病。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-pcv-virus">PCV 四型</a>：PCV1 不致病（PK-15 細胞污染物）、<strong>PCV2 最重要</strong>（2a→2b→2d 兩次基因型轉換）、PCV3 與蝙蝠環狀病毒相關、PCV4 與水貂環狀病毒相關；ORF2 衣殼蛋白是次單位疫苗抗原。</li>
+              <li><a href="#section-pcv-path">PCVAD 病型</a>：PCV2-SD（PMWS，消耗、淋巴耗竭）、PCV2-RD、<strong>PDNS</strong>（8–18 週齡、後肢會陰紅紫色斑、腎腫大蒼白）、亞臨床；PCV2-SD 是<strong>多因子疾病</strong>。</li>
+              <li><a href="#section-pcv-dx">PCVAD 診斷</a>：PCV2-SD 三條件（臨床＋淋巴組織病變＋病灶內大量 PCV2）；<strong>PDNS 診斷不需要驗到 PCV2</strong>；PCR 陽性不等於 PCVAD。</li>
+              <li><a href="#section-prrs-virus">PRRSV</a>：Arteriviridae、有封套 (+)ssRNA；<strong>GP5、M、N</strong> 三大結構蛋白；PRRSV-1（歐洲）、PRRSV-2（美洲、亞洲、台灣）；2006 年中國 HP-PRRS。</li>
+              <li><a href="#section-prrs-path">PRRS 致病與免疫</a>：標的細胞是<strong>巨噬細胞</strong>（PAMs）；非中和抗體（N 蛋白）7–14 天就出現，<strong>中和抗體（GP5）3–4 週才出現</strong>；持續感染、準種（quasispecies）、演化速度 10⁻² substitutions/site/year。</li>
+              <li><a href="#section-ppv">PPV1 的 SMEDI</a>：35 天前胚胎死亡吸收、<strong>35–70 天胎兒死亡木乃伊化</strong>、70 天後胎兒有免疫力；<strong>同一窩有正常仔豬與大小不一的木乃伊胎</strong>高度懷疑 PPV1。</li>
+              <li><a href="#section-rv-a">輪狀病毒</a>：分段 dsRNA、無封套；G＝VP7、P＝VP4；空腸迴腸絨毛萎縮；<strong>RVA</strong> 最普遍、人畜共通潛力最大、商業疫苗只有 RVA；保護靠<strong>乳汁 IgA</strong>。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd>
+            <ul style="margin:0; padding-left:1.2em;">
+              <li><strong>PCV2 是單股環狀 DNA</strong>；PPV 是單股線狀 DNA；PRRSV 是單股正股 RNA（有封套）；輪狀病毒是分段雙股 RNA。</li>
+              <li><strong>PRRS 早期抗體沒有中和力</strong>：ELISA 陽性不代表有保護。</li>
+              <li><strong>PCV2 疫苗不保護 PCV3、PCV4</strong>；PRRS 疫苗對異源株保護不完全；PPV 不活化疫苗擋住疾病但不一定擋住感染。</li>
+              <li><strong>輪狀病毒 IgG 主要來自初乳、IgA 持續來自乳汁</strong>。</li>
+            </ul>
+          </dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+
+      <h3>四個病的主線<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>病原</th><th>主要受害</th><th>一句話特徵</th><th>代表圖</th></tr></thead>
+          <tbody>
+            <tr><td>PCVAD</td><td>PCV2（Circoviridae，ssDNA 環狀，無封套）</td><td>離乳後豬</td><td>消耗、淋巴耗竭；PDNS 後肢會陰紅紫色斑</td><td style="width:170px;"><a href="#section-pcv-path"><img src="img/week03_豬病毒性疾病II/v2_thumb_p035.jpg" alt="PDNS" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">PDNS 皮膚病灶（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=35">p.35</a>）</div></td></tr>
+            <tr><td>PRRS（藍耳病）</td><td>PRRSV（Arteriviridae，(+)ssRNA，有封套）</td><td>母豬生殖、仔豬呼吸</td><td>流產死產、呼吸困難、斑駁不塌陷的肺；持續感染</td><td style="width:170px;"><a href="#section-prrs-path"><img src="img/week03_豬病毒性疾病II/v2_thumb_p089.jpg" alt="PRRS 肺" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">斑駁、黃褐與紅色的肺（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=89">p.89</a>）</div></td></tr>
+            <tr><td>豬小病毒感染症</td><td>PPV1（Parvoviridae，ssDNA 線狀，無封套）</td><td>懷孕女豬、年輕母豬</td><td>SMEDI；同窩大小不一的木乃伊胎</td><td style="width:170px;"><a href="#section-ppv"><img src="img/week03_豬病毒性疾病II/v2_thumb_p129.jpg" alt="木乃伊胎" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">木乃伊胎（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=129">p.129</a>）</div></td></tr>
+            <tr><td>豬輪狀病毒感染症</td><td>RV（Sedoreoviridae，分段 dsRNA，無封套）</td><td>新生與哺乳仔豬</td><td>黃色水樣下痢、空腸迴腸絨毛萎縮</td><td style="width:170px;"><a href="#section-rv-a"><img src="img/week03_豬病毒性疾病II/v2_thumb_p160.jpg" alt="輪狀病毒下痢" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">下痢仔豬（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=160">p.160</a>）</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">閱讀說明</div>
+        <p>內容以老師講義為主，章節順序跟講義一致。標「補充」的是講義以外的延伸，標「推測」的是個人推論。這份講義沒有附國考題。學長姐筆記提到張家宜老師的題目常出在<strong>講義畫底線的地方</strong>，所以本頁把講義有底線的內容標為「必考」並加粗。點任何「p.N」可在右側開啟講義對照。</p>
+      </div>
+      <footer class="note-footer">資料來源：《豬病學》課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=1">p.1–2</a>。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
+    </div>
+
+    <!-- PCV-VIRUS -->
+    <div class="section" id="section-pcv-virus">
+      <div class="section-head"><div class="section-num">2</div><h2>PCVAD：病毒、基因型與流行病學 Porcine Circovirus</h2></div>
+      <p class="section-desc">PCV2 被視為全球養豬業最重要的病原之一。「豬環狀病毒疾病（porcine circovirus diseases, PCVDs）」是把與 PCV2 有關的疾病歸成一組的名稱；北美稱為「豬環狀病毒相關疾病（PCVAD）」。</p>
+
+      <h3>PCVAD 的四種臨床表現<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>PCV2 全身性疾病（PCV2 systemic disease, PCV2-SD）</strong>：即<strong>離乳後多系統消耗症候群（postweaning multisystemic wasting syndrome, PMWS）</strong>。</li>
+        <li><strong>PCV2 生殖疾病（PCV2 reproductive disease, PCV2-RD）</strong>。</li>
+        <li><strong>豬皮膚炎腎病症候群（Porcine dermatitis and nephropathy syndrome, PDNS）</strong>。</li>
+        <li><strong>PCV2 亞臨床感染（PCV2 subclinical infection, PCV2-SI）</strong>。</li>
+      </ul>
+
+      <h3>四型 PCV<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>型</th><th>發現</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>PCV1</strong></td><td>1974 年</td><td>最初是 <strong>PK-15 細胞的污染物</strong>；分布廣；<strong>對豬不致病</strong>（只有實驗條件下報告過有限的致病性）；分離株間遺傳多樣性很低</td></tr>
+            <tr><td><strong>PCV2</strong></td><td>1991 年（加拿大首次認識 PMWS）</td><td>回溯可在 1962 年的樣本驗到 PCV2 DNA；全球分布；主要基因型 <strong>PCV2a、2b、2d</strong></td></tr>
+            <tr><td><strong>PCV3</strong></td><td>2016 年（美國）</td><td>回溯至少 1990 年代初就在流行；全球分布；演化上與<strong>蝙蝠</strong>相關的環狀病毒有關；臨床表現多樣</td></tr>
+            <tr><td><strong>PCV4</strong></td><td>2019 年（中國；抗體最早可追到 2008 年）</td><td>在亞洲、歐洲、美國都有檢出；與<strong>水貂</strong>環狀病毒的親緣比其他 PCV 近</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>病毒特性<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>Circoviridae 科 <em>Circovirus</em> 屬；<strong>無封套</strong>，直徑 12–23 nm；核衣殼為二十面體對稱。</li>
+        <li>PCV2 含 <strong>1.7 kb 單股環狀 DNA</strong>（single-stranded circular DNA）。</li>
+        <li><strong>ORF2 編碼的衣殼蛋白</strong>是主要的親緣與流行病學標記，也是<strong>次單位疫苗</strong>的標的抗原。（補充：ORF1 編碼複製酶 Rep。）</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p006.jpg" alt="PCV 電子顯微鏡" loading="lazy"><div class="figure-caption">PCV 電子顯微鏡：小型、無封套的二十面體顆粒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=6">p.6</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p008.jpg" alt="PCV1–PCV4 基因體" loading="lazy"><div class="figure-caption">PCV1–PCV4 基因體：環狀，ORF1（Rep）與 ORF2（Cap）反向排列；下表為各型之間的核苷酸／胺基酸相似度。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=8">p.8</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p009.jpg" alt="ORF2 衣殼蛋白結構與抗原決定位（epitope A–E）。" loading="lazy"><div class="figure-caption">ORF2 衣殼蛋白結構與抗原決定位（epitope A–E）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=9">p.9</a></div></div>
+      </div>
+
+      <h3>病毒不活化<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>條件</th><th>PCV 的表現</th></tr></thead>
+          <tbody>
+            <tr><td>低溫</td><td>穩定；從 −70°C 保存的組織很容易分離到</td></tr>
+            <tr><td><strong>高溫</strong></td><td><strong>穩定</strong>：56°C 1 小時、75°C 15 分鐘都不會被不活化；<strong>濕熱</strong>比乾熱有效</td></tr>
+            <tr><td>低 pH</td><td>穩定：<strong>pH &lt; 2</strong> 仍有活性</td></tr>
+            <tr><td>消毒劑</td><td><strong>對大多數消毒劑有抵抗力</strong>；<strong>氧化劑、醛類－四級銨複方</strong>效果最好</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">這些數字代表什麼</div>
+        <p>56°C 1 小時是很多有封套病毒會被殺掉的條件，PCV2 卻撐得住；pH &lt; 2 相當於胃酸。也就是說 PCV2 小、無封套、超級耐，環境中很難清除，清消要選對消毒劑（補充）。</p>
+      </div>
+
+      <h3>PCV2 基因型轉換（genotype shift）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>全球至少已鑑定 <strong>9 個 PCV2 基因型（2a–2i）</strong>；<strong>2a、2b、2d</strong> 全球分布，其他只零星出現。</li>
+        <li><strong>第一次轉換 2a → 2b</strong>：PCV2a 原本在發病豬最普遍；<strong>2003 年</strong>後 2b 成為主流，並伴隨更嚴重的臨床爆發。</li>
+        <li><strong>第二次轉換 2b → 2d</strong>：<strong>2012 年</strong>後全球轉為 2d，部分<strong>疫苗失敗</strong>病例中驗到。</li>
+        <li>同型或不同型的 PCV2 <strong>可共同感染同一頭豬</strong>。</li>
+        <li>各 PCV2 株之間沒有重大抗原差異；儘管有遺傳與少量抗原變異，PCV2 一般被視為<strong>單一血清型</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p013.jpg" alt="PCV2a → 2b → 2d" loading="lazy"><div class="figure-caption">PCV2a → 2b → 2d：愛荷華州立大學診斷實驗室與 GenBank 序列的基因型比例變化。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=13">p.13</a></div></div>
+
+      <h3>流行病學與台灣<span class="lv lv-know">理解</span></h3>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p016.jpg" alt="PCV3 全球分布（依首次報告年份著色）。" loading="lazy"><div class="figure-caption">PCV3 全球分布（依首次報告年份著色）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=16">p.16</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p018.jpg" alt="台灣 2020–2021 年各月 PCV 陽性場數。病例檢出率 PCV2 54." loading="lazy"><div class="figure-caption">台灣 2020–2021 年各月 PCV 陽性場數。病例檢出率 PCV2 54.3%、PCV3 43.5%、PCV4 2.2%（Hung et al., 2024）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=18">p.18</a></div></div>
+      </div>
+      <ul>
+        <li>台灣病例檢出率：<strong>PCV2 54.3%、PCV3 43.5%、PCV4 2.2%</strong>（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=18">p.18</a>）；也有 PCV2、PCV3、PCV4 的混合感染（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=19">p.19</a>）。</li>
+        <li>PCV4 已在歐洲野豬、美國豬場檢出，美國研究中 PCV4 在淋巴組織檢出率最高，常與 PCV2、PCV3 共同感染（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=20">p.20–23</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p025.jpg" alt="PCV1–PCV4 親緣樹" loading="lazy"><div class="figure-caption">PCV1–PCV4 親緣樹：PCV4 與水貂環狀病毒、PCV3 與蝙蝠環狀病毒群聚。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=25">p.25</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=3">p.3–25</a>。</footer>
+    </div>
+
+    <!-- PCV-PATH -->
+    <div class="section" id="section-pcv-path">
+      <div class="section-head"><div class="section-num">3</div><h2>PCVAD：傳播、致病、臨床與病變 Transmission, Pathogenesis, Clinical Signs &amp; Lesions</h2></div>
+      <p class="section-desc">PCV2 感染很普遍，但只有一部分豬會發病。講義的重點是：<strong>PCV2 是必要原因，但不是充分原因</strong>，需要其他因子把亞臨床感染推向臨床疾病。</p>
+
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>主要經<strong>口鼻途徑（oronasal）</strong>，經受感染的分泌物與排泄物傳播。</li>
+        <li>感染後豬可帶毒數週。</li>
+        <li>PCV2 可<strong>通過胎盤（placenta）</strong>，仔豬可在子宮內被母豬感染。</li>
+        <li>仔豬也可經<strong>乳汁與初乳（milk and colostrum）</strong>吃到病毒。</li>
+        <li>公豬會經<strong>精液（semen）</strong>排毒。</li>
+      </ul>
+
+      <h3>致病機制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>PCV2-SD 的特徵是<strong>免疫系統嚴重受損</strong>，臨床症狀與病變常是<strong>不同器官中共同感染病原的加成效果</strong>。</li>
+        <li>PCV2-SD 是<strong>多因子疾病（multifactorial disease）</strong>，PCV2 感染是<strong>必要原因</strong>。</li>
+        <li>PCV2a、2b、2d 都被認為有致病性，都可造成 PCV2-SD。</li>
+        <li>豬感染 PCV2 後有長短不一的病毒血症，<strong>在淋巴器官與肺的巨噬細胞、單核球</strong>中複製與持續最廣。</li>
+        <li>多處<strong>淋巴耗竭（lymphoid depletion）</strong>、慢性淋巴組織球性到肉芽腫性炎症。</li>
+        <li>PDNS：豬可出現斑塊狀紫色皮膚病灶與腎病。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p028.jpg" alt="PCV2 加上 PPV、PRRS、壓力、免疫刺激、病毒基因型等因子，經免疫調節導" loading="lazy"><div class="figure-caption">PCV2 加上 PPV、PRRS、壓力、免疫刺激、病毒基因型等因子，經免疫調節導致 PCVAD。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=28">p.28</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p029.jpg" alt="上調機制" loading="lazy"><div class="figure-caption">上調機制：初期複製 → 淋巴耗竭 → 低病毒血症＋血清轉陽 → 亞臨床；或在免疫刺激、宿主易感性、共同感染下 → 高病毒血症 → 全身散播 → 臨床。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=29">p.29</a></div></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">把流程圖講清楚</div>
+        <p>同樣感染 PCV2，大多數豬只有低病毒血症、產生抗體就結束（亞臨床，只是長得比較慢）。如果同時有<strong>免疫刺激</strong>（例如打疫苗、其他感染）、<strong>宿主較易感</strong>或<strong>共同感染</strong>，就會變成高病毒血症、全身散播，出現臨床 PCVAD（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=29">p.29</a>）。</p>
+      </div>
+
+      <h3>臨床症狀<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">病型</th><th>症狀</th></tr></thead>
+          <tbody>
+            <tr><td>PCVAD（總體）</td><td>消耗（wasting）、生長不良、被毛粗、呼吸急促、呼吸困難、蒼白、下痢、偶有黃疸；<strong>發病豬通常會死</strong></td></tr>
+            <tr><td><strong>PCV2-SD</strong></td><td>消耗、體重減輕、<strong>皮膚蒼白</strong>、呼吸窘迫、下痢、<strong>黃疸</strong></td></tr>
+            <tr><td>PCV2 肺病／腸病</td><td>呼吸窘迫、呼吸困難／下痢</td></tr>
+            <tr><td><strong>PCV2-RD</strong></td><td>流產或木乃伊化（SMEDI：死產、木乃伊化、胚胎死亡、不孕）；<strong>規律返情</strong>（regular return-to-estrus）；血清轉陽</td></tr>
+            <tr><td><strong>PDNS</strong></td><td>主要在 <strong>8–18 週齡</strong>；皮膚出現<strong>紅紫色斑塊（red-purple blotches）</strong>，有時略隆起，<strong>後肢與會陰</strong>最明顯，可擴及腹部，最後遍布全身；<strong>大多數最後會死</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p031.jpg" alt="PCVAD" loading="lazy"><div class="figure-caption">PCVAD：消耗、生長不良的豬（左）與同齡正常豬比較。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=31">p.31</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p032.jpg" alt="PCV2-SD" loading="lazy"><div class="figure-caption">PCV2-SD：消瘦、皮膚蒼白。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=32">p.32</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p033.jpg" alt="PCV2 肺病（肺實質化）與 PCV2 腸病（下痢）。" loading="lazy"><div class="figure-caption">PCV2 肺病（肺實質化）與 PCV2 腸病（下痢）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=33">p.33</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p034.jpg" alt="PCV2-RD" loading="lazy"><div class="figure-caption">PCV2-RD：流產與木乃伊化胎兒（SMEDI）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=34">p.34</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p035.jpg" alt="PDNS" loading="lazy"><div class="figure-caption">PDNS：後肢、會陰與腹部的紅紫色斑塊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=35">p.35</a></div></div>
+      </div>
+
+      <h3>肉眼與顯微病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>肺</strong>：瀰漫性紅褐色、<strong>不塌陷、橡膠樣</strong>，有不同程度的前腹側實質化。</li>
+        <li><strong>淋巴結</strong>：瀰漫性腫大。</li>
+        <li>較少見：黃疸、胃潰瘍、皮膚病灶（PDNS）、腎腫大、肝腫脹或萎縮。</li>
+        <li><strong>肉眼病變很少有診斷性，跟 PRRS 很像</strong>。</li>
+        <li>顯微：肺為<strong>淋巴組織球性、增生性間質性肺炎</strong>，細支氣管周圍與中隔纖維增生；<strong>淋巴組織：淋巴耗竭、濾泡被巨噬細胞取代、細胞質內包涵體</strong>；肝細胞壞死與淋巴漿細胞性炎症；腎淋巴漿細胞性間質性腎炎。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p037.jpg" alt="PCVAD 肉眼病變" loading="lazy"><div class="figure-caption">PCVAD 肉眼病變：淋巴結腫大、不塌陷的肺、腎臟白色斑點。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=37">p.37</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p039.jpg" alt="正常淋巴結（a）有正常濾泡結構；PCV2-SD 淋巴結（b）淋巴耗竭、看不到濾泡" loading="lazy"><div class="figure-caption">正常淋巴結（a）有正常濾泡結構；PCV2-SD 淋巴結（b）淋巴耗竭、看不到濾泡。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=39">p.39</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p040.jpg" alt="PCVAD 與正常比較" loading="lazy"><div class="figure-caption">PCVAD 與正常比較：肺斑駁實質化、多灶性間質性肺炎、淋巴結淋巴耗竭、PCV2 抗原染色。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=40">p.40</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p041.jpg" alt="PDNS 肉眼病變" loading="lazy"><div class="figure-caption">PDNS 肉眼病變：後肢會陰皮膚病灶；腎臟腫大蒼白、皮質點狀出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=41">p.41</a></div></div>
+      </div>
+
+      <h3>與其他病原共同感染<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>PPV</strong>：PCV2 與 PPV1 共同感染的豬，<strong>6–7%</strong> 發生 PCVAD。</li>
+        <li><strong><em>Mycoplasma hyopneumoniae</em></strong>：共同感染的豬 <strong>10%</strong> 發生 PCVAD。</li>
+        <li><strong>PRRSV</strong>：共同感染會提高 PCV2 病毒血症與疾病表現。</li>
+        <li>PCV2 感染會<strong>降低古典豬瘟（CSFV）減毒疫苗的效果</strong>。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p042.jpg" alt="PCV2 與 PRRS、小病毒、細菌等共同感染。" loading="lazy"><div class="figure-caption">PCV2 與 PRRS、小病毒、細菌等共同感染。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=42">p.42</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p043.jpg" alt="PCV2 與黴漿菌共同感染" loading="lazy"><div class="figure-caption">PCV2 與黴漿菌共同感染：比單獨感染的肺病變更嚴重。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=43">p.43</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p044.jpg" alt="PCV2 與 PRRSV 共同感染" loading="lazy"><div class="figure-caption">PCV2 與 PRRSV 共同感染：PCV2 病毒血症延長、升高。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=44">p.44</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=26">p.26–45</a>。</footer>
+    </div>
+
+    <!-- PCV-DX -->
+    <div class="section" id="section-pcv-dx">
+      <div class="section-head"><div class="section-num">4</div><h2>PCVAD：診斷、免疫與控制 Diagnosis, Immunity &amp; Control</h2></div>
+      <p class="section-desc">PCVAD 的診斷關鍵是「<strong>病毒要在病灶裡</strong>」：PCV2 太普遍，單驗到病毒不能說是 PCVAD。</p>
+
+      <h3>PCVAD 診斷概要<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>臨床症狀：消耗症候群、高死亡率。</li>
+        <li>組織病理：非化膿性間質性肺炎、多灶到瀰漫性淋巴耗竭。</li>
+        <li>病毒學：PCV2 陽性。</li>
+        <li>共同感染：PRRSV、SIV、<em>Strep. suis</em>、<em>M. hyopneumoniae</em>。</li>
+      </ul>
+
+      <h3>各病型的診斷條件<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">病型</th><th>條件</th></tr></thead>
+          <tbody>
+            <tr><td><strong>PCV2-SD</strong>（三條件都要）</td><td>① 生長遲緩與消耗，常有呼吸困難與<strong>鼠蹊淋巴結腫大</strong>，偶有黃疸<br>② 淋巴組織有<strong>中至重度特徵性組織病變</strong><br>③ 病灶的淋巴與其他組織內有<strong>中至大量 PCV2</strong></td></tr>
+            <tr><td><strong>PCV2-RD 懷孕後期</strong>（三條件）</td><td>① <strong>晚期流產與死產</strong>，有時胎兒<strong>心臟明顯肥大</strong><br>② 心臟病變為廣泛的<strong>纖維化和／或壞死性心肌炎</strong><br>③ 心肌病灶與其他胎兒組織有<strong>大量 PCV2</strong></td></tr>
+            <tr><td>PCV2-RD 懷孕早期（推定，兩條件）</td><td>① 規律返情<br>② 返情後 PCV2 血清轉陽，和／或返情前後 PCV2 PCR 陽性</td></tr>
+            <tr><td><strong>PDNS</strong>（兩條件）</td><td><strong>驗到 PCV2 不是必要條件</strong>。<br>① <strong>出血壞死性皮膚病灶</strong>（主要在後肢與會陰），和／或<strong>腫大蒼白的腎臟伴瀰漫性皮質點狀出血</strong><br>② <strong>全身性壞死性血管炎</strong>與<strong>壞死性纖維素性腎絲球腎炎</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">反直覺的地方</div>
+        <p>PDNS 被歸在 PCVAD 底下，但它的診斷<strong>不需要驗到 PCV2</strong>，看的是皮膚與腎臟的血管炎病變（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=50">p.50</a>）。反過來，PCV2-SD 則<strong>一定要</strong>在病灶裡驗到中到大量 PCV2。</p>
+      </div>
+
+      <h3>診斷樣本<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>樣本</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td>血清</td><td>qPCR 與血清學</td></tr>
+            <tr><td>淋巴結、扁桃腺、脾、肺</td><td>組織病理、IHC／ISH、qPCR</td></tr>
+            <tr><td>其他受影響組織</td><td>依臨床症狀</td></tr>
+            <tr><td><strong>口腔液（oral fluid）</strong></td><td><strong>群體層級監測</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>單獨 PCR 陽性不能確認 PCV2 相關疾病</strong>（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=51">p.51</a>）。</p>
+
+      <h3>鑑別診斷<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>重疊的表現</th></tr></thead>
+          <tbody>
+            <tr><td>PRRS</td><td>生殖障礙、消耗、呼吸困難</td></tr>
+            <tr><td>豬流感</td><td>呼吸道疾病</td></tr>
+            <tr><td>CSF／ASF</td><td>腎出血與全身性病變</td></tr>
+            <tr><td>豬丹毒</td><td>皮膚病灶與生殖障礙</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p053.jpg" alt="各型 PCV 的診斷工具" loading="lazy"><div class="figure-caption">各型 PCV 的診斷工具：PCV2 有完整的商業血清學、PCR、IHC；PCV3、PCV4 還需要更多經驗證的商業檢驗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=53">p.53</a></div></div>
+
+      <h3>PCV2 免疫<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>PCV2 感染可造成明顯的<strong>免疫失調</strong>，PCVAD 豬特別明顯；與循環中 B、T 細胞數量及淋巴器官淋巴球減少高度相關。</li>
+        <li><strong>7–14 天</strong>：IFA 可驗到抗體。</li>
+        <li><strong>21–35 天</strong>：低效價的<strong>中和抗體</strong>才驗得到。</li>
+      </ul>
+
+      <h3>控制與疫苗<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>控制方法：疫苗、控制其他病原、管理與營養改變、遺傳改變、清場再引種。</li>
+        <li>商業 PCV2 疫苗自 <strong>2006 年</strong>上市，PCVAD（包括亞臨床）的經濟損失大幅下降。</li>
+        <li><strong>母豬與仔豬都接種</strong>有助持續控制 PCVAD；PCV2 是重要的共同感染因子，接種也有助控制多病原混合感染的臨床病。</li>
+        <li>大多數商業疫苗以 <strong>PCV2a</strong> 為基礎；PCV2a 與 PCV2b 疫苗都能降低 PCV2d 病毒血症與病變。</li>
+        <li>因 PCV2 基因型多樣，建議以<strong>同源株（homologous strain）</strong>為疫苗株；不同基因型間的交叉保護有限，抗原差異會明顯影響中和抗體效價。</li>
+        <li><strong>PCV2 疫苗不預期能保護 PCV3 或 PCV4</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p057.jpg" alt="商業 PCV2 疫苗。" loading="lazy"><div class="figure-caption">商業 PCV2 疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=57">p.57</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p058.jpg" alt="PCV2 疫苗" loading="lazy"><div class="figure-caption">PCV2 疫苗：多以 PCV2a 為基礎，建議同源株，不保護 PCV3／PCV4。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=58">p.58</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p059.jpg" alt="交叉保護" loading="lazy"><div class="figure-caption">交叉保護：PCV2a、2b、2d 疫苗對不同基因型的中和抗體效價差異（Yu et al., 2023）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=59">p.59</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p062.jpg" alt="PCV4 免疫小鼠的血清只認得 PCV4、PCV2 免疫血清只認得 PCV2" loading="lazy"><div class="figure-caption">PCV4 免疫小鼠的血清只認得 PCV4、PCV2 免疫血清只認得 PCV2：彼此抗原性不同。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=62">p.62</a></div></div>
+      </div>
+
+      <h3>人畜共通潛力<span class="lv lv-skim">看過</span></h3>
+      <ul>
+        <li>PCV2：在多種非豬物種、甚至昆蟲中驗到；<strong>沒有確認的人類感染</strong>。</li>
+        <li>PCV3：在多種動物中驗到，可能跨物種傳播；人類感染未確認。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">講義 Take-home messages（PCVAD）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>PCV2 感染很普遍，但只有一部分感染豬會發展成臨床病。</li>
+          <li>PCV2-SD 是多因子疾病，診斷需要相符的臨床症狀、特徵病變，以及病灶內的 PCV2。</li>
+          <li>疫苗大幅降低 PCV2 相關疾病與生產損失，但仍可能感染。</li>
+          <li>PCV2 是確立的主要豬病原，PCV3、PCV4 的臨床角色仍在釐清。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=46">p.46–65</a>。</footer>
+    </div>
+
+    <!-- PRRS-VIRUS -->
+    <div class="section" id="section-prrs-virus">
+      <div class="section-head"><div class="section-num">5</div><h2>PRRS：病毒、分型與傳播 PRRSV &amp; Transmission</h2></div>
+      <p class="section-desc">豬生殖與呼吸綜合症（PRRS），又稱<strong>藍耳病（blue ear disease）</strong>或<strong>神祕豬病（mystery swine disease）</strong>。1987 年美國首次認識，1991 年在荷蘭鑑定出病毒。症狀包括<strong>生殖障礙、肺炎、對次發細菌感染的易感性增加</strong>。</p>
+
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p066.jpg" alt="PRRS 章節首頁" loading="lazy"><div class="figure-caption">PRRS 章節首頁：排毒部位的病毒濃度與各途徑最低感染劑量（同 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=79">p.79</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=66">p.66</a></div></div>
+      <h3>為什麼重要<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>多種病毒株、<strong>毒力差異大</strong>，解釋了臨床表現的廣泛。</li>
+        <li>北美、歐洲、亞洲最重要的豬病之一；美國每年生產損失約 <strong>12 億美元</strong>。</li>
+        <li>大多數主要養豬地區都有；<strong>澳洲、紐西蘭、印度</strong>仍未發生。</li>
+      </ul>
+
+      <h3>病毒<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>Arteriviridae 科、<em>Betaarterivirus</em> 屬</strong>；<strong>有封套、單股、正股 RNA 病毒</strong>。</li>
+        <li>結構蛋白由 <strong>ORF2–7</strong> 編碼：ORF2–5 編碼 GP2、GP3、GP4、<strong>GP5</strong>；ORF6 編碼 <strong>M</strong>（基質）、ORF7 編碼 <strong>N</strong>（核衣殼）蛋白。</li>
+        <li><strong>GP5、M、N</strong> 是病毒顆粒與感染細胞裂解物中一定找得到的三個主要蛋白；<strong>GP5</strong> 是最重要的結構蛋白之一。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p070.jpg" alt="PRRSV 顆粒結構" loading="lazy"><div class="figure-caption">PRRSV 顆粒結構：GP2–GP5 與 M、N 蛋白的位置。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=70">p.70</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p071.jpg" alt="結構蛋白與宿主受體 CD163 的結合（Lunney et al., 2016）" loading="lazy"><div class="figure-caption">結構蛋白與宿主受體 CD163 的結合（Lunney et al., 2016）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=71">p.71</a></div></div>
+      </div>
+
+      <h3>PRRSV-1 vs PRRSV-2<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>PRRSV-1</th><th>PRRSV-2</th></tr></thead>
+          <tbody>
+            <tr><td>舊稱</td><td>genotype 1／Type 1／<strong>歐洲型</strong></td><td>genotype 2／Type 2／<strong>北美型</strong></td></tr>
+            <tr><td>ICTV 名稱</td><td><em>Betaarterivirus suid 1</em></td><td><em>Betaarterivirus suid 2</em></td></tr>
+            <tr><td>原型株</td><td>Lelystad（約 1991 年，歐洲）</td><td>VR-2332（約 1991 年，北美）</td></tr>
+            <tr><td>現在主要分布</td><td>歐洲</td><td><strong>美洲與亞洲</strong></td></tr>
+            <tr><td>台灣</td><td><strong>2018 年底</strong>首次爆發</td><td><strong>1991 年</strong>首次認識、1992 年分離；長期為主</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>兩種的全基因體核苷酸相似度只有約 <strong>50–70%</strong>；各自又有許多 lineage 與 sublineage。</li>
+        <li>高度遺傳變異影響毒力、致病性與疫苗保護；<strong>異源保護（heterologous protection）多變且常不完全</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p074.jpg" alt="高致病性 PRRS（HP-PRRS）2014 年分布" loading="lazy"><div class="figure-caption">高致病性 PRRS（HP-PRRS）2014 年分布：中國與東南亞。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=74">p.74</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p075.jpg" alt="台灣 2019–2020 年 PRRSV 檢測" loading="lazy"><div class="figure-caption">台灣 2019–2020 年 PRRSV 檢測：PRRSV-2 佔約 96%，PRRSV-1 約 3%（Lin et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=75">p.75</a></div></div>
+      </div>
+      <h3>高致病性 PRRS（HP-PRRS）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>2006 年</strong>在中國出現。</li>
+        <li><strong>所有年齡</strong>高燒（40–42°C）、母豬流產、哺乳仔豬／離乳豬／生長豬死亡率高。</li>
+        <li>發病率接近 100%、死亡率高；在亞洲東部、南部、北部爆發。</li>
+      </ul>
+
+      <h3>理化特性<span class="lv lv-know">理解</span></h3>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p076.jpg" alt="PRRSV 理化特性" loading="lazy"><div class="figure-caption">PRRSV 理化特性：4°C 一週、21°C 1–6 天、37°C 3 小時至 2 天、56°C 30 分鐘；乾燥失去 90% 感染力；pH 低於 6 或高於 7.5 失去 90% 感染力。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=76">p.76</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：跟 PCV2 相比，PRRSV 有封套，怕熱、怕乾、怕酸鹼，環境中存活時間短，所以傳播主要靠活豬與精液。</p>
+
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>主要經感染豬與易感豬的<strong>近距離接觸（close contact）</strong>。</li>
+        <li>病毒從<strong>唾液、鼻分泌物、尿、糞、精液</strong>排出。</li>
+        <li><strong>鼻對鼻接觸</strong>與受污染排泄物很重要。</li>
+        <li>可經受污染精液與<strong>人工授精</strong>傳播。</li>
+        <li>場間傳播：<strong>移動感染豬是主要途徑</strong>；外觀正常的豬可能是帶毒者與排毒者；引進離乳豬與更新種豬是重要風險因子。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p078.jpg" alt="排毒途徑與時間" loading="lazy"><div class="figure-caption">排毒途徑與時間：鼻分泌物 38 天以上、唾液 42 天以上（扁桃腺可達 150 天）、乳汁初乳 9 天、精液 43–92 天、糞 35 天、尿 14–28 天。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=78">p.78</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p079.jpg" alt="左" loading="lazy"><div class="figure-caption">左：各分泌物病毒濃度（精液 10⁶·⁰ 最高）；右：各途徑最低感染劑量（非經口 10–10²·² 最低、經口 10⁵·³ 最高）。豬最容易經性交與非經口途徑感染。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=79">p.79</a></div></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">這些數字代表什麼</div>
+        <p>TCID₅₀ 數字越小代表越少病毒就能感染。非經口（parenteral，例如打針、咬傷、剪耳）只要 10–10²·² 就夠，經口卻要 10⁵·³，所以<strong>針頭共用、外傷與人工授精</strong>是很有效率的傳播方式；精液病毒濃度又最高，種公豬的精液監測因此很重要（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=79">p.79</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=107">p.107</a>）。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=66">p.66–80</a>。</footer>
+    </div>
+
+    <!-- PRRS-PATH -->
+    <div class="section" id="section-prrs-path">
+      <div class="section-head"><div class="section-num">6</div><h2>PRRS：致病、臨床、病變與免疫 Pathogenesis, Lesions &amp; Immunity</h2></div>
+      <p class="section-desc">PRRS 難纏的原因全在這一節：病毒住在<strong>巨噬細胞</strong>、抗體來得快但<strong>沒有中和力</strong>、會<strong>持續感染</strong>、而且<strong>演化得非常快</strong>。</p>
+
+      <h3>致病機制<span class="lv lv-must">必考</span></h3>
+      <div class="flow">
+        <div class="flow-node">口鼻感染</div><span class="flow-arrow">➜</span>
+        <div class="flow-node">局部巨噬細胞內複製</div><span class="flow-arrow">➜</span>
+        <div class="flow-node">血液與淋巴系統</div><span class="flow-arrow">➜</span>
+        <div class="flow-node">淋巴器官與肺</div><span class="flow-arrow">➜</span>
+        <div class="flow-node danger">呼吸和／或生殖症候群</div>
+      </div>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p081.jpg" alt="PRRS 致病流程與標的巨噬細胞。" loading="lazy"><div class="figure-caption">PRRS 致病流程與標的巨噬細胞。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=81">p.81</a></div></div>
+      <p><strong>標的細胞：巨噬細胞（macrophages）</strong></p>
+      <ul>
+        <li><strong>肺泡巨噬細胞（pulmonary alveolar macrophages, PAMs）</strong>。</li>
+        <li><strong>肺血管內巨噬細胞（pulmonary intravascular macrophages, PIMs）</strong>。</li>
+        <li>淋巴組織與呼吸道黏膜的巨噬細胞。</li>
+        <li>懷孕時<strong>母胎介面</strong>的巨噬細胞。</li>
+      </ul>
+      <p>病毒抗原與核酸以<strong>肺與淋巴結</strong>最多；心、腦、腎等組織的血管周圍與血管內巨噬細胞也驗得到。</p>
+
+      <h3>病毒血症與持續感染<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>時間</th><th>狀態</th></tr></thead>
+          <tbody>
+            <tr><td>12 hpi</td><td>部分豬可驗到病毒血症</td></tr>
+            <tr><td>24 hpi</td><td>大多數或全部實驗感染豬可驗到</td></tr>
+            <tr><td>第 1–2 週</td><td>病毒量最高</td></tr>
+            <tr><td>約 4 週</td><td>有感染力的病毒血症明顯下降</td></tr>
+            <tr><td>數個月</td><td><strong>扁桃腺與其他淋巴組織持續帶毒</strong>；病毒 RNA 可長期驗到</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>持續 PCR 陽性不一定代表仍有感染力的病毒血症</strong>（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=82">p.82</a>）。</p>
+
+      <h3>臨床症狀<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>保育豬急性感染</strong>：厭食、昏睡、發紺、被毛粗、呼吸急促和／或呼吸困難，<strong>但不咳嗽</strong>；平均日增重下降程度不一，造成同批<strong>生長不均</strong>。</li>
+        <li><strong>母豬生殖障礙</strong>：不孕、流產、死產；同窩有<strong>正常、虛弱、死產與木乃伊胎</strong>；虛弱仔豬常在出生後不久死於呼吸道病與次發感染。</li>
+        <li><strong>幼豬呼吸道病</strong>：越小越嚴重；呼吸困難、生長差、身體發紅、<strong>藍耳</strong>。</li>
+        <li>皮膚：四肢末端充血或發紺；母豬很少有神經症狀。</li>
+        <li>生殖、呼吸、皮膚表現<strong>類似馬病毒性動脈炎（equine viral arteritis）</strong>。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p084.jpg" alt="保育豬急性 PRRS" loading="lazy"><div class="figure-caption">保育豬急性 PRRS：生長不均、被毛粗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=84">p.84</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p086.jpg" alt="母豬生殖障礙" loading="lazy"><div class="figure-caption">母豬生殖障礙：分娩欄中的死產與虛弱仔豬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=86">p.86</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p087.jpg" alt="皮膚" loading="lazy"><div class="figure-caption">皮膚：耳朵發紺（藍耳）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=87">p.87</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p088.jpg" alt="HP-PRRS 的臨床表現" loading="lazy"><div class="figure-caption">HP-PRRS 的臨床表現：高燒、皮膚發紅、出血點、虛弱（Tian et al., 2007）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=88">p.88</a></div></div>
+
+      <h3>病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>嚴重時<strong>肺斑駁、黃褐與紅色、不塌陷</strong>。</li>
+        <li>淋巴結中至重度腫大、黃褐色，部分病毒株可出血。</li>
+        <li>田間大多數 PRRSV 感染豬都<strong>合併一種以上病原</strong>，使單靠病理診斷 PRRS 更困難。</li>
+        <li>顯微：<strong>間質性肺炎</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p089.jpg" alt="斑駁、黃褐與紅色的肺。" loading="lazy"><div class="figure-caption">斑駁、黃褐與紅色的肺。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=89">p.89</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p090.jpg" alt="流產胎兒與臍帶病變。" loading="lazy"><div class="figure-caption">流產胎兒與臍帶病變。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=90">p.90</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p091.jpg" alt="HP-PRRS 肉眼病變" loading="lazy"><div class="figure-caption">HP-PRRS 肉眼病變：肺、淋巴結、腎、腦等多器官出血與實質化。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=91">p.91</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p092.jpg" alt="正常肺（左）與間質性肺炎（右）。" loading="lazy"><div class="figure-caption">正常肺（左）與間質性肺炎（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=92">p.92</a></div></div>
+      </div>
+
+      <h3>體液免疫<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>抗體</th><th>出現時間</th><th>針對</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>非中和抗體</strong></td><td><strong>7–14 天</strong>出現高效價</td><td>主要針對 <strong>N 蛋白</strong></td><td>沒有中和能力</td></tr>
+            <tr><td><strong>中和抗體</strong></td><td><strong>3–4 週</strong>才開始出現，通常效價低</td><td>主要針對封套醣蛋白，包括 <strong>GP5</strong></td><td>有中和能力</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>Epitope A</strong>：感染早期（14 dpi）誘發<strong>高效價</strong>反應（誘餌，沒有中和力）。</li>
+        <li><strong>Epitope B</strong>：感染後期（21 dpi 之後）誘發<strong>低效價</strong>但<strong>有中和能力</strong>的反應。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p094.jpg" alt="誘餌抗原決定位假說" loading="lazy"><div class="figure-caption">誘餌抗原決定位假說：epitope A 先誘發大量非中和抗體，epitope B 較晚、較少，但有中和力。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=94">p.94</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p095.jpg" alt="PRRSV 感染各階段的病毒動態與免疫" loading="lazy"><div class="figure-caption">PRRSV 感染各階段的病毒動態與免疫：急性、持續、清除期。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=95">p.95</a></div></div>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">為什麼這很重要</div>
+        <p>ELISA 驗到的多半是早期的非中和抗體，所以<strong>抗體陽性不代表有保護</strong>；真正能中和的抗體來得慢又少，病毒有足夠時間在巨噬細胞裡持續存在（補充）。</p>
+      </div>
+
+      <h3>影響因子與共同感染<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>病毒：種、株、毒力、感染劑量。宿主：年齡、免疫狀態、易感性。管理：豬隻流動、建築設計、溫度調控。</li>
+        <li>共同感染：病毒（PCV2、SIV、PRCV、PRV）；細菌（HP、PM、AP、黴漿菌）。互動病原也包括 CSFV、PPV、<em>Strep. suis</em>。</li>
+        <li><strong>PRRS 感染會降低 CSFV 減毒疫苗的效果</strong>。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p096.jpg" alt="PRRS 的影響因子" loading="lazy"><div class="figure-caption">PRRS 的影響因子：病毒、宿主、管理、共同感染。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=96">p.96</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p098.jpg" alt="PRRSV 與豬呼吸道冠狀病毒（PRCV）共同感染的肺病變比單獨感染嚴重（Jun" loading="lazy"><div class="figure-caption">PRRSV 與豬呼吸道冠狀病毒（PRCV）共同感染的肺病變比單獨感染嚴重（Jung et al., 2009）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=98">p.98</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p099.jpg" alt="PRRS 攻毒降低 CSF 疫苗誘發的抗體。" loading="lazy"><div class="figure-caption">PRRS 攻毒降低 CSF 疫苗誘發的抗體。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=99">p.99</a></div></div>
+      </div>
+
+      <h3>持續感染與演化<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>不顯性感染很常見</strong>；感染可延長或持續<strong>數個月</strong>；<strong>排毒可能是間歇性的</strong>。</li>
+        <li>持續感染豬會造成病毒循環、場內再感染與環境污染；<strong>PRRSV 很難從感染場清除</strong>。</li>
+        <li>即使以 RNA 病毒而言，PRRSV 演化也<strong>異常快速</strong>：約 <strong>10⁻² substitutions/site/year</strong>，比許多 RNA 病毒（10⁻³–10⁻⁵）快 1–3 個數量級。原因可能是<strong>複製更頻繁</strong>，而不是複製錯誤率比較高。</li>
+        <li>PRRSV 以<strong>準種（quasispecies）</strong>存在：遺傳變異約 <strong>93% 在場與場之間、4% 在同場豬之間、3% 在同一頭豬內</strong>；一頭豬內可同時有多個變異株；一項研究中同一場沒有兩頭豬的序列完全相同。</li>
+        <li>演化的影響：疾病型態與毒力改變、細胞嗜性改變、促進持續感染、控制困難；新變異株可在已免疫的豬群中讓易感的小群體發病，持續感染的病毒可能逃脫既有免疫，造成病毒血症反彈或復發。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p105.jpg" alt="PRRS 病毒遺傳多樣性的原因（隨機突變、重組、免疫選擇）與後果（診斷、免疫反應" loading="lazy"><div class="figure-caption">PRRS 病毒遺傳多樣性的原因（隨機突變、重組、免疫選擇）與後果（診斷、免疫反應、新株）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=105">p.105</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=81">p.81–105</a>。</footer>
+    </div>
+
+    <!-- PRRS-DX -->
+    <div class="section" id="section-prrs-dx">
+      <div class="section-head"><div class="section-num">7</div><h2>PRRS：診斷、控制與疫苗 Diagnosis, Control &amp; Vaccination</h2></div>
+      <p class="section-desc">PRRS 的診斷重點在「<strong>結果怎麼解讀</strong>」，控制重點在「<strong>整合</strong>」：監測、疫苗、生物安全、管理缺一不可。</p>
+
+      <h3>鑑別診斷<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p106.jpg" alt="WOAH 鑑別診斷表" loading="lazy"><div class="figure-caption">WOAH 鑑別診斷表：左為生殖疾病（CSF、ASF、鉤端螺旋體、PPV、豬腸病毒、HEV、假性狂犬病），右為呼吸與離乳後疾病（豬流感、地方性肺炎、增生性壞死性肺炎、Glässer 病、HEV、PRCV、融合細胞肺炎與心肌炎、PCVAD、Nipah）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=106">p.106</a></div></div>
+
+      <h3>診斷樣本<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>樣本</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td><strong>血清或全血</strong></td><td>急性感染，RT-PCR</td></tr>
+            <tr><td><strong>肺、扁桃腺、淋巴結</strong></td><td>剖檢與持續感染</td></tr>
+            <tr><td>支氣管肺泡灌洗液（BAL）</td><td>下呼吸道感染</td></tr>
+            <tr><td><strong>精液</strong></td><td>種公豬監測</td></tr>
+            <tr><td><strong>口腔液</strong></td><td>方便的群體監測</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>病原檢測：病毒分離（<strong>MARC-145 細胞</strong>）、病毒核酸檢測與定性。</li>
+        <li>抗體檢測：商業 ELISA、病毒中和試驗。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p108.jpg" alt="PRRSV 在 MARC-145 細胞的細胞病變（左）與未感染細胞（右）。" loading="lazy"><div class="figure-caption">PRRSV 在 MARC-145 細胞的細胞病變（左）與未感染細胞（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=108">p.108</a></div></div>
+
+      <h3>RT-PCR 與 ELISA 結果判讀<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>RT-PCR</th><th>ELISA</th><th>可能情境</th></tr></thead>
+          <tbody>
+            <tr><td>陰性</td><td>陰性</td><td>a) 陰性動物<br>b) 仍感染但沒有病毒血症的豬，或已清除感染、抗體轉陰的豬（感染後 ≥6–12 個月）</td></tr>
+            <tr><td>陰性</td><td>陽性</td><td>a) 仍感染但無病毒血症，感染發生在一段時間前（數天到數月）<br>b) 未感染的仔豬帶有初乳抗體<br>c) 打過疫苗的豬</td></tr>
+            <tr><td>陽性</td><td>陰性</td><td>a) 剛感染或剛打疫苗（&lt;14 天），還沒血清轉陽</td></tr>
+            <tr><td>陽性</td><td>陽性</td><td>a) 仍有病毒血症且已血清轉陽（&gt;14 天）<br>b) 已有前次感染或疫苗抗體的豬再感染</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p110.jpg" alt="講義原圖" loading="lazy"><div class="figure-caption">講義原圖：RT-PCR 與 ELISA 結果判讀。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=110">p.110</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">怎麼記</div>
+        <p>（補充）以 14 天為界：PCR 看「現在有沒有病毒」，ELISA 看「過去有沒有接觸」。PCR＋／ELISA−＝太早，抗體還沒來；PCR−／ELISA＋＝病毒血症過了，或是母源抗體、疫苗。</p>
+      </div>
+
+      <h3>預防與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>四大支柱</strong>：監測與診斷、疫苗、生物安全、管理（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=111">p.111</a>）。</li>
+        <li><strong>PRRS 地方流行的國家或地區</strong>：
+          <ul>
+            <li>場級生物安全對防止引進新株非常重要。</li>
+            <li>更新女豬與公豬的 PRRSV 狀態在引進前要清楚。</li>
+            <li>引進動物要適當<strong>隔離與馴化（acclimatization）</strong>。</li>
+            <li>引進前或進隔離舍時檢測，進種豬群前再驗一次。</li>
+          </ul></li>
+        <li><strong>豬場發生 PRRS 時</strong>：
+          <ul>
+            <li>可用<strong>清場與重新引種（depopulation and repopulation）</strong>消除病毒。</li>
+            <li>重新進豬前要徹底<strong>清潔消毒</strong>、適當處理屍體。</li>
+            <li><strong>多點生產、早期隔離離乳（segregated early weaning）、檢測淘汰（test-and-removal）</strong>也被用於控制或清除。</li>
+          </ul></li>
+      </ul>
+
+      <h3>疫苗<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>商業疫苗對<strong>遺傳上同源（homologous）</strong>的病毒株一般提供良好的病毒學與臨床保護。</li>
+        <li>但現有疫苗<strong>不提供完全或通用的保護</strong>；對<strong>異源（heterologous）</strong>株的保護多變且常不完全。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p111.jpg" alt="PRRS 控制四大支柱" loading="lazy"><div class="figure-caption">PRRS 控制四大支柱：監測與診斷、疫苗、生物安全、管理。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=111">p.111</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p114.jpg" alt="商業 PRRS 疫苗。" loading="lazy"><div class="figure-caption">商業 PRRS 疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=114">p.114</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p115.jpg" alt="各類 PRRSV 疫苗的優缺點" loading="lazy"><div class="figure-caption">各類 PRRSV 疫苗的優缺點：MLV 免疫原性強但安全性低、不保護完全；不活化疫苗安全但效果差（Zhang et al., 2023）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=115">p.115</a></div></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義 Take-home messages（PRRS）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>PRRSV 造成母豬重大生殖障礙與生長豬呼吸道病。</li>
+          <li>持續感染與間歇排毒讓病毒在豬群中長期循環。</li>
+          <li>PRRSV 演化快、以準種存在，遺傳與抗原多樣性大。</li>
+          <li>診斷需要正確解讀病毒學與血清學結果。</li>
+          <li>疫苗減少臨床病與病毒複製，但對所有株沒有完整交叉保護。</li>
+          <li>有效控制需要整合監測、疫苗、生物安全與豬群管理。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=106">p.106–117</a>。</footer>
+    </div>
+
+    <!-- PPV -->
+    <div class="section" id="section-ppv">
+      <div class="section-head"><div class="section-num">8</div><h2>豬小病毒感染症 Porcine Parvovirus Infection</h2></div>
+      <p class="section-desc">豬小病毒第 1 型（Porcine parvovirus type 1, PPV1）是豬<strong>生殖障礙（reproductive failure）</strong>的重要感染原因，1965 年首次鑑定。造成<strong>死產、木乃伊化、胚胎死亡、不孕（SMEDI）</strong>。近年在不同國家又鑑定出 PPV2–PPV8，盛行率依型別、年齡層、地區與研究族群而異。</p>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p118.jpg" alt="PPV 感染造成的木乃伊胎與死產胎兒。" loading="lazy"><div class="figure-caption">PPV 感染造成的木乃伊胎與死產胎兒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=118">p.118</a></div></div>
+
+      <h3>病毒與不活化<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>PPV1–8 屬 <strong>Parvoviridae</strong> 科；顆粒小，約 20–30 nm，<strong>無封套</strong>；<strong>線狀單股 DNA</strong>，約 4–6 kb。</li>
+        <li>對環境<strong>抵抗力很強、相對耐熱</strong>：可撐過短暫 <strong>90°C 乾熱</strong>；<strong>濕熱</strong>一般比乾熱有效。</li>
+        <li>有效消毒劑：<strong>過氧乙酸（peracetic acid）、醛類、次氯酸鈉（sodium hypochlorite）</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p120.jpg" alt="PPV 電子顯微鏡" loading="lazy"><div class="figure-caption">PPV 電子顯微鏡：小型無封套顆粒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=120">p.120</a></div></div>
+
+      <h3>流行病學與傳播<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>PPV1 在全世界豬群地方性流行（endemic）</strong>；PPV2–PPV7 在多個地區驗到（PPV2 首見於緬甸、PPV3 香港、PPV4 與 PPV5 美國、PPV6 中國、PPV7 美國；PPV8 首見於中國、之後在歐洲）。</li>
+        <li>PPV1 可在所有年齡易感豬複製，但臨床病主要表現在<strong>懷孕母豬的生殖障礙</strong>。</li>
+        <li>感染豬從<strong>糞便與其他分泌物</strong>排毒；PPV1 可在環境與污染器具上保持感染力<strong>數個月</strong>。</li>
+        <li>場間經<strong>污染物（衣物、靴子、器具）</strong>傳播；<strong>齧齒類</strong>可能機械性傳播；感染公豬可從<strong>精液</strong>排毒。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p123.jpg" alt="PPV2–PPV8 全球分布（Vargas-Bermudez et al., 2" loading="lazy"><div class="figure-caption">PPV2–PPV8 全球分布（Vargas-Bermudez et al., 2023）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=123">p.123</a></div></div>
+
+      <h3>致病機制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>在<strong>淋巴組織</strong>初期複製後，經<strong>無細胞性病毒血症（cell-free viremia）</strong>全身散播。</li>
+        <li>多種組織器官都驗得到，但偏好在<strong>快速分裂的細胞</strong>複製，而非特定單一組織。</li>
+        <li>生殖疾病來自 PPV1 感染<strong>胚胎或胎兒</strong>的能力。到達胎兒的途徑：母體血液或淋巴中的游離病毒、逐層跨胎盤細胞複製、感染的免疫細胞（巨噬細胞、淋巴球）。</li>
+        <li>與其他病毒共同感染：<strong>PCV2＋PPV1 可加重 PCV2 相關疾病與病變</strong>，但 PPV1 共同感染<strong>不是</strong> PCV2 相關疾病發生的必要條件。PPV2–PPV8 的致病意義仍不清楚。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p128.jpg" alt="PPV2–PPV8 在豬各組織的檢出分布。" loading="lazy"><div class="figure-caption">PPV2–PPV8 在豬各組織的檢出分布。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=128">p.128</a></div></div>
+
+      <h3>臨床：依懷孕階段<span class="lv lv-must">必考</span></h3>
+      <p>生殖障礙是 PPV1 <strong>唯一確立的主要臨床後果</strong>；已免疫豬群損失通常低，但易感、未免疫豬群可很嚴重。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">感染時的懷孕天數</th><th>結果</th></tr></thead>
+          <tbody>
+            <tr><td>很早期</td><td>胚胎受<strong>透明帶（zona pellucida）</strong>保護</td></tr>
+            <tr><td><strong>第 35 天前</strong></td><td><strong>胚胎死亡與吸收</strong>（→ 返情、窩仔數少）</td></tr>
+            <tr><td><strong>第 35–70 天</strong></td><td><strong>胎兒死亡與木乃伊化</strong></td></tr>
+            <tr><td>約第 70 天</td><td>胎兒具<strong>免疫勝任能力（immunocompetent）</strong></td></tr>
+            <tr><td><strong>第 70 天後</strong></td><td>通常<strong>亞臨床</strong>；仔豬出生時可能帶有<strong>抗 PPV1 抗體</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p130.jpg" alt="懷孕時間軸" loading="lazy"><div class="figure-caption">懷孕時間軸：第 35 天骨化開始，之前感染胚胎死亡吸收。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=130">p.130</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p131.jpg" alt="第 35–70 天感染死亡並木乃伊化；第 70 天後胎兒有免疫力而存活。" loading="lazy"><div class="figure-caption">第 35–70 天感染死亡並木乃伊化；第 70 天後胎兒有免疫力而存活。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=131">p.131</a></div></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">為什麼是 35 和 70</div>
+        <p>第 35 天前胎兒還沒骨化，死了軟組織與液體會被吸收，母豬看起來像「沒懷上」；35 天後開始骨化，死了吸收不掉，就變成木乃伊；70 天後胎兒自己能產生免疫反應，所以能存活並帶著抗體出生（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=130">p.130–131</a>）。</p>
+      </div>
+
+      <h3>病變<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>早期感染常見胚胎死亡與吸收；受影響胎兒可見鬱血、水腫、出血性變色與木乃伊化。</li>
+        <li>顯微：大腦血管周圍單核細胞浸潤；肝臟局部壞死。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p129.jpg" alt="SMEDI" loading="lazy"><div class="figure-caption">SMEDI：木乃伊化與死產胎兒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=129">p.129</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p132.jpg" alt="胚胎死亡與吸收；同窩大小不一的木乃伊胎。" loading="lazy"><div class="figure-caption">胚胎死亡與吸收；同窩大小不一的木乃伊胎。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=132">p.132</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p133.jpg" alt="顯微" loading="lazy"><div class="figure-caption">顯微：肝臟局部壞死（a）、大腦血管周圍單核細胞浸潤（b）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=133">p.133</a></div></div>
+      </div>
+
+      <h3>診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>臨床</strong>：生殖障礙時要考慮 PPV1；<strong>返情率</strong>增加；窩仔數減少、<strong>木乃伊胎增加</strong>，特別在<strong>女豬或年輕母豬</strong>；<strong>同一窩中有正常仔豬與大小不一的木乃伊胎</strong>高度提示 PPV1；成豬一般沒有臨床症狀。</li>
+        <li><strong>鑑別</strong>：PRRS、日本腦炎、CSF、假性狂犬病、布氏桿菌症、鉤端螺旋體症、弓蟲症，及其他感染與非感染性生殖障礙。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>樣本</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td><strong>木乃伊胎、死產仔豬、流產胎兒</strong></td><td>主要診斷樣本</td></tr>
+            <tr><td>胎兒肺、肝、腎、脾、淋巴組織</td><td>PCR 或抗原檢測</td></tr>
+            <tr><td>胎盤</td><td>生殖病例的病毒檢測</td></tr>
+            <tr><td>胎兒體液或血清</td><td>具免疫力胎兒的抗體檢測</td></tr>
+            <tr><td>母豬血清</td><td>血清學；配對樣本可證明近期感染</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>病毒／抗原</strong>：<strong>PCR</strong> 是驗胎兒組織、精液與其他樣本最實用的方法；<strong>免疫螢光（IF）</strong>可驗胎兒組織中的 PPV1 抗原；PPV2–PPV8 主要靠 PCR。</li>
+        <li><strong>抗體</strong>：<strong>血球凝集抑制（HI）</strong>可偵測並定量 PPV1 抗體；ELISA 適合標準化高通量檢測；胎兒體液、死產仔豬或<strong>未吸初乳血清</strong>中的抗體表示子宮內感染。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p137.jpg" alt="PPV1 實驗室診斷流程" loading="lazy"><div class="figure-caption">PPV1 實驗室診斷流程：直接（細胞培養、血球凝集、分子、免疫螢光）與間接（ELISA、病毒中和、HI）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=137">p.137</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p138.jpg" alt="胎兒組織中 PPV1 抗原的免疫螢光。" loading="lazy"><div class="figure-caption">胎兒組織中 PPV1 抗原的免疫螢光。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=138">p.138</a></div></div>
+      </div>
+
+      <h3>免疫與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>被動免疫</strong>：仔豬經初乳獲得母源抗體，逐漸下降，可持續約 <strong>14–26 週</strong>。</li>
+        <li><strong>主動免疫</strong>：感染後約 <strong>6 天</strong>可驗到抗體，<strong>14–21 天</strong>達高峰；感染或接種後免疫通常持久，抗體可持續數年；也有細胞性免疫，但抗體在保護中扮演主要角色。</li>
+        <li><strong>不活化疫苗</strong>：大多數商業 PPV1 疫苗；有效<strong>預防生殖疾病</strong>，但<strong>不一定完全預防感染或排毒</strong>。</li>
+        <li><strong>改良活毒疫苗（MLV）</strong>：誘發強且持久的免疫，但因安全疑慮使用受限。</li>
+        <li>控制原則：<strong>配種前建立保護性免疫</strong>；更新女豬與種母豬例行接種；從可靠來源引進豬與精液；更新動物適當隔離與健康監測；有效清潔消毒；良好生物安全。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">講義 Take-home messages（PPV）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>PPV1 感染很普遍，但生殖疾病主要發生在易感母豬懷孕期間被感染。</li>
+          <li>胎兒感染的結果強烈取決於懷孕階段。</li>
+          <li><strong>胎兒木乃伊化是 PPV1 生殖障礙的特徵</strong>。</li>
+          <li>有效控制在於<strong>配種前建立保護性免疫</strong>。</li>
+          <li>驗到 PPV2–PPV8 不一定代表疾病，它們的致病角色不如 PPV1 明確。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=118">p.118–143</a>。</footer>
+    </div>
+
+    <!-- RV-A -->
+    <div class="section" id="section-rv-a">
+      <div class="section-head"><div class="section-num">9</div><h2>豬輪狀病毒：病毒、流行病學、致病與臨床 Porcine Rotavirus</h2></div>
+      <p class="section-desc">輪狀病毒（rotaviruses, RVs）是人與動物（包括豬）下痢的主要原因。在豬群中<strong>地方性流行</strong>，可以是臨床或亞臨床；與腸道細菌或其他病原共同感染會加重病情。豬身上確認的有 <strong>RVA、RVB、RVC、RVH</strong>，過去也報告過類 RVE。</p>
+
+      <h3>各型的臨床意義<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>型</th><th>意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>RVA</strong></td><td><strong>最普遍、研究最多</strong>的豬輪狀病毒</td></tr>
+            <tr><td>RVB</td><td>各年齡層都驗得到，<strong>包括較大的豬</strong></td></tr>
+            <tr><td><strong>RVC</strong></td><td>對<strong>新生仔豬</strong>特別重要</td></tr>
+            <tr><td>RVH</td><td>致病意義仍不明確</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>病毒與分型<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><em>Rotavirus</em> 屬、<strong>Sedoreoviridae</strong> 科；<strong>無封套</strong>、二十面體、<strong>分段雙股 RNA（dsRNA）</strong>；直徑約 70–100 nm。</li>
+        <li>種的區分主要依 <strong>VP6</strong> 與基因序列。</li>
+        <li>RVA 基因型：<strong>G 型＝VP7、P 型＝VP4</strong>。例：<strong>G9P[13]</strong>＝VP7 基因型 9、VP4 基因型 13。全基因體定序可進一步分類全部 11 個片段。</li>
+        <li>環境中<strong>非常穩定</strong>，完全乾燥也不一定能不活化所有病毒；有效消毒劑為<strong>含氯化合物與戊二醛</strong>（適當濃度與接觸時間）。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p147.jpg" alt="輪狀病毒電子顯微鏡" loading="lazy"><div class="figure-caption">輪狀病毒電子顯微鏡：車輪狀的無封套顆粒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=147">p.147</a></div></div>
+
+      <h3>公共衛生<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>RVA 是豬輪狀病毒中人畜共通潛力最大的</strong>。</li>
+        <li>人類身上驗到<strong>類豬株與人－豬重組（human–porcine reassortant）RVA</strong>，表示豬與人之間偶有跨物種傳播與重組。</li>
+        <li>RVB、RVC、RVH 較受宿主限制，豬傳人的證據有限。</li>
+        <li>豬可能是新 RVA 基因與基因型的<strong>保毒庫（reservoir）</strong>；人畜共通事件屬零星，但重組可能促進動物株適應人類。</li>
+        <li>台灣：豬 RVA 與兒童中不尋常 RVA 株遺傳相似度高，顯示豬可能是零星人畜共通感染的保毒庫（Wu et al., 2022）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p151.jpg" alt="人類身上疑似或確認為豬來源的 RV 基因型；紅框為台灣的病例（Vlasova e" loading="lazy"><div class="figure-caption">人類身上疑似或確認為豬來源的 RV 基因型；紅框為台灣的病例（Vlasova et al., 2017）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=151">p.151</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p155.jpg" alt="台灣各地區豬 RVA 的 G／P 基因型分布（2014–2017）。" loading="lazy"><div class="figure-caption">台灣各地區豬 RVA 的 G／P 基因型分布（2014–2017）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=155">p.155</a></div></div>
+      </div>
+
+      <h3>流行病學與傳播<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>多種 RV 或多株<strong>混合感染</strong>常見，特別是隨年齡增加反覆暴露。</li>
+        <li><strong>年齡</strong>是影響盛行率與嚴重度的重要因子；<strong>母源免疫不足</strong>的幼齡仔豬高度易感。</li>
+        <li>母豬在<strong>分娩前後排毒增加</strong>，增加環境污染與新生仔豬暴露。</li>
+        <li>感染豬<strong>糞便</strong>大量排毒，每克可達約 <strong>1×10¹⁰</strong> 個顆粒；感染力極高，<strong>少至 90 個病毒顆粒</strong>就能讓未吃初乳的仔豬下痢並排毒。</li>
+        <li>主要經<strong>糞口途徑</strong>，透過污染的糞便、器具、飼料或飲水；可在污染的設施與器具中長期存在。</li>
+      </ul>
+
+      <h3>致病機制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>主要感染<strong>空腸與迴腸</strong>的<strong>成熟腸細胞</strong>。</li>
+        <li>病毒複製造成<strong>絨毛變鈍與萎縮</strong>，特別在<strong>絨毛頂端</strong>；主要病變侷限於<strong>小腸</strong>。</li>
+        <li>下痢主要來自腸細胞流失與絨毛萎縮後的<strong>吸收不良</strong>，加上病毒蛋白造成的<strong>分泌作用</strong>。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：學長姐筆記寫到此分泌作用與病毒蛋白 NSP4 擾亂細胞內鈣、促進氯離子分泌有關；本年度講義只寫「viral proteins」。</p>
+
+      <h3>臨床症狀與病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>從亞臨床到嚴重疾病，取決於病毒株、年齡、免疫狀態與共同感染。</li>
+        <li>仔豬潛伏期通常 <strong>1–4 天</strong>。</li>
+        <li><strong>水樣下痢</strong>、昏睡、厭食、脫水、體重快速下降；可能嘔吐。</li>
+        <li>糞便常為<strong>黃到淡色</strong>，可能含<strong>未消化的乳汁</strong>。</li>
+        <li>新生仔豬下痢可持續數天，造成明顯脫水與體重下降；較大仔豬較輕、較短、死亡率較低；<strong>較大的豬亞臨床感染很常見</strong>；飼糧與其他腸道病原會加重。</li>
+        <li>肉眼：<strong>小腸常擴張、壁薄</strong>，充滿水樣、黃到灰色內容物；大腸也可能積液；<strong>胃可能因未消化的乳汁而膨脹</strong>。</li>
+        <li>顯微：<strong>絨毛萎縮</strong>。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p158.jpg" alt="下痢仔豬" loading="lazy"><div class="figure-caption">下痢仔豬：會陰沾黃色糞便。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=158">p.158</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p160.jpg" alt="豬場中的下痢仔豬。" loading="lazy"><div class="figure-caption">豬場中的下痢仔豬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=160">p.160</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p161.jpg" alt="黃色水樣糞便。" loading="lazy"><div class="figure-caption">黃色水樣糞便。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=161">p.161</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p163.jpg" alt="正常絨毛（左）與絨毛萎縮（右）。" loading="lazy"><div class="figure-caption">正常絨毛（左）與絨毛萎縮（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=163">p.163</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=144">p.144–163</a>。</footer>
+    </div>
+
+    <!-- RV-B -->
+    <div class="section" id="section-rv-b">
+      <div class="section-head"><div class="section-num">10</div><h2>豬輪狀病毒：診斷、免疫與控制 Diagnosis, Immunity &amp; Control</h2></div>
+      <p class="section-desc">輪狀病毒症狀沒有特異性，<strong>需要實驗室確認</strong>；但因為亞臨床感染很常見，<strong>單純驗到 RV 也不一定代表它就是下痢的原因</strong>。</p>
+
+      <h3>鑑別診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>RV 主要侵犯<strong>新生與哺乳仔豬</strong>，腸道疾病都應列入鑑別。</li>
+        <li>鑑別對象：<strong>PEDV、TGEV、PDCoV</strong>（第 5 週冠狀病毒）、<strong>腸毒素型 <em>E. coli</em></strong>、<em>Clostridium perfringens</em>、<em>Cystoisospora suis</em>（球蟲），及其他腸道共同感染。</li>
+      </ul>
+
+      <h3>診斷<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>樣本</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td>糞便或直腸拭子</td><td>RT-PCR 與抗原檢測</td></tr>
+            <tr><td>腸內容物</td><td>急性腸道病例的病毒檢測</td></tr>
+            <tr><td>空腸與迴腸</td><td>組織病理、抗原檢測、RT-PCR</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>剖檢仔豬時應同時採<strong>新鮮與固定</strong>的腸組織。</p>
+      <ul>
+        <li>直接檢測：<strong>RT-PCR（最常用，可偵測與分型）</strong>；糞便或腸內容物抗原檢測；腸組織 IHC；組織中病毒 RNA 的 ISH；細胞培養加免疫螢光（主要用於分離與研究）。</li>
+        <li>抗體檢測：ELISA、HI、蝕斑減少中和（PRN）、螢光焦點中和（FFN）。</li>
+      </ul>
+
+      <h3>免疫<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>主動免疫</strong>：感染誘發全身與黏膜免疫；<strong>VP7 與 VP4</strong> 是中和抗體的主要標的；<strong>腸道 IgA</strong> 是重要的保護指標。</li>
+        <li><strong>被動免疫</strong>：新生仔豬主要靠母源免疫；<strong>IgG 主要經初乳獲得，IgA 則經乳汁持續供應</strong>。</li>
+        <li><strong>初乳攝取不足或早期離乳</strong>增加嚴重下痢的易感性。</li>
+        <li>交叉保護：同一種內，疫苗株與流行株的 VP7、VP4 越接近保護越好；不同基因型或 lineage 間交叉保護不一；疫苗最好包含<strong>本地流行</strong>基因型。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">IgG 與 IgA 的分工</div>
+        <p>初乳 IgG 只在出生頭一天吸收進血液，屬於全身性保護；輪狀病毒感染的是腸道表面，真正擋在腸腔的是<strong>每次吸奶都帶進來的乳汁 IgA</strong>（補充）。所以早期離乳等於斷掉 IgA 供應，下痢風險上升。</p>
+      </div>
+
+      <h3>預防、控制與治療<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>商業疫苗<strong>主要只有 RVA</strong>。</li>
+        <li><strong>改良活毒或減毒疫苗</strong>一般比不活化疫苗誘發<strong>更強的黏膜免疫</strong>。</li>
+        <li><strong>母源抗體可能干擾活毒疫苗</strong>在仔豬的複製與免疫反應。</li>
+        <li>常見做法是<strong>母豬分娩前接種</strong>，增強仔豬的<strong>乳汁免疫（lactogenic immunity）</strong>。</li>
+        <li>控制：分娩前加強母源免疫、確保初乳攝取、維持分娩舍衛生、減少窩間環境污染、適當溫度與支持療法、控制共同感染。</li>
+        <li><strong>治療</strong>：支持療法，維持適當環境溫度（特別是新生仔豬）；<strong>補充體液與電解質</strong>預防脫水；恢復期給予足夠營養；懷疑或確認次發細菌感染時可用抗生素。</li>
+      </ul>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p170.jpg" alt="商業豬輪狀病毒疫苗。" loading="lazy"><div class="figure-caption">商業豬輪狀病毒疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=170">p.170</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義 Take-home messages（RV）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>輪狀病毒是新生與哺乳仔豬下痢的重要原因。</li>
+          <li>嚴重度受年齡、母源免疫與其他腸道病原共同感染強烈影響。</li>
+          <li>RVA 是最重要、遺傳最多樣的豬輪狀病毒，經跨物種傳播與重組偶有人畜共通潛力。</li>
+          <li>幼豬保護主要靠母源抗體，特別是<strong>乳汁 IgA</strong>。</li>
+          <li>有效控制需要母豬接種、良好衛生與支持療法。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=164">p.164–173</a>。</footer>
+    </div>
+
+    <!-- VACC -->
+    <div class="section" id="section-vacc">
+      <div class="section-head"><div class="section-num">11</div><h2>豬隻疫苗接種 Vaccination of Pigs</h2></div>
+      <p class="section-desc">講義最後一段介紹全球動物疫苗產業，以及豬用疫苗的原則。台灣 2020 年動物疫苗市場以<strong>豬用疫苗佔比最高（約 45%）</strong>（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=180">p.180</a>）。</p>
+      <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p180.jpg" alt="動物疫苗市場依物種" loading="lazy"><div class="figure-caption">動物疫苗市場依物種：全球 2015 年與台灣 2020 年；台灣豬用疫苗佔 45.33%，其次家禽 25.62%、犬 21.78%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=180">p.180</a></div></div>
+
+      <h3>豬隻接種原則<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>接種目的在<strong>預防臨床疾病、減少病原傳播</strong>，但<strong>不一定能完全預防感染</strong>。</li>
+        <li>接種計畫應依<strong>豬群健康狀態、疾病風險與生產階段</strong>設計。</li>
+        <li>接種時機要考慮<strong>母源抗體</strong>與<strong>疾病風險最高的時期</strong>。</li>
+        <li>種豬接種可以保護自己，或提供<strong>母源免疫給後代</strong>。</li>
+      </ul>
+
+      <h3>影響疫苗效力的因子<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>因子</th></tr></thead>
+          <tbody>
+            <tr><td>宿主</td><td><strong>母源抗體干擾</strong>；豬的年齡與免疫狀態；同時感染、壓力或免疫抑制</td></tr>
+            <tr><td>疫苗與病原</td><td>疫苗類型、劑量、途徑、時機；<strong>疫苗株與野外株的抗原差異</strong></td></tr>
+            <tr><td>管理</td><td><strong>冷鏈</strong>與正確的疫苗處理；遵守建議的接種時程</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>教科書接種時程（Table 18.1、18.2）<span class="lv lv-skim">看過</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疫苗</th><th>6 月齡以下仔豬</th><th>成豬</th></tr></thead>
+          <tbody>
+            <tr><td>豬小病毒</td><td>兩劑間隔 3–5 週，第二劑在配種前 2–4 週；每年配種前補強，公豬每半年</td><td>種母豬與公豬兩劑間隔 3–4 週；母豬每次離乳補強，公豬每 6 個月</td></tr>
+            <tr><td>假性狂犬病</td><td>1–7 日齡鼻內接種，場內其他豬肌肉注射；種豬每半年補強</td><td>母豬與 1–7 日齡仔豬鼻內接種，其他豬肌肉注射</td></tr>
+            <tr><td>豬環狀病毒</td><td>3 週齡接種、6 週齡補強；有些場用 1 與 3 週齡或 2 與 4 週齡</td><td>—</td></tr>
+            <tr><td>PRRSV</td><td>3 週齡以上單劑；也可 1 日齡；自家鼻內疫苗在 7–10 日齡與離乳（3 週）；每半年補強</td><td>母豬與女豬配種前 3–4 週或懷孕期間，預防生殖型</td></tr>
+            <tr><td>PED</td><td>3 週齡以上，3 週後補強</td><td>懷孕母豬分娩前 5 週與 3 週；之後每胎分娩前 2 週一劑</td></tr>
+            <tr><td>流感</td><td>3–5 週齡以上肌肉注射，2–3 週後第二劑；或 1 日齡以上鼻內；每半年補強</td><td>健康種豬兩劑間隔 3–5 週，配種前 2–4 週補強；公豬每半年、母豬每年配種前</td></tr>
+            <tr><td>TGE</td><td>—</td><td>母豬與女豬分娩前 3–5 週口服兩劑，分娩前 1 週肌肉注射補強；或分娩前 5 與 2 週肌肉注射</td></tr>
+            <tr><td>輪狀病毒</td><td>離乳前 7–10 天口服或注射；口服後至少 30 分鐘不要放回母豬身邊</td><td>與 TGE 併用；母豬分娩前 2–5 週，口服初始、肌肉注射補強</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">表中各疫苗的停藥期（withdrawal time）都是 <strong>21 天</strong>。這兩張表講義只有圖，沒有逐項講解，列出供參考。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p181.jpg" alt="Table 18.1" loading="lazy"><div class="figure-caption">Table 18.1：6 月齡以下仔豬接種。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=181">p.181</a></div></div>
+        <div class="figure"><img src="img/week03_豬病毒性疾病II/v2_p182.jpg" alt="Table 18.2" loading="lazy"><div class="figure-caption">Table 18.2：成豬接種（抗病毒疫苗）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=182">p.182</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (II)〉<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=174">p.174–184</a>。</footer>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="section" id="section-compare">
+      <div class="section-head"><div class="section-num">12</div><h2>鑑別比較 Differential Comparison</h2></div>
+      <p class="section-desc">四個病毒放在一起比，再把跨週次常考的「生殖障礙」與「仔豬下痢」做成鑑別表。</p>
+      <h3>四病毒比較<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>PCV2</th><th>PRRSV</th><th>PPV1</th><th>RV</th></tr></thead>
+          <tbody>
+            <tr><td>科</td><td>Circoviridae</td><td>Arteriviridae</td><td>Parvoviridae</td><td>Sedoreoviridae</td></tr>
+            <tr><td>核酸</td><td>ssDNA，<strong>環狀</strong>，1.7 kb</td><td>(+)ssRNA</td><td>ssDNA，<strong>線狀</strong>，4–6 kb</td><td><strong>分段 dsRNA</strong>（11 段）</td></tr>
+            <tr><td>封套</td><td>無</td><td><strong>有</strong></td><td>無</td><td>無</td></tr>
+            <tr><td>環境抵抗力</td><td>極強（56°C 1 h、pH&lt;2）</td><td>弱（怕熱乾酸鹼）</td><td>強（短暫 90°C 乾熱）</td><td>強（乾燥不一定殺得死）</td></tr>
+            <tr><td>有效消毒</td><td>氧化劑、醛＋四級銨</td><td>—</td><td>過氧乙酸、醛類、次氯酸鈉</td><td>含氯、戊二醛</td></tr>
+            <tr><td>標的細胞</td><td>淋巴器官與肺的巨噬細胞、單核球</td><td>巨噬細胞（PAMs、PIMs）</td><td>快速分裂細胞</td><td>空腸迴腸成熟腸細胞</td></tr>
+            <tr><td>抗體時程</td><td>IFA 7–14 天；中和 21–35 天</td><td>非中和 7–14 天；中和 3–4 週</td><td>6 天出現、14–21 天高峰；母源 14–26 週</td><td>IgG（初乳）、IgA（乳汁）</td></tr>
+            <tr><td>疫苗重點</td><td>2006 年起、PCV2a 為主、不保護 PCV3/4</td><td>同源好、異源不完全</td><td>不活化為主，配種前</td><td>只有 RVA，母豬分娩前</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>母豬生殖障礙的病毒鑑別<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病原</th><th>母豬本身</th><th>胎兒／窩</th><th>線索</th></tr></thead>
+          <tbody>
+            <tr><td>PPV1</td><td><strong>沒有症狀</strong></td><td>35 天前吸收、35–70 天木乃伊、70 天後存活帶抗體</td><td>同窩<strong>大小不一木乃伊胎</strong>；女豬、年輕母豬</td></tr>
+            <tr><td>PRRSV</td><td>可發燒、厭食、耳發紺</td><td>正常、虛弱、死產、木乃伊混雜；虛弱仔豬死於呼吸道病</td><td>同時有仔豬呼吸道病</td></tr>
+            <tr><td>PCV2-RD</td><td>—</td><td>晚期流產死產、胎兒心臟肥大、<strong>纖維化壞死性心肌炎</strong>；早期規律返情</td><td>病灶內大量 PCV2</td></tr>
+            <tr><td>日本腦炎（第 2 週）</td><td>母豬多無症狀；公豬睪丸炎</td><td>妊娠 60–70 天前感染：流產、死產、木乃伊、腦水腫</td><td>蚊子季節</td></tr>
+            <tr><td>假性狂犬病（第 4 週）</td><td>呼吸症狀與發燒</td><td>依懷孕期：吸收、木乃伊、流產；壞死性胎盤炎</td><td>仔豬神經症狀、其他動物死亡</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">日本腦炎與假性狂犬病的內容來自第 2、4 週講義，這裡只列出鑑別要點。</p>
+      <h3>新生仔豬下痢鑑別（跨週次）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病原</th><th>機轉</th><th>腸道</th></tr></thead>
+          <tbody>
+            <tr><td>輪狀病毒</td><td>空腸迴腸<strong>絨毛萎縮</strong> → 吸收不良（＋分泌）</td><td>小腸擴張壁薄、黃灰色內容物、胃有未消化乳</td></tr>
+            <tr><td>ETEC（第 6 週）</td><td>線毛＋腸毒素 → <strong>分泌性</strong>下痢，絨毛不萎縮</td><td>壁薄透明、積液、不發炎、胃有凝乳</td></tr>
+            <tr><td>TGE／PED（第 5 週）</td><td>空腸迴腸絨毛萎縮</td><td>壁薄透明、水樣黃色內容物</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：整理自課程講義〈Swine viral diseases (II)〉，並參照第 2、4、5、6 週講義。</footer>
+    </div>
+
+    <!-- KAOGU -->
+    <div class="section" id="section-kaogu">
+      <div class="section-head"><div class="section-num">13</div><h2>期中考古題 Past Midterm Questions</h2></div>
+      <p class="section-desc">這份講義沒有附國考題。你提供的考古中，相關題目來自 <strong>2019 年鄭益謙老師授課時期</strong>的期中考（當時病毒由鄭老師授課，現在改由張家宜、高啟霏老師授課，出題方向可能不同）。原題為<strong>複選題</strong>（a–e），答案依考卷上的圈選。</p>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>考古題照片為手機翻拍，題目文字依可辨識內容整理。學長姐筆記提到張家宜老師的題目「考最特別的地方、有看過就會記得」，請搭配本頁標為必考、講義畫底線的內容準備。</p></div>
+      <h3>2019 年期中考（複選）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 期中 Q6（複選）</span>
+        <div class="quiz-q">有關 Porcine Reproductive and Respiratory Syndrome（PRRS）敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) PRRS 病毒（PRRSV）基因變異性高</li>
+          <li>(B) 在同一豬場可能出現不同病毒株併存感染</li>
+          <li>(C) 曾發生減毒疫苗 virulent reversion 憾事</li>
+          <li>(D) 為 DNA 病毒</li>
+          <li>(E) 感染不會造成 carrier，豬場容易清除 PRRS</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、B、C)</div>
+          <p class="quiz-explain">(A) 對：演化約 10⁻² substitutions/site/year、準種（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=101">p.101–102</a>）。<br>(B) 對：同一頭豬內可同時有多個變異株，同場豬序列各不相同（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=102">p.102</a>）。<br>(C) 對（考卷圈選）：（補充）減毒活毒疫苗毒力回復曾發生；講義只寫 MLV 安全性較低（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=115">p.115</a>）。<br>(D) 錯：有封套單股正股 RNA（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=70">p.70</a>）。<br>(E) 錯：持續感染、間歇排毒，很難從豬場清除（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=100">p.100</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 期中 Q7（複選）</span>
+        <div class="quiz-q">PRRSV 可藉以下哪些途徑排毒？</div>
+        <ul class="quiz-options">
+          <li>(A) saliva and nasal secretions</li>
+          <li>(B) urine</li>
+          <li>(C) semen</li>
+          <li>(D) feces and milk</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、B、C、D)</div>
+          <p class="quiz-explain">(A)(B)(C)(D) 全對：唾液、鼻分泌物、尿、糞、精液都排毒（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=77">p.77</a>）；乳汁或初乳可到感染後 9 天（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=78">p.78</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 期中 Q15（複選）</span>
+        <div class="quiz-q">以下何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 母豬懷孕期約為 114 天</li>
+          <li>(B) 豬小病毒（Porcine Parvovirus, PPV）感染可造成流死產</li>
+          <li>(C) 受孕超過 70 天的胎兒對 PPV 感染可以產生免疫力</li>
+          <li>(D) 種用公豬遭 PPV 感染其繁殖性能不受影響</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(E)</div>
+          <p class="quiz-explain">(E) 對（考卷圈選）：(A)–(D) 都正確，所以「錯誤的」選以上皆非。<br>(A) 對：114–115 天（課程介紹 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=46">p.46</a>）。<br>(B) 對：SMEDI。<br>(C) 對：約第 70 天胎兒具免疫勝任能力（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=131">p.131</a>）。<br>(D) 對：PPV1 在成豬一般沒有臨床症狀（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=134">p.134</a>）；考卷旁註「但會在精液排毒」（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=125">p.125</a>）。</p>
+        </details>
+      </div>
+      <h3>問答題<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜2019 期中 二-1</span>
+        <div class="quiz-q">請列舉出至少兩種能造成懷孕母豬 abortion、stillbirth 等 reproductive failure 的病毒性疾病，及至少三種可使用於病原確診的實驗室診斷（技術「名稱」之外，需含其基本原理）。（20 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong>病毒</strong>（任選兩種以上）：PPV1、PRRSV、PCV2（PCV2-RD）、日本腦炎病毒、假性狂犬病病毒、古典豬瘟病毒。</p><p><strong>實驗室診斷與原理</strong>（以本講義為例）：</p><ul><li><strong>PCR／RT-PCR</strong>：以專一引子增幅病毒核酸（DNA 病毒如 PPV1、PCV2 用 PCR；RNA 病毒如 PRRSV 用 RT-PCR 先反轉錄成 cDNA），可驗胎兒組織、精液、血清；PPV1 最實用的方法（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=138">p.138</a>）。</li><li><strong>免疫螢光（IF）／免疫組織化學（IHC）</strong>：以帶螢光或酵素標記的專一抗體結合組織中的病毒抗原，在顯微鏡下看到訊號；用於胎兒組織 PPV1 抗原、PCV2 病灶內抗原（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=138">p.138</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=51">p.51</a>）。</li><li><strong>血球凝集抑制（HI）</strong>：PPV1 可凝集紅血球，血清中的專一抗體會抑制凝集，以抑制的最高稀釋倍數定量抗體（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=139">p.139</a>）。</li><li><strong>ELISA</strong>：抗原固定在盤上，血清抗體結合後以酵素標記二次抗體呈色，適合高通量（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=109">p.109</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=139">p.139</a>）。</li><li><strong>病毒分離</strong>：接種感受性細胞（PRRSV 用 MARC-145），觀察細胞病變再以抗體確認（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=108">p.108</a>）。</li><li><strong>胎兒體液或未吸初乳血清的抗體</strong>：胎兒（&gt;70 天）產生的抗體表示子宮內感染（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=139">p.139</a>）。</li></ul></div>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：使用者提供的豬病學期中考古（2019 年鄭益謙老師授課部分）。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">14</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義畫底線、強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>PCV1–4 各自特點</td><td>PCV1 PK-15 污染、不致病；PCV2 最重要；PCV3 蝙蝠；PCV4 水貂、2019 中國</td></tr>
+            <tr><td>PCV2 基因型轉換</td><td>2a→2b（2003）、2b→2d（2012，疫苗失敗）；可共同感染；單一血清型</td></tr>
+            <tr><td>PCVAD 四型與 PDNS</td><td>PCV2-SD（PMWS）、PCV2-RD、PDNS（8–18 週、後肢會陰紅紫色斑、大多會死）、PCV2-SI</td></tr>
+            <tr><td>PCVAD 診斷條件</td><td>PCV2-SD 三條件；PCV2-RD 胎兒心肌炎；PDNS 不需驗 PCV2；PCR 陽性≠疾病</td></tr>
+            <tr><td>PCV2 傳播</td><td>口鼻為主；胎盤、乳汁初乳、精液</td></tr>
+            <tr><td>PRRSV 結構蛋白</td><td>ORF2–7；GP5、M、N 三大；GP5 最重要</td></tr>
+            <tr><td>PRRSV-1 vs PRRSV-2</td><td>歐洲 vs 美洲亞洲；台灣 PRRSV-2 1991、PRRSV-1 2018；相似度 50–70%</td></tr>
+            <tr><td>PRRS 抗體</td><td>非中和（N）7–14 天；中和（GP5）3–4 週；epitope A 早高、B 晚低有中和力</td></tr>
+            <tr><td>PRRS 持續感染與演化</td><td>扁桃腺數月；間歇排毒；10⁻²；準種 93/4/3%</td></tr>
+            <tr><td>PRRS 結果判讀</td><td>RT-PCR × ELISA 四格，以 14 天為界</td></tr>
+            <tr><td>PPV1 懷孕階段</td><td>&lt;35 天吸收、35–70 天木乃伊、&gt;70 天免疫勝任；同窩大小不一木乃伊</td></tr>
+            <tr><td>PPV 診斷與免疫</td><td>PCR、IF、HI；母源 14–26 週；6 天出現、14–21 天高峰；不活化疫苗擋病不擋感染</td></tr>
+            <tr><td>RV 分型與公衛</td><td>VP6 分種；G＝VP7、P＝VP4；RVA 人畜共通、reassortant；豬是保毒庫</td></tr>
+            <tr><td>RV 免疫</td><td>VP7、VP4 中和；腸道 IgA；IgG 初乳、IgA 乳汁；早期離乳風險；母源抗體干擾活毒疫苗</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。</footer>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section" id="section-summary">
+      <div class="section-head"><div class="section-num">15</div><h2>學習重點整理</h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>PCV</strong>：Circoviridae、無封套、1.7 kb ssDNA 環狀；PCV1 不致病、PCV2 最重要、PCV3 蝙蝠、PCV4 水貂；極耐熱耐酸；ORF2 衣殼＝次單位疫苗抗原。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>PCV2 基因型</strong>：2a→2b（2003）→2d（2012，疫苗失敗）；可共同感染；單一血清型；台灣檢出 PCV2 54.3%、PCV3 43.5%、PCV4 2.2%。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>PCVAD</strong>：口鼻、胎盤、乳汁、精液；多因子；淋巴耗竭、濾泡被巨噬細胞取代；PCV2-SD 三條件；PDNS 8–18 週、不需驗 PCV2；病變像 PRRS。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>PCV2 免疫與疫苗</strong>：IFA 7–14 天、中和 21–35 天；疫苗 2006、多為 PCV2a、建議同源株、不保護 PCV3/4。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>PRRSV</strong>：Arteriviridae、有封套 (+)ssRNA；GP5、M、N；PRRSV-1 歐洲、PRRSV-2 美洲亞洲（台灣 1991／2018）；HP-PRRS 2006 中國；排毒：唾液、鼻、尿、糞、精液。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>PRRS 致病與臨床</strong>：巨噬細胞（PAMs、PIMs）；病毒血症 12–24 h、4 週下降、扁桃腺數月；母豬流產死產木乃伊；仔豬呼吸困難不咳嗽、藍耳；肺斑駁不塌陷、間質性肺炎。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>PRRS 免疫與控制</strong>：非中和（N）7–14 天、中和（GP5）3–4 週；準種、10⁻²；RT-PCR×ELISA 判讀；四大支柱；疫苗同源好異源差。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>PPV1</strong>：無封套線狀 ssDNA、極耐；糞便分泌物、污染物、齧齒類、精液；&lt;35 天吸收、35–70 天木乃伊、&gt;70 天有免疫；同窩大小不一木乃伊；成豬無症狀。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>PPV 診斷與控制</strong>：PCR 最實用、IF 驗胎兒抗原、HI 驗抗體；母源 14–26 週；不活化疫苗為主，配種前建立免疫。</div></div>
+      <div class="step"><div class="step-num">10</div><div class="step-text"><strong>輪狀病毒</strong>：分段 dsRNA、無封套；RVA 最重要且人畜共通；90 顆即致病；空腸迴腸絨毛萎縮；黃色水樣下痢；IgA（乳汁）保護；疫苗只有 RVA、母豬分娩前；補液保溫。</div></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">16</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。最後 3 題是臨床情境題。</p>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列哪一型豬環狀病毒最初是 PK-15 細胞的污染物，且對豬不致病？</div>
+        <ul class="quiz-options">
+          <li>(A) PCV1</li>
+          <li>(B) PCV2</li>
+          <li>(C) PCV3</li>
+          <li>(D) PCV4</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">PCV1 於 1974 年發現為 PK-15 細胞污染物，不致病。PCV3 與蝙蝠環狀病毒有關，PCV4 與水貂有關。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. PDNS 的診斷，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 一定要在病灶驗到大量 PCV2</li>
+          <li>(B) 看皮膚出血壞死病灶與腎腫大蒼白，加上全身性壞死性血管炎與纖維素性腎絲球腎炎</li>
+          <li>(C) 只要血清 PCR 陽性即可</li>
+          <li>(D) 主要侵犯新生仔豬</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=50">p.50</a>：PDNS 的診斷不需要驗到 PCV2；好發 8–18 週齡。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. PCV2 第二次基因型轉換（2b→2d）的意義是？</div>
+        <ul class="quiz-options">
+          <li>(A) PCV2 從此不再致病</li>
+          <li>(B) 與部分疫苗失敗病例有關</li>
+          <li>(C) 造成 PCV3 出現</li>
+          <li>(D) 使 PCV2 變成 RNA 病毒</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=12">p.12</a>：2012 年後轉為 PCV2d，在部分明顯疫苗失敗的病例中驗到。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. PRRSV 感染後最早出現的抗體主要針對哪個蛋白、有沒有中和力？</div>
+        <ul class="quiz-options">
+          <li>(A) GP5，有中和力</li>
+          <li>(B) N 蛋白，沒有中和力</li>
+          <li>(C) M 蛋白，有中和力</li>
+          <li>(D) GP5，沒有中和力</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">非中和抗體 7–14 天高效價、主要針對 N；中和抗體 3–4 週後才出現，主要針對 GP5。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 一頭豬 PRRSV RT-PCR 陽性、ELISA 陰性，最可能的解釋是？</div>
+        <ul class="quiz-options">
+          <li>(A) 已清除感染 6–12 個月</li>
+          <li>(B) 剛感染或剛打疫苗（&lt;14 天），還沒血清轉陽</li>
+          <li>(C) 母源抗體</li>
+          <li>(D) 再感染</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=110">p.110</a> 判讀表。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 下列關於 PRRSV 演化的敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 演化速度比一般 RNA 病毒慢</li>
+          <li>(B) 快速演化主要因為複製錯誤率特別高</li>
+          <li>(C) 約 10⁻² substitutions/site/year，可能因複製更頻繁</li>
+          <li>(D) 遺傳變異主要發生在同一頭豬內</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=101">p.101–102</a>：遺傳變異約 93% 在場與場之間。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 母豬在懷孕第 50 天感染 PPV1，最可能的結果是？</div>
+        <ul class="quiz-options">
+          <li>(A) 胚胎吸收、返情</li>
+          <li>(B) 胎兒死亡並木乃伊化</li>
+          <li>(C) 胎兒存活並帶抗體出生</li>
+          <li>(D) 母豬高燒死亡</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">35–70 天為胎兒死亡與木乃伊化。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. PPV1 的不活化疫苗可以完全阻止感染與排毒。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=141">p.141</a>：有效預防生殖疾病，但不一定完全預防感染或排毒。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 輪狀病毒的 IgG 主要經初乳獲得，IgA 則經乳汁持續供應。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：TRUE</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=168">p.168</a>。初乳攝取不足或早期離乳都會增加嚴重下痢的風險。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q10. 請說明 PCV2-SD 為什麼被稱為「多因子疾病」，以及診斷需要哪三個條件。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <p class="quiz-explain">PCV2 感染很普遍但只有部分豬發病；PCV2 是必要原因，但需要免疫刺激、宿主易感性、共同感染（PRRSV、PPV、黴漿菌等）等因子把亞臨床感染推向高病毒血症與全身散播（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=27">p.27–29</a>）。診斷三條件：① 生長遲緩消耗（常有呼吸困難、鼠蹊淋巴結腫大、偶有黃疸）；② 淋巴組織中至重度特徵病變；③ 病灶內中至大量 PCV2（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=47">p.47</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q11.【臨床情境】一個一貫場的保育豬（8–12 週齡）陸續消瘦、皮膚蒼白、呼吸困難，部分出現黃疸，死亡率上升；剖檢鼠蹊淋巴結明顯腫大、肺不塌陷呈橡膠樣。另外有幾頭 14 週齡的豬後肢與會陰出現紅紫色斑塊，剖檢腎臟腫大蒼白、皮質點狀出血。(1) 兩種情況各最可能是什麼？(2) 要送什麼樣本？(3) 血清 PCV2 PCR 陽性就能確診嗎？(4) 控制方向？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 前者：PCV2-SD（PMWS）；後者：PDNS。<br><strong>(2)</strong> 淋巴結、扁桃腺、脾、肺做組織病理、IHC／ISH、qPCR；血清做 qPCR 與血清學；PDNS 送皮膚與腎做組織病理（看壞死性血管炎與纖維素性腎絲球腎炎）（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=51">p.51</a>）。<br><strong>(3)</strong> 不行：PCR 陽性不能確認 PCV2 相關疾病；PCV2-SD 要淋巴組織特徵病變加上病灶內中至大量 PCV2；PDNS 則不需要驗到 PCV2。<br><strong>(4)</strong> 母豬與仔豬接種 PCV2 疫苗（以同源株為佳）；控制共同感染（PRRS、黴漿菌等）；管理與營養改善；必要時清場再引種（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=56">p.56–58</a>）。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q12.【臨床情境】一個種豬場最近女豬與年輕母豬的窩仔數下降、返情率上升，分娩時同一窩有正常仔豬，也有大小不一的木乃伊胎；母豬本身都沒有症狀。(1) 最可能的病原？(2) 為什麼木乃伊胎大小不一？(3) 要送什麼樣本？(4) 怎麼預防？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 豬小病毒 PPV1：成豬無症狀、女豬與年輕母豬、同窩正常仔豬混大小不一木乃伊胎（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=134">p.134</a>）。<br><strong>(2)</strong> 病毒在子宮內逐一感染胎兒，各胎兒在不同天數被感染、死亡時大小不同；35 天前死的被吸收（窩仔數少、返情），35–70 天死的木乃伊化，70 天後被感染的存活並帶抗體（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=130">p.130–131</a>）。<br><strong>(3)</strong> 木乃伊胎、死產與流產胎兒（肺、肝、腎、脾、淋巴組織）做 PCR 或 IF；胎兒體液或未吸初乳血清驗抗體；母豬配對血清做 HI 或 ELISA（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=136">p.136–139</a>）。<br><strong>(4)</strong> 配種前建立保護性免疫：更新女豬與種母豬例行接種（不活化疫苗）；從可靠來源引進豬與精液；隔離與健康監測；有效清消（過氧乙酸、醛類、次氯酸鈉）；生物安全（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=142">p.142</a>）。</p></details></div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】分娩舍一窩 5 日齡仔豬黃色水樣下痢，有些糞便中可見未消化的乳汁，脫水明顯；這頭母豬是新進的女豬，泌乳量偏少。剖檢小腸擴張壁薄，組織切片空腸迴腸絨毛萎縮。(1) 最可能的病原？(2) 為什麼這窩特別嚴重？(3) 驗到 RV 就一定是原因嗎？(4) 處置與預防？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 豬輪狀病毒（以 RVA 最常見；RVC 對新生仔豬也很重要）。<br><strong>(2)</strong> 年齡小且母源免疫不足：新進女豬可能缺乏對場內 RV 的抗體，泌乳少使初乳 IgG 與乳汁 IgA 都不足；母豬分娩前後排毒增加也提高暴露（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=152">p.152</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=168">p.168</a>）。<br><strong>(3)</strong> 不一定：亞臨床感染很常見，要搭配病變（絨毛萎縮）並排除 PEDV、TGEV、PDCoV、ETEC、<em>C. perfringens</em>、球蟲（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=164">p.164–165</a>）。<br><strong>(4)</strong> 支持療法：保溫、補充體液與電解質、恢復期營養，懷疑次發細菌感染才用抗生素（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=172">p.172</a>）。預防：母豬分娩前接種（RVA 疫苗）增強乳汁免疫、確保初乳攝取、分娩舍衛生與窩間清消（含氯、戊二醛）（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=170">p.170–171</a>）。</p></details></div>
+
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  'abstract': '大方向與重點摘要',
+  'pcv-virus': '病毒、基因型與流行病學',
+  'pcv-path': '傳播、致病、臨床與病變',
+  'pcv-dx': '診斷、免疫與控制',
+  'prrs-virus': '病毒、分型與傳播',
+  'prrs-path': '致病、臨床、病變與免疫',
+  'prrs-dx': '診斷、控制與疫苗',
+  'ppv': '豬小病毒感染症',
+  'rv-a': '病毒、流行病學與臨床',
+  'rv-b': '診斷、免疫與控制',
+  'vacc': '豬隻疫苗接種',
+  'compare': '鑑別比較',
+  'kaogu': '期中考古題',
+  'exam': '考試方向（推測）',
+  'summary': '學習重點整理',
+  'quiz': '練習題'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

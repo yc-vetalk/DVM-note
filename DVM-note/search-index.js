@@ -1947,102 +1947,956 @@ const SEARCH_INDEX = [
     snippet: "涵蓋EEG波型、睡眠分期、神經傳導物質調控、兩歷程模型、晝夜節律等章節重點的練習題（共6題）。"
   },
   {
-    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
-    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 ASF CSF JEV HEV 非洲豬瘟 古典豬瘟 日本腦炎 E型肝炎 國考重點",
-    snippet: "七個臨床與國考重點：ASF vs CSF鑑別診斷、環境抵抗力、CSF先天型與產後持續感染型、台灣CSF根除史、代表性病變、JEV增幅宿主概念、HEV食品安全。"
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 APP 萎縮性鼻炎 Glässer 大腸桿菌 細菌性疾病 葉光勝",
+    snippet: "四種細菌病的大方向：APP 口鼻泡沫血與纖維素性胸膜肺炎、AR 鼻吻變形、Glässer 多發性漿膜炎、E. coli 依年齡分新生仔豬下痢／離乳後下痢／水腫病。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "app-agent", sectionName: "病因、分型與流行病學",
+    keywords: "APP Actinobacillus pleuropneumoniae 血清型 serotype biotype NAD V factor chocolate agar 台灣 serovar 15 流行病學 carrier 扁桃腺",
+    snippet: "APP 為革蘭氏陰性有莢膜球桿菌，依莢膜多醣體與 LPS 分 19 個血清型；Biotype I 需 NAD；台灣近年以血清型 15 為主；只感染豬呼吸道，不感染人。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "app-path", sectionName: "致病機制與 Apx 毒素",
+    keywords: "APP 致病機制 pathogenesis colonization nutrient uptake iron nickel capsule LPS Apx toxin ApxI ApxII ApxIII ApxIV 溶血 細胞毒 RTX HlyA",
+    snippet: "APP 致病四階段：定殖（線毛、LPS）、營養攝取（鐵、鎳）、逃避宿主清除（莢膜、LPS）、破壞組織（Apx 毒素、LPS）；ApxIII 無溶血性但強細胞毒。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "app-clin", sectionName: "臨床症狀與病變",
+    keywords: "APP 臨床症狀 甚急性 急性 亞急性 慢性 口鼻泡沫血 發紺 張口呼吸 犬坐 纖維素性胸膜炎 肺 雙側 心葉 尖葉 橫膈葉",
+    snippet: "最急性：41.5°C、發紺、張口呼吸犬坐、口鼻泡沫血、24–36 小時死亡；病變為雙側、界線清楚的纖維素出血壞死性胸膜肺炎，肺沾黏壁層胸膜。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "app-dx", sectionName: "診斷、治療與預防",
+    keywords: "APP 診斷 chocolate agar NAD CAMP urease PCR ELISA 治療 注射 抗生素 藥敏 預防 統進統出 疫苗 bacterin toxin subunit",
+    snippet: "從新鮮死亡豬分離：加 NAD 血液培養基或 chocolate agar、CAMP、urease、PCR、ELISA；急性需早期注射抗生素並依藥敏選藥；預防靠生物安全、減少混群、統進統出與疫苗。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "ar-agent", sectionName: "病因與流行病學",
+    keywords: "萎縮性鼻炎 atrophic rhinitis NPAR PAR Bordetella bronchiseptica Pasteurella multocida 產毒型 鼻吻部變形 流行病學 母豬 仔豬 第一週",
+    snippet: "NPAR 由 B. bronchiseptica 引起，輕微可逆；PAR 由產毒型 P. multocida 引起，嚴重永久；主要在母豬與出生第一週仔豬間經飛沫傳播。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "ar-path", sectionName: "致病機制",
+    keywords: "Bordetella 毒力因子 BvgAS filamentous hemagglutinin FHA pertactin fimbriae adenylate cyclase tracheal cytotoxin dermonecrotic toxin DNT osteotoxin PMT 146 kDa 噬菌體 type D capsule",
+    snippet: "B. bronchiseptica 毒力基因受 BvgAS 調控，DNT 損害骨形成；PMT 為 146 kDa、由溶原性噬菌體編碼，減少骨形成並增加骨吸收；B. bronchiseptica 先定殖，幫助 P. multocida 定殖造成 PAR。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "ar-clin", sectionName: "臨床、病變、診斷與防治",
+    keywords: "萎縮性鼻炎 臨床症狀 打噴嚏 聳鼻 流鼻血 鼻甲骨萎縮 鼻中膈偏移 淚痕 分級 第一第二前臼齒 診斷 產毒株 母豬疫苗 分娩前 6 週 2 週",
+    snippet: "NPAR 3–4 週齡打噴嚏、卡他性鼻炎；PAR 4–12 週齡流鼻血、鼻吻變形、鼻甲骨萎縮、生長遲緩；病變限於鼻腔與頭骨；確診 PAR 要驗產毒株；母豬分娩前 6 週與 2 週各打一劑疫苗。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "gp-agent", sectionName: "病因、流行病學與致病機制",
+    keywords: "Glässer Glaesserella parasuis Haemophilus parasuis V factor NAD X factor hemin 15 serovar 常在菌 保育豬 壓力 致病機制 內皮細胞 IL-6 IL-8",
+    snippet: "G. parasuis 為革蘭氏陰性多形性桿菌，需 V 因子不需 X 因子，15 個血清群；是豬鼻腔常在菌，壓力誘發；侵入內皮細胞→菌血症→漿膜發炎→纖維素沉積。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "gp-clin", sectionName: "臨床症狀、病變與防治",
+    keywords: "Glässer 臨床症狀 4-8 週齡 41.5 跛行 關節腫脹 腳尖小步 神經症狀 划水 多發性漿膜炎 纖維化膿性 胸膜 心包 腹膜 腦膜 治療 疫苗 血清型",
+    snippet: "4–8 週齡；急性為 41.5°C、咳嗽、腹式呼吸、跛行（腳尖小步走）、神經症狀；病變為纖維素性或纖維化膿性多發性漿膜炎、多發性關節炎、腦膜炎；最急性可猝死無病變。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "ec-neo", sectionName: "總覽與新生仔豬下痢",
+    keywords: "大腸桿菌 E. coli ETEC AEEC EPEC EDEC STEC 新生仔豬下痢 neonatal diarrhea 0-4 日齡 F4 K88 F5 K99 F6 987P F41 LT STa STb cAMP cGMP 分泌性下痢 凝乳",
+    snippet: "ETEC 造成 0–4 日齡新生仔豬下痢：線毛 F4(K88)、F5(K99)、F6(987P)、F41 黏附，LT 升高 cAMP、STa 升高 cGMP，造成分泌性下痢、脫水、酸中毒；腸道不發炎。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "ec-pwd", sectionName: "離乳後下痢與水腫病",
+    keywords: "離乳後下痢 postweaning diarrhea PWD 水腫病 edema disease F4 K88 F18 AEEC EPEC attaching effacing Stx2e Shiga toxin verotoxin globotetraosyl ceramide 胃黏膜下層 結腸繫膜 眼瞼 溶血",
+    snippet: "離乳後母乳抗體消失使保育豬易感；PWD 多為 ETEC、也可為 AEEC，帶 F4 或 F18 線毛；水腫病由帶 F18 與 Stx2e 的溶血性 E. coli 引起，毒素傷害血管內皮，造成眼瞼、額頭、胃黏膜下層與結腸繫膜水腫。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "ec-other", sectionName: "乳房炎與尿道感染",
+    keywords: "乳房炎 mastitis 母豬 墊料 仔豬行為 尿道感染 UTI 腎盂腎炎 pyelonephritis type 1 fimbriae P fimbriae UPEC 犬坐",
+    snippet: "母豬乳房炎與墊料污染有關，仔豬消瘦、到處吸吮是早期線索；母豬尿道感染為內源性上行感染，犬坐姿勢讓糞便進入陰道，UPEC 帶 type 1 與 P 線毛。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別 比較 APP Glässer 萎縮性鼻炎 多發性漿膜炎 NAD V因子 X因子 ETEC EPEC STEC 線毛 毒素 年齡",
+    snippet: "呼吸道三病比較（APP、AR、Glässer）、培養需求比較（NAD、X 因子）、大腸桿菌各型比較（年齡、線毛、毒素、病變）。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "natexam", sectionName: "講義所附歷屆國考題",
+    keywords: "國考 歷屆試題 國考題 答案 APP 萎縮性鼻炎 Glässer 大腸桿菌 水腫病",
+    snippet: "講義附的 52 題國考題（96–115 年），答案以老師紅框為準，依疾病分類並附理由。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "kaogu", sectionName: "期中考古題",
+    keywords: "期中考 考古題 APP 致病機制 畫肺 新生仔豬下痢 外觀 剖檢 微生物 水腫病 Glässer 萎縮性鼻炎",
+    snippet: "本講義範圍在期中考古出現過的題目：APP 致病機制問答、畫 APP 肺、新生仔豬大腸桿菌下痢三面向、水腫病、Glässer、AR 選擇題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 出題 期中考",
+    snippet: "依講義強調內容與考古題推測的出題方向：APP 四階段與 Apx 表、口鼻泡沫血、NAD、AR 兩型、Glässer 多發性漿膜炎、ETEC 機轉、水腫病陷阱、UTI 線毛。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前速讀",
+    snippet: "考前速讀 10 條：APP、Apx、AR 兩型、Glässer、ETEC、PWD、水腫病、UTI。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 6, weekTitle: "細菌性疾病 (I)",
+    url: "大四上/豬病學/week06_細菌性疾病I.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 quiz 選擇題 是非題 臨床情境",
+    snippet: "14 題練習題，含 3 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 豬丹毒 沙門氏菌 滲出性表皮炎 布氏桿菌 細菌性疾病 葉光勝",
+    snippet: "四個病：豬丹毒（菱形疹、penicillin）、沙門氏菌（Choleraesuis 敗血、Typhimurium 腸炎、鈕扣狀潰瘍）、滲出性表皮炎（S. hyicus、剝落毒素、不癢）、布氏桿菌（B. suis、流產、睪丸炎、erythritol）。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "se-agent", sectionName: "病因、公衛與流行病學",
+    keywords: "豬丹毒 swine erysipelas Erysipelothrix rhusiopathiae 革蘭氏陽性 不運動 類丹毒 erysipeloid fish handler's disease whale finger pork finger 帶菌豬 扁桃腺 火雞 魚粉",
+    snippet: "E. rhusiopathiae 為革蘭氏陽性、細長、無芽孢、不運動、兼性厭氧桿菌，易脫色；人畜共通（類丹毒），帶菌豬經糞便與口鼻分泌物散播，扁桃腺帶菌，火雞與豬帶菌率高，魚粉可能帶菌。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "se-clin", sectionName: "致病、臨床、病變與防治",
+    keywords: "豬丹毒 致病機制 neuraminidase 莢膜 SpaA RspA 血管炎 血栓 急性 菱形疹 diamond skin 40-42 關節炎 pannus 疣狀心內膜炎 腎皮質出血 梗塞 penicillin 疫苗 bacterin 免疫計畫",
+    snippet: "經口入扁桃腺或皮膚傷口；neuraminidase 與血管傷害、莢膜抗吞噬；急性高燒與菱形疹，慢性增殖性非化膿性關節炎與疣狀心內膜炎；腎皮質點狀出血；penicillin 首選，靠疫苗預防。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "sal-agent", sectionName: "病因、公衛與流行病學",
+    keywords: "沙門氏菌 Salmonella Choleraesuis Typhimurium White-Kauffmann-Le Minor 血清型 2600 enterica bongori 非傷寒 NTS 食因性 帶菌豬 Heidelberg Agona Infantis 屠宰場 12-14 週 Dublin",
+    snippet: "Salmonella 為革蘭氏陰性、不發酵乳糖的兼性細胞內桿菌，2,600 多個血清型；豬的病原以 Choleraesuis（豬適應、敗血）與 Typhimurium（宿主廣、腸結腸炎）為主；帶菌豬是最重要的感染源，也是屠宰場污染源頭。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "sal-clin", sectionName: "致病、臨床、病變、診斷與預防",
+    keywords: "沙門氏菌 致病機制 SPI-1 SPI-2 type III secretion membrane ruffling spv 毒力質體 敗血型 紅耳朵 發紺 脾腫大 副傷寒小節 paratyphoid nodule 鈕扣狀潰瘍 button ulcer 壞死性結腸炎 MacConkey 無色菌落 活菌苗",
+    snippet: "SPI-1 第三型分泌系統造成 membrane ruffling 侵入上皮，SPI-2 細胞內存活，spv 質體使擴散成敗血症；敗血型為耳翼四肢發紺、脾腫、肝副傷寒小節、肺水腫；腸炎型為黃色水樣下痢與結腸鈕扣狀潰瘍；MacConkey 無色菌落；活菌苗保護較好。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "ee", sectionName: "滲出性表皮炎（油脂豬病）",
+    keywords: "滲出性表皮炎 exudative epidermitis greasy pig disease 油脂豬病 Staphylococcus hyicus 剝落毒素 exfoliative toxin ExhA ExhB ShetA 不癢 nonpruritic 外傷 剪牙 SSSS",
+    snippet: "S. hyicus 為革蘭氏陽性球菌、成豬皮膚常在菌；外傷為前置因子；剝落毒素（ExhA–D、ShetA/B）使表皮分離；7 日齡到 10 週齡仔豬全身油脂樣滲出、不癢；早期抗菌藥治療，剪牙、去除粗糙地面預防。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "br", sectionName: "布氏桿菌症",
+    keywords: "布氏桿菌 Brucella suis biovar 1 3 人畜共通 實驗室感染 erythritol 古柯二醇 urease VirB type IV 流產 不孕 睪丸炎 後軀麻痺 公豬 肉芽腫 椎間板 脊椎炎 檢測淘汰 無疫苗",
+    snippet: "B. suis 為革蘭氏陰性小球桿菌，經消化道與配種傳染；urease 抗胃酸、低內毒性 LPS、VirB 第四型分泌系統細胞內存活、erythritol 使偏好生殖組織；流產、不孕、睪丸炎、後軀麻痺；公豬難恢復；無可靠疫苗，靠檢測淘汰與生物安全。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別 比較 豬丹毒 沙門氏菌 滲出性表皮炎 布氏桿菌 革蘭氏 人畜共通 疫苗 皮膚病變 發紺",
+    snippet: "四個病的病原特性、人畜共通、皮膚病變、首選處置與疫苗比較；兩種沙門氏菌血清型比較。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "natexam", sectionName: "講義所附歷屆國考題",
+    keywords: "國考 歷屆試題 答案 豬丹毒 沙門氏菌 滲出性表皮炎 布氏桿菌",
+    snippet: "講義附的 53 題國考題（96–115 年），每題完整選項與逐選項詳解，答案以老師紅框為準。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "kaogu", sectionName: "期中考古題",
+    keywords: "期中考 考古題 豬丹毒 沙門氏菌 滲出性表皮炎 布氏桿菌 penicillin membrane ruffling TLR4",
+    snippet: "本講義範圍在期中考古出現過的題目：106、111 學年與合卷共 17 題，含完整選項與詳解。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 期中考",
+    snippet: "依講義強調內容與考古題推測的出題方向。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前速讀",
+    snippet: "考前速讀 10 條。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 7, weekTitle: "細菌性疾病 (II)",
+    url: "大四上/豬病學/week07_細菌性疾病II.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 quiz 臨床情境",
+    snippet: "13 題練習題，含 3 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 PCVAD PCV2 PRRS PPV 輪狀病毒 rotavirus 疫苗 張家宜",
+    snippet: "四個病毒病：PCV2（多因子、淋巴耗竭、PDNS）、PRRS（巨噬細胞、持續感染、快速演化）、PPV1（依懷孕天數的 SMEDI）、輪狀病毒（新生仔豬下痢、乳汁 IgA），加上豬用疫苗原則。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "pcv-virus", sectionName: "病毒、基因型與流行病學",
+    keywords: "PCV PCV1 PCV2 PCV3 PCV4 Circoviridae Circovirus 環狀 DNA ORF1 Rep ORF2 capsid 次單位疫苗 genotype shift 2a 2b 2d 單一血清型 蝙蝠 水貂 台灣 PK-15 不活化",
+    snippet: "PCV 四型：PCV1 不致病、PCV2 最重要（2a→2b 2003 年、2b→2d 2012 年基因型轉換）、PCV3 與蝙蝠環狀病毒相關、PCV4 與水貂相關；PCV2 為 1.7 kb 單股環狀 DNA、無封套、極耐熱耐酸，ORF2 衣殼蛋白為次單位疫苗抗原；台灣檢出率 PCV2 54.3%、PCV3 43.5%、PCV4 2.2%。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "pcv-path", sectionName: "傳播、致病、臨床與病變",
+    keywords: "PCV2 傳播 口鼻 胎盤 初乳 精液 致病機制 多因子 免疫抑制 淋巴耗竭 巨噬細胞 PCV2-SD PMWS 消耗 黃疸 PCV2-RD SMEDI PDNS 8-18 週 紅紫色斑 腎 病變 共同感染 PRRS PPV 黴漿菌 CSF 疫苗",
+    snippet: "PCV2 主要經口鼻傳播，可經胎盤、初乳、精液；PCV2-SD 是多因子疾病（免疫刺激、宿主、共同感染）；病毒在淋巴器官與肺的巨噬細胞複製，造成淋巴耗竭；PDNS 為 8–18 週齡後肢會陰紅紫色斑與腎病；病變與 PRRS 很像。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "pcv-dx", sectionName: "診斷、免疫與控制",
+    keywords: "PCVAD 診斷 PCV2-SD 三條件 PCV2-RD 心肌炎 PDNS 壞死性血管炎 腎絲球腎炎 樣本 qPCR IHC ISH 口腔液 鑑別 PRRS 流感 CSF ASF 豬丹毒 免疫 IFA 中和抗體 疫苗 2006 PCV2a 同源株 人畜共通",
+    snippet: "PCV2-SD 診斷三條件：生長遲緩消耗＋淋巴組織特徵病變＋病灶內中至大量 PCV2；PDNS 診斷不需驗到 PCV2；PCR 陽性不等於 PCVAD；IFA 抗體 7–14 天、中和抗體 21–35 天；商業疫苗自 2006 年、多以 PCV2a 為基礎、不保護 PCV3/4。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "prrs-virus", sectionName: "病毒、分型與傳播",
+    keywords: "PRRS 藍耳病 mystery swine disease PRRSV Arteriviridae Betaarterivirus 有封套 正股 RNA GP5 M N ORF2-7 PRRSV-1 PRRSV-2 Lelystad VR-2332 HP-PRRS 2006 台灣 1991 2018 不活化 傳播 精液 人工授精 唾液 鼻分泌物 最低感染劑量",
+    snippet: "PRRSV 屬 Arteriviridae，有封套 (+)ssRNA；GP5、M、N 為三大結構蛋白；PRRSV-1 歐洲、PRRSV-2 美洲亞洲，兩者全基因體相似度 50–70%；HP-PRRS 2006 年中國；台灣 PRRSV-2 1991 年、PRRSV-1 2018 年；經唾液、鼻分泌物、尿、糞、精液排毒，近距離接觸與移動感染豬是主要傳播。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "prrs-path", sectionName: "致病、臨床、病變與免疫",
+    keywords: "PRRS 致病機制 巨噬細胞 PAMs PIMs 病毒血症 持續感染 扁桃腺 臨床症狀 保育豬 母豬 流產 死產 木乃伊 藍耳 馬病毒性動脈炎 病變 斑駁 不塌陷 間質性肺炎 非中和抗體 N 蛋白 中和抗體 GP5 epitope A B 共同感染 準種 quasispecies 演化",
+    snippet: "PRRSV 標的細胞為巨噬細胞（PAMs、PIMs）；病毒血症 12–24 小時出現、約 4 週下降，扁桃腺持續數月；母豬生殖障礙、仔豬呼吸困難藍耳；肺斑駁不塌陷；非中和抗體（N）7–14 天、中和抗體（GP5）3–4 週；準種、演化約 10⁻² substitutions/site/year。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "prrs-dx", sectionName: "診斷、控制與疫苗",
+    keywords: "PRRS 鑑別診斷 樣本 血清 RT-PCR BAL 精液 口腔液 MARC-145 ELISA 病毒中和 結果判讀 四大支柱 生物安全 清場 隔離 馴化 多點生產 早期隔離離乳 檢測淘汰 MLV 同源 異源",
+    snippet: "樣本：血清 RT-PCR（急性）、肺扁桃腺淋巴結（持續）、BAL、精液、口腔液；病毒分離用 MARC-145；ELISA 與病毒中和；RT-PCR 與 ELISA 結果判讀表；控制四大支柱、引種隔離馴化、清場、多點生產、SEW、檢測淘汰；疫苗對同源株好、異源株不完全。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "ppv", sectionName: "豬小病毒感染症",
+    keywords: "豬小病毒 PPV PPV1 Parvoviridae 單股 DNA SMEDI 木乃伊 透明帶 35 天 70 天 免疫勝任 返情 HI IF PCR 母源抗體 不活化疫苗 MLV 耐熱 過氧乙酸 醛類 次氯酸鈉 齧齒類 精液",
+    snippet: "PPV1 為無封套 ssDNA、極耐環境；臨床病主要是懷孕母豬的 SMEDI：35 天前胚胎死亡吸收、35–70 天胎兒死亡木乃伊化、70 天後胎兒有免疫力；同窩正常仔豬與大小不一木乃伊胎高度懷疑；PCR 為主、IF 驗胎兒抗原、HI 驗抗體；配種前建立免疫。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "rv-a", sectionName: "病毒、流行病學與臨床",
+    keywords: "輪狀病毒 rotavirus RVA RVB RVC RVH Sedoreoviridae 分段 dsRNA 無封套 VP6 VP7 VP4 G 型 P 型 G9P[13] 氯 戊二醛 人畜共通 重組 reassortant 糞口 90 顆 空腸 迴腸 絨毛萎縮 吸收不良 黃色 水樣下痢 未消化乳汁",
+    snippet: "RV 為無封套、分段 dsRNA；以 VP6 分種，RVA 以 G（VP7）與 P（VP4）分型；RVA 最普遍且人畜共通潛力最大、RVC 對新生仔豬重要；極耐環境，氯與戊二醛有效；90 顆病毒即可致病；感染空腸迴腸成熟腸細胞造成絨毛萎縮與吸收不良；潛伏期 1–4 天，黃到淡色水樣下痢。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "rv-b", sectionName: "診斷、免疫與控制",
+    keywords: "輪狀病毒 鑑別 PEDV TGEV PDCoV ETEC C. perfringens Cystoisospora suis 樣本 RT-PCR 抗原 IHC ISH ELISA HI 免疫 VP7 VP4 IgA IgG 初乳 乳汁 早期離乳 交叉保護 疫苗 RVA 活毒 母豬分娩前 支持療法",
+    snippet: "鑑別 PEDV、TGEV、PDCoV、ETEC、C. perfringens、球蟲；亞臨床常見，驗到 RV 不一定是下痢原因；RT-PCR 最常用；VP7 與 VP4 誘發中和抗體，腸道 IgA 是保護指標；IgG 來自初乳、IgA 持續來自乳汁；商業疫苗主要為 RVA，母豬分娩前接種；支持療法保溫補液。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "vacc", sectionName: "豬隻疫苗接種",
+    keywords: "疫苗 vaccination 動物疫苗產業 豬用疫苗 接種原則 母源抗體 疫苗效力 冷鏈 停藥期 21 天 仔豬 成豬 PPV PRV PCV PRRS PED 流感 TGE 輪狀病毒",
+    snippet: "疫苗目的是預防臨床病與減少傳播，不一定完全預防感染；依豬群健康、疾病風險與生產階段設計；考慮母源抗體與最高風險期；影響疫苗效力的宿主、疫苗病原與管理因子；教科書仔豬與成豬接種時程表。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別 比較 生殖障礙 SMEDI PCV2 PRRS PPV 日本腦炎 豬瘟 假性狂犬病 病毒特性 DNA RNA 封套 抗體時程 下痢",
+    snippet: "本講義四病的病毒特性、標的細胞、抗體時程比較；生殖障礙病毒鑑別；仔豬下痢鑑別。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "kaogu", sectionName: "期中考古題",
+    keywords: "期中考 考古題 PRRS 排毒 PPV 生殖障礙 實驗室診斷 2019 鄭益謙",
+    snippet: "本講義範圍的期中考古：2019 年（鄭益謙老師授課時期）PRRS 複選 2 題、PPV 1 題、生殖障礙病毒與實驗室診斷問答 1 題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 期中考 張家宜",
+    snippet: "依講義底線與強調內容推測的出題方向。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "summary", sectionName: "學習重點整理",
+    keywords: "學習重點 考前速讀",
+    snippet: "考前速讀 10 條。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 3, weekTitle: "豬病毒性疾病 (II)",
+    url: "大四上/豬病學/week03_豬病毒性疾病II.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 quiz 臨床情境",
+    snippet: "13 題練習題，含 3 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
+    url: "大四上/豬病學/week05_豬流行性感冒.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 豬流感 SIV IAV 豬流行性感冒 H1N1 H1N2 H3N2 混合容器 mixing vessel 反向人畜共通",
+    snippet: "豬流感：IAV 有封套、分段 RNA 可重組；H1N1、H1N2、H3N2；急性呼吸道病、發病率高死亡率低；肺界線清楚的實質化、支氣管上皮壞死脫落；HI 為最常用血清學；死毒苗。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
+    url: "大四上/豬病學/week05_豬流行性感冒.html",
+    section: "agent", sectionName: "病毒與重要性",
+    keywords: "豬流感 IAV Alphainfluenza Orthomyxoviridae 封套 8 片段 負股 RNA 重組 reassortment HA NA H1N1 H1N2 H3N2 1918 反向人畜共通 台灣 H1N2v",
+    snippet: "IAV：Orthomyxoviridae、80–120 nm 有封套、8 段負股 ssRNA（可重組）、18 HA×11 NA；豬三大型別 H1N1、H1N2、H3N2；人傳豬遠比豬傳人頻繁；台灣曾有人感染 H1N2v 病例。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
+    url: "大四上/豬病學/week05_豬流行性感冒.html",
+    section: "mixing", sectionName: "混合容器理論與可憐豬假說",
+    keywords: "混合容器 mixing vessel 唾液酸 受體 α2,3 α2,6 禽 人 豬 呼吸道 分布 Mx 蛋白 MxA ANP32 複製 適應 大流行 反向人畜共通 可憐豬假說 poor pig 疫苗 養豬場人員",
+    snippet: "大流行流感需能感染人、致病、人傳人；禽人病毒的障礙為進入（受體）、免疫逃避（Mx）、複製（ANP32）；禽 HA 結合 α2,3、人與豬 HA 結合 α2,6；豬呼吸道同時有兩型受體但分布不同；可憐豬假說：豬受人類反向人畜共通感染的頻率高於人受豬傳染。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
+    url: "大四上/豬病學/week05_豬流行性感冒.html",
+    section: "clin", sectionName: "傳播、致病、臨床、診斷與防治",
+    keywords: "豬流感 傳播 氣膠 致病 上皮細胞 細胞激素 雙面刃 臨床症狀 發燒 咳嗽 發病率高死亡率低 肺病變 界線清楚 紫色 支氣管上皮壞死脫落 診斷 MDCK 雞胚蛋 RT-PCR HI 血清學 配對血清 疫苗 死毒苗 佐劑 母豬",
+    snippet: "傳播：直接接觸與氣膠；病毒限於呼吸道上皮，複製↑→促發炎細胞激素↑→肺病變↑（雙面刃）；高發病率低死亡率；肺界線清楚紫色實質化；MDCK 與雞胚蛋分離、RT-PCR、HI；死毒苗兩劑間隔 2–4 週、母豬每年兩次追加。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
+    url: "大四上/豬病學/week05_豬流行性感冒.html",
+    section: "natexam", sectionName: "講義所附歷屆國考題",
+    keywords: "國考 豬流感 消毒劑 封套 病變 混合容器 2009 H1N1",
+    snippet: "講義附 3 題豬流感國考題（107–109 年），每題完整選項與詳解；答案依講義內容推得。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
+    url: "大四上/豬病學/week05_豬流行性感冒.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 豬流感",
+    snippet: "豬流感出題方向。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
+    url: "大四上/豬病學/week05_豬流行性感冒.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 豬流感",
+    snippet: "6 題練習題含 1 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 豬病學 課程介紹 養豬產業 評量 期中考",
+    snippet: "課程介紹：三位授課老師、16 週大綱、評量（出席 10%、期中 40%、動動腦 10%、期末 40%）、養豬產業數字、豬的一生（妊娠 114–115 天）、品種、台灣豬病防治史。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "course", sectionName: "課程大綱與評量",
+    keywords: "課程大綱 週次 日期 授課老師 葉光勝 高啓霏 張家宜 評量 出席 期中考 期末考 動動腦 PBL 參考書 Diseases of Swine 12th",
+    snippet: "16 週課程：病毒性疾病 (I–IV) 與細菌性疾病 (I–IV)、生產醫學、動動腦、營養與其他、寄生蟲與黴菌毒素；期中考第 8 週；參考書 Diseases of Swine 12th edition 2026。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "industry", sectionName: "養豬產業現況",
+    keywords: "養豬產業 毛豬 豬肉消費 40 公斤 台灣養豬 場數 頭數 飼養規模 1000頭 71.7% 一貫場 種豬場 肉豬場 多點式生產",
+    snippet: "台灣豬肉消費每人每年近 40 公斤；毛豬過去外匯 16 億美元；115 年 5 月 5,416 場 507.1 萬頭；千頭以上大場佔 28.2% 場數、71.7% 頭數；豬場型別（種豬、肉豬、一貫）與一點式、兩點式、三點式、多點式生產。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "life", sectionName: "豬的一生與生產階段",
+    keywords: "豬的一生 妊娠 114 115 天 初情 7-8 月 哺乳 保育 肥育前期 肥育後期 上市體重 100 kg 台灣養豬發展 台糖 飼料 玉米 黃豆 麩皮 離胺酸",
+    snippet: "豬的一生：女豬 7–8 月齡性成熟、妊娠 114–115 天（3 個月 3 週 3 天）、每年 2.2 窩、每窩平均 10 頭；哺乳 0–3–4 週、保育 4–12 週、肥育前期 12–20 週、後期 20–24 週、上市 100 kg；台灣養豬史與飼料。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "breed", sectionName: "台灣的豬種",
+    keywords: "豬種 品種 桃園豬 台灣黑豬 頂雙溪 美濃 李宋豬 藍瑞斯 Landrace 約克夏 Yorkshire 大白豬 杜洛克 Duroc 漢布夏 Hampshire 母系 公系",
+    snippet: "台灣 200 年前有養豬紀錄；客家人從廣東帶來三種中國土種豬育成桃園種、頂雙溪種、美濃種；進口藍瑞斯、約克夏（母系）與杜洛克、漢布夏（公系）；李宋豬為生醫研究動物模式。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "history", sectionName: "台灣豬病防治工作演進",
+    keywords: "豬病防治 豬瘟 兔化豬瘟弱毒 LPC 李崇道 林再春 寺門 福馬林 日本腦炎 豬丹毒 假性狂犬病 口蹄疫 1997 撲殺 385 萬 PRRS 1990 PCV2 1996 PED 2014",
+    snippet: "日治時期寺門市福馬林臟器疫苗；民國 41 年李崇道自菲律賓引進兔化豬瘟弱毒，9 年研發 LPC-China strain；1997 年竹北口蹄疫撲殺 385 萬頭、防疫費用 133 億；1990 PRRS、1996 PCV2、2014 PED。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "natexam", sectionName: "講義所附國考題",
+    keywords: "國考 110 111 112 113 114 115 沙門氏菌 EPEC 巴氏桿菌 豬丹毒 豬鏈球菌",
+    snippet: "講義附 6 題 110–115 年國考題（紅框為老師標的答案），每題完整選項與詳解；內容分屬細菌性疾病 (I)、(II)。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 課程介紹 豬的一生 品種",
+    snippet: "本講義可能的出題方向：豬的一生數字、品種母系公系、豬病防治史。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "課程介紹與養豬產業",
+    url: "大四上/豬病學/week01_課程介紹與養豬產業.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 豬的一生 品種",
+    snippet: "6 題練習題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 細菌抗藥性 AMR 抗生素 六 R 原則 HPCIA 防疫一體 One Health 全基因體定序",
+    snippet: "AMR：國家行動方案六大目標；六 R 原則；HPCIA（氟喹諾酮、第三四代頭孢、colistin、fosfomycin）不可預防性使用、不作第一線、禁當生長促進劑；謹慎使用四步驟；細菌四種獲得抗藥性機制；全基因體定序用於疫情溯源。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "basic", sectionName: "細菌抗藥性的基本知識",
+    keywords: "抗藥性 AMR 定義 病原 抗微生物藥物 抗生素 交叉抗藥性 共生菌 惡性循環 接合 轉形 轉導 突變 R 質體 嗜菌體 弗萊明 處方",
+    snippet: "AMR 指微生物對藥物產生抵抗；抗生素使用越頻繁抗藥越快；交叉抗藥性；細菌透過接合、轉形、轉導、突變獲得抗藥性；惡性循環；導致抗藥性的行為：使用量增加、無處方監管、經濟誘因、群體預防性用藥、用於病毒感染、錯誤觀念。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "plan", sectionName: "國家因應細菌抗藥性行動",
+    keywords: "國家因應細菌抗藥性行動方案 2021 2025 六大目標 防疫一體 One Health WOAH 1954 防檢署 疾管署 WHO 全球行動計畫 陸生動物衛生法典 6.10",
+    snippet: "世界各國以防疫一體發展國家型行動方案；台灣《國家因應細菌抗藥性行動方案（2021–2025）》六大目標；WOAH 法典第 6.10 章；國家級防疫一體抗生素抗藥性管理行動計畫（114–118 年）；聯合行動方案（115–119 年）。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "rights", sectionName: "正確與合理使用抗生素六大原則",
+    keywords: "六 R 原則 正確診斷 對象 藥物選擇 劑量與給藥方式 投藥天數 儲存與處理 峰濃度 谷濃度 治療濃度範圍 毒性濃度 最低有效濃度 WOAH CP8",
+    snippet: "六 R：正確獸醫診斷、治療對象、藥物選擇、劑量與給藥方式、投藥天數、儲存與處理；藥物濃度要維持在治療範圍內，避免過高毒性或過低失效；過早中斷可能治療失敗、仍有篩選壓力。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "hpcia", sectionName: "HPCIA：人類醫療最關鍵的抗生素",
+    keywords: "HPCIA CIA HIA IA WHO 氟喹諾酮 第三代 第四代 頭孢子素 Colistin Polymyxin Fosfomycin 優先因子 標準 C1 C2 WOAH 不預防性使用 不當第一線 標籤外使用 生長促進劑",
+    snippet: "HPCIA（WHO 2024）：氟喹諾酮、第 3／4 代頭孢子素、Colistin（polymyxin）、Fosfomycin；需同時符合 C1、C2、PF1、PF2；WOAH 建議不預防性使用、不作第一線（作第二線時依細菌學結果）、標籤外使用受限、禁止作生長促進劑。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "prudent", sectionName: "謹慎使用抗生素於畜牧生產",
+    keywords: "謹慎使用四步驟 衛生管理 疾病診斷 選用抗生素 資訊交流 投藥注意事項 非廣效 第一線 第二線 預防性投藥 多種抗生素 處方箋 停藥期 紀錄 藥敏試驗 紙錠擴散法 動物用藥品許可證 As little as possible",
+    snippet: "四步驟：衛生管理預防、疾病診斷（病理、流行病學、採樣藥敏）、選用適當抗生素（9 點投藥注意事項）、資訊交流；處方箋應記載事項；使用紀錄；As little as possible, but as much as necessary。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "wgs", sectionName: "全基因體序列解析",
+    keywords: "全基因體定序 WGS Sanger Illumina PacBio Nanopore 第一代 第二代 第三代 FASTQ NGS 親緣樹 SNP 沙門氏菌 Typhimurium 丹麥 瑞典 Dublin PFGE 疫情溯源",
+    snippet: "WGS 用於抗藥性追蹤與疫情溯源：第一代（Sanger 金標準）、第二代（Illumina 資料量高）、第三代（長讀長）；FASTQ 四行格式；親緣樹演算法 ML、Bayesian MCC、MST；SNP 分析最適合疫情分型與追蹤。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 抗藥性 六 R HPCIA",
+    snippet: "本活動沒有國考題，依講義內容推測的出題方向。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 1, weekTitle: "細菌抗藥性",
+    url: "大四上/豬病學/week01_細菌抗藥性.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 抗藥性 HPCIA 六 R",
+    snippet: "7 題練習題含 1 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",
+    url: "大四上/豬病學/期中總複習.html",
+    section: "abstract", sectionName: "怎麼用這一頁",
+    keywords: "期中總複習 跨講義 鑑別 考古題 考試方向",
+    snippet: "期中考 10/29（第 8 週）範圍第 1–7 週；本頁整理跨疾病鑑別表、DIVA 標記、防治策略與問答題骨架。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",
+    url: "大四上/豬病學/期中總複習.html",
+    section: "virus", sectionName: "病毒總表",
+    keywords: "病毒 核酸 DNA RNA 封套 科 ASF CSF JEV HEV PCV2 PRRSV PPV 輪狀 FMDV SVDV SVV SwPV IAV TGEV PEDV PHEV PDCoV",
+    snippet: "各病毒的核酸型、有無封套、科別、標的與一句話特徵。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",
+    url: "大四上/豬病學/期中總複習.html",
+    section: "ddx", sectionName: "跨病鑑別表",
+    keywords: "鑑別 生殖障礙 SMEDI PRRS PPV PCV2 JEV 假性狂犬病 布氏桿菌 仔豬下痢 TGE PED 輪狀 ETEC 呼吸道 APP 流感 AR Glässer 皮膚 水疱 豬丹毒 滲出性表皮炎 沙門氏菌",
+    snippet: "生殖障礙、仔豬下痢、呼吸道、水疱、皮膚與敗血的跨病鑑別表。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",
+    url: "大四上/豬病學/期中總複習.html",
+    section: "diva", sectionName: "DIVA、疫苗與防治策略",
+    keywords: "DIVA 標記 gE NSP 3A3B NS3 疫苗 母豬免疫 初乳 乳汁 IgA 反飼 配種前 分娩前 母源抗體干擾",
+    snippet: "DIVA 配對（PR gE、FMD NSP、CSF NS3/E2）；各病疫苗時機與策略；母源免疫與反飼；疫苗無法完全阻止感染的病。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",
+    url: "大四上/豬病學/期中總複習.html",
+    section: "zoo", sectionName: "人畜共通與台灣大事記",
+    keywords: "人畜共通 JEV HEV 豬丹毒 沙門氏菌 布氏桿菌 輪狀病毒 豬流感 台灣 口蹄疫 1997 豬瘟 PED 2014 PRRS 1990",
+    snippet: "本期中範圍人畜共通病原清單與台灣豬病大事記。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",
+    url: "大四上/豬病學/期中總複習.html",
+    section: "essay", sectionName: "問答題骨架",
+    keywords: "問答題 致病機制 APP E. coli 新生仔豬下痢 TGE 混合容器 生殖障礙 實驗室診斷 DIVA 答題骨架",
+    snippet: "考古問答題與可能問答題的答題骨架：APP 致病機制、E. coli 仔豬下痢、TGE 現今危害較低的原因、混合容器、生殖障礙病毒與診斷原理、DIVA。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",
+    url: "大四上/豬病學/期中總複習.html",
+    section: "gap", sectionName: "不在本次範圍的疾病",
+    keywords: "範圍外 期末 豬鏈球菌 梭菌 Lawsonia 豬赤痢 黴漿菌 鉤端螺旋體 PSS 豬應激症候群 Nipah 尼帕 Teschovirus 鐵士古",
+    snippet: "考古題出現但屬期末（第 9–15 週）或目前講義沒有的疾病，列出供參考。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",
+    url: "大四上/豬病學/期中總複習.html",
+    section: "quiz", sectionName: "綜合練習題",
+    keywords: "綜合練習題 期中 跨章",
+    snippet: "10 題跨章綜合練習題。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "asf-overview", sectionName: "病毒學與環境抵抗力(ASF)",
-    keywords: "ASF Asfarviridae Asfivirus DNA virus 非洲豬瘟 基因型 genotype 環境抵抗力 去活化 疣豬 warthog",
-    snippet: "ASFV為唯一經節肢動物傳播的DNA病毒，24種基因型，環境抵抗力極強（血液4°C可達18個月）。"
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 非洲豬瘟 ASF 古典豬瘟 CSF 日本腦炎 JEV E型肝炎 HEV 張家宜",
+    snippet: "四個病毒病：ASF（DNA、唯一蜱傳、環境極穩定）、CSF（先天持續感染、台灣根除史）、JEV（豬為增幅宿主）、HEV（豬無症狀的人畜共通）。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "asf-transmission", sectionName: "傳播與致病機轉(ASF)",
-    keywords: "ASF transmission Ornithodoros 軟蜱 tick 傳播途徑 致病機轉 pathogenesis 病毒血症 viremia",
-    snippet: "ASF經直接接觸、餿水餵食、介質、軟蜱等途徑傳播；致病機轉：扁桃腺初期複製→血液淋巴次級複製。"
+    section: "intro", sectionName: "豬病的衝擊與總論",
+    keywords: "豬病 衝擊 食品安全 35% 肉類 VanderWaal 野豬 生物多樣性 中國養豬",
+    snippet: "豬病影響養豬業、食品安全與生物多樣性；豬肉佔全球肉類攝取超過 35%；各地區最重要的豬病原。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "asf-clinical", sectionName: "臨床症狀與病理病變(ASF)",
-    keywords: "ASF clinical signs peracute acute subacute chronic 脾臟 腫大 質脆 暗紅 spleen enlarged friable darkened",
-    snippet: "最急性／急性／亞急性／慢性四種病程；脾臟腫大質脆暗紅為代表性大體病變。"
+    section: "asf-a", sectionName: "病毒、流行病學與環境抵抗力",
+    keywords: "非洲豬瘟 ASF ASFV Asfarviridae Asfivirus 170-193 kb 唯一節肢動物傳播 DNA 病毒 24 基因型 基因型 I II 軟蜱 疣豬 野豬 環境抵抗力 18 個月 次氯酸鈉 pH 3.9 11.5 重組 亞洲 越南",
+    snippet: "ASF 死亡率可達 100%；ASFV 為有封套 170–193 kb DNA 病毒、唯一節肢動物傳播的 DNA 病毒；24 個基因型；環境抵抗力極強（4°C 血液 18 個月）；次氯酸鈉、檸檬酸、部分碘與四級銨有效；70°C 30 分鐘。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "asf-dx", sectionName: "鑑別診斷、診斷與防治(ASF)",
-    keywords: "ASF differential diagnosis HAD hemadsorption PCR ELISA vaccine 基因刪除減毒活疫苗 越南 生物安全",
-    snippet: "病毒分離+HAD確診、PCR快篩；基因刪除減毒活疫苗於越南等國核准使用；防治核心為生物安全與撲殺。"
+    section: "asf-b", sectionName: "傳播與致病機轉",
+    keywords: "ASF 傳播 口鼻 餿水 豬肉製品 屍體 人車 污染物 軟蜱 Ornithodoros 經蛻皮 經卵 性 傳播循環 野豬 致病 單核球 巨噬細胞 扁桃腺 下頜淋巴結 病毒血症 4-8 天",
+    snippet: "ASF 經口鼻直接接觸、餿水、污染物、軟蜱 Ornithodoros 叮咬與螫蠅機械傳播；軟蜱經蛻皮、經卵、性傳播，終生感染；致病標的是單核球與巨噬細胞；病毒血症 4–8 天起，缺乏完全中和抗體可持續數週至數月。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "csf-overview", sectionName: "病毒學與環境抵抗力(CSF)",
-    keywords: "CSF Pestiviridae Orthopestivirus RNA virus 古典豬瘟 基因型 genotype 甲類傳染病 荷蘭疫情",
-    snippet: "CSFV屬Pestiviridae科RNA病毒，三種基因型，台灣為CSF清淨國；1997-98荷蘭疫情損失23億美元。"
+    section: "asf-c", sectionName: "臨床症狀與病變",
+    keywords: "ASF 臨床 潛伏期 4-19 天 最急性 急性 亞急性 慢性 41 發燒 發紺 出血 腹瀉 流產 死亡率 90-100 30-70 脾臟腫大 質脆 暗黑 淋巴結 腎皮質點狀出血 腎周水腫 慢性 皮膚壞死 肺實質化 乾酪性肺炎 纖維素性心包炎",
+    snippet: "潛伏期 4–19 天（蜱咬 &lt;5 天）；最急性體溫 &gt;41°C 1–4 天死；急性 40–42°C、發紺、耳與側腹出血，死亡率 90–100%；亞急性 30–70%；慢性間歇低燒、消瘦、關節腫；病變為脾臟腫大質脆暗黑、淋巴結出血、腎皮質點狀出血。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "csf-clinical", sectionName: "致病機轉與臨床型式(CSF)",
-    keywords: "CSF pathogenesis 免疫耐受 immunotolerance late-onset 先天持續感染 congenital postnatal 持續性病毒血症",
-    snippet: "CSF四種臨床型式：急性、慢性、先天型、產後持續感染型；late-onset CSF因免疫耐受終生排毒。"
+    section: "asf-d", sectionName: "鑑別診斷、診斷與防治",
+    keywords: "ASF 鑑別診斷 CSF PRRS PCVAD 假性狂犬病 豬丹毒 沙門氏菌 放線桿菌 Glässer 診斷 病毒分離 血球吸附 HAD 玫瑰花環 PCR ELISA 免疫墨點 IFAT IPT 預防 隔離 30 天 餿水 消毒 疫苗 基因刪除 越南 菲律賓 印尼 野豬 重組 基因型 I II",
+    snippet: "鑑別 CSF、急性 PRRS、PCVAD、PR、豬丹毒、沙門氏菌；診斷用初代白血球培養的血球吸附（玫瑰花環，只有 ASFV）、PCR、ELISA 篩檢與免疫墨點等確認；新購豬隔離 30 天；基因刪除減毒活疫苗最先進；越南 2022 首例；野豬管理；I／II 重組株不被基因型 II 疫苗保護。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "csf-lesions", sectionName: "病理病變與鑑別診斷(CSF)",
-    keywords: "CSF button ulcers 鈕扣狀潰瘍 splenic infarction 脾臟梗塞 differential diagnosis 鑑別診斷",
-    snippet: "脾臟梗塞、腸胃道黏膜鈕扣狀潰瘍為代表病變；ASF與CSF臨床症狀高度重疊須靠實驗室確診。"
+    section: "csf-a", sectionName: "病毒、流行病學與傳播",
+    keywords: "古典豬瘟 CSF CSFV Pestivirus Orthopestivirus Pestiviridae 單一血清型 三個基因型 基因型 I II III 台灣 3.4 2.1 毒力 高 中 低 無毒 抵抗力 4°C 6 週 pH 5-10 氫氧化鈉 福馬林 傳播 口 直接 環境 飛沫 精液 胎盤 荷蘭 1997",
+    snippet: "CSF 甲類傳染病；CSFV 有封套 RNA、Orthopestivirus、單一血清型三個基因型；毒力分高中低與疫苗株；4°C 存活 6 週、冷藏肉數月、冷凍肉數年；經口、直接接觸、環境、飛沫、精液與胎盤傳播；荷蘭 1997–98 撲殺 1200 萬頭。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "csf-dx", sectionName: "診斷、防治與台灣根除史(CSF)",
-    keywords: "CSF diagnosis RT-PCR ELISA FAVNT DIVA marker vaccine 台灣 根除 停止疫苗 2023 基因型2.1 3.4",
-    snippet: "RT-PCR/FAVNT/ELISA診斷；DIVA標記疫苗；台灣CSF根除史：1996基因型轉變、2006無病例、2023停止疫苗接種。"
+    section: "csf-b", sectionName: "臨床型式、病變與診斷",
+    keywords: "CSF 致病 淋巴球減少 血小板減少 免疫抑制 內皮壞死 四種臨床型式 急性 慢性 先天持續感染 late-onset 免疫耐受 50-70 天 產後 病變 淋巴結周邊出血 脾臟梗塞 腎膀胱點狀出血 扁桃腺壞死 迴盲瓣潰瘍 鈕扣狀潰瘍 鑑別 ASF 德國 診斷 RT-PCR qRT-PCR FAVNT ELISA APPV BVDV 交叉反應",
+    snippet: "CSF 四型：急性（高毒力、&gt;41°C、便秘後腹瀉、神經症狀）、慢性（低毒力、消瘦、2–3 個月死亡）、先天持續感染（母豬 50–70 天感染、免疫耐受、late-onset）、產後持續感染；病變為淋巴結周邊出血、脾梗塞、腎膀胱點狀出血、迴盲瓣與腸道鈕扣狀潰瘍；診斷 RT-PCR、qRT-PCR、FAVNT（金標準）、ELISA。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "csf-c", sectionName: "防治、DIVA 與台灣 CSF",
+    keywords: "CSF 防治 疫苗 減毒活疫苗 次單位 DIVA 清淨區 撲殺 stamping out 地方流行 野豬 口服疫苗 日本 嵌合活疫苗 CP7_E2alf BVDV E2 Porcilis Pesti Erns ELISA 監測 台灣 LPC 3.4 2.1 2006 2023 停打",
+    snippet: "防治三支柱：疫苗、監測、生物安全；減毒活疫苗提供完全保護；E2 次單位疫苗可 DIVA；清淨區撲殺；歐盟核准兩種 DIVA 疫苗；Erns ELISA 敏感度與特異度差、僅適合族群篩檢；台灣 1996 後田間株由 3.4 轉 2.1，LPC 疫苗對兩者都有保護，2006 年後無病毒，2023 年停打疫苗。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "jev", sectionName: "日本腦炎 Japanese Encephalitis",
+    keywords: "日本腦炎 JEV Flaviviridae Orthoflavivirus 蚊子 Culex 豬 增幅宿主 終端宿主 人 馬 基因型 I III 五個 鷺 水鳥 公共衛生 兒童 75% 病毒血症 2-4 天 母豬 60-70 天 生殖障礙 流產 木乃伊 死產 睪丸炎 腦水腫 小腦發育不全 髓鞘 非化膿性腦炎 血管周圍袖套 鑑別 配對血清 2-4 週 交叉中和 疫苗 減毒 不活化 蚊子管理",
+    snippet: "JEV 為蚊媒 Flaviviridae；豬是增幅宿主（病毒血症 2–4 天足以感染蚊子）、人與馬是終端宿主；妊娠 60–70 天前感染才造成生殖障礙；公豬睪丸腫脹暫時不孕；仔豬腦水腫、小腦發育不全；非化膿性腦炎；基因型 I 取代 III；疫苗與蚊子控制。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
+    url: "大四上/豬病學/week02_豬病毒性疾病I.html",
+    section: "hev", sectionName: "E 型肝炎 Hepatitis E",
+    keywords: "E 型肝炎 HEV Hepeviridae 基因型 1-8 HEV-3 HEV-4 人畜共通 豬肝 24% 豬農 29.5% 3.5 倍 無症狀 糞口 2-3 月齡 母源抗體 7-9 週 肝淋巴漿細胞性肝炎 PCR ELISA 衣殼 煮熟 疫苗 中國",
+    snippet: "HEV 為 Hepeviridae、(+)ssRNA 約 7.2 kb；8 個基因型，HEV-3、4 感染人與豬（人畜共通）；豬幾乎無症狀但顯微肝炎；豬肝 HEV RNA 陽性率 24%；豬農抗體 29.5% 為一般人 3.5 倍；糞口傳播；2–3 月齡母源抗體下降時感染；煮熟可不活化；人用疫苗僅中國。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
     section: "compare", sectionName: "ASF vs CSF 比較",
-    keywords: "ASF CSF comparison 比較表 鑑別診斷 病毒科屬 環境抵抗力 代表病變 臨床型式",
-    snippet: "ASF與CSF病毒科屬、病媒、環境抵抗力、代表病變、臨床型式、台灣現況、疫苗之綜合比較表。"
+    keywords: "ASF CSF 比較 DNA RNA 蜱 脾臟 腫大 梗塞 鈕扣狀潰瘍 血球吸附 疫苗 台灣",
+    snippet: "ASF vs CSF：病毒、傳播、脾臟病變、診斷、疫苗與台灣狀況。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "jev", sectionName: "日本腦炎",
-    keywords: "JEV Japanese encephalitis Flaviviridae Culex 增幅宿主 amplifying host dead-end host 生殖障礙 流產 睪丸炎",
-    snippet: "JEV為蚊媒黃病毒，豬為增幅宿主、人馬為終端宿主；妊娠60-70天前感染致生殖障礙，公豬暫時性不孕。"
+    section: "kaogu", sectionName: "期中考古題",
+    keywords: "期中考 考古題 2019 鄭益謙 豬瘟 CSF 假性狂犬病 口蹄疫 豬流感 PEDV 日本腦炎 非洲豬瘟 複選",
+    snippet: "2019 年期中考（鄭益謙老師）與本週相關的複選題（豬瘟 3 題、PR 2 題、ASF 1 題、水疱病與流感等）與問答題；答案依考卷藍筆圈選。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
-    section: "hev", sectionName: "E型肝炎",
-    keywords: "HEV Hepatitis E Hepeviridae 人畜共通 zoonotic genotype 3 4 豬肝 食品安全 糞口傳播",
-    snippet: "HEV-3、HEV-4為人畜共通基因型，豬感染多無症狀；糞口途徑傳播，豬肝HEV RNA陽性率24%，須徹底煮熟。"
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 張家宜 ASF CSF JEV HEV",
+    snippet: "依講義底線與強調內容、考古題推測的出題方向。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
     section: "summary", sectionName: "學習重點整理",
-    keywords: "學習重點整理 summary ASF CSF JEV HEV 複習",
-    snippet: "整理ASF、CSF、JEV、HEV病毒學、致病機轉、病變與防治要點，供考前快速複習。"
+    keywords: "學習重點 考前速讀",
+    snippet: "考前速讀 10 條。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 2, weekTitle: "豬病毒性疾病 (I)",
     url: "大四上/豬病學/week02_豬病毒性疾病I.html",
     section: "quiz", sectionName: "練習題",
-    keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 ASF CSF JEV HEV",
-    snippet: "涵蓋ASF、CSF、JEV、HEV病毒學、臨床型式、鑑別診斷、台灣根除史等章節重點的練習題（共10題）。"
+    keywords: "練習題 quiz ASF CSF JEV HEV 臨床情境",
+    snippet: "13 題練習題，含 3 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 冠狀病毒 TGE PRCV PED PHEV PDCoV SADS 豬傳染性胃腸炎 豬流行性下痢 絨毛萎縮 乳汁免疫",
+    snippet: "六種豬冠狀病毒：TGEV 與 PEDV（alphacoronavirus，仔豬水樣下痢、小腸絨毛萎縮）、PRCV（TGEV 刪除變異株、呼吸道）、PHEV（betacoronavirus，嘔吐衰弱病與腦脊髓炎）、PDCoV（delta）、SADS-CoV（alpha，與蝙蝠 HKU2 相似）。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "cov-gen", sectionName: "冠狀病毒的共同特性",
+    keywords: "冠狀病毒 Coronaviridae 封套 S E M N 蛋白 次基因體 RNA 讀框移位 −1 ORF1a ORF1b 親緣樹 alpha beta gamma delta N 蛋白 交叉反應 蝙蝠",
+    snippet: "冠狀病毒有封套約 100 nm，S 蛋白受體結合、膜融合、誘發中和抗體；E、M、N 各有功能；複製有 3' 巢式次基因體 RNA 與 −1 核糖體讀框移位；豬冠狀病毒分屬 alpha（TGEV、PRCV、PEDV、SADS）、beta（PHEV）、delta（PDCoV）。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "tge-a", sectionName: "病原、流行病學與致病",
+    keywords: "TGE PRCV 傳染性胃腸炎 豬呼吸道冠狀病毒 S 蛋白 N 端刪除 227 胺基酸 胺基肽酶 N pAPN 嗜性 流行性 地方性 冬季 帶原 狗 貓 狐狸 椋鳥 絨毛萎縮 吸收不良 酸中毒 高血鉀 肺泡巨噬細胞 乳腺",
+    snippet: "TGEV 與 PRCV 同為 alphacoronavirus，PRCV 是 S 蛋白 N 端刪除 227 aa 的自然變異株、嗜性由腸道轉呼吸道；TGE 冬季流行、流行性 vs 地方性；糞便為主排毒 2–8 週；致病為空腸腸細胞壞死造成吸收不良；仔豬脫水、酸中毒、高血鉀致心臟功能不全。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "tge-b", sectionName: "臨床、病變、診斷、免疫與防治",
+    keywords: "TGE 臨床 潛伏期 18 小時 3 天 嘔吐 黃色水樣下痢 7 日齡 2-7 天 3 週齡 發育不良 地方性 PRCV 亞臨床 咳嗽 腹式呼吸 病變 胃凝乳 腸壁透明 乳糜管 絨毛萎縮 鱗狀化生 腺窩延長 肺實質化 II 型肺泡細胞 診斷 糞便 IEM 分離 PK15 ST 阻斷 ELISA 免疫 sIgA 腸乳腺軸 BALT 預防 反飼 疫苗",
+    snippet: "流行性 TGE 潛伏 18 小時–3 天，嘔吐與黃色水樣下痢，7 日齡內 2–7 天死亡；病變限消化道：腸壁薄透明、乳糜管無乳糜、絨毛萎縮；PRCV 亞臨床呼吸道；診斷用阻斷 ELISA 區分；sIgA 與腸乳腺軸；母豬產前依日期反飼或隔離。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "ped", sectionName: "PED：病原到防治與台灣病例",
+    keywords: "PED PEDV 豬流行性下痢 CV777 非 S INDEL G1 G2 新生仔豬 絨毛更新 腸幹細胞 先天免疫 水樣下痢 絨毛萎縮 診斷 Vero 胰蛋白酶 sIgA 腸乳腺軸 疫苗 反飼 張文發 2014 哺乳豬 RT-PCR 691 bp TGEV 886 bp 大腸桿菌 藥敏",
+    snippet: "PEDV 為 alphacoronavirus，經糞口感染小腸腸細胞造成吸收不良性下痢；新生仔豬比離乳豬易感（絨毛更新 5–7 天 vs 2–3 天）；病變限小腸；sIgA 腸乳腺軸；2010 年起中國高致病非 S-INDEL 株；台灣 2014 病例 10 日齡、發病率 23%、死亡率 50%、RT-PCR 691 bp。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "phev", sectionName: "血球凝集腦脊髓炎病毒（嘔吐衰弱病）",
+    keywords: "PHEV 血球凝集腦脊髓炎 嘔吐衰弱病 vomiting wasting disease Betacoronavirus 嗜神經 三叉神經節 迷走神經 腸神經叢 3-4 週齡 母源抗體 無疫苗",
+    snippet: "pHEV 為 Betacoronavirus，嗜神經；3–4 週齡前口鼻感染且母豬無抗體才發病；經鼻黏膜→扁桃腺→三叉神經節或迷走神經或腸神經叢進入 CNS；嘔吐衰弱病與急性腦脊髓炎；無疫苗，讓母豬先感染獲免疫。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "pdcov", sectionName: "PDCoV 與 SADS-CoV",
+    keywords: "PDCoV SADS-CoV deltacoronavirus 新興 重組 禽戴爾他冠狀病毒 蝙蝠 HKU2 2017 中國 糞口 宿主範圍廣 人畜共通 海地兒童",
+    snippet: "PDCoV 為新興腸道病，源自禽 deltacoronavirus 重組，症狀與 TGE、PED 類似但較輕，宿主廣、散播較 PED 慢，診斷免疫防治與 TGEV、PEDV 類似；SADS-CoV 為 alphacoronavirus，2017 年中國南方首次偵測，與蝙蝠 CoV HKU2 &gt;95% 相似，糞口傳播，宿主廣。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別 比較 TGE PED PRCV PHEV 輪狀病毒 ETEC 仔豬下痢 絨毛萎縮 冠狀病毒 屬",
+    snippet: "TGE vs PED vs 輪狀病毒 vs ETEC 的鑑別；六種冠狀病毒的屬與嗜性比較。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "natexam", sectionName: "講義所附歷屆國考題",
+    keywords: "國考 TGE PRCV PED PHEV 冠狀病毒 歷屆試題",
+    snippet: "講義附 17 題冠狀病毒國考題（106–114 年），每題完整選項與詳解；答案依講義內容推得，少數題證據不足處在詳解註明。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 冠狀病毒 TGE PED PRCV",
+    snippet: "依講義強調與國考題推測的出題方向。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬冠狀病毒病",
+    url: "大四上/豬病學/week05_豬冠狀病毒病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 冠狀病毒 TGE PED 臨床情境",
+    snippet: "8 題練習題，含 2 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 口蹄疫 FMD 豬水疱病 SVD 矽尼卡谷 SVV 水疱性疾病 鑑別 DIVA Picornaviridae 7 血清型 老虎心",
+    snippet: "小 RNA 病毒科三種豬水疱性疾病：口蹄疫（7 血清型、豬是增幅者、牛帶毒最久、NSP DIVA、虎斑心）、豬水疱病（腸病毒屬、單一血清型）、矽尼卡谷病毒（新興、台灣 2012 首例）；豬的水疱病變在確診前一律視為 FMD。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "fmd-a", sectionName: "口蹄疫：病毒、流行病學與傳播",
+    keywords: "口蹄疫 FMD FMDV Aphthovirus Picornaviridae 7 血清型 A O C SAT1 SAT2 SAT3 Asia 1 偶蹄類 增幅者 amplifier 指示者 維持者 帶毒 O/Taiwan/97 O/Taiwan/99 氣膠 餿水 pH 7-8 堆肥",
+    snippet: "FMDV：Aphthovirus、無封套二十面體、ssRNA(+) 約 8.3 kb、7 血清型無交叉保護；豬增幅者（氣膠排毒最多、持續&lt;28 天）、牛指示者（最低感染劑量最低、帶毒數年）、羊維持者；經直接接觸、餿水、氣膠（&lt;20 km）、污染人車傳播；pH 7–8 與低溫穩定。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "fmd-path", sectionName: "口蹄疫：致病、臨床與病變",
+    keywords: "口蹄疫 致病 咽黏膜 淋巴結 病毒血症 受體 整合素 αvβ3 αvβ6 VP1 硫酸乙醯肝素 潛伏期 臨床症狀 水疱 流涎 跛行 發病率 100% 死亡率低 病變 棘層 氣球樣變性 虎斑心 心肌炎 老虎心 亞臨床 持續感染 鑑別 水疱性口炎 水疱疹 豬水疱病 矽尼卡谷",
+    snippet: "FMDV 經咽黏膜（豬口咽）複製→淋巴結→病毒血症→次級部位；受體整合素 αvβ3/αvβ6（VP1）；潛伏期短於排毒前；發病率可達 100%、死亡率低；水疱病變為棘層角質細胞氣球樣變性；仔豬心肌炎虎斑心；持續帶毒主要在反芻動物。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "fmd-dx", sectionName: "口蹄疫：診斷、DIVA、防治與疫苗",
+    keywords: "口蹄疫 鑑別診斷 水疱性口炎 水疱疹 豬水疱病 矽尼卡谷 實驗室診斷 BSL-3 BHK-21 ELISA RT-PCR 血清學 NSP 3A3B DIVA 撲殺 移動管制 疫苗 不活化 4-6 個月 母源抗體 日本 2010 英國 2001 台灣根除",
+    snippet: "水疱性疾病病灶無法區分，必須視為 FMD；病毒檢測用水疱材料（BHK-21、LFBK-αVβ6、IB-RS-2 細胞、ELISA、RT-PCR）BSL-3；血清學用 NSP 抗體區分感染與疫苗（DIVA）；防治撲殺、移動管制、生物安全；疫苗不阻止初次感染、僅減少排毒、保護 4–6 個月。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "svd", sectionName: "豬水疱病（SVD）",
+    keywords: "豬水疱病 SVD SVDV Enterovirus 單一血清型 義大利 1966 腸病毒 非人畜共通 台灣 1997 延誤通報 圈欄病 pen disease 氫氧化鈉 無疫苗 撲殺 潛伏期 排毒 48 小時",
+    snippet: "SVD：Enterovirus、無封套 30–32 nm、單一血清型（4 抗原變異）、只感染豬；症狀像 FMD 但輕很多；排毒早於症狀 48 小時；環境極穩定只有 1% NaOH 能有效不活化；無疫苗，靠衛生、禁餿水、監測與撲殺感染與接觸豬。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "svv", sectionName: "矽尼卡谷病毒感染症（SVV）",
+    keywords: "矽尼卡谷病毒 SVV Senecavirus A 新興 PER.C6 溶瘤 ANTXR1 炭疽毒素受體 水疱 台灣 2012 花蓮 2018 台南 鼠 單一血清型 無疫苗",
+    snippet: "SVV（Senecavirus A）：新興豬水疱性疾病，2002 年作為細胞培養污染物發現；Senecavirus 屬、單一血清型 SVV-1、只感染豬；受體 ANTXR1；臨床與 FMD 無法區分；台灣 2012 年花蓮首例（血清學與 PCR 對 FMD、SVD、VS、VES 皆陰性、序列相似 98%）；無疫苗，靠生物安全與監測。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "natexam", sectionName: "講義所附歷屆國考題",
+    keywords: "國考 口蹄疫 水疱性疾病 豬水疱病 歷屆試題 NSP DIVA",
+    snippet: "講義附 12 題小 RNA 病毒科疾病國考題（109–113 年），每題完整選項與詳解；答案依講義內容推得。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 口蹄疫 水疱性疾病",
+    snippet: "依講義強調與國考題推測的出題方向。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "小 RNA 病毒科疾病",
+    url: "大四上/豬病學/week04_小RNA病毒科疾病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 口蹄疫 SVD SVV 臨床情境",
+    snippet: "8 題練習題，含 2 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "豬痘",
+    url: "大四上/豬病學/week04_豬痘.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "重點摘要 豬痘 swinepox SwPV 豬蝨 嗜酸性質內包涵體 水腫變性 角質細胞",
+    snippet: "豬痘：急性、輕微、多自行痊癒的皮膚病；豬蝨叮咬傳播；棘層角質細胞水腫變性與嗜酸性質內包涵體；發病率高死亡率低、非人畜共通、無疫苗。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "豬痘",
+    url: "大四上/豬病學/week04_豬痘.html",
+    section: "agent", sectionName: "病毒、流行病學與致病",
+    keywords: "豬痘 SwPV Suipoxvirus Chordopoxvirinae 磚塊狀 封套 線狀 dsDNA 146 kb MV EV 環境抵抗 豬蝨 Haematopinus suis 螫蠅 蚊子 垂直傳播 角質細胞 棘層 細胞質複製 不人畜共通 痘瘡病毒",
+    snippet: "SwPV：Suipoxvirus、240–310 nm 磚塊狀有封套、146 kb dsDNA、基因穩定；MV 抗性高、EV 脆弱；豬為唯一自然宿主；豬蝨叮咬傳播；經皮膚破損進入、在棘層角質細胞細胞質複製。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "豬痘",
+    url: "大四上/豬病學/week04_豬痘.html",
+    section: "clin", sectionName: "臨床、病變、診斷與防治",
+    keywords: "豬痘 臨床症狀 斑疹 丘疹 水疱 臍窩狀 膿疱 結痂 先天感染 死產 病變 水腫變性 棘層 嗜酸性質內包涵體 診斷 電顯 組織病理 鑑別 牛痘 FMD SVD SVV 水疱疹 水疱性口炎 病毒分離 PK15 中和抗體 抗生素 無疫苗 外寄生蟲",
+    snippet: "症狀依年齡；斑疹丘疹水疱臍窩狀膿疱結痂；發病率高死亡率低；先天感染死產或新生仔豬死亡；病理為棘層角質細胞水腫變性與嗜酸性質內包涵體；鑑別牛痘與水疱性疾病；無疫苗，靠衛生與外寄生蟲控制。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "豬痘",
+    url: "大四上/豬病學/week04_豬痘.html",
+    section: "natexam", sectionName: "講義所附歷屆國考題",
+    keywords: "國考 豬痘 歷屆試題",
+    snippet: "講義附 5 題豬痘國考題（103–112 年），每題完整選項與詳解；答案依講義內容推得。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "豬痘",
+    url: "大四上/豬病學/week04_豬痘.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 豬痘",
+    snippet: "豬痘出題方向：宿主、媒介、致病機轉、病變與包涵體、防治。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 4, weekTitle: "豬痘",
+    url: "大四上/豬病學/week04_豬痘.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 豬痘",
+    snippet: "6 題練習題，含 1 題臨床情境題。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s0", sectionName: "豬瘟（Classical Swine Fever, CSF）與非洲豬瘟（ASF）",
+    keywords: "豬瘟 Classical Swine Fever  CSF 與非洲豬瘟 ASF  國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "豬瘟（Classical Swine Fever, CSF）與非洲豬瘟（ASF）：專技高考獸醫傳染病學歷屆國考題 33 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s1", sectionName: "豬生殖與呼吸綜合症（PRRS）",
+    keywords: "豬生殖與呼吸綜合症 PRRS  國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "豬生殖與呼吸綜合症（PRRS）：專技高考獸醫傳染病學歷屆國考題 18 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s2", sectionName: "假性狂犬病（Pseudorabies）",
+    keywords: "假性狂犬病 Pseudorabies  國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "假性狂犬病（Pseudorabies）：專技高考獸醫傳染病學歷屆國考題 10 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s3", sectionName: "豬流行性下痢（PED）／傳染性胃腸炎（TGE）／豬冠狀病毒",
+    keywords: "豬流行性下痢 PED  傳染性胃腸炎 TGE  豬冠狀病毒 國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "豬流行性下痢（PED）／傳染性胃腸炎（TGE）／豬冠狀病毒：專技高考獸醫傳染病學歷屆國考題 28 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s4", sectionName: "豬圓環病毒（PCV）／豬細小病毒／其他豬病毒",
+    keywords: "豬圓環病毒 PCV  豬細小病毒 其他豬病毒 國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "豬圓環病毒（PCV）／豬細小病毒／其他豬病毒：專技高考獸醫傳染病學歷屆國考題 42 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s5", sectionName: "豬細菌性呼吸道疾病（胸膜肺炎、氣喘病、萎縮性鼻炎、格拉瑟氏病）",
+    keywords: "豬細菌性呼吸道疾病 胸膜肺炎、氣喘病、萎縮性鼻炎、格拉瑟氏病  國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "豬細菌性呼吸道疾病（胸膜肺炎、氣喘病、萎縮性鼻炎、格拉瑟氏病）：專技高考獸醫傳染病學歷屆國考題 53 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s6", sectionName: "豬細菌性消化道／全身性疾病（大腸桿菌、沙門氏菌、增生性腸病、豬痢疾、丹毒、鏈球菌）",
+    keywords: "豬細菌性消化道 全身性疾病 大腸桿菌、沙門氏菌、增生性腸病、豬痢疾、丹毒、鏈球菌  國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "豬細菌性消化道／全身性疾病（大腸桿菌、沙門氏菌、增生性腸病、豬痢疾、丹毒、鏈球菌）：專技高考獸醫傳染病學歷屆國考題 95 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s7", sectionName: "豬寄生蟲與人畜共通（旋毛蟲、有鉤絛蟲等）",
+    keywords: "豬寄生蟲與人畜共通 旋毛蟲、有鉤絛蟲等  國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "豬寄生蟲與人畜共通（旋毛蟲、有鉤絛蟲等）：專技高考獸醫傳染病學歷屆國考題 35 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s8", sectionName: "其他（題幹提及但未歸入上列疾病）",
+    keywords: "其他 題幹提及但未歸入上列疾病  國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "其他（題幹提及但未歸入上列疾病）：專技高考獸醫傳染病學歷屆國考題 182 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "豬病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/豬病學統整.html",
+    section: "s9", sectionName: "選項提及豬（較不確定，111 題）",
+    keywords: "選項提及豬 較不確定 111 題  國考題 歷屆 專技高考 獸醫傳染病學 詳解 豬病學",
+    snippet: "選項提及豬（較不確定，111 題）：專技高考獸醫傳染病學歷屆國考題 111 題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "tox", sectionName: "毒素與細菌病總表（按疾病）",
+    keywords: "毒素 細菌病 Apx DNT TCT PMT LT STa STb Stx2e ExhA ExhB ShetA 表皮剝落毒素 EFT 萎縮性鼻炎 滲出性表皮炎 水腫病 豬病學",
+    snippet: "每個病的招牌毒素與作用：APP→Apx、萎縮性鼻炎→DNT／PMT、ETEC→LT／ST、水腫病→Stx2e、滲出性表皮炎→ExhA／B。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "mode", sectionName: "按作用方式整理",
+    keywords: "毒素 作用方式 打洞 RTX HlyA 分泌性下痢 傷骨 剝皮",
+    snippet: "依作用方式分：打洞（Apx、HlyA）、腸道分泌（LT、ST）、傷血管內皮（Stx2e）、傷骨（DNT、PMT）、剝皮（Exh）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "trap", sectionName: "國考陷阱對照：把毒素放錯病",
+    keywords: "國考 陷阱 EFT ShetC PmtA Stx2d 混淆 毒素",
+    snippet: "國考常把 A 病毒素放進 B 病選項：EFT 不是 Bb 因子、ApxIII 不溶血、水腫病不是 cAMP。"
   },
   {
     subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "循環系統",

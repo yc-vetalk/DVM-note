@@ -6,6 +6,26 @@
 <title>豬病毒性疾病 (I)：ASF／CSF／JEV／HEV - yc._vetalk</title>
 <link rel="stylesheet" href="../../assets/nav.css">
 <link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
 </head>
 <body class="ah">
 
@@ -33,13 +53,14 @@
     </div>
     <div class="page-head">
       <h1 class="page-title">豬病毒性疾病 (I)</h1>
-      <p class="page-subtitle">Swine Viral Diseases (I) · 非洲豬瘟、古典豬瘟、日本腦炎、E型肝炎</p>
+      <p class="page-subtitle">Swine Viral Diseases (I) · 非洲豬瘟（ASF）、古典豬瘟（CSF）、日本腦炎（JE）、E 型肝炎（HE）</p>
     </div>
     <div class="meta-bar">
       <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">豬病學（大四上・第2週・課堂）</div></div>
-      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《豬病學》課程講義〈Swine viral diseases (I)〉</div></div>
-      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-17</div></div>
-      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《豬病學》課程講義〈Swine viral diseases (I)〉（張家宜老師，2026-09-17）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-21</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/病毒性疾病I.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（依新版格式重寫）</div></div>
     </div>
   </div>
 </section>
@@ -48,44 +69,52 @@
   <nav class="toc">
     <div class="section-label">總覽</div>
     <a class="active" onclick="showSection('abstract')" id="nav-abstract">
-      <span class="nav-icon">⭐</span> 重點摘要
+      <span class="nav-icon">⭐</span> 大方向與重點摘要
+    </a>
+    <div class="section-label" style="margin-top:8px;">總論</div>
+    <a onclick="showSection('intro')" id="nav-intro">
+      <span class="nav-icon">🌏</span> 豬病的衝擊與總論
     </a>
     <div class="section-label" style="margin-top:8px;">非洲豬瘟 ASF</div>
-    <a onclick="showSection('asf-overview')" id="nav-asf-overview">
-      <span class="nav-icon">🦠</span> 病毒學與環境抵抗力
+    <a onclick="showSection('asf-a')" id="nav-asf-a">
+      <span class="nav-icon">🦠</span> 病毒、流行病學與環境抵抗力
     </a>
-    <a onclick="showSection('asf-transmission')" id="nav-asf-transmission">
+    <a onclick="showSection('asf-b')" id="nav-asf-b">
       <span class="nav-icon">🔁</span> 傳播與致病機轉
     </a>
-    <a onclick="showSection('asf-clinical')" id="nav-asf-clinical">
-      <span class="nav-icon">🩸</span> 臨床症狀與病理病變
+    <a onclick="showSection('asf-c')" id="nav-asf-c">
+      <span class="nav-icon">🩸</span> 臨床症狀與病變
     </a>
-    <a onclick="showSection('asf-dx')" id="nav-asf-dx">
+    <a onclick="showSection('asf-d')" id="nav-asf-d">
       <span class="nav-icon">🔬</span> 鑑別診斷、診斷與防治
     </a>
     <div class="section-label" style="margin-top:8px;">古典豬瘟 CSF</div>
-    <a onclick="showSection('csf-overview')" id="nav-csf-overview">
-      <span class="nav-icon">🦠</span> 病毒學與環境抵抗力
+    <a onclick="showSection('csf-a')" id="nav-csf-a">
+      <span class="nav-icon">🦠</span> 病毒、流行病學與傳播
     </a>
-    <a onclick="showSection('csf-clinical')" id="nav-csf-clinical">
-      <span class="nav-icon">🐖</span> 致病機轉與臨床型式
+    <a onclick="showSection('csf-b')" id="nav-csf-b">
+      <span class="nav-icon">🩸</span> 臨床型式、病變與診斷
     </a>
-    <a onclick="showSection('csf-lesions')" id="nav-csf-lesions">
-      <span class="nav-icon">🩹</span> 病理病變與鑑別診斷
+    <a onclick="showSection('csf-c')" id="nav-csf-c">
+      <span class="nav-icon">🛡️</span> 防治、DIVA 與台灣 CSF
     </a>
-    <a onclick="showSection('csf-dx')" id="nav-csf-dx">
-      <span class="nav-icon">🔬</span> 診斷、防治與台灣根除史
+    <div class="section-label" style="margin-top:8px;">日本腦炎 JE</div>
+    <a onclick="showSection('jev')" id="nav-jev">
+      <span class="nav-icon">🦟</span> 日本腦炎 Japanese Encephalitis
     </a>
-    <div class="section-label" style="margin-top:8px;">綜合比較</div>
+    <div class="section-label" style="margin-top:8px;">E 型肝炎 HE</div>
+    <a onclick="showSection('hev')" id="nav-hev">
+      <span class="nav-icon">🧫</span> E 型肝炎 Hepatitis E
+    </a>
+    <div class="section-label" style="margin-top:8px;">比較與考試</div>
     <a onclick="showSection('compare')" id="nav-compare">
       <span class="nav-icon">⚖️</span> ASF vs CSF 比較
     </a>
-    <div class="section-label" style="margin-top:8px;">其他病毒性疾病</div>
-    <a onclick="showSection('jev')" id="nav-jev">
-      <span class="nav-icon">🦟</span> 日本腦炎 JEV
+    <a onclick="showSection('kaogu')" id="nav-kaogu">
+      <span class="nav-icon">📜</span> 期中考古題
     </a>
-    <a onclick="showSection('hev')" id="nav-hev">
-      <span class="nav-icon">🧫</span> E型肝炎 HEV
+    <a onclick="showSection('exam')" id="nav-exam">
+      <span class="nav-icon">🎯</span> 考試方向（推測）
     </a>
     <div class="section-label" style="margin-top:8px;">複習</div>
     <a onclick="showSection('summary')" id="nav-summary">
@@ -100,787 +129,1047 @@
 
     <!-- ABSTRACT -->
     <div class="section" id="section-abstract">
-      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
-
-      <div class="alert alert-info">
-        <div class="alert-label">七個臨床與國考重點</div>
-        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
-          <li><strong>ASF 與 CSF 是豬隻「全身性出血性疾病」的經典鑑別診斷組合，但臨床上幾乎無法單憑症狀區分：</strong>挑戰試驗顯示兩者引起的臨床症狀非常相似，必須靠實驗室診斷確診；不過兩者從未在同一頭豬身上被分離出，且教科書病變仍有各自代表性特徵（見下方比較表），這組對比是本章出題率最高的觀念。</li>
-          <li><strong>ASF 是 DNA 病毒（Asfarviridae），環境抵抗力極強、非人畜共通，但對產業殺傷力巨大：</strong>血液中 4°C 可存活長達 18 個月、冷凍肉品可存活數年，這也是為什麼防疫重點放在生物安全與豬肉製品管制而非疫苗；目前尚無全球公認疫苗，基因刪除減毒活疫苗在越南、菲律賓、印尼陸續獲准使用，是新興但仍需謹慎評估的工具。</li>
-          <li><strong>CSF 是 RNA 病毒（Pestiviridae），獨有「先天型」與「產後持續感染型」兩種臨床型式，是全章最容易考倒人的機轉：</strong>母豬懷孕中期（50–70 天）感染，胎兒因免疫耐受（immunotolerance）無法辨識病毒、終生不產生可偵測抗體卻持續排毒數月致死，稱為 late-onset CSF——這種「外觀健康的帶原豬」是控制與撲滅最大的隱藏風險。</li>
-          <li><strong>台灣 CSF 根除史是具體的國考時間軸考點：</strong>1996 年後田間病毒基因型由 3.4 轉為 2.1、2006 年後田間未再檢出病毒、2023 年起停止疫苗注射——長期監測＋階段性停打疫苗是成功根除的關鍵示範案例。</li>
-          <li><strong>兩個病理病變是視覺辨識的直接考點：</strong>CSF 的腸胃道黏膜「鈕扣狀潰瘍（button ulcers）」與脾臟梗塞（splenic infarction）是教科書代表病變；ASF 的脾臟則是腫大、質脆、暗紅至黑色，加上淋巴結出血腫脹——看圖辨病是必練題型。</li>
-          <li><strong>JEV 的核心觀念是「豬是增幅宿主，不是終端宿主」：</strong>人與馬感染後是 dead-end host（不會再傳染給蚊子），豬感染後產生高效價病毒血症、足以感染叮咬的病媒蚊，是流行病學上的關鍵放大環節；豬場最大的臨床意義是母豬妊娠 60–70 天前感染會造成流產／木乃伊化／死產，公豬則可能睪丸炎併發暫時性不孕。</li>
-          <li><strong>HEV 是純粹的食品安全／公衛議題，豬本身幾乎不會生病：</strong>基因型 3、4 可感染人與豬（人畜共通），豬場內以糞口途徑傳播、豬隻大多無症狀；豬肝臟中 HEV RNA 陽性率可達 24%，豬農血清抗體陽性率是一般民眾的 3.5 倍——防治重點是徹底煮熟豬肉與豬肝，而不是治療豬隻疾病。</li>
-        </ul>
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">病毒性疾病 (I) 的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>四個全身性或人畜共通相關的豬病毒病：<strong>非洲豬瘟（African swine fever, ASF）</strong>、<strong>古典豬瘟（Classical swine fever, CSF）</strong>、<strong>日本腦炎（Japanese encephalitis, JE）</strong>、<strong>E 型肝炎（Hepatitis E, HE）</strong>。前兩個是「發燒＋出血」的高致死率法定傳染病；後兩個是<strong>豬自己症狀輕微、對人類公共衛生重要</strong>的病。</dd>
+          <dt>為什麼重要</dt>
+          <dd>豬肉佔全球肉類攝取超過 <strong>35%</strong>。ASF 死亡率可達 100%、中國 2018 年疫情估計損失超過 <strong>1,000 億美元</strong>；CSF 在台灣是<strong>甲類</strong>傳染病，1997–98 年荷蘭疫情撲殺約 1,200 萬頭、損失超過 23 億美元；JEV 與 HEV 是人畜共通。張老師的題目常出在<strong>講義有畫底線的地方</strong>，本頁把那些內容標成「必考」。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-asf-a">ASFV</a>：Asfarviridae、<strong>唯一經節肢動物傳播的 DNA 病毒</strong>、170–193 kb；24 個基因型；<strong>環境極穩定</strong>（4°C 血液 18 個月、冷凍屍體數年）；非人畜共通。</li>
+              <li><a href="#section-asf-b">ASF 傳播與致病</a>：直接接觸、吃餿水豬肉、人車污染物、<strong>軟蜱（<em>Ornithodoros</em>）</strong>；標的是<strong>單核球與巨噬細胞</strong>；病毒血症 4–8 天，缺乏完全中和抗體。</li>
+              <li><a href="#section-asf-c">ASF 臨床與病變</a>：最急性、急性、亞急性、慢性；<strong>脾臟腫大質脆暗黑</strong>、淋巴結出血、腎皮質點狀出血。</li>
+              <li><a href="#section-asf-d">ASF 診斷與防治</a>：血球吸附（HAD）玫瑰花環、PCR、ELISA；新豬隔離 <strong>30 天</strong>；基因刪除活疫苗（越南 2022 年首例）；野豬的角色。</li>
+              <li><a href="#section-csf-a">CSFV</a>：Pestiviridae、<em>Orthopestivirus</em>、有封套 RNA；<strong>單一血清型、3 個基因型</strong>；毒力分級；<strong>先天持續感染（late-onset CSF）</strong>。</li>
+              <li><a href="#section-csf-b">CSF 病變與診斷</a>：<strong>脾臟邊緣梗塞、淋巴結周邊出血、腎膀胱點狀出血、迴盲瓣與腸道鈕扣狀潰瘍</strong>；FAVNT 為金標準；E2 次單位疫苗＋Erns ELISA（DIVA）。</li>
+              <li><a href="#section-csf-c">台灣 CSF</a>：1996 後田間病毒由 3.4 轉為 2.1；<strong>2006 年後田間無病毒；2023 年停止疫苗接種</strong>。</li>
+              <li><a href="#section-jev">日本腦炎</a>：Flaviviridae；<strong>豬是增幅宿主、人與馬是終端宿主</strong>；<strong>妊娠 60–70 天前感染</strong>才造成生殖障礙。</li>
+              <li><a href="#section-hev">E 型肝炎</a>：<strong>豬無症狀</strong>；<strong>基因型 3、4 人畜共通</strong>；豬肝 HEV RNA 陽性率 24%；煮熟可不活化。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd>
+            <ul style="margin:0; padding-left:1.2em;">
+              <li><strong>ASF 是 DNA 病毒、CSF 是 RNA 病毒</strong>；兩者臨床相似但<strong>從未在同一頭豬分離到</strong>。</li>
+              <li><strong>CSF 先天持續感染豬看起來健康、驗不到抗體</strong>；產後持續感染是新生仔豬被感染。</li>
+              <li><strong>JEV：豬是增幅宿主，人與馬是終端宿主</strong>（不會傳給蚊子）。</li>
+              <li><strong>HEV 基因型 1、2 只感染人</strong>；3、4 感染人與豬；5、6 野豬；7、8 駱駝。</li>
+            </ul>
+          </dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
       </div>
+      <h3>四個病的主線<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>病原</th><th>一句話特徵</th><th>代表圖</th></tr></thead>
+          <tbody>
+            <tr><td>ASF</td><td>ASFV（Asfarviridae，dsDNA，有封套）</td><td>死亡率可達 100%；脾腫質脆暗黑；蜱與野豬</td><td style="width:170px;"><a href="#section-asf-c"><img src="img/week02_病毒性疾病I/v1_thumb_p045.jpg" alt="ASF 脾臟" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">脾臟腫大質脆暗黑（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=45">p.45</a>）</div></td></tr>
+            <tr><td>CSF</td><td>CSFV（Pestiviridae，(+)ssRNA，有封套）</td><td>發燒＋出血；先天持續感染；台灣已根除</td><td style="width:170px;"><a href="#section-csf-b"><img src="img/week02_病毒性疾病I/v1_thumb_p114.jpg" alt="CSF 鈕扣狀潰瘍" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">腸道鈕扣狀潰瘍（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=114">p.114</a>）</div></td></tr>
+            <tr><td>JE</td><td>JEV（Flaviviridae，(+)ssRNA 約 11 kb）</td><td>豬增幅宿主；妊娠 60–70 天前感染生殖障礙</td><td style="width:170px;"><a href="#section-jev"><img src="img/week02_病毒性疾病I/v1_thumb_p159.jpg" alt="JEV 豬感染過程" loading="lazy" style="width:160px; max-width:100%; display:block; border-radius:6px; border:1px solid var(--line);"></a><div style="font-size:.8em; color:var(--fg-muted); margin-top:4px;">豬感染經過時間軸（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=159">p.159</a>）</div></td></tr>
+            <tr><td>HE</td><td>HEV（Hepeviridae，(+)ssRNA 約 7.2 kb）</td><td>豬無症狀；人畜共通；豬肝 24% 陽性</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">閱讀說明</div>
+        <p>內容以老師講義為主，章節順序跟講義一致；這頁是依新版格式重寫第 2 週，取代原本較精簡的版本。講義沒有附國考題；考古題來自你提供的 2019 年期中考（鄭益謙老師授課時期）。標「補充」的是講義以外的延伸。點任何「p.N」可在右側開啟講義對照。</p>
+      </div>
+      <footer class="note-footer">資料來源：《豬病學》課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=1">p.1–9</a>。本頁為個人課堂筆記整理，僅供學習與複習使用。</footer>
     </div>
 
-    <!-- ASF OVERVIEW -->
-    <div class="section" id="section-asf-overview">
-      <div class="section-head"><div class="section-num">2</div><h2>非洲豬瘟：病毒學與環境抵抗力 African Swine Fever（ASF） Virology &amp; Resistance</h2></div>
-      <p class="section-desc">非洲豬瘟（African swine fever, ASF）是家豬與野豬高度傳染性的病毒疾病，死亡率可達 100%。<strong>非人畜共通</strong>，但對養豬產業與國際貿易的衝擊極大；病毒在環境中極度穩定，是防疫上最大的挑戰之一。</p>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">重點</div>
-        <p>ASFV 是<strong>唯一已知經由節肢動物（軟蜱）傳播的 DNA 病毒</strong>：Asfarviridae 科、Asfivirus 屬，基因體 170–193 kb，編碼超過 160 個基因，其中約 1/3 對細胞內複製非必要，但對<strong>逃避宿主免疫防禦</strong>很重要；病毒顆粒結構複雜，含超過 68 種蛋白質、分多層排列。</p>
-      </div>
-
-      <h3>基因型與毒力</h3>
+    <!-- INTRO -->
+    <div class="section" id="section-intro">
+      <div class="section-head"><div class="section-num">2</div><h2>豬病的衝擊 Impact of Swine Diseases</h2></div>
+      <p class="section-desc">課程開場：為什麼豬的病毒病重要。</p>
+      <h3>衝擊<span class="lv lv-know">理解</span></h3>
       <ul>
-        <li>目前已知 <strong>24 種基因型</strong>，毒力差異極大：高毒力可致 100% 死亡率，低毒力則僅造成血清轉陽。</li>
-        <li>所有基因型都存在於非洲；<strong>基因型 I 與 II</strong> 是目前在非洲以外地區（歐洲、亞洲）流行的型別。</li>
-        <li>近年已在部分地區偵測到<strong>基因型 I／II 重組病毒</strong>，其致病力高，且基因型 II 減毒活疫苗對其挑戰無保護力，是新興威脅。</li>
+        <li><strong>養豬產業</strong>：豬是許多國家的主要收入來源；主要豬病全球擴散可對養豬業造成毀滅性衝擊。</li>
+        <li><strong>生物多樣性與生態平衡</strong>：這些疾病不只影響家豬，也影響<strong>野豬</strong>。</li>
+        <li><strong>食品安全與糧食安全</strong>：豬肉是動物性蛋白質的主要來源之一，<strong>佔全球肉類攝取超過 35%</strong>；主要豬病可威脅糧食安全，人畜共通豬病也造成食品安全風險。</li>
       </ul>
-
-      <h3>宿主範圍</h3>
-      <div class="grid-4">
-        <div class="card" style="text-align:center;"><div class="card-title">家豬</div><p>高度易感，臨床顯性</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">歐亞野豬</div><p>高度易感，臨床顯性</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">疣豬（Warthog）</div><p>非洲儲存宿主，多為亞臨床</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">叢林豬</div><p>非洲儲存宿主，多為亞臨床</p></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p005.jpg" alt="2006–2016 各地區最重要的豬病原（VanderWaal et al., " loading="lazy"><div class="figure-caption">2006–2016 各地區最重要的豬病原（VanderWaal et al., 2018）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=5">p.5</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p012.jpg" alt="ASF 疫情時間軸" loading="lazy"><div class="figure-caption">ASF 疫情時間軸：1921 肯亞、1957 葡萄牙、1960 年代、2007 喬治亞、2018 中國、2018–2022 亞洲各國。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=12">p.12</a></div></div>
       </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=2">p.2–9</a>。</footer>
+    </div>
 
-      <h3>環境中的存活時間<span class="tag tag-exam">重要</span></h3>
+    <!-- ASF-A -->
+    <div class="section" id="section-asf-a">
+      <div class="section-head"><div class="section-num">3</div><h2>非洲豬瘟：病毒、流行病學與環境抵抗力 ASF Virus &amp; Epidemiology</h2></div>
+      <p class="section-desc">非洲豬瘟（ASF）是家豬與野豬的<strong>高度傳染性病毒病，死亡率可達 100%</strong>；<strong>非人畜共通</strong>，但對養豬業與貿易衝擊極大。病毒在環境中極度穩定；人為活動在跨境傳播扮演重要角色。</p>
+      <h3>全球疫情<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>1921 年肯亞</strong>首次；<strong>1960 年代基因型 I</strong> 傳到歐洲，1995 年多數地區以撲殺根除；<strong>2007 年喬治亞（基因型 II）</strong>再度跨洲傳播並持續擴散到亞洲。</li>
+        <li>非洲的傳播：疣豬—蜱—人為因素；歐亞：野豬、人為因素。</li>
+        <li><strong>亞洲 2018–2019 年快速擴散到 20 個國家</strong>：主要影響小型養豬戶（數量多、生物安全低）；現在多數國家為<strong>地方流行</strong>，病毒在小型養豬戶間持續循環；已進入野豬族群（馬來西亞、菲律賓、寮國、越南）；<strong>越南等亞洲國家已使用疫苗（基因刪除減毒活疫苗）</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p011.jpg" alt="ASFV 跨洲傳播" loading="lazy"><div class="figure-caption">ASFV 跨洲傳播：各基因型在非洲與歐亞的分布與疫情年代。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=11">p.11</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p013.jpg" alt="2026 年全球非洲豬瘟疫情現況（防檢署）。" loading="lazy"><div class="figure-caption">2026 年全球非洲豬瘟疫情現況（防檢署）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=13">p.13</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p014.jpg" alt="亞洲 ASF 疫情現況（講義文字摘要見上）。" loading="lazy"><div class="figure-caption">亞洲 ASF 疫情現況（講義文字摘要見上）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=14">p.14</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p016.jpg" alt="FAO" loading="lazy"><div class="figure-caption">FAO：亞太地區近 10 週 ASF 疫情地圖。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=16">p.16</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p017.jpg" alt="ASF 的衝擊" loading="lazy"><div class="figure-caption">ASF 的衝擊：動物健康、經濟與國際貿易（講義原圖）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=17">p.17</a></div></div>
+      <h3>衝擊與易感動物<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>衝擊：高發病率與死亡率、高傳染力；進出口禁令、<strong>移動限制、隔離與撲殺（撲滅所必需）</strong>；古巴 1971 年撲殺 40 萬頭、羅馬尼亞 2018 年超過 12 萬頭；可能成為長期流行。</li>
+        <li>易感：<strong>家豬、野豬、歐亞野豬</strong>；<strong>疣豬（Warthog）與叢林豬（Bush pig）是儲存宿主（reservoir）</strong>；巨林豬（Giant forest hog）。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p018.jpg" alt="ASF 易感動物" loading="lazy"><div class="figure-caption">ASF 易感動物：歐亞野豬（上）、疣豬（中）、叢林豬（下）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=18">p.18</a></div></div>
+      <h3>病毒<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>Asfarviridae 科、<em>Asfivirus</em> 屬</strong>；大型<strong>有封套</strong> DNA 病毒，<strong>170–193 kb</strong>。</li>
+        <li><strong>唯一經節肢動物傳播的 DNA 病毒</strong>（Only arthropod-borne DNA virus）。</li>
+        <li>編碼超過 <strong>160 個基因</strong>；約 <strong>1/3</strong> 對細胞內複製非必要，但對<strong>逃避宿主防禦</strong>很重要。</li>
+        <li>病毒顆粒複雜：<strong>&gt;68 種蛋白質、分多層</strong>。</li>
+        <li><strong>24 個基因型</strong>（毒力不同：高毒力死亡率可達 100%，低毒力僅血清轉陽）；<strong>所有基因型都存在於非洲，基因型 I 與 II 已傳到非洲以外</strong>。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p019.jpg" alt="ASFV 電子顯微鏡" loading="lazy"><div class="figure-caption">ASFV 電子顯微鏡：大型有封套的多層二十面體。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=19">p.19</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p020.jpg" alt="ASFV 基因體" loading="lazy"><div class="figure-caption">ASFV 基因體：編碼 &gt;160 個基因，功能包含複製、轉錄、修復、免疫抑制等（Wang et al., 2021）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=20">p.20</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p021.jpg" alt="ASFV 結構蛋白位置" loading="lazy"><div class="figure-caption">ASFV 結構蛋白位置：內封套、核殼、外衣殼、核蛋白（Zhang et al., 2021）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=21">p.21</a></div></div>
+      </div>
+      <h3>環境抵抗力<span class="lv lv-must">必考</span></h3>
       <div class="table-wrap">
         <table>
           <thead><tr><th>環境／介質</th><th>存活時間</th></tr></thead>
           <tbody>
             <tr><td>糞便（室溫）</td><td>數日</td></tr>
-            <tr><td>污染豬舍</td><td>數月</td></tr>
-            <tr><td>血液（4°C）</td><td><strong>長達 18 個月</strong></td></tr>
-            <tr><td>部分豬肉製品（如鹽漬火腿）</td><td>超過 140 天</td></tr>
-            <tr><td>冷凍屠體</td><td><strong>數年</strong></td></tr>
+            <tr><td>污染的豬舍</td><td>數個月</td></tr>
+            <tr><td><strong>血液（4°C）</strong></td><td><strong>長達 18 個月</strong></td></tr>
+            <tr><td>部分豬肉製品（如鹽漬風乾火腿）</td><td>&gt;140 天</td></tr>
+            <tr><td><strong>冷凍屍體</strong></td><td><strong>數年</strong></td></tr>
           </tbody>
         </table>
       </div>
-
-      <h3>病毒去活化</h3>
+      <p>對低溫特別有抵抗力。</p>
+      <h3>病毒去活化<span class="lv lv-must">必考</span></h3>
       <ul>
-        <li>非多孔表面消毒：<strong>次氯酸鈉、檸檬酸、部分碘劑與四級銨鹽溶液</strong>；血清與糞便會大幅降低消毒劑效力，<strong>徹底清潔後再消毒</strong>非常重要。</li>
-        <li>肉品／組織：<strong>70°C 加熱 30 分鐘</strong>可去活化。</li>
-        <li>pH 敏感：pH &lt; 3.9 或 &gt; 11.5 可去活化；若有血清存在，需要更高 pH（13.4）才能達到效果。</li>
+        <li><strong>血清與糞便會大幅抑制消毒劑效果</strong>，所以施用消毒劑前<strong>徹底清潔</strong>很重要。</li>
+        <li>非多孔表面的消毒劑：<strong>次氯酸鈉、檸檬酸</strong>、部分碘與四級銨溶液。</li>
+        <li>肉品與組織：<strong>70°C（150°F）30 分鐘</strong>可不活化。</li>
+        <li><strong>pH &lt;3.9 或 &gt;11.5</strong> 可不活化；<strong>有血清存在時需更高的 pH（13.4）</strong>。</li>
       </ul>
-
-      <div class="alert alert-info">
-        <div class="alert-label">補充：全球疫情脈絡</div>
-        <p>ASF 最早於 1921 年在肯亞發現，2007 年基因型 II 傳入喬治亞後展開跨洲傳播，2018 年進入亞洲後快速擴散至 20 個國家，目前已在多數亞洲國家呈現地方性流行，並已進入馬來西亞、菲律賓、寮國、越南等地的野豬族群，成為根除的長期障礙。</p>
-      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=10">p.10–25</a>。</footer>
     </div>
 
-    <!-- ASF TRANSMISSION -->
-    <div class="section" id="section-asf-transmission">
-      <div class="section-head"><div class="section-num">3</div><h2>非洲豬瘟：傳播與致病機轉 Transmission &amp; Pathogenesis</h2></div>
-      <p class="section-desc">感染豬、野豬與受污染的飼料、人員、車輛、豬肉是 ASF 的主要感染來源；傳播路徑多元，是防疫措施必須多管齊下的原因。</p>
-
-      <h3>傳播途徑</h3>
+    <!-- ASF-B -->
+    <div class="section" id="section-asf-b">
+      <div class="section-head"><div class="section-num">4</div><h2>非洲豬瘟：傳播與致病機轉 Transmission &amp; Pathogenesis</h2></div>
+      <p class="section-desc">傳播要分「直接、間接、媒介」三條路；致病的關鍵是標的細胞與病毒血症。</p>
+      <h3>傳播的主要來源<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>感染的家豬與野豬、<strong>污染的飼料、人員、車輛與豬肉</strong>是 ASF 感染的主要來源。</li>
+        <li><strong>直接接觸感染豬</strong>：主要經<strong>口鼻途徑</strong>；病毒存在於分泌物、排泄物、組織，<strong>特別是血液</strong>。</li>
+        <li><strong>吃入受污染的豬肉製品</strong>：餵豬的餿水、廚餘與垃圾。</li>
+        <li><strong>接觸感染的屍體</strong>。</li>
+        <li><strong>污染物（fomites）</strong>：衣物、車輛、器具；環境污染（血液、下痢、糞便）。</li>
+        <li><strong>媒介</strong>：<strong>生物性：軟蜱（<em>Ornithodoros</em>）叮咬</strong>；機械性：其他昆蟲（<strong>螫蠅 <em>Stomoxys</em></strong>）。</li>
+      </ul>
       <div class="grid-2">
-        <div class="card">
-          <div class="card-title">直接接觸</div>
-          <p>主要經<strong>口鼻途徑</strong>；病毒存在於分泌物、排泄物、組織，<strong>血液中濃度最高</strong>。</p>
-        </div>
-        <div class="card">
-          <div class="card-title">攝入受污染豬肉製品</div>
-          <p>餵食未煮熟的<strong>廚餘／餿水（swill feeding）</strong>，或接觸受感染屍體。</p>
-        </div>
-        <div class="card">
-          <div class="card-title">介質（Fomites）</div>
-          <p>衣物、車輛、器械；環境中的血液、腹瀉物、糞便污染。</p>
-        </div>
-        <div class="card">
-          <div class="card-title">病媒</div>
-          <p><strong>生物性：</strong>軟蜱（<em>Ornithodoros</em>）叮咬；<strong>機械性：</strong>螫蠅（<em>Stomoxys</em>）等吸血昆蟲。</p>
-        </div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p026.jpg" alt="ASF 傳播途徑" loading="lazy"><div class="figure-caption">ASF 傳播途徑：野豬、豬肉製品與餿水、人活動、車輛、污染物、機械性與生物性媒介（Zhang et al., 2023）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p029.jpg" alt="Ornithodoros 軟蜱" loading="lazy"><div class="figure-caption"><em>Ornithodoros</em> 軟蜱：經蛻皮（transstadial）、經卵（transovarial）、性傳播；終生感染；族群可維持病毒數年。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=29">p.29</a></div></div>
       </div>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">注意</div>
-        <p><em>Ornithodoros</em> 軟蜱可經<strong>跨期（transstadial）、經卵（transovarial）與性傳播</strong>維持病毒，且<strong>終生帶毒</strong>，蜱群可將病毒維持數年——在非洲，疣豬與蜱之間的循環是病毒長期存續的關鍵，蜱到豬的傳播在非洲疫區意義重大。</p>
+      <h3>軟蜱與傳播循環<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong><em>Ornithodoros</em> 軟蜱</strong>：<strong>蛻皮間（transstadial）、經卵（transovarial）、性（sexual）傳播</strong>；<strong>終生感染</strong>；族群可維持病毒數年。</li>
+        <li><strong>蜱傳豬</strong>：在<strong>非洲</strong>重要；病毒維持在<strong>疣豬與蜱</strong>之間（成年疣豬多為終端宿主、不參與水平或垂直傳播）。</li>
+        <li>歐亞地區以<strong>野豬—野豬</strong>、家豬—野豬、餿水與生物安全不足為主。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p030.jpg" alt="ASF 傳播循環" loading="lazy"><div class="figure-caption">ASF 傳播循環：左為歐亞（野豬循環、家豬循環、餿水），右為非洲（疣豬—蜱森林循環）（Gaudreault et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=30">p.30</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p031.jpg" alt="野豬中的 ASF" loading="lazy"><div class="figure-caption">野豬中的 ASF：獵到的野豬要安全運送；血滴含大量病毒（WOAH）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=31">p.31</a></div></div>
       </div>
-
-      <div class="figure">
-        <img src="img/week02_豬病毒性疾病I/sw_p30.png" alt="ASF傳播循環示意圖：歐亞地區與非洲地區的傳播路徑比較">
-        <div class="figure-caption">歐亞地區（左）以「野豬─野豬」的森林循環為主，家豬因低生物安全（餿水餵食、介質污染）與野豬互相傳播進而爆發場內感染；非洲地區（右）則以「疣豬─軟蜱」的森林循環為核心，成年疣豬多為終端宿主、不參與水平或垂直傳播。</div>
-        <div class="figure-source">來源：講義（Gaudreault et al., 2020）</div>
-      </div>
-
-      <h3>致病機轉</h3>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p032.jpg" alt="亞洲野豬 ASF 預測風險區" loading="lazy"><div class="figure-caption">亞洲野豬 ASF 預測風險區：東南亞、中國南方最高（Cadenas-Fernández et al., 2022）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=32">p.32</a></div></div>
+      <h3>致病機轉<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>原發複製部位：最接近入侵點的淋巴結的單核球與巨噬細胞</strong>。</li>
+        <li><strong>初級複製</strong>：口鼻暴露時，先涉及<strong>扁桃腺與下頜淋巴結</strong>的單核球與巨噬細胞。</li>
+        <li><strong>次級複製</strong>：經<strong>血液和／或淋巴系統</strong>散播到淋巴結、骨髓、脾、肺、肝、腎。</li>
+        <li><strong>病毒血症通常在進入後 4–8 天開始</strong>，因為<strong>缺乏完全中和抗體</strong>，可持續<strong>數週至數月</strong>。</li>
+      </ul>
       <div class="flow">
-        <div class="flow-node">口鼻暴露</div>
-        <span class="flow-arrow">➜</span>
-        <div class="flow-node">扁桃腺與下頜淋巴結的單核球／巨噬細胞（初期複製）</div>
-        <span class="flow-arrow">➜</span>
-        <div class="flow-node danger">經血液／淋巴散播至淋巴結、骨髓、脾臟、肺、肝、腎（次級複製）</div>
+        <div class="flow-node">口鼻暴露</div><span class="flow-arrow">➜</span>
+        <div class="flow-node">扁桃腺與下頜淋巴結單核球、巨噬細胞（初級複製）</div><span class="flow-arrow">➜</span>
+        <div class="flow-node danger">血液／淋巴 → 淋巴結、骨髓、脾、肺、肝、腎（次級複製）</div>
       </div>
-      <p>病毒血症通常於感染後 <strong>4–8 天</strong>開始，因宿主<strong>缺乏完全中和性抗體</strong>，可持續數週至數月。</p>
-
-      <h3>潛伏期</h3>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：學長姐筆記（不是本年度講義）另寫到病毒也會複製於內皮細胞、肝細胞、腎小管上皮與嗜中性球，並造成血球吸附（HAD）、淋巴球凋亡（淋巴球減少）與肺泡水腫；這些是延伸資訊，本年度講義沒有寫。</p>
+      <h3>發病率與死亡率<span class="lv lv-must">必考</span></h3>
       <ul>
-        <li>直接接觸感染：<strong>4–19 天</strong></li>
-        <li>蜱咬感染：<strong>&lt; 5 天</strong></li>
+        <li><strong>發病率最高 100%</strong>（先前未暴露的豬群）。</li>
+        <li><strong>死亡率依基因型與毒力而異，&lt;5% 到 100%</strong>；亞急性型 30–70%。</li>
+        <li><strong>所有年齡</strong>都受影響。</li>
+        <li>非洲野生豬可能無症狀或輕微感染。</li>
       </ul>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=26">p.26–34</a>。</footer>
     </div>
 
-    <!-- ASF CLINICAL -->
-    <div class="section" id="section-asf-clinical">
-      <div class="section-head"><div class="section-num">4</div><h2>非洲豬瘟：臨床症狀與病理病變 Clinical Signs &amp; Lesions</h2></div>
-      <p class="section-desc">未曾暴露過的豬群發病率可達 100%，死亡率則依基因型與毒力高低而異，從 &lt; 5% 到 100% 都有可能，各年齡層皆可感染。</p>
-
-      <h3>四種病程型式</h3>
+    <!-- ASF-C -->
+    <div class="section" id="section-asf-c">
+      <div class="section-head"><div class="section-num">5</div><h2>非洲豬瘟：臨床症狀與病變 Clinical Signs &amp; Lesions</h2></div>
+      <p class="section-desc">ASF 與 CSF 最大的區別之一是脾臟：ASF 是<strong>腫大、質脆、暗黑</strong>。</p>
+      <h3>四種病程型式<span class="lv lv-must">必考</span></h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>型式</th><th>特徵</th><th>死亡率</th></tr></thead>
+          <thead><tr><th style="width:14%;"></th><th>最急性 Peracute</th><th>急性 Acute</th><th>亞急性 Subacute</th><th>慢性 Chronic</th></tr></thead>
           <tbody>
-            <tr><td><strong>最急性（Peracute）</strong></td><td>厭食、體溫 &gt; 41°C、沉鬱、皮膚充血；發病後 1–4 天死亡，常是場內感染的第一個徵兆</td><td>極高</td></tr>
-            <tr><td><strong>急性（Acute）</strong></td><td>高熱 40–42°C、厭食、嗜睡、無力／臥地、紅斑與發紺（耳與體側皮膚）、出血、腹瀉、流產、呼吸困難、鼻分泌物</td><td>90–100%（發病後 7–10 天死亡）</td></tr>
-            <tr><td><strong>亞急性（Subacute）</strong></td><td>中等毒力病毒株，症狀類似急性但較輕微，仍有流產、發熱、紅斑發紺</td><td>30–70%</td></tr>
-            <tr><td><strong>慢性（Chronic）</strong></td><td>間歇性低熱、厭食沉鬱、消瘦發育不良、咳嗽、關節腫脹、腹瀉、偶爾嘔吐、皮膚病灶</td><td>可能致死</td></tr>
+            <tr><td>體溫</td><td><strong>&gt;41°C</strong></td><td><strong>40–42°C</strong></td><td>發燒</td><td><strong>間歇性低燒</strong></td></tr>
+            <tr><td>症狀</td><td>食慾不振、沉鬱、皮膚充血</td><td>厭食、昏睡、虛弱、躺臥；紅斑、發紺；<strong>耳與側腹皮膚出血</strong>；下痢、流產；呼吸困難、鼻漏</td><td>與急性相似但較輕；流產、發燒、紅斑、發紺</td><td>厭食、沉鬱、消瘦、發育遲緩、咳嗽、關節腫、下痢、偶爾嘔吐、皮膚病灶</td></tr>
+            <tr><td>死亡</td><td>出現症狀後 <strong>1–4 天</strong>；常是豬群感染的第一個徵兆；多見於未暴露族群</td><td><strong>死亡率 90–100%</strong>；症狀後 <strong>7–10 天</strong></td><td><strong>30–70%</strong>（中等毒力株）</td><td>可能致命</td></tr>
           </tbody>
         </table>
       </div>
-
-      <h3>大體病變</h3>
-      <p>主要病變集中在<strong>脾臟、淋巴結、腎臟與心臟</strong>，可見大量出血性病灶。</p>
-
-      <div class="figure">
-        <img src="img/week02_豬病毒性疾病I/sw_p45.png" alt="ASF脾臟大體病變：腫大、質脆、暗紅至黑色，與正常脾臟比較">
-        <div class="figure-caption">脾臟腫大（enlarged）、質脆（friable）、顏色暗紅至黑色（darkened），與正常脾臟（右側對照組）差異明顯——是 ASF 最具代表性的大體病變，也是屠宰場／臨床剖檢時最快速的視覺線索。</div>
-        <div class="figure-source">來源：講義（International Course on Transboundary Animal Disease, USDA）</div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-title">淋巴結</div>
-          <p>腫脹、出血。</p>
-        </div>
-        <div class="card">
-          <div class="card-title">腎臟</div>
-          <p>皮質與切面點狀出血（petechiae），可能有腎周水腫。</p>
-        </div>
-      </div>
-      <p>其他器官常見出血、點狀出血、瘀斑、水腫，包括肺臟、膽囊、腦／腦膜（充血、水腫）。</p>
-
-      <h3>慢性感染的病變</h3>
-      <ul>
-        <li>局灶性皮膚壞死與潰瘍</li>
-        <li>肺實質化（乾酪樣肺炎）</li>
-        <li>纖維蛋白性心包炎、胸膜沾黏</li>
-        <li>淋巴結病、關節腫脹</li>
-      </ul>
-    </div>
-
-    <!-- ASF DX -->
-    <div class="section" id="section-asf-dx">
-      <div class="section-head"><div class="section-num">5</div><h2>非洲豬瘟：鑑別診斷、診斷與防治 DDx, Diagnosis &amp; Control</h2></div>
-
-      <h3>鑑別診斷──全身性敗血症／出血性疾病</h3>
-      <p>古典豬瘟、急性 豬生殖與呼吸綜合症（Porcine Reproductive and Respiratory Syndrome, PRRS）、豬環狀病毒相關疾病（PCVAD）、偽狂犬病、丹毒、沙門氏菌病、放線桿菌病、格拉瑟氏病（Glasser's disease）、豬附紅血球體病、血小板減少性紫斑、殺鼠劑（warfarin）中毒、重金屬中毒。</p>
-
-      <h3>診斷──抗原檢測</h3>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-title">病毒分離＋血球吸附試驗（HAD）</div>
-          <p>ASFV 感染豬周邊血液白血球原代培養，感染細胞會產生豬紅血球<strong>玫瑰花環狀吸附</strong>現象；高度特異，僅 ASFV 有此吸附能力，作為<strong>確診參考試驗</strong>；缺點是需原代細胞培養、並非所有毒株都會吸附、耗時 3–10 天。</p>
-        </div>
-        <div class="card">
-          <div class="card-title">PCR</div>
-          <p>可用於臨床檢體、腐敗檢體、新鮮組織／血液，是現場快速篩檢的主力工具。</p>
-        </div>
-      </div>
-
-      <h3>診斷──抗體檢測</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>類型</th><th>方法</th></tr></thead>
-          <tbody>
-            <tr><td><strong>篩檢用</strong></td><td>ELISA</td></tr>
-            <tr><td><strong>確診用</strong></td><td>免疫墨點法（IBT）、間接螢光抗體法（IFAT）、間接免疫過氧化酶法（IPT）</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>防治</h3>
-      <div class="alert alert-info">
-        <div class="alert-label">疫苗現況</div>
-        <p>基因刪除減毒活疫苗是目前<strong>最先進</strong>的方法，但安全性與效力仍需審慎評估。越南已核准三支活疫苗（2022、2023、2025 陸續核准），菲律賓 2026 年 9 月核准商業使用，印尼 2025 年 4 月核准緊急使用——目前<strong>尚無全球公認的標準疫苗方案</strong>，無疫苗國家仍以生物安全與檢疫為防線核心。</p>
-      </div>
-
-      <h3>預防措施</h3>
-      <ul>
-        <li>隔離病豬；避免與野豬接觸，可能時將豬隻圈養於室內</li>
-        <li>新引進豬隻應<strong>隔離至少 30 天</strong>確認健康</li>
-        <li><strong>禁止餵食未煮熟豬肉製品</strong>（餿水、廚餘、垃圾）</li>
-        <li>對車輛、設備、鞋靴、衣物徹底消毒</li>
-        <li>妥善處理糞肥與屍體</li>
-        <li>接觸家豬前避免獵捕野豬；控制蜱與其他病媒昆蟲（地方性流行區較難落實）</li>
-      </ul>
-
-      <h3>控制措施</h3>
-      <div class="step"><div class="step-num">1</div><div class="step-text">場內隔離檢疫，通報主管機關，實施移動管制。</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-text">調查與快速診斷，確認病毒來源。</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-text">撲殺／淘汰感染與接觸豬隻，妥善處理屍體以避免病毒擴散。</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-text">環境消毒、移動管制／檢疫，並持續避免與野豬接觸。</div></div>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">注意</div>
-        <p>野豬在歐洲與部分亞洲地區的傳播中扮演重要角色；管理野豬族群、降低與低生物安全豬場的接觸機會，是防治不可忽略的一環。</p>
-      </div>
-
-      <div class="alert alert-info">
-        <div class="alert-label">學習重點</div>
-        <p>ASF 是嚴重、非人畜共通的疾病，可造成極高死亡率與重大經濟／貿易損失；病毒環境持久性與人為傳播（受污染豬肉、介質、車輛）是防疫最大挑戰；野豬可維持病毒循環，使根除更加困難；<strong>早期發現、快速診斷、移動管制、撲殺與嚴格生物安全</strong>仍是防治基礎，疫苗接種是新興的輔助工具。</p>
-      </div>
-    </div>
-
-    <!-- CSF OVERVIEW -->
-    <div class="section" id="section-csf-overview">
-      <div class="section-head"><div class="section-num">6</div><h2>古典豬瘟：病毒學與環境抵抗力 Classical Swine Fever（CSF） Virology &amp; Resistance</h2></div>
-      <p class="section-desc">古典豬瘟（Classical swine fever, CSF）是豬隻高度傳染性疾病，常導致死亡，<strong>發熱與出血</strong>是主要特徵。在台灣屬於<strong>甲類法定傳染病</strong>。</p>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">重點</div>
-        <p>CSF 死亡率可高達 100%，<strong>感染豬齡越小、死亡率越高</strong>；症狀包括高熱、沉鬱、神經症狀與流產；感染同時會造成<strong>免疫抑制</strong>，增加續發感染風險。</p>
-      </div>
-
-      <h3>病毒分類</h3>
-      <p>CSFV 為有囊膜 RNA 病毒，屬 <strong>Pestiviridae 科 Orthopestivirus 屬</strong>，僅有<strong>單一血清型</strong>，但分為<strong>三種基因型</strong>：</p>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>基因型</th><th>特徵</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Genotype I</strong></td><td>古老病毒株與傳統減毒活疫苗株</td></tr>
-            <tr><td><strong>Genotype II</strong></td><td>1980 年代後流行的主要田間株</td></tr>
-            <tr><td><strong>Genotype III</strong></td><td>特定地區獨有，如台灣、南韓、日本、泰國、英國</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="font-size:.85em; color:var(--fg-faint);">※ 歐洲與亞洲田間流行株已由原本的基因型 I 或 III 轉變為<strong>基因型 II</strong>。</p>
-
-      <h3>毒力分級</h3>
-      <div class="grid-4">
-        <div class="card" style="text-align:center;"><div class="card-title">高毒力</div><p>急性病程，幾乎全數死亡</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">中毒力</div><p>亞急性或慢性感染</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">低毒力</div><p>亞臨床感染，主要對胎兒致病</p></div>
-        <div class="card" style="text-align:center;"><div class="card-title">無毒力</div><p>疫苗株</p></div>
-      </div>
-
-      <h3>環境抵抗力與去活化</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>條件</th><th>存活時間／效果</th></tr></thead>
-          <tbody>
-            <tr><td>4°C</td><td>6 週</td></tr>
-            <tr><td>20°C</td><td>2 週</td></tr>
-            <tr><td>37°C</td><td>7–15 天</td></tr>
-            <tr><td>50°C</td><td>3 天</td></tr>
-            <tr><td>冷藏肉品／冷凍肉品</td><td>數月／數年</td></tr>
-            <tr><td>pH 穩定範圍</td><td>pH 5–10（&lt; 3 或 &gt; 11 去活化）</td></tr>
-            <tr><td>消毒劑</td><td>有機溶劑（乙醚、氯仿）、2% 氫氧化鈉、1% 甲醛</td></tr>
-            <tr><td>加熱</td><td>65.5°C／30 分鐘，或 71°C／1 分鐘</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>全球現況</h3>
-      <p>目前共 <strong>39 個會員國</strong>被認定為 CSF 清淨國，包括<strong>台灣</strong>、美國、加拿大、紐西蘭、澳洲與大部分歐洲國家。</p>
-      <div class="alert alert-danger">
-        <div class="alert-label">歷史案例</div>
-        <p>1997–1998 年荷蘭爆發 CSF，超過 400 座豬場受感染，約 <strong>1,200 萬頭豬</strong>遭撲殺，損失超過 <strong>23 億美元</strong>——是說明 CSF 經濟衝擊規模最常被引用的案例。</p>
-      </div>
-
-      <h3>病程時間軸</h3>
-      <ul>
-        <li>潛伏期：<strong>2–15 天</strong></li>
-        <li>急性臨床期：10–15 天</li>
-        <li>慢性／先天型／產後持續感染型：數週至數月</li>
-      </ul>
-    </div>
-
-    <!-- CSF CLINICAL -->
-    <div class="section" id="section-csf-clinical">
-      <div class="section-head"><div class="section-num">7</div><h2>古典豬瘟：致病機轉與臨床型式 Pathogenesis &amp; Clinical Forms</h2></div>
-
-      <h3>致病機轉</h3>
-      <div class="flow">
-        <div class="flow-node">口鼻感染</div>
-        <span class="flow-arrow">➜</span>
-        <div class="flow-node">血液 → 扁桃腺</div>
-        <span class="flow-arrow">➜</span>
-        <div class="flow-node">淋巴組織（脾臟、骨髓、內臟淋巴結）</div>
-        <span class="flow-arrow">➜</span>
-        <div class="flow-node danger">淋巴球減少、血小板減少、免疫抑制、血管內皮細胞壞死</div>
-      </div>
-      <p style="font-size:.85em; color:var(--fg-faint);">※ 血管內皮細胞壞死是 CSF 出血傾向的核心機轉，與 ASF 的出血機轉不完全相同，複習時建議分開記憶。</p>
-
-      <h3>四種臨床型式<span class="tag tag-exam">古典豬瘟（CSF） 獨有・重要</span></h3>
-      <div class="alert alert-info">
-        <div class="alert-label">重點</div>
-        <p>CSF 與 ASF 最大的臨床鑑別特徵在於：CSF 除急性與慢性型外，還有 ASF 沒有的<strong>「先天型」與「產後持續感染型」</strong>，皆與病毒可經胎盤垂直傳播、造成免疫耐受有關。</p>
-      </div>
-
-      <h3>急性型（Acute）</h3>
-      <p>好發於<strong>高毒力毒株感染幼齡豬</strong>：高熱（&gt; 41°C）、沉鬱、發紺、結膜炎、便秘後轉腹瀉、神經症狀、流產，死亡率高。</p>
-
-      <h3>慢性型（Chronic）</h3>
-      <p>好發於<strong>低毒力毒株或部分免疫豬場</strong>：發熱、食慾不振、消瘦、發育遲滯，感染後 2–3 個月死亡；感染豬<strong>無法產生有效免疫反應</strong>，外觀可能健康，但終其臨床病程<strong>持續排毒直到死亡</strong>。</p>
-
-      <h3>先天持續感染型（Congenital）<span class="tag tag-exam">高頻考點</span></h3>
-      <div class="card">
-        <p>母豬感染後病毒可經胎盤傳給胎兒，病程取決於毒株毒力與妊娠時期：可能導致死產或出生體弱、體型小的仔豬；若母豬於<strong>妊娠中期（50–70 天）</strong>感染，出生仔豬可能帶有<strong>持續性病毒血症</strong>。</p>
-        <div class="alert alert-danger" style="margin-top:10px;">
-          <div class="alert-label">Late-onset CSF（免疫耐受機制）</div>
-          <p>胎兒免疫系統尚未成熟時<strong>無法辨識病原並產生抗體</strong>——感染豬可能外觀健康或僅有非典型症狀，可存活數月後才死亡，<strong>終生持續排毒</strong>，抗體檢測往往呈陰性，疫苗接種效果不佳，病毒因此得以在環境中持續存在。這是造成場內隱性擴散、根除計畫失敗的主要原因之一。</p>
-        </div>
-      </div>
-
-      <h3>產後持續感染型（Postnatal）</h3>
-      <p>新生仔豬出生後才感染：因<strong>免疫系統未成熟造成免疫抑制</strong>，無法產生抗體；感染豬可能臨床健康或僅有非典型症狀，可存活數月後死亡；在缺乏適應性免疫反應下，病毒高度複製並大量排毒。</p>
-    </div>
-
-    <!-- CSF LESIONS -->
-    <div class="section" id="section-csf-lesions">
-      <div class="section-head"><div class="section-num">8</div><h2>古典豬瘟：病理病變與鑑別診斷 Lesions &amp; DDx</h2></div>
-
-      <h3>大體病變</h3>
-      <ul>
-        <li>淋巴結周邊出血</li>
-        <li><strong>脾臟梗塞（splenic infarction）</strong></li>
-        <li>腎臟、膀胱及其他器官點狀出血</li>
-        <li>扁桃腺壞死</li>
-        <li>睪丸點狀出血</li>
-        <li>迴盲瓣潰瘍</li>
-        <li><strong>腸胃道黏膜「鈕扣狀潰瘍」（button ulcers）</strong></li>
-      </ul>
-
-      <div class="figure">
-        <img src="img/week02_豬病毒性疾病I/sw_p114.png" alt="CSF腸胃道黏膜鈕扣狀潰瘍(button ulcers)大體病變">
-        <div class="figure-caption">迴腸／大腸黏膜出現同心圓層狀、周邊隆起的潰瘍病灶，外觀似鈕扣，是 CSF 慢性／亞急性病例的代表性病變，常與脾臟梗塞一起被列為 CSF 教科書病變組合。</div>
-        <div class="figure-source">來源：講義（p.114）</div>
-      </div>
-
-      <h3>鑑別診斷</h3>
-      <p>非洲豬瘟、豬繁殖與呼吸綜合症（PRRS）、豬環狀病毒相關疾病（PCVAD）、偽狂犬病、細菌性敗血症（丹毒、沙門氏菌病）、旋毛蟲病。</p>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">臨床觀念澄清</div>
-        <p>德國曾比較中等毒力 ASFV 與 CSFV 的病例：中等毒力的 ASFV 已<strong>不再表現典型的大量血樣腹瀉與脾臟腫大</strong>；挑戰試驗顯示 ASFV 與 CSFV 誘發的臨床症狀<strong>非常相似</strong>，兩者<strong>從未在同一頭豬身上被分離出</strong>。<strong>結論：光靠臨床症狀難以區分 ASF 與 CSF，確診必須仰賴實驗室診斷。</strong></p>
-      </div>
-    </div>
-
-    <!-- CSF DX -->
-    <div class="section" id="section-csf-dx">
-      <div class="section-head"><div class="section-num">9</div><h2>古典豬瘟：診斷、防治與台灣根除史 Diagnosis, Control &amp; Taiwan's Eradication</h2></div>
-
-      <h3>診斷──抗原檢測</h3>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-title">病毒分離（細胞培養）</div>
-          <p>核酸擴增與序列分析確認毒株。</p>
-        </div>
-        <div class="card">
-          <div class="card-title">RT-PCR ／ qRT-PCR</div>
-          <p>RT-PCR：核酸擴增＋電泳約 4 小時，定序約 1 天；qRT-PCR：約 2 小時、<strong>可分辨基因型（含疫苗株與田間株）</strong>，敏感度與特異度皆高。</p>
-        </div>
-      </div>
-      <p><strong>診斷檢體：</strong>扁桃腺、脾臟、淋巴結、腎臟、腦、迴盲瓣、血液。</p>
-
-      <h3>診斷──抗體檢測</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>方法</th><th>特性</th></tr></thead>
-          <tbody>
-            <tr><td><strong>病毒中和試驗（FAVNT）</strong></td><td>黃金標準，需細胞培養與病毒操作，耗時約 3 天</td></tr>
-            <tr><td><strong>ELISA</strong></td><td>操作簡單、不需細胞培養，約半天可得結果，但須與中和抗體結果評估相關性</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">血清學判讀陷阱</div>
-        <p>豬隻可能感染其他 Pestivirus 屬病毒（<strong>APPV</strong> 非典型豬 Pestivirus，與新生仔豬先天性震顫 A-II 型有關；<strong>牛病毒性下痢病毒（Bovine Viral Diarrhea Virus, BVDV）／BDV</strong> 經接觸牛羊或疫苗原料污染而感染豬），彼此間有<strong>交叉反應性</strong>，判讀 CSFV 中和抗體結果時需納入考量。</p>
-      </div>
-
-      <h3>防治三支柱</h3>
+      <p><strong>潛伏期</strong>：直接接觸後 <strong>4–19 天</strong>；蜱咬後 <strong>&lt;5 天</strong>。</p>
       <div class="grid-3">
-        <div class="card"><div class="card-title">💉 疫苗接種</div><p>活減毒疫苗：對田間株提供完整保護；次單位／標記疫苗：可 DIVA（區分感染與接種豬）</p></div>
-        <div class="card"><div class="card-title">🔍 監測</div><p>抗體監測評估族群免疫力；抗原監測掌握疫情動態</p></div>
-        <div class="card"><div class="card-title">🧼 生物安全</div><p>場區管理與移動管制</p></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p036.jpg" alt="高毒力 ASFV 感染家豬的臨床" loading="lazy"><div class="figure-caption">高毒力 ASFV 感染家豬的臨床：發燒、倦怠、擠成一堆、出血（Blome et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=36">p.36</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p037.jpg" alt="最急性型" loading="lazy"><div class="figure-caption">最急性型：食慾不振、發燒、皮膚充血，擠在一起的豬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=37">p.37</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p038.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：耳與腹部皮膚出血發紫。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=38">p.38</a></div></div>
       </div>
-
-      <h3>DIVA 標記疫苗（歐盟核准）</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>疫苗</th><th>原理</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Suvaxyn CSF Marker</strong>（CP7_E2alf 嵌合活疫苗）</td><td>以 BVDV 為骨架，置換 CSFV 的 E2 基因；搭配 CSFV Erns ELISA 可 DIVA</td></tr>
-            <tr><td><strong>Porcilis Pesti</strong>（E2 次單位疫苗）</td><td>同樣搭配 CSFV Erns ELISA 可 DIVA</td></tr>
-          </tbody>
-        </table>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p039.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：口鼻出血、四肢皮膚出血斑。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=39">p.39</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p040.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：血樣腹瀉與出血的豬欄。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=40">p.40</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p042.jpg" alt="慢性型" loading="lazy"><div class="figure-caption">慢性型：關節腫脹、皮膚潰瘍與壞死。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=42">p.42</a></div></div>
       </div>
-      <div class="alert alert-danger">
-        <div class="alert-label">注意</div>
-        <p>CSFV Erns ELISA <strong>敏感度與特異度不佳</strong>，BVDV／BDV 的 Erns 抗體可能交叉反應造成偽陽性，<strong>僅適合族群篩檢</strong>，不能作為個體確診依據。</p>
-      </div>
-
-      <h3>清淨區 vs 地方流行區策略</h3>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p043.jpg" alt="野豬的 ASF 症狀" loading="lazy"><div class="figure-caption">野豬的 ASF 症狀：沉鬱、活動力下降、呼吸困難、後肢輕癱、抽搐，與家豬相似（Blome et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=43">p.43</a></div></div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p041.jpg" alt="亞急性型" loading="lazy"><div class="figure-caption">亞急性型：中等毒力株，症狀與急性相似但較輕（流產、發燒、紅斑、發紺）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=41">p.41</a></div></div>
+      <h3>大體病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>主要病變在脾臟、淋巴結、腎臟、心臟</strong>；多個內臟出血；皮膚變色與出血；血樣下痢或內出血徵象。</li>
+        <li><strong>脾臟</strong>：<strong>腫大（enlarged）、質脆（friable）、暗黑（darkened）</strong>。</li>
+        <li><strong>淋巴結</strong>：腫脹、出血。</li>
+        <li><strong>腎臟</strong>：<strong>皮質與切面點狀出血（petechiae）</strong>；可能有<strong>腎周水腫</strong>。</li>
+        <li>其他器官：出血、點狀出血、瘀斑；<strong>肺、膽囊水腫</strong>；<strong>腦與腦膜</strong>鬱血、水腫。</li>
+      </ul>
       <div class="grid-2">
-        <div class="card">
-          <div class="card-title">地方流行區</div>
-          <p>疫苗接種可預防疾病擴散；DIVA 標記疫苗被視為未來控制與根除的可行選項。</p>
-        </div>
-        <div class="card">
-          <div class="card-title">清淨區</div>
-          <p><strong>撲殺政策（stamping-out）</strong>：早期發現、移動管制、清潔消毒——已使北美與西歐大部分地區成功根除 CSF。</p>
-        </div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p044.jpg" alt="ASF 主要大體病變部位" loading="lazy"><div class="figure-caption">ASF 主要大體病變部位：胃肝韌帶出血（上）、腸繫膜與腸道出血（下）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=44">p.44</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p045.jpg" alt="ASF 脾臟" loading="lazy"><div class="figure-caption">ASF 脾臟：腫大、質脆、暗黑，與正常脾臟（右上）對照。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=45">p.45</a></div></div>
       </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p046.jpg" alt="淋巴結" loading="lazy"><div class="figure-caption">淋巴結：腫脹、出血，呈暗紅至黑色。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=46">p.46</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p047.jpg" alt="腎臟" loading="lazy"><div class="figure-caption">腎臟：皮質與切面點狀出血；腎周水腫（Diseases of Swine, 12th）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=47">p.47</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p048.jpg" alt="其他器官" loading="lazy"><div class="figure-caption">其他器官：膀胱黏膜、心外膜出血；膽囊水腫。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=48">p.48</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p049.jpg" alt="慢性感染" loading="lazy"><div class="figure-caption">慢性感染：局部皮膚壞死與潰瘍（上）、肺實質化與乾酪性肺炎（下）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=49">p.49</a></div></div>
+      </div>
+      <h3>慢性感染的病變<span class="lv lv-know">理解</span></h3>
+      <p>局部皮膚壞死、皮膚潰瘍、<strong>肺實質化、乾酪性肺炎、纖維素性心包炎、胸膜沾黏</strong>、淋巴結腫大、關節腫脹。</p>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=35">p.35–49</a>。</footer>
+    </div>
 
-      <h3>野豬角色</h3>
-      <p>野豬在歐洲部分地區與日本的 CSF 傳播中扮演重要角色；日本因野豬遷徙特性，已使用<strong>口服疫苗投放</strong>於野豬族群，但控制仍具挑戰。</p>
-
-      <h3>🇹🇼 台灣 古典豬瘟（CSF） 根除歷程<span class="tag tag-exam">國考重點</span></h3>
+    <!-- ASF-D -->
+    <div class="section" id="section-asf-d">
+      <div class="section-head"><div class="section-num">6</div><h2>非洲豬瘟：鑑別診斷、診斷與防治 DDx, Diagnosis &amp; Control</h2></div>
+      <p class="section-desc">ASF 沒有可靠的全球性疫苗，防治靠生物安全、早期偵測與撲殺。</p>
+      <h3>鑑別診斷：全身性敗血症與出血性疾病<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>古典豬瘟（CSF）</strong>、<strong>急性 PRRS</strong>、<strong>PCVAD</strong>、<strong>假性狂犬病</strong>、<strong>豬丹毒</strong>、<strong>沙門氏菌症</strong>、放線桿菌症、Glässer 病、附紅血球體症（Eperythrozoonosis）、血小板減少性紫斑、華法林中毒、重金屬中毒（Iowa State 2018）。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p051.jpg" alt="ASF 檢體與檢驗" loading="lazy"><div class="figure-caption">ASF 檢體與檢驗：全血、淋巴結、脾、肺、腎、扁桃腺、骨髓；血清學（ELISA、側流、免疫墨點、IFAT、IPT）與病毒學／分子（抗原 ELISA、側流、病毒分離與 HAD、直接螢光抗體、PCR、定序）（Dr. Flannery, Pirbright）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=51">p.51</a></div></div>
+      <h3>診斷：抗原<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>病毒分離與血球吸附（HAD）</strong>：ASFV 在<strong>豬周邊血液的初代白血球培養</strong>感染並複製；接種到<strong>豬源的感受性初代細胞（單核球、巨噬細胞）</strong>；產生 CPE（血球吸附與細胞溶解）；<strong>感染的巨噬細胞上吸附豬紅血球形成「玫瑰花環」（Rosettes）</strong>。</li>
+        <li>此試驗<strong>專一性高：只有 ASFV 能在白血球培養中造成血球吸附</strong>；<strong>需要初代細胞培養</strong>；<strong>並非所有 ASFV 株都有血球吸附</strong>；試驗時間 <strong>3–10 天</strong>；病毒分離與 HAD 鑑定<strong>建議作為確認陽性結果的參考試驗</strong>。</li>
+        <li><strong>PCR</strong>：臨床樣本、腐敗樣本、新鮮組織／血液皆可。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p052.jpg" alt="血球吸附" loading="lazy"><div class="figure-caption">血球吸附：感染的巨噬細胞周圍吸附豬紅血球形成玫瑰花環（Dr. Flannery, Pirbright）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=52">p.52</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p054.jpg" alt="PCR 診斷試劑與儀器。" loading="lazy"><div class="figure-caption">PCR 診斷試劑與儀器。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=54">p.54</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p056.jpg" alt="確認試驗" loading="lazy"><div class="figure-caption">確認試驗：免疫墨點、IFAT、免疫過氧化酶（IPT）染色。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=56">p.56</a></div></div>
+      </div>
+      <h3>診斷：抗體<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>篩檢試驗</strong>：<strong>ELISA</strong>。</li>
+        <li><strong>確認試驗</strong>：<strong>免疫墨點（IBT）、間接螢光抗體（IFAT）、間接免疫過氧化酶（IPT）</strong>。</li>
+      </ul>
+      <h3>預防與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>ASF 疫苗現已在部分國家獲准使用，但<strong>尚無廣泛接受的全球性解決方案</strong>；<strong>基因刪除減毒活疫苗</strong>是目前最先進的方式，但安全性與效力需審慎評估。</li>
+        <li><strong>無 ASF 國家</strong>：靠適當的進口政策與場內嚴格生物安全，確保活豬與豬肉製品都不被引入；<strong>早期偵測監測</strong>。</li>
+        <li><strong>預防直接傳播</strong>：隔離病豬；防止接觸野豬（可能時室內飼養）；<strong>新購入豬至少與豬群隔離 30 天</strong>。</li>
+        <li><strong>預防間接傳播</strong>：<strong>不要餵未煮熟的豬肉製品（餿水、廚餘、垃圾）</strong>；消毒車輛、器具、鞋與衣物；適當處理糞便與屍體；避免在接觸家豬前打獵野豬。</li>
+        <li><strong>預防媒介傳播</strong>：控制蜱與其他昆蟲媒介（流行區可能困難）。</li>
+        <li><strong>爆發時控制</strong>：場區隔離（quarantine）、通報主管機關、移動限制、調查、快速診斷、確定病毒來源。</li>
+        <li><strong>清除</strong>：<strong>安樂死／撲殺感染與接觸動物</strong>；適當處理屍體避免擴散；清潔消毒；移動管制與隔離；避免接觸野豬。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p058.jpg" alt="直接傳播預防" loading="lazy"><div class="figure-caption">直接傳播預防：隔離、避免接觸野豬、新豬隔離 30 天。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=58">p.58</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p060.jpg" alt="控制措施" loading="lazy"><div class="figure-caption">控制措施：隔離場區、通報、移動限制、調查、追溯。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=60">p.60</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p062.jpg" alt="野豬的 ASF 防控" loading="lazy"><div class="figure-caption">野豬的 ASF 防控：管理野豬族群並減少與低生物安全養豬場的接觸（講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=62">p.62</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=62">p.62</a></div></div>
+      </div>
+      <h3>野豬的角色<span class="lv lv-must">必考</span></h3>
+      <p>在<strong>歐洲與亞洲部分地區</strong>，野豬在 ASF 傳播扮演重要角色。管理野豬族群、減少與低生物安全養豬系統的接觸，以及有效的野豬監測與管理，是防控的關鍵。</p>
+      <h3>疫苗<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>基因刪除減毒活疫苗是最有前景的方法之一；各疫苗策略（死毒、減毒、重組、次單位、核酸）各有優缺點；挑戰：基因型多樣、需初代細胞培養、同源 vs 異源保護、非洲基因型擴散。</li>
+        <li><strong>越南</strong>：2022 年 6 月全球首個核准商業 ASF 疫苗；共 3 種減毒活疫苗（2022、2023、2025 年核准）；已納入國家 ASF 控制策略。<strong>菲律賓</strong>：AVAC ASF LIVE 先受控使用、2026 年 9 月核准商業販售（目前用於肥育豬）。<strong>印尼</strong>：2025 年 4 月緊急使用核准。</li>
+        <li><strong>非洲監測</strong>：監測野豬與蜱的各基因型、找出新基因型或現有基因型傳到非洲以外的跡象。</li>
+        <li><strong>基因型 I 與 II 重組株</strong>：依 B646L 基因分類為基因型 I，但有 10 個片段來自基因型 II；<strong>基因型 II 減毒活疫苗對重組株攻毒沒有保護力</strong>，是全球養豬業的新挑戰。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p063.jpg" alt="ASFV 疫苗候選" loading="lazy"><div class="figure-caption">ASFV 疫苗候選：基因刪除減毒活疫苗最有前景（Chathuranga et al., 2023）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=63">p.63</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p064.jpg" alt="ASF 疫苗開發策略" loading="lazy"><div class="figure-caption">ASF 疫苗開發策略：傳統疫苗與基因工程疫苗的優缺點（Lim et al., 2023）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=64">p.64</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p065.jpg" alt="ASF 疫苗開發的挑戰與後果（Lim et al., 2023）。" loading="lazy"><div class="figure-caption">ASF 疫苗開發的挑戰與後果（Lim et al., 2023）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=65">p.65</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p066.jpg" alt="越南核准的三種商業 ASF 疫苗（2022、2023、2025 年）。" loading="lazy"><div class="figure-caption">越南核准的三種商業 ASF 疫苗（2022、2023、2025 年）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=66">p.66</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p069.jpg" alt="高致死性基因型 I 與 II 重組 ASFV（Zhao et al., 2023" loading="lazy"><div class="figure-caption">高致死性基因型 I 與 II 重組 ASFV（Zhao et al., 2023）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=69">p.69</a></div></div>
+      </div>
       <div class="alert alert-info">
-        <div class="alert-label">時間軸</div>
-        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
-          <li><strong>1996 年後：</strong>田間病毒族群由基因型 <strong>3.4 轉變為 2.1</strong>，兩者皆屬中等毒力。</li>
-          <li><strong>疫苗有效性：</strong>LPC（兔化）疫苗對基因型 2.1 與 3.4 皆具保護力。</li>
-          <li><strong>2006 年後：</strong>田間<strong>未再檢出病毒</strong>。</li>
-          <li><strong>2023 年起：</strong>正式<strong>停止疫苗注射</strong>。</li>
+        <div class="alert-label">講義 Take-home messages（ASF）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>ASF 是嚴重的非人畜共通病，可造成極高死亡率與重大經濟與貿易損失。</li>
+          <li>環境持久性與人為移動的污染豬肉、污染物與車輛是控制的主要挑戰。</li>
+          <li>野豬可維持 ASFV 循環，使根除困難許多。</li>
+          <li>早期偵測、快速診斷、移動管制、撲殺與嚴格生物安全仍是防控基礎；疫苗是新興的額外工具。</li>
         </ul>
       </div>
-
-      <div class="alert alert-info">
-        <div class="alert-label">學習重點</div>
-        <p>CSF 是高度傳染性、非人畜共通的病毒病，臨床表現範圍廣（急性到隱性帶原都有）；有效疫苗雖可快速提供保護，但也會使監測與根除變得複雜；成功根除需要疫苗策略、監測、診斷、移動管制與<strong>審慎規劃的停打時機</strong>四者並行——台灣是長期監測＋階段性停打疫苗成功根除的實例。</p>
-      </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=50">p.50–70</a>。</footer>
     </div>
 
-    <!-- COMPARE -->
-    <div class="section" id="section-compare">
-      <div class="section-head"><div class="section-num">10</div><h2>非洲豬瘟（ASF） vs 古典豬瘟（CSF） 綜合比較 Side-by-Side Comparison</h2></div>
-      <p class="section-desc">兩者都是造成豬隻高死亡率全身性出血性疾病的甲類傳染病，也是台灣現行防疫最重視的兩大豬病；下表整理關鍵差異，方便鑑別診斷時快速對照。</p>
-
+    <!-- CSF-A -->
+    <div class="section" id="section-csf-a">
+      <div class="section-head"><div class="section-num">7</div><h2>古典豬瘟：病毒、流行病學與傳播 CSF Virus, Epidemiology &amp; Transmission</h2></div>
+      <p class="section-desc">古典豬瘟（CSF）是豬的<strong>高度傳染性疾病，常造成感染豬死亡；主要特徵是發燒與出血</strong>。在台灣列為<strong>甲類</strong>傳染病。</p>
+      <h3>概論與疫情<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>易感：家豬與野豬。<strong>死亡率可高達 100%，越年輕感染死亡率越高</strong>。</li>
+        <li>症狀：<strong>高燒、沉鬱、神經症狀、流產</strong>；<strong>可造成豬免疫抑制</strong>。</li>
+        <li><strong>全球清淨狀況</strong>（WOAH 2025 年 6 月）：39 個會員國認定為 CSF 清淨國，包含<strong>台灣</strong>、美國、加拿大、紐西蘭、澳洲與大部分歐洲。</li>
+        <li><strong>荷蘭 1997–1998 年</strong>：超過 400 場感染、約 <strong>1,200 萬頭</strong>撲殺、損失超過 <strong>23 億美元</strong>。</li>
+        <li><strong>潛伏期 2–15 天</strong>；臨床期：急性型 10–15 天；慢性、先天、產後型數週到數月。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p075.jpg" alt="全球 CSF 清淨國家（WOAH, 2025 年 6 月）。" loading="lazy"><div class="figure-caption">全球 CSF 清淨國家（WOAH, 2025 年 6 月）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=75">p.75</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p077.jpg" alt="荷蘭 1997–1998 年 CSF 疫情" loading="lazy"><div class="figure-caption">荷蘭 1997–1998 年 CSF 疫情：大量撲殺與屍體處理。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=77">p.77</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p073.jpg" alt="CSF 易感動物" loading="lazy"><div class="figure-caption">CSF 易感動物：家豬與野豬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=73">p.73</a></div></div>
+      <h3>病毒<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>CSFV 是<strong>有封套的 RNA 病毒</strong>，屬 <strong>Pestiviridae 科 <em>Orthopestivirus</em> 屬</strong>（ICTV 名稱 Pestivirus suis）。</li>
+        <li><strong>單一血清型</strong>；<strong>三個基因型</strong>。</li>
+        <li>與 BVDV（Pestivirus A、B，牛、豬皆可感染）、BDV（Pestivirus D，羊）、APPV（非典型豬瘟病毒，Pestivirus K，造成新生仔豬先天性顫抖 A-II 型）同屬。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p076.jpg" alt="CSF 清淨區（巴西、哥倫比亞、厄瓜多）（WOAH, 2025）。" loading="lazy"><div class="figure-caption">CSF 清淨區（巴西、哥倫比亞、厄瓜多）（WOAH, 2025）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=76">p.76</a></div></div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p080.jpg" alt="瘟病毒屬的分類" loading="lazy"><div class="figure-caption">瘟病毒屬的分類：CSFV 為 Pestivirus C（舊名）、宿主 <em>Sus scrofa</em>（Postel et al., 2021）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=80">p.80</a></div></div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p071.jpg" alt="CSF 的典型外觀與病變（講義封面圖）" loading="lazy"><div class="figure-caption">CSF 的典型外觀與病變（講義封面圖）：白色仔豬、脾臟、腸道、腎臟。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=71">p.71</a></div></div>
+      <h3>基因型<span class="lv lv-must">必考</span></h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>項目</th><th>非洲豬瘟 African Swine Fever（ASF）</th><th>古典豬瘟 Classical Swine Fever（CSF）</th></tr></thead>
+          <thead><tr><th style="width:18%;">基因型</th><th>內容</th></tr></thead>
           <tbody>
-            <tr><td><strong>病毒科屬</strong></td><td>Asfarviridae（DNA 病毒）</td><td>Pestiviridae（RNA 病毒）</td></tr>
-            <tr><td><strong>人畜共通</strong></td><td>否</td><td>否</td></tr>
-            <tr><td><strong>病媒</strong></td><td><em>Ornithodoros</em> 軟蜱（生物性）</td><td>無節肢動物病媒</td></tr>
-            <tr><td><strong>環境抵抗力</strong></td><td>極強（血液 4°C 可達 18 個月，冷凍肉品數年）</td><td>中等（4°C 約 6 週，冷凍肉品數年）</td></tr>
-            <tr><td><strong>代表性大體病變</strong></td><td>脾臟腫大、質脆、暗紅至黑色</td><td>脾臟梗塞、腸胃道鈕扣狀潰瘍</td></tr>
-            <tr><td><strong>臨床型式</strong></td><td>最急性／急性／亞急性／慢性</td><td>急性／慢性／<strong>先天型／產後持續感染型</strong></td></tr>
-            <tr><td><strong>垂直傳播致持續感染</strong></td><td>不顯著</td><td><strong>是（late-onset CSF，免疫耐受機制）</strong></td></tr>
-            <tr><td><strong>台灣現況</strong></td><td>目前非疫區，防疫重點在邊境檢疫與生物安全</td><td>1996 起監測、2006 後無病例、<strong>2023 起停止疫苗接種</strong></td></tr>
-            <tr><td><strong>疫苗</strong></td><td>基因刪除減毒活疫苗（越南等國已核准，全球尚無公認方案）</td><td>活減毒疫苗＋DIVA 標記疫苗（歐盟已核准）</td></tr>
+            <tr><td><strong>I</strong></td><td>古老病毒株與<strong>傳統減毒活疫苗株</strong></td></tr>
+            <tr><td><strong>II</strong></td><td>1980 年代以來流行的病毒株</td></tr>
+            <tr><td><strong>III</strong></td><td>特定地區特有：<strong>台灣、南韓、日本、泰國、英國</strong></td></tr>
           </tbody>
         </table>
       </div>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">考試提醒</div>
-        <p>臨床症狀高度重疊，<strong>不能只憑症狀鑑別 ASF 與 CSF</strong>；務必記住兩者從未同時分離自同一頭豬，確診必須仰賴實驗室（病毒分離、PCR、血清學）。</p>
+      <p>歐亞國家田間流行的 CSFV 已由原本的基因型 I 或 III 轉為<strong>基因型 II</strong>。</p>
+      <h3>毒力分級<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">毒力</th><th>表現</th></tr></thead>
+          <tbody>
+            <tr><td><strong>高毒力</strong></td><td>急性病程，<strong>幾乎所有感染豬都會死</strong></td></tr>
+            <tr><td><strong>中毒力</strong></td><td>亞急性或慢性感染</td></tr>
+            <tr><td><strong>低毒力</strong></td><td>亞臨床感染，<strong>通常對胎兒致病</strong></td></tr>
+            <tr><td>無毒力</td><td>疫苗株</td></tr>
+          </tbody>
+        </table>
       </div>
+      <h3>環境抵抗力與去活化<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>條件</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>溫度</td><td><strong>4°C 存活 6 週</strong>；20°C 2 週；37°C 7–15 天；50°C 3 天；<strong>冷藏肉可存活數個月、冷凍肉數年</strong></td></tr>
+            <tr><td>pH</td><td><strong>pH 5–10 穩定</strong>；<strong>&lt;3 或 &gt;11 被不活化</strong></td></tr>
+            <tr><td>消毒劑</td><td>有機溶劑（乙醚、氯仿）；<strong>2% 氫氧化鈉</strong>；<strong>1% 福馬林</strong></td></tr>
+            <tr><td>加熱</td><td>65.5°C 超過 30 分鐘；<strong>71°C 1 分鐘</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>口</strong>：豬吃入受污染食物或舔舐被污染的環境。</li>
+        <li><strong>直接</strong>：接觸感染豬，病毒可經傷口或黏膜（眼、鼻、口）進入。</li>
+        <li><strong>環境污染</strong>：病毒經分泌物、血液、唾液、尿或糞便排入環境，經其他動物或車輛散播。</li>
+        <li><strong>飛沫</strong>：短距離。</li>
+        <li><strong>生殖系統</strong>：公豬配種經<strong>精液</strong>，或母豬懷孕時<strong>感染胎兒</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p088.jpg" alt="CSF 致病路徑" loading="lazy"><div class="figure-caption">CSF 致病路徑：口鼻感染 → 扁桃腺 → 淋巴管 → 淋巴組織 → 血液 → 脾、骨髓、內臟淋巴結 → 血管內皮壞死、淋巴球減少、血小板減少、免疫抑制。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=88">p.88</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=71">p.71–88</a>。</footer>
+    </div>
+
+    <!-- CSF-B -->
+    <div class="section" id="section-csf-b">
+      <div class="section-head"><div class="section-num">8</div><h2>古典豬瘟：致病、臨床型式、病變與診斷 Clinical Forms, Lesions &amp; Diagnosis</h2></div>
+      <p class="section-desc">CSF 最難的是「先天持續感染」：<strong>豬看起來健康、驗不到抗體、持續排毒</strong>。</p>
+      <h3>四種臨床型式<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:15%;">型式</th><th>誰感染</th><th>臨床特徵</th></tr></thead>
+          <tbody>
+            <tr><td><strong>急性</strong></td><td>高毒力株／幼豬</td><td><strong>高燒 &gt;41°C</strong>、沉鬱、發紺、結膜炎、<strong>便秘後下痢</strong>、神經症狀、流產、高死亡率</td></tr>
+            <tr><td><strong>慢性</strong></td><td>低毒力株／部分免疫豬場</td><td>發燒、食慾不振、消瘦、生長遲緩；<strong>感染後 2–3 個月死亡</strong>；<strong>無法產生有效免疫反應</strong>；可能外觀健康；<strong>在整個臨床期排毒直到死亡</strong></td></tr>
+            <tr><td><strong>先天持續感染</strong></td><td>母豬懷孕期感染</td><td>死產或虛弱小仔豬；<strong>母豬於懷孕中期（50–70 天）感染，所生仔豬可能有持續性病毒血症</strong></td></tr>
+            <tr><td><strong>產後持續感染</strong></td><td>新生仔豬被感染</td><td><strong>免疫抑制</strong>：未成熟免疫系統無法產生抗體；可能臨床健康或非典型症狀；可存活數個月最終死亡；<strong>無適應性免疫下高度複製排毒</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>先天持續感染（Late-onset CSF）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>母豬感染 → 經胎盤傳給胎兒</strong>；結果依<strong>病毒株毒力與懷孕感染時間</strong>而異：死產或出生虛弱小仔豬。</li>
+        <li><strong>免疫耐受（Immunotolerance）</strong>：胎兒免疫系統未成熟，無法辨識病原、無法產生抗體。</li>
+        <li>感染豬可能<strong>外觀健康或非典型症狀</strong>；可存活數個月，最終死亡；<strong>終生排毒</strong>；<strong>可能驗不到抗體</strong>；<strong>疫苗效果差</strong>；病毒持續存在環境。</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">國考與考古的考法</div>
+        <p>2019 期中考古問「如何在常在型地區設計新型態疫苗與診斷」，同時要「區別野外感染與疫苗接種」：先天持續感染豬驗不到抗體，更說明了 DIVA 與抗原檢測的必要。</p>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p091.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：沉鬱（Depression）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=91">p.91</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p092.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：結膜炎。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=92">p.92</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p093.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：發紺（耳、腹部、四肢）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=93">p.93</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p094.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：四肢與腹部發紺。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=94">p.94</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p095.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：神經症狀（共濟失調）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=95">p.95</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p096.jpg" alt="急性型" loading="lazy"><div class="figure-caption">急性型：神經症狀（側躺划水）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=96">p.96</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p097.jpg" alt="急性型 CSF 的臨床進程（Blome et al., 2017）" loading="lazy"><div class="figure-caption">急性型 CSF 的臨床進程（Blome et al., 2017）：1–3 週非典型（高燒、沉鬱、結膜炎、駝背、消瘦、呼吸與消化道症狀）；2–4 週典型（共濟失調、麻痺、抽搐、發紺、點狀出血、瘀斑）；常見續發感染（肺炎、腸炎）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=97">p.97</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p100.jpg" alt="慢性 CSF 的臨床進程（Blome et al., 2017）" loading="lazy"><div class="figure-caption">慢性 CSF 的臨床進程（Blome et al., 2017）：間歇性發燒、沉鬱、生長遲緩、消瘦、持續排毒，約 3 個月死亡。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=100">p.100</a></div></div>
+      </div>
+      <h3>大體病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>淋巴結周邊出血</strong>（Peripheral hemorrhage of lymph node）。</li>
+        <li><strong>脾臟梗塞</strong>（Infarction of spleen）。</li>
+        <li><strong>腎、膀胱與其他器官點狀出血</strong>（Petechial hemorrhage in kidney, bladder, and other organs）；睪丸也可見。</li>
+        <li>扁桃腺壞死；<strong>迴盲瓣潰瘍</strong>；<strong>胃腸道黏膜鈕扣狀潰瘍（button ulcers）</strong>。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p105.jpg" alt="CSFV 攻毒死亡的豬" loading="lazy"><div class="figure-caption">CSFV 攻毒死亡的豬：皮膚紫斑。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=105">p.105</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p106.jpg" alt="淋巴結周邊出血（紫黑色邊緣）。" loading="lazy"><div class="figure-caption">淋巴結周邊出血（紫黑色邊緣）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=106">p.106</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p107.jpg" alt="脾臟梗塞（邊緣暗紅突起）。" loading="lazy"><div class="figure-caption">脾臟梗塞（邊緣暗紅突起）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=107">p.107</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p108.jpg" alt="腎臟點狀出血。" loading="lazy"><div class="figure-caption">腎臟點狀出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=108">p.108</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p109.jpg" alt="腎臟點狀出血（皮質與切面）。" loading="lazy"><div class="figure-caption">腎臟點狀出血（皮質與切面）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=109">p.109</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p110.jpg" alt="扁桃腺壞死。" loading="lazy"><div class="figure-caption">扁桃腺壞死。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=110">p.110</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p111.jpg" alt="膀胱點狀出血。" loading="lazy"><div class="figure-caption">膀胱點狀出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=111">p.111</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p112.jpg" alt="睪丸點狀出血。" loading="lazy"><div class="figure-caption">睪丸點狀出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=112">p.112</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p113.jpg" alt="迴盲瓣潰瘍。" loading="lazy"><div class="figure-caption">迴盲瓣潰瘍。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=113">p.113</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p114.jpg" alt="胃腸道黏膜的鈕扣狀潰瘍（button ulcers）。" loading="lazy"><div class="figure-caption">胃腸道黏膜的鈕扣狀潰瘍（button ulcers）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=114">p.114</a></div></div>
+      <h3>鑑別診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>ASF</strong>、PRRS、PCVAD、假性狂犬病、細菌性敗血症（<strong>豬丹毒、沙門氏菌症</strong>）、旋毛蟲症（Trichinellosis）。</li>
+        <li><strong>ASF vs CSF（德國）</strong>：中等毒力 ASFV 的症狀<strong>已不像</strong>典型的大量血樣腹瀉與脾腫大；攻毒試驗顯示 ASFV 與 CSFV 引起的臨床症狀<strong>非常相似</strong>；<strong>ASFV 與 CSFV 從未在同一頭豬分離到</strong>。</li>
+      </ul>
+      <h3>診斷：抗原<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>病毒抗原檢測：病毒分離（細胞培養）；核酸偵測（核酸擴增與定序分析）。</li>
+        <li><strong>診斷樣本</strong>：<strong>扁桃腺、脾、淋巴結、腎、腦、迴盲瓣、血液</strong>。</li>
+        <li><strong>RT-PCR</strong>：核酸擴增＋電泳約 4 小時；定序 1 天。<strong>qRT-PCR</strong>：可<strong>分辨不同基因型</strong>；約 2 小時；高敏感與特異；<strong>可區分疫苗株與野外株</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p116.jpg" alt="ASF vs CSF（德國）" loading="lazy"><div class="figure-caption">ASF vs CSF（德國）：講義的重點整理。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=116">p.116</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p120.jpg" alt="qRT-PCR 基因分型" loading="lazy"><div class="figure-caption">qRT-PCR 基因分型：區分疫苗株與野外株的 CSFV。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=120">p.120</a></div></div>
+      </div>
+      <h3>診斷：抗體<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>病毒中和試驗</strong>：中和抗體效價為<strong>造成 50% 螢光抑制的血清最高稀釋倍數</strong>。</li>
+        <li><strong>FAVNT（螢光抗體病毒中和試驗）＝金標準</strong>：步驟繁瑣（需細胞培養與病毒操作）；耗時 3 天。</li>
+        <li><strong>ELISA</strong>：步驟簡單（不需細胞培養與病毒操作）；快速（半天）；需評估與中和抗體的相關性；用於評估<strong>族群免疫狀態</strong>；有商業套組。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p119.jpg" alt="RT-PCR 與 qRT-PCR 的比較（時間、分基因型、敏感度）。" loading="lazy"><div class="figure-caption">RT-PCR 與 qRT-PCR 的比較（時間、分基因型、敏感度）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=119">p.119</a></div></div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p121.jpg" alt="病毒中和試驗判讀" loading="lazy"><div class="figure-caption">病毒中和試驗判讀：96 孔盤上血清稀釋倍數 4x 到 512x，綠色表示有螢光（未被中和）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=121">p.121</a></div></div>
+      <h3>其他瘟病毒與交叉反應<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>APPV</strong>（非典型豬瘟病毒）：與新生仔豬先天性顫抖 A-II 型有關。</li>
+        <li><strong>BVDV 感染豬</strong>：通常沒有臨床症狀、可能無或輕微病變；感染來源通常是接觸牛或其他反芻動物；<strong>豬用疫苗原料可能被 BVDV 污染</strong>。</li>
+        <li>瘟病毒間的血清交叉反應：要判斷 CSFV 與其他瘟病毒的中和抗體效價有沒有交叉反應（講義附 Meyer et al., 2021 表）。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p128.jpg" alt="不同瘟病毒（TSV、BDV、BuPV）感染豬的血清，在 CSFV E2 ELIS" loading="lazy"><div class="figure-caption">不同瘟病毒（TSV、BDV、BuPV）感染豬的血清，在 CSFV E2 ELISA 與各瘟病毒中和試驗的交叉反應（Meyer et al., 2021）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=128">p.128</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=88">p.88–129</a>。</footer>
+    </div>
+
+    <!-- CSF-C -->
+    <div class="section" id="section-csf-c">
+      <div class="section-head"><div class="section-num">9</div><h2>古典豬瘟：防治、DIVA 疫苗與台灣 CSF Control, DIVA &amp; CSF in Taiwan</h2></div>
+      <p class="section-desc">CSF 防治的核心：疫苗、監測、生物安全；台灣是「長期監測＋階段性停打疫苗」成功根除的案例。</p>
+      <h3>防治三支柱與疫苗<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>防治三支柱</strong>：疫苗接種、監測、生物安全措施。</li>
+        <li><strong>減毒活疫苗</strong>：對田間株提供<strong>完全保護</strong>。<strong>次單位疫苗</strong>：可<strong>區分感染與接種豬（DIVA）</strong>。</li>
+        <li><strong>疾病流行（endemic）地區</strong>：疫苗可預防疾病擴散；<strong>DIVA 疫苗被認為是未來控制與根除 CSF 的可行選項</strong>。</li>
+        <li><strong>無疾病地區</strong>：<strong>撲殺政策（stamping out）</strong>＝早期偵測、移動管制、清潔消毒；已使北美與大部分西歐根除 CSF。</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">2019 期中考古</div>
+        <p>複選第 3 題：「使用<strong>活毒疫苗</strong>免疫需注意 maternal antibody 的影響（對）」「使用減毒疫苗時，不易藉血清學區分是否有野外毒感染（對）」「應用豬瘟 <strong>E2/subunit 疫苗搭配檢測 Erns 抗體</strong>以區分野外感染（對）」；<strong>「Stamping out without vaccination 有助於迅速成為 free status」</strong>被判為對（見下方考古題）。</p>
+      </div>
+      <h3>歐盟核准的 DIVA 疫苗<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疫苗</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>嵌合活疫苗（Chimeric live vaccine, CP7_E2alf）</strong>（Suvaxyn CSF Marker, Zoetis）</td><td><strong>BVDV 骨架、E2 基因換成 CSFV 的 E2</strong>；兼具減毒活疫苗優點並可區分感染與接種；搭配 <strong>CSFV Erns ELISA</strong>；緊急疫苗庫</td></tr>
+            <tr><td><strong>E2 次單位疫苗</strong>（Porcilis Pesti, MSD）</td><td>搭配 <strong>CSFV Erns ELISA</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>CSFV Erns ELISA 的限制</strong>：敏感度與特異度差；<strong>BVDV 與 BDV 的 Erns 抗體可能交叉反應造成偽陽性</strong>；<strong>只適合族群篩檢</strong>。</p>
+      <h3>監測與野豬<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>監測</strong>：抗體檢測評估疫苗誘發的族群免疫；抗原檢測監測疫情。</li>
+        <li><strong>野豬</strong>：在歐洲與日本部分地區扮演傳播角色；日本野豬的遷徙使控制困難；日本以口服餌疫苗（地面埋設）控制野豬 CSF。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p131.jpg" alt="商業 CSF 疫苗。" loading="lazy"><div class="figure-caption">商業 CSF 疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=131">p.131</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p133.jpg" alt="野豬與 CSF" loading="lazy"><div class="figure-caption">野豬與 CSF：日本野豬的疫情分布（Shimizu et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=133">p.133</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p135.jpg" alt="口服疫苗餌（日本 NIAH）" loading="lazy"><div class="figure-caption">口服疫苗餌（日本 NIAH）：玉米外層、內含液體疫苗，埋在地面或石頭下。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=135">p.135</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p137.jpg" alt="歐盟核准的 CSF DIVA 疫苗。" loading="lazy"><div class="figure-caption">歐盟核准的 CSF DIVA 疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=137">p.137</a></div></div>
+      <h3>台灣 CSF（國考與考古必備）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>1996 年後</strong>田間病毒由 <strong>3.4 型轉為 2.1 型</strong>。</li>
+        <li><strong>基因型 2.1 與 3.4 都是中等毒力</strong>；<strong>LPC 疫苗對兩者都有保護</strong>。</li>
+        <li><strong>2006 年後田間未再檢出病毒</strong>。</li>
+        <li><strong>2023 年起停止疫苗接種</strong>。</li>
+      </ul>
+      <div class="alert alert-success">
+        <div class="alert-label">講義 Take-home messages（CSF）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>CSF 是高傳染力、非人畜共通的豬病毒病，臨床結果多樣。</li>
+          <li>有效疫苗可提供快速保護，但接種會使監測與根除複雜化。</li>
+          <li>成功根除需要疫苗策略、監測、診斷、移動管制與<strong>審慎規劃的停打疫苗</strong>。</li>
+          <li><strong>台灣示範了長期監測與階段性停止疫苗接種可成功根除疾病</strong>。</li>
+        </ul>
+      </div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p141.jpg" alt="台灣的 CSFV" loading="lazy"><div class="figure-caption">台灣的 CSFV：1996 年後 3.4 → 2.1；2006 年後無病毒；2023 年停止接種（講義原圖）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=141">p.141</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=130">p.130–142</a>。</footer>
     </div>
 
     <!-- JEV -->
     <div class="section" id="section-jev">
-      <div class="section-head"><div class="section-num">11</div><h2>日本腦炎 Japanese Encephalitis</h2></div>
-      <p class="section-desc">JEV 於 1933 年在日本首次自 <em>Culex tritaeniorhynchus</em> 蚊子分離確認為致病原，是人類病毒性腦炎的主要病因，也能造成馬匹致死性腦炎；豬感染後主要造成<strong>生殖障礙</strong>，偶爾在仔豬引發神經症狀。</p>
-
-      <div class="alert alert-info">
-        <div class="alert-label">重點</div>
-        <p>JEV 屬 <strong>Flaviviridae 科 Orthoflavivirus 屬</strong>（原 Flavivirus 屬），與登革熱、黃熱病、西尼羅病毒同屬；基因體為單股正義 RNA，約 11 kb。</p>
-      </div>
-
-      <h3>公共衛生意義</h3>
+      <div class="section-head"><div class="section-num">10</div><h2>日本腦炎 Japanese Encephalitis</h2></div>
+      <p class="section-desc">JEV 的核心：<strong>豬是增幅宿主，人與馬是終端宿主</strong>；豬本身多為亞臨床，臨床意義是母豬生殖障礙。</p>
+      <h3>簡介與病毒<span class="lv lv-must">必考</span></h3>
       <ul>
-        <li>全球每年約 <strong>10 萬例</strong>臨床病例，超過 <strong>30 億人</strong>居住於風險地區，約 75% 病例發生於 15 歲以下兒童。</li>
-        <li><strong>豬隻族群中的病毒增幅通常先於人類流行</strong>——但人類疫情也可能在豬隻族群不大或密度不高的情況下發生（鳥－蚊循環已足夠）。</li>
+        <li><strong>1933 年在日本</strong>鑑定為病原，後從 <strong><em>Culex tritaeniorhynchus</em> 蚊子</strong>分離。JEV 是<strong>人類病毒性腦炎的主要原因</strong>，也可造成馬致死性腦炎；<strong>在豬造成生殖障礙，偶爾造成仔豬神經疾病</strong>。</li>
+        <li><strong>Flaviviridae 科 <em>Orthoflavivirus</em> 屬</strong>（舊稱 <em>Flavivirus</em>）；<strong>(+)ssRNA 約 11 kb</strong>；蚊媒，與登革熱、黃熱病、西尼羅病毒同屬。</li>
+        <li>不活化：3 mM binary ethylenimine、3–8% paraformaldehyde、2% glutaraldehyde、1% 次氯酸鹽、乙醇、異丙醇、0.05% Tween 20；pH 重要；<strong>熱不活化點 40°C</strong>，血清或培養基中的病毒可在 <strong>56°C 加熱 30 分鐘</strong>不活化。</li>
       </ul>
-
-      <h3>流行病學：豬是增幅宿主，不是終端宿主<span class="tag tag-exam">重要</span></h3>
-      <p>JEV 是人畜共通病毒，在自然界由 <em>Culex</em> 屬蚊子、特定野生／家禽鳥類與豬（脊椎動物宿主）維持循環；<strong>人與馬感染後為偶發的終端宿主（dead-end host）</strong>，不會將病毒再傳給蚊子。</p>
-
-      <div class="figure">
-        <img src="img/week02_豬病毒性疾病I/sw_p154.png" alt="JEV與WNV傳播循環比較圖，顯示豬作為增幅宿主、人與馬作為終端宿主">
-        <div class="figure-caption">JEV 傳播循環（左）以豬為主要增幅宿主，鳥類參與維持循環；WNV 傳播循環（右）以鳥類為主要增幅宿主；兩循環中人與馬都是終端宿主（dead-end host），感染後不會再傳染給蚊子。</div>
-        <div class="figure-source">來源：講義（Saxena et al., 2020）</div>
-      </div>
-
-      <h3>基因型</h3>
-      <p>單一血清型，共 <strong>5 種基因型（I–V）</strong>；近數十年<strong>基因型 I 已取代原本流行的基因型 II、III</strong>，是多數地區目前的優勢流行株（含台灣）。</p>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">豬的增幅角色</div>
-        <p>豬感染後產生<strong>高效價病毒血症</strong>，通常持續 2–4 天，足以感染叮咬的病媒蚊；豬的病毒效價一致高於其他家畜或野生動物，是地方流行區監測病毒傳播最敏感的指標動物。鷺科等涉禽類則被認為是重要的<strong>維持宿主</strong>，可能在流行期扮演增幅角色。</p>
-      </div>
-
-      <h3>致病機轉</h3>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p144.jpg" alt="JEV 傳播循環示意圖" loading="lazy"><div class="figure-caption">JEV 傳播循環示意圖：水鳥與豬為增幅宿主，蚊子傳播，人與馬為終端宿主（CDC）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=144">p.144</a></div></div>
+      <h3>公共衛生<span class="lv lv-must">必考</span></h3>
       <ul>
-        <li>感染始於受感染蚊子叮咬；豬與豬間<strong>接觸傳播</strong>也可能扮演重要角色。</li>
-        <li>病毒最快可於感染後 <strong>3 天</strong>到達中樞神經系統。</li>
-        <li><strong>新生兒與幼齡動物</strong>比成年動物更容易發展成嚴重中樞神經感染。</li>
+        <li>全球每年估計約 <strong>10 萬</strong>臨床病例，超過 <strong>30 億人</strong>生活在風險地區；<strong>約 75% 發生在 15 歲以下兒童</strong>。</li>
+        <li>通常認為豬的<strong>病毒增幅先於疫情傳播</strong>；但人類流行也可能在沒有大量或高密度豬隻的地方發生。</li>
       </ul>
-
-      <h3>臨床表現</h3>
+      <h3>流行病學<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>JEV 是人畜共通病毒，在自然界由涉及 <em>Culex</em> 蚊的傳播循環維持；脊椎宿主為<strong>野生與家禽鳥類與豬</strong>。</li>
+        <li><strong>人與馬被感染的蚊子叮咬而感染，但是偶發的終端（dead-end）宿主</strong>。</li>
+      </ul>
       <div class="grid-2">
-        <div class="card">
-          <div class="card-title">🤰 懷孕母豬／後備母豬</div>
-          <p>最常見的表現是<strong>生殖障礙</strong>：流產、產下死產或木乃伊化胎兒，或產下體弱活仔。<strong>妊娠 60–70 天前</strong>感染才會造成明顯生殖障礙，之後感染則影響很小或無影響。</p>
-        </div>
-        <div class="card">
-          <div class="card-title">♂ 公豬</div>
-          <p>可能造成不孕：睪丸水腫、充血，導致活動精蟲數下降與精蟲型態異常；多為<strong>暫時性</strong>，大多數病例可完全恢復。</p>
-        </div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p149.jpg" alt="JEV 流行地區" loading="lazy"><div class="figure-caption">JEV 流行地區：亞洲與澳洲（CDC）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=149">p.149</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p153.jpg" alt="JEV 傳播循環" loading="lazy"><div class="figure-caption">JEV 傳播循環：增幅宿主（豬、鷺類鳥）、<em>Culex</em> 蚊媒、終端宿主（人、馬等）（Park et al., 2022）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=153">p.153</a></div></div>
       </div>
-
-      <h3>大體與顯微病變</h3>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p154.jpg" alt="JEV 與西尼羅病毒（WNV）的傳播循環比較（Saxena et al., 20" loading="lazy"><div class="figure-caption">JEV 與西尼羅病毒（WNV）的傳播循環比較（Saxena et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=154">p.154</a></div></div>
+      <h3>基因型<span class="lv lv-must">必考</span></h3>
       <ul>
-        <li>母豬生殖障礙病例通常<strong>無特徵性病變</strong>。</li>
-        <li>公豬：<strong>鞘膜與副睪增厚</strong>，伴隨副睪、鞘膜與睪丸水腫發炎。</li>
-        <li>死產或體弱仔豬：<strong>水腦、皮下水腫、小腦發育不全、脊髓髓鞘化不全</strong>。</li>
-        <li>感染仔豬顯微病變：<strong>瀰漫性非化膿性腦炎</strong>，特徵為神經元壞死與血管周圍套疊現象（perivascular cuffing）。</li>
+        <li><strong>單一血清型</strong>；<strong>五個基因型</strong>。</li>
+        <li><strong>基因型 I</strong>：柬埔寨、中國、韓國、泰國北部、越南、日本、印度、澳洲、<strong>台灣</strong>。</li>
+        <li>基因型 II：印尼、馬來西亞、泰國南部、巴布亞紐幾內亞、澳洲。</li>
+        <li><strong>基因型 III</strong>：廣泛分布於亞洲，如日本、中國、韓國、<strong>台灣</strong>。</li>
+        <li>基因型 IV：只在印尼；基因型 V：馬來西亞、中國、韓國。</li>
+        <li><strong>近幾十年來，基因型 I 在許多地區取代了基因型 II 與 III</strong>。</li>
       </ul>
-
-      <h3>鑑別診斷</h3>
-      <p>（流產／胎兒木乃伊化或死產、6 月齡以下仔豬腦炎）偽狂犬病、古典豬瘟、PRRS、豬血凝性腦脊髓炎病毒、藍眼病副黏液病毒（Rubulavirus）、Menangle virus、豬 teschovirus、豬小病毒、布氏桿菌病、鹽中毒。</p>
-
-      <h3>診斷</h3>
-      <p><strong>檢體：</strong>胎盤與胎兒組織（生殖病例）、腦／脾／肝／扁桃腺（病毒／RNA 檢測）、全血（早期病毒血症）、血清（血清學＋早期病毒偵測）、間隔 2–4 週配對血清（證明血清轉陽）。</p>
-      <p><strong>方法：</strong>抗原──病毒分離、RT-PCR、免疫組織化學（IHC）；抗體──ELISA、間接螢光抗體（IFA）、病毒中和試驗（VN）。</p>
-
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p151.jpg" alt="JEV 基因型的地理分布（Saxena et al., 2020）。" loading="lazy"><div class="figure-caption">JEV 基因型的地理分布（Saxena et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=151">p.151</a></div></div>
+      <h3>傳播與增幅<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>豬是 JEV 的主要增幅宿主</strong>，在地方流行與流行爆發區扮演重要角色。</li>
+        <li>豬感染後有<strong>高效價病毒血症，通常持續 2–4 天，足以感染蚊子</strong>。</li>
+        <li>豬的病毒效價一致高於其他家畜或野生動物，是地方流行區病毒傳播的<strong>敏感指標</strong>。</li>
+        <li><strong>野生鳥類，特別是鷺科（ardeid）</strong>被認為是 JEV 的重要<strong>維持宿主</strong>，流行時也可能是增幅者。</li>
+      </ul>
+      <h3>致病機轉<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>黃病毒感染始於<strong>被感染蚊子的叮咬</strong>；<strong>豬之間的接觸傳播</strong>也可能很重要。</li>
+        <li>病毒最早在<strong>感染後 3 天</strong>就可到達中樞神經系統；<strong>新生與幼齡動物比成年動物更容易發生嚴重 CNS 感染</strong>。</li>
+        <li>豬的 JEV 感染通常是<strong>亞臨床感染伴病毒血症</strong>；可感染神經元造成<strong>腦膜腦炎與神經症狀</strong>；<strong>經胎盤感染胎兒</strong>，造成<strong>流產、死產、木乃伊化與新生仔豬死亡</strong>；也可感染<strong>公豬睪丸組織</strong>造成不孕。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p159.jpg" alt="豬 JEV 感染經過" loading="lazy"><div class="figure-caption">豬 JEV 感染經過：病毒血症約第 3 天達高峰（全身散播與神經侵入）、鼻腔排毒、非特異性急性症狀、後肢共濟失調；28–46 天後有持續感染的證據。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=159">p.159</a></div></div>
+      <h3>臨床表現<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>懷孕母豬或後備母豬最常見的表現是生殖障礙</strong>：流產，窩中有死產、木乃伊胎，或活的虛弱仔豬。</li>
+        <li><strong>母豬在妊娠 60–70 天以前感染 JEV 才會發生生殖障礙</strong>；<strong>懷孕後期感染通常對胎兒影響很小或沒有</strong>。</li>
+        <li><strong>公豬</strong>：不孕；<strong>睪丸水腫、鬱血</strong>，精蟲活動力下降、精子異常；這些影響通常是<strong>暫時的，大多數完全恢復</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p157.jpg" alt="JEV 造成的死產與木乃伊胎（Diseases of Swine, 12th）。" loading="lazy"><div class="figure-caption">JEV 造成的死產與木乃伊胎（Diseases of Swine, 12th）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=157">p.157</a></div></div>
+      <h3>大體與顯微病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>母豬</strong>：生殖障礙的母豬<strong>沒有特徵性病變</strong>。</li>
+        <li><strong>公豬</strong>：<strong>鞘膜與副睪增厚</strong>，副睪、鞘膜與睪丸水腫與發炎。</li>
+        <li><strong>死產或虛弱仔豬</strong>：常有<strong>腦水腫（hydrocephalus）、皮下水腫、小腦發育不全、脊髓髓鞘形成不全</strong>。</li>
+        <li><strong>顯微</strong>：感染仔豬<strong>瀰漫性非化膿性腦炎</strong>，特徵為腦與脊髓<strong>神經元壞死與血管周圍袖套</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p161.jpg" alt="JEV 非化膿性腦炎" loading="lazy"><div class="figure-caption">JEV 非化膿性腦炎：神經元壞死與血管周圍袖套（Diseases of Swine, 11th）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=161">p.161</a></div></div>
+      <h3>鑑別診斷<span class="lv lv-must">必考</span></h3>
+      <p>造成<strong>流產、木乃伊胎或死產，以及 6 個月內豬腦炎</strong>的病原：<strong>假性狂犬病、CSFV、PRRS、血球凝集腦脊髓炎病毒、Rubulavirus（藍眼副黏液病毒）、Menangle 病毒、豬鐵士古病毒、豬小病毒、布氏桿菌症、食鹽中毒</strong>。</p>
+      <h3>診斷<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>樣本</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td><strong>胎盤與胎兒組織</strong></td><td>生殖病例</td></tr>
+            <tr><td>腦、脾、肝、扁桃腺</td><td>病毒／RNA 偵測</td></tr>
+            <tr><td>全血</td><td>早期病毒血症病毒偵測</td></tr>
+            <tr><td>血清</td><td>血清學與早期病毒偵測</td></tr>
+            <tr><td><strong>配對血清（間隔 2–4 週）</strong></td><td>證明血清轉陽</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>抗原偵測</strong>：病毒分離、RT-PCR、免疫組織化學（IHC）。<strong>抗體偵測</strong>：ELISA、IFA、病毒中和試驗（VN）。</li>
+      </ul>
+      <h3>免疫<span class="lv lv-know">理解</span></h3>
+      <p>豬在實驗感染近緣黃病毒（如西尼羅病毒）後，觀察到<strong>交叉中和抗體反應</strong>；在黃病毒高度流行區，豬先前感染近緣黃病毒的<strong>交叉反應免疫</strong>可能抑制後續 JEV 感染。</p>
+      <h3>預防與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>疫苗</strong>：不活化（鼠腦來源）或減毒活疫苗已在日本、台灣、尼泊爾、韓國用於預防病毒增幅或生殖疾病；<strong>減毒活疫苗比不活化疫苗對自然與實驗感染更有效</strong>。</li>
+        <li><strong>基因型 I 在亞洲大部分地區興起</strong>，引起對<strong>基因型 III 為基礎疫苗效力的擔憂</strong>：GIII 減毒活疫苗預防 GI 病毒造成的死產與流產，效果比對 GIII 病毒低（Fan et al., 2022）。</li>
+        <li><strong>蚊子管理</strong>：除非豬養在無蚊環境，否則預防豬暴露於感染蚊子通常不實際；為公共衛生在養豬場附近進行的蚊子管理與控制計畫，也可能減少蚊子叮咬與豬感染。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p166.jpg" alt="JEV 疫苗" loading="lazy"><div class="figure-caption">JEV 疫苗：不活化鼠腦疫苗、不活化細胞疫苗、減毒活疫苗、重組疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=166">p.166</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p167.jpg" alt="GIII 減毒活疫苗對 GI 與 GIII JEV 的中和抗體陽性率比較（Fan" loading="lazy"><div class="figure-caption">GIII 減毒活疫苗對 GI 與 GIII JEV 的中和抗體陽性率比較（Fan et al., 2022）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=167">p.167</a></div></div>
+      </div>
       <div class="alert alert-info">
-        <div class="alert-label">免疫交叉反應</div>
-        <p>豬實驗感染近緣黃病毒後可觀察到對 JEV 的交叉中和抗體反應；若先感染西尼羅病毒（WNV）再挑戰 JEV，也會出現類似的加強反應（booster response）。在黃病毒高度流行地區，豬可能因先前感染近緣黃病毒而產生交叉保護力，抑制後續 JEV 感染。</p>
+        <div class="alert-label">講義 Take-home messages（JEV）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>JEV 是蚊媒的人畜共通病毒，豬是主要增幅宿主。</li>
+          <li>豬的感染多為亞臨床，但可造成生殖障礙，偶爾造成幼豬神經疾病。</li>
+          <li>人與馬是終端宿主，對病毒增幅沒有明顯貢獻。</li>
+          <li>疫苗與蚊子控制是重要預防措施；基因型轉換可能影響疫苗表現。</li>
+        </ul>
       </div>
-
-      <h3>防治</h3>
-      <ul>
-        <li><strong>疫苗接種：</strong>不活化（小鼠腦源性）或活減毒疫苗已用於日本、台灣、尼泊爾、韓國；<strong>活減毒疫苗效力優於不活化疫苗</strong>。基因型 I 在亞洲多地興起，已引發對<strong>以基因型 III 為基礎的疫苗效力</strong>是否足夠的疑慮（對基因型 I 引起的死產／流產保護力較基因型 III 為低）。</li>
-        <li><strong>病媒蚊管理：</strong>理論上可避免豬隻暴露於受感染蚊子，但除非豬場處於無蚊環境，否則實務上難以落實；豬場鄰近的公共衛生蚊媒防治計畫也有助於降低豬隻感染率。</li>
-      </ul>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=143">p.143–169</a>。</footer>
     </div>
 
     <!-- HEV -->
     <div class="section" id="section-hev">
-      <div class="section-head"><div class="section-num">12</div><h2>E型肝炎 Hepatitis E</h2></div>
-      <p class="section-desc">E 型肝炎病毒（HEV）是人類 E 型肝炎的病原，在亞洲與非洲多數發展中國家是重要公共衛生問題，在美國與多數歐洲國家等已開發國家也屬地方性流行；豬感染 HEV <strong>只造成顯微層級的肝炎病變、無臨床疾病</strong>，但透過直接接觸與食用未煮熟豬肉／豬肉製品，對人類構成<strong>人畜共通感染風險</strong>。</p>
-
-      <div class="alert alert-info">
-        <div class="alert-label">重點</div>
-        <p>HEV 屬 <strong>Hepeviridae 科</strong>，基因體為單股正義 RNA，約 7.2 kb；共分 8 種基因型（HEV-1 至 HEV-8）：</p>
-        <ul style="margin:8px 0 0 0;padding-left:1.2em;">
-          <li>HEV-1、HEV-2：<strong>僅感染人類</strong></li>
-          <li><strong>HEV-3、HEV-4：可感染人、豬與其他物種（人畜共通，臨床意義最大）</strong></li>
-          <li>HEV-5、HEV-6：感染野豬</li>
-          <li>HEV-7、HEV-8：感染駱駝</li>
+      <div class="section-head"><div class="section-num">11</div><h2>E 型肝炎 Hepatitis E</h2></div>
+      <p class="section-desc">HEV 在豬身上幾乎沒有臨床意義，重點在<strong>人畜共通與食品安全</strong>。</p>
+      <h3>簡介與病毒<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>HEV 是人類 E 型肝炎的病原，在亞洲與非洲許多開發中國家是重要公共衛生問題；在美國與許多歐洲工業化國家也是地方流行。</li>
+        <li><strong>豬的 HEV 在豬只造成顯微的肝炎病變，沒有臨床症狀</strong>，但<strong>經直接接觸感染豬與吃未煮熟的豬肉或豬肉製品</strong>對人有人畜共通風險。</li>
+        <li><strong>Hepeviridae 科</strong>；豬 HEV 的基因體是<strong>(+)ssRNA 約 7.2 kb</strong>。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">基因型</th><th>感染對象</th></tr></thead>
+          <tbody>
+            <tr><td>HEV-1、HEV-2</td><td>僅限人類</td></tr>
+            <tr><td><strong>HEV-3、HEV-4</strong></td><td><strong>人、豬與其他物種</strong>（人畜共通重要基因型）</td></tr>
+            <tr><td>HEV-5、HEV-6</td><td>野豬</td></tr>
+            <tr><td>HEV-7、HEV-8</td><td>駱駝</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p176.jpg" alt="HEV 基因型的全球分布" loading="lazy"><div class="figure-caption">HEV 基因型的全球分布：紅色高度流行、橘色流行、藍色非流行（Kumar et al., 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=176">p.176</a></div></div>
+      <h3>病毒去活化<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>HEV 被認為<strong>耐酸與弱鹼</strong>，能通過腸道；商業豬肝中的豬 HEV <strong>經適當烹煮可完全不活化</strong>；污染豬肝勻漿在 <strong>56°C 培養 1 小時並未消除感染力</strong>。</li>
+      </ul>
+      <h3>公共衛生<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>E 型肝炎是人畜共通病，<strong>豬是重要的保毒庫（reservoir）</strong>；人畜共通風險：<strong>職業暴露感染豬、食用污染的豬肉或豬肉製品</strong>。</li>
+        <li><strong>豬的 HEV-3 與 HEV-4 株具人畜共通性</strong>；野豬 HEV-5、HEV-6 的人畜共通潛力未知。</li>
+        <li>感染豬<strong>糞便排出大量 HEV</strong>，造成環境安全疑慮。</li>
+        <li><strong>豬農的血清抗 HEV 抗體陽性率 29.5%，一般民眾 11.5%，豬農感染 E 型肝炎的風險是一般人的 3.5 倍</strong>（Lee et al., 2013）。</li>
+        <li><strong>豬肝的 HEV RNA 陽性率最高（24%）</strong>（Bennett et al.）。台灣也有 6 月齡豬的 HEV 感染研究（Liao et al., 2020：G3 與 G4，以 G4 為主）。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p177.jpg" alt="豬農與一般健檢民眾的抗 HEV 抗體陽性率" loading="lazy"><div class="figure-caption">豬農與一般健檢民眾的抗 HEV 抗體陽性率：豬農 29.5%，一般 11.5%（Lee et al., 2013）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=177">p.177</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p179.jpg" alt="豬肉製品的 HEV 檢出" loading="lazy"><div class="figure-caption">豬肉製品的 HEV 檢出：豬肝 24%、發酵香腸 2%、豬肉香腸 1.5–2%（Bennett et al.）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=179">p.179</a></div></div>
+        <div class="figure"><img src="img/week02_病毒性疾病I/v1_p183.jpg" alt="豬 HEV 感染過程" loading="lazy"><div class="figure-caption">豬 HEV 感染過程：潛伏 1–2 週、病毒血症 1–2 週、糞便排毒 1–7 週、血清轉陽 3–4 週後（Meester et al., 2021）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=183">p.183</a></div></div>
+      </div>
+      <h3>流行病學<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>豬的 HEV 感染在全世界豬群<strong>無所不在</strong>，不論當地人類是否為流行區；家豬與<strong>野豬</strong>都會感染。</li>
+        <li>感染常發生在<strong>約 2–3 月齡，母源抗體下降時</strong>；血清盛行率與年齡有關，生長期感染後逐漸升高。</li>
+      </ul>
+      <h3>傳播與致病機轉<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>豬之間的傳播推測為<strong>糞口途徑</strong>，感染豬的糞便是主要病毒來源；易感豬經<strong>直接接觸感染豬</strong>或<strong>吃入被糞便污染的飼料或水</strong>而感染。</li>
+        <li>HEV 吃入後先在<strong>消化道複製</strong>，再擴散到標的器官<strong>肝臟</strong>複製；肝外複製部位包含<strong>小腸、結腸與淋巴結</strong>。</li>
+        <li>感染豬持續從糞便排毒 <strong>7 週</strong>。</li>
+      </ul>
+      <h3>臨床與病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>自然與實驗感染豬 <strong>無症狀</strong>。</li>
+        <li><strong>大體</strong>：臨床正常，但可見輕至中度<strong>肝與腸繫膜淋巴結腫大</strong>。</li>
+        <li><strong>顯微</strong>：輕至中度<strong>多灶性淋巴漿細胞性肝炎與局部肝細胞壞死</strong>；肝發炎與肝細胞壞死在感染後 <strong>20 天</strong>最嚴重。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p186.jpg" alt="豬 HEV 肝臟顯微病變" loading="lazy"><div class="figure-caption">豬 HEV 肝臟顯微病變：局部肝細胞壞死（Diseases of Swine, 11th）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=186">p.186</a></div></div>
+      <h3>診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>診斷樣本</strong>：血清或血漿（抗 HEV 抗體與 RNA）；糞便或直腸拭子（RT-PCR）；<strong>肝組織（剖檢或屠宰時）</strong>；膽汁。</li>
+        <li>豬 HEV <strong>很難在細胞培養有效增殖</strong>，只有少數株可體外培養。目前診斷主要靠 <strong>PCR 與 ELISA</strong>；ELISA 常用<strong>重組 HEV 衣殼抗原（常取自 HEV-3）</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p188.jpg" alt="豬 HEV 診斷" loading="lazy"><div class="figure-caption">豬 HEV 診斷：ELISA 套組（重組衣殼抗原）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=188">p.188</a></div></div>
+      <h3>免疫與防治<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>豬 HEV 的<strong>衣殼蛋白具免疫原性，誘發保護性免疫</strong>；血清陽性母豬所生仔豬有持續 <strong>7–9 週的母源抗體</strong>，保護仔豬不受感染；先前感染豬的 <strong>HEV-3</strong>，可保護後續人類 HEV-3 與 HEV-4 株的攻毒。</li>
+        <li><strong>主要關切是人畜共通風險與豬肉安全</strong>。人用 HEV 疫苗<strong>目前僅在中國核准</strong>；豬接種疫苗可能有助降低人畜共通傳播與豬肉相關 HEV 風險。</li>
+        <li>適當的個人與公共衛生可減少場內豬 HEV 傳播。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_病毒性疾病I/v1_p190.jpg" alt="人用 HEV 疫苗（中國核准）。" loading="lazy"><div class="figure-caption">人用 HEV 疫苗（中國核准）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=190">p.190</a></div></div>
+      <div class="alert alert-success">
+        <div class="alert-label">講義 Take-home messages（HEV）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>HEV 感染在豬通常無症狀，但豬是人畜共通 HEV 的重要保毒庫。</li>
+          <li>HEV-3 與 HEV-4 可感染豬與人，是重要的人畜共通基因型。</li>
+          <li>豬之間主要靠糞口傳播；人經職業接觸或吃未煮熟的豬肉暴露。</li>
+          <li>控制重點在衛生、減少環境污染與徹底煮熟，而不是預防豬的臨床病。</li>
         </ul>
       </div>
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)〉<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=170">p.170–191</a>。</footer>
+    </div>
 
-      <h3>病毒去活化</h3>
-      <p>HEV 對腸道中的酸性與弱鹼性環境具抵抗力；<strong>充分烹煮</strong>可完全去活化市售豬肝中的感染力，但將受污染豬肝勻漿以 <strong>56°C 加熱 1 小時並不能完全去活化病毒</strong>——提醒「加熱」與「充分煮熟」並不相同，是食品安全衛教的重要細節。</p>
-
-      <h3>公共衛生意義</h3>
-      <ul>
-        <li>豬是重要的病毒<strong>儲存宿主</strong>；職業性接觸感染豬隻與食用受污染豬肉製品是主要人畜共通感染途徑。</li>
-        <li><strong>HEV-3、HEV-4 確認具人畜共通傳播能力</strong>；HEV-5、HEV-6（野豬）的人畜共通潛力則尚未確認。</li>
-        <li>受感染豬隻經<strong>糞便排出大量病毒</strong>，構成環境安全隱憂。</li>
-      </ul>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">台灣血清學數據</div>
-        <p>一般民眾血清抗體陽性率約 <strong>11.5%</strong>，豬農則達 <strong>29.5%</strong>——豬農感染風險約為一般民眾的 <strong>3.5 倍</strong>，凸顯職業暴露是重要感染途徑。</p>
+    <!-- COMPARE -->
+    <div class="section" id="section-compare">
+      <div class="section-head"><div class="section-num">12</div><h2>ASF vs CSF 綜合比較 Side-by-Side Comparison</h2></div>
+      <p class="section-desc">ASF 與 CSF 是「發燒＋出血」最經典的鑑別組合。講義提醒：臨床症狀非常相似、需實驗室確診。</p>
+      <h3>ASF vs CSF<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>ASF</th><th>CSF</th></tr></thead>
+          <tbody>
+            <tr><td>核酸與科</td><td><strong>dsDNA</strong>，Asfarviridae</td><td><strong>(+)ssRNA</strong>，Pestiviridae（<em>Orthopestivirus</em>）</td></tr>
+            <tr><td>封套與大小</td><td>有，170–193 kb</td><td>有</td></tr>
+            <tr><td>血清型／基因型</td><td>24 個基因型</td><td><strong>單一血清型、3 個基因型</strong></td></tr>
+            <tr><td>特殊傳播</td><td><strong>軟蜱（唯一蜱傳 DNA 病毒）</strong>、野豬、餿水</td><td>口、直接、飛沫、<strong>精液、胎盤</strong></td></tr>
+            <tr><td>環境抵抗力</td><td>極強（4°C 血液 18 個月）</td><td>4°C 6 週；冷凍肉數年</td></tr>
+            <tr><td>標的細胞</td><td>單核球與巨噬細胞</td><td>扁桃腺→淋巴；血管內皮壞死、淋巴球減少</td></tr>
+            <tr><td>脾臟</td><td><strong>腫大、質脆、暗黑</strong></td><td><strong>邊緣梗塞</strong></td></tr>
+            <tr><td>腸道</td><td>血樣下痢</td><td><strong>迴盲瓣、腸黏膜鈕扣狀潰瘍</strong></td></tr>
+            <tr><td>腎</td><td>皮質點狀出血、腎周水腫</td><td>點狀出血（腎、膀胱、睪丸）</td></tr>
+            <tr><td>特有型式</td><td>最急性、急性、亞急性、慢性</td><td><strong>先天與產後持續感染</strong></td></tr>
+            <tr><td>診斷特色</td><td><strong>血球吸附（玫瑰花環）</strong>；ELISA 篩檢、IBT／IFAT／IPT 確認</td><td>RT-PCR／qRT-PCR（可分基因型）；<strong>FAVNT 金標準</strong>；ELISA</td></tr>
+            <tr><td>疫苗</td><td>基因刪除活疫苗（越南 2022 起）；無全球公認</td><td>減毒活疫苗（LPC）；<strong>E2 次單位＋Erns ELISA（DIVA）</strong></td></tr>
+            <tr><td>台灣</td><td>未發生（防堵）</td><td>甲類；<strong>2006 後田間無病毒、2023 起停打疫苗</strong></td></tr>
+          </tbody>
+        </table>
       </div>
-
-      <div class="alert alert-danger">
-        <div class="alert-label">食品安全</div>
-        <p>豬肝檢體中 HEV RNA 陽性率高達 <strong>24%</strong>，是所有豬肉製品中陽性率最高的部位——<strong>豬肝務必徹底煮熟</strong>是最直接的臨床衛教重點。</p>
+      <h3>JEV 與 HEV（人畜共通對照）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>JEV</th><th>HEV</th></tr></thead>
+          <tbody>
+            <tr><td>病毒</td><td>Flaviviridae，(+)ssRNA 約 11 kb</td><td>Hepeviridae，(+)ssRNA 約 7.2 kb</td></tr>
+            <tr><td>傳播</td><td><strong>蚊子（<em>Culex</em>）</strong></td><td><strong>糞口</strong>；人吃未煮熟豬肉、豬肝</td></tr>
+            <tr><td>豬的角色</td><td><strong>增幅宿主</strong>（病毒血症 2–4 天）；人與馬是終端宿主</td><td>無症狀的<strong>保毒庫</strong></td></tr>
+            <tr><td>豬臨床</td><td>母豬妊娠 60–70 天前感染生殖障礙；公豬睪丸炎；仔豬腦炎</td><td>無症狀；顯微肝炎</td></tr>
+            <tr><td>基因型</td><td>5 個；台灣 I 與 III</td><td>8 個；3、4 人畜共通</td></tr>
+            <tr><td>防治</td><td>疫苗（活毒優於不活化）；蚊子控制</td><td>衛生、煮熟；人用疫苗僅中國</td></tr>
+          </tbody>
+        </table>
       </div>
+      <footer class="note-footer">資料來源：整理自課程講義〈Swine viral diseases (I)〉。</footer>
+    </div>
 
-      <h3>流行病學</h3>
-      <ul>
-        <li>豬 HEV 感染<strong>全球豬群普遍存在</strong>，與當地人類 HEV 是否流行無關；除家豬外<strong>野豬也會感染</strong>。</li>
-        <li>感染通常發生於<strong>母源抗體消退後的 2–3 月齡</strong>；血清陽性率隨生長期年齡增加而上升。</li>
-      </ul>
-
-      <h3>傳播與致病機轉</h3>
-      <p>豬與豬間主要經<strong>糞口途徑</strong>傳播，未感染豬因直接接觸感染豬或攝入受糞便污染的飼料／飲水而感染。病毒經口攝入後先在<strong>腸胃道複製</strong>，再擴散至<strong>肝臟（標的器官）</strong>；肝外複製部位包括小腸、大腸與淋巴結。感染豬會經糞便<strong>持續排毒約 7 週</strong>。</p>
-
-      <h3>臨床表現與病變</h3>
-      <div class="grid-3">
-        <div class="card"><div class="card-title">臨床症狀</div><p>自然與實驗感染皆<strong>無症狀</strong>。</p></div>
-        <div class="card"><div class="card-title">大體病變</div><p>臨床正常，但可見<strong>肝臟與腸繫膜淋巴結輕度至中度腫大</strong>。</p></div>
-        <div class="card"><div class="card-title">顯微病變</div><p>輕度至中度多發性<strong>淋巴漿細胞性肝炎</strong>與局灶性肝細胞壞死，感染後 20 天左右病變最嚴重。</p></div>
+    <!-- KAOGU -->
+    <div class="section" id="section-kaogu">
+      <div class="section-head"><div class="section-num">13</div><h2>期中考古題 Past Midterm Questions（2019）</h2></div>
+      <p class="section-desc">本週講義<strong>沒有附國考題</strong>。你提供的 2019 年期中考（鄭益謙老師授課時期）中，與 ASF、CSF 相關的題目如下。<strong>原題為複選題，藍筆圈起來的是正確敘述</strong>（題幹有的問「正確」、有的問「錯誤」，下面逐題註明）。今年（115 學年）病毒改由張家宜、高啓霏老師授課，題型可能不同。</p>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>考古題照片為手機翻拍，題目文字依可辨識內容整理，少數選項可能不完整；我只收錄看得清楚的題目與答案。</p></div>
+      <h3>複選題（2019）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 期中 Q1（複選，問「不正確」）</span>
+        <div class="quiz-q">關於豬瘟（classical swine fever）與豬瘟病毒（CSFV）之敘述何者<strong>不正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) CSFV 之 natural reservoirs 僅有家豬與野豬</li>
+          <li>(B) 急性型易見 cecum button ulcer</li>
+          <li>(C) CSF 傳染主要藉由直接接觸</li>
+          <li>(D) 為我國行政院核定目前執行撲滅計畫之唯一豬傳染病</li>
+          <li>(E) 會透過胎盤感染</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、D)</div>
+          <p class="quiz-explain">依考卷（藍筆叉掉的是錯誤敘述）：(A) 錯：講義寫野豬在歐洲與日本部分地區扮演傳播角色，宿主還有其他（補充：此題的具體依據不在本年度講義）。<br>(D) 錯：台灣目前執行撲滅計畫的豬傳染病不只豬瘟（講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=141">p.141</a>：2006 後田間無病毒、2023 停打；補充：口蹄疫已於 2020 年 WOAH 認定非疫區）。<br>(B) 對：鈕扣狀潰瘍（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=114">p.114</a>）。<br>(C) 對：直接接觸（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=86">p.86</a>）。<br>(E) 對：經胎盤感染胎兒（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=87">p.87</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=101">p.101</a>）。</p>
+        </details>
       </div>
-
-      <h3>診斷</h3>
-      <p><strong>檢體：</strong>血清／血漿（抗體與 RNA）、糞便或直腸拭子（RT-PCR 測 RNA）、肝臟組織（RNA，多用於剖檢或屠宰場採樣）、膽汁（RNA）。</p>
-      <p>豬 HEV<strong>難以在細胞培養中有效增殖</strong>，僅少數毒株可活體外培養，目前診斷<strong>主要依賴 PCR 與 ELISA</strong>；ELISA 常用重組 HEV 衣殼蛋白（多源自 HEV-3）作為抗原。</p>
-
-      <h3>免疫與防治</h3>
-      <ul>
-        <li>HEV 衣殼蛋白具免疫原性，可誘發保護性免疫；來自血清陽性母豬的仔豬，<strong>母源抗體可維持 7–9 週</strong>並提供保護。</li>
-        <li>豬先感染 HEV-3（豬源）後，對後續 HEV-3／HEV-4（人源）的攻毒具保護力，顯示<strong>跨基因型交叉保護</strong>的可能性。</li>
-        <li>目前商業化人用疫苗<strong>僅在中國核准</strong>，尚未於其他地區使用；豬隻接種疫苗或有助於降低人畜共通傳播風險，但尚未廣泛應用。</li>
-        <li>加強個人與公共衛生習慣，可降低豬場內的傳播。</li>
-      </ul>
-
-      <div class="alert alert-info">
-        <div class="alert-label">學習重點</div>
-        <p>HEV 感染豬隻通常無症狀，但豬是重要的人畜共通儲存宿主；HEV-3、HEV-4 可同時感染豬與人，是最具臨床／公衛意義的基因型；豬與豬間主要經糞口傳播，人類則透過職業接觸或食用未煮熟豬肉製品暴露；防治重點在於<strong>衛生管理、降低環境污染與徹底烹煮</strong>，而非治療豬隻本身的疾病（因為豬本身幾乎不會發病）。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 期中 Q2（複選，問「正確」）</span>
+        <div class="quiz-q">豬瘟流行病學敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 人、器械、交通工具均為傳播媒介</li>
+          <li>(B) 不會藉由精液傳播</li>
+          <li>(C) 可經空氣遠距離傳播</li>
+          <li>(D) 可經廚餘傳播</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、D)</div>
+          <p class="quiz-explain">(A) 對：環境污染、人與車輛（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=86">p.86</a>）。<br>(D) 對：口途徑，吃入受污染食物（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=86">p.86</a>）。<br>(B) 錯：<strong>精液會傳播</strong>（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=87">p.87</a>）。<br>(C) 錯：講義只寫短距離飛沫（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=87">p.87</a>），沒有遠距離空氣傳播。</p>
+        </details>
       </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 期中 Q3（複選，問「正確」）</span>
+        <div class="quiz-q">豬瘟之預防控制以下何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) Stamping out without vaccination 有助於迅速成為「free status」</li>
+          <li>(B) 使用活毒疫苗免疫需注意 maternal antibody 可能造成的影響</li>
+          <li>(C) 使用減毒（attenuated）疫苗時，不易藉由血清學區分是否有野外毒感染</li>
+          <li>(D) 應用豬瘟「E2/subunit 疫苗」搭配檢測 Erns 抗體的構想是欲免疫並可區分野外 CSFV 感染</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、B、C、D)</div>
+          <p class="quiz-explain">依考卷四個選項都有圈：(A) 對：無疾病地區的撲殺政策（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=132">p.132</a>）。<br>(B) 對：（補充）母源抗體會干擾活毒疫苗；講義未直接寫。<br>(C) 對：減毒活疫苗誘發的抗體與野外感染無法區分，所以才需要 DIVA（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=131">p.131</a>）。<br>(D) 對：E2 次單位疫苗＋Erns ELISA 是 DIVA（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=137">p.137</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 期中 Q4（複選，問「錯誤」）</span>
+        <div class="quiz-q">Pseudorabies virus（PRV）何者敘述為誤？</div>
+        <ul class="quiz-options">
+          <li>(A) latency 可因 stress 等因素而 reactivated 並再排毒／shedding</li>
+          <li>(B) 可透過胎盤感染造成流、死產</li>
+          <li>(C) trigeminal ganglion 非 latency 之所在</li>
+          <li>(D) 對成豬致害以造成死亡為主</li>
+          <li>(E) 對 naïve 仔豬造成近 100% 發病、死亡率</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C、D)</div>
+          <p class="quiz-explain">(C) 錯，所以選它：三叉神經節是 PRV 潛伏的主要部位（第 4 週）。<br>(D) 錯：成豬以呼吸症狀為主、死亡率低（第 4 週）。<br>(A)(B)(E) 對。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 期中 Q18（複選，問「正確」）</span>
+        <div class="quiz-q">非洲豬瘟：</div>
+        <ul class="quiz-options">
+          <li>(A) 已傳播到歐、亞陸塊</li>
+          <li>(B) 宿主僅限於豬</li>
+          <li>(C) characteristic lesion 為 splenomegaly</li>
+          <li>(D) 臨床症狀與病毒侵犯血管上皮細胞有關</li>
+          <li>(E) 病毒初期於 monocyte、macrophage 增殖，而造成 leukocytosis 症狀</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、C、D)</div>
+          <p class="quiz-explain">依考卷圈選 (A)(C)(D)：(A) 對：歐亞疫情（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=11">p.11</a>）。(C) 對：脾臟腫大（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=45">p.45</a>）。(D) 對（老師判定）：（補充）ASF 造成血管內皮傷害與出血，講義寫病毒複製於單核球與巨噬細胞（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=33">p.33</a>）。<br>(B) 錯：宿主還有野豬、疣豬、叢林豬等（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=18">p.18</a>）。<br>(E) 錯：講義沒有寫造成白血球增多；（補充）ASF 常見的是淋巴球減少。</p>
+        </details>
+      </div>
+      <h3>問答題（2019，鄭益謙老師部分）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜2019 期中 Part A Q1</span>
+        <div class="quiz-q">試述口蹄疫病毒的病原、流行病學／傳播方式、致病機制（pathogenesis）與症狀。（8 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>見<a href="week04_小RNA病毒科疾病.html#section-fmd-a">第 4 週：口蹄疫</a>。骨架：Aphthovirus、無封套 ssRNA(+)、7 血清型；豬增幅者、牛指示者、羊維持者；直接接觸、餿水、氣膠、污染人車；咽黏膜 → 淋巴結 → 病毒血症；水疱、跛行、發病率高死亡率低、仔豬虎斑心。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜2019 期中 Part A Q2</span>
+        <div class="quiz-q">請利用豬瘟病毒基因結構（5'-[N<sup>pro</sup>、C、E0(E<sup>rns</sup>)、E1、E2、p7、NS2、NS3、NS4A、NS4B、NS5A、NS5B]-3'），為「常在型（endemic）」發生、並使用豬瘟傳統活毒疫苗免疫控制的地區，提出兼具（1）誘發抗豬瘟效力，（2）可區別（a）野外病毒自然感染、與（b）施打疫苗的新型態疫苗及診斷構想。（8 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>骨架（本週講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=131">p.131–139</a>）：<strong>E2 次單位疫苗</strong>（或 CP7_E2alf 嵌合活疫苗：BVDV 骨架、E2 換成 CSFV E2）誘發保護性中和抗體；因疫苗不含 E<sup>rns</sup>，搭配檢測 <strong>E<sup>rns</sup> 抗體的 ELISA</strong>：野外感染豬有 E<sup>rns</sup> 抗體、疫苗接種豬沒有 → DIVA。限制：E<sup>rns</sup> ELISA 敏感度與特異度差、BVDV／BDV 有交叉反應偽陽性，只適合族群篩檢。（也可提 NS3 為標記，見第 4 週 DIVA 表。）</p></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜2019 期中 Part A Q3</span>
+        <div class="quiz-q">請列舉出至少兩種能造成懷孕母豬 abortion、stillbirth 等 reproductive failure 的病毒性疾病，及至少三種可使用於病原確診的實驗室診斷（技術「名稱」之外，需含其基本原理）。（8 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>見<a href="week03_豬病毒性疾病II.html#section-kaogu">第 3 週考古題</a>：PPV1、PRRSV、PCV2-RD、JEV（本週：妊娠 60–70 天前）、PRV、CSFV；診斷用 PCR／RT-PCR、IF／IHC、HI、ELISA、病毒分離等，並寫出原理。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜2019 期中 Part A Q4</span>
+        <div class="quiz-q">豬被視為流行性感冒病毒的「mixing vessel」，對包含人在內各種動物造成公共衛生的影響，請從「病毒結構」、「流行病學」角度解釋其原因。（8 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>見<a href="week05_豬流行性感冒.html#section-mixing">第 5 週：混合容器理論</a>。骨架：病毒結構——8 段負股 RNA 可基因重組、HA／NA 多亞型；流行病學——豬呼吸道同時有 α2,3（禽）與 α2,6（人）唾液酸受體，人、禽、豬病毒共同感染重組（2009 H1N1）；豬 Mx1 較弱、ANP32A 支持禽聚合酶；反向人畜共通頻繁；員工接種疫苗。</p></div>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：使用者提供的豬病學期中考古（2019 年鄭益謙老師授課部分；答案依考卷藍筆圈選）。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">14</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調與考古題<strong>推測</strong>的出題方向，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%;">可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>ASFV 病毒特性</td><td>Asfarviridae、有封套 DNA 170–193 kb、唯一節肢動物傳播 DNA 病毒、24 基因型（I、II 在非洲外）</td></tr>
+            <tr><td>ASF 環境抵抗力與消毒</td><td>4°C 血液 18 個月；冷凍屍體數年；次氯酸鈉、檸檬酸；70°C 30 分鐘；pH &lt;3.9／&gt;11.5；血清糞便抑制消毒</td></tr>
+            <tr><td>ASF 傳播</td><td>直接口鼻、餿水、污染物、軟蜱（蛻皮、經卵、性）、螫蠅；疣豬—蜱循環 vs 歐亞野豬循環</td></tr>
+            <tr><td>ASF 臨床與病變</td><td>四型與死亡率（90–100%、30–70%）；脾腫質脆暗黑、腎點狀出血</td></tr>
+            <tr><td>ASF 診斷與防治</td><td>HAD 玫瑰花環；PCR；ELISA 篩檢＋IBT 確認；新豬隔離 30 天；基因刪除活疫苗；I／II 重組</td></tr>
+            <tr><td>CSFV 與基因型、毒力</td><td>Orthopestivirus；單一血清型三基因型；高中低毒力；3.4→2.1</td></tr>
+            <tr><td>CSF 四型與先天持續感染</td><td>50–70 天感染；免疫耐受；驗不到抗體；終生排毒</td></tr>
+            <tr><td>CSF 病變與鑑別</td><td>脾梗塞、淋巴結周邊出血、腎膀胱點狀出血、迴盲瓣與腸道鈕扣狀潰瘍；ASF、PRRS、PCVAD、PR、豬丹毒、沙門氏菌</td></tr>
+            <tr><td>CSF 診斷與 DIVA</td><td>FAVNT 金標準；qRT-PCR 分基因型與疫苗株；E2 次單位＋Erns ELISA；CP7_E2alf</td></tr>
+            <tr><td>台灣 CSF 根除史</td><td>1996 後 3.4→2.1；LPC 保護兩者；2006 後無病毒；2023 停打</td></tr>
+            <tr><td>JEV 傳播與宿主</td><td>豬增幅宿主（2–4 天病毒血症）；人馬終端宿主；鷺類維持宿主</td></tr>
+            <tr><td>JEV 豬臨床與病變</td><td>妊娠 60–70 天前；流死產木乃伊；公豬睪丸炎暫時；仔豬腦水腫、小腦發育不全；非化膿性腦炎</td></tr>
+            <tr><td>JEV 基因型與疫苗</td><td>I 取代 II、III；GIII 活毒苗對 GI 保護較低</td></tr>
+            <tr><td>HEV</td><td>基因型 3、4 人畜共通；豬無症狀；豬肝 24%；豬農抗體 29.5%（3.5 倍）；煮熟不活化；2–3 月齡感染</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非實際考題。</footer>
     </div>
 
     <!-- SUMMARY -->
     <div class="section" id="section-summary">
-      <div class="section-head"><div class="section-num">13</div><h2>學習重點整理</h2></div>
-      <p class="section-desc">考試／臨床實務角度的整理，方便複習前快速掃過。</p>
-
-      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>ASF vs CSF 臨床上難以單憑症狀區分</strong>，兩者皆為全身出血性疾病、皆為甲類非人畜共通傳染病，確診必須仰賴實驗室診斷；記住兩者從未同時分離自同一頭豬。</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>ASF 是 DNA 病毒（Asfarviridae）</strong>，環境抵抗力極強（血液 4°C 可達 18 個月），軟蜱（<em>Ornithodoros</em>）是生物性病媒，防治核心是生物安全與豬肉製品管制，疫苗仍在發展初期（越南等國已用基因刪除減毒活疫苗）。</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>ASF 代表性大體病變</strong>：脾臟腫大、質脆、暗紅至黑色，加上淋巴結出血腫脹；慢性型可見肺實質化與纖維蛋白性心包炎。</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>CSF 是 RNA 病毒（Pestiviridae）</strong>，分三種基因型（田間流行株已多轉為基因型 II），毒力分高／中／低／無四級。</div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>CSF 獨有先天型與產後持續感染型</strong>：懷孕中期（50–70 天）感染可致 late-onset CSF，胎兒因免疫耐受終生排毒卻檢測不到抗體——是全章機轉最複雜、也最常出題的部分。</div></div>
-      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>CSF 代表性大體病變</strong>：脾臟梗塞、腸胃道黏膜鈕扣狀潰瘍（button ulcers）、淋巴結周邊出血。</div></div>
-      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>台灣 CSF 根除時間軸</strong>：1996 後基因型 3.4→2.1、2006 後田間無病例、2023 起停止疫苗接種——具體年份務必記熟。</div></div>
-      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>JEV：豬是增幅宿主，人與馬是終端宿主</strong>；豬臨床上主要表現為妊娠 60–70 天前感染造成的生殖障礙（流產、死產、木乃伊化）與公豬暫時性不孕；基因型 I 已取代多地原流行的基因型 II、III。</div></div>
-      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>HEV：豬本身幾乎無症狀，是純粹的人畜共通與食品安全議題</strong>；基因型 3、4 可感染人與豬，糞口途徑在豬群間傳播，豬肝 HEV RNA 陽性率最高（24%），務必徹底煮熟。</div></div>
-      <div class="step"><div class="step-num">10</div><div class="step-text">四種疾病的<strong>宿主終端 vs 增幅角色</strong>建議對照記憶：ASF／CSF 豬本身是主要受害宿主；JEV 豬是增幅宿主、人馬是終端宿主；HEV 豬是無症狀儲存宿主、人是偶發終端宿主。</div></div>
-
-      <footer class="note-footer">
-        資料來源：《豬病學》課程講義〈Swine viral diseases (I)〉。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或用藥依據</strong>。
-      </footer>
+      <div class="section-head"><div class="section-num">15</div><h2>學習重點整理</h2></div>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>ASFV</strong>：Asfarviridae、有封套 DNA 170–193 kb、唯一蜱傳 DNA 病毒、24 基因型；非人畜共通；死亡率可達 100%。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>ASF 環境</strong>：4°C 血液 18 個月、冷凍屍體數年；次氯酸鈉、檸檬酸；先清潔再消毒。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>ASF 傳播與致病</strong>：口鼻、餿水、污染物、軟蜱；單核球與巨噬細胞；病毒血症 4–8 天；缺乏完全中和抗體。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>ASF 臨床與病變</strong>：最急性 &gt;41°C、急性 90–100%、亞急性 30–70%；脾腫質脆暗黑、腎點狀出血。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>ASF 診斷防治</strong>：HAD 玫瑰花環、PCR、ELISA＋IBT；新豬隔離 30 天；基因刪除疫苗；野豬；I／II 重組。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>CSFV</strong>：Orthopestivirus；單一血清型三基因型（I 古老與疫苗株、II 1980s、III 台灣等）；毒力高中低；4°C 6 週；冷凍肉數年。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>CSF 型式與病變</strong>：急性、慢性、先天持續感染（50–70 天、免疫耐受）、產後；脾梗塞、淋巴結周邊出血、腎膀胱點狀出血、鈕扣狀潰瘍。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>CSF 診斷防治</strong>：FAVNT 金標準；qRT-PCR 分株；E2 次單位＋Erns ELISA（DIVA）；CP7_E2alf；撲殺；台灣 2006 後無病毒、2023 停打。</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-text"><strong>JEV</strong>：Flaviviridae；豬增幅宿主、人馬終端宿主；妊娠 60–70 天前生殖障礙；公豬睪丸炎暫時；仔豬腦水腫；基因型 I 取代 III；疫苗＋蚊子控制。</div></div>
+      <div class="step"><div class="step-num">10</div><div class="step-text"><strong>HEV</strong>：Hepeviridae；基因型 3、4 人畜共通；豬無症狀；豬肝 24%、豬農風險 3.5 倍；糞口；2–3 月齡；煮熟不活化。</div></div>
     </div>
 
     <!-- QUIZ -->
     <div class="section" id="section-quiz">
-      <div class="section-head"><div class="section-num">14</div><h2>練習題 Practice Quiz</h2></div>
-      <p class="section-desc">涵蓋本週各章節重點，先自己作答再點「顯示答案」核對，答錯的觀念回對應章節重讀一次。</p>
-
+      <div class="section-head"><div class="section-num">16</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。最後 3 題是臨床情境題。</p>
       <div class="quiz-item">
         <span class="quiz-type quiz-type-tf">是非題</span>
-        <div class="quiz-q">Q1. 非洲豬瘟（ASF）是人畜共通疾病，人類接觸感染豬隻後可能發病。</div>
+        <div class="quiz-q">Q1. 非洲豬瘟是人畜共通疾病，人類接觸感染豬隻後可能發病。</div>
         <details class="quiz-reveal">
           <summary></summary>
           <div class="quiz-answer false">答案：FALSE</div>
-          <p class="quiz-explain">ASF 並非人畜共通疾病，對人類不具致病性，但對豬隻與養豬產業的衝擊極大，且病毒環境抵抗力極強，是防疫上的一大挑戰。</p>
+          <p class="quiz-explain">ASF 非人畜共通（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=10">p.10</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=70">p.70</a>）。</p>
         </details>
       </div>
-
       <div class="quiz-item">
         <span class="quiz-type quiz-type-tf">是非題</span>
-        <div class="quiz-q">Q2. 古典豬瘟（CSF）的「先天持續感染型」中，仔豬體內可穩定測得高效價抗體，因此容易早期篩檢出來。</div>
+        <div class="quiz-q">Q2. CSF 先天持續感染的仔豬可穩定測得高效價抗體，容易早期篩檢。</div>
         <details class="quiz-reveal">
           <summary></summary>
           <div class="quiz-answer false">答案：FALSE</div>
-          <p class="quiz-explain">先天持續感染型（late-onset CSF）是因胎兒免疫系統未成熟、產生免疫耐受，感染豬終生持續排毒卻往往「抗體檢測不到」，外觀可能健康，是場內隱性擴散的高風險來源，也是篩檢的一大難點。</p>
+          <p class="quiz-explain">先天持續感染因免疫耐受，終生排毒但抗體可能驗不到（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=102">p.102</a>）。</p>
         </details>
       </div>
-
       <div class="quiz-item">
         <span class="quiz-type quiz-type-tf">是非題</span>
-        <div class="quiz-q">Q3. 日本腦炎病毒感染豬隻後，人與馬都可能因接觸病豬而受到感染並繼續傳播病毒。</div>
+        <div class="quiz-q">Q3. JEV 感染豬隻後，人與馬都可能因接觸病豬而繼續傳播病毒。</div>
         <details class="quiz-reveal">
           <summary></summary>
           <div class="quiz-answer false">答案：FALSE</div>
-          <p class="quiz-explain">JEV 需經由蚊子叮咬傳播，人與馬感染後屬於偶發的終端宿主（dead-end host），體內病毒血症不足以再感染叮咬的蚊子，不會參與病毒的擴大傳播循環；豬才是關鍵的增幅宿主。</p>
+          <p class="quiz-explain">人與馬是終端宿主，靠蚊子叮咬感染，不會再傳給蚊子（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=148">p.148</a>）；豬是增幅宿主。</p>
         </details>
       </div>
-
       <div class="quiz-item">
         <span class="quiz-type quiz-type-mcq">選擇題</span>
-        <div class="quiz-q">Q4. 下列關於 ASFV 與 CSFV 病毒學特性的敘述，何者正確？</div>
+        <div class="quiz-q">Q4. ASFV 與 CSFV 的敘述，何者正確？</div>
         <ul class="quiz-options">
           <li>(A) ASFV 是 RNA 病毒，CSFV 是 DNA 病毒</li>
-          <li>(B) ASFV 是唯一已知經節肢動物傳播的 DNA 病毒，CSFV 屬於 Pestiviridae 科的 RNA 病毒</li>
-          <li>(C) 兩者皆屬 Flaviviridae 科</li>
-          <li>(D) 兩者皆為人畜共通病毒</li>
+          <li>(B) ASFV 是唯一節肢動物傳播的 DNA 病毒，CSFV 是 Pestiviridae 的 RNA 病毒</li>
+          <li>(C) 兩者皆屬 Flaviviridae</li>
+          <li>(D) 兩者皆為人畜共通</li>
         </ul>
         <details class="quiz-reveal">
           <summary></summary>
           <div class="quiz-answer correct">答案：(B)</div>
-          <p class="quiz-explain">ASFV 屬 Asfarviridae 科，是唯一已知經節肢動物（軟蜱）傳播的 DNA 病毒；CSFV 屬 Pestiviridae 科 Orthopestivirus 屬的 RNA 病毒。兩者皆非人畜共通病毒。</p>
+          <p class="quiz-explain">ASFV 為 Asfarviridae DNA 病毒（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=19">p.19</a>）；CSFV 為 Pestiviridae RNA 病毒（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=79">p.79</a>）；兩者皆非人畜共通。</p>
         </details>
       </div>
-
       <div class="quiz-item">
         <span class="quiz-type quiz-type-mcq">選擇題</span>
-        <div class="quiz-q">Q5. 一頭懷孕母豬於妊娠第 55 天感染 CSFV，下列敘述何者最可能發生？</div>
+        <div class="quiz-q">Q5. ASF 脾臟最典型的大體病變是？</div>
         <ul class="quiz-options">
-          <li>(A) 對胎兒完全無影響，因為已過了關鍵敏感期</li>
-          <li>(B) 胎兒可能因免疫耐受而產生持續性病毒血症，出生後外觀健康但終生排毒</li>
-          <li>(C) 一定會造成立即流產，不會有活產仔豬</li>
-          <li>(D) 母豬會因此獲得終生免疫，不再具傳染性</li>
+          <li>(A) 邊緣梗塞</li>
+          <li>(B) 腫大、質脆、暗黑</li>
+          <li>(C) 萎縮</li>
+          <li>(D) 白色壞死點</li>
         </ul>
         <details class="quiz-reveal">
           <summary></summary>
           <div class="quiz-answer correct">答案：(B)</div>
-          <p class="quiz-explain">妊娠中期（50–70 天）感染屬於先天持續感染型的高風險時間窗，胎兒免疫系統尚未成熟、無法辨識病毒產生抗體，出生後可能外觀健康或僅有非典型症狀，但終生持續排毒，是 late-onset CSF 的典型情境。</p>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=45">p.45</a>；邊緣梗塞是 CSF（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=107">p.107</a>）。</p>
         </details>
       </div>
-
       <div class="quiz-item">
         <span class="quiz-type quiz-type-mcq">選擇題</span>
-        <div class="quiz-q">Q6. 關於 JEV 感染豬隻的臨床意義，下列敘述何者正確？</div>
+        <div class="quiz-q">Q6. 母豬妊娠第 90 天感染 JEV，最可能的結果？</div>
         <ul class="quiz-options">
-          <li>(A) 豬感染後幾乎必然出現嚴重神經症狀而死亡</li>
-          <li>(B) 母豬妊娠後期（接近分娩）感染，造成生殖障礙的風險最高</li>
-          <li>(C) 母豬妊娠 60–70 天前感染，較可能導致流產、死產或木乃伊化胎兒</li>
-          <li>(D) JEV 對公豬的生殖系統完全沒有影響</li>
+          <li>(A) 流產</li>
+          <li>(B) 木乃伊胎</li>
+          <li>(C) 對胎兒影響很小或沒有</li>
+          <li>(D) 死產</li>
         </ul>
         <details class="quiz-reveal">
           <summary></summary>
           <div class="quiz-answer correct">答案：(C)</div>
-          <p class="quiz-explain">JEV 感染豬隻多為亞臨床，最常見的表現是妊娠 60–70 天前感染造成的生殖障礙（流產、死產、木乃伊化、弱仔）；妊娠後期感染影響通常很小或無影響。公豬感染則可能造成睪丸水腫充血、暫時性不孕。</p>
+          <p class="quiz-explain">只有妊娠 60–70 天前感染才發生生殖障礙（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=157">p.157</a>）。</p>
         </details>
       </div>
-
       <div class="quiz-item">
         <span class="quiz-type quiz-type-mcq">選擇題</span>
-        <div class="quiz-q">Q7. 關於豬 E 型肝炎病毒（HEV）的敘述，下列何者正確？</div>
+        <div class="quiz-q">Q7. 下列哪個 CSF 疫苗搭配 Erns ELISA 可做 DIVA？</div>
         <ul class="quiz-options">
-          <li>(A) HEV-1、HEV-2 是感染豬隻最重要的人畜共通基因型</li>
-          <li>(B) 豬感染 HEV 後通常會出現明顯的黃疸與厭食等臨床症狀</li>
-          <li>(C) HEV-3、HEV-4 可同時感染人與豬，是最具人畜共通意義的基因型，豬感染後多為無症狀</li>
-          <li>(D) 徹底加熱至 56°C 一小時即可完全去活化豬肝中的病毒感染力</li>
+          <li>(A) LPC 減毒活疫苗</li>
+          <li>(B) E2 次單位疫苗</li>
+          <li>(C) 不活化全病毒苗</li>
+          <li>(D) 所有疫苗皆可</li>
         </ul>
         <details class="quiz-reveal">
           <summary></summary>
-          <div class="quiz-answer correct">答案：(C)</div>
-          <p class="quiz-explain">HEV-1、HEV-2 僅感染人類；HEV-3、HEV-4 可感染人、豬與其他物種，是人畜共通意義最大的基因型，豬感染後通常無臨床症狀，僅有輕度顯微層級肝炎病變。56°C／1 小時並不足以完全去活化豬肝中的病毒感染力，須「充分煮熟」而非僅是加熱。</p>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=137">p.137</a>。減毒活疫苗誘發的抗體與野外感染無法區分（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=131">p.131</a>）。</p>
         </details>
       </div>
-
       <div class="quiz-item">
         <span class="quiz-type quiz-type-saq">簡答題</span>
-        <div class="quiz-q">Q8. 為什麼臨床上很難單憑症狀區分 ASF 與 CSF？請說明依據，以及確診應採取的做法。</div>
+        <div class="quiz-q">Q8. 請說明 CSF「先天持續感染」的形成、特徵，以及為何難以控制。</div>
         <details class="quiz-reveal">
           <summary></summary>
-          <p class="quiz-explain">德國曾比較中等毒力 ASFV 與 CSFV 病例，發現中等毒力的 ASFV 感染已不再表現典型的大量血樣腹瀉與脾臟腫大等特徵性症狀；挑戰試驗也顯示 ASFV 與 CSFV 誘發的臨床症狀非常相似。兩者皆可造成高熱、沉鬱、出血、流產等全身性出血性疾病表現，症狀高度重疊。因此臨床懷疑任一疾病時，都必須送檢進行實驗室診斷（病毒分離、PCR、血清學等）以確診，不能僅憑臨床症狀或單一病變做出最終判斷；值得注意的是，ASFV 與 CSFV 從未在同一頭豬身上被同時分離出。</p>
+          <p class="quiz-explain">母豬懷孕中期（50–70 天）感染，病毒經胎盤感染胎兒；胎兒免疫系統未成熟 → 免疫耐受，無法辨識病毒也不產生抗體；出生的仔豬可能外觀健康或非典型症狀、存活數個月最終死亡，終生排毒、抗體可能驗不到、疫苗效果差、病毒持續存在環境（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=101">p.101–102</a>）。因為外觀健康又驗不到抗體，用血清學篩檢會漏掉，需靠抗原／RT-PCR；是場內隱性擴散的來源。</p>
         </details>
       </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q9.【臨床情境】一個國家沒有 ASF，但在入境檢疫查獲旅客攜帶的香腸；同時鄰近國家有野豬 ASF 疫情。請問：(1) 為什麼這是風險？(2) 養豬場應做哪些預防？(3) 若場內發現病豬，現場處置？(4) 如何確診？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> ASFV 在豬肉製品存活很久（醃燻火腿 &gt;140 天、冷凍數年），餿水餵豬是傳播途徑；野豬維持循環（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=23">p.23</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=27">p.27</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=62">p.62</a>）。<br><strong>(2)</strong> 不餵餿水與未煮熟豬肉製品；隔離病豬；避免接觸野豬（可室內飼養）；新豬隔離至少 30 天；車輛、器具、鞋與衣物消毒；適當處理糞便與屍體；控制蜱與昆蟲（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=58">p.58–59</a>）。<br><strong>(3)</strong> 場區隔離、通報主管機關、移動限制、調查與追溯、快速診斷；撲殺感染與接觸動物、適當處理屍體、清潔消毒（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=60">p.60–61</a>）。<br><strong>(4)</strong> PCR（任何樣本包括腐敗樣本）、病毒分離與 HAD（玫瑰花環，專一但需初代細胞、3–10 天）、ELISA 篩檢＋IBT／IFAT／IPT 確認（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=52">p.52–56</a>）。</p></details></div>
 
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-saq">簡答題</span>
-        <div class="quiz-q">Q9. 請說明台灣古典豬瘟（CSF）根除歷程的關鍵時間點，並解釋為什麼「長期監測」與「階段性停打疫苗」是成功根除的必要條件。</div>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <p class="quiz-explain">台灣 CSF 田間病毒基因型在 1996 年後由 3.4 轉變為 2.1（兩者皆屬中等毒力），LPC 兔化疫苗對兩基因型皆具保護力；2006 年後田間未再檢出病毒；在確認長期無病例後，於 2023 年起正式停止疫苗接種。長期監測的必要性在於：唯有持續的抗原／抗體監測，才能確認田間病毒是否真的已經清除，避免過早停打疫苗導致易感族群擴大而爆發疫情；階段性停打則是因為疫苗接種本身會使抗體監測難以區分「疫苗誘發抗體」與「田間感染抗體」，唯有在確認無田間病毒流通後逐步停止接種，才能讓血清學監測恢復其判別野外感染的效力，是達成清淨國認證的必要步驟。</p>
-        </details>
-      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q10.【臨床情境】一個豬場有 6 週齡仔豬發燒 41°C、沉鬱、皮膚發紺、結膜炎、先便秘後下痢，部分有神經症狀，死亡率高；剖檢脾臟邊緣梗塞、淋巴結周邊出血、腎表面點狀出血、迴盲瓣潰瘍。台灣自 2006 年後田間無豬瘟。請問：(1) 診斷方向與鑑別？(2) 如何區分 ASF？(3) 實驗室確診？(4) 台灣的防疫意義？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 急性 CSF（高毒力株、幼豬）；鑑別 ASF、急性 PRRS、PCVAD、PR、豬丹毒、沙門氏菌（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=90">p.90</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=104">p.104–115</a>）。<br><strong>(2)</strong> ASF 與 CSF 症狀高度相似，僅靠臨床無法區分；CSF 的脾是邊緣梗塞、腸有鈕扣狀潰瘍；ASF 的脾是腫大質脆暗黑。兩者從未在同一頭豬分離到，一定要實驗室確診（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=116">p.116</a>）。<br><strong>(3)</strong> 取扁桃腺、脾、淋巴結、腎、迴盲瓣、血液；RT-PCR／qRT-PCR（可分基因型、區分疫苗株與野外株）、病毒分離；血清用 FAVNT（金標準）或 ELISA（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=117">p.117–123</a>）。<br><strong>(4)</strong> 台灣是甲類傳染病、2006 年後田間無病毒、2023 起停打疫苗；出現病例代表疫苗停打後的重大事件，要立即通報、移動管制、撲殺（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=141">p.141–142</a>）。</p></details></div>
 
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-saq">簡答題</span>
-        <div class="quiz-q">Q10. JEV 傳播循環中，為什麼豬被稱為「增幅宿主（amplifying host）」而人與馬是「終端宿主（dead-end host）」？這個概念對豬場防疫有什麼實務意義？</div>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <p class="quiz-explain">豬感染 JEV 後會產生高效價病毒血症，通常持續 2–4 天，其病毒效價足以感染叮咬牠的蚊子，使病毒能繼續在「蚊子—豬—蚊子」的循環中擴大傳播，因此豬在流行病學上扮演「增幅宿主」的角色，且豬的病毒效價一致高於其他家畜，可作為地方流行區監測病毒傳播的敏感指標動物。相對地，人與馬感染後雖可能出現腦炎等嚴重症狀，但體內病毒血症濃度不足以再感染叮咬的蚊子，因此屬於「終端宿主」，不會參與病毒的擴大傳播。實務意義是：豬場的病媒蚊管理與豬隻血清監測，不只是保護豬隻本身的生殖效能，也直接關係到鄰近人類社區的日本腦炎流行風險，公衛與獸醫防疫必須合併考量（One Health 概念）。</p>
-        </details>
-      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q11.【臨床情境】夏秋季，一個豬場 5 頭初產母豬在妊娠第 55 天左右產出多頭死胎、木乃伊胎與虛弱仔豬，部分仔豬有腦水腫；場外有水田，常見蚊子，鄰近有鷺鳥棲息；一頭種公豬單側睪丸腫脹。母豬本身沒有症狀。(1) 最可能病原？(2) 豬在流行病學的角色？(3) 預防？(4) 人類相關的公衛意義？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 日本腦炎病毒（JEV）：蚊媒、妊娠 60–70 天前感染生殖障礙、公豬睪丸腫脹暫時性、仔豬腦水腫（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=157">p.157–160</a>）。鑑別 PPV1、PRRS、PR、CSF、布氏桿菌等（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=162">p.162</a>）。<br><strong>(2)</strong> 豬是增幅宿主：高效價病毒血症 2–4 天足以感染蚊子；鷺類鳥是維持宿主；人與馬是終端宿主（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=148">p.148</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=152">p.152</a>）。<br><strong>(3)</strong> 疫苗（減毒活疫苗較不活化有效；基因型 I 興起可能降低 GIII 疫苗效力）、蚊子管理（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=166">p.166–168</a>）。<br><strong>(4)</strong> 豬的病毒增幅先於人類疫情；約 75% 人類病例為 15 歲以下兒童（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=147">p.147</a>）。</p></details></div>
 
-      <footer class="note-footer">
-        練習題涵蓋本週筆記各章節重點，答案與解析僅供自我複習參考。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
-      </footer>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
   </main>
@@ -921,20 +1210,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const SECTION_NAMES = {
-  abstract: '重點摘要',
-  'asf-overview': '病毒學與環境抵抗力(ASF)',
-  'asf-transmission': '傳播與致病機轉(ASF)',
-  'asf-clinical': '臨床症狀與病理病變(ASF)',
-  'asf-dx': '鑑別診斷、診斷與防治(ASF)',
-  'csf-overview': '病毒學與環境抵抗力(CSF)',
-  'csf-clinical': '致病機轉與臨床型式(CSF)',
-  'csf-lesions': '病理病變與鑑別診斷(CSF)',
-  'csf-dx': '診斷、防治與台灣根除史(CSF)',
-  compare: 'ASF vs CSF 比較',
-  jev: '日本腦炎',
-  hev: 'E型肝炎',
-  summary: '學習重點整理',
-  quiz: '練習題'
+  'abstract': '大方向與重點摘要',
+  'intro': '豬病的衝擊與總論',
+  'asf-a': '病毒、流行病學與環境抵抗力',
+  'asf-b': '傳播與致病機轉',
+  'asf-c': '臨床症狀與病變',
+  'asf-d': '鑑別診斷、診斷與防治',
+  'csf-a': '病毒、流行病學與傳播',
+  'csf-b': '臨床型式、病變與診斷',
+  'csf-c': '防治、DIVA 與台灣 CSF',
+  'jev': '日本腦炎 Japanese Encephalitis',
+  'hev': 'E 型肝炎 Hepatitis E',
+  'compare': 'ASF vs CSF 比較',
+  'kaogu': '期中考古題',
+  'exam': '考試方向（推測）',
+  'summary': '學習重點整理',
+  'quiz': '練習題'
 };
 
 document.addEventListener('click', function (e) {
@@ -1006,7 +1297,55 @@ function doSearch(q) {
   resultsBox.classList.add('open');
   input.classList.add('has-results');
 }
+
 </script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script>
