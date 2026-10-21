@@ -33,11 +33,13 @@
   ```
   DVM-note/
   ├── index.html            ← 總覽首頁，依學期列出所有科目卡片（doors 元件），含跨科目/跨週次搜尋框＋頂部學期導覽
-  ├── search-index.js       ← 跨頁搜尋索引（SEARCH_INDEX 陣列），每新增/修改一份內頁務必同步更新
+  ├── search-index.js       ← 跨頁搜尋索引（SEARCH_INDEX 陣列，手寫的關鍵字與摘要），每新增/修改一份內頁務必同步更新
+  ├── search-fulltext.js    ← 全文搜尋索引，**自動產生、勿手改**：`python3 DVM-note/_scripts/build_search_fulltext.py`（掃描所有頁面依章節／h3 切開，含各科自我測驗題庫）；本機 git pre-commit hook 會在 commit 時自動重建，沒有 hook 的環境要手動跑
   ├── assets/
   │   ├── style.css         ← 舊版共用樣式，總覽頁仍會載入（提供部分基礎 reset／header-brand 排版），內頁不載入
   │   ├── site.js            ← 共用基礎腳本（主題切換等），所有頁面都載入
-  │   ├── global-search.js  ← 跨頁搜尋邏輯，讀取 search-index.js 的 SEARCH_INDEX，只給總覽頁／科目頁載入
+  │   ├── global-search.js  ← 舊版跨頁搜尋下拉框（總覽頁仍載入，但輸入框已被 spotlight 隱藏取代）
+  │   ├── spotlight.js       ← 全站搜尋視窗（⌘K／Ctrl+K、/、頁首「搜尋全站」按鈕），由 nav.js 自動載入、所有頁面都有；第一次開啟才載入 search-index.js＋search-fulltext.js（全文），依「科目→頁面→章節（›小節）」分組成卡片＋右側預覽（列出關鍵字在該節出現的句子）
   │   ├── nav.css / nav.js   ← 頂列跨學期 dropdown 導覽的樣式與邏輯，所有頁面都載入
   │   ├── nav-data.js        ← 頂列導覽資料（SITE_NAV：依年級「大四／大三／大二／大一」四個分類，topics 為各科目連結），新增科目要同步更新。**注意：導覽顯示名稱是「年級」（大四/大三/大二/大一），與底下實際資料夾路徑名稱不同**——`大四上/` 資料夾對應「大四」分類、`總複習/解剖生理學/` 對應「大一」分類、`總複習/獸醫生理學/` 對應「大二」分類，資料夾名稱維持不變，只有 `nav-data.js` 的 `label`／`id` 與各頁 `data-current` 屬性用年級名稱
   │   └── ah.css              ← 排版主體樣式（沿用 `上群AH/assets/ah.css`，永遠最後載入），內含 pagehead／doors／toc／section／card／alert／table／quiz 等所有元件

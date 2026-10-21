@@ -472,3 +472,12 @@ function initSiteNav(containerId, panelId) {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
+
+/* 全站搜尋視窗（Spotlight 風格）：程式在 assets/spotlight.js，這裡只負責載入 */
+(function () {
+  var me = document.currentScript;
+  if (!me || window.__spotlight) return;
+  var s = document.createElement('script');
+  s.src = me.src.replace(/nav\.js(\?.*)?$/, 'spotlight.js');
+  document.head.appendChild(s);
+})();
