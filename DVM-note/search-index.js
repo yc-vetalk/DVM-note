@@ -2878,6 +2878,118 @@ const SEARCH_INDEX = [
     snippet: "選項提及豬（較不確定，111 題）：專技高考獸醫傳染病學歷屆國考題 111 題，含官方答案與逐選項詳解。"
   },
   {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s0", sectionName: "禽流感（Avian Influenza, AI）",
+    keywords: "禽流感 Avian Influenza, AI  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "禽流感（Avian Influenza, AI）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s1", sectionName: "禽痘與禽間質肺炎病毒（Pox／aMPV）",
+    keywords: "禽痘與禽間質肺炎病毒 Pox aMPV  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "禽痘與禽間質肺炎病毒（Pox／aMPV）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s2", sectionName: "新城病（Newcastle Disease, ND）",
+    keywords: "新城病 Newcastle Disease, ND  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "新城病（Newcastle Disease, ND）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s3", sectionName: "傳染性支氣管炎（Infectious Bronchitis, IB）",
+    keywords: "傳染性支氣管炎 Infectious Bronchitis, IB  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "傳染性支氣管炎（Infectious Bronchitis, IB）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s4", sectionName: "傳染性喉頭氣管炎（Infectious Laryngotracheitis, ILT）",
+    keywords: "傳染性喉頭氣管炎 Infectious Laryngotracheitis, ILT  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "傳染性喉頭氣管炎（Infectious Laryngotracheitis, ILT）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s5", sectionName: "馬立克病（Marek's Disease, MD）",
+    keywords: "馬立克病 Marek's Disease, MD  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "馬立克病（Marek's Disease, MD）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s6", sectionName: "禽白血病與網狀內皮增生症（ALV／REV）",
+    keywords: "禽白血病與網狀內皮增生症 ALV REV  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "禽白血病與網狀內皮增生症（ALV／REV）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s7", sectionName: "傳染性華氏囊病（IBD）與雞傳染性貧血（CIA）",
+    keywords: "傳染性華氏囊病 IBD 與雞傳染性貧血 CIA  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "傳染性華氏囊病（IBD）與雞傳染性貧血（CIA）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s8", sectionName: "呼腸孤病毒、腺病毒、禽腦脊髓炎（Reo／Adeno／AE）",
+    keywords: "呼腸孤病毒 腺病毒 禽腦脊髓炎 Reo Adeno AE  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "呼腸孤病毒、腺病毒、禽腦脊髓炎（Reo／Adeno／AE）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s9", sectionName: "水禽病毒病（鴨病毒性肝炎、鴨瘟、鵝／番鴨小病毒等）",
+    keywords: "水禽病毒病 鴨病毒性肝炎 鴨瘟 鵝 番鴨小病毒等  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "水禽病毒病（鴨病毒性肝炎、鴨瘟、鵝／番鴨小病毒等）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s10", sectionName: "寵物鳥疾病（PBFD、多瘤病毒、PDD、鸚鵡熱等）",
+    keywords: "寵物鳥疾病 PBFD 多瘤病毒 PDD 鸚鵡熱等  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "寵物鳥疾病（PBFD、多瘤病毒、PDD、鸚鵡熱等）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s11", sectionName: "其他禽病毒（星狀病毒、輪狀病毒、火雞腸炎等）",
+    keywords: "其他禽病毒 星狀病毒 輪狀病毒 火雞腸炎等  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "其他禽病毒（星狀病毒、輪狀病毒、火雞腸炎等）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s12", sectionName: "細菌性疾病（沙門氏、大腸桿菌、黴漿菌、家禽霍亂、傳染性鼻炎、梭菌、葡萄球菌、結核、漿膜炎）",
+    keywords: "細菌性疾病 沙門氏 大腸桿菌 黴漿菌 家禽霍亂 傳染性鼻炎 梭菌 葡萄球菌 結核 漿膜炎  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "細菌性疾病（沙門氏、大腸桿菌、黴漿菌、家禽霍亂、傳染性鼻炎、梭菌、葡萄球菌、結核、漿膜炎）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s13", sectionName: "黴菌與寄生蟲（麴菌、球蟲、組織滴蟲、住白血球蟲等）",
+    keywords: "黴菌與寄生蟲 麴菌 球蟲 組織滴蟲 住白血球蟲等  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "黴菌與寄生蟲（麴菌、球蟲、組織滴蟲、住白血球蟲等）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s14", sectionName: "其他（題幹提及但未歸入上列疾病）",
+    keywords: "其他 題幹提及但未歸入上列疾病  國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "其他（題幹提及但未歸入上列疾病）：專技高考獸醫傳染病學歷屆國考題  題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "禽病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/禽病學統整.html",
+    section: "s15", sectionName: "選項提及禽",
+    keywords: "選項提及禽 國考題 歷屆 專技高考 獸醫傳染病學 禽病學 雞 家禽",
+    snippet: "選項提及禽：專技高考獸醫傳染病學歷屆國考題 77 題，含官方答案；期中範圍疾病附逐選項詳解。"
+  },
+  {
     subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
     url: "國考/獸醫傳染病學/統整表格.html",
     section: "tox", sectionName: "毒素與細菌病總表（按疾病）",
@@ -2897,6 +3009,13 @@ const SEARCH_INDEX = [
     section: "trap", sectionName: "國考陷阱對照：把毒素放錯病",
     keywords: "國考 陷阱 EFT ShetC PmtA Stx2d 混淆 毒素",
     snippet: "國考常把 A 病毒素放進 B 病選項：EFT 不是 Bb 因子、ApxIII 不溶血、水腫病不是 cAMP。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "fim", sectionName: "大腸桿菌線毛對照",
+    keywords: "線毛 fimbriae F4 K88 F5 K99 F6 987P F18 F41 type 1 P curli ETEC 尿道感染 UPEC 水腫病 離乳後下痢 大腸桿菌",
+    snippet: "新生仔豬下痢＝F4、F5、F6、F41；離乳後下痢＝F4 或 F18；水腫病＝F18；尿道感染＝type 1＋P（P＝腎盂腎炎）。F4＝K88、F5＝K99、F6＝987P。"
   },
   {
     subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "循環系統",
@@ -3526,7 +3645,7 @@ const SEARCH_INDEX = [
     url: "大四上/禽病學/week06_總論與解剖.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 選擇題 是非題 臨床情境題 解剖 ZW 華氏囊",
-    snippet: "8題：ZW、氣囊、分類、消化道順序、育種目標、土番鴨、華氏囊、採樣情境。"
+    snippet: "12題：ZW、氣囊、分類、消化道順序、育種目標、土番鴨、華氏囊、腺胃肌胃、初級淋巴器官、橫膈、氣囊炎、採樣情境。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 7, weekTitle: "種禽生產醫學與生物安全",
@@ -3603,7 +3722,7 @@ const SEARCH_INDEX = [
     url: "大四上/禽病學/week07_種禽生產醫學.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 選擇題 是非題 臨床情境題 育雛 光照 生物安全 消毒",
-    snippet: "9題：層級、溫度、雛雞行為、光照、孵化、消毒劑、先清潔再消毒、兩題臨床情境。"
+    snippet: "12題：層級、溫度、雛雞行為、光照、孵化、消毒劑、先清潔再消毒、育雛體溫濕度、兩題臨床情境。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 8, weekTitle: "馬立克病 (MD)",
@@ -3757,7 +3876,224 @@ const SEARCH_INDEX = [
     url: "大四上/禽病學/week09_禽白血病與網狀內皮增生症.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 選擇題 是非題 臨床情境題 ALV REV 免疫耐受",
-    snippet: "11題：亞群、gp85、免疫耐受、p27 ELISA、LL vs ML、轉形、DF-1、REV、四病鑑別、兩題臨床情境。"
+    snippet: "12題：亞群、gp85、免疫耐受、p27 ELISA、LL vs ML、轉形、DF-1、REV、四病鑑別、兩題臨床情境。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 傳染性華氏囊病 (IBD)",
+    snippet: "1 大方向與重點摘要 傳染性華氏囊病的大方向 這是什麼病 由 傳染性華氏囊病病毒（IBDV） 引起的小雞急性、高傳染力病毒病，又稱 甘保羅病（Gumboro d…"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "immune", sectionName: "禽類免疫與華氏囊",
+    keywords: "禽類免疫系統與華氏囊 Avian Immune System 淋巴器官 華氏囊的歷史與 B 細胞發育 雞的體液免疫 傳染性華氏囊病 (IBD)",
+    snippet: "先懂華氏囊在免疫裡的角色，才知道為什麼 IBD 會讓雞「什麼疫苗都打不起來」。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "virus", sectionName: "病原與毒力分型",
+    keywords: "病原與毒力分型 Etiology 病毒特性 血清型與毒力分型 傳染性華氏囊病 (IBD)",
+    snippet: "記住三個數字：2 段雙股 RNA、2 個血清型（只有 1 型致病）、死亡率 20% 與 5% 兩個切點。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "pathogenesis", sectionName: "傳播與致病機轉",
+    keywords: "傳播與致病機轉 Transmission & Pathogenesis 傳播 致病機轉與年齡 傳染性華氏囊病 (IBD)",
+    snippet: "同一個病毒，雞幾週齡被感染決定了結局：太小 → 一輩子免疫抑制；3–6 週 → 急性病死。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "clinical", sectionName: "臨床症狀",
+    keywords: "臨床症狀 Clinical Signs 兩種病型 死亡率 傳染性華氏囊病 (IBD)",
+    snippet: "急性型看得到：水樣下痢、啄肛、站不起來；免疫抑制型看不到，只看到「長不好、疫苗失效」。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "lesions", sectionName: "肉眼與組織病變",
+    keywords: "肉眼與組織病變 Lesions 華氏囊的時間變化 其他肉眼病變 組織病變 傳染性華氏囊病 (IBD)",
+    snippet: "華氏囊的大小會「先腫後縮」：看到腫大出血是急性期，看到萎縮可能是後期或變異株。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "diagnosis", sectionName: "實驗室診斷",
+    keywords: "實驗室診斷 Diagnosis 方法總覽 病毒分離 分子定型與抗體檢測 傳染性華氏囊病 (IBD)",
+    snippet: "IBD 的診斷不只要「有沒有」，還要「是哪一型」：vvIBDV、classical、variant 還是疫苗株。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "virulence", sectionName: "毒力差異與 vvIBDV",
+    keywords: "毒力差異與超強毒株 Virulence & vvIBDV 各型對華氏囊的影響 的特徵 傳染性華氏囊病 (IBD)",
+    snippet: "把各型 IBDV 對華氏囊的影響排在時間軸上，就能看出「疫苗株會再生、野外株會萎縮」。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "vaccine", sectionName: "預防與疫苗",
+    keywords: "預防與疫苗 Prevention & Vaccination 預防與控制 移行抗體空窗期 不同毒力疫苗的取捨 台灣圓桌會議推薦的免疫計畫 傳染性華氏囊病 (IBD)",
+    snippet: "IBD 疫苗的核心矛盾：移行抗體會中和疫苗，但移行抗體掉下去又會讓野外株趁虛而入；疫苗太強又會傷華氏囊。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "differential", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Differential Diagnosis IBD 與 IB：名稱相近，完全不同的病 會造成免疫抑制的病 跨講義整理 傳染性華氏囊病 (IBD)",
+    snippet: "把會造成免疫抑制、或會在華氏囊留下病變的病放在一起比。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 傳染性華氏囊病 (IBD)",
+    snippet: "11 考試方向（推測） 注意 以下是依講義強調的內容 推測 的出題方向，不是考古題，考試範圍以老師上課為準。 可能考法 答題重點 IBDV 分類與構造 Birn…"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 10, weekTitle: "傳染性華氏囊病 (IBD)",
+    url: "大四上/禽病學/week10_傳染性華氏囊病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 傳染性華氏囊病 (IBD)",
+    snippet: "12 練習題 Practice Quiz 選擇題 Q1. 傳染性華氏囊病病毒（IBDV）的構造，何者正確？ (A) 有封套、單股 RNA (B) 無封套、雙股 …"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 雞傳染性貧血 (CIA)",
+    snippet: "1 大方向與重點摘要 雞傳染性貧血的大方向 這是什麼病 由 雞貧血病毒（Chicken Anemia Virus, CAV；又稱 CIAV） 引起的 再生不良性…"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "virus", sectionName: "病原",
+    keywords: "病原 Etiology 名稱與重要性 經濟損失 肉雞 病毒特性 雞傳染性貧血 (CIA)",
+    snippet: "CAV 是講義裡最小、最耐的病毒：小到只有 2.3 kb，耐到 70°C 一小時都殺不死。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "pathogenesis", sectionName: "傳播與致病",
+    keywords: "傳播與致病機轉 Transmission & Pathogenesis 傳播 標的細胞 年齡抵抗性 感染後的血液變化 雞傳染性貧血 (CIA)",
+    snippet: "CIA 的發病很早（孵化後 3 週內），所以「病毒從哪來」答案多半是母雞。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "clinical", sectionName: "臨床症狀與病變",
+    keywords: "臨床症狀與病變 Clinical Signs & Lesions 臨床症狀 藍翅病與出血 骨髓、胸腺與脾臟 組織病變 雞傳染性貧血 (CIA)",
+    snippet: "三條線索連起來：貧血（蒼白、骨髓變黃）＋出血（血小板少）＋免疫抑制（胸腺萎縮、二次感染）。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "diagnosis", sectionName: "診斷",
+    keywords: "診斷 Diagnosis 診斷要點 雞傳染性貧血 (CIA)",
+    snippet: "CIA 有一個現場就能做的數字：血容比（PCV）≤ 27%。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "control", sectionName: "疫苗與防治",
+    keywords: "疫苗與防治 Prevention & Control 疫苗 生物安全 台灣圓桌會議結論 雞傳染性貧血 (CIA)",
+    snippet: "CIA 疫苗的邏輯和 IBD 不一樣：小雞太小不能打（疫苗本身會致病），所以打媽媽，讓移行抗體保護小雞。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "differential", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Differential Diagnosis 小雞免疫抑制病比較 雞傳染性貧血 (CIA)",
+    snippet: "講義列出的鑑別診斷是 MD、REV、IBD：都是會讓小雞免疫抑制、或造成淋巴器官病變的病毒。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 雞傳染性貧血 (CIA)",
+    snippet: "8 考試方向（推測） 注意 以下是依講義強調的內容 推測 的出題方向，不是考古題，考試範圍以老師上課為準。 可能考法 答題重點 病毒分類與構造 環狀病毒；無封套…"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 11, weekTitle: "雞傳染性貧血 (CIA)",
+    url: "大四上/禽病學/week11_雞傳染性貧血.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 雞傳染性貧血 (CIA)",
+    snippet: "9 練習題 Practice Quiz 選擇題 Q1. 雞貧血病毒（CAV）的基因體是？ (A) 環狀單股 DNA，約 2.3 kb (B) 雙股 RNA，兩段…"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 家禽里奧病毒感染症 (ARV)",
+    snippet: "1 大方向與重點摘要 家禽里奧病毒感染症的大方向 這是什麼病 由 禽呼腸孤病毒（Avian Reovirus, ARV；台灣常稱「里奧病毒」） 引起。病毒普遍存…"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "virus", sectionName: "病原",
+    keywords: "病原 Etiology 病毒特性 家禽里奧病毒感染症 (ARV)",
+    snippet: "「Reo」三個字母就是這個病毒的故事：在呼吸道與腸道找到、卻一開始找不到對應疾病的「孤兒」病毒。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "host", sectionName: "宿主、年齡與傳播",
+    keywords: "宿主、年齡與傳播 Host & Transmission 宿主與年齡抵抗性 病毒性關節炎與混合感染 傳播 潛伏期與接種途徑 家禽里奧病毒感染症 (ARV)",
+    snippet: "年齡越小越敏感，但症狀要到 4–5 週齡才看得出來：感染可能在剛孵出時就發生了。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "clinical", sectionName: "臨床症狀",
+    keywords: "臨床症狀 Clinical Signs 症狀 經濟損失 家禽里奧病毒感染症 (ARV)",
+    snippet: "肉雞場看到一批雞「走路怪、長不大、羽毛亂」，死亡卻不多，就要想到里奧病毒。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "lesions", sectionName: "肉眼與組織病變",
+    keywords: "肉眼與組織病變 Lesions 關節與肌腱 其他病變 組織病變 家禽里奧病毒感染症 (ARV)",
+    snippet: "病變集中在足關節（hock）與腓腸肌腱；剪開關節看關節液是現場最快的鑑別法。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "diagnosis", sectionName: "診斷",
+    keywords: "診斷 Diagnosis 診斷方法 家禽里奧病毒感染症 (ARV)",
+    snippet: "因為正常雞也帶 ARV，診斷要把病毒、病變、抗體一起看。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "control", sectionName: "預防與疫苗",
+    keywords: "預防與疫苗 Prevention & Control 生物安全 疫苗 家禽里奧病毒感染症 (ARV)",
+    snippet: "病毒耐、雞會長期排毒，所以要清場與隔離；疫苗主要打種雞，讓移行抗體擋住最敏感的前 2–3 週。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "differential", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Differential Diagnosis 關節炎與跛行 同為 Reoviridae 的禽病毒 與其他免疫抑制病的關係 家禽里奧病毒感染症 (ARV)",
+    snippet: "肉雞跛行、關節腫脹時要一起想的病原。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向 推測 家禽里奧病毒感染症 (ARV)",
+    snippet: "9 考試方向（推測） 注意 以下是依講義強調的內容 推測 的出題方向，不是考古題，考試範圍以老師上課為準。 可能考法 答題重點 病毒分類與構造 Reovirid…"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: 12, weekTitle: "家禽里奧病毒感染症 (ARV)",
+    url: "大四上/禽病學/week12_呼腸孤病毒.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 家禽里奧病毒感染症 (ARV)",
+    snippet: "10 練習題 Practice Quiz 選擇題 Q1. 禽呼腸孤病毒（ARV）的構造，何者正確？ (A) 有封套、單股 RNA (B) 無封套、雙股 RNA、…"
   },
   {
     subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",

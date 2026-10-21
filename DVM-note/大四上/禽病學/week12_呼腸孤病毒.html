@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：家禽里奧病毒感染症 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">家禽里奧病毒感染症</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">家禽里奧病毒感染症 Avian Reovirus Infections (ARV)</h1>
+      <p class="page-subtitle">無封套 dsRNA、極耐熱的呼腸孤病毒，普遍存在雞的消化道；病原株侵犯肌腱造成病毒性關節炎／腱鞘炎（肉雞跛行、腓腸肌腱斷裂）與矮小症候群；死亡率低、經濟損失大</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《禽病學》課程講義〈Avian Reovirus Infections 家禽里奧病毒感染症〉（吳乃慧 DVM, PhD）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-22</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/呼腸孤病毒.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week12_%E5%91%BC%E8%85%B8%E5%AD%A4%E7%97%85%E6%AF%92">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（期中考導向）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">病原與流行病學</div>
+    <a onclick="showSection('virus')" id="nav-virus"><span class="nav-icon">🦠</span> 病原</a>
+    <a onclick="showSection('host')" id="nav-host"><span class="nav-icon">🐔</span> 宿主、年齡與傳播</a>
+    <div class="section-label" style="margin-top:8px;">臨床與診斷</div>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🦵</span> 臨床症狀</a>
+    <a onclick="showSection('lesions')" id="nav-lesions"><span class="nav-icon">🔬</span> 肉眼與組織病變</a>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis"><span class="nav-icon">🧪</span> 診斷</a>
+    <a onclick="showSection('control')" id="nav-control"><span class="nav-icon">💉</span> 預防與疫苗</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('differential')" id="nav-differential"><span class="nav-icon">🧩</span> 鑑別比較</a>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week12_%E5%91%BC%E8%85%B8%E5%AD%A4%E7%97%85%E6%AF%92" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">家禽里奧病毒感染症的大方向</div>
+        <dl>
+          <dt>這是什麼病</dt>
+          <dd>由<strong>禽呼腸孤病毒（Avian Reovirus, ARV；台灣常稱「里奧病毒」）</strong>引起。病毒普遍存在商業家禽（尤其肉雞）的消化道，多數感染沒有症狀；<strong>病原株會侵犯肌腱</strong>，在肉雞與火雞造成<strong>病毒性關節炎／腱鞘炎（viral arthritis／tenosynovitis）</strong>，也和<strong>矮小症候群（stunting syndrome）</strong>有關。</dd>
+          <dt>為什麼重要</dt>
+          <dd>發生率可達 100%，但<strong>死亡率低（約 5%）</strong>；損失來自<strong>體重減輕、換肉率差、適銷性降低</strong>。病毒<strong>耐熱、耐酸</strong>，又會從消化道長期排毒，雞場不易清除。常與<strong>黴漿菌（<em>Mycoplasma synoviae</em>）、葡萄球菌</strong>混合感染，也和球蟲、IBD 共同感染。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-virus">病毒</a>：Reoviridae、<em>Orthoreovirus</em>；<strong>無封套、dsRNA</strong>、80–85 nm；名稱來自 Respiratory、Enteric、Orphan；耐熱（60°C 8–10 小時）、耐 pH 3。</li>
+              <li><a href="#section-host">宿主與年齡</a>：雞、火雞；<strong>1 日齡最敏感</strong>，自然感染多在 <strong>4–7 週齡</strong>，10 週齡以上不敏感。</li>
+              <li><a href="#section-host">傳播</a>：水平（糞便 → 口、呼吸道 → 消化道）為主，垂直（介蛋）非常少；接種途徑決定潛伏期（趾蹠 1 天最短）。</li>
+              <li><a href="#section-clinical">臨床</a>：跛行、發育不良、羽毛生長不良，通常 4–5 週齡出現；產蛋下降 10%。</li>
+              <li><a href="#section-lesions">病變</a>：<strong>足關節（hock）腫脹</strong>、腓腸肌腱病變與斷裂；關節液<strong>清澈 → ARV</strong>、<strong>混濁 → 細菌</strong>；腺胃出血、大小不一。</li>
+              <li><a href="#section-diagnosis">診斷</a>：雞胚 CAM 接種 7–8 日死亡；Vero、BHK-21 等細胞；ELISA 看抗體力價<strong>均勻度</strong>。</li>
+              <li><a href="#section-control">防治</a>：生物安全（碘）；活毒與死毒併用；<strong>母雞開產前 2–3 週</strong>接種，活毒只能在開產前用；移行抗體保護小雞 2–3 週。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>病毒性 vs 細菌性關節炎</strong>：ARV 的關節液清澈，細菌（葡萄球菌等）混濁；<em>M. synoviae</em> 常一起出現。<strong>分離到病毒 ≠ 病因</strong>：臨床正常的雞消化道與呼吸道也常有 ARV，分離結果與疾病的關係不易判讀。<strong>呼腸孤 vs 輪狀病毒</strong>：同屬 Reoviridae，輪狀病毒主要造成下痢。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>病毒分類與構造（無封套 dsRNA、Orthoreovirus）；名稱縮寫的意義；耐熱與耐酸；年齡敏感性（1 日齡、4–7 週、10 週以上）；潛伏期與接種途徑（趾蹠最短）；病毒性關節炎的病變位置（足關節、腓腸肌腱）；關節液清澈或混濁的鑑別；混合感染的病原；疫苗接種時機（開產前、避免介蛋傳播疫苗病毒）。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸；標示「推測」的是依講義強調處推測的出題方向，不是考古題。考試範圍以老師上課為準。圖片為老師講義截圖。</p>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ 課表第 7 週還有腺病毒（Adenovirus）與禽腦脊髓炎（AE），目前資料夾中沒有這兩份講義，本頁只涵蓋里奧病毒講義。</p>
+      <div class="flow">
+        <div class="flow-node">糞口傳播；在消化道複製</div><div class="flow-arrow">→</div>
+        <div class="flow-node">病原株侵犯肌腱與關節</div><div class="flow-arrow">→</div>
+        <div class="flow-node">4–5 週齡跛行、足關節腫脹、腓腸肌腱斷裂</div><div class="flow-arrow">→</div>
+        <div class="flow-node">死亡少，但體重與換肉率損失大</div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian Reovirus Infections〉<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=2">p.2–13</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VIRUS -->
+    <div class="section" id="section-virus">
+      <div class="section-head"><div class="section-num">2</div><h2>病原 Etiology</h2></div>
+      <p class="section-desc">「Reo」三個字母就是這個病毒的故事：在呼吸道與腸道找到、卻一開始找不到對應疾病的「孤兒」病毒。</p>
+      <h3>病毒特性<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>分類</td><td><strong>Reoviridae</strong>、<strong><em>Orthoreovirus</em></strong> 屬</td></tr>
+            <tr><td>構造</td><td><strong>無封套</strong>、<strong>雙股 RNA（dsRNA）</strong>、二十面體衣殼、<strong>80–85 nm</strong></td></tr>
+            <tr><td>名稱</td><td>呼腸孤病毒＝<strong>R</strong>espiratory（呼吸道）＋<strong>E</strong>nteric（腸道）＋<strong>O</strong>rphan（孤兒：找不到對應疾病）</td></tr>
+            <tr><td>釋出</td><td>病毒顆粒經<strong>細胞溶解</strong>釋出（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=4">p.4</a>）</td></tr>
+            <tr><td>抵抗力</td><td><strong>耐熱（60°C 8–10 小時）</strong>、耐 <strong>pH 3</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>1954 年首次從雞呼吸道分離，1957 年從雞<strong>滑膜炎</strong>病例分離；1972 年確認為 reovirus（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=2">p.2</a>）。</li>
+        <li>普遍存在商業家禽，尤其肉雞；在禽類<strong>腸道複製</strong>；<strong>病原株會侵犯肌腱</strong>（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=7">p.7</a>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p003.jpg" alt="ARV 構造：Reoviridae、Orthoreovirus，無封套 dsRNA，二十面體 80–85 nm；名稱來自" loading="lazy"><div class="figure-caption">ARV 構造：Reoviridae、Orthoreovirus，無封套 dsRNA，二十面體 80–85 nm；名稱來自 Respiratory、Enteric、Orphan。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=3">p.3</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p004.jpg" alt="ARV 複製週期：吸附、進入、脫殼，在細胞質複製，最後細胞溶解釋出病毒。" loading="lazy"><div class="figure-caption">ARV 複製週期：吸附、進入、脫殼，在細胞質複製，最後細胞溶解釋出病毒。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=4">p.4</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p005.jpg" alt="Reoviridae 各屬比較：Orthoreovirus（禽類腱鞘炎、關節炎、呼吸病、腸炎、生長不良；糞口傳播）、Or" loading="lazy"><div class="figure-caption">Reoviridae 各屬比較：Orthoreovirus（禽類腱鞘炎、關節炎、呼吸病、腸炎、生長不良；糞口傳播）、Orbivirus（藍舌病、非洲馬疫，庫蠓傳播）、Rotavirus（腸炎下痢）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=5">p.5</a></div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian Reovirus〉<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=2">p.2–7</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- HOST -->
+    <div class="section" id="section-host">
+      <div class="section-head"><div class="section-num">3</div><h2>宿主、年齡與傳播 Host &amp; Transmission</h2></div>
+      <p class="section-desc">年齡越小越敏感，但症狀要到 4–5 週齡才看得出來：感染可能在剛孵出時就發生了。</p>
+      <h3>宿主與年齡抵抗性<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>宿主：<strong>雞、火雞</strong>；主要影響<strong>肉用雞</strong>。</li>
+        <li><strong>年齡相關抵抗性</strong>：<strong>1 日齡最敏感</strong>；自然感染多在 <strong>4–7 週齡</strong>（造成經濟損失）；<strong>10 週齡以上不敏感</strong>。</li>
+        <li>臨床正常的雞與火雞，消化道與呼吸道也常有 ARV → <strong>分離到病毒與疾病之間的關係不易判讀</strong>（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=9">p.9</a>）。</li>
+      </ul>
+      <h3>病毒性關節炎與混合感染<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>早期稱為<strong>腱鞘炎（tenosynovitis）</strong>，由 ARV 感染造成。</li>
+        <li>常與 <strong><em>Mycoplasma synoviae</em></strong> 或 <strong><em>Staphylococcus</em> spp.</strong> 混合感染；也常與<strong>球蟲、IBD</strong> 共同感染。</li>
+      </ul>
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>途徑</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>水平</strong>（主要）</td><td>糞便 → 口、呼吸道 → 消化道</td></tr>
+            <tr><td><strong>垂直</strong></td><td>介蛋傳播，<strong>非常少</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>潛伏期與接種途徑<span class="lv lv-know">理解</span></h3>
+      <p>潛伏期取決於病毒病原型、宿主年齡、暴露途徑。以 2 週齡雞為例：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>途徑</th><th>潛伏期</th></tr></thead>
+          <tbody>
+            <tr><td><strong>趾蹠（footpad）接種</strong></td><td><strong>1 天</strong>（最短）</td></tr>
+            <tr><td>氣管內接種</td><td>9 天</td></tr>
+            <tr><td>肌肉、靜脈接種</td><td>11 天</td></tr>
+            <tr><td><strong>接觸感染</strong></td><td><strong>13 天</strong>（最長，最接近自然感染）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>數字的意思：病毒直接打進腳掌，馬上就在標的組織（關節、肌腱）附近，所以 1 天就發病；自然接觸要先在消化道複製再擴散到肌腱，所以最慢（後半句為推論）。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian Reovirus〉<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=8">p.8–11</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">4</div><h2>臨床症狀 Clinical Signs</h2></div>
+      <p class="section-desc">肉雞場看到一批雞「走路怪、長不大、羽毛亂」，死亡卻不多，就要想到里奧病毒。</p>
+      <h3>症狀<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>行動不便、<strong>跛行（lameness）</strong>；通常在 <strong>4–5 週齡</strong>出現，雖然感染可能在孵出後不久就發生。</li>
+        <li><strong>發育不良（stunted）</strong>、生長慢；<strong>羽毛生長不良</strong>。</li>
+        <li>產蛋下降約 <strong>10%</strong>。</li>
+        <li><strong>死亡率不高（約 5%）</strong>，<strong>發生率最高可達 100%</strong>。</li>
+      </ul>
+      <h3>經濟損失<span class="lv lv-know">理解</span></h3>
+      <p>損失<strong>不是來自死亡</strong>，而是體重減輕、換肉率差、適銷性降低（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=13">p.13</a>）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p014.jpg" alt="肉雞矮小症候群：同齡雞體型差很多，左側病雞矮小、羽毛蓬亂。" loading="lazy"><div class="figure-caption">肉雞矮小症候群：同齡雞體型差很多，左側病雞矮小、羽毛蓬亂。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=14">p.14</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p015.jpg" alt="病雞蹲坐、跛行、不願站立（AAAP）。" loading="lazy"><div class="figure-caption">病雞蹲坐、跛行、不願站立（AAAP）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=15">p.15</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p016.jpg" alt="病雞蹲伏、以跗關節著地。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">病雞蹲伏、以跗關節著地。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=16">p.16</a></div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian Reovirus〉<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=12">p.12–16</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- LESIONS -->
+    <div class="section" id="section-lesions">
+      <div class="section-head"><div class="section-num">5</div><h2>肉眼與組織病變 Lesions</h2></div>
+      <p class="section-desc">病變集中在<strong>足關節（hock）與腓腸肌腱</strong>；剪開關節看關節液是現場最快的鑑別法。</p>
+      <h3>關節與肌腱<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>足關節腫脹</strong>，切開後有淡黃色或血樣滲出物（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=17">p.17</a>）。</li>
+        <li><strong>腓腸肌腱（gastrocnemius tendon）</strong>病變，嚴重時<strong>斷裂</strong>、出血（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=7">p.7</a>、<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=19">p.19–22</a>）。</li>
+        <li>足關節病變最清楚，剪開可見關節液增加：<strong>清澈透明 → ARV</strong>；<strong>混濁 → 細菌性感染</strong>（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=25">p.25</a>）。</li>
+      </ul>
+      <div class="alert alert-success"><div class="alert-label">重點：關節液是第一個鑑別線索</div><p>剪開足關節：關節液<strong>清澈透明</strong>想到 ARV，<strong>混濁</strong>想到細菌（例如葡萄球菌）。因為 ARV 常與 <em>M. synoviae</em>、葡萄球菌混合感染，看到混濁也不能完全排除 ARV，還是要送驗（後半句為推論）。</p></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p017.jpg" alt="足關節腫脹，切開後有淡黃色或血樣滲出物。" loading="lazy"><div class="figure-caption">足關節腫脹，切開後有淡黃色或血樣滲出物。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=17">p.17</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p018.jpg" alt="雙側足關節（hock）腫脹（AAAP）。" loading="lazy"><div class="figure-caption">雙側足關節（hock）腫脹（AAAP）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=18">p.18</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p019.jpg" alt="正常與患病雞比較：腓腸肌腱斷裂，腿的角度改變（Dr. Jenny Nicholds）。" loading="lazy"><div class="figure-caption">正常與患病雞比較：腓腸肌腱斷裂，腿的角度改變（Dr. Jenny Nicholds）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=19">p.19</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p020.jpg" alt="足關節與腱鞘腫脹、出血。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">足關節與腱鞘腫脹、出血。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=20">p.20</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p021.jpg" alt="腓腸肌腱斷裂、出血（AAAP）。" loading="lazy"><div class="figure-caption">腓腸肌腱斷裂、出血（AAAP）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=21">p.21</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p022.jpg" alt="腱鞘出血、纖維化；雙腿比較（MSD）。" loading="lazy"><div class="figure-caption">腱鞘出血、纖維化；雙腿比較（MSD）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=22">p.22</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p023.jpg" alt="腿部剖開：肌腱周圍出血、腫脹。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">腿部剖開：肌腱周圍出血、腫脹。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=23">p.23</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p024.jpg" alt="剪開足關節可見關節液增加。" loading="lazy"><div class="figure-caption">剪開足關節可見關節液增加。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=24">p.24</a></div></div>
+      <h3>其他病變<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>腺胃出血、大小不一</strong>（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=26">p.26</a>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p026.jpg" alt="腺胃出血、大小不一。" loading="lazy"><div class="figure-caption">腺胃出血、大小不一。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p027.jpg" alt="腸道。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">腸道。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=27">p.27</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：國考題（103 年、106 年）出現「里奧病毒引起腺胃脹大變薄與肌胃萎縮」，與講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=26">p.26</a> 的腺胃病變相呼應。</p>
+      <h3>組織病變<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>滑膜下層漿細胞與淋巴球浸潤</strong>；水腫、壞死（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=28">p.28</a>）。</li>
+        <li>病程進展：腱鞘淋巴球浸潤 → 肉芽組織、開始纖維化 → 慢性期明顯纖維化（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=29">p.29–30</a>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p029.jpg" alt="正常屈肌腱（左）vs 腱鞘炎肌腱：腱鞘以淋巴球浸潤為主（右）。" loading="lazy"><div class="figure-caption">正常屈肌腱（左）vs 腱鞘炎肌腱：腱鞘以淋巴球浸潤為主（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=29">p.29</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p030.jpg" alt="進階期：肉芽組織與開始纖維化（左）；慢性期：明顯纖維化與少量單核細胞（右）。" loading="lazy"><div class="figure-caption">進階期：肉芽組織與開始纖維化（左）；慢性期：明顯纖維化與少量單核細胞（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=30">p.30</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p031.jpg" alt="正常與病毒性關節炎肌腱的組織切片比較（Dr. Jenny Nicholds）。" loading="lazy"><div class="figure-caption">正常與病毒性關節炎肌腱的組織切片比較（Dr. Jenny Nicholds）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=31">p.31</a></div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian Reovirus〉<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=17">p.17–32</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">6</div><h2>診斷 Diagnosis</h2></div>
+      <p class="section-desc">因為正常雞也帶 ARV，診斷要把病毒、病變、抗體一起看。</p>
+      <h3>診斷方法<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>方法</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>病毒分離</strong></td><td>雞胚 <strong>CAM 接種 → 約 7–8 日死亡</strong>；細胞：<strong>Vero、BHK-21、PK-15</strong>（講義也列雞腎細胞 CK cell）</td></tr>
+            <tr><td>電子顯微鏡</td><td>看病毒顆粒</td></tr>
+            <tr><td>免疫螢光</td><td>組織中的病毒抗原</td></tr>
+            <tr><td>瓊脂凝膠沉降試驗（AGP）</td><td>抗原抗體沉降線</td></tr>
+            <tr><td>RT-PCR</td><td>病毒 RNA</td></tr>
+            <tr><td><strong>ELISA</strong></td><td><strong>看抗體力價均勻度</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>ELISA 看「均勻度」的意義：疫苗與移行抗體的目的是讓整群雞都有保護；如果種雞群力價高低不一，部分小雞就沒有移行抗體（推論，講義只寫「看抗體力價均勻度」）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p034.jpg" alt="10 日齡雞胚 CAM 接種，3–5 天出現白色斑塊。" loading="lazy"><div class="figure-caption">10 日齡雞胚 CAM 接種，3–5 天出現白色斑塊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=34">p.34</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p036.jpg" alt="接種後死亡的雞胚出血（右）與正常（左）。" loading="lazy"><div class="figure-caption">接種後死亡的雞胚出血（右）與正常（左）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=36">p.36</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p037.jpg" alt="ARV 在 Vero 細胞造成的細胞病變（箭頭，融合細胞）。" loading="lazy"><div class="figure-caption">ARV 在 Vero 細胞造成的細胞病變（箭頭，融合細胞）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=37">p.37</a></div></div>
+        <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p039.jpg" alt="AGP：中央孔與周圍孔之間的沉降線。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">AGP：中央孔與周圍孔之間的沉降線。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=39">p.39</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：國考題（101 年）問「家禽里奧病毒以細胞培養時可引起細胞融合」，對應 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=37">p.37</a> 的 Vero 細胞融合病變。</p>
+      <div class="figure"><img src="img/week12_呼腸孤病毒/reo_p033.jpg" alt="診斷方法：病毒分離（雞胚 CAM 接種 7–8 日死亡；Vero、BHK-21、PK-15）、電顯、免疫螢光、AGP、R" loading="lazy"><div class="figure-caption">診斷方法：病毒分離（雞胚 CAM 接種 7–8 日死亡；Vero、BHK-21、PK-15）、電顯、免疫螢光、AGP、RT-PCR、ELISA（看抗體力價均勻度）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=33">p.33</a></div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian Reovirus〉<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=33">p.33–39</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CONTROL -->
+    <div class="section" id="section-control">
+      <div class="section-head"><div class="section-num">7</div><h2>預防與疫苗 Prevention &amp; Control</h2></div>
+      <p class="section-desc">病毒耐、雞會長期排毒，所以要清場與隔離；疫苗主要打種雞，讓移行抗體擋住最敏感的前 2–3 週。</p>
+      <h3>生物安全<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>ARV 對環境抵抗力強。</li>
+        <li>會從<strong>消化道長期排毒</strong> → 得病的雞<strong>淘汰或隔離</strong>。</li>
+        <li><strong>空欄</strong>、用<strong>碘</strong>消毒。</li>
+      </ul>
+      <h3>疫苗<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>有<strong>活毒與死毒</strong>疫苗，<strong>兩者並用效果較好</strong>；目前對接種計畫尚無共識。</li>
+        <li><strong>母雞開產前 2–3 週</strong>注射疫苗。</li>
+        <li><strong>活毒疫苗只能在開產前接種</strong>，以免疫苗病毒<strong>經卵巢傳播</strong>。</li>
+        <li>以<strong>移行抗體保護小雞</strong>，可保護小雞孵出後 <strong>2–3 週</strong>不被感染。</li>
+      </ul>
+      <div class="alert alert-info"><div class="alert-label">為什麼保護前 2–3 週就夠</div><p>ARV 有年齡抵抗性：1 日齡最敏感，越大越不敏感，10 週齡以上不敏感。移行抗體撐過最敏感的前幾週，之後雞自己的年齡抵抗性接手（推論，依講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=9">p.9</a>、<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=41">p.41</a>）。</p></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Avian Reovirus〉<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=40">p.40–41</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIFFERENTIAL -->
+    <div class="section" id="section-differential">
+      <div class="section-head"><div class="section-num">8</div><h2>鑑別比較 Differential Diagnosis</h2></div>
+      <p class="section-desc">肉雞跛行、關節腫脹時要一起想的病原。</p>
+      <h3>關節炎與跛行<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>病毒性關節炎（ARV）</th><th>細菌性關節炎（葡萄球菌等）</th><th><em>Mycoplasma synoviae</em>（補充）</th></tr></thead>
+          <tbody>
+            <tr><td>關節液</td><td><strong>清澈透明</strong>、增加</td><td><strong>混濁</strong>（化膿）</td><td>—</td></tr>
+            <tr><td>典型部位</td><td>足關節、<strong>腓腸肌腱</strong>（可斷裂）</td><td>關節、趾蹠</td><td>關節、腱鞘（傳染性滑膜炎）</td></tr>
+            <tr><td>講義重點</td><td>常與右兩者混合感染</td><td>混濁關節液提示細菌</td><td>ARV 常見混合感染對象</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ <em>M. synoviae</em> 與葡萄球菌的細節在期中考之後的細菌病講義（黴漿菌症、葡萄球菌症）；本表只依里奧病毒講義的描述與一般知識整理，細節以之後的講義為準。</p>
+      <h3>同為 Reoviridae 的禽病毒<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>輪狀病毒（Rotavirus）同屬 Reoviridae，主要造成腸炎下痢（講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=5">p.5</a> 表）。</li>
+      </ul>
+      <h3>與其他免疫抑制病的關係<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>CIA 講義：<strong>IBD、MD、Reo</strong> 會增加雞貧血病毒致病力、延遲年齡抵抗性（<a href="week11_雞傳染性貧血.html">雞傳染性貧血頁</a>）。</li>
+        <li>ARV 也常與 IBD、球蟲共同感染（本講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=8">p.8</a>）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：本課程〈Avian Reovirus〉〈CIA〉講義；表中 <em>M. synoviae</em> 欄為補充。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">9</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>病毒分類與構造</td><td>Reoviridae、Orthoreovirus；無封套、dsRNA、80–85 nm</td></tr>
+            <tr><td>名稱由來</td><td>Respiratory、Enteric、Orphan</td></tr>
+            <tr><td>抵抗力</td><td>耐熱 60°C 8–10 小時、耐 pH 3；消毒用碘</td></tr>
+            <tr><td>主要疾病</td><td>病毒性關節炎／腱鞘炎（肉雞、火雞）；矮小症候群</td></tr>
+            <tr><td>年齡</td><td>1 日齡最敏感；自然感染 4–7 週齡；10 週齡以上不敏感；症狀多在 4–5 週齡出現</td></tr>
+            <tr><td>傳播</td><td>水平為主（糞口）；垂直非常少</td></tr>
+            <tr><td>潛伏期</td><td>趾蹠 1 天、氣管 9 天、肌肉靜脈 11 天、接觸 13 天</td></tr>
+            <tr><td>臨床數字</td><td>死亡率約 5%、發生率可達 100%、產蛋下降 10%</td></tr>
+            <tr><td>病變</td><td>足關節腫脹、腓腸肌腱斷裂；關節液清澈（ARV）vs 混濁（細菌）；腺胃出血</td></tr>
+            <tr><td>混合感染</td><td><em>M. synoviae</em>、<em>Staphylococcus</em>；球蟲、IBD</td></tr>
+            <tr><td>診斷</td><td>CAM 接種 7–8 日死亡；Vero、BHK-21、PK-15；ELISA 看力價均勻度</td></tr>
+            <tr><td>疫苗</td><td>活毒＋死毒併用；母雞開產前 2–3 週；活毒只在開產前（避免經卵巢傳播疫苗病毒）；移行抗體保護 2–3 週</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 禽呼腸孤病毒（ARV）的構造，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 有封套、單股 RNA</li><li>(B) 無封套、雙股 RNA、80–85 nm</li><li>(C) 無封套、環狀單股 DNA</li><li>(D) 有封套、雙股 DNA</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">Reoviridae、Orthoreovirus；無封套 dsRNA。(C) 是雞貧血病毒；(D) 是疱疹病毒。國考 101 年也考過「屬於 DNA 病毒」是錯的。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 「Reo」這個名稱的由來是？</div>
+        <ul class="quiz-options"><li>(A) Respiratory、Enteric、Orphan</li><li>(B) Retrovirus、Enterovirus、Orthomyxovirus</li><li>(C) Renal、Enteric、Oviduct</li><li>(D) 發現者的名字</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">在呼吸道與腸道分離到、一開始找不到對應疾病的「孤兒」病毒（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=3">p.3</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 禽呼腸孤病毒在肉雞最重要的疾病是？</div>
+        <ul class="quiz-options"><li>(A) 病毒性關節炎／腱鞘炎</li><li>(B) 產蛋下降症候群</li><li>(C) 包涵體肝炎</li><li>(D) 腦脊髓炎</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">病原株侵犯肌腱，造成足關節腫脹與腓腸肌腱病變（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=7">p.7–8</a>）。(B)(C) 是腺病毒；(D) 是禽腦脊髓炎。國考 99、106、111、113 年都考過這一點。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 關於 ARV 的年齡敏感性，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 10 週齡以上最敏感</li><li>(B) 1 日齡最敏感，自然感染多在 4–7 週齡，10 週齡以上不敏感</li><li>(C) 各年齡一樣敏感</li><li>(D) 只有產蛋母雞會發病</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=9">p.9</a> 的年齡相關抵抗性。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 以 2 週齡雞做 ARV 接種，哪一種途徑潛伏期最短？</div>
+        <ul class="quiz-options"><li>(A) 趾蹠（footpad）</li><li>(B) 氣管內</li><li>(C) 肌肉</li><li>(D) 接觸</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">趾蹠 1 天、氣管 9 天、肌肉靜脈 11 天、接觸 13 天（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=11">p.11</a>）。國考 98 年第二次考過。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. ARV 主要經蛋垂直傳播。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">水平傳播（糞便 → 口、呼吸道 → 消化道）為主，介蛋傳播非常少（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=10">p.10</a>）。但活毒疫苗仍要在開產前打，以免疫苗病毒經卵巢傳播（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=41">p.41</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 關於 ARV 感染的臨床表現，何者錯誤？</div>
+        <ul class="quiz-options"><li>(A) 跛行通常在 4–5 週齡出現</li><li>(B) 死亡率不高（約 5%）</li><li>(C) 發生率最高可達 100%</li><li>(D) 經濟損失主要來自高死亡率</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">損失主要來自體重減輕、換肉率差、適銷性降低，不是死亡（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=12">p.12–13</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 剪開跛行肉雞的足關節，關節液清澈透明、量增加，最可能是？</div>
+        <ul class="quiz-options"><li>(A) 病毒性關節炎（ARV）</li><li>(B) 葡萄球菌化膿性關節炎</li><li>(C) 痛風</li><li>(D) 正常</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=25">p.25</a>：清澈透明 → ARV；混濁 → 細菌性感染。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. ARV 病毒性關節炎最常與哪些病原混合感染？</div>
+        <ul class="quiz-options"><li>(A) <em>Mycoplasma synoviae</em>、<em>Staphylococcus</em> spp.</li><li>(B) 新城病病毒、禽流感病毒</li><li>(C) 馬立克病病毒、禽白血病病毒</li><li>(D) 住白血球蟲、組織滴蟲</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=8">p.8</a>；另外也與球蟲、IBD 共同感染。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. ARV 雞胚 CAM 接種後，雞胚大約多久死亡？</div>
+        <ul class="quiz-options"><li>(A) 約 3 天</li><li>(B) 約 7–8 天</li><li>(C) 不會死亡</li><li>(D) 約 1 天</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=33">p.33</a>：CAM 接種 → 接種後約 7–8 日死亡。約 3 天死亡是 IBDV 的 CAM 接種（IBD 講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=43">p.43</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 關於 ARV 疫苗，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 只有死毒疫苗</li><li>(B) 活毒疫苗可在產蛋期任何時間接種</li><li>(C) 母雞開產前 2–3 週接種，移行抗體可保護小雞孵出後 2–3 週</li><li>(D) 已有全球統一的接種計畫</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">活毒死毒並用效果較好；活毒只能在開產前接種以免經卵巢傳播；目前對接種計畫尚無共識（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=41">p.41</a>）。國考 105 年第一次第 26 題也考這一點。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q12. 為什麼從雞分離到 ARV，不一定代表 ARV 就是病因？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">ARV 普遍存在商業家禽，臨床正常的雞與火雞消化道、呼吸道也常帶有病毒，所以分離結果與疾病的關係不易判讀（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=9">p.9</a>）。要搭配典型病變（足關節腫脹、腓腸肌腱病變、清澈關節液、組織學腱鞘淋巴球浸潤）與抗體力價判斷。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一批 5 週齡肉雞，很多雞蹲坐、跛行、不願走動，體型大小不一、羽毛蓬亂，但死亡率只有約 3%。剖檢見雙側足關節腫脹，部分雞腓腸肌腱斷裂出血，剪開關節液清澈。請問：(1) 最可能的診斷？(2) 還要考慮哪些混合感染？如何區分？(3) 要送什麼檢驗？(4) 下一批怎麼預防？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 禽呼腸孤病毒引起的病毒性關節炎／腱鞘炎（4–5 週齡、跛行、矮小、死亡率低、足關節腫脹、腓腸肌腱斷裂、關節液清澈）。<br><strong>(2)</strong> <em>M. synoviae</em>、葡萄球菌；關節液混濁提示細菌性感染，可做細菌培養；也要注意球蟲與 IBD 共同感染。<br><strong>(3)</strong> 病毒分離（雞胚 CAM，約 7–8 日死亡；Vero、BHK-21 細胞）、RT-PCR、ELISA 看抗體力價均勻度；病理組織看腱鞘淋巴球與漿細胞浸潤。<br><strong>(4)</strong> 病雞淘汰或隔離（會從消化道長期排毒）、空欄、碘消毒；種雞開產前 2–3 週接種（活毒＋死毒），讓移行抗體保護小雞前 2–3 週。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一個種雞場想在產蛋期幫母雞補打 ARV 活毒疫苗，希望提高小雞的移行抗體。請問這個做法有什麼問題？應該怎麼安排？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">活毒疫苗<strong>只能在開產前</strong>接種，產蛋期打活毒可能讓疫苗病毒經卵巢傳給小雞（<a class="pdf-link" href="pdf/呼腸孤病毒.pdf#page=41">p.41</a>）。應在母雞<strong>開產前 2–3 週</strong>接種，活毒與死毒並用效果較好；產蛋期若要補強，依講義的原則不應使用活毒（死毒是否可在產蛋期補強講義沒寫，需依廠商仿單）。</p></details>
+      </div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week12_%E5%91%BC%E8%85%B8%E5%AD%A4%E7%97%85%E6%AF%92" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  virus: '病原',
+  host: '宿主、年齡與傳播',
+  clinical: '臨床症狀',
+  lesions: '肉眼與組織病變',
+  diagnosis: '診斷',
+  control: '預防與疫苗',
+  differential: '鑑別比較',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

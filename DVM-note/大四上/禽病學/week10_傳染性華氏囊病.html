@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：傳染性華氏囊病 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">傳染性華氏囊病</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">傳染性華氏囊病 Infectious Bursal Disease (IBD, Gumboro Disease)</h1>
+      <p class="page-subtitle">Birnavirus 破壞華氏囊未成熟 B 細胞：3 週齡以下感染造成終生免疫抑制，3–6 週齡發急性病；病毒對環境抵抗力極強；疫苗要配合移行抗體選對時機與毒力</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《禽病學》課程講義〈Infectious Bursal Disease（Gumboro Disease）傳染性華氏囊病〉（吳乃慧 DVM, PhD）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-22</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/傳染性華氏囊病.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week10_%E5%82%B3%E6%9F%93%E6%80%A7%E8%8F%AF%E6%B0%8F%E5%9B%8A%E7%97%85">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（期中考導向）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">基礎</div>
+    <a onclick="showSection('immune')" id="nav-immune"><span class="nav-icon">🛡️</span> 禽類免疫與華氏囊</a>
+    <a onclick="showSection('virus')" id="nav-virus"><span class="nav-icon">🦠</span> 病原與毒力分型</a>
+    <div class="section-label" style="margin-top:8px;">疾病</div>
+    <a onclick="showSection('pathogenesis')" id="nav-pathogenesis"><span class="nav-icon">🔁</span> 傳播與致病機轉</a>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🐥</span> 臨床症狀</a>
+    <a onclick="showSection('lesions')" id="nav-lesions"><span class="nav-icon">🔬</span> 肉眼與組織病變</a>
+    <div class="section-label" style="margin-top:8px;">診斷與防治</div>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis"><span class="nav-icon">🧪</span> 實驗室診斷</a>
+    <a onclick="showSection('virulence')" id="nav-virulence"><span class="nav-icon">⚖️</span> 毒力差異與 vvIBDV</a>
+    <a onclick="showSection('vaccine')" id="nav-vaccine"><span class="nav-icon">💉</span> 預防與疫苗</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('differential')" id="nav-differential"><span class="nav-icon">🧩</span> 鑑別比較</a>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week10_%E5%82%B3%E6%9F%93%E6%80%A7%E8%8F%AF%E6%B0%8F%E5%9B%8A%E7%97%85" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">傳染性華氏囊病的大方向</div>
+        <dl>
+          <dt>這是什麼病</dt>
+          <dd>由<strong>傳染性華氏囊病病毒（IBDV）</strong>引起的小雞急性、高傳染力病毒病，又稱<strong>甘保羅病（Gumboro disease）</strong>。病毒專門攻擊<strong>華氏囊</strong>裡<strong>未成熟的 B 細胞</strong>。注意 <strong>IBD ≠ IB</strong>：IB 是傳染性支氣管炎（第 3 週）。</dd>
+          <dt>為什麼重要</dt>
+          <dd>兩種損失：<strong>3–6 週齡</strong>雞急性死亡；<strong>3 週齡以下</strong>感染沒有症狀，但 B 細胞被破壞，造成<strong>免疫抑制</strong>，其他疫苗失效、二次感染增加。病毒沒有封套，<strong>對環境抵抗力極高</strong>，雞舍一旦汙染就不易排除。台灣 1992 年 vvIBD 大流行。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-immune">華氏囊</a>：B 細胞的初級淋巴器官，位於泄殖腔背側；移除華氏囊就無法產生抗體。</li>
+              <li><a href="#section-virus">病毒</a>：Birnaviridae、Avibirnavirus；<strong>無封套、雙股 RNA、兩段基因體</strong>；<strong>2 個血清型，只有血清型 1 致病</strong>，兩者無交叉保護。</li>
+              <li><a href="#section-virus">毒力分型</a>：vvIBDV（死亡率 &gt; 20%）、classical（&lt; 20%）、variant（&lt; 5%，華氏囊萎縮）、疫苗株（mild、intermediate、intermediate plus）。</li>
+              <li><a href="#section-pathogenesis">年齡決定表現</a>：&lt; 3 週齡 → 免疫抑制型；3–6 週齡 → 急性型；潛伏期 2–3 天，感染後 5–8 天死亡。</li>
+              <li><a href="#section-lesions">病變</a>：華氏囊<strong>先腫大水腫出血、5 天後萎縮</strong>；腿與胸肌出血、腎腫大、十二指腸出血。</li>
+              <li><a href="#section-diagnosis">診斷</a>：病毒分離非必要，<strong>RT-PCR 與 RFLP</strong> 最常用；抗體用 ELISA、AGID、中和試驗。</li>
+              <li><a href="#section-vaccine">疫苗</a>：種雞開產前打死毒 → 移行抗體保護小雞；小雞依移行抗體選接種時機與疫苗毒力；<strong>先弱毒基礎免疫，才能用中間毒</strong>。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>IBD 與 IB</strong>：名字只差一個字母，IBD 是華氏囊病（Birnavirus，dsRNA），IB 是傳染性支氣管炎（冠狀病毒，(+) ssRNA）。<strong>classical 與 variant</strong>：classical 讓華氏囊<strong>腫大出血</strong>，variant 讓華氏囊<strong>萎縮</strong>、死亡率低但免疫抑制明顯，而且抗原性改變、<strong>不怕移行抗體</strong>。<strong>vvIBDV</strong>：抗原性沒有改變，是靠高毒力<strong>突破較高的移行抗體</strong>。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>病毒分類與構造（無封套 dsRNA 兩段）；血清型數與交叉保護；毒力分型與死亡率；免疫抑制型與急性型的年齡；華氏囊病變的時間變化；vvIBDV 與 variant 的差別；常用診斷方法；移行抗體與疫苗時機、中間毒疫苗的使用前提；消毒用碘。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸；標示「推測」的是依講義強調處推測的出題方向，不是考古題。考試範圍以老師上課為準。圖片為老師講義截圖。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-node">糞口傳播，病毒在雞舍存活數月</div><div class="flow-arrow">→</div>
+        <div class="flow-node">感染華氏囊未成熟 B 細胞</div><div class="flow-arrow">→</div>
+        <div class="flow-node">&lt; 3 週齡：免疫抑制<br>3–6 週齡：急性死亡</div><div class="flow-arrow">→</div>
+        <div class="flow-node">疫苗失效、二次感染、換肉率差</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義 Summary</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>IBD ≠ IB；IBD＝Infectious Bursal Disease＝Gumboro disease。</li>
+          <li>好發於小雞、急性、高傳染力的病毒性疾病。</li>
+          <li>主要攻擊淋巴器官（特別是 bursa）。</li>
+          <li>對環境抵抗力高；會造成嚴重的經濟損失。</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Infectious Bursal Disease〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=15">p.15–16</a>、<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=65">p.65</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- IMMUNE -->
+    <div class="section" id="section-immune">
+      <div class="section-head"><div class="section-num">2</div><h2>禽類免疫系統與華氏囊 Avian Immune System</h2></div>
+      <p class="section-desc">先懂華氏囊在免疫裡的角色，才知道為什麼 IBD 會讓雞「什麼疫苗都打不起來」。</p>
+      <h3>淋巴器官<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層級</th><th>器官</th><th>功能與位置</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="2"><strong>初級</strong></td><td><strong>胸腺</strong> Thymus</td><td>T 細胞成熟；頸部一串小葉</td></tr>
+            <tr><td><strong>華氏囊</strong> Bursa of Fabricius</td><td><strong>B 細胞</strong>成熟；泄殖腔背側</td></tr>
+            <tr><td><strong>次級</strong></td><td>脾臟、哈氏腺（Harderian gland）、骨髓</td><td>哈氏腺在眼眶後方，是點眼疫苗誘發局部免疫的地方（補充）</td></tr>
+            <tr><td><strong>次淋巴組織</strong></td><td>CALT、GALT、BALT</td><td>結膜、腸道（盲腸扁桃、裴氏斑）、支氣管的黏膜淋巴組織</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p003.jpg" alt="雞的淋巴器官位置：胸腺、華氏囊（紅圈）、脾臟、哈氏腺、盲腸扁桃、裴氏斑、梅克爾憩室。" loading="lazy"><div class="figure-caption">雞的淋巴器官位置：胸腺、華氏囊（紅圈）、脾臟、哈氏腺、盲腸扁桃、裴氏斑、梅克爾憩室。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=3">p.3</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p006.jpg" alt="華氏囊：剖檢位置（箭頭，泄殖腔背側）、剖開後的皺褶黏膜、組織切片的濾泡。" loading="lazy"><div class="figure-caption">華氏囊：剖檢位置（箭頭，泄殖腔背側）、剖開後的皺褶黏膜、組織切片的濾泡。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=6">p.6</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p007.jpg" alt="華氏囊剖檢位置（左，箭頭）與組織切片濾泡（右）。" loading="lazy"><div class="figure-caption">華氏囊剖檢位置（左，箭頭）與組織切片濾泡（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=7">p.7</a></div></div>
+      <h3>華氏囊的歷史與 B 細胞發育<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>1621 年解剖學家 Hieronymus Fabricius 首次完整描述華氏囊構造；<strong>1956 年 Bruce Glick 發現移除華氏囊後無法形成抗體</strong>（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=9">p.9</a>）。</li>
+        <li>孵化期 21 天；B 細胞在華氏囊內形成濾泡（皮質、髓質），經<strong>基因轉換（gene conversion）</strong>產生抗體多樣性，再移到周邊。胚胎期就在發育，所以可以做<strong>蛋內接種（in ovo vaccination）</strong>（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=14">p.14</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p014.jpg" alt="B 細胞在華氏囊內發育：完整華氏囊切片，Cp＝被膜、C＝皮質、M＝髓質。" loading="lazy"><div class="figure-caption">B 細胞在華氏囊內發育：完整華氏囊切片，Cp＝被膜、C＝皮質、M＝髓質。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=14">p.14</a></div></div>
+      <h3>雞的體液免疫<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>免疫球蛋白</th><th>特徵</th><th>來源（講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=12">p.12</a> 表）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>IgM</strong></td><td>五聚體，表現在 B 細胞表面；初次反應先出現</td><td>血清、B 細胞表面</td></tr>
+            <tr><td><strong>IgY</strong></td><td>功能相當於哺乳類 IgG；血清濃度最高（5–10 mg/mL）</td><td>血清、<strong>蛋黃</strong>（移行抗體）</td></tr>
+            <tr><td><strong>IgA</strong></td><td>黏膜分泌為二聚或四聚體；局部免疫的主角</td><td>血清、膽汁、黏膜分泌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>主動免疫</strong>：初次接觸抗原 IgM → IgY（經 T 細胞與細胞激素調控的類別轉換），留下記憶 B 細胞；第二次接觸反應更快、更久（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=10">p.10–13</a>）。所以疫苗要打第二劑補強。</li>
+        <li><strong>被動免疫</strong>：母雞經<strong>蛋黃</strong>把抗體傳給小雞，就是<strong>移行抗體（maternally derived antibody, MDA）</strong>，也可以輸注抗血清。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈IBD〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=2">p.2–14</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VIRUS -->
+    <div class="section" id="section-virus">
+      <div class="section-head"><div class="section-num">3</div><h2>病原與毒力分型 Etiology</h2></div>
+      <p class="section-desc">記住三個數字：<strong>2 段</strong>雙股 RNA、<strong>2 個</strong>血清型（只有 1 型致病）、死亡率 <strong>20% 與 5%</strong> 兩個切點。</p>
+      <h3>病毒特性<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>分類</td><td><strong>Birnaviridae</strong>（雙節段 RNA 病毒科）、<strong>Avibirnavirus</strong> 屬</td></tr>
+            <tr><td>構造</td><td><strong>無封套</strong>、<strong>雙股 RNA</strong>、<strong>兩段基因體</strong>（Segment A、B）；60 nm；二十面體</td></tr>
+            <tr><td>複製</td><td>以胞吞作用（endocytosis）進入細胞，在<strong>細胞質</strong>、內體（endosome）內複製</td></tr>
+            <tr><td>抵抗力</td><td>耐乾燥、日光、部分消毒劑；<strong>pH 2–11</strong> 都穩定；可在雞舍存活 <strong>122 天</strong>、在水、糞便、墊料中 <strong>52 天</strong>；消毒水要<strong>添加碘</strong></td></tr>
+            <tr><td>宿主</td><td>雞、火雞、鴨、珠雞、鴕鳥都可感染，但<strong>只有小雞</strong>會發病</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">重點：為什麼雞舍一旦汙染就很難清乾淨</div><p>沒有封套 → 不怕脂溶劑與 70% 酒精（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=24">p.24</a>）。病雞移走後 <strong>4 個月內</strong>雞舍殘留的病毒仍可感染新雞（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=23">p.23</a>），所以統進統出之間要徹底清潔、用碘消毒。</p></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p018.jpg" alt="IBDV 構造：無封套二十面體（VP2 外殼、VP3），Segment A 編碼多蛋白（VP2、VP4、VP3）與 VP" loading="lazy"><div class="figure-caption">IBDV 構造：無封套二十面體（VP2 外殼、VP3），Segment A 編碼多蛋白（VP2、VP4、VP3）與 VP5，Segment B 編碼 VP1（聚合酶）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=18">p.18</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p020.jpg" alt="兩個血清型：血清型 1 致病，只有雞是自然宿主；血清型 2 無致病性；兩型之間沒有交叉保護。" loading="lazy"><div class="figure-caption">兩個血清型：血清型 1 致病，只有雞是自然宿主；血清型 2 無致病性；兩型之間沒有交叉保護。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=20">p.20</a></div></div>
+      </div>
+      <h3>血清型與毒力分型<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分型</th><th>死亡率</th><th>特點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>超強毒 vvIBDV</strong>（very virulent）</td><td><strong>&gt; 20%</strong></td><td><strong>台灣主要致病株</strong>；抗原性不變，靠高毒力突破移行抗體（見第 8 節）</td></tr>
+            <tr><td><strong>典型強毒</strong> classical virulent</td><td><strong>&lt; 20%</strong></td><td>華氏囊腫大出血</td></tr>
+            <tr><td><strong>變異株</strong> variant（avIBDV）</td><td><strong>&lt; 5%</strong></td><td><strong>抗原性改變</strong>（不表現 classical 抗原決定位）→ <strong>不怕移行抗體</strong> → 早期感染 → 華氏囊萎縮 → 免疫抑制</td></tr>
+            <tr><td><strong>疫苗株</strong>（attenuated, atIBDV）</td><td>—</td><td>中間偏強（intermediate plus，「hot」）、中間（intermediate）、弱（mild）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p021.jpg" alt="毒力分型一覽：vvIBDV 死亡率 &amp;gt; 20%（台灣主要致病）、classical &amp;lt; 20%、三種疫苗株，" loading="lazy"><div class="figure-caption">毒力分型一覽：vvIBDV 死亡率 &gt; 20%（台灣主要致病）、classical &lt; 20%、三種疫苗株，以及抗原變異株（不怕移行抗體、華氏囊萎縮、死亡率 &lt; 5%）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=21">p.21</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ 講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=22">p.22</a> 的世界地圖：variant 株主要在美洲，vvIBDV 廣布歐亞非。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈IBD〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=15">p.15–22</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- PATHOGENESIS -->
+    <div class="section" id="section-pathogenesis">
+      <div class="section-head"><div class="section-num">4</div><h2>傳播與致病機轉 Transmission &amp; Pathogenesis</h2></div>
+      <p class="section-desc">同一個病毒，雞幾週齡被感染決定了結局：太小 → 一輩子免疫抑制；3–6 週 → 急性病死。</p>
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>經糞便傳播</strong>、眼口感染：帶病毒糞便汙染雞舍、飼料、飲水 → 經口鼻進入消化道與呼吸道。</li>
+        <li>接觸傳播；機械性傳播（人、車、箱籠）。</li>
+        <li>病雞移走後 4 個月內，雞舍殘留病毒仍可感染新雞。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：講義沒有提到垂直傳播；IBD 的「垂直」關係是母雞經蛋黃給<strong>抗體</strong>（移行抗體），不是給病毒。</p>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p024.jpg" alt="甘保羅循環（Gumboro cycle）：感染 → 排毒 → 清空消毒 → 進雛 → 移行抗體下降 → 再感染。病毒無封" loading="lazy"><div class="figure-caption">甘保羅循環（Gumboro cycle）：感染 → 排毒 → 清空消毒 → 進雛 → 移行抗體下降 → 再感染。病毒無封套，抵抗消毒（70% 酒精等）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=24">p.24</a></div></div>
+      <h3>致病機轉與年齡<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>感染週齡</th><th>結果</th></tr></thead>
+          <tbody>
+            <tr><td><strong>&lt; 3 週齡</strong></td><td>感染造成<strong>免疫抑制</strong>，通常沒有明顯症狀；B 細胞在生命早期被破壞，<strong>可能終生免疫抑制</strong></td></tr>
+            <tr><td><strong>3–6 週齡</strong></td><td>出現<strong>臨床型（急性型）</strong>；一般 3–20 週齡間都可發病，以 3–6 週齡最多</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>潛伏期 <strong>2–3 天</strong>；感染後 <strong>5–8 天</strong>死亡。</li>
+        <li>病毒感染華氏囊細胞，主要是<strong>未成熟 B 細胞</strong>；成熟 B 細胞是產生抗體的細胞（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=25">p.25</a>）。</li>
+      </ul>
+      <div class="alert alert-success"><div class="alert-label">重點：為什麼 3 週前感染反而更糟</div><p>小雞的 B 細胞還在華氏囊裡成熟，這時被破壞，之後就沒有足夠的 B 細胞產生抗體，所以<strong>雖然不死，但所有疫苗都打不起來</strong>，二次感染也變多。臨床上「這場雞什麼疫苗都沒效」時要想到早期 IBD（或雞傳染性貧血、馬立克病）。</p></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈IBD〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=23">p.23–25</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">5</div><h2>臨床症狀 Clinical Signs</h2></div>
+      <p class="section-desc">急性型看得到：水樣下痢、啄肛、站不起來；免疫抑制型看不到，只看到「長不好、疫苗失效」。</p>
+      <h3>兩種病型<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>急性型</th><th>免疫抑制型</th></tr></thead>
+          <tbody>
+            <tr><td><strong>週齡</strong></td><td>3–6 週齡</td><td>&lt; 3 週齡</td></tr>
+            <tr><td><strong>病程</strong></td><td>傳播快，急性發病 <strong>2–3 日死亡</strong></td><td>不常見臨床症狀</td></tr>
+            <tr><td><strong>症狀</strong></td><td>精神沉鬱、食慾差、羽毛蓬鬆、換肉率差；<strong>水樣下痢</strong> → 墊料潮濕、脫水、嚴重時無法站立；血樣下痢（華氏囊出血）；<strong>啄肛</strong> → 尾巴變短、尾毛濕、掉、出血，甚至腸被拉出</td><td>華氏囊病變、萎縮 → 免疫抑制 → 二次性感染、其他疫苗效力降低；生長差、疫苗失效</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：啄肛的原因推測是華氏囊位於泄殖腔背側，發炎疼痛讓雞啄自己或同伴的肛門，講義只列出現象。</p>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p027.jpg" alt="急性型：病雞精神沉鬱、羽毛蓬鬆、蹲伏。" loading="lazy"><div class="figure-caption">急性型：病雞精神沉鬱、羽毛蓬鬆、蹲伏。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=27">p.27</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p028.jpg" alt="病雞蹲坐、羽毛蓬亂；右圖尾部羽毛濕亂出血。" loading="lazy"><div class="figure-caption">病雞蹲坐、羽毛蓬亂；右圖尾部羽毛濕亂出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=28">p.28</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p029.jpg" alt="啄肛：尾部無毛、出血。" loading="lazy"><div class="figure-caption">啄肛：尾部無毛、出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=29">p.29</a></div></div>
+      </div>
+      <h3>死亡率<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p030.jpg" alt="大量死亡的雞群；死亡率 vvIBDV &amp;gt; 20%、classical &amp;lt; 20%、variant &amp;lt; " loading="lazy"><div class="figure-caption">大量死亡的雞群；死亡率 vvIBDV &gt; 20%、classical &lt; 20%、variant &lt; 5%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=30">p.30</a></div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈IBD〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=26">p.26–30</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- LESIONS -->
+    <div class="section" id="section-lesions">
+      <div class="section-head"><div class="section-num">6</div><h2>肉眼與組織病變 Lesions</h2></div>
+      <p class="section-desc">華氏囊的大小會「先腫後縮」：看到腫大出血是急性期，看到萎縮可能是後期或變異株。</p>
+      <h3>華氏囊的時間變化<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p031.jpg" alt="華氏囊：對照組（左排）與感染後 4 天（右排）比較，感染組腫大、暗紅出血。" loading="lazy"><div class="figure-caption">華氏囊：對照組（左排）與感染後 4 天（右排）比較，感染組腫大、暗紅出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=31">p.31</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p032.jpg" alt="華氏囊大小曲線：感染後 2–4 天腫大（臨床症狀期），第 5 天後萎縮到比正常還小（病雞死亡期）。" loading="lazy"><div class="figure-caption">華氏囊大小曲線：感染後 2–4 天腫大（臨床症狀期），第 5 天後萎縮到比正常還小（病雞死亡期）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=32">p.32</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p033.jpg" alt="程度不一的華氏囊病變：水腫、出血、黏膜點狀出血（petechial hemorrhages）。" loading="lazy"><div class="figure-caption">程度不一的華氏囊病變：水腫、出血、黏膜點狀出血（petechial hemorrhages）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=33">p.33</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p034.jpg" alt="華氏囊水腫、表面縱紋明顯（Cornell University）。" loading="lazy"><div class="figure-caption">華氏囊水腫、表面縱紋明顯（Cornell University）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=34">p.34</a></div></div>
+      </div>
+      <h3>其他肉眼病變<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>死雞<strong>脫水</strong>，<strong>胸肌、大腿肌、腹部肌肉出血</strong>（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=35">p.35</a>）。</li>
+        <li><strong>腎臟腫大</strong>、<strong>十二指腸出血</strong>（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=36">p.36</a>）。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p035.jpg" alt="脫水，胸肌與大腿肌出血。" loading="lazy"><div class="figure-caption">脫水，胸肌與大腿肌出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=35">p.35</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p036.jpg" alt="左：正常雞 vs IBD 雞腎臟腫大；右：十二指腸出血（箭頭）。" loading="lazy"><div class="figure-caption">左：正常雞 vs IBD 雞腎臟腫大；右：十二指腸出血（箭頭）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=36">p.36</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p037.jpg" alt="剖檢見腎臟腫大。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">剖檢見腎臟腫大。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=37">p.37</a></div></div>
+      </div>
+      <h3>組織病變<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>正常華氏囊濾泡完整，可分皮質（C）與髓質（M）。</li>
+        <li>感染後<strong>濾泡內淋巴細胞大量壞死</strong>，之後濾泡內形成<strong>囊腫（cysts）</strong>（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=40">p.40</a>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p038.jpg" alt="正常華氏囊（完整濾泡，C＝皮質、M＝髓質）與 IBDV 感染華氏囊。" loading="lazy"><div class="figure-caption">正常華氏囊（完整濾泡，C＝皮質、M＝髓質）與 IBDV 感染華氏囊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=38">p.38</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p040.jpg" alt="濾泡淋巴細胞大量壞死，濾泡內形成囊腫。" loading="lazy"><div class="figure-caption">濾泡淋巴細胞大量壞死，濾泡內形成囊腫。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=40">p.40</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p039.jpg" alt="感染華氏囊組織：濾泡淋巴細胞減少、濾泡間結締組織增加。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">感染華氏囊組織：濾泡淋巴細胞減少、濾泡間結締組織增加。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=39">p.39</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p041.jpg" alt="WOAH 診斷方法用途表：病例診斷以組織病理、病毒定型、華氏囊抗原檢測、RT-PCR 為主；AGID、ELISA、中和試" loading="lazy"><div class="figure-caption">WOAH 診斷方法用途表：病例診斷以組織病理、病毒定型、華氏囊抗原檢測、RT-PCR 為主；AGID、ELISA、中和試驗用於族群與疫苗後監測。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=41">p.41</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈IBD〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=31">p.31–40</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">7</div><h2>實驗室診斷 Diagnosis</h2></div>
+      <p class="section-desc">IBD 的診斷不只要「有沒有」，還要「是哪一型」：vvIBDV、classical、variant 還是疫苗株。</p>
+      <h3>方法總覽<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>目標</th><th>方法</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>病毒 RNA</strong></td><td><strong>RT-PCR、RFLP</strong></td><td><strong>最常用</strong>；RFLP 用限制酶切 VP2 片段，看片段長度圖譜區分病毒型別</td></tr>
+            <tr><td><strong>衣殼抗原</strong></td><td>單株抗體（mAb）定性；<strong>抗原捕捉 ELISA（AC-ELISA）</strong></td><td>用 8 株單株抗體做三明治 ELISA 分「病毒類型」；例如有些 vvIBDV 缺少抗原 3、4</td></tr>
+            <tr><td><strong>抗體</strong></td><td>ELISA、AGID、中和試驗（VN）</td><td>用於族群監測與疫苗後免疫狀態（講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=41">p.41</a> 表）</td></tr>
+            <tr><td><strong>病毒分離</strong></td><td>雞胚 CAM、華氏囊初代細胞、SPF 雞</td><td><strong>非必要</strong>；見下</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p042.jpg" alt="檢驗標的：衣殼抗原（單株抗體）、病毒 RNA（RT-PCR、RFLP）、抗體（ELISA、AGID、中和試驗）。病毒分離" loading="lazy"><div class="figure-caption">檢驗標的：衣殼抗原（單株抗體）、病毒 RNA（RT-PCR、RFLP）、抗體（ELISA、AGID、中和試驗）。病毒分離非必要，RT-PCR 與 RFLP 較常使用。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=42">p.42</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p044.jpg" alt="抗原捕捉 ELISA：classical 株 8 株單株抗體都結合；vvIBDV 對 Mab 3、4 陰性。" loading="lazy"><div class="figure-caption">抗原捕捉 ELISA：classical 株 8 株單株抗體都結合；vvIBDV 對 Mab 3、4 陰性。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=44">p.44</a></div></div>
+      </div>
+      <h3>病毒分離<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>採樣：<strong>急性期的華氏囊</strong>。</li>
+        <li>9–11 日齡 SPF 雞胚 <strong>CAM</strong> 接種：約 3 天死亡，出血、水腫。</li>
+        <li>華氏囊初代細胞：<strong>不建議用於 vvIBDV</strong>。</li>
+        <li><strong>SPF 雞</strong>：<strong>最好的病毒分離方法</strong>，接種後 3 天從華氏囊分離。</li>
+      </ul>
+      <h3>分子定型與抗體檢測<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>一般 RT-PCR 只能說「有 IBDV」，<strong>不足以分型</strong>（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=45">p.45</a>）；要再做 VP2 高變異區定序或 RFLP。</li>
+        <li>AGID：用 vvIBDV 高度免疫血清對不同華氏囊懸液，看沉降線（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=48">p.48</a>）。</li>
+        <li>ELISA 力價與中和試驗力價呈正相關（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=49">p.49</a>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p047.jpg" alt="RFLP：VP2 基因 414 bp 以 BseD I 切割，不同毒株（vv、classical、vaccine、var" loading="lazy"><div class="figure-caption">RFLP：VP2 基因 414 bp 以 BseD I 切割，不同毒株（vv、classical、vaccine、variant）圖譜不同，並對應親緣樹。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=47">p.47</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p048.jpg" alt="AGID：中央孔為抗 vvIBDV 高度免疫血清，周圍為 variant、classic、vvIBDV 抗原與 mock" loading="lazy"><div class="figure-caption">AGID：中央孔為抗 vvIBDV 高度免疫血清，周圍為 variant、classic、vvIBDV 抗原與 mock。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=48">p.48</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈IBD〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=41">p.41–49</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VIRULENCE -->
+    <div class="section" id="section-virulence">
+      <div class="section-head"><div class="section-num">8</div><h2>毒力差異與超強毒株 Virulence &amp; vvIBDV</h2></div>
+      <p class="section-desc">把各型 IBDV 對華氏囊的影響排在時間軸上，就能看出「疫苗株會再生、野外株會萎縮」。</p>
+      <h3>各型對華氏囊的影響<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p050.jpg" alt="未感染、variant、classical 三組華氏囊肉眼與組織：variant 萎縮、classical 腫大出血；死" loading="lazy"><div class="figure-caption">未感染、variant、classical 三組華氏囊肉眼與組織：variant 萎縮、classical 腫大出血；死亡率 0%、&lt; 5%、20%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=50">p.50</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>毒株</th><th>感染後 1–8 天</th><th>14–21 天</th></tr></thead>
+          <tbody>
+            <tr><td>mild（疫苗）</td><td>無影響</td><td>無影響</td></tr>
+            <tr><td>intermediate（疫苗）</td><td>第 5–8 天受影響</td><td><strong>再生</strong></td></tr>
+            <tr><td>intermediate plus（疫苗）</td><td>第 2–8 天受影響</td><td><strong>再生</strong></td></tr>
+            <tr><td>classical</td><td>第 2 天起受影響，第 3–5 天<strong>出血</strong></td><td>萎縮</td></tr>
+            <tr><td>very virulent</td><td><strong>第 1 天</strong>起受影響，第 3–5 天<strong>出血</strong></td><td>萎縮</td></tr>
+            <tr><td>variant</td><td>第 3 天起受影響，<strong>不出血</strong></td><td>萎縮</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>講義的結論：<strong>疫苗株 → 華氏囊再生；野外 IBDV → 華氏囊出血；variant → 萎縮</strong>（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=51">p.51</a>）。</p>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p051.jpg" alt="各型 IBDV 感染後 1–21 天的華氏囊變化：灰點＝受影響、紅點＝出血、藍點＝萎縮、Re＝再生。" loading="lazy"><div class="figure-caption">各型 IBDV 感染後 1–21 天的華氏囊變化：灰點＝受影響、紅點＝出血、藍點＝萎縮、Re＝再生。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=51">p.51</a></div></div>
+      <h3>vvIBDV 的特徵<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">面向</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>病原性</td><td>SPF 雞死亡率可達 <strong>100%</strong>；蛋雞 50–60%、肉雞 25–30%；能<strong>突破較高的移行抗體</strong></td></tr>
+            <tr><td>抗原性</td><td><strong>不變</strong>：用中和單株抗體檢查沒有明顯抗原漂移</td></tr>
+            <tr><td>分子特徵</td><td>VP2 高變異區定序或 RFLP；第 <strong>222Ala、256Ile、294Ile、299Ser</strong> 胺基酸＝ vvIBDV 的基因指紋</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">注意：variant 與 vvIBDV 都能「不怕移行抗體」，原因不同</div><p><strong>variant</strong>：抗原性改變，移行抗體認不得它。<strong>vvIBDV</strong>：抗原性沒變，是毒力高到可以突破較高的移行抗體。</p></div>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p052.jpg" alt="日齡與病毒毒力：強毒在約 20–40 日齡造成臨床症狀與死亡，弱毒只造成臨床症狀。" loading="lazy"><div class="figure-caption">日齡與病毒毒力：強毒在約 20–40 日齡造成臨床症狀與死亡，弱毒只造成臨床症狀。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=52">p.52</a></div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈IBD〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=50">p.50–53</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VACCINE -->
+    <div class="section" id="section-vaccine">
+      <div class="section-head"><div class="section-num">9</div><h2>預防與疫苗 Prevention &amp; Vaccination</h2></div>
+      <p class="section-desc">IBD 疫苗的核心矛盾：移行抗體會中和疫苗，但移行抗體掉下去又會讓野外株趁虛而入；疫苗太強又會傷華氏囊。</p>
+      <h3>預防與控制<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>生物安全</strong>：統進統出、徹底消毒（<strong>碘</strong>）。</li>
+        <li><strong>種雞產蛋前注射死毒疫苗</strong> → 移行抗體保護小雞（被動免疫）。</li>
+        <li><strong>適當時間注射活毒疫苗</strong>（主動免疫）；不同雞場會有不同防疫計畫。</li>
+        <li>疫苗種類、毒力、劑型很多（投水口服、多價肌肉注射、MD＋IBD 次單位疫苗）；施打前都要考慮<strong>移行抗體力價</strong>與各場 IBDV 的分布與過往情形。</li>
+      </ul>
+      <h3>移行抗體空窗期<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p056.jpg" alt="移行抗體（被動免疫）隨日齡下降；降到保護水準以下、但還足以中和傳統疫苗的期間就是空窗期，超強毒或變異株可在此時入侵。" loading="lazy"><div class="figure-caption">移行抗體（被動免疫）隨日齡下降；降到保護水準以下、但還足以中和傳統疫苗的期間就是空窗期，超強毒或變異株可在此時入侵。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=56">p.56</a></div></div>
+      <div class="alert alert-success"><div class="alert-label">重點：怎麼選疫苗毒力與時機</div><p>① <strong>中間偏強（intermediate plus）</strong>：可在移行抗體較高時就接種，早期防範 vvIBDV。② <strong>中間毒</strong>：要等移行抗體更低才接種，防範 vvIBDV 的時間較晚。③ <strong>疫苗的毒力不可超過移行抗體保護太多</strong>，否則會造成華氏囊萎縮（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=57">p.57</a>）。</p></div>
+      <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p057.jpg" alt="接種時機：中間偏強疫苗能在較高移行抗體下接種（紫箭頭），中間毒要晚一點（灰箭頭）；虛線是 vvIBDV 的保護水準。" loading="lazy"><div class="figure-caption">接種時機：中間偏強疫苗能在較高移行抗體下接種（紫箭頭），中間毒要晚一點（灰箭頭）；虛線是 vvIBDV 的保護水準。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=57">p.57</a></div></div>
+      <h3>不同毒力疫苗的取捨<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疫苗</th><th>被移行抗體中和的程度</th><th>使用限制</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mild</strong> 弱毒</td><td><strong>低</strong>量移行抗體就能中和</td><td>組織培養適應的 mild 株在 4 週齡 SPF 雞可能不誘發免疫（推測缺乏受體）</td></tr>
+            <tr><td><strong>Intermediate</strong> 中間</td><td>低至中量移行抗體可中和</td><td>相對安全，可<strong>蛋內</strong>或出殼時使用</td></tr>
+            <tr><td><strong>Intermediate plus</strong> 中間偏強</td><td><strong>高</strong>量移行抗體才能中和</td><td>除非經過修飾，<strong>不能蛋內接種</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>疫苗株越強 → 免疫越快建立，但<strong>對華氏囊傷害越大</strong> → 會影響其他需要的疫苗（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=58">p.58</a>）。</li>
+        <li><strong>只有會造成華氏囊損傷的毒株才能誘發免疫反應</strong>；毒力越高，華氏囊損傷與血清反應越早（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=61">p.61</a>）。</li>
+        <li>IBD 造成的免疫抑制（以 ND 抗體力價觀察）：感染後第 1 天<strong>明顯</strong>、第 7 天<strong>中度</strong>、第 14、21 天<strong>無</strong>（Faragher et al., 1974；<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=59">p.59</a>）。</li>
+        <li>疫苗保護的主要問題：移行抗體高低不一、飲水給予的品質不一、要配合流行病學狀況（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=62">p.62</a>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p058.jpg" alt="不同毒力毒株誘發的 ELISA 抗體：毒力越高，抗體越早上升；mild 株沒有誘發抗體。" loading="lazy"><div class="figure-caption">不同毒力毒株誘發的 ELISA 抗體：毒力越高，抗體越早上升；mild 株沒有誘發抗體。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=58">p.58</a></div></div>
+        <div class="figure"><img src="img/week10_傳染性華氏囊病/ibd_p059.jpg" alt="IBDV 造成的免疫抑制程度（以 ND 抗體力價觀察）：感染後 1 天明顯、7 天中度、14 與 21 天無。" loading="lazy"><div class="figure-caption">IBDV 造成的免疫抑制程度（以 ND 抗體力價觀察）：感染後 1 天明顯、7 天中度、14 與 21 天無。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=59">p.59</a></div></div>
+      </div>
+      <h3>台灣圓桌會議推薦的免疫計畫<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>區域</th><th>計畫</th></tr></thead>
+          <tbody>
+            <tr><td><strong>危險區</strong></td><td><strong>4 日齡</strong>：弱毒飲水，同時 ND-IBD 油質死毒<strong>皮下注射</strong>；必要時 <strong>18–21 日齡</strong>中間毒飲水補強</td></tr>
+            <tr><td><strong>一般區</strong></td><td><strong>1 週內</strong>弱毒飲水，<strong>18–21 日齡</strong>中間毒飲水補強（移行抗體力價差異大時比照危險區）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger"><div class="alert-label">禁忌</div><p>小雞應<strong>先經過弱毒疫苗基礎免疫</strong>，才可使用中間毒疫苗，以免華氏囊遭受破壞而影響所有疫苗的免疫效果。雛群未經血清學評估就直接用中間偏強疫苗株，容易造成華氏囊退行性變化、免疫功能下降（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=63">p.63</a>）。</p></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ 講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=64">p.64</a> 提到 109 年後推動養雞場重複使用墊料；因為 IBDV 在墊料中可存活 52 天，重複墊料時的病原管理更重要（後半句為推論）。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈IBD〉<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=54">p.54–64</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIFFERENTIAL -->
+    <div class="section" id="section-differential">
+      <div class="section-head"><div class="section-num">10</div><h2>鑑別比較 Differential Diagnosis</h2></div>
+      <p class="section-desc">把會造成免疫抑制、或會在華氏囊留下病變的病放在一起比。</p>
+      <h3>IBD 與 IB：名稱相近，完全不同的病<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>傳染性華氏囊病（IBD）</th><th>傳染性支氣管炎（IB）</th></tr></thead>
+          <tbody>
+            <tr><td>病毒</td><td>Birnaviridae；無封套 dsRNA 兩段</td><td>冠狀病毒科；有封套 (+) ssRNA</td></tr>
+            <tr><td>標的</td><td>華氏囊未成熟 B 細胞</td><td>呼吸道、腎臟、輸卵管、腺胃（依型別）</td></tr>
+            <tr><td>血清型</td><td>2 個（只有 1 型致病）</td><td>很多，交叉保護差</td></tr>
+            <tr><td>共同點</td><td colspan="2">都可能造成<strong>腎臟腫大</strong>，看到腎病變時要一起想（IBD 講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=36">p.36</a>；IB 見<a href="week03_傳染性支氣管炎.html">第 3 週</a>）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>會造成免疫抑制的病（跨講義整理）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>傳染性華氏囊病（IBD）</th><th>雞傳染性貧血（CIA）</th><th>馬立克病（MD）</th></tr></thead>
+          <tbody>
+            <tr><td>病毒</td><td>Birnavirus，dsRNA</td><td>環狀病毒，ssDNA</td><td>疱疹病毒，dsDNA</td></tr>
+            <tr><td>破壞的細胞</td><td>華氏囊<strong>B 細胞</strong></td><td>胸腺 <strong>T 細胞前驅細胞</strong>與骨髓造血細胞</td><td>B 細胞 → T 細胞，之後潛伏與轉形</td></tr>
+            <tr><td>關鍵病變</td><td>華氏囊腫大出血 → 萎縮</td><td>貧血、骨髓變黃、胸腺萎縮、皮下出血</td><td>神經腫大、內臟腫瘤</td></tr>
+            <tr><td>詳見</td><td>本頁</td><td><a href="week11_雞傳染性貧血.html">雞傳染性貧血頁</a></td><td><a href="week08_馬立克病.html">馬立克病頁</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ CIA 講義寫明 IBD、MD、Reo 會增加 CAV 的致病力、延遲年齡抵抗性（CIA 講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=13">p.13</a>），所以這幾個病常一起出現。</p>
+      <footer class="note-footer">資料來源：本課程〈IBD〉〈CIA〉〈Marek's Disease〉〈IB〉講義。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">11</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>IBDV 分類與構造</td><td>Birnaviridae、Avibirnavirus；無封套、dsRNA、兩段；60 nm</td></tr>
+            <tr><td>血清型</td><td>2 個；只有 1 型致病、只有雞是自然宿主；兩型無交叉保護</td></tr>
+            <tr><td>毒力分型與死亡率</td><td>vvIBDV &gt; 20%（台灣主要）、classical &lt; 20%、variant &lt; 5%</td></tr>
+            <tr><td>variant 為什麼不怕移行抗體</td><td>抗原性改變（不表現 classical 抗原決定位）→ 早期感染 → 華氏囊萎縮 → 免疫抑制</td></tr>
+            <tr><td>vvIBDV 的特徵</td><td>抗原性不變，靠高毒力突破移行抗體；VP2 胺基酸 222A、256I、294I、299S</td></tr>
+            <tr><td>年齡與病型</td><td>&lt; 3 週：免疫抑制（可終生）；3–6 週：急性；潛伏 2–3 天，5–8 天死亡</td></tr>
+            <tr><td>華氏囊病變時序</td><td>2–4 天腫大水腫出血 → 5 天後萎縮；組織：濾泡淋巴細胞壞死、囊腫</td></tr>
+            <tr><td>其他病變</td><td>脫水、胸腿肌出血、腎腫大、十二指腸出血</td></tr>
+            <tr><td>常用診斷</td><td>RT-PCR、RFLP；病毒分離非必要（最好用 SPF 雞）；AC-ELISA 用 8 株 mAb 分型</td></tr>
+            <tr><td>環境抵抗力與消毒</td><td>無封套；pH 2–11；雞舍 122 天、墊料 52 天；用碘</td></tr>
+            <tr><td>疫苗策略</td><td>種雞開產前死毒 → 移行抗體；小雞依移行抗體選時機；先弱毒基礎免疫再用中間毒</td></tr>
+            <tr><td>台灣建議計畫</td><td>危險區 4 日齡弱毒飲水＋ND-IBD 油質死毒皮下，18–21 日齡中間毒；一般區 1 週內弱毒、18–21 日齡中間毒</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 傳染性華氏囊病病毒（IBDV）的構造，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 有封套、單股 RNA</li><li>(B) 無封套、雙股 RNA、兩段基因體</li><li>(C) 無封套、單股環狀 DNA</li><li>(D) 有封套、雙股 DNA</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">IBDV 屬 Birnaviridae（bi＝兩段、rna），無封套、dsRNA、兩段（Segment A、B）。(A) 像 IB、ND；(C) 是雞傳染性貧血病毒；(D) 是疱疹病毒（MD、ILT）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 關於 IBDV 血清型，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 只有 1 個血清型</li><li>(B) 2 個血清型，都會致病</li><li>(C) 2 個血清型，只有血清型 1 致病，兩型之間無交叉保護</li><li>(D) 血清型很多，交叉保護差</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">血清型 2 無致病性；兩型間無交叉保護。(D) 描述的是傳染性支氣管炎。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 依講義，台灣主要的致病 IBDV 是哪一型？死亡率大約多少？</div>
+        <ul class="quiz-options"><li>(A) 變異株，&lt; 5%</li><li>(B) 典型強毒，&lt; 20%</li><li>(C) 超強毒 vvIBDV，&gt; 20%</li><li>(D) 中間偏強疫苗株，&gt; 50%</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=21">p.21</a>：vvIBDV 死亡率 &gt; 20%，台灣主要致病；1992 年台灣 vvIBD 大流行。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 變異株（variant IBDV）能在早期感染有移行抗體的小雞，原因是？</div>
+        <ul class="quiz-options"><li>(A) 毒力極高，突破移行抗體</li><li>(B) 抗原性改變，不表現 classical 抗原決定位</li><li>(C) 經蛋垂直傳播</li><li>(D) 只感染 T 細胞</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">variant 抗原性改變，移行抗體認不得 → 早期感染 → 華氏囊萎縮 → 免疫抑制，死亡率 &lt; 5%。(A) 是 vvIBDV 的特點（抗原性不變）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 小雞在 3 週齡以前感染 IBDV，通常臨床症狀不明顯，但可能造成終生免疫抑制。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain">3 週內感染主要造成免疫抑制；B 細胞在生命早期被破壞，可能終生免疫抑制（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=25">p.25–26</a>）。急性型多在 3–6 週齡。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. IBDV 主要感染哪一種細胞？</div>
+        <ul class="quiz-options"><li>(A) 胸腺的 T 細胞前驅細胞</li><li>(B) 華氏囊的未成熟 B 細胞</li><li>(C) 羽毛毛囊上皮</li><li>(D) 骨髓紅血球芽細胞</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(A)、(D) 是雞傳染性貧血病毒的標的；(C) 是馬立克病病毒釋出完整病毒的地方。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 剖檢 IBD 急性期病雞，下列哪一組病變最典型？</div>
+        <ul class="quiz-options"><li>(A) 華氏囊腫大水腫出血、胸腿肌出血、腎腫大</li><li>(B) 坐骨神經腫大、灰眼</li><li>(C) 氣管內血塊、喉頭偽膜</li><li>(D) 骨髓變黃、翅膀皮下出血呈藍色</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">(B) 馬立克病；(C) 傳染性喉頭氣管炎；(D) 雞傳染性貧血（藍翅病）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. 只要看到華氏囊比正常小，就可以排除 IBD。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">華氏囊在感染後 2–4 天腫大，第 5 天後會萎縮到比正常還小（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=32">p.32</a>）；variant 株一開始就以萎縮為主。萎縮的華氏囊反而可能是 IBD 後期或變異株。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 依講義，IBD 實驗室診斷最常使用的是？</div>
+        <ul class="quiz-options"><li>(A) 病毒分離</li><li>(B) RT-PCR 與 RFLP</li><li>(C) 血球凝集試驗</li><li>(D) 結核菌素試驗</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=42">p.42</a>：病毒分離非必要，RT-PCR 及 RFLP 較常使用；若要分離，最好用 SPF 雞、3 天後取華氏囊。IBDV 不凝集紅血球（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 關於 IBD 疫苗，何者錯誤？</div>
+        <ul class="quiz-options"><li>(A) 種雞開產前打死毒，讓小雞獲得移行抗體</li><li>(B) 中間偏強疫苗可在移行抗體較高時接種</li><li>(C) 為了快速建立免疫，雛雞第一劑就應使用中間偏強疫苗</li><li>(D) 中間偏強疫苗除非經過修飾，不能蛋內接種</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">圓桌會議結論：小雞應先經弱毒疫苗基礎免疫才可用中間毒；未經血清學評估就用中間偏強株，易造成華氏囊退行性變化、免疫功能下降（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=63">p.63</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. 什麼是「移行抗體空窗期」？為什麼它對 IBD 防疫特別重要？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">移行抗體隨日齡下降，有一段時間它已經<strong>低於保護水準</strong>（擋不住超強毒或變異株），卻<strong>仍足以中和疫苗</strong>（疫苗打了沒效），這段期間就是空窗期（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=56">p.56</a>）。IBD 疫苗必須依移行抗體力價選擇時機與毒力：中間偏強株可較早接種、較早防 vvIBDV，但毒力不可超過移行抗體保護太多，否則會傷華氏囊（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=57">p.57</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q12. 為什麼 IBD 雞舍一旦汙染就不易清除？消毒時要注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">IBDV 沒有封套，耐乾燥、日光、70% 酒精等部分消毒劑，pH 2–11 穩定；可在雞舍存活 122 天、在水、糞便、墊料中 52 天；病雞移走後 4 個月內仍可感染新雞（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=18">p.18</a>、<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=23">p.23</a>）。要統進統出、徹底清潔後消毒，消毒水添加碘（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=18">p.18</a>、<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=54">p.54</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一批 4 週齡白肉雞，兩天內大量發病：精神沉鬱、羽毛蓬鬆、水樣下痢、墊料潮濕，部分雞互啄肛門。剖檢見華氏囊腫大、暗紅出血，胸肌與大腿肌出血，腎臟腫大。請問：(1) 最可能的診斷？(2) 要怎麼確認並分型？(3) 若這批雞耐過，之後可能出現什麼問題？(4) 下一批進雛前要怎麼做？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 傳染性華氏囊病急性型（3–6 週齡、水樣下痢、啄肛、華氏囊腫大出血、肌肉出血、腎腫大）；死亡率高時要懷疑 vvIBDV。<br><strong>(2)</strong> 取急性期華氏囊做 RT-PCR，再以 VP2 定序或 RFLP 分型（vv、classical、variant 或疫苗株）；也可用 AC-ELISA。<br><strong>(3)</strong> 華氏囊萎縮 → 免疫抑制 → 其他疫苗（如 ND）效果變差、二次感染增加、生長差。<br><strong>(4)</strong> 統進統出、徹底清潔後用碘消毒（病毒可存活數月）；檢查種雞移行抗體與小雞疫苗計畫（危險區 4 日齡弱毒飲水＋ND-IBD 油質死毒皮下，18–21 日齡中間毒補強）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一個肉雞場的雞群幾乎沒有死亡，但生長不整齊、換肉率差，新城病疫苗打完 HI 力價一直偏低，常有大腸桿菌續發感染。剖檢 3 週齡雞，華氏囊明顯比同齡正常雞小，沒有出血。請問：(1) 要懷疑什麼？(2) 為什麼沒有出血與高死亡？(3) 還有哪些免疫抑制病要一起考慮？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 早期 IBDV 感染造成的免疫抑制，特別是 <strong>variant IBDV</strong>（華氏囊萎縮、不出血、死亡率 &lt; 5%）。<br><strong>(2)</strong> variant 抗原性改變，能在移行抗體存在時早期感染，主要造成萎縮而不是出血；3 週內感染多無明顯症狀（<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=21">p.21</a>、<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=26">p.26</a>、<a class="pdf-link" href="pdf/傳染性華氏囊病.pdf#page=51">p.51</a>）。<br><strong>(3)</strong> 雞傳染性貧血（看血容比、骨髓、胸腺）與馬立克病；CIA 講義也提醒 IBD、MD、Reo 會加重 CAV 的影響。</p></details>
+      </div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week10_%E5%82%B3%E6%9F%93%E6%80%A7%E8%8F%AF%E6%B0%8F%E5%9B%8A%E7%97%85" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  immune: '禽類免疫與華氏囊',
+  virus: '病原與毒力分型',
+  pathogenesis: '傳播與致病機轉',
+  clinical: '臨床症狀',
+  lesions: '肉眼與組織病變',
+  diagnosis: '實驗室診斷',
+  virulence: '毒力差異與 vvIBDV',
+  vaccine: '預防與疫苗',
+  differential: '鑑別比較',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：雞傳染性貧血 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">雞傳染性貧血</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">雞傳染性貧血 Chicken Infectious Anemia (CIA)</h1>
+      <p class="page-subtitle">最小的病毒（環狀 ssDNA）攻擊骨髓造血細胞與胸腺 T 細胞前驅細胞：再生不良性貧血、出血、免疫抑制；垂直傳播為主，靠種雞免疫讓移行抗體保護小雞</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《禽病學》課程講義〈Chicken Infectious Anemia 雞傳染性貧血症〉（吳乃慧 DVM, PhD）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-22</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/雞傳染性貧血.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week11_%E9%9B%9E%E5%82%B3%E6%9F%93%E6%80%A7%E8%B2%A7%E8%A1%80">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（期中考導向）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">病原與致病</div>
+    <a onclick="showSection('virus')" id="nav-virus"><span class="nav-icon">🦠</span> 病原</a>
+    <a onclick="showSection('pathogenesis')" id="nav-pathogenesis"><span class="nav-icon">🔁</span> 傳播與致病</a>
+    <div class="section-label" style="margin-top:8px;">臨床與診斷</div>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🐥</span> 臨床症狀與病變</a>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis"><span class="nav-icon">🧪</span> 診斷</a>
+    <a onclick="showSection('control')" id="nav-control"><span class="nav-icon">💉</span> 疫苗與防治</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('differential')" id="nav-differential"><span class="nav-icon">🧩</span> 鑑別比較</a>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week11_%E9%9B%9E%E5%82%B3%E6%9F%93%E6%80%A7%E8%B2%A7%E8%A1%80" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">雞傳染性貧血的大方向</div>
+        <dl>
+          <dt>這是什麼病</dt>
+          <dd>由<strong>雞貧血病毒（Chicken Anemia Virus, CAV；又稱 CIAV）</strong>引起的<strong>再生不良性貧血、淋巴萎縮、免疫抑制</strong>疾病。病毒破壞<strong>骨髓的紅血球芽細胞</strong>與<strong>胸腺的 T 淋巴球前驅細胞</strong>。1979 年日本首次發現，台灣 1991 年首次分離。</dd>
+          <dt>為什麼重要</dt>
+          <dd>全球雞場普遍存在；<strong>經蛋垂直傳播</strong>、造成<strong>免疫抑制</strong>、讓其他疾病更嚴重。很多雞場是<strong>次臨床感染</strong>：雞看起來正常但「吃不胖」，換肉率差、屠宰廢棄率上升。病毒是<strong>最小的病毒</strong>之一，對環境與消毒劑<strong>抵抗力極強</strong>。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-virus">病毒</a>：無封套、<strong>環狀 ssDNA</strong>、25 nm；<strong>1 個血清型</strong>；VP3（apoptin）誘導細胞凋亡。</li>
+              <li><a href="#section-virus">抵抗力</a>：耐 pH 3、氯仿、70°C 1 小時；一般消毒劑效果有限。</li>
+              <li><a href="#section-pathogenesis">傳播</a>：<strong>垂直</strong>（年輕母雞經蛋）＋水平（糞口、器具）；發病在孵化後 3 週內。</li>
+              <li><a href="#section-pathogenesis">年齡抵抗性</a>：<strong>&lt; 2 週齡</strong>高發病高死亡，1 日齡最敏感；<strong>3–6 週齡</strong>後出現年齡抵抗性；IBD、MD、Reo 會延遲它。</li>
+              <li><a href="#section-clinical">臨床與病變</a>：蒼白、<strong>PCV ≤ 27%</strong>；皮下與肌肉出血（<strong>藍翅病</strong>）；<strong>骨髓變黃</strong>（脂肪化）；胸腺萎縮。</li>
+              <li><a href="#section-diagnosis">診斷</a>：血容比＋外觀＋ PCR、IHC、MSB-1 細胞分離；血清學意義不足。</li>
+              <li><a href="#section-control">疫苗</a>：減毒活毒打<strong>種雞</strong>（8 週齡至開產前 4 週），<strong>不可用於 8 週齡以下</strong>、屠宰前 21 天、產蛋中。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>CIA 與 IBD</strong>：都是小雞的免疫抑制病。CIA 打的是<strong>胸腺 T 細胞前驅細胞與骨髓</strong>，特徵是貧血、骨髓變黃；IBD 打的是<strong>華氏囊 B 細胞</strong>，特徵是華氏囊腫大出血或萎縮。<strong>CIA 疫苗打種雞、不打小雞</strong>；IBD 疫苗兩者都打。<strong>同科病毒</strong>：鸚鵡喙羽病（PBFD）、鴨鵝環狀病毒也是環狀病毒。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>病毒分類與基因體（環狀 ssDNA、最小、1 血清型）；VP3 apoptin；標的細胞；年齡抵抗性與延遲因素；PCV 切點 27%；藍翅病、黃骨髓、胸腺萎縮；病毒分離用 MSB-1；疫苗打種雞的時機與禁忌。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸；標示「推測」的是依講義強調處推測的出題方向，不是考古題。考試範圍以老師上課為準。圖片為老師講義截圖。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-node">年輕母雞經蛋垂直傳播（＋糞口水平傳播）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">骨髓紅血球芽細胞、胸腺 T 前驅細胞被破壞</div><div class="flow-arrow">→</div>
+        <div class="flow-node">再生不良性貧血、血小板少 → 出血；T 細胞不成熟</div><div class="flow-arrow">→</div>
+        <div class="flow-node">蒼白、藍翅、免疫抑制、二次感染</div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈Chicken Infectious Anemia〉<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=2">p.2–5</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VIRUS -->
+    <div class="section" id="section-virus">
+      <div class="section-head"><div class="section-num">2</div><h2>病原 Etiology</h2></div>
+      <p class="section-desc">CAV 是講義裡最小、最耐的病毒：小到只有 2.3 kb，耐到 70°C 一小時都殺不死。</p>
+      <h3>名稱與重要性<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>1979 年日本 Yuasa 等人首次報告；曾稱 chicken anemia agent（CAA）、parvovirus-like virus（PVLV）。台灣 1991 年首次分離。</li>
+        <li>台灣共識：病名<strong>雞傳染性貧血（CIA）</strong>，病原<strong>雞貧血病毒（CAV）</strong>。</li>
+        <li>全球分布；所有年齡都可感染，但 <strong>&lt; 2 週齡</strong>才有嚴重症狀，<strong>1 日齡最敏感</strong>；<strong>雞是唯一宿主</strong>，火雞也可能感染。</li>
+        <li>重要性：<strong>經卵巢傳播</strong>、免疫抑制；傳播效率中等（要數週才傳遍全場）、潛伏期長（數週才看到症狀）；加重其他疾病，影響育成率、換肉率、產蛋率。</li>
+      </ul>
+      <h3>經濟損失（肉雞）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>CAV 狀態</th><th>淨收入</th><th>體重</th><th>死亡率</th></tr></thead>
+          <tbody>
+            <tr><td>乾淨場</td><td>+2.4%</td><td>+0.8%</td><td>−0.16%</td></tr>
+            <tr><td>感染場</td><td><strong>−10.6%</strong></td><td>−1.7%</td><td>+0.24%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>數字的意思：感染場死亡率只多 0.24%，但淨收入少了 10.6%，損失主要來自<strong>次臨床感染</strong>造成的生長差、屠宰廢棄、二次感染，而不是死亡（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=5">p.5–6</a>）。</p>
+      <h3>病毒特性<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>分類</td><td>環狀病毒（circovirus）；講義寫 Family <em>Anelloviridae</em>（指環病毒科）、Sub-family <em>Circoviridae</em>；Species CAV</td></tr>
+            <tr><td>大小與構造</td><td><strong>最小的病毒</strong>之一；<strong>無封套</strong>、二十面體、<strong>25 nm</strong></td></tr>
+            <tr><td>基因體</td><td><strong>環狀、單股 DNA（−）</strong>，<strong>2.3 kb</strong>（對照禽痘病毒約 300 kb）</td></tr>
+            <tr><td>型別</td><td>CIAV-I、CIAV-II 兩型；<strong>1 個血清型</strong></td></tr>
+            <tr><td>蛋白</td><td>3 個 ORF：<strong>VP1</strong> 衣殼（結構蛋白）；<strong>VP2</strong> 非結構、多功能；<strong>VP3＝apoptin</strong>，誘導細胞凋亡（已被研究用於抗癌）</td></tr>
+            <tr><td>抵抗力</td><td>對環境抵抗力強；<strong>pH 3、氯仿、70°C 1 小時或 80°C 5 分鐘</strong>都不能使它失去活性；耐脂溶劑與一般消毒劑（碘劑、次氯酸在 37°C、10% 高濃度、2 小時的條件下）</td></tr>
+            <tr><td>同類禽病毒</td><td>鸚鵡：<strong>喙羽病毒（PBFDV）</strong>；鴨、鵝：DuCV、GoCV</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：講義的科名寫法與國考題不同。國考題（104 年）寫「Circoviridae 病毒科中 genus Gyrovirus 唯一的家禽病毒是雞傳染性貧血病毒」；新版分類已把 Gyrovirus 移到 Anelloviridae，所以兩種說法都可能出現，作答時看選項用哪一套。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p007.jpg" alt="CAV 電顯（箭頭）；最小的病毒、無封套二十面體 25 nm；其他禽類環狀病毒：鸚鵡 PBFDV、鴨鵝 DuCV、GoC" loading="lazy"><div class="figure-caption">CAV 電顯（箭頭）；最小的病毒、無封套二十面體 25 nm；其他禽類環狀病毒：鸚鵡 PBFDV、鴨鵝 DuCV、GoCV。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=7">p.7</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p008.jpg" alt="CAV 基因體：環狀 ssDNA 2.3 kb，三個 ORF（VP1 衣殼、VP2 多功能、VP3 apoptin）。" loading="lazy"><div class="figure-caption">CAV 基因體：環狀 ssDNA 2.3 kb，三個 ORF（VP1 衣殼、VP2 多功能、VP3 apoptin）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=8">p.8</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈CIA〉<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=2">p.2–9</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- PATHOGENESIS -->
+    <div class="section" id="section-pathogenesis">
+      <div class="section-head"><div class="section-num">3</div><h2>傳播與致病機轉 Transmission &amp; Pathogenesis</h2></div>
+      <p class="section-desc">CIA 的發病很早（孵化後 3 週內），所以「病毒從哪來」答案多半是母雞。</p>
+      <h3>傳播<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>途徑</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>垂直傳播</strong></td><td><strong>年輕母雞</strong>（young flocks）在產蛋期間感染 → 經蛋傳給小雞</td></tr>
+            <tr><td><strong>水平傳播</strong></td><td>有機物、汙染器具（糞口、機械性）；呼吸道、消化道、皮膚創傷、人工授精也可成立</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p010.jpg" alt="傳播：年輕母雞垂直傳給小雞；小雞之間經糞口或機械性水平傳播。疾病發生時期非常早：孵化後三週內。" loading="lazy"><div class="figure-caption">傳播：年輕母雞垂直傳給小雞；小雞之間經糞口或機械性水平傳播。疾病發生時期非常早：孵化後三週內。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=10">p.10</a></div></div>
+      <h3>標的細胞<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>骨髓紅血球芽細胞（hemocytoblast）</strong>被破壞 → 紅血球再生不良 → <strong>貧血</strong>；顆粒球與血小板前驅也受影響（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=11">p.11</a>）。</li>
+        <li><strong>胸腺 T 淋巴球前驅細胞</strong>被破壞 → T 細胞無法成熟 → <strong>免疫抑制</strong>。最早被感染的是表現細胞質 CD3 的細胞；胸腺皮質大量淋巴細胞耗竭，CD8 毒殺型 T 細胞不成熟（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=33">p.33</a>）。</li>
+        <li>病毒散布全身，各器官都可能分離到病毒；但<strong>胸腺是標的器官，不能用來分離病毒</strong>（因為 T 細胞成熟受損；<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=12">p.12</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p011.jpg" alt="CAV 對造血與 T 細胞發育的影響：紅血球芽細胞與 T 淋巴球前驅細胞被感染（虛線圈），紅血球、異嗜球、血小板減少 →" loading="lazy"><div class="figure-caption">CAV 對造血與 T 細胞發育的影響：紅血球芽細胞與 T 淋巴球前驅細胞被感染（虛線圈），紅血球、異嗜球、血小板減少 → 再生不良貧血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=11">p.11</a></div></div>
+      <h3>年齡抵抗性<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>&lt; 2 週齡</strong>：高發病、高死亡；<strong>1 日齡最敏感</strong>。</li>
+        <li><strong>3–6 週齡</strong>開始出現「<strong>年齡抵抗性</strong>」，但仍<strong>可以被感染</strong>。</li>
+        <li><strong>IBD、MD、Reo</strong> 等免疫抑制病原會增加 CAV 致病力、<strong>延遲年齡抵抗性</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p013.jpg" alt="年齡抵抗性：&amp;lt; 2 週齡高發病高死亡，3–6 週齡後出現年齡抵抗性；IBD、MD、Reo 會延遲它。" loading="lazy"><div class="figure-caption">年齡抵抗性：&lt; 2 週齡高發病高死亡，3–6 週齡後出現年齡抵抗性；IBD、MD、Reo 會延遲它。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=13">p.13</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p014.jpg" alt="小雞是否發病是三者的平衡：病毒量、移行抗體、免疫能力（是否有其他免疫抑制病）；好發於更換新母雞後的小白肉雞。" loading="lazy"><div class="figure-caption">小雞是否發病是三者的平衡：病毒量、移行抗體、免疫能力（是否有其他免疫抑制病）；好發於更換新母雞後的小白肉雞。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=14">p.14</a></div></div>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">重點：為什麼「換新母雞後」的小雞容易發病</div><p>講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=14">p.14</a>：小雞發病與病毒量、移行抗體、其他免疫抑制病有關，並<strong>好發於更換新母雞後的小白肉雞</strong>。新的年輕母雞若還沒有 CAV 抗體，產蛋期感染就會經蛋把病毒傳給小雞，小雞又沒有移行抗體保護（後半句為依講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=10">p.10</a>、<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=37">p.37</a> 的推論）。</p></div>
+      <h3>感染後的血液變化<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>感染後 <strong>8 天</strong>：血容比、血小板數、紅血球與白血球數下降。</li>
+        <li>感染後 <strong>28–36 天</strong>：恢復正常。</li>
+      </ul>
+      <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p015.jpg" alt="感染後第 8 天血容比、血小板、紅白血球下降，28–36 天恢復；右側為正常血與貧血血的離心比較。" loading="lazy"><div class="figure-caption">感染後第 8 天血容比、血小板、紅白血球下降，28–36 天恢復；右側為正常血與貧血血的離心比較。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=15">p.15</a></div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈CIA〉<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=10">p.10–15</a>、<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=33">p.33</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">4</div><h2>臨床症狀與病變 Clinical Signs &amp; Lesions</h2></div>
+      <p class="section-desc">三條線索連起來：貧血（蒼白、骨髓變黃）＋出血（血小板少）＋免疫抑制（胸腺萎縮、二次感染）。</p>
+      <h3>臨床症狀<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>厭食、沉鬱；<strong>畏寒，在熱源下縮成一團</strong>（huddle）。</li>
+        <li>發育不良、換肉率差。</li>
+        <li><strong>明顯蒼白</strong>：貧血 → 臉部、雞冠、肉垂蒼白。</li>
+        <li>二次感染。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p018.jpg" alt="病雞外觀蒼白、羽毛蓬亂。" loading="lazy"><div class="figure-caption">病雞外觀蒼白、羽毛蓬亂。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=18">p.18</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p019.jpg" alt="感染 CAV 的 8 週齡蛋中雞：沉鬱、厭食、臉部及雞冠蒼白。" loading="lazy"><div class="figure-caption">感染 CAV 的 8 週齡蛋中雞：沉鬱、厭食、臉部及雞冠蒼白。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=19">p.19</a></div></div>
+      </div>
+      <h3>藍翅病與出血<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>易出血：肌肉、皮下、<strong>翅尖</strong>（因為<strong>血小板減少</strong>）。</li>
+        <li><strong>藍翅病（Blue wing disease）</strong>：翅膀與跗關節皮下出血 → 呈藍色；瘀青的皮膚會變藍、破裂。</li>
+        <li>臨床症狀出現後 <strong>5–6 天</strong>死亡達高峰。</li>
+        <li>胸、大腿、小腿肌肉出血；但<strong>肌肉出血也可能是其他疾病</strong>（例如 IBD 也有）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p020.jpg" alt="藍翅病：翅膀與跗關節皮下出血，呈藍色。" loading="lazy"><div class="figure-caption">藍翅病：翅膀與跗關節皮下出血，呈藍色。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=20">p.20</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p022.jpg" alt="皮下出血（左）、腳部蒼白（右）。" loading="lazy"><div class="figure-caption">皮下出血（左）、腳部蒼白（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=22">p.22</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p023.jpg" alt="翅膀、腿部皮下與肌肉出血。" loading="lazy"><div class="figure-caption">翅膀、腿部皮下與肌肉出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=23">p.23</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p024.jpg" alt="翅膀皮膚壞死潰爛（藍翅病後期，常續發細菌感染）。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">翅膀皮膚壞死潰爛（藍翅病後期，常續發細菌感染）。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=24">p.24</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p025.jpg" alt="胸、大腿、小腿肌肉出血；講義提醒也可能是其他疾病。" loading="lazy"><div class="figure-caption">胸、大腿、小腿肌肉出血；講義提醒也可能是其他疾病。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=25">p.25</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p026.jpg" alt="腿部肌肉出血點。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">腿部肌肉出血點。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=26">p.26</a></div></div>
+      <h3>骨髓、胸腺與脾臟<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>骨髓蒼白或變黃、脂肪狀</strong>（造血組織被脂肪取代，代償性）。</li>
+        <li><strong>胸腺萎縮</strong>；脾臟轉為淡紅色。</li>
+        <li><strong>華氏囊萎縮</strong>：見於 10–14 日齡、<strong>垂直感染</strong>的雞。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p027.jpg" alt="脾臟轉為淡紅色（左）；胸腺淋巴萎縮（右）。" loading="lazy"><div class="figure-caption">脾臟轉為淡紅色（左）；胸腺淋巴萎縮（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=27">p.27</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p029.jpg" alt="大腿骨骨髓：上為正常暗紅骨髓，下為蒼白、再生不良的骨髓。" loading="lazy"><div class="figure-caption">大腿骨骨髓：上為正常暗紅骨髓，下為蒼白、再生不良的骨髓。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=29">p.29</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p030.jpg" alt="骨髓細胞被脂肪細胞取代，呈黃骨髓樣病變。" loading="lazy"><div class="figure-caption">骨髓細胞被脂肪細胞取代，呈黃骨髓樣病變。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=30">p.30</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p031.jpg" alt="血容比只有 19%，呈低紅血球數（正常應大於 27%）。" loading="lazy"><div class="figure-caption">血容比只有 19%，呈低紅血球數（正常應大於 27%）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=31">p.31</a></div></div>
+      </div>
+      <h3>組織病變<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>骨髓：造血與骨髓組織萎縮，被<strong>脂肪細胞</strong>取代；少數細胞有小的<strong>核內包涵體</strong>。</li>
+        <li>胸腺：<strong>皮質胸腺細胞耗竭</strong>，皮質看起來像髓質（皮髓質分界消失）。</li>
+        <li>脾臟：淋巴球內<strong>嗜酸性核內包涵體</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p032.jpg" alt="(A) 正常大腿骨骨髓；(B) CIAV 感染：造血組織萎縮、脂肪細胞增加，少數細胞有核內包涵體（箭頭）。" loading="lazy"><div class="figure-caption">(A) 正常大腿骨骨髓；(B) CIAV 感染：造血組織萎縮、脂肪細胞增加，少數細胞有核內包涵體（箭頭）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=32">p.32</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p034.jpg" alt="胸腺萎縮：(A) 正常皮質（C）與髓質（M）分明；(B) 皮質胸腺細胞耗竭，呈髓質樣外觀。" loading="lazy"><div class="figure-caption">胸腺萎縮：(A) 正常皮質（C）與髓質（M）分明；(B) 皮質胸腺細胞耗竭，呈髓質樣外觀。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=34">p.34</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p033.jpg" alt="胸腺中的 T 細胞前驅細胞是標的：皮質大量耗竭，CD8 毒殺型 T 細胞不成熟。" loading="lazy"><div class="figure-caption">胸腺中的 T 細胞前驅細胞是標的：皮質大量耗竭，CD8 毒殺型 T 細胞不成熟。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=33">p.33</a></div></div>
+        <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p035.jpg" alt="脾臟淋巴球內嗜酸性核內包涵體。" loading="lazy"><div class="figure-caption">脾臟淋巴球內嗜酸性核內包涵體。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=35">p.35</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈CIA〉<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=16">p.16–35</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">5</div><h2>診斷 Diagnosis</h2></div>
+      <p class="section-desc">CIA 有一個現場就能做的數字：血容比（PCV）≤ 27%。</p>
+      <h3>診斷要點<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>血容比</strong></td><td><strong>PCV ≤ 27%</strong>（講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=31">p.31</a> 的病例只有 19%）</td></tr>
+            <tr><td>外觀</td><td>蒼白（&lt; 3 週齡雞）</td></tr>
+            <tr><td><strong>鑑別診斷</strong></td><td><strong>MD、REV、IBD</strong></td></tr>
+            <tr><td>實驗室</td><td><strong>PCR</strong>、<strong>IHC</strong>、病毒分離用 <strong>MSB-1 細胞</strong>（雞淋巴母細胞株）</td></tr>
+            <tr><td>血清學</td><td><strong>代表意義不足</strong>（因為免疫抑制）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info"><div class="alert-label">參數解釋：PCV ≤ 27% 代表什麼</div><p>PCV 是紅血球佔全血體積的比例。講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=31">p.31</a> 寫正常應大於 27%，所以 ≤ 27% 就是貧血。CIA 是<strong>再生不良性</strong>貧血（骨髓不造血），所以會同時看到骨髓變黃；這和出血或溶血造成的貧血（骨髓會努力造血、仍是紅色）不同（後半句為補充）。</p></div>
+      <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p036.jpg" alt="診斷：血容比 PCV ≤ 27%、&amp;lt; 3 週齡雞蒼白、鑑別 MD、REV、IBD；實驗室 PCR、IHC、MSB-" loading="lazy"><div class="figure-caption">診斷：血容比 PCV ≤ 27%、&lt; 3 週齡雞蒼白、鑑別 MD、REV、IBD；實驗室 PCR、IHC、MSB-1 細胞分離；血清學意義不足。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=36">p.36</a></div></div>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈CIA〉<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=31">p.31</a>、<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=36">p.36</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CONTROL -->
+    <div class="section" id="section-control">
+      <div class="section-head"><div class="section-num">6</div><h2>疫苗與防治 Prevention &amp; Control</h2></div>
+      <p class="section-desc">CIA 疫苗的邏輯和 IBD 不一樣：小雞太小不能打（疫苗本身會致病），所以打媽媽，讓移行抗體保護小雞。</p>
+      <h3>疫苗<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>減毒（活毒）疫苗</strong>，打<strong>母雞（種雞）</strong>，利用移行抗體保護小雞。</li>
+        <li>接種時機：<strong>8 週齡至開產前 4 週</strong>；初產或「更新」的母雞。</li>
+        <li><strong>不可施打於 8 週齡以下</strong>（有致病性）或<strong>屠宰前 21 天</strong>的雞；<strong>產蛋中避免使用</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week11_雞傳染性貧血/cia_p037.jpg" alt="CIA 減毒活毒疫苗（CAV-VAC）；打種雞、8 週齡至開產前 4 週，不可用於 8 週齡以下與屠宰前 21 天，產蛋" loading="lazy"><div class="figure-caption">CIA 減毒活毒疫苗（CAV-VAC）；打種雞、8 週齡至開產前 4 週，不可用於 8 週齡以下與屠宰前 21 天，產蛋中避免使用。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=37">p.37</a></div></div>
+      <div class="alert alert-danger"><div class="alert-label">禁忌</div><p>CIA 活毒疫苗<strong>不可用於 8 週齡以下</strong>（疫苗病毒對小雞有致病性）、<strong>屠宰前 21 天</strong>，<strong>產蛋中避免使用</strong>（補充推論：產蛋期接種的疫苗病毒可能經蛋傳給小雞）。</p></div>
+      <h3>生物安全<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>清潔、消毒，避免其他免疫抑制病原；預防二次性感染。</li>
+        <li>一般消毒劑消滅 CAV 的效果有限，但能降低協同或繼發感染的病原，所以仍有價值。</li>
+      </ul>
+      <h3>台灣圓桌會議結論<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>建議</th></tr></thead>
+          <tbody>
+            <tr><td>監測</td><td>種雞場定期做 CIA 血清抗體力價監測；加強孵化場新生小雞監控，杜絕垂直傳染</td></tr>
+            <tr><td>有 CIA 病史的汙染種雞場</td><td><strong>8–10 週齡</strong>免疫，力價靠野外毒自然補強</td></tr>
+            <tr><td>壓力較輕的場</td><td>接近<strong>開產前 4–6 週</strong>免疫，讓母雞產蛋期維持高抗體</td></tr>
+            <tr><td>一般建議</td><td>種雞 <strong>8–16 週齡</strong>接種，<strong>免疫後 3–4 週</strong>測抗體；不足或均勻度差，<strong>最遲開產前 4 週</strong>補強</td></tr>
+            <tr><td>混合感染</td><td>CIA 常與<strong>球蟲症</strong>或其他病原混合感染；要積極防治免疫抑制性疾病</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>為什麼重點放在<strong>抗體力價均勻度</strong>：移行抗體是小雞唯一的保護，若母雞群有些高有些低，力價低的母雞所產的小雞就沒有保護，也代表那些母雞可能在產蛋期被感染而垂直傳播（推論）。</p>
+      <footer class="note-footer">資料來源：《禽病學》課程講義〈CIA〉<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=37">p.37–40</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIFFERENTIAL -->
+    <div class="section" id="section-differential">
+      <div class="section-head"><div class="section-num">7</div><h2>鑑別比較 Differential Diagnosis</h2></div>
+      <p class="section-desc">講義列出的鑑別診斷是 MD、REV、IBD：都是會讓小雞免疫抑制、或造成淋巴器官病變的病毒。</p>
+      <h3>小雞免疫抑制病比較<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>雞傳染性貧血（CIA）</th><th>傳染性華氏囊病（IBD）</th><th>馬立克病（MD）</th><th>網狀內皮增生症（RE）</th></tr></thead>
+          <tbody>
+            <tr><td>病毒</td><td>環狀病毒，ssDNA，無封套</td><td>Birnavirus，dsRNA，無封套</td><td>疱疹病毒，dsDNA</td><td>反轉錄病毒</td></tr>
+            <tr><td>主要標的</td><td>胸腺 T 前驅細胞、骨髓造血細胞</td><td>華氏囊未成熟 B 細胞</td><td>B → T 細胞，潛伏、轉形</td><td>見第 9 週</td></tr>
+            <tr><td>傳播</td><td><strong>垂直</strong>＋水平</td><td>水平（糞口），不經蛋</td><td>羽毛皮屑經空氣，不經蛋</td><td>垂直＋水平；汙染疫苗</td></tr>
+            <tr><td>關鍵病變</td><td>貧血、黃骨髓、胸腺萎縮、皮下出血（藍翅）</td><td>華氏囊腫大出血 → 萎縮；肌肉出血</td><td>神經腫大、內臟腫瘤</td><td>矮小症候群、淋巴瘤</td></tr>
+            <tr><td>疫苗對象</td><td><strong>種雞</strong>（不打小雞）</td><td>種雞（死毒）＋小雞（活毒）</td><td>1 日齡或蛋內</td><td>無疫苗</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ IBD 見<a href="week10_傳染性華氏囊病.html">傳染性華氏囊病頁</a>、MD 見<a href="week08_馬立克病.html">馬立克病頁</a>、RE 見<a href="week09_禽白血病與網狀內皮增生症.html">禽白血病與網狀內皮增生症頁</a>。MD 與 RE 的傳播與疫苗欄取自那兩頁。</p>
+      <footer class="note-footer">資料來源：本課程〈CIA〉〈IBD〉〈Marek's Disease〉〈AL/RE〉講義。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">8</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>病毒分類與構造</td><td>環狀病毒；無封套、25 nm、環狀 ssDNA 2.3 kb；最小的病毒</td></tr>
+            <tr><td>血清型</td><td>1 個血清型（CIAV-I、II 兩型）</td></tr>
+            <tr><td>VP3 的功能</td><td>apoptin，誘導細胞凋亡</td></tr>
+            <tr><td>標的細胞</td><td>骨髓紅血球芽細胞、胸腺 T 淋巴球前驅細胞；胸腺不能用來分離病毒</td></tr>
+            <tr><td>環境抵抗力</td><td>耐 pH 3、氯仿、70°C 1 小時、80°C 5 分鐘、脂溶劑、一般消毒劑</td></tr>
+            <tr><td>傳播</td><td>垂直（年輕母雞經蛋）為重點；水平糞口；發病在孵化後 3 週內</td></tr>
+            <tr><td>年齡抵抗性</td><td>&lt; 2 週齡嚴重、1 日齡最敏感；3–6 週齡後抵抗；IBD、MD、Reo 延遲</td></tr>
+            <tr><td>典型病變</td><td>蒼白、PCV ≤ 27%、藍翅病、肌肉皮下出血、黃骨髓、胸腺萎縮</td></tr>
+            <tr><td>病毒分離</td><td>MSB-1 細胞（雞淋巴母細胞）</td></tr>
+            <tr><td>疫苗</td><td>減毒活毒打種雞；8 週齡至開產前 4 週；不可 &lt; 8 週齡、屠宰前 21 天；產蛋中避免</td></tr>
+            <tr><td>鑑別</td><td>MD、REV、IBD</td></tr>
+            <tr><td>同科病毒</td><td>鸚鵡喙羽病（PBFD）、鴨鵝環狀病毒</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 雞貧血病毒（CAV）的基因體是？</div>
+        <ul class="quiz-options"><li>(A) 環狀單股 DNA，約 2.3 kb</li><li>(B) 雙股 RNA，兩段</li><li>(C) 線狀雙股 DNA，約 300 kb</li><li>(D) 負義單股 RNA，約 15 kb</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">CAV 是最小的病毒之一，環狀 ssDNA 2.3 kb。(B) IBDV；(C) 禽痘病毒的大小；(D) 新城病病毒。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. CAV 的 VP3（apoptin）有什麼功能？</div>
+        <ul class="quiz-options"><li>(A) 構成衣殼</li><li>(B) 誘導細胞凋亡</li><li>(C) 凝集紅血球</li><li>(D) 與細胞膜融合</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">VP1 是衣殼；VP2 非結構多功能；VP3 apoptin 誘導細胞凋亡，曾被研究用於抗癌（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=8">p.8</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. CAV 造成貧血與免疫抑制，是因為破壞了哪些細胞？</div>
+        <ul class="quiz-options"><li>(A) 華氏囊未成熟 B 細胞</li><li>(B) 骨髓紅血球芽細胞與胸腺 T 淋巴球前驅細胞</li><li>(C) 成熟紅血球（溶血）</li><li>(D) 羽毛毛囊上皮</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">再生不良性貧血＋T 細胞不成熟（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=11">p.11</a>、<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=33">p.33</a>）。(A) 是 IBD；(C) 不是 CIA 的機轉；(D) 是 MD 排毒的位置。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q4. 要分離 CAV，胸腺是最好的採樣器官，因為它是標的器官。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=12">p.12</a>：胸腺是標的器官，但<strong>不能</strong>用來分離病毒（T 細胞成熟受損）；病毒散布全身，其他器官可以分離。病毒分離用 MSB-1 細胞。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 關於 CIA 的年齡抵抗性，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 1 日齡小雞最有抵抗力</li><li>(B) 2 週齡以下高發病高死亡，3–6 週齡後出現年齡抵抗性，但仍可被感染</li><li>(C) 年齡抵抗性出現後就不會被感染</li><li>(D) IBD 感染會讓年齡抵抗性提早出現</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">1 日齡最敏感；年齡抵抗性只是不發病，仍可感染；IBD、MD、Reo 會延遲年齡抵抗性（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=13">p.13</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 「藍翅病（blue wing disease）」是 CIA 的哪一種病變？</div>
+        <ul class="quiz-options"><li>(A) 翅膀與跗關節皮下出血，呈藍色</li><li>(B) 翅膀麻痺下垂</li><li>(C) 翅膀羽毛脫落</li><li>(D) 翅膀痘疹</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">血小板減少 → 易出血；翅膀皮下出血呈藍色，之後可能破裂、續發感染（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=20">p.20–21</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 剖開 CIA 病雞的大腿骨，骨髓最可能是？</div>
+        <ul class="quiz-options"><li>(A) 暗紅色、充血</li><li>(B) 蒼白或黃色、脂肪狀</li><li>(C) 有腫瘤結節</li><li>(D) 化膿</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">造血細胞被破壞、被脂肪取代，骨髓蒼白或變黃（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=17">p.17</a>、<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=29">p.29–30</a>）。正常骨髓是暗紅色。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 依講義，CIA 的血容比診斷切點是？</div>
+        <ul class="quiz-options"><li>(A) PCV ≤ 27%</li><li>(B) PCV ≤ 40%</li><li>(C) PCV ≥ 50%</li><li>(D) PCV ≤ 10%</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=36">p.36</a>：PCV ≤ 27%；<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=31">p.31</a> 的病例只有 19%（正常應大於 27%）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. CAV 病毒分離使用哪一種細胞？</div>
+        <ul class="quiz-options"><li>(A) MSB-1（雞淋巴母細胞）</li><li>(B) Vero 細胞</li><li>(C) 雞胚尿囊腔</li><li>(D) 華氏囊初代細胞</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=36">p.36</a>。Vero 細胞是禽呼腸孤病毒的分離細胞之一；尿囊腔是新城病、禽流感；華氏囊初代細胞是 IBDV（不建議用於 vvIBDV）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 關於 CIA 疫苗，何者錯誤？</div>
+        <ul class="quiz-options"><li>(A) 是減毒活毒疫苗</li><li>(B) 打種雞，用移行抗體保護小雞</li><li>(C) 為了及早保護，應在 1 日齡小雞接種</li><li>(D) 屠宰前 21 天不可施打</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">疫苗不可用於 8 週齡以下（有致病性），應在種雞 8 週齡至開產前 4 週接種；產蛋中避免使用（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=37">p.37</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q11. 因為 CIA 會造成免疫抑制，血清學檢查的代表意義不足。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=36">p.36</a>。不過血清學仍用於<strong>種雞</strong>的抗體力價監測與疫苗後評估（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=39">p.39–40</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q12. 為什麼 CIA 的疫苗打種雞而不打小雞？種雞的接種時機怎麼安排？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">疫苗是減毒活毒，對 8 週齡以下的雞仍有致病性，所以小雞不能打；病毒主要經蛋垂直傳播、發病在孵化後 3 週內，因此由種雞產生移行抗體保護小雞。一般建議 8–16 週齡接種、免疫後 3–4 週測抗體，不足時最遲開產前 4 週補強；有病史的汙染場 8–10 週齡免疫，壓力較輕的場接近開產前 4–6 週；產蛋中避免使用（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=37">p.37–40</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一批 2 週齡白肉雞，種雞場剛換了一批新母雞。小雞沉鬱、縮在保溫燈下、雞冠與臉部蒼白，部分翅膀皮下出血呈藍色。剖檢大腿骨骨髓呈黃色、胸腺萎縮，抽血 PCV 20%。請問：(1) 最可能的診斷？(2) 病毒從哪裡來？(3) 還要鑑別哪些病？(4) 對種雞場的建議？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 雞傳染性貧血（&lt; 3 週齡蒼白、PCV ≤ 27%、藍翅病、黃骨髓、胸腺萎縮）。<br><strong>(2)</strong> 最可能是新母雞在產蛋期感染後經蛋垂直傳播；講義寫明好發於更換新母雞後的小白肉雞（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=14">p.14</a>）。<br><strong>(3)</strong> MD、REV、IBD（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=36">p.36</a>）；IBD 也會有肌肉出血，但病變在華氏囊。<br><strong>(4)</strong> 種雞 8–16 週齡接種減毒疫苗，免疫後 3–4 週測抗體與均勻度，不足時最遲開產前 4 週補強；加強孵化場小雞監控；控制 IBD、MD 等其他免疫抑制病與球蟲（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=39">p.39–40</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】某肉雞場死亡率正常，但出雞體重偏低、換肉率差、屠宰廢棄率上升，常有細菌續發感染。血清學檢查發現 CAV 抗體陽性。請問：(1) 這是什麼型態的 CIA 損失？(2) 依講義數據，感染場與乾淨場淨收入差多少？(3) 消毒的角色是什麼？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 次臨床感染：雞群看起來正常但吃不胖，損失來自生長、換肉率、廢棄率與二次感染（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=5">p.5</a>）。<br><strong>(2)</strong> 乾淨場淨收入 +2.4%，感染場 −10.6%，相差約 13 個百分點，但死亡率只差 0.4%（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=6">p.6</a>）。<br><strong>(3)</strong> 一般消毒劑對 CAV 效果有限，但能減少協同或繼發感染的病原，所以仍有價值（<a class="pdf-link" href="pdf/雞傳染性貧血.pdf#page=39">p.39</a>）。</p></details>
+      </div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week11_%E9%9B%9E%E5%82%B3%E6%9F%93%E6%80%A7%E8%B2%A7%E8%A1%80" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  virus: '病原',
+  pathogenesis: '傳播與致病',
+  clinical: '臨床症狀與病變',
+  diagnosis: '診斷',
+  control: '疫苗與防治',
+  differential: '鑑別比較',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
