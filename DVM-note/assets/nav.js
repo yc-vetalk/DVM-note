@@ -447,3 +447,28 @@ function initSiteNav(containerId, panelId) {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
+
+/* 左側目錄可收合（桌機寬度）：狀態存在 localStorage 'toc-collapsed' */
+(function () {
+  var KEY = 'toc-collapsed';
+  var ICON = '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2.25"/><path d="M6 2.75v10.5"/></svg>';
+  function get() { try { return localStorage.getItem(KEY) === '1'; } catch (e) { return false; } }
+  function set(v) { try { localStorage.setItem(KEY, v ? '1' : '0'); } catch (e) {} }
+  function init() {
+    var wrap = document.querySelector('.pagewrap'), toc = wrap && wrap.querySelector(':scope > nav.toc');
+    if (!toc) return;
+    var bar = document.createElement('div'); bar.className = 'toc-bar';
+    bar.innerHTML = '<span>目錄</span>';
+    var close = document.createElement('button');
+    close.type = 'button'; close.className = 'toc-btn'; close.innerHTML = ICON; close.setAttribute('aria-label', '收起目錄'); close.title = '收起目錄';
+    bar.appendChild(close); toc.insertBefore(bar, toc.firstChild);
+    var open = document.createElement('button');
+    open.type = 'button'; open.className = 'toc-open'; open.textContent = '☰ 目錄'; open.setAttribute('aria-label', '展開目錄'); open.title = '展開目錄';
+    document.body.appendChild(open);
+    function apply(c) { wrap.classList.toggle('toc-collapsed', c); open.classList.toggle('show', c); }
+    close.onclick = function () { set(true); apply(true); };
+    open.onclick = function () { set(false); apply(false); };
+    apply(get());
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();

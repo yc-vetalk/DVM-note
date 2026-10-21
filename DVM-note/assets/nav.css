@@ -75,3 +75,16 @@
 @media (max-width: 900px) {
   .site-nav { display: none; }
 }
+
+/* 左側目錄收合（>=1040px 才有雙欄） */
+.toc-bar, .toc-btn { display: none; }
+@media (min-width: 1040px) {
+  .toc-bar { display: flex; align-items: center; justify-content: space-between; margin: 0 0 .6rem; padding: 0 0 .5rem; border-bottom: 1px solid var(--line, #e6e3df); font-size: .75rem; font-weight: 700; letter-spacing: .12em; color: var(--fg-dim, #a49e97); }
+  .toc-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0; color: var(--fg-faint, #756e68); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; transition: color .15s, background .15s, border-color .15s; }
+  .toc-btn:hover { color: var(--accent-deep, #3e322b); background: var(--bg-soft, #f8f5f2); border-color: var(--line-soft, #dacfc5); }
+  .toc-open { display: none; }
+  .toc-open.show { display: block; position: fixed; left: 12px; top: calc(var(--nav-h, 60px) + 14px); z-index: 40; padding: .35rem .8rem; font: inherit; font-size: .875rem; color: var(--accent-deep, #3e322b); background: var(--bg, #fff); border: 1px solid var(--line-soft, #dacfc5); border-radius: 999px; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+  .pagewrap.toc-collapsed { grid-template-columns: minmax(0, 1fr); }
+  .pagewrap.toc-collapsed > nav.toc { display: none; }
+  .pagewrap.toc-collapsed > .pagebody { width: 100%; max-width: 62rem; margin-left: auto; margin-right: auto; }
+}
