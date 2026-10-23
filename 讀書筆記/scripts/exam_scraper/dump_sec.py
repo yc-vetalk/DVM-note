@@ -1,5 +1,7 @@
-import re,sys
-t=open('讀書筆記/國考題庫/'+__import__('os').environ.get('SUBJECT','豬病學')+'_國考題彙整.md',encoding='utf-8').read()
+import re,sys,os
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+import paths
+t=open(paths.course_md(os.environ.get('SUBJECT','豬病學')),encoding='utf-8').read()
 secs=re.split(r'\n## ',t)[1:]
 i=int(sys.argv[1]); s=secs[i]; print('##',s.split('\n')[0])
 ch={'一':'1','二':'2'}

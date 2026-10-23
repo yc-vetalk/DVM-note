@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>反芻動物疾病學：牛傳染病（一）腸胃道疾病 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">反芻動物疾病學</a><span class="sep">›</span><span class="current">第 4 講・牛傳染病（一）腸胃道疾病</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">牛傳染病（一）腸胃道疾病 Bovine Infectious Disease: Gastrointestinal</h1>
+      <p class="page-subtitle">沙門氏菌症（S. Dublin 偏全身性與呼吸道）、隱孢子蟲症（C. parvum 人畜共通、極耐消毒）、牛病毒性下痢（持續感染 PI 牛是傳染源）、冬季下痢（冠狀病毒、成牛血便）、輪狀病毒（1 月齡內急性下痢）</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">反芻動物疾病學（大四上・第4講・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉p.2–60（Chi-Fei Kao，2026.09.29；部分投影片由鄭益謙老師提供）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-22</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/牛傳染病.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">細菌與寄生蟲</div>
+    <a onclick="showSection('salmonella')" id="nav-salmonella"><span class="nav-icon">🦠</span> 牛沙門氏菌症</a>
+    <a onclick="showSection('crypto')" id="nav-crypto"><span class="nav-icon">🔬</span> 牛隱孢子蟲症</a>
+    <div class="section-label" style="margin-top:8px;">病毒</div>
+    <a onclick="showSection('bvd')" id="nav-bvd"><span class="nav-icon">🧬</span> BVD 病原與持續感染</a>
+    <a onclick="showSection('bvdforms')" id="nav-bvdforms"><span class="nav-icon">🩸</span> BVD 的病型</a>
+    <a onclick="showSection('bvdcontrol')" id="nav-bvdcontrol"><span class="nav-icon">🛡️</span> BVD 的預防與控制</a>
+    <a onclick="showSection('wd')" id="nav-wd"><span class="nav-icon">❄️</span> 牛冬季下痢</a>
+    <a onclick="showSection('rota')" id="nav-rota"><span class="nav-icon">🔄</span> 牛輪狀病毒</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('compare')" id="nav-compare"><span class="nav-icon">🧩</span> 鑑別比較</a>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">牛腸胃道傳染病的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>〈Bovine Infectious Disease〉講義第一部分 Gastrointestinal Diseases 的五個病：<strong>牛沙門氏菌症（bovine salmonellosis）</strong>、<strong>牛隱孢子蟲症（bovine cryptosporidiosis）</strong>、<strong>牛病毒性下痢（bovine viral diarrhea, BVD）</strong>、<strong>牛冬季下痢（winter dysentery, WD）</strong>、<strong>牛輪狀病毒（bovine rotavirus, BRV）</strong>。呼吸道疾病見<a href="week04_牛傳染病_呼吸道疾病.html">牛傳染病（二）</a>，其他疾病見<a href="week04_牛傳染病_其他疾病.html">牛傳染病（三）</a>。</dd>
+          <dt>為什麼重要</dt>
+          <dd>下痢是仔牛第一大死因（見<a href="week03_仔牛疾病.html">仔牛疾病頁</a>）；其中<strong>沙門氏菌（S. Typhimurium、S. Dublin）</strong>、<strong>隱孢子蟲（C. parvum）</strong>、<strong>輪狀病毒</strong>都是<strong>人畜共通</strong>；BVD 造成免疫抑制、繁殖失敗與持續感染牛，是牛群長期的經濟損失。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-salmonella">沙門氏菌</a>：<strong>S. Dublin 是牛適應型</strong>，較易造成侵襲性、全身性疾病，<strong>常以呼吸道症狀表現</strong>；好發 <strong>2–12 週齡</strong>；三種帶原者（活動、無症狀、潛伏）；後期可見<strong>末端乾性壞疽</strong>；疫苗為<strong>活減毒全菌苗</strong>。</li>
+              <li><a href="#section-crypto">隱孢子蟲</a>：<strong><em>C. parvum</em> 人畜共通</strong>；<strong>1–3 週齡</strong>仔牛 70% 糞便可檢出卵囊；卵囊 <strong>4–5 μm</strong>、<strong>抗氯等多數消毒劑</strong>；<strong>5–17 個卵囊</strong>就能致病；<strong>抗酸染色</strong>；1993 年密爾沃基事件 40 萬人發病。</li>
+              <li><a href="#section-bvd">BVD 病原</a>：<em>Pestivirus</em>、黃病毒科；BVDV-1、-2、-3（HoBi-like）；<strong>CP 與 NCP 兩生物型</strong>（生物型不代表致病力）；<strong>免疫抑制</strong>。</li>
+              <li><a href="#section-bvd">PI 牛</a>：懷孕<strong>前 4 個月（&lt; 120 天）</strong>感染 <strong>NCP</strong> 株 → <strong>持續感染（PI）</strong>，是牛群<strong>主要傳染源</strong>；牛群 PI 盛行率約 <strong>1–2%</strong>；90–150 天感染 → 先天缺陷。</li>
+              <li><a href="#section-bvdforms">BVD 病型</a>：急性 BVD（高發病、低死亡）、<strong>重度急性 BVD</strong>（NCP BVDV-2、死亡率 25%、血小板減少出血）、<strong>黏膜病</strong>（PI 牛再感染 <strong>CP</strong> 株、死亡率 <strong>100%</strong>、6 月齡–2 歲）。</li>
+              <li><a href="#section-bvdcontrol">BVD 控制</a>：<strong>找出並淘汰 PI 牛</strong>、種母牛接種防胎兒感染、<strong>懷孕牛不建議用 MLV</strong>。</li>
+              <li><a href="#section-wd">冬季下痢</a>：<strong>牛冠狀病毒（BCoV）</strong>，成牛<strong>爆發性下痢</strong>、常<strong>出血性</strong>、<strong>乳量大降</strong>；發病率 30–50%、死亡率低；<strong>沒有市售疫苗</strong>。</li>
+              <li><a href="#section-rota">輪狀病毒</a>：呼腸孤病毒科、無封套、<strong>11 段 dsRNA</strong>；<strong>1 月齡內仔牛急性下痢最常見病原</strong>；95% 為 <strong>A 群</strong>；感染<strong>小腸絨毛中上段成熟腸上皮</strong>；潛伏 <strong>12–36 小時</strong>；<strong>7–10 日齡</strong>最易感；控制靠<strong>疫苗</strong>。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>CP vs NCP</strong>：只有 <strong>NCP</strong> 能在胎兒建立持續感染；<strong>黏膜病＝PI 牛（NCP）再遇到 CP 株</strong>。生物型不代表致病力（重度急性 BVD 是 NCP BVDV-2）。<strong>冠狀病毒 vs 輪狀病毒</strong>：BCoV 感染大小腸、也有呼吸道向性，成牛的冬季下痢；輪狀病毒只感染小腸絨毛上段，主要是 1 月齡內仔牛。<strong>S. Typhimurium vs S. Dublin</strong>：前者宿主廣（人、牛、羊、豬），後者牛適應型、較常全身性與呼吸道表現。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>S. Dublin 的特性與三種帶原者；沙門氏菌的致病機轉（SPI-1、SPI-2）；隱孢子蟲卵囊大小、抵抗力、感染劑量與染色法；BVD 的分類、生物型、PI 形成條件、各病型的發病與死亡率；黏膜病機轉；BVD 控制；冬季下痢病原與表現；輪狀病毒構造、感染部位、易感日齡；三種病毒的疫苗有無。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸；標示「推測」的是依講義強調處推測的出題方向，不是考古題。考試範圍以老師上課為準。圖片為老師講義截圖（部分投影片原出處為鄭益謙老師或文獻）。</p>
+      </div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=1">p.1–60</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SALMONELLA -->
+    <div class="section" id="section-salmonella">
+      <div class="section-head"><div class="section-num">2</div><h2>牛沙門氏菌症 Bovine Salmonellosis</h2></div>
+      <p class="section-desc">牛最重要的兩個血清型：S. Typhimurium 什麼動物都感染，S. Dublin 專門適應牛、更容易跑到全身。</p>
+      <h3>病原與流行病學（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=4">p.4–6</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>牛可分離出很多 <em>Salmonella</em> 血清型；<strong>最重要的是 <em>S.</em> Typhimurium 與 <em>S.</em> Dublin</strong>，<strong>兩者都是人畜共通</strong>。</li>
+        <li><strong><em>S.</em> Typhimurium</strong>：可感染多種動物，包括人、牛、羊、豬。</li>
+        <li><strong><em>S.</em> Dublin</strong>：<strong>牛適應型（cattle-adapted）</strong>，較容易造成<strong>侵襲性／全身性疾病</strong>。</li>
+        <li>通常為<strong>地方性（endemic）</strong>，有時爆發大流行；美國與加拿大分離株常見<strong>多重抗藥性</strong>。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型（Uzzau et al., 2000）</th><th>例子</th><th>表現</th></tr></thead>
+          <tbody>
+            <tr><td><strong>非限制型</strong> unrestricted</td><td>Typhimurium、Enteritidis</td><td>在多種動物的<strong>幼齡動物</strong>造成<strong>腸炎</strong></td></tr>
+            <tr><td><strong>宿主適應型</strong> host-adapted</td><td><strong>Dublin（牛）</strong>、Choleraesuis（豬）</td><td>在其特定宿主造成<strong>腸炎或全身性疾病</strong>；偶爾感染人（Dublin 也偶感染羊）</td></tr>
+            <tr><td>宿主限制型 host-restricted</td><td>Typhi、Paratyphi（人）、Abortusovis（羊）、Gallinarum（禽）、Typhisuis（豬）、Abortusequi（馬）</td><td>只感染特定宿主</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p006.jpg" alt="沙門氏菌血清型的宿主適應（Uzzau et al., 2000）：Dublin 為牛的宿主適應型，可罕見感染人與羊。" loading="lazy"><div class="figure-caption">沙門氏菌血清型的宿主適應（Uzzau et al., 2000）：Dublin 為牛的宿主適應型，可罕見感染人與羊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=6">p.6</a></div></div>
+      <h3>傳播（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=7">p.7</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>糞口傳播</strong>：來源為<strong>活動帶原者</strong>、<strong>無症狀帶原者</strong>、<strong>潛伏帶原者</strong>。</li>
+        <li><strong>垂直傳播（子宮內）</strong>。</li>
+        <li>氣膠傳播（可能）。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p007.jpg" alt="S. Dublin 帶原牛的傳播途徑（Velasquez et al., 2023）：糞便、初乳與乳汁、子宮內傳給仔牛，" loading="lazy"><div class="figure-caption">S. Dublin 帶原牛的傳播途徑（Velasquez et al., 2023）：糞便、初乳與乳汁、子宮內傳給仔牛，也可傳給人。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=7">p.7</a></div></div>
+      <h3>致病機轉與免疫（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=8">p.8</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="flow">
+        <div class="flow-node">腸道</div><div class="flow-arrow">→</div>
+        <div class="flow-node">腸繫膜淋巴結</div><div class="flow-arrow">→</div>
+        <div class="flow-node">全身散播</div>
+      </div>
+      <ul>
+        <li><strong>S. Dublin 已適應逃避宿主免疫</strong>。</li>
+        <li>毒力因子：<strong>沙門氏菌致病島（Salmonella Pathogenicity Islands, SPI）</strong>、毒素、<strong>鞭毛（運動）</strong>、<strong>線毛（附著）</strong>。</li>
+        <li>S. Dublin 帶有 SPI-1 與 SPI-2 的<strong>第三型分泌系統（T3SS）</strong>：<strong>SPI-1 → 侵入腸道</strong>；<strong>SPI-2 → 擴散到全身</strong>。</li>
+        <li><strong>宿主免疫決定結果</strong>：免疫系統未成熟的幼齡仔牛 → <strong>高發病、高死亡</strong> → <strong>疫苗與初乳很重要</strong>。</li>
+      </ul>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=9">p.9–10</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>S. Dublin 比其他血清型嚴重</strong>；表現依年齡、牛群狀況而異。</li>
+        <li>所有年齡都會感染，但<strong>最常見於 2–12 週齡仔牛</strong>。</li>
+        <li>未曾接觸的牛群：病原迅速傳播、爆發。</li>
+        <li>大多數沙門氏菌感染表現為<strong>腸胃道疾病</strong>（下痢），但 <strong>S. Dublin 最常表現為呼吸道疾病</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="card"><h4>仔牛</h4><ul><li>高燒、意識遲鈍、厭食</li><li><strong>肺炎、呼吸窘迫</strong></li><li>脫水、<strong>敗血症</strong></li><li>猝死（甚急性）</li><li>轉為慢性：生長遲緩、<strong>關節炎</strong>、軟便</li></ul></div>
+        <div class="card"><h4>成牛</h4><ul><li>輕微發燒、輕度下痢</li><li><strong>乳量突然下降</strong></li><li>少見血便</li><li>產生<strong>潛伏帶原者</strong></li></ul></div>
+      </div>
+      <h3>感染後的結局：三種帶原者（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=11">p.11</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>結局</th><th>菌在哪裡</th></tr></thead>
+          <tbody>
+            <tr><td><strong>活動帶原者</strong> active carrier</td><td>有臨床症狀後恢復，<strong>糞便和／或乳汁中有菌</strong></td></tr>
+            <tr><td><strong>無症狀帶原者</strong> symptomless carrier</td><td>沒有症狀，糞便和／或乳汁中<strong>偶爾</strong>有菌</td></tr>
+            <tr><td><strong>潛伏帶原者</strong> latent carrier</td><td>菌在<strong>體內但不排出</strong>（可轉為排菌）</td></tr>
+            <tr><td>清除</td><td>糞便與乳汁中都沒有菌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p011.jpg" alt="沙門氏菌感染的結局：有臨床症狀（發燒、下痢、血便、脫水、厭食消瘦、呼吸急促、四肢皮膚脫落）者可能死亡或恢復成活動帶原者；" loading="lazy"><div class="figure-caption">沙門氏菌感染的結局：有臨床症狀（發燒、下痢、血便、脫水、厭食消瘦、呼吸急促、四肢皮膚脫落）者可能死亡或恢復成活動帶原者；無症狀者可清除、成為無症狀帶原者或潛伏帶原者，三種帶原者之間可互相轉換（鄭益謙老師提供）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=11">p.11</a></div></div>
+      <h3>病變（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=12">p.12–18</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p012.jpg" alt="沙門氏桿菌性急性腸炎：墊料上的血便（含黏液）與下痢仔牛。" loading="lazy"><div class="figure-caption">沙門氏桿菌性急性腸炎：墊料上的血便（含黏液）與下痢仔牛。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=12">p.12</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p013.jpg" alt="急性腸炎：腸黏膜有纖維素性偽膜與出血。" loading="lazy"><div class="figure-caption">急性腸炎：腸黏膜有纖維素性偽膜與出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=13">p.13</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p014.jpg" alt="急性腸炎：腸道內容物黃色、黏膜壞死。" loading="lazy"><div class="figure-caption">急性腸炎：腸道內容物黃色、黏膜壞死。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=14">p.14</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p015.jpg" alt="急性腸炎後期（尤其 S. Dublin）常在四肢、耳尖、尾尖發生末端乾性壞疽（terminal dry gangrene" loading="lazy"><div class="figure-caption">急性腸炎後期（尤其 S. Dublin）常在四肢、耳尖、尾尖發生末端乾性壞疽（terminal dry gangrene），可能是免疫媒介反應。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=15">p.15</a></div></div>
+      <ul>
+        <li>Pecoraro et al.（2017）提出 6 月齡以下荷蘭牛 S. Dublin 的組織病理病例定義：<strong>肺泡微血管嗜中性球增多</strong>，加上或不加<strong>肝細胞壞死與副傷寒肉芽腫</strong>、<strong>脾炎</strong>、<strong>淋巴結炎</strong>（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=16">p.16</a>）。</li>
+        <li>各器官病變分數以<strong>肺</strong>最常見且嚴重（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=18">p.18</a> 圖）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p017.jpg" alt="S. Dublin 仔牛肺（上排，肺泡微血管嗜中性球輕到重度）與肝（下排，副傷寒肉芽腫）（Pecoraro et al." loading="lazy"><div class="figure-caption">S. Dublin 仔牛肺（上排，肺泡微血管嗜中性球輕到重度）與肝（下排，副傷寒肉芽腫）（Pecoraro et al., 2017）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=17">p.17</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p018.jpg" alt="S. Dublin 培養陽性仔牛各器官病變嚴重度：肺、肝、脾、淋巴結的化膿性炎症較常見。" loading="lazy"><div class="figure-caption">S. Dublin 培養陽性仔牛各器官病變嚴重度：肺、肝、脾、淋巴結的化膿性炎症較常見。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=18">p.18</a></div></div>
+      </div>
+      <h3>診斷（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=19">p.19</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>培養或 PCR 檢出病原</strong>：糞便（培養敏感度相對低）、<strong>剖檢檢體（建議用來培養）</strong>、懷疑菌血症時用血液。</li>
+        <li><strong>剖檢：沒有特徵病灶</strong>；常見肺充血、化膿性肺炎、卡他性出血性腸炎、腸繫膜淋巴結炎、肝脾腫大 → 敗血症。</li>
+        <li><strong>ELISA</strong>：用血清與乳汁做<strong>監測</strong>。</li>
+      </ul>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=20">p.20</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>目標：<strong>減少病原暴露、增加抵抗力</strong>。</li>
+        <li>牧場管理；<strong>衛生</strong>：可用<strong>鹵素（稀釋漂白水）、酚類、四級銨、氧化劑（過氧單硫酸鉀）</strong>。</li>
+        <li><strong>生物安全</strong>：<strong>控制鼠類</strong>。</li>
+        <li><strong>疫苗：活減毒全菌苗</strong>；<strong>體液與細胞免疫都重要</strong>。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：沙門氏菌是細胞內菌，所以細胞免疫重要，這也是講義強調活減毒疫苗的原因。S. Dublin 帶原牛會從乳汁排菌，喝生乳是人的感染途徑之一（講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=5">p.5</a> 引用疾管署法國 S. Dublin 新聞）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=3">p.3–20</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CRYPTO -->
+    <div class="section" id="section-crypto">
+      <div class="section-head"><div class="section-num">3</div><h2>牛隱孢子蟲症 Bovine Cryptosporidiosis</h2></div>
+      <p class="section-desc">仔牛下痢最常檢出的病原之一：卵囊小、量少就能感染、氯都殺不死，還會傳給人。</p>
+      <h3>病原與流行病學（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=22">p.22–23</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>全球分布；種類與基因型很多。</li>
+        <li><strong><em>C. parvum</em></strong>（舊稱 C. parvum type II）：<strong>人畜共通</strong>，可感染人與仔牛等多種動物。</li>
+        <li><em>C. hominis</em>（舊稱 type I）：宿主範圍窄，主要人傳人。</li>
+        <li>牛也可分離到 <em>C. andersoni</em>、<em>C. bovis</em>、<em>C. ryanae</em>。</li>
+        <li><em>C. parvum</em> 是<strong>仔牛下痢常見原因</strong>：<strong>1–3 週齡</strong>乳用仔牛 <strong>70%</strong> 糞便可檢出卵囊。</li>
+        <li><strong>台灣</strong>（李睿彧，2018）：小牛 <em>C. parvum</em> 盛行率 <strong>26.5%</strong>（60/226）、成牛 <strong>19.7%</strong>（39/198）、<strong>場陽性率 90%</strong>（18/20）。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p023.jpg" alt="英國 2007–2011 年 1 月齡以下仔牛下痢病原（Thomson et al., 2017）：隱孢子蟲單獨 37%" loading="lazy"><div class="figure-caption">英國 2007–2011 年 1 月齡以下仔牛下痢病原（Thomson et al., 2017）：隱孢子蟲單獨 37%＋與其他病原共同感染 20%，輪狀病毒單獨 25%，球蟲 8%，大腸桿菌 4%，冠狀病毒 3%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=23">p.23</a></div></div>
+      <h3>密爾沃基事件（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=24">p.24</a>）<span class="lv lv-know">理解</span></h3>
+      <p>1993 年 4 月美國威斯康辛州密爾沃基（Milwaukee）供水受 <em>C. parvum</em> 汙染，推測與上游農場排水有關；估計 <strong>403,000 人發病</strong>、4,400 人住院、數名愛滋病人死亡，是<strong>美國最嚴重的一次爆發</strong>。多數人一到兩週康復，但兒童、老人與免疫低下者可能重症。</p>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p024.jpg" alt="密爾沃基事件：1993 年供水受 C. parvum 汙染，約 40 萬人發病（鄭益謙老師提供）。" loading="lazy"><div class="figure-caption">密爾沃基事件：1993 年供水受 C. parvum 汙染，約 40 萬人發病（鄭益謙老師提供）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=24">p.24</a></div></div>
+      <h3><em>C. parvum</em> 的特性（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=26">p.26</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>宿主</td><td><strong>沒有宿主專一性</strong></td></tr>
+            <tr><td>生活史</td><td>在<strong>單一宿主</strong>內 <strong>12 天</strong>完成</td></tr>
+            <tr><td>卵囊</td><td><strong>很小，直徑 4–5 μm</strong></td></tr>
+            <tr><td>環境抵抗力</td><td>環境中可存活<strong>數個月</strong>；<strong>抵抗大多數消毒劑，包括氯</strong></td></tr>
+            <tr><td>寄生部位</td><td><strong>腸胃道</strong>、膽管、胰臟、呼吸道、扁桃腺</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p026.jpg" alt="C. parvum 生活史（CDC）：厚壁卵囊排出體外，薄壁卵囊可在體內自體再感染。" loading="lazy"><div class="figure-caption">C. parvum 生活史（CDC）：厚壁卵囊排出體外，薄壁卵囊可在體內自體再感染。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p027.jpg" alt="正常腸絨毛 vs 感染後絨毛萎縮；卵囊與附著在腸上皮表面的蟲體（電子顯微鏡）。" loading="lazy"><div class="figure-caption">正常腸絨毛 vs 感染後絨毛萎縮；卵囊與附著在腸上皮表面的蟲體（電子顯微鏡）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=27">p.27</a></div></div>
+      </div>
+      <h3>傳播（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=28">p.28</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>糞口傳播</strong>（<strong>厚壁卵囊</strong>），吃進受汙染的食物或水。</li>
+        <li><strong>極少量卵囊就能感染</strong>：<strong>5–17 個卵囊</strong>就足以造成下痢與排卵囊。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p028.jpg" alt="隱孢子蟲傳播（CDC DPDx）：厚壁卵囊經糞便汙染水與食物，人與牛都可感染。" loading="lazy"><div class="figure-caption">隱孢子蟲傳播（CDC DPDx）：厚壁卵囊經糞便汙染水與食物，人與牛都可感染。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=28">p.28</a></div></div>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=29">p.29–30</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>依免疫而定：從無症狀（&gt; 6 週齡）、<strong>自限性</strong>到偶爾致命的下痢。</li>
+        <li><strong>1–3 週齡仔牛</strong>特別易感：持續下痢、脫水、體重下降、發育差。</li>
+        <li>常合併<strong>輪狀病毒或冠狀病毒</strong>續發感染。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p030.jpg" alt="隱孢子蟲下痢：黃色、水樣、像芥末醬的糞便，沾黏在仔牛後軀。" loading="lazy"><div class="figure-caption">隱孢子蟲下痢：黃色、水樣、像芥末醬的糞便，沾黏在仔牛後軀。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=30">p.30</a></div></div>
+      <h3>診斷（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=31">p.31–32</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>糞便或飲水檢查<strong>卵囊</strong>：<strong>抗酸染色（acid-fast）</strong>、單株抗體免疫螢光、EIA、PCR。</li>
+        <li>ELISA 抗體檢測；組織病理。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p032.jpg" alt="左：Ziehl-Neelsen 抗酸染色，卵囊呈紅色小球；右：免疫螢光標記的卵囊。" loading="lazy"><div class="figure-caption">左：Ziehl-Neelsen 抗酸染色，卵囊呈紅色小球；右：免疫螢光標記的卵囊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=32">p.32</a></div></div>
+      <h3>病例（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=33">p.33–36</a>）<span class="lv lv-know">理解</span></h3>
+      <p>8 週齡仔牛；同場多數仔牛下痢、母牛無明顯症狀。照片可見後軀糞便沾黏、<strong>眼球凹陷</strong>（脫水）；空腸切片在<strong>腸上皮頂端</strong>有大量小而圓的藍色蟲體（<strong>1.5–4 μm 球形原蟲</strong>）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p033.jpg" alt="病例：8 週齡仔牛，後軀糞便沾黏；同場多數仔牛下痢。" loading="lazy"><div class="figure-caption">病例：8 週齡仔牛，後軀糞便沾黏；同場多數仔牛下痢。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=33">p.33</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p034.jpg" alt="同一病例：眼球凹陷（retracted globe），提示脫水。" loading="lazy"><div class="figure-caption">同一病例：眼球凹陷（retracted globe），提示脫水。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=34">p.34</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p035.jpg" alt="空腸組織：大量小而圓的藍色蟲體附著在腸上皮細胞頂端。" loading="lazy"><div class="figure-caption">空腸組織：大量小而圓的藍色蟲體附著在腸上皮細胞頂端。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=35">p.35</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p036.jpg" alt="高倍：1.5–4 μm 球形原蟲，附在微絨毛邊緣（Thomson et al., 2017）。" loading="lazy"><div class="figure-caption">高倍：1.5–4 μm 球形原蟲，附在微絨毛邊緣（Thomson et al., 2017）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=36">p.36</a></div></div>
+      </div>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=37">p.37</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>衛生</strong>，降低環境卵囊量。</li>
+        <li><strong>足夠的初乳</strong>。</li>
+        <li><strong>輸液與電解質</strong>支持療法。</li>
+        <li><strong>抗隱孢子蟲藥物效果有限</strong>。</li>
+        <li>部分地區已有<strong>母牛疫苗</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p037.jpg" alt="預防與控制；右下為部分地區上市的母牛隱孢子蟲疫苗。" loading="lazy"><div class="figure-caption">預防與控制；右下為部分地區上市的母牛隱孢子蟲疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=37">p.37</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：因為抗氯，一般漂白水消毒效果差；實務上靠清除糞便、乾燥、高溫蒸氣清洗與個別欄位。照顧下痢仔牛的人要戴手套洗手（人畜共通）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=21">p.21–37</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BVD -->
+    <div class="section" id="section-bvd">
+      <div class="section-head"><div class="section-num">4</div><h2>牛病毒性下痢 Bovine Viral Diarrhea (BVD)：病原、傳播與持續感染</h2></div>
+      <p class="section-desc">BVD 的關鍵在「PI 牛」：胎兒早期感染 NCP 株，出生後終生帶毒、排毒，是牛群裡的病毒工廠。</p>
+      <h3>病原（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=39">p.39</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>分類</td><td><strong>黃病毒科（Flaviviridae）、瘟疫病毒屬（Pestivirus）</strong></td></tr>
+            <tr><td>三個種</td><td><strong>BVDV-1</strong>（<em>Pestivirus bovis</em>）、<strong>BVDV-2</strong>（<em>Pestivirus tauri</em>）、<strong>HoBi-like virus 或 BVDV-3</strong>（<em>Pestivirus brazilense</em>）</td></tr>
+            <tr><td>生物型</td><td><strong>致細胞病變型（cytopathic, CP）</strong>與<strong>非致細胞病變型（non-cytopathic, NCP）</strong>；<strong>生物型不代表致病能力</strong></td></tr>
+            <tr><td>宿主</td><td>牛、羊、豬、山羊與其他野生動物</td></tr>
+            <tr><td>特性</td><td><strong>免疫抑制</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p039.jpg" alt="BVDV 構造示意：有封套的 RNA 病毒，外膜有 E1、E2、Erns 醣蛋白。" loading="lazy"><div class="figure-caption">BVDV 構造示意：有封套的 RNA 病毒，外膜有 E1、E2、Erns 醣蛋白。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=39">p.39</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：豬瘟病毒（CSFV）與羊的邊界病病毒（BDV）同為 Pestivirus；BVDV 感染豬可干擾豬瘟血清檢測。</p>
+      <h3>流行病學（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=40">p.40</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>BVDV 在牛群廣泛存在，是因為<strong>胎兒發育前 4 個月</strong>感染 <strong>NCP</strong> 株造成的<strong>持續感染（persistently infected, PI）</strong>動物。</li>
+        <li>盛行率依疫苗、飼養密度、畜舍與管理而異。</li>
+        <li>野外 <strong>BVDV-1b</strong> 比例在 2001 年後從 43% 增加到 75–100%，可能與使用 <strong>1a、2a 株疫苗</strong>有關。</li>
+        <li>經濟損失：<strong>繁殖失敗</strong>、仔牛健康變差、傳染病風險增加、乳量下降、死亡。</li>
+      </ul>
+      <h3>傳播（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=41">p.41</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>主要傳染源是帶毒血症的 PI 動物</strong>；牛群 PI 平均盛行率約 <strong>1–2%</strong>。</li>
+        <li>病毒存在<strong>所有分泌物與排泄物</strong>。</li>
+        <li>途徑：<strong>直接接觸（鼻對鼻）</strong>、<strong>經胎盤</strong>、間接接觸（空氣、蒼蠅、汙染物）、<strong>人工授精／胚胎移植</strong>、<strong>受汙染的疫苗</strong>（細胞培養用的胎牛血清 FCS）。</li>
+      </ul>
+      <h3>致病機轉與免疫（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=42">p.42</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>病毒感染<strong>先天免疫細胞</strong>：嗜中性球、單核球、巨噬細胞、樹突細胞 → <strong>免疫抑制</strong> → 可能參與 <strong>牛呼吸道疾病（BRD）</strong>的發生。</li>
+        <li><strong>醣蛋白 E2</strong> 是抗體的主要抗原目標。</li>
+        <li>自然感染或 <strong>MLV 疫苗</strong>後產生<strong>長期免疫</strong>。</li>
+        <li>高中和抗體可防止<strong>同源</strong>攻毒的疾病，但動物<strong>仍可能出現病毒血症並從鼻分泌物排毒</strong>。</li>
+      </ul>
+      <h3>胎兒感染的結果（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=43">p.43–45</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>感染時間（懷孕日）</th><th>結果</th></tr></thead>
+          <tbody>
+            <tr><td><strong>&lt; 120 天</strong>（NCP）</td><td><strong>胎兒死亡、流產、木乃伊胎</strong>；或出生為 <strong>PI</strong></td></tr>
+            <tr><td><strong>90–150 天</strong>（NCP）</td><td><strong>先天缺陷</strong>：小頭症、水腦（hydranencephaly）、白內障、骨硬化症、肺發育不全…</td></tr>
+            <tr><td>懷孕後期（圖）</td><td>仔牛出生時血清陽性（有抗 BVDV 抗體），<strong>不是 PI</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">重點</div><p>兩種生物型都能穿過胎盤，但<strong>只有 NCP 株能在胎兒建立持續感染</strong>（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=44">p.44</a>）。胎兒在免疫系統成熟前（約 120 天前）遇到病毒，會把病毒當成「自己」→ 免疫耐受 → 終生帶毒但沒有抗體（機轉為補充）。</p></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p044.jpg" alt="胎兒感染時間與結果：前 4 個月可造成胎兒死亡或出生為 PI，3–5 個月左右造成先天缺陷，後期出生的仔牛血清陽性但非 " loading="lazy"><div class="figure-caption">胎兒感染時間與結果：前 4 個月可造成胎兒死亡或出生為 PI，3–5 個月左右造成先天缺陷，後期出生的仔牛血清陽性但非 PI。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=44">p.44</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p045.jpg" alt="BVDV 先天缺陷：中樞神經發育異常（左）與骨骼發育異常（右）（Agerholm et al., 2015）。" loading="lazy"><div class="figure-caption">BVDV 先天缺陷：中樞神經發育異常（左）與骨骼發育異常（右）（Agerholm et al., 2015）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=45">p.45</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=38">p.38–45</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BVDFORMS -->
+    <div class="section" id="section-bvdforms">
+      <div class="section-head"><div class="section-num">5</div><h2>BVD 的臨床病型：急性、重度急性、黏膜病</h2></div>
+      <p class="section-desc">三種病型用「誰感染、哪一型病毒、死亡率」區分。</p>
+      <h3>三種出生後的病型（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=46">p.46–48</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>典型／急性 BVD</th><th>重度急性 BVD</th><th>黏膜病（Mucosal Disease, MD）</th></tr></thead>
+          <tbody>
+            <tr><td>誰</td><td><strong>6 月齡以上</strong>、免疫正常的牛，<strong>暫時性</strong>感染</td><td><strong>所有年齡</strong>都易感</td><td><strong>PI 牛</strong>出生後再感染 <strong>CP 株</strong>（內源或外源）</td></tr>
+            <tr><td>病毒</td><td>通常 <strong>NCP</strong></td><td>通常 <strong>NCP BVDV-2</strong></td><td><strong>CP</strong>（＋原本的 NCP）</td></tr>
+            <tr><td>發病率／死亡率</td><td><strong>高發病、低死亡</strong></td><td><strong>高發病、高死亡（25%）</strong></td><td><strong>中等發病、死亡率 100%</strong></td></tr>
+            <tr><td>年齡</td><td>&gt; 6 月齡</td><td>所有年齡</td><td>通常 <strong>6 月齡–2 歲</strong></td></tr>
+            <tr><td>症狀</td><td>多為<strong>不明顯或亞臨床</strong>；可有發燒、輕度眼鼻分泌物、呼吸急促、下痢；<strong>暫時性白血球減少</strong> → 續發感染</td><td><strong>高燒（可達 42°C）</strong>、呼吸窘迫、厭食、大量水樣下痢、<strong>無乳</strong>；<strong>血小板減少／出血症候群</strong>；臨床上<strong>無法與 MD 區分</strong></td><td>高燒、白血球減少、水樣下痢、食慾差、脫水、<strong>鼻孔與口腔糜爛</strong>，發病後<strong>數天內死亡</strong>；分急性與慢性（最終死亡）</td></tr>
+            <tr><td>結果</td><td><strong>終生免疫</strong></td><td>爆發後幾個月常有 <strong>PI 仔牛出生</strong></td><td>死亡</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p047.jpg" alt="重度急性 BVD：腸道與多器官出血；骨髓巨核細胞凋亡（IHC）→ 血小板減少。" loading="lazy"><div class="figure-caption">重度急性 BVD：腸道與多器官出血；骨髓巨核細胞凋亡（IHC）→ 血小板減少。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=47">p.47</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p048.jpg" alt="黏膜病：口腔與鼻孔糜爛、食道與腸道黏膜糜爛潰瘍、Peyer&#x27;s patch 壞死。" loading="lazy"><div class="figure-caption">黏膜病：口腔與鼻孔糜爛、食道與腸道黏膜糜爛潰瘍、Peyer's patch 壞死。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=48">p.48</a></div></div>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">記法</div><p>「<strong>PI ＋ CP ＝ MD ＝ 100% 死</strong>」。重度急性 BVD 的死亡率 25%、會出血，是 NCP BVDV-2；別因為它很兇就以為是 CP。</p></div>
+      <h3>鑑別：牛瘟與惡性卡他熱（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=49">p.49</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>牛瘟 Rinderpest</th><th>惡性卡他熱 Malignant Catarrhal Fever</th></tr></thead>
+          <tbody>
+            <tr><td>病原</td><td>副黏液病毒科、麻疹病毒屬（morbillivirus）；<strong>已宣布根除</strong></td><td>疱疹病毒科、γ 疱疹病毒</td></tr>
+            <tr><td>特徵</td><td>發燒、口腔糜爛、下痢、<strong>淋巴組織壞死</strong>、高發病高死亡</td><td><strong>淋巴增生</strong>、<strong>血管炎</strong>、糜爛至潰瘍性黏膜病灶</td></tr>
+            <tr><td>肉眼病變</td><td>口腔糜爛潰瘍出血；Peyer's patch 出血壞死水腫；盲腸、結腸、直腸出血充血（<strong>斑馬紋</strong>）</td><td>淋巴結腫大水腫（除了野牛）；黏膜充血水腫、糜爛潰瘍；淋巴增生性血管炎造成器官腫大</td></tr>
+            <tr><td>組織病變</td><td>淋巴壞死；腸隱窩壞死；口腔上皮<strong>融合細胞</strong>；細胞質與核內嗜酸性包涵體；Peyer's patch 病變最嚴重</td><td>中型血管廣泛性動靜脈炎；大型淋巴球增生；消化、泌尿、呼吸道黏膜潰瘍</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p049.jpg" alt="牛瘟與惡性卡他熱比較表，下方為兩者的組織切片。" loading="lazy"><div class="figure-caption">牛瘟與惡性卡他熱比較表，下方為兩者的組織切片。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=49">p.49</a></div></div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=46">p.46–49</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BVDCONTROL -->
+    <div class="section" id="section-bvdcontrol">
+      <div class="section-head"><div class="section-num">6</div><h2>BVD 的預防與控制</h2></div>
+      <p class="section-desc">控制 BVD 就是控制 PI 牛：找出來、淘汰、不讓新的進來、保護懷孕母牛。</p>
+      <h3>控制策略（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=50">p.50</a>）<span class="lv lv-must">必考</span></h3>
+      <ol>
+        <li><strong>檢出並淘汰 PI 動物</strong>。</li>
+        <li><strong>防止感染被帶進牛群</strong>。</li>
+        <li><strong>種母牛接種疫苗</strong>以<strong>預防胎兒感染</strong>。</li>
+        <li><strong>死毒與 MLV 疫苗</strong>都有；但 BVDV 的抗原多樣性可能影響疫苗效果。</li>
+        <li><strong>懷孕牛不建議用 MLV 疫苗</strong>。</li>
+        <li><strong>根除</strong>：檢出並淘汰 PI 動物、<strong>不接種疫苗</strong>、嚴格生物安全防止 PI 動物進入。</li>
+      </ol>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：PI 牛常用耳刻（ear notch）組織做抗原 ELISA 或 PCR 檢測；檢出陽性後隔 3–4 週再驗一次，以區分暫時性感染與 PI。根除計畫「不打疫苗」是為了讓血清監測（抗體）能偵測新感染。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=50">p.50</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- WD -->
+    <div class="section" id="section-wd">
+      <div class="section-head"><div class="section-num">7</div><h2>牛冬季下痢 Winter Dysentery (BCoV)</h2></div>
+      <p class="section-desc">成牛突然整群拉血便、乳量掉一週：牛冠狀病毒。</p>
+      <h3>病原（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=52">p.52</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>牛冠狀病毒（bovine coronavirus, BCoV）</strong>；<strong>一個血清型</strong>。</li>
+        <li>造成<strong>成牛下痢（冬季下痢 WD）</strong>，也造成<strong>仔牛下痢（calf diarrhea, CD）</strong>。</li>
+        <li>也能造成仔牛與成牛的<strong>呼吸道疾病</strong>：<strong>腸道與呼吸道雙向性</strong>；感染<strong>小腸與大腸</strong>。</li>
+        <li>牛群中普遍存在，在亞臨床感染牛體內持續存在。</li>
+        <li><strong>高發病率（30–50%）</strong>、低死亡率。</li>
+        <li><strong>糞口傳播</strong>；<strong>糞便與鼻分泌物</strong>是主要傳染源。</li>
+      </ul>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=53">p.53</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>潛伏期 <strong>3–7 天</strong>。</li>
+        <li>先短暫發燒，接著<strong>爆發性下痢</strong>。</li>
+        <li>糞便<strong>水樣、常帶血（出血性）</strong>、均質、<strong>沒什麼臭味</strong>。</li>
+        <li><strong>乳量明顯下降</strong>，可持續<strong>一週</strong>。</li>
+        <li>可有呼吸道症狀：咳嗽、鼻淚分泌物。</li>
+        <li>死亡通常與<strong>嚴重失血</strong>有關。</li>
+      </ul>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=54">p.54</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>沒有市售疫苗</strong>；<strong>沒有特定控制方法</strong>。</li>
+        <li>衛生；<strong>減少牛舍過度擁擠</strong>。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：講義寫冬季下痢「沒有市售疫苗」，指的是成牛冬季下痢；仔牛下痢的多價疫苗（含冠狀、輪狀、大腸桿菌）給懷孕母牛接種以提高初乳抗體，是另一回事。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=51">p.51–54</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ROTA -->
+    <div class="section" id="section-rota">
+      <div class="section-head"><div class="section-num">8</div><h2>牛輪狀病毒 Bovine Rotavirus (BRV)</h2></div>
+      <p class="section-desc">1 月齡內仔牛急性下痢最常見的病原：潛伏期極短、感染小腸絨毛頂端。</p>
+      <h3>病原（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=56">p.56</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>呼腸孤病毒科（Reoviridae）、輪狀病毒屬</strong>。</li>
+        <li><strong>無封套</strong>，<strong>11 段 dsRNA</strong> → 有<strong>基因重組（reassortment）</strong>的可能。</li>
+        <li><strong>1 月齡以下仔牛急性下痢最常見的病原</strong>。</li>
+        <li><strong>七個血清群</strong>；<strong>95% 為 A 群</strong>，野外也有 B、C 群。</li>
+        <li>也是人與動物急性下痢的主要病原 → <strong>人畜共通與經濟重要性</strong>。</li>
+      </ul>
+      <h3>致病機轉（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=57">p.57</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>糞口傳播</strong>（也有空氣與水傳的報告）。</li>
+        <li>感染<strong>小腸絨毛中段與頂端</strong>的<strong>成熟、不分裂的腸上皮細胞</strong>。</li>
+        <li>腸上皮破裂、脫落 → 釋出病毒感染鄰近細胞。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：絨毛頂端的成熟細胞負責吸收與分泌雙醣酶；它們脫落後由隱窩的未成熟細胞取代 → 吸收不良、乳糖消化不良 → 滲透性下痢。</p>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=58">p.58–59</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>嚴重度取決於<strong>初乳攝取</strong>、年齡與健康、母牛免疫、暴露量、病毒毒力、續發病原。</li>
+        <li><strong>潛伏期短（12–36 小時）</strong>；出生 24 小時內也可能發病。</li>
+        <li><strong>1 天至 3 週齡</strong>易感，<strong>7–10 日齡最易感</strong>。</li>
+        <li>急性下痢、脫水、虛弱、眼球凹陷；單純感染<strong>死亡率低</strong>。</li>
+        <li><strong>合併 <em>E. coli</em></strong> → 下痢與脫水更嚴重，可能 <strong>24 小時內死亡</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_腸胃道疾病/bgi_p059.jpg" alt="輪狀病毒感染仔牛：水樣下痢沾滿後軀（左），小腸壁變薄、內容物水樣（右）。" loading="lazy"><div class="figure-caption">輪狀病毒感染仔牛：水樣下痢沾滿後軀（左），小腸壁變薄、內容物水樣（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=59">p.59</a></div></div>
+      <h3>控制與預防（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=60">p.60</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>對化學消毒劑與防腐劑<strong>相對有抵抗力</strong>。</li>
+        <li>分布廣、在不同氣候都穩定、糞便排毒量高 → 不容易控制。</li>
+        <li><strong>主要策略是疫苗</strong>；<strong>死毒與 MLV 疫苗</strong>都有。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=55">p.55–60</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="section" id="section-compare">
+      <div class="section-head"><div class="section-num">9</div><h2>鑑別比較 Comparison</h2></div>
+      <p class="section-desc">五個腸胃道病放在一起比：病原類型、好發年齡、糞便、人畜共通、疫苗。</p>
+      <h3>總表<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>沙門氏菌症</th><th>隱孢子蟲症</th><th>BVD</th><th>冬季下痢</th><th>輪狀病毒</th></tr></thead>
+          <tbody>
+            <tr><td>病原</td><td>S. Dublin、S. Typhimurium（細菌）</td><td>C. parvum（原蟲）</td><td>BVDV-1、2、3（Pestivirus）</td><td>BCoV（冠狀病毒）</td><td>BRV A 群（Reoviridae）</td></tr>
+            <tr><td>好發</td><td>2–12 週齡仔牛（全年齡）</td><td>1–3 週齡</td><td>依胎齡與年齡；MD 6 月齡–2 歲</td><td>成牛（也有仔牛）</td><td>1 天–3 週，7–10 日最易感</td></tr>
+            <tr><td>特徵</td><td>S. Dublin 常表現呼吸道、敗血症；末端乾性壞疽</td><td>黃色芥末樣、自限性；卵囊 4–5 μm</td><td>免疫抑制、繁殖失敗、PI</td><td>爆發性出血性下痢、乳量降一週</td><td>急性下痢，合併 E. coli 很快死亡</td></tr>
+            <tr><td>發病／死亡</td><td>幼牛高發病高死亡</td><td>—</td><td>急性：高／低；重度：高／25%；MD：中／100%</td><td>30–50%／低</td><td>單純感染死亡率低</td></tr>
+            <tr><td>人畜共通</td><td>是（兩者）</td><td>是（C. parvum）</td><td>—</td><td>—</td><td>講義列為人畜共通重要性</td></tr>
+            <tr><td>環境抵抗</td><td>一般消毒劑有效</td><td><strong>抗氯</strong>、存活數月</td><td>—</td><td>—</td><td>對化學消毒劑相對有抵抗</td></tr>
+            <tr><td>疫苗</td><td>活減毒全菌苗</td><td>部分地區有母牛疫苗</td><td>死毒、MLV（懷孕牛不建議 MLV）</td><td><strong>沒有市售</strong></td><td>死毒、MLV（主要策略）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">對照<a href="week03_仔牛疾病.html#section-gi">仔牛疾病頁</a>：該講義寫 ETEC 約 3 日齡、隱孢子蟲 1–4 週、沙門氏菌 2–6 週；本講義寫隱孢子蟲 1–3 週、沙門氏菌 2–12 週。兩份講義的範圍略有不同，作答時注意是哪位老師的範圍。</p>
+      <footer class="note-footer">資料來源：本頁各節整理；〈Diseases in Neonatal Ruminants〉。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">10</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>牛最重要的沙門氏菌</td><td>S. Typhimurium（宿主廣）、S. Dublin（牛適應型、全身性、呼吸道）；皆人畜共通</td></tr>
+            <tr><td>三種帶原者</td><td>活動（糞乳排菌）、無症狀（偶爾排菌）、潛伏（體內不排）</td></tr>
+            <tr><td>SPI-1 與 SPI-2</td><td>T3SS；SPI-1 侵入腸道、SPI-2 全身擴散</td></tr>
+            <tr><td>沙門氏菌診斷與預防</td><td>培養／PCR（剖檢檢體）、剖檢無特徵病灶、ELISA 監測；消毒、鼠類控制、活減毒疫苗</td></tr>
+            <tr><td>C. parvum 特性</td><td>無宿主專一性、12 天、卵囊 4–5 μm、存活數月、抗氯；5–17 卵囊致病；抗酸染色</td></tr>
+            <tr><td>BVD 分類與生物型</td><td>Flaviviridae、Pestivirus；BVDV-1/2/3；CP 與 NCP，生物型不代表致病力</td></tr>
+            <tr><td>PI 形成</td><td>懷孕 &lt; 120 天感染 NCP；PI 是主要傳染源，牛群約 1–2%</td></tr>
+            <tr><td>先天缺陷</td><td>90–150 天；小頭、水腦、白內障、骨硬化、肺發育不全</td></tr>
+            <tr><td>三種病型</td><td>急性（高發低死、終生免疫）、重度急性（NCP BVDV-2、25%、血小板減少）、MD（PI＋CP、100%、6 月–2 歲）</td></tr>
+            <tr><td>BVD 控制</td><td>淘汰 PI、防引入、種母牛接種、懷孕牛不用 MLV；根除不打疫苗</td></tr>
+            <tr><td>冬季下痢</td><td>BCoV；爆發性出血性下痢、乳量降一週、30–50%、無市售疫苗</td></tr>
+            <tr><td>輪狀病毒</td><td>Reoviridae、無封套、11 段 dsRNA、A 群 95%；小腸絨毛頂端成熟上皮；12–36 h；7–10 日齡；疫苗</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 關於 <em>Salmonella</em> Dublin，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 是非限制型血清型，主要造成幼齡動物腸炎</li><li>(B) 是牛適應型，較容易造成全身性疾病，常以呼吸道症狀表現</li><li>(C) 不會感染人</li><li>(D) 只造成成牛下痢</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=4">p.4</a>、<a class="pdf-link" href="pdf/牛傳染病.pdf#page=9">p.9</a>。(A) 是 Typhimurium、Enteritidis 的特性；S. Dublin 是人畜共通。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 牛感染沙門氏菌後，菌存在體內但不排出，稱為？</div>
+        <ul class="quiz-options"><li>(A) 活動帶原者</li><li>(B) 無症狀帶原者</li><li>(C) 潛伏帶原者</li><li>(D) 已清除</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=11">p.11</a>。活動帶原者在糞乳排菌；無症狀帶原者偶爾排菌。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. S. Dublin 的 SPI-1 第三型分泌系統負責全身擴散，SPI-2 負責侵入腸道。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">相反：SPI-1 侵入腸道、SPI-2 擴散到全身（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=8">p.8</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 關於 <em>Cryptosporidium parvum</em>，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options"><li>(A) 卵囊直徑約 4–5 μm</li><li>(B) 以含氯消毒劑即可有效殺滅</li><li>(C) 5–17 個卵囊即可造成下痢</li><li>(D) 糞便抹片可用抗酸染色</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=26">p.26</a>：抵抗大多數消毒劑，包括氯；可在環境中存活數個月。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 1993 年美國密爾沃基約 40 萬人腹瀉的事件，病原是？</div>
+        <ul class="quiz-options"><li>(A) <em>Salmonella</em> Typhimurium</li><li>(B) <em>Cryptosporidium parvum</em></li><li>(C) 輪狀病毒</li><li>(D) <em>E. coli</em> O157</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=24">p.24</a>：供水受 C. parvum 汙染，推測與上游農場排水有關。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. BVDV 持續感染（PI）牛的形成條件是？</div>
+        <ul class="quiz-options"><li>(A) 懷孕約 120 天前胎兒感染 NCP 株</li><li>(B) 懷孕後期胎兒感染 CP 株</li><li>(C) 出生後感染 NCP BVDV-2</li><li>(D) 成牛接種 MLV 疫苗</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=40">p.40</a>、<a class="pdf-link" href="pdf/牛傳染病.pdf#page=44">p.44</a>：只有 NCP 株能在胎兒建立持續感染，時間在懷孕前 4 個月內。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 黏膜病（mucosal disease）的發生機轉為？</div>
+        <ul class="quiz-options"><li>(A) 免疫正常的成牛初次感染 NCP 株</li><li>(B) PI 牛出生後再感染 CP 株</li><li>(C) 懷孕 90–150 天胎兒感染</li><li>(D) 冠狀病毒與輪狀病毒共同感染</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=48">p.48</a>：中等發病、死亡率 100%，通常 6 月齡至 2 歲；口鼻糜爛、水樣下痢，數天內死亡。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 重度急性 BVD 的特點，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 通常由 CP BVDV-1 引起</li><li>(B) 只有 PI 牛會發生</li><li>(C) 通常由 NCP BVDV-2 引起，死亡率約 25%，可有血小板減少出血症候群</li><li>(D) 發病率低、死亡率 100%</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=47">p.47</a>：所有年齡易感、高燒可達 42°C；臨床上無法與 MD 區分；爆發後幾個月常有 PI 仔牛出生。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. BVD 的 MLV 疫苗建議用於懷孕母牛，以預防胎兒感染。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=50">p.50</a>：MLV 疫苗不建議用於懷孕牛；種母牛應在配種前接種以預防胎兒感染（時機為補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 冬季時一個乳牛場的成牛在幾天內大量出現水樣、帶血、沒什麼臭味的下痢，乳量大降約一週，死亡少。最可能的病原？</div>
+        <ul class="quiz-options"><li>(A) 牛冠狀病毒</li><li>(B) 牛輪狀病毒</li><li>(C) <em>C. parvum</em></li><li>(D) BVDV 黏膜病</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">冬季下痢（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=52">p.52–53</a>）；發病率 30–50%、死亡率低；沒有市售疫苗（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=54">p.54</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 牛輪狀病毒感染的部位為？</div>
+        <ul class="quiz-options"><li>(A) 小腸隱窩的未成熟細胞</li><li>(B) 小腸絨毛中段與頂端的成熟、不分裂腸上皮細胞</li><li>(C) 大腸黏膜</li><li>(D) 瘤胃上皮</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=57">p.57</a>。冠狀病毒則可感染小腸與大腸（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=52">p.52</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q12. 關於牛輪狀病毒，何者錯誤？</div>
+        <ul class="quiz-options"><li>(A) 無封套、11 段 dsRNA</li><li>(B) 95% 屬 A 群</li><li>(C) 潛伏期 3–7 天</li><li>(D) 7–10 日齡仔牛最易感</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">輪狀病毒潛伏期 12–36 小時（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=58">p.58</a>）；3–7 天是冬季下痢（BCoV）的潛伏期（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=53">p.53</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q13. 請說明胎兒在不同懷孕時期感染 BVDV 的可能結果。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">&lt; 120 天感染 NCP 株：胎兒死亡、流產、木乃伊胎，或出生為 PI；90–150 天：先天缺陷（小頭症、水腦、白內障、骨硬化、肺發育不全）；懷孕後期：出生仔牛血清陽性、非 PI（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=43">p.43–44</a>）。只有 NCP 株能建立持續感染。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一頭 14 月齡女牛發高燒、口腔與鼻孔大片糜爛、大量水樣下痢，三天後死亡。追查發現牠出生後一直長得比同伴差，常生病。牧場過去一年流產率偏高。請問：(1) 最可能的診斷與機轉？(2) 這頭牛生前在牛群中扮演什麼角色？(3) 牧場應怎麼控制？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> BVD 黏膜病：PI 牛（胎兒期感染 NCP）再感染 CP 株，死亡率 100%，6 月齡–2 歲（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=48">p.48</a>）。<br><strong>(2)</strong> PI 牛終生排毒，是牛群主要傳染源（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=41">p.41</a>）；牛群中的流產、免疫抑制都可能與牠有關（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=43">p.43</a>）。<br><strong>(3)</strong> 檢出並淘汰其他 PI 牛、防止引進感染牛、種母牛接種疫苗預防胎兒感染、懷孕牛不使用 MLV（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=50">p.50</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q15.【臨床情境】一群 5–8 週齡的仔牛陸續發燒、呼吸急促、咳嗽，少數下痢；兩頭猝死，一頭痊癒後耳尖與尾尖乾黑壞死。剖檢有肺充血、化膿性肺炎、腸繫膜淋巴結腫大、肝脾腫大。請問：(1) 首先懷疑什麼？(2) 檢體怎麼取？(3) 牧場要注意哪些人畜共通與帶原問題？(4) 預防措施？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> <em>Salmonella</em> Dublin：2–12 週齡、常表現呼吸道、敗血症、末端乾性壞疽（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=9">p.9–10</a>、<a class="pdf-link" href="pdf/牛傳染病.pdf#page=15">p.15</a>）。<br><strong>(2)</strong> 以剖檢檢體培養（建議）或 PCR，糞便培養敏感度低；懷疑菌血症可採血；剖檢無特徵病灶（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=19">p.19</a>）。<br><strong>(3)</strong> 人畜共通；成牛可成為潛伏帶原者，糞乳排菌（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=10">p.10–11</a>）。<br><strong>(4)</strong> 減少暴露、增加抵抗力：衛生消毒（鹵素、酚、四級銨、氧化劑）、生物安全與鼠類控制、活減毒全菌苗、初乳（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=8">p.8</a>、<a class="pdf-link" href="pdf/牛傳染病.pdf#page=20">p.20</a>）。</p></details>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  salmonella: '牛沙門氏菌症',
+  crypto: '牛隱孢子蟲症',
+  bvd: 'BVD 病原與持續感染',
+  bvdforms: 'BVD 的病型',
+  bvdcontrol: 'BVD 的預防與控制',
+  wd: '牛冬季下痢',
+  rota: '牛輪狀病毒',
+  compare: '鑑別比較',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

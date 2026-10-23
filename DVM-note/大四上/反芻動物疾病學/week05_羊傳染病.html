@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>反芻動物疾病學：羊傳染病 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">反芻動物疾病學</a><span class="sep">›</span><span class="current">第 5 講・羊傳染病</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">羊傳染病 Ovine / Caprine Infectious Disease</h1>
+      <p class="page-subtitle">惡性卡他熱（羊是保毒者、牛是終末宿主）、藍舌病（庫蠓、牛是保毒者、羊發病）、羊痘與山羊痘（Capripoxvirus，台灣 2023 年獲 WOAH 認可為非疫國）、山羊關節炎腦炎（初乳傳播的慢病毒）、Q 熱與母羊地方性流產（兩個人畜共通的流產病）</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">反芻動物疾病學（大四上・第5講・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《反芻動物疾病學》課程講義〈Ovine/Caprine Infectious Disease〉p.1–88（Chi-Fei Kao，2026.10.06）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-23</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/羊傳染病.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">病毒</div>
+    <a onclick="showSection('mcf')" id="nav-mcf"><span class="nav-icon">👁️</span> 惡性卡他熱 MCF</a>
+    <a onclick="showSection('bt')" id="nav-bt"><span class="nav-icon">👅</span> 藍舌病</a>
+    <a onclick="showSection('pox')" id="nav-pox"><span class="nav-icon">🔴</span> 羊痘與山羊痘</a>
+    <a onclick="showSection('cae')" id="nav-cae"><span class="nav-icon">🦵</span> 山羊關節炎腦炎 CAE</a>
+    <div class="section-label" style="margin-top:8px;">人畜共通的流產病</div>
+    <a onclick="showSection('qfever')" id="nav-qfever"><span class="nav-icon">🧪</span> Q 熱</a>
+    <a onclick="showSection('eae')" id="nav-eae"><span class="nav-icon">🐑</span> 母羊地方性流產 EAE</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('compare')" id="nav-compare"><span class="nav-icon">🧩</span> 鑑別比較</a>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">羊傳染病的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>六個與綿羊、山羊相關的傳染病：<strong>惡性卡他熱（malignant catarrhal fever, MCF）</strong>、<strong>藍舌病（bluetongue, BT）</strong>、<strong>羊痘與山羊痘（sheeppox &amp; goatpox）</strong>、<strong>山羊關節炎腦炎（caprine arthritis encephalitis, CAE）</strong>、<strong>Q 熱（Q fever）</strong>、<strong>母羊地方性流產（enzootic abortion of ewes, EAE）</strong>。</dd>
+          <dt>為什麼重要</dt>
+          <dd>羊常是<strong>保毒者</strong>：MCF 的 OvHV-2 在羊身上沒事，傳給牛幾乎必死。<strong>Q 熱與 EAE 是人畜共通的流產病</strong>，處理流產胎盤要有防護。台灣<strong>山羊 CAE 抗體陽性率 61.7%、98.5% 的羊場陽性</strong>；<em>C. abortus</em> 是台灣山羊流產的<strong>主要病原</strong>；羊痘在 2023 年獲 WOAH 認可台灣為非疫國。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-mcf">MCF</a>：<strong>γ 疱疹病毒、Macavirus</strong>；<strong>AlHV-1（牛羚）</strong>與 <strong>OvHV-2（綿羊，全球）</strong>、CpHV-2（山羊）；<strong>保毒宿主</strong>羊、牛羚 vs <strong>終末宿主</strong>牛、野牛、鹿（不排毒）；<strong>頭眼型</strong>最常見（高燒、膿性鼻漏、<strong>角膜水腫</strong>、淋巴結腫大）；特徵病變<strong>壞死性血管炎</strong>；<strong>無有效疫苗</strong>。</li>
+              <li><a href="#section-bt">藍舌病</a>：<strong>Reoviridae、Orbivirus、10 段 dsRNA</strong>、至少 <strong>29 個血清型</strong>；<strong>庫蠓</strong>生物性傳播、<strong>非接觸傳染</strong>；<strong>牛是保毒與增殖宿主</strong>，<strong>羊（歐洲細毛與肉用品種）病最重</strong>；初次入侵羊群發病 50–75%、死亡 20–50%；舌頭腫脹、蹄冠炎；<strong>懷孕母羊不可用活減毒疫苗</strong>。</li>
+              <li><a href="#section-pox">羊痘與山羊痘</a>：<strong>Capripoxvirus</strong>（與 LSD 同屬）；<strong>高度接觸傳染</strong>；血清學<strong>交叉反應</strong>；痂皮中病毒可存活數月；流行區發病 70–90%、死亡 5–10%（進口或幼畜近 100%）；病理「<strong>羊痘細胞</strong>」與嗜酸性胞質包涵體；<strong>一種 capripox 疫苗可交叉保護</strong>。</li>
+              <li><a href="#section-cae">CAE</a>：<strong>Retroviridae、Lentivirus</strong>，與綿羊 Maedi-Visna 合稱<strong>小反芻獸慢病毒（SRLVs）</strong>；主要經<strong>初乳與乳汁</strong>傳播（初乳有抗體也擋不住）；終生持續感染，<strong>只有 10–30% 發病</strong>；<strong>2–4 月齡</strong>小羊白質腦脊髓炎、成羊<strong>關節炎（腕關節）</strong>、硬乳房、間質性肺炎；<strong>沒有疫苗</strong>。</li>
+              <li><a href="#section-qfever">Q 熱</a>：<strong><em>Coxiella burnetii</em></strong>，絕對細胞內菌；<strong>小細胞型耐環境、耐多數消毒劑、耐熱耐乾燥</strong>；主要經<strong>吸入氣膠或塵土</strong>；胎盤每克可達 <strong>10⁹</strong> 菌；反芻獸多<strong>亞臨床</strong>，或<strong>懷孕後期流產</strong>；人為<strong>第四類法定傳染病</strong>；實驗室需 <strong>P3</strong>。</li>
+              <li><a href="#section-eae">EAE</a>：<strong><em>Chlamydophila abortus</em></strong>；<strong>流產的胎盤與子宮分泌物</strong>是主要傳染源；新感染羊群 <strong>&gt; 30%</strong> 懷孕母羊在<strong>最後 2–3 週</strong>流產；胎盤子葉壞死出血、子葉間增厚如皮革；<strong>長效 oxytetracycline</strong> 與疫苗控制。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>MCF vs 黏膜病 vs 藍舌病</strong>：講義指出<strong>鼻分泌物、角膜水腫、發燒與淋巴結腫大</strong>有助於把 MCF 與黏膜病、藍舌病分開。<strong>誰是保毒者</strong>：MCF 是羊（牛發病），藍舌病是牛（羊發病）。<strong>Q 熱 vs EAE</strong>：都是懷孕後期流產、胎盤增厚如皮革；EAE 的<strong>血管炎較常見</strong>，而且兩者的 EB 在抹片上<strong>無法區分</strong>。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>MCF 病毒分類、保毒與終末宿主、傳播年齡、病型、病變；藍舌病病原、病媒、保毒宿主、易感品種、疫苗禁忌；羊痘交叉保護與疫苗；CAE 傳播與防治（新生小羊立刻隔離、巴氏殺菌乳）；Q 熱病原型態、傳播、人的症狀、法定分類；EAE 病原、流產時間、診斷與控制。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸；標示「推測」的是依講義強調處推測的出題方向，不是考古題。考試範圍以老師上課為準。圖片為老師講義截圖（部分原出處為文獻、家畜衛生試驗所、農業部或新聞）。</p>
+      </div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Ovine/Caprine Infectious Disease〉<a class="pdf-link" href="pdf/羊傳染病.pdf#page=1">p.1–88</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MCF -->
+    <div class="section" id="section-mcf">
+      <div class="section-head"><div class="section-num">2</div><h2>惡性卡他熱 Malignant Catarrhal Fever (MCF)</h2></div>
+      <p class="section-desc">羊與牛羚帶著病毒沒事，牛、野牛、鹿被傳到就幾乎必死。</p>
+      <h3>病原（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=3">p.3–6</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>常致死的<strong>淋巴增生性</strong>疾病；<strong>疱疹病毒科、γ 疱疹病毒亞科、Macavirus 屬</strong>。</li>
+        <li>主要感染<strong>反芻獸</strong>，罕見於豬。</li>
+        <li>歷史：1798 年歐洲報告綿羊相關 MCF；1850 年非洲馬賽人發現接觸<strong>牛羚（wildebeest）</strong>的牛易得 MCF。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病毒</th><th>保毒宿主</th><th>分布與重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AlHV-1</strong>（Alcelaphine herpesvirus-1）</td><td><strong>牛羚</strong></td><td>非洲多數國家</td></tr>
+            <tr><td><strong>OvHV-2</strong>（Ovine herpesvirus-2）</td><td><strong>綿羊</strong></td><td><strong>全球</strong>；也造成<strong>鹿科</strong>動物 MCF</td></tr>
+            <tr><td>CpHV-2（Caprine herpesvirus-2）</td><td>山羊</td><td>全球多數家養山羊族群地方性流行；造成鹿科 MCF</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p004.jpg" alt="MCF 病毒的兩大群：AlHV-1（牛羚）與 OvHV-2（綿羊，全球，也感染鹿科）；其他如 CpHV-2（山羊）。" loading="lazy"><div class="figure-caption">MCF 病毒的兩大群：AlHV-1（牛羚）與 OvHV-2（綿羊，全球，也感染鹿科）；其他如 CpHV-2（山羊）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=4">p.4</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p005.jpg" alt="台灣研究：圈養台灣梅花鹿的慢性 MCF 與 CpHV-2 感染相關（台灣獸醫誌，2007）。" loading="lazy"><div class="figure-caption">台灣研究：圈養台灣梅花鹿的慢性 MCF 與 CpHV-2 感染相關（台灣獸醫誌，2007）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=5">p.5</a></div></div>
+      </div>
+      <h3>流行病學與傳播（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=7">p.7–8</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>保毒宿主（reservoir）</strong>：綿羊、山羊、牛羚。</li>
+        <li><strong>臨床易感的終末宿主（dead-end）</strong>：牛、野牛、鹿——<strong>不排毒</strong>。</li>
+        <li>發病率不一；通常<strong>散發</strong>，單一或少數病例。兩種病毒在<strong>牛幾乎都致死</strong>，也是養鹿場的重要疾病。</li>
+        <li><strong>AlHV-1</strong>：牛羚多在<strong>圍產期</strong>感染（少數子宮內），出生幾個月內全部感染並<strong>終生帶毒</strong>。</li>
+        <li><strong>OvHV-2</strong>：部分小羊子宮內感染，多數在 <strong>3–6 月齡</strong>經<strong>氣膠</strong>感染。</li>
+        <li>傳給易感宿主：<strong>接觸或氣膠</strong>，主要來自 <strong>1 歲以下</strong>的<strong>牛羚仔（AlHV-1）</strong>與<strong>離乳小羊（OvHV-2）</strong>的<strong>呼吸道分泌物</strong>。</li>
+      </ul>
+      <h3>致病機轉（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=9">p.9</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>尚未完全了解；<strong>血管周圍淋巴增生</strong>。</li>
+        <li>血管病灶以 <strong>CD8⁺ T 淋巴球</strong>為主。</li>
+        <li>是病毒直接作用，還是針對感染細胞的免疫反應？仍有爭議。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p009.jpg" alt="MCF 致病假說：病毒潛伏感染 CD8⁺ T 細胞，經 ORF73 維持潛伏並使 CD8⁺ T 細胞增生，造成 MCF " loading="lazy"><div class="figure-caption">MCF 致病假說：病毒潛伏感染 CD8⁺ T 細胞，經 ORF73 維持潛伏並使 CD8⁺ T 細胞增生，造成 MCF 病灶。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=9">p.9</a></div></div>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=10">p.10–14</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>自然感染潛伏期 <strong>3–8 週</strong>。</li>
+        <li>病型其實是連續的程度差異：<strong>甚急性</strong>、<strong>消化道型</strong>、<strong>常見的「頭眼型」</strong>、<strong>輕症型</strong>；同一病毒株可以出現所有病型。</li>
+        <li><strong>牛</strong>較常見<strong>淋巴結腫大與嚴重眼部病變</strong>；出血性腸炎與膀胱炎則比鹿、野牛少。</li>
+        <li><strong>鼻分泌物、角膜水腫、發燒、淋巴結腫大</strong>可幫助區分 MCF 與<strong>黏膜病</strong>或<strong>藍舌病</strong>。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>頭眼型（Head-and-Eye Form，<a class="pdf-link" href="pdf/羊傳染病.pdf#page=11">p.11</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>極度沉鬱、厭食；<strong>無乳</strong>；<strong>高燒 41–41.5°C</strong></td></tr>
+            <tr><td><strong>大量黏液膿性鼻分泌物</strong>；嚴重呼吸困難伴鼾聲</td></tr>
+            <tr><td>眼分泌物伴不同程度<strong>角膜水腫（混濁）</strong>；<strong>眼瞼痙攣、葡萄膜炎</strong>；鞏膜血管充血</td></tr>
+            <tr><td>前鼻黏膜與頰黏膜<strong>表淺壞死</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p012.jpg" alt="頭眼型 MCF：鼻鏡結痂、黏膜分泌物；角膜由周邊往中央混濁（A、B）。" loading="lazy"><div class="figure-caption">頭眼型 MCF：鼻鏡結痂、黏膜分泌物；角膜由周邊往中央混濁（A、B）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=12">p.12</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p014.jpg" alt="慢性病例的皮膚病灶：局部丘疹與濕疹樣滲出。" loading="lazy"><div class="figure-caption">慢性病例的皮膚病灶：局部丘疹與濕疹樣滲出。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=14">p.14</a></div></div>
+      </div>
+      <h3>病理（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=15">p.15</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>特徵病變（pathognomonic）</strong>：<strong>壞死性血管炎</strong>，血管<strong>中膜與外膜</strong>有<strong>類淋巴母細胞</strong>與巨噬細胞浸潤。</li>
+        <li>口腔、鼻腔、咽：從輕微出血紅斑到大範圍嚴重發炎、獨立潰瘍。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p015.jpg" alt="左：口腔、鼻腔與咽的病灶由出血紅斑到潰瘍；右：壞死性血管炎，中膜與外膜類淋巴母細胞與巨噬細胞浸潤。" loading="lazy"><div class="figure-caption">左：口腔、鼻腔與咽的病灶由出血紅斑到潰瘍；右：壞死性血管炎，中膜與外膜類淋巴母細胞與巨噬細胞浸潤。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=15">p.15</a></div></div>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=16">p.16</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>目前沒有有效疫苗</strong>。</li>
+        <li>可用<strong>早期離乳與隔離</strong>生產無病毒的綿羊。</li>
+        <li><strong>把帶毒動物與易感物種分開</strong>（例如牛不要和羊混養）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Ovine/Caprine Infectious Disease〉<a class="pdf-link" href="pdf/羊傳染病.pdf#page=2">p.2–16</a>；另見牛傳染病講義第 49 頁的 MCF 病理比較表。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BT -->
+    <div class="section" id="section-bt">
+      <div class="section-head"><div class="section-num">3</div><h2>藍舌病 Bluetongue (BT)</h2></div>
+      <p class="section-desc">庫蠓傳的病毒，牛帶著病毒擴增，綿羊才是病得重的那個。</p>
+      <h3>病原（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=18">p.18</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>節肢動物傳播、非接觸傳染</strong>的病毒病，主要感染家養與野生反芻獸（例如白尾鹿）。</li>
+        <li>藍舌病病毒（BTV）：<strong>呼腸孤病毒科（Reoviridae）、Orbivirus 屬</strong>，<strong>10 段 dsRNA</strong>。</li>
+        <li>→ <strong>至少 29 個血清型</strong>，遺傳差異大；各地區血清型不同，取決於<strong>庫蠓（<em>Culicoides</em>）</strong>的分布與活動。</li>
+        <li><strong>WOAH 通報疾病</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p019.jpg" alt="新聞：藍舌病在歐洲蔓延，畜牧業加快施打疫苗。" loading="lazy"><div class="figure-caption">新聞：藍舌病在歐洲蔓延，畜牧業加快施打疫苗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=19">p.19</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p020.jpg" alt="英國最嚴重的藍舌病爆發：源自非洲、經庫蠓傳播，近二十年擴散到歐洲，WOAH 認為與氣候變遷相關；BTV-3 於 2023" loading="lazy"><div class="figure-caption">英國最嚴重的藍舌病爆發：源自非洲、經庫蠓傳播，近二十年擴散到歐洲，WOAH 認為與氣候變遷相關；BTV-3 於 2023 年首次在英格蘭發現。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=20">p.20</a></div></div>
+      </div>
+      <h3>流行病學（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=21">p.21–24</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>牛是保毒宿主與增殖宿主</strong>。</li>
+        <li><strong>重症</strong>最常見於<strong>歐洲細毛與肉用品種綿羊</strong>；某些血清型（<strong>BTV-8</strong>）也會讓牛重症。</li>
+        <li>分泌物與排泄物中病毒極少 → 直接、間接或氣膠傳播都不太可能 → 幾乎<strong>只靠特定庫蠓生物性傳播</strong>。</li>
+        <li><strong>經胎盤感染</strong>（綿羊與牛）：活減毒或疫苗株、血清型 8；依懷孕階段從<strong>流產</strong>到<strong>先天缺陷</strong>（例：2015 年法國 BTV-8 再出現）。</li>
+        <li>牛的感染是<strong>暫時性</strong>，<strong>不會持續感染、也不會免疫耐受</strong>（和 BVDV 不同）。</li>
+        <li>有交配傳播的紀錄，但不是重要途徑。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p022.jpg" alt="藍舌病流行病學：經胎盤感染與交配傳播；2015 年法國 BTV-8 再出現。" loading="lazy"><div class="figure-caption">藍舌病流行病學：經胎盤感染與交配傳播；2015 年法國 BTV-8 再出現。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=22">p.22</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p024.jpg" alt="台灣 2003 年藍舌病血清盛行率：牛 68/75 場、974/2977 頭（32.7%），金門、台東、苗栗、花蓮特別高" loading="lazy"><div class="figure-caption">台灣 2003 年藍舌病血清盛行率：牛 68/75 場、974/2977 頭（32.7%），金門、台東、苗栗、花蓮特別高；山羊 13/45 群、111/1350 頭（8.2%），金門 79.3%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=24">p.24</a></div></div>
+      </div>
+      <p>台灣：牛的血清陽性率（<strong>32.7%</strong>）遠高於山羊（<strong>8.2%</strong>），而且台灣分離株過去研究顯示<strong>毒力低</strong>（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=23">p.23–24</a>）。</p>
+      <h3>發病率、死亡率與致病機轉（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=25">p.25–26</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>羊群<strong>首次</strong>發生時：臨床發病率可達 <strong>50–75%</strong>、死亡率 <strong>20–50%</strong>。</li>
+        <li>血清型之間毒力不同。</li>
+        <li>病毒先在<strong>引流淋巴結</strong>複製 → 經血流散播（所有血球與血小板）→ 在肺、淋巴結、脾二次複製 → 在<strong>內皮細胞</strong>複製造成<strong>內皮損傷、血栓與出血</strong>。</li>
+        <li><strong>牛與野生反芻獸</strong>：多數病毒株造成的內皮損傷很少；牛的散發病例被認為是<strong>重複暴露、病毒專一性 IgE 引發的第 I 型過敏</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p026.jpg" alt="藍舌病病毒在綿羊體內的傳播與複製（modified from Jilo, 2016）：庫蠓叮咬 → 引流淋巴結 → 血液" loading="lazy"><div class="figure-caption">藍舌病病毒在綿羊體內的傳播與複製（modified from Jilo, 2016）：庫蠓叮咬 → 引流淋巴結 → 血液 → 肺、淋巴結、脾 → 內皮細胞損傷、血栓與出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=26">p.26</a></div></div>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=27">p.27</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>綿羊（潛伏期通常 &lt; 7 天）</h4><ul>
+          <li><strong>高燒 5–6 天</strong></li>
+          <li>黏液膿性、常<strong>帶血</strong>的鼻分泌物；<strong>流涎</strong></li>
+          <li>頰黏膜<strong>腫脹、發紅、擦傷</strong></li>
+          <li><strong>鼾聲</strong>（呼吸道阻塞）</li>
+          <li>甚急性病例在出現症狀後約 <strong>6 天</strong>因<strong>窒息</strong>死亡</li>
+          <li>部分恢復但<strong>恢復期很長</strong>，可能要數個月</li>
+          <li>但世界上很多地區綿羊感染是<strong>亞臨床</strong></li>
+        </ul></div>
+        <div class="card"><h4>牛（罕見）</h4><ul>
+          <li>後期（感染後 2–3 週）可能<strong>光敏性皮膚炎</strong></li>
+          <li>懷孕早期感染可造成<strong>流產、死產、先天畸形</strong></li>
+        </ul></div>
+      </div>
+      <h3>病理（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=28">p.28–30</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p028.jpg" alt="綿羊藍舌病肉眼病變（Maclachlan et al., 2009）：(a) 蹄冠炎；(b) 下頜水腫、硬腭與齒墊出血潰" loading="lazy"><div class="figure-caption">綿羊藍舌病肉眼病變（Maclachlan et al., 2009）：(a) 蹄冠炎；(b) 下頜水腫、硬腭與齒墊出血潰瘍；(c) 肺動脈內膜下出血；(d) 心包積液。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=28">p.28</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p029.jpg" alt="組織病變：頰黏膜表淺潰瘍；肺水腫與小葉間隔擴張；急性心肌壞死、出血、鈣化；骨骼肌急性壞死。" loading="lazy"><div class="figure-caption">組織病變：頰黏膜表淺潰瘍；肺水腫與小葉間隔擴張；急性心肌壞死、出血、鈣化；骨骼肌急性壞死。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=29">p.29</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p030.jpg" alt="左：黏液膿性鼻分泌物與牙齦糜爛；右：Dorset Poll 綿羊舌頭嚴重腫脹、臉部水腫與蹄冠炎。" loading="lazy"><div class="figure-caption">左：黏液膿性鼻分泌物與牙齦糜爛；右：Dorset Poll 綿羊舌頭嚴重腫脹、臉部水腫與蹄冠炎。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=30">p.30</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：病名來自嚴重病例舌頭因發紺與水腫呈藍紫色；臨床上看到<strong>蹄冠炎</strong>與<strong>肺動脈基部出血</strong>是藍舌病的有用線索。</p>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=31">p.31</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>減少病媒（vector abatement）</strong>。</li>
+        <li>病毒傳入一個地區後，<strong>疫苗是唯一令人滿意的控制方法</strong>。</li>
+        <li>疫苗<strong>不能預防或清除感染</strong>，但能把損失壓到很低。</li>
+        <li><strong>懷孕母羊不可用活減毒疫苗</strong>（會經胎盤感染，見 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=22">p.22</a>）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Ovine/Caprine Infectious Disease〉<a class="pdf-link" href="pdf/羊傳染病.pdf#page=17">p.17–31</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- POX -->
+    <div class="section" id="section-pox">
+      <div class="section-head"><div class="section-num">4</div><h2>羊痘與山羊痘 Sheeppox &amp; Goatpox</h2></div>
+      <p class="section-desc">和牛結節疹同屬 Capripoxvirus：高度接觸傳染、痂皮裡病毒能活好幾個月，一種疫苗可以保護三種病。</p>
+      <h3>病原與經濟損失（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=33">p.33–34</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>高度接觸傳染</strong>，由<strong>羊痘病毒（SPPV）</strong>與<strong>山羊痘病毒（GTPV）</strong>引起，兩者都是 <strong>Capripoxvirus 屬</strong>，合稱 capripox 感染。</li>
+        <li><strong>WOAH 通報疾病</strong>。</li>
+        <li>兩病毒<strong>基因上非常接近</strong> → 血清學<strong>交叉反應</strong>；實驗中很多可跨物種感染。</li>
+        <li>經濟損失：死亡、流產、乳房炎、羊毛損失、皮革廢棄、出口損失。</li>
+        <li><strong>台灣：WOAH 於 2023 年 12 月 19 日（民國 112 年）認可我國為羊痘非疫國</strong>；10 年以上無羊痘案例。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p034.jpg" alt="農業部宣導：WOAH 於 112 年 12 月 19 日認同我國為羊痘非疫國，10 年以上無羊痘案例。" loading="lazy"><div class="figure-caption">農業部宣導：WOAH 於 112 年 12 月 19 日認同我國為羊痘非疫國，10 年以上無羊痘案例。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=34">p.34</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：台灣將羊痘列為<strong>甲類動物傳染病</strong>（防檢署動物傳染病分類）。</p>
+      <h3>致病與流行病學（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=35">p.35</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>所有年齡都會發生，<strong>小羊最嚴重</strong>。</li>
+        <li>病毒在<strong>鼻、口分泌物</strong>中存在數週，在<strong>掉落的痂皮</strong>中可存活<strong>數個月</strong>。</li>
+        <li>傳播：<strong>氣膠</strong>或<strong>直接接觸</strong>汙染物，以及經由<strong>醫源性或昆蟲造成的皮膚擦傷</strong>。</li>
+        <li><strong>高發病率</strong>（流行區 70–90%）、死亡率不一（流行區 5–10%，<strong>進口或幼齡動物可接近 100%</strong>）；流行區本地品種易感性低得多。</li>
+      </ul>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=36">p.36–38</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>羊痘與山羊痘表現相似；潛伏期 <strong>1–2 週</strong>。</li>
+        <li>發燒、<strong>全身淋巴結腫大</strong>、<strong>眼瞼腫脹</strong>、黏液膿性眼鼻分泌物、<strong>廣泛皮膚病灶</strong>。</li>
+        <li><strong>惡性型</strong>：小羊或小山羊的全身性疾病，病灶遍布皮膚與<strong>呼吸道、消化道黏膜</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p037.jpg" alt="家畜衛生試驗所：山羊痘發病動物發熱、呼吸困難、眼鼻分泌物多且膿稠，嚴重者眼瞼腫脹到無法張眼，乳房也可見痘瘡；傳染性化膿性" loading="lazy"><div class="figure-caption">家畜衛生試驗所：山羊痘發病動物發熱、呼吸困難、眼鼻分泌物多且膿稠，嚴重者眼瞼腫脹到無法張眼，乳房也可見痘瘡；傳染性化膿性皮膚炎不會有這些病變。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=37">p.37</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p038.jpg" alt="家畜衛生試驗所：山羊痘全身皮膚炎、肺水腫與肺炎、流產；特別是兩側腹部與尾根有丘疹樣結節，看到臉口唇病灶時一定要觸診腹部兩" loading="lazy"><div class="figure-caption">家畜衛生試驗所：山羊痘全身皮膚炎、肺水腫與肺炎、流產；特別是兩側腹部與尾根有丘疹樣結節，看到臉口唇病灶時一定要觸診腹部兩側（被毛覆蓋易遺漏）；剃毛後明顯隆起的丘疹。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=38">p.38</a></div></div>
+      </div>
+      <div class="alert alert-info"><div class="alert-label">臨床重點（家畜衛生試驗所投影片）</div><p>看到<strong>臉、口、唇有丘疹或痘瘡</strong>時，一定要<strong>觸診腹部兩側與尾根</strong>，找有沒有隆起的丘疹或痘瘡；被毛覆蓋的病灶若不觸診或不剃毛很容易漏掉。傳染性化膿性皮膚炎（羊口瘡）只在口唇，沒有全身症狀。</p></div>
+      <h3>病理（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=39">p.39–40</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>皮膚、黏膜病灶與<strong>淋巴結腫大</strong>；肺也可有病灶。</li>
+        <li>表皮基底層<strong>水腫性變性</strong>，少數角質細胞含 <strong>5–7 μm 嗜酸性胞質包涵體</strong>。</li>
+        <li>丘疹期真皮廣泛水腫，血管周圍與膠原束間聚集大量含包涵體的單核細胞——<strong>羊痘細胞（sheeppox cells）</strong>：受感染的單核球、巨噬細胞、纖維母細胞，<strong>不是</strong>內皮或上皮細胞。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p039.jpg" alt="羊痘病變：皮膚紅色丘疹、淋巴結腫大、鼻鏡病灶、肺部病灶。" loading="lazy"><div class="figure-caption">羊痘病變：皮膚紅色丘疹、淋巴結腫大、鼻鏡病灶、肺部病灶。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=39">p.39</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p040.jpg" alt="組織：表皮基底層水腫性變性與嗜酸性胞質包涵體（左）；真皮水腫與含包涵體的羊痘細胞（右）。" loading="lazy"><div class="figure-caption">組織：表皮基底層水腫性變性與嗜酸性胞質包涵體（左）；真皮水腫與含包涵體的羊痘細胞（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=40">p.40</a></div></div>
+      </div>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=42">p.42</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>禁止從疫區進口</strong>活動物與未加工產品。</li>
+        <li>傳入時：<strong>環狀免疫（ring vaccination）</strong>並<strong>撲殺</strong>受感染羊群。</li>
+        <li><strong>單一 capripox 疫苗</strong>可對所有物種、所有 capripox 感染（<strong>羊痘、山羊痘、牛結節疹</strong>）提供保護。</li>
+        <li><strong>死毒疫苗</strong>只有暫時保護；<strong>活減毒疫苗</strong>保護超過 <strong>1 年</strong>。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">對照<a href="week04_牛傳染病_其他疾病.html#section-lsd">牛結節疹</a>：LSD 疫苗也可用羊痘或山羊痘病毒為基礎。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Ovine/Caprine Infectious Disease〉<a class="pdf-link" href="pdf/羊傳染病.pdf#page=32">p.32–42</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CAE -->
+    <div class="section" id="section-cae">
+      <div class="section-head"><div class="section-num">5</div><h2>山羊關節炎腦炎 Caprine Arthritis Encephalitis (CAE)</h2></div>
+      <p class="section-desc">喝初乳就感染、一輩子帶毒，多數不發病；控制只能從「出生就把小羊帶走」做起。</p>
+      <h3>病原與流行病學（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=44">p.44–46</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>山羊的<strong>持續性慢病毒感染</strong>；<strong>WOAH 通報疾病</strong>。</li>
+        <li>多種病型：<strong>小羊白質腦脊髓炎</strong>、<strong>慢性增生性多發性滑膜炎</strong>、<strong>硬化性乳房炎</strong>、<strong>間質性肺炎</strong>。</li>
+        <li>1974 年首次描述；有些牛群（羊群）感染率高達 <strong>80%</strong>。台灣 <strong>1993 年</strong>以病理與電顯首次確認。</li>
+        <li>CAEV：<strong>反轉錄病毒科（Retroviridae）、Orthoretrovirinae、Lentivirus 屬</strong>；與綿羊的 <strong>Maedi-Visna（MV，又稱綿羊進行性肺炎 OPP）</strong>合稱<strong>小反芻獸慢病毒（SRLVs）</strong>。</li>
+        <li><strong>台灣（Yeang et al., 2017）</strong>：山羊血清陽性率 <strong>61.7%（2,120/3,437）</strong>，<strong>98.5%（64/65）羊場陽性</strong> → 台灣廣泛分布。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p045.jpg" alt="CAEV 構造：包膜（SU、TM）、核心（CA、MA、NC）、反轉錄酶等，RNA 基因體。" loading="lazy"><div class="figure-caption">CAEV 構造：包膜（SU、TM）、核心（CA、MA、NC）、反轉錄酶等，RNA 基因體。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=45">p.45</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p046.jpg" alt="台灣 CAEV 血清調查（Yeang et al., 2017）：各縣市陽性率 49.7–96.7%；乳用山羊 82.0" loading="lazy"><div class="figure-caption">台灣 CAEV 血清調查（Yeang et al., 2017）：各縣市陽性率 49.7–96.7%；乳用山羊 82.0%、肉用 35.1%、種羊 19.7%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=46">p.46</a></div></div>
+      </div>
+      <h3>傳播（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=47">p.47</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>所有品種、年齡都可感染；差異多反映管理不同。</li>
+        <li>主要經<strong>吃進受感染的初乳或乳汁</strong>。</li>
+        <li><strong>初乳中有抗體也無法預防感染</strong>。</li>
+        <li>→ 新生小羊應<strong>出生後立刻與母羊分開</strong>，餵<strong>巴氏殺菌乳</strong>，很多可以不被感染。</li>
+        <li><strong>接觸傳播</strong>會讓疾病擴散；子宮內感染罕見。</li>
+      </ul>
+      <h3>致病機轉（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=48">p.48</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>出生時感染 → <strong>終生持續感染</strong>，但只有 <strong>10–30%</strong> 發病。</li>
+        <li>可感染脈絡叢、乳腺上皮、纖維母細胞、內皮細胞、單核球；但<strong>主要在成熟巨噬細胞內複製</strong>：<strong>單核球分化成巨噬細胞時病毒被活化</strong>，並持續存在於巨噬細胞、微膠細胞、單核球、樹突細胞。</li>
+        <li>病灶（淋巴增生性）至少部分是<strong>免疫媒介</strong>，也有病毒直接破壞。</li>
+      </ul>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=49">p.49–50</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病型</th><th>年齡</th><th>表現</th></tr></thead>
+          <tbody>
+            <tr><td>無症狀</td><td>—</td><td><strong>大多數感染羊（約 70%）無症狀</strong></td></tr>
+            <tr><td><strong>神經型（白質腦脊髓炎）</strong></td><td><strong>2–4 月齡</strong></td><td><strong>脊髓運動功能障礙</strong>，沒有大腦症狀；漸進：後肢運動失調、嘴唇顫抖 → <strong>不發燒</strong>；後肢運動失調、伸肌麻痺、四肢麻痺 → 餓死或續發感染；<strong>一旦麻痺必死</strong></td></tr>
+            <tr><td><strong>關節炎</strong></td><td>成羊</td><td>跛行、關節積液、<strong>腕關節腫大</strong>、<strong>腕部水囊瘤</strong>常見</td></tr>
+            <tr><td>間質性肺炎</td><td>—</td><td>呼吸困難、咳嗽、惡病質</td></tr>
+            <tr><td><strong>乳房炎</strong></td><td>泌乳羊</td><td>乳房<strong>硬、腫</strong>；乳量下降</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p050.jpg" alt="CAE：白質腦脊髓炎小羊後肢無力（上）；成羊腕關節腫大（下）。" loading="lazy"><div class="figure-caption">CAE：白質腦脊髓炎小羊後肢無力（上）；成羊腕關節腫大（下）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=50">p.50</a></div></div>
+      <h3>病理（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=51">p.51–59</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>關節：腕、膝、跗關節<strong>慢性增生性關節炎／滑膜炎</strong>；腕部水囊瘤；組織見明顯<strong>絨毛狀增生性滑膜炎</strong>，大量淋巴漿細胞與組織球浸潤。</li>
+        <li>病例（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=52">p.52</a>）：3 月齡 Alpine 母山羊，數個月呼吸道症狀；2016 年 11 月因左前肢與兩後肢麻痺到台大動物醫院，精神正常；住院後出現右向眼球震顫；神經學定位 <strong>L2 與前腦</strong>；安樂死。腦與脊髓切片、組織病理，<strong>原位雜交</strong>顯示病毒核酸在巨噬細胞（<strong>巨噬細胞向性</strong>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p051.jpg" alt="關節：慢性增生性關節炎與腕部水囊瘤；組織為絨毛狀增生性滑膜炎伴淋巴漿細胞浸潤。" loading="lazy"><div class="figure-caption">關節：慢性增生性關節炎與腕部水囊瘤；組織為絨毛狀增生性滑膜炎伴淋巴漿細胞浸潤。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=51">p.51</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p052.jpg" alt="CNS 病例：3 月齡 Alpine 母山羊，四肢麻痺、眼球震顫，病灶定位 L2 與前腦。" loading="lazy"><div class="figure-caption">CNS 病例：3 月齡 Alpine 母山羊，四肢麻痺、眼球震顫，病灶定位 L2 與前腦。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=52">p.52</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p053.jpg" alt="同一病例的大腦切面。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">同一病例的大腦切面。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=53">p.53</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p054.jpg" alt="脊髓切面，其中一段可見病灶。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">脊髓切面，其中一段可見病灶。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=54">p.54</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p057.jpg" alt="高倍：白質內大量單核細胞浸潤與髓鞘破壞。講義此頁無文字說明。" loading="lazy"><div class="figure-caption">高倍：白質內大量單核細胞浸潤與髓鞘破壞。講義此頁無文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=57">p.57</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p058.jpg" alt="原位雜交：病毒核酸定位在巨噬細胞（紅色箭頭）→ 巨噬細胞向性。" loading="lazy"><div class="figure-caption">原位雜交：病毒核酸定位在巨噬細胞（紅色箭頭）→ 巨噬細胞向性。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=58">p.58</a></div></div>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=60">p.60</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>隔離或淘汰血清陽性動物</strong>。</li>
+        <li>預防或減少<strong>圍產期傳給小羊</strong>，特別是<strong>初乳與乳汁</strong>傳播。</li>
+        <li><strong>沒有有效疫苗</strong>。</li>
+        <li><strong>標記輔助遺傳選育</strong>，找出較不易感染的動物。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Ovine/Caprine Infectious Disease〉<a class="pdf-link" href="pdf/羊傳染病.pdf#page=43">p.43–60</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QFEVER -->
+    <div class="section" id="section-qfever">
+      <div class="section-head"><div class="section-num">6</div><h2>Q 熱 Q Fever</h2></div>
+      <p class="section-desc">反芻獸多半沒症狀，但胎盤裡的菌量驚人，而且吸一口氣膠就能讓人生病。</p>
+      <h3>概述（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=62">p.62–63</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>人畜共通</strong>、<strong>WOAH 通報疾病</strong>。</li>
+        <li>台灣<strong>第四類法定傳染病（2007 年）</strong>（人）。</li>
+        <li>1935 年澳洲昆士蘭屠宰場工人出現非典型肺炎，稱「屠宰場熱（abattoir fever）」；因病因成謎（query），1937 年命名為 Q fever。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p063.jpg" alt="疾管署：全國 Q 熱本土病例與境外移入病例趨勢及地理分布（2026 年）。" loading="lazy"><div class="figure-caption">疾管署：全國 Q 熱本土病例與境外移入病例趨勢及地理分布（2026 年）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=63">p.63</a></div></div>
+      <h3>病原（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=64">p.64–65</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong><em>Coxiella burnetii</em></strong>：<strong>革蘭氏陰性、絕對細胞內菌</strong>，γ-變形菌綱。</li>
+        <li>兩種形態：
+          <ul>
+            <li><strong>大細胞型（large cell variant）</strong>：多形性、代謝活躍（會複製）、<strong>對環境敏感</strong>。</li>
+            <li><strong>小細胞型（small cell variant）</strong>：短桿狀、<strong>不複製</strong>、<strong>抵抗環境壓力</strong>——<strong>對大多數消毒劑有抗性、耐熱、耐乾燥</strong>。</li>
+          </ul></li>
+        <li>兩種抗原型：<strong>第 I 相</strong>（動物與野外中有致病性）；<strong>第 II 相</strong>（在雞胚卵黃囊與細胞培養連續繼代產生，致病性較低）。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p065.jpg" alt="Coxiella burnetii 電子顯微鏡（Heinzen et al., 1999）：小細胞型（SCV）、大細胞型" loading="lazy"><div class="figure-caption">Coxiella burnetii 電子顯微鏡（Heinzen et al., 1999）：小細胞型（SCV）、大細胞型（LCV），以及含孢子樣顆粒的 LCV。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=65">p.65</a></div></div>
+      <h3>傳播（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=66">p.66–67</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>全球分布。</li>
+        <li><strong>主要途徑：吸入含病原的氣膠或塵土</strong>；其他：皮膚傷口、結膜接觸、消化道。</li>
+        <li>病原存在於<strong>乳腺、乳房淋巴結、子宮、胎盤</strong>。</li>
+        <li>經<strong>血液、乳汁</strong>、糞、尿、羊水與分泌物傳播。</li>
+        <li><strong>蜱</strong>也可為病媒（少見）；在蜱體內可<strong>經卵</strong>與<strong>跨蟲期</strong>傳遞。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p067.jpg" alt="Q 熱的傳播循環（Celina &amp;amp; Černý, 2022）：蜱的森林循環、家畜（主要保菌者）、野生動物與掠食者" loading="lazy"><div class="figure-caption">Q 熱的傳播循環（Celina &amp; Černý, 2022）：蜱的森林循環、家畜（主要保菌者）、野生動物與掠食者，人經吸入受汙染氣膠（處理胎盤、流產物、糞、毛）、食入受汙染乳製品或接觸受感染動物而感染。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=67">p.67</a></div></div>
+      <h3>致病機轉（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=68">p.68</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>感染<strong>單核球與巨噬細胞</strong>，在吞噬體的<strong>酸性環境</strong>中存活（酸性是它複製的訊號）。</li>
+        <li>對動物胎盤的<strong>滋養層細胞（trophoblasts）親和力高</strong>：胎盤每克可達 <strong>10⁹</strong> 菌。</li>
+        <li>經子宮、胎盤、糞、乳汁排出。</li>
+        <li>人吸入後：先在<strong>肺</strong>增殖，再經血流到全身器官。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p068.jpg" alt="Coxiella 在巨噬細胞內的生活史：進入吞噬體後在酸性（pH 約 4.5）的 Coxiella 液泡中由小細胞型轉為" loading="lazy"><div class="figure-caption">Coxiella 在巨噬細胞內的生活史：進入吞噬體後在酸性（pH 約 4.5）的 Coxiella 液泡中由小細胞型轉為大細胞型並複製。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=68">p.68</a></div></div>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=69">p.69</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>反芻獸</h4><ul>
+          <li>潛伏期差異很大，約 <strong>9–28 天</strong></li>
+          <li><strong>大多數亞臨床感染</strong></li>
+          <li>可能輕微發燒與各種繁殖問題：不孕、<strong>流產（懷孕後期）</strong>、死產、弱仔、胎衣滯留、子宮內膜炎</li>
+        </ul></div>
+        <div class="card"><h4>人</h4><ul>
+          <li>最常見：<strong>發燒</strong>、疲倦、頭痛、意識改變、噁心嘔吐、下痢</li>
+          <li><strong>非典型肺炎</strong>可致命的<strong>急性呼吸窘迫症候群</strong></li>
+          <li>肉芽腫性肝炎、肝腫大、黃疸</li>
+          <li><strong>慢性感染</strong>：腦膜炎、睪丸炎、心肌炎、<strong>心內膜炎</strong>、腎炎（前置因子如心臟瓣膜疾病、血管缺損）</li>
+        </ul></div>
+      </div>
+      <h3>病理（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=70">p.70–71</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>肉眼：動物的病變<strong>只在胎盤</strong>：<strong>增厚、如皮革</strong>，多灶至融合的<strong>鈣化</strong>。</li>
+        <li>顯微：動物為<strong>壞死性子葉間胎盤炎</strong>，細胞內可見菌體，± 血管炎；人則在各組織形成<strong>肉芽腫結節</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p071.jpg" alt="左：感染 Coxiella burnetii 的胎盤，子葉間增厚；右：絨毛膜上皮細胞質內充滿空泡狀細菌包涵體（H&amp;amp" loading="lazy"><div class="figure-caption">左：感染 Coxiella burnetii 的胎盤，子葉間增厚；右：絨毛膜上皮細胞質內充滿空泡狀細菌包涵體（H&amp;E）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=71">p.71</a></div></div>
+      <h3>診斷（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=72">p.72–73</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>P3（生物安全第三等級）</strong>防護設備與措施。</li>
+        <li>找菌：<strong>免疫染色</strong>；核酸：<strong>PCR</strong>；血清：<strong>間接免疫螢光（IFA）</strong>、ELISA、補體結合（CF）。</li>
+        <li>疾管署人類病例定義（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=73">p.73</a>）：臨床條件為發燒、畏寒、噁心嘔吐、腹瀉、盜汗、頭痛、肌肉痠痛、急性肝炎或黃疸、肺炎、腦膜腦炎等；檢驗條件任一：<strong>核酸檢測陽性</strong>；或 IFA 急性期血清 <strong>Phase II IgM ≥ 1:80</strong>，或配對血清 <strong>Phase II IgG 上升 ≥ 4 倍</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p073.jpg" alt="疾管署 Q 熱病例定義（2019-03）：臨床條件與檢驗條件（核酸陽性；Phase II IgM ≥ 1:80；或配對血" loading="lazy"><div class="figure-caption">疾管署 Q 熱病例定義（2019-03）：臨床條件與檢驗條件（核酸陽性；Phase II IgM ≥ 1:80；或配對血清 Phase II IgG 4 倍以上上升）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=73">p.73</a></div></div>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=74">p.74</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>疫苗</strong>：降低發病、<strong>排菌</strong>並預防流產，但<strong>不能預防感染</strong>。</li>
+        <li><strong>抗生素</strong>：chlortetracycline、tetracycline 或 chloramphenicol；但在動物<strong>單獨</strong>用抗生素控制臨床症狀<strong>缺乏明顯效果</strong>。</li>
+        <li><strong>衛生與生物安全</strong>：清除糞肥、<strong>處理胎盤</strong>、工作人員穿<strong>消毒過的防護衣</strong>、限制訪客。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：chloramphenicol 在台灣與許多國家<strong>禁用於食用動物</strong>；講義列的是可用的抗生素種類，實際用藥要依法規。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Ovine/Caprine Infectious Disease〉<a class="pdf-link" href="pdf/羊傳染病.pdf#page=61">p.61–74</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EAE -->
+    <div class="section" id="section-eae">
+      <div class="section-head"><div class="section-num">7</div><h2>母羊地方性流產 Enzootic Abortion of Ewes (EAE)</h2></div>
+      <p class="section-desc">潛伏在母羊體內，懷孕時被喚醒，在最後 2–3 週流產；流產的胎盤是最大的傳染源。</p>
+      <h3>概述與病原（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=76">p.76–77</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>人畜共通</strong>、<strong>WOAH 通報疾病</strong>；山羊表現相似；也可造成牛、豬、馬流產但發生率低。</li>
+        <li><strong><em>Chlamydophila abortus</em></strong>：小型、<strong>革蘭氏陰性、絕對細胞質內寄生菌</strong>。</li>
+        <li>兩種形態：<strong>原質體（elementary body, EB）</strong>：小而緻密的球體，<strong>低溫環境（接近 0°C）可保持感染力數個月</strong>；<strong>網狀體（reticulate body, RB）</strong>：<strong>不具感染力</strong>。</li>
+        <li>抵抗：酸、鹼、甲苯基化合物、石灰；<strong>對多數消毒劑敏感</strong>：<strong>1% 次氯酸鈉、70% 酒精、戊二醛、甲醛</strong>；<strong>加熱</strong>也可去活。</li>
+      </ul>
+      <h3>傳播與流行病學（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=78">p.78–79</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>引入<strong>潛伏感染母羊</strong>。</li>
+        <li><strong>主要傳染源：病羊流產的胎盤或子宮分泌物</strong>，含大量 <em>C. abortus</em>。</li>
+        <li>感染母羊在<strong>流產前一週到流產後兩週</strong>排菌。</li>
+        <li>途徑：<strong>經口或經鼻</strong>、<strong>垂直傳播</strong>；牛羊糞尿與<strong>山羊乳</strong>中也有菌。</li>
+        <li>全球分布，<strong>澳洲與紐西蘭除外</strong>。主要宿主綿羊與山羊，也可感染牛、鹿、駱馬、兔、馬。</li>
+        <li><strong>台灣</strong>：2007–2011 年六個羊場山羊血清陽性率 <strong>60%（18/30）</strong>；流產胎兒 PCR 檢測六種流產病原，<em>Cp. abortus</em> 陽性率最高 <strong>26.1%（6/23）</strong> → <strong>台灣山羊流產的主要病原</strong>。</li>
+        <li>新感染羊群：<strong>超過 30%</strong> 懷孕母羊在<strong>最後 3 週</strong>流產，或早產弱仔、死仔。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p079.jpg" alt="EAE 流行病學：全球（澳紐除外）；台灣山羊血清陽性 60%、流產胎兒 C. abortus PCR 陽性 26.1%，" loading="lazy"><div class="figure-caption">EAE 流行病學：全球（澳紐除外）；台灣山羊血清陽性 60%、流產胎兒 C. abortus PCR 陽性 26.1%，為台灣山羊流產主要病原；新感染羊群超過 30% 懷孕母羊流產。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=79">p.79</a></div></div>
+      <h3>致病機轉（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=80">p.80</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>感染後推測先停留在<strong>扁桃腺</strong>，再經血液與淋巴散播；潛伏部位尚未確定。</li>
+        <li>懷孕期的<strong>免疫調節</strong>讓菌從<strong>潛伏狀態釋放</strong> → 菌血症 → <strong>胎盤感染</strong>。</li>
+      </ul>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=81">p.81</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>懷孕最後 2–3 週</strong>流產、死產或產下弱仔。</li>
+        <li>懷孕母羊<strong>常沒有明顯症狀</strong>；有些流產前有少量紅色或褐色陰道分泌物。<strong>胎衣滯留與乳房炎不常見</strong>。</li>
+        <li>流產後母羊可很快恢復，但有些會持續有<strong>暗褐色陰道分泌物</strong>。</li>
+      </ul>
+      <h3>病理（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=82">p.82–84</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>流產胎兒：通常<strong>無肉眼異常</strong>；組織上可見肝門區單核細胞浸潤與<strong>肝炎</strong>。</li>
+        <li>胎盤：<strong>子葉壞死、出血</strong>；<strong>子葉間</strong>區域<strong>增厚、水腫、如皮革</strong>。</li>
+        <li><strong>血管炎比 <em>C. burnetii</em> 感染更常見</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p083.jpg" alt="胎盤（Caspe et al., 2020）：上為感染胎盤，整片水腫增厚，子葉暗紅或灰白並覆蓋奶油色滲出物；下為正常胎盤" loading="lazy"><div class="figure-caption">胎盤（Caspe et al., 2020）：上為感染胎盤，整片水腫增厚，子葉暗紅或灰白並覆蓋奶油色滲出物；下為正常胎盤，子葉紅色、子葉間膜薄而透明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=83">p.83</a></div></div>
+        <div class="figure"><img src="img/week05_羊傳染病/ov_p084.jpg" alt="組織：壞死化膿性血管炎伴部分阻塞性血栓（左）；子葉上皮的壞死化膿性胎盤炎（右）。" loading="lazy"><div class="figure-caption">組織：壞死化膿性血管炎伴部分阻塞性血栓（左）；子葉上皮的壞死化膿性胎盤炎（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=84">p.84</a></div></div>
+      </div>
+      <h3>診斷（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=85">p.85–86</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>母羊在<strong>懷孕後期流產、死產或產下弱仔</strong>時要考慮 <em>C. abortus</em>。</li>
+        <li><strong>組織抹片</strong>：病羊胎盤與子宮分泌物抹片，經 <strong>Giemsa 或抗酸染色</strong>找 EB。</li>
+        <li>注意：<strong><em>C. abortus</em> 的 EB 在抹片上無法與 <em>C. burnetii</em> 區分</strong>。</li>
+        <li>ELISA、IFA、PCR 或病原分離。</li>
+      </ul>
+      <div class="figure"><img src="img/week05_羊傳染病/ov_p086.jpg" alt="Chlamydia abortus 抹片染色：細胞內可見紫紅色包涵體。" loading="lazy"><div class="figure-caption">Chlamydia abortus 抹片染色：細胞內可見紫紅色包涵體。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊傳染病.pdf#page=86">p.86</a></div></div>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=87">p.87</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>把感染母羊與小羊分開，並給母羊<strong>長效型 oxytetracycline</strong>，是控制羊群持續感染的主要方法。</li>
+        <li><strong>疫苗</strong>（活毒或不活化皆可）可減少母羊流產，但<strong>不能預防小羊感染</strong>。</li>
+        <li>具<strong>人畜共通</strong>風險：處理可能受感染材料要小心，送檢檢體要妥善包裝。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：長效型 oxytetracycline 在小反芻獸通常以 IM 給予；講義未列劑量，請依產品仿單並注意停藥期。孕婦要避免接觸流產羊與胎盤（<em>C. abortus</em> 可造成人流產）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Ovine/Caprine Infectious Disease〉<a class="pdf-link" href="pdf/羊傳染病.pdf#page=75">p.75–87</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="section" id="section-compare">
+      <div class="section-head"><div class="section-num">8</div><h2>鑑別比較 Comparison</h2></div>
+      <p class="section-desc">三張表：誰是保毒者、兩個流產病、四個病毒病。</p>
+      <h3>保毒宿主與發病宿主<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>保毒／增殖宿主</th><th>發病重的宿主</th><th>傳播</th></tr></thead>
+          <tbody>
+            <tr><td>MCF（OvHV-2）</td><td><strong>綿羊</strong>（牛羚為 AlHV-1）</td><td><strong>牛、野牛、鹿</strong>（終末宿主，不排毒）</td><td>離乳小羊呼吸道分泌物，接觸或氣膠</td></tr>
+            <tr><td>藍舌病</td><td><strong>牛</strong></td><td><strong>綿羊</strong>（歐洲細毛與肉用品種）</td><td>庫蠓（生物性）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Q 熱 vs 母羊地方性流產<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Q 熱</th><th>EAE</th></tr></thead>
+          <tbody>
+            <tr><td>病原</td><td><em>Coxiella burnetii</em></td><td><em>Chlamydophila abortus</em></td></tr>
+            <tr><td>環境抵抗力</td><td>小細胞型<strong>耐多數消毒劑</strong>、耐熱耐乾</td><td>EB 低溫可存活數月，但<strong>對多數消毒劑敏感</strong></td></tr>
+            <tr><td>主要傳播</td><td><strong>吸入</strong>氣膠或塵土</td><td><strong>流產胎盤與子宮分泌物</strong>，經口鼻</td></tr>
+            <tr><td>流產時間</td><td>懷孕後期</td><td>最後 2–3 週</td></tr>
+            <tr><td>胎盤</td><td>增厚如皮革、鈣化；<strong>子葉間</strong>壞死性胎盤炎 ± 血管炎</td><td><strong>子葉</strong>壞死出血、子葉間增厚如皮革；<strong>血管炎較常見</strong></td></tr>
+            <tr><td>抹片</td><td colspan="2">EB 在抹片上<strong>無法區分</strong></td></tr>
+            <tr><td>控制</td><td>疫苗（不防感染）、衛生、胎盤處理</td><td>長效 oxytetracycline、疫苗（不防小羊感染）</td></tr>
+            <tr><td>人</td><td>第四類法定傳染病；非典型肺炎、心內膜炎</td><td>人畜共通</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>四個病毒病<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>MCF</th><th>藍舌病</th><th>羊痘／山羊痘</th><th>CAE</th></tr></thead>
+          <tbody>
+            <tr><td>病毒</td><td>γ 疱疹（Macavirus）</td><td>Reoviridae Orbivirus，10 段 dsRNA</td><td>Capripoxvirus</td><td>Lentivirus（SRLV）</td></tr>
+            <tr><td>傳播</td><td>接觸、氣膠</td><td>庫蠓（非接觸）</td><td>高度接觸、氣膠、皮膚傷口</td><td>初乳、乳汁、接觸</td></tr>
+            <tr><td>特徵</td><td>頭眼型、角膜水腫、壞死性血管炎</td><td>舌腫、蹄冠炎、肺動脈出血</td><td>全身痘疹、羊痘細胞、包涵體</td><td>小羊脊髓麻痺、成羊腕關節炎、硬乳房</td></tr>
+            <tr><td>疫苗</td><td>無</td><td>有（懷孕母羊不用活毒）</td><td>有（活減毒 &gt; 1 年，交叉保護）</td><td>無</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本頁各節整理。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">9</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>MCF 病原與宿主</td><td>γ 疱疹、Macavirus；AlHV-1（牛羚）、OvHV-2（綿羊，全球）、CpHV-2；保毒 vs 終末宿主</td></tr>
+            <tr><td>MCF 傳播與表現</td><td>OvHV-2 小羊 3–6 月齡氣膠感染；1 歲以下離乳小羊分泌物；潛伏 3–8 週；頭眼型；鑑別線索；壞死性血管炎；無疫苗</td></tr>
+            <tr><td>藍舌病病原</td><td>Reoviridae Orbivirus、10 段 dsRNA、≥ 29 血清型、WOAH 通報</td></tr>
+            <tr><td>藍舌病流行病學</td><td>庫蠓生物性傳播；牛為保毒增殖宿主；細毛與肉用綿羊重症；BTV-8；經胎盤；牛不持續感染</td></tr>
+            <tr><td>藍舌病臨床與防治</td><td>首發 50–75%／20–50%；高燒、帶血鼻漏、流涎、頰黏膜擦傷、蹄冠炎；病媒控制、疫苗、懷孕母羊禁活毒</td></tr>
+            <tr><td>羊痘</td><td>Capripoxvirus；高度接觸；痂皮存活數月；70–90%／5–10%；羊痘細胞；環狀免疫與撲殺；交叉保護、活減毒 &gt; 1 年；台灣 2023 年非疫國</td></tr>
+            <tr><td>CAE</td><td>Lentivirus、SRLV；初乳乳汁傳播、抗體擋不住；10–30% 發病；2–4 月齡神經型；腕關節炎、硬乳房；隔離小羊、巴氏殺菌乳；無疫苗</td></tr>
+            <tr><td>Q 熱</td><td>C. burnetii；大小細胞型；吸入；胎盤 10⁹/g；反芻獸亞臨床或後期流產；人第四類法定傳染病；P3；疫苗不防感染</td></tr>
+            <tr><td>EAE</td><td>C. abortus；EB 與 RB；流產胎盤為主要傳染源；最後 2–3 週流產；台灣山羊流產主要病原；長效 oxytetracycline</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">10</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 關於惡性卡他熱（MCF），何者正確？</div>
+        <ul class="quiz-options"><li>(A) 牛是主要保毒宿主，會把病毒傳給羊</li><li>(B) 綿羊帶 OvHV-2 通常不發病，牛是不排毒的終末宿主</li><li>(C) 有效疫苗已普遍使用</li><li>(D) 主要經庫蠓傳播</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=7">p.7</a>：保毒宿主為綿羊、山羊、牛羚；牛、野牛、鹿為終末宿主、不排毒；沒有有效疫苗（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=16">p.16</a>）；接觸或氣膠傳播（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=8">p.8</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 依講義，可幫助把 MCF 和黏膜病、藍舌病區分開的表現是？</div>
+        <ul class="quiz-options"><li>(A) 鼻分泌物、角膜水腫、發燒與淋巴結腫大</li><li>(B) 口腔糜爛</li><li>(C) 下痢</li><li>(D) 流產</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=10">p.10</a>。口腔糜爛與下痢三者都可能有。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. MCF 的特徵病變（pathognomonic lesion）為？</div>
+        <ul class="quiz-options"><li>(A) 肉芽腫伴乾酪樣壞死</li><li>(B) 壞死性血管炎，中膜與外膜有類淋巴母細胞與巨噬細胞浸潤</li><li>(C) 融合細胞性肺炎</li><li>(D) 嗜酸性胞質包涵體</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=15">p.15</a>。(A) 結核；(C) BRSV；(D) 羊痘。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 關於藍舌病，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options"><li>(A) Orbivirus，10 段 dsRNA</li><li>(B) 幾乎只靠庫蠓生物性傳播</li><li>(C) 綿羊是主要保毒與增殖宿主</li><li>(D) 歐洲細毛與肉用品種綿羊重症最常見</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=21">p.21</a>：牛才是保毒與增殖宿主。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 為了保護胎兒，懷孕母羊應優先接種藍舌病活減毒疫苗。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=31">p.31</a>：活減毒疫苗不應用於懷孕母羊；活減毒或疫苗株也可經胎盤感染（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=22">p.22</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 依講義台灣 2003 年調查，藍舌病血清陽性率？</div>
+        <ul class="quiz-options"><li>(A) 牛 8.2%、山羊 32.7%</li><li>(B) 牛 32.7%、山羊 8.2%</li><li>(C) 牛與山羊都 &gt; 90%</li><li>(D) 台灣未檢出</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=24">p.24</a>；金門牛 97.3%、山羊 79.3% 最高。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 關於羊痘與山羊痘的疫苗，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 羊痘疫苗只能保護綿羊</li><li>(B) 單一 capripox 疫苗可保護所有物種、對抗所有 capripox 感染（包括牛結節疹）</li><li>(C) 死毒疫苗保護超過 1 年</li><li>(D) 沒有疫苗</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=42">p.42</a>；活減毒疫苗保護超過 1 年，死毒只有暫時保護。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 山羊關節炎腦炎病毒（CAEV）最主要的傳播途徑是？</div>
+        <ul class="quiz-options"><li>(A) 庫蠓</li><li>(B) 食入受感染的初乳或乳汁</li><li>(C) 交配</li><li>(D) 子宮內感染</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=47">p.47</a>：初乳中有抗體也無法預防感染；新生小羊應立刻與母羊分開、餵巴氏殺菌乳；子宮內感染罕見。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. CAE 的神經型（白質腦脊髓炎）好發年齡與特點為？</div>
+        <ul class="quiz-options"><li>(A) 2–4 月齡，脊髓運動功能障礙、不發燒、漸進後肢麻痺</li><li>(B) 成羊，高燒、抽搐</li><li>(C) 新生 1 週，下痢</li><li>(D) 2–4 歲，腕關節炎</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=49">p.49</a>：一旦出現麻痺必死；(D) 是關節炎型，多在成羊。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. <em>Coxiella burnetii</em> 中耐環境、耐多數消毒劑、不複製的型態是？</div>
+        <ul class="quiz-options"><li>(A) 大細胞型</li><li>(B) 小細胞型</li><li>(C) 網狀體</li><li>(D) 第 II 相抗原</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=64">p.64</a>。網狀體（RB）是披衣菌的非感染型；第 II 相是實驗室繼代產生的低致病抗原型。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. Q 熱傳給人最主要的途徑是？</div>
+        <ul class="quiz-options"><li>(A) 蜱叮咬</li><li>(B) 吸入含病原的氣膠或塵土</li><li>(C) 吃生肉</li><li>(D) 蚊子叮咬</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=66">p.66</a>；蜱為少見途徑。胎盤每克可達 10⁹ 菌（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=68">p.68</a>），處理流產物要防護。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q12. 依講義，台灣山羊流產的主要病原為？</div>
+        <ul class="quiz-options"><li>(A) <em>Coxiella burnetii</em></li><li>(B) <em>Chlamydophila abortus</em></li><li>(C) 藍舌病病毒</li><li>(D) CAEV</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=79">p.79</a>：流產胎兒 PCR 檢測六種病原，C. abortus 陽性率最高 26.1%。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q13. 胎盤抹片經 Giemsa 或抗酸染色看到 EB，就可以確定是 <em>C. abortus</em> 而非 <em>C. burnetii</em>。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊傳染病.pdf#page=85">p.85</a>：C. abortus EB 無法與 C. burnetii 在抹片上區分；要用 ELISA、IFA、PCR 或分離。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一個乳山羊場，今年懷孕母羊在預產期前 2–3 週陸續流產，約三成受影響；母羊流產前大多沒症狀，少數有褐色陰道分泌物。胎盤子葉暗紅壞死、子葉間增厚如皮革。牧場主人懷孕中的太太常幫忙接生。請問：(1) 依講義最可能的病原？還要鑑別哪一個？(2) 主要傳染源？(3) 診斷要注意什麼？(4) 控制與人員防護？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> <em>Chlamydophila abortus</em>（EAE；最後 2–3 週、&gt; 30%；台灣山羊流產主要病原，<a class="pdf-link" href="pdf/羊傳染病.pdf#page=79">p.79–82</a>）；要鑑別 Q 熱（<em>C. burnetii</em>）。<br><strong>(2)</strong> 流產胎盤與子宮分泌物；母羊流產前 1 週到流產後 2 週排菌（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=78">p.78</a>）。<br><strong>(3)</strong> 抹片 EB 無法區分 C. abortus 與 C. burnetii，需 ELISA、IFA、PCR 或分離；Q 熱檢驗需 P3（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=72">p.72</a>、<a class="pdf-link" href="pdf/羊傳染病.pdf#page=85">p.85</a>）。<br><strong>(4)</strong> 感染母羊與小羊分開、長效 oxytetracycline、疫苗減少流產（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=87">p.87</a>）；兩者都人畜共通，懷孕者不應接觸流產物，處理胎盤要防護（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q15.【臨床情境】一個山羊場有多頭成羊腕關節腫大、跛行，部分母羊乳房摸起來很硬、乳量少；兩頭 3 月齡小羊後肢逐漸無力、不發燒，最後四肢麻痺。牧場習慣讓小羊跟母羊同欄吸乳到離乳。請問：(1) 診斷？(2) 為什麼小羊跟母羊同欄是問題？(3) 有疫苗嗎？要怎麼控制？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 山羊關節炎腦炎（CAE）：成羊關節炎、硬化性乳房炎，2–4 月齡小羊白質腦脊髓炎（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=49">p.49</a>）。<br><strong>(2)</strong> 主要經初乳與乳汁傳播，初乳抗體擋不住；應出生後立刻分開、餵巴氏殺菌乳（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=47">p.47</a>）。<br><strong>(3)</strong> 沒有有效疫苗；隔離或淘汰血清陽性羊、阻斷圍產期與乳汁傳播、標記輔助遺傳選育（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=60">p.60</a>）。台灣羊場陽性率 98.5%，幾乎每場都要面對（<a class="pdf-link" href="pdf/羊傳染病.pdf#page=46">p.46</a>）。</p></details>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  mcf: '惡性卡他熱 MCF',
+  bt: '藍舌病',
+  pox: '羊痘與山羊痘',
+  cae: '山羊關節炎腦炎 CAE',
+  qfever: 'Q 熱',
+  eae: '母羊地方性流產 EAE',
+  compare: '鑑別比較',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

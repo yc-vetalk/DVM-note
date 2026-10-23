@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>轉換期、低血鈣與DCAD Transition Period, Hypocalcemia &amp; DCAD - yc._vetalk</title>
+<title>反芻動物疾病學：轉換期、低血鈣與 DCAD - yc._vetalk</title>
 <link rel="stylesheet" href="../../assets/nav.css">
-<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
 </head>
 <body class="ah">
 
@@ -29,16 +49,17 @@
 <section class="pagehead">
   <div class="pagehead__inner">
     <div class="breadcrumb">
-      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">反芻動物疾病學</a><span class="sep">›</span><span class="current">第 1 週・轉換期、低血鈣與DCAD</span>
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">反芻動物疾病學</a><span class="sep">›</span><span class="current">第 1 週・轉換期、低血鈣與 DCAD</span>
     </div>
     <div class="page-head">
-      <h1 class="page-title">轉換期、低血鈣與DCAD</h1>
-      <p class="page-subtitle">Transition Period, Hypocalcemia &amp; DCAD · 乾乳期飼養管理、產後低血鈣症連鎖病變、陰陽離子差（DCAD）預防策略</p>
+      <h1 class="page-title">轉換期、低血鈣與 DCAD Transition Period, Hypocalcemia &amp; DCAD</h1>
+      <p class="page-subtitle">產前 21 天到產後 21 天是乳牛最脆弱的階段：DMI 掉 30–40%、鈣需求暴增；低血鈣讓平滑肌無力，一路牽出皺胃移位、酮症、胎衣滯留；負 DCAD 日糧讓牛提前練習動員骨鈣</p>
     </div>
     <div class="meta-bar">
       <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">反芻動物疾病學（大四上・第1週・課堂）</div></div>
-      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈消化生理講義 Digestive Physiology of the Ruminant〉（Jui-Chun Hsieh，國立臺灣大學獸醫專業學院）</div></div>
-      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-29</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《反芻動物疾病學》課程講義〈Digestive Physiology of the Ruminant〉p.53–61（Jui-Chun Hsieh）；補充：MSD Veterinary Manual〈Parturient Paresis in Cows〉</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-22</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/消化生理.pdf#page=1">在右側開啟講義</a></div></div>
       <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
     </div>
   </div>
@@ -47,291 +68,377 @@
 <div class="pagewrap">
   <nav class="toc">
     <div class="section-label">總覽</div>
-    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
-      <span class="nav-icon">⭐</span> 重點摘要
-    </a>
-    <div class="section-label" style="margin-top:8px;">泌乳週期</div>
-    <a onclick="showSection('phases')" id="nav-phases">
-      <span class="nav-icon">📅</span> 泌乳分期與轉換期定義
-    </a>
-    <a onclick="showSection('drymanagement')" id="nav-drymanagement">
-      <span class="nav-icon">🌾</span> 乾乳期飼養管理
-    </a>
-    <div class="section-label" style="margin-top:8px;">低血鈣症</div>
-    <a onclick="showSection('hypocalcemia')" id="nav-hypocalcemia">
-      <span class="nav-icon">🩸</span> 低血鈣症 Hypocalcemia
-    </a>
-    <a onclick="showSection('dcad')" id="nav-dcad">
-      <span class="nav-icon">⚖️</span> DCAD 陰陽離子差
-    </a>
-    <div class="section-label" style="margin-top:8px;">複習</div>
-    <a onclick="showSection('glossary')" id="nav-glossary">
-      <span class="nav-icon">🔤</span> 雙語詞彙表
-    </a>
-    <a onclick="showSection('summary')" id="nav-summary">
-      <span class="nav-icon">⭐</span> 學習重點整理
-    </a>
-    <a onclick="showSection('quiz')" id="nav-quiz">
-      <span class="nav-icon">📝</span> 練習題
-    </a>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">時間軸</div>
+    <a onclick="showSection('phases')" id="nav-phases"><span class="nav-icon">📅</span> 泌乳分期與轉換期</a>
+    <a onclick="showSection('dry')" id="nav-dry"><span class="nav-icon">🐮</span> 乾乳期管理</a>
+    <div class="section-label" style="margin-top:8px;">疾病</div>
+    <a onclick="showSection('hypocalcemia')" id="nav-hypocalcemia"><span class="nav-icon">🦴</span> 低血鈣症</a>
+    <a onclick="showSection('syndrome')" id="nav-syndrome"><span class="nav-icon">🔗</span> 產後低血鈣症候群</a>
+    <div class="section-label" style="margin-top:8px;">預防</div>
+    <a onclick="showSection('dcad')" id="nav-dcad"><span class="nav-icon">⚖️</span> 陰陽離子差 DCAD</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('compare')" id="nav-compare"><span class="nav-icon">🧩</span> 比較整理</a>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
   </nav>
 
   <main class="pagebody" id="mainContent">
 
     <!-- ABSTRACT -->
     <div class="section" id="section-abstract">
-      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
-      <div class="alert alert-success">
-        <div class="alert-label">這堂課在讀什麼？</div>
-        <p>這頁接續姊妹篇〈<a href="week01_乳牛營養與飼養管理.html">乳牛營養與飼養管理</a>〉，聚焦在乳牛生涯中風險最集中的一段時間——<strong>轉換期（transition period，產前後各21天）</strong>。這段期間牛隻從乾乳（不泌乳）狀態切換到泌乳狀態，同時要應付分娩、初乳合成、大量鈣質需求，任何一個環節銜接不順，就容易誘發<strong>低血鈣症（hypocalcemia／milk fever）</strong>——而低血鈣不是單一疾病，它會透過平滑肌功能下降這條路徑，<strong>同時牽連皺胃移位、酮症、胎衣滯留、子宮內膜炎</strong>等一整組「產後代謝病」，這正是這頁的核心，我也推測是反芻動物疾病學國考申論題偏好出的整合型考點。最後帶到<strong>DCAD（陰陽離子差）</strong>這個預防低血鈣的日糧設計工具，把「怎麼吃」跟「怎麼預防病」串起來。</p>
-        <div class="grid-4" style="margin-top:14px;">
-          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('phases')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">泌乳分期</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">轉換期定義，推測國考中頻</p></div>
-          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('drymanagement')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">乾乳期管理</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">飼養原則，推測國考高頻</p></div>
-          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('hypocalcemia')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">低血鈣症</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">連鎖病變，推測國考最高頻</p></div>
-          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('dcad')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">DCAD</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">公式與機轉，推測國考高頻</p></div>
-        </div>
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">轉換期、低血鈣與 DCAD 的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>〈消化生理〉講義的後半段（Contents 第 3、4 項）：泌乳分期 → <strong>乾乳期</strong>管理 → <strong>轉換期（transition period）</strong> → <strong>低血鈣症（hypocalcemia, milk fever；乳熱症）</strong> → 用<strong>陰陽離子差（dietary cation-anion difference, DCAD）</strong>預防。前半段（營養與 TMR）見<a href="week01_乳牛營養與飼養管理.html">姊妹頁</a>。</dd>
+          <dt>為什麼重要</dt>
+          <dd>分娩後乳牛突然需要大量鈣，而這時採食量正在谷底。低血鈣不只讓牛站不起來，還會透過<strong>平滑肌功能下降</strong>同時打到消化道與子宮，是一串產後疾病的<strong>上游</strong>。轉換期卻常被牧場忽略，因為這群牛「還沒賺錢」。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-phases">泌乳分期</a>：轉換期＝<strong>產前 21 天到產後 21 天</strong>；轉換前期＝close-up dry cow，轉換後期＝fresh cow。</li>
+              <li><a href="#section-dry">乾乳期</a>：理想 <strong>45–60 天</strong>；三個目標：<strong>乳腺修復再生、胎兒快速發育、初乳合成</strong>，並調整體況。</li>
+              <li><a href="#section-dry">乾乳期飼養</a>：far-off <strong>高纖低能</strong>；close-up <strong>高能低纖</strong>，給 <strong>4–5 kg 精料（15–16% CP）</strong>讓瘤胃乳突與菌相適應。</li>
+              <li><a href="#section-dry">Close-up</a>：產前三週<strong>免疫力下降</strong>、胎兒需求達高峰，但 <strong>DMI 下降 30–40%</strong>。</li>
+              <li><a href="#section-hypocalcemia">低血鈣</a>：分臨床型與亞臨床型；鈣先從血液、再從飲食與骨骼動員；動員不足 → 起立困難、食慾下降。</li>
+              <li><a href="#section-syndrome">產後低血鈣症候群</a>：平滑肌功能↓ → 消化道（皺胃移位、DMI↓ → 酮症、乳量↓）＋子宮（胎衣滯留、子宮復舊延遲 → 子宮內膜炎 → 繁殖表現↓）。</li>
+              <li><a href="#section-dcad">DCAD</a>：<strong>(Na⁺ ＋ K⁺) − (Cl⁻ ＋ S²⁻)</strong>，單位 mEq；<strong>負 DCAD</strong> → 血液輕度酸化 → 刺激<strong>骨鈣動員</strong>。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>乾乳期 vs 轉換期</strong>：乾乳期 45–60 天全在產前；轉換期 42 天，跨產前產後各 21 天，只有前半段和乾乳期重疊。<strong>far-off vs close-up 的日糧方向相反</strong>：前者高纖低能，後者高能低纖。<strong>DCAD 要「負」</strong>：陰離子（Cl⁻、S²⁻）多於陽離子（Na⁺、K⁺），不是補更多鈣。<strong>乳熱症不發燒</strong>：名稱叫 milk fever，但病牛體溫偏低（補充）。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>轉換期的定義與天數；乾乳期長度與三目標；far-off 與 close-up 的飼養原則；close-up 精料量與 CP；DMI 下降幅度；低血鈣的連鎖病變圖（申論題）；DCAD 公式、單位與機轉。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
       </div>
-      <div class="alert alert-info">
-        <div class="alert-label">五個重點（含個人推測的國考熱點）</div>
-        <p style="margin:0 0 8px; font-size:.85em; color:var(--fg-faint);">※ 「推測國考熱點」是我依內容特性（有明確數字、能串成機轉整合題）做的個人判斷，<strong>沒有實際核對過歷屆考古題</strong>，僅供參考、不是驗證過的事實，讀的時候請自行斟酌權重。</p>
-        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
-          <li><strong>轉換期＝產前21天到產後21天</strong>，是牛隻生理狀態從乾乳切換到泌乳的關鍵過渡期，也是代謝病集中好發的時間窗，飼養管理上最容易被牧場忽略。</li>
-          <li><strong>乾乳期分「far-off」與「close-up」兩階段：</strong>早期高纖低能，晚期（close-up）改高能低纖，並給予4–5kg精料（CP 15–16%），目的是讓瘤胃乳突與菌相提前適應泌乳期的高精料飲食。</li>
-          <li><strong>Close-up期DMI會下降30–40%</strong>，但同一時間胎兒營養需求正達高峰、母牛免疫力開始下降——這個「需求上升、攝取下降」的落差是轉換期代謝病的根本背景。</li>
-          <li><strong>低血鈣症的核心機轉是平滑肌功能下降</strong>，會同時影響瘤胃腸胃道平滑肌（→DA、DMI下降、酮症）與子宮平滑肌（→胎衣滯留、子宮復舊延遲、子宮內膜炎）——這張連鎖圖是整堂課、甚至整個反芻動物疾病學最重要的一張圖。</li>
-          <li><strong>DCAD公式：(Na⁺+K⁺)－(Cl⁻+S²⁻)，負值飲食可輕度酸化血液、刺激骨鈣動員</strong>，是close-up期預防低血鈣最重要的日糧設計工具。</li>
-        </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。這部分講義只有 9 頁，臨床分期、治療劑量、DCAD 目標值等都是講義以外的內容，均標示「補充」並註明出自 MSD Veterinary Manual〈Parturient Paresis in Cows〉；標示「推測」的是依講義強調處推測的出題方向，不是考古題。考試範圍以老師上課為準。圖片為老師講義截圖。</p>
       </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈消化生理講義〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或飼養管理依據</strong>。
-      </footer>
+      <div class="flow">
+        <div class="flow-node">Close-up：DMI ↓ 30–40%<br>胎兒需求高峰、免疫力 ↓</div><div class="flow-arrow">→</div>
+        <div class="flow-node">分娩：初乳、泌乳<br>鈣需求暴增</div><div class="flow-arrow">→</div>
+        <div class="flow-node">動員鈣不足 → 低血鈣</div><div class="flow-arrow">→</div>
+        <div class="flow-node">平滑肌功能 ↓<br>消化道＋子宮</div><div class="flow-arrow">→</div>
+        <div class="flow-node">皺胃移位、酮症、胎衣滯留、子宮內膜炎<br>乳量與繁殖表現 ↓</div>
+      </div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Digestive Physiology of the Ruminant〉<a class="pdf-link" href="pdf/消化生理.pdf#page=14">p.14</a>、<a class="pdf-link" href="pdf/消化生理.pdf#page=53">p.53–61</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- PHASES -->
     <div class="section" id="section-phases">
-      <div class="section-head"><div class="section-num">2</div><h2>泌乳分期與轉換期定義</h2></div>
-      <p class="section-desc">先建立時間軸的共同語言，後面談管理原則與疾病機轉時才不會搞混「乾乳期」跟「轉換期」的範圍差異。</p>
-
-      <div class="flow">
-        <div class="flow-node">泌乳期<br><span style="font-size:.85em; color:var(--fg-faint);">Lactation</span></div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-node accent">乾乳期<br><span style="font-size:.85em;">Dry period・45–60天</span></div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-node danger">分娩<br><span style="font-size:.85em;">Parturition</span></div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-node">泌乳期<br><span style="font-size:.85em; color:var(--fg-faint);">Lactation</span></div>
-      </div>
-      <p style="margin-top:10px;"><strong>轉換期（transition period）</strong>定義為<strong>產前21天到產後21天</strong>，涵蓋乾乳期末段與泌乳初期，是牛隻生理狀態從乾乳切換到泌乳的過渡階段。牧場常見的管理盲點是：因為轉換期的牛還沒開始（或剛結束）泌乳、暫時不產生直接經濟效益，容易被視為「不需要特別關注」的一群，但這正是代謝病與生殖疾病最集中好發的時間窗。</p>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈消化生理講義〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或飼養管理依據</strong>。
-      </footer>
-    </div>
-
-    <!-- DRY MANAGEMENT -->
-    <div class="section" id="section-drymanagement">
-      <div class="section-head"><div class="section-num">3</div><h2>乾乳期飼養管理<span class="tag tag-exam">重要</span></h2></div>
-      <p class="section-desc">乾乳期不是「讓牛休息」這麼簡單，這段時間的飼養設計直接決定了下一個泌乳期能不能順利開局。</p>
-
-      <h4>乾乳期的三大生理目標</h4>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-title">① 乳腺修復再生</div>
-          <p style="margin:0; font-size:.9em; color:var(--fg-muted);">Mammary gland repair and regeneration</p>
-        </div>
-        <div class="card">
-          <div class="card-title">② 應付胎兒快速發育</div>
-          <p style="margin:0; font-size:.9em; color:var(--fg-muted);">Meeting rapid fetal development demands</p>
-        </div>
-        <div class="card">
-          <div class="card-title">③ 初乳合成</div>
-          <p style="margin:0; font-size:.9em; color:var(--fg-muted);">Colostrum synthesis</p>
-        </div>
-      </div>
-      <p style="margin-top:10px;">理想乾乳期長度為<strong>45–60天</strong>。這段時間也讓牛隻得以調整體況（body condition），累積體脂肪以因應產後泌乳初期的<strong>負能量平衡（negative energy balance）</strong>。</p>
-
-      <h4>Far-off vs. Close-up：兩階段飼養原則<span class="tag tag-exam">重要</span></h4>
+      <div class="section-head"><div class="section-num">2</div><h2>泌乳分期與轉換期 Phases of Lactation</h2></div>
+      <p class="section-desc">先在一條以「分娩＝第 0 天」的時間軸上，把每個階段的名稱與天數對好。</p>
+      <h3>泌乳分期（<a class="pdf-link" href="pdf/消化生理.pdf#page=53">p.53</a>）<span class="lv lv-must">必考</span></h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:20%;">階段</th><th>飼養原則</th></tr></thead>
+          <thead><tr><th>階段</th><th>相對分娩的天數（看圖）</th><th>備註</th></tr></thead>
           <tbody>
-            <tr><td><strong>早期乾乳<br>Far-off</strong></td><td>高纖維、低能量日糧</td></tr>
-            <tr><td><strong>晚期乾乳（近產期）<br>Close-up</strong></td><td>提高能量、降低纖維比例；額外給予<strong>4–5kg精料（粗蛋白15–16%）</strong>，目的是讓<strong>瘤胃乳突與菌相提前適應</strong>即將到來的泌乳期高精料日糧，降低泌乳初期瘤胃適應不良的風險</td></tr>
+            <tr><td>乾乳前期 Far-away (far-off) dry cow</td><td>−60 → −21</td><td>—</td></tr>
+            <tr><td><strong>乾乳後期 Close-up dry cow</strong></td><td><strong>−21 → 0</strong></td><td><strong>轉換前期</strong></td></tr>
+            <tr><td><strong>產後新鮮牛 Fresh cows</strong></td><td><strong>0 → 21</strong></td><td><strong>轉換後期</strong></td></tr>
+            <tr><td>泌乳高峰與配種 Peak milk &amp; mating</td><td>21 → 約 100</td><td>乳量曲線最高</td></tr>
+            <tr><td>泌乳中期 Mid lactation</td><td>約 100 → 200</td><td>—</td></tr>
+            <tr><td>泌乳後期 Late lactation</td><td>200 → 305</td><td>標準泌乳期 305 天</td></tr>
           </tbody>
         </table>
       </div>
+      <div class="figure"><img src="img/week01_轉換期低血鈣與DCAD/trans_p053.jpg" alt="泌乳分期：far-away dry cow（−60 至 −21）、close-up dry cow（−21 至分娩，轉換" loading="lazy"><div class="figure-caption">泌乳分期：far-away dry cow（−60 至 −21）、close-up dry cow（−21 至分娩，轉換前期）、fresh cows（分娩至 21 天，轉換後期）、peak milk &amp; mating、mid lactation、late lactation（至 305 天）；紅框為轉換期，綠藍線為乳量曲線。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/消化生理.pdf#page=53">p.53</a></div></div>
+      <h3>轉換期的定義<span class="lv lv-must">必考</span></h3>
+      <div class="alert alert-success"><div class="alert-label">重點</div><p><strong>轉換期（transition period）＝產前 21 天到產後 21 天</strong>，乳牛的生理從乾乳期轉成泌乳期。但牧場常<strong>忽略這群牛的飼養管理</strong>，把牠們當成還不會帶來經濟收益的非泌乳牛（<a class="pdf-link" href="pdf/消化生理.pdf#page=55">p.55</a>）。</p></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：牧場大部分的產後疾病（低血鈣、酮症、皺胃移位、胎衣滯留、子宮炎、乳房炎）都集中在分娩後前幾週，所以轉換期管理做得好不好，幾乎決定整個泌乳期的乳量與配種成績。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Digestive Physiology of the Ruminant〉<a class="pdf-link" href="pdf/消化生理.pdf#page=53">p.53</a>、<a class="pdf-link" href="pdf/消化生理.pdf#page=55">p.55</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
 
-      <div class="alert alert-warn">
-        <div class="alert-label">注意：Close-up期的「需求缺口」</div>
-        <p>產前最後三週（close-up dry period），母牛免疫功能開始下降；此時<strong>胎兒營養需求正達高峰</strong>，但母牛<strong>自身DMI卻下降30–40%</strong>——這個「需求上升、攝取下降」的生理矛盾，是轉換期代謝病好發的根本背景，因此這段期間<strong>盡量維持DMI</strong>是管理上的關鍵目標。</p>
+    <!-- DRY -->
+    <div class="section" id="section-dry">
+      <div class="section-head"><div class="section-num">3</div><h2>乾乳期管理 Dry Period &amp; Dry Cow Management</h2></div>
+      <p class="section-desc">乾乳不是讓牛休息而已：這 45–60 天要修好乳腺、養大胎兒、做好初乳，還要讓瘤胃準備好迎接高精料。</p>
+      <h3>乾乳期的定義與目標（<a class="pdf-link" href="pdf/消化生理.pdf#page=54">p.54</a>）<span class="lv lv-must">必考</span></h3>
+      <p>乾乳（dried off）指<strong>停止泌乳</strong>的階段，理想長度 <strong>45–60 天</strong>，有三個關鍵目標：</p>
+      <div class="grid-3">
+        <div class="card"><h4>① 乳腺修復與再生</h4><p>Mammary gland repair and regeneration</p></div>
+        <div class="card"><h4>② 胎兒快速發育</h4><p>Meeting the demands of rapid fetal development</p></div>
+        <div class="card"><h4>③ 初乳合成</h4><p>Colostrum synthesis</p></div>
       </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈消化生理講義〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或飼養管理依據</strong>。
-      </footer>
+      <p>此外也讓牛<strong>調整體況（body condition）</strong>、累積體脂肪，以因應<strong>產後負能量平衡（negative energy balance）</strong>。</p>
+      <div class="figure"><img src="img/week01_轉換期低血鈣與DCAD/trans_p054.jpg" alt="乾乳期在時間軸上的位置（far-away 與 close-up 兩段，−60 至分娩）與定義。" loading="lazy"><div class="figure-caption">乾乳期在時間軸上的位置（far-away 與 close-up 兩段，−60 至分娩）與定義。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/消化生理.pdf#page=54">p.54</a></div></div>
+      <h3>Far-off vs Close-up 的飼養原則（<a class="pdf-link" href="pdf/消化生理.pdf#page=56">p.56</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>乾乳前期 Far-off（早期）</th><th>乾乳後期 Close-up（晚期）</th></tr></thead>
+          <tbody>
+            <tr><td>日糧方向</td><td><strong>高纖維、低能量</strong></td><td><strong>較高能量、較低纖維</strong></td></tr>
+            <tr><td>精料</td><td>—</td><td><strong>4–5 kg 精料（15–16% CP）</strong></td></tr>
+            <tr><td>目的</td><td>避免過胖（補充）</td><td>讓<strong>瘤胃乳突</strong>與<strong>微生物相</strong>適應即將到來的<strong>高精料泌乳日糧</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>轉換期日糧營養指引（<a class="pdf-link" href="pdf/消化生理.pdf#page=56">p.56</a> 表，Texas A&amp;M AgriLife）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Far-off cow</th><th>Close-up dry cow</th><th>Fresh cow</th><th>趨勢</th></tr></thead>
+          <tbody>
+            <tr><td>NE<sub>L</sub>（Mcal/lb）</td><td>0.60</td><td>0.68–0.70</td><td>0.77</td><td>↑ 能量密度逐步增加</td></tr>
+            <tr><td>粗蛋白 CP（%）</td><td>12</td><td>15–16</td><td>18</td><td>↑</td></tr>
+            <tr><td>NDF（%）</td><td>45–65</td><td>35–40</td><td>30</td><td>↓ 纖維逐步減少</td></tr>
+            <tr><td>非纖維碳水化合物 NFC（%）</td><td>25</td><td>30</td><td>35</td><td>↑</td></tr>
+            <tr><td>脂肪（%）</td><td>3</td><td>4</td><td>5</td><td>↑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week01_轉換期低血鈣與DCAD/trans_p056.jpg" alt="乾乳牛管理原則與轉換期日糧營養指引表：從 far-off 到 close-up 再到 fresh cow，能量、CP、N" loading="lazy"><div class="figure-caption">乾乳牛管理原則與轉換期日糧營養指引表：從 far-off 到 close-up 再到 fresh cow，能量、CP、NFC、脂肪逐步增加，NDF 逐步減少。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/消化生理.pdf#page=56">p.56</a></div></div>
+      <div class="alert alert-info"><div class="alert-label">把表讀懂</div><p>表的重點是「<strong>逐步</strong>」：瘤胃乳突長長需要時間，微生物相也要慢慢換。如果乾乳期一路高纖低能，產後突然換成高精料，瘤胃來不及適應，就容易酸中毒、採食量更差（推測，對應講義「讓瘤胃乳突與菌相適應」的說法）。注意單位是 <strong>Mcal/lb</strong>，換成 Mcal/kg 要乘 2.2（補充）。</p></div>
+      <h3>Close-up 的困境（<a class="pdf-link" href="pdf/消化生理.pdf#page=57">p.57–58</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>產前最後三週，乳牛<strong>免疫功能開始下降</strong>。</li>
+        <li>此時<strong>胎兒營養需求達到高峰</strong>，但母牛自己的 <strong>DMI 卻下降 30–40%</strong> → 這段期間要<strong>盡量提高 DMI</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week01_轉換期低血鈣與DCAD/trans_p057.jpg" alt="Close-up 乾乳牛：產前三週免疫力下降、胎兒需求高峰、DMI 下降 30–40%。" loading="lazy"><div class="figure-caption">Close-up 乾乳牛：產前三週免疫力下降、胎兒需求高峰、DMI 下降 30–40%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/消化生理.pdf#page=57">p.57</a></div></div>
+        <div class="figure"><img src="img/week01_轉換期低血鈣與DCAD/trans_p058.jpg" alt="分娩前後 DMI 曲線（−21 至 30 天）：產前約 12 kg 一路降到分娩當天最低，DMI 下降 30–40%；產" loading="lazy"><div class="figure-caption">分娩前後 DMI 曲線（−21 至 30 天）：產前約 12 kg 一路降到分娩當天最低，DMI 下降 30–40%；產後逐步回升，負能量平衡期最低點通常在產後約兩週。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/消化生理.pdf#page=58">p.58</a></div></div>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">看圖重點（<a class="pdf-link" href="pdf/消化生理.pdf#page=58">p.58</a>）</div><p>DMI 在<strong>分娩當天</strong>最低，產後才慢慢爬回來；但乳量在產後上升得比 DMI 快，所以產後出現<strong>負能量平衡</strong>，<strong>最低點通常在產後兩週</strong>。這段「吃不夠、產很多」的缺口就是酮症、脂肪肝的背景（後者為補充）。</p></div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Digestive Physiology of the Ruminant〉<a class="pdf-link" href="pdf/消化生理.pdf#page=54">p.54–58</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- HYPOCALCEMIA -->
     <div class="section" id="section-hypocalcemia">
-      <div class="section-head"><div class="section-num">4</div><h2>低血鈣症 Hypocalcemia / Milk Fever<span class="tag tag-exam">重要</span></h2></div>
-      <p class="section-desc">這是全頁、甚至可能是整個反芻動物疾病學科目最重要的一張圖——低血鈣不是單一問題，而是一個會連鎖引發多種產後疾病的樞紐。</p>
-
-      <p><strong>低血鈣症（hypocalcemia／milk fever）</strong>是乳牛常見的代謝性疾病，特徵是血鈣濃度過低，可表現為<strong>臨床型</strong>與<strong>亞臨床型</strong>兩種型態，嚴重影響牛隻在轉換期這個最脆弱階段的健康。分娩後，乳牛需要<strong>大量鈣質</strong>（初乳與乳汁合成所需），牛隻會先從<strong>血液中動員鈣</strong>，接著動用<strong>飲食與骨骼儲備</strong>；若無法動員足夠的鈣，患牛會<strong>無法正常站立或行走、食慾下降</strong>，最終導致整體健康與泌乳表現惡化。</p>
-
-      <h4>產後低血鈣症候群：完整連鎖病變圖<span class="tag tag-exam">重要</span></h4>
-      <div class="figure">
-        <img src="img/week01_轉換期低血鈣與DCAD/trans_p60.png" alt="產後低血鈣症候群連鎖病變圖，低血鈣導致平滑肌功能下降，分別經瘤胃腸胃道與子宮兩條路徑，引發皺胃移位、酮症、胎衣滯留、子宮內膜炎等一系列產後疾病">
-        <div class="figure-caption">低血鈣（hypocalcemia）→平滑肌功能下降（decreased smooth muscle function），分兩條路徑連鎖影響：<strong>路徑一（瘤胃腸胃道）：</strong>瘤胃腸胃蠕動下降→①皺胃移位（displaced abomasum, DA）；②乾物質採食量下降（decreased DMI）→體脂肪動員增加→酮症（ketosis）；DMI下降也直接造成產乳量下降（decreased milk yield）。<strong>路徑二（子宮）：</strong>子宮收縮力下降→①胎衣滯留（retained placenta）；②子宮復舊延遲（delayed uterine involution）→子宮內膜炎（endometritis）→生殖表現下降（reduced reproductive performance）；胎衣滯留也會直接增加子宮內膜炎風險。</div>
-        <div class="figure-source">來源：課程講義〈消化生理講義〉（Jui-Chun Hsieh）</div>
+      <div class="section-head"><div class="section-num">4</div><h2>低血鈣症 Hypocalcemia / Milk Fever</h2></div>
+      <p class="section-desc">分娩後鈣的需求突然暴增，牛來不及把骨骼與飲食中的鈣動員出來，就會低血鈣。</p>
+      <h3>講義的定義（<a class="pdf-link" href="pdf/消化生理.pdf#page=59">p.59</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>低血鈣症（hypocalcemia），又稱乳熱症（milk fever）</strong>，是乳牛常見的<strong>代謝性疾病</strong>，特徵是<strong>血鈣濃度低</strong>。</li>
+        <li>有<strong>臨床型</strong>與<strong>亞臨床型</strong>，在乳牛最脆弱的<strong>轉換期</strong>嚴重影響健康。</li>
+        <li>分娩後立刻需要大量鈣：先從<strong>血液</strong>取用，接著從<strong>飲食</strong>與<strong>骨骼儲存</strong>動員。</li>
+        <li>動員不足 → <strong>無法正常行走或站立</strong>、<strong>食慾下降</strong> → 整體健康與泌乳表現變差。</li>
+      </ul>
+      <div class="flow">
+        <div class="flow-node">分娩<br>初乳與乳汁帶走大量鈣</div><div class="flow-arrow">→</div>
+        <div class="flow-node">① 先用血液中的鈣</div><div class="flow-arrow">→</div>
+        <div class="flow-node">② 再從飲食（腸道吸收）與骨骼動員</div><div class="flow-arrow">→</div>
+        <div class="flow-node">動員不足 → 低血鈣<br>站不起來、食慾↓</div>
       </div>
-
-      <div class="alert alert-danger">
-        <div class="alert-label">這張圖為什麼是整堂課的核心</div>
-        <p>臨床上遇到一隻產後牛同時出現<strong>皺胃移位＋酮症＋胎衣滯留</strong>，不要把它們當成三個獨立問題分別治療——低血鈣造成的<strong>平滑肌功能下降</strong>可能是背後共同的根本原因。我推測這類型也是國考申論題偏好出的整合型考點：<strong>「給你一個產後代謝病的臨床情境，反推共同的上游病因」</strong>，或是反過來<strong>「一隻牛確診低血鈣，請說明她接下來可能面臨哪些續發疾病風險」</strong>。把這張連鎖圖背熟，兩種問法都能應付。</p>
+      <h3>臨床分期與血鈣切點（補充）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分期</th><th>表現</th></tr></thead>
+          <tbody>
+            <tr><td><strong>第 1 期</strong></td><td>還能<strong>站立、行走</strong>；過度敏感、興奮</td></tr>
+            <tr><td><strong>第 2 期</strong></td><td><strong>胸骨著地伏臥（sternal recumbency）</strong>、意識遲鈍、四肢末端冰冷；頸部可能呈 <strong>S 形</strong></td></tr>
+            <tr><td><strong>第 3 期</strong></td><td>失去意識至昏迷、<strong>側臥（lateral recumbency）</strong>；心跳可接近 120 次/分</td></tr>
+          </tbody>
+        </table>
       </div>
+      <ul style="font-size:.95em;">
+        <li><strong>臨床型</strong>：血鈣通常降到 <strong>&lt; 1.5 mmol/L（6.0 mg/dL）</strong>；正常下限約 2.12 mmol/L（8.5 mg/dL）。</li>
+        <li><strong>亞臨床型</strong>：沒有明顯症狀，泌乳第 4 天血鈣 <strong>≤ 2.2 mmol/L（8.8 mg/dL）</strong>。</li>
+        <li>其他表現：體溫偏低、瘤胃臌氣、不排糞、肛門括約肌鬆弛。</li>
+        <li>好發：<strong>高產、第三胎以上</strong>的乳牛；娟姍牛（Jersey）、更賽牛（Guernsey）發生率較高；多在分娩開始到泌乳第 3 天左右發生。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">以上分期、切點、好發族群出自 MSD Veterinary Manual〈Parturient Paresis in Cows〉，講義沒有寫；考試以講義與上課內容為準。</p>
+      <h3>治療（補充）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>情況</th><th>給藥</th><th>途徑與要點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>伏臥（第 2、3 期）</strong></td><td><strong>23% 葡萄糖酸鈣 500 mL</strong>（≈ 10.7 g 元素鈣）</td><td><strong>IV</strong>（頸靜脈），<strong>10–20 分鐘緩慢</strong>給完，同時<strong>監聽心臟</strong>；出現嚴重心律不整或心搏過緩就<strong>停止輸注</strong>。約 75% 在 2 小時內站起，但 25–40% 會復發臥地</td></tr>
+            <tr><td><strong>還能站（第 1 期）</strong></td><td><strong>口服鈣丸（bolus）</strong>，每次 40–55 g 元素鈣</td><td><strong>PO</strong>；第一顆後 <strong>12 小時再給一顆</strong>；約 30 分鐘達峰</td></tr>
+            <tr><td>皮下給鈣</td><td>23% 葡萄糖酸鈣 500 mL</td><td><strong>SC</strong>，分在肩胛骨後方至少兩處；約 4 小時達峰；4–8 小時後接著口服鈣以免回跌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger"><div class="alert-label">禁忌</div><p><strong>IV 鈣不能推快</strong>：高濃度鈣直接作用在心肌，可造成嚴重心律不整甚至心搏停止，所以要慢慢滴、邊聽心音（補充）。<strong>不要用口服鈣膏、凝膠或液體灌給意識不清或伏臥的牛</strong>：有吸入性肺炎的風險（MSD 不建議這些劑型），伏臥牛走 IV。</p></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充（臨床）：同樣站不起來的產後牛，鈣治療後仍爬不起來時，要想到低血鎂、低血磷、肌肉神經損傷（例如閉孔神經麻痺）等鑑別診斷（MSD 列出低血鎂為鑑別之一）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Digestive Physiology of the Ruminant〉<a class="pdf-link" href="pdf/消化生理.pdf#page=59">p.59</a>；分期、切點、治療為補充（MSD Veterinary Manual〈Parturient Paresis in Cows〉）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
 
-      <footer class="note-footer">
-        資料來源：課程講義〈消化生理講義〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或飼養管理依據</strong>。
-      </footer>
+    <!-- SYNDROME -->
+    <div class="section" id="section-syndrome">
+      <div class="section-head"><div class="section-num">5</div><h2>產後低血鈣症候群 Postpartum Hypocalcemia Syndrome</h2></div>
+      <p class="section-desc">這一張圖把轉換期幾乎所有的產後病串在一起：源頭是鈣，關鍵字是「平滑肌」。</p>
+      <h3>連鎖圖（<a class="pdf-link" href="pdf/消化生理.pdf#page=60">p.60</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week01_轉換期低血鈣與DCAD/trans_p060.jpg" alt="產後低血鈣症候群：低血鈣 → 平滑肌功能下降 → 瘤胃與腸胃道蠕動下降（皺胃移位、乾物質採食量下降 → 體脂動員增加 →" loading="lazy"><div class="figure-caption">產後低血鈣症候群：低血鈣 → 平滑肌功能下降 → 瘤胃與腸胃道蠕動下降（皺胃移位、乾物質採食量下降 → 體脂動員增加 → 酮症；乳量下降；負能量平衡）與子宮蠕動下降（胎衣滯留、子宮復舊延遲 → 子宮內膜炎）→ 繁殖表現下降。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/消化生理.pdf#page=60">p.60</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>路徑</th><th>第一層</th><th>第二層</th><th>最後結果</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>瘤胃與腸胃道蠕動↓</strong></td><td><strong>皺胃移位</strong>（displaced abomasum）</td><td>—</td><td>—</td></tr>
+            <tr><td rowspan="2"><strong>DMI↓</strong></td><td>體脂動員↑</td><td><strong>酮症（ketosis）</strong></td></tr>
+            <tr><td>負能量平衡</td><td><strong>乳量↓</strong>（DMI↓ 直接造成）、<strong>繁殖表現↓</strong></td></tr>
+            <tr><td rowspan="2"><strong>子宮蠕動↓</strong></td><td><strong>胎衣滯留</strong>（retained placenta）</td><td rowspan="2"><strong>子宮內膜炎</strong>（endometritis）</td><td rowspan="2"><strong>繁殖表現↓</strong></td></tr>
+            <tr><td><strong>子宮復舊延遲</strong>（delayed uterine involution）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">重點：怎麼記</div><p>先記「<strong>鈣 → 平滑肌</strong>」，再分兩條：<strong>肚子</strong>（胃不動 → 移位；吃不下 → 燒脂肪 → 酮症；吃不下 → 乳少、能量負 → 不好配）與<strong>子宮</strong>（推不出胎衣、縮不回去 → 子宮內膜炎 → 不好配）。兩條路最後都匯到<strong>繁殖表現下降</strong>。</p></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充（臨床）：所以產後牛看到皺胃移位、酮症或胎衣滯留時，回頭問一句「這頭牛分娩時血鈣如何？close-up 的 DCAD 有沒有做？」；牛群層級上，這幾種病一起偏高時，要從轉換期日糧找原因，而不是每頭各自治療。此外，鈣也是乳頭括約肌收縮所需，低血鈣牛的乳房炎風險也較高（教科書常見說法，講義圖未列）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Digestive Physiology of the Ruminant〉<a class="pdf-link" href="pdf/消化生理.pdf#page=60">p.60</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- DCAD -->
     <div class="section" id="section-dcad">
-      <div class="section-head"><div class="section-num">5</div><h2>DCAD 陰陽離子差<span class="tag tag-exam">重要</span></h2></div>
-      <p class="section-desc">如果低血鈣的連鎖病變圖回答的是「為什麼要在意低血鈣」，DCAD回答的就是「close-up期具體怎麼預防」。</p>
-
-      <div class="alert alert-info">
-        <div class="alert-label">公式</div>
-        <p style="font-size:1.05em; text-align:center; margin:6px 0;"><strong>DCAD ＝ (Na⁺ + K⁺) － (Cl⁻ + S²⁻)</strong></p>
-        <p style="margin:0;">Dietary Cation-Anion Difference，常以毫當量（mEq）表示</p>
+      <div class="section-head"><div class="section-num">6</div><h2>陰陽離子差 Dietary Cation-Anion Difference (DCAD)</h2></div>
+      <p class="section-desc">預防低血鈣的關鍵不是在產前多補鈣，而是讓牛在產前就先「打開」骨鈣動員的開關。</p>
+      <h3>公式與機轉（<a class="pdf-link" href="pdf/消化生理.pdf#page=61">p.61</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="alert alert-success"><div class="alert-label">講義公式</div><p style="font-size:1.1em;"><strong>DCAD ＝ (Na⁺ ＋ K⁺) − (Cl⁻ ＋ S²⁻)</strong>，通常以<strong>毫當量（mEq）</strong>表示</p></div>
+      <ul>
+        <li>DCAD 是反芻動物特有的日糧指標。</li>
+        <li>餵<strong>負 DCAD 日糧</strong> → 血液<strong>輕度酸化</strong> → 刺激乳牛<strong>從骨骼動員儲存的鈣</strong>。</li>
+        <li>這是鈣恆定的<strong>內部調節機制</strong>，讓牛準備好應付泌乳帶走的大量鈣。</li>
+      </ul>
+      <div class="flow">
+        <div class="flow-node">Close-up 餵負 DCAD<br>（陰離子 Cl⁻、S²⁻ 多）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">血液輕度酸化</div><div class="flow-arrow">→</div>
+        <div class="flow-node">PTH 受體反應變好（補充）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">骨鈣動員已啟動<br>分娩時跟得上需求</div>
       </div>
-      <p><strong>DCAD（dietary cation-anion difference，陰陽離子差）</strong>是反芻動物專用的日糧設計指標。餵飼<strong>負DCAD日糧</strong>（即增加陰離子Cl⁻、S²⁻比例、降低陽離子Na⁺、K⁺比例），會使牛隻血液<strong>輕微酸化</strong>，這個酸化狀態會<strong>刺激骨骼中儲存的鈣被動員釋出</strong>，相當於啟動了牛隻體內原本就存在的<strong>鈣恆定內部調控機制</strong>，讓牛隻提前「練習」動員骨鈣的能力，以準備因應分娩後泌乳所伴隨的大量鈣質流失。</p>
-
-      <div class="alert alert-success">
-        <div class="alert-label">臨床應用</div>
-        <p>負DCAD日糧通常在<strong>close-up乾乳期</strong>（產前最後三週）開始餵飼，目的正是提前刺激骨鈣動員機制、降低分娩後急性低血鈣的發生率——這是DCAD跟乾乳期飼養管理（見上一節「Close-up」原則）在時間軸與生理邏輯上緊密銜接的地方：<strong>close-up期的高能量精料補充讓瘤胃提前適應，負DCAD設計則讓鈣恆定機制提前暖機</strong>，兩者是同一套轉換期管理策略的兩個面向。</p>
-      </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈消化生理講義〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或飼養管理依據</strong>。
-      </footer>
-    </div>
-
-    <!-- GLOSSARY -->
-    <div class="section" id="section-glossary">
-      <div class="section-head"><div class="section-num">6</div><h2>雙語詞彙表 Bilingual Glossary</h2></div>
-      <p class="section-desc">正文中第一次出現時都已經中英並列，這裡集中整理一份，方便考前只看英文名詞、測試自己記不記得對應的中文概念（反過來也可以）。</p>
+      <div class="alert alert-info"><div class="alert-label">為什麼是這樣（補充）</div><p>MSD 指出：酸化日糧會<strong>改善 PTH（副甲狀旁腺素）受體的反應性</strong>，從骨骼動員更多鈣；相反地，<strong>代謝性鹼中毒</strong>會讓組織對 PTH 反應變差。高鉀的日糧（例如鉀含量高的牧草，見<a href="week01_乳牛營養與飼養管理.html#section-feeds">營養頁第 7 節</a>）會讓 DCAD 偏正、血液偏鹼，就是低血鈣的危險因子。</p></div>
+      <h3>實務目標值（補充）<span class="lv lv-know">理解</span></h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:26%;">中文</th><th style="width:30%;">English</th><th>一句話說明</th></tr></thead>
+          <thead><tr><th>項目</th><th>數字</th><th>意義</th></tr></thead>
           <tbody>
-            <tr><td>轉換期</td><td>Transition period</td><td>產前21天到產後21天，乾乳轉泌乳的過渡期</td></tr>
-            <tr><td>乾乳期</td><td>Dry period</td><td>停止泌乳的階段，理想長度45–60天</td></tr>
-            <tr><td>早期乾乳</td><td>Far-off (dry period)</td><td>乾乳期前段，高纖低能飲食</td></tr>
-            <tr><td>晚期乾乳／近產期</td><td>Close-up (dry period)</td><td>乾乳期末段（近產前），高能低纖＋精料補充，DMI下降30–40%</td></tr>
-            <tr><td>負能量平衡</td><td>Negative energy balance</td><td>泌乳初期能量攝取不及消耗的生理狀態</td></tr>
-            <tr><td>低血鈣症／產乳熱</td><td>Hypocalcemia / Milk fever</td><td>產後血鈣過低的代謝性疾病，分臨床型與亞臨床型</td></tr>
-            <tr><td>皺胃移位</td><td>Displaced abomasum (DA)</td><td>低血鈣致瘤胃腸胃蠕動下降的續發病變之一</td></tr>
-            <tr><td>酮症</td><td>Ketosis</td><td>體脂肪動員增加、DMI下降時的續發代謝病</td></tr>
-            <tr><td>胎衣滯留</td><td>Retained placenta</td><td>低血鈣致子宮收縮力下降的續發病變之一</td></tr>
-            <tr><td>子宮復舊延遲</td><td>Delayed uterine involution</td><td>子宮收縮力下降造成產後子宮恢復速度變慢</td></tr>
-            <tr><td>子宮內膜炎</td><td>Endometritis</td><td>胎衣滯留／子宮復舊延遲的續發感染，影響生殖表現</td></tr>
-            <tr><td>陰陽離子差</td><td>Dietary cation-anion difference (DCAD)</td><td>(Na⁺+K⁺)-(Cl⁻+S²⁻)，負值可刺激骨鈣動員</td></tr>
-            <tr><td>鈣恆定</td><td>Calcium homeostasis</td><td>體內調控血鈣濃度的內部機制</td></tr>
+            <tr><td>Close-up 日糧 DCAD</td><td><strong>−50 至 −150 mEq/kg DM</strong></td><td>負值，表示陰離子多</td></tr>
+            <tr><td>監測：尿液 pH</td><td>平均約 <strong>6.5</strong></td><td>每週約兩次；尿 pH 反映血液酸鹼</td></tr>
+            <tr><td>過度酸化</td><td>尿 pH <strong>&lt; 5.5</strong></td><td>酸太多，會影響採食</td></tr>
+            <tr><td>酸化不足</td><td>尿 pH <strong>&gt; 7.5</strong></td><td>DCAD 沒做起來</td></tr>
           </tbody>
         </table>
       </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈消化生理講義〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或飼養管理依據</strong>。
-      </footer>
+      <p style="font-size:.9em; color:var(--fg-muted);">出自 MSD Veterinary Manual〈Parturient Paresis in Cows〉。另一種預防方式是產前<strong>限制鈣攝取（&lt; 20 g/天）</strong>，讓牛在產前就啟動鈣動員；或在產前至少 10 天給<strong>磷結合劑</strong>（同出處）。</p>
+      <h3>DCAD 計算練習（補充）<span class="lv lv-know">理解</span></h3>
+      <p>假設某 close-up 日糧每 kg DM 含 Na⁺ 50、K⁺ 300、Cl⁻ 250、S²⁻ 200 mEq：DCAD ＝ (50 ＋ 300) − (250 ＋ 200) ＝ <strong>−100 mEq/kg DM</strong> → 落在 −50 至 −150 的目標範圍內。如果改用高鉀牧草讓 K⁺ 升到 450，DCAD 就變成 +50，失去預防效果。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Digestive Physiology of the Ruminant〉<a class="pdf-link" href="pdf/消化生理.pdf#page=61">p.61</a>；機轉延伸、目標值與計算為補充（MSD Veterinary Manual〈Parturient Paresis in Cows〉）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
-    <!-- SUMMARY -->
-    <div class="section" id="section-summary">
-      <div class="section-head"><div class="section-num">7</div><h2>學習重點整理</h2></div>
-      <p class="section-desc">考前快速掃過，低血鈣連鎖圖與DCAD公式是我推測這頁的國考主戰場。</p>
+    <!-- COMPARE -->
+    <div class="section" id="section-compare">
+      <div class="section-head"><div class="section-num">7</div><h2>比較整理 Comparison</h2></div>
+      <p class="section-desc">把本頁的三個時間段、兩條病變路徑放在一張表裡。</p>
+      <h3>三個時段一覽<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Far-off</th><th>Close-up（轉換前期）</th><th>Fresh（轉換後期）</th></tr></thead>
+          <tbody>
+            <tr><td>天數</td><td>−60 → −21</td><td>−21 → 0</td><td>0 → 21</td></tr>
+            <tr><td>日糧</td><td>高纖低能</td><td>高能低纖；4–5 kg 精料（15–16% CP）；負 DCAD（補充：講義未指定時段，實務用在 close-up）</td><td>能量、CP、NFC 最高，NDF 最低</td></tr>
+            <tr><td>牛的狀態</td><td>乳腺修復、體況調整</td><td>免疫力↓、胎兒需求高峰、DMI↓ 30–40%</td><td>鈣需求暴增、負能量平衡（谷底約產後 2 週）</td></tr>
+            <tr><td>主要風險</td><td>過胖（補充）</td><td>採食不足</td><td>低血鈣與其連鎖疾病</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>不要和「乳熱症」搞混的其他產後倒臥（補充）<span class="lv lv-skim">看過</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>原因</th><th>和低血鈣的差別（補充）</th></tr></thead>
+          <tbody>
+            <tr><td>低血鈣（乳熱症）</td><td>產後 0–3 天；體溫偏低、四肢冷、頸部 S 形；IV 鈣後多能站起</td></tr>
+            <tr><td>低血鎂</td><td>興奮、抽搐較明顯；單給鈣反應差</td></tr>
+            <tr><td>神經肌肉損傷（難產後閉孔神經麻痺等）</td><td>意識清楚、想站但後肢無力；血鈣可正常</td></tr>
+            <tr><td>毒血症（急性乳房炎、子宮炎）</td><td>有感染灶，常發燒或休克</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">上表為講義以外的臨床整理，鑑別項目參考 MSD Veterinary Manual 列出的低血鎂等；細節以後續各疾病講義為準。</p>
+      <footer class="note-footer">資料來源：本頁各節整理；鑑別表為補充。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
 
-      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>轉換期＝產前21天～產後21天，</strong>是代謝病與生殖疾病最集中好發的時間窗。</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>乾乳期45–60天，</strong>三大目標：乳腺修復、應付胎兒發育、初乳合成；分far-off（高纖低能）與close-up（高能低纖＋精料適應）兩階段。</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Close-up期DMI下降30–40%，</strong>但胎兒營養需求達高峰、母牛免疫力下降——維持DMI是管理關鍵。</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>低血鈣症連鎖病變：</strong>平滑肌功能下降→瘤胃腸胃道路徑（DA、DMI↓→酮症、產乳量↓）＋子宮路徑（胎衣滯留、子宮復舊延遲→子宮內膜炎→生殖表現↓）。</div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>DCAD＝(Na⁺+K⁺)－(Cl⁻+S²⁻)，</strong>負DCAD日糧輕度酸化血液、刺激骨鈣動員，close-up期餵飼以預防低血鈣。</div></div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈消化生理講義〉（Jui-Chun Hsieh）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
-      </footer>
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">8</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>轉換期定義</td><td>產前 21 天至產後 21 天；乾乳 → 泌乳的轉變；常被忽略</td></tr>
+            <tr><td>轉換前期、後期</td><td>close-up dry cow（−21 → 0）、fresh cow（0 → 21）</td></tr>
+            <tr><td>乾乳期長度與目標</td><td>45–60 天；乳腺修復再生、胎兒快速發育、初乳合成；調整體況因應產後負能量平衡</td></tr>
+            <tr><td>Far-off vs close-up 日糧</td><td>far-off 高纖低能；close-up 高能低纖、4–5 kg 精料（15–16% CP），讓瘤胃乳突與菌相適應</td></tr>
+            <tr><td>Close-up 生理</td><td>產前三週免疫力↓、胎兒需求高峰、DMI↓ 30–40%；要盡量提高 DMI</td></tr>
+            <tr><td>DMI 與負能量平衡</td><td>分娩時 DMI 最低；負能量平衡谷底約產後兩週</td></tr>
+            <tr><td>低血鈣定義</td><td>常見代謝病；臨床型與亞臨床型；先用血鈣，再動員飲食與骨鈣；起立困難、食慾↓</td></tr>
+            <tr><td>產後低血鈣症候群（申論）</td><td>平滑肌功能↓：消化道（皺胃移位、DMI↓ → 體脂動員 → 酮症、乳量↓、負能量平衡）＋子宮（胎衣滯留、子宮復舊延遲 → 子宮內膜炎）→ 繁殖表現↓</td></tr>
+            <tr><td>DCAD 公式與單位</td><td>(Na⁺ ＋ K⁺) − (Cl⁻ ＋ S²⁻)；mEq</td></tr>
+            <tr><td>負 DCAD 的機轉</td><td>血液輕度酸化 → 刺激骨鈣動員 → 鈣恆定內部調節，準備泌乳的鈣流失</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
     </div>
 
     <!-- QUIZ -->
     <div class="section" id="section-quiz">
-      <div class="section-head"><div class="section-num">8</div><h2>練習題 Practice Quiz</h2></div>
-      <p class="section-desc">涵蓋轉換期定義、乾乳期管理、低血鈣連鎖病變、DCAD機轉各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-mcq">選擇題</span>
-        <div class="quiz-q">Q1. 「Close-up」乾乳期的飼養原則與生理狀態，下列敘述何者正確？</div>
-        <ul class="quiz-options">
-          <li>(A) 高纖維、低能量，DMI維持不變</li>
-          <li>(B) 高能量、低纖維，並補充精料；但DMI仍會下降30–40%</li>
-          <li>(C) 完全停止飼料供應，讓瘤胃休息</li>
-          <li>(D) 與far-off期飼養原則相同</li>
-        </ul>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <div class="quiz-answer correct">答案：(B)</div>
-          <p class="quiz-explain">Close-up期（近產前）飼養原則轉為高能量、低纖維，並額外給予4–5kg精料（CP 15–16%）讓瘤胃提前適應泌乳期飲食；但即使如此，因胎兒營養需求達高峰、母牛免疫力下降，DMI仍會下降30–40%，這是管理上必須特別留意維持採食量的階段。</p>
-        </details>
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 依講義，轉換期（transition period）的定義為？</div>
+        <ul class="quiz-options"><li>(A) 產前 60 天到分娩</li><li>(B) 產前 21 天到產後 21 天</li><li>(C) 分娩到產後 60 天</li><li>(D) 產後 21 天到泌乳高峰</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/消化生理.pdf#page=55">p.55</a>。(A) 接近整個乾乳期（far-off＋close-up）；轉換期只有後半段與乾乳期重疊。</p></details>
       </div>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-tf">是非題</span>
-        <div class="quiz-q">Q2. 低血鈣症造成的平滑肌功能下降只會影響瘤胃腸胃道蠕動，不會影響子宮功能。</div>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <div class="quiz-answer false">答案：FALSE</div>
-          <p class="quiz-explain">低血鈣造成的平滑肌功能下降會同時影響兩個系統：瘤胃腸胃道（導致皺胃移位、DMI下降續發酮症）與子宮（導致子宮收縮力下降，續發胎衣滯留、子宮復舊延遲、子宮內膜炎）。這正是低血鈣被視為多種產後疾病共同上游病因的原因。</p>
-        </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 下列何者<strong>不是</strong>講義所列乾乳期的三個關鍵目標？</div>
+        <ul class="quiz-options"><li>(A) 乳腺修復與再生</li><li>(B) 應付胎兒快速發育</li><li>(C) 初乳合成</li><li>(D) 提高產乳量</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">乾乳期是停止泌乳；三目標為 (A)(B)(C)，另外讓牛調整體況以因應產後負能量平衡（<a class="pdf-link" href="pdf/消化生理.pdf#page=54">p.54</a>）。</p></details>
       </div>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-mcq">選擇題</span>
-        <div class="quiz-q">Q3. DCAD（陰陽離子差）的計算公式為？</div>
-        <ul class="quiz-options">
-          <li>(A) (Cl⁻+S²⁻)－(Na⁺+K⁺)</li>
-          <li>(B) (Na⁺+K⁺)－(Cl⁻+S²⁻)</li>
-          <li>(C) (Na⁺+Cl⁻)－(K⁺+S²⁻)</li>
-          <li>(D) (Ca²⁺+Mg²⁺)－(Cl⁻+S²⁻)</li>
-        </ul>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <div class="quiz-answer correct">答案：(B)</div>
-          <p class="quiz-explain">DCAD＝(Na⁺+K⁺)－(Cl⁻+S²⁻)，以毫當量（mEq）表示。負DCAD日糧（增加陰離子比例）會使血液輕微酸化，刺激骨鈣動員，常用於close-up乾乳期預防低血鈣。</p>
-        </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 關於乾乳期的飼養原則，何者正確？</div>
+        <ul class="quiz-options"><li>(A) Far-off 期高能低纖</li><li>(B) Close-up 期高纖低能</li><li>(C) Close-up 期給予 4–5 kg 精料（15–16% CP），讓瘤胃乳突與菌相適應泌乳日糧</li><li>(D) 整個乾乳期都只餵乾草即可</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/消化生理.pdf#page=56">p.56</a>：far-off 高纖低能；close-up 高能低纖並給 4–5 kg 精料。(A)(B) 方向相反。</p></details>
       </div>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-saq">簡答題</span>
-        <div class="quiz-q">Q4. 為什麼close-up乾乳期要餵飼負DCAD日糧？請說明其預防低血鈣的機轉。</div>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <p class="quiz-explain">負DCAD日糧提高陰離子（Cl⁻、S²⁻）相對於陽離子（Na⁺、K⁺）的比例，使牛隻血液呈現輕微酸化狀態。這個酸化狀態會刺激牛隻體內原本存在的鈣恆定調控機制，促使骨骼中儲存的鈣被動員釋出到血液中。透過在close-up期（產前最後三週）就先啟動這個骨鈣動員機制，可以讓牛隻的鈣代謝系統提前「熱身」，以應付分娩後泌乳初期對鈣質的巨大需求，進而降低急性低血鈣（milk fever）的發生率。</p>
-        </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 產前最後三週（close-up），乳牛的 DMI 大約會下降多少？</div>
+        <ul class="quiz-options"><li>(A) 5–10%</li><li>(B) 30–40%</li><li>(C) 60–70%</li><li>(D) 不會下降</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/消化生理.pdf#page=57">p.57–58</a>：此時免疫力開始下降、胎兒營養需求達高峰，但 DMI 下降 30–40%，所以要盡量提高 DMI。</p></details>
       </div>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
-        <div class="quiz-q">Q5.【臨床情境】一隻乳牛剛分娩3天，獸醫師發現她站立困難、食慾明顯下降、瘤胃蠕動音減弱，血液檢查證實血鈣濃度過低。一週後追蹤，這隻牛陸續被診斷出皺胃左方移位（Left Displaced Abomasum, LDA）與輕度酮症，同時牧場回報她的胎衣在分娩後未能正常排出（胎衣滯留）。請問：(1) 請用一張因果關係圖說明這些續發問題如何從最初的低血鈣症衍生而來。(2) 若這個牧場想從飼養管理面預防類似案例再次發生，close-up乾乳期可以採取哪些具體措施？</div>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <p class="quiz-explain"><strong>(1) 因果關係：</strong>低血鈣症→平滑肌功能下降，分兩條路徑同時發生：①瘤胃腸胃道路徑：瘤胃與腸胃蠕動下降→皺胃內氣體/液體蓄積移位形成LDA；同時DMI下降→體脂肪動員增加→酮症。②子宮路徑：子宮收縮力下降→胎盤無法正常剝離排出→胎衣滯留。三個續發問題（LDA、酮症、胎衣滯留）表面上是三個獨立疾病，但根本上共享同一個上游病因：低血鈣造成的全身平滑肌功能下降。<br><strong>(2) 預防措施：</strong>①close-up期採用高能量、低纖維日糧，額外給予4–5kg精料（CP 15–16%）讓瘤胃提前適應；②close-up期餵飼負DCAD日糧（提高Cl⁻、S²⁻比例），透過輕度血液酸化提前刺激骨鈣動員機制，讓牛隻的鈣恆定系統在分娩前就「練習」好因應產後大量鈣質流失的能力；③密切監測close-up期DMI變化，因為此階段DMI本來就會下降30–40%，若下降幅度異常增加，可能提示牛群管理或日糧適口性出了問題，需及早介入。</p>
-        </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 依講義圖，乳牛產後負能量平衡的最低點通常在分娩當天。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">分娩當天是 <strong>DMI</strong> 最低；<strong>負能量平衡</strong>的最低點通常在<strong>產後約兩週</strong>（<a class="pdf-link" href="pdf/消化生理.pdf#page=58">p.58</a>），因為乳量上升比 DMI 回升快。</p></details>
       </div>
-
-      <footer class="note-footer">
-        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷或飼養管理依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
-      </footer>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 依講義的產後低血鈣症候群圖，低血鈣造成各種產後疾病的共同起點是？</div>
+        <ul class="quiz-options"><li>(A) 骨骼肌損傷</li><li>(B) 平滑肌功能下降</li><li>(C) 免疫球蛋白下降</li><li>(D) 肝臟脂肪浸潤</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/消化生理.pdf#page=60">p.60</a>：hypocalcemia → decreased smooth muscle function，再分成瘤胃與腸胃道蠕動下降、子宮蠕動下降兩條路。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 依講義圖，下列哪一項是<strong>子宮蠕動下降</strong>這條路徑造成的？</div>
+        <ul class="quiz-options"><li>(A) 皺胃移位</li><li>(B) 酮症</li><li>(C) 胎衣滯留</li><li>(D) 體脂動員增加</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">子宮路徑：胎衣滯留、子宮復舊延遲 → 子宮內膜炎 → 繁殖表現下降。(A)(B)(D) 都是瘤胃與腸胃道路徑。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. DCAD 的計算公式為？</div>
+        <ul class="quiz-options"><li>(A) (Cl⁻ ＋ S²⁻) − (Na⁺ ＋ K⁺)</li><li>(B) (Na⁺ ＋ K⁺) − (Cl⁻ ＋ S²⁻)</li><li>(C) (Ca²⁺ ＋ Mg²⁺) − (Cl⁻ ＋ S²⁻)</li><li>(D) (Na⁺ ＋ Cl⁻) − (K⁺ ＋ S²⁻)</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/消化生理.pdf#page=61">p.61</a>：陽離子減陰離子，單位 mEq。公式裡沒有鈣與鎂。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 餵負 DCAD 日糧的目的是讓血液輕度鹼化，以減少骨鈣流失。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">負 DCAD 讓血液<strong>輕度酸化</strong>，<strong>刺激</strong>骨鈣動員（<a class="pdf-link" href="pdf/消化生理.pdf#page=61">p.61</a>）。代謝性鹼中毒反而會降低組織對 PTH 的反應（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 某 close-up 日糧每 kg DM 含 Na⁺ 40、K⁺ 320、Cl⁻ 280、S²⁻ 180 mEq，其 DCAD 為？</div>
+        <ul class="quiz-options"><li>(A) +100 mEq/kg DM</li><li>(B) −100 mEq/kg DM</li><li>(C) −820 mEq/kg DM</li><li>(D) +820 mEq/kg DM</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(40 ＋ 320) − (280 ＋ 180) ＝ 360 − 460 ＝ <strong>−100</strong>。實務目標約 −50 至 −150 mEq/kg DM（補充，MSD）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. 為什麼分娩後乳牛容易發生低血鈣？講義說鈣的來源依序是哪些？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">分娩後立刻開始產初乳與泌乳，鈣需求突然大增；乳牛先取用<strong>血液</strong>中的鈣，接著才從<strong>飲食</strong>與<strong>骨骼儲存</strong>動員。若動員不夠快、不夠多，就會低血鈣，出現站立與行走困難、食慾下降，整體健康與泌乳表現變差（<a class="pdf-link" href="pdf/消化生理.pdf#page=59">p.59</a>）。加上 close-up 期 DMI 已下降 30–40%，從飲食來的鈣也少（<a class="pdf-link" href="pdf/消化生理.pdf#page=57">p.57</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題（劑量換算）</span>
+        <div class="quiz-q">Q12.（補充）23% 葡萄糖酸鈣溶液 500 mL 含多少 g 葡萄糖酸鈣？若葡萄糖酸鈣含元素鈣約 9.3%，約等於多少 g 元素鈣？應以什麼途徑、速度給予伏臥的低血鈣牛？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">23% ＝ 23 g／100 mL → 500 mL 含 <strong>115 g</strong> 葡萄糖酸鈣；115 × 0.093 ≈ <strong>10.7 g 元素鈣</strong>（與 MSD 寫的 10.7 g 相符）。伏臥牛走 <strong>IV（頸靜脈）</strong>，<strong>10–20 分鐘</strong>緩慢給完並監聽心臟，出現嚴重心律不整或心搏過緩就停止。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一頭第四胎荷蘭牛，分娩後 18 小時被發現胸骨著地伏臥，頭轉向腹側，耳朵與四肢冰冷，瘤胃蠕動減弱、輕度臌氣，體溫 37.5°C。請問：(1) 最可能的診斷？(2) 為什麼這頭牛是高風險？(3) 你會怎麼處置（途徑與注意事項）？(4) 這頭牛接下來兩週要注意哪些疾病？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 臨床型低血鈣症（乳熱症），伏臥、四肢冷，屬第 2 期（分期為補充）。<br><strong>(2)</strong> 剛分娩、鈣需求暴增（<a class="pdf-link" href="pdf/消化生理.pdf#page=59">p.59</a>）；高產、第三胎以上是好發族群（補充）。<br><strong>(3)</strong> 23% 葡萄糖酸鈣 500 mL <strong>IV</strong> 緩慢 10–20 分鐘，邊聽心臟，心律不整就停；站起後可再口服鈣丸。不要灌口服鈣膏或液體給伏臥牛（吸入風險）。25–40% 會復發，要追蹤（補充，MSD）。<br><strong>(4)</strong> 依 <a class="pdf-link" href="pdf/消化生理.pdf#page=60">p.60</a> 連鎖圖：皺胃移位、DMI↓ → 酮症、乳量下降；胎衣滯留、子宮復舊延遲 → 子宮內膜炎 → 之後配種困難。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一個牧場最近三個月產後牛的胎衣滯留、皺胃左方移位和酮症都比往年多。你去看乾乳牛，發現乾乳牛不分群，從乾乳到分娩都吃同一種以苜蓿與百慕達乾草為主、幾乎沒有精料的日糧；乾乳牛舍擁擠、飼槽不夠。請問：(1) 這三種病為什麼可能有共同原因？(2) 依講義，乾乳牛應該怎麼分群與餵？(3) 預防低血鈣可以加入什麼日糧策略？怎麼監測？(4) 為什麼飼槽空間也重要？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 三者都在產後低血鈣症候群的連鎖圖上：低血鈣 → 平滑肌功能下降 → 子宮（胎衣滯留）與消化道（皺胃移位、DMI↓ → 酮症）（<a class="pdf-link" href="pdf/消化生理.pdf#page=60">p.60</a>）。<br><strong>(2)</strong> 分 far-off（高纖低能）與 close-up（高能低纖、4–5 kg 精料、15–16% CP），讓瘤胃乳突與菌相適應泌乳日糧（<a class="pdf-link" href="pdf/消化生理.pdf#page=56">p.56</a>）。<br><strong>(3)</strong> Close-up 餵負 DCAD 日糧，使血液輕度酸化、刺激骨鈣動員（<a class="pdf-link" href="pdf/消化生理.pdf#page=61">p.61</a>）；苜蓿含鈣與鉀高，會讓 DCAD 偏正（補充）。用尿液 pH 監測，目標平均約 6.5，&lt; 5.5 過度酸化、&gt; 7.5 酸化不足（補充，MSD）。<br><strong>(4)</strong> Close-up 的 DMI 本來就下降 30–40%（<a class="pdf-link" href="pdf/消化生理.pdf#page=57">p.57</a>），擁擠與飼槽不足會讓採食更差，加重負能量平衡與低血鈣風險（推論）。</p></details>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題；標示補充的題目與解析引用 MSD Veterinary Manual，答案與解析僅供自我複習參考。</footer>
     </div>
 
   </main>
@@ -372,14 +479,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const SECTION_NAMES = {
-  abstract: '重點摘要',
-  phases: '泌乳分期與轉換期定義',
-  drymanagement: '乾乳期飼養管理',
+  abstract: '大方向與重點摘要',
+  phases: '泌乳分期與轉換期',
+  dry: '乾乳期管理',
   hypocalcemia: '低血鈣症',
-  dcad: 'DCAD 陰陽離子差',
-  glossary: '雙語詞彙表',
-  summary: '學習重點整理',
-  quiz: '練習題'
+  syndrome: '產後低血鈣症候群',
+  dcad: '陰陽離子差 DCAD',
+  compare: '比較整理',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
 };
 
 document.addEventListener('click', function (e) {
@@ -452,6 +560,53 @@ function doSearch(q) {
   input.classList.add('has-results');
 }
 </script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script>

@@ -2,7 +2,8 @@
 import json,re,os,sys
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 import parse as P, parse4 as P4
-OUT=sys.argv[1] if len(sys.argv)>1 else 'out'
+import paths   # 國考資料路徑集中在 paths.py
+OUT=sys.argv[1] if len(sys.argv)>1 else None   # 給 OUT＝舊行為（全部輸出到 OUT 底下）；不給＝依 paths.py 放到正式位置
 meta=[m for m in json.load(open('meta.json')) if m['file'].endswith('_inf.pdf')]
 ansdb=json.load(open('answers.json'))
 old=json.load(open('parsed_old.json')); new={}
@@ -49,7 +50,7 @@ print(len(papers),sum(len(p['qs']) for p in papers))
 
 # ===== 輸出 =====
 import pymupdf, species
-os.makedirs(OUT,exist_ok=True)
+if OUT: os.makedirs(OUT,exist_ok=True)
 def pdf_page(m,q):
     try:
         d=pymupdf.open(m['file']); key=re.sub(r'\s','',q['q'])[:14]
@@ -75,9 +76,9 @@ def qline(pp,q,withsrc=False):
             if m: nt=f"（更正：{m.group(0)}）"
             s+=f"\n**官方答案：{a}**{nt}\n"
     else: s+="\n**官方答案：尚未取得**\n"
-    if q['flags']: s+=f"\n> ⚠ 本題含圖，請對照原卷第 {q.get('page') or '?'} 頁（`原始試卷/專技高考_獸醫傳染病學/{pp['code']}.pdf`）\n"
+    if q['flags']: s+=f"\n> ⚠ 本題含圖，請對照原卷第 {q.get('page') or '?'} 頁（`{paths.raw_pdf_hint(pp['code'])}`）\n"
     return s+'\n'
-ddir=os.path.join(OUT,'獸醫傳染病學'); os.makedirs(ddir,exist_ok=True)
+ddir=os.path.join(OUT,'獸醫傳染病學') if OUT else paths.subject_papers('獸醫傳染病學'); os.makedirs(ddir,exist_ok=True)
 for pp in papers:
     t=f"# 民國 {pp['year']} 年第{pp['batch']}次專技高考・獸醫師・獸醫傳染病學\n\n"
     t+=f"- 考試：{pp['exam']}\n- 題數：{len(pp['qs'])}（單選）\n- 官方答案：{'有' if pp['hasans'] else '尚未取得（考選部答案清冊未列）'}\n"
@@ -111,5 +112,7 @@ for name,cfg in species.SPECIES.items():
         for pp,q in sorted(lst,key=lambda x:(x[0]['code'],x[1]['n'])): t+=qline(pp,q,True)+'---\n\n'
     t+=f"## 選項提及{name[0]}（較不確定，{len(weak)} 題）\n\n"
     for pp,q in sorted(weak,key=lambda x:(x[0]['code'],x[1]['n'])): t+=qline(pp,q,True)+'---\n\n'
-    open(os.path.join(OUT,f'{name}_國考題彙整.md'),'w',encoding='utf-8').write(t)
+    cm=os.path.join(OUT,f'{name}_國考題彙整.md') if OUT else paths.course_md(name)
+    os.makedirs(os.path.dirname(cm),exist_ok=True)
+    open(cm,'w',encoding='utf-8').write(t)
     print(name,{k:len(v) for k,v in groups.items()},'weak',len(weak))

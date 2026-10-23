@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>反芻動物疾病學：綿羊與山羊的理學檢查與臨床病理 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">反芻動物疾病學</a><span class="sep">›</span><span class="current">第 6 講・綿羊與山羊的理學檢查與臨床病理</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">綿羊與山羊的理學檢查與臨床病理 Physical Examination &amp; Clinical Pathology of Sheep and Goats</h1>
+      <p class="page-subtitle">余品奐老師的課：不是背疾病，而是學會「找出異常」與「不要造成傷害」。從遠觀、BCS、頭頸眼口、聽診、腸胃與泌尿生殖、蹄與關節、淋巴結與乳房，到輸液電解質、酸鹼、血液學與生化的羊特殊處</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">反芻動物疾病學（大四上・第6講・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉p.1–53（余品奐 Yu Pin-Huan，國立臺灣大學）；補充：MSD Veterinary Manual、臺大獸醫專業學院師資資料、FAMACHA 與推廣教育文獻</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-23</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/羊理學檢查.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <a onclick="showSection('teacher')" id="nav-teacher"><span class="nav-icon">🎓</span> 關於余品奐老師</a>
+    <div class="section-label" style="margin-top:8px;">理學檢查</div>
+    <a onclick="showSection('approach')" id="nav-approach"><span class="nav-icon">👀</span> 病史、遠觀與 BCS</a>
+    <a onclick="showSection('head')" id="nav-head"><span class="nav-icon">🐐</span> 頭頸、眼、口、牙</a>
+    <a onclick="showSection('auscult')" id="nav-auscult"><span class="nav-icon">🩺</span> TPR 與聽診叩診</a>
+    <a onclick="showSection('gi')" id="nav-gi"><span class="nav-icon">🫃</span> 腸胃與泌尿生殖</a>
+    <a onclick="showSection('msk')" id="nav-msk"><span class="nav-icon">🦶</span> 蹄、關節、淋巴、乳房</a>
+    <div class="section-label" style="margin-top:8px;">臨床病理</div>
+    <a onclick="showSection('restraint')" id="nav-restraint"><span class="nav-icon">🤲</span> 保定與採血</a>
+    <a onclick="showSection('fluid')" id="nav-fluid"><span class="nav-icon">💧</span> 體液、電解質與酸鹼</a>
+    <a onclick="showSection('mineral')" id="nav-mineral"><span class="nav-icon">🦴</span> 鈣、磷、鎂</a>
+    <a onclick="showSection('heme')" id="nav-heme"><span class="nav-icon">🩸</span> 血液學</a>
+    <a onclick="showSection('chem')" id="nav-chem"><span class="nav-icon">🧪</span> 生化與乳酸</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('takehome')" id="nav-takehome"><span class="nav-icon">🏁</span> Take home 與比較</a>
+    <a onclick="showSection('guokao')" id="nav-guokao"><span class="nav-icon">📚</span> 相關國考題</a>
+    <a onclick="showSection('examdir')" id="nav-examdir"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">羊的理學檢查與臨床病理的大方向</div>
+        <dl>
+          <dt>這堂課在講什麼</dt>
+          <dd>前半是<strong>綿羊與山羊的理學檢查</strong>：病史 → 遠觀 → 體態評分 → 頭頸、眼、口、牙 → 聽診（心、肺、鼻竇、氣管）→ 腸胃、泌尿生殖 → 蹄與關節 → 淋巴結 → 乳房。後半是<strong>臨床病理</strong>：保定與採血、體液與電解質、酸鹼（鹼缺乏與陰離子間隙）、鈣磷鎂、血液學、生化（血糖、BUN、肌酸酐、肝酶、蛋白、乳酸）。</dd>
+          <dt>老師的三個目標（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=2">p.2</a>）</dt>
+          <dd>① 基本理學檢查；② <strong>找出異常，而不是背疾病</strong>；③ <strong>不要造成傷害（Do no harm）</strong>。結語（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=53">p.53</a>）：羊和伴侶動物是不一樣的動物，尊重並了解相同與不同處才能診斷；<strong>一般執業獸醫不必記得所有反芻獸疾病，但要學會「do no harm」</strong>。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-approach">BCS</a>：羊用<strong>腰椎棘突、橫突、背最長肌與脂肪覆蓋</strong>評 1–5 分（和乳牛看臀部不同）。</li>
+              <li><a href="#section-head">頭頸</a>：下巴腫要分<strong>下頜水腫（瓶頸 bottle jaw → 低蛋白 → 寄生蟲）</strong>、淋巴結（乾酪樣淋巴結炎）、甲狀腺腫（缺碘）、唾液腺膿瘍、幼羊<strong>胸腺（milk goiter）</strong>。</li>
+              <li><a href="#section-head">眼</a>：<strong>貧血 → FAMACHA</strong>（寄生蟲控制）；<strong>黃疸</strong> → 肝病、溶血、<strong>銅中毒</strong>；紅眼病（披衣菌、<em>Mycoplasma conjunctivae</em>）；脫水。</li>
+              <li><a href="#section-auscult">TPR 與聽診</a>：成羊體溫綿羊 39–40°C、山羊 38–40°C；心音在前肢之間第 4–5 肋；肺野第 5 肋到第 11 肋；<strong>反覆咳嗽是異常</strong>；鼻竇叩診濁音 → 牙根膿瘍、去角傷口感染。</li>
+              <li><a href="#section-gi">腸胃與泌尿</a>：左腰旁窩瘤胃 <strong>1–2 次／分鐘</strong>；右上為螺旋結腸、盲腸、小腸，右下為皺胃與懷孕子宮；公羊注意<strong>尿結石</strong>徵兆。</li>
+              <li><a href="#section-msk">蹄、關節、淋巴、乳房</a>：<strong>腐蹄病（傳染性）</strong>與<strong>趾間皮膚炎（foot scald，腐蹄的前驅）</strong>；關節腫看 CAE 與水囊瘤；<strong>乾酪樣淋巴結炎</strong>；乳房六項（對稱、大小、顏色、溫度、形狀、質地）。</li>
+              <li><a href="#section-fluid">體液與酸鹼</a>：ICF 40%、ECF 20%（血管內 5%、組織間 15%）BW；<strong>補碳酸氫鹽（mEq）＝ 鹼缺乏 × 體重 × 0.6（新生）或 0.3（成體）</strong>；<strong>AG ＝ Na⁺ ＋ K⁺ − Cl⁻ − HCO₃⁻，12–16</strong>。</li>
+              <li><a href="#section-mineral">鈣鎂</a>：血鈣 <strong>6 mg/dL 臥地、4 mg/dL 致死</strong>；山羊分娩時、<strong>綿羊產前 1 個月</strong>發生乳熱；草痙攣為低血鎂。</li>
+              <li><a href="#section-heme">血液學</a>：<strong>山羊紅血球很小、易溶血</strong>，儀器可能誤算成血小板，<strong>禁用真空採血管、用 EDTA 管</strong>；壓力白血球像沒有左移；<strong>6–8 月齡後淋巴球多於嗜中性球</strong>。</li>
+              <li><a href="#section-chem">生化</a>：反芻獸<strong>血糖低（50–75 mg/dL）</strong>、不吸收預成葡萄糖；BUN 在瘤胃回收、腎病診斷價值下降；<strong>ALT 在反芻獸很低</strong>、<strong>GGT 才是肝專一</strong>；新生 1 週內 GGT 高來自初乳；尿腹時腹水肌酸酐為血清 1.5–2 倍。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>兩位老師的 TPR 數字不同</strong>（見<a href="#section-auscult">第 5 節</a>）：本講義用教科書表（綿羊 39–40°C、山羊 38–40°C），Kao 老師的臨床檢查講義寫 38.5–39.5°C。<strong>瘤胃蠕動次數</strong>：本講義羊 1–2 次／分鐘，牛的講義為 3–5 次／2 分鐘。<strong>ALT 不能用來看反芻獸的肝</strong>，要看 GGT（與 AST、LDH、CK 合併判斷）。<strong>BUN 不是好的腎指標</strong>，要配合肌酸酐與尿比重。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>綿羊山羊 TPR；BCS 觸診部位；下頜水腫的意義；FAMACHA 與捻轉胃蟲；黃疸三大原因（含銅中毒）；瘤胃蠕動與腹部輪廓分區；尿結石徵兆；腐蹄病與趾間皮膚炎；乾酪樣淋巴結炎；體液分布；碳酸氫鹽補充公式計算；AG 公式與高 AG 酸中毒原因；山羊紅血球特性與採血注意事項；壓力白血球像；反芻獸血糖、BUN、GGT 的特殊性。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。余品奐老師上課有大量講義以外的臨床經驗補充，這頁依使用者要求<strong>另外查了文獻與資料</strong>補充（標示「補充」並註明出處：MSD Veterinary Manual、FAMACHA 推廣資料、美國大學推廣教育文件、臺大師資資料）；講義只有關鍵字的地方，補充的解釋是依一般教科書知識寫成，以老師上課為準。「國考題」一節是從民國 97–115 年專技高考獸醫傳染病學挑出的相關題，附官方答案。標示「推測」的是出題方向推測。圖片為老師講義截圖。</p>
+      </div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=1">p.1–53</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- TEACHER -->
+    <div class="section" id="section-teacher">
+      <div class="section-head"><div class="section-num">2</div><h2>關於余品奐老師</h2></div>
+      <p class="section-desc">先認識老師：了解老師的背景，就懂為什麼這堂課把理學檢查和臨床病理放在一起，而且一直強調「do no harm」。</p>
+      <h3>經歷與專長（補充）<span class="lv lv-skim">看過</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>現職</td><td>國立臺灣大學獸醫專業學院<strong>教授</strong>（講義封面仍寫 Assistant Professor，為較早版本）；主持<strong>特殊寵物暨野生動物醫學研究室</strong></td></tr>
+            <tr><td>學歷</td><td>臺大獸醫學研究所博士；博士論文〈以生殖控制進行台灣獼猴族群管理之適用性：保育醫學之實踐〉（2015，指導教授季昭華）</td></tr>
+            <tr><td>研究專長</td><td><strong>特殊寵物醫學、野生動物醫學、保育醫學、牧場動物醫學</strong></td></tr>
+            <tr><td>醫院職務</td><td>依臺大學術庫資料：臺大動物醫院<strong>影像診斷科</strong>主任（2017 起）、<strong>大動物及經濟動物科</strong>主任（2020 起）；並在特殊寵物門診看診</td></tr>
+            <tr><td>授課</td><td>動物園與野生動物醫學、<strong>臨床病理學</strong>、臨床實習與病例討論、大動物與野生動物治療學等</td></tr>
+            <tr><td>近年研究例</td><td>3D 列印技術輔助淡水龜甲殼傷口癒合（<em>Animals</em>, 2022）、臺灣野外綠鬣蜥 <em>Nannizziopsis</em> 感染調查、非洲灰鸚鵡電腦斷層血管攝影的顯影劑劑量研究等</td></tr>
+            <tr><td>其他</td><td>臺中市動物保護專家學者名單成員</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info"><div class="alert-label">為什麼這堂課長這樣（推測）</div><p>老師同時教臨床病理、主持大動物及經濟動物科、又長期處理野生動物與特殊寵物——都是「病種多、很難全部背起來、檢查與保定要小心」的動物。所以課程重點不是疾病清單，而是<strong>一套到哪都能用的檢查流程</strong>，加上<strong>羊和犬貓不一樣的檢驗判讀</strong>（紅血球、血糖、BUN、ALT）。考試準備也可以照這個邏輯：遇到不會的病，先問「哪個系統異常、什麼檢驗能確認、怎樣不會傷害動物」。</p></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">資料來源：臺大獸醫專業學院師資頁、臺大學術庫（NTU Scholars）、臺大博碩士論文系統、臺中市動物保護防疫處專家名單（2026-10-23 查詢）。</p>
+      <footer class="note-footer">本節為補充資料，非講義內容。</footer>
+    </div>
+
+    <!-- APPROACH -->
+    <div class="section" id="section-approach">
+      <div class="section-head"><div class="section-num">3</div><h2>病史、遠觀與體態評分 Signalment, History, Distance Exam &amp; BCS</h2></div>
+      <p class="section-desc">先問、先看，再動手；羊的 BCS 要摸腰椎，因為長毛會騙人。</p>
+      <h3>動物基本資料與病史（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=3">p.3</a>）<span class="lv lv-know">理解</span></h3>
+      <p>講義放的是臺大動物醫院大動物門診的病歷表：除了基本資料，還包括<strong>環境</strong>（溫度、通風、飼養密度、墊料）、<strong>飲水與飼料</strong>、<strong>疫苗與驅蟲</strong>、過去病史、主訴與病程、治療史與最近的改變。</p>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p003.jpg" alt="臺大動物醫院大動物病歷表：基本資料、環境、飲水、飼料、疫苗驅蟲與病史欄位。" loading="lazy"><div class="figure-caption">臺大動物醫院大動物病歷表：基本資料、環境、飲水、飼料、疫苗驅蟲與病史欄位。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=3">p.3</a></div></div>
+      <h3>遠觀（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=4">p.4</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>與<strong>環境及同伴</strong>的互動（羊是群居動物，離群是警訊，補充）</li>
+        <li><strong>步態</strong>、<strong>平衡</strong>、<strong>被毛</strong></li>
+      </ul>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p004.jpg" alt="遠觀：步態與平衡（頭、身體、四肢的相對位置）。" loading="lazy"><div class="figure-caption">遠觀：步態與平衡（頭、身體、四肢的相對位置）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=4">p.4</a></div></div>
+      <h3>體態評分 BCS（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=5">p.5–6</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分數</th><th>腰椎棘突</th><th>腰椎橫突</th><th>背最長肌（loin eye）</th><th>肌肉上脂肪</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong>（消瘦）</td><td>尖銳突出</td><td>尖銳</td><td>淺</td><td>無</td></tr>
+            <tr><td><strong>2</strong>（瘦）</td><td>尖銳突出</td><td>平滑、稍圓</td><td>中等深度</td><td>少</td></tr>
+            <tr><td><strong>3</strong>（中等）</td><td>平滑、圓</td><td>平滑、覆蓋良好</td><td>飽滿</td><td>中等</td></tr>
+            <tr><td><strong>4</strong>（肥）</td><td>需施壓才摸得到一條硬線</td><td>摸不到</td><td>飽滿</td><td>厚</td></tr>
+            <tr><td><strong>5</strong>（過肥）</td><td>摸不到</td><td>摸不到</td><td>非常飽滿</td><td>非常厚</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p005.jpg" alt="綿羊與山羊 BCS 1–5 的腰椎橫切面示意（University of Kentucky）。" loading="lazy"><div class="figure-caption">綿羊與山羊 BCS 1–5 的腰椎橫切面示意（University of Kentucky）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=5">p.5</a></div></div>
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p006.jpg" alt="BCS 觸診位置（腰部）與各分數照片；下方為評分表。" loading="lazy"><div class="figure-caption">BCS 觸診位置（腰部）與各分數照片；下方為評分表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=6">p.6</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：綿羊有厚羊毛、山羊體型較瘦長，光看外觀很容易誤判，一定要<strong>用手摸腰椎</strong>（最後肋骨後方）。乳牛 BCS 則是從後方看臀部，見<a href="week02_臨床檢查.html#section-bcs">臨床檢查頁</a>。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=2">p.2–6</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- HEAD -->
+    <div class="section" id="section-head">
+      <div class="section-head"><div class="section-num">4</div><h2>頭頸、眼睛、口腔與牙齒 Head &amp; Neck, Eye, Oral Cavity, Teeth</h2></div>
+      <p class="section-desc">頭頸部是羊最容易看出全身問題的地方：下巴腫可能是寄生蟲，眼結膜蒼白是貧血，黃疸可能是銅中毒。</p>
+      <h3>頭頸部（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=7">p.7–8</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>檢查</th><th>看到什麼要想到什麼</th></tr></thead>
+          <tbody>
+            <tr><td>整體對稱</td><td><strong>腦神經缺損</strong>；<strong>反芻食團或腫塊滯留</strong>在頰部</td></tr>
+            <tr><td rowspan="5"><strong>下巴腫</strong></td><td><strong>下頜水腫（瓶頸 bottle jaw）</strong> → <strong>低蛋白血症</strong> → <strong>寄生蟲</strong></td></tr>
+            <tr><td>淋巴結腫大（乾酪樣淋巴結炎，見<a href="#section-msk">第 7 節</a>）</td></tr>
+            <tr><td><strong>甲狀腺腫（goiter）</strong> → <strong>缺碘</strong>（與<strong>土壤</strong>有關）</td></tr>
+            <tr><td>唾液腺膿瘍</td></tr>
+            <tr><td><strong>胸腺（milk goiter）</strong>：幼羊頸部的正常胸腺，數週到 <strong>4–9 個月</strong>隨免疫成熟消退</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p007.jpg" alt="頭臉常見腫脹位置（常被誤認為乾酪樣淋巴結炎）：1 鼻蠅幼蟲、2 頰部膿瘍或滯留食團、3 唾液腺膿瘍、4 甲狀腺、5 胸腺" loading="lazy"><div class="figure-caption">頭臉常見腫脹位置（常被誤認為乾酪樣淋巴結炎）：1 鼻蠅幼蟲、2 頰部膿瘍或滯留食團、3 唾液腺膿瘍、4 甲狀腺、5 胸腺、6 肉垂囊腫、7 牙根膿瘍、8 瓶頸（嚴重貧血與寄生蟲）。右為瓶頸山羊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=7">p.7</a></div></div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p008.jpg" alt="胸腺（milk goiter）與甲狀腺腫的位置比較；右下為甲狀腺腫的小羊。" loading="lazy"><div class="figure-caption">胸腺（milk goiter）與甲狀腺腫的位置比較；右下為甲狀腺腫的小羊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=8">p.8</a></div></div>
+      <div class="alert alert-success"><div class="alert-label">重點：瓶頸（bottle jaw）</div><p>早上明顯、下午因低頭吃草而變小（補充）。代表<strong>低蛋白血症</strong>，在羊最常見的原因是<strong>捻轉胃蟲（<em>Haemonchus contortus</em>）</strong>吸血造成的失血與蛋白流失；看到瓶頸要同時看眼結膜（FAMACHA）。</p></div>
+      <h3>眼睛（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=9">p.9</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>發現</th><th>意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>貧血</strong>（結膜蒼白）</td><td><strong>FAMACHA 系統</strong> → 寄生蟲控制</td></tr>
+            <tr><td><strong>黃疸</strong></td><td>肝病、<strong>溶血事件</strong>、<strong>銅中毒</strong></td></tr>
+            <tr><td><strong>紅眼病</strong></td><td><em>Chlamydia psittaci</em>、<em>Chlamydia</em>（講義寫 Ovis）、<strong><em>Mycoplasma conjunctivae</em></strong></td></tr>
+            <tr><td>其他</td><td>眼睛異常；<strong>脫水</strong>（眼球凹陷）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p009.jpg" alt="眼睛檢查：FAMACHA 貧血對照卡（左）、黃疸（右上）與紅眼病（右下）。" loading="lazy"><div class="figure-caption">眼睛檢查：FAMACHA 貧血對照卡（左）、黃疸（右上）與紅眼病（右下）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=9">p.9</a></div></div>
+      <div class="alert alert-info"><div class="alert-label">FAMACHA 補充（UF/IFAS、URI 推廣教育資料）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>南非發展的方法：用對照卡比對<strong>下眼瞼結膜顏色</strong>，找出被<strong>捻轉胃蟲（barber pole worm）</strong>重度感染而貧血的羊。</li>
+          <li>分 <strong>1（櫻桃紅，不貧血）到 5（白色，嚴重貧血）</strong>。</li>
+          <li><strong>1、2 分不驅蟲</strong>；<strong>4、5 分驅蟲</strong>；<strong>3 分</strong>在下列情況考慮驅蟲：羊群 &gt; 10% 是 4–5 分、小羊、懷孕或泌乳母羊、BCS 差、有其他疾病或免疫低下。</li>
+          <li>目的：<strong>選擇性驅蟲</strong>，減少驅蟲藥抗藥性。注意只適用於吸血性的捻轉胃蟲；其他線蟲造成的下痢與消瘦不一定貧血。</li>
+        </ul></div>
+      <h3>口腔與牙齒（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=10">p.10–12</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>構造</strong>：皮膚與黏膜交界、<strong>硬腭</strong>、<strong>水泡</strong>（→ <strong>口蹄疫 FMD</strong>）、黏膜（→ <strong>藍舌病</strong>）。</li>
+        <li><strong>氣味</strong>：感染性疾病（口腔膿瘍牙、瘤胃、呼吸道）；<strong>酸敗乳味</strong> → 新生兒<strong>腭裂</strong>（乳積在鼻腔）；<strong>甜味</strong> → <strong>酮酸中毒</strong>。</li>
+        <li>牙齒：<strong>咬合</strong>、軟組織損傷；用門齒數目與狀況<strong>估年齡</strong>。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p010.jpg" alt="口腔：硬腭、口唇與黏膜交界處病灶、水泡（口蹄疫）、黏膜病變（藍舌病）。" loading="lazy"><div class="figure-caption">口腔：硬腭、口唇與黏膜交界處病灶、水泡（口蹄疫）、黏膜病變（藍舌病）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=10">p.10</a></div></div>
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p012.jpg" alt="以恆門齒數估年齡：未滿 1 歲全為乳齒，約 1 歲 2 顆、2 歲 4 顆、3 歲 6 顆、4 歲 8 顆恆門齒；4 歲" loading="lazy"><div class="figure-caption">以恆門齒數估年齡：未滿 1 歲全為乳齒，約 1 歲 2 顆、2 歲 4 顆、3 歲 6 顆、4 歲 8 顆恆門齒；4 歲半後開始磨損脫落。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=12">p.12</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：羊只有下門齒，上方是齒墊（dental pad）。口唇周圍結痂要鑑別傳染性膿疱性皮膚炎（羊口瘡，orf）與羊痘（後者會有全身症狀，見<a href="week05_羊傳染病.html#section-pox">羊傳染病頁</a>）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=7">p.7–12</a>；FAMACHA 補充：University of Florida IFAS AN399、University of Rhode Island FAMACHA Scoring。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- AUSCULT -->
+    <div class="section" id="section-auscult">
+      <div class="section-head"><div class="section-num">5</div><h2>生命徵象、聽診與叩診 TPR &amp; Auscultation</h2></div>
+      <p class="section-desc">羊的正常值要和牛分開記；山羊的體溫範圍比綿羊寬。</p>
+      <h3>生命徵象（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=13">p.13</a> 表）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>綿羊（成）</th><th>山羊（成）</th><th>小綿羊 lamb</th><th>小山羊 kid</th></tr></thead>
+          <tbody>
+            <tr><td>直腸溫（°F）</td><td>102–103.5</td><td>100.5–103.5</td><td>102.5–104</td><td>102–104</td></tr>
+            <tr><td><strong>直腸溫（°C）</strong></td><td><strong>39–40</strong></td><td><strong>38–40</strong></td><td>39.5–40.5</td><td>39.5–40.5</td></tr>
+            <tr><td><strong>心跳（次/分）</strong></td><td><strong>70–80</strong></td><td><strong>70–90</strong></td><td>80–130</td><td>90–150</td></tr>
+            <tr><td><strong>呼吸（次/分）</strong></td><td><strong>12–20</strong></td><td><strong>15–30</strong></td><td>20–40</td><td>20–40</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">注意：與臨床檢查講義的數字不同</div><p>Kao 老師〈Clinical Examination in Ruminants〉寫羊 38.5–39.5°C、心跳 70–110、呼吸 15–40；小羊 39.0–40.0°C、110–140、40–65（見<a href="week02_臨床檢查.html#section-vitals">臨床檢查頁</a>）。兩份都是教科書數字、來源不同，作答時看是哪位老師出題。共同點：<strong>小羊三項都比成羊高</strong>、<strong>羊的心跳比牛快</strong>。</p></div>
+      <h3>聽診位置（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=13">p.13</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>心臟</strong>：<strong>前肢之間</strong>、第 <strong>4–5 肋</strong>（把前肢往前拉，聽診器放在肘下）。</li>
+        <li><strong>肺</strong>：前界<strong>第 5 肋</strong>、後界<strong>第 11 肋</strong>；也要聽<strong>肘下</strong>與<strong>肩前</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p013.jpg" alt="心臟與肺的聽診位置；下方為成羊與小羊的 TPR 表。" loading="lazy"><div class="figure-caption">心臟與肺的聽診位置；下方為成羊與小羊的 TPR 表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=13">p.13</a></div></div>
+      <h3>鼻竇叩診（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=14">p.14</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>叩診濁音的部位</th><th>可能原因</th></tr></thead>
+          <tbody>
+            <tr><td><strong>上頜竇</strong></td><td><strong>牙根膿瘍</strong></td></tr>
+            <tr><td><strong>額竇</strong></td><td><strong>去角傷口感染</strong>、上行性呼吸道感染</td></tr>
+            <tr><td>腫瘤</td><td>罕見</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p014.jpg" alt="上頜竇與額竇的位置；額竇與角的關係（去角會打開額竇）。" loading="lazy"><div class="figure-caption">上頜竇與額竇的位置；額竇與角的關係（去角會打開額竇）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=14">p.14</a></div></div>
+      <h3>氣管與喉（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=15">p.15</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>氣管聽診：<strong>喘鳴（wheeze）</strong>、<strong>爆裂音（crackle）</strong>。</li>
+        <li>觸診喉與氣管（誘咳）：<strong>反覆咳嗽是異常的</strong>（正常最多咳一下）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=13">p.13–15</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- GI -->
+    <div class="section" id="section-gi">
+      <div class="section-head"><div class="section-num">6</div><h2>腸胃道與泌尿生殖道 Gastrointestinal &amp; Urogenital</h2></div>
+      <p class="section-desc">從後面看腹部輪廓，就能猜是哪個器官出問題；公羊排尿用力要先想到尿結石。</p>
+      <h3>腹部輪廓與分區（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=16">p.16</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>位置</th><th>器官與重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>左側</strong></td><td><strong>瘤胃</strong>：輕度不對稱是正常的；在<strong>左腰旁窩</strong>聽，<strong>1–2 次收縮／分鐘</strong></td></tr>
+            <tr><td><strong>右上</strong>（右腰旁窩）</td><td><strong>螺旋結腸、盲腸、小腸</strong></td></tr>
+            <tr><td><strong>右下</strong></td><td><strong>皺胃</strong>、<strong>懷孕子宮</strong></td></tr>
+            <tr><td><strong>全面性</strong>膨大</td><td><strong>肝病、心臟病、寄生蟲</strong>（腹水）</td></tr>
+            <tr><td>其他</td><td><strong>糞便沾汙</strong>後軀（下痢）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p016.jpg" alt="山羊消化道位置（瘤胃、網胃、瓣胃、皺胃、小腸、大腸、盲腸）；右為後方觀察腹部輪廓；下為糞便評分 1–5。" loading="lazy"><div class="figure-caption">山羊消化道位置（瘤胃、網胃、瓣胃、皺胃、小腸、大腸、盲腸）；右為後方觀察腹部輪廓；下為糞便評分 1–5。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=16">p.16</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：從後方看腹部常用「蘋果與梨」：左上與右下都脹（像蘋果＋梨）見於迷走神經性消化不良；左右下都脹見於懷孕或腹水。這是牛常用的判讀，羊可比照（推測）。</p>
+      <h3>泌尿生殖道（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=17">p.17</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>包皮</strong>：<strong>尿結石</strong>的徵兆；檢查陰莖時讓羊<strong>側躺</strong>或<strong>坐立（upright）</strong>把陰莖推出來。</li>
+        <li><strong>陰囊</strong>：形狀扭曲、不對稱。</li>
+        <li><strong>外陰</strong>：分泌物、外陰炎。</li>
+      </ul>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p017.jpg" alt="泌尿生殖道檢查：讓公羊坐立以推出陰莖、檢查尿道突（urethral process）；陰囊與外陰。" loading="lazy"><div class="figure-caption">泌尿生殖道檢查：讓公羊坐立以推出陰莖、檢查尿道突（urethral process）；陰囊與外陰。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=17">p.17</a></div></div>
+      <div class="alert alert-info"><div class="alert-label">尿結石補充（University of Maryland Extension；MSD）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li><strong>去勢公羊（wether）</strong>風險最高：太早去勢讓尿道沒長到應有的管徑。</li>
+          <li>結石常卡在<strong>尿道突（urethral process，陰莖末端細管）</strong>或 <strong>S 狀彎曲（sigmoid flexure）</strong>。</li>
+          <li>飲食：<strong>精料多、磷多</strong>是主因；建議日糧 <strong>Ca:P ＝ 2:1</strong>；氯化銨可酸化尿液預防磷酸鹽結石；確保飲水。</li>
+          <li>徵兆：排尿用力、甩尾、尿液滴流、包皮毛上有結晶；膀胱破裂會「水腹」（尿腹，見<a href="#section-chem">生化</a>的肌酸酐比值）。</li>
+          <li>處置要點（do no harm）：<strong>先檢查並切除阻塞的尿道突</strong>常能立即緩解；尿道阻塞的羊不要給利尿或大量輸液後才處理阻塞。</li>
+        </ul></div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=16">p.16–17</a>；尿結石補充：University of Maryland Extension〈Urinary Calculi in Male Goats and Sheep〉。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MSK -->
+    <div class="section" id="section-msk">
+      <div class="section-head"><div class="section-num">7</div><h2>肌肉骨骼、淋巴與乳房 Musculoskeletal, Lymphatic &amp; Mammary</h2></div>
+      <p class="section-desc">羊的跛行大多在蹄；體表膿瘍先想乾酪樣淋巴結炎；乳房要兩側對比。</p>
+      <h3>蹄的分區與修蹄（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=18">p.18–19</a>）<span class="lv lv-know">理解</span></h3>
+      <p>蹄部病灶分區（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=18">p.18</a>）：0 趾間皮膚、1–3 白線（蹄壁與蹄踵交界）、4 蹄底後部、5 蹄底前部、6 蹄踵、7–8 蹄壁內外半、9 蹄冠帶與皮膚、10 蹄踵上方與之間的皮膚。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p018.jpg" alt="羊蹄底面的病灶分區（0–10），用來記錄病灶位置。" loading="lazy"><div class="figure-caption">羊蹄底面的病灶分區（0–10），用來記錄病灶位置。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=18">p.18</a></div></div>
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p019.jpg" alt="蹄的問題：磨耗不足需修蹄（下為修蹄前後）；潮濕環境；腐蹄病與趾間皮膚炎。" loading="lazy"><div class="figure-caption">蹄的問題：磨耗不足需修蹄（下為修蹄前後）；潮濕環境；腐蹄病與趾間皮膚炎。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=19">p.19</a></div></div>
+      </div>
+      <h3>腐蹄病 vs 趾間皮膚炎（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=19">p.19–20</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>趾間皮膚炎 Foot scald</th><th>腐蹄病 Foot rot</th><th>蹄膿瘍 Foot abscess</th></tr></thead>
+          <tbody>
+            <tr><td>講義</td><td><strong>趾間潰瘍</strong>；腐蹄與蹄膿瘍的<strong>前驅</strong></td><td><strong>蹄內感染</strong>、<strong>具傳染性</strong>、與<strong>受汙染的土壤</strong>有關</td><td>（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=20">p.20</a> 照片）</td></tr>
+            <tr><td>補充：病原</td><td><em>Fusobacterium necrophorum</em></td><td><strong><em>Dichelobacter nodosus</em></strong>（主要）＋ <em>F. necrophorum</em></td><td>多為 <em>Trueperella pyogenes</em>、<em>F. necrophorum</em></td></tr>
+            <tr><td>補充：外觀</td><td>趾間皮膚紅、濕、發白</td><td>蹄底與蹄壁分離（underrun）、有<strong>特殊惡臭</strong></td><td>單一蹄趾腫脹發熱、劇痛</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p020.jpg" alt="Foot scald（趾間皮膚發炎）、foot rot（蹄底分離、壞死）、foot abscess（蹄踵腫脹與膿瘍）。" loading="lazy"><div class="figure-caption">Foot scald（趾間皮膚發炎）、foot rot（蹄底分離、壞死）、foot abscess（蹄踵腫脹與膿瘍）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=20">p.20</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：國考考過「綿羊傳染性腐蹄病主要病原」＝ <em>Dichelobacter nodosus</em>（見<a href="#section-guokao">國考題</a>）。潮濕與修蹄不足是主要誘因，控制靠修蹄、蹄浴、隔離跛行羊。</p>
+      <h3>關節（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=21">p.21</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>觸診：<strong>熱、痛、腫</strong>；<strong>活動範圍</strong>。</li>
+        <li>山羊腕關節腫：<strong>CAE（山羊關節炎腦炎）</strong>、<strong>水囊瘤（hygroma）</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p021.jpg" alt="關節：CAE 造成的腕關節腫大（左）與水囊瘤（右）。" loading="lazy"><div class="figure-caption">關節：CAE 造成的腕關節腫大（左）與水囊瘤（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=21">p.21</a></div></div>
+      <h3>淋巴系統（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=22">p.22</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>淋巴結<strong>正常時不一定摸得到</strong>。</li>
+        <li>腫大破潰最常見：<strong>乾酪樣淋巴結炎（caseous lymphadenitis, CLA）</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p022.jpg" alt="乾酪樣淋巴結炎常見腫大位置（下頜、腮腺、肩前、股前等）；右上為切開的乾酪樣膿瘍，下為頭頸部膿瘍的山羊。" loading="lazy"><div class="figure-caption">乾酪樣淋巴結炎常見腫大位置（下頜、腮腺、肩前、股前等）；右上為切開的乾酪樣膿瘍，下為頭頸部膿瘍的山羊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=22">p.22</a></div></div>
+      <div class="alert alert-info"><div class="alert-label">CLA 補充（MSD Veterinary Manual）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>病原：<strong><em>Corynebacterium pseudotuberculosis</em></strong>，慢性傳染病。</li>
+          <li>傳播：剪毛、打耳標、斷尾、去勢的皮膚傷口，或接觸破潰病灶的膿；較少經吸入或食入。</li>
+          <li><strong>外部型</strong>（體表淋巴結膿瘍，<strong>山羊較常見</strong>，尤其下頜與腮腺）；<strong>內臟型</strong>（內臟膿瘍、慢性消瘦，<strong>綿羊較常見</strong>，稱「<strong>瘦母羊症候群 thin ewe syndrome</strong>」）。</li>
+          <li>診斷：未破潰膿瘍的膿培養確診；SHI 抗體試驗。</li>
+          <li>處置：引流、隔離到癒合、抗菌藥；商業羊群最實際的是<strong>淘汰</strong>；有<strong>人畜共通</strong>風險，處理膿要防護。</li>
+        </ul></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：頭頸部腫脹不一定是 CLA，<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=7">p.7</a> 的圖就是在提醒「常被誤認為 CLA」的 8 種腫脹。</p>
+      <h3>乳房（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=23">p.23</a>）<span class="lv lv-must">必考</span></h3>
+      <p>檢查六項：<strong>對稱、大小、顏色、溫度、形狀、質地</strong>；照片可見乳汁異常（凝塊、水樣）與乳房皮膚病灶。</p>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p023.jpg" alt="乳房檢查：兩側對稱與大小、皮膚顏色；下排為乳房炎乳汁與乳頭病灶。" loading="lazy"><div class="figure-caption">乳房檢查：兩側對稱與大小、皮膚顏色；下排為乳房炎乳汁與乳頭病灶。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=23">p.23</a></div></div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=18">p.18–23</a>；CLA 補充：MSD Veterinary Manual〈Caseous Lymphadenitis of Sheep and Goats〉。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- RESTRAINT -->
+    <div class="section" id="section-restraint">
+      <div class="section-head"><div class="section-num">8</div><h2>保定與採血 Restraint &amp; Blood Collection</h2></div>
+      <p class="section-desc">臨床病理的第一步是安全地拿到好的檢體。</p>
+      <h3>保定與採血（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=25">p.25–27</a>）<span class="lv lv-know">理解</span></h3>
+      <p>講義照片：抱頸與跨騎保定、讓綿羊<strong>坐起（臀部著地）</strong>保定（剪毛、修蹄、檢查陰莖常用）、<strong>頸靜脈</strong>採血。</p>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p025.jpg" alt="山羊保定：抱頭頸、抓住下巴與角。" loading="lazy"><div class="figure-caption">山羊保定：抱頭頸、抓住下巴與角。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=25">p.25</a></div></div>
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p026.jpg" alt="綿羊坐立保定（臀部著地、背靠保定者）與跨騎保定。" loading="lazy"><div class="figure-caption">綿羊坐立保定（臀部著地、背靠保定者）與跨騎保定。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p027.jpg" alt="山羊頸靜脈採血：壓住頸靜脈溝，針頭朝頭側刺入。" loading="lazy"><div class="figure-caption">山羊頸靜脈採血：壓住頸靜脈溝，針頭朝頭側刺入。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=27">p.27</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充（do no harm）：山羊角不要當把手猛拉（可能骨折出血）；綿羊不要抓羊毛提起（皮下瘀血、屠體損傷）；採血用小號針、輕抽，配合<a href="#section-heme">山羊紅血球易溶血</a>的特性。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=24">p.24–27</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- FLUID -->
+    <div class="section" id="section-fluid">
+      <div class="section-head"><div class="section-num">9</div><h2>體液、電解質與酸鹼 Fluid, Electrolyte &amp; Acid–Base</h2></div>
+      <p class="section-desc">脫水幾乎是所有病的共同表現；要補多少水、多少碳酸氫鹽，靠這一節的公式。</p>
+      <h3>體液分布（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=28">p.28</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>區室</th><th>佔體重</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>細胞內液 ICF</strong></td><td><strong>40%</strong></td><td>—</td></tr>
+            <tr><td><strong>細胞外液 ECF</strong></td><td><strong>20%</strong></td><td>血管內液 <strong>5%</strong> ＋ 組織間液 <strong>15%</strong></td></tr>
+            <tr><td>其他（跨細胞液）</td><td>—</td><td>細胞周圍液、腦脊髓液、結締組織液；<strong>網瘤胃與腸胃道內的液體</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p028.jpg" alt="體液分布；參考文獻為 Veterinary Clinics of North America: Food Animal " loading="lazy"><div class="figure-caption">體液分布；參考文獻為 Veterinary Clinics of North America: Food Animal Practice〈Fluid and Electrolyte Therapy〉。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=28">p.28</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：反芻獸瘤胃液量很大，是可動用的「水庫」，也可在脫水時流失（例如瘤胃酸中毒時水被吸進瘤胃）；所以口服補液在反芻獸特別好用。</p>
+      <h3>ECF 與 ICF 的平衡（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=29">p.29</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>液體移動：<strong>靜水壓</strong>與<strong>膠體滲透壓</strong>（Starling 力）。</li>
+        <li>電解質：<strong>Na⁺-K⁺ ATPase</strong>；細胞外以氯與碳酸氫根為主、細胞內以磷酸與蛋白為主。</li>
+      </ul>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p029.jpg" alt="微血管與組織間液的液體交換（靜水壓、膠體滲透壓）。" loading="lazy"><div class="figure-caption">微血管與組織間液的液體交換（靜水壓、膠體滲透壓）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=29">p.29</a></div></div>
+      <h3>脫水與鈉（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=30">p.30–31</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>脫水是<strong>許多疾病的共同表現</strong>，通常<strong>同時</strong>流失水與電解質；高血鈉、高血氯<strong>不常見</strong>；常伴酸鹼異常；<strong>需要實驗室檢驗輔助</strong>。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>血鈉</th><th>機轉</th><th>脫水型態</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td><strong>低血鈉</strong></td><td>水過多（相對）</td><td><strong>低張性脫水</strong></td><td><strong>慢性脫水</strong></td></tr>
+            <tr><td><strong>高血鈉</strong></td><td>缺水</td><td><strong>高張性脫水</strong></td><td>（喝不到水，補充）</td></tr>
+            <tr><td>不變</td><td>水鈉等比例流失</td><td><strong>等張性脫水</strong></td><td><strong>急性下痢、大量出汗</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p031.jpg" alt="血鈉＝可交換（Na＋K）／全身水；低血鈉與高血鈉的常見原因表。" loading="lazy"><div class="figure-caption">血鈉＝可交換（Na＋K）／全身水；低血鈉與高血鈉的常見原因表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=31">p.31</a></div></div>
+      <h3>鉀與氯（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=32">p.32</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>鉀</strong>：受脫水、酸鹼失衡、腎功能、<strong>尿路阻塞</strong>影響（補充：酸中毒時鉀移出細胞 → 血鉀可正常或升高，但全身鉀可能不足）。</li>
+        <li><strong>氯</strong>：與鈉<strong>等比例</strong>變化；與<strong>碳酸氫根反向</strong>變化（補充：皺胃阻塞或移位時 Cl⁻ 被隔離 → 低血氯、代謝性鹼中毒）。</li>
+      </ul>
+      <h3>酸鹼判讀三步驟（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=33">p.33–34</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>CO₂ ＋ H₂O ⇌ H⁺ ＋ HCO₃⁻；<strong>HCO₃⁻ 是體內主要的酸緩衝物</strong>；HCO₃⁻ 改變 → pH 改變 → 啟動代償。</li>
+        <li>酸鹼異常應在<strong>麻醉前矯正</strong>，麻醉中可耐受，<strong>要慢慢矯正</strong>，除非是<strong>呼吸性事件</strong>。</li>
+      </ul>
+      <div class="flow">
+        <div class="flow-node">Step 1<br>看 <strong>pH</strong>：酸血症或鹼血症</div><div class="flow-arrow">→</div>
+        <div class="flow-node">Step 2<br><strong>呼吸性或代謝性</strong>（PCO₂ 或 HCO₃⁻）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">Step 3<br><strong>代償反應</strong>與病程</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>原發異常</th><th>原發改變</th><th>代償</th></tr></thead>
+          <tbody>
+            <tr><td>呼吸性酸中毒</td><td>PCO₂ ↑</td><td>HCO₃⁻ ↑</td></tr>
+            <tr><td>呼吸性鹼中毒</td><td>PCO₂ ↓</td><td>HCO₃⁻ ↓</td></tr>
+            <tr><td>代謝性酸中毒</td><td>HCO₃⁻ ↓</td><td>PCO₂ ↓</td></tr>
+            <tr><td>代謝性鹼中毒</td><td>HCO₃⁻ ↑</td><td>PCO₂ ↑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p034.jpg" alt="酸鹼判讀三步驟與原發性酸鹼異常、代償反應表。" loading="lazy"><div class="figure-caption">酸鹼判讀三步驟與原發性酸鹼異常、代償反應表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=34">p.34</a></div></div>
+      <h3>鹼缺乏與碳酸氫鹽補充（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=35">p.35</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="alert alert-success"><div class="alert-label">講義公式</div>
+        <p><strong>新生兒：碳酸氫鹽（mEq）＝ 鹼缺乏 × 體重（kg）× 0.6</strong><br><strong>成體：碳酸氫鹽（mEq）＝ 鹼缺乏 × 體重（kg）× 0.3</strong></p></div>
+      <ul>
+        <li>鹼缺乏（base deficit）是血氣分析常規提供的數值，代表矯正代謝性酸中毒需要的碳酸氫鹽量。</li>
+        <li>係數 0.6 vs 0.3：新生兒 ECF 比例較高，碳酸氫鹽分布空間較大（補充）。</li>
+        <li>計算：4 kg 小羊、鹼缺乏 10 → 10 × 4 × 0.6 ＝ <strong>24 mEq</strong>；用 8.4% 碳酸氫鈉（1 mEq/mL）＝ 24 mL（補充：通常先給一半，慢慢 IV，再重新評估）。</li>
+      </ul>
+      <h3>陰離子間隙（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=36">p.36–37</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="alert alert-success"><div class="alert-label">講義公式</div><p><strong>AG ＝ Na⁺ ＋ K⁺ − Cl⁻ − HCO₃⁻</strong>，參考值約 <strong>12–16</strong>（有物種差異）；代表未測量陰離子：<strong>蛋白質（白蛋白）、硫酸根、磷酸根、乳酸、酮體</strong>。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>原因（講義）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AG 降低</strong>的酸中毒情境</td><td><strong>低白蛋白血症</strong>、<strong>高血氯</strong>；伴低血鉀 → <strong>下痢</strong>；伴高血鉀 → <strong>腎衰竭</strong></td></tr>
+            <tr><td><strong>AG 升高</strong>（代謝酸增加）</td><td><strong>乳酸</strong>（無氧運動、<strong>穀物過食</strong>、低血容性休克）、<strong>酮酸中毒</strong>、<strong>尿毒性酸中毒</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p036.jpg" alt="陰離子間隙公式與解讀；右下為強離子對酸鹼的影響表。" loading="lazy"><div class="figure-caption">陰離子間隙公式與解讀；右下為強離子對酸鹼的影響表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=36">p.36</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：下痢造成的是「高血氯、AG 正常」的代謝性酸中毒（流失 HCO₃⁻，用 Cl⁻ 補位）；穀物過食、酮症、休克則是「AG 升高」。講義把下痢與腎衰竭放在「AG 降低（或正常）」一欄，依講義原文記。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=28">p.28–37</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MINERAL -->
+    <div class="section" id="section-mineral">
+      <div class="section-head"><div class="section-num">10</div><h2>鈣、磷、鎂 Calcium, Phosphorus &amp; Magnesium</h2></div>
+      <p class="section-desc">羊的乳熱發生時間和牛不一樣：綿羊在產前一個月。</p>
+      <h3>鈣（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=38">p.38</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>功能：神經衝動、肌肉收縮、血液凝固。</li>
+        <li><strong>6 mg/dL → 臥地</strong>；<strong>4 mg/dL → 致死</strong>。</li>
+        <li>受常見代謝調節；血中分<strong>蛋白結合鈣</strong>與<strong>游離鈣</strong>；<strong>酸中毒時鈣從蛋白上解離</strong>（游離鈣↑）。</li>
+        <li>磷：受飲食、荷爾蒙、維生素 D 影響。鎂：與營養及環境交互作用有關。</li>
+      </ul>
+      <h3>乳熱與草痙攣（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=39">p.39</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>電解質（講義）</th><th>發生時間</th></tr></thead>
+          <tbody>
+            <tr><td><strong>乳熱（parturient paresis）</strong></td><td><strong>低血鈣、低血磷、血鎂正常</strong></td><td><strong>山羊：分娩時</strong>；<strong>綿羊：產前 1 個月</strong></td></tr>
+            <tr><td><strong>草痙攣（grass tetany）</strong></td><td><strong>低血鎂</strong>、低血鈣（講義寫「hypocalcemia, normal calcium」，原文前後矛盾，應為筆誤）</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p039.jpg" alt="乳熱（上，臥地乳牛）與綿羊臥地（下）。" loading="lazy"><div class="figure-caption">乳熱（上，臥地乳牛）與綿羊臥地（下）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=39">p.39</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：綿羊在懷孕後期（多胎時）胎兒骨骼鈣化需求最大，所以低血鈣出現在產前；乳用山羊則和乳牛一樣出現在分娩泌乳時。牛的乳熱治療與 DCAD 見<a href="week01_轉換期低血鈣與DCAD.html">轉換期頁</a>。草痙攣多見於放牧在快速生長、高鉀低鎂的牧草上（補充）。懷孕末期綿羊還要鑑別<strong>妊娠毒血症</strong>（低血糖、酮體高，見<a href="#section-chem">生化</a>）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=38">p.38–39</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- HEME -->
+    <div class="section" id="section-heme">
+      <div class="section-head"><div class="section-num">11</div><h2>血液學 Hematology</h2></div>
+      <p class="section-desc">山羊的紅血球很小、很容易破：採血與機器判讀都要特別注意。</p>
+      <h3>山羊紅血球（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=40">p.40</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>很小</strong>（MCV 15–26 fL）、<strong>容易溶血</strong>。</li>
+        <li>自動血球計數儀可能<strong>誤判成血小板</strong>。</li>
+        <li><strong>禁用真空採血管（vacutainer）</strong>（負壓造成溶血）；用 <strong>EDTA 管</strong>。</li>
+        <li><strong>血球形態</strong>提供重要資訊（一定要看抹片）。</li>
+      </ul>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p040.jpg" alt="哺乳類紅血球數目與大小的關係：山羊紅血球數最多、體積最小。" loading="lazy"><div class="figure-caption">哺乳類紅血球數目與大小的關係：山羊紅血球數最多、體積最小。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=40">p.40</a></div></div>
+      <h3>正常值（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=41">p.41</a> 表）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>成綿羊</th><th>成山羊</th></tr></thead>
+          <tbody>
+            <tr><td>血容比（%）</td><td>27–45</td><td>22–36</td></tr>
+            <tr><td>血紅素（g/dL）</td><td>9–15.8</td><td>8–12</td></tr>
+            <tr><td>紅血球（×10⁶/μL）</td><td>9–17.5</td><td>8–17</td></tr>
+            <tr><td><strong>MCV（fL）</strong></td><td>28–40</td><td><strong>15–26</strong></td></tr>
+            <tr><td>MCHC（g/dL）</td><td>31–34</td><td>29–35</td></tr>
+            <tr><td>血小板（×10⁵/μL）</td><td>2.4–7.0</td><td>2.8–6.4</td></tr>
+            <tr><td>白血球（/μL）</td><td>4,000–12,000</td><td>4,000–13,000</td></tr>
+            <tr><td>分節嗜中性球（/μL）</td><td>1,500–9,000</td><td>1,400–8,000</td></tr>
+            <tr><td>帶狀嗜中性球</td><td>0</td><td>0</td></tr>
+            <tr><td>淋巴球（/μL）</td><td>2,000–9,000</td><td>2,000–9,000</td></tr>
+            <tr><td>總血漿蛋白（g/dL）</td><td>6.2–7.5</td><td>6.0–7.5</td></tr>
+            <tr><td>纖維蛋白原（mg/dL）</td><td>100–600</td><td>100–500</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：反芻獸的發炎指標常用<strong>纖維蛋白原</strong>（升高比白血球數更敏感）；正常值不出現帶狀嗜中性球。</p>
+      <h3>貧血（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=41">p.41–42</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類型</th><th>原因（講義）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>失血</strong></td><td>外傷、<strong>寄生蟲</strong>（捻轉胃蟲）</td></tr>
+            <tr><td><strong>溶血：毒素</strong></td><td><strong>銅（綿羊）</strong>、<strong>洋蔥</strong>、<strong>蕨類（bracken fern）</strong>；<strong>Heinz body</strong> → 氧化傷害</td></tr>
+            <tr><td>溶血：免疫媒介</td><td><strong>罕見</strong>：penicillin、<strong>小反芻獸餵牛初乳</strong></td></tr>
+            <tr><td>溶血：其他</td><td>紅血球寄生蟲；細菌毒素（<em>Clostridium</em>、<em>Leptospira</em>）</td></tr>
+            <tr><td><strong>慢性病</strong></td><td>肺炎、腐蹄病、乾酪樣淋巴結炎、營養不良、環境緊迫</td></tr>
+            <tr><td>幼齡</td><td>小牛（羊）的變形紅血球（poikilocyte）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p041.jpg" alt="貧血原因；右上為綿羊與山羊血液學正常值表；右下為 Heinz body（箭頭）。" loading="lazy"><div class="figure-caption">貧血原因；右上為綿羊與山羊血液學正常值表；右下為 Heinz body（箭頭）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=41">p.41</a></div></div>
+        <div class="figure"><img src="img/week06_羊理學檢查/pe_p044.jpg" alt="羊駝與駱馬的紅血球：橢圓形；可見血紅素結晶。" loading="lazy"><div class="figure-caption">羊駝與駱馬的紅血球：橢圓形；可見血紅素結晶。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=44">p.44</a></div></div>
+      </div>
+      <div class="alert alert-info"><div class="alert-label">綿羊銅中毒補充（MSD Veterinary Manual）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li><strong>綿羊是最敏感的家畜</strong>：銅慢慢累積在肝臟，遇到<strong>緊迫</strong>（運輸、處理、天候、懷孕泌乳、營養變差）時大量釋出 → <strong>溶血危象</strong>。</li>
+          <li>症狀：沉鬱、虛弱、臥地、瘤胃停滯、黏膜蒼白、<strong>血紅素尿</strong>、<strong>黃疸</strong>；剖檢<strong>槍鐵色腎（gunmetal kidneys）</strong>。</li>
+          <li>飼糧銅：鉬比 <strong>6:1 理想、10:1 可耐受</strong>；治療用 ammonium tetrathiomolybdate 螯合、調整飼糧（降銅、加鉬與硫代硫酸鹽）。</li>
+          <li>臨床陷阱（do no harm）：給綿羊吃<strong>牛或山羊的飼料、礦物舔磚</strong>是常見原因。</li>
+        </ul></div>
+      <h3>白血球（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=43">p.43–46</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>細胞</th><th>講義重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>嗜中性球</strong></td><td><strong>幼齡反芻獸以嗜中性球為主</strong>；3 歲以上山羊 N:L 約 <strong>1:1 或 3:2</strong>；發炎白血球像：比例改變、出現未成熟（帶狀）嗜中性球；嗜中性球可有<strong>退化、毒性、未成熟</strong>變化，<strong>白血球總數不一定改變</strong></td></tr>
+            <tr><td><strong>壓力白血球像</strong></td><td><strong>嗜中性球增多、淋巴球減少、嗜酸性球減少</strong>，<strong>沒有左移</strong></td></tr>
+            <tr><td><strong>淋巴球</strong></td><td><strong>6–8 月齡</strong>後多於嗜中性球；淋巴球增多：<strong>慢性病毒感染</strong>、<strong>慢性化膿性疾病</strong>、自體免疫</td></tr>
+            <tr><td>嗜酸性球</td><td>寄生蟲反應</td></tr>
+            <tr><td>嗜鹼性球</td><td>成體罕見；過敏與發炎（組織胺）</td></tr>
+            <tr><td>單核球</td><td><strong>不是敏感的疾病指標</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p043.jpg" alt="嗜中性球（A）、帶狀嗜中性球（B）與毒性變化（C）。" loading="lazy"><div class="figure-caption">嗜中性球（A）、帶狀嗜中性球（B）與毒性變化（C）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=43">p.43</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：反芻獸骨髓的嗜中性球儲存池小，嚴重急性發炎時常出現<strong>白血球減少＋左移</strong>（消耗大於生產），不像犬貓多半白血球升高；所以「白血球數正常」不能排除感染，要看形態與纖維蛋白原。淋巴球增多也要想到牛白血病（BLV）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=40">p.40–46</a>；銅中毒補充：MSD Veterinary Manual〈Copper Poisoning in Animals〉。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CHEM -->
+    <div class="section" id="section-chem">
+      <div class="section-head"><div class="section-num">12</div><h2>生化與乳酸 Chemistry Profile &amp; Lactate</h2></div>
+      <p class="section-desc">反芻獸的血糖、BUN、ALT 都和犬貓不一樣：照搬犬貓的判讀會誤診。</p>
+      <div class="figure"><img src="img/week06_羊理學檢查/pe_p047.jpg" alt="建議的一般生化項目：葡萄糖、BUN、肌酸酐、CK、AST、SDH、GGT、ALP、膽紅素、總蛋白、白蛋白、球蛋白、A/G" loading="lazy"><div class="figure-caption">建議的一般生化項目：葡萄糖、BUN、肌酸酐、CK、AST、SDH、GGT、ALP、膽紅素、總蛋白、白蛋白、球蛋白、A/G、總 CO₂、Na、K、Cl、Ca、P；選項為靜脈或動脈血氣、游離鈣。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=47">p.47</a></div></div>
+      <h3>血糖（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=48">p.48</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>代謝特殊：<strong>不從腸道吸收預成的葡萄糖</strong>（靠丙酸糖質新生，見<a href="week01_乳牛營養與飼養管理.html#section-vfa">營養頁</a>）。</li>
+        <li>參考值較低：<strong>50–75 mg/dL</strong>；<strong>沒有餐後高血糖</strong>。</li>
+        <li><strong>高血糖</strong>：<strong>腸毒血症</strong>、<strong>李斯特菌症</strong>、緊迫；糖尿病罕見。</li>
+        <li><strong>低血糖</strong>：敗血症、營養不良、<strong>妊娠毒血症</strong>。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：腸毒血症（<em>Clostridium perfringens</em> D 型，「過食病」）的高血糖與糖尿是經典線索；妊娠毒血症多見於懷多胎、懷孕後期、過胖或餓到的母羊，低血糖＋血中 β-羥丁酸升高。</p>
+      <h3>腎指標（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=49">p.49</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>指標</th><th>講義重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>BUN</strong></td><td>尿素循環與其他哺乳類相同，但在<strong>功能性瘤胃中被回收</strong> → <strong>對腎病的診斷價值降低</strong></td></tr>
+            <tr><td><strong>肌酸酐</strong></td><td><strong>不受代謝影響</strong>（較可靠）；<strong>尿腹</strong>：腹水肌酸酐為血清的 <strong>1.5–2 倍</strong></td></tr>
+            <tr><td>BUN 與肌酸酐</td><td><strong>腎功能喪失 75%</strong> 才上升</td></tr>
+            <tr><td><strong>尿比重 USG</strong></td><td><strong>66%</strong> 腎元失去功能時喪失濃縮能力；氮血症時 USG <strong>&gt; 1.025 → 腎前性</strong>；&lt; 1.025 → 講義寫「腎後性」</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">注意：一般判讀是「氮血症＋USG 無法濃縮（&lt; 1.025）→ <strong>腎性</strong>氮血症」；講義原文寫 post renal，可能是筆誤，上課時請確認。尿腹（膀胱破裂）的經典原因是公羊尿結石（見<a href="#section-gi">第 6 節</a>）。</p>
+      <h3>肝酶（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=50">p.50</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>酵素</th><th>講義重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ALT</strong></td><td><strong>在反芻獸很低</strong>（不是肝指標）</td></tr>
+            <tr><td><strong>AST、LDH、CK</strong></td><td>合併判讀，<strong>區分肌肉與肝臟傷害</strong>（CK 高 → 肌肉）</td></tr>
+            <tr><td><strong>GGT</strong></td><td><strong>肝專一</strong>：膽汁滯留、肝膽疾病、<strong>肝脂肪沉積</strong>；也有<strong>腎 GGT</strong>（尿中）、<strong>初乳 GGT</strong>；迷走神經性消化不良、皺胃扭轉時也可上升；<strong>新生 1 週內</strong>因初乳而高</td></tr>
+            <tr><td>原則</td><td><strong>需要一組檢驗合併判讀</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：新生仔畜血清 GGT 很高，可間接表示有喝到初乳（被動免疫轉移，見<a href="week03_仔牛疾病.html#section-immunity">仔牛疾病頁</a>）。SDH（山梨醇脫氫酶）是急性肝細胞傷害的指標，但體外不穩定。</p>
+      <h3>蛋白（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=51">p.51</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>A/G 比</strong>：<strong>容易被忽略但很敏感</strong>，反映<strong>慢性發炎</strong>（球蛋白↑）。</li>
+        <li><strong>低球蛋白血症</strong>：新生兒——<strong>母源抗體被動轉移</strong>失敗，或轉移的抗體被<strong>快速消耗</strong>。</li>
+      </ul>
+      <h3>乳酸（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=52">p.52</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>L-乳酸</th><th>D-乳酸</th></tr></thead>
+          <tbody>
+            <tr><td>來源</td><td><strong>哺乳類細胞</strong>無氧代謝</td><td><strong>微生物代謝</strong></td></tr>
+            <tr><td>意義</td><td>代謝性酸中毒</td><td>與<strong>仔牛下痢的酸中毒</strong>相關</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>高乳酸血症</strong>：<strong>瘤胃乳酸酸中毒</strong>（穀物過食、中毒性消化不良）、<strong>低血容性休克</strong>、<strong>敗血性休克</strong>、組織灌流下降。</p>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：一般手持乳酸計與多數生化儀只測 <strong>L-乳酸</strong>；仔牛下痢與瘤胃酸中毒常是 D-乳酸升高，所以「乳酸正常」不代表沒有乳酸性酸中毒——這時看 AG 升高更有用。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Physical Examination of Sheep and Goat〉<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=47">p.47–52</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- TAKEHOME -->
+    <div class="section" id="section-takehome">
+      <div class="section-head"><div class="section-num">13</div><h2>Take Home Message 與比較整理</h2></div>
+      <p class="section-desc">把老師的結語，和本頁最容易考的「羊 vs 牛 vs 犬貓」差異放在一起。</p>
+      <div class="alert alert-success"><div class="alert-label">講義 Take home message（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=53">p.53</a>）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>羊和伴侶動物是<strong>不同的動物</strong>。</li>
+          <li><strong>尊重並理解相同與不同之處</strong>，才能幫助診斷。</li>
+          <li>一般執業獸醫<strong>不必記得所有反芻獸疾病</strong>，但要學會「<strong>do no harm</strong>」。</li>
+        </ul></div>
+      <h3>羊 vs 牛 vs 犬貓：判讀差異<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>羊（本講義）</th><th>牛（其他講義）</th><th>犬貓（補充，對照用）</th></tr></thead>
+          <tbody>
+            <tr><td>BCS 怎麼評</td><td>摸腰椎棘突、橫突與肌肉</td><td>從後方 45° 看臀部 V／U</td><td>看腰身、摸肋骨</td></tr>
+            <tr><td>瘤胃蠕動</td><td>1–2 次／分鐘</td><td>3–5 次／2 分鐘</td><td>—</td></tr>
+            <tr><td>血糖</td><td>50–75 mg/dL，無餐後高峰</td><td>同為反芻獸，偏低</td><td>較高、有餐後上升</td></tr>
+            <tr><td>腎指標</td><td>BUN 被瘤胃回收，靠肌酸酐與 USG</td><td>同</td><td>BUN 有用</td></tr>
+            <tr><td>肝指標</td><td>ALT 低；看 GGT、AST、SDH</td><td>同</td><td>ALT 為主</td></tr>
+            <tr><td>紅血球</td><td>山羊極小、易溶血、禁真空管</td><td>—</td><td>—</td></tr>
+            <tr><td>乳熱時間</td><td>山羊分娩；綿羊產前 1 個月</td><td>產後 0–3 天</td><td>犬產後子癇（補充）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本頁各節整理；牛的數字見本科其他講義。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- GUOKAO -->
+    <div class="section" id="section-guokao">
+      <div class="section-head"><div class="section-num">14</div><h2>相關國考題（專技高考獸醫傳染病學）</h2></div>
+      <p class="section-desc">從民國 97–115 年專技高考「獸醫傳染病學」挑出和本講義主題相關的題目，附官方答案與解析。</p>
+      <div class="alert alert-info"><div class="alert-label">說明</div><p>本講義是理學檢查與臨床病理，國考中的「臨床病理學」科目題庫目前尚未收錄；下列題目出自傳染病學科目，對應本頁提到的寄生蟲貧血、腐蹄病、CAE、乾酪樣淋巴結炎、黴漿菌。題號格式「年度-次別 #題號」。</p></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">國考 105-1 #47</span>
+        <div class="quiz-q">在羊隻嚴重感染捻轉胃蟲（<em>Haemonchus contortus</em>）時的主要症狀為何？</div>
+        <ul class="quiz-options"><li>(A) 神經症狀</li><li>(B) 貧血</li><li>(C) 持續咳嗽</li><li>(D) 嘔吐</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">官方答案：(B)</div><p class="quiz-explain">捻轉胃蟲寄生在皺胃吸血 → 貧血（結膜蒼白，用 FAMACHA 評估）與低蛋白（瓶頸）（本頁<a href="#section-head">第 4 節</a>）。反芻獸不會嘔吐；咳嗽是肺線蟲。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">國考 98-2 #58</span>
+        <div class="quiz-q">下列有關捻轉胃蟲屬（<em>Haemonchus</em>）之敘述，何者錯誤？</div>
+        <ul class="quiz-options"><li>(A) 一般寄生在牛羊及其他反芻獸的第 4 胃</li><li>(B) 雌蟲卵巢環繞捻轉於紅色消化道上</li><li>(C) 蟲體呈紅色，頭部細小</li><li>(D) 可用一般抗生素預防治療</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">官方答案：(D)</div><p class="quiz-explain">線蟲要用驅蟲藥，不是抗生素。(B) 白色卵巢纏繞紅色腸道，就是「理髮店旋轉燈（barber pole）」名稱由來。第 4 胃＝皺胃。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">國考 105-2 #55（100-1 #40 同題）</span>
+        <div class="quiz-q">下列何者為造成綿羊傳染性腐蹄病之主要病原？</div>
+        <ul class="quiz-options"><li>(A) <em>Staphylococcus aureus</em></li><li>(B) <em>Streptococcus pyogenes</em></li><li>(C) <em>Dichelobacter nodosus</em></li><li>(D) <em>Clostridium septicum</em></li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">官方答案：(C)</div><p class="quiz-explain">講義：腐蹄病具傳染性、與受汙染土壤有關，趾間皮膚炎是其前驅（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=19">p.19</a>）；主要病原 <em>D. nodosus</em>，常與 <em>Fusobacterium necrophorum</em> 協同（補充）。(D) 造成惡性水腫。100-1 #40 題目相同，官方答案缺。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">國考 106-1 #51</span>
+        <div class="quiz-q">下列何種疾病主要藉由乳汁傳播，而且陽性場不容易清除病原？</div>
+        <ul class="quiz-options"><li>(A) 山羊關節炎腦炎</li><li>(B) 羊乾酪樣淋巴腺炎</li><li>(C) 羊類鼻疽</li><li>(D) 羊球蟲症</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">官方答案：(A)</div><p class="quiz-explain">CAE 經初乳與乳汁傳播，終生持續感染（見<a href="week05_羊傳染病.html#section-cae">羊傳染病頁</a>）。(B) 乾酪樣淋巴腺炎是經皮膚傷口（剪毛等）與膿汁傳播（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">國考 108-2 #45</span>
+        <div class="quiz-q">下列有關山羊關節炎腦炎臨床症狀之敘述，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 感染後，大約 50% 會表現出腦炎症狀</li><li>(B) 腦炎病變主要以非化膿性腦膜炎為主</li><li>(C) 腦炎病變主要為先天性感染</li><li>(D) 成羊也會出現腦炎症狀</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">官方答案：(D)</div><p class="quiz-explain">講義（Kao 老師）：多數（約 70%）無症狀、10–30% 發病；腦炎是白質腦脊髓炎、主要在 2–4 月齡（107-1 #46 官方答案即「白質腦脊髓炎」）；主要經乳汁感染而非先天。成羊少數也會有神經症狀（官方答案）。本頁 <a class="pdf-link" href="pdf/羊理學檢查.pdf#page=21">p.21</a> 關節腫要想到 CAE。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">國考 105-1 #48</span>
+        <div class="quiz-q">下列何種羊隻的臨床症狀和 <em>Mycoplasma</em> 的感染最無關聯？</div>
+        <ul class="quiz-options"><li>(A) 腸炎</li><li>(B) 關節炎</li><li>(C) 肺炎</li><li>(D) 乳房炎</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">官方答案：(A)</div><p class="quiz-explain">羊黴漿菌：結膜炎（<em>M. conjunctivae</em>，本頁眼睛一節）、關節炎、乳房炎、肺炎；不造成腸炎。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">國考 101-2 #33</span>
+        <div class="quiz-q"><em>Mycoplasma putrefaciens</em> 最主要造成牛、山羊的下列何種病徵？</div>
+        <ul class="quiz-options"><li>(A) 肺炎</li><li>(B) 乳房炎</li><li>(C) 陰道炎</li><li>(D) 結膜炎</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">官方答案：(B)</div><p class="quiz-explain">本頁乳房檢查一節；講義沒有提到此病原（補充）。</p></details>
+      </div>
+      <footer class="note-footer">題目與官方答案出自考選部專技高考獸醫師「獸醫傳染病學」試題；解析為個人整理。</footer>
+    </div>
+
+    <!-- EXAMDIR -->
+    <div class="section" id="section-examdir">
+      <div class="section-head"><div class="section-num">15</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>課程目標</td><td>基本理學檢查；找異常而非背疾病；do no harm</td></tr>
+            <tr><td>BCS</td><td>1–5；腰椎棘突、橫突、背最長肌、脂肪</td></tr>
+            <tr><td>下巴腫</td><td>下頜水腫（低蛋白、寄生蟲）、淋巴結、甲狀腺腫（缺碘）、唾液腺膿瘍；幼羊胸腺</td></tr>
+            <tr><td>眼</td><td>貧血 → FAMACHA；黃疸 → 肝病、溶血、銅中毒；紅眼病病原；脫水</td></tr>
+            <tr><td>口腔氣味</td><td>酸敗乳味 → 腭裂；甜味 → 酮酸中毒</td></tr>
+            <tr><td>TPR 與聽診</td><td>綿羊 39–40°C、山羊 38–40°C；心在 4–5 肋；肺 5–11 肋；反覆咳嗽異常；鼻竇濁音</td></tr>
+            <tr><td>腹部分區</td><td>左瘤胃 1–2 次/分；右上腸道；右下皺胃與子宮；全面性：肝心寄生蟲</td></tr>
+            <tr><td>蹄</td><td>腐蹄（傳染、土壤）；趾間皮膚炎為前驅</td></tr>
+            <tr><td>體液</td><td>ICF 40%、ECF 20%（血管內 5%、組織間 15%）</td></tr>
+            <tr><td>鈉與脫水型態</td><td>低鈉＝低張（慢性）；高鈉＝高張；不變＝等張（急性下痢、出汗）</td></tr>
+            <tr><td>碳酸氫鹽計算</td><td>BD × BW × 0.6（新生）／0.3（成體）</td></tr>
+            <tr><td>AG</td><td>Na＋K−Cl−HCO₃，12–16；高 AG：乳酸、酮酸、尿毒</td></tr>
+            <tr><td>鈣</td><td>6 臥地、4 致死；乳熱低鈣低磷正常鎂；山羊分娩、綿羊產前 1 月；草痙攣低鎂</td></tr>
+            <tr><td>山羊血液</td><td>RBC 小、易溶血、誤判血小板、禁真空管、EDTA；壓力白血球像無左移；6–8 月齡後淋巴球為主</td></tr>
+            <tr><td>生化</td><td>血糖 50–75；BUN 瘤胃回收；肌酸酐可靠、尿腹 1.5–2 倍；75% 腎功能喪失才氮血症；ALT 低、GGT 肝專一；初乳 GGT</td></tr>
+            <tr><td>乳酸</td><td>L（哺乳類）vs D（微生物，仔牛下痢）；高乳酸：穀物過食、休克</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">16</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 依余老師講義，成年山羊的直腸溫度範圍為？</div>
+        <ul class="quiz-options"><li>(A) 36–37°C</li><li>(B) 38–40°C</li><li>(C) 40–42°C</li><li>(D) 37–38°C</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=13">p.13</a> 表：山羊 38–40°C（100.5–103.5°F）、綿羊 39–40°C。Kao 老師講義寫 38.5–39.5°C，注意出題老師。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 一頭山羊早上下巴下方明顯水腫（瓶頸），結膜蒼白。最優先懷疑？</div>
+        <ul class="quiz-options"><li>(A) 甲狀腺腫</li><li>(B) 捻轉胃蟲造成的貧血與低蛋白血症</li><li>(C) 唾液腺膿瘍</li><li>(D) 胸腺增大</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=7">p.7</a>：下頜水腫 → 低蛋白血症 → 寄生蟲；<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=9">p.9</a>：貧血 → FAMACHA。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 依 FAMACHA 系統，下列哪些分數的羊一般不需要驅蟲？（補充）</div>
+        <ul class="quiz-options"><li>(A) 1、2</li><li>(B) 3、4</li><li>(C) 4、5</li><li>(D) 全部都要驅蟲</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">1（櫻桃紅）、2 不驅蟲；4、5 驅蟲；3 依羊群狀況與個體（小羊、懷孕泌乳、BCS 差）決定。選擇性驅蟲可減少抗藥性。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 綿羊眼結膜出現黃疸，講義列的鑑別<strong>不包括</strong>？</div>
+        <ul class="quiz-options"><li>(A) 肝病</li><li>(B) 溶血事件</li><li>(C) 銅中毒</li><li>(D) 缺碘</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=9">p.9</a>。缺碘造成甲狀腺腫（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=8">p.8</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q5. 新生小羊口中有酸敗乳味，要想到腭裂；成羊呼氣有甜味，要想到酮酸中毒。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=11">p.11</a>。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 依講義，羊瘤胃在左腰旁窩聽診的正常收縮次數為？</div>
+        <ul class="quiz-options"><li>(A) 1–2 次／分鐘</li><li>(B) 10–12 次／分鐘</li><li>(C) 1 次／5 分鐘</li><li>(D) 不會收縮</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=16">p.16</a>。牛的講義是 3–5 次／2 分鐘。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 一頭 30 kg 的成年山羊，血氣分析鹼缺乏為 12 mEq/L，依講義需補多少碳酸氫鹽？</div>
+        <ul class="quiz-options"><li>(A) 108 mEq</li><li>(B) 216 mEq</li><li>(C) 360 mEq</li><li>(D) 36 mEq</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">成體係數 0.3：12 × 30 × 0.3 ＝ 108 mEq。(B) 誤用新生係數 0.6。8.4% NaHCO₃ 為 1 mEq/mL → 108 mL（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 一頭山羊 Na 140、K 5、Cl 95、HCO₃⁻ 15 mEq/L，AG 為？代表？</div>
+        <ul class="quiz-options"><li>(A) 35，AG 升高，可能乳酸或酮酸中毒</li><li>(B) 15，正常</li><li>(C) 5，AG 降低</li><li>(D) 55，正常</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">140 ＋ 5 − 95 − 15 ＝ 35，高於 12–16 → 未測量陰離子增加：乳酸（穀物過食、休克）、酮酸、尿毒（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=36">p.36–37</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 關於山羊採血與血球計數，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 紅血球大，不易溶血</li><li>(B) 應用真空採血管以減少凝血</li><li>(C) 紅血球很小、易溶血，儀器可能誤判為血小板，應避免真空採血管、用 EDTA 管</li><li>(D) 不需要看血液抹片</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=40">p.40</a>；山羊 MCV 15–26 fL（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=41">p.41</a> 表）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 反芻獸的肝臟專一酵素為？</div>
+        <ul class="quiz-options"><li>(A) ALT</li><li>(B) CK</li><li>(C) GGT</li><li>(D) LDH</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=50">p.50</a>：ALT 在反芻獸很低；AST、LDH、CK 用來區分肌肉與肝；GGT 肝專一（另有腎與初乳來源）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q11. 反芻獸的 BUN 會在功能性瘤胃中被回收，因此對腎病的診斷價值較低。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=49">p.49</a>；要配合肌酸酐（不受代謝影響）與尿比重。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q12. 依講義，綿羊的乳熱通常發生在？</div>
+        <ul class="quiz-options"><li>(A) 分娩後 3 天</li><li>(B) 產前 1 個月</li><li>(C) 離乳時</li><li>(D) 泌乳高峰</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/羊理學檢查.pdf#page=39">p.39</a>：山羊在分娩時；綿羊在產前 1 個月；低血鈣、低血磷、血鎂正常。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q13. 什麼是壓力白血球像？反芻獸的嗜中性球與淋巴球比例隨年齡如何變化？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">壓力白血球像：嗜中性球增多、淋巴球減少、嗜酸性球減少，沒有左移（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=43">p.43</a>）。幼齡以嗜中性球為主；6–8 月齡後淋巴球多於嗜中性球（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=45">p.45</a>）；3 歲以上山羊 N:L 約 1:1 或 3:2（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=43">p.43</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一頭 1 歲去勢公山羊，平時吃大量精料，今天一直蹲著用力、甩尾、只滴幾滴尿；腹部逐漸膨大。請問：(1) 依講義檢查哪裡、怎麼保定？(2) 最可能的診斷與阻塞位置（補充）？(3) 若懷疑膀胱破裂，腹水與血清的肌酸酐比值？(4) 預防（補充）？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 檢查包皮與陰莖，讓羊側躺或坐立把陰莖推出（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=17">p.17</a>）。<br><strong>(2)</strong> 尿結石；去勢公羊尿道細，常卡在尿道突或 S 狀彎曲（補充，UMD Extension）。<br><strong>(3)</strong> 尿腹：腹水肌酸酐為血清的 1.5–2 倍（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=49">p.49</a>）。<br><strong>(4)</strong> 日糧 Ca:P 2:1、減少精料與磷、充足飲水、氯化銨酸化尿液（補充）。Do no harm：先處理阻塞（切除尿道突），不要先給大量輸液。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q15.【臨床情境】一群綿羊吃的是附近乳牛場送來的剩餘精料，某天運輸到新牧場後，一頭母羊突然沉鬱臥地、尿液呈深紅色、結膜黃染。血液抹片可見 Heinz body 與溶血。請問：(1) 最可能的診斷？(2) 為什麼在運輸後發作？(3) 講義列的其他溶血毒素？(4) 採血時要注意什麼？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 慢性銅中毒的溶血危象（綿羊最敏感；牛飼料銅含量對綿羊過高）（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=41">p.41</a>；補充 MSD）。<br><strong>(2)</strong> 緊迫（運輸）讓肝臟累積的銅大量釋出（補充 MSD）。<br><strong>(3)</strong> 洋蔥、蕨類（Heinz body、氧化傷害）（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=41">p.41</a>）。<br><strong>(4)</strong> 紅血球易溶血，避免真空採血管造成體外溶血干擾判讀，用 EDTA 管並看抹片（<a class="pdf-link" href="pdf/羊理學檢查.pdf#page=40">p.40</a>；山羊特別明顯）。</p></details>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題；標示補充的題目引用 MSD、FAMACHA 與推廣教育資料，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  teacher: '關於余品奐老師',
+  approach: '病史、遠觀與 BCS',
+  head: '頭頸、眼、口、牙',
+  auscult: 'TPR 與聽診叩診',
+  gi: '腸胃與泌尿生殖',
+  msk: '蹄、關節、淋巴、乳房',
+  restraint: '保定與採血',
+  fluid: '體液、電解質與酸鹼',
+  mineral: '鈣、磷、鎂',
+  heme: '血液學',
+  chem: '生化與乳酸',
+  takehome: 'Take home 與比較',
+  guokao: '相關國考題',
+  examdir: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

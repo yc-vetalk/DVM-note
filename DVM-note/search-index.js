@@ -3018,6 +3018,20 @@ const SEARCH_INDEX = [
     snippet: "新生仔豬下痢＝F4、F5、F6、F41；離乳後下痢＝F4 或 F18；水腫病＝F18；尿道感染＝type 1＋P（P＝腎盂腎炎）。F4＝K88、F5＝K99、F6＝987P。"
   },
   {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "vir", sectionName: "豬丹毒、沙門氏菌、滲出性表皮炎、布氏桿菌的毒力因子",
+    keywords: "毒力因子 豬丹毒 neuraminidase 莢膜 SpaA 沙門氏菌 SPI-1 SPI-2 第三型分泌系統 spv ExhA ExhB 滲出性表皮炎 布氏桿菌 urease VirB erythritol",
+    snippet: "只有滲出性表皮炎有毒素（ExhA／B）；沙門氏菌靠 SPI-1／SPI-2（T3SS）；布氏桿菌 VirB 酸性液泡、erythritol 在動物生殖組織；豬丹毒沒有外毒素。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "sal", sectionName: "沙門氏菌：敗血型 vs 腸炎型",
+    keywords: "沙門氏菌 敗血型 腸炎型 Choleraesuis Typhimurium 鈕扣狀潰瘍 副傷寒小節 發紺 紅耳朵 MacConkey 解題",
+    snippet: "敗血型（Choleraesuis）：發紺、脾腫大、肝壞死點、肺炎；腸炎型（Typhimurium）：下痢、結腸鈕扣狀潰瘍。題庫考過的題與解題步驟。"
+  },
+  {
     subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "循環系統",
     url: "總複習/解剖生理學/循環系統.html",
     section: "abstract", sectionName: "重點摘要",
@@ -6884,240 +6898,968 @@ const SEARCH_INDEX = [
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
     url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 乳牛營養 飼養管理 dairy nutrition feeding management",
-    snippet: "必需營養素（水、能量／VFA、蛋白質）、粗料與TMR、乳牛生產醫學導論整理總覽。"
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 乳牛營養 飼養管理 dairy nutrition 前腸發酵 先餵菌再餵牛",
+    snippet: "講義叫「消化生理」，內容是把 反芻動物的前腸發酵（foregut fermentation） 接到 乳牛生產醫學（dairy production medicine） ：牛一生怎麼走、每天要喝多少水、能量與蛋白質怎麼算、牧場怎麼配飼料（TM"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
     url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
-    section: "intro", sectionName: "反芻動物分類與生產醫學導論",
-    keywords: "反芻動物分類 taxonomy ruminant 前腸發酵 foregut fermentation 乳牛生產醫學 dairy production medicine 生產週期 lifecycle",
-    snippet: "牛羊水牛駱駝分類學背景、前腸發酵定義、乳牛生產醫學導論、乳牛生產週期時間軸。"
+    section: "taxonomy", sectionName: "草食動物與反芻動物分類",
+    keywords: "草食動物與反芻動物分類 Herbivores & Taxonomy 草食動物 Herbivores 偶蹄目的三個亞目 牛： Bos taurus 的亞種 水牛 Water buffalo 反芻動物的定義 反芻亞目 Ruminantia 胼足亞目 Tylopoda 豬型亞目 Suina 駱駝 羊駝 Camelidae Bovidae 牛科 洞角科 Bos taurus indicus 瘤牛 原牛 水牛 Bubalus 沼澤水牛 河川水牛 48 50 染色體 Caprinae Ovis Capra 前腸發酵 foregut fermentation 草食動物 herbivores",
+    snippet: "先分清楚「誰是真正的反芻動物」：牛、水牛、綿羊、山羊是；駱駝、羊駝會反芻，但不在反芻亞目。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
     url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
-    section: "water-energy", sectionName: "必需營養素：水與能量（VFA）",
-    keywords: "飲水量公式 water intake DMI VFA volatile fatty acid 乙酸 acetate 丙酸 propionate 丁酸 butyrate 脂肪酸動物 醣類動物 糖質新生 gluconeogenesis 乳脂率",
-    snippet: "每日飲水量公式；VFA乙酸65%/丙酸15%/丁酸10%；反芻動物是脂肪酸動物；結構性碳水提高乙酸比例與乳脂率。"
+    section: "production", sectionName: "乳牛生產醫學",
+    keywords: "乳牛生產醫學 Dairy Production Medicine 為什麼需要生產醫學 酪農業的三大支柱 生產醫學 production medicine herd health 牛群健康 farm-to-table 抗藥性 biosecurity 酪農 三大支柱 遺傳育種",
+    snippet: "牧場獸醫的角色已經從「看病的牛」轉成「讓整群牛不生病、牧場賺錢」。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
     url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
-    section: "protein", sectionName: "必需營養素：蛋白質",
-    keywords: "粗蛋白 CP RDP RUP IIP bypass protein 繞道蛋白 NPN 非蛋白氮 菌體蛋白 NASEM",
-    snippet: "粗蛋白三分類RDP/RUP/IIP，NASEM建議RDP 60-65%、RUP 35-40%；瘤胃菌分解氨合成菌體蛋白。"
+    section: "lifecycle", sectionName: "乳牛的一生",
+    keywords: "乳牛生產週期 Dairy Cattle Production Lifecycle 生產週期（講義 p.23 ） 〈牛媽媽的生活史〉（李國華） 生產週期 lifecycle 初乳 colostrum 代乳 milk replacer 配種 13-15月齡 330-350 kg 懷孕 280天 初產 24-26月齡 575 kg 乾乳 45-60天 公犢 bull calf 牛媽媽的生活史 李國華 犢牛 仔牛 女牛 大女牛 泌乳牛 283天 發情週期 21天",
+    snippet: "把乳牛一生的數字串成一條時間軸：之後講犢牛、配種、乾乳、轉換期，都是在這條線上找位置。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
     url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
-    section: "forage", sectionName: "粗料、精料與TMR",
-    keywords: "粗料 forage 精料 concentrate 禾本科 豆科 苜蓿 TMR total mixed ration 完全混合日糧",
-    snippet: "禾本科與豆科牧草比較、根瘤菌固氮、TMR完全混合日糧定義與五大優點。"
+    section: "water", sectionName: "管理指標與水",
+    keywords: "管理指標、必需營養素與水 Water 乳牛管理的關鍵指標（ p.25 ） 五大必需營養素（ p.26 ） 每日飲水量 DMI 乾物質採食量 必需營養素 飲水量公式 DMI×6+產乳量 熱緊迫 heat stress ad libitum 維生素 A D E 礦物質",
+    snippet: "水排在所有營養素第一位：乾物質採食量（DMI）和產乳量都直接決定飲水需求。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
     url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
-    section: "glossary", sectionName: "雙語詞彙表",
-    keywords: "雙語詞彙表 bilingual glossary 中英對照",
-    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+    section: "energy", sectionName: "能量需求 NEL",
+    keywords: "能量需求 Energy & NE L 能量來源與單位 NRC（2001）泌乳牛營養需求表（ p.32 ） NEL 泌乳淨能 net energy for lactation 0.74 Mcal NRC 2001 代謝蛋白 NDF NFC 中性洗滌纖維 非纖維碳水化合物",
+    snippet: "乳牛的能量用「泌乳淨能」計算：記住 1 kg 乳要 0.74 Mcal，就能估一頭牛每天要吃多少能量。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
     url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
-    section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 乳牛營養 飼養管理",
-    snippet: "六點總複習：VFA比例、乙酸乳脂關聯、蛋白質分類、飲水公式、TMR。"
+    section: "feeds", sectionName: "粗料、精料與牧草",
+    keywords: "飼料分類與牧草 Feeds & Forages 粗料 vs 精料 台灣常用牧草：禾本科 vs 豆科 牧草價格（2026 年 8 月） 粗料 roughage forage 精料 concentrate 禾本科 豆科 苜蓿 alfalfa 百慕達 Bermuda 燕麥 oat 盤固拉 Pangola 梯牧 Timothy 青割玉米 狼尾草 Napier 固氮根瘤菌 rhizobia 牧草價格",
+    snippet: "飼料只分兩大類：纖維高能量低的粗料、碳水或蛋白高纖維低的精料。台灣用的牧草要能分出禾本科與豆科。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "tmr", sectionName: "完全混合日糧 TMR",
+    keywords: "完全混合日糧 Total Mixed Ration (TMR) 定義 五大好處（ p.42–43 ） 牧場 TMR 電腦配方實例（ p.40 ） TMR total mixed ration 完全混合日糧 防挑食 sorting 瘤胃發酵穩定 配方實例 玉米片 啤酒粕 玉米酒粕 副產物",
+    snippet: "TMR 讓牛「每一口都吃到一樣的配方」，這是穩定瘤胃發酵最直接的工具。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "vfa", sectionName: "VFA 與碳水化合物",
+    keywords: "揮發性脂肪酸與碳水化合物 VFA VFA 是主要能量來源 三種 VFA 的角色（補充） 結構性碳水化合物與乳脂率 VFA SCFA 揮發性脂肪酸 乙酸 acetate 65% 丙酸 propionate 15% 丁酸 butyrate 10% 84% 脂肪酸動物 醣類動物 糖質新生 gluconeogenesis 結構性碳水化合物 乳脂率 瘤胃酸中毒 SARA",
+    snippet: "反芻動物吸收的不是葡萄糖，而是瘤胃菌發酵出來的脂肪酸：這是牠和豬最根本的差別。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "protein", sectionName: "蛋白質 RDP／RUP",
+    keywords: "蛋白質 Protein：RDP、RUP、IIP 三種蛋白質分類 RDP 的利用與 NASEM 建議 RDP 的兩種表示法 RDP RUP IIP bypass protein 過瘤胃蛋白 NPN 非蛋白氮 氨 菌體蛋白 NASEM 2021 60-65% 35-40% Satter Roffler 尿素循環 MUN",
+    snippet: "反芻動物的蛋白質要分「給菌吃的」和「直接給牛的」，牛最後吸收的大部分其實是細菌本身。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "compare", sectionName: "比較整理",
+    keywords: "比較整理 Comparison 反芻動物 vs 單胃動物 本章的數字總整理 反芻動物 單胃動物 數字整理",
+    snippet: "本章幾組「二選一」概念放在一起看。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
+    url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "乳牛營養與飼養管理",
     url: "大四上/反芻動物疾病學/week01_乳牛營養與飼養管理.html",
     section: "quiz", sectionName: "練習題",
-    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 乳牛營養",
-    snippet: "涵蓋VFA比例與角色、蛋白質分類、飲水公式的練習題，含臨床情境整合題。"
+    keywords: "練習題 Practice Quiz 練習題 飲水計算 NEL計算",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
     url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 轉換期 transition period 低血鈣 hypocalcemia DCAD",
-    snippet: "乾乳期飼養管理、產後低血鈣症連鎖病變、陰陽離子差（DCAD）預防策略整理總覽。"
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 轉換期 transition period 低血鈣 hypocalcemia 乳熱症 milk fever DCAD 陰陽離子差",
+    snippet: "〈消化生理〉講義的後半段（Contents 第 3、4 項）：泌乳分期 → 乾乳期 管理 → 轉換期（transition period） → 低血鈣症（hypocalcemia, milk fever；乳熱症） → 用 陰陽離子差（die"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
     url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
-    section: "phases", sectionName: "泌乳分期與轉換期定義",
-    keywords: "泌乳分期 lactation phases 轉換期 transition period 乾乳期 dry period",
-    snippet: "轉換期定義為產前21天到產後21天，是代謝病與生殖疾病集中好發的時間窗。"
+    section: "phases", sectionName: "泌乳分期與轉換期",
+    keywords: "泌乳分期與轉換期 Phases of Lactation 泌乳分期（ p.53 ） 轉換期的定義 泌乳分期 phases of lactation far-off close-up fresh cow 轉換前期 轉換後期 產前21天 產後21天 305天",
+    snippet: "先在一條以「分娩＝第 0 天」的時間軸上，把每個階段的名稱與天數對好。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
     url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
-    section: "drymanagement", sectionName: "乾乳期飼養管理",
-    keywords: "乾乳期 far-off close-up 精料適應 DMI下降 瘤胃乳突",
-    snippet: "far-off高纖低能、close-up高能低纖＋精料適應；close-up期DMI下降30-40%。"
+    section: "dry", sectionName: "乾乳期管理",
+    keywords: "乾乳期管理 Dry Period & Dry Cow Management 乾乳期的定義與目標（ p.54 ） Far-off vs Close-up 的飼養原則（ p.56 ） 轉換期日糧營養指引（ p.56 表，Texas A&M AgriLife） Close-up 的困境（ p.57–58 ） 乾乳期 dry period 45-60天 乳腺修復 初乳合成 far-off close-up 高纖低能 高能低纖 4-5 kg 精料 15-16% CP 瘤胃乳突 DMI下降30-40% 負能量平衡 negative energy balance",
+    snippet: "乾乳不是讓牛休息而已：這 45–60 天要修好乳腺、養大胎兒、做好初乳，還要讓瘤胃準備好迎接高精料。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
     url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
     section: "hypocalcemia", sectionName: "低血鈣症",
-    keywords: "低血鈣症 hypocalcemia milk fever 平滑肌功能下降 皺胃移位 displaced abomasum 酮症 ketosis 胎衣滯留 retained placenta 子宮內膜炎 endometritis 產後代謝病",
-    snippet: "低血鈣致平滑肌功能下降，連鎖引發皺胃移位、酮症、胎衣滯留、子宮內膜炎等產後疾病，國考最高頻整合考點。"
+    keywords: "低血鈣症 Hypocalcemia / Milk Fever 講義的定義（ p.59 ） 臨床分期與血鈣切點（補充） 治療（補充） 低血鈣 hypocalcemia 乳熱症 milk fever 產褥麻痺 parturient paresis 臨床型 亞臨床型 葡萄糖酸鈣 calcium gluconate IV 口服鈣丸 bolus SC 心律不整 6.0 mg/dL",
+    snippet: "分娩後鈣的需求突然暴增，牛來不及把骨骼與飲食中的鈣動員出來，就會低血鈣。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
     url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
-    section: "dcad", sectionName: "DCAD 陰陽離子差",
-    keywords: "DCAD dietary cation-anion difference 陰陽離子差 負DCAD 骨鈣動員 鈣恆定",
-    snippet: "DCAD=(Na+K)-(Cl+S)，負DCAD日糧輕度酸化血液刺激骨鈣動員，close-up期預防低血鈣。"
+    section: "syndrome", sectionName: "產後低血鈣症候群",
+    keywords: "產後低血鈣症候群 Postpartum Hypocalcemia Syndrome 連鎖圖（ p.60 ） 產後低血鈣症候群 平滑肌 smooth muscle 皺胃移位 displaced abomasum LDA 酮症 ketosis 胎衣滯留 retained placenta 子宮復舊 子宮內膜炎 endometritis 繁殖表現",
+    snippet: "這一張圖把轉換期幾乎所有的產後病串在一起：源頭是鈣，關鍵字是「平滑肌」。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
     url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
-    section: "glossary", sectionName: "雙語詞彙表",
-    keywords: "雙語詞彙表 bilingual glossary 中英對照",
-    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+    section: "dcad", sectionName: "陰陽離子差 DCAD",
+    keywords: "陰陽離子差 Dietary Cation-Anion Difference (DCAD) 公式與機轉（ p.61 ） 實務目標值（補充） DCAD 計算練習（補充） DCAD dietary cation-anion difference (Na+K)-(Cl+S) mEq 負DCAD 陰離子鹽 anionic salts 血液酸化 骨鈣動員 PTH 尿液pH 6.5 -50 -150 mEq/kg",
+    snippet: "預防低血鈣的關鍵不是在產前多補鈣，而是讓牛在產前就先「打開」骨鈣動員的開關。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
     url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
-    section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 轉換期 低血鈣 DCAD",
-    snippet: "五點總複習：轉換期定義、乾乳期兩階段管理、低血鈣連鎖病變、DCAD公式與機轉。"
+    section: "compare", sectionName: "比較整理",
+    keywords: "比較整理 Comparison 三個時段一覽 不要和「乳熱症」搞混的其他產後倒臥（補充） 產後倒臥 鑑別 低血鎂 閉孔神經麻痺 downer cow",
+    snippet: "把本頁的三個時間段、兩條病變路徑放在一張表裡。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
+    url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 1, weekTitle: "轉換期、低血鈣與DCAD",
     url: "大四上/反芻動物疾病學/week01_轉換期低血鈣與DCAD.html",
     section: "quiz", sectionName: "練習題",
-    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 轉換期 低血鈣 DCAD",
-    snippet: "涵蓋轉換期定義、乾乳期管理、低血鈣連鎖病變、DCAD機轉的練習題，含臨床情境整合題。"
+    keywords: "練習題 Practice Quiz 練習題 DCAD計算 葡萄糖酸鈣劑量",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 臨床檢查 clinical examination",
-    snippet: "反芻動物臨床檢查總覽：胃解剖、問診與檢查順序、BCS/RF評分、生命徵象、觸診。"
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 臨床檢查 clinical examination 理學檢查 physical examination 反芻動物",
+    snippet: "〈臨床檢查與眼科疾病〉講義的前半（ p.1–33 ）：先複習 反芻動物的四個胃 ，再走一遍完整的臨床檢查流程： 病史 → 遠觀 → 體態評分（BCS）與瘤胃充盈評分（RF）→ 體溫、聽診、叩診、衝擊觸診 → 淋巴結與頭頸 → 直腸觸診 。後"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
-    section: "anatomy", sectionName: "四胃解剖",
-    keywords: "四胃解剖 rumen reticulum omasum abomasum 瘤胃 網胃 重瓣胃 皺胃",
-    snippet: "瘤胃、網胃、重瓣胃、皺胃四個胃室位置與構造，配位置圖與組織照片。"
+    section: "stomach", sectionName: "反芻動物的胃",
+    keywords: "反芻動物的胃 The Special Stomach 四個胃室 瘤胃的 pH 與唾液 反芻 Rumination 網胃、瓣胃、皺胃的位置 瘤胃 rumen 網胃 蜂巢胃 reticulum 瓣胃 重瓣胃 omasum 皺胃 abomasum 前胃 foregut 90-120 L pH 6.5-6.8 唾液 saliva pH 8.0-8.5 碳酸鹽 磷酸鹽 130-150 L 反芻 rumination 7小時 fiber mat",
+    snippet: "檢查之前先把四個胃的位置放進腦中：左邊大部分是瘤胃，右邊是皺胃、瓣胃與腸，聽診叩診時才知道自己在聽什麼。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
-    section: "history", sectionName: "病史詢問與檢查順序",
-    keywords: "病史詢問 history taking 標準檢查順序 standard examination order",
-    snippet: "問診checklist與由前而後、由外而內的標準理學檢查順序。"
+    section: "history", sectionName: "病史詢問",
+    keywords: "病史詢問 Obtain the History 主訴要問的資訊（ p.13–14 ） 病史 history 主訴 chief complaint 分娩日 生產參數 疫苗 驅蟲 放牧",
+    snippet: "病史常常比理學檢查更快把範圍縮小：尤其是「上次分娩是哪天」與「最近吃什麼」。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
-    section: "scoring", sectionName: "身體狀況與瘤胃充盈評分",
-    keywords: "BCS body condition score RF score 瘤胃充盈評分 Ferguson決策樹",
-    snippet: "BCS體態評分landmark、Ferguson 1994決策樹、RF瘤胃充盈評分，配臨床照片。"
+    section: "visual", sectionName: "檢查原則與遠觀",
+    keywords: "檢查原則與遠觀 Visual Examination 理學檢查的目的與限制 檢查順序（ p.17 ） 遠觀要看什麼（ p.18 ） 檢查順序 遠觀 observe from a distance 姿勢 posture 步態 gait 行為 behavior",
+    snippet: "牛羊的檢查要有固定順序，而且第一步一定是站遠一點看。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
-    section: "vitals", sectionName: "生命徵象與瘤胃聽診",
-    keywords: "生命徵象 體溫 心跳 呼吸速率 瘤胃蠕動聽診 ping sound LDA RDA 盲腸擴張",
-    snippet: "體溫/心跳/呼吸速率依種類年齡分表、瘤胃聽診頻率、ping音定位LDA/RDA/盲腸鑑別。"
+    section: "bcs", sectionName: "體態評分 BCS",
+    keywords: "體態評分 Body Condition Score (BCS) 評分方式 判斷流程（Ferguson et al., 1994； p.21 ） BCS body condition score 體態評分 1-5 0.25 45度 腸骨翼 hooks 坐骨結 pins 薦腸韌帶 尾根韌帶 腰椎橫突 short ribs V型 U型 Ferguson",
+    snippet: "BCS 是用眼睛估皮下脂肪：先看臀部是 V 還是 U，再往下細分。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
-    section: "palpation", sectionName: "觸診：淋巴結、頭頸、直腸",
-    keywords: "淋巴結觸診 lymph node 頭頸觸診 直腸觸診 rectal palpation",
-    snippet: "六個淋巴結位置圖、頭頸部觸診重點、直腸觸診技巧。"
+    section: "rf", sectionName: "瘤胃充盈評分 RF",
+    keywords: "瘤胃充盈評分 Rumen Fill (RF) Score 評分方式 判斷流程（Schneider et al., 2022； p.24 ） RF rumen fill score 瘤胃充盈評分 左側腰旁窩 paralumbar fossa 一掌寬 Schneider",
+    snippet: "RF 看的是左側腰旁窩凹多深：反映的是過去幾小時有沒有吃、瘤胃有沒有在動。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
-    section: "glossary", sectionName: "雙語詞彙表",
-    keywords: "雙語詞彙表 bilingual glossary 中英對照",
-    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+    section: "vitals", sectionName: "體溫、聽診與叩診",
+    keywords: "體溫、聽診、叩診與衝擊觸診 Physical Examination 採尿（ p.25 ） 生命徵象正常值 瘤胃聽診（ p.27 ） 叩診併聽診 Ping（ p.28 ） 右側衝擊觸診 Ballottement（ p.29 ） 體溫 temperature 心跳 heart rate 呼吸 respiratory rate 犢牛 calf 綿羊 山羊 lamb kid 瘤胃蠕動 3-5次/2分鐘 叩診 聽診 ping LDA RDA 皺胃移位 皺胃扭轉 盲腸 螺旋結腸 衝擊觸診 ballottement sloshing 腹腔積液 採尿 尿液試紙",
+    snippet: "大動物理學檢查的核心：TPR 加上瘤胃蠕動，再用叩診聽診找 ping、衝擊觸診聽水聲。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
-    section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 臨床檢查",
-    snippet: "四胃解剖、問診檢查順序、BCS/RF評分、生命徵象與聽診、觸診重點總複習。"
+    section: "palpation", sectionName: "觸診、頭頸與直腸",
+    keywords: "觸診、頭頸與直腸觸診 Palpation 觸診（ p.32 ） 頭頸部（ p.33 ） 直腸觸診 Rectal palpation 觸診 palpation 淋巴結 腮腺 下頜 咽後 肩前 乳房上 股前 lymph node 腹痛 肢蹄 頭頸 脫水 hydration 口腔 直腸觸診 rectal palpation",
+    snippet: "最後用手摸：淋巴結、腹痛、肢蹄，再到頭頸與直腸。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "compare", sectionName: "數字與比較整理",
+    keywords: "數字與比較整理 Comparison 正常值總表 BCS vs RF 正常值 TPR BCS RF 比較",
+    snippet: "把本頁所有正常值和評分放在一起。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
+    url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物臨床檢查",
     url: "大四上/反芻動物疾病學/week02_臨床檢查.html",
     section: "quiz", sectionName: "練習題",
-    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 臨床檢查",
-    snippet: "涵蓋四胃解剖、評分系統、生命徵象、觸診的練習題，含連結低血鈣症的臨床情境整合題。"
+    keywords: "練習題 Practice Quiz 練習題",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 眼科疾病 diseases of the eye",
-    snippet: "反芻動物眼科疾病總覽：感染/發炎性疾病光譜與眼部腫瘤兩大類。"
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 眼科 ocular disease eye 反芻動物",
+    snippet: "〈臨床檢查與眼科疾病〉講義的後半（ p.34–53 ）：眼科檢查的時機與眼病徵象 → 三種由內到外的發炎（ 眼內炎、全眼球炎、眼眶蜂窩織炎 ）→ 感染性眼炎（牛的 傳染性角結膜炎 IBK 、羊的黴漿菌與披衣菌、會影響眼睛的全身性疾病）→ 眼"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
-    section: "exam", sectionName: "眼科檢查適應症與眼病徵象",
-    keywords: "眼科檢查適應症 眼病徵象 ocular disease signs",
-    snippet: "眼科檢查適應症清單與眼病徵象分類（不對稱、位置改變、分泌物、疼痛、失明等）。"
+    section: "exam", sectionName: "眼科檢查與眼病徵象",
+    keywords: "眼科檢查與眼病徵象 Ophthalmic Examination 什麼時候做眼科檢查（ p.35 ） 眼病的徵象（ p.36 ） 眼病的分類（ p.37 ） 眼科檢查 ophthalmic examination 眼病徵象 exophthalmos 眼球突出 enophthalmos 眼球凹陷 strabismus 斜視 microphthalmia entropion ectropion blepharitis conjunctivitis ptosis",
+    snippet: "什麼時候要做眼科檢查、看到哪些現象代表眼睛有病。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
-    section: "endophthalmitis", sectionName: "眼內炎與全眼球炎",
-    keywords: "眼內炎 endophthalmitis 全眼球炎 panophthalmitis 摘除眼球 enucleation",
-    snippet: "眼內炎與全眼球炎病因、徵象、鑑別與治療，同一病理光譜的兩個嚴重度，配臨床照片。"
+    section: "endopan", sectionName: "眼內炎與全眼球炎",
+    keywords: "眼內炎與全眼球炎 Endophthalmitis & Panophthalmitis 比較表（ p.38–39 ） 眼內炎 endophthalmitis 全眼球炎 panophthalmitis 敗血症 IBK 惡性卡他熱 MCF 結核 眼部超音波 視網膜剝離 眼球摘除 enucleation",
+    snippet: "兩者差在發炎範圍：只在眼球內，還是連眼球周圍一起。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
-    section: "orbitalcellulitis", sectionName: "眼眶蜂窩織炎",
-    keywords: "眼眶蜂窩織炎 orbital cellulitis 急性 慢性",
-    snippet: "急性與慢性眼眶蜂窩織炎徵象、診斷、治療，配臨床照片。"
+    section: "orbital", sectionName: "眼眶蜂窩織炎",
+    keywords: "眼眶蜂窩織炎 Orbital Cellulitis / Inflammation 原因與症狀（ p.40 ） 診斷與治療（ p.41 ） 眼眶蜂窩織炎 orbital cellulitis 溫敷 tid 慢性額竇炎 frontal sinusitis 嗜中性球增多",
+    snippet: "發炎跑到眼眶軟組織：急性看到熱痛腫與眼球突出，慢性要手術引流。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
-    section: "infectious", sectionName: "感染性角結膜炎與其他傳染病",
-    keywords: "IBK pink eye Moraxella bovis 感染性牛角結膜炎 Mycoplasma Chlamydia pecorum 顏面蠅",
-    snippet: "IBK／pink eye病原、徵象、防治；山羊綿羊Mycoplasma/Chlamydia眼病；其他會致眼部徵象的傳染病清單。"
+    section: "infection", sectionName: "感染性眼炎與 IBK",
+    keywords: "感染性眼炎與傳染性牛角結膜炎 Infectious Ocular Diseases & IBK 羊的黴漿菌與披衣菌眼炎（ p.42 ） 會影響眼睛的病毒性與全身性疾病（ p.43 ） 傳染性牛角結膜炎 IBK（ p.44 ） 會造成眼部發炎的細菌（ p.45 ） IBK infectious bovine keratoconjunctivitis 傳染性牛角結膜炎 紅眼病 pink eye Moraxella bovis bovoculi 臉蠅 face fly Musca autumnalis 角膜潰瘍 畏光 眼瞼痙攣 流淚 oxytetracycline tulathromycin Mycoplasma conjunctivae Chlamydia pecorum 披衣菌 黴漿菌 IBR BoHV-1 BVD 藍舌病 PPR scrapie Listeria Histophilus somni Leptospira",
+    snippet: "羊看黴漿菌與披衣菌；牛最重要的是 IBK；另外一長串全身性疾病也會影響眼睛。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
-    section: "neoplasia", sectionName: "眼部腫瘤：OSCC與淋巴肉瘤",
-    keywords: "OSCC ocular squamous cell carcinoma 眼部鱗狀細胞癌 淋巴肉瘤 lymphosarcoma BLV 牛白血病病毒",
-    snippet: "OSCC危險因子、癌前與惡性病變外觀鑑別、治療；淋巴肉瘤與BLV關聯、預後極差，配臨床照片。"
+    section: "oscc", sectionName: "眼部鱗狀上皮細胞癌 OSCC",
+    keywords: "眼部鱗狀上皮細胞癌 Ocular Squamous Cell Carcinoma (OSCC) 眼部腫瘤總論（ p.46 ） OSCC 的重要性與位置（ p.47 ） 危險因子與惡性分期（ p.48 ） 侵犯與轉移（ p.49 ） 病理：良性 vs 惡性（ p.50 ） 治療與復發（ p.51 ） OSCC ocular squamous cell carcinoma 眼部鱗狀上皮細胞癌 角膜緣 limbus 瞬膜 眼瞼 紫外線 UV 無色素 Hereford 角質珠 keratin pearl 基底膜 冷凍治療 cryotherapy 0.5 cm 射頻熱療 復發率 30.4% 42.4% exenteration",
+    snippet: "牛最重要的腫瘤：長在曬得到太陽、沒有色素的眼睛表面，從白色斑塊慢慢變成粉紅色侵犯性腫塊。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
-    section: "glossary", sectionName: "雙語詞彙表",
-    keywords: "雙語詞彙表 bilingual glossary 中英對照",
-    snippet: "本頁核心術語中英對照表，供考前快速複習英文名詞。"
+    section: "lsa", sectionName: "眼眶淋巴肉瘤",
+    keywords: "眼眶淋巴肉瘤 Lymphosarcoma 病因與表現（ p.52 ） 治療、預後與控制（ p.53 ） 淋巴肉瘤 lymphosarcoma BLV bovine leukemia virus 牛白血病 眼眶腫瘤 眼球突出 6個月",
+    snippet: "牛的眼球被往外推出來，第一個要想到的是牛白血病病毒造成的淋巴肉瘤。"
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
-    section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 眼科疾病",
-    snippet: "眼內炎/全眼球炎/眼眶蜂窩織炎光譜、IBK、羊隻眼部感染、OSCC、淋巴肉瘤總複習。"
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Differential Diagnosis 看到眼球突出 OSCC vs 眼眶淋巴肉瘤 牛 vs 羊的感染性眼炎 鑑別 眼球突出 OSCC vs 淋巴肉瘤",
+    snippet: "看到眼球突出、看到眼睛白濁、看到眼睛長東西，各要想到什麼。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
+    url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
+    section: "examdir", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: ""
   },
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 2, weekTitle: "反芻動物眼科疾病",
     url: "大四上/反芻動物疾病學/week02_眼科疾病.html",
     section: "quiz", sectionName: "練習題",
-    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 眼科疾病",
-    snippet: "涵蓋感染/發炎光譜、IBK、OSCC、淋巴肉瘤的練習題，含臨床情境整合題。"
+    keywords: "練習題 Practice Quiz 練習題",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 仔牛疾病 犢牛 neonatal calf diseases 被動免疫轉移失敗 FPT failure of passive transfer",
+    snippet: "新生仔牛的三大塊： 新生期管理 （呼吸性與代謝性 酸中毒 、 初乳管理 ）、 新生期後的感染 （ 腸道 、 呼吸道 、 臍帶與關節 ）、其他（ 皺胃症候群 、 先天缺陷 ）（ p.3 ）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "mortality", sectionName: "發病與死亡概況",
+    keywords: "新生仔牛的發病與死亡 Neonatal Morbidity & Mortality 第一個月最關鍵（ p.2 ） 講義的架構（ p.3 ） 仔牛最常見的死因（ p.16 ） 乳牛仔牛第一個月的主要死因（ p.15 ） 仔牛死亡率 第一個月 66% 死因 慢性下痢 急性下痢 敗血症 消耗症候群",
+    snippet: "先知道仔牛什麼時候死、死於什麼，才知道管理重點放在哪。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "acidosis", sectionName: "酸中毒",
+    keywords: "酸中毒 Acidosis 呼吸性 vs 代謝性（ p.4–6 ） 症狀（ p.7 ） 呼吸性酸中毒 respiratory acidosis 窒息 asphyxia 肺擴張不全 atelectasis 難產 dystocia 表面張力素 surfactant 代謝性酸中毒 metabolic acidosis HCO3 乳酸 lactate 四肢冰冷",
+    snippet: "兩種酸中毒用日齡分：剛出生是「肺沒打開」，幾週大是「拉肚子拉掉鹼」。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "immunity", sectionName: "新生兒免疫與初乳",
+    keywords: "新生兒免疫與初乳 Neonate's Immune System 為什麼出生時沒有抗體（ p.8 ） 初乳成分隨擠乳次數下降（ p.9 ） 吸收窗口很短（ p.10 ） 被動免疫是否成功（ p.11 ） 免疫系統的成熟（ p.12 ） 無γ球蛋白血症 agammaglobulinaemia 上皮絨毛膜胎盤 syndesmochorial 初乳 colostrum IgG 10 mg/mL 48小時 被動免疫 passive immunity NDHEP 易感窗口",
+    snippet: "仔牛一出生血中幾乎沒有抗體，初乳是唯一來源，而腸道吸收抗體的能力只維持很短的時間。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "colostrum", sectionName: "初乳餵飼量",
+    keywords: "初乳餵飼 Colostrum Uptake 達到最佳被動免疫的餵法（ p.13 ） 初乳餵飼 7.5% BW 4小時 150 g IgG 5% 12小時 10-12%",
+    snippet: "記兩個時間點、兩個百分比：4 小時內 7.5%、12 小時內再 5%。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "gi", sectionName: "腸道感染",
+    keywords: "腸道感染 Gastrointestinal Infection 概況（ p.17–20 ） 病原（ p.21 ） 三種代表病原比較（ p.22–25 ） 仔牛下痢 calf diarrhea scours 腸炎 敗血症 發病率20-40% ETEC 產腸毒素性大腸桿菌 enterotoxigenic E. coli 3日齡 沙門氏菌 Salmonella Dublin Typhimurium 隱孢子蟲 Cryptosporidium 輪狀病毒 rotavirus 冠狀病毒 coronavirus 球蟲 coccidia",
+    snippet: "仔牛最主要的死因：先記發病率與死亡率，再用日齡與糞便分出三種代表病原。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "gitx", sectionName: "下痢的治療與管理",
+    keywords: "下痢的治療與管理 Treating & Management in GI Infection 講義處置（ p.26 ） 劑量換算 下痢治療 停乳24小時 乳酸林格氏液 LR 葡萄糖 50 g PO enrofloxacin 2.5 mg/kg IM sid methionine IV 輸液",
+    snippet: "治療目標是維持水分與能量平衡；講義給了具體的藥名、劑量與途徑。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "resp", sectionName: "呼吸道感染",
+    keywords: "呼吸道感染 Respiratory Infection 概況（ p.27–28 ） 病原（ p.29 ） 仔牛肺炎 calf pneumonia 呼吸道感染 Mannheimia haemolytica Mycoplasma bovis Pasteurella multocida RSV BoHV-1 PI-3 BVDV 混齡飼養",
+    snippet: "仔牛第二大死因；危險因子多在「養在哪、怎麼養」。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "umbilical", sectionName: "臍帶與關節感染",
+    keywords: "臍帶與關節感染 Umbilical / Joint Infections 症狀（ p.31 ） 危險因子、後遺症、病原、預防（ p.33–36 ） 臍帶感染 umbilical infection navel ill 臍炎 關節炎 joint ill 敗血性多關節炎 肝膿瘍 臍疝氣 Trueperella pyogenes 臍帶消毒",
+    snippet: "臍帶是新生仔牛直通體內的開口：感染可以只在局部，也可以跑到關節、肝臟、全身。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "abomasal", sectionName: "皺胃症候群",
+    keywords: "皺胃症候群 Abomasal Syndrome 定義（ p.38 ） 誘發因素：管理（ p.39 ） 預防（ p.40 ） 皺胃症候群 abomasal syndrome 皺胃炎 鼓脹 tympany 潰瘍 扭轉 3 L 總固形物 15% 食道溝 esophageal groove 奶瓶 代乳品 水溫",
+    snippet: "餵奶的方式不對，奶在皺胃裡發酵產氣，就會脹氣、潰瘍甚至扭轉。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "congenital", sectionName: "先天缺陷",
+    keywords: "先天缺陷 Congenital Defects 腭裂 Cleft palate（ p.41 ） 屈肌腱攣縮 Flexural deformities（ p.42–43 ） 先天缺陷 腭裂 cleft palate palatoplasty 吸入性肺炎 屈肌腱攣縮 flexural deformity contracted tendons oxytetracycline 6-10 mg/kg IV tenotomy 肌腱切斷 夾板",
+    snippet: "講義舉兩個例子：腭裂與屈肌腱攣縮，後者的治療分輕中重三級。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Comparison 腸道、呼吸道、臍帶感染 依日齡想病 鑑別 日齡 腸道 呼吸道 臍帶",
+    snippet: "把三大感染放在同一張表：發病率、死亡率、危險因子、病原。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 3, weekTitle: "仔牛疾病",
+    url: "大四上/反芻動物疾病學/week03_仔牛疾病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 練習題 初乳計算 劑量換算",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 牛傳染病 腸胃道 bovine infectious disease gastrointestinal 下痢",
+    snippet: "〈Bovine Infectious Disease〉講義第一部分 Gastrointestinal Diseases 的五個病： 牛沙門氏菌症（bovine salmonellosis） 、 牛隱孢子蟲症（bovine cryptospo"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "salmonella", sectionName: "牛沙門氏菌症",
+    keywords: "牛沙門氏菌症 Bovine Salmonellosis 病原與流行病學（ p.4–6 ） 傳播（ p.7 ） 致病機轉與免疫（ p.8 ） 臨床表現（ p.9–10 ） 感染後的結局：三種帶原者（ p.11 ） 病變（ p.12–18 ） 診斷（ p.19 ） 預防與控制（ p.20 ） 沙門氏菌 salmonellosis Salmonella Dublin Typhimurium 人畜共通 帶原者 active symptomless latent carrier SPI T3SS 末端乾性壞疽 terminal dry gangrene 副傷寒肉芽腫 活減毒疫苗 鼠類控制",
+    snippet: "牛最重要的兩個血清型：S. Typhimurium 什麼動物都感染，S. Dublin 專門適應牛、更容易跑到全身。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "crypto", sectionName: "牛隱孢子蟲症",
+    keywords: "牛隱孢子蟲症 Bovine Cryptosporidiosis 病原與流行病學（ p.22–23 ） 密爾沃基事件（ p.24 ） C. parvum 的特性（ p.26 ） 傳播（ p.28 ） 臨床表現（ p.29–30 ） 診斷（ p.31–32 ） 病例（ p.33–36 ） 預防與控制（ p.37 ） 隱孢子蟲 cryptosporidiosis Cryptosporidium parvum 卵囊 oocyst 4-5 μm 抗氯 5-17 卵囊 抗酸染色 acid-fast 密爾沃基 Milwaukee 芥末 人畜共通",
+    snippet: "仔牛下痢最常檢出的病原之一：卵囊小、量少就能感染、氯都殺不死，還會傳給人。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "bvd", sectionName: "BVD 病原與持續感染",
+    keywords: "牛病毒性下痢 Bovine Viral Diarrhea (BVD)：病原、傳播與持續感染 病原（ p.39 ） 流行病學（ p.40 ） 傳播（ p.41 ） 致病機轉與免疫（ p.42 ） 胎兒感染的結果（ p.43–45 ） BVD BVDV bovine viral diarrhea 牛病毒性下痢 Pestivirus Flaviviridae BVDV-1 BVDV-2 HoBi CP NCP cytopathic 持續感染 PI persistently infected 120天 先天缺陷 免疫抑制 E2",
+    snippet: "BVD 的關鍵在「PI 牛」：胎兒早期感染 NCP 株，出生後終生帶毒、排毒，是牛群裡的病毒工廠。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "bvdforms", sectionName: "BVD 的病型",
+    keywords: "BVD 的臨床病型：急性、重度急性、黏膜病 三種出生後的病型（ p.46–48 ） 鑑別：牛瘟與惡性卡他熱（ p.49 ） 急性BVD 重度急性BVD 血小板減少 BVDV-2 黏膜病 mucosal disease MD 100% 牛瘟 惡性卡他熱 MCF 斑馬紋",
+    snippet: "三種病型用「誰感染、哪一型病毒、死亡率」區分。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "bvdcontrol", sectionName: "BVD 的預防與控制",
+    keywords: "BVD 的預防與控制 控制策略（ p.50 ） BVD控制 淘汰PI 耳刻 ear notch MLV 懷孕牛 根除",
+    snippet: "控制 BVD 就是控制 PI 牛：找出來、淘汰、不讓新的進來、保護懷孕母牛。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "wd", sectionName: "牛冬季下痢",
+    keywords: "牛冬季下痢 Winter Dysentery (BCoV) 病原（ p.52 ） 臨床表現（ p.53 ） 預防與控制（ p.54 ） 冬季下痢 winter dysentery 牛冠狀病毒 BCoV coronavirus 出血性下痢 乳量下降 無疫苗",
+    snippet: "成牛突然整群拉血便、乳量掉一週：牛冠狀病毒。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "rota", sectionName: "牛輪狀病毒",
+    keywords: "牛輪狀病毒 Bovine Rotavirus (BRV) 病原（ p.56 ） 致病機轉（ p.57 ） 臨床表現（ p.58–59 ） 控制與預防（ p.60 ） 輪狀病毒 rotavirus BRV Reoviridae 11段 dsRNA A群 絨毛頂端 12-36小時 7-10日齡 疫苗",
+    snippet: "1 月齡內仔牛急性下痢最常見的病原：潛伏期極短、感染小腸絨毛頂端。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Comparison 總表 鑑別 腸胃道 比較",
+    snippet: "五個腸胃道病放在一起比：病原類型、好發年齡、糞便、人畜共通、疫苗。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（一）腸胃道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_腸胃道疾病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 練習題",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 牛呼吸道疾病 BRD bovine respiratory disease 運輸熱 shipping fever",
+    snippet: "〈Bovine Infectious Disease〉講義第二部分 Respiratory Diseases： 牛呼吸道疾病複合症（bovine respiratory disease, BRD） 的定義與病因，接著逐一講病毒（ 牛疱疹病毒"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "brd", sectionName: "BRD 定義與病因",
+    keywords: "牛呼吸道疾病複合症 Bovine Respiratory Disease (BRD) 定義與流行病學（ p.63–64 ） 病因（ p.65 ） BRD shipping fever undifferentiated fever enzootic calf pneumonia 多因子 離乳 運輸 混群 緊迫 Histophilus somni Mycoplasma bovis",
+    snippet: "BRD 不是單一病原，而是緊迫、病毒、細菌三者疊加的結果。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "bhv1", sectionName: "BHV-1／IBR",
+    keywords: "牛疱疹病毒第 1 型 Bovine Herpesvirus-1 (BHV-1／IBR) 病原（ p.66 ） 發病率與死亡率（ p.67 ） 臨床病型（ p.68 ） 呼吸型 IBR 的表現（ p.69 ） 為什麼 BHV-1 會加重肺炎（ p.70 ） 繁殖失敗與流產（ p.71–72 ） 預防與控制（ p.73–74 ） BHV-1 IBR infectious bovine rhinotracheitis 牛傳染性鼻氣管炎 紅鼻 red nose BHV-5 IPV 傳染性膿疱性外陰陰道炎 流產 6-8個月 潛伏 latency DIVA gE 標記疫苗 MLV 71.6%",
+    snippet: "一個病毒、很多病型：呼吸、結膜、生殖、流產、腦炎、乳房炎、新生仔牛全身性感染，還會潛伏。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "brsv", sectionName: "BRSV",
+    keywords: "牛呼吸道融合病毒 Bovine Respiratory Syncytial Virus (BRSV) 病原與流行病學（ p.75–76 ） 致病機轉（ p.77 ） 發病率、死亡率與臨床（ p.78–79 ） 病理（ p.80–82 ） 預防與控制（ p.83 ） BRSV bovine respiratory syncytial virus 呼吸道融合病毒 Pneumoviridae 融合細胞 syncytia IgE 肥大細胞 PRDS 陣發性呼吸窘迫症候群 間質性肺炎 61.9%",
+    snippet: "6 月齡以下仔牛的病毒性肺炎，冷季、再感染常見；少數會變成致命的過敏型呼吸窘迫。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "pi3", sectionName: "BPIV-3",
+    keywords: "牛副流感病毒第 3 型 Bovine Parainfluenza Virus-3 (BPIV-3) 病原（ p.84 ） 致病機轉（ p.85 ） 臨床與病理（ p.86–87 ） BPIV-3 PI-3 parainfluenza 副流感 Respirovirus 肺泡巨噬細胞 支氣管收縮",
+    snippet: "自己通常不嚴重，重要性在於替細菌開門。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "mh", sectionName: "Mannheimia haemolytica",
+    keywords: "Mannheimia haemolytica 病原（ p.88 ） 毒力因子與病變（ p.89–90 ） Mannheimia haemolytica 白血球毒素 leukotoxin RTX 燕麥細胞 oat cells 纖維素性壞死性肺炎 胸膜肺炎 血清型1 梗塞",
+    snippet: "平常住在鼻咽的共生菌，牛一緊迫就往下長，用白血球毒素把肺變成纖維素性壞死。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "pm", sectionName: "Pasteurella multocida",
+    keywords: "Pasteurella multocida 病原與病變（ p.91–92 ） Pasteurella multocida A3 D3 地方性仔牛肺炎 enzootic calf pneumonia",
+    snippet: "和 Mannheimia 同科、病變相似，但沒有白血球毒素，所以血管傷害少、沒有燕麥細胞。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "control", sectionName: "BRD 的控制",
+    keywords: "BRD 的控制與預防 Control & Prevention 減少緊迫（ p.93 ） BRD控制 預先調理 preconditioning arrival processing metaphylaxis 運輸前2-3週疫苗",
+    snippet: "控制 BRD 的核心是減少緊迫，並在緊迫來之前把免疫做好。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Comparison 三種呼吸道病毒 兩種巴斯德氏菌科 鑑別 呼吸道病毒 巴斯德氏菌",
+    snippet: "三個病毒、兩個細菌各放一張表。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（二）呼吸道疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_呼吸道疾病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 練習題",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（三）其他疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_其他疾病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 牛傳染病 其他疾病",
+    snippet: "〈Bovine Infectious Disease〉講義第三部分 Other Diseases： 牛流行熱（bovine ephemeral fever, BEF） 、 牛結節疹（lumpy skin disease, LSD） 、 牛瘟"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（三）其他疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_其他疾病.html",
+    section: "bef", sectionName: "牛流行熱 BEF",
+    keywords: "牛流行熱 Bovine Ephemeral Fever (BEF) 病原與流行病學（ p.96 ） 致病機轉（ p.97 ） 臨床表現（ p.98–100 ） 預防與控制（ p.101 ） 牛流行熱 BEF bovine ephemeral fever 三日熱 three-day sickness Rhabdoviridae Ephemerovirus 庫蠓 Culicoides 蚊 雙相熱 跛行 丙類",
+    snippet: "台灣夏天的牛病：庫蠓與蚊子傳的病毒，燒三天就好，但高產乳牛的乳量損失很大。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（三）其他疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_其他疾病.html",
+    section: "lsd", sectionName: "牛結節疹 LSD",
+    keywords: "牛結節疹 Lumpy Skin Disease (LSD) 病原與流行病學（ p.103–104 ） 臨床表現（ p.105–106 ） 預防與控制（ p.107 ） 台灣 2021 年林口案例（ p.108–109 ） 牛結節疹 LSD lumpy skin disease Capripoxvirus Neethling 會陰 結節 吸血昆蟲 林口 金門 2021 減毒疫苗 甲類 WOAH",
+    snippet: "吸血昆蟲傳播的痘病毒，全身長硬結節；台灣在 2021 年用全島疫苗壓下來。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（三）其他疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_其他疾病.html",
+    section: "rinderpest", sectionName: "牛瘟",
+    keywords: "牛瘟 Rinderpest (Cattle Plague) 重點（ p.111 ） 牛瘟 rinderpest cattle plague Morbillivirus 2011 根除 eradicated 甲類",
+    snippet: "人類根除的第二個病毒病（第一個是天花），但它的臨床樣貌要記得，因為 BVD 黏膜病看起來很像。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（三）其他疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_其他疾病.html",
+    section: "tb", sectionName: "牛結核病",
+    keywords: "牛結核病 Bovine Tuberculosis 病原（ p.113 ） 傳播（ p.114–116 ） 臨床與病理（ p.117–119 ） 診斷與控制（ p.120–121 ） 牛結核 bovine tuberculosis Mycobacterium bovis caprae MTBC 抗酸 肉芽腫 tubercle 乾酪樣壞死 結核菌素試驗 tuberculin PPD SITT CITT 72小時 IFN-γ 生乳 人畜共通",
+    snippet: "慢性、多數沒症狀、人畜共通：要靠結核菌素試驗把帶菌牛找出來。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（三）其他疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_其他疾病.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Comparison 鑑別 比較",
+    snippet: "四個病的病原、傳播與控制一覽。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（三）其他疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_其他疾病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 4, weekTitle: "牛傳染病（三）其他疾病",
+    url: "大四上/反芻動物疾病學/week04_牛傳染病_其他疾病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 練習題",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 羊傳染病 綿羊 山羊 ovine caprine infectious disease",
+    snippet: "六個與綿羊、山羊相關的傳染病： 惡性卡他熱（malignant catarrhal fever, MCF） 、 藍舌病（bluetongue, BT） 、 羊痘與山羊痘（sheeppox & goatpox） 、 山羊關節炎腦炎（capri"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "mcf", sectionName: "惡性卡他熱 MCF",
+    keywords: "惡性卡他熱 Malignant Catarrhal Fever (MCF) 病原（ p.3–6 ） 流行病學與傳播（ p.7–8 ） 致病機轉（ p.9 ） 臨床表現（ p.10–14 ） 病理（ p.15 ） 預防與控制（ p.16 ） 惡性卡他熱 MCF malignant catarrhal fever OvHV-2 AlHV-1 CpHV-2 牛羚 wildebeest Macavirus γ疱疹 保毒宿主 終末宿主 dead-end 頭眼型 head-and-eye 角膜水腫 壞死性血管炎 鹿",
+    snippet: "羊與牛羚帶著病毒沒事，牛、野牛、鹿被傳到就幾乎必死。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "bt", sectionName: "藍舌病",
+    keywords: "藍舌病 Bluetongue (BT) 病原（ p.18 ） 流行病學（ p.21–24 ） 發病率、死亡率與致病機轉（ p.25–26 ） 臨床表現（ p.27 ） 病理（ p.28–30 ） 預防與控制（ p.31 ） 藍舌病 bluetongue BTV Orbivirus Reoviridae 10段dsRNA 29血清型 庫蠓 Culicoides BTV-8 BTV-3 蹄冠炎 coronitis 舌腫 WOAH 台灣血清盛行率 32.7%",
+    snippet: "庫蠓傳的病毒，牛帶著病毒擴增，綿羊才是病得重的那個。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "pox", sectionName: "羊痘與山羊痘",
+    keywords: "羊痘與山羊痘 Sheeppox & Goatpox 病原與經濟損失（ p.33–34 ） 致病與流行病學（ p.35 ） 臨床表現（ p.36–38 ） 病理（ p.39–40 ） 預防與控制（ p.42 ） 羊痘 山羊痘 sheeppox goatpox Capripoxvirus SPPV GTPV 痂皮 羊痘細胞 sheeppox cells 包涵體 環狀免疫 ring vaccination 交叉保護 非疫國 2023 甲類",
+    snippet: "和牛結節疹同屬 Capripoxvirus：高度接觸傳染、痂皮裡病毒能活好幾個月，一種疫苗可以保護三種病。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "cae", sectionName: "山羊關節炎腦炎 CAE",
+    keywords: "山羊關節炎腦炎 Caprine Arthritis Encephalitis (CAE) 病原與流行病學（ p.44–46 ） 傳播（ p.47 ） 致病機轉（ p.48 ） 臨床表現（ p.49–50 ） 病理（ p.51–59 ） 預防與控制（ p.60 ） 山羊關節炎腦炎 CAE CAEV caprine arthritis encephalitis Lentivirus SRLV Maedi-Visna OPP 初乳 巴氏殺菌乳 白質腦脊髓炎 腕關節炎 水囊瘤 硬乳房 間質性肺炎 61.7% 98.5%",
+    snippet: "喝初乳就感染、一輩子帶毒，多數不發病；控制只能從「出生就把小羊帶走」做起。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "qfever", sectionName: "Q 熱",
+    keywords: "Q 熱 Q Fever 概述（ p.62–63 ） 病原（ p.64–65 ） 傳播（ p.66–67 ） 致病機轉（ p.68 ） 臨床表現（ p.69 ） 病理（ p.70–71 ） 診斷（ p.72–73 ） 預防與控制（ p.74 ） Q熱 Q fever Coxiella burnetii 小細胞型 大細胞型 第四類法定傳染病 氣膠 胎盤 10^9 P3 Phase II IgM IFA 心內膜炎 屠宰場熱",
+    snippet: "反芻獸多半沒症狀，但胎盤裡的菌量驚人，而且吸一口氣膠就能讓人生病。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "eae", sectionName: "母羊地方性流產 EAE",
+    keywords: "母羊地方性流產 Enzootic Abortion of Ewes (EAE) 概述與病原（ p.76–77 ） 傳播與流行病學（ p.78–79 ） 致病機轉（ p.80 ） 臨床表現（ p.81 ） 病理（ p.82–84 ） 診斷（ p.85–86 ） 預防與控制（ p.87 ） 母羊地方性流產 EAE enzootic abortion of ewes Chlamydophila abortus Chlamydia 原質體 EB 網狀體 RB 流產胎盤 最後2-3週 長效 oxytetracycline 台灣山羊流產 26.1%",
+    snippet: "潛伏在母羊體內，懷孕時被喚醒，在最後 2–3 週流產；流產的胎盤是最大的傳染源。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "compare", sectionName: "鑑別比較",
+    keywords: "鑑別比較 Comparison 保毒宿主與發病宿主 Q 熱 vs 母羊地方性流產 四個病毒病 保毒宿主 Q熱 vs EAE 流產 鑑別",
+    snippet: "三張表：誰是保毒者、兩個流產病、四個病毒病。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 5, weekTitle: "羊傳染病",
+    url: "大四上/反芻動物疾病學/week05_羊傳染病.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 練習題",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 綿羊 山羊 理學檢查 臨床病理 sheep goat physical examination clinical pathology 余品奐 do no harm",
+    snippet: "前半是 綿羊與山羊的理學檢查 ：病史 → 遠觀 → 體態評分 → 頭頸、眼、口、牙 → 聽診（心、肺、鼻竇、氣管）→ 腸胃、泌尿生殖 → 蹄與關節 → 淋巴結 → 乳房。後半是 臨床病理 ：保定與採血、體液與電解質、酸鹼（鹼缺乏與陰離子間隙"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "teacher", sectionName: "關於余品奐老師",
+    keywords: "關於余品奐老師 經歷與專長（補充） 余品奐 Yu Pin-Huan 臺大 特殊寵物 野生動物 保育醫學 大動物及經濟動物科",
+    snippet: "先認識老師：了解老師的背景，就懂為什麼這堂課把理學檢查和臨床病理放在一起，而且一直強調「do no harm」。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "approach", sectionName: "病史、遠觀與 BCS",
+    keywords: "病史、遠觀與體態評分 Signalment, History, Distance Exam & BCS 動物基本資料與病史（ p.3 ） 遠觀（ p.4 ） 體態評分 BCS（ p.5–6 ） 病史 遠觀 步態 平衡 被毛 BCS 體態評分 腰椎 棘突 橫突 loin eye",
+    snippet: "先問、先看，再動手；羊的 BCS 要摸腰椎，因為長毛會騙人。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "head", sectionName: "頭頸、眼、口、牙",
+    keywords: "頭頸、眼睛、口腔與牙齒 Head & Neck, Eye, Oral Cavity, Teeth 頭頸部（ p.7–8 ） 眼睛（ p.9 ） 口腔與牙齒（ p.10–12 ） 下頜水腫 bottle jaw 瓶頸 低蛋白 寄生蟲 甲狀腺腫 goiter 缺碘 胸腺 milk goiter 唾液腺膿瘍 FAMACHA 貧血 黃疸 銅中毒 紅眼病 Mycoplasma conjunctivae 口蹄疫 藍舌病 腭裂 酮酸中毒 牙齒 估年齡 捻轉胃蟲 Haemonchus",
+    snippet: "頭頸部是羊最容易看出全身問題的地方：下巴腫可能是寄生蟲，眼結膜蒼白是貧血，黃疸可能是銅中毒。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "auscult", sectionName: "TPR 與聽診叩診",
+    keywords: "生命徵象、聽診與叩診 TPR & Auscultation 生命徵象（ p.13 表） 聽診位置（ p.13 ） 鼻竇叩診（ p.14 ） 氣管與喉（ p.15 ） 綿羊 山羊 體溫 心跳 呼吸 TPR 39-40 38-40 小羊 lamb kid 心臟聽診 4-5肋 肺野 5-11肋 鼻竇 叩診 牙根膿瘍 去角 氣管 咳嗽",
+    snippet: "羊的正常值要和牛分開記；山羊的體溫範圍比綿羊寬。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "gi", sectionName: "腸胃與泌尿生殖",
+    keywords: "腸胃道與泌尿生殖道 Gastrointestinal & Urogenital 腹部輪廓與分區（ p.16 ） 泌尿生殖道（ p.17 ） 腹部輪廓 瘤胃 1-2次/分 左腰旁窩 皺胃 懷孕 尿結石 urolithiasis 尿道突 urethral process S狀彎曲 去勢公羊 Ca:P 2:1 氯化銨 包皮 陰囊 外陰",
+    snippet: "從後面看腹部輪廓，就能猜是哪個器官出問題；公羊排尿用力要先想到尿結石。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "msk", sectionName: "蹄、關節、淋巴、乳房",
+    keywords: "肌肉骨骼、淋巴與乳房 Musculoskeletal, Lymphatic & Mammary 蹄的分區與修蹄（ p.18–19 ） 腐蹄病 vs 趾間皮膚炎（ p.19–20 ） 關節（ p.21 ） 淋巴系統（ p.22 ） 乳房（ p.23 ） 腐蹄病 foot rot Dichelobacter nodosus Fusobacterium necrophorum 趾間皮膚炎 foot scald 蹄膿瘍 修蹄 CAE 水囊瘤 hygroma 乾酪樣淋巴結炎 CLA Corynebacterium pseudotuberculosis thin ewe syndrome 乳房檢查",
+    snippet: "羊的跛行大多在蹄；體表膿瘍先想乾酪樣淋巴結炎；乳房要兩側對比。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "restraint", sectionName: "保定與採血",
+    keywords: "保定與採血 Restraint & Blood Collection 保定與採血（ p.25–27 ） 保定 採血 頸靜脈",
+    snippet: "臨床病理的第一步是安全地拿到好的檢體。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "fluid", sectionName: "體液、電解質與酸鹼",
+    keywords: "體液、電解質與酸鹼 Fluid, Electrolyte & Acid–Base 體液分布（ p.28 ） ECF 與 ICF 的平衡（ p.29 ） 脫水與鈉（ p.30–31 ） 鉀與氯（ p.32 ） 酸鹼判讀三步驟（ p.33–34 ） 鹼缺乏與碳酸氫鹽補充（ p.35 ） 陰離子間隙（ p.36–37 ） 體液分布 ICF 40% ECF 20% 脫水 低張 高張 等張 低血鈉 高血鈉 鉀 氯 酸鹼 鹼缺乏 base deficit 碳酸氫鈉 0.6 0.3 陰離子間隙 anion gap AG 12-16 乳酸 酮酸 尿毒",
+    snippet: "脫水幾乎是所有病的共同表現；要補多少水、多少碳酸氫鹽，靠這一節的公式。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "mineral", sectionName: "鈣、磷、鎂",
+    keywords: "鈣、磷、鎂 Calcium, Phosphorus & Magnesium 鈣（ p.38 ） 乳熱與草痙攣（ p.39 ） 低血鈣 6 mg/dL 4 mg/dL 乳熱 parturient paresis 綿羊產前1個月 草痙攣 grass tetany 低血鎂 妊娠毒血症",
+    snippet: "羊的乳熱發生時間和牛不一樣：綿羊在產前一個月。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "heme", sectionName: "血液學",
+    keywords: "血液學 Hematology 山羊紅血球（ p.40 ） 正常值（ p.41 表） 貧血（ p.41–42 ） 白血球（ p.43–46 ） 山羊紅血球 小 溶血 MCV 15-26 EDTA 真空採血管 正常值 貧血 銅 洋蔥 蕨類 Heinz body 壓力白血球像 stress leukogram 淋巴球 嗜中性球 纖維蛋白原 羊駝 銅中毒 gunmetal kidney",
+    snippet: "山羊的紅血球很小、很容易破：採血與機器判讀都要特別注意。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "chem", sectionName: "生化與乳酸",
+    keywords: "生化與乳酸 Chemistry Profile & Lactate 血糖（ p.48 ） 腎指標（ p.49 ） 肝酶（ p.50 ） 蛋白（ p.51 ） 乳酸（ p.52 ） 血糖 50-75 mg/dL 腸毒血症 李斯特菌 妊娠毒血症 BUN 瘤胃回收 肌酸酐 尿腹 uroabdomen 1.5-2倍 尿比重 1.025 ALT GGT AST CK 初乳GGT A/G ratio 低球蛋白 L-乳酸 D-乳酸 瘤胃酸中毒",
+    snippet: "反芻獸的血糖、BUN、ALT 都和犬貓不一樣：照搬犬貓的判讀會誤診。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "takehome", sectionName: "Take home 與比較",
+    keywords: "Take Home Message 與比較整理 羊 vs 牛 vs 犬貓：判讀差異 take home message 羊 vs 牛 vs 犬貓",
+    snippet: "把老師的結語，和本頁最容易考的「羊 vs 牛 vs 犬貓」差異放在一起。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "guokao", sectionName: "相關國考題",
+    keywords: "相關國考題（專技高考獸醫傳染病學） 國考 捻轉胃蟲 腐蹄病 Dichelobacter 山羊關節炎腦炎 乾酪樣淋巴腺炎 Mycoplasma putrefaciens",
+    snippet: "從民國 97–115 年專技高考「獸醫傳染病學」挑出和本講義主題相關的題目，附官方答案與解析。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "examdir", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: ""
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 練習題 碳酸氫鹽計算 陰離子間隙計算",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 乳房結構 泌乳生理 udder lactation 李國華",
+    snippet: "李國華老師乳房炎系列的基礎篇： 乳房的四個系統 、 乳腺泡—乳管—乳頭 的構造、 乳頭管 如何擋住細菌、 乳腺發育 的荷爾蒙，以及 催產素 控制的 排乳反射 與擠乳時機。乳房炎本身見 乳房炎頁 。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "structure", sectionName: "乳房與支持系統",
+    keywords: "乳房的組成與支持系統 Udder & Supporting System 乳房的四大系統（ p.3 ） 支持系統（ p.4–6 ） 乳房四大系統 支持系統 中央懸韌帶 側懸韌帶 乳溝 分房膜 四乳區 前乳房附著 後乳房附著",
+    snippet: "乳房是一個完整的器官：先看它怎麼「掛」在身上，再看裡面怎麼分成四區。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "secretion", sectionName: "分泌與乳管系統",
+    keywords: "分泌系統與乳管系統 Secretory & Duct System 分泌系統（ p.7–9 ） 乳管系統（ p.10 ） 乳腺泡 分泌細胞 肌上皮細胞 乳管 乳腺蓄乳池 400 mL 乳頭腔 30-40 mL 400-500 公斤血液",
+    snippet: "乳汁在乳腺泡裡合成，一路經乳管匯到乳池；每做一公斤乳，要有幾百公斤血流過乳房。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "teat", sectionName: "乳頭與乳頭管",
+    keywords: "乳頭結構與乳頭管 Teat & Teat Canal 乳頭結構（ p.11 ） 乳頭管的兩道防線（ p.12 ） 乳頭管 teat canal 括約肌 sphincter 角質層 keratin 藥浴",
+    snippet: "乳頭管是細菌進入乳房唯一的門，有兩道防線。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "development", sectionName: "乳腺發育",
+    keywords: "乳腺的發育 Mammary Development 各階段的荷爾蒙（ p.13 ） 乳腺組織的生長曲線（ p.14–15 ） 乳腺發育 動情素 生長素 助孕素 泌乳素 腎上腺皮質固醇 乳管生長 乳腺泡 首次懷孕",
+    snippet: "乳管先長、乳腺泡後長，首次懷孕才是爆發期；每一步都有不同的荷爾蒙。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "letdown", sectionName: "排乳反射與擠乳時機",
+    keywords: "泌乳的神經與內分泌調控 Milk Let-down 排乳反射的路徑（ p.16–17 ） 催產素的時間（ p.18–20 ） 泌乳曲線（ p.21 ） 排乳反射 milk let-down 催產素 oxytocin 腦下垂體後葉 鼠蹊部神經 外陰動脈 肌上皮細胞收縮 20-40秒 2-10分鐘 前榨 過搾乳 腎上腺素 泌乳曲線",
+    snippet: "擠乳不是把乳池抽空，而是抓住催產素的那幾分鐘。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: "依講義推測的出題方向與答題重點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 練習題",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 牛乳房炎 bovine mastitis 李國華 360億美元",
+    snippet: "五個部分： 前言 （經濟損失）→ 定義 （乳腺發炎、免疫反應）→ 症狀及原因 （誘因、病原、乳汁變化、體細胞）→ 檢查及治療 （視診觸診、CMT、熱像儀、分類、現場流程、軟膏、各型治療、壞疽性與女牛乳房炎）→ 預防及管理 （傳染性 vs 環"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "intro", sectionName: "前言與定義",
+    keywords: "前言、定義與免疫反應 Introduction & Definition 前言（ p.3 ） 定義（ p.4–5 ） 免疫反應（ p.6–7 ） 乳房炎定義 乳腺發炎 乳頭管 先天免疫 巨噬細胞 TNF IL-8 嗜中性球 ROS Th1 Th2",
+    snippet: "乳房炎就是乳腺發炎，通常是細菌從乳頭管進來。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "cause", sectionName: "發生要因與病原",
+    keywords: "乳房炎的發生要因與病原 Causes & Pathogens 三大要因（ p.8 ） 誘因（ p.9 ） 常見病原與來源（ p.10–11 ） 乳房炎要因 牛 人 環境 誘因 晚秋早春 端午節 過度榨乳 病原菌來源 Staphylococcus aureus Streptococcus agalactiae dysgalactiae uberis coliforms",
+    snippet: "乳房炎是「牛、人、環境」三圈交疊的多因子病。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "signs", sectionName: "症狀、乳汁與體細胞",
+    keywords: "臨床症狀、乳汁變化與體細胞數 Signs, Milk & SCC 臨床症狀（ p.12 ） 亞臨床乳房炎（ p.13 ） 乳汁的變化（ p.14 ） 體細胞數 SCC（ p.15–16 、 p.36 ） 臨床症狀 亞臨床乳房炎 subclinical mastitis SCM 15-40倍 乳汁變化 體細胞數 SCC 20萬 50萬 bulk tank 75萬 40萬 巨噬細胞 嗜中性球 導電度",
+    snippet: "看得到的臨床型只是冰山一角；看不到的要靠體細胞數。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "exam", sectionName: "視診、觸診與乳汁檢查",
+    keywords: "乳房炎檢查：視診、觸診、乳汁檢查 Examination 視診（ p.18 ） 觸診（ p.19–21 ） 乳汁檢查（ p.22–29 ） CMT 原理與判讀（ p.25 、 p.30–34 ） 乳房炎檢查 視診 觸診 過榨乳 乳頭口損傷 pH 6.2-6.7 檢乳杯 strip cup CMT California mastitis test Schalm 界面活性劑 DNA 凝集 判讀表 血乳",
+    snippet: "三種檢查：看乳房、摸乳房、驗乳汁；牧場最常用的是 CMT。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "instrument", sectionName: "熱像儀與自動化 SCC",
+    keywords: "熱像儀、體細胞自動測定與臨床／潛在型的關係 熱像儀（ p.35 ） 體細胞數自動化測定（ p.36–37 ） 臨床型與潛在型的關係（ p.38 ） 熱像儀 thermography 乳房溫度 Fossomatic 體細胞自動測定 臨床型80%由潛在型轉移",
+    snippet: "儀器能幫忙找出看不到的乳房炎；而且大部分臨床型都是從潛在型變來的。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "pathogen", sectionName: "傳染性 vs 環境性",
+    keywords: "細菌性乳房炎的分類與各病原 Contagious vs Environmental 分類（ p.39 ） 各病原（ p.40–46 ） 傳染性乳房炎 contagious 環境性乳房炎 environmental 金黃色葡萄球菌 小膿瘍 盲乳 淘汰 無乳鏈球菌 Mycoplasma bovis 化膿性棒狀桿菌 Trueperella 大腸菌群 內毒素 綠膿桿菌 黴菌性乳房炎 CNS 乾乳期",
+    snippet: "病原住在乳房還是住在環境，決定了它怎麼傳、何時感染、怎麼治。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "workflow", sectionName: "現場流程與軟膏施用",
+    keywords: "現場處理流程、抗生素軟膏施用與採樣 現場處理流程（ p.49 ） 抗生素軟膏施用（ p.50 ） 乳樣採集（ p.51–53 ） 現場處理流程 標記 最後擠乳 廢乳 老病號 抗生素軟膏 intramammary 70-75%酒精 10秒 插入3公分 按摩 藥浴 採樣",
+    snippet: "牧場上發現乳房炎牛之後的標準動作。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "treatment", sectionName: "各型治療方針",
+    keywords: "各類型乳房炎的治療 Treatment 各類型的治療方針（ p.54 ） 臨床型的治療方法（ p.55 ） 依嚴重度分級（ p.56–57 ） 軟膏的頻率、天數與停藥期（ p.58 ） 急性乳房炎與乳房淋水（ p.59–61 ） 治療方針 甚急性 急性 慢性 潛在性 冷濕布 熱濕布 乳房淋水 每天4次擠乳 高張食鹽水 7.2% NaCl 林格氏液 活性碳 內毒素休克 NSAIDs flunixin meloxicam culture-based therapy 選擇性治療 停藥期 cephapirin cefquinome ampicillin cloxacillin",
+    snippet: "依嚴重度選治療：越嚴重越要全身性，越輕越要考慮「不用抗生素」。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "gangrene", sectionName: "壞疽性乳房炎",
+    keywords: "壞疽性乳房炎 Gangrenous Mastitis 原因、症狀與治療（ p.62–63 ） 壞疽性乳房炎 gangrenous mastitis 大腸菌群 紫紅 冷感 咖啡色乳 外陰部動脈注射 切除乳頭 OTC",
+    snippet: "分娩後數日、乳房變紫變冷、擠出氣體與咖啡色乳：這是會要命的乳房炎。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "heifer", sectionName: "女牛乳房炎",
+    keywords: "女牛乳房炎 Heifer Mastitis 原因與症狀（ p.70 ） 女牛乳房炎 heifer mastitis 仔牛互相吸吮 維生素A 產後無乳",
+    snippet: "還沒生產的牛也會得乳房炎，而且可能讓第一胎一開始就沒乳。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "prevent", sectionName: "預防方針與管理",
+    keywords: "乳房炎的預防與管理 Prevention 預防方針（ p.71–72 ） 農傳媒整理的七項（ p.73 ） 傳染性乳房炎的管理（ p.74–76 ） 環境性乳房炎的管理（ p.77–79 ） 乾乳期的重要性（ p.80 ） 乳房炎預防 消滅感染源 抑制傳播 真空壓 一牛一巾 前藥浴 20-30秒 後藥浴 分群擠乳 黴漿菌手套 環境鏈球菌 墊料 乾乳牛治療 J-5疫苗 維生素E 硒 40-50%乾乳期 飼養密度9成 15公斤提早乾乳",
+    snippet: "預防的兩條主線：消滅感染源、抑制傳播；再分傳染性與環境性各自加強。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "taiwan", sectionName: "台灣藥敏資料",
+    keywords: "台灣牧場乳房炎藥物敏感試驗（光泉公司） 光泉 藥物敏感試驗 enrofloxacin ceftiofur amoxicillin polymyxin B 桿菌 Klebsiella Prototheca",
+    snippet: "台灣衛星牧場乳樣的分離菌與「最有效藥物」比例。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "homework", sectionName: "家庭作業",
+    keywords: "家庭作業：牛群乳房炎 20% 怎麼辦？ 家庭作業 100頭 20% 臨床性乳房炎 處置",
+    snippet: "老師的作業（ p.86 ）：泌乳牛 100 頭、臨床性乳房炎發生率 20%，酪農找獸醫解決，你會怎麼處置？以下依講義內容整理一份作答架構（推論）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "guokao", sectionName: "相關國考題",
+    keywords: "相關國考題（專技高考獸醫傳染病學） 國考 CMT 體細胞 接觸傳染性 黴漿菌 CAMP test 無乳鏈球菌 壞疽性乳房炎 E. coli S. aureus 乾乳治療",
+    snippet: "從民國 97–115 年專技高考「獸醫傳染病學」挑出的牛乳房炎題目，附官方答案。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "examdir", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 考試方向 推測",
+    snippet: ""
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 8, weekTitle: "牛乳房炎與預防管理",
+    url: "大四上/反芻動物疾病學/week08_乳房炎與預防管理.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 Practice Quiz 練習題",
+    snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
   },
   {
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",
@@ -9057,6 +9799,62 @@ const SEARCH_INDEX = [
     section: "quotes", sectionName: "原文摘錄與中譯",
     keywords: "原文 摘錄 中譯 Winkler Miller Wiley Laser Therapy in Veterinary Medicine",
     snippet: "書Ch.16關鍵句摘錄與中譯：4–6週改善、無獸醫研究、理想參數未確立、輻照度、總焦耳數、療程、顱內出血禁忌。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "病毒科與核酸類型",
+    url: "國考/專題/病毒科與核酸類型.html",
+    section: "map", sectionName: "怎麼讀病毒名字與核酸",
+    keywords: "病毒科 -viridae 核酸 dsDNA ssDNA 正股 負股 有封套 無封套 分類",
+    snippet: "-viridae＝科、-virus＝屬；(+)ssRNA 可直接翻譯、(−)ssRNA 要先複製；有封套怕脂溶劑。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "病毒科與核酸類型",
+    url: "國考/專題/病毒科與核酸類型.html",
+    section: "dsdna", sectionName: "dsDNA 病毒",
+    keywords: "疱疹病毒 痘病毒 非洲豬瘟 腺病毒 虹彩病毒 Herpesviridae Poxviridae Asfarviridae",
+    snippet: "PRV、PCMV、豬痘、ASFV 與其他動物的 dsDNA 病毒。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "病毒科與核酸類型",
+    url: "國考/專題/病毒科與核酸類型.html",
+    section: "ssdna", sectionName: "ssDNA 病毒",
+    keywords: "細小病毒 環狀病毒 PCV2 PPV Parvoviridae Circoviridae Anelloviridae 雞貧血",
+    snippet: "PPV1、PCV2、犬貓細小、鸚鵡喙羽病、雞貧血病毒（新舊分類）。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "病毒科與核酸類型",
+    url: "國考/專題/病毒科與核酸類型.html",
+    section: "pos", sectionName: "(+)ssRNA 病毒",
+    keywords: "小RNA病毒 黃病毒 冠狀病毒 動脈炎病毒 反轉錄病毒 Picornaviridae Flaviviridae Coronaviridae Arteriviridae Retroviridae",
+    snippet: "FMD、SVD、CSF、JE、HEV、TGE／PED、PRRS、禽白血病等的科別。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "病毒科與核酸類型",
+    url: "國考/專題/病毒科與核酸類型.html",
+    section: "neg", sectionName: "(−)ssRNA 病毒",
+    keywords: "正黏液 副黏液 流感 新城病 犬瘟熱 立百 藍眼病 棒狀病毒 狂犬病 Orthomyxoviridae Paramyxoviridae Rhabdoviridae",
+    snippet: "流感（8 段）與副黏液（不分段：新城病、犬瘟熱、立百、藍眼病）、水疱性口炎、狂犬病。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "病毒科與核酸類型",
+    url: "國考/專題/病毒科與核酸類型.html",
+    section: "dsrna", sectionName: "分段 dsRNA 病毒",
+    keywords: "輪狀病毒 藍舌病 法氏囊病 Sedoreoviridae Reoviridae Birnaviridae",
+    snippet: "輪狀病毒、藍舌病（Sedoreoviridae）、禽呼腸病毒、法氏囊病。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "病毒科與核酸類型",
+    url: "國考/專題/病毒科與核酸類型.html",
+    section: "animal", sectionName: "依動物快速查",
+    keywords: "豬 禽 牛羊 馬 犬貓 魚 病毒病 科",
+    snippet: "從動物找病毒病屬於哪一科。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "病毒科與核酸類型",
+    url: "國考/專題/病毒科與核酸類型.html",
+    section: "confuse", sectionName: "名字很像、容易混淆的對照",
+    keywords: "豬瘟 非洲豬瘟 正黏液 副黏液 Pestivirus Flavivirus 水疱性疾病 冠狀 動脈炎 包涵體 Reoviridae",
+    snippet: "豬瘟 vs 非洲豬瘟、正黏液 vs 副黏液、Pestivirus vs Flavivirus、水疱性疾病四個病毒等。"
   },
   {
     subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",

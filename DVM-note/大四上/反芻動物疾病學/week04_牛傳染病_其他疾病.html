@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>反芻動物疾病學：牛傳染病（三）其他疾病 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">反芻動物疾病學</a><span class="sep">›</span><span class="current">第 4 講・牛傳染病（三）其他疾病</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">牛傳染病（三）其他疾病 Bovine Ephemeral Fever, Lumpy Skin Disease, Rinderpest &amp; Bovine TB</h1>
+      <p class="page-subtitle">牛流行熱（三日熱，蚊與庫蠓傳播，台灣地方性）、牛結節疹（Capripoxvirus，2020–2021 年入侵台灣）、牛瘟（2011 年全球根除）、牛結核病（M. bovis，人畜共通，結核菌素皮膚試驗）</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">反芻動物疾病學（大四上・第4講・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉p.94–122（Chi-Fei Kao，2026.09.29；部分投影片由鄭益謙老師提供）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-23</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/牛傳染病.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">蟲媒病毒</div>
+    <a onclick="showSection('bef')" id="nav-bef"><span class="nav-icon">🦟</span> 牛流行熱 BEF</a>
+    <a onclick="showSection('lsd')" id="nav-lsd"><span class="nav-icon">🟤</span> 牛結節疹 LSD</a>
+    <div class="section-label" style="margin-top:8px;">已根除與慢性病</div>
+    <a onclick="showSection('rinderpest')" id="nav-rinderpest"><span class="nav-icon">🏛️</span> 牛瘟</a>
+    <a onclick="showSection('tb')" id="nav-tb"><span class="nav-icon">🫁</span> 牛結核病</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('compare')" id="nav-compare"><span class="nav-icon">🧩</span> 鑑別比較</a>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">牛的其他傳染病的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>〈Bovine Infectious Disease〉講義第三部分 Other Diseases：<strong>牛流行熱（bovine ephemeral fever, BEF）</strong>、<strong>牛結節疹（lumpy skin disease, LSD）</strong>、<strong>牛瘟（rinderpest）</strong>、<strong>牛結核病（bovine tuberculosis, bovine TB）</strong>。腸胃道與呼吸道見<a href="week04_牛傳染病_腸胃道疾病.html">牛傳染病（一）</a>、<a href="week04_牛傳染病_呼吸道疾病.html">（二）</a>。</dd>
+          <dt>為什麼重要</dt>
+          <dd>這四個病都和<strong>台灣的防疫</strong>直接相關：BEF 在台灣是地方性流行；LSD 2020 年入侵金門、2021 年到台灣本島（新北林口）並全島接種疫苗；牛瘟已全球根除，是鑑別診斷與歷史重點；牛結核是<strong>人畜共通、WOAH 表列</strong>疾病，台灣也有乳牛場案例。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-bef">BEF</a>：<strong>Rhabdoviridae、Ephemerovirus</strong>；<strong>蚊與庫蠓</strong>傳播、<strong>不接觸傳染</strong>；<strong>濕熱季</strong>流行、冬天突然消失；<strong>高發病低死亡</strong>；<strong>6 月齡–2 歲</strong>好發；<strong>公牛、重牛、高產乳牛最嚴重</strong>；<strong>雙相至多相熱 40–42°C</strong>、跛行僵硬、乳量驟降；<strong>3 天恢復（三日熱）</strong>；疫苗保護可達 12 個月。</li>
+              <li><a href="#section-lsd">LSD</a>：<strong>Capripoxvirus（Neethling poxvirus）</strong>；<strong>WOAH 通報疾病</strong>；<strong>吸血節肢動物</strong>傳播；發病率 5–50%、死亡率低；<strong>濕熱夏季</strong>、沿<strong>水道</strong>爆發；潛伏 <strong>2–4 週</strong>；皮膚結節常<strong>先出現在會陰</strong>；恢復 <strong>4–12 週</strong>；疫苗為<strong>凍乾活減毒疫苗</strong>（LSDV、羊痘或山羊痘病毒）。</li>
+              <li><a href="#section-lsd">台灣 LSD</a>：2021 年 4 月新北林口肉牛場；撲殺病牛、移動管制、半徑 3 公里管制；<strong>全島施打減毒疫苗</strong>，約 <strong>1/3</strong> 牛出現較小的全身皮膚結節、乳量下降約一週。</li>
+              <li><a href="#section-rinderpest">牛瘟</a>：<strong>Morbillivirus</strong>；<strong>2011 年 OIE／WOAH 宣布全球根除</strong>；直接或密切接觸傳播；極高發病與死亡（嚴重下痢、脫水）；黏膜糜爛潰瘍與淋巴壞死；臨床上要想到 <strong>BVD 黏膜病</strong>。</li>
+              <li><a href="#section-tb">牛結核</a>：主要 <strong><em>M. bovis</em></strong>（也有 <em>M. caprae</em>、少數 <em>M. tuberculosis</em>）；抗酸、生長慢、細胞內菌；慢性<strong>肉芽腫</strong>；牛間主要<strong>呼吸道</strong>傳播；人可經<strong>未殺菌生乳</strong>感染。</li>
+              <li><a href="#section-tb">牛結核診斷</a>：<strong>結核菌素皮膚試驗</strong>（第 IV 型遲發性過敏、皮內注射 PPD、約 <strong>72 小時</strong>判讀）：<strong>SITT</strong>（牛型 PPD）、<strong>CITT</strong>（牛型＋禽型 PPD 比較）；<strong>IFN-γ 釋放試驗</strong>；死後：組織病理／抗酸染色、PCR、<strong>培養確診</strong>。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>BEF vs BRD</strong>：都會高燒，但 BEF 是蟲媒、非接觸傳染、3 天自癒、以<strong>肌肉僵硬跛行</strong>為特色；BRD 是接觸傳播、以咳嗽與肺炎為主。<strong>LSD 疫苗反應 vs 發病</strong>：接種後約 1/3 牛出現的結節較小，不要誤當成發病。<strong>SITT vs CITT</strong>：CITT 加了禽型 PPD，用來排除環境中非結核分枝桿菌造成的假陽性。<strong>牛瘟 vs BVD 黏膜病</strong>：症狀相似，牛瘟已根除。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>BEF 的病原分類、病媒、季節、好發牛、雙相熱與別名；LSD 病原、傳播、潛伏期、結節位置、疫苗與台灣處置；牛瘟根除年份與病原；牛結核病原、傳播途徑、病變部位、結核菌素試驗原理與判讀時間、SITT 與 CITT 差異。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸；台灣法定動物傳染病分類為補充，出自防檢署與地方動物防疫機關資料；標示「推測」的是依講義強調處推測的出題方向，不是考古題。考試範圍以老師上課為準。圖片為老師講義截圖（部分照片原出處為新聞或文獻）。</p>
+      </div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=94">p.94–122</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BEF -->
+    <div class="section" id="section-bef">
+      <div class="section-head"><div class="section-num">2</div><h2>牛流行熱 Bovine Ephemeral Fever (BEF)</h2></div>
+      <p class="section-desc">台灣夏天的牛病：庫蠓與蚊子傳的病毒，燒三天就好，但高產乳牛的乳量損失很大。</p>
+      <h3>病原與流行病學（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=96">p.96</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>昆蟲傳播、非接觸傳染</strong>的牛病毒病。</li>
+        <li><strong>彈狀病毒科（Rhabdoviridae）、Ephemerovirus 屬</strong>的 BEF 病毒。</li>
+        <li>病媒：<strong>蚊</strong>與<strong>庫蠓（<em>Culicoides</em> biting midges，糠蚊）</strong>。</li>
+        <li><strong>熱帶地區地方性流行（包括台灣</strong>與澳洲大部分地區），延伸到亞熱帶與部分溫帶。</li>
+        <li><strong>濕熱季節</strong>最盛行，<strong>冬天突然消失</strong>。</li>
+        <li><strong>風</strong>與<strong>動物運輸</strong>幫助散播。</li>
+        <li><strong>高發病率、低死亡率</strong>。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：台灣將牛流行熱列為<strong>丙類動物傳染病</strong>（臺中市動物保護防疫處宣導資料）。</p>
+      <h3>致病機轉（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=97">p.97</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>病毒可從<strong>嗜中性球、滑膜細胞、網狀內皮細胞</strong>分離。</li>
+        <li>→ <strong>全身性發炎</strong>：內皮通透性增加、<strong>血管炎</strong>、漿膜腔與<strong>滑膜腔</strong>血栓。</li>
+        <li><strong>6 月齡至 2 歲</strong>較常發病。</li>
+        <li><strong>公牛、體重重的牛、高產乳牛</strong>最嚴重。</li>
+      </ul>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=98">p.98–100</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>突然發生<strong>雙相至多相熱（40–42°C）</strong>、<strong>顫抖</strong>、食慾差。</li>
+        <li><strong>漿液性眼鼻分泌物</strong>、心跳加快、呼吸急促或困難。</li>
+        <li>肌肉症狀：無力、<strong>僵硬、跛行</strong>。</li>
+        <li><strong>乳量驟降</strong>（乳牛場損失可觀）。</li>
+        <li><strong>3 天內恢復</strong> → 別名「<strong>三日熱（3-day sickness）</strong>」。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p099.jpg" alt="高燒、無法站立的牛流行熱病牛（影片截圖），流淚。" loading="lazy"><div class="figure-caption">高燒、無法站立的牛流行熱病牛（影片截圖），流淚。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=99">p.99</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p100.jpg" alt="感染牛流行熱乳牛臨床上呈高熱、大量流涎（左上）；肺間質氣腫（左下）；關節腔內黃色膠凍狀關節周圍液（右）。" loading="lazy"><div class="figure-caption">感染牛流行熱乳牛臨床上呈高熱、大量流涎（左上）；肺間質氣腫（左下）；關節腔內黃色膠凍狀關節周圍液（右）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=100">p.100</a></div></div>
+      </div>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=101">p.101</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>移動限制</strong>與<strong>環境衛生</strong>（減少病媒）。</li>
+        <li><strong>活減毒或不活化疫苗</strong>都能在自然爆發中預防疾病，保護期<strong>最長 12 個月</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p101.jpg" alt="台灣牛流行熱防疫新聞：流行季前為乳牛接種疫苗；右下為疫苗瓶。" loading="lazy"><div class="figure-caption">台灣牛流行熱防疫新聞：流行季前為乳牛接種疫苗；右下為疫苗瓶。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=101">p.101</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充（臨床）：BEF 牛倒臥時可能合併低血鈣，臨床上常同時補鈣與消炎；倒臥不起的大牛要防止續發褥瘡與肌肉損傷。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=95">p.95–101</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- LSD -->
+    <div class="section" id="section-lsd">
+      <div class="section-head"><div class="section-num">3</div><h2>牛結節疹 Lumpy Skin Disease (LSD)</h2></div>
+      <p class="section-desc">吸血昆蟲傳播的痘病毒，全身長硬結節；台灣在 2021 年用全島疫苗壓下來。</p>
+      <h3>病原與流行病學（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=103">p.103–104</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>牛結節疹病毒（又稱 Neethling poxvirus）</strong>，<strong>Capripoxvirus 屬</strong>。</li>
+        <li><strong>WOAH 通報疾病</strong>。</li>
+        <li>經濟影響：<strong>乳量減少</strong>、體況變差、<strong>皮革損傷</strong>、公牛生育力下降、母牛<strong>流產</strong>。</li>
+        <li>傳播：多種<strong>吸血／叮咬節肢動物</strong>，也可能經<strong>接觸</strong>。</li>
+        <li>發病率 <strong>5–50%</strong>；死亡率通常低。</li>
+        <li><strong>濕熱夏季</strong>發生率最高；爆發常<strong>沿著水道</strong>。</li>
+        <li>非洲多數國家地方性流行；<strong>2012 年後擴散到中東與亞洲</strong>；講義圖另標 2025 年義大利、法國、西班牙與 2026 年峇里島。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p104.jpg" alt="LSD 分布（Tuppurainen et al., 2023）：藍點 2006–2013、黃點 2014–2018、紅" loading="lazy"><div class="figure-caption">LSD 分布（Tuppurainen et al., 2023）：藍點 2006–2013、黃點 2014–2018、紅點 2019–2021；老師另標 2025 義法西、2026 峇里島。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=104">p.104</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：台灣將牛結節疹列為<strong>甲類動物傳染病</strong>，防疫政策採撲殺與補償（農業部防檢署資料）。</p>
+      <h3>臨床表現（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=105">p.105–106</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>野外爆發潛伏期通常 <strong>2–4 週</strong>。</li>
+        <li>從不明顯到嚴重：<strong>發燒</strong>、鼻分泌物、流淚、<strong>流涎</strong>。</li>
+        <li><strong>特徵性皮膚結節</strong>，常<strong>先出現在會陰</strong>。</li>
+        <li>恢復通常需 <strong>4–12 週</strong>；懷孕母牛可能<strong>流產</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p106.jpg" alt="越南北部 LSD 病牛（Bich et al., 2023）：A、B 全身廣泛硬結節；C 結膜炎、沉鬱；D 大型壞死結節" loading="lazy"><div class="figure-caption">越南北部 LSD 病牛（Bich et al., 2023）：A、B 全身廣泛硬結節；C 結膜炎、沉鬱；D 大型壞死結節形成的硬痂（sitfast）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=106">p.106</a></div></div>
+      <h3>預防與控制（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=107">p.107</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>控制牛隻移動</strong>。</li>
+        <li><strong>凍乾活減毒疫苗</strong>（以 LSDV、<strong>羊痘病毒</strong>或<strong>山羊痘病毒</strong>為基礎）最常用。</li>
+        <li>非疫區傳入時常見做法：<strong>撲殺病牛與接觸牛</strong>、銷毀受汙染的皮、<strong>對高風險動物接種</strong>。</li>
+        <li>成功控制與根除取決於<strong>早期發現第一例</strong>，接著<strong>迅速大規模接種</strong>。</li>
+      </ul>
+      <h3>台灣 2021 年林口案例（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=108">p.108–109</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>2021 年 4 月中旬<strong>新北市林口肉牛場</strong>發生 LSD。</li>
+        <li>發病場<strong>撲殺病牛、移動管制</strong>；病毒與<strong>金門</strong> LSD 同源。</li>
+        <li>周邊<strong>半徑 3 公里</strong>內養牛場移動管制、加強訪視。</li>
+        <li><strong>全島施打減毒疫苗</strong>、牛場訪視。</li>
+        <li>減毒疫苗施打後約 <strong>1/3 牛出現全身性皮膚結節</strong>，但<strong>比發病牛小</strong>；乳牛<strong>泌乳量下降約一週</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p109.jpg" alt="2021 年 4 月新北林口肉牛場 LSD 處置；照片為疫苗接種後出現的皮膚結節與接種情形（農科院陳世平博士提供，鄭益謙" loading="lazy"><div class="figure-caption">2021 年 4 月新北林口肉牛場 LSD 處置；照片為疫苗接種後出現的皮膚結節與接種情形（農科院陳世平博士提供，鄭益謙老師投影片）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=109">p.109</a></div></div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=102">p.102–109</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- RINDERPEST -->
+    <div class="section" id="section-rinderpest">
+      <div class="section-head"><div class="section-num">4</div><h2>牛瘟 Rinderpest (Cattle Plague)</h2></div>
+      <p class="section-desc">人類根除的第二個病毒病（第一個是天花），但它的臨床樣貌要記得，因為 BVD 黏膜病看起來很像。</p>
+      <h3>重點（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=111">p.111</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>病原：<strong>牛瘟病毒，Morbillivirus 屬</strong>（副黏液病毒科）。</li>
+        <li><strong>2011 年由 OIE／WOAH 宣布全球根除</strong>。</li>
+        <li>傳播需要<strong>直接或密切的間接接觸</strong>。</li>
+        <li>常以<strong>大流行（epizootics）</strong>出現，因嚴重下痢／痢疾與脫水造成<strong>極高發病率與死亡率</strong>。</li>
+        <li>感染<strong>黏膜上皮、單核球與淋巴球</strong> → <strong>黏膜糜爛潰瘍</strong>與<strong>淋巴壞死</strong>。</li>
+        <li>症狀：發燒、厭食、沉鬱、眼鼻分泌物，接著<strong>牙齦、頰黏膜、舌頭壞死病灶</strong>。</li>
+        <li>病牛出現<strong>免疫抑制</strong>，易續發細菌感染；恢復可能要數週。</li>
+        <li>講義提示：「<strong>Think about CD</strong>」——和其他造成口腔糜爛與下痢的病比較（病理比較見<a href="week04_牛傳染病_腸胃道疾病.html#section-bvdforms">BVD 病型頁的牛瘟與惡性卡他熱表</a>）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：台灣將牛瘟列為<strong>甲類動物傳染病</strong>。講義的「CD」推測指要與 BVD 黏膜病等口腔糜爛性疾病鑑別，上課時請確認老師的意思。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=49">p.49</a>、<a class="pdf-link" href="pdf/牛傳染病.pdf#page=110">p.110–111</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- TB -->
+    <div class="section" id="section-tb">
+      <div class="section-head"><div class="section-num">5</div><h2>牛結核病 Bovine Tuberculosis</h2></div>
+      <p class="section-desc">慢性、多數沒症狀、人畜共通：要靠結核菌素試驗把帶菌牛找出來。</p>
+      <h3>病原（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=113">p.113</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>主要為 <strong><em>Mycobacterium bovis</em></strong>，也有 <strong><em>M. caprae</em></strong>，少數 <em>M. tuberculosis</em>。</li>
+        <li>屬<strong>結核分枝桿菌複合群（Mycobacterium tuberculosis complex, MTBC）</strong>；<strong>抗酸性</strong>、<strong>生長緩慢的細胞內菌</strong>。</li>
+        <li><strong>慢性肉芽腫性疾病</strong>。</li>
+        <li>宿主廣：<strong>牛是主要家畜保菌者</strong>；部分國家<strong>野生動物保菌者</strong>很重要。</li>
+        <li><strong>人畜共通</strong>；<strong>WOAH 表列疾病</strong>。</li>
+      </ul>
+      <h3>傳播（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=114">p.114–116</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>對象</th><th>途徑</th></tr></thead>
+          <tbody>
+            <tr><td>牛與牛之間</td><td><strong>主要經呼吸道</strong>；較少經食入</td></tr>
+            <tr><td>其他物種（含人）</td><td>氣膠／直接接觸；<strong>喝未經巴氏殺菌的受汙染生乳</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p114.jpg" alt="WOAH「打破傳播鏈」：牛、野生動物與人之間的結核傳播（One Health）。" loading="lazy"><div class="figure-caption">WOAH「打破傳播鏈」：牛、野生動物與人之間的結核傳播（One Health）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=114">p.114</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p115.jpg" alt="台灣新聞：雲嘉 53 頭乳牛感染結核病，鮮乳安全受關注（2017）。" loading="lazy"><div class="figure-caption">台灣新聞：雲嘉 53 頭乳牛感染結核病，鮮乳安全受關注（2017）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=115">p.115</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p116.jpg" alt="TBhub：犬貓也可感染 M. bovis，多因接觸感染牛、野生動物或喝生乳。" loading="lazy"><div class="figure-caption">TBhub：犬貓也可感染 M. bovis，多因接觸感染牛、野生動物或喝生乳。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=116">p.116</a></div></div>
+      </div>
+      <h3>臨床與病理（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=117">p.117–119</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>臨床</h4><ul>
+          <li>通常<strong>慢性、漸進</strong>；<strong>許多感染牛沒有症狀</strong></li>
+          <li>晚期：<strong>漸進性消瘦</strong>、虛弱、<strong>慢性咳嗽</strong>、<strong>淋巴結腫大</strong>、生產力下降</li>
+        </ul></div>
+        <div class="card"><h4>特徵病變：肉芽腫（結節 tubercle）</h4><ul>
+          <li>好發：<strong>咽後、支氣管、縱膈淋巴結</strong></li>
+          <li>肺：硬、淡黃至白色結節</li>
+          <li><strong>乾酪樣壞死 ± 鈣化</strong></li>
+        </ul></div>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">Think about the transmission route!（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=117">p.117</a>）</div><p>病變集中在<strong>咽後、支氣管、縱膈淋巴結與肺</strong>，正好對應牛之間<strong>主要經呼吸道</strong>傳播；如果是經口（喝乳）感染，病變則多在腸繫膜淋巴結（後半句為補充）。</p></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p118.jpg" alt="晚期結核病牛：明顯消瘦。" loading="lazy"><div class="figure-caption">晚期結核病牛：明顯消瘦。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=118">p.118</a></div></div>
+        <div class="figure"><img src="img/week04_牛傳染病_其他疾病/bot_p119.jpg" alt="多灶至融合的肉芽腫（左上）；典型結核肉芽腫組織：中央乾酪樣壞死、周圍 Langhans 巨細胞、類上皮細胞、鬆散淋巴球，" loading="lazy"><div class="figure-caption">多灶至融合的肉芽腫（左上）；典型結核肉芽腫組織：中央乾酪樣壞死、周圍 Langhans 巨細胞、類上皮細胞、鬆散淋巴球，外圍早期纖維化。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛傳染病.pdf#page=119">p.119</a></div></div>
+      </div>
+      <h3>診斷與控制（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=120">p.120–121</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>時機</th><th>方法</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>生前</strong></td><td><strong>結核菌素皮膚試驗</strong></td><td>測<strong>遲發型過敏（第 IV 型）</strong>；<strong>皮內注射 PPD</strong>；約 <strong>72 小時</strong>判讀</td></tr>
+            <tr><td>　• <strong>單一皮內試驗 SITT</strong></td><td>只用<strong>牛型 PPD</strong></td></tr>
+            <tr><td>　• <strong>比較皮內試驗 CITT</strong></td><td><strong>牛型 PPD ＋ 禽型 PPD</strong>，比較兩者反應，區分 MTBC 致敏與<strong>環境中非結核分枝桿菌</strong>致敏</td></tr>
+            <tr><td>生前</td><td><strong>IFN-γ 釋放試驗</strong></td><td>測血液中的<strong>細胞免疫反應</strong>；可<strong>補充</strong>皮膚試驗</td></tr>
+            <tr><td><strong>死後</strong></td><td>組織病理／<strong>抗酸染色</strong>、PCR、<strong>分枝桿菌培養</strong></td><td><strong>培養為確診</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：PPD（purified protein derivative）＝純化蛋白衍生物。CITT 判讀邏輯：牛型反應明顯大於禽型 → 傾向結核；禽型反應較大 → 傾向環境分枝桿菌或副結核等。牛結核在台灣為法定動物傳染病，陽性牛依規定撲殺，分類請以防檢署公告為準。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Bovine Infectious Disease〉<a class="pdf-link" href="pdf/牛傳染病.pdf#page=112">p.112–121</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="section" id="section-compare">
+      <div class="section-head"><div class="section-num">6</div><h2>鑑別比較 Comparison</h2></div>
+      <p class="section-desc">四個病的病原、傳播與控制一覽。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>牛流行熱</th><th>牛結節疹</th><th>牛瘟</th><th>牛結核</th></tr></thead>
+          <tbody>
+            <tr><td>病原</td><td>Rhabdoviridae、Ephemerovirus</td><td>Capripoxvirus（Neethling poxvirus）</td><td>Morbillivirus</td><td><em>M. bovis</em>（MTBC）</td></tr>
+            <tr><td>傳播</td><td>蚊、庫蠓；<strong>非接觸</strong></td><td>吸血節肢動物；可能接觸</td><td>直接或密切接觸</td><td>牛間呼吸道；人經生乳</td></tr>
+            <tr><td>季節／分布</td><td>濕熱季；台灣地方性</td><td>濕熱夏季、沿水道；2012 後擴散到亞洲</td><td>2011 全球根除</td><td>全球；野生動物保菌</td></tr>
+            <tr><td>發病／死亡</td><td>高／低</td><td>5–50%／低</td><td>極高／極高</td><td>慢性，多無症狀</td></tr>
+            <tr><td>特徵</td><td>雙相熱、僵硬跛行、乳量驟降、3 天恢復</td><td>皮膚結節（先會陰）、恢復 4–12 週、流產</td><td>口腔壞死、嚴重下痢、淋巴壞死</td><td>咽後／支氣管／縱膈淋巴結肉芽腫、乾酪樣壞死</td></tr>
+            <tr><td>控制</td><td>移動限制、衛生；活減毒或不活化疫苗（≤ 12 個月）</td><td>移動控制；凍乾活減毒疫苗；撲殺、銷毀皮革</td><td>已根除</td><td>結核菌素試驗、IFN-γ；確診靠培養</td></tr>
+            <tr><td>台灣分類（補充）</td><td>丙類</td><td>甲類</td><td>甲類</td><td>法定傳染病（依公告）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本頁各節整理；台灣分類為補充（防檢署、地方動物防疫機關資料）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">7</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>BEF 病原與病媒</td><td>Rhabdoviridae、Ephemerovirus；蚊、庫蠓；非接觸傳染；濕熱季、冬天消失；風與運輸散播</td></tr>
+            <tr><td>BEF 好發與症狀</td><td>6 月齡–2 歲；公牛、重牛、高產乳牛最嚴重；雙相至多相熱 40–42°C、僵硬跛行、乳量驟降；3 天恢復</td></tr>
+            <tr><td>BEF 機轉</td><td>嗜中性球、滑膜細胞、網狀內皮細胞；血管炎、漿膜與滑膜腔血栓</td></tr>
+            <tr><td>LSD 病原與傳播</td><td>Capripoxvirus（Neethling）；WOAH 通報；吸血節肢動物；濕熱、沿水道；5–50%</td></tr>
+            <tr><td>LSD 臨床與控制</td><td>潛伏 2–4 週；結節先在會陰；恢復 4–12 週、流產；凍乾活減毒疫苗（LSDV、羊痘、山羊痘）；早期發現＋大規模接種</td></tr>
+            <tr><td>台灣 LSD</td><td>2021 年 4 月林口；撲殺、移動管制、3 公里；全島減毒疫苗；1/3 出現較小結節、乳量降一週</td></tr>
+            <tr><td>牛瘟</td><td>Morbillivirus；2011 年根除；黏膜糜爛潰瘍、淋巴壞死、免疫抑制</td></tr>
+            <tr><td>牛結核病原與傳播</td><td>M. bovis（M. caprae、M. tuberculosis）；MTBC；抗酸、慢生長細胞內菌；牛間呼吸道、人經生乳</td></tr>
+            <tr><td>牛結核病變</td><td>肉芽腫；咽後、支氣管、縱膈淋巴結；乾酪樣壞死 ± 鈣化；Langhans 巨細胞</td></tr>
+            <tr><td>結核菌素試驗</td><td>第 IV 型；皮內 PPD；72 小時；SITT（牛型）、CITT（牛型＋禽型）；IFN-γ；死後培養確診</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">8</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 牛流行熱病毒屬於？</div>
+        <ul class="quiz-options"><li>(A) Rhabdoviridae、Ephemerovirus</li><li>(B) Poxviridae、Capripoxvirus</li><li>(C) Paramyxoviridae、Morbillivirus</li><li>(D) Flaviviridae、Pestivirus</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=96">p.96</a>。(B) LSD；(C) 牛瘟；(D) BVDV。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q2. 牛流行熱可經牛與牛直接接觸傳染，所以應隔離病牛避免接觸。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=96">p.96</a>：insect-transmitted, noncontagious；由蚊與庫蠓傳播，控制靠移動限制與環境衛生、疫苗（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=101">p.101</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 依講義，牛流行熱最嚴重的是哪類牛？</div>
+        <ul class="quiz-options"><li>(A) 新生仔牛</li><li>(B) 公牛、體重重的牛與高產乳牛</li><li>(C) 乾乳牛</li><li>(D) 10 歲以上老牛</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=97">p.97</a>；6 月齡至 2 歲較常發病。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 牛結節疹的皮膚結節常最早出現在哪裡？</div>
+        <ul class="quiz-options"><li>(A) 頭頂</li><li>(B) 會陰</li><li>(C) 蹄冠</li><li>(D) 乳頭</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=105">p.105</a>：often initially on the perineum；潛伏期 2–4 週，恢復 4–12 週。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 關於牛結節疹疫苗，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 只有不活化疫苗</li><li>(B) 最常用的是以 LSDV、羊痘或山羊痘病毒為基礎的凍乾活減毒疫苗</li><li>(C) 目前沒有疫苗</li><li>(D) 台灣 2021 年只在發病場接種</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=107">p.107</a>；台灣 2021 年全島施打減毒疫苗（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=109">p.109</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q6. 台灣 2021 年全島接種 LSD 減毒疫苗後，約 1/3 的牛出現全身性皮膚結節，但比發病牛的結節小。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=109">p.109</a>；乳牛泌乳量下降約一週。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 牛瘟在哪一年由 OIE／WOAH 宣布全球根除？</div>
+        <ul class="quiz-options"><li>(A) 1980</li><li>(B) 2001</li><li>(C) 2011</li><li>(D) 2021</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=111">p.111</a>。1980 年是天花根除（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 牛結核病在牛與牛之間的主要傳播途徑與常見病變部位為？</div>
+        <ul class="quiz-options"><li>(A) 經口；腸繫膜淋巴結</li><li>(B) 呼吸道；咽後、支氣管、縱膈淋巴結與肺</li><li>(C) 交配；生殖道</li><li>(D) 吸血昆蟲；皮膚</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=114">p.114</a>、<a class="pdf-link" href="pdf/牛傳染病.pdf#page=117">p.117</a>：Think about the transmission route!</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 比較皮內結核菌素試驗（CITT）加入禽型 PPD 的目的是？</div>
+        <ul class="quiz-options"><li>(A) 提高對 M. bovis 的敏感度</li><li>(B) 區分 MTBC 致敏與環境中非結核分枝桿菌致敏</li><li>(C) 同時檢測禽結核</li><li>(D) 縮短判讀時間</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=120">p.120</a>；皮膚試驗測第 IV 型遲發性過敏，皮內注射 PPD，約 72 小時判讀。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 牛結核的確診方法為？</div>
+        <ul class="quiz-options"><li>(A) SITT 陽性</li><li>(B) IFN-γ 釋放試驗陽性</li><li>(C) 分枝桿菌培養</li><li>(D) 胸腔聽診</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/牛傳染病.pdf#page=121">p.121</a>：Mycobacterial culture → definitive identification。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. 牛流行熱為什麼又叫「三日熱」？請說明其主要臨床症狀。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">病牛通常 3 天內恢復（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=98">p.98</a>）。症狀：突然的雙相至多相熱 40–42°C、顫抖、食慾差、漿液性眼鼻分泌物、心跳加快、呼吸急促或困難、無力、僵硬、跛行、乳量驟降。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q12.【臨床情境】8 月颱風過後，台灣南部一乳牛場多頭高產乳牛同時突發高燒 41.5°C、發抖、四肢僵硬、不願走動，部分倒臥，乳量一天內掉一半；牛舍附近積水，晚上蚊蟲多。多數牛三天後退燒站起。請問：(1) 診斷？(2) 病原與病媒？(3) 為什麼高產乳牛特別嚴重？(4) 明年怎麼預防？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 牛流行熱（三日熱）。<br><strong>(2)</strong> Rhabdoviridae、Ephemerovirus；蚊與庫蠓；濕熱季流行，風與運輸助長散播（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=96">p.96</a>）。<br><strong>(3)</strong> 講義：公牛、重牛、高產乳牛最嚴重（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=97">p.97</a>）；病毒造成血管炎與滑膜腔血栓 → 僵硬跛行。<br><strong>(4)</strong> 流行季前接種活減毒或不活化疫苗（保護最長 12 個月）、移動限制與環境衛生減少病媒（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=101">p.101</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一頭 6 歲乳牛逐漸消瘦、乳量下降、偶有慢性咳嗽，觸診咽後淋巴結腫大。牧場主人家人習慣喝自家生乳。請問：(1) 要懷疑哪一種人畜共通病？(2) 生前怎麼檢測？(3) 若做了 SITT 陽性，為什麼可能需要 CITT？(4) 公共衛生上的提醒？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 牛結核病（<em>M. bovis</em>）：慢性漸進、消瘦、咳嗽、淋巴結腫大（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=117">p.117</a>）。<br><strong>(2)</strong> 結核菌素皮膚試驗（皮內 PPD、72 小時判讀）、IFN-γ 釋放試驗（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=120">p.120</a>）。<br><strong>(3)</strong> SITT 只用牛型 PPD，環境非結核分枝桿菌可造成假陽性；CITT 同時注射禽型 PPD 比較，區分 MTBC 致敏（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=120">p.120</a>）。<br><strong>(4)</strong> 人可經未殺菌生乳感染（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=114">p.114</a>），應停止喝生乳、通報主管機關；確診靠死後培養（<a class="pdf-link" href="pdf/牛傳染病.pdf#page=121">p.121</a>）。</p></details>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  bef: '牛流行熱 BEF',
+  lsd: '牛結節疹 LSD',
+  rinderpest: '牛瘟',
+  tb: '牛結核病',
+  compare: '鑑別比較',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

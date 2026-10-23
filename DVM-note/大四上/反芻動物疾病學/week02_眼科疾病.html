@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>反芻動物眼科疾病 Diseases of the Eye in Ruminants - yc._vetalk</title>
+<title>反芻動物疾病學：反芻動物眼科疾病 - yc._vetalk</title>
 <link rel="stylesheet" href="../../assets/nav.css">
-<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
 </head>
 <body class="ah">
 
@@ -32,13 +52,14 @@
       <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">反芻動物疾病學</a><span class="sep">›</span><span class="current">第 2 週・反芻動物眼科疾病</span>
     </div>
     <div class="page-head">
-      <h1 class="page-title">反芻動物眼科疾病</h1>
-      <p class="page-subtitle">Diseases of the Eye in Ruminants · 眼內炎與全眼球炎、眼眶蜂窩織炎、感染性角結膜炎（IBK／pink eye）、眼部腫瘤（OSCC、淋巴肉瘤）</p>
+      <h1 class="page-title">反芻動物眼科疾病 Diseases of the Eye in Ruminants</h1>
+      <p class="page-subtitle">眼內炎、全眼球炎、眼眶蜂窩織炎的範圍由內而外；感染性眼炎要分牛（IBK／Moraxella bovis）與羊（Mycoplasma、Chlamydia）；腫瘤記兩個：牛最重要的 OSCC 與 BLV 引起的眼眶淋巴肉瘤</p>
     </div>
     <div class="meta-bar">
       <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">反芻動物疾病學（大四上・第2週・課堂）</div></div>
-      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh，國立臺灣大學獸醫專業學院）</div></div>
-      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-29</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《反芻動物疾病學》課程講義〈Diseases of the Eye〉p.34–53（Jui-Chun Hsieh）；補充：MSD Veterinary Manual〈Infectious Keratoconjunctivitis in Cattle and Small Ruminants〉</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-22</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/臨床檢查與眼科疾病.pdf#page=1">在右側開啟講義</a></div></div>
       <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
     </div>
   </div>
@@ -47,416 +68,456 @@
 <div class="pagewrap">
   <nav class="toc">
     <div class="section-label">總覽</div>
-    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
-      <span class="nav-icon">⭐</span> 重點摘要
-    </a>
-    <div class="section-label" style="margin-top:8px;">檢查基礎</div>
-    <a onclick="showSection('exam')" id="nav-exam">
-      <span class="nav-icon">👁️</span> 眼科檢查適應症與眼病徵象
-    </a>
-    <div class="section-label" style="margin-top:8px;">感染／發炎性疾病</div>
-    <a onclick="showSection('endophthalmitis')" id="nav-endophthalmitis">
-      <span class="nav-icon">🔴</span> 眼內炎與全眼球炎
-    </a>
-    <a onclick="showSection('orbitalcellulitis')" id="nav-orbitalcellulitis">
-      <span class="nav-icon">🟠</span> 眼眶蜂窩織炎
-    </a>
-    <a onclick="showSection('infectious')" id="nav-infectious">
-      <span class="nav-icon">🦠</span> 感染性角結膜炎與其他傳染病
-    </a>
-    <div class="section-label" style="margin-top:8px;">腫瘤性疾病</div>
-    <a onclick="showSection('neoplasia')" id="nav-neoplasia">
-      <span class="nav-icon">🎗️</span> 眼部腫瘤：OSCC與淋巴肉瘤
-    </a>
-    <div class="section-label" style="margin-top:8px;">複習</div>
-    <a onclick="showSection('glossary')" id="nav-glossary">
-      <span class="nav-icon">🔤</span> 雙語詞彙表
-    </a>
-    <a onclick="showSection('summary')" id="nav-summary">
-      <span class="nav-icon">⭐</span> 學習重點整理
-    </a>
-    <a onclick="showSection('quiz')" id="nav-quiz">
-      <span class="nav-icon">📝</span> 練習題
-    </a>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">檢查</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">👁️</span> 眼科檢查與眼病徵象</a>
+    <div class="section-label" style="margin-top:8px;">發炎</div>
+    <a onclick="showSection('endopan')" id="nav-endopan"><span class="nav-icon">🔴</span> 眼內炎與全眼球炎</a>
+    <a onclick="showSection('orbital')" id="nav-orbital"><span class="nav-icon">🟠</span> 眼眶蜂窩織炎</a>
+    <a onclick="showSection('infection')" id="nav-infection"><span class="nav-icon">🦠</span> 感染性眼炎與 IBK</a>
+    <div class="section-label" style="margin-top:8px;">腫瘤</div>
+    <a onclick="showSection('oscc')" id="nav-oscc"><span class="nav-icon">🎗️</span> 眼部鱗狀上皮細胞癌 OSCC</a>
+    <a onclick="showSection('lsa')" id="nav-lsa"><span class="nav-icon">🧬</span> 眼眶淋巴肉瘤</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('compare')" id="nav-compare"><span class="nav-icon">🧩</span> 鑑別比較</a>
+    <a onclick="showSection('examdir')" id="nav-examdir"><span class="nav-icon">📝</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
   </nav>
 
   <main class="pagebody" id="mainContent">
 
     <!-- ABSTRACT -->
     <div class="section" id="section-abstract">
-      <div class="section-head"><div class="section-num">1</div><h2>重點摘要</h2></div>
-      <div class="alert alert-success">
-        <div class="alert-label">這堂課在讀什麼？</div>
-        <p>這頁整理反芻動物（主要是牛）最重要的眼科疾病，架構上分成兩大類：<strong>感染／發炎性疾病</strong>（眼內炎→全眼球炎→眼眶蜂窩織炎，這三個其實是同一種病理過程隨嚴重度遞升的連續光譜；再加上多種病原造成的角結膜炎，其中IBK／pink eye是牛最常見的眼科疾病）；以及<strong>腫瘤性疾病</strong>（OSCC是牛最重要的經濟性腫瘤，淋巴肉瘤則是牛眼眶腫瘤最常見病因）。這份講義大量依賴<strong>臨床照片</strong>——很多疾病光看文字描述很難分辨（例如「眼球混濁」到底混濁成什麼樣子），這頁把關鍵照片都放進來，讀的時候建議圖文對照。</p>
-        <div class="grid-4" style="margin-top:14px;">
-          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('exam')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">檢查基礎</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">適應症與徵象清單</p></div>
-          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('endophthalmitis')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">眼內炎系列</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">推測國考高頻</p></div>
-          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('infectious')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">03</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">IBK／Pink Eye</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">牛最常見眼病，推測必考</p></div>
-          <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('neoplasia')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">04</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">OSCC／淋巴肉瘤</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">推測國考高頻</p></div>
-        </div>
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">反芻動物眼科疾病的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>〈臨床檢查與眼科疾病〉講義的後半（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=34">p.34–53</a>）：眼科檢查的時機與眼病徵象 → 三種由內到外的發炎（<strong>眼內炎、全眼球炎、眼眶蜂窩織炎</strong>）→ 感染性眼炎（牛的<strong>傳染性角結膜炎 IBK</strong>、羊的黴漿菌與披衣菌、會影響眼睛的全身性疾病）→ 眼部腫瘤（<strong>眼部鱗狀上皮細胞癌 OSCC</strong>、<strong>淋巴肉瘤</strong>）。</dd>
+          <dt>為什麼重要</dt>
+          <dd><strong>IBK（紅眼病、pink eye）是牛最常見的眼病</strong>，尤其是小牛；<strong>OSCC 是牛經濟上最重要的腫瘤</strong>（屠體廢棄、生產損失、治療費）。很多全身性傳染病（惡性卡他熱、結核、BVD、藍舌病…）也會在眼睛表現，眼睛可以是診斷線索。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-exam">眼病徵象</a>：不對稱、眼球位置（突出、凹陷、斜視）與大小、眼瞼形態、組織量、顏色、分泌物、疼痛、失明。</li>
+              <li><a href="#section-endopan">眼內炎 vs 全眼球炎</a>：眼內炎只在眼球<strong>內部</strong>（內源：敗血症；外源：外傷、IBK），用<strong>眼部超音波</strong>看視網膜剝離；全眼球炎包括<strong>眼球與周圍</strong>，會眼球突出、化膿、全身性疾病。</li>
+              <li><a href="#section-orbital">眼眶蜂窩織炎</a>：眼瞼或結膜外傷後細菌感染，或由眼內炎 → 全眼球炎擴散；急性期熱痛腫脹、眼球突出；溫敷 <strong>tid、每次 5 分鐘</strong>；慢性需手術引流。</li>
+              <li><a href="#section-infection">IBK</a>：<em>Moraxella bovis</em>；<strong>牛最常見眼病（小牛尤其）、通常單眼</strong>；角膜潰瘍或水腫、畏光、眼瞼痙攣、流淚；<strong>控制臉蠅（<em>Musca autumnalis</em>）</strong>。</li>
+              <li><a href="#section-infection">羊的眼炎</a>：<strong>黴漿菌</strong>（<em>M. conjunctivae</em> 等；直接接觸與病媒；另有關節炎、乳房炎）與<strong>披衣菌</strong>（<em>Chlamydia pecorum</em>；直接接觸；另有流產）。</li>
+              <li><a href="#section-oscc">OSCC</a>：牛最具經濟重要性的腫瘤；北美牛最常見腫瘤（≈ 12.5%）；長在<strong>角膜緣、瞬膜、眼瞼、內眼角</strong>；危險因子：<strong>紫外線、無色素、年齡、品種</strong>；冷凍治療限 <strong>&lt; 0.5 cm</strong>；復發率 <strong>30.4–42.4%</strong>。</li>
+              <li><a href="#section-lsa">淋巴肉瘤</a>：<strong>牛白血病病毒（BLV）</strong>；<strong>牛眼眶腫瘤最常見的原因</strong>；表現為<strong>眼球突出</strong>；多在診斷後 <strong>6 個月內</strong>死亡或安樂死；控制靠根除 BLV（血液傳播）。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>眼內炎（endophthalmitis）vs 全眼球炎（panophthalmitis）</strong>：差在有沒有超出眼球，全眼球炎才有眼球突出、眼瞼水腫、眼眶蜂窩織炎。<strong>OSCC vs 淋巴肉瘤</strong>：OSCC 長在眼睛<strong>表面</strong>（角膜緣、瞬膜、眼瞼），淋巴肉瘤長在<strong>眼眶後方</strong>把眼球推出來。<strong>IBK 是牛的病</strong>（<em>Moraxella bovis</em>）；羊的傳染性角結膜炎主要是黴漿菌與披衣菌（講義放在羊的段落）。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>IBK 的病原、好發、症狀、病媒；眼內炎與全眼球炎的定義、原因與治療；眼眶蜂窩織炎的鑑別診斷；羊黴漿菌與披衣菌眼炎的其他症狀；OSCC 的好發位置、危險因子、良惡性病理、治療與復發率；眼眶淋巴肉瘤的病因與預後。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
       </div>
-      <div class="alert alert-info">
-        <div class="alert-label">五個重點（含個人推測的國考熱點）</div>
-        <p style="margin:0 0 8px; font-size:.85em; color:var(--fg-faint);">※ 「推測國考熱點」是我依內容特性（疾病定義明確、有標誌性照片、經濟重要性高）做的個人判斷，<strong>沒有實際核對過歷屆考古題</strong>，僅供參考、不是驗證過的事實。</p>
-        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
-          <li><strong>眼內炎→全眼球炎→眼眶蜂窩織炎是同一光譜的三個嚴重度：</strong>眼內炎（endophthalmitis）侷限在眼球內部；全眼球炎（panophthalmitis）擴及整個眼球與周圍組織；若再擴散到眼眶周邊軟組織，則稱眼眶蜂窩織炎（orbital cellulitis），三者的治療都以<strong>摘除眼球（enucleation）＋全身性抗生素＋NSAID</strong>為核心。</li>
-          <li><strong>IBK（infectious bovine keratoconjunctivitis／pink eye）是牛最常見的眼科疾病，</strong>好發於犢牛、通常單眼發生，病原是<strong>Moraxella bovis</strong>，典型徵象是<strong>角膜潰瘍／水腫、畏光、眼瞼痙攣、流淚</strong>，防治上要控制病媒蒼蠅（<em>Musca autumnalis</em>）。</li>
-          <li><strong>山羊／綿羊的眼部感染要另外考慮Mycoplasma與Chlamydia：</strong>Mycoplasma感染常合併關節炎、乳房炎；Chlamydia pecorum感染則要留意合併流產。</li>
-          <li><strong>OSCC（ocular squamous cell carcinoma）是牛經濟重要性最高的腫瘤，</strong>好發部位是角膜緣、瞬膜與眼瞼、內眥區；危險因子是<strong>紫外線暴露、無色素沉澱（如Hereford白臉牛種）、年齡</strong>；癌前病變與惡性病變在外觀上有明確區別（白色扁平斑塊 vs. 不規則結節狀糜爛）。</li>
-          <li><strong>淋巴肉瘤是牛眼眶腫瘤最常見的病因，</strong>源於牛白血病病毒（BLV）感染，是全身性疾病的局部表現（眼眶只是被侵犯的部位之一），確診後多數牛在6個月內死亡或安樂死，防治重點是<strong>撲滅BLV感染源</strong>而非治療眼睛本身。</li>
-        </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸，IBK 的致病因子、治療藥物等出自 MSD Veterinary Manual；標示「推測」的是依講義強調處推測的出題方向，不是考古題。考試範圍以老師上課為準。圖片為老師講義截圖（部分照片原出處為講義所附網址）。</p>
       </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
-      </footer>
+      <div class="flow">
+        <div class="flow-node">眼內炎<br>眼球內部</div><div class="flow-arrow">→</div>
+        <div class="flow-node">全眼球炎<br>眼球＋周圍</div><div class="flow-arrow">→</div>
+        <div class="flow-node">眼眶蜂窩織炎<br>眼眶軟組織</div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">記法（補充）：發炎「由內往外」擴散，講義也寫「眼內炎 → 全眼球炎」是眼眶蜂窩織炎的原因之一（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=40">p.40</a>）。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Diseases of the Eye〉<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=34">p.34–53</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- EXAM -->
     <div class="section" id="section-exam">
-      <div class="section-head"><div class="section-num">2</div><h2>眼科檢查適應症與眼病徵象</h2></div>
-      <p class="section-desc">在進入個別疾病之前，先建立「什麼時候該做眼科檢查」與「眼病的徵象有哪些類別」這兩份checklist，這是後面每個疾病描述時共用的詞彙庫。</p>
-
-      <h4>眼科檢查的適應症 Indications for Ophthalmic Examination</h4>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-title">臨床主訴相關</div>
-          <ul style="margin:6px 0 0; padding-left:1.1em; font-size:.9em; color:var(--fg-muted); line-height:1.7;">
-            <li>眼睛外觀異常（不對稱或顏色改變）</li>
-            <li>眼部分泌物</li>
-            <li>眼部疼痛</li>
-            <li>視力下降或失明</li>
-            <li>病患表現或行為改變</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="card-title">篩檢／追蹤相關</div>
-          <ul style="margin:6px 0 0; padding-left:1.1em; font-size:.9em; color:var(--fg-muted); line-height:1.7;">
-            <li>購前檢查（prepurchase examination）</li>
-            <li>已診斷眼科疾病的追蹤</li>
-            <li>遺傳性眼科疾病篩檢</li>
-          </ul>
-        </div>
-      </div>
-
-      <h4>眼病的徵象分類 Signs of Ocular Disease</h4>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th style="width:26%;">分類</th><th>具體表現</th></tr></thead>
-          <tbody>
-            <tr><td>眼球／眼周不對稱</td><td>Ocular/periocular asymmetry</td></tr>
-            <tr><td>眼球位置改變</td><td>突眼（exophthalmos）、眼球內陷（enophthalmos）、斜視（strabismus）</td></tr>
-            <tr><td>眼球大小改變</td><td>小眼症（microphthalmia）</td></tr>
-            <tr><td>眼瞼形態改變</td><td>內翻（entropion）、外翻（ectropion）、眼瞼炎（blepharitis）、結膜炎（conjunctivitis）、眼瞼下垂（ptosis）</td></tr>
-            <tr><td>組織體積改變</td><td>腫瘤（neoplasms）</td></tr>
-            <tr><td>顏色改變</td><td>Change in color</td></tr>
-            <tr><td>分泌物</td><td>Discharge</td></tr>
-            <tr><td>疼痛</td><td>Pain</td></tr>
-            <tr><td>失明</td><td>Blindness</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h4>眼科疾病的三大類別</h4>
-      <div class="flow">
-        <div class="flow-node">創傷<br><span style="font-size:.85em; color:var(--fg-faint);">眼球、眼瞼、眼眶</span></div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-node accent">感染性眼科疾病<br><span style="font-size:.85em;">見下方章節</span></div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-node danger">腫瘤<br><span style="font-size:.85em;">見下方章節</span></div>
-      </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
-      </footer>
-    </div>
-
-    <!-- ENDOPHTHALMITIS -->
-    <div class="section" id="section-endophthalmitis">
-      <div class="section-head"><div class="section-num">3</div><h2>眼內炎與全眼球炎<span class="tag tag-exam">重要</span></h2></div>
-      <p class="section-desc">這兩個疾病本質上是同一種病理過程的不同嚴重度——範圍從眼球內部逐漸擴大到整個眼球與周圍組織，放在一起比較記憶效率最高。</p>
-
-      <h4>眼內炎 Endophthalmitis</h4>
-      <p><strong>眼球內部的發炎</strong>，病因分兩類：<strong>內因性（endogenous）</strong>——敗血症（sepsis）經血行擴散；<strong>外因性（exogenous）</strong>——創傷、感染性牛角結膜炎（IBK）續發。徵象：<strong>眼球混濁、視力障礙、眼球脹大或萎縮</strong>。診斷可用<strong>眼部超音波</strong>評估視網膜剝離（retinal detachment）。治療：全身性抗生素、NSAID、局部抗生素藥膏、摘除眼球（enucleation）。</p>
-      <div class="figure">
-        <img src="img/week02_眼科疾病/eye_p38.png" alt="牛眼內炎臨床照片，可見角膜混濁、眼球內部結構模糊" loading="lazy">
-        <div class="figure-caption">眼內炎臨床外觀：角膜與眼球內部明顯混濁（opacity），正常清澈的角膜/前房結構已無法辨識，是眼內炎的典型視診特徵。</div>
-        <div class="figure-source">來源：課程講義引用 reurl.cc/rk00k4</div>
-      </div>
-
-      <h4>全眼球炎 Panophthalmitis</h4>
-      <p><strong>整個眼球與周圍組織的發炎</strong>，病因包括IBK、惡性卡他熱（malignant catarrhal fever，血管損傷機轉）、結核病（tuberculosis，肉芽腫性病灶）、創傷。徵象：<strong>突眼、眼瞼水腫、眼球混濁、化膿、續發眼眶蜂窩織炎、全身性病徵</strong>。治療：摘除眼球、全身性抗生素、NSAID。</p>
-      <div class="figure">
-        <img src="img/week02_眼科疾病/eye_p39.png" alt="牛全眼球炎臨床照片，眼球結構已嚴重破壞、呈現肉芽組織外觀" loading="lazy">
-        <div class="figure-caption">全眼球炎晚期外觀：眼球正常結構已完全破壞，被增生的肉芽組織與滲出物取代，是全眼球炎進展到後期、常見需要摘除眼球處理的典型病例。</div>
-        <div class="figure-source">來源：課程講義引用 reurl.cc/OQ66Dr</div>
-      </div>
-
-      <div class="alert alert-warn">
-        <div class="alert-label">注意</div>
-        <p>眼內炎與全眼球炎的<strong>鑑別關鍵在於病變範圍</strong>：眼內炎侷限在眼球內部（角膜、前房、玻璃體等），眼球外觀輪廓仍可能維持；全眼球炎則已擴及眼球壁與周圍組織，常合併明顯的突眼、眼瞼水腫與全身性病徵。眼內炎若未妥善處理，可能進展為全眼球炎，再進一步擴散則成為下一節的眼眶蜂窩織炎。</p>
-      </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
-      </footer>
-    </div>
-
-    <!-- ORBITAL CELLULITIS -->
-    <div class="section" id="section-orbitalcellulitis">
-      <div class="section-head"><div class="section-num">4</div><h2>眼眶蜂窩織炎 Orbital Cellulitis/Inflammation</h2></div>
-      <p class="section-desc">這是感染／發炎光譜的最外圍——病變已經擴散到眼眶周邊的軟組織。</p>
-
-      <h4>病因</h4>
-      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
-        <li>眼瞼或結膜創傷，續發細菌感染</li>
-        <li>眼內炎→全眼球炎的病程延續與擴散</li>
+      <div class="section-head"><div class="section-num">2</div><h2>眼科檢查與眼病徵象 Ophthalmic Examination</h2></div>
+      <p class="section-desc">什麼時候要做眼科檢查、看到哪些現象代表眼睛有病。</p>
+      <div class="figure"><img src="img/week02_眼科疾病/eye_p034.jpg" alt="〈Diseases of the Eye〉講義封面。" loading="lazy"><div class="figure-caption">〈Diseases of the Eye〉講義封面。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=34">p.34</a></div></div>
+      <h3>什麼時候做眼科檢查（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=35">p.35</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>眼睛外觀異常（<strong>不對稱、顏色改變</strong>）</li>
+        <li>有<strong>眼分泌物</strong>、<strong>眼痛</strong></li>
+        <li><strong>視力下降或失明</strong></li>
+        <li>動物表現或行為改變</li>
+        <li><strong>購買前檢查</strong>（prepurchase examination）</li>
+        <li>已診斷眼病的<strong>追蹤</strong></li>
+        <li><strong>遺傳性眼病</strong>的檢查</li>
       </ul>
-
-      <h4>徵象：急性 vs. 慢性</h4>
+      <h3>眼病的徵象（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=36">p.36</a>）<span class="lv lv-must">必考</span></h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:18%;">病程</th><th>臨床徵象</th></tr></thead>
+          <thead><tr><th>類別</th><th>表現</th></tr></thead>
           <tbody>
-            <tr><td><strong>急性 Acute</strong></td><td>眼眶區域溫熱、疼痛、腫脹，眼瞼與瞬膜受累，結膜水腫，合併不同程度的突眼</td></tr>
-            <tr><td><strong>慢性 Chronic</strong></td><td>局部軟組織化（localized soft-tissue）</td></tr>
+            <tr><td>對稱性</td><td>眼或眼周<strong>不對稱</strong></td></tr>
+            <tr><td>眼球位置</td><td><strong>眼球突出（exophthalmos）</strong>、<strong>眼球凹陷（enophthalmos）</strong>、<strong>斜視（strabismus）</strong></td></tr>
+            <tr><td>眼球大小</td><td><strong>小眼症（microphthalmia）</strong></td></tr>
+            <tr><td>眼瞼形態</td><td><strong>眼瞼內翻（entropion）</strong>、<strong>外翻（ectropion）</strong>、<strong>眼瞼炎（blepharitis）</strong>、<strong>結膜炎（conjunctivitis）</strong>、<strong>眼瞼下垂（ptosis）</strong></td></tr>
+            <tr><td>組織量改變</td><td><strong>腫瘤（neoplasms）</strong></td></tr>
+            <tr><td>其他</td><td>顏色改變、分泌物、疼痛、失明</td></tr>
           </tbody>
         </table>
       </div>
-
-      <div class="figure">
-        <img src="img/week02_眼科疾病/eye_p40.png" alt="牛眼眶蜂窩織炎臨床照片，眼球周圍組織明顯腫脹、眼瞼外翻" loading="lazy">
-        <div class="figure-caption">急性眼眶蜂窩織炎外觀：眼瞼與眼周組織明顯腫脹外翻，眼球被推擠、結構受壓迫變形，可見合併結膜充血水腫。</div>
-        <div class="figure-source">來源：課程講義引用 veteriankey.com/ocular-diseases</div>
-      </div>
-
-      <h4>診斷與治療</h4>
-      <p><strong>診斷：</strong>CBC（血球計數）通常正常或僅輕度嗜中性球增多；<strong>鑑別診斷</strong>需考慮腫瘤、慢性額竇炎（chronic frontal sinusitis）。<strong>治療：</strong>急性期給予全身性廣效抗生素、NSAID、局部抗生素藥膏或潤滑劑，並可搭配眼眶溫敷（每次5分鐘，一日三次）；慢性期則需要外科引流，並合併上述急性期治療。</p>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
-      </footer>
-    </div>
-
-    <!-- INFECTIOUS -->
-    <div class="section" id="section-infectious">
-      <div class="section-head"><div class="section-num">5</div><h2>感染性角結膜炎與其他傳染病<span class="tag tag-exam">重要</span></h2></div>
-      <p class="section-desc">這節分兩部分：山羊／綿羊常見的兩種病原、以及牛最重要的IBK（附帶列出其他會造成眼部徵象的傳染病清單）。</p>
-
-      <h4>山羊與綿羊：Mycoplasma與Chlamydia感染</h4>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th style="width:20%;">病原</th><th>傳播方式</th><th>其他臨床徵象</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Mycoplasma</strong><br>（M. conjunctivae、M. mycoides、M. agalactiae、M. arginini、Acholeplasma oculusi等）</td><td>直接接觸、病媒傳播</td><td>關節炎、乳房炎</td></tr>
-            <tr><td><strong>Chlamydia pecorum</strong></td><td>直接接觸</td><td>流產</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h4>感染性牛角結膜炎 IBK／Pink Eye<span class="tag tag-exam">重要</span></h4>
-      <p><strong>牛最常見的眼科疾病</strong>，尤其好發於<strong>犢牛</strong>，通常只侵犯<strong>單眼</strong>。病原是<strong>Moraxella bovis</strong>。典型徵象：<strong>角膜潰瘍／水腫、畏光（photophobia）、眼瞼痙攣（blepharospasm）、流淚（lacrimation）</strong>。防治重點是控制病媒<strong>顏面蠅（Musca autumnalis）</strong>的傳播。</p>
-      <div class="figure">
-        <img src="img/week02_眼科疾病/eye_p44.png" alt="牛感染性角結膜炎（IBK／pink eye）臨床照片，可見角膜中央白色混濁潰瘍病灶合併周圍血管增生" loading="lazy">
-        <div class="figure-caption">IBK典型外觀：角膜中央可見白色混濁的潰瘍病灶，周圍結膜與角膜緣血管明顯增生充血（呈現「pink eye」得名的粉紅色外觀），是臨床上辨識度最高的牛眼科疾病之一。</div>
-        <div class="figure-source">來源：課程講義〈Diseases of the Eye〉</div>
-      </div>
-
-      <h4>其他會造成眼部徵象的傳染病（清單）</h4>
-      <p>講義以條列方式提及下列疾病可能合併眼部病徵，但未逐一展開詳細機轉，這裡列出病名供辨識，詳細病原學與防治留待各該疾病的專題課程：</p>
+      <h3>眼病的分類（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=37">p.37</a>）<span class="lv lv-know">理解</span></h3>
       <div class="grid-3">
-        <div class="card"><p style="margin:0; font-size:.9em;">感染性牛鼻氣管炎<br><span style="color:var(--fg-faint); font-size:.85em;">感染性牛鼻氣管炎（Infectious Bovine Rhinotracheitis, IBR）（牛皰疹病毒第一型）</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">惡性卡他熱<br><span style="color:var(--fg-faint); font-size:.85em;">Malignant catarrhal fever</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">牛病毒性下痢<br><span style="color:var(--fg-faint); font-size:.85em;">牛病毒性下痢（Bovine Viral Diarrhea, BVD）</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">藍舌病<br><span style="color:var(--fg-faint); font-size:.85em;">Bluetongue</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">牛白血病病毒<br><span style="color:var(--fg-faint); font-size:.85em;">BLV</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">小反芻獸疫<br><span style="color:var(--fg-faint); font-size:.85em;">PPR</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">羊搔癢症<br><span style="color:var(--fg-faint); font-size:.85em;">Scrapie</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">李斯特菌病<br><span style="color:var(--fg-faint); font-size:.85em;">Listeria monocytogenes</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">結核病<br><span style="color:var(--fg-faint); font-size:.85em;">Mycobacterium bovis</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">傳染性血栓栓塞性腦膜腦炎<br><span style="color:var(--fg-faint); font-size:.85em;">ITEME（Histophilus somni）</span></p></div>
-        <div class="card"><p style="margin:0; font-size:.9em;">鉤端螺旋體病<br><span style="color:var(--fg-faint); font-size:.85em;">Leptospirosis</span></p></div>
+        <div class="card"><h4>外傷</h4><p>眼球、眼瞼、眼眶</p></div>
+        <div class="card"><h4>感染性</h4><p>例如黴漿菌感染（見<a href="#section-infection">第 5 節</a>）</p></div>
+        <div class="card"><h4>腫瘤</h4><p>見<a href="#section-oscc">第 6 節</a>、<a href="#section-lsa">第 7 節</a></p></div>
       </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
-      </footer>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Diseases of the Eye〉<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=34">p.34–37</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
-    <!-- NEOPLASIA -->
-    <div class="section" id="section-neoplasia">
-      <div class="section-head"><div class="section-num">6</div><h2>眼部腫瘤：OSCC與淋巴肉瘤<span class="tag tag-exam">重要</span></h2></div>
-      <p class="section-desc">眼部與周圍組織有多種原發與續發腫瘤，但臨床最常抱怨的是組織變形與功能喪失；治療策略可從緩解症狀（摘除眼球）到根除問題（淘汰），良性/惡性、侷限/全身性的分類是選擇治療方式的重要依據。這節聚焦牛隻兩種最重要的眼部腫瘤。</p>
-
-      <h4>牛眼部鱗狀細胞癌 Ocular Squamous Cell Carcinoma (OSCC)<span class="tag tag-exam">重要</span></h4>
-      <p><strong>牛經濟重要性最高的腫瘤</strong>——造成屠體廢棄、生產損失、治療成本；在北美是牛隻最常見的腫瘤之一（約佔12.5%）。<strong>好發位置：</strong>角膜緣（limbus）、瞬膜與眼瞼、內眥區（medial canthal region）。</p>
-      <div class="figure">
-        <img src="img/week02_眼科疾病/eye_p47.png" alt="牛眼瞼與瞬膜的鱗狀細胞癌病灶臨床照片，呈白色不規則增生病灶" loading="lazy">
-        <div class="figure-caption">OSCC典型病灶：位於眼瞼／瞬膜交界處的白色、表面不規則的增生性病灶，是OSCC最經典的臨床外觀之一。</div>
-        <div class="figure-source">來源：課程講義引用 3D4Medical.com</div>
-      </div>
-
-      <h4>危險因子與惡性度分期</h4>
-      <p><strong>危險因子：</strong>紫外線暴露、無色素沉澱（眼周皮膚未著色，如Hereford等白臉牛種風險較高）、年齡、品種。</p>
+    <!-- ENDOPAN -->
+    <div class="section" id="section-endopan">
+      <div class="section-head"><div class="section-num">3</div><h2>眼內炎與全眼球炎 Endophthalmitis &amp; Panophthalmitis</h2></div>
+      <p class="section-desc">兩者差在發炎範圍：只在眼球內，還是連眼球周圍一起。</p>
+      <h3>比較表（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=38">p.38–39</a>）<span class="lv lv-must">必考</span></h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:24%;">分期</th><th>外觀特徵</th></tr></thead>
+          <thead><tr><th></th><th>眼內炎 Endophthalmitis</th><th>全眼球炎 Panophthalmitis</th></tr></thead>
           <tbody>
-            <tr><td>癌前病變<br>Premalignant SCC</td><td>小、白色、表淺、隆起的增生性斑塊或乳突瘤樣（papilloma-like）結構</td></tr>
-            <tr><td>惡性病變<br>Malignant SCC</td><td>形狀更不規則、結節狀、粉紅色、糜爛、侵襲性生長</td></tr>
+            <tr><td>範圍</td><td><strong>眼球內部</strong>發炎</td><td><strong>眼球與周圍組織</strong>發炎</td></tr>
+            <tr><td>原因</td><td><strong>內源性：敗血症</strong>；<strong>外源性：外傷、IBK</strong></td><td><strong>IBK</strong>、<strong>惡性卡他熱</strong>（血管損傷）、<strong>結核病</strong>（肉芽腫病灶）、外傷</td></tr>
+            <tr><td>症狀</td><td>眼球混濁、視力受損、眼球<strong>變大或萎縮</strong></td><td><strong>眼球突出</strong>、<strong>眼瞼水腫</strong>、眼球混濁、<strong>化膿</strong>、續發<strong>眼眶蜂窩織炎</strong>、<strong>全身性疾病</strong></td></tr>
+            <tr><td>診斷</td><td><strong>眼部超音波</strong>（視網膜剝離）</td><td>—</td></tr>
+            <tr><td>治療</td><td>全身性抗生素、NSAIDs、局部抗生素眼藥膏、<strong>眼球摘除</strong></td><td><strong>眼球摘除</strong>、全身性抗生素、NSAIDs</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="figure">
-        <img src="img/week02_眼科疾病/eye_p48.png" alt="Hereford白臉牛種照片，以及癌前病變（角膜緣小白色病灶）與惡性病變（眼瞼大範圍不規則腫瘤）的臨床照片對照" loading="lazy">
-        <div class="figure-caption">左：Hereford牛種（白臉、眼周無色素沉澱），是OSCC的高風險品種代表。右上：癌前病變——角膜緣一顆小的、邊界清楚的白色隆起病灶。右下：惡性病變——眼瞼處大範圍、不規則、侵襲性生長的腫瘤，已明顯侵犯周圍組織與角膜緣。兩者對照可清楚看出病程進展的外觀差異。</div>
-        <div class="figure-source">來源：課程講義引用 reurl.cc/jV6YrZ</div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_眼科疾病/eye_p038.jpg" alt="眼內炎：眼球混濁（照片出處為講義所附網址）。" loading="lazy"><div class="figure-caption">眼內炎：眼球混濁（照片出處為講義所附網址）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=38">p.38</a></div></div>
+        <div class="figure"><img src="img/week02_眼科疾病/eye_p039.jpg" alt="全眼球炎：眼球與周圍組織發炎、化膿，眼瞼腫脹。" loading="lazy"><div class="figure-caption">全眼球炎：眼球與周圍組織發炎、化膿，眼瞼腫脹。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=39">p.39</a></div></div>
       </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：藥物途徑——全身性抗生素在牛多為 IM、SC 或 IV；局部眼藥膏直接塗在結膜囊。講義沒有指定藥名與劑量，用藥時要注意乳、肉的<strong>停藥期</strong>。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Diseases of the Eye〉<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=38">p.38–39</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
 
-      <h4>侵襲、病理與治療</h4>
-      <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
-        <li><strong>侵襲／轉移：</strong>瞬膜腫瘤容易侵犯瞬膜基部與軟骨；可侵犯眼球、結膜、眼眶、眼眶骨、鼻竇與局部淋巴結；（罕見）轉移至胸腔／腹腔臟器</li>
-        <li><strong>病理：</strong>良性——表層無核、角質化的鱗狀細胞與深層細胞核增大、染色質粗糙的上皮細胞，基底膜未受侵犯；惡性——多形性細胞、大而深染的細胞核與明顯核仁，可見穿越基底膜的侵犯，常見角質珠（keratin-pearl）形成或細胞間橋</li>
-        <li><strong>治療：</strong>外科切除（局部切除、摘除眼球enucleation、眼眶內容物摘除exenteration）、冷凍治療（病灶&lt;0.5cm）、射頻熱療（radiofrequency hyperthermia）；<strong>復發率介於30.4%–42.4%</strong></li>
+    <!-- ORBITAL -->
+    <div class="section" id="section-orbital">
+      <div class="section-head"><div class="section-num">4</div><h2>眼眶蜂窩織炎 Orbital Cellulitis / Inflammation</h2></div>
+      <p class="section-desc">發炎跑到眼眶軟組織：急性看到熱痛腫與眼球突出，慢性要手術引流。</p>
+      <h3>原因與症狀（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=40">p.40</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>原因</strong>：眼瞼或結膜<strong>外傷</strong>後細菌感染；<strong>眼內炎 → 全眼球炎</strong>擴散。</li>
+        <li><strong>急性</strong>：眼眶、眼瞼與瞬膜（nictitans）<strong>熱、痛、腫</strong>，<strong>結膜水腫</strong>，一定程度的<strong>眼球突出</strong>。</li>
+        <li><strong>慢性</strong>：局部軟組織（腫塊）。</li>
       </ul>
-
-      <h4>淋巴肉瘤 Lymphosarcoma</h4>
-      <p><strong>淋巴網狀組織的全身性腫瘤性疾病</strong>，病因為<strong>牛白血病病毒（bovine leukemia virus, BLV）</strong>感染，是<strong>牛隻眼眶腫瘤最常見的病因</strong>。臨床徵象：腫瘤性淋巴細胞侵犯眼眶造成的<strong>突眼（exophthalmos）</strong>。</p>
-      <div class="figure">
-        <img src="img/week02_眼科疾病/eye_p52.png" alt="牛淋巴肉瘤病例照片，可見雙側眼球突出程度不對稱" loading="lazy">
-        <div class="figure-caption">淋巴肉瘤所致眼眶侵犯：可見雙側眼球突出程度明顯不對稱，腫瘤性淋巴細胞侵犯眼眶軟組織將眼球向外推擠，是全身性淋巴肉瘤在眼部的局部表現。</div>
-        <div class="figure-source">來源：課程講義引用 reurl.cc/dOpbWq</div>
-      </div>
-      <div class="alert alert-danger">
-        <div class="alert-label">預後與防治</div>
-        <p><strong>治療：</strong>摘除眼球，但這只是緩解局部症狀，無法治療根本的全身性疾病。<strong>預後極差：</strong>多數確診眼眶淋巴肉瘤的牛隻在診斷後<strong>6個月內死亡或遭安樂死</strong>。<strong>防治重點</strong>不在治療個別病患的眼睛，而在<strong>撲滅牛群中的BLV感染源</strong>（BLV為血液傳播疾病）——這是與OSCC治療思維最大的不同：OSCC是局部病灶可以外科處理，淋巴肉瘤的眼眶病灶只是全身性疾病的冰山一角。</p>
-      </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
-      </footer>
-    </div>
-
-    <!-- GLOSSARY -->
-    <div class="section" id="section-glossary">
-      <div class="section-head"><div class="section-num">7</div><h2>雙語詞彙表 Bilingual Glossary</h2></div>
-      <p class="section-desc">正文中第一次出現時都已經中英並列，這裡集中整理一份，方便考前只看英文名詞、測試自己記不記得對應的中文概念（反過來也可以）。</p>
+      <div class="figure"><img src="img/week02_眼科疾病/eye_p040.jpg" alt="眼眶蜂窩織炎：眼瞼與眼周腫脹、眼球突出、角膜混濁。" loading="lazy"><div class="figure-caption">眼眶蜂窩織炎：眼瞼與眼周腫脹、眼球突出、角膜混濁。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=40">p.40</a></div></div>
+      <h3>診斷與治療（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=41">p.41</a>）<span class="lv lv-must">必考</span></h3>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:26%;">中文</th><th style="width:30%;">English</th><th>一句話說明</th></tr></thead>
+          <thead><tr><th>項目</th><th>內容</th></tr></thead>
           <tbody>
-            <tr><td>突眼</td><td>Exophthalmos</td><td>眼球向外突出，見於全眼球炎、眼眶蜂窩織炎、淋巴肉瘤</td></tr>
-            <tr><td>眼球內陷</td><td>Enophthalmos</td><td>眼球位置改變的一種</td></tr>
-            <tr><td>斜視</td><td>Strabismus</td><td>眼球位置改變的一種</td></tr>
-            <tr><td>小眼症</td><td>Microphthalmia</td><td>眼球大小改變</td></tr>
-            <tr><td>眼瞼內翻／外翻</td><td>Entropion / Ectropion</td><td>眼瞼形態改變</td></tr>
-            <tr><td>眼內炎</td><td>Endophthalmitis</td><td>眼球內部發炎，內因（敗血症）或外因（創傷、IBK）</td></tr>
-            <tr><td>全眼球炎</td><td>Panophthalmitis</td><td>整個眼球與周圍組織發炎，較眼內炎範圍更廣</td></tr>
-            <tr><td>眼眶蜂窩織炎</td><td>Orbital Cellulitis</td><td>感染擴散到眼眶周邊軟組織，分急性慢性</td></tr>
-            <tr><td>摘除眼球</td><td>Enucleation</td><td>眼內炎/全眼球炎/眼眶蜂窩織炎/腫瘤的共同治療選項</td></tr>
-            <tr><td>感染性牛角結膜炎／紅眼病</td><td>Infectious Bovine Keratoconjunctivitis (IBK) / Pink Eye</td><td>牛最常見眼科疾病，病原Moraxella bovis</td></tr>
-            <tr><td>畏光</td><td>Photophobia</td><td>IBK典型徵象之一</td></tr>
-            <tr><td>眼瞼痙攣</td><td>Blepharospasm</td><td>IBK典型徵象之一</td></tr>
-            <tr><td>顏面蠅</td><td>Face fly (Musca autumnalis)</td><td>IBK的病媒昆蟲，防治重點之一</td></tr>
-            <tr><td>牛眼部鱗狀細胞癌</td><td>Ocular Squamous Cell Carcinoma (OSCC)</td><td>牛經濟重要性最高的腫瘤，好發角膜緣/瞬膜/眼瞼</td></tr>
-            <tr><td>角膜緣</td><td>Limbus</td><td>OSCC好發位置之一</td></tr>
-            <tr><td>瞬膜</td><td>Nictitating membrane</td><td>OSCC好發位置之一，腫瘤易侵犯其基部與軟骨</td></tr>
-            <tr><td>眼眶內容物摘除術</td><td>Exenteration</td><td>比enucleation範圍更大的外科切除方式</td></tr>
-            <tr><td>淋巴肉瘤</td><td>Lymphosarcoma</td><td>牛眼眶腫瘤最常見病因，源於BLV感染的全身性疾病</td></tr>
-            <tr><td>牛白血病病毒</td><td>Bovine Leukemia Virus (BLV)</td><td>淋巴肉瘤病因，血液傳播</td></tr>
+            <tr><td>CBC</td><td>正常或<strong>輕度嗜中性球增多</strong></td></tr>
+            <tr><td>鑑別診斷</td><td><strong>腫瘤</strong>、<strong>慢性額竇炎</strong>（chronic frontal sinusitis）</td></tr>
+            <tr><td>急性治療</td><td>全身性<strong>廣效抗生素</strong>、<strong>NSAID</strong>、局部抗生素眼藥膏或潤滑劑、<strong>眼眶溫敷（tid，每次 5 分鐘）</strong></td></tr>
+            <tr><td>慢性治療</td><td><strong>手術引流</strong>＋上述治療</td></tr>
           </tbody>
         </table>
       </div>
-
-      <footer class="note-footer">
-        資料來源：課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷依據</strong>。
-      </footer>
+      <div class="alert alert-info"><div class="alert-label">把參數讀懂</div><p>「溫敷 tid、5 分鐘」：tid＝一天三次。溫敷促進局部血流與膿腫成熟、減輕水腫（原理為補充）。CBC 只「正常或輕度」變化，所以不能用血檢排除，鑑別要靠影像或觸診（推論）。</p></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：慢性額竇炎是牛去角後常見的併發症，膿液可推擠眼眶；眼球突出還要想到<a href="#section-lsa">淋巴肉瘤</a>。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Diseases of the Eye〉<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=40">p.40–41</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
-    <!-- SUMMARY -->
-    <div class="section" id="section-summary">
-      <div class="section-head"><div class="section-num">8</div><h2>學習重點整理</h2></div>
-      <p class="section-desc">考前快速掃過，標<span class="tag tag-exam" style="padding:1px 8px; font-size:.75em;">重要</span>的三節是我推測這頁的國考主戰場。</p>
+    <!-- INFECTION -->
+    <div class="section" id="section-infection">
+      <div class="section-head"><div class="section-num">5</div><h2>感染性眼炎與傳染性牛角結膜炎 Infectious Ocular Diseases &amp; IBK</h2></div>
+      <p class="section-desc">羊看黴漿菌與披衣菌；牛最重要的是 IBK；另外一長串全身性疾病也會影響眼睛。</p>
+      <h3>羊的黴漿菌與披衣菌眼炎（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=42">p.42</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>黴漿菌 <em>Mycoplasma</em></th><th>披衣菌 <em>Chlamydia</em></th></tr></thead>
+          <tbody>
+            <tr><td>物種</td><td>山羊、綿羊</td><td>山羊、綿羊</td></tr>
+            <tr><td>病原</td><td><em>M. conjunctivae</em>、<em>M. mycoides</em>、<em>M. agalactiae</em>、<em>M. arginini</em>、<em>Acholeplasma oculi</em> 等</td><td><strong><em>Chlamydia pecorum</em></strong></td></tr>
+            <tr><td>傳播</td><td><strong>直接接觸、病媒</strong></td><td><strong>直接接觸</strong></td></tr>
+            <tr><td>其他症狀</td><td><strong>關節炎、乳房炎</strong></td><td><strong>流產</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ 講義寫 <em>Acholeplasma oculusi</em>，一般學名為 <em>Acholeplasma oculi</em>。補充：MSD 另列 <em>Moraxella ovis</em> 為羊角結膜炎的病原之一。</p>
+      <h3>會影響眼睛的病毒性與全身性疾病（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=43">p.43</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>補充：眼部表現</th></tr></thead>
+          <tbody>
+            <tr><td><strong>牛傳染性鼻氣管炎</strong>（Infectious Bovine Rhinotracheitis, IBR；牛疱疹病毒第 1 型 BoHV-1）</td><td>結膜炎、大量淚液，可與 IBK 混淆（角膜病灶通常在周邊而非中央）</td></tr>
+            <tr><td><strong>惡性卡他熱</strong>（Malignant Catarrhal Fever, MCF）</td><td>雙側角膜混濁（由周邊往中央）、葡萄膜炎；講義列為全眼球炎原因（血管損傷）</td></tr>
+            <tr><td><strong>牛病毒性下痢</strong>（Bovine Viral Diarrhea, BVD）</td><td>胎內感染可造成先天性眼病（白內障、視網膜病變）</td></tr>
+            <tr><td><strong>藍舌病</strong>（Bluetongue）</td><td>結膜充血、水腫</td></tr>
+            <tr><td><strong>牛白血病病毒</strong>（Bovine Leukemia Virus, BLV）</td><td>眼眶淋巴肉瘤 → 眼球突出（見<a href="#section-lsa">第 7 節</a>）</td></tr>
+            <tr><td><strong>小反芻獸疫</strong>（Peste des Petits Ruminants, PPR）</td><td>眼鼻分泌物、結膜炎</td></tr>
+            <tr><td><strong>搔癢症</strong>（Scrapie）</td><td>普利昂病，可有視網膜病變與視覺異常</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">講義只列病名，右欄是補充；這些病的細節在之後的牛、羊傳染病講義（<a href="week04_牛傳染病_腸胃道疾病.html">牛傳染病（一）</a>、<a href="week04_牛傳染病_呼吸道疾病.html">（二）</a>、<a href="week04_牛傳染病_其他疾病.html">（三）</a>；羊傳染病見<a href="week05_羊傳染病.html">羊傳染病頁</a>）。</p>
+      <h3>傳染性牛角結膜炎 IBK（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=44">p.44</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>講義</th></tr></thead>
+          <tbody>
+            <tr><td>名稱</td><td>傳染性牛角結膜炎（Infectious Bovine Keratoconjunctivitis, IBK）、<strong>紅眼病（pink eye）</strong></td></tr>
+            <tr><td>重要性</td><td><strong>牛最常見的眼病</strong>（<strong>尤其是小牛</strong>），常<strong>單眼</strong></td></tr>
+            <tr><td>病原</td><td><strong><em>Moraxella bovis</em></strong></td></tr>
+            <tr><td>症狀</td><td><strong>角膜潰瘍／水腫</strong>、<strong>畏光</strong>、<strong>眼瞼痙攣</strong>、<strong>流淚</strong></td></tr>
+            <tr><td>控制</td><td><strong>控制臉蠅（face fly, <em>Musca autumnalis</em>）</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week02_眼科疾病/eye_p044.jpg" alt="IBK（紅眼病）：角膜中央潰瘍、混濁，周圍結膜充血。" loading="lazy"><div class="figure-caption">IBK（紅眼病）：角膜中央潰瘍、混濁，周圍結膜充血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=44">p.44</a></div></div>
+      <div class="alert alert-info"><div class="alert-label">IBK 補充（MSD Veterinary Manual）</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li><strong>其他可能參與的病原</strong>：<em>Moraxella bovoculi</em>、多種黴漿菌。</li>
+          <li><strong>危險因子</strong>：<strong>紫外線</strong>、蠅（特別是 <em>Musca autumnalis</em>）、灰塵、植物芒刺的機械刺激、銅與硒缺乏；溫暖月份與展覽會期間高峰。</li>
+          <li><strong>病程</strong>：早期畏光、眼瞼痙攣、溢淚；牛的特徵是<strong>角膜中央潰瘍</strong>；嚴重者 48–72 小時內角膜混濁，新生血管約以每天 1 mm 向中央長；可能穿孔、永久失明。</li>
+          <li><strong>治療</strong>：美國核准的全身性藥物有 <strong>oxytetracycline</strong>（長效型，IM 或 SC）與 <strong>tulathromycin</strong>（SC）；局部有 oxytetracycline＋polymyxin B 眼藥膏（外用）。支持療法：眼罩、第三眼瞼瓣、1% atropine 眼藥膏（每 8–24 小時，處理葡萄膜炎）。劑量依產品仿單，注意停藥期。</li>
+          <li><strong>預防</strong>：控制蠅類（外用驅蟲劑、含殺蟲劑的耳標）；疫苗效果有爭議，多數隨機試驗效果有限。</li>
+        </ul></div>
+      <h3>會造成眼部發炎的細菌（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=45">p.45</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病原</th><th>疾病（補充：眼部重點）</th></tr></thead>
+          <tbody>
+            <tr><td><em>Moraxella bovis</em></td><td>IBK</td></tr>
+            <tr><td><em>Listeria monocytogenes</em></td><td>李斯特菌症；青貯相關的「青貯眼」角結膜炎、虹膜炎（補充）</td></tr>
+            <tr><td><em>Mycoplasma</em> spp.</td><td>結膜炎（羊為主）</td></tr>
+            <tr><td><em>Mycobacterium bovis</em></td><td>結核病；肉芽腫病灶（講義列為全眼球炎原因）</td></tr>
+            <tr><td><em>Histophilus somni</em></td><td>傳染性血栓栓塞性腦膜腦炎（TEME）；視網膜出血（補充）</td></tr>
+            <tr><td><em>Leptospira</em></td><td>鉤端螺旋體病；葡萄膜炎（補充）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Diseases of the Eye〉<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=42">p.42–45</a>；IBK 補充出自 MSD Veterinary Manual〈Infectious Keratoconjunctivitis in Cattle and Small Ruminants〉。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
 
-      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>感染/發炎三部曲：</strong>眼內炎（眼球內部）→全眼球炎（整個眼球＋周圍）→眼眶蜂窩織炎（眼眶軟組織），治療核心都是enucleation＋全身抗生素＋NSAID。</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>IBK／pink eye：</strong>牛最常見眼病，好發犢牛、單眼，病原Moraxella bovis，角膜潰瘍＋畏光＋眼瞼痙攣＋流淚，防治靠控制顏面蠅。</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>羊隻眼部感染：</strong>Mycoplasma（合併關節炎/乳房炎）、Chlamydia pecorum（合併流產）。</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>OSCC：</strong>牛經濟最重要腫瘤，好發角膜緣/瞬膜/眼瞼，危險因子UV／無色素／年齡，癌前病變（白色扁平）vs.惡性（不規則結節），復發率30.4–42.4%。</div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>淋巴肉瘤：</strong>牛眼眶腫瘤最常見病因，源於BLV，全身性疾病，預後差（6個月內死亡/安樂死），防治重點是撲滅BLV而非治療眼睛。</div></div>
+    <!-- OSCC -->
+    <div class="section" id="section-oscc">
+      <div class="section-head"><div class="section-num">6</div><h2>眼部鱗狀上皮細胞癌 Ocular Squamous Cell Carcinoma (OSCC)</h2></div>
+      <p class="section-desc">牛最重要的腫瘤：長在曬得到太陽、沒有色素的眼睛表面，從白色斑塊慢慢變成粉紅色侵犯性腫塊。</p>
+      <h3>眼部腫瘤總論（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=46">p.46</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>原發與續發腫瘤很多，最常見的主訴是<strong>組織變形（tissue deformity）</strong>與<strong>功能喪失（functional loss）</strong>。</li>
+        <li>經濟動物的治療策略從<strong>根治或減輕不適（眼球摘除）</strong>到<strong>解決問題（淘汰 culling）</strong>都有。</li>
+        <li>可用「<strong>良性 vs 惡性</strong>」或「<strong>局部 vs 全身性</strong>」分類作為選擇治療的標準之一。</li>
+      </ul>
+      <h3>OSCC 的重要性與位置（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=47">p.47</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>牛最具經濟重要性的腫瘤</strong>：屠體廢棄（carcass condemnations）、生產損失、治療費用。</li>
+        <li><strong>北美牛最常見的腫瘤（約 12.5%）</strong>。</li>
+        <li>好發位置：<strong>角膜緣（limbus）</strong>、<strong>瞬膜與眼瞼</strong>、<strong>內眼角</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_眼科疾病/eye_p047.jpg" alt="OSCC 的重要性與好發位置（角膜緣、瞬膜與眼瞼、內眼角），右下為角膜緣腫瘤示意。" loading="lazy"><div class="figure-caption">OSCC 的重要性與好發位置（角膜緣、瞬膜與眼瞼、內眼角），右下為角膜緣腫瘤示意。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=47">p.47</a></div></div>
+      <h3>危險因子與惡性分期（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=48">p.48</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>危險因子</strong>：<strong>紫外線（UV）</strong>、<strong>無色素（non-pigmentation）</strong>、<strong>年齡</strong>、<strong>品種</strong>（講義原文 bread，應為 breed）。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階段</th><th>外觀</th></tr></thead>
+          <tbody>
+            <tr><td><strong>癌前期 Premalignant SCC</strong></td><td><strong>小、白色、表淺、隆起</strong>的增生斑塊或<strong>乳突瘤樣</strong>構造</td></tr>
+            <tr><td><strong>惡性 Malignant SCC</strong></td><td>較<strong>不規則、結節狀、粉紅色、糜爛、侵犯性</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week02_眼科疾病/eye_p048.jpg" alt="OSCC：右上為眼周無色素的 Hereford 型牛（白臉），右下兩張為眼部腫瘤（角膜緣隆起的粉紅色腫塊）。" loading="lazy"><div class="figure-caption">OSCC：右上為眼周無色素的 Hereford 型牛（白臉），右下兩張為眼部腫瘤（角膜緣隆起的粉紅色腫塊）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=48">p.48</a></div></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：照片中的白臉牛（如 Hereford）眼周無色素，正好集合了「紫外線＋無色素＋品種」三個危險因子；眼周有色素的牛發生率較低。</p>
+      <h3>侵犯與轉移（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=49">p.49</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>瞬膜</strong>的腫瘤容易侵犯到<strong>瞬膜基部與軟骨</strong>。</li>
+        <li>可侵犯眼球、結膜、眼眶、眼眶骨、<strong>鼻竇</strong>與<strong>區域淋巴結</strong>。</li>
+        <li><strong>（少見）</strong>胸腔與腹腔器官。</li>
+      </ul>
+      <h3>病理：良性 vs 惡性（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=50">p.50</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>良性 Benign</th><th>惡性 Malignant</th></tr></thead>
+          <tbody>
+            <tr><td>細胞</td><td>表層<strong>無核、角化</strong>的鱗狀細胞；深層上皮細胞核變大、染色質粗糙成團</td><td><strong>多形性細胞</strong>、大而<strong>深染的核</strong>、<strong>明顯核仁</strong></td></tr>
+            <tr><td><strong>基底膜</strong></td><td><strong>未被侵犯</strong></td><td><strong>侵犯穿過基底膜</strong></td></tr>
+            <tr><td>特徵構造</td><td>—</td><td>通常有<strong>角質珠（keratin pearl）</strong>或<strong>細胞間橋（intercellular bridges）</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week02_眼科疾病/eye_p050.jpg" alt="OSCC 組織病理（H&amp;amp;E）：鱗狀上皮增生，惡性者侵犯基底膜並形成角質珠。" loading="lazy"><div class="figure-caption">OSCC 組織病理（H&amp;E）：鱗狀上皮增生，惡性者侵犯基底膜並形成角質珠。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=50">p.50</a></div></div>
+      <div class="alert alert-success"><div class="alert-label">重點</div><p>良惡性的分界線就是<strong>基底膜</strong>：沒穿過＝良性（原位），穿過＝惡性。角質珠是鱗狀上皮細胞癌的招牌構造。</p></div>
+      <h3>治療與復發（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=51">p.51</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>方法</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>手術切除</strong></td><td>局部切除、<strong>眼球摘除（enucleation）</strong>、<strong>眼眶內容物全摘除（exenteration）</strong></td></tr>
+            <tr><td><strong>冷凍治療</strong>（cryotherapy）</td><td>病灶 <strong>&lt; 0.5 cm</strong></td></tr>
+            <tr><td><strong>射頻熱療</strong>（radiofrequency hyperthermia）</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>復發率 30.4%–42.4%</strong>。</p>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：enucleation 只取眼球；exenteration 連眼眶內的軟組織（肌肉、脂肪、腺體）一起移除，用於腫瘤已超出眼球。肉牛有屠體廢棄風險，所以早期發現小病灶時處理，是經濟上最划算的。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Diseases of the Eye〉<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=46">p.46–51</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
 
-      <footer class="note-footer">
-        資料來源：課程講義〈Diseases of the Eye〉（Jui-Chun Hsieh）為主。本頁為個人課堂筆記整理，僅供學習與臨床討論使用，<strong>不作為正式診斷依據</strong>。
-      </footer>
+    <!-- LSA -->
+    <div class="section" id="section-lsa">
+      <div class="section-head"><div class="section-num">7</div><h2>眼眶淋巴肉瘤 Lymphosarcoma</h2></div>
+      <p class="section-desc">牛的眼球被往外推出來，第一個要想到的是牛白血病病毒造成的淋巴肉瘤。</p>
+      <h3>病因與表現（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=52">p.52</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>淋巴網狀組織的<strong>全身性</strong>腫瘤性疾病。</li>
+        <li>病因：<strong>牛白血病病毒（bovine leukemia virus, BLV）</strong>感染。</li>
+        <li><strong>牛眼眶腫瘤最常見的原因</strong>。</li>
+        <li>症狀：腫瘤性淋巴細胞侵犯眼眶 → <strong>眼球突出（exophthalmos）</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_眼科疾病/eye_p052.jpg" alt="眼眶淋巴肉瘤：荷蘭牛眼球明顯突出。" loading="lazy"><div class="figure-caption">眼眶淋巴肉瘤：荷蘭牛眼球明顯突出。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=52">p.52</a></div></div>
+      <h3>治療、預後與控制（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=53">p.53</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>治療：<strong>眼球摘除</strong>。</li>
+        <li>預後：多數眼眶淋巴肉瘤的牛在<strong>診斷後 6 個月內</strong>，於末期死亡或被安樂死。</li>
+        <li>控制：靠<strong>根除 BLV</strong>（<strong>血液傳播</strong>的疾病）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：因為是全身性疾病，眼球摘除只是減輕不適，不是根治；檢查時要一併觸診體表淋巴結（見<a href="week02_臨床檢查.html#section-palpation">臨床檢查頁</a>）。BLV 經血液傳播，共用針頭、去角器、直腸觸診手套、吸血昆蟲都是傳播途徑。</p>
+      <footer class="note-footer">資料來源：《反芻動物疾病學》課程講義〈Diseases of the Eye〉<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=52">p.52–53</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="section" id="section-compare">
+      <div class="section-head"><div class="section-num">8</div><h2>鑑別比較 Differential Diagnosis</h2></div>
+      <p class="section-desc">看到眼球突出、看到眼睛白濁、看到眼睛長東西，各要想到什麼。</p>
+      <h3>看到眼球突出<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>線索</th><th>處置</th></tr></thead>
+          <tbody>
+            <tr><td>全眼球炎</td><td>化膿、眼瞼水腫、全身性疾病；源自 IBK、MCF、結核、外傷</td><td>眼球摘除、全身性抗生素、NSAIDs</td></tr>
+            <tr><td>眼眶蜂窩織炎</td><td>急性熱痛腫、結膜水腫；外傷或眼內炎擴散</td><td>廣效抗生素、NSAID、溫敷；慢性引流</td></tr>
+            <tr><td>眼眶淋巴肉瘤</td><td>BLV；全身性腫瘤，眼球被推出</td><td>眼球摘除（減輕不適）；預後差</td></tr>
+            <tr><td>慢性額竇炎</td><td>講義列為眼眶蜂窩織炎的鑑別</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>OSCC vs 眼眶淋巴肉瘤<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>OSCC</th><th>淋巴肉瘤</th></tr></thead>
+          <tbody>
+            <tr><td>位置</td><td>眼睛<strong>表面</strong>：角膜緣、瞬膜、眼瞼、內眼角</td><td><strong>眼眶</strong>內</td></tr>
+            <tr><td>原因</td><td>UV、無色素、年齡、品種</td><td>BLV 感染</td></tr>
+            <tr><td>主要表現</td><td>白色斑塊 → 粉紅色侵犯性腫塊</td><td>眼球突出</td></tr>
+            <tr><td>性質</td><td>局部侵犯為主，遠處轉移少見</td><td>全身性</td></tr>
+            <tr><td>治療</td><td>切除、冷凍（&lt; 0.5 cm）、射頻熱療；復發 30.4–42.4%</td><td>眼球摘除；6 個月內多死亡或安樂死</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>牛 vs 羊的感染性眼炎<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>物種</th><th>主要病原</th><th>其他臨床表現</th></tr></thead>
+          <tbody>
+            <tr><td>牛</td><td><em>Moraxella bovis</em>（IBK）</td><td>小牛多、單眼；臉蠅傳播</td></tr>
+            <tr><td>山羊、綿羊</td><td><em>Mycoplasma</em> spp.</td><td>關節炎、乳房炎</td></tr>
+            <tr><td>山羊、綿羊</td><td><em>Chlamydia pecorum</em></td><td>流產</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本頁各節整理。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAMDIR -->
+    <div class="section" id="section-examdir">
+      <div class="section-head"><div class="section-num">9</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>以下是依講義強調的內容<strong>推測</strong>的出題方向，不是考古題，考試範圍以老師上課為準。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>眼病徵象</td><td>不對稱；眼球突出、凹陷、斜視；小眼症；內翻、外翻、眼瞼炎、結膜炎、下垂；腫瘤；顏色、分泌物、疼痛、失明</td></tr>
+            <tr><td>眼內炎</td><td>眼球內部；內源敗血症、外源外傷與 IBK；眼部超音波看視網膜剝離；抗生素、NSAIDs、眼藥膏、眼球摘除</td></tr>
+            <tr><td>全眼球炎</td><td>眼球＋周圍；IBK、MCF（血管損傷）、結核（肉芽腫）、外傷；眼球突出、化膿、全身性；眼球摘除</td></tr>
+            <tr><td>眼眶蜂窩織炎</td><td>外傷感染或眼內炎 → 全眼球炎；CBC 正常或輕度嗜中性球增多；鑑別腫瘤、慢性額竇炎；溫敷 tid 5 分鐘；慢性引流</td></tr>
+            <tr><td>羊的眼炎</td><td>黴漿菌（接觸、病媒；關節炎、乳房炎）；<em>C. pecorum</em>（接觸；流產）</td></tr>
+            <tr><td>IBK</td><td><em>Moraxella bovis</em>；牛最常見眼病、小牛、單眼；角膜潰瘍水腫、畏光、眼瞼痙攣、流淚；控制臉蠅 <em>Musca autumnalis</em></td></tr>
+            <tr><td>OSCC 重要性與位置</td><td>牛經濟最重要腫瘤；北美最常見（≈ 12.5%）；角膜緣、瞬膜、眼瞼、內眼角</td></tr>
+            <tr><td>OSCC 危險因子與分期</td><td>UV、無色素、年齡、品種；癌前期白色表淺斑塊 → 惡性粉紅不規則侵犯</td></tr>
+            <tr><td>OSCC 病理</td><td>良性基底膜未侵犯；惡性多形、深染核、明顯核仁、穿過基底膜、角質珠、細胞間橋</td></tr>
+            <tr><td>OSCC 治療</td><td>局部切除、眼球摘除、眼眶全摘除；冷凍 &lt; 0.5 cm；射頻熱療；復發 30.4–42.4%</td></tr>
+            <tr><td>眼眶淋巴肉瘤</td><td>BLV；牛眼眶腫瘤最常見原因；眼球突出；眼球摘除；6 個月內死亡或安樂死；根除 BLV（血液傳播）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人依講義推測的出題方向，僅供複習參考。</footer>
     </div>
 
     <!-- QUIZ -->
     <div class="section" id="section-quiz">
-      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
-      <p class="section-desc">涵蓋感染/發炎光譜、IBK、OSCC、淋巴肉瘤各章節重點，最後一題為臨床情境整合題，先自己作答再點「顯示答案」核對。</p>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-mcq">選擇題</span>
-        <div class="quiz-q">Q1. 一隻犢牛單眼出現角膜潰瘍、明顯畏光、眼瞼痙攣與流淚，最可能的診斷與病原為？</div>
-        <ul class="quiz-options">
-          <li>(A) 全眼球炎；Mycoplasma bovis</li>
-          <li>(B) 感染性牛角結膜炎（IBK）；Moraxella bovis</li>
-          <li>(C) 眼部鱗狀細胞癌；紫外線相關</li>
-          <li>(D) 淋巴肉瘤；牛白血病病毒</li>
-        </ul>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <div class="quiz-answer correct">答案：(B)</div>
-          <p class="quiz-explain">感染性牛角結膜炎（IBK／pink eye）是牛最常見的眼科疾病，好發犢牛、通常單眼，病原為Moraxella bovis，典型徵象正是角膜潰瘍/水腫、畏光、眼瞼痙攣、流淚。</p>
-        </details>
+      <div class="section-head"><div class="section-num">10</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 傳染性牛角結膜炎（IBK, pink eye）的主要病原為？</div>
+        <ul class="quiz-options"><li>(A) <em>Chlamydia pecorum</em></li><li>(B) <em>Moraxella bovis</em></li><li>(C) <em>Mycoplasma conjunctivae</em></li><li>(D) <em>Histophilus somni</em></li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=44">p.44</a>。(A)(C) 是講義列在<strong>羊</strong>的眼炎病原；(D) 是傳染性血栓栓塞性腦膜腦炎的病原。</p></details>
       </div>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-tf">是非題</span>
-        <div class="quiz-q">Q2. 眼內炎（endophthalmitis）與全眼球炎（panophthalmitis）的主要差別在於病變範圍：前者侷限於眼球內部，後者則擴及整個眼球與周圍組織。</div>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <div class="quiz-answer correct">答案：TRUE</div>
-          <p class="quiz-explain">眼內炎侷限在眼球內部結構（如角膜、前房、玻璃體）；全眼球炎則已擴及眼球壁與周圍組織，常合併突眼、眼瞼水腫與全身性病徵，若再擴散到眼眶周邊軟組織則稱為眼眶蜂窩織炎。三者是同一病理過程隨嚴重度遞升的連續光譜。</p>
-        </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 依講義，控制 IBK 時要特別控制哪一種病媒？</div>
+        <ul class="quiz-options"><li>(A) 蚊（<em>Culicoides</em>）</li><li>(B) 臉蠅（<em>Musca autumnalis</em>）</li><li>(C) 蜱</li><li>(D) 虻</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=44">p.44</a>：controlling face fly (<em>Musca autumnalis</em>)。<em>Culicoides</em> 是庫蠓，傳播藍舌病（補充）。</p></details>
       </div>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-mcq">選擇題</span>
-        <div class="quiz-q">Q3. 下列關於牛眼部鱗狀細胞癌（OSCC）的敘述，何者錯誤？</div>
-        <ul class="quiz-options">
-          <li>(A) 是牛隻經濟重要性最高的腫瘤之一</li>
-          <li>(B) 好發於角膜緣、瞬膜與眼瞼、內眥區</li>
-          <li>(C) 無色素沉澱（如Hereford白臉牛種）是危險因子之一</li>
-          <li>(D) 是牛隻眼眶腫瘤最常見的病因，源於BLV感染</li>
-        </ul>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <div class="quiz-answer correct">答案：(D)</div>
-          <p class="quiz-explain">「牛隻眼眶腫瘤最常見的病因，源於BLV感染」描述的是<strong>淋巴肉瘤</strong>，不是OSCC。OSCC的危險因子是紫外線暴露、無色素沉澱、年齡、品種，與BLV感染無關。(A)(B)(C)皆為OSCC的正確敘述。</p>
-        </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. IBK 是牛最常見的眼病，尤其好發於小牛，常侵犯單眼。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=44">p.44</a> 原文：most common ocular disease of cattle (especially in calves), affecting one eye。症狀為角膜潰瘍或水腫、畏光、眼瞼痙攣、流淚。</p></details>
       </div>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-saq">簡答題</span>
-        <div class="quiz-q">Q4. 為什麼淋巴肉瘤造成的眼眶腫瘤，治療策略跟OSCC不同——OSCC可以透過外科切除等局部治療處理，但淋巴肉瘤即使摘除眼球，預後仍然很差？</div>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <p class="quiz-explain">OSCC本質上是一個從眼部局部組織（角膜緣、瞬膜、眼瞼等上皮）發生、逐漸侵襲周圍組織的原發性腫瘤，只要在腫瘤尚未廣泛轉移前，透過外科切除、摘除眼球甚至眼眶內容物摘除等局部治療手段，有機會根除病灶、控制疾病。淋巴肉瘤則完全不同——它是牛白血病病毒（BLV）感染所引起的<strong>全身性淋巴網狀組織腫瘤性疾病</strong>，眼眶的腫瘤性淋巴細胞浸潤只是這個全身性疾病在眼部的其中一個表現，全身其他部位（淋巴結、其他器官）很可能也已經受到侵犯。因此即使摘除眼球移除了眼眶的局部病灶，並沒有處理到疾病真正的根源，這也是為什麼多數確診眼眶淋巴肉瘤的牛隻在6個月內仍會死亡或遭安樂死，防治的重點必須放在撲滅牛群中的BLV感染源，而不是治療個別患病眼睛。</p>
-        </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 關於眼內炎（endophthalmitis），何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options"><li>(A) 是眼球內部的發炎</li><li>(B) 內源性原因為敗血症</li><li>(C) 可用眼部超音波看視網膜剝離</li><li>(D) 典型表現為明顯眼瞼水腫與續發眼眶蜂窩織炎</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">(D) 是<strong>全眼球炎</strong>的表現（眼球與周圍組織一起發炎，<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=39">p.39</a>）。眼內炎表現為眼球混濁、視力受損、眼球變大或萎縮（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=38">p.38</a>）。</p></details>
       </div>
-
-      <div class="quiz-item">
-        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
-        <div class="quiz-q">Q5.【臨床情境】一隻8歲Hereford母牛因右眼腫瘤前來就診。獸醫師檢查發現病灶位於角膜緣，呈現不規則、結節狀、粉紅色、表面糜爛的外觀，觸診質地偏硬且似乎已侵犯部分角膜。牧場主表示這隻牛長期在戶外放牧、日照充足，且眼周皮膚顏色偏白。請問：(1) 最可能的診斷是什麼？依據有哪些？(2) 這個病灶的外觀描述屬於良性還是惡性階段？為什麼？(3) 可考慮的治療選項有哪些？</div>
-        <details class="quiz-reveal">
-          <summary></summary>
-          <p class="quiz-explain"><strong>(1) 最可能診斷：</strong>牛眼部鱗狀細胞癌（OSCC）。依據：病灶位置在角膜緣（OSCC經典好發部位）；品種為Hereford（白臉、眼周無色素沉澱，OSCC高風險品種）；長期戶外放牧、日照充足（UV暴露為危險因子）；年齡8歲（年齡也是危險因子之一）。<br><strong>(2) 病程階段：</strong>屬於<strong>惡性病變（malignant SCC）</strong>階段。依據講義描述，惡性SCC的外觀特徵正是「更不規則、結節狀、粉紅色、糜爛、侵襲性」，且此病例觸診質地偏硬並已侵犯部分角膜，符合惡性期的侵襲性生長表現；相對地，癌前病變（premalignant SCC）應呈現小、白色、表淺、隆起的扁平斑塊或乳突瘤樣外觀，與此病例明顯不同。<br><strong>(3) 治療選項：</strong>由於病灶已進入惡性、侵襲性階段且範圍涉及角膜，外科治療選項包括局部切除、摘除眼球（enucleation），若侵犯範圍更廣則可能需要眼眶內容物摘除術（exenteration）；冷凍治療僅適用於小於0.5cm的病灶，此病例病灶已有侵犯性生長，可能不是理想選擇；射頻熱療也是可考慮的選項之一。無論選擇何種治療方式，都應告知牧場主OSCC的復發率介於30.4%至42.4%之間，術後仍需要持續追蹤。</p>
-        </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 依講義，下列何者<strong>不是</strong>全眼球炎（panophthalmitis）的原因？</div>
+        <ul class="quiz-options"><li>(A) IBK</li><li>(B) 惡性卡他熱</li><li>(C) 結核病</li><li>(D) 眼部鱗狀上皮細胞癌</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=39">p.39</a>：IBK、MCF（血管損傷）、結核（肉芽腫病灶）、外傷。</p></details>
       </div>
-
-      <footer class="note-footer">
-        練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床診斷依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
-      </footer>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 眼眶蜂窩織炎的鑑別診斷，講義列出的是？</div>
+        <ul class="quiz-options"><li>(A) 腫瘤與慢性額竇炎</li><li>(B) 青光眼與白內障</li><li>(C) 眼瞼內翻與外翻</li><li>(D) IBK 與 IBR</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=41">p.41</a>；CBC 正常或輕度嗜中性球增多。急性治療：廣效抗生素、NSAID、局部抗生素眼藥膏或潤滑劑、溫敷 tid 每次 5 分鐘；慢性加手術引流。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 山羊同時出現結膜炎與流產，依講義最可能的病原是？</div>
+        <ul class="quiz-options"><li>(A) <em>Mycoplasma agalactiae</em></li><li>(B) <em>Chlamydia pecorum</em></li><li>(C) <em>Moraxella bovis</em></li><li>(D) <em>Listeria monocytogenes</em></li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=42">p.42</a>：披衣菌（<em>C. pecorum</em>）直接接觸傳播，其他症狀為流產；黴漿菌的其他症狀是關節炎、乳房炎。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 下列何者<strong>不是</strong>講義所列 OSCC 的危險因子？</div>
+        <ul class="quiz-options"><li>(A) 紫外線</li><li>(B) 眼周無色素</li><li>(C) 年齡</li><li>(D) BLV 感染</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">OSCC 危險因子：UV、無色素、年齡、品種（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=48">p.48</a>）。BLV 是<strong>淋巴肉瘤</strong>的病因（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=52">p.52</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. OSCC 病理切片上，判斷為惡性的關鍵是？</div>
+        <ul class="quiz-options"><li>(A) 表層有無核角化細胞</li><li>(B) 腫瘤細胞侵犯穿過基底膜</li><li>(C) 病灶為白色</li><li>(D) 位於角膜緣</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=50">p.50</a>：良性基底膜未被侵犯；惡性為多形性細胞、深染大核、明顯核仁、穿過基底膜，通常有角質珠或細胞間橋。(A) 是良性的表層特徵。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 依講義，OSCC 以冷凍治療處理的病灶大小上限為？</div>
+        <ul class="quiz-options"><li>(A) &lt; 0.5 cm</li><li>(B) &lt; 2 cm</li><li>(C) &lt; 5 cm</li><li>(D) 不限大小</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=51">p.51</a>：cryotherapy (lesion &lt; 0.5 cm)；整體復發率 30.4%–42.4%。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 牛眼眶腫瘤最常見的原因為？</div>
+        <ul class="quiz-options"><li>(A) 鱗狀上皮細胞癌</li><li>(B) BLV 引起的淋巴肉瘤</li><li>(C) 黑色素瘤</li><li>(D) 乳突瘤</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=52">p.52</a>：lymphosarcoma 是 most common cause of orbital neoplasia in cattle。OSCC 是牛最常見、最具經濟重要性的腫瘤，但長在眼睛表面而非眼眶。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q12. 比較 OSCC 的癌前期與惡性期在外觀上的差異。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">癌前期：小、白色、表淺、隆起的增生斑塊或乳突瘤樣構造。惡性：較不規則、結節狀、粉紅色、糜爛、侵犯性（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=48">p.48</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】夏天，一批 4 月齡肉用小牛中有好幾頭出現單眼流淚、瞇眼、怕光，其中一頭角膜中央有白色混濁與潰瘍。牛舍周圍蒼蠅很多。請問：(1) 最可能的診斷與病原？(2) 講義提到的控制重點？(3) 若嚴重眼睛不處理，可能惡化成什麼？(4) 可用哪些藥物與途徑（補充）？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 傳染性牛角結膜炎（IBK，pink eye），<em>Moraxella bovis</em>；小牛、單眼、畏光、眼瞼痙攣、流淚、角膜潰瘍（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=44">p.44</a>）。<br><strong>(2)</strong> 控制臉蠅 <em>Musca autumnalis</em>（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=44">p.44</a>）。<br><strong>(3)</strong> 講義：外源性眼內炎與全眼球炎都可由 IBK 造成（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=38">p.38–39</a>）；MSD 補充可能角膜穿孔、永久失明。<br><strong>(4)</strong> 補充（MSD）：全身性 oxytetracycline（長效型 IM 或 SC）或 tulathromycin（SC）；局部 oxytetracycline＋polymyxin B 眼藥膏；眼罩減少光照與蠅接觸；劑量依仿單並注意停藥期。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一頭 7 歲荷蘭牛，右眼在一個月內逐漸往外突出，眼球本身外觀還算完整，觸診發現肩前與股前淋巴結腫大；另一頭 9 歲白臉肉牛，左眼角膜緣有一個 2 cm、粉紅色、表面糜爛的結節狀腫塊。請問：(1) 兩頭各最可能是什麼？(2) 各自的病因或危險因子？(3) 治療選擇與預後？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 荷蘭牛：眼眶<strong>淋巴肉瘤</strong>（眼球突出、全身淋巴結腫大）；白臉牛：<strong>惡性 OSCC</strong>（角膜緣、粉紅、糜爛、結節狀）。<br><strong>(2)</strong> 淋巴肉瘤：BLV 感染（血液傳播）（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=52">p.52–53</a>）；OSCC：UV、無色素、年齡、品種（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=48">p.48</a>）。<br><strong>(3)</strong> 淋巴肉瘤：眼球摘除只減輕不適，多數在診斷後 6 個月內死亡或安樂死，控制要靠根除 BLV（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=53">p.53</a>）。OSCC：2 cm 超過冷凍治療的 0.5 cm 上限，考慮手術切除、眼球摘除或眼眶全摘除，也可射頻熱療；復發率 30.4–42.4%；經濟上也可考慮淘汰（<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=46">p.46</a>、<a class="pdf-link" href="pdf/臨床檢查與眼科疾病.pdf#page=51">p.51</a>）。</p></details>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題；標示補充的內容引用 MSD Veterinary Manual，答案與解析僅供自我複習參考。</footer>
     </div>
 
   </main>
@@ -497,15 +558,16 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const SECTION_NAMES = {
-  abstract: '重點摘要',
-  exam: '眼科檢查適應症與眼病徵象',
-  endophthalmitis: '眼內炎與全眼球炎',
-  orbitalcellulitis: '眼眶蜂窩織炎',
-  infectious: '感染性角結膜炎與其他傳染病',
-  neoplasia: '眼部腫瘤：OSCC與淋巴肉瘤',
-  glossary: '雙語詞彙表',
-  summary: '學習重點整理',
-  quiz: '練習題'
+  abstract: '大方向與重點摘要',
+  exam: '眼科檢查與眼病徵象',
+  endopan: '眼內炎與全眼球炎',
+  orbital: '眼眶蜂窩織炎',
+  infection: '感染性眼炎與 IBK',
+  oscc: '眼部鱗狀上皮細胞癌 OSCC',
+  lsa: '眼眶淋巴肉瘤',
+  compare: '鑑別比較',
+  examdir: '考試方向（推測）',
+  quiz: '練習題',
 };
 
 document.addEventListener('click', function (e) {
@@ -578,6 +640,53 @@ function doSearch(q) {
   input.classList.add('has-results');
 }
 </script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script>
