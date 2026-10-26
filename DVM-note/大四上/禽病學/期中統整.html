@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：期中統整 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+<style>/* 統整表格很寬：這頁放寬內文欄 */
+@media (min-width:1040px){.pagewrap{max-width:none}.pagebody{max-width:none}}
+.pagebody .table-wrap table th,.pagebody .table-wrap table td{padding:.5rem .6rem}
+</style>
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">期中統整</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">禽病學期中統整 Midterm Summary</h1>
+      <p class="page-subtitle">期中範圍所有疾病的病原、臨床、診斷、疫苗（時間、型別、途徑）、治療與防治，一頁看完；每格都連回原筆記</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・期中統整）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">本學期禽病學講義（吳乃慧、陳慧文老師）；整理自本站第 1–12 週筆記，沒有講義以外的內容</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-27</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">跨筆記統整（無講義以外內容）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 怎麼用這頁</a>
+    <div class="section-label" style="margin-top:8px;">總表</div>
+    <a onclick="showSection('master')" id="nav-master"><span class="nav-icon">📋</span> 一頁總表</a>
+    <a onclick="showSection('vaccine')" id="nav-vaccine"><span class="nav-icon">💉</span> 疫苗時間表</a>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis"><span class="nav-icon">🧪</span> 診斷方法</a>
+    <div class="section-label" style="margin-top:8px;">查詢與速背</div>
+    <a onclick="showSection('lookup')" id="nav-lookup"><span class="nav-icon">🔎</span> 症狀反查</a>
+    <a onclick="showSection('treat')" id="nav-treat"><span class="nav-icon">🩺</span> 治療與處置</a>
+    <a onclick="showSection('numbers')" id="nav-numbers"><span class="nav-icon">🔢</span> 數字速背</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>怎麼用這頁</h2></div>
+      <div class="overview">
+        <div class="overview__title">期中統整的大方向</div>
+        <dl>
+          <dt>收了哪些</dt>
+          <dd>14 個疾病：<strong>呼吸道病毒</strong>（禽流感 AI、新城病 ND、傳染性支氣管炎 IB、傳染性喉頭氣管炎 ILT）；<strong>免疫抑制與淋巴器官</strong>（傳染性華氏囊病 IBD、雞傳染性貧血 CIA、里奧病毒 Reo）；<strong>腫瘤病毒</strong>（馬立克病 MD、禽白血病 ALV、網狀內皮增生症 REV）；<strong>寵物鳥</strong>（腺胃擴張症 PDD、多瘤病毒、鸚鵡喙羽病 PBFD、痘病毒）。</dd>
+          <dt>各節用途</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-master">總表</a>：每個病一列，病原、宿主、臨床、診斷、疫苗、防治都在同一列。</li>
+              <li><a href="#section-vaccine">疫苗時間表</a>：哪個病打誰、幾日齡打、什麼型別、什麼途徑、要注意什麼；另列「沒有疫苗的病」。</li>
+              <li><a href="#section-diagnosis">診斷方法</a>：採樣、病毒分離、分子、血清學，以及各病的判定數字。</li>
+              <li><a href="#section-lookup">症狀反查</a>：看到某個症狀或病變，該想到哪個病。</li>
+              <li><a href="#section-treat">治療與場內處置</a>：講義有沒有列特效治療、現場怎麼處理。</li>
+              <li><a href="#section-numbers">數字速背</a>：ICPI、IVPI、MDT 切點與各病的年齡、天數。</li>
+            </ol>
+          </dd>
+          <dt>範圍提醒</dt>
+          <dd>課表第 7 週的<strong>腺病毒（產蛋下降症候群 EDS76 等）</strong>與<strong>禽腦脊髓炎（AE）</strong>目前沒有講義，所以不在表內；舊考古常考這兩個病，拿到講義後再補。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>這頁只重排本學期講義已經寫過的內容，<strong>沒有新增講義以外的知識</strong>；考試範圍與數字以老師上課為準。表格很寬，手機請左右滑動；第一欄的病名可以點進該病的完整筆記。</p>
+      </div>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MASTER -->
+    <div class="section" id="section-master">
+      <div class="section-head"><div class="section-num">2</div><h2>一頁總表：病原、臨床、診斷、疫苗、防治</h2></div>
+      <p class="section-desc">每個病一列。看欄位橫著比，就是鑑別；看一列直著讀，就是這個病的全貌。</p>
+      <h3>呼吸道與全身性病毒<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:1000px;font-size:.86em;">
+          <thead><tr><th style="width:9%;">病</th><th style="width:14%;">病原</th><th style="width:12%;">宿主與年齡</th><th style="width:19%;">臨床與病變</th><th style="width:17%;">診斷</th><th style="width:15%;">疫苗</th><th style="width:14%;">防治</th></tr></thead>
+          <tbody>
+            <tr><td><a href="week01_禽流感.html"><strong>禽流感 AI</strong></a><br>WOAH 通報；H5、H7 要通報</td><td>正黏液病毒科 A 型；8 段 (–) ssRNA；有封套；HA（H1–19）、NA（N1–11）</td><td>水禽是自然保毒者（不發病）；進家禽後突變成 HPAI；潛伏期 3 天</td><td>HPAI：雞冠腫大、眼眶水腫、<strong>足出血</strong>、內臟漿膜出血、腺胃出血；台灣 H5 株<strong>胰臟出血壞死</strong>；死亡率可達 100%</td><td>喉頭＋泄殖腔拭子 → 雞胚尿囊腔 → HA → AGID／RT-PCR 確認 A 型 → HI／NI／RT-PCR 定亞型；<strong>IVPI &gt; 1.2</strong> 或 HA 切位多個鹼性胺基酸</td><td><strong>台灣不使用</strong>；疫苗只是防疫補充工具，用了要配合監測（mRNA、重組 HA、HVT 載體）</td><td>生物安全（非開放式禽舍、防鳥）、通報、<strong>撲殺清場</strong>；無治療</td></tr>
+            <tr><td><a href="week02_新城病.html"><strong>新城病 ND</strong></a><br>甲類；WOAH 通報；<strong>人畜共通</strong></td><td>副黏液病毒科 APMV-1（Avulavirus）；(–) ssRNA 15 kb；有封套；HN、F；<strong>1 血清型、5 病原型</strong></td><td>雞、火雞、雉雞、鵪鶉、鴿；鴨感受性最低；台灣 2–6 週齡肉雞多；潛伏期 5–6 天</td><td>沉鬱、呼吸困難、顏面水腫、<strong>綠色下痢</strong>、扭頸；腺胃乳突部出血、腸淋巴組織潰瘍出血；vvND 死亡率近 100%、nvND 10–90%</td><td>氣管＋泄殖腔拭子 → 雞胚尿囊腔 → HA → RT-PCR 看 <strong>F 蛋白切位</strong>；<strong>ICPI ≥ 0.7</strong>；MDT；IVPI；血清 HI</td><td><strong>弱毒活毒</strong> B1、La Sota、clone 30（單一血清型都有效）；高風險區活毒＋死毒；載體 rHVT-ND</td><td>點眼最好；常與 IB 做混合疫苗；人偶爾感染（結膜炎）</td></tr>
+            <tr><td><a href="week03_傳染性支氣管炎.html"><strong>傳染性支氣管炎 IB</strong></a><br>乙類</td><td>冠狀病毒科（Group 3）；(+) ssRNA 27.6 kb；有封套；<strong>血清型多、交叉保護差</strong>；S1 定基因型</td><td>雞；雛雞最嚴重；潛伏期 1–3 天、發病率近 100%；6 週齡以上幾乎不死</td><td>囉音、咳嗽、<strong>水便</strong>、產蛋下降可達 50%、軟殼粗殼畸形蛋、水樣蛋白；<strong>親腎型：腎腫脹、尿酸鹽沉積</strong>；1 日齡感染 → 輸卵管永久傷害（false layer）</td><td>RT-PCR；雞胚<strong>尿囊腔</strong>分離 → <strong>胚胎矮小捲曲</strong>；抗體 ELISA／IFA／HI／VN（有血清型特異性）</td><td><strong>活毒</strong> H120（麻州型）、M41、Ma5、793B、台灣型 TWI／TWII；<strong>要用一種以上型別</strong>；蛋雞／種雞開產前加死毒</td><td>無特效藥；保溫、通風、糖水、補充鹽類；消毒（0.1% 福馬林）</td></tr>
+            <tr><td><a href="week04_傳染性喉頭氣管炎.html"><strong>傳染性喉頭氣管炎 ILT</strong></a></td><td>疱疹病毒科 α（GaHV-1，Iltovirus）；線性 dsDNA；有封套；<strong>單一血清型</strong></td><td>雞，大小都會；潛伏期 6–14 天；嚴重型發病 90–100%、死亡 5–70%；輕微型死亡 &lt; 2%</td><td>伸頸呼吸、囉音、喘息、<strong>咳出帶血黏液</strong>；喉頭氣管充出血、乾酪樣物、偽膜；<strong>病變只在呼吸道</strong>；上皮融合細胞＋<strong>嗜酸性核內包涵體</strong></td><td>PCR；初代細胞；雞胚<strong>CAM</strong> 接種 → 白色斑塊；抗體 ELISA／VN／IFA／AGID（<strong>不能用 HI</strong>）</td><td><strong>活毒</strong>（點眼最好、飲水最差）；載體 HVT 表現 gD、gI；死毒成本高保護差；一般只免疫種雞</td><td>潛伏三叉神經節（可達 15 個月）、緊迫再發；祛痰劑與支持療法；爆發時可全面接種</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>免疫抑制與淋巴器官病毒<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:1000px;font-size:.86em;">
+          <thead><tr><th style="width:9%;">病</th><th style="width:14%;">病原</th><th style="width:12%;">宿主與年齡</th><th style="width:19%;">臨床與病變</th><th style="width:17%;">診斷</th><th style="width:15%;">疫苗</th><th style="width:14%;">防治</th></tr></thead>
+          <tbody>
+            <tr><td><a href="week10_傳染性華氏囊病.html"><strong>傳染性華氏囊病 IBD</strong></a><br>甘保羅病</td><td>Birnaviridae（Avibirnavirus）；<strong>無封套 dsRNA 兩段</strong>；<strong>2 血清型、只有 1 型致病、無交叉保護</strong>；vvIBDV 死亡率 &gt; 20%</td><td>雞（鴨不發病）；&lt; 3 週齡 → 免疫抑制；<strong>3–6 週齡</strong> → 急性型；潛伏期 2–3 天</td><td>水樣下痢、<strong>啄肛</strong>、脫水；華氏囊先<strong>腫大出血、5 天後萎縮</strong>；胸腿肌出血、腎腫大；濾泡淋巴細胞壞死</td><td><strong>RT-PCR、RFLP</strong>（VP2）；病毒分離非必要（最好用 SPF 雞）；AC-ELISA；AGID</td><td>種雞<strong>產蛋前死毒</strong>（移行抗體）＋小雞<strong>活毒</strong>（弱毒 → 中間毒）；依移行抗體選時機</td><td>統進統出、徹底清潔、<strong>碘消毒</strong>（病毒在雞舍存活 122 天）</td></tr>
+            <tr><td><a href="week11_雞傳染性貧血.html"><strong>雞傳染性貧血 CIA</strong></a><br>藍翅病</td><td>環狀病毒（講義寫 Anelloviridae）；<strong>環狀 ssDNA 2.3 kb、25 nm、無封套</strong>；1 血清型；極耐環境</td><td>雞（唯一宿主）；&lt; 2 週齡高死亡、1 日齡最敏感；3–6 週齡出現年齡抵抗性</td><td>蒼白、畏寒；皮下與翅尖出血（<strong>藍翅</strong>）；<strong>黃骨髓</strong>、胸腺萎縮；<strong>PCV ≤ 27%</strong></td><td>PCV；PCR；IHC；分離用 <strong>MSB-1</strong> 細胞；<strong>胸腺不能用來分離</strong>；血清學意義不足</td><td><strong>減毒活毒打種雞</strong>：8 週齡至開產前 4 週；不可 &lt; 8 週齡、屠宰前 21 天、產蛋中</td><td>種雞抗體監測；生物安全；控制其他免疫抑制病與球蟲</td></tr>
+            <tr><td><a href="week12_呼腸孤病毒.html"><strong>里奧病毒 Reo</strong></a><br>病毒性關節炎</td><td>Reoviridae（Orthoreovirus）；<strong>無封套 dsRNA</strong>、80–85 nm；耐熱 60°C 8–10 小時、耐 pH 3</td><td>雞、火雞；<strong>1 日齡最敏感</strong>；自然感染 4–7 週齡；10 週齡以上不敏感</td><td>跛行（4–5 週齡）、矮小、羽毛不良；<strong>足關節腫脹、腓腸肌腱斷裂</strong>；關節液清澈（混濁＝細菌）；死亡率約 5%</td><td>雞胚 CAM 接種 7–8 日死亡；Vero、BHK-21、PK-15；AGP；RT-PCR；ELISA 看<strong>力價均勻度</strong></td><td><strong>活毒＋死毒並用</strong>；母雞<strong>開產前 2–3 週</strong>；活毒只能開產前；移行抗體保護小雞 2–3 週</td><td>淘汰或隔離病雞（長期排毒）、空欄、碘消毒；常與 M. synoviae、葡萄球菌混合感染</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>腫瘤病毒<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:1000px;font-size:.86em;">
+          <thead><tr><th style="width:9%;">病</th><th style="width:14%;">病原</th><th style="width:12%;">宿主與年齡</th><th style="width:19%;">臨床與病變</th><th style="width:17%;">診斷</th><th style="width:15%;">疫苗</th><th style="width:14%;">防治</th></tr></thead>
+          <tbody>
+            <tr><td><a href="week08_馬立克病.html"><strong>馬立克病 MD</strong></a></td><td>疱疹病毒（GaHV-2，Mardivirus）；線性 dsDNA；有封套；<strong>3 血清型，只有 1 型致腫瘤</strong></td><td>雞（火雞、鵪鶉）；潛伏期 ≥ 4 週，自然發病多在 <strong>6 週齡後</strong>；<strong>只有水平傳播</strong>（毛囊皮屑）</td><td><strong>T 細胞淋巴瘤</strong>；四型：神經（坐骨神經腫大、腿翅麻痺）、內臟（腺胃燒瓶狀、卵巢花椰菜狀）、皮膚、眼（灰眼）；終生帶毒</td><td>要診斷<strong>疾病（腫瘤）而非感染</strong>；PCR（meq 區分野外株與疫苗株）；病毒分離 CK／CEF／DEF；抗體不能當診斷依據</td><td><strong>細胞依附性</strong>：CVI988（1 型）、SB-1（2 型）、HVT（3 型）；孵化場 1 日齡或蛋內第 17–18 天</td><td>–196°C 液態氮保存；統進統出、移除舊墊料；疫苗只減少腫瘤，不阻止感染排毒</td></tr>
+            <tr><td><a href="week09_禽白血病與網狀內皮增生症.html#section-alv"><strong>禽白血病 ALV</strong></a></td><td>反轉錄病毒（Alpharetrovirus）；(+) ssRNA；有封套；亞群 <strong>A、B、C、D、J 致腫瘤；E 內源性不致腫瘤</strong>（gp85 定亞群）</td><td>雞；<strong>LL（ALV-A）4 個月以上</strong>、ML（ALV-J）；垂直（母雞）＋水平（J &gt; A）</td><td>消瘦、雞冠蒼白、腹部膨大；肝脾腎腫瘤、華氏囊<strong>結節</strong>；垂直感染 → <strong>免疫耐受（V+A–S+）</strong></td><td>病毒分離（黃金標準，用 <strong>DF-1</strong>）；PCR；<strong>p27 ELISA</strong>（內源外源都測得到、不能分亞群）</td><td><strong>沒有疫苗</strong></td><td>在種雞金字塔頂端<strong>清除</strong>；1 日齡到 45 週定期驗；淘汰；空欄至少 4 週</td></tr>
+            <tr><td><a href="week09_禽白血病與網狀內皮增生症.html#section-re"><strong>網狀內皮增生症 REV</strong></a></td><td>反轉錄病毒（Gammaretrovirus）；有封套；<strong>A 株（非缺陷型）、T 株（缺陷型、v-rel）</strong></td><td>雞、火雞、鴨、鵝；腫瘤多在 14 週以上；直接接觸、昆蟲、介蛋（低）</td><td>矮小症候群、羽毛不良、免疫抑制、淋巴瘤；<strong>汙染禽痘與 MD 疫苗</strong></td><td>病毒分離（DF-1 或 CEF；T 株繼代後消失）；PCR；IFA／IHC／ELISA</td><td><strong>沒有疫苗</strong></td><td>生物安全；疫苗廠監測雞胚與細胞；清除</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>寵物鳥病毒<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:1000px;font-size:.86em;">
+          <thead><tr><th style="width:9%;">病</th><th style="width:14%;">病原</th><th style="width:12%;">宿主與年齡</th><th style="width:19%;">臨床與病變</th><th style="width:17%;">診斷</th><th style="width:15%;">疫苗</th><th style="width:14%;">防治</th></tr></thead>
+          <tbody>
+            <tr><td><a href="week05_寵物鳥病毒病.html#section-pdd"><strong>腺胃擴張症 PDD</strong></a><br>玻那病毒</td><td>玻那病毒（RT-PCR 偵測，RNA）；親神經；2008 年確認病原</td><td>灰鸚鵡、金剛、亞馬遜、鳳頭；糞口、尿；垂直；持續感染</td><td><strong>神經症狀 66%</strong>、糞便未消化食物 22%、逆流 19%、腺胃擴張 13%；<strong>腺胃／龍骨比 &gt; 0.48</strong></td><td><strong>泄殖腔拭子 RT-PCR 陽性率最高（53%）</strong>；血液 0%；QM7 細胞</td><td><strong>沒有</strong></td><td>檢疫消毒；支持療法；celecoxib（PO）、robenacoxib（注射）；注射型 metoclopramide</td></tr>
+            <tr><td><a href="week05_寵物鳥病毒病.html#section-polyoma"><strong>多瘤病毒 APyV</strong></a></td><td><strong>環狀 dsDNA 約 5 kbp、無封套</strong></td><td>虎皮、愛情鳥、玄鳳；<strong>&lt; 16 週齡最致命</strong>；鳳頭鸚鵡有抵抗力</td><td><strong>French molt</strong>、腹部膨大、嗉囊停滯；心肝脾腫大、皮下出血；雛鳥死亡近 100%</td><td><strong>血液＋泄殖腔 PCR</strong> 判讀四種組合；嗜鹼性<strong>核內</strong>包涵體</td><td><strong>有</strong>：Psittimune APV，<strong>5 週齡基礎、2–3 週後補強</strong></td><td>支持療法；消毒：合成酚、次氯酸鈉、穩定型二氧化氯</td></tr>
+            <tr><td><a href="week05_寵物鳥病毒病.html#section-pbfd"><strong>喙羽病 PBFD</strong></a><br>環狀病毒</td><td><strong>環狀 ssDNA 約 2 kb、20–25 nm、無封套</strong>、環境極穩定</td><td>鳳頭、灰鸚鵡、虎皮、金剛、亞馬遜；幼鳥第一次長羽毛最易感；發病率高、死亡率低</td><td><strong>對稱性羽毛脫落與變形</strong>、喙發亮過長斷裂；免疫抑制、續發感染；嗜鹼性<strong>細胞質內</strong>包涵體</td><td><strong>PCR（血液、新鮮羽髓、糞便）</strong>；電顯；原位雜交</td><td><strong>沒有</strong></td><td>支持療法、抗生素處理續發感染；<strong>嚴格隔離或淘汰</strong>；<strong>2% 戊二醛</strong></td></tr>
+            <tr><td><a href="week05_寵物鳥病毒病.html#section-pox"><strong>痘病毒</strong></a></td><td><strong>磚形、200 nm、有封套、線性 dsDNA</strong>；痂皮中環境存活久</td><td>物種專一（鸚鵡痘、愛情鳥痘、金絲雀痘）；吸血昆蟲、傷口、黏膜</td><td><strong>乾性</strong>（無毛皮膚丘疹 → 痂皮）、<strong>濕性白喉型</strong>（眼鼻黏膜）；<strong>細胞質內</strong>包涵體（Bollinger bodies）；金絲雀痘死亡 &gt; 70%</td><td>肉眼病變；組織；PCR；電顯；雞胚 CAM 痘斑</td><td><strong>只有金絲雀</strong>：POXIMUNE C</td><td>支持療法；讓痘病變自然癒合；殺蟲劑；次氯酸鈉</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本課程第 1–12 週筆記（講義〈AI〉〈ND〉〈IB〉〈ILT〉〈Pet bird viral diseases〉〈MD〉〈AL/RE〉〈IBD〉〈CIA〉〈Reo〉）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VACCINE -->
+    <div class="section" id="section-vaccine">
+      <div class="section-head"><div class="section-num">3</div><h2>疫苗與預防：打誰、什麼時候、什麼型別</h2></div>
+      <p class="section-desc">先看「疫苗打在誰身上」這張表，最容易混；再看各病的時間表。</p>
+      <h3>疫苗打誰？<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:900px;">
+          <thead><tr><th>疫苗對象</th><th>病</th><th>原因</th></tr></thead>
+          <tbody>
+            <tr><td><strong>打種雞，用移行抗體保護小雞</strong></td><td>CIA、Reo、IBD（死毒）、ND／IB（死毒）</td><td>CIA 活毒不可用於 8 週齡以下；CIA、Reo 活毒都要在開產前打；移行抗體保護最敏感的前幾週</td></tr>
+            <tr><td><strong>直接打小雞（孵化場 1 日齡）</strong></td><td>MD、ND／IB（活毒基礎免疫）、IBD（4 日齡至 1 週內）</td><td>雛雞越早接觸越易發病（MD）；趕在野外病毒之前建立局部免疫</td></tr>
+            <tr><td><strong>一般只免疫種雞</strong></td><td>ILT</td><td>肉雞只在曾發生的場約 2–3 週齡接種一次</td></tr>
+            <tr><td><strong>沒有疫苗</strong></td><td>AI（台灣不用）、ALV、REV、PDD、PBFD</td><td>靠生物安全、檢疫、清除</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>各病疫苗時間、型別、途徑<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:1000px;font-size:.88em;">
+          <thead><tr><th style="width:10%;">病</th><th style="width:20%;">型別與疫苗株</th><th style="width:34%;">時間與途徑</th><th style="width:36%;">重點與注意</th></tr></thead>
+          <tbody>
+            <tr><td><a href="week02_新城病.html#section-vaccine"><strong>ND</strong></a></td><td><strong>單一血清型</strong>，弱毒活毒：B1、La Sota、clone 30；中間毒 Mukteswar、Roakin 只用於二次免疫；載體 rHVT-ND</td><td><strong>肉雞（低危險區）</strong>：孵化場 1 日齡粗噴霧或點眼；選擇性第 2 劑 2–4 週齡（噴霧、飲水、點眼）。<br><strong>肉雞（未孵化場接種）</strong>：1–2 週、2–4 週，選擇性 4–6 週。<br><strong>肉雞（強毒高危險區）</strong>：孵化場死毒皮下＋活毒點眼；2–4 週第 2 劑活毒。<br><strong>蛋雞／種雞（全活毒）</strong>：0–2 或 2–6 週、6–12 週、12–18 週；<strong>產蛋期每 30–60 天補強</strong>。<br><strong>蛋雞／種雞（不想產蛋期用活毒）</strong>：活毒 0–6、6–12 週；<strong>死毒 14–20 週（開產前）</strong>肌肉或皮下。<br><strong>載體</strong>：1 日齡皮下，或孵化第 18–19 天蛋內。</td><td>點眼最好（逐隻、漏失少、劑量一致）；常與 IB 做成混合疫苗；孵化場活毒免疫只維持 2–3 週、僅上呼吸道；<strong>非設計給 1 日齡的活毒會有嚴重接種後反應</strong>；接種後 3–5 天可能有囉音、結膜炎、增加大腸桿菌感受性；HI 力價與保護力正相關</td></tr>
+            <tr><td><a href="week03_傳染性支氣管炎.html#section-vaccine"><strong>IB</strong></a></td><td><strong>血清型多，必須用一種以上型別</strong>：麻州型 H120、M41、Ma5、H52；793B（4/91、CR88、1/96）；日本型 TM86W；台灣型 TWI、TWII、TSI、TSII；美洲、荷蘭變異株</td><td><strong>肉雞</strong>：1–4 日齡活毒噴霧或點眼；10–14 日齡活毒補強（飲水、噴霧、點眼）。<br><strong>蛋雞／種雞（全活毒）</strong>：0–2 或 2–6 週、6–12 週、12–18 週；產蛋期每 30–60 天補強（較弱株如麻州）。<br><strong>蛋雞／種雞（活毒＋死毒）</strong>：活毒 0–6、6–12 週；<strong>死毒 14–20 週（16–18 週或開產前 4–6 週）肌肉或皮下</strong>。</td><td><strong>第一劑麻州型、第二劑以上換不同型別</strong>；點眼比噴霧飲水好；<strong>同一天全場接種</strong>；<strong>不要自行混合單價 ND 與 IB 活毒</strong>；不良反應原因：噴霧顆粒過細、黴漿菌陽性、免疫抑制、強毒株（H52）做初次免疫、空氣差</td></tr>
+            <tr><td><a href="week04_傳染性喉頭氣管炎.html#section-vaccine"><strong>ILT</strong></a></td><td><strong>單一血清型</strong>；活毒（點鼻、<strong>點眼最佳</strong>、噴霧、翼穿刺、飲水最差）；載體 HVT 表現 gD、gI（1 日齡背頸部皮下）；死毒少用</td><td><strong>肉雞</strong>：只在曾發生過 ILT 的場，約 2–3 週齡一次（粗噴霧、飲水或點眼）。<br><strong>蛋雞／種雞</strong>：第 1 劑約 2–8 週齡；第 1 或第 2 劑約 8–16 週齡；<strong>第 2 劑在開產前至少 4 週</strong>。</td><td><strong>ELISA 力價與抵抗力無關</strong>（細胞性免疫）；同一天全場接種；不對病雞或黴漿菌陽性雞群接種；<strong>前後 10 天不打其他活毒</strong>；<strong>接種雞會潛伏帶毒，不可與未接種雞群混養</strong></td></tr>
+            <tr><td><a href="week08_馬立克病.html#section-vaccine"><strong>MD</strong></a></td><td><strong>細胞依附性</strong>：HVT（3 型，對 vMDV）；SB-1（2 型）；CVI988／Rispens（1 型減毒）。vvMDV：HVT＋SB-1 或 CVI988，或三者並用（部分保護）</td><td><strong>孵化場 1 日齡，或蛋內第 17–18 天</strong>。</td><td><strong>保存 –196°C 液態氮</strong>；27°C 水浴 90 秒內解凍、18G 針頭慢慢抽、輕輕旋轉、<strong>1 小時內用完</strong>；<strong>不可添加 Aureomycin、Terramycin、Erythromycin、Tetracycline</strong>；移行抗體會干擾；只減少腫瘤、不阻止感染排毒</td></tr>
+            <tr><td><a href="week10_傳染性華氏囊病.html#section-vaccine"><strong>IBD</strong></a></td><td><strong>活毒</strong>：mild（弱毒）、intermediate（中間）、intermediate plus（中間偏強）；種雞死毒</td><td><strong>種雞產蛋前死毒</strong>（被動免疫）。<br><strong>危險區</strong>：<strong>4 日齡</strong>弱毒飲水＋ND-IBD 油質死毒皮下；必要時 <strong>18–21 日齡中間毒</strong>飲水補強。<br><strong>一般區</strong>：<strong>1 週內</strong>弱毒飲水；<strong>18–21 日齡中間毒</strong>飲水補強（移行抗體差異大時比照危險區）。</td><td><strong>先弱毒基礎免疫，才能用中間毒</strong>（否則華氏囊受破壞）；中間偏強：高量移行抗體才中和、可較早打、<strong>除非修飾不能蛋內接種</strong>；intermediate 可蛋內或出殼時用；<strong>疫苗毒力不可超過移行抗體保護太多</strong>；<strong>移行抗體空窗期</strong>＝抗體低於保護水準但仍中和疫苗</td></tr>
+            <tr><td><a href="week11_雞傳染性貧血.html#section-control"><strong>CIA</strong></a></td><td><strong>減毒活毒，打種雞</strong></td><td>種雞<strong>8 週齡至開產前 4 週</strong>（一般建議 8–16 週齡，免疫後 3–4 週測抗體，不足最遲開產前 4 週補強）。汙染場 <strong>8–10 週齡</strong>；壓力輕的場開產前 4–6 週。</td><td><strong>不可用於 &lt; 8 週齡（有致病性）、屠宰前 21 天；產蛋中避免</strong>（疫苗病毒可能經蛋傳給小雞）；重點是抗體力價<strong>均勻度</strong></td></tr>
+            <tr><td><a href="week12_呼腸孤病毒.html#section-control"><strong>Reo</strong></a></td><td><strong>活毒＋死毒並用</strong></td><td>母雞<strong>開產前 2–3 週</strong>接種；移行抗體保護小雞孵出後 <strong>2–3 週</strong>。</td><td><strong>活毒只能在開產前</strong>（避免疫苗病毒經卵巢傳播）；目前對接種計畫尚無共識</td></tr>
+            <tr><td><a href="week05_寵物鳥病毒病.html#section-polyoma"><strong>多瘤病毒</strong></a>、<a href="week05_寵物鳥病毒病.html#section-pox">金絲雀痘</a></td><td>多瘤：Psittimune APV；金絲雀痘：POXIMUNE C</td><td>多瘤：<strong>5 週齡基礎免疫，2–3 週後補強</strong>。金絲雀痘：講義未寫時程。</td><td>PDD、PBFD 沒有疫苗</td></tr>
+            <tr><td><a href="week01_禽流感.html#section-vaccine"><strong>AI</strong></a></td><td>講義介紹：自我複製型 mRNA（Ceva RESPONS AI H5，1 μg、肌肉注射 2 劑間隔 4 週、–80°C）、重組 HA＋ND 雙價死毒（BI Volvac）、HVT 載體</td><td>WOAH 2023：疫苗是防疫補充工具；EFSA 建議預防性接種高風險區最易感禽種，爆發時以案例場為中心 3 公里內緊急接種。</td><td><strong>台灣現行不使用禽流感疫苗</strong>（撲殺清場）；使用後必須配合病毒監測（疫苗讓雞不發病但不一定阻止感染排毒）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>沒有疫苗的病怎麼防<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:900px;">
+          <thead><tr><th>病</th><th>防治方式</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI</strong>（台灣）</td><td>非開放式禽舍、防鳥防鼠、人車消毒、通報、<strong>撲殺清場</strong></td></tr>
+            <tr><td><strong>ALV</strong></td><td>在種雞金字塔頂端<strong>清除</strong>（1 日齡胎糞、6、18、22、25–30、45 週驗血漿、拭子、蛋白）；選購檢測陰性種雞；做好 MD 免疫；空欄至少 4 週</td></tr>
+            <tr><td><strong>REV</strong></td><td>生物安全；疫苗廠隨時監測雞胚與細胞不受汙染；清除</td></tr>
+            <tr><td><strong>PDD</strong></td><td>檢疫（國外引進）、消毒；支持療法</td></tr>
+            <tr><td><strong>PBFD</strong></td><td>嚴格隔離或淘汰感染鳥；2% 戊二醛消毒</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本課程第 1–12 週筆記「疫苗」「預防」各節。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">4</div><h2>診斷：採樣、分離、分子、血清學</h2></div>
+      <p class="section-desc">雞胚接種的位置是最常被拿來鑑別的：ND、AI、IB 用尿囊腔，ILT 用 CAM，AE 用卵黃囊（AE 沒有講義）。</p>
+      <h3>雞胚與細胞怎麼接種<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:900px;">
+          <thead><tr><th>病</th><th>病毒分離</th><th>陽性表現</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ND</strong></td><td>9–11 日齡 SPF 雞胚<strong>尿囊腔</strong></td><td>尿囊液 HA 陽性；雞胚出血死亡</td></tr>
+            <tr><td><strong>AI</strong></td><td>9–11 日齡 SPF／SAN 雞胚<strong>尿囊腔</strong></td><td>HA 陽性（也可能是 ND 或 Reo，要再鑑定）</td></tr>
+            <tr><td><strong>IB</strong></td><td>9–11 日齡 SPF 雞胚<strong>尿囊腔</strong></td><td><strong>胚胎矮小、捲曲</strong></td></tr>
+            <tr><td><strong>ILT</strong></td><td>9–11 日齡 SPF 雞胚<strong>絨毛尿囊膜（CAM）</strong>；初代細胞</td><td><strong>CAM 白色斑塊</strong></td></tr>
+            <tr><td><strong>IBD</strong></td><td>非必要；最好用 <strong>SPF 雞</strong>（3 天後取華氏囊）；CAM 約 3 天死亡；華氏囊初代細胞不適合 vvIBDV</td><td>出血、水腫</td></tr>
+            <tr><td><strong>Reo</strong></td><td>雞胚 <strong>CAM</strong>；Vero、BHK-21、PK-15</td><td>接種後約 <strong>7–8 日</strong>死亡；Vero 細胞融合</td></tr>
+            <tr><td><strong>CIA</strong></td><td><strong>MSB-1</strong>（雞淋巴母細胞）</td><td>—（<strong>胸腺不能用來分離</strong>）</td></tr>
+            <tr><td><strong>MD</strong></td><td>白血球層或組織接種 CK、CEF（血清型 1、3）、DEF（血清型 2）</td><td>細胞病變或斑塊</td></tr>
+            <tr><td><strong>ALV、REV</strong></td><td><strong>DF-1</strong>（對 ALV-E 有抵抗）；REV 也可用 CEF</td><td>沒有 CPE，要用 p27 ELISA 或 PCR 確認</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>各病的診斷重點<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:1000px;font-size:.88em;">
+          <thead><tr><th style="width:9%;">病</th><th style="width:22%;">採樣</th><th style="width:25%;">分子與組織</th><th style="width:22%;">血清學</th><th style="width:22%;">判定數字或關鍵</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI</strong></td><td>發病 3 日內；死禽各臟器＋喉頭泄殖腔拭子；活禽喉頭泄殖腔拭子；4°C 最多 4 天，長期 –80°C</td><td>RT-PCR、real-time、RT-LAMP；HA0 切位序列</td><td>ELISA、AGID、HI（可區分 H5／H7）</td><td><strong>IVPI &gt; 1.2</strong>（國內寫 ≥ 1.2）；<strong>8 隻 4–8 週齡死 6–8 隻（≥ 75%）</strong>；H5／H7 HA 切位像 HPAI</td></tr>
+            <tr><td><strong>ND</strong></td><td>活雞氣管＋泄殖腔拭子（要沾到糞便）；死雞臟器；保存於含抗生素 PBS，10–20% 乳劑</td><td>RT-PCR 增幅 F 基因切位定序</td><td>HI（最常用）、VN、ELISA、IFA</td><td><strong>ICPI ≥ 0.7</strong>；或 <strong>113–116 ≥ 3 個 R／K 且 117 為 F</strong>；MDT；IVPI</td></tr>
+            <tr><td><strong>IB</strong></td><td>咽喉拭子、泄殖腔拭子、糞便；氣管、肺、腎、盲腸扁桃</td><td>RT-PCR、免疫染色、電顯</td><td>ELISA、IFA、HI、VN，<strong>有血清型特異性</strong></td><td>確認臨床病例最好用病毒分離；疫苗後免疫用 ELISA 或 HI</td></tr>
+            <tr><td><strong>ILT</strong></td><td>呼吸道病材</td><td>PCR（最全面）；組織：融合細胞、嗜酸性核內包涵體；電顯、免疫染色</td><td>ELISA、VN、IFA、AGID，<strong>不能用 HI</strong></td><td>病變只在呼吸道；抗原 ELISA 可確認臨床病例</td></tr>
+            <tr><td><strong>IBD</strong></td><td>急性期華氏囊</td><td><strong>RT-PCR、RFLP</strong>（VP2）；AC-ELISA（8 株單株抗體）；VP2 222A、256I、294I、299S ＝ vvIBDV 指紋</td><td>ELISA、AGID、中和試驗</td><td>一般 RT-PCR 不足以分型</td></tr>
+            <tr><td><strong>CIA</strong></td><td>血液；骨髓、胸腺（組織）</td><td>PCR、IHC；骨髓脂肪化、胸腺皮質耗竭、脾淋巴球核內包涵體</td><td>意義不足（免疫抑制）；種雞監測抗體</td><td><strong>PCV ≤ 27%</strong>；鑑別 MD、REV、IBD</td></tr>
+            <tr><td><strong>Reo</strong></td><td>關節、腸道；病毒長期從消化道排出</td><td>RT-PCR、電顯、免疫螢光；組織：滑膜下漿細胞與淋巴球浸潤</td><td>AGP、ELISA（看均勻度）</td><td>關節液清澈＝ARV、混濁＝細菌</td></tr>
+            <tr><td><strong>MD</strong></td><td>羽毛尖端、血液、腫瘤組織</td><td>PCR／qPCR；<strong>meq</strong>：野外株約 583 bp 一條帶、CVI988 兩條帶（763＋583 bp）；MDV1 約 320 bp、HVT 505 bp</td><td>IFA、AGID；<strong>不能當診斷依據</strong></td><td><strong>診斷疾病（多形性淋巴瘤）而非感染</strong></td></tr>
+            <tr><td><strong>ALV／REV</strong></td><td>白血球層、腫瘤；種雞：胎糞、血漿、泄殖腔或陰道拭子、蛋白</td><td>PCR（前病毒）、RT-PCR；多重 PCR 可同驗 MDV、ALV、REV</td><td>p27 ELISA（ALV）；IFA、IHC、ELISA（REV）</td><td>p27 內外源都測得到、無法分亞群</td></tr>
+            <tr><td><strong>PDD</strong></td><td><strong>泄殖腔拭子</strong>、尿、糞便、羽毛</td><td>RT-PCR；X 光腺胃／龍骨比 &gt; 0.48；QM7 細胞</td><td>西方墨點（抗 PaBV N 蛋白 38 kDa）</td><td>血液 RT-PCR 陽性率 0%，不能用血液排除</td></tr>
+            <tr><td><strong>多瘤病毒</strong></td><td>活鳥：血液＋泄殖腔拭子；組織：脾、肝、腎</td><td>PCR；免疫螢光；電顯；嗜鹼性核內包涵體</td><td>—</td><td>血液／泄殖腔：＋／＋ 正在排毒；－／＋ 快停止；－／－ 已清除</td></tr>
+            <tr><td><strong>PBFD、痘</strong></td><td>PBFD：血液、新鮮羽髓、糞便；痘：病變</td><td>PCR；電顯；PBFD 原位雜交；痘：Bollinger bodies、雞胚 CAM 痘斑</td><td>—</td><td>PBFD：嗜鹼性<strong>細胞質內</strong>包涵體</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本課程各週筆記「診斷」節。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- LOOKUP -->
+    <div class="section" id="section-lookup">
+      <div class="section-head"><div class="section-num">5</div><h2>症狀反查：看到這個，想到哪個病</h2></div>
+      <p class="section-desc">臨床與考試都是從「看到什麼」開始，這張表倒著查。</p>
+      <div class="table-wrap">
+        <table style="min-width:900px;">
+          <thead><tr><th style="width:30%;">看到的症狀或病變</th><th style="width:18%;">先想到</th><th>要再鑑別或確認</th></tr></thead>
+          <tbody>
+            <tr><td><strong>咳出帶血黏液</strong>、喉頭氣管出血與乾酪樣物、病變只在呼吸道</td><td>ILT</td><td>和禽痘白喉型（偽膜）鑑別；核內包涵體 vs 細胞質內包涵體</td></tr>
+            <tr><td><strong>綠色下痢＋扭頸</strong>、腺胃乳突部出血、腸淋巴組織潰瘍</td><td>ND（或 HPAI）</td><td>肉眼無法與 HPAI 區分；兩者都要通報；用 ICPI／序列確認</td></tr>
+            <tr><td><strong>雞冠腫大發紫、足出血</strong>、胰臟出血壞死（台灣 H5）</td><td>HPAI</td><td>IVPI、HA 切位序列；通報撲殺</td></tr>
+            <tr><td><strong>水便、產蛋下降＋畸形蛋與水樣蛋白</strong>、腎腫脹尿酸鹽</td><td>IB</td><td>腎尿酸鹽也可能是 HPAI；雛雞 1 日齡感染看輸卵管</td></tr>
+            <tr><td><strong>水樣下痢、啄肛</strong>、華氏囊腫大出血或萎縮、胸腿肌出血</td><td>IBD</td><td>3 週內感染看不到症狀，只有免疫抑制</td></tr>
+            <tr><td><strong>蒼白、翅膀皮下出血呈藍色</strong>、黃骨髓、胸腺萎縮、PCV ≤ 27%</td><td>CIA</td><td>MD、REV、IBD</td></tr>
+            <tr><td><strong>跛行、足關節腫脹、腓腸肌腱斷裂</strong>、關節液清澈</td><td>Reo</td><td>關節液混濁 → 細菌；常與 M. synoviae、葡萄球菌混合</td></tr>
+            <tr><td><strong>腿翅麻痺、坐骨神經腫大</strong>；腺胃燒瓶狀、卵巢花椰菜狀；灰眼；毛囊腫大</td><td>MD（6 週齡後）</td><td>LL／RE 沒有神經病變、華氏囊是濾泡「內」結節</td></tr>
+            <tr><td><strong>14 週以上</strong>肝脾腎腫瘤、消瘦、雞冠蒼白、華氏囊結節</td><td>LL（ALV-A）／ML（ALV-J）／RE</td><td>病毒分離（DF-1）、PCR；p27 ELISA 不能確診</td></tr>
+            <tr><td>雛雞矮小、羽毛不良、疫苗後免疫抑制、禽痘或 MD 疫苗汙染</td><td>REV</td><td>疫苗廠監測</td></tr>
+            <tr><td><strong>神經症狀＋糞便有未消化食物</strong>、逆流、腺胃擴張</td><td>PDD（灰鸚鵡、金剛）</td><td>泄殖腔拭子 RT-PCR、X 光</td></tr>
+            <tr><td><strong>French molt</strong>、雛鳥死亡、心肝脾腫大、皮下出血</td><td>多瘤病毒（虎皮、愛情鳥）</td><td>血液＋泄殖腔 PCR</td></tr>
+            <tr><td><strong>對稱性羽毛脫落與變形</strong>、喙發亮斷裂</td><td>PBFD</td><td>多瘤病毒也會羽毛異常（約 10% 合併）：看年齡與包涵體位置</td></tr>
+            <tr><td>無毛皮膚丘疹 → 痂皮；眼鼻黏膜病變</td><td>痘病毒</td><td>吸血昆蟲；金絲雀痘死亡 &gt; 70%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>各病「哪些會」的集合題<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:900px;">
+          <thead><tr><th style="width:26%;">問題</th><th>包含的病</th></tr></thead>
+          <tbody>
+            <tr><td>會造成<strong>免疫抑制</strong></td><td>IBD、CIA、MD、ALV（另有免疫耐受）、REV、Reo；PBFD</td></tr>
+            <tr><td>有<strong>垂直傳播</strong>（經蛋）</td><td>ND（弱毒）、ALV、REV（低）、Reo（非常少）、CIA、多瘤（虎皮）、PDD、PBFD；<strong>MD、ILT、IB 沒有</strong></td></tr>
+            <tr><td><strong>無封套</strong>（較耐消毒）</td><td>IBD、CIA、Reo、多瘤、PBFD</td></tr>
+            <tr><td><strong>會潛伏／終生帶毒</strong></td><td>ILT（三叉神經節）、MD、PDD（持續感染）、AI 水禽帶毒</td></tr>
+            <tr><td><strong>呼吸症狀</strong></td><td>AI、ND、ILT、IB</td></tr>
+            <tr><td><strong>神經症狀</strong></td><td>AI、ND、PDD、MD（神經型）、多瘤</td></tr>
+            <tr><td><strong>腎病變</strong></td><td>IB（尿酸鹽）、IBD（腎腫大）、HPAI（尿酸鹽）；ILT 沒有</td></tr>
+            <tr><td><strong>腺胃出血</strong></td><td>ND、AI；IB 親腺胃型；Reo 腺胃出血、大小不一</td></tr>
+            <tr><td><strong>人畜共通</strong></td><td>ND（結膜炎）、AI（H5N1 等）</td></tr>
+            <tr><td><strong>有血清型問題</strong></td><td>IB（多、交叉保護差）、IBD（2 型無交叉保護）、MD（3 型）；ND、ILT、CIA 只有 1 型</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為跨筆記整理；各項細節見對應週的筆記。</footer>
+    </div>
+
+    <!-- TREAT -->
+    <div class="section" id="section-treat">
+      <div class="section-head"><div class="section-num">6</div><h2>治療與場內處置</h2></div>
+      <p class="section-desc">講義裡<strong>沒有任何一個病毒病列出特效治療</strong>（IB、ALV、REV、PDD 明寫沒有），重點是預防、淘汰與支持療法；「講義未列」不等於一定沒有，只是講義沒寫。</p>
+      <div class="table-wrap">
+        <table style="min-width:900px;">
+          <thead><tr><th style="width:12%;">病</th><th style="width:16%;">特效治療</th><th>處置與防治重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI</strong></td><td>講義未列</td><td>通報、撲殺清場；生物安全（非開放式禽舍、防鳥）</td></tr>
+            <tr><td><strong>ND</strong></td><td>講義未列</td><td>弱毒疫苗控制（單一血清型，弱毒可保護所有病原型）；人偶爾感染（結膜炎）</td></tr>
+            <tr><td><strong>IB</strong></td><td>無特效藥</td><td>雛雞<strong>保溫</strong>、避免擁擠、改善通風；<strong>糖水</strong>補充能量、降低尿酸；補充<strong>鹽類</strong>改善酸血症；徹底消毒、同齡同進同出；病毒對紫外線與一般消毒水敏感，0.1% 福馬林可不活化</td></tr>
+            <tr><td><strong>ILT</strong></td><td>講義未列</td><td>初期死亡率不高時用<strong>祛痰劑</strong>、支持療法；潛伏期長、傳播較慢，爆發時對有感受性雞全面接種；病毒有封套，對脂溶劑、熱、消毒水敏感；防止汙染源進場</td></tr>
+            <tr><td><strong>IBD</strong></td><td>講義未列</td><td>統進統出、徹底清潔、<strong>碘消毒</strong>；疫苗依移行抗體選時機；重複墊料要注意病毒存活 52 天</td></tr>
+            <tr><td><strong>CIA</strong></td><td>講義未列</td><td>生物安全、種雞免疫；一般消毒劑效果有限但可降低繼發感染；防治其他免疫抑制病與球蟲</td></tr>
+            <tr><td><strong>Reo</strong></td><td>講義未列</td><td><strong>淘汰或隔離</strong>病雞（長期排毒）、空欄、碘消毒</td></tr>
+            <tr><td><strong>MD</strong></td><td>講義未列</td><td>1 日齡疫苗；嚴格生物安全、統進統出、移除舊墊料；降低緊迫；避免免疫抑制病；選育抗病品系</td></tr>
+            <tr><td><strong>ALV</strong></td><td>無治療、無疫苗</td><td><strong>淘汰</strong>發病與疑似發病雞；補充維生素與電解質降低緊迫；勤清掃減少灰塵毛屑；空欄後高壓水柱清洗，過氧化物類或鹵素類消毒，<strong>空欄至少 4 週</strong></td></tr>
+            <tr><td><strong>REV</strong></td><td>無治療、無疫苗</td><td>生物安全；監測疫苗汙染；清除</td></tr>
+            <tr><td><strong>PDD</strong></td><td>無抗病毒藥</td><td><strong>celecoxib（PO）、robenacoxib（注射）</strong>；近端消化道功能異常用<strong>注射型 metoclopramide</strong>；輸液、抗生素、<strong>每餐少量餵食</strong>；耐心長期治療、減少緊迫（研究中：ribavirin、favipiravir）</td></tr>
+            <tr><td><strong>多瘤病毒</strong></td><td>講義未列</td><td>支持療法；疫苗；合成酚、次氯酸鈉、穩定型二氧化氯消毒</td></tr>
+            <tr><td><strong>PBFD</strong></td><td>講義未列（沒有疫苗）</td><td>支持療法、抗生素處理續發感染；<strong>嚴格隔離或淘汰</strong>；2% 戊二醛</td></tr>
+            <tr><td><strong>痘（寵物鳥）</strong></td><td>講義未列</td><td>支持療法；抗生素處理續發感染；<strong>讓痘病變自然癒合</strong>；殺蟲劑控制吸血昆蟲；次氯酸鈉</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>通用生物安全（總論與種禽）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>先清潔再消毒</strong>；寄生蟲（球蟲卵囊）所有化學消毒劑都無效；芽胞只有醛類、碘劑中等有效；四級銨對病毒效果差。</li>
+        <li>場區：淨區與汙染區分開、各棟分隔、<strong>單向動線</strong>；飼料桶放場外；人車進場消毒更衣；防鼠、防蠅、防野鳥（密閉式禽舍最好）；水線加藥或疫苗前後要沖水。</li>
+        <li>詳見<a href="week07_種禽生產醫學.html#section-biosecurity">種禽生產醫學・生物安全</a>。</li>
+      </ul>
+      <footer class="note-footer">資料來源：本課程各週筆記「處置」「防治」各節。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- NUMBERS -->
+    <div class="section" id="section-numbers">
+      <div class="section-head"><div class="section-num">7</div><h2>數字速背</h2></div>
+      <p class="section-desc">期中最常被問的數字，按主題放在一起。</p>
+      <h3>病原性判定三兄弟<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:800px;">
+          <thead><tr><th></th><th>MDT（雞胚平均死亡時間）</th><th>ICPI（腦內接種）</th><th>IVPI（靜脈接種）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>做法</strong></td><td>9–10 日齡 SPF 雞胚尿囊腔，每天照蛋 2 次、7 天</td><td>10 隻 <strong>1 日齡</strong>雛雞腦內接種，觀察 <strong>8 天</strong></td><td>10 隻 <strong>6 週齡</strong>雞靜脈接種，觀察 <strong>10 天</strong></td></tr>
+            <tr><td><strong>計分</strong></td><td>—</td><td>正常 0、發病 1、死亡 <strong>2</strong>（滿分 2）</td><td>正常 0、發病 1、麻痺 2、死亡 <strong>3</strong>（滿分 3）</td></tr>
+            <tr><td><strong>判讀</strong></td><td>&lt; 60 小時強毒；60–90 小時中間毒；&gt; 90 小時弱毒（<strong>越小越毒</strong>）</td><td>≥ 1.5 典型強毒；弱毒近 0；<strong>WOAH 定義 ND：≥ 0.7</strong></td><td>強毒約 3.0；弱毒近 0；<strong>HPAI：&gt; 1.2</strong>（國內 ≥ 1.2）</td></tr>
+            <tr><td><strong>用在</strong></td><td>ND</td><td>ND</td><td>AI（也用於 ND）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>ICPI 計算例（講義）：10 隻 8 天總分 104 → 104 ÷ 80 ＝ <strong>1.3</strong>。想看完整說明回<a href="week02_新城病.html#section-diagnosis">新城病・病原性鑑定</a>。</p>
+      <h3>WOAH 定義與切位序列<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>ND</strong>：ICPI ≥ 0.7；<strong>或</strong> F2 C 端 113–116 位至少 <strong>3 個 R／K</strong> 且 F1 N 端 117 位為 <strong>F</strong>（強毒 -R-Q-R/K-R*F-；弱毒 La Sota -G-R-Q-G-R*L-）。</li>
+        <li><strong>HPAI</strong>：IVPI &gt; 1.2；或 8 隻 4–8 週齡雞靜脈接種，10 天內死 <strong>6–8 隻（≥ 75%）</strong>；或 H5、H7 的 HA 切位序列像 HPAI（多個鹼性胺基酸，例 RERRRKKR；LPAI 例 RETR）。</li>
+      </ul>
+      <h3>年齡、天數與數值<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table style="min-width:800px;">
+          <thead><tr><th style="width:12%;">病</th><th>數字</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI</strong></td><td>潛伏期 3 天；WOAH 要求 H5、H7 家禽分離都通報；HA H1–19、NA N1–11；mRNA 疫苗 2 劑間隔 4 週</td></tr>
+            <tr><td><strong>ND</strong></td><td>潛伏期 5–6 天、5–7 天死亡；病毒 150–300 nm、15 kb；台灣 2–6 週齡肉雞多；產蛋期活毒補強每 30–60 天；死毒 14–20 週齡；孵化場免疫維持 2–3 週</td></tr>
+            <tr><td><strong>IB</strong></td><td>潛伏期 1–3 天；雛雞死亡可達 25%；產蛋下降可達 50%、6–8 週回升；R ＝ 19.95、空氣傳 1 公里以上；排毒 20 週；肉雞補強 10–14 日齡；蛋雞／種雞死毒 16–18 週齡（或開產前 4–6 週）</td></tr>
+            <tr><td><strong>ILT</strong></td><td>潛伏期自然 6–14 天；嚴重型發病 90–100%、死亡 5–70%；輕微型 5% 與 &lt; 2%；<strong>潛伏三叉神經節可達 15 個月</strong>；第 2 劑開產前至少 4 週；前後 10 天不打其他活毒</td></tr>
+            <tr><td><strong>IBD</strong></td><td>潛伏 2–3 天、5–8 天死亡；&lt; 3 週免疫抑制、3–6 週急性；死亡率 vv &gt; 20%、classical &lt; 20%、variant &lt; 5%；華氏囊 2–4 天腫大、5 天後萎縮；雞舍存活 122 天、墊料糞便 52 天；病雞移走後 4 個月仍可感染；4 日齡、18–21 日齡</td></tr>
+            <tr><td><strong>CIA</strong></td><td>PCV ≤ 27%；&lt; 2 週齡嚴重；年齡抵抗 3–6 週；感染後 8 天血液下降、28–36 天恢復；疫苗 8 週齡至開產前 4 週；屠宰前 21 天；環狀 ssDNA 2.3 kb、25 nm</td></tr>
+            <tr><td><strong>Reo</strong></td><td>1 日齡最敏感、4–7 週齡自然感染、10 週齡以上不敏感；潛伏期（2 週齡）：趾蹠 1 天、氣管 9 天、肌肉靜脈 11 天、接觸 13 天；死亡率約 5%、產蛋下降 10%；開產前 2–3 週；CAM 7–8 天</td></tr>
+            <tr><td><strong>MD</strong></td><td>潛伏期 ≥ 4 週、發病多在 6 週齡後；急性溶細胞型 10–14 日齡死亡；孵化場 1 日齡或蛋內第 17–18 天；–196°C；90 秒、1 小時；3 個血清型</td></tr>
+            <tr><td><strong>ALV／REV</strong></td><td>LL 4 個月以上（&gt; 14 週）；急性轉形最早感染後 5 週；成雞水平感染 A／B：V–A+ &gt; 80%、V+A– &lt; 10%；清除計畫採樣：1 日齡、6、18、22、25–30、45 週；空欄 4 週</td></tr>
+            <tr><td><strong>寵物鳥</strong></td><td>PDD 腺胃／龍骨比 &gt; 0.48；泄殖腔 RT-PCR 53%；多瘤 &lt; 16 週齡、疫苗 5 週齡；金絲雀痘死亡 &gt; 70%；台灣 PBFD 陽性率：進口鳥 72%、繁殖者 53%；多瘤約 15%、與 PBFD 合併約 10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本課程各週筆記。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '怎麼用這頁',
+  master: '一頁總表',
+  vaccine: '疫苗時間表',
+  diagnosis: '診斷方法',
+  lookup: '症狀反查',
+  treat: '治療與處置',
+  numbers: '數字速背',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

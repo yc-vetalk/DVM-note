@@ -4306,6 +4306,55 @@ const SEARCH_INDEX = [
     snippet: "把兩位老師歷年重複出現的題目整理成一張表，考前最後看這張。"
   },
   {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/禽病學/期中統整.html",
+    section: "abstract", sectionName: "怎麼用這頁",
+    keywords: "期中統整 禽病學 疫苗 診斷 治療 防治 一覽表 ",
+    snippet: "期中統整的使用方式與收錄範圍。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/禽病學/期中統整.html",
+    section: "master", sectionName: "一頁總表",
+    keywords: "期中統整 禽病學 疫苗 診斷 治療 防治 一覽表 呼吸道與全身性病毒 免疫抑制與淋巴器官病毒 腫瘤病毒 寵物鳥病毒",
+    snippet: "每個病一列。看欄位橫著比，就是鑑別；看一列直著讀，就是這個病的全貌。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/禽病學/期中統整.html",
+    section: "vaccine", sectionName: "疫苗時間表",
+    keywords: "期中統整 禽病學 疫苗 診斷 治療 防治 一覽表 疫苗打誰？ 各病疫苗時間、型別、途徑 沒有疫苗的病怎麼防",
+    snippet: "先看「疫苗打在誰身上」這張表，最容易混；再看各病的時間表。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/禽病學/期中統整.html",
+    section: "diagnosis", sectionName: "診斷方法",
+    keywords: "期中統整 禽病學 疫苗 診斷 治療 防治 一覽表 雞胚與細胞怎麼接種 各病的診斷重點",
+    snippet: "雞胚接種的位置是最常被拿來鑑別的：ND、AI、IB 用尿囊腔，ILT 用 CAM，AE 用卵黃囊（AE 沒有講義）。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/禽病學/期中統整.html",
+    section: "lookup", sectionName: "症狀反查",
+    keywords: "期中統整 禽病學 疫苗 診斷 治療 防治 一覽表 各病「哪些會」的集合題",
+    snippet: "臨床與考試都是從「看到什麼」開始，這張表倒著查。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/禽病學/期中統整.html",
+    section: "treat", sectionName: "治療與處置",
+    keywords: "期中統整 禽病學 疫苗 診斷 治療 防治 一覽表 通用生物安全（總論與種禽）",
+    snippet: "講義裡沒有任何一個病毒病列出特效治療（IB、ALV、REV、PDD 明寫沒有），重點是預防、淘汰與支持療法；「講義未列」不等於一定沒有，只是講義沒寫。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/禽病學/期中統整.html",
+    section: "numbers", sectionName: "數字速背",
+    keywords: "期中統整 禽病學 疫苗 診斷 治療 防治 一覽表 病原性判定三兄弟 WOAH 定義與切位序列 年齡、天數與數值",
+    snippet: "期中最常被問的數字，按主題放在一起。"
+  },
+  {
     subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
     url: "大四上/禽病學/week01_禽流感.html",
     section: "abstract", sectionName: "大方向與重點摘要",
