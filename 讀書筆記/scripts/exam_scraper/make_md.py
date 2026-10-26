@@ -105,12 +105,12 @@ for name,cfg in species.SPECIES.items():
             elif wr.search(' '.join(q['opts'].values())) :
                 weak.append((pp,q))
     tot=sum(len(v) for v in groups.values())
-    t=f"# {name}・歷屆國考題彙整（獸醫師・獸醫傳染病學）\n\n- 來源：考選部「考畢試題查詢平台」專技高考獸醫師「獸醫傳染病學」，民國 97–115 年共 {len(papers)} 份、{sum(len(p['qs']) for p in papers)} 題\n- 本檔挑出題幹與{name[0]}相關者共 **{tot}** 題（依疾病分組、組內依年份排序），另列「選項提及{name[0]}」{len(weak)} 題\n- 篩選為關鍵字自動判斷，**可能漏題或誤收**；完整試卷見 `獸醫傳染病學/` 資料夾\n- 只有題目與官方答案，未附詳解\n\n"
+    t=f"# {name}・歷屆國考題彙整（獸醫師・獸醫傳染病學）\n\n- 來源：考選部「考畢試題查詢平台」專技高考獸醫師「獸醫傳染病學」，民國 97–115 年共 {len(papers)} 份、{sum(len(p['qs']) for p in papers)} 題\n- 本檔挑出題幹與{cfg.get("short",name[0])}相關者共 **{tot}** 題（依疾病分組、組內依年份排序），另列「選項提及{cfg.get("short",name[0])}」{len(weak)} 題\n- 篩選為關鍵字自動判斷，**可能漏題或誤收**；完整試卷見 `獸醫傳染病學/` 資料夾\n- 只有題目與官方答案，未附詳解\n\n"
     for nm,lst in groups.items():
         if not lst: continue
         t+=f"## {nm}（{len(lst)} 題）\n\n"
         for pp,q in sorted(lst,key=lambda x:(x[0]['code'],x[1]['n'])): t+=qline(pp,q,True)+'---\n\n'
-    t+=f"## 選項提及{name[0]}（較不確定，{len(weak)} 題）\n\n"
+    t+=f"## 選項提及{cfg.get("short",name[0])}（較不確定，{len(weak)} 題）\n\n"
     for pp,q in sorted(weak,key=lambda x:(x[0]['code'],x[1]['n'])): t+=qline(pp,q,True)+'---\n\n'
     cm=os.path.join(OUT,f'{name}_國考題彙整.md') if OUT else paths.course_md(name)
     os.makedirs(os.path.dirname(cm),exist_ok=True)

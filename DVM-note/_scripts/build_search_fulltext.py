@@ -23,7 +23,7 @@ from datetime import datetime
 
 SITE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 OUT = os.path.join(SITE, 'search-fulltext.js')
-SKIP_FILES = {'考前重點.html', 'quiz.html'}
+SKIP_FILES = {'考前重點.html', 'quiz.html', 'logbook.html'}   # Logbook 只在本機，不能進公開索引
 
 RE_DROP = re.compile(r'<script\b.*?</script>|<style\b.*?</style>|<header\b.*?</header>|<nav\b.*?</nav>|'
                      r'<div class="nav-panel"[^>]*>.*?</div>|<!--.*?-->|<span class="lv[^"]*">.*?</span>|'

@@ -85,9 +85,9 @@ const SITE_NAV = [
       { title: "獸醫藥理學", url: "國考/獸醫藥理學/index.html", desc: "尚無筆記" },
       { title: "獸醫實驗診斷學", url: "國考/獸醫實驗診斷學/index.html", desc: "尚無筆記" },
       { title: "獸醫普通疾病學", url: "國考/獸醫普通疾病學/index.html", desc: "尚無筆記" },
-      { title: "獸醫傳染病學", url: "國考/獸醫傳染病學/index.html", desc: "豬病學統整（歷屆國考題 607 題含詳解）、禽病學統整（554 題）、統整表格" },
+      { title: "獸醫傳染病學", url: "國考/獸醫傳染病學/index.html", desc: "豬病學統整（歷屆國考題 607 題含詳解）、禽病學統整（554 題）、反芻動物疾病學統整（320 題）、統整表格" },
       { title: "獸醫公共衛生學", url: "國考/獸醫公共衛生學/index.html", desc: "尚無筆記" },
-      { title: "跨科專題", url: "國考/專題/index.html", desc: "病毒科與核酸類型" }
+      { title: "跨科專題", url: "國考/專題/index.html", desc: "病毒科與核酸類型、瘤胃 pH 與酸中毒、瘤胃蛋白質與氮代謝" }
     ]
   }
 ];

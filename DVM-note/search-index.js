@@ -2297,6 +2297,13 @@ const SEARCH_INDEX = [
     snippet: "IAV：Orthomyxoviridae、80–120 nm 有封套、8 段負股 ssRNA（可重組）、18 HA×11 NA；豬三大型別 H1N1、H1N2、H3N2；人傳豬遠比豬傳人頻繁；台灣曾有人感染 H1N2v 病例。"
   },
   {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "cmt", sectionName: "乳房炎檢測方法：CMT 與其他（牛）",
+    keywords: "CMT 加州乳房炎試驗 California Mastitis Test 體細胞數 SCC 檢乳杯 strip cup 熱像儀 CAMP試驗 乳汁培養 亞臨床 潛在性 乳房炎 反芻動物疾病學 國考",
+    snippet: "CMT：界面活性劑溶解白血球釋出 DNA 凝集，凝集程度與體細胞數成正比，牧場現場最常用；附各種乳房炎檢測方法比較、判讀表與國考陷阱。"
+  },
+  {
     subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
     url: "大四上/豬病學/week05_豬流行性感冒.html",
     section: "mixing", sectionName: "混合容器理論與可憐豬假說",
@@ -2990,6 +2997,111 @@ const SEARCH_INDEX = [
     snippet: "選項提及禽：專技高考獸醫傳染病學歷屆國考題 77 題，含官方答案；期中範圍疾病附逐選項詳解。"
   },
   {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s0", sectionName: "乳房炎（Mastitis）",
+    keywords: "乳房炎 Mastitis  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "乳房炎（Mastitis）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s1", sectionName: "牛瘟與小反芻獸疫（Rinderpest／PPR）",
+    keywords: "牛瘟與小反芻獸疫 Rinderpest PPR  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "牛瘟與小反芻獸疫（Rinderpest／PPR）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s2", sectionName: "牛病毒性下痢（Bovine Viral Diarrhea, BVD）",
+    keywords: "牛病毒性下痢 Bovine Viral Diarrhea  BVD  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "牛病毒性下痢（Bovine Viral Diarrhea, BVD）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s3", sectionName: "牛傳染性鼻氣管炎（Infectious Bovine Rhinotracheitis, IBR／BoHV-1）",
+    keywords: "牛傳染性鼻氣管炎 Infectious Bovine Rhinotracheitis  IBR BoHV-1  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "牛傳染性鼻氣管炎（Infectious Bovine Rhinotracheitis, IBR／BoHV-1）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s4", sectionName: "牛呼吸道疾病症候群（BRD：BRSV、PI-3、Mannheimia、Pasteurella、Histophilus、黴漿菌）",
+    keywords: "牛呼吸道疾病症候群 BRD BRSV PI-3 Mannheimia Pasteurella Histophilus 黴漿菌  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "牛呼吸道疾病症候群（BRD：BRSV、PI-3、Mannheimia、Pasteurella、Histophilus、黴漿菌）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s5", sectionName: "腸胃道疾病（沙門氏菌、隱孢子蟲、冬季下痢、輪狀／冠狀病毒、仔牛下痢）",
+    keywords: "腸胃道疾病 沙門氏菌 隱孢子蟲 冬季下痢 輪狀 冠狀病毒 仔牛下痢  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "腸胃道疾病（沙門氏菌、隱孢子蟲、冬季下痢、輪狀／冠狀病毒、仔牛下痢）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s6", sectionName: "牛流行熱與結節疹（BEF／LSD）",
+    keywords: "牛流行熱與結節疹 BEF LSD  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "牛流行熱與結節疹（BEF／LSD）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s7", sectionName: "結核病（Tuberculosis, TB）",
+    keywords: "結核病 Tuberculosis  TB  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "結核病（Tuberculosis, TB）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s8", sectionName: "惡性卡他熱與藍舌病（MCF／BT）",
+    keywords: "惡性卡他熱與藍舌病 MCF BT  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "惡性卡他熱與藍舌病（MCF／BT）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s9", sectionName: "山羊關節炎腦炎、Q 熱與地方性流產（CAE／Q fever／EAE）",
+    keywords: "山羊關節炎腦炎 Q 熱與地方性流產 CAE Q fever EAE  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "山羊關節炎腦炎、Q 熱與地方性流產（CAE／Q fever／EAE）：專技高考獸醫傳染病學歷屆國考題，含官方答案與逐選項詳解。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s10", sectionName: "其他（講義未涵蓋）：口蹄疫、水疱性疾病",
+    keywords: "其他 講義未涵蓋  口蹄疫 水疱性疾病 國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "其他（講義未涵蓋）：口蹄疫、水疱性疾病：專技高考獸醫傳染病學歷屆國考題，講義未涵蓋，只列題目與官方答案。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s11", sectionName: "其他（講義未涵蓋）：布氏桿菌、炭疽、副結核、梭菌、鉤端螺旋體、李斯特等細菌病",
+    keywords: "其他 講義未涵蓋  布氏桿菌 炭疽 副結核 梭菌 鉤端螺旋體 李斯特等細菌病 國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "其他（講義未涵蓋）：布氏桿菌、炭疽、副結核、梭菌、鉤端螺旋體、李斯特等細菌病：專技高考獸醫傳染病學歷屆國考題，講義未涵蓋，只列題目與官方答案。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s12", sectionName: "其他（講義未涵蓋）：血液寄生蟲、普利昂、其他病毒",
+    keywords: "其他 講義未涵蓋  血液寄生蟲 普利昂 其他病毒 國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "其他（講義未涵蓋）：血液寄生蟲、普利昂、其他病毒：專技高考獸醫傳染病學歷屆國考題，講義未涵蓋，只列題目與官方答案。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s13", sectionName: "其他（題幹提及但未歸入上列疾病）",
+    keywords: "其他 題幹提及但未歸入上列疾病  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "其他（題幹提及但未歸入上列疾病）：專技高考獸醫傳染病學歷屆國考題，講義未涵蓋，只列題目與官方答案。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "反芻動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/反芻動物疾病學統整.html",
+    section: "s14", sectionName: "選項提及反芻（較不確定，106 題）",
+    keywords: "選項提及反芻 較不確定 106 題  國考題 歷屆 專技高考 獸醫傳染病學 反芻動物疾病學 牛 羊 反芻",
+    snippet: "選項提及反芻（較不確定，106 題）：專技高考獸醫傳染病學歷屆國考題，講義未涵蓋，只列題目與官方答案。"
+  },
+  {
     subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
     url: "國考/獸醫傳染病學/統整表格.html",
     section: "tox", sectionName: "毒素與細菌病總表（按疾病）",
@@ -3030,6 +3142,34 @@ const SEARCH_INDEX = [
     section: "sal", sectionName: "沙門氏菌：敗血型 vs 腸炎型",
     keywords: "沙門氏菌 敗血型 腸炎型 Choleraesuis Typhimurium 鈕扣狀潰瘍 副傷寒小節 發紺 紅耳朵 MacConkey 解題",
     snippet: "敗血型（Choleraesuis）：發紺、脾腫大、肝壞死點、肺炎；腸炎型（Typhimurium）：下痢、結腸鈕扣狀潰瘍。題庫考過的題與解題步驟。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "fever", sectionName: "發燒＋出血的豬：豬瘟的鑑別對照",
+    keywords: "鑑別診斷 豬瘟 非洲豬瘟 CSF ASF 脾臟邊緣梗塞 脾腫大 淋巴結周邊出血 鈕扣狀潰瘍 血球吸附 HAD PRRS PCVAD 假性狂犬病 豬丹毒 沙門氏菌 旋毛蟲",
+    snippet: "發燒＋出血先想 CSF、ASF：CSF 脾邊緣梗塞、淋巴結周邊出血；ASF 脾腫大質脆暗黑、HAD 玫瑰花環；兩者必須實驗室確診。附判斷流程與國考題。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "diva", sectionName: "疫苗與 DIVA 對照",
+    keywords: "DIVA 區分感染與疫苗 標記疫苗 Erns E2 次單位疫苗 NSP 非結構蛋白 3A3B gE 基因缺失 ELISA 豬瘟 口蹄疫 假性狂犬病 PRRS",
+    snippet: "DIVA＝疫苗少一個標記抗原、只驗那個抗原的抗體：豬瘟驗 Erns、口蹄疫驗 NSP、假性狂犬病驗 gE；PRRS 沒有可靠 DIVA。附國考題。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "myco", sectionName: "黴漿菌：菌種 ↔ 病對照（牛・羊）",
+    keywords: "黴漿菌 Mycoplasma bovis mycoides 牛肺疫 CBPP 接觸傳染性胸膜肺炎 bovoculi bovigenitalium dispar alkalescens conjunctivae agalactiae putrefaciens capripneumoniae CCPP ovipneumoniae 傳染性無乳症 乳房炎 關節炎 結膜炎 肺炎 反芻動物疾病學",
+    snippet: "黴漿菌菌種配病：M. bovis 仔牛肺炎／乳房炎／關節炎；M. mycoides SC 牛肺疫；M. bovoculi 牛眼；M. conjunctivae 羊眼；M. agalactiae 傳染性無乳症；M. capricolum capripneumoniae 山羊 CCPP。附背法與依部位速查表。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "agent", sectionName: "牛羊疾病 ↔ 病原總表（什麼病由什麼造成）",
+    keywords: "病原 疾病 對照 牛羊 BRD 運輸熱 Mannheimia haemolytica Pasteurella multocida IBR BoHV-1 BVD 腐蹄病 Dichelobacter nodosus Q熱 Coxiella burnetii Chlamydophila abortus 副結核 結核 木舌病 Actinobacillus 放線菌 Actinomyces 赤羽病 茨城病 中山病 藍舌病 牛流行熱 Morbillivirus Capripoxvirus Lentivirus Orbivirus 病毒科屬 反芻動物疾病學 國考",
+    snippet: "依部位（呼吸、腸胃、乳房、生殖流產、眼皮膚蹄、神經全身）整理牛羊疾病與可能病原，附國考題號與病毒科屬速記；例：綿羊腐蹄病＝Dichelobacter nodosus、Q 熱＝Coxiella burnetii。"
   },
   {
     subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "循環系統",
@@ -7661,6 +7801,13 @@ const SEARCH_INDEX = [
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
     url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
+    section: "yu2", sectionName: "第二堂共筆：小羊與代謝病",
+    keywords: "余品奐老師第二堂（共筆）：小羊、代謝異常、輸液與尿檢 小羊的被動免疫 新生兒敗血症 新生兒下痢的分級與輸液計算 成羊瘤胃酸中毒與腸毒血症 僵直、低血鈣與低血鎂 輸液途徑與腸外營養 尿檢 余品奐 共筆 小羊 被動免疫 800 mg/dL 新生兒敗血症 ceftiofur flunixin 新生兒下痢 分級 鹼缺乏 輸液計算 瘤胃酸中毒 仙貝 腸毒血症 Clostridium perfringens 抗毒素 妊娠毒血症 calcium borogluconate 低血鎂 氯化鎂 PPN TPN 再餵食症候群 尿檢 free catch 尿比重 尿pH 反常性酸尿 酮體 試紙 潛血 肌紅素",
+    snippet: "本學期講義沒有這一堂；以下整理自 2022 年第五週共筆（余品奐老師），是本頁體液、酸鹼、鈣鎂與生化的臨床應用。重點：先穩定（水、離子、酸鹼），再處理病因。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 6, weekTitle: "綿羊與山羊的理學檢查與臨床病理",
+    url: "大四上/反芻動物疾病學/week06_羊理學檢查.html",
     section: "takehome", sectionName: "Take home 與比較",
     keywords: "Take Home Message 與比較整理 羊 vs 牛 vs 犬貓：判讀差異 take home message 羊 vs 牛 vs 犬貓",
     snippet: "把老師的結語，和本頁最容易考的「羊 vs 牛 vs 犬貓」差異放在一起。"
@@ -9855,6 +10002,97 @@ const SEARCH_INDEX = [
     section: "confuse", sectionName: "名字很像、容易混淆的對照",
     keywords: "豬瘟 非洲豬瘟 正黏液 副黏液 Pestivirus Flavivirus 水疱性疾病 冠狀 動脈炎 包涵體 Reoviridae",
     snippet: "豬瘟 vs 非洲豬瘟、正黏液 vs 副黏液、Pestivirus vs Flavivirus、水疱性疾病四個病毒等。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃 pH 與酸中毒",
+    url: "國考/專題/瘤胃pH與酸中毒.html",
+    section: "map", sectionName: "一頁總覽：精料過多到蹄葉炎的因果鏈",
+    keywords: "瘤胃 pH 酸中毒 SARA 蹄葉炎 因果鏈 專題 反芻動物疾病學 國考 跨科 反芻動物疾病學 國考 跨科",
+    snippet: "精料過多 → pH 下降 → 急性或 SARA → 內毒素與組織胺 → 蹄葉炎；總覽與章節導覽。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃 pH 與酸中毒",
+    url: "國考/專題/瘤胃pH與酸中毒.html",
+    section: "flow", sectionName: "牛胃的運作過程",
+    keywords: "瘤胃 網胃 瓣胃 皺胃 四個胃 反芻 唾液 緩衝 食道溝 前胃排空 反芻動物疾病學 國考 跨科",
+    snippet: "牛胃四室與反芻：瘤胃發酵、反芻、網胃瓣胃皺胃的功能，仔牛食道溝例外。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃 pH 與酸中毒",
+    url: "國考/專題/瘤胃pH與酸中毒.html",
+    section: "ph", sectionName: "瘤胃 pH：誰影響它、它又影響誰",
+    keywords: "瘤胃 pH 酸中毒 乳酸 乳脂率 氨中毒 唾液緩衝 內毒素 肝膿瘍 反芻動物疾病學 國考 跨科",
+    snippet: "纖維→反芻→唾液→pH 穩定；pH 下降影響微生物、VFA 與乳脂、採食量、瘤胃壁、肝與蹄。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃 pH 與酸中毒",
+    url: "國考/專題/瘤胃pH與酸中毒.html",
+    section: "nums", sectionName: "各來源的數字對照",
+    keywords: "瘤胃 pH 6.5–6.8 5.8–7.0 SARA 5.6 乳酸酸中毒 4.5–5.0 尿 pH 乳脂率 反芻動物疾病學 國考 跨科",
+    snippet: "各講義與共筆的 pH 數字對照：理想值、SARA、乳酸酸中毒、尿 pH。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃 pH 與酸中毒",
+    url: "國考/專題/瘤胃pH與酸中毒.html",
+    section: "sara", sectionName: "亞急性瘤胃酸中毒（SARA）",
+    keywords: "SARA 亞急性瘤胃酸中毒 乳脂率 VFA 瘤胃 pH 5.6 肝膿瘍 蹄葉炎 反芻動物疾病學 國考 跨科",
+    snippet: "SARA：瘤胃 pH 長期偏低、症狀不明顯；與急性酸中毒的差別、發現方式、後遺症與預防。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃 pH 與酸中毒",
+    url: "國考/專題/瘤胃pH與酸中毒.html",
+    section: "confuse", sectionName: "容易混淆的對照",
+    keywords: "酸中毒 腸毒血症 SARA 鼓脹 氣體性 泡沫性 氨中毒 NPN 反芻動物疾病學 國考 跨科",
+    snippet: "瘤胃酸中毒 vs 腸毒血症、SARA vs 急性、氣體性 vs 泡沫性鼓脹、pH 過低 vs 過高。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃 pH 與酸中毒",
+    url: "國考/專題/瘤胃pH與酸中毒.html",
+    section: "lam", sectionName: "蹄葉炎（laminitis）",
+    keywords: "蹄葉炎 laminitis 內毒素 組織胺 微血管血栓 蹄真皮 跛行 蹄底潰瘍 白線病 延遲出現 反芻動物疾病學 國考 跨科",
+    snippet: "蹄葉炎：瘤胃過酸 → 內毒素與組織胺 → 蹄真皮血管受損，延遲數週出現；病變與預防。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃 pH 與酸中毒",
+    url: "國考/專題/瘤胃pH與酸中毒.html",
+    section: "cross", sectionName: "同一件事在各科怎麼出現",
+    keywords: "瘤胃酸中毒 生理 內科 普通疾病學 病理 藥理 實驗診斷 傳染病學 腸毒血症 D-乳酸 反芻動物疾病學 國考 跨科",
+    snippet: "瘤胃酸中毒在各科的出現面向與可能考法（推測）。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃蛋白質與氮代謝",
+    url: "國考/專題/瘤胃蛋白質與氮代謝.html",
+    section: "types", sectionName: "三種蛋白質分類",
+    keywords: "RDP RUP IIP 瘤胃可分解蛋白 過瘤胃蛋白 bypass protein 粗蛋白 NPN 尿素 菌體蛋白 反芻動物疾病學 國考 跨科",
+    snippet: "RDP＝真蛋白＋NPN 被瘤胃菌分解成氨；RUP 過瘤胃直接到小腸；IIP 隨糞便排出。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃蛋白質與氮代謝",
+    url: "國考/專題/瘤胃蛋白質與氮代謝.html",
+    section: "flow", sectionName: "氮在牛體內怎麼走",
+    keywords: "氮 氨 菌體蛋白 尿素 唾液 尿素循環 overflow 胺基酸 小腸 反芻動物疾病學 國考 跨科",
+    snippet: "飼料蛋白 → 氨 → 菌體蛋白 → 小腸；氨過多經肝變尿素，部分隨唾液回瘤胃，其餘由尿排出。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃蛋白質與氮代謝",
+    url: "國考/專題/瘤胃蛋白質與氮代謝.html",
+    section: "num", sectionName: "數字與計算",
+    keywords: "NASEM 2021 RDP 60–65% RUP 35–40% 粗蛋白 計算 乾物質 NRC 反芻動物疾病學 國考 跨科",
+    snippet: "NASEM：日產 30 kg 乳牛 RDP 約 60–65% CP、RUP 約 35–40%；附計算例。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃蛋白質與氮代謝",
+    url: "國考/專題/瘤胃蛋白質與氮代謝.html",
+    section: "clin", sectionName: "臨床關聯",
+    keywords: "MUN 乳中尿素氮 氨中毒 NPN 尿素 高產牛 RUP BUN 蛋白質能量平衡 反芻動物疾病學 國考 跨科",
+    snippet: "蛋白與能量搭配、MUN、NPN 氨中毒、高產牛需要更多 RUP、BUN 診斷價值低。"
+  },
+  {
+    subject: "跨科專題", semester: "國考", week: null, weekTitle: "瘤胃蛋白質與氮代謝",
+    url: "國考/專題/瘤胃蛋白質與氮代謝.html",
+    section: "cross", sectionName: "各科怎麼出現",
+    keywords: "生理 營養 內科 藥理 實驗診斷 尿素中毒 MUN 反芻動物疾病學 國考 跨科",
+    snippet: "瘤胃蛋白質與氮代謝在各科的出現面向與可能考法（推測）。"
   },
   {
     subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：經顱光生物調節（tPBMT）與犬認知功能障礙",
