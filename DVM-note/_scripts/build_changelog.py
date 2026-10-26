@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 把 repo 根目錄的 _worklog.md（各對話框的改動日誌）轉成時間軸網頁 DVM-note/logbook.html（Logbook）。
-這一頁只在本機使用（已列入 .gitignore，不會 push 到網站）。
+這一頁會隨 commit 一起 push（2026-10-26 起不再 gitignore，網站上也顯示按鈕）。
 
 什麼時候跑：每次寫完 _worklog.md 之後（git pre-commit hook 也會順便跑）。
 用法：python3 DVM-note/_scripts/build_changelog.py
@@ -107,7 +107,7 @@ TEMPLATE = r'''<!DOCTYPE html>
     <div class="breadcrumb"><a href="index.html">網頁筆記首頁</a><span class="sep">›</span><span class="current">Logbook</span></div>
     <div class="page-head">
       <h1 class="page-title">Logbook</h1>
-      <p class="page-subtitle">每一次修改的時間、由哪個對話框做的、改了什麼。資料來自 repo 根目錄的 <code>_worklog.md</code>，只在本機顯示，不會上傳到網站。</p>
+      <p class="page-subtitle">每一次修改的時間、由哪個對話框做的、改了什麼。資料來自 repo 根目錄的 <code>_worklog.md</code>，由 build_changelog.py 產生，會一起上傳到網站。</p>
     </div>
     <div class="meta-bar">
       <div class="meta-item"><div class="meta-label">紀錄筆數</div><div class="meta-value">__N__ 筆（__RANGE__）</div></div>
