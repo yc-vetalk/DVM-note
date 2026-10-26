@@ -2304,6 +2304,13 @@ const SEARCH_INDEX = [
     snippet: "CMT：界面活性劑溶解白血球釋出 DNA 凝集，凝集程度與體細胞數成正比，牧場現場最常用；附各種乳房炎檢測方法比較、判讀表與國考陷阱。"
   },
   {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "統整表格",
+    url: "國考/獸醫傳染病學/統整表格.html",
+    section: "gut", sectionName: "牛腸道病：機轉與病理名詞（ETEC、沙門氏菌、副結核）",
+    keywords: "外毒素 內毒素 彌漫性 卡他性 出血性 纖維素性 壞死性 肉芽腫性 分泌性下痢 吸收不良 ETEC 腸毒素 氯離子 鈉離子 沙門氏菌 副結核 Johne MAP 迴腸 反芻動物疾病學 國考",
+    snippet: "病理名詞白話（外毒素、內毒素、卡他性、纖維素性、肉芽腫性…）與 ETEC、沙門氏菌、副結核的好發、機轉、病變、糞便比較；附國考陷阱（111-2#51 鈉氯換位置）。"
+  },
+  {
     subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
     url: "大四上/豬病學/week05_豬流行性感冒.html",
     section: "mixing", sectionName: "混合容器理論與可憐豬假說",
@@ -4248,6 +4255,55 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 Practice Quiz 家禽里奧病毒感染症 (ARV)",
     snippet: "10 練習題 Practice Quiz 選擇題 Q1. 禽呼腸孤病毒（ARV）的構造，何者正確？ (A) 有封套、單股 RNA (B) 無封套、雙股 RNA、…"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/禽病學/期中考古.html",
+    section: "abstract", sectionName: "怎麼用這頁",
+    keywords: "期中考古 考古題 手寫題 填空 問答 禽病學 ",
+    snippet: "期中考古總覽：收錄範圍、出題規律、注意事項。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/禽病學/期中考古.html",
+    section: "chen2022", sectionName: "2022 期中（單選＋多選）",
+    keywords: "期中考古 考古題 手寫題 填空 問答 禽病學 陳慧文 NOT",
+    snippet: "單選 5 題（10%）、多選 15 題中保留可辨識的 10 題（30%）。考卷沒有答案，以下答案依講義判斷。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/禽病學/期中考古.html",
+    section: "chen2016", sectionName: "2016 期中（選擇 20＋問答）",
+    keywords: "期中考古 考古題 手寫題 填空 問答 禽病學 陳慧文 甲類動物傳染病 HI ILT IB 如何區別診斷 OIE WOAH 怎麼定義新城病的 禽腦脊髓炎 AE 疫苗最適合在什麼 年齡注射 為什麼 由表格計算血清 保護終點 PD",
+    snippet: "選擇 20 題（60%）＋問答 4 題（40%）。選擇題旁有學長姐手寫的答案，大多與講義一致；第 7 題不一致，見詳解。第 13、20 題的 C、D 選項照片拍不到，是上傳者補寫的。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/禽病學/期中考古.html",
+    section: "chen2023", sectionName: "2023 期中（問答，回憶）",
+    keywords: "期中考古 考古題 手寫題 填空 問答 禽病學 陳慧文 為什麼 IB 有疫苗 還是沒辦法完全清 禽流感的病原型 如何做實驗室診斷 WOAH 新城病的病原型 ILT 怎麼區別診斷 列出三個會感染鸚 鵡的病毒性疾病 並說明症狀",
+    snippet: "學長姐考後回憶「全手寫」的 5 題。和 2016 年問答重複度很高：ILT／IB 鑑別、WOAH 定義每年都出現。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/禽病學/期中考古.html",
+    section: "wu111", sectionName: "111 學年期中",
+    keywords: "期中考古 考古題 手寫題 填空 問答 禽病學 吳乃慧 解剖時發現雞的骨 髓嚴重褪色 喪失血色 組織病理學檢測見 到大量骨髓實質被 脂肪組織取代 最可能是由下列何 種疾病的病原所致 為下列何者 造成雞產蛋下降症 的病原為下列何者 雞傳染性喉頭氣管 炎於喉頭氣管處常 見乾酪樣塊狀病灶 此現象常需與下列 何種疾病如何做類 症鑑別 下列哪一亞群的家 禽白血病病毒 為內源性病毒 下列關於家禽里奧 病毒感染症 之敘述 下列何者 傳染性華氏囊病 的病變 分別為何種臟器 圖片為雞的腦組織 之特徵性病變 依此病變推斷最可 能的疾病為 由雞的 排毒至環境中 依症狀及病變可以 下列哪些疾病會造 成禽類免疫抑制 有幾種血清型 這幾種血清型間是 否具交叉保護效果 請簡單解",
+    snippet: "選擇 7 題（21 分）、填空 4 題（24 分）、問答 2 題（15 分）。和 109 學年重複很多題。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/禽病學/期中考古.html",
+    section: "wu109", sectionName: "109 學年期中",
+    keywords: "期中考古 考古題 手寫題 填空 問答 禽病學 吳乃慧 於台灣雞隻最常見 致病性最強的球蟲 及其主要寄生的部 位分別為下列何者 造成雞產蛋下降症 的病原為下列何者 下列有關禽痘 之敘述 傳染性華氏囊病病 對下列何種細胞的 毒殺力最強 下列何種病毒感染 可以引起雞之病毒 性關節炎 圖片為雞的腦組織 依此病變推斷最可 能的疾病為 圖片為火雞 考卷寫家禽 的肝臟 雞傳染性貧血 較好發於小雞或成 本病引起免疫抑制 的原因是因為病毒 淋巴球前驅細胞 鴨病毒性肝炎 只發生在成鴨還是 幼齡鴨 為本病主要的特徵 養禽場有哪些生物 安全相關危險因子 請提出 項加強養禽場生物 安全之措施 依症狀及病變可以 分為哪 如何與 做區別診斷 有幾種血清型 這幾種血清型間是 否",
+    snippet: "選擇 5 題、填空 5 題、問答 4 題。當年範圍比今年大（含球蟲、黑頭病、鴨病毒性肝炎），沒有講義的題目標 補充。投影片上的紅字是老師當年公布的答案。"
+  },
+  {
+    subject: "禽病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/禽病學/期中考古.html",
+    section: "repeat", sectionName: "重複出現的考點",
+    keywords: "期中考古 考古題 手寫題 填空 問答 禽病學 ",
+    snippet: "把兩位老師歷年重複出現的題目整理成一張表，考前最後看這張。"
   },
   {
     subject: "禽病學", semester: "大四上", week: 1, weekTitle: "禽流感 (AI)",
@@ -7878,6 +7934,13 @@ const SEARCH_INDEX = [
   {
     subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
     url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
+    section: "hormone", sectionName: "賀爾蒙表格統整",
+    keywords: "賀爾蒙 激素 荷爾蒙 動情素 生長素 助孕素 泌乳素 腎上腺皮質固醇 催產素 腎上腺素 乳管 乳腺泡 乳腺發育 牛乳分泌 排乳 統整 表格",
+    snippet: "發育（動情素、生長素、助孕素、泌乳素、皮質固醇）、分泌（泌乳素、皮質固醇）、排乳（催產素，腎上腺素抑制）的賀爾蒙總表、階段對照矩陣與易混淆處。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: 7, weekTitle: "乳牛乳房結構與泌乳生理",
+    url: "大四上/反芻動物疾病學/week07_乳房結構與泌乳生理.html",
     section: "exam", sectionName: "考試方向（推測）",
     keywords: "考試方向（推測） 考試方向 推測",
     snippet: "依講義推測的出題方向與答題重點。"
@@ -8007,6 +8070,83 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 Practice Quiz 練習題",
     snippet: "練習題：選擇、是非、簡答、臨床情境題（答案點開顯示）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "overview", sectionName: "總覽：年份 × 老師",
+    keywords: "期中考古 季昭華 許凱程 余品奐 2016 105 106 108 2021 2022 2023 年份 老師 題型 反芻動物疾病學 期中考古",
+    snippet: "三位老師各年期中出題總覽：季（繁殖、仔牛）、許（代謝、瘤胃過酸、乳房炎）、余（羊理學檢查、輸液計算）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "ji-style", sectionName: "季昭華：出題特色",
+    keywords: "季昭華 2009 題庫 是非題 重複 考古 反芻動物疾病學 期中考古",
+    snippet: "季昭華題庫型，是非題為主，2023 與 2022 基本一模一樣；背 2009 題庫。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "ji-bank", sectionName: "季昭華：是非題與填空整合表（題庫）",
+    keywords: "季昭華 是非題 配種齡 12-15 第一期陣痛 破水 初回發情 45 初回授精 60-70 分娩間隔 PGF2α 惡露 尾位 乾乳期 初乳 24小時 反芻動物疾病學 期中考古",
+    snippet: "合併 2009 題庫與各年考古的是非題整合表，附答案、修正與出現年份。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "ji-fill", sectionName: "季昭華：填空簡答與 106 新考",
+    keywords: "仔牛下痢 病毒 細菌 寄生蟲 尾位 吸入性肺炎 斷奶 發情同期化 progesterone 時間軸 反芻動物疾病學 期中考古",
+    snippet: "下痢病毒細菌寄生蟲填空、尾位生產危險原因、106 新考（斷奶、初發情、同期化）。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "xu-years", sectionName: "許凱程：各年出題",
+    keywords: "許凱程 四大疾病 NEFA 瘤胃過酸 鼓脹 乳房炎 脫臼 考古 2023 挖空 反芻動物疾病學 期中考古",
+    snippet: "許凱程各年考題：四大疾病、NEFA、瘤胃過酸、鼓脹、乳房炎細菌、髖關節脫臼與神經。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "xu-ans", sectionName: "許凱程：答案要點",
+    keywords: "NEFA 酮症 脂肪肝 瘤胃過酸 D-乳酸 S. bovis 鼓脹 frothy free-gas 乳房炎 接觸型 環境型 髖關節脫臼 閉鎖孔 閉鎖神經 坐骨神經 腓神經 反芻動物疾病學 期中考古",
+    snippet: "NEFA 致病機轉、瘤胃過酸機轉與 pH、鼓脹區分、乳房炎細菌分類、脫臼三方向與神經。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "yu-years", sectionName: "余品奐：各年出題",
+    keywords: "余品奐 頭頸腫脹 下痢小羊 重碳酸 乳熱 齒式 腎功能 尿酮 考古 要讀書 反芻動物疾病學 期中考古",
+    snippet: "余品奐各年考題：頭頸腫脹鑑別、小羊下痢與輸液計算、腎功能、尿檢、乳酸、腹部鑑別。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "yu-ans", sectionName: "余品奐：答案要點與計算",
+    keywords: "頭頸腫脹 8 類 nasal bot thymus bottle jaw 缺水量 重碳酸 BE 0.6 30.6 mEq 240 mL 乳熱 鈣 鎂 BUN 肌酸酐 USG 尿酮 反芻動物疾病學 期中考古",
+    snippet: "頭頸腫脹八類、脫水與重碳酸計算（17×0.6×3＝30.6）、乳熱、腎功能與尿檢、各題答案要點。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "freq", sectionName: "跨年高頻主題：優先背這些",
+    keywords: "高頻 考點 優先度 季昭華 許凱程 余品奐 NEFA 乳房炎 頭頸腫脹 輸液計算 反芻動物疾病學 期中考古",
+    snippet: "跨年重複出現的主題與讀書順序。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "caveat", sectionName: "資料可信度與各版本不一致處",
+    keywords: "不一致 待確認 初乳量 PGF2α 脫臼神經 瘤胃 pH 重碳酸 10.2 反芻動物疾病學 期中考古",
+    snippet: "考古答案多為學長姐版本，列出版本不一致與待確認處。"
+  },
+  {
+    subject: "反芻動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/反芻動物疾病學/期中考古.html",
+    section: "practice", sectionName: "考古題練習（照原題，先寫再核對）",
+    keywords: "考古題 練習 原題 先寫再核對 許凱程 余品奐 季昭華 NEFA 瘤胃過酸 鼓脹 乳房炎 頭頸腫脹 重碳酸 腎功能 尿檢 自我測驗 反芻動物疾病學 期中考古",
+    snippet: "期中考古照原題列出（許凱程、余品奐、季昭華），點開核對答案要點；另有 91 題即時作答的期中考古自我測驗。"
   },
   {
     subject: "獸醫臨床及影像診斷學", semester: "大四上", week: 5, weekTitle: "神經影像課前預習",

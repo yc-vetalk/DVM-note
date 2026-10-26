@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禽病學：期中考古 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=5">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">禽病學</a><span class="sep">›</span><span class="current">期中考古</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">禽病學期中考古 Midterm Past Exams</h1>
+      <p class="page-subtitle">陳慧文老師（2016、2022、2023 回憶）與吳乃慧老師（109、111 學年）期中考題，依老師分區；每題附答案、詳解與對應筆記連結</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">禽病學（大四上・期中考古）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">學長姐提供的期中考卷掃描與回憶（NTU/考古+國考/大四上考古 from 林/期中/鳥）；答案與詳解為整理者依本學期講義撰寫，非官方</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-27</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">考古題＋詳解（非官方答案）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 怎麼用這頁</a>
+    <div class="section-label" style="margin-top:8px;">陳慧文老師</div>
+    <a onclick="showSection('chen2022')" id="nav-chen2022"><span class="nav-icon">📝</span> 2022 期中（單選＋多選）</a>
+    <a onclick="showSection('chen2016')" id="nav-chen2016"><span class="nav-icon">📝</span> 2016 期中（選擇 20＋問答）</a>
+    <a onclick="showSection('chen2023')" id="nav-chen2023"><span class="nav-icon">📝</span> 2023 期中（問答，回憶）</a>
+    <div class="section-label" style="margin-top:8px;">吳乃慧老師</div>
+    <a onclick="showSection('wu111')" id="nav-wu111"><span class="nav-icon">📝</span> 111 學年期中</a>
+    <a onclick="showSection('wu109')" id="nav-wu109"><span class="nav-icon">📝</span> 109 學年期中</a>
+    <div class="section-label" style="margin-top:8px;">總整理</div>
+    <a onclick="showSection('repeat')" id="nav-repeat"><span class="nav-icon">🔁</span> 重複出現的考點</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>怎麼用這頁</h2></div>
+      <div class="overview">
+        <div class="overview__title">期中考古的大方向</div>
+        <dl>
+          <dt>收了哪些</dt>
+          <dd><strong>陳慧文老師</strong>（禽流感、新城病、傳染性支氣管炎、傳染性喉頭氣管炎、寵物鳥病毒病）：2016 年選擇 20 題＋<strong>問答 4 題</strong>；2022 年單選 5 題＋多選 10 題（<strong>檔案只有前兩頁，原卷後面的手寫題沒收到</strong>）；2023 年<strong>問答 5 題（全手寫）</strong>，由學長姐考後回憶。<br><strong>吳乃慧老師</strong>（總論與解剖、種禽、馬立克病、禽白血病／網狀內皮增生症、傳染性華氏囊病、雞傳染性貧血、里奧病毒）：109 學年選擇 5＋<strong>填空 5＋問答 4</strong>、111 學年選擇 7＋<strong>填空 4＋問答 2</strong>。2023 年吳老師的考題學長姐只記得「好像跟考古差不多，蠻簡單的」。<br><strong>本頁照原卷的題型、編號、配分呈現</strong>：選擇題標「單選／多選／選擇」，手寫題標「手寫（填空）」「手寫（問答）」，每個大題前有原卷照片可展開核對；圖片題（109 學年腦切片、肝臟）附上圖。</dd>
+          <dt>出題規律（依考古推測）</dt>
+          <dd>
+            <ol>
+              <li><strong>陳慧文老師</strong>：選擇題常考<strong>哪個病會潛伏帶毒（ILT）</strong>、<strong>哪個是人畜共通（ND）</strong>、<strong>ILT 抗體檢測不能用 HI</strong>、<strong>ND 的 F 蛋白切位序列</strong>；問答題幾乎每年都有 <strong>ILT 與 IB 的鑑別</strong>、<strong>WOAH 對 ND（與 AI）的定義</strong>。2022 年起多選題增加，常把四個病毒病放在一起問「哪些會有呼吸症狀／腎病變／神經症狀」。</li>
+              <li><strong>吳乃慧老師</strong>：109、111 兩年題目大量重複：<strong>EDS76 病原是腺病毒</strong>、<strong>primary lymphoid organs＝胸腺＋華氏囊</strong>、<strong>IBDV 打未成熟 B 細胞</strong>、<strong>腦切片＝禽腦脊髓炎</strong>；問答題兩年都考 <strong>IBDV 血清型與交叉保護</strong>、<strong>禽白血病垂直傳播 vs 遺傳傳播</strong>，另有 MD 四型與 MD／LL 鑑別、生物安全。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd>多選題常把「有封套／無封套」「會不會垂直傳播」「有沒有疫苗」混在一起考。ILT 的包涵體在<strong>核內</strong>、禽痘在<strong>細胞質內</strong>；ILT 沒有血球凝集素，所以抗體<strong>不能用 HI</strong>。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>答案與詳解是整理者依<strong>本學期講義</strong>寫的，<strong>不是官方答案</strong>。考卷上學長姐的手寫答案只當參考，和講義不同的地方會在詳解中註明。舊考卷有些題目考的是<strong>本學期期中範圍沒有講義的主題</strong>（禽腦脊髓炎、產蛋下降症候群、球蟲、黑頭病、鴨病毒性肝炎、交叉中和試驗等），這些題目的詳解標 <span class="tag">補充</span>，考試範圍以老師上課為準。</p>
+      </div>
+      <footer class="note-footer">資料來源：學長姐提供的考卷掃描與考後回憶；詳解依本課程講義整理。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CHEN2022 -->
+    <div class="section" id="section-chen2022">
+      <div class="section-head"><div class="section-num">2</div><h2>陳慧文老師 2022 期中（10/27/2022）</h2></div>
+      <p class="section-desc">原卷只有前兩頁：單選 5 題（10%）＋多選 10 題（30%）＝40%。其餘 60%（應為手寫題）的頁面沒有收到。考卷沒有答案，以下答案依講義判斷。</p>
+      <div class="table-wrap"><table><tbody><tr><td style="width:20%;"><strong>考試</strong></td><td>禽病學期中考　陳慧文老師部分（10/27/2022）</td></tr><tr><td style="width:20%;"><strong>題型與配分</strong></td><td>I. 單選題 5 題（10%）；II. 多選題 10 題（30%）；手寫題部分檔案缺</td></tr><tr><td style="width:20%;"><strong>答題方式</strong></td><td>學長姐的照片上有手寫圈選記號，僅供參考，不一定是正確答案</td></tr></tbody></table></div>
+      <details class="alert alert-info" style="margin:1rem 0"><summary style="cursor:pointer;font-weight:700">看原卷照片（2 頁）</summary>
+        <div style="max-width:820px;"><div class="figure"><img src="img/期中考古/chen2022_p1.jpg" alt="原卷第 1 頁：單選 1–5、多選 1–5" loading="lazy"><div class="figure-caption">原卷第 1 頁：單選 1–5、多選 1–5</div><div class="figure-source">來源：學長姐提供之考卷掃描</div></div><div class="figure"><img src="img/期中考古/chen2022_p2.jpg" alt="原卷第 2 頁：多選 5（續）–10" loading="lazy"><div class="figure-caption">原卷第 2 頁：多選 5（續）–10</div><div class="figure-source">來源：學長姐提供之考卷掃描</div></div></div></details>
+      <h3>I. 單選題（5 題，共 10%）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>單選 1</strong>　Which of the following amino acid sequence (residue 113–117) in the fusion protein of avian paramyxovirus 1 will be classified as a Newcastle disease virus? (* indicates the cleavage site)</div>
+        <ul class="quiz-options"><li>(A) -K-Q-G-R*L-</li><li>(B) -R-Q-R-R*L-</li><li>(C) -R-Q-K-R*F-</li><li>(D) -G-Q-G-R*F-</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">WOAH 定義 (b)：113–116 位至少 3 個鹼性胺基酸（R 或 K），<strong>而且</strong> 117 位是苯丙胺酸（F）。(C) R-Q-K-R 有 3 個鹼性胺基酸、117 是 F，符合。(B) 有 3 個鹼性胺基酸但 117 是 L（白胺酸），不符合；(A) 只有 2 個鹼性且 117 是 L，是弱毒株型；(D) 117 雖是 F，但只有 1 個鹼性胺基酸。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-pathogenesis">新城病・F 蛋白切位與毒力</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>單選 2</strong>　Which of the following diseases is a zoonotic disease?</div>
+        <ul class="quiz-options"><li>(A) Infectious bronchitis</li><li>(B) Beak and feather disease</li><li>(C) Proventricular dilatation disease</li><li>(D) Newcastle disease</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">新城病是人畜共通傳染病：人偶爾感染（實驗室人員、屠宰場員工、疫苗施用者），多為 3–4 天結膜炎，1–2 週康復。IB、PBFD、PDD 都不感染人。2016 年第 20 題也考過。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-zoonotic">新城病・人畜共通</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>單選 3</strong>　Which of the following is <u>NOT</u> appropriate for the antibody detection of infectious laryngotracheitis?</div>
+        <ul class="quiz-options"><li>(A) Immunofluorescence assay</li><li>(B) ELISA</li><li>(C) Hemagglutination inhibition test</li><li>(D) Neutralization test</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">ILT 病毒（疱疹病毒）沒有血球凝集素，所以不能用血球凝集抑制試驗（HI）。講義列的抗體檢測：ELISA、中和試驗（VN）、間接螢光抗體（IFA）、AGID。2016 年第 16 題也考過同一題。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-diagnosis">傳染性喉頭氣管炎・實驗室診斷</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>單選 4</strong>　Which virus may be transmitted by <u>arthropods</u>?</div>
+        <ul class="quiz-options"><li>(A) Infectious bronchitis virus</li><li>(B) Beak and feather disease virus</li><li>(C) Avian influenza virus</li><li>(D) Psittacine poxvirus</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">痘病毒可由吸血昆蟲（蚊、蟎）或氣霧攜帶，所以處置包括用殺蟲劑控制吸血昆蟲。講義寫禽流感可經昆蟲「間接」機械性傳播，但題目問的 arthropod-borne 典型代表是痘病毒。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week05_寵物鳥病毒病.html#section-pox">寵物鳥病毒病・痘病毒</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>單選 5</strong>　In which viral disease, the causative virus <u>persists in a latent state</u> in some birds, which become carriers and a source of infection?</div>
+        <ul class="quiz-options"><li>(A) Infectious laryngotracheitis</li><li>(B) Newcastle disease</li><li>(C) Avian influenza</li><li>(D) Infectious bronchitis</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">ILT 是疱疹病毒：在氣管繁殖後逆行潛伏在<strong>三叉神經節</strong>，可長達 15 個月，緊迫（移舍、產蛋）時再發並排毒。2016 年第 8 題、國考 103、106 年都考過。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-latency">傳染性喉頭氣管炎・潛伏感染</a></p></details>
+      </div>
+
+      <h3>II. 多選題（10 題，共 30%；選出所有正確者）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 1</strong>　In Taiwan, which ones of the following diseases are prevented by using a live virus vaccine?</div>
+        <ul class="quiz-options"><li>(A) Avian influenza</li><li>(B) Infectious bronchitis</li><li>(C) Proventricular dilatation disease</li><li>(D) Infectious laryngotracheitis</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)(D)</div><p class="quiz-explain">IB：活毒（H120 等）與死毒都用。ILT：活毒點眼為主，一般只免疫種雞。台灣<strong>不施打禽流感疫苗</strong>（撲殺清場＋監測；國考 113 年）。PDD <strong>沒有疫苗</strong>。注意：考卷上學長姐在 (A) 旁有記號，依講義 (A) 不對。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week03_傳染性支氣管炎.html#section-vaccine">IB 疫苗</a>、<a href="week04_傳染性喉頭氣管炎.html#section-vaccine">ILT 疫苗</a>、<a href="week01_禽流感.html#section-vaccine">禽流感疫苗定位</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 2</strong>　Which ones of following are true for Newcastle disease?</div>
+        <ul class="quiz-options"><li>(A) Pheasant is one of the susceptible hosts</li><li>(B) The velogenic virus strains can be used for vaccine preparation</li><li>(C) Simultaneous live/inactivated vaccination program is useful in broiler flocks raised in areas having a high risk of velogenic Newcastle disease</li><li>(D) Neurological signs can be found in diseased chickens</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)(C)(D)</div><p class="quiz-explain">(A) 雞、火雞、雉雞、珠雞、鵪鶉、鴿子都有感受性。(B) 錯：疫苗用弱毒（B1、La Sota）或中間毒（只做二次免疫），強毒不能做疫苗。(C) 對：肉雞計畫 3，活毒提供快速局部免疫、死毒提供較強持久免疫。(D) 對：神經強毒型扭頸。2016 年第 4 題是同一組選項換成「何者錯誤」。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-epidemiology">新城病・宿主</a>、<a href="week02_新城病.html#section-vaccine">新城病・疫苗</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 3</strong>　Respiratory distress may be found in which ones of the following diseases?</div>
+        <ul class="quiz-options"><li>(A) Avian influenza</li><li>(B) Newcastle disease</li><li>(C) Infectious laryngotracheitis</li><li>(D) Infectious bronchitis</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)(B)(C)(D)</div><p class="quiz-explain">四個都是呼吸道症狀＋產蛋下降的病毒病，這也是它們要互相鑑別的原因。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-differential">四病鑑別表</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 4</strong>　Renal lesions may be found in which ones of the following diseases?</div>
+        <ul class="quiz-options"><li>(A) Avian bornavirus infection (PDD)</li><li>(B) Infectious bronchitis</li><li>(C) Infectious laryngotracheitis</li><li>(D) Newcastle disease</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">IB 親腎型：腎腫脹、尿酸鹽沉積、間質性腎炎。ILT 病變<strong>只在呼吸道</strong>；新城病不造成腎尿酸鹽沉積（國考 97、101 年）；PDD 是神經與腺胃。補充：選項沒有禽流感，但台灣禽流感株也可造成腎尿酸鹽沉積。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week03_傳染性支氣管炎.html#section-lesions">IB・病變</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 5</strong>　Feather abnormalities is a characteristic sign in ______</div>
+        <ul class="quiz-options"><li>(A) Beak and feather disease</li><li>(B) Infectious laryngotracheitis</li><li>(C) Avian polyomavirus infection</li><li>(D) Avian bornavirus infection (PDD)</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)(C)</div><p class="quiz-explain">PBFD：對稱性羽毛脫落與變形；多瘤病毒：French molt（主翼羽、尾羽發育不良）。依三圈圖，玻那病毒（PDD）是神經＋消化道，拔毛只有 9%，不是特徵；ILT 是呼吸道。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week05_寵物鳥病毒病.html#section-compare">寵物鳥・四病比較</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 6</strong>　Inclusion bodies of infectious laryngotracheitis virus occur in the trachea but may also be found in the ______?</div>
+        <ul class="quiz-options"><li>(A) Conjunctiva</li><li>(B) Bronchus</li><li>(C) Pericardium</li><li>(D) Bursa of Fabricius</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)(B)</div><p class="quiz-explain">ILT 病變侷限於呼吸道（喉頭、氣管，可延伸到肺與氣囊）與結膜（輕度型有結膜炎），所以包涵體可在結膜、支氣管上皮看到；心包與華氏囊不是 ILT 的病變部位。<span class="tag">補充</span> 講義沒有逐一列出包涵體的位置，(B) 依「病變可延伸到肺」推論，不確定時以老師上課為準。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-lesions">ILT・病變</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 7</strong>　<u>Neurological</u> signs may be found in which ones of the following diseases?</div>
+        <ul class="quiz-options"><li>(A) Avian circovirus in pet birds</li><li>(B) Avian influenza</li><li>(C) Newcastle disease</li><li>(D) Avian bornavirus infection (PDD)</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)(C)(D)</div><p class="quiz-explain">禽流感與新城病都有扭頸等神經症狀；PDD 神經症狀佔 66%。寵物鳥的環狀病毒（PBFD）是消化道＋羽毛，不是神經。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week05_寵物鳥病毒病.html#section-compare">寵物鳥三圈圖</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 8</strong>　When detecting <u>beak and feather disease</u> viral antigen, which ones of the followings are reliable sample sources?</div>
+        <ul class="quiz-options"><li>(A) Blood</li><li>(B) Feces</li><li>(C) Feathers pulp</li><li>(D) Cloacal swab</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)(B)(C)</div><p class="quiz-explain">講義：PBFD 的 PCR 檢體是血液、新鮮羽髓、糞便。<span class="tag">補充</span> 泄殖腔拭子講義沒有列；它和糞便性質接近，但依講義作答選 A、B、C。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week05_寵物鳥病毒病.html#section-pbfd">寵物鳥・PBFD 診斷</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 9</strong>　Which ones of the following viruses are non-enveloped and more tolerant to detergents or lipid solvents than other viruses?</div>
+        <ul class="quiz-options"><li>(A) Beak and feather disease virus</li><li>(B) Newcastle disease virus</li><li>(C) Avian polyomavirus</li><li>(D) Poxvirus</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)(C)</div><p class="quiz-explain">PBFD（環狀 ssDNA）與多瘤病毒（環狀 dsDNA）都<strong>無封套</strong>；新城病病毒、痘病毒都<strong>有封套</strong>，對脂溶劑敏感。PBFD 消毒要用 2% 戊二醛。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week05_寵物鳥病毒病.html#section-compare">寵物鳥・四病一表</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">多選題</span>
+        <div class="quiz-q"><strong>多選 10</strong>　<u>Wild birds</u> can become reservoirs of ______</div>
+        <ul class="quiz-options"><li>(A) Avian influenza</li><li>(B) Newcastle disease</li><li>(C) Infectious bronchitis</li><li>(D) Beak and feather disease</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)(B)(D)</div><p class="quiz-explain">禽流感：水鳥是自然保毒者。新城病：鴿子、野鳥、水禽是傳播來源之一。PBFD：講義寫野鳥可能是帶原者或保毒宿主。IB 講義的傳播只寫雞群之間，沒有提野鳥。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week01_禽流感.html#section-ecology">禽流感・生態</a>、<a href="week02_新城病.html#section-epidemiology">新城病・傳播</a>、<a href="week05_寵物鳥病毒病.html#section-pbfd">PBFD</a></p></details>
+      </div>
+
+      <footer class="note-footer">本卷檔案只有前兩頁（單選＋多選，共 40%），其餘 60% 的手寫題沒有收到；若你有完整考卷，可以補進來。</footer>
+    </div>
+
+    <!-- CHEN2016 -->
+    <div class="section" id="section-chen2016">
+      <div class="section-head"><div class="section-num">3</div><h2>陳慧文老師 2016 期中（10/13/2016）</h2></div>
+      <p class="section-desc">選擇 20 題（60%）＋問答 4 題（40%）。選擇題旁的小寫英文字母是學長姐的作答，大多與講義一致；第 7 題不一致，見詳解。第 13、20 題的 C、D 選項照片拍不到，是上傳者補寫的。</p>
+      <div class="table-wrap"><table><tbody><tr><td style="width:20%;"><strong>考試</strong></td><td>10/13/2016 禽病學考試　陳慧文老師部分（所有答案請另外書寫於答案卷，連同題目卷交回）</td></tr><tr><td style="width:20%;"><strong>題型與配分</strong></td><td>一、選擇題 20 題（60%，每題 3%）；三、問答題 4 題（40%，每題 10%）</td></tr><tr><td style="width:20%;"><strong>照片順序</strong></td><td>考卷檔案頁序是 3/4、2/4、1/4，已調成正確順序</td></tr></tbody></table></div>
+      <details class="alert alert-info" style="margin:1rem 0"><summary style="cursor:pointer;font-weight:700">看原卷照片（選擇題 3 頁＋問答題 1 頁）</summary>
+        <div style="max-width:820px;"><div class="figure"><img src="img/期中考古/chen2016_p1.jpg" alt="原卷第 1 頁：選擇 1–7" loading="lazy"><div class="figure-caption">原卷第 1 頁：選擇 1–7</div><div class="figure-source">來源：學長姐提供之考卷照片</div></div><div class="figure"><img src="img/期中考古/chen2016_p2.jpg" alt="原卷第 2 頁：選擇 8–13" loading="lazy"><div class="figure-caption">原卷第 2 頁：選擇 8–13</div><div class="figure-source">來源：學長姐提供之考卷照片</div></div><div class="figure"><img src="img/期中考古/chen2016_p3.jpg" alt="原卷第 3 頁：選擇 14–20" loading="lazy"><div class="figure-caption">原卷第 3 頁：選擇 14–20</div><div class="figure-source">來源：學長姐提供之考卷照片</div></div><div class="figure"><img src="img/期中考古/chen2016_essay.jpg" alt="原卷第 4 頁：問答題（照片模糊，下方紅字是學長姐的題目摘要）" loading="lazy"><div class="figure-caption">原卷第 4 頁：問答題（照片模糊，下方紅字是學長姐的題目摘要）</div><div class="figure-source">來源：學長姐提供之考卷照片</div></div></div></details>
+      <h3>一、選擇題（20 題，共 60%）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 1</strong>　Which of the following diseases is currently a 「甲類動物傳染病」 in Taiwan?</div>
+        <ul class="quiz-options"><li>(A) Infectious bronchitis</li><li>(B) Avian encephalomyelitis</li><li>(C) Newcastle disease</li><li>(D) Infectious laryngotracheitis</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">新城病是台灣甲類動物傳染病、WOAH 法定通報；IB 是乙類。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-abstract">新城病・大方向</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 2</strong>　Intranuclear inclusion bodies occur in epithelial cells of the tracheas of chickens affected with which of the following diseases?</div>
+        <ul class="quiz-options"><li>(A) Infectious bronchitis</li><li>(B) Infectious laryngotracheitis</li><li>(C) Both A and B</li><li>(D) Neither A nor B</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">ILT（疱疹病毒，核內複製）有<strong>嗜酸性核內包涵體</strong>，感染初期就出現；IB 是 RNA 病毒，沒有核內包涵體。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-lesions">ILT・病變</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 3</strong>　Which of the following is not a finding in chickens infected with avian encephalomyelitis virus?</div>
+        <ul class="quiz-options"><li>(A) Pale gizzard</li><li>(B) Opacity of the lens</li><li>(C) Lymphoid focus in the liver</li><li>(D) Degeneration of the sciatic nerve</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain"><span class="tag">補充</span> 禽腦脊髓炎（AE）本學期期中範圍沒有講義。AE 病變：肌胃肌層有白色淋巴球浸潤灶（看起來蒼白）、耐過雞水晶體混濁（國考 108 年）、內臟淋巴球聚集；坐骨神經變性腫大是<strong>馬立克病</strong>的病變。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week08_馬立克病.html#section-clinical">MD・神經型</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 4</strong>　Which of following is not true for Newcastle disease?</div>
+        <ul class="quiz-options"><li>(A) The velogenic virus strains can be used for vaccine preparation</li><li>(B) Neural signs can be found in diseased chickens</li><li>(C) Simultaneous live/inactivated vaccination program is useful in broiler flocks raised in areas having a high risk of velogenic Newcastle disease</li><li>(D) Pheasant is one of the susceptible hosts</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">疫苗用弱毒株（B1、La Sota、clone 30）；強毒不能做疫苗。其他三項都對（和 2022 多選 M2 同一組選項）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-vaccine">新城病・疫苗</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 5</strong>　Hemorrhagic enteritis of turkeys is caused by</div>
+        <ul class="quiz-options"><li>(A) Adenovirus</li><li>(B) Paramyxovirus</li><li>(C) Coronavirus</li><li>(D) Picornavirus</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><span class="tag">補充</span> 火雞出血性腸炎是腺病毒（國考 108 年）。本學期腺病毒講義未取得。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 6</strong>　Regarding the cross neutralization test, which of the following is not true?</div>
+        <ul class="quiz-options"><li>(A) The neutralization test can be done in either embryos or tissue cultures</li><li>(B) β method refers to a method of using diluted serum vs. constant virus</li><li>(C) The R value > 70% means little or no relatedness between two tested viruses</li><li>(D) The cross neutralization test can be used to identify a new serotype of virus</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><span class="tag">補充</span> 本學期講義未教交叉中和試驗的計算。R 值（相關係數）越高代表兩株病毒抗原越相近，一般 R &gt; 70% 視為同一血清型；「&gt; 70% 代表幾乎無關」說反了。β 法＝固定病毒量、稀釋血清（α 法是固定血清、稀釋病毒）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week03_傳染性支氣管炎.html#section-virology">IB・血清型（交叉中和的應用）</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 7</strong>　How many serogroups of avian paramyxoviruses are recognized?</div>
+        <ul class="quiz-options"><li>(A) One</li><li>(B) Three</li><li>(C) Five</li><li>(D) Nine</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)（依當年資料）</div><p class="quiz-explain">2016 年當時公認 APMV-1 到 APMV-9 共 9 型，所以選 (D)。學長姐在 (A) 旁寫了答案，可能是把題目看成「新城病病毒有幾個血清型」（那才是 1 個）。注意本學期講義寫「目前至少 20 種 APMV」，今年若再考，以老師上課為準。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-virology">新城病・禽類副黏液病毒</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 8</strong>　In which of the following viral diseases, the causative virus persists in a latent state in some birds, which become carriers and a source of infection?</div>
+        <ul class="quiz-options"><li>(A) Infectious laryngotracheitis</li><li>(B) Infectious bronchitis</li><li>(C) Avian encephalomyelitis</li><li>(D) Newcastle disease</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">ILT 潛伏在三叉神經節，緊迫再發。2022 年單選 Q5 同一題。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-latency">ILT・潛伏感染</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 9</strong>　Which of the following is not true about avian encephalomyelitis?</div>
+        <ul class="quiz-options"><li>(A) Perivascular cuffing with small lymphocytes can be found throughout the central nervous system</li><li>(B) Only one serotype has been found</li><li>(C) When performing the embryo susceptibility test, ten-day-old embryos are used</li><li>(D) The clinical sign is mainly seen in young chicks</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><span class="tag">補充</span> AE 的雞胚感受性試驗用 5–7 日齡雞胚卵黃囊接種，不是 10 日齡（學長姐在旁寫「5~6」）。AE 只有一個血清型、中樞神經有淋巴球圍管現象、症狀主要在小雞（國考 110 年：5 週齡後感染幾乎無症狀）。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 10</strong>　What enzyme is commonly used for digesting the kidney tissues when preparing the primary chicken embryo kidney cells in the laboratory?</div>
+        <ul class="quiz-options"><li>(A) Lipase</li><li>(B) Trypsin</li><li>(C) Polymerase</li><li>(D) Endonuclease</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><span class="tag">補充</span> 製作初代細胞用胰蛋白酶（trypsin）把組織打散成單一細胞。補充連結：培養新城病弱毒株也要加 trypsin，原因不同（切開 F0）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-pathogenesis">新城病・trypsin 與 F 蛋白</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 11</strong>　When egg drop syndrome in chickens is suspected, which of the following should be collected for virus identification?</div>
+        <ul class="quiz-options"><li>(A) Bone marrow</li><li>(B) Brain</li><li>(C) Shell gland</li><li>(D) Kidney</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><span class="tag">補充</span> 產蛋下降症候群病毒（腺病毒）主要在輸卵管<strong>殼腺</strong>增殖（國考 102、109 年）。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 12</strong>　For laboratory diagnosis of avian encephalomyelitis, brains are collected from affected chicks and suspension is prepared for inoculating embryonated chicken eggs via which route of inoculation?</div>
+        <ul class="quiz-options"><li>(A) Yolk sac</li><li>(B) Allantoic cavity</li><li>(C) Amniotic cavity</li><li>(D) Chorioallantoic membrane</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><span class="tag">補充</span> AE 病毒分離用卵黃囊接種（國考 101 年）。對照：ND、AI、IB 用尿囊腔；ILT 用絨毛尿囊膜（CAM）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-diagnosis">ILT・CAM 接種</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 13</strong>　Which of the following viruses is not egg-transmitted?</div>
+        <ul class="quiz-options"><li>(A) Avian encephalomyelitis virus</li><li>(B) Lentogenic Newcastle disease virus</li><li>(C) Egg drop syndrome virus</li><li>(D) Infectious bronchitis virus</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">IB 不經蛋傳播（國考 106 年）。新城病<strong>弱毒株</strong>可垂直傳播（強毒株讓胚胎死亡）；AE、EDS 都可經蛋傳播（補充）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-epidemiology">新城病・介蛋傳染</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 14</strong>　Which of the following is not true about Newcastle disease virus?</div>
+        <ul class="quiz-options"><li>(A) It is an avian paramyxovirus type 2 strain</li><li>(B) There is only one serotype of this virus</li><li>(C) There are several pathotypes of this virus</li><li>(D) It agglutinates red blood cells of chickens</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">新城病病毒是 <strong>APMV-1</strong>（第一型）。1 個血清型、5 個病原型；HN 蛋白凝集紅血球。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-virology">新城病・病原</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 15</strong>　The causative virus of egg drop syndrome can be isolated in embryonated egg of</div>
+        <ul class="quiz-options"><li>(A) Turkeys</li><li>(B) Ducks and geese</li><li>(C) Both A and B</li><li>(D) Neither A nor B</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><span class="tag">補充</span> EDS 病毒原本是鴨的腺病毒，用鴨胚（或鵝胚）分離效果最好。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 16</strong>　Which of the following is not appropriate for the antibody detection of infectious laryngotracheitis?</div>
+        <ul class="quiz-options"><li>(A) Immunofluorescence assay</li><li>(B) Hemagglutination inhibition test</li><li>(C) ELISA</li><li>(D) Neutralization test</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">ILT 病毒沒有血球凝集素，不能用 HI。2022 年 Q3 同一題。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-diagnosis">ILT・抗體檢測</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 17</strong>　Which of the following is not true about infectious laryngotracheitis?</div>
+        <ul class="quiz-options"><li>(A) Syncytial cells can be found in the intestine of infected chickens</li><li>(B) Adult chickens show higher morbidity</li><li>(C) The causative agent is a DNA virus</li><li>(D) Vaccine prevention is not commonly used for broilers</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">ILT 病變<strong>只在呼吸道</strong>，融合細胞在氣管上皮，不在腸道。(C) 疱疹病毒是 DNA 病毒；(D) 講義：一般只免疫種雞，肉雞較少；(B) 講義寫大小雞都會發生，依當年答案此項為正確敘述。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-lesions">ILT・病變</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 18</strong>　Regarding the hemagglutination inhibition (HI) test, which of the following is correct?</div>
+        <ul class="quiz-options"><li>(A) When hemagglutination occurs, all the red blood cells settle to the bottom of the plate</li><li>(B) An HI test can be used to detect the viral antigen</li><li>(C) An HA test needs to be completed prior to the HI test to determine the HAU of the antigen</li><li>(D) White blood cells from guinea pigs can be used in the HI test</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><span class="tag">補充</span> HI 要先做 HA 測抗原的凝集單位（HAU，通常調成 4 HAU）。(A) 說反了：紅血球沉到底部成「點」是<strong>沒有</strong>凝集；(B) HI 測的是<strong>抗體</strong>；(D) 用的是紅血球，不是白血球。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-diagnosis">新城病・HI 與 HA</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 19</strong>　Which of the following is not true about the infectious bronchitis?</div>
+        <ul class="quiz-options"><li>(A) The virus in the allantoic fluid can be directly detected by the HA test without enzyme treatment</li><li>(B) The causative agent belongs to the group 3 coronavirus</li><li>(C) In Taiwan, a live attenuated vaccine is commonly applied to one-day-old chicks</li><li>(D) Urate deposition can be found in chickens infected by nephropathogenic viral strains</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">IBV 本身不凝集紅血球，尿囊液要先經酵素處理（例如神經胺酸酶、磷脂酶 C）才能做 HA（補充）；這也是 IB 分離看「胚胎矮小捲曲」而不是直接做 HA 的原因。(B)(C)(D) 都對。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week03_傳染性支氣管炎.html#section-diagnosis">IB・診斷</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 20</strong>　Which of the following diseases is a zoonotic disease?</div>
+        <ul class="quiz-options"><li>(A) Infectious laryngotracheitis</li><li>(B) Avian adenovirus infections</li><li>(C) Newcastle disease</li><li>(D) None of above</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">新城病在人造成結膜炎。2022 年 Q2 同一概念。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-zoonotic">新城病・人畜共通</a></p></details>
+      </div>
+
+      <h3>三、問答題（4 題，共 40%；手寫作答，每題 10%）<span class="lv lv-must">必考</span></h3>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>原卷問答題的中文字照片太模糊，無法逐字辨識，下面的題目是依<strong>學長姐在照片上寫的紅字摘要</strong>（1. ILT IB 區別診斷　2. OIE 怎麼定義 ND 發生　3. AE 最適合注射年齡？為啥　4. 算 PD50）與可辨識的字還原，每題 10% 與第 4 題英文原文是照片上看得到的。</p></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 1</strong>　請說明如何區別診斷傳染性喉頭氣管炎（ILT）與傳染性支氣管炎（IB）。（10%）</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>答題架構：</strong>病毒 → 症狀 → 病變 → 組織學 → 實驗室。<br>① 病毒：ILT 是疱疹病毒（DNA、潛伏三叉神經節）；IB 是冠狀病毒（(+) ssRNA、血清型多）。<br>② 症狀：ILT 伸頸呼吸、<strong>咳出帶血黏液</strong>，嚴重型死亡率 5–70%；IB 氣管囉音、水便（多尿）、產蛋下降可達 50%、畸形蛋與水樣蛋白，6 週齡以上幾乎不死。<br>③ 病變：ILT <strong>只在呼吸道</strong>（喉頭氣管出血、乾酪樣物、偽膜）；IB 依病原型有氣管、<strong>腎（尿酸鹽）</strong>、輸卵管、腺胃病變。<br>④ 組織：ILT 上皮融合細胞＋<strong>嗜酸性核內包涵體</strong>；IB 纖毛脫落、間質性腎炎，沒有核內包涵體。<br>⑤ 實驗室：ILT 雞胚 <strong>CAM 接種</strong>見白色斑塊、PCR；IB 雞胚<strong>尿囊腔</strong>接種見胚胎矮小捲曲、RT-PCR；ILT 抗體不能用 HI。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-differential">ILT・鑑別表</a>、<a href="week03_傳染性支氣管炎.html#section-differential">IB・鑑別表</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 2</strong>　請說明依 OIE 的定義，新城病（ND）的發生如何判定？（10%）</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">禽類感染 APMV-1，且病毒符合任一項毒力標準：<br>(a) 1 日齡雛雞腦內接種病原性指數（ICPI）<strong>≥ 0.7</strong>；或<br>(b) F2 蛋白 C 端有多個鹼性胺基酸（<strong>113–116 位之間至少 3 個 R 或 K</strong>），且 F1 N 端第 <strong>117 位為苯丙胺酸（F）</strong>。<br>加分：ICPI ≥ 1.5 是典型強毒型；MDT &lt; 60 小時強毒；說明 F0 被 furin（多鹼性切位）或 trypsin（弱毒）切開的機轉。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-pathogenesis">新城病・WOAH 定義</a>、<a href="week02_新城病.html#section-diagnosis">新城病・病原性試驗</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 3</strong>　請說明禽腦脊髓炎（AE）疫苗最適合在什麼年齡注射？並說明理由。（10%）</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><span class="tag">補充</span> 本學期期中範圍沒有 AE 講義，以下依學長姐筆記與一般知識：種雞在<strong>開產前至少 4 週（約 10–16 週齡）</strong>接種活毒疫苗。原因：① AE 可經蛋垂直傳播，產蛋期接種，疫苗病毒可能經蛋傳給小雞；② 讓母雞在產蛋前產生抗體，經蛋黃把<strong>移行抗體</strong>傳給小雞，保護最敏感的前幾週（5 週齡後感染幾乎無症狀）；③ 太早（8 週齡以前）接種，小雞本身仍有移行抗體干擾。可以和 CIA 疫苗（種雞 8 週齡至開產前 4 週）的邏輯一起記。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week11_雞傳染性貧血.html#section-control">對照：CIA 疫苗打種雞的邏輯</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 4</strong>　Please calculate the serum 50% endpoint of protective dose (PD<sub>50</sub>) from the following table. (10%)</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><span class="tag">補充</span> 原卷表格欄位：Serum dilution（血清稀釋倍數）、Number of infected embryos、Number of uninfected embryos，共 5 列。照片模糊，數字只能勉強辨識：感染胚數像是 0、1、2、3、5，未感染胚數像是 5、4、3、2、0（每個稀釋度 5 顆胚？），<strong>稀釋倍數完全看不出來</strong>，所以無法算出數值，這裡只寫算法：用 <strong>Reed–Muench 法</strong>：① 由低稀釋到高稀釋累加「未感染（受保護）」數、由高稀釋到低稀釋累加「感染」數；② 算各稀釋度的保護率＝累積保護 ÷（累積保護＋累積感染）；③ 找出保護率跨過 50% 的兩個稀釋度，比例距離＝（高於 50% 的保護率 − 50%）÷（高於 50% 的保護率 − 低於 50% 的保護率）；④ log PD<sub>50</sub>＝高於 50% 那個稀釋度的 log 值 ＋ 比例距離 × log 稀釋倍數間距。本學期講義沒有這個計算。</p></details>
+      </div>
+
+      <footer class="note-footer">2016 年問答題的中文原題無法逐字辨識，是依學長姐的摘要還原；第 4 題表格數字無法辨識。</footer>
+    </div>
+
+    <!-- CHEN2023 -->
+    <div class="section" id="section-chen2023">
+      <div class="section-head"><div class="section-num">4</div><h2>陳慧文老師 2023 期中（問答，學長姐回憶）</h2></div>
+      <p class="section-desc">沒有考卷，只有學長姐考後回憶（B09）：<strong>全部是手寫問答題，共 5 題</strong>。和 2016 年問答重複度很高：ILT／IB 鑑別、WOAH 定義每年都出現。</p>
+      <div class="alert alert-info"><div class="alert-label">原文（學長姐的回憶紀錄）</div><p>惠文（全手寫）：<br>1. 為甚麼 ib 有疫苗還是沒辦法完全清除<br>2. AI 病原型，如何實驗室診斷，WOAH 定義<br>3. ND 病原型，如何實驗室診斷，WOAH 定義<br>4. ILT 跟 IB(?) 怎麼區別診斷<br>5. 會感染鸚鵡的病毒性疾病三個，說明其症狀</p></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 1</strong>　為什麼 IB 有疫苗，還是沒辦法完全清除？（全手寫）</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">① <strong>血清型多、交叉保護差</strong>：疫苗只保護同血清型，田間又常出現變異株（台灣一型、二型與重組株）。② 病毒<strong>容易突變與基因重組</strong>。③ <strong>傳播力極強</strong>：R＝19.95，空氣可傳 1 公里以上。④ <strong>長期排毒</strong>：感染雞排毒數月，20 週後糞便仍可分離到病毒。⑤ 疫苗主要減少發病，不能完全阻止感染與排毒；接種技術（漏打、劑量不均）也影響。所以要用一種以上型別的疫苗、監測田間毒株、加強生物安全。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week03_傳染性支氣管炎.html#section-virology">IB・基因型與血清型</a>、<a href="week03_傳染性支氣管炎.html#section-epidemiology">IB・傳播</a>、<a href="week03_傳染性支氣管炎.html#section-vaccine">IB・疫苗</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 2</strong>　禽流感的病原型、如何做實驗室診斷、WOAH 定義？</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>病原型</strong>：低病原性（LPAI，HA0 切位少數鹼性胺基酸，只被 trypsin 樣酶切開，侷限呼吸消化道）與高病原性（HPAI，多個鹼性胺基酸，全身蛋白酶都能切，全身感染）；HPAI 由 H5、H7 的 LPAI 突變而來。<br><strong>實驗室診斷</strong>：活禽喉頭與泄殖腔拭子、死禽各臟器 → 9–11 日齡 SPF 雞胚尿囊腔接種 → 尿囊液 HA → AGID 或 RT-PCR 確認 A 型 → HI、NI 或 RT-PCR 定亞型 → 病原性判定；血清學 ELISA、AGID、HI。<br><strong>WOAH 定義 HPAI</strong>（任一項）：① 6 週齡 SPF 雞靜脈接種 IVPI <strong>&gt; 1.2</strong>（國內規範寫 ≥ 1.2）；② 4–8 週齡雞 8 隻靜脈接種，10 天內死亡 <strong>6–8 隻（≥ 75%）</strong>；③ H5、H7 的 HA 切位序列與已知 HPAI 相似。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week01_禽流感.html#section-pathogenicity">禽流感・HPAI vs LPAI</a>、<a href="week01_禽流感.html#section-diagnosis">禽流感・檢驗與病原性判定</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 3</strong>　新城病的病原型、如何做實驗室診斷、WOAH 定義？</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>病原型</strong>：1 個血清型、5 個病原型：內臟強毒型（vvND，亞洲型，腸管出血、死亡率近 100%）、神經強毒型（nvND，美洲型，呼吸與神經症狀）、中間毒型（只在小雞發病，可做二次免疫）、弱毒型（疫苗 B1、La Sota）、無病原性型。<br><strong>實驗室診斷</strong>：採樣（活雞氣管與泄殖腔拭子）→ 9–11 日齡 SPF 雞胚尿囊腔接種 → 尿囊液 HA → RT-PCR 增幅 F 基因切位並定序 → 病原性試驗（MDT、ICPI、IVPI）；血清學以 HI 為主。<br><strong>WOAH 定義</strong>：ICPI ≥ 0.7，或 113–116 至少 3 個 R／K 且 117 為 F（見 2016 E2）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week02_新城病.html#section-virology">新城病・病原型</a>、<a href="week02_新城病.html#section-diagnosis">新城病・診斷</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 4</strong>　ILT 跟 IB 怎麼區別診斷？</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">同 2016 年問答 E1（往上看），這題連續出現，一定要準備。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-differential">ILT・鑑別表</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 5</strong>　列出三個會感染鸚鵡的病毒性疾病，並說明症狀。</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">任選三個：<br>① <strong>玻那病毒感染症（腺胃擴張症，PDD）</strong>：灰鸚鵡、金剛、亞馬遜、鳳頭；神經症狀（66%）、糞便有未消化食物、逆流、腺胃擴張（X 光腺胃／龍骨比 &gt; 0.48）。<br>② <strong>多瘤病毒感染症</strong>：虎皮、愛情鳥、玄鳳的幼鳥；French molt、腹部膨大、嗉囊停滯、皮下出血，雛鳥死亡率近 100%。<br>③ <strong>鸚鵡喙羽病（PBFD，環狀病毒）</strong>：對稱性羽毛脫落與變形、喙發亮過長斷裂、免疫抑制與續發感染。<br>④ <strong>痘病毒</strong>：乾性（無羽毛皮膚痘疹）、濕性（眼鼻黏膜）。<br>可再加：診斷檢體、是否有疫苗（多瘤病毒、金絲雀痘有疫苗；PDD、PBFD 沒有）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week05_寵物鳥病毒病.html#section-compare">寵物鳥・四病一表</a></p></details>
+      </div>
+
+      <footer class="note-footer">2023 年題目為學長姐考後回憶（B09），原題用字可能不同。</footer>
+    </div>
+
+    <!-- WU111 -->
+    <div class="section" id="section-wu111">
+      <div class="section-head"><div class="section-num">5</div><h2>吳乃慧老師 111 學年期中（111/10/27）</h2></div>
+      <p class="section-desc">選擇 7 題（21 分）、填空 4 大題（24 分）、問答 2 題（15 分）。和 109 學年重複很多題。填空與問答是<strong>手寫作答</strong>。</p>
+      <div class="table-wrap"><table><tbody><tr><td style="width:20%;"><strong>考試</strong></td><td>111 學年度第 1 學期　禽病學期中階段考試題（吳乃慧部分）111/10/27</td></tr><tr><td style="width:20%;"><strong>題型與配分</strong></td><td>選擇題 7 題，每題 3 分，共 21 分；填空題（簡答題）每格 2 分，共 24 分；問答題 15 分</td></tr><tr><td style="width:20%;"><strong>照片說明</strong></td><td>原卷已遮蓋姓名與學號；問答題的答案區被上傳者塗掉；填空題 1 的圖片 A–D、填空題 2 的腦切片圖照片沒有拍到</td></tr></tbody></table></div>
+      <details class="alert alert-info" style="margin:1rem 0"><summary style="cursor:pointer;font-weight:700">看原卷照片（2 頁）</summary>
+        <div style="max-width:820px;"><div class="figure"><img src="img/期中考古/wu111_p1.jpg" alt="原卷第 1 頁：選擇、填空（字跡為學長姐作答）" loading="lazy"><div class="figure-caption">原卷第 1 頁：選擇、填空（字跡為學長姐作答）</div><div class="figure-source">來源：學長姐提供之考卷照片（姓名學號已遮蓋）</div></div><div class="figure"><img src="img/期中考古/wu111_p2.jpg" alt="原卷第 2 頁：問答題" loading="lazy"><div class="figure-caption">原卷第 2 頁：問答題</div><div class="figure-source">來源：學長姐提供之考卷照片</div></div></div></details>
+      <h3>選擇題（7 題，每題 3 分，共 21 分）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 1</strong>　解剖時發現雞的骨髓嚴重褪色（喪失血色），組織病理學檢測見到大量骨髓實質被脂肪組織取代，最可能是由下列何種疾病的病原所致？</div>
+        <ul class="quiz-options"><li>(A) 雞傳染性貧血（Chicken Infectious Anemia）</li><li>(B) 網狀內皮細胞增殖病（Reticuloendotheliosis）</li><li>(C) 家禽白血病（Avian leukosis）</li><li>(D) 禽痘（Fowl pox）</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">CAV 破壞骨髓紅血球芽細胞，造血組織被脂肪取代 → 黃骨髓、再生不良性貧血（國考 111 年同題）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week11_雞傳染性貧血.html#section-clinical">雞傳染性貧血・骨髓病變</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 2</strong>　雞的 primary lymphoid organs 為下列何者？</div>
+        <ul class="quiz-options"><li>(A) Thymus、Bone marrow</li><li>(B) Spleen、Bone marrow</li><li>(C) Thymus、Bursa</li><li>(D) Bone marrow、Bursa</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">初級淋巴器官：胸腺（T 細胞）、華氏囊（B 細胞）。脾臟、哈氏腺、骨髓是次級。109 學年填空 3 同一題。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week10_傳染性華氏囊病.html#section-immune">IBD・禽類免疫系統</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 3</strong>　造成雞產蛋下降症候群（egg drop syndrome 76）的病原為下列何者？</div>
+        <ul class="quiz-options"><li>(A) Parvovirus</li><li>(B) Adenovirus</li><li>(C) Flavivirus</li><li>(D) Retrovirus</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><span class="tag">補充</span> EDS76 是腺病毒（Atadenovirus 屬；國考 105、108 年）。本學期腺病毒講義未取得，但這題 109、111 兩年都考。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 4</strong>　雞傳染性喉頭氣管炎於喉頭氣管處常見乾酪樣塊狀病灶，此現象常需與下列何種疾病如何做類症鑑別？</div>
+        <ul class="quiz-options"><li>(A) 禽痘，組織切片 ILT：eosinophilic intracytoplasmic inclusion body；Fowl pox：eosinophilic intranuclear inclusion body</li><li>(B) 禽痘，組織切片 ILT：eosinophilic intranuclear inclusion body；Fowl pox：eosinophilic intracytoplasmic inclusion body</li><li>(C) 包涵體肝炎，ILT：eosinophilic intracytoplasmic；IBH：basophilic intranuclear</li><li>(D) 包涵體肝炎，ILT：eosinophilic intracytoplasmic；IBH：basophilic intracytoplasmic</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">要和<strong>禽痘白喉型</strong>鑑別（國考 111 年）。ILT 是疱疹病毒，<strong>核內</strong>複製 → 嗜酸性<strong>核內</strong>包涵體；痘病毒在<strong>細胞質</strong>複製 → 細胞質內包涵體（Bollinger bodies）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week04_傳染性喉頭氣管炎.html#section-lesions">ILT・病變</a>、<a href="week05_寵物鳥病毒病.html#section-pox">痘病毒包涵體</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 5</strong>　下列哪一亞群的家禽白血病病毒（avian leukosis virus）為內源性病毒？</div>
+        <ul class="quiz-options"><li>(A) E</li><li>(B) J</li><li>(C) A</li><li>(D) B</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">E 亞群內源性、經遺傳、不致腫瘤；A、B、C、D、J 外源性且致腫瘤。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week09_禽白血病與網狀內皮增生症.html#section-alv">禽白血病・亞群</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 6</strong>　下列關於家禽里奧病毒感染症（Avian Reovirus Infections）之敘述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options"><li>(A) 成雞感受性較雛雞高</li><li>(B) 引起雞之病毒性關節炎</li><li>(C) 病毒會於腸道增殖</li><li>(D) 造成禽類免疫抑制</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">ARV 有年齡相關抵抗性：<strong>1 日齡最敏感</strong>，10 週齡以上不敏感，所以 (A) 說反了。(B)(C) 講義有寫；(D) CIA 講義把 Reo 列為會加重 CAV 的免疫抑制病原。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week12_呼腸孤病毒.html#section-host">里奧病毒・年齡</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 7</strong>　下列何者<strong>不是</strong>傳染性華氏囊病（Infectious Bursal Disease）的病變？</div>
+        <ul class="quiz-options"><li>(A) 肌肉出血</li><li>(B) 華氏囊萎縮</li><li>(C) 輸卵管萎縮</li><li>(D) 華氏囊出血</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">輸卵管萎縮是 IB 雛雞期感染的病變（國考 105 年同題）。IBD：華氏囊先腫大出血、5 天後萎縮；胸腿肌出血。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week10_傳染性華氏囊病.html#section-lesions">IBD・病變</a></p></details>
+      </div>
+
+      <h3>填空題（簡答題）（每格 2 分，共 24 分）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 1</strong>　圖片 A、B、C、D 分別為何種臟器？A 為（　　　）、B 為（　　　）、C 為（　　　）、D 為（　　　）。</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>題目的四張圖照片沒有拍到</strong>，無法核對。學長姐在考卷上的作答是：A 字跡難辨（看起來是肌胃一類的消化器官）、B 腺胃、C 胰臟（pancreas）、D 脾臟（spleen），不保證正確。準備方式：熟悉剖檢時腺胃、肌胃、胰臟（夾在十二指腸環中）、脾臟（腺胃與肌胃交界附近）、華氏囊、胸腺的外觀與位置。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week06_總論與解剖.html#section-anatomy">總論與解剖・大體解剖</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 2</strong>　圖片為雞的腦組織切片，可見（　　）之特徵性病變，依此病變推斷最可能的疾病為（　　）。</div>
+        
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：中心性染色質溶解（central chromatolysis）；禽腦脊髓炎（Avian encephalomyelitis）</div><p class="quiz-explain"><span class="tag">補充</span> 本學期 AE 講義未取得。AE 的腦組織：神經元中心性染色質溶解（尼氏體溶解）、淋巴球圍管現象、膠質細胞聚集（國考 112 年）。109 學年填空 1 同一張圖概念。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 3</strong>　Marek's Disease Virus 由雞的（　　）排毒至環境中。Marek's Disease 依症狀及病變可以分為（　）、（　）、（　）、（　）等 4 型。</div>
+        
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：羽毛毛囊上皮（feather follicle epithelium）；神經型、內臟型、皮膚型、眼型</div><p class="quiz-explain">MDV 在羽毛毛囊上皮產生完整病毒，隨皮屑經空氣傳播。四型：神經型（坐骨神經腫大、腿翅麻痺）、內臟型（腺胃燒瓶狀、卵巢花椰菜狀）、皮膚型（毛囊腫大）、眼型（灰眼、瞳孔變形）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week08_馬立克病.html#section-epidemiology">MD・傳播</a>、<a href="week08_馬立克病.html#section-clinical">MD・四種病型</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 4</strong>　下列哪些疾病會造成禽類免疫抑制（immunosuppression）？ a. Chicken Infectious Anemia　b. Reticuloendotheliosis　c. Avian leukosis　d. Fowl pox　e. Marek's Disease　f. egg drop syndrome 76　g. Avian influenza　h. Infectious Bursal Disease</div>
+        
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：a、b、c、e、h</div><p class="quiz-explain">AL/RE 講義：MDV、ALV、REV 都會免疫抑制（ALV 另會造成免疫耐受）；CIA 破壞胸腺 T 前驅細胞；IBD 破壞華氏囊 B 細胞。禽痘不直接造成免疫抑制（國考 105 年）；EDS76 主要在殼腺；禽流感不列為免疫抑制病。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week09_禽白血病與網狀內皮增生症.html#section-differential">四種腫瘤病鑑別（免疫列）</a>、<a href="week10_傳染性華氏囊病.html#section-differential">免疫抑制病比較</a></p></details>
+      </div>
+
+      <h3>問答題（共 15 分，手寫作答）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 1</strong>　Infectious Bursal Disease Virus 有幾種血清型（2 分）？這幾種血清型間是否具交叉保護效果（2 分）？請簡單解釋 the Gumboro cycle（4 分）。</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">① <strong>2 個血清型</strong>：血清型 1 致病（只有雞是自然宿主），血清型 2 無致病性。② 兩型之間<strong>沒有交叉保護</strong>。③ <strong>Gumboro cycle</strong>：感染雞經糞便排出大量病毒 → 病毒無封套、抵抗消毒（耐 70% 酒精、pH 2–11），在雞舍存活 122 天、墊料糞便 52 天 → 出雞後清空消毒仍可能殘留 → 新一批小雞進場時有移行抗體保護 → 移行抗體隨日齡下降，出現空窗期 → 小雞被殘留病毒感染、排毒 → 循環下去。所以要統進統出、徹底清潔、用碘消毒，並依移行抗體選疫苗時機。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week10_傳染性華氏囊病.html#section-virus">IBD・病原</a>、<a href="week10_傳染性華氏囊病.html#section-pathogenesis">IBD・Gumboro cycle</a>、<a href="week10_傳染性華氏囊病.html#section-vaccine">IBD・移行抗體空窗期</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 2</strong>　請簡單解釋 Avian Leukosis（家禽白血病）的 Vertical transmission 與 Genetic transmission 有何不同（7 分）。</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>Vertical（垂直）</strong>：<strong>外源性</strong> ALV（A、B、J 等）由感染的<strong>母雞</strong>經輸卵管進入蛋，傳給胚胎；小雞產生<strong>免疫耐受</strong>（V+A–S+：持續病毒血症、不產生抗體、大量排毒），可發生腫瘤並成為傳染源；只有母雞能傳。<br><strong>Genetic（遺傳）</strong>：<strong>內源性</strong> ALV（E 亞群）的病毒序列已<strong>嵌入配子 DNA</strong>，像宿主基因一樣遺傳，<strong>公母雞都會傳</strong>；一般不致病（潛伏），但會影響對外源性 ALV 的反應，也會干擾 p27 ELISA。<br>延伸：清除計畫要在種雞 1 日齡（胎糞）到 45 週持續驗，開產後加驗蛋白與陰道拭子。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week09_禽白血病與網狀內皮增生症.html#section-transmission">禽白血病・傳播與 V／A／S</a></p></details>
+      </div>
+    </div>
+
+    <!-- WU109 -->
+    <div class="section" id="section-wu109">
+      <div class="section-head"><div class="section-num">6</div><h2>吳乃慧老師 109 學年期中（109/12/1）</h2></div>
+      <p class="section-desc">選擇 5 題、填空 5 題、問答 4 題。當年範圍比今年大（含球蟲、黑頭病、鴨病毒性肝炎），沒有講義的題目標 <span class="tag">補充</span>。投影片上的紅字是老師當年公布的答案。</p>
+      <div class="table-wrap"><table><tbody><tr><td style="width:20%;"><strong>考試</strong></td><td>109 學年度第 1 學期　禽病學期中階段考試題（吳乃慧部分）109/12/1</td></tr><tr><td style="width:20%;"><strong>題型與配分</strong></td><td>選擇題 每題 3 分；填空題（簡答題）每題 3 分；問答題 每題 15 分（4 題）</td></tr><tr><td style="width:20%;"><strong>作答方式</strong></td><td>選擇題、填空題寫在題目卷上，問答題寫在答案卷繳回</td></tr><tr><td style="width:20%;"><strong>照片說明</strong></td><td>部分是學長姐在教室拍攝的投影片（老師公布答案時），已裁掉前排同學</td></tr></tbody></table></div>
+      <details class="alert alert-info" style="margin:1rem 0"><summary style="cursor:pointer;font-weight:700">看原卷與投影片照片（5 張）</summary>
+        <div style="max-width:820px;"><div class="figure"><img src="img/期中考古/wu109_slide1.jpg" alt="老師公布答案的投影片：選擇 1–5、填空 1–2（紅字是答案）" loading="lazy"><div class="figure-caption">老師公布答案的投影片：選擇 1–5、填空 1–2（紅字是答案）</div><div class="figure-source">來源：學長姐在教室拍攝的投影片</div></div><div class="figure"><img src="img/期中考古/wu109_slide2.jpg" alt="填空題 1、2 的圖片（腦組織切片、肝臟）" loading="lazy"><div class="figure-caption">填空題 1、2 的圖片（腦組織切片、肝臟）</div><div class="figure-source">來源：學長姐在教室拍攝的投影片</div></div><div class="figure"><img src="img/期中考古/wu109_slide3.jpg" alt="投影片續：選擇 4–5、填空 1–5、問答 1–3" loading="lazy"><div class="figure-caption">投影片續：選擇 4–5、填空 1–5、問答 1–3</div><div class="figure-source">來源：學長姐在教室拍攝的投影片</div></div><div class="figure"><img src="img/期中考古/wu109_paper.jpg" alt="紙本考卷（藍字為學長姐的作答與筆記）" loading="lazy"><div class="figure-caption">紙本考卷（藍字為學長姐的作答與筆記）</div><div class="figure-source">來源：學長姐提供之考卷照片</div></div><div class="figure"><img src="img/期中考古/wu109_ibd.jpg" alt="老師講解問答 3 時的投影片：IBDV 血清型" loading="lazy"><div class="figure-caption">老師講解問答 3 時的投影片：IBDV 血清型</div><div class="figure-source">來源：學長姐在教室拍攝的投影片</div></div></div></details>
+      <h3>選擇題（每題 3 分）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 1</strong>　於台灣雞隻最常見、致病性最強的球蟲及其主要寄生的部位分別為下列何者？</div>
+        <ul class="quiz-options"><li>(A) Eimeria tenella，小腸中段</li><li>(B) Eimeria praecox，直腸與小腸下段</li><li>(C) Eimeria maxima，十二指腸</li><li>(D) Eimeria tenella，盲腸</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)（老師公布）</div><p class="quiz-explain"><span class="tag">補充</span> 本學期期中範圍沒有球蟲講義。E. tenella 寄生<strong>盲腸</strong>，造成盲腸大量出血（國考 100、115 年）。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 2</strong>　造成雞產蛋下降症候群（egg drop syndrome 76）的病原為下列何者？</div>
+        <ul class="quiz-options"><li>(A) Parvovirus</li><li>(B) Adenovirus</li><li>(C) Flavivirus</li><li>(D) Retrovirus</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)（老師公布）</div><p class="quiz-explain"><span class="tag">補充</span> 腺病毒。111 學年同一題。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 3</strong>　下列有關禽痘（Fowl pox）之敘述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options"><li>(A) 症狀可分為皮膚型及黏膜（白喉）型</li><li>(B) 感染細胞可見細胞核內包涵體</li><li>(C) 產蛋雞感染會產蛋下降</li><li>(D) 任何日齡及雞種的雞隻對禽痘皆有感受性</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">痘病毒在<strong>細胞質</strong>複製，包涵體在細胞質內（Bollinger bodies），不是核內。皮膚型（乾性）與白喉型（濕性）見寵物鳥講義的痘病毒。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week05_寵物鳥病毒病.html#section-pox">痘病毒</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 4</strong>　傳染性華氏囊病病毒（infectious bursal disease virus）對下列何種細胞的毒殺力最強？</div>
+        <ul class="quiz-options"><li>(A) 成熟的 T 淋巴細胞</li><li>(B) 成熟的 B 淋巴細胞</li><li>(C) 未成熟 T 淋巴細胞</li><li>(D) 未成熟 B 淋巴細胞</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)（老師公布）</div><p class="quiz-explain">IBDV 感染華氏囊的<strong>未成熟 B 細胞</strong>（國考 109 年同題）。未成熟 T 細胞前驅是 CAV 的標的。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week10_傳染性華氏囊病.html#section-pathogenesis">IBD・致病機轉</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q"><strong>選擇 5</strong>　下列何種病毒感染可以引起雞之病毒性關節炎？</div>
+        <ul class="quiz-options"><li>(A) 家禽肺病毒（avian metapneumovirus）</li><li>(B) 家禽里奧病毒（avian reovirus）</li><li>(C) 副黏液病毒（paramyxovirus）</li><li>(D) 腺病毒（adenovirus）</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)（老師公布）</div><p class="quiz-explain">里奧病毒造成病毒性關節炎／腱鞘炎（國考 105 年同題）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week12_呼腸孤病毒.html#section-abstract">里奧病毒</a></p></details>
+      </div>
+
+      <h3>填空題（簡答題）（每題 3 分；答案為老師公布）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 1</strong>　圖片為雞的腦組織切片，依此病變推斷最可能的疾病為（　　　　）。</div>
+        <div class="figure"><img src="img/期中考古/fig_brain_109.jpg" alt="填空題 1 的圖：雞腦組織切片" loading="lazy"><div class="figure-caption">填空題 1 的圖：雞腦組織切片</div><div class="figure-source">來源：109 學年考題投影片</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：禽腦脊髓炎（Avian Encephalomyelitis）</div><p class="quiz-explain"><span class="tag">補充</span> 圖為神經元中心性染色質溶解。111 學年填空 2 同一概念。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 2</strong>　圖片為家禽的肝臟，依此病變推斷最可能的疾病為（　　　　）。</div>
+        <div class="figure"><img src="img/期中考古/fig_liver_109.jpg" alt="填空題 2 的圖：家禽肝臟（多個圓形、邊界清楚、中央凹陷的壞死灶）" loading="lazy"><div class="figure-caption">填空題 2 的圖：家禽肝臟（多個圓形、邊界清楚、中央凹陷的壞死灶）</div><div class="figure-source">來源：109 學年考題投影片</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：組織滴蟲病（Histomoniasis，黑頭病 blackhead disease）</div><p class="quiz-explain"><span class="tag">補充</span> 投影片的肝臟有多個圓形、邊界清楚、中央凹陷的「靶狀」壞死灶，是黑頭病的典型肝病變（國考 97、107 年：火山口樣壞死灶、盲腸腫大壞死）。本學期期中範圍沒有講義。</p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 3</strong>　雞的 primary lymphoid organs 為（　　）及（　　）。</div>
+        
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：胸腺（Thymus）及華氏囊（Bursa of Fabricius）</div><p class="quiz-explain">111 學年選擇 Q2 同一題。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week10_傳染性華氏囊病.html#section-immune">IBD・淋巴器官</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 4</strong>　雞傳染性貧血（Chicken Infectious Anemia）較好發於小雞或成雞？（　　）本病引起免疫抑制的原因是因為病毒侵犯（　　）的 T 淋巴球前驅細胞（T lymphocyte precursor）。</div>
+        
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：小雞；胸腺（Thymus）</div><p class="quiz-explain">&lt; 2 週齡高發病高死亡、1 日齡最敏感；CAV 破壞胸腺皮質的 T 淋巴球前驅細胞（也破壞骨髓紅血球芽細胞）。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week11_雞傳染性貧血.html#section-pathogenesis">雞傳染性貧血・標的細胞</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（填空）</span>
+        <div class="quiz-q"><strong>填空 5</strong>　鴨病毒性肝炎（Duck Viral Hepatitis）只發生在成鴨還是幼齡鴨？（　　），（　　）為本病主要的特徵病變。</div>
+        
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：幼齡鴨；出血性肝炎（肝臟點狀與斑狀出血）</div><p class="quiz-explain"><span class="tag">補充</span> 本學期期中範圍沒有水禽病毒講義（課表第 11 週才上）。</p></details>
+      </div>
+
+      <h3>問答題（每題 15 分，共 4 題，手寫作答）<span class="lv lv-must">必考</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 1</strong>　養禽場有哪些生物安全相關危險因子？請提出 3 項加強養禽場生物安全之措施。</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>危險因子</strong>（講義的風險來源）：地點、人員、車輛、水、設備、動物（鼠、蠅）、野鳥、鄰近禽場。<br><strong>措施</strong>（任選 3 項並說明）：① 人員：限制訪客、進場消毒更衣淋浴、場內外衣物分開、不拜訪其他禽場；② 車輛：清洗消毒（尤其輪胎），飼料桶放場外或圍牆邊，避免飼料車進場；③ 場區配置：淨區與汙染區分開、單向動線；④ 野鳥：密閉式禽舍或防鳥網；⑤ 動物：建築間鋪硬地不種樹、防鼠、防蠅（保持乾燥）；⑥ 水線與設備清潔消毒；⑦ 統進統出、先清潔再消毒。<br>學長姐的答案也是「location、people、vehicle、water、equipment、animals」。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week07_種禽生產醫學.html#section-biosecurity">種禽生產醫學・生物安全</a>、<a href="week07_種禽生產醫學.html#section-disinfection">清潔與消毒</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 2</strong>　Marek's Disease 依症狀及病變可以分為哪 4 型？Marek's Disease 如何與 Lymphoid Leukosis 做區別診斷？</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>四型</strong>：神經型、內臟型、皮膚型、眼型（111 學年填空 F3）。<br><strong>MD vs LL</strong>：<br>① 年齡：MD 通常 6 週齡以上任何年齡（AL/RE 講義寫 &gt; 4 週）；LL 不會在 16 週齡以下（AL/RE 講義寫 &gt; 14 週）。<br>② 症狀：MD 常見麻痺；LL 非特異性。<br>③ 神經病變、眼、皮膚與羽毛毛囊、中樞神經：MD 有，LL 沒有。<br>④ 華氏囊：MD 瀰漫腫大或萎縮、<strong>濾泡間</strong>腫瘤；LL <strong>濾泡內</strong>結節狀腫瘤。<br>⑤ 細胞：MD 多形性 T 細胞；LL 一致的 B 細胞。<br>⑥ 病毒與傳播：MD 疱疹病毒，只水平；LL 反轉錄病毒（ALV-A），可垂直。<br>⑦ 最後以組織病理、免疫組化、PCR 確診。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week08_馬立克病.html#section-differential">MD／LL／RE 鑑別</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 3</strong>　Infectious Bursal Disease Virus 有幾種血清型？這幾種血清型間是否具交叉保護效果？請簡述感染雞隻的臨床症狀與病變。</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">血清型與交叉保護：2 個，沒有交叉保護（見 111 學年 E1）。<br><strong>臨床症狀</strong>：急性型（3–6 週齡）沉鬱、羽毛蓬鬆、水樣下痢、墊料潮濕、脫水、啄肛、2–3 天死亡；免疫抑制型（&lt; 3 週齡）無明顯症狀，但生長差、疫苗失效、二次感染。<br><strong>病變</strong>：華氏囊 2–4 天腫大、水腫、出血，第 5 天後萎縮；胸腿肌出血；腎腫大；十二指腸出血；組織：濾泡淋巴細胞壞死、囊腫。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week10_傳染性華氏囊病.html#section-clinical">IBD・臨床</a>、<a href="week10_傳染性華氏囊病.html#section-lesions">IBD・病變</a></p></details>
+      </div>
+
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">手寫（問答）</span>
+        <div class="quiz-q"><strong>問答 4</strong>　請簡單解釋 Avian Leukosis 的 Vertical transmission 與 Genetic transmission 有何不同。</div>
+        
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">同 111 學年 E2（往上看）。學長姐的答案：外源性的才會垂直（介蛋傳播），所以只有母雞可以；內源性的才會遺傳（病毒基因嵌入配子體），公母雞都可以。</p><p class="quiz-explain" style="margin-top:.4rem;">對應筆記：<a href="week09_禽白血病與網狀內皮增生症.html#section-transmission">禽白血病・傳播</a></p></details>
+      </div>
+
+      <footer class="note-footer">109 學年的選擇與填空答案取自老師當年公布的投影片（紅字），問答題答案為整理者依講義撰寫。</footer>
+    </div>
+
+    <!-- REPEAT -->
+    <div class="section" id="section-repeat">
+      <div class="section-head"><div class="section-num">7</div><h2>重複出現的考點</h2></div>
+      <p class="section-desc">把兩位老師歷年重複出現的題目整理成一張表，考前最後看這張。</p>
+      <h3>重複考點<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>考點</th><th>出現在</th><th>答案重點</th></tr></thead>
+          <tbody>
+            <tr><td>哪個病會潛伏帶毒</td><td>陳 2016 Q8、2022 Q5</td><td>ILT；三叉神經節，緊迫再發</td></tr>
+            <tr><td>ILT 抗體不能用什麼</td><td>陳 2016 Q16、2022 Q3</td><td>HI（ILT 病毒沒有血球凝集素）</td></tr>
+            <tr><td>哪個是人畜共通</td><td>陳 2016 Q20、2022 Q2</td><td>新城病（結膜炎）</td></tr>
+            <tr><td>新城病選項組（雉雞、強毒做疫苗、活毒＋死毒、神經症狀）</td><td>陳 2016 Q4、2022 M2</td><td>只有「強毒可做疫苗」是錯的</td></tr>
+            <tr><td>WOAH 新城病定義</td><td>陳 2016 E2、2022 Q1、2023 E3</td><td>ICPI ≥ 0.7；或 113–116 ≥ 3 個 R／K 且 117 為 F</td></tr>
+            <tr><td>ILT 與 IB 鑑別</td><td>陳 2016 E1、2023 E4</td><td>咳血＋只在呼吸道＋核內包涵體＋CAM vs 腎病變＋產蛋問題＋尿囊腔胚胎矮小</td></tr>
+            <tr><td>EDS76 病原</td><td>吳 109 Q2、111 Q3</td><td>腺病毒</td></tr>
+            <tr><td>Primary lymphoid organs</td><td>吳 109 F3、111 Q2</td><td>胸腺＋華氏囊</td></tr>
+            <tr><td>腦切片推疾病</td><td>吳 109 F1、111 F2</td><td>禽腦脊髓炎（中心性染色質溶解）</td></tr>
+            <tr><td>IBDV 血清型與交叉保護</td><td>吳 109 E3、111 E1</td><td>2 型、無交叉保護；再加臨床病變或 Gumboro cycle</td></tr>
+            <tr><td>AL 垂直 vs 遺傳傳播</td><td>吳 109 E4、111 E2</td><td>外源性經母雞入蛋（免疫耐受）vs 內源性嵌入配子（公母都傳）</td></tr>
+            <tr><td>MD 四型</td><td>吳 109 E2、111 F3</td><td>神經、內臟、皮膚、眼；排毒在羽毛毛囊上皮</td></tr>
+            <tr><td>ILT vs 禽痘包涵體</td><td>吳 111 Q4、109 Q3</td><td>ILT 核內、禽痘細胞質內</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">表格依本頁收錄的考卷整理；出題規律為推測，考試範圍以老師上課為準。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '怎麼用這頁',
+  chen2022: '2022 期中（單選＋多選）',
+  chen2016: '2016 期中（選擇 20＋問答）',
+  chen2023: '2023 期中（問答，回憶）',
+  wu111: '111 學年期中',
+  wu109: '109 學年期中',
+  repeat: '重複出現的考點',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
