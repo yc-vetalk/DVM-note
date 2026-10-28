@@ -6,6 +6,37 @@
 <title>大動物外科：縫合材料、縫針與結紮技術 - yc._vetalk</title>
 <link rel="stylesheet" href="../../assets/nav.css">
 <link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+.lay-svg{width:100%;max-width:760px;height:auto;display:block;margin:.6rem auto}
+.lay-svg text{fill:var(--fg);font-size:14px}
+.lay-svg .t-sm{font-size:12.5px;fill:var(--fg-muted)}
+.lay-svg .t-b{font-weight:700}
+.lay-ser{fill:#b9cbe0;stroke:#b9cbe0}.lay-mus{fill:#e5c3ab;stroke:#e5c3ab}.lay-sub{fill:#f0d98f;stroke:#f0d98f}
+.lay-muc{fill:#eca596;stroke:#eca596}.lay-skin{fill:#cfc3b6;stroke:#cfc3b6}.lay-lum{fill:var(--bg);stroke:var(--fg-faint);stroke-dasharray:4 3}
+.lay-sut{fill:none;stroke:#13708f;stroke-width:3;stroke-linecap:round}.lay-sut.bur{stroke-dasharray:5 4;stroke-width:2.2}
+.lay-cut{fill:none;stroke:var(--fg);stroke-width:1.6;stroke-dasharray:7 4}.lay-lead{stroke:var(--fg-faint);stroke-width:1}
+[data-theme="dark"] .lay-ser{fill:#3d5167;stroke:#3d5167}[data-theme="dark"] .lay-mus{fill:#6a4a35;stroke:#6a4a35}
+[data-theme="dark"] .lay-sub{fill:#6b5a1f;stroke:#6b5a1f}[data-theme="dark"] .lay-muc{fill:#7a3a2c;stroke:#7a3a2c}
+[data-theme="dark"] .lay-skin{fill:#4f453c;stroke:#4f453c}[data-theme="dark"] .lay-sut{stroke:#5cc4e6}
+</style>
+
 </head>
 <body class="ah">
 
@@ -37,8 +68,10 @@
     </div>
     <div class="meta-bar">
       <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">大動物外科手術及實習（大四上・第1週・實習）</div></div>
-      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》第 1 週實習講義〈Suture materials, needle, knots and ligatures〉（Yu Pin-Huan, NTU）</div></div>
-      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-16</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》第 1 週實習講義〈Suture materials, needle, knots and ligatures〉（Yu Pin-Huan, NTU）；B06 共筆（2020.10.21 余品奐老師同一主題的上課內容）補充老師口述的理由與例子</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-28</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/縫合材料與結紮技術.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week01_%E7%B8%AB%E5%90%88%E6%9D%90%E6%96%99%E8%88%87%E7%B5%90%E7%B4%AE%E6%8A%80%E8%A1%93">做題 →</a></div></div>
       <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
     </div>
   </div>
@@ -74,10 +107,15 @@
     <a onclick="showSection('patterns')" id="nav-patterns">
       <span class="nav-icon">🪡</span> 縫合模式
     </a>
+    <a onclick="showSection('diagram')" id="nav-diagram">
+      <span class="nav-icon">🧩</span> 縫合圖解
+    </a>
     <div class="section-label" style="margin-top:8px;">複習</div>
     <a onclick="showSection('quiz')" id="nav-quiz">
       <span class="nav-icon">📝</span> 練習題
     </a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week01_%E7%B8%AB%E5%90%88%E6%9D%90%E6%96%99%E8%88%87%E7%B5%90%E7%B4%AE%E6%8A%80%E8%A1%93" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
   </nav>
 
   <main class="pagebody" id="mainContent">
@@ -85,9 +123,14 @@
     <!-- OVERVIEW -->
     <div class="section" id="section-overview">
       <div class="section-head"><div class="section-num">1</div><h2>縫線材質總論</h2></div>
-      <p class="section-desc">本份為第 1 週實習講義〈Suture materials, needle, knots and ligatures〉整理，聚焦於縫線材質、縫合針、縫合模式的選擇邏輯，與課堂講義〈術前考量與麻醉〉互為當週的理論／實作兩份文件。</p>
+      <p class="section-desc">本份為第 1 週實習講義〈Suture materials, needle, knots and ligatures〉整理，聚焦於縫線材質、縫合針、縫合模式的選擇邏輯，與課堂講義〈術前考量與麻醉〉互為當週的理論／實作兩份文件（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=1">p.1–4</a>）。</p>
+      <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以余品奐老師的講義為主體（講義多為關鍵字，p.N 可在右側開講義看原圖）。藍框「余品奐老師上課補充（共筆）」取自 B06 共筆（2020 年同一位老師講同一份投影片），用來解釋講義關鍵字背後的理由；標「補充」的是講義與共筆都沒有的延伸。圖片為老師講義截圖。</p>
+      </div>
 
-      <h3>理想縫線的特性</h3>
+      <h3>理想縫線的特性<span class="lv lv-know">理解</span></h3>
       <ul>
         <li>對組織造成<strong>最小的反應</strong>（minimal tissue reaction）</li>
         <li>不會製造<strong>有利細菌生長</strong>的環境</li>
@@ -97,8 +140,12 @@
         <li>不再需要時能<strong>自行消失</strong></li>
         <li><strong>經濟實惠</strong></li>
       </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：為什麼要這些條件</div>
+        <p>前三項是「病患端」的條件：刺激性小（大動物覺得癢會去破壞傷口與線結）、不藏污納垢（早期用會吸水的棉線，吸了血或糞尿就變成培養基）、毛細現象小、能撐到傷口癒合；後面是「手術者端」：好操作、切割力不要強到割開組織、達到目的後消失（縫線本身是異物）、便宜。一條線不可能全部符合，要取捨。</p>
+      </div>
 
-      <h3>可吸收 vs. 不可吸收</h3>
+      <h3>可吸收 vs. 不可吸收<span class="lv lv-must">必考</span></h3>
       <div class="grid-2">
         <div class="card">
           <div class="card-title">Absorbable suture 可吸收縫線</div>
@@ -111,16 +158,22 @@
           <div class="card-title">Non-absorbable suture 不可吸收縫線</div>
           <ul>
             <li><strong>保留張力強度</strong>超過 60 天</li>
-            <li>需另外拆線或永久留在體內（如血管、疝氣修補）</li>
+            <li>需另外拆線或永久留在體內（補充）</li>
           </ul>
         </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：什麼時候用哪一種</div>
+        <p>可吸收線通常約兩個月後水解消失，但速度看環境：泡在腹腔等潮濕環境水解較快，縫皮膚表面較慢。不可吸收線張力一直都在，用在<strong>癒合慢或預期癒合不佳、張力大</strong>的地方，例如四肢末端或臉部傷口；<strong>肌腱、韌帶</strong>血液循環差、癒合慢，也優先用不可吸收線（工作動物如水牛、馬需要更強的張力）。</p>
       </div>
     </div>
 
     <!-- STRUCTURE -->
     <div class="section" id="section-structure">
       <div class="section-head"><div class="section-num">2</div><h2>縫線結構 Suture Structure</h2></div>
-      <p class="section-desc">依線材的物理結構分為多股（multifilament）與單股（monofilament），兩者在細菌親和性與組織拖曳感上有明顯差異。</p>
+      <p class="section-desc">依線材的物理結構分為多股（multifilament）與單股（monofilament），兩者在細菌親和性與組織拖曳感上有明顯差異（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=5">p.5</a>）。</p>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p005.jpg" alt="縫線結構：多股線（multifilament）分絞合（twisted）與編織（braided）；單股線（monofilament）為單一實心纖維。" loading="lazy"><div class="figure-caption">縫線結構：多股線（multifilament）分絞合（twisted）與編織（braided）；單股線（monofilament）為單一實心纖維。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=5">p.5</a></div></div>
+
 
       <div class="grid-2">
         <div class="card">
@@ -140,12 +193,16 @@
           </div>
         </div>
       </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：牛的腳不要用多股線</div>
+        <p>多股線像綁辮子，纏繞的空隙是細菌滋生的地方，表面積大、刺激性也強，所以<strong>容易接觸到細菌的地方不適合</strong>——例如牛的腳，牛一趴下就碰到糞便。單股線表面積小、刺激小、沒有藏菌空間，所以現在多用單股線。</p>
+      </div>
     </div>
 
     <!-- MATERIALS TABLE -->
     <div class="section" id="section-materials">
       <div class="section-head"><div class="section-num">3</div><h2>縫線材質比較表</h2></div>
-      <p class="section-desc">臨床常見縫線材質的成分、特性與優缺點比較，是選擇縫線的核心依據。</p>
+      <p class="section-desc">臨床常見縫線材質的成分、特性與優缺點比較，是選擇縫線的核心依據（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=10">p.10</a> 表格，下表為中譯）。</p>
 
       <div class="table-wrap">
         <table>
@@ -203,41 +260,114 @@
           </tbody>
         </table>
       </div>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p010.jpg" alt="講義原表：Surgical gut、Polyglycolic acid（Dexon）、Polyglactin 910（Vicryl、Vicryl Rapide）、Polydioxanone（PDS II、PDS Plus）、Polyglyconate（Maxon）的材質、性質與優缺點。" loading="lazy"><div class="figure-caption">講義原表：Surgical gut、Polyglycolic acid（Dexon）、Polyglactin 910（Vicryl、Vicryl Rapide）、Polydioxanone（PDS II、PDS Plus）、Polyglyconate（Maxon）的材質、性質與優缺點。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=10">p.10</a></div></div>
+      <div class="alert alert-info"><div class="alert-label">重點</div><p>表中唯一的<strong>天然</strong>縫線是 surgical gut（羊小腸黏膜下層膠原，經<strong>酵素消化</strong>、3–7 天失去強度）；其餘都是合成、經<strong>水解</strong>。編織的：Dexon、Vicryl（毛細作用、tissue drag）；單股的：PDS、Maxon（PDS 脆、打結處易斷；Maxon 強度與硬度不如 PDS）。</p></div>
     </div>
 
     <!-- CHOICE -->
     <div class="section" id="section-choice">
       <div class="section-head"><div class="section-num">4</div><h2>縫線的選擇 Choice of Suture Material</h2></div>
-      <p class="section-desc">選擇縫線並非單看材質優劣，而是綜合手術者經驗、組織癒合特性、動物個體因素與傷口情境的整體判斷。</p>
+      <p class="section-desc">選擇縫線並非單看材質優劣，而是綜合手術者經驗、組織癒合特性、動物個體因素與傷口情境的整體判斷（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=6">p.6–7</a>）。</p>
 
-      <h3>基本考量因子</h3>
+      <h3>基本考量因子<span class="lv lv-know">理解</span></h3>
       <ul>
         <li>外科醫師的<strong>經驗</strong></li>
         <li>對<strong>受縫組織／器官癒合特性</strong>的了解</li>
         <li>對<strong>各種縫線材質物理／生物特性</strong>的了解</li>
         <li>動物因子：<strong>年齡、體重、整體健康狀況、是否有感染</strong></li>
       </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：動物因子怎麼影響選線</div>
+        <p><strong>年輕</strong>動物癒合快，適合可吸收線，但活動力強，需要較粗的線；<strong>越胖</strong>的動物腹壁承受的壓力越大（站起來時內臟往腹壁壓、呼吸時胸腔擴張），線要撐得住；<strong>有感染</strong>時不適合多股線。</p>
+      </div>
 
-      <h3>癒合速度</h3>
+      <h3>癒合速度<span class="lv lv-know">理解</span></h3>
       <p><strong>內臟傷口（visceral wound）與表淺傷口（superficial wound）</strong>通常癒合快速，縫線不需長時間維持張力。</p>
 
-      <h3>結晶尿（Crystalloid）存在的部位</h3>
+      <h3>結晶尿（Crystalloid）存在的部位<span class="lv lv-must">必考</span></h3>
       <div class="alert alert-warn">
         <div class="alert-label">注意</div>
         <p><strong>膀胱（bladder）</strong>手術須留意——某些縫線材質可能成為<strong>尿路結石（urinary calculus）</strong>形成的核心，選線時需特別考量。</p>
       </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：膀胱怎麼縫</div>
+        <p>例如膀胱結石的動物開刀取石後，若線頭露在<strong>黏膜面</strong>（膀胱內側），結晶會附著在縫線上越堆越大，順著縫線又長出一顆結石。所以縫膀胱<strong>只用單股線、只穿過漿膜面而不穿過黏膜面</strong>（Cushing 就是不穿透黏膜的縫法，見第 8 節）。</p>
+      </div>
 
-      <h3>感染傷口（Infected wound）</h3>
+      <h3>感染傷口（Infected wound）<span class="lv lv-must">必考</span></h3>
       <ul>
-        <li><strong>Chromic gut</strong>：具局部吞噬細胞活性（local phagocytic activity），感染傷口使用需謹慎</li>
+        <li><strong>Chromic gut</strong>：local phagocytic activity（講義只寫這兩個關鍵字，意思見下方老師的說明）</li>
         <li><strong>編織／多股線（braided or multifilament suture）</strong>：容易藏匿細菌（bacterial harboring），感染傷口應避免使用，優先考慮單股線</li>
       </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：感染傷口原則上不縫</div>
+        <p>一般來說<strong>感染的傷口不縫合</strong>，縫起來等於把髒東西關在裡面。例外：傷口開放會感染得更嚴重時，縫合並<strong>放引流管</strong>；或傷口太大，縫幾針把傷口縮小。非縫不可時，<strong>生物性材質（如 chromic gut）優於合成材質</strong>：生物材質會刺激局部吞噬作用（phagocytic activity），縫線消失得快，身體較能適應。</p><p style="margin-top:6px;font-size:.9em;">※ 舊版本頁面把這點寫成「chromic gut 感染傷口使用需謹慎」，與老師上課的解釋相反，已更正。</p>
+      </div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 感染傷口：為什麼不縫？chromic gut 為什麼反而被推薦？</summary>
+        <p><strong>先講結論</strong></p>
+        <p>感染傷口原則上不縫；非縫不可時，用單股線，並優先選生物性材質（如 chromic gut）。（講義只寫「Chromic gut：local phagocytic activity」與「多股線避免使用」，下面的解釋來自老師上課補充的共筆，標「補充」的是教科書常識。）</p>
+        <p><strong>1. 為什麼原則上不縫</strong></p>
+        <ol>
+          <li>縫合會把細菌和滲出物封在傷口裡，形成密閉環境，容易變成膿瘍或蜂窩性組織炎。</li>
+          <li>感染傷口通常保持開放，每天清創、沖洗，讓它二期癒合。</li>
+        </ol>
+        <p><strong>2. 例外：什麼時候才縫</strong></p>
+        <ol>
+          <li>傷口開放會讓感染更嚴重：縫合並<strong>放引流管</strong>，讓膿液有出口。</li>
+          <li>傷口太大：縫幾針把傷口縮小，不完全閉合。</li>
+        </ol>
+        <p><strong>3. 縫線怎麼選</strong></p>
+        <ol>
+          <li><strong>多股（編織）線要避免</strong>：股與股之間的縫隙會藏細菌。細菌約 1 µm，躲進縫隙後，嗜中性球和巨噬細胞太大進不去（補充），細菌就能在裡面持續增生。</li>
+          <li><strong>單股線優先</strong>：表面光滑、沒有藏菌空間。</li>
+          <li><strong>Chromic gut（生物性材質）</strong>：
+            <ul>
+              <li>它是膠原蛋白製成，身體會把它當成要清掉的東西，由巨噬細胞吞噬、用酵素分解。</li>
+              <li>這個作用會刺激局部吞噬細胞聚集，對清除細菌有幫助（老師的說法）。</li>
+              <li>吸收得快，留在感染環境裡的異物少；合成不可吸收線會一直留著，成為細菌附著處。</li>
+            </ul>
+          </li>
+        </ol>
+        <p><strong>4. 兩種說法的落差</strong></p>
+        <p>外科教科書對 gut 有相反的提醒（補充）：它引起的組織反應比合成可吸收線強；感染環境中酵素活性高，強度會很快流失，傷口可能還沒癒合就失去支撐。老師強調的是「不留異物、能被吞噬」，教科書強調的是「強度不可靠」。<strong>考試以老師的說法作答</strong>；想確認的話可以向老師求證。</p>
+      </details>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 什麼時候要用多股線？</summary>
+        <p><strong>先講結論</strong></p>
+        <p>乾淨、無感染、不容易碰到污物的部位，多股線可以用，而且手感和結的牢固度比較好。感染、污染或容易碰到糞便的地方，才避免多股線。（講義與共筆只講了「避免」這一側，下面「適合用」的部分是外科通則補充，不是老師特別強調的重點。）</p>
+        <p><strong>1. 多股線的優點（補充）</strong></p>
+        <ol>
+          <li>柔軟、好操作，比較沒有單股線那種彎曲捲回的記憶性。</li>
+          <li>結比較牢，不容易鬆開，打結安全性高。</li>
+          <li>表面較粗糙、有摩擦力，縫的時候不容易滑。</li>
+        </ol>
+        <p><strong>2. 適合用的時機（補充）</strong></p>
+        <ol>
+          <li><strong>乾淨、無菌的手術部位</strong>：肌肉層、筋膜層的縫合。</li>
+          <li><strong>結紮血管</strong>：需要打牢結，手感好的線比較方便。</li>
+          <li><strong>被軟組織包住的深層縫合</strong>（例如皮下層）：細菌接觸風險低。</li>
+        </ol>
+        <p><strong>3. 常見的多股線材質（補充）</strong></p>
+        <ul>
+          <li><strong>Silk（絲線）</strong>：手感最好，但吸水、有毛細現象，容易吸附細菌。</li>
+          <li><strong>Polyglactin 910（Vicryl）</strong>：編織型可吸收線，軟組織縫合與結紮很常用，組織反應比 gut 小。</li>
+          <li><strong>Polyester</strong>：編織型不可吸收線，用在需要長期支撐的位置。</li>
+        </ul>
+        <p><strong>4. 避免多股線的情況（講義與共筆）</strong></p>
+        <ol>
+          <li>感染傷口（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=7">p.7</a>）。</li>
+          <li>容易接觸細菌的地方，例如牛的腳，牛一趴下就碰到糞便（共筆）。</li>
+          <li>膀胱縫合：只用單股線，避免結晶附著在縫線上形成結石。</li>
+        </ol>
+        <p><strong>判斷方式</strong>：這個部位會不會有細菌？乾淨、會被包住：多股可以。髒、感染、碰糞便、會接觸尿液：單股。</p>
+      </details>
     </div>
 
     <!-- SIZE -->
     <div class="section" id="section-size">
       <div class="section-head"><div class="section-num">5</div><h2>縫線尺寸 Size Does Matter</h2></div>
-      <p class="section-desc">縫線尺寸的選擇原則：夠用就好，越細越好。</p>
+      <p class="section-desc">縫線尺寸的選擇原則：夠用就好，越細越好（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=8">p.8–9</a>）。</p>
 
       <div class="card">
         <div class="card-title">核心原則</div>
@@ -249,7 +379,7 @@
         </ul>
       </div>
 
-      <h3>縫線號數（Gauge）</h3>
+      <h3>縫線號數（Gauge）<span class="lv lv-must">必考</span></h3>
       <div class="table-wrap">
         <table>
           <thead><tr><th>號數方向</th><th>號數範例</th><th>用途</th></tr></thead>
@@ -262,12 +392,17 @@
         </table>
       </div>
       <p style="font-size:.85em; color:var(--fg-faint);">※ 傳統系統（traditional system）號數越多「0」，代表線徑越細；數字（如 2、1）越大代表線徑越粗。</p>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p009.jpg" alt="縫線號數（傳統系統）：由上到下 2、1、0、2/0……10/0 越來越細；3/0–6/0 為 minor surgery，最細為 microsurgery。" loading="lazy"><div class="figure-caption">縫線號數（傳統系統）：由上到下 2、1、0、2/0……10/0 越來越細；3/0–6/0 為 minor surgery，最細為 microsurgery。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=9">p.9</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：越細越好的理由</div>
+        <p>越細的線刺激越小、穿刺傷越少（縫皮膚感覺不出來，縫眼睛、角膜就差很多）；縫太緊、張力太大、線太粗都會<strong>壓迫血液循環</strong>導致癒合不良。</p>
+      </div>
     </div>
 
     <!-- NEEDLE -->
     <div class="section" id="section-needle">
       <div class="section-head"><div class="section-num">6</div><h2>縫合針 Needles</h2></div>
-      <p class="section-desc">縫合針的選擇同樣要對應組織種類：質地堅韌的皮膚需要能切割的針尖，脆弱的內臟組織則需要能撥開而非切割的針尖。</p>
+      <p class="section-desc">縫合針的選擇同樣要對應組織種類：質地堅韌的皮膚需要能切割的針尖，脆弱的內臟組織則需要能撥開而非切割的針尖（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=11">p.11–12</a>）。</p>
 
       <h3>理想縫合針特性</h3>
       <ul>
@@ -277,7 +412,9 @@
         <li><strong>清潔且抗腐蝕</strong></li>
       </ul>
 
-      <h3>針尖型態（Point Type）</h3>
+      <h3>針尖型態（Point Type）<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p012.jpg" alt="針尖型態（conventional cutting、taper point、reverse cutting、taper cut、Special K）、針的構造（point、body、swage）與針體弧度（1/4、3/8、1/2、5/8 circle、1/2 curve、straight）。" loading="lazy"><div class="figure-caption">針尖型態（conventional cutting、taper point、reverse cutting、taper cut、Special K）、針的構造（point、body、swage）與針體弧度（1/4、3/8、1/2、5/8 circle、1/2 curve、straight）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=12">p.12</a></div></div>
+
       <div class="table-wrap">
         <table>
           <thead><tr><th>針尖型態</th><th>特徵</th><th>臨床補充：常見適用情境</th></tr></thead>
@@ -290,8 +427,13 @@
           </tbody>
         </table>
       </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：圓針與角針</div>
+        <p>針的目的是帶線穿過組織（線本身沒有切割力）。尖端利但截面是圓的＝<strong>圓針</strong>，容易穿入；尖端利、截面也能切割＝<strong>角針</strong>，才適合反芻動物又厚又硬的皮膚。前細後粗的針穿過後洞會越來越大，<strong>不適合用在膀胱</strong>（可能滲漏）。整體越彎的針迴轉半徑越小，能在越小的空間操作。現在針已不重複使用。</p>
+      </div>
 
-      <h3>針體形狀（Body Shape）</h3>
+      <h3>針體形狀（Body Shape）<span class="lv lv-skim">看過</span></h3>
+      <p style="font-size:.85em; color:var(--fg-faint);">講義只有弧度圖（<a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=12">p.12</a>），下方各弧度的用途為補充。</p>
       <div class="grid-3">
         <div class="card"><div class="card-title">1/4 circle</div><p>弧度最小，用於表淺、容易接近的部位</p></div>
         <div class="card"><div class="card-title">3/8 circle</div><p>最常用的通用弧度，皮膚／皮下組織</p></div>
@@ -308,7 +450,9 @@
     <!-- LABEL -->
     <div class="section" id="section-label">
       <div class="section-head"><div class="section-num">7</div><h2>判讀縫線包裝標示</h2></div>
-      <p class="section-desc">臨床取用縫線前，務必核對包裝上的完整標示，避免拿錯材質、尺寸或針型。以 Vicryl Rapide 2-0 包裝為例：</p>
+      <p class="section-desc">臨床取用縫線前，務必核對包裝上的完整標示，避免拿錯材質、尺寸或針型。以 Vicryl Rapide 2-0 包裝為例（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=13">p.13</a>）：</p>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p013.jpg" alt="縫線包裝標示：Suture size、Suture type、Braided／Non-braided、Natural／Synthetic、Absorbable／Non-absorbable、Suture needle。" loading="lazy"><div class="figure-caption">縫線包裝標示：Suture size、Suture type、Braided／Non-braided、Natural／Synthetic、Absorbable／Non-absorbable、Suture needle。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=13">p.13</a></div></div>
+
 
       <div class="table-wrap">
         <table>
@@ -332,9 +476,9 @@
     <!-- PATTERNS -->
     <div class="section" id="section-patterns">
       <div class="section-head"><div class="section-num">8</div><h2>縫合模式 Suture Patterns</h2></div>
-      <p class="section-desc">依傷口部位、張力需求與組織特性選擇適合的縫合模式，是縫合技術的核心判斷。</p>
+      <p class="section-desc">依傷口部位、張力需求與組織特性選擇適合的縫合模式，是縫合技術的核心判斷（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=14">p.14–22</a>）。</p>
 
-      <h3>單純縫合（Simple Patterns）</h3>
+      <h3>單純縫合（Simple Patterns）<span class="lv lv-must">必考</span></h3>
       <div class="grid-2">
         <div class="card">
           <div class="card-title">Simple interrupted suture 單純間斷縫合</div>
@@ -353,8 +497,16 @@
           </ul>
         </div>
       </div>
+      <div class="grid-2">
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p014.jpg" alt="Simple interrupted：每針獨立打結；針距約為進針點到傷口邊緣距離的兩倍。" loading="lazy"><div class="figure-caption">Simple interrupted：每針獨立打結；針距約為進針點到傷口邊緣距離的兩倍。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=14">p.14</a></div></div>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p015.jpg" alt="Simple continuous：一條線連續縫完，兩端打結。" loading="lazy"><div class="figure-caption">Simple continuous：一條線連續縫完，兩端打結。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=15">p.15</a></div></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：單純間斷與連續</div>
+        <p>簡單間斷是所有縫法的基礎，重點是傷口面要對合在一起才癒合得快；針距約等於縫線橫跨傷口的距離，看起來像一個個<strong>正方形</strong>。簡單連續縫得快，但中間斷掉傷口就裂開；用在不希望太多縫線刺激或感染的地方（如縫腸子，減少縫線與組織接觸）；不能滲漏的傷口常用<strong>簡單連續搭配內翻</strong>。</p>
+      </div>
 
-      <h3>張力減壓模式（Tension-Relieving Patterns）</h3>
+      <h3>張力減壓模式（Tension-Relieving Patterns）<span class="lv lv-must">必考</span></h3>
       <div class="grid-2">
         <div class="card">
           <div class="card-title">Interrupted horizontal mattress 間斷水平褥式</div>
@@ -373,8 +525,16 @@
           </ul>
         </div>
       </div>
+      <div class="grid-2">
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p016.jpg" alt="Interrupted horizontal mattress：縫線與傷口平行走，使傷口外翻。" loading="lazy"><div class="figure-caption">Interrupted horizontal mattress：縫線與傷口平行走，使傷口外翻。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=16">p.16</a></div></div>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p017.jpg" alt="Vertical mattress：縫線垂直傷口走（遠—遠、近—近），對血流壓迫較小。" loading="lazy"><div class="figure-caption">Vertical mattress：縫線垂直傷口走（遠—遠、近—近），對血流壓迫較小。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=17">p.17</a></div></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：為什麼水平褥式會外翻、垂直褥式血流較好</div>
+        <p>水平褥式會把傷口往外翻，適合<strong>會自行內翻的組織</strong>（典型：爬蟲類皮膚切開後會往內縮），力量比簡單間斷強，可用於張力大處，也可先用 mattress 減張再用簡單間斷對合。垂直褥式的縫線與傷口垂直，而<strong>大部分血管也與傷口垂直</strong>，所以壓迫血管的機會較小，同樣可以減張。</p>
+      </div>
 
-      <h3>中空器官縫合（Closure of Hollow Organ）</h3>
+      <h3>中空器官縫合（Closure of Hollow Organ）<span class="lv lv-must">必考</span></h3>
       <p>需<strong>仔細謹慎</strong>操作，以內翻或對合方式（inverting or opposing）縫合，透過纖維蛋白凝塊（fibrin clot）防止內容物滲漏（prevent leakage）。腸胃道組織強韌且柔軟（strong, pliable），子宮組織則較脆弱（friable）但癒合快速（heal quickly）。</p>
 
       <div class="grid-2">
@@ -387,8 +547,16 @@
           <p>最小程度的內翻縫合，常作為<strong>雙層縫合（double layer closure）</strong>的外層；操作時須留意對血液供應的影響。</p>
         </div>
       </div>
+      <div class="grid-2">
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p019.jpg" alt="Lambert：垂直傷口進出漿膜肌層，使組織內翻（不穿透黏膜）。" loading="lazy"><div class="figure-caption">Lambert：垂直傷口進出漿膜肌層，使組織內翻（不穿透黏膜）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=19">p.19</a></div></div>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p020.jpg" alt="Cushing：平行傷口在黏膜下層走，最小程度內翻，常作雙層縫合的外層。" loading="lazy"><div class="figure-caption">Cushing：平行傷口在黏膜下層走，最小程度內翻，常作雙層縫合的外層。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=20">p.20</a></div></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：中空器官</div>
+        <p>通常把<strong>對合與內翻併用</strong>避免滲漏（但刺激性強）：可第一層內翻、第二層對合，或反過來，看情況決定；兩層縫合的血液循環較差。用在會滲漏的器官，例如膀胱、子宮。Lambert 用在胃、子宮等不可滲漏的器官；Cushing 的特色是<strong>不穿過黏膜面</strong>，縫膀胱可避免結晶附著在線上形成結石。</p><p style="margin-top:6px;">管壁分哪幾層、每種縫法穿到哪一層，見<a href="#section-diagram" onclick="showSection('diagram');return false;">第 9 節縫合圖解</a>。</p>
+      </div>
 
-      <h3>其他特殊縫合模式</h3>
+      <h3>其他特殊縫合模式<span class="lv lv-must">必考</span></h3>
       <div class="grid-2">
         <div class="card">
           <div class="card-title">Purse string suture 荷包縫合</div>
@@ -403,11 +571,79 @@
           </ul>
         </div>
       </div>
+      <div class="grid-2">
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p021.jpg" alt="Purse string：沿開口來回進出繞一圈，像束口袋一樣收緊。" loading="lazy"><div class="figure-caption">Purse string：沿開口來回進出繞一圈，像束口袋一樣收緊。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=21">p.21</a></div></div>
+      <div class="figure"><img src="img/week01_縫合材料與結紮技術/s_p022.jpg" alt="Transfix ligature：針先穿過組織再繞圈打結，防止結紮線滑脫。" loading="lazy"><div class="figure-caption">Transfix ligature：針先穿過組織再繞圈打結，防止結紮線滑脫。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=22">p.22</a></div></div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：荷包縫合與貫穿結紮的例子</div>
+        <p>荷包縫合可以控制洞口大小：例如食道胃管、導尿管要從皮膚穿出時，留一個管子能通過的空間並固定。貫穿結紮用在<strong>又粗又滑的束狀組織</strong>，例如大公豬去勢時的<strong>精索</strong>（或白膜）：單純結紮力量不夠，線滑掉就會大出血（見豬去勢頁）。</p>
+      </div>
+    </div>
+
+    <!-- DIAGRAM -->
+    <div class="section" id="section-diagram">
+      <div class="section-head"><div class="section-num">9</div><h2>縫合圖解</h2></div>
+      <p class="section-desc">胃、腸、膀胱、子宮這類中空器官的管壁，由外往內是<strong>漿膜 → 肌層 → 黏膜下層 → 黏膜</strong>，再往內就是管腔。縫法的差別在兩件事：切緣是「面對面」（對合）還是「往內折」（內翻），以及線有沒有穿透黏膜、露在管腔裡。（講義只寫了各縫法的名稱與用途；下面的分層、圖與 Connell 對照是補充。）</p>
+        <h3>管壁四層</h3>
+        <svg viewBox="0 0 640 215" class="lay-svg" role="img" aria-label="中空器官管壁分層：由外而內為漿膜、肌層、黏膜下層、黏膜，最內側是管腔">
+  <text x="20" y="26" class="t-b">外側（腹腔）</text>
+  <rect x="20" y="38" width="300" height="10" class="lay-ser"/>
+  <rect x="20" y="48" width="300" height="52" class="lay-mus"/>
+  <rect x="20" y="100" width="300" height="36" class="lay-sub"/>
+  <rect x="20" y="136" width="300" height="34" class="lay-muc"/>
+  <rect x="20" y="170" width="300" height="22" class="lay-lum"/>
+  <text x="34" y="186" class="t-sm">管腔（lumen）：食物、尿液、乳汁</text>
+  <line x1="320" y1="43" x2="350" y2="43" class="lay-lead"/><text x="356" y="48"><tspan class="t-b">① 漿膜</tspan> serosa</text>
+  <line x1="320" y1="74" x2="350" y2="74" class="lay-lead"/><text x="356" y="79"><tspan class="t-b">② 肌層</tspan> muscularis</text>
+  <line x1="320" y1="118" x2="350" y2="118" class="lay-lead"/><text x="356" y="123"><tspan class="t-b">③ 黏膜下層</tspan> submucosa</text>
+  <text x="356" y="140" class="t-sm">最強韌，縫線要咬到這層</text>
+  <line x1="320" y1="156" x2="350" y2="156" class="lay-lead"/><text x="356" y="161"><tspan class="t-b">④ 黏膜</tspan> mucosa</text>
+  <text x="356" y="178" class="t-sm">最內層，面對管腔內容物</text>
+</svg>
+        <div class="table-wrap"><table>
+          <thead><tr><th>層</th><th>特性</th><th>跟縫合的關係</th></tr></thead>
+          <tbody>
+            <tr><td>① 漿膜 serosa</td><td>最外層的薄膜，光滑</td><td>受傷後很快產生纖維蛋白（fibrin）黏住。內翻縫合讓<strong>漿膜貼漿膜</strong>，靠 fibrin clot 封住不漏（講義 p.18 的「prevent leakage」就是這個）</td></tr>
+            <tr><td>② 肌層 muscularis</td><td>平滑肌，負責蠕動、收縮</td><td>內翻縫合都會穿過這層</td></tr>
+            <tr><td>③ 黏膜下層 submucosa</td><td>膠原纖維最多，<strong>整個管壁最強韌的一層</strong></td><td>縫線一定要「咬到」這層才抓得牢；只縫漿膜肌層會撕裂</td></tr>
+            <tr><td>④ 黏膜 mucosa</td><td>最內層，接觸食物、尿液、乳汁</td><td>線穿透黏膜＝線露在管腔：細菌可沿線進出，膀胱的結晶會附著在線上形成結石</td></tr>
+          </tbody>
+        </table></div>
+        <h3>從切面看：線走到哪一層</h3>
+        <svg viewBox="0 0 780 222" class="lay-svg" role="img" aria-label="三種縫法的切面：對合縫合切緣面對面；Lambert 與 Cushing 內翻、線走在黏膜下層不進管腔；Connell 內翻但線穿透黏膜進入管腔">
+  <text x="120" y="20" text-anchor="middle" class="t-b">對合：單純間斷／連續</text>
+  <text x="390" y="20" text-anchor="middle" class="t-b">內翻、不穿黏膜：Lambert、Cushing</text>
+  <text x="660" y="20" text-anchor="middle" class="t-b">內翻、穿進管腔：Connell（補充）</text>
+  <rect x="0" y="50" width="118" height="6" class="lay-ser"/><rect x="0" y="56" width="118" height="30" class="lay-mus"/><rect x="0" y="86" width="118" height="18" class="lay-sub"/><rect x="0" y="104" width="118" height="18" class="lay-muc"/><rect x="122" y="50" width="118" height="6" class="lay-ser"/><rect x="122" y="56" width="118" height="30" class="lay-mus"/><rect x="122" y="86" width="118" height="18" class="lay-sub"/><rect x="122" y="104" width="118" height="18" class="lay-muc"/><path d="M92 38 L92 139 Q120 149 148 139 L148 38" class="lay-sut"/><text x="120" y="173" text-anchor="middle" class="t-sm">切緣面對面，線可穿全層</text><path d="M270 53 L310 53 A77 77 0 0 1 387 130 L387 152" class="lay-ser" style="fill:none;stroke-width:6"/><path d="M270 71 L310 71 A59 59 0 0 1 369 130 L369 152" class="lay-mus" style="fill:none;stroke-width:30"/><path d="M270 95 L310 95 A35 35 0 0 1 345 130 L345 152" class="lay-sub" style="fill:none;stroke-width:18"/><path d="M270 113 L310 113 A17 17 0 0 1 327 130 L327 152" class="lay-muc" style="fill:none;stroke-width:18"/><path d="M510 53 L470 53 A77 77 0 0 0 393 130 L393 152" class="lay-ser" style="fill:none;stroke-width:6"/><path d="M510 71 L470 71 A59 59 0 0 0 411 130 L411 152" class="lay-mus" style="fill:none;stroke-width:30"/><path d="M510 95 L470 95 A35 35 0 0 0 435 130 L435 152" class="lay-sub" style="fill:none;stroke-width:18"/><path d="M510 113 L470 113 A17 17 0 0 0 453 130 L453 152" class="lay-muc" style="fill:none;stroke-width:18"/><path d="M290 38 L290 95 L310 95 A35 35 0 0 1 334.7 105.3 L366.6 73.4 Q390 52 413.4 73.4 L445.3 105.3 A35 35 0 0 1 470 95 L490 95 L490 38" class="lay-sut"/><text x="390" y="173" text-anchor="middle" class="t-sm">線走在黏膜下層，不進管腔</text><path d="M540 53 L580 53 A77 77 0 0 1 657 130 L657 152" class="lay-ser" style="fill:none;stroke-width:6"/><path d="M540 71 L580 71 A59 59 0 0 1 639 130 L639 152" class="lay-mus" style="fill:none;stroke-width:30"/><path d="M540 95 L580 95 A35 35 0 0 1 615 130 L615 152" class="lay-sub" style="fill:none;stroke-width:18"/><path d="M540 113 L580 113 A17 17 0 0 1 597 130 L597 152" class="lay-muc" style="fill:none;stroke-width:18"/><path d="M780 53 L740 53 A77 77 0 0 0 663 130 L663 152" class="lay-ser" style="fill:none;stroke-width:6"/><path d="M780 71 L740 71 A59 59 0 0 0 681 130 L681 152" class="lay-mus" style="fill:none;stroke-width:30"/><path d="M780 95 L740 95 A35 35 0 0 0 705 130 L705 152" class="lay-sub" style="fill:none;stroke-width:18"/><path d="M780 113 L740 113 A17 17 0 0 0 723 130 L723 152" class="lay-muc" style="fill:none;stroke-width:18"/><path d="M560 38 L560 141 Q578 141 586 127 L636.6 73.4 Q660 52 683.4 73.4 L734 127 Q742 141 760 141 L760 38" class="lay-sut"/><text x="660" y="173" text-anchor="middle" class="t-sm">線穿透黏膜，露在管腔裡</text>
+  <text x="390" y="212" text-anchor="middle" class="t-sm">每張圖的上方＝漿膜面（外側），下方＝管腔（內側）</text>
+</svg>
+        <ol>
+          <li><strong>對合（單純間斷／單純連續）</strong>：兩邊切緣面對面對齊，線可以穿全層。講義說單純連續常用在腸吻合。</li>
+          <li><strong>內翻、不穿黏膜（Lambert、Cushing）</strong>：拉緊後切緣往管腔內折，外面變成漿膜貼漿膜。線只走到黏膜下層，<strong>不進管腔</strong>，所以縫膀胱用 Cushing 不會讓結晶附著。</li>
+          <li><strong>內翻、穿進管腔（Connell，補充）</strong>：走法和 Cushing 一樣，但每一針都穿透黏膜。講義沒有教，放在這裡是為了對照：「不穿黏膜」正是 Cushing 和 Connell 的差別。</li>
+        </ol>
+        <h3>從上面看：Lambert 與 Cushing 差在線的方向</h3>
+        <svg viewBox="0 0 640 200" class="lay-svg" role="img" aria-label="俯視圖：Lambert 每一針垂直切口、間斷打結；Cushing 連續縫，每一針平行切口、在切口兩側來回">
+  <text x="150" y="22" text-anchor="middle" class="t-b">Lambert：每針垂直切口</text>
+  <text x="490" y="22" text-anchor="middle" class="t-b">Cushing：每針平行切口、連續</text>
+  <rect x="10" y="40" width="290" height="120" rx="6" class="lay-ser" style="opacity:.55"/>
+  <rect x="340" y="40" width="290" height="120" rx="6" class="lay-ser" style="opacity:.55"/>
+  <line x1="20" y1="100" x2="290" y2="100" class="lay-cut"/><path d="M65 58 L65 84" class="lay-sut bur"/><path d="M65 84 L65 116" class="lay-sut"/><path d="M65 116 L65 142" class="lay-sut bur"/><path d="M65 58 Q85 100 65 142" class="lay-sut" style="stroke-width:1.6"/><path d="M125 58 L125 84" class="lay-sut bur"/><path d="M125 84 L125 116" class="lay-sut"/><path d="M125 116 L125 142" class="lay-sut bur"/><path d="M125 58 Q145 100 125 142" class="lay-sut" style="stroke-width:1.6"/><path d="M185 58 L185 84" class="lay-sut bur"/><path d="M185 84 L185 116" class="lay-sut"/><path d="M185 116 L185 142" class="lay-sut bur"/><path d="M185 58 Q205 100 185 142" class="lay-sut" style="stroke-width:1.6"/><path d="M245 58 L245 84" class="lay-sut bur"/><path d="M245 84 L245 116" class="lay-sut"/><path d="M245 116 L245 142" class="lay-sut bur"/><path d="M245 58 Q265 100 245 142" class="lay-sut" style="stroke-width:1.6"/><line x1="350" y1="100" x2="620" y2="100" class="lay-cut"/><path d="M365 84 L410 84" class="lay-sut bur"/><path d="M410 84 L410 116" class="lay-sut"/><path d="M410 116 L455 116" class="lay-sut bur"/><path d="M455 116 L455 84" class="lay-sut"/><path d="M455 84 L500 84" class="lay-sut bur"/><path d="M500 84 L500 116" class="lay-sut"/><path d="M500 116 L545 116" class="lay-sut bur"/><path d="M545 116 L545 84" class="lay-sut"/><path d="M545 84 L590 84" class="lay-sut bur"/><path d="M590 84 L590 116" class="lay-sut"/>
+  <text x="10" y="186" class="t-sm">從漿膜面往下看。黑色虛線＝切口；實線＝線在表面；藍色虛線＝線埋在組織裡（黏膜下層）</text>
+</svg>
+        <ul>
+          <li><strong>Lambert</strong>：每一針<strong>垂直</strong>切口，跨過切口到對側再出來。圖畫成間斷，每針各自打結；Lambert 也可以連續縫。</li>
+          <li><strong>Cushing</strong>：連續縫，每一針<strong>平行</strong>切口，在切口兩側來回，線跨過切口的那段在表面。內翻程度最小。</li>
+          <li><strong>雙層縫合</strong>：例如第一層用對合縫法把切緣接好，第二層用 Cushing 或 Lambert 內翻蓋在外面（講義說 Cushing 常作雙層的外層）。兩層封得最緊，但血液循環較差。</li>
+        </ul>
+        <h3>皮膚的縫法不在這張圖</h3>
+        <p>水平褥式、垂直褥式、near-far-far-near 是縫皮膚或肌肉用的，穿的是表皮、真皮與皮下組織，沒有「黏膜」的問題，判斷重點是減張和血流（見上方張力減壓模式）。</p>
     </div>
 
     <!-- QUIZ -->
     <div class="section" id="section-quiz">
-      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="section-head"><div class="section-num">10</div><h2>練習題 Practice Quiz</h2></div>
       <p class="section-desc">涵蓋縫線材質、縫合針與縫合模式重點，先自己作答再點「顯示答案」核對。</p>
 
       <div class="quiz-item">
@@ -506,12 +742,107 @@
         </details>
       </div>
 
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 一頭牛的感染傷口，因為開放會使感染更嚴重而必須縫合，依余品奐老師的說法，下列做法何者最恰當？</div>
+        <ul class="quiz-options">
+          <li>(A) 用多股編織的合成線緊密縫合，不放引流</li>
+          <li>(B) 縫合並放引流管，若必須放線，生物性材質（如 chromic gut）優於合成材質</li>
+          <li>(C) 用不可吸收的單股線縫合，因為感染傷口需要長期維持張力</li>
+          <li>(D) 感染傷口一律不可縫合</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">感染傷口原則上不縫；例外情況要縫時應放引流。講義寫「Infected wound — Chromic gut — local phagocytic activity」，老師解釋為生物材質會刺激吞噬作用、縫線消失快、身體較能適應；多股線藏菌，不適合（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=7">p.7</a>、共筆）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 下列縫線中，何者是天然材質、以酵素消化，且 3–7 天內就失去強度？</div>
+        <ul class="quiz-options">
+          <li>(A) Polydioxanone（PDS II）</li>
+          <li>(B) Polyglactin 910（Vicryl）</li>
+          <li>(C) Surgical gut</li>
+          <li>(D) Polyglyconate（Maxon）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">Surgical gut 來自羊小腸黏膜下層膠原，經酵素消化、潮濕時打結強度下降。其他三種都是合成、經水解（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=10">p.10</a>）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 縫合膀胱時，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 用多股線全層穿透黏膜，確保不滲漏</li>
+          <li>(B) 用單股線，只穿過漿膜（肌）層、不穿過黏膜面</li>
+          <li>(C) 用前細後粗的針，穿透力較好</li>
+          <li>(D) 用水平褥式外翻縫合</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">線頭露在黏膜面會讓結晶附著、長出新結石（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=7">p.7</a>「presence of crystalloid — bladder — urinary calculus formation」）；前細後粗的針會讓洞越來越大而滲漏；中空器官要內翻或對合，不用外翻（共筆）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q12. 縫線號數 3/0 比 2/0 粗。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">傳統系統中「0」越多越細：2 → 1 → 0 → 2/0 → 3/0 …… → 10/0。3/0–6/0 屬 minor surgery（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=9">p.9</a>）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q13. 大公豬去勢時結紮精索，為了防止結紮線滑脫，最適合的方法是？</div>
+        <ul class="quiz-options">
+          <li>(A) Purse string suture</li>
+          <li>(B) Transfix ligature</li>
+          <li>(C) Simple continuous suture</li>
+          <li>(D) Cushing pattern</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Transfix ligature 先穿過組織再繞圈打結，增加摩擦力與張力、防止滑脫，斷端留的組織越少越好（講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=22">p.22</a>）；老師上課的例子就是大公豬的精索。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q14. 下列何者「不是」講義列出的理想縫線特性？</div>
+        <ul class="quiz-options">
+          <li>(A) 不具毛細作用（noncapillary）</li>
+          <li>(B) 打結牢固、不割斷不磨損</li>
+          <li>(C) 張力強度越大越好，最好超過組織本身</li>
+          <li>(D) 不再需要時能消失</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">講義 <a class="pdf-link" href="pdf/縫合材料與結紮技術.pdf#page=8">p.8</a>：縫線的張力強度不需要超過組織本身；要用「足以撐住傷口的最細縫線」，太粗會增加組織反應、壓迫血流、延遲癒合。</p>
+        </details>
+      </div>
+
       <footer class="note-footer">
         練習題涵蓋本份實習講義各章節重點，答案與解析僅供自我複習參考。
       </footer>
     </div>
 
-    <footer class="note-footer">
+    <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week01_%E7%B8%AB%E5%90%88%E6%9D%90%E6%96%99%E8%88%87%E7%B5%90%E7%B4%AE%E6%8A%80%E8%A1%93" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">
       資料來源：《大動物外科學》第 1 週實習講義〈Suture materials, needle, knots and ligatures〉（Yu Pin-Huan, NTU）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床操作依據</strong>。
     </footer>
 
@@ -561,6 +892,7 @@ const SECTION_NAMES = {
   needle: '縫合針',
   label: '判讀縫線包裝',
   patterns: '縫合模式',
+  diagram: '縫合圖解',
   quiz: '練習題'
 };
 
@@ -634,6 +966,53 @@ function doSearch(q) {
   input.classList.add('has-results');
 }
 </script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script>

@@ -6,6 +6,26 @@
 <title>大動物外科：牛蹄病 - yc._vetalk</title>
 <link rel="stylesheet" href="../../assets/nav.css">
 <link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
 </head>
 <body class="ah">
 
@@ -38,7 +58,9 @@
     <div class="meta-bar">
       <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">大動物外科手術及實習（大四上・課堂）</div></div>
       <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》課程講義〈Diseases of bovine hoof〉，Kevin Kai-Chen Hsu 醫師。講義以圖為主，病原、治療與預後等內容依一般教科書知識補充，並逐段標示</div></div>
-      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-07</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-28</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/牛蹄病.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week06_%E7%89%9B%E8%B9%84%E7%97%85">做題 →</a></div></div>
       <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
     </div>
   </div>
@@ -64,6 +86,8 @@
     <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 國考方向（推測）</a>
     <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
     <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week06_%E7%89%9B%E8%B9%84%E7%97%85" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
   </nav>
 
   <main class="pagebody" id="mainContent">
@@ -95,9 +119,16 @@
           <li><strong>荷蘭五步驟修蹄的數字：</strong>蹄尖長度從冠狀帶量 7.5 cm、蹄尖蹄底厚度保留 0.5–0.7 cm、蹄角度 45–50°；先修外側蹄配合內側蹄等長等高，再把潰瘍處修成淺碗狀。</li>
         </ul>
       </div>
+      <div class="alert alert-info">
+        <div class="alert-label">考古出現過</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>2021 期中「Hoof disease（填圖）」</strong>、<strong>2023（B09 口述）許凱程第一題蹄病「10 個挖 5 個填空」</strong>：就是第 6 節的<strong>十種病灶位置圖</strong>（講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=9">p.9</a> Figure 7.2）。十個名稱與位置要能直接寫出英文與中文。</li>
+          <li>其餘可能考法見第 10 節（標「推測」）。</li>
+        </ul>
+      </div>
       <div class="alert alert-warn">
         <div class="alert-label">關於補充內容</div>
-        <p>講義文字很精簡，沒有講病原、治療和預後。這些我依一般大動物外科知識補上，<strong>凡是標「補充」的都不是講義內容</strong>，考前請以老師上課說的為準。圖片為老師講義的投影片截圖。</p>
+        <p>講義文字很精簡，沒有講病原、治療和預後。這些我依一般大動物外科知識補上，<strong>凡是標「補充」的都不是講義內容</strong>，考前請以老師上課說的為準。圖片為老師講義的投影片截圖。藍框「共筆補充」取自 B06 共筆（2020 年許凱程老師講同一份講義），是老師上課口述的內容。</p>
       </div>
       <footer class="note-footer">資料來源：課程講義〈Diseases of bovine hoof〉（Kevin Kai-Chen Hsu 醫師）。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式臨床診斷或治療依據</strong>。</footer>
     </div>
@@ -109,7 +140,7 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p02.jpg" alt="牛蹄矢狀切面解剖：P1、P2、P3、近端與遠端趾間關節、舟狀骨、舟狀囊、趾墊、蹄踵、真皮、蹄底角質、白線、蹄壁、蹄葉、蹄緣角質、冠狀帶、淺屈肌腱與深屈肌腱及其腱鞘、副趾" loading="lazy">
         <div class="figure-caption">牛蹄矢狀切面。左上為實體切面標本，右為示意圖（Figure 13.3）。</div>
-        <div class="figure-source">來源：課程講義 p.2</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=2">p.2</a></div>
       </div>
       <div class="table-wrap">
         <table>
@@ -131,9 +162,13 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p03.jpg" alt="蹄骨懸吊裝置示意圖、去殼後的正常真皮蹄葉、趾墊的三條圓柱狀脂肪體、冠狀帶與真皮層構造、十字複合韌帶與趾支持帶解剖" loading="lazy">
         <div class="figure-caption">左上：P3 的懸吊裝置（箭頭為力的傳遞方向）；右上：去除蹄殼後正常的真皮蹄葉（Fig 2-17）；左下：趾墊由三條平行的圓柱狀脂肪體組成（Fig 2-29）；中下：冠狀帶與真皮各層；右下：十字複合韌帶與趾支持帶（Fig 2-27）。</div>
-        <div class="figure-source">來源：課程講義 p.3</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=3">p.3</a></div>
       </div>
-      <footer class="note-footer">資料來源：課程講義 p.2–3。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+            <div class="alert alert-info">
+        <div class="alert-label">共筆補充（2020 許凱程老師）：構造與感染的走向</div>
+        <ul><li><strong>關節感染</strong>：牛的遠端趾關節（DIP）感染，常直接用電鑽破壞關節囊、清掉骨頭——藥物不容易進關節腔，而且牛不像馬需要運動，少一個關節影響不大。舟狀骨感染也是鑽通或整塊移除。</li><li><strong>肌腱</strong>：淺屈肌腱（SDF）與深屈肌腱（DDF）各分岔到兩蹄，一隻腳共四條；<strong>蹄的感染通常沿肌腱、腱鞘往上走</strong>，不走血行，擠壓腱鞘會流膿。</li><li><strong>冠狀帶</strong>：新蹄壁從這裡長出；這裡腫脹，可推定感染已進入關節腔。</li><li><strong>真皮與趾墊</strong>：趾墊是脂肪緩衝層，<strong>過瘦的牛</strong>趾墊不夠厚，較容易有蹄病。</li></ul>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=2">p.2–3</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- BIOMECH -->
@@ -167,7 +202,7 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p04.jpg" alt="母牛後肢負重示意圖：站立時重量平均分布、傾向一側時外側腳負重增加、負擔過重時呈現牛肘姿勢" loading="lazy">
         <div class="figure-caption">Fig 1：站著不動時，重量平均分在兩後肢與各蹄。Fig 2：身體往一側傾時，外側腳承重增加。Fig 3：負擔過重時，母牛呈<strong>牛肘姿勢（cow-hocked stance，飛節內靠、蹄尖朝外）</strong>。</div>
-        <div class="figure-source">來源：課程講義 p.4</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=4">p.4</a></div>
       </div>
 
       <h3>蹄底潰瘍的成因鏈</h3>
@@ -189,7 +224,7 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p05.jpg" alt="典型蹄底病灶的受壓位置示意圖，標示修蹄區域 1 與 2，以及蹄底潰瘍的臨床照片" loading="lazy">
         <div class="figure-caption">Figure 4、5：典型蹄底病灶始於外側蹄長期受壓。紅色為受壓區；1、2 是要修掉的區域，修掉後壓力移開，體重轉往蹄的前方。右側為蹄底潰瘍的臨床照片。</div>
-        <div class="figure-source">來源：課程講義 p.5</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=5">p.5</a></div>
       </div>
       <div class="alert alert-info">
         <div class="alert-label">補充（非講義）：其他讓趾墊失效的因素</div>
@@ -197,10 +232,14 @@
           <li><strong>分娩前後：</strong>荷爾蒙變化讓 P3 的懸吊組織變鬆，P3 在蹄殼內下沉，更容易壓到蹄底真皮。</li>
           <li><strong>體態變瘦：</strong>趾墊是脂肪組織，泌乳初期大量掉體重時趾墊變薄，緩衝變差。</li>
           <li><strong>長時間站在水泥地上：</strong>例如牛床不舒服、躺臥時間少。</li>
-          <li><strong>蹄踵糜爛：</strong>蹄踵角質流失，重量往前移到典型潰瘍位置（講義 p.18 Fig 7-10 也提到）。</li>
+          <li><strong>蹄踵糜爛：</strong>蹄踵角質流失，重量往前移到典型潰瘍位置（講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=18">p.18</a> Fig 7-10 也提到）。</li>
         </ul>
       </div>
-      <footer class="note-footer">資料來源：課程講義 p.4–5；補充內容另行標示。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+            <div class="alert alert-info">
+        <div class="alert-label">共筆補充（2020 許凱程老師）：受力與修蹄頻率</div>
+        <p>教科書依重心寫「前肢負重大於後肢」，但老師說實際上牛從趴到站是先蹬後肢，<strong>後肢負重</strong>很重要；負重越重後肢越外八、兩飛節越靠近。理想的<strong>修蹄頻率是半年一次</strong>；沒有定期修蹄，蹄底變厚、重心偏向蹄踵、趾墊無法避震 → 真皮微血管破裂、蹄底瘀血 → 施力點不再長角質 → 典型蹄底潰瘍。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=4">p.4–5</a>；補充內容另行標示。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- SCORING -->
@@ -228,12 +267,12 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p06.jpg" alt="乳牛跛行評分 1 到 5 分的照片，分別顯示站立與行走時的背部姿勢" loading="lazy">
         <div class="figure-caption">跛行評分 1–5 分，左欄為站立、右欄為行走時的背部姿勢（藍線）。</div>
-        <div class="figure-source">來源：課程講義 p.6，改編自 Sprecher DJ, Hostetler DE, Kaneene JB. Theriogenology 1997;47:1179–1187</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=6">p.6</a>，改編自 Sprecher DJ, Hostetler DE, Kaneene JB. Theriogenology 1997;47:1179–1187</div>
       </div>
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p07.jpg" alt="另一版跛行評分 1 到 5 分，各分數附站立與行走照片與結論" loading="lazy">
         <div class="figure-caption">另一版跛行評分（Berry, UC Davis 與 Zinpro, 1997），每個分數附處置結論，與上表的「處置」欄對應。</div>
-        <div class="figure-source">來源：課程講義 p.7</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=7">p.7</a></div>
       </div>
 
       <h3>腿姿評分 Leg Score（1–3 分）</h3>
@@ -252,9 +291,13 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p08.jpg" alt="腿姿評分示意圖：從後方觀察後肢站姿，附角度計算器" loading="lazy">
         <div class="figure-caption">腿姿評分與角度計算器（From J. van Amerongen）。</div>
-        <div class="figure-source">來源：課程講義 p.8</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=8">p.8</a></div>
       </div>
-      <footer class="note-footer">資料來源：課程講義 p.6–8。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+            <div class="alert alert-info">
+        <div class="alert-label">共筆補充（2020 許凱程老師）：評分的實務</div>
+        <p>跛行評分是判定跛行的黃金標準；有經驗的獸醫在 <strong>2 分</strong>就能發現，牧場人員最好在 <strong>3 分</strong>時就通報。4 分的牛會因為痛而看自己的腳，後腳步伐踩不到前腳腳印上。腿姿 3 分（嚴重外八）隨時可能<strong>劈腿</strong>，一旦劈腿基本上就會淘汰。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=6">p.6–8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- INSPECTION -->
@@ -284,17 +327,17 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p10.jpg" alt="蹄壁水平裂、垂直裂、斷蹄尖與趾間增生示意圖，以及困苦溝與分娩時間點溝紋的照片" loading="lazy">
         <div class="figure-caption">蹄壁水平裂、垂直裂與斷蹄尖示意圖；Fig 4-5 困苦溝；Fig 4-7 離冠狀帶最遠的溝紋代表分娩時間點，最靠近冠狀帶的溝紋來自突然換飼料。</div>
-        <div class="figure-source">來源：課程講義 p.10</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=10">p.10</a></div>
       </div>
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p11.jpg" alt="遠端趾間關節化膿性關節炎與腐蹄病示意圖：遠端肢腫脹、穿刺傷肉芽、趾間皮膚壞死、軟組織腫脹" loading="lazy">
         <div class="figure-caption">左：遠端趾間關節化膿性關節炎（Fig 13.5），遠端肢腫脹，可見穿刺傷口長肉芽；右：腐蹄病（Fig 13.6），趾間皮膚壞死、軟組織腫脹。</div>
-        <div class="figure-source">來源：課程講義 p.11</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=11">p.11</a></div>
       </div>
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p12.jpg" alt="慢性蹄葉炎蹄形示意圖：蹄壁凹陷、角質水平脊，以及拖鞋蹄與方形蹄尖的照片" loading="lazy">
         <div class="figure-caption">慢性蹄葉炎（Fig 13.7）：蹄背凹陷、角質水平脊；Fig 4-20 典型拖鞋蹄；Fig 4-21 蹄尖變方、蹄背平凹。</div>
-        <div class="figure-source">來源：課程講義 p.12</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=12">p.12</a></div>
       </div>
 
       <h3>抬腳檢查</h3>
@@ -307,18 +350,22 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p13.jpg" alt="蹄部檢查示意圖：趾間石頭、釘子、蹄底卡石，蹄踵與副趾間腫脹、趾間皮膚壞死，以及遠端肢腫脹的照片" loading="lazy">
         <div class="figure-caption">蹄底異物（趾間石頭、釘子、蹄底卡石）；腐蹄病時蹄踵與副趾之間腫脹、趾間皮膚壞死；右為遠端肢腫脹（紅圈）。</div>
-        <div class="figure-source">來源：課程講義 p.13</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=13">p.13</a></div>
       </div>
       <div class="alert alert-info">
         <div class="alert-label">補充：蹄鉗（Hoof tester）</div>
         <p>講義提到用蹄鉗（pain tester）夾壓蹄底，找出痛點的位置，用來定位蹄底膿瘍。器械外觀見<a href="week05_手術器械.html#section-restraint">第 5 週：手術器械圖鑑</a>的蹄部器械。</p>
       </div>
-      <footer class="note-footer">資料來源：課程講義 p.10–13。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+            <div class="alert alert-info">
+        <div class="alert-label">共筆補充（2020 許凱程老師）：蹄壁裂與墊蹄</div>
+        <ul><li><strong>水平裂</strong>：營養或日糧來源不穩定，在蹄上留下像年輪的紋路，可能一路裂到蹄尖斷掉（broken toe），嚴重度不如垂直裂。</li><li><strong>垂直裂</strong>：可能一路往上感染到冠狀帶；可在裂口上方切一道水平切口，阻止繼續往上裂。</li><li>有感染的傷口<strong>不包紮</strong>：修完蹄用木塊或橡膠<strong>墊高健康的那一側</strong>，讓患蹄不負重、不碰糞尿；傷口約 3–4 週恢復，墊塊 4–6 週自然磨掉。</li><li>冠狀帶腫脹時，老師的做法是用電鑽鑽過關節、穿一條橡膠管保持開放，每天由管子灌優碘。</li></ul>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=10">p.10–13</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- LESION MAP -->
     <div class="section" id="section-lesionmap">
-      <div class="section-head"><div class="section-num">6</div><h2>病灶位置圖：位置決定診斷<span class="tag tag-exam">重要</span></h2></div>
+      <div class="section-head"><div class="section-num">6</div><h2>病灶位置圖：位置決定診斷<span class="lv lv-must">必考</span><span class="tag tag-exam">考古填圖</span></h2></div>
       <p class="section-desc">每一種蹄病都有固定的好發位置。點下圖的編號，下方會顯示那個疾病的重點；點「看完整說明」跳到各論。圖為<strong>後肢、從蹄底往上看</strong>，左邊是外側蹄（L），右邊是內側蹄（M），上方是蹄踵、下方是蹄尖。</p>
       <div class="hf-wrap">
         <svg viewBox="0 0 360 400" class="hf-svg" role="img" aria-label="牛後肢蹄底病灶位置圖">
@@ -347,13 +394,13 @@
         <div class="hf-legend" id="hfLegend"></div>
       </div>
       <div id="hfPanel" class="hf-panel"></div>
-      <p style="font-size:.85em; color:var(--fg-faint);">※ 自繪示意圖，依講義 p.9（Figure 7.2）的病灶編號與位置重畫。4、6、8 都在趾間，實際上分布在整條趾間裂；7 蹄葉炎的蹄底出血可以出現在任何一個蹄。</p>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 自繪示意圖，依講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=9">p.9</a>（Figure 7.2）的病灶編號與位置重畫。4、6、8 都在趾間，實際上分布在整條趾間裂；7 蹄葉炎的蹄底出血可以出現在任何一個蹄。</p>
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p09.jpg" alt="牛蹄重要病灶位置圖：1 趾皮炎、2 蹄底潰瘍、3 白線分離與膿瘍、4 趾間壞死桿菌病、5 蹄踵糜爛、6 趾間皮膚炎、7 蹄葉炎與蹄底出血、8 趾間增生、9 穿刺傷、10 蹄尖潰瘍" loading="lazy">
         <div class="figure-caption">Figure 7.2 牛蹄的重要疾病位置（原圖）。</div>
-        <div class="figure-source">來源：課程講義 p.9</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=9">p.9</a></div>
       </div>
-      <footer class="note-footer">資料來源：課程講義 p.9；病灶位置圖為自繪。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=9">p.9</a>；病灶位置圖為自繪。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- DISEASES -->
@@ -387,7 +434,7 @@
         <div class="figure">
           <img src="img/week06_牛蹄病/hoof_p19.jpg" alt="趾皮炎示意圖（草莓蹄踵與疣狀皮膚炎）與臨床照片，紅圈標示蹄踵球之間的鮮紅病灶" loading="lazy">
           <div class="figure-caption">左：草莓蹄踵（Fig 13.11）與疣狀皮膚炎（Fig 13.12）示意圖；右：臨床照片，紅圈為蹄踵球間的鮮紅病灶。</div>
-          <div class="figure-source">來源：課程講義 p.19</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=19">p.19</a></div>
         </div>
         <div class="alert alert-info">
           <div class="alert-label">補充（非講義）：病原、治療與預防</div>
@@ -417,12 +464,12 @@
         <div class="figure">
           <img src="img/week06_牛蹄病/hoof_p15.jpg" alt="蹄底潰瘍照片：典型位置出血、削去表層角質後發現的潰瘍、潰瘍延伸至屈肌腱與蹄關節的切面" loading="lazy">
           <div class="figure-caption">Fig 7-2 蹄底潰瘍最早的徵兆：典型位置出血；Fig 7-3 削去表層角質後才發現的潰瘍；Fig 7-4 忽略的潰瘍造成屈肌腱、腱鞘與蹄關節感染。</div>
-          <div class="figure-source">來源：課程講義 p.15</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=15">p.15</a></div>
         </div>
         <div class="figure">
           <img src="img/week06_牛蹄病/hoof_p18.jpg" alt="蹄踵糜爛促成蹄底潰瘍、蹄底潰瘍與膿瘍的照片、蹄鉗，以及蹄底膿瘍範圍的仔細剖開" loading="lazy">
           <div class="figure-caption">Fig 7-10 蹄踵糜爛讓重量前移到典型潰瘍處；中：潰瘍與膿瘍照片；右上：蹄鉗；Fig 7-36 仔細剖開蹄底，顯示膿瘍範圍。即使蹄骨外露，只要病灶得到足夠保護、不再受損與感染，真皮仍能再生。</div>
-          <div class="figure-source">來源：課程講義 p.18</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=18">p.18</a></div>
         </div>
         <div class="alert alert-info">
           <div class="alert-label">補充（非講義）：治療</div>
@@ -463,12 +510,12 @@
         <div class="figure">
           <img src="img/week06_牛蹄病/hoof_p16.jpg" alt="白線病照片：白線出血、去除表層角質後排膿、病灶延伸至蹄踵上方破出、開放病灶堆積異物" loading="lazy">
           <div class="figure-caption">Fig 7-12 最早的徵兆是白線出血；Fig 7-14 去除表層角質後排膿；Fig 7-15 膿沿蹄踵往上，從皮膚與角質交界處排出；Fig 7-16 病灶開放後開始堆積異物。</div>
-          <div class="figure-source">來源：課程講義 p.16</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=16">p.16</a></div>
         </div>
         <div class="figure">
           <img src="img/week06_牛蹄病/hoof_p17.jpg" alt="白線病感染沿蹄葉往冠狀帶形成通道，以橢圓形切口去除蹄壁暴露通道的照片" loading="lazy">
           <div class="figure-caption">Fig 7-24 從白線到冠狀帶的感染通道造成大範圍破壞；Fig 7-25 感染被擠進蹄葉間隙形成通道，用橢圓形切口去除蹄壁暴露通道；Fig 7-26 橢圓形切口顯示真皮與表皮交界處更明顯的破壞。</div>
-          <div class="figure-source">來源：課程講義 p.17</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=17">p.17</a></div>
         </div>
         <div class="alert alert-info">
           <div class="alert-label">補充（非講義）：好發位置與治療</div>
@@ -494,7 +541,7 @@
       <!-- 5 HE -->
       <div class="card hf-dz" id="dz-he">
         <div class="card-title">5　蹄踵糜爛（Heel Erosion，slurry heel）</div>
-        <p><strong>講義：</strong>出現在最常見跛行原因的清單中；蹄踵角質流失讓重量往前移到典型蹄底潰瘍的位置（Fig 7-10），所以是蹄底潰瘍的促成因素。講義 p.14 的示意圖標為 slurry heel（糞尿蹄踵）。</p>
+        <p><strong>講義：</strong>出現在最常見跛行原因的清單中；蹄踵角質流失讓重量往前移到典型蹄底潰瘍的位置（Fig 7-10），所以是蹄底潰瘍的促成因素。講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=14">p.14</a> 的示意圖標為 slurry heel（糞尿蹄踵）。</p>
         <div class="alert alert-info">
           <div class="alert-label">補充（非講義）</div>
           <p>長期站在糞尿與潮濕環境中，蹄踵角質出現 <strong>V 形溝或坑洞</strong>，嚴重時整個蹄踵角質流失。常與趾間皮膚炎一起出現（同樣與 <em>Dichelobacter nodosus</em> 有關）。處置：修除鬆脫角質、讓蹄踵保持乾燥、蹄浴、改善地面衛生。</p>
@@ -536,7 +583,7 @@
         <div class="figure">
           <img src="img/week06_牛蹄病/hoof_p14.jpg" alt="蹄葉炎：蹄底示意圖標示糞尿蹄踵、蹄底潰瘍、白線卡物；嚴重瘀傷的蹄底；蹄葉充血水腫出血；屍體蹄浸熱水去殼的方法" loading="lazy">
           <div class="figure-caption">左：蹄底示意圖（糞尿蹄踵、蹄底潰瘍、白線卡物）；Fig 4-9 嚴重瘀傷的蹄底；Fig 4-25 蹄葉充血、水腫、出血是 P3 下沉的證據；Fig 4-24 研究用方法：屍體蹄浸 60°C 熱水 20 分鐘後，夾住蹄殼撬開去殼。</div>
-          <div class="figure-source">來源：課程講義 p.14</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=14">p.14</a></div>
         </div>
         <div class="alert alert-info">
           <div class="alert-label">補充（非講義）：病因</div>
@@ -547,7 +594,7 @@
       <!-- 8 IH -->
       <div class="card hf-dz" id="dz-ih">
         <div class="card-title">8　趾間增生（Interdigital Hyperplasia；corn、tyloma、interdigital fibroma）</div>
-        <p><strong>講義：</strong>列在病灶位置圖中；p.10 示意圖可見位在兩蹄之間、冠狀帶下方的增生組織。</p>
+        <p><strong>講義：</strong>列在病灶位置圖中；<a class="pdf-link" href="pdf/牛蹄病.pdf#page=10">p.10</a> 示意圖可見位在兩蹄之間、冠狀帶下方的增生組織。</p>
         <div class="alert alert-info">
           <div class="alert-label">補充（非講義）</div>
           <p>趾間皮膚與皮下組織增生，形成一塊硬的組織，多見於後肢。與<strong>遺傳</strong>（體型大的品種、公牛）以及趾間皮膚<strong>長期受刺激</strong>（趾間皮膚炎、趾皮炎、兩蹄過度張開）有關。小的增生可以不處理；大到被兩蹄夾到、造成跛行或續發感染（常合併趾皮炎）時，在靜脈區域麻醉下<strong>手術切除</strong>。</p>
@@ -557,7 +604,7 @@
       <!-- 9 PU -->
       <div class="card hf-dz" id="dz-pu">
         <div class="card-title">9　蹄底穿刺傷（Punctured Sole）</div>
-        <p><strong>講義：</strong>尖銳物刺穿蹄部是最常見的跛行原因之一；p.13 示意圖可見釘子、卡在蹄底的石頭、趾間石頭。蹄葉炎讓蹄底變軟，也更容易被刺穿。</p>
+        <p><strong>講義：</strong>尖銳物刺穿蹄部是最常見的跛行原因之一；<a class="pdf-link" href="pdf/牛蹄病.pdf#page=13">p.13</a> 示意圖可見釘子、卡在蹄底的石頭、趾間石頭。蹄葉炎讓蹄底變軟，也更容易被刺穿。</p>
         <div class="alert alert-info">
           <div class="alert-label">補充（非講義）</div>
           <p>移除異物、沿刺入路徑開放引流（處理方式同蹄底膿瘍）。刺入點在<strong>蹄踵區</strong>且很深時，要擔心侵犯舟狀囊、深屈肌腱或蹄關節；刺入點在蹄尖時，要擔心 P3。</p>
@@ -567,14 +614,18 @@
       <!-- 10 TU -->
       <div class="card hf-dz" id="dz-tu">
         <div class="card-title">10　蹄尖潰瘍（Toe Ulcer）</div>
-        <p><strong>講義：</strong>列在病灶位置圖中，位於蹄尖的蹄底。p.10 的「斷蹄尖」（水平裂長到蹄尖，蹄尖角質提早斷掉）是另一種蹄尖問題。</p>
+        <p><strong>講義：</strong>列在病灶位置圖中，位於蹄尖的蹄底。<a class="pdf-link" href="pdf/牛蹄病.pdf#page=10">p.10</a> 的「斷蹄尖」（水平裂長到蹄尖，蹄尖角質提早斷掉）是另一種蹄尖問題。</p>
         <div class="alert alert-info">
           <div class="alert-label">補充（非講義）</div>
           <p>蹄尖蹄底太薄，真皮受壓或外露：常見原因是<strong>修蹄過度</strong>（這也是荷蘭五步驟要求蹄尖蹄底保留 0.5–0.7 cm 的原因）、新鋪的水泥地或長距離行走過度磨損。深入時可能造成 P3 尖端骨髓炎。</p>
         </div>
       </div>
 
-      <footer class="note-footer">資料來源：課程講義 p.9–19；病原、治療等標示「補充」的內容非講義。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷或用藥依據</strong>。</footer>
+            <div class="alert alert-info">
+        <div class="alert-label">共筆補充（2020 許凱程老師）：各病灶的臨床觀察</div>
+        <ul><li><strong>白線病</strong>：牛不太表現疼痛（蹄鉗夾未必有反應），發現時常已感染一整面；牛會默默改用內側蹄負重，等修蹄時炎症可能已經結束，但脊椎與蹄已因負重改變而變形。白線感染多半從上方的小破口（冠狀帶、皮膚）往下來，所以老師會再檢查冠狀帶。不要貿然移除蹄壁，要墊高健康側。</li><li><strong>蹄底膿瘍</strong>：白線病往下感染所致，用蹄鉗定位疼痛區找膿瘍。</li><li><strong>趾皮炎</strong>：起初像潰瘍，之後呈草莓狀，最後長出毛狀角質（疣狀）；非常痛，通常局部麻醉後直接切除，包紮加壓止血。</li><li><strong>蹄葉炎</strong>：末期輕輕一拔蹄壁就脫落，常四肢一起發生；現在圈養乳牛多用 TMR，除非另有瘤胃酸中毒，食因性蹄葉炎已少見。</li><li><strong>蹄踵糜爛</strong>：蹄踵與皮膚交界有小缺口，踩到糞便易入侵，削蹄時常把整塊病灶削掉。</li></ul><p style="margin-top:6px;font-size:.9em;">※ 共筆把 interdigital dermatitis／hyperplasia 寫成「俗稱腐蹄」；本頁依講義把腐蹄病對應到 4 趾間壞死桿菌病（interdigital necrobacillosis），兩者不同。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=9">p.9–19</a>；病原、治療等標示「補充」的內容非講義。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷或用藥依據</strong>。</footer>
     </div>
 
     <!-- TRIMMING -->
@@ -609,13 +660,13 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p20.jpg" alt="荷蘭五步驟修蹄法：功能性修蹄三步驟與治療性修蹄兩步驟，附六張修蹄前後量測與角度圖解" loading="lazy">
         <div class="figure-caption">荷蘭五步驟修蹄法與圖解①–⑥。</div>
-        <div class="figure-source">來源：課程講義 p.20</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=20">p.20</a></div>
       </div>
       <div class="alert alert-warn">
         <div class="alert-label">注意</div>
         <p>第 1 步的長度與厚度是「下限」：修過頭讓蹄底太薄，反而會造成蹄尖潰瘍與真皮外露。前肢內側蹄通常較大，第 2 步的概念是「以比較健康、比較小的那個蹄為基準」，後肢以內側蹄為基準（補充）。</p>
       </div>
-      <footer class="note-footer">資料來源：課程講義 p.20。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=20">p.20</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
     </div>
 
     <!-- TREATMENT -->
@@ -627,7 +678,7 @@
       <div class="figure">
         <img src="img/week06_牛蹄病/hoof_p21.jpg" alt="牛前肢與後肢靜脈區域麻醉示意圖：止血帶、襯墊、橈靜脈、背側總指靜脈、外側隱靜脈前支、外側蹠靜脈等注射位置" loading="lazy">
         <div class="figure-caption">左：前肢靜脈區域麻醉（Figure 13.23，內側觀）；右：Fig 2.5 前肢背側觀（A）與後肢背側觀（B）。</div>
-        <div class="figure-source">來源：課程講義 p.21</div>
+        <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=21">p.21</a></div>
       </div>
       <div class="table-wrap">
         <table>
@@ -650,6 +701,11 @@
         <p style="margin-top:8px;">局部麻醉的其他技術與牛的鎮靜，見<a href="week01_術前考量與麻醉.html#section-local">第 1 週：術前考量與麻醉</a>。</p>
       </div>
 
+      <div class="alert alert-info">
+        <div class="alert-label">共筆補充（2020 許凱程老師）：肢端給藥的做法（老師版）</div>
+        <p>時機：局部麻醉（<strong>lidocaine 10 c.c.</strong>）、給 NSAID 或抗生素（特別是冠狀帶腫脹時）。用橡膠管綁住肢端，打藥後浸潤 <strong>15–20 分鐘</strong>再鬆開，<strong>不能綁超過半小時</strong>。上針位置：外側隱靜脈前支、內側掌指靜脈、背側總指靜脈 III（左右分流前都可以）。只有關節問題、蹄底沒感染時，局部靜脈給藥並每天浸潤 3–5 天；但現場需要保定架、要連續跑好幾天，實務上很少做，常直接淘汰。</p><p style="margin-top:6px;font-size:.9em;">⚠ 與上方「補充（非講義）」的數字不同：補充寫 lidocaine 約 20 mL、止血帶最多約 90–120 分鐘；共筆（老師口述）是 10 c.c.、15–20 分鐘、不超過 30 分鐘。<strong>考試以老師說法為準</strong>。</p>
+      </div>
+
       <h3>治療原則總覽（補充，非講義）</h3>
       <div class="table-wrap">
         <table>
@@ -670,17 +726,18 @@
         <div class="alert-label">注意：深部感染的警訊</div>
         <p>出現以下情形要想到感染已經進到關節或腱鞘，單純修蹄不夠：<strong>只有一個蹄</strong>的冠狀帶上方腫脹（腐蹄病通常是兩蹄之間對稱腫脹）、跛行在修蹄後沒有改善、蹄踵上方有排膿的瘻管。講義 Fig 7-4（潰瘍延伸到屈肌腱與蹄關節）就是這種情形。</p>
       </div>
-      <footer class="note-footer">資料來源：課程講義 p.21（靜脈位置）；其餘為補充內容，非講義。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷或用藥依據</strong>。</footer>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=21">p.21</a>（靜脈位置）；其餘為補充內容，非講義。本頁為個人課堂筆記整理，僅供學習與複習使用，<strong>不作為正式診斷或用藥依據</strong>。</footer>
     </div>
 
     <!-- EXAM -->
     <div class="section" id="section-exam">
-      <div class="section-head"><div class="section-num">10</div><h2>國考方向（推測）</h2></div>
-      <p class="section-desc">以下是依講義重點與蹄病常見考法所做的<strong>推測</strong>，不是依實際考古題整理。拿到考古題後可以再對照修正。</p>
+      <div class="section-head"><div class="section-num">10</div><h2>考試方向（考古＋推測）</h2></div>
+      <p class="section-desc">第一列是<strong>考古題實際出過</strong>的；其餘是依講義重點與蹄病常見考法所做的<strong>推測</strong>。</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th style="width:30%;">可能的考法</th><th>答題重點</th></tr></thead>
           <tbody>
+            <tr><td><strong>【考古】2021 填圖、2023「10 個挖 5 個填空」</strong></td><td>講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=9">p.9</a> 的十種病灶：1 趾皮炎（digital dermatitis）、2 蹄底潰瘍（sole ulcer）、3 白線分離與膿瘍（white line separation + abscessation）、4 趾間壞死桿菌病（interdigital necrobacillosis，腐蹄病）、5 蹄踵糜爛（heel erosion）、6 趾間皮膚炎（interdigital dermatitis）、7 蹄葉炎與蹄底出血（laminitis）、8 趾間增生（interdigital hyperplasia）、9 穿刺傷（puncture）、10 蹄尖潰瘍（toe ulcer）</td></tr>
             <tr><td>最常發生病灶的是哪一個蹄？為什麼？</td><td><strong>後肢外側蹄</strong>：較大、承重面平、內側蹄不穩 → 承重較多 → 角質過度生長 → 負擔過重（前肢則是內側蹄）</td></tr>
             <tr><td>典型蹄底潰瘍的位置與成因</td><td>蹄底後方 2/3 處、P3 屈肌突下方；蹄底過厚 → 趾墊無法緩衝 → 真皮壓傷 → 出血 → 停止長角質</td></tr>
             <tr><td>「草莓蹄踵」是什麼病？病原？治療？</td><td>趾皮炎；<em>Treponema</em> spp.（補充）；局部抗生素與蹄浴（補充）</td></tr>
@@ -807,6 +864,58 @@
         </details>
       </div>
 
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">填圖題</span>
+        <div class="quiz-q">Q11.（2021、2023 期中考古）不看第 6 節，依講義 <a class="pdf-link" href="pdf/牛蹄病.pdf#page=9">p.9</a> 病灶位置圖寫出編號 1–10 各是什麼病（中英文）。</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">1 趾皮炎 digital dermatitis；2 蹄底潰瘍 sole ulcer；3 白線分離與膿瘍 white line separation + abscessation；4 趾間壞死桿菌病 interdigital necrobacillosis（腐蹄病）；5 蹄踵糜爛 heel erosion；6 趾間皮膚炎 interdigital dermatitis；7 蹄葉炎與蹄底出血 laminitis；8 趾間增生 interdigital hyperplasia；9 穿刺傷 puncture；10 蹄尖潰瘍 toe ulcer。考古是「10 個挖 5 個填空」，位置與名稱都要熟。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q12.（共筆）蹄部感染往上擴散，最主要的路徑是？</div>
+        <ul class="quiz-options"><li>(A) 經血行到全身</li><li>(B) 沿肌腱、腱鞘往上走</li><li>(C) 沿淋巴管到腹股溝淋巴結</li><li>(D) 沿神經往上走</li></ul>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">老師上課：蹄的感染通常不沿血行，而是沿肌腱、腱鞘往上，擠壓腱鞘會流膿；冠狀帶上方腫脹表示可能已進入關節。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q13.（共筆）外側蹄有感染的角質病灶，修蹄後的處理方式何者正確？</div>
+        <ul class="quiz-options"><li>(A) 緊密包紮患蹄，一週後拆除</li><li>(B) 在健康的內側蹄黏上木塊或橡膠墊，讓患蹄離地</li><li>(C) 在患蹄黏上木塊墊高</li><li>(D) 不處理，讓牛自然恢復</li></ul>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">有感染的傷口不包紮；墊高健康側，患蹄不負重、不碰糞尿，約 3–4 週恢復，墊塊 4–6 週自然磨掉（共筆）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q14.（共筆）依許凱程老師的說法，用止血帶做肢端靜脈給藥時，止血帶最長不宜超過多久？</div>
+        <ul class="quiz-options"><li>(A) 5 分鐘</li><li>(B) 30 分鐘</li><li>(C) 2 小時</li><li>(D) 6 小時</li></ul>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">共筆：打藥後浸潤 15–20 分鐘再鬆開，不能綁超過半小時；局部麻醉用 lidocaine 10 c.c.。（一般文獻的上限較長，見第 9 節的版本差異說明；考試以老師說法為準。）</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q15. 白線病的牛通常疼痛反應明顯，用蹄鉗一夾就會強烈退縮，所以很容易早期發現。</div>
+        <details class="quiz-reveal"><summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">共筆：白線感染的牛不太表現疼痛，蹄鉗夾未必有反應，發現時常已感染一整面；牛會改用內側蹄負重代償。</p>
+        </details>
+      </div>
+
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week06_%E7%89%9B%E8%B9%84%E7%97%85" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
       <footer class="note-footer">練習題依講義內容出題，標「補充」的部分非講義。答案與解析僅供自我複習參考，不作為正式臨床診斷或用藥依據。</footer>
     </div>
 
@@ -994,6 +1103,53 @@ function doSearch(q) {
   input.classList.add('has-results');
 }
 </script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script>

@@ -150,6 +150,13 @@ const SEARCH_INDEX = [
   {
     subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
     url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
+    section: "diagram", sectionName: "縫合圖解",
+    keywords: "縫合圖解 管壁分層 漿膜 肌層 黏膜下層 黏膜 serosa muscularis submucosa mucosa 管腔 lumen 對合 內翻 inverting appositional lambert cushing connell 不穿黏膜 雙層縫合",
+    snippet: "中空器官管壁由外而內為漿膜、肌層、黏膜下層、黏膜；Lambert 與 Cushing 內翻、線走黏膜下層不進管腔，Lambert 垂直切口、Cushing 平行切口連續；Connell 穿透黏膜（補充）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "縫合材料與結紮技術（實習）",
+    url: "大四上/大動物外科手術及實習/week01_縫合材料與結紮技術.html",
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 是非題 選擇題 簡答題 quiz 自我測驗 顯示答案",
     snippet: "涵蓋縫線材質、縫合針與縫合模式重點的練習題，點擊即可顯示答案與解析。"
@@ -342,6 +349,216 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 選擇題 是非題 臨床情境題 蹄底潰瘍 腐蹄病",
     snippet: "10題：外側蹄、潰瘍位置、蹄底厚度、跛行評分、水泡糜爛、白線病擴散、五步驟、蹄葉炎、兩題臨床情境。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "術前考量與麻醉",
+    url: "大四上/大動物外科手術及實習/week01_術前考量與麻醉.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要",
+    snippet: "1重點摘要 六個臨床與國考重點 反芻動物躺臥麻醉的雙重呼吸風險，是全章臨床意義最重的部分：長時間仰躺→瘤胃脹氣／逆流→吸入性肺炎是一條路徑；瘤胃同時壓迫橫膈→換氣不足→低血氧＋高碳酸血症＋呼吸性酸中毒是另一條路徑，兩者機轉不同但常一起出題。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "術前考量與麻醉",
+    url: "大四上/大動物外科手術及實習/week01_術前考量與麻醉.html",
+    section: "preexam", sectionName: "術前檢查程序（共筆・考古）",
+    keywords: "術前檢查程序與注意事項（共筆補充・考古題） 答題架構（申論題用） 一、術前檢查 二、術前準備 三、術前評估 四、無菌與抗生素 五、術前計畫：術部處理順序 六、術後管理 補充：大動物保定（共筆）",
+    snippet: "季昭華老師每年期中都考「大動物外科術前檢查程序及應注意事項」。今年講義只有「病患評估、手術判斷、無菌、術後照護」四個標題，下面依 B06 共筆（2020 季昭華老師〈大動物外科手術注意事項〉）補齊完整流程，並和講義對照。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "術前考量與麻醉",
+    url: "大四上/大動物外科手術及實習/week01_術前考量與麻醉.html",
+    section: "paravertebral", sectionName: "脊椎旁神經阻斷",
+    keywords: "脊椎旁神經阻斷 Paravertebral Block 近端脊椎旁神經阻斷 Proximal Paravertebral Block 近端阻斷操作步驟 遠端脊椎旁神經阻斷 Distal Paravertebral Block 遠端阻斷操作步驟",
+    snippet: "與倒 L 型阻斷阻斷「固定範圍」不同，脊椎旁神經阻斷是直接在神經根出口處逐一阻斷 T13、L1、L2 這三條神經，依阻斷位置分近端與遠端兩種術式，各有優缺點（講義② p.15–22，今年新增）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 1, weekTitle: "術前考量與麻醉",
+    url: "大四上/大動物外科手術及實習/week01_術前考量與麻醉.html",
+    section: "epidural", sectionName: "硬膜外麻醉",
+    keywords: "硬膜外麻醉 Epidural Anesthesia 兩種位置：腰薦與尾根 牛尾根硬膜外操作步驟",
+    snippet: "硬膜外麻醉是將藥物注入硬膜外腔，阻斷該區域感覺（甚至運動）神經傳導，牛羊常用於尾巴、會陰與後段生殖泌尿系統相關的手術與處置（講義② p.23–29）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 2, weekTitle: "乳頭手術",
+    url: "大四上/大動物外科手術及實習/week02_乳頭手術.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要",
+    snippet: "1大方向與重點摘要 乳頭手術的大方向 這堂課在講什麼 講義分兩部分（p.1–32）：① 乳頭裂傷（teat lacerations）——怎麼判斷要不要縫、怎麼麻醉、怎麼分層縫合、術後怎麼讓乳汁流出；② 乳流問題（milk flow issu"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 2, weekTitle: "乳頭手術",
+    url: "大四上/大動物外科手術及實習/week02_乳頭手術.html",
+    section: "anatomy", sectionName: "乳頭的構造",
+    keywords: "乳頭的構造 Teat Anatomy",
+    snippet: "縫合時要知道自己在縫哪一層，也要知道乳頭管與括約肌為什麼不能傷到（p.3–7）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 2, weekTitle: "乳頭手術",
+    url: "大四上/大動物外科手術及實習/week02_乳頭手術.html",
+    section: "laceration", sectionName: "乳頭受傷與分級",
+    keywords: "乳頭受傷與分級 Teat Injury 原因 處理分級",
+    snippet: "乳牛的乳頭受傷很常見，判斷關鍵只有一個：傷口有沒有深到黏膜層（p.8–10）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 2, weekTitle: "乳頭手術",
+    url: "大四上/大動物外科手術及實習/week02_乳頭手術.html",
+    section: "anesthesia", sectionName: "保定與麻醉",
+    keywords: "保定與麻醉 Sedation & Anesthesia",
+    snippet: "乳頭手術在修蹄架上做，必要時鎮靜；麻醉有兩種方式（p.11–13）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 2, weekTitle: "乳頭手術",
+    url: "大四上/大動物外科手術及實習/week02_乳頭手術.html",
+    section: "repair", sectionName: "裂傷修補步驟",
+    keywords: "裂傷修補步驟 Procedures",
+    snippet: "七個步驟，重點是分層與線的選擇（p.14–19）。縫法的細節見縫合材料與結紮技術。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 2, weekTitle: "乳頭手術",
+    url: "大四上/大動物外科手術及實習/week02_乳頭手術.html",
+    section: "postop", sectionName: "術後照護與預後",
+    keywords: "術後照護與預後 Post-operative Management 影響預後的因素",
+    snippet: "術後的重點是讓乳汁流出、但不要擠乳，同時防止乳房炎（p.20–23）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 2, weekTitle: "乳頭手術",
+    url: "大四上/大動物外科手術及實習/week02_乳頭手術.html",
+    section: "milkflow", sectionName: "無乳或乳流慢",
+    keywords: "無乳或乳流慢 Milk Flow Issues 原因 診斷 乳頭狹窄（Teat Stenosis）的位置 治療：器械對應 術後照護",
+    snippet: "產後擠不出乳或乳流很慢，要先找出阻塞在哪、是什麼（p.24–31）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 2, weekTitle: "乳頭手術",
+    url: "大四上/大動物外科手術及實習/week02_乳頭手術.html",
+    section: "exam", sectionName: "比較與考試方向",
+    keywords: "比較與考試方向（推測）",
+    snippet: "把兩部分放在一起比較；考試方向為推測，目前收集到的大外期中考古沒有出過這堂課。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 3, weekTitle: "腹腔手術",
+    url: "大四上/大動物外科手術及實習/week03_腹腔手術.html",
+    section: "conotes", sectionName: "共筆補充：ping 鑑別與其他腹腔手術",
+    keywords: "共筆補充：ping 的鑑別與其他腹腔手術 Ping（金屬音）的鑑別 開腹探查：左側還是右側 盲腸擴張與扭轉（Cecal Dilatation／Volvulus） 小腸切除與吻合（Small Intestinal Resection and Anastomosis）",
+    snippet: "今年講義第 1 頁的大綱還列了盲腸、腸套疊、臍疝氣等主題，但投影片沒講到。下面是 B06 共筆（2020 許凱程老師）裡相關的內容，不是今年講義，讀的時候當背景知識；2021 期中的 ping 題來自這裡。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要",
+    snippet: "1大方向與重點摘要 豬麻醉與去勢的大方向 這堂課在講什麼 余品奐老師的講義分兩部分：① 豬的麻醉（p.1–22）——豬在實驗室、牧場、寵物豬都會需要麻醉，但「豬沒有你想的那麼耐操（Pigs are not as tough as you t"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "problems", sectionName: "豬麻醉的難處",
+    keywords: "豬麻醉的難處 Problems, Peculiarities and Practicalities",
+    snippet: "每一個難處都來自豬的身體構造，記的時候把「問題 → 原因 → 對策」連起來（p.3–7）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "premed", sectionName: "鎮靜與術前給藥",
+    keywords: "鎮靜與術前給藥 Sedation and Premedication 適應症 講義表格：豬常用鎮靜藥",
+    snippet: "什麼時候只鎮靜就好、各類鎮靜藥在豬的問題（p.8–9）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "injectable", sectionName: "注射麻醉藥",
+    keywords: "注射麻醉藥 Injectable Anesthetics",
+    snippet: "三種藥各有一個在豬特別要注意的缺點（p.10–12）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "inhalant", sectionName: "吸入麻醉與惡性高熱",
+    keywords: "吸入麻醉與惡性高熱 Inhalational Anesthetics",
+    snippet: "吸入麻醉要有設備（多在手術室，戶外通常做不到）；要記的是遺傳性的惡性高熱（p.13）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "monitor", sectionName: "麻醉監測",
+    keywords: "麻醉監測 Monitor 心臟監測 麻醉深度 通氣 術後",
+    snippet: "心律、麻醉深度、通氣、術後四個面向（p.14–17）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "pain", sectionName: "疼痛管理",
+    keywords: "疼痛管理 Pain Management",
+    snippet: "豬的止痛很少被重視（p.18）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "complications", sectionName: "麻醉流程與併發症",
+    keywords: "實際流程與併發症 Complications 研究使用的流程 併發症比例：豬 vs. 犬貓 併發症的原因與處理（p.21）",
+    snippet: "講義引用 Trim 與 Braun 對 27 頭越南大肚豬（Vietnamese potbellied pigs, 1999–2006）的研究（p.19–21）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "castration", sectionName: "大動物去勢",
+    keywords: "大動物去勢 Castration Techniques 方法比較",
+    snippet: "講義 p.23–29 只有圖，以下文字以共筆（2020 余品奐老師〈大動物絕育〉）為主。牛羊馬豬很少做卵巢子宮摘除（難度與費用太高），生育管理靠公畜去勢。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
+    url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
+    section: "exam", sectionName: "比較與考試方向",
+    keywords: "比較與考試方向（推測）",
+    snippet: "考試方向為推測。余品奐老師的考題每年換、重理解（反芻與大外考古的經驗）。"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/大動物外科手術及實習/期中考古.html",
+    section: "overview", sectionName: "總覽：年份 × 老師",
+    keywords: "期中考古 考古題 總覽：年份 × 老師 ",
+    snippet: "大外期中由三位老師各出一部分：季昭華＝術前檢查程序（申論一題，年年考）；余品奐＝縫線、縫針、縫合法（問答與畫圖）；許凱程＝蹄病、理學檢查（遠觀、ping）、脊椎旁麻醉、皺胃變位手術、懷孕檢查、胎位（填空與填圖）。高頻＝跨年重複出現。 年份季昭華余品奐許凱程來源 2007蹄葉炎原因類型治療；腹腔探查原則；LDA 診斷與手"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/大動物外科手術及實習/期中考古.html",
+    section: "ji", sectionName: "季昭華：術前檢查程序及應注意事項 高頻",
+    keywords: "期中考古 考古題 季昭華：術前檢查程序及應注意事項 高頻 ",
+    snippet: "2021、2022、2023 都考同一題申論：「試簡述大動物外科術前檢查程序及應注意事項」。答題架構已整理在 術前考量與麻醉・第 4 節（共筆＋今年講義）。 2022 參考答案（學長姐手寫，摘要）檢查病例 → 身體檢查（體型 BCS、姿勢〔發情？〕、精神狀態、性情、體表凸起潰瘍掉毛、體溫）→ 禁食 → 接觸檢查（視、觸"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/大動物外科手術及實習/期中考古.html",
+    section: "yu", sectionName: "余品奐：縫線、縫針、縫合法（＋豬麻醉）",
+    keywords: "期中考古 考古題 余品奐：縫線、縫針、縫合法（＋豬麻醉） ",
+    snippet: "題目每年換措辭，但方向固定：好縫線的特質、圓弧針的優勢、水平褥式、transfix、膀胱與肢端傷口選線。答案對照 縫合材料與結紮技術。 題目出現答案要點 列舉三項好縫線應有的特質 高頻2016、2018、2022、年份不明組織反應小；不製造利於細菌生長的環境；不導電、無毛細作用、不致敏、不致癌；手術者好操作；打結牢固不"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/大動物外科手術及實習/期中考古.html",
+    section: "xu", sectionName: "許凱程：蹄病、理學檢查、麻醉、皺胃、懷孕與胎位",
+    keywords: "期中考古 考古題 許凱程：蹄病、理學檢查、麻醉、皺胃、懷孕與胎位 1. 牛的蹄病（填圖）高頻 2. 遠觀（observation at a distance）：從後方看腹部輪廓 高頻 3. 遠端（與近端）脊椎旁麻醉 高頻 4. Ping（左右側腹部聽叩診）高頻 5. 皺胃變位的四種手術 6. 懷孕檢查：直腸觸診的四個 positive signs 高頻 7. 胎位、胎向、胎勢 高頻",
+    snippet: "許凱程的題目考古率很高，2022 與 2023 幾乎一樣，2014 以來的題目也一直重複。題型是填空與填圖。 1. 牛的蹄病（填圖）高頻 2011、2014、2015、2016、2018、2019、2021、2022 都考；2023 是講義 p.9 的十個病灶挖五個填空。答案：見 牛蹄病・病灶位置圖——1 digita"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/大動物外科手術及實習/期中考古.html",
+    section: "freq", sectionName: "跨年高頻主題（考前優先）",
+    keywords: "期中考古 考古題 跨年高頻主題（考前優先） ",
+    snippet: "主題老師出現次數本站對應 牛蹄病十種病灶（填圖）許凱程8＋（2011–2023 幾乎每年）牛蹄病 遠端脊椎旁麻醉：神經與部位許凱程7術前麻醉 Ping 左右側鑑別許凱程6腹腔手術 懷孕檢查 palpation、胎位胎向胎勢許凱程5本頁第 4 節（今年講義無） 遠觀腹部輪廓許凱程5本頁第 4 節（今年講義無） 好縫線特質"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/大動物外科手術及實習/期中考古.html",
+    section: "caveat", sectionName: "資料可信度與各版本不一致處",
+    keywords: "期中考古 考古題 資料可信度與各版本不一致處 ",
+    snippet: "四種皺胃變位手術：舊考古（2011–2016）是 right-flank omentopexy、right-flank abomasopexy、left-flank abomasopexy、ventral paramedian；今年講義是 right-flank omentopexy、toggle-pin、laparo"
+  },
+  {
+    subject: "大動物外科手術及實習", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/大動物外科手術及實習/期中考古.html",
+    section: "practice", sectionName: "考古題練習（照原題，先寫再核對）",
+    keywords: "期中考古 考古題 考古題練習（照原題，先寫再核對） ",
+    snippet: "依 2022 原卷題型。先自己寫，再點開核對。即時作答的選擇題版本在 期中考古自我測驗。 2022 原卷（許凱程）第 1–3 題。來源：2022大外期中.pdf 2022 原卷第 4–6 題。來源：2022大外期中.pdf 2022 原卷第 7 題（胎位、胎向、胎勢）。來源：2022大外期中.pdf 季昭華（2021–"
   },
   {
     subject: "獸醫解剖學", semester: "總複習", week: null, weekTitle: "骨骼系統",

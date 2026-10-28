@@ -6,6 +6,26 @@
 <title>大動物外科：手術器械 - yc._vetalk</title>
 <link rel="stylesheet" href="../../assets/nav.css">
 <link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
 </head>
 <body class="ah">
 
@@ -37,8 +57,10 @@
     </div>
     <div class="meta-bar">
       <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">大動物外科手術及實習（大四上・第5週・課堂）</div></div>
-      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》課程講義〈Surgical Instrument〉</div></div>
-      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-09-30</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》課程講義〈Surgical Instrument〉；器械用途說明依 B06 共筆（2020.10.07 許凱程老師上課內容）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-28</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/手術器械.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week05_%E6%89%8B%E8%A1%93%E5%99%A8%E6%A2%B0">做題 →</a></div></div>
       <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整器械圖鑑</div></div>
     </div>
   </div>
@@ -56,6 +78,8 @@
     <div class="section-label" style="margin-top:8px;">複習</div>
     <a onclick="showSection('summary')" id="nav-summary"><span class="nav-icon">⭐</span> 學習重點整理</a>
     <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week05_%E6%89%8B%E8%A1%93%E5%99%A8%E6%A2%B0" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
   </nav>
 
   <main class="pagebody" id="mainContent">
@@ -67,6 +91,7 @@
         <div class="alert-label">這堂課在讀什麼？</div>
         <p>這份講義本身幾乎沒有文字，就是一張張器械照片配上英文名稱，屬於「圖鑑式」的器械識別課——目的是讓學生看到實物照片就能叫出名字、知道用在哪個場合。講義依原本投影片的順序分成四大類：<strong>診斷器械</strong>（2件）、<strong>外科與解剖器械、標記辨識設備</strong>（11件）、<strong>保定、去勢去角、蹄部與乳頭器械</strong>（6件）、<strong>產科與胚胎切割器械、導管、人工授精</strong>（24件，是全講義份量最重的一類，這頁另外依功能再細分成6小類方便查找）。</p>
         <p>因為這份講義的核心價值就是「圖」，文字反而是輔助，所以這頁把全部43張器械照片都截圖放進來，每張圖配上中英文名稱與一句話使用情境，方便之後臨床或實習遇到不熟悉的器械時，直接用這頁當作快速對照的圖鑑。</p>
+        <p style="margin-top:8px;"><strong>2026-10-28 更新</strong>：講義只有器械名稱沒有用途，舊版的用途說明多為推測。現在每張圖的說明改依 <strong>B06 共筆（2020 許凱程老師講同一份投影片）</strong>，並在圖下標講義頁碼；與老師說明不符的舊說法（捻鼻器、子宮幫浦、扭轉叉、外陰縫合）已更正，無法確認的標 ⚠。</p>
         <div class="grid-4" style="margin-top:14px;">
           <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('diagnostic')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">01</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">診斷器械</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">2件</p></div>
           <div class="card" style="padding:12px 14px; cursor:pointer;" onclick="showSection('surgicalid')"><div style="font-size:.68em; color:var(--fg-faint); letter-spacing:.06em; margin-bottom:5px;">02</div><div class="card-title" style="font-size:.9em; margin-bottom:4px;">外科與解剖器械</div><p style="font-size:.8em; margin:0; color:var(--fg-muted);">11件</p></div>
@@ -96,11 +121,13 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/percussion_hammer.png" alt="叩診槌照片，木製握把搭配金屬敲擊頭">
-          <div class="figure-caption">叩診槌 Percussion Hammer<br>神經學檢查時敲擊肌腱誘發反射，或用於胸腹部叩診音判讀（如判斷瘤胃鼓脹、皺胃移位的鏗鏘音）。</div>
+          <div class="figure-caption">叩診槌 Percussion Hammer<br>叩診時敲擊用，用來找<strong>金屬音（ping，積氣造成）</strong>；沒帶叩診槌也可以用手指叩診。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=3">p.3</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/marker.png" alt="兩款標記筆照片，油性麥克筆與塑膠標籤筆">
           <div class="figure-caption">標記筆 Marker<br>手術部位標記、個體識別或病灶位置標示用，需具防水耐磨特性。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=4">p.4</a></div>
         </div>
       </div>
 
@@ -117,50 +144,69 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/mouth_gag_1.png" alt="環狀把手型開口器照片，以及螺旋齒狀開口器照片">
-          <div class="figure-caption">開口器（一） Mouth Gag<br>固定撐開口腔，用於口腔檢查、灌藥、牙科處置；上方為環狀把手型，下方為螺旋齒狀夾型。</div>
+          <div class="figure-caption">開口器（一） Mouth Gag<br>撐開口腔：馬不反芻，精料吃多了臼齒會磨出尖銳的 spike，長期會割傷口腔黏膜，所以馬和兔子一樣要定期磨牙（鎮靜後站著做）。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=6">p.6</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/mouth_gag_2.png" alt="繩索型開口器與齒狀夾開口器照片">
-          <div class="figure-caption">開口器（二） Mouth Gag<br>另一款以繩索繫緊固定、搭配齒狀夾撐開口腔，適合不同保定情境或動物種類。</div>
+          <div class="figure-caption">開口器（二） Mouth Gag<br>另一款開口器；還有單側開口器，翻開一邊嘴巴檢查用。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=8">p.8</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
-          <img src="img/week05_手術器械/chain_tourniquet_staunching_forceps.png" alt="橡皮止血帶、鏈式止血帶、止血鉗三件照片並排">
-          <div class="figure-caption">止血帶與止血鉗 Chain Tourniquet, Staunching Forceps<br>肢端（如去角、去勢部位）暫時性止血，控制術中出血量。</div>
+          <img src="img/week05_手術器械/chain_tourniquet_staunching_forceps.png" alt="繩圈、鏈圈與鼻鉗三件鼻部保定器械照片並排">
+          <div class="figure-caption">止血帶與止血鉗 Chain Tourniquet, Staunching Forceps<br>依共筆，這組是<strong>保定用的鼻部器械（捻鼻器）</strong>：左邊的繩圈與中間的鏈圈夾在鼻鏡上用於馬，會造成疼痛；材質有橡膠、金屬。（舊版寫成止血帶與止血鉗，與老師上課說明不符，已更正。）</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=7">p.7</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/anti_cow_kicker_pig_holder.png" alt="牛防踢鏈、布質防踢帶、豬鼻捕捉鉗、鋼索豬鼻圈五件器械照片">
-          <div class="figure-caption">防踢鏈與豬鼻保定器 Anti Cow Kicker, Wire Nose Pig Holder<br>牛隻防踢鏈避免操作者被踢傷；豬鼻捕捉鉗／鋼索鼻圈用於保定豬隻口鼻部進行處置。</div>
+          <div class="figure-caption">防踢鏈與豬鼻保定器 Anti Cow Kicker, Wire Nose Pig Holder<br>左側三件是牛的<strong>防踢器</strong>，套在飛節上方，讓兩後腳互相牽制並壓住飛節上的韌帶；右側是<strong>豬鼻套索</strong>，套在上顎，豬會往後退，方便抽血，另一端可勾在欄杆上。牛產科時也會用套索套上顎。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=9">p.9</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/tooth_rasp.png" alt="牙銼照片，長柄金屬銼刀搭配替換銼片">
-          <div class="figure-caption">牙銼 Tooth Rasp, Spare Rasp<br>磨平馬匹牙齒過度生長的銳利邊緣（俗稱浮牙齒），改善齒尖症候群造成的咀嚼疼痛。</div>
+          <div class="figure-caption">牙銼 Tooth Rasp, Spare Rasp<br>馬用磨牙棒，長約 90 cm，前端銼片可更換；現在已有電動磨牙器。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=10">p.10</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/glide_slime_gloves.png" alt="潤滑劑罐裝與長版拋棄式手套照片">
-          <div class="figure-caption">潤滑劑與拋棄式手套 Glide Slime, Disposable Gloves<br>直腸檢查、陰道檢查、人工授精等操作時的潤滑與感染控制。</div>
+          <div class="figure-caption">潤滑劑與拋棄式手套 Glide Slime, Disposable Gloves<br>潤滑劑與長臂拋棄式手套，直腸觸診時使用。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=11">p.11</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/nose_twitch_holder.png" alt="馬用鼻捻五種型式與牛用鼻鉗照片並排">
-          <div class="figure-caption">鼻捻與鼻鉗 Nose Twitch for Horses, Nose Holder for Cattle<br>馬匹以鼻捻夾捏上唇誘發制動反應（endorphin釋放假說）；牛隻以鼻鉗夾住鼻中隔保定頭部。</div>
+          <div class="figure-caption">鼻捻與鼻鉗 Nose Twitch for Horses, Nose Holder for Cattle<br>馬有上門齒、咬合力強（也比較兇），要用較強的鼻捻固定；牛沒有上門齒、口鼻肌肉較弱，用鼻鉗夾鼻中隔即可。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=12">p.12</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/drencher.png" alt="灌藥槍與多種容量藥筒照片">
-          <div class="figure-caption">灌藥器 Drencher<br>經口投予液體藥劑（如驅蟲藥、電解質液），可更換不同容量藥筒。</div>
+          <div class="figure-caption">灌藥器 Drencher<br>大動物經口灌藥或口服輸液用（液體量大，不適合全部走靜脈）。灌瘤胃液量更大，不用灌藥器，而是插胃管用幫浦壓進去。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=13">p.13</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/electric_goad.png" alt="電擊趕牛棒照片，長筒狀塑膠外殼">
-          <div class="figure-caption">電擊趕牛棒 Electric Animal Goad<br>短暫電刺激驅趕大型家畜移動方向，需謹慎使用避免動物福利爭議。</div>
+          <div class="figure-caption">電擊趕牛棒 Electric Animal Goad<br>約 9 V 的電擊器，牛、馬都很怕電。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=14">p.14</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/emasculator.png" alt="去勢鉗兩種角度照片，齒狀夾合器械">
-          <div class="figure-caption">去勢鉗 Emasculator<span class="tag tag-exam" style="margin-left:6px;">重要</span><br>去勢手術中夾碎並同時止血精索，屬於「開式」去勢（先切開皮膚後使用）。</div>
+          <div class="figure-caption">去勢鉗 Emasculator<span class="tag tag-exam" style="margin-left:6px;">重要</span><br>用於體型稍大公畜的去勢：夾住精索與血管一兩分鐘使其壞死，刀片沿器械切斷；精索太粗綁不住，所以不另外結紮。屬「開式」去勢（先切開陰囊）。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=15">p.15</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/bloodless_castrator.png" alt="Burdizzo型無血去勢鉗兩支不同尺寸照片">
-          <div class="figure-caption">無血去勢鉗 Bloodless Castrator<span class="tag tag-exam" style="margin-left:6px;">重要</span><br>Burdizzo型器械，不切開皮膚、經皮壓碎精索阻斷血流使睪丸萎縮，屬於「閉式」去勢。</div>
+          <div class="figure-caption">無血去勢鉗 Bloodless Castrator<span class="tag tag-exam" style="margin-left:6px;">重要</span><br>Burdizzo 型，<strong>不切開陰囊</strong>，經皮壓碎精索使睪丸萎縮，屬「閉式」去勢；用於牛、羊，進保定架即可操作。共筆寫「不用麻醉、夾十到十五分鐘」，⚠ 時間單位可能是筆誤，待確認。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=16">p.16</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
       </div>
 
+      <div class="alert alert-info">
+        <div class="alert-label">共筆（許凱程）：去角 Dehorning</div>
+        <p>講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=17">p.17</a> 的分類標題有 dehorning，但沒有放器械照片；老師上課講了兩種方法（公牛母牛都會長角）：</p>
+        <ul>
+          <li><strong>燒烙（電熱去角器）</strong>：<strong>一月齡以內</strong>；先給麻醉＋NSAID，把碗狀前端緊貼角基部的生長點燒掉。</li>
+          <li><strong>化學性（苛性鈉）</strong>：<strong>1–2 週齡</strong>；剃毛後把苛性鈉塗在生長點，腐蝕穿皮膚到生長點，配合 NSAID；牛可能因痛癢到處磨蹭。</li>
+        </ul>
+      </div>
       <div class="alert alert-warn">
         <div class="alert-label">注意</div>
         <p>去勢鉗（Emasculator）與無血去勢鉗（Bloodless Castrator）外觀都是長柄鉗夾器械，容易混淆——關鍵鑑別是<strong>皮膚是否切開</strong>：去勢鉗用於切開陰囊後直接處理暴露的精索；無血去勢鉗則完全不切皮膚，直接經皮夾壓精索，術後不會有開放性傷口。</p>
@@ -179,27 +225,33 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/teat_plugs_canulas.png" alt="木質乳頭栓、塑膠乳頭導管、擴張栓四種包裝照片">
-          <div class="figure-caption">乳頭栓與乳頭導管 Wood Teat Plugs, Plastic Teat Canulas<br>乳房炎經乳頭管灌注給藥、乳頭損傷後保護乳頭管暢通、乳頭狹窄擴張處置。</div>
+          <div class="figure-caption">乳頭栓與乳頭導管 Wood Teat Plugs, Plastic Teat Canulas<br>乳頭栓與乳頭導管（撐開乳頭管）。共筆：乳頭整段都是括約肌、沒有開口時，可以造口（但會漏奶）；沒有括約肌時不建議開口（感染風險），放棄該乳區。缺點是容易沾到糞尿、增加感染，器械也容易被榨乳杯吸走。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=18">p.18</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/hoof_tester.png" alt="兩款不同開口設計的蹄檢查鉗照片">
-          <div class="figure-caption">蹄檢查鉗 Hoof Tester<br>逐點夾壓蹄底部位誘發疼痛反應，定位蹄葉炎、蹄底膿瘍等病灶位置。</div>
+          <div class="figure-caption">蹄檢查鉗 Hoof Tester<br>夾壓蹄底找疼痛點，不用夾太大力。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=19">p.19</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/hoof_buffer_shear.png" alt="削蹄器、大型蹄剪、小型蹄剪三件器械照片">
-          <div class="figure-caption">削蹄器與蹄剪 Hoof Buffer, Hoof Shear<br>修蹄整形時去除過長或變形的蹄角質，維持正常負重角度。</div>
+          <div class="figure-caption">削蹄器與蹄剪 Hoof Buffer, Hoof Shear<br>剪蹄、修蹄，搭配銼刀；現在多用砂輪機磨出形狀。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=20">p.20</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/sharp_curette.png" alt="兩支不同角度的尖銳刮匙照片">
-          <div class="figure-caption">尖銳刮匙 Sharp Curette<br>清創處置，刮除蹄部壞死組織或蹄葉炎病灶內的腐敗角質。</div>
+          <div class="figure-caption">尖銳刮匙 Sharp Curette<br>削蹄、刮除壞死角質。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=21">p.21</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/hoof_knife.png" alt="三支木柄蹄刀照片，刀刃呈鉤狀彎曲">
-          <div class="figure-caption">蹄刀 Hoof Knife<br>修整蹄部角質細節、清創處理蹄葉炎或蹄底膿瘍病灶，鉤狀刀刃便於削薄角質層。</div>
+          <div class="figure-caption">蹄刀 Hoof Knife<br>蹄刀與刮匙形狀互相配合；左右手用的都要有，方便變換角度操作。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=22">p.22</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/claw_knife.png" alt="爪刀兩種型式照片，一為直刃一為彎柄型">
-          <div class="figure-caption">爪刀 Claw Knife<br>處理牛、豬等偶蹄類動物的蹄爪病灶，適合較粗糙的角質修整作業。</div>
+          <div class="figure-caption">爪刀 Claw Knife<br>另一種削蹄刀，方便挖下角質。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=23">p.23</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
       </div>
 
@@ -217,23 +269,28 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/calf_puller.png" alt="牽引器（拉犢器）兩種型式照片，附螺旋牽引桿與繩索">
-          <div class="figure-caption">牽引器（拉犢器） Calf Puller<span class="tag tag-exam" style="margin-left:6px;">重要</span><br>難產（dystocia）時機械輔助牽引胎兒，透過螺旋桿逐步施力，比人力牽引更能控制施力方向與力道。</div>
+          <div class="figure-caption">牽引器（拉犢器） Calf Puller<span class="tag tag-exam" style="margin-left:6px;">重要</span><br>助產器（拉犢器），橫桿頂在母牛後軀（陰門下方、乳房上方）作為支點，螺旋桿逐步施力。注意：拉力過大小牛可能骨折。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=25">p.25</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/calving_chain.png" alt="長短兩款產科鏈照片，鏈環末端附套環">
-          <div class="figure-caption">產科鏈 Calving Chain<br>套住胎兒肢體（通常固定在球節與蹄冠之間）以利牽引施力，避免直接繩索勒傷胎兒肢體。</div>
+          <div class="figure-caption">產科鏈 Calving Chain<br>產科鏈（不鏽鋼，約 90 cm，太長不好用）；產科繩容易髒、不易消毒，不建議。助產時小心把小牛拉到骨折。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=35">p.35</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/calving_chain_adjustable.png" alt="附可調節握把的產科鏈照片">
           <div class="figure-caption">附調節握把產科鏈 Calving Chain with Adjustable Handles<br>在產科鏈基礎上加裝握把設計，便於術者施力牽引且不易滑手。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=36">p.36</a></div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/traction_grip.png" alt="牽引把手照片，T字形握柄">
           <div class="figure-caption">牽引把手 Traction Grip<br>搭配產科鏈或牽引器使用的握把配件，分散施力避免徒手拉扯滑脫。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=37">p.37</a></div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/farrowing_forceps.png" alt="三款不同顏色與材質的助產鉗照片">
-          <div class="figure-caption">助產鉗（豬用） Farrowing Forceps<br>豬隻難產時伸入產道夾持牽引胎兒，因豬隻產道較細長，器械設計較牛用產科器械纖細。</div>
+          <div class="figure-caption">助產鉗（豬用） Farrowing Forceps<br>助產鉗（豬用，產道較細長）；共筆記為「夾碎胎用，咬合力不會大到造成壞死」。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=32">p.32</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
       </div>
 
@@ -241,11 +298,13 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/vaginal_speculum.png" alt="陰道擴張器照片，管狀金屬器械附燈光孔">
-          <div class="figure-caption">陰道擴張器 Vaginal Speculum<br>撐開陰道以利檢查子宮頸狀態，常用於發情鑑定、產道檢查或人工授精前評估。</div>
+          <div class="figure-caption">陰道擴張器 Vaginal Speculum<br>開膣器：撐開陰道看到子宮頸，人工授精時用；現在牛的人工授精技術較好，主要剩羊會用。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=26">p.26</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/artificial_vagina.png" alt="人工陰道照片，筒狀橡膠套管附內襯">
-          <div class="figure-caption">人工陰道 Artificial Vagina<br>種公畜採精用，模擬母畜陰道溫度與壓力刺激射精，採得精液供人工授精使用。</div>
+          <div class="figure-caption">人工陰道 Artificial Vagina<br>人工陰道，採精用，使用時灌入溫水。台灣牛、馬只剩畜試所在採精（私人多買進口冷凍精液）；豬通常用假母台採精。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=27">p.27</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
       </div>
 
@@ -253,27 +312,33 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/crutch_rope_introducer.png" alt="拐杖狀產科繩導入器與鋸線導入器照片">
-          <div class="figure-caption">導入器 Crutch, Calving Rope Introducer, Embryotomy Wire Saw Introducer<br>協助將產科繩或胚胎切割鋸線安全導入子宮內，避免徒手操作損傷母體軟組織。</div>
+          <div class="figure-caption">導入器 Crutch, Calving Rope Introducer, Embryotomy Wire Saw Introducer<br>左：<strong>Crutch</strong>，助產時把胎兒推回去調整到正確位置（但灌人工羊水比較快）；右兩件：產科繩與<strong>鋸線導入器</strong>，一端手拿、一端穿鋸線，繞過要切的部位（如死胎肩胛）。頭位通常鋸頭或單側肩胛，尾位鋸後腿。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=28">p.28</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/sharp_eye_hooks_torsion_fork.png" alt="尖眼鉤與扭轉叉照片">
-          <div class="figure-caption">尖眼鉤與扭轉叉 Sharp Eye Hooks, Torsion Fork<br>鉤住或旋轉固定死胎組織部位，以利後續牽引或胚胎切割術操作定位。</div>
+          <div class="figure-caption">尖眼鉤與扭轉叉 Sharp Eye Hooks, Torsion Fork<br>上：<strong>眼窩鉤</strong>，胎兒死亡後鉤住眼窩拉出；下：<strong>扭轉叉（torsion fork）</strong>，用於<strong>子宮捻轉</strong>，把胎兒轉回正確位置，子宮也跟著轉正。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=29">p.29</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/obstetric_hook_double_eye_hook.png" alt="產科鉤與雙眼鉤照片">
-          <div class="figure-caption">產科鉤與雙眼鉤 Obstetric Hook, Double Eye Hook<br>鉤住胎兒特定部位（如下頜、眼窩）輔助牽引胎位不正的胎兒，是「鉤住固定」而非「切割」的器械。</div>
+          <div class="figure-caption">產科鉤與雙眼鉤 Obstetric Hook, Double Eye Hook<br>眼窩鉤的另外兩型，通常綁著產科鏈一起用；是「鉤住固定」，不是切割。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=30">p.30</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/wire_saws_hand_grip.png" alt="鋸線與握把照片">
-          <div class="figure-caption">鋸線與握把 Wire Saws and Hand Grip<br>胚胎切割術（embryotomy）中切斷死胎骨骼構造，處理無法經產道完整牽引的難產病例。</div>
+          <div class="figure-caption">鋸線與握把 Wire Saws and Hand Grip<br>線鋸與握把，胚胎切割（embryotomy）時鋸斷死胎；線鋸速度快，手要小心。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=31">p.31</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/wire_saw_embryotome_ring_knife.png" alt="鋸線胚胎刀與環刀照片">
-          <div class="figure-caption">鋸線胚胎刀與環刀 Wire Saw Embryotome, Ring Knife<br>導引鋸線行進路徑並保護周圍母體軟組織，避免鋸線切割時誤傷產道。</div>
+          <div class="figure-caption">鋸線胚胎刀與環刀 Wire Saw Embryotome, Ring Knife<br>碎胎器（導引鋸線、保護產道）與<strong>環刀（ring knife）</strong>：戴在手指上伸進去劃開死胎皮膚，有劃傷子宮的風險。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=33">p.33</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/embryotomy_wire_saw_hand_grip.png" alt="另一款胚胎切割鋸線與握把照片">
-          <div class="figure-caption">胚胎切割鋸線與握把（另款） Embryotomy Wire Saw, Hand Grip for Wire Saw<br>與前述鋸線器械功能相同，不同廠牌／型式的鋸線與握把組合。</div>
+          <div class="figure-caption">胚胎切割鋸線與握把（另款） Embryotomy Wire Saw, Hand Grip for Wire Saw<br>另一款胚胎切割鋸線與握把，功能同上。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=34">p.34</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
       </div>
 
@@ -281,15 +346,18 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/surgical_tape_suture_needle.png" alt="手術膠帶捲與多款縫合針照片">
-          <div class="figure-caption">手術膠帶與縫合針 Surgical Tape, Suture Needle<br>傷口縫合固定與敷料黏貼，泛用型外科基本耗材。</div>
+          <div class="figure-caption">手術膠帶與縫合針 Surgical Tape, Suture Needle<br><strong>子宮或陰道脫出</strong>整復後縫合外陰部、防止再脫出用：線是像鞋帶的寬棉帶（日本用鋁線），通常用荷包縫法（避免糞尿污染），每天以優碘換藥。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=38">p.38</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/flessa_needle.png" alt="Flessa縫合針照片，彎曲弧度較大的粗針">
-          <div class="figure-caption">Flessa縫合針 Flessa Needle<br>弧度較大的粗針，常用於陰道／外陰周邊較厚實組織的縫合。</div>
+          <div class="figure-caption">Flessa縫合針 Flessa Needle<br>講義只有圖。共筆把它記為「緊急瘤胃鼓脹時戳開放氣」；舊版頁面寫「陰道外陰縫合用粗針」。兩種說法來源都不明確，⚠ 待確認（看圖較像帶尖端的套管針）。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=39">p.39</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/vulva_sutures.png" alt="外陰縫合器械照片">
-          <div class="figure-caption">外陰縫合器械 Vulva Sutures<br>預防性外陰縫合（如Caslick氏手術）常用於外陰閉合不全的母馬，避免氣吸性陰道炎（pneumovagina）。</div>
+          <div class="figure-caption">外陰縫合器械 Vulva Sutures<br>外陰固定扣（金屬片與兩端有扣的栓），<strong>穿過陰唇</strong>固定，防止子宮、陰道脫出。（舊版寫成母馬 Caslick 手術，與老師說明不符，已更正。）</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=40">p.40</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
       </div>
 
@@ -297,23 +365,28 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/uterine_catheter.png" alt="子宮導管照片，長軟管附前端開口">
-          <div class="figure-caption">子宮導管 Uterine Catheter<br>經子宮頸將導管深入子宮腔進行灌洗給藥（如子宮內膜炎治療）。</div>
+          <div class="figure-caption">子宮導管 Uterine Catheter<br>洗子宮的導管；共筆：洗子宮<strong>不會</strong>幫助受孕或發情（老師引 1997 年文獻），但對陰道、子宮頸撕裂傷的灌洗有幫助。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=41">p.41</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/swab_catheter_biopsy_catheter.png" alt="拭子導管與子宮切片導管照片">
-          <div class="figure-caption">拭子導管與子宮切片導管 Swab Catheter, Uterine Biopsy Catheter<br>子宮內採樣供細菌培養或組織病理檢查，診斷子宮內膜炎或評估子宮健康狀態。</div>
+          <div class="figure-caption">拭子導管與子宮切片導管 Swab Catheter, Uterine Biopsy Catheter<br>子宮拭子與子宮切片採樣；現在多用一次性拋棄式，因為滅菌困難。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=42">p.42</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/cervix_forceps.png" alt="子宮頸鉗照片，長柄環狀夾合器械">
-          <div class="figure-caption">子宮頸鉗 Cervix Forceps<br>固定牽引子宮頸，利於子宮內操作（如導管置入、子宮頸擴張）時的穩定定位。</div>
+          <div class="figure-caption">子宮頸鉗 Cervix Forceps<br>伸入夾住子宮頸，人工授精時配合開膣器使用。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=43">p.43</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
-          <img src="img/week05_手術器械/uterine_pump.png" alt="子宮灌洗幫浦照片，注射筒式幫浦附長軟管">
-          <div class="figure-caption">子宮灌洗幫浦 Uterine Pump<br>將灌洗液體注入子宮腔，用於子宮沖洗治療或人工授精前的子宮準備。</div>
+          <img src="img/week05_手術器械/uterine_pump.png" alt="子宮幫浦（打人工羊水）照片，注射筒式幫浦附長軟管">
+          <div class="figure-caption">子宮幫浦 Uterine Pump<br><strong>打人工羊水</strong>用：難產時羊水快流乾，灌入潤滑液恢復潤滑（雖然大部分還是會流掉）。（舊版寫成子宮灌洗，已依老師說明更正。）</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=44">p.44</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/uterine_holding_forceps.png" alt="子宮固定鉗照片，長柄環形夾具兩支">
-          <div class="figure-caption">子宮固定鉗 Uterine Holding Forceps<br>剖腹手術中固定子宮組織，方便術者操作而不需持續徒手扶持。</div>
+          <div class="figure-caption">子宮固定鉗 Uterine Holding Forceps<br>子宮鉗，前端是軟橡皮，防止夾破子宮；用於<strong>剖腹產</strong>，也可當腸胃道手術的腸鉗。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=45">p.45</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
       </div>
 
@@ -321,15 +394,18 @@
       <div class="grid-2">
         <div class="figure">
           <img src="img/week05_手術器械/spare_canula_screw_trocar.png" alt="備用套管與螺旋套管針照片">
-          <div class="figure-caption">備用套管與螺旋套管針 Spare Canula, Screw Trocar<br>瘤胃穿刺放氣（治療急性瘤胃鼓脹）或建立暫時性通道給藥，螺旋設計利於固定於瘤胃壁上。</div>
+          <div class="figure-caption">備用套管與螺旋套管針 Spare Canula, Screw Trocar<br>上：套管，瘤胃鼓脹緊急時插入瘤胃放氣，小心內容物流出造成感染；下：<strong>螺旋套管針</strong>，皮膚先切約 2 cm，旋轉插入可把瘤胃與皮膚固定在一起，拔掉中間的針後內容物不會流進腹腔。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=46">p.46</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/rumen_holding_forceps.png" alt="瘤胃固定鉗兩款不同齒狀夾頭照片">
-          <div class="figure-caption">瘤胃固定鉗 Rumen Holding Forceps<span class="tag tag-exam" style="margin-left:6px;">重要</span><br>瘤胃切開術（rumenotomy）中夾持固定瘤胃壁邊緣，避免瘤胃內容物污染腹腔，是<a href="week03_腹腔手術.html">腹腔手術章節</a>提到的瘤胃切開術實際會用到的器械。</div>
+          <div class="figure-caption">瘤胃固定鉗 Rumen Holding Forceps<span class="tag tag-exam" style="margin-left:6px;">重要</span><br>瘤胃固定鉗，瘤胃切開／開窗手術時夾住瘤胃壁（見腹腔手術頁）。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=47">p.47</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
         <div class="figure">
           <img src="img/week05_手術器械/stomach_tube.png" alt="胃管照片，透明軟管與紅色硬質前端兩款">
-          <div class="figure-caption">胃管 Stomach Tube<br>經口投予液體藥劑或大量灌注液、瘤胃脹氣減壓，屬於非侵入性處置工具，不需要手術即可使用。</div>
+          <div class="figure-caption">胃管 Stomach Tube<br>胃管：經口灌藥、灌瘤胃液、瘤胃脹氣減壓；非侵入性處置。</div>
+          <div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/手術器械.pdf#page=48">p.48</a>；說明依 B06 共筆（2020 許凱程老師）</div>
         </div>
       </div>
 
@@ -419,6 +495,101 @@
         </details>
       </div>
 
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 難產時羊水快流乾、產道乾澀，要灌入人工羊水恢復潤滑，講義中用的是哪一件器械？</div>
+        <ul class="quiz-options">
+          <li>(A) Uterine pump</li>
+          <li>(B) Uterine catheter</li>
+          <li>(C) Drencher</li>
+          <li>(D) Swab catheter</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">Uterine pump（<a class="pdf-link" href="pdf/手術器械.pdf#page=44">p.44</a>）依老師上課說明是打人工羊水用；uterine catheter（<a class="pdf-link" href="pdf/手術器械.pdf#page=41">p.41</a>）是洗子宮，drencher（<a class="pdf-link" href="pdf/手術器械.pdf#page=13">p.13</a>）是經口灌藥（共筆）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 子宮捻轉時，用來把胎兒（連同子宮）轉回正確位置的器械是？</div>
+        <ul class="quiz-options">
+          <li>(A) Sharp eye hook</li>
+          <li>(B) Torsion fork</li>
+          <li>(C) Crutch</li>
+          <li>(D) Ring knife</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">Torsion fork（<a class="pdf-link" href="pdf/手術器械.pdf#page=29">p.29</a> 下方）。Crutch（<a class="pdf-link" href="pdf/手術器械.pdf#page=28">p.28</a>）是把胎兒推回去調整胎位；sharp eye hook 鉤眼窩牽引死胎；ring knife 戴在手指上劃開死胎皮膚。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. 用 emasculator 為較大的公牛去勢時，精索夾碎切斷後還要再用縫線結紮精索。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer false">答案：FALSE</div>
+          <p class="quiz-explain">共筆：夾住精索與血管一兩分鐘使其壞死、刀片切斷，因為精索太粗綁不住，所以不另外結紮。（豬的大公豬去勢則用 transfix ligature，見縫合頁與豬去勢講義。）</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 乳牛子宮或陰道脫出整復後，為防止再脫出，下列哪一組器械會用到？</div>
+        <ul class="quiz-options">
+          <li>(A) Surgical tape、suture needle、vulva sutures</li>
+          <li>(B) Hoof tester、hoof knife</li>
+          <li>(C) Artificial vagina、vaginal speculum</li>
+          <li>(D) Screw trocar、spare canula</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">寬棉帶（surgical tape）配大針做外陰荷包縫合（<a class="pdf-link" href="pdf/手術器械.pdf#page=38">p.38</a>），或用外陰固定扣（vulva sutures，<a class="pdf-link" href="pdf/手術器械.pdf#page=40">p.40</a>）穿過陰唇固定（共筆）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10.（共筆）小牛去角，下列配對何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 燒烙法：一月齡以內，先給麻醉＋NSAID</li>
+          <li>(B) 燒烙法：六月齡以上，不需麻醉</li>
+          <li>(C) 苛性鈉：三月齡以上，塗在角的尖端</li>
+          <li>(D) 苛性鈉：不需剃毛，塗完不需止痛</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">燒烙一月齡內、麻醉＋NSAID、碗狀前端貼角基生長點；苛性鈉 1–2 週齡、剃毛後塗在生長點、配合 NSAID。</p>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q11. 為什麼馬用鼻捻（twitch）而牛用鼻鉗（nose holder）？</div>
+        <ul class="quiz-options">
+          <li>(A) 馬有上門齒、咬合力強且較兇，需要較強的固定；牛沒有上門齒、口鼻肌肉較弱</li>
+          <li>(B) 牛的鼻中隔較厚，鼻捻夾不住</li>
+          <li>(C) 馬的鼻孔較小，放不進鼻鉗</li>
+          <li>(D) 兩者可以互換，只是習慣不同</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">共筆（<a class="pdf-link" href="pdf/手術器械.pdf#page=12">p.12</a> 的說明）。</p>
+        </details>
+      </div>
+
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week05_%E6%89%8B%E8%A1%93%E5%99%A8%E6%A2%B0" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
       <footer class="note-footer">
         練習題涵蓋本頁各章節重點，答案與解析僅供自我複習參考，不作為正式臨床操作依據。若對某題有疑問，建議回到對應章節重新閱讀完整脈絡。
       </footer>
@@ -541,6 +712,53 @@ function doSearch(q) {
   input.classList.add('has-results');
 }
 </script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
 <script src="../../assets/nav-data.js"></script>
 <script src="../../assets/nav.js"></script>
 <script>

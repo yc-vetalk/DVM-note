@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大動物外科：豬的麻醉與去勢 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">大動物外科手術及實習</a><span class="sep">›</span><span class="current">豬的麻醉與去勢</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">豬的麻醉與去勢 Practical Swine Anesthesia and Castration Techniques</h1>
+      <p class="page-subtitle">豬看起來壯，其實很難麻醉：體重估不準、皮下脂肪厚、只能打耳靜脈、插管困難、容易失溫與嘔吐；術前用藥、注射與吸入麻醉、監測、併發症，以及大動物去勢的封閉式、開放式與 Burdizzo</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">大動物外科手術及實習（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《大動物外科學》課程講義〈Practical Swine Anesthesia and Castration Techniques〉（余品奐老師）；B06 共筆（2020.11.25 余品奐老師〈豬的麻醉〉〈大動物絕育〉）補充老師口述</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-28</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/豬麻醉與去勢.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week07_%E8%B1%AC%E9%BA%BB%E9%86%89%E8%88%87%E5%8E%BB%E5%8B%A2">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">豬的麻醉</div>
+    <a onclick="showSection('problems')" id="nav-problems"><span class="nav-icon">🐖</span> 豬麻醉的難處</a>
+    <a onclick="showSection('premed')" id="nav-premed"><span class="nav-icon">💤</span> 鎮靜與術前給藥</a>
+    <a onclick="showSection('injectable')" id="nav-injectable"><span class="nav-icon">💉</span> 注射麻醉藥</a>
+    <a onclick="showSection('inhalant')" id="nav-inhalant"><span class="nav-icon">🌬️</span> 吸入麻醉與惡性高熱</a>
+    <a onclick="showSection('monitor')" id="nav-monitor"><span class="nav-icon">📈</span> 麻醉監測</a>
+    <a onclick="showSection('pain')" id="nav-pain"><span class="nav-icon">🩹</span> 疼痛管理</a>
+    <a onclick="showSection('complications')" id="nav-complications"><span class="nav-icon">⚠️</span> 麻醉流程與併發症</a>
+    <div class="section-label" style="margin-top:8px;">去勢</div>
+    <a onclick="showSection('castration')" id="nav-castration"><span class="nav-icon">✂️</span> 大動物去勢</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 比較與考試方向</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week07_%E8%B1%AC%E9%BA%BB%E9%86%89%E8%88%87%E5%8E%BB%E5%8B%A2" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">豬麻醉與去勢的大方向</div>
+        <dl>
+          <dt>這堂課在講什麼</dt>
+          <dd>余品奐老師的講義分兩部分：<strong>① 豬的麻醉</strong>（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=1">p.1–22</a>）——豬在實驗室、牧場、寵物豬都會需要麻醉，但「<strong>豬沒有你想的那麼耐操（Pigs are not as tough as you think）</strong>」；<strong>② 去勢技術</strong>（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=23">p.23–29</a>，只有圖）——公牛、公羊、公馬、公豬的生殖構造差異，封閉式與開放式去勢、Burdizzo 經皮去勢。</dd>
+          <dt>為什麼重要</dt>
+          <dd>豬麻醉的<strong>併發症率非常高</strong>：一份 27 頭迷你豬的研究中，換氣不足 67%、低血壓 64%、低體溫 48%、心搏過慢 28%、恢復延遲 22%，遠高於犬貓（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=19">p.19–20</a>）。原因幾乎都來自豬的<strong>身體構造</strong>：皮下脂肪厚、氣道窄、毛少易失溫。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-problems">五大難處</a>：體重估不準、難保定、<strong>皮下脂肪 4 cm</strong>（要用 <strong>18G、1.5 吋針打頸部肌肉</strong>）、<strong>只有耳靜脈</strong>可用、<strong>插管困難</strong>（仰躺讓咽部組織「掉開」）、<strong>容易失溫</strong>、容易嘔吐要<strong>禁食至少 6 小時，理想 12 小時</strong>。</li>
+              <li><a href="#section-premed">鎮靜</a>：acepromazine 會血管擴張 → 低體溫；benzodiazepine 搭 ketamine；α2 致效劑在豬<strong>不如反芻動物強效</strong>、會嘔吐；短吻品種要插管。</li>
+              <li><a href="#section-injectable">注射麻醉</a>：ketamine（止痛好、心血管影響小，但<strong>大量流涎、恢復躁動</strong>）；alfaxalone（短、約 15 分鐘）；propofol（只能 IV、<strong>呼吸抑制 → 必須插管</strong>）。</li>
+              <li><a href="#section-inhalant">吸入麻醉</a>：halothane、isoflurane；某些品系（迷你豬）有遺傳性的<strong>惡性高熱</strong>，用 <strong>dantrolene 2–10 mg/kg IV</strong> 治療。</li>
+              <li><a href="#section-monitor">監測</a>：豬<strong>容易心律不整</strong>（α2、halothane）；麻醉深度看 <strong>jaw tone 最可靠</strong>；肺怕過度通氣（氣壓傷）：<strong>18–22 cmH₂O、潮氣容積 5–10 mL/kg、EtCO₂ 40–50 mmHg、12–15 次／分</strong>；術後每 15 分鐘監測到翻正反射恢復。</li>
+              <li><a href="#section-castration">去勢</a>：封閉式（不切開總鞘膜，transfix 結紮）vs. 開放式（切開總鞘膜，要防陰囊疝氣）；Burdizzo 只能用在<strong>睪丸下垂</strong>的牛羊，兩側<strong>錯開高度</strong>各夾一次。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>Atropine 的兩個劑量</strong>：術前給藥範例 0.025 mg/kg（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=19">p.19</a>），處理大量分泌物 0.02–0.04 mg/kg（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=21">p.21</a>）。<strong>正壓通氣壓力</strong>：講義寫 18–22 cmH₂O，老師上課說他實際用 10–12 cmH₂O（共筆）。<strong>封閉式 vs. 開放式</strong>：差別在有沒有切開包住精索的那層膜（共筆稱「白膜」，即總鞘膜 common vaginal tunic）。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>豬麻醉的困難與對策（體重、注射、靜脈、插管、體溫、禁食）；各鎮靜與麻醉藥在豬的優缺點；惡性高熱的症狀與治療；監測的數值（通氣壓、潮氣容積、EtCO₂、呼吸次數）；最可靠的麻醉深度指標；豬麻醉的常見併發症與比例；去勢方法比較、Burdizzo 為什麼要錯開高度。余品奐老師期中題目每年換、要真的懂（見反芻與大外考古）。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以余品奐老師講義為主體（講義多為關鍵字，p.N 連到右側講義）。藍框「余品奐老師上課補充（共筆）」取自 B06 共筆（2020 年同一位老師講同一主題），解釋講義關鍵字背後的原因；講義第 23–29 頁的去勢只有圖，文字說明以共筆為主。標「補充」的是講義與共筆都沒有的延伸。圖片為老師講義截圖。劑量為講義表格所列（多出自歐洲教科書），講義也註明這些藥在豬多數未取得許可。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-node">估體重、保定<br>禁食 6–12 h</div><div class="flow-arrow">→</div>
+        <div class="flow-node">鎮靜／前驅<br>深部 IM（頸部、18G 1.5″）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">倒下後上耳靜脈<br>誘導（ketamine／propofol）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">仰躺插管<br>維持（isoflurane）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">監測：ECG、jaw tone<br>通氣、體溫</div><div class="flow-arrow">→</div>
+        <div class="flow-node">術後每 15 分鐘<br>到翻正反射恢復</div>
+      </div>
+    </div>
+
+    <!-- PROBLEMS -->
+    <div class="section" id="section-problems">
+      <div class="section-head"><div class="section-num">2</div><h2>豬麻醉的難處 Problems, Peculiarities and Practicalities<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">每一個難處都來自豬的身體構造，記的時候把「問題 → 原因 → 對策」連起來（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=3">p.3–7</a>）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">問題</th><th>講義重點</th><th>對策與老師說明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>體重</strong></td><td>體型差異大、經驗不足、難以準確測量</td><td>目測不準、牧場沒有磅秤；體重錯，劑量就算錯（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=3">p.3</a> 圖為吊秤）</td></tr>
+            <tr><td><strong>保定</strong></td><td>沒地方可抓、力氣大、不願被碰、會尖叫</td><td><strong>Pig board</strong>（用板子把豬逼到牆角打針）、<strong>snare</strong>（套索套上顎，豬會不舒服）</td></tr>
+            <tr><td><strong>給藥</strong></td><td><strong>皮下脂肪 4 cm</strong>；體重常低估；打進脂肪 → 血流差、吸收慢</td><td>用 <strong>18G、1.5 吋（3.75 cm）針</strong>，打<strong>頸部肌肉</strong>（深部 IM）。打到脂肪 → 豬很慢才倒 → 以為不夠一直追加 → 醒不來（共筆）</td></tr>
+            <tr><td><strong>靜脈</strong></td><td>不容易取得，用<strong>耳靜脈</strong>（auricular vein）</td><td>誘導倒下後才上針；耳朵軟組織少，失敗會明顯血腫，通常只有<strong>左右耳各一次機會</strong>；年輕豬肚皮有時看得到血管（共筆）</td></tr>
+            <tr><td><strong>插管</strong></td><td><strong>聲門窄、軟顎長、臉頰肉厚、下顎角窄</strong></td><td><strong>仰躺</strong>讓過多的咽部組織「掉開」露出聲門；要用很長的喉頭鏡，可用 blade 直接壓會厭；管子粗會擋視線，先放細的導引條（guide）再沿著放管（共筆）</td></tr>
+            <tr><td><strong>體溫</strong></td><td>易低體溫：皮下脂肪多但毛少、四肢散熱、幼豬；維持 &gt; 36°C</td><td>豬皮膚粉紅＝微血管多，一擴張散熱就快；水泥地更容易失溫（共筆）</td></tr>
+            <tr><td><strong>禁食</strong></td><td>會嘔吐；<strong>至少 6 小時，理想 12 小時</strong></td><td>老師實際禁食 12 小時甚至 24 小時；聰明的豬會偷吃，要跟飼主再三確認（共筆）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p004.jpg" alt="給藥：皮下脂肪厚，用 18G、1.5 吋針打頸部肌肉。" loading="lazy"><div class="figure-caption">給藥：皮下脂肪厚，用 18G、1.5 吋針打頸部肌肉。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=4">p.4</a></div></div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p005.jpg" alt="靜脈：耳靜脈（auricular vein）是主要的靜脈通路。" loading="lazy"><div class="figure-caption">靜脈：耳靜脈（auricular vein）是主要的靜脈通路。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=5">p.5</a></div></div>
+      </div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p006.jpg" alt="插管：聲門窄、軟顎長；右圖示意喉頭鏡與氣管內管的操作。仰躺時咽部組織會往下掉開，較容易看到聲門。" loading="lazy"><div class="figure-caption">插管：聲門窄、軟顎長；右圖示意喉頭鏡與氣管內管的操作。仰躺時咽部組織會往下掉開，較容易看到聲門。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=6">p.6</a></div></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意：講義與共筆的針號</div>
+        <p>講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=4">p.4</a> 寫 <strong>18 gauge</strong>、1.5 吋（3.75 cm）；共筆寫成「8 gauge」，應為筆誤，以講義為準。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=2">p.2–7</a>；B06 共筆（余品奐老師）。</footer>
+    </div>
+
+    <!-- PREMED -->
+    <div class="section" id="section-premed">
+      <div class="section-head"><div class="section-num">3</div><h2>鎮靜與術前給藥 Sedation and Premedication<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">什麼時候只鎮靜就好、各類鎮靜藥在豬的問題（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=8">p.8–9</a>）。</p>
+      <h3>適應症</h3>
+      <ul>
+        <li><strong>小手術</strong>（minor procedures）</li>
+        <li><strong>短吻品種</strong>（brachycephalic breeds）、<strong>呼吸道阻塞</strong>的考量</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）：短吻迷你豬一定要插管</div>
+        <p>短時間、輕微疼痛的處置可以用深度鎮靜加 isoflurane 取代完整麻醉；但<strong>短吻迷你豬</strong>（例如蘭嶼迷你豬）短吻、會厭長，不插管容易呼吸中止，所以<strong>即使是小手術也一定要插管</strong>。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">藥物類別</th><th>講義</th><th>老師說明（共筆）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Phenothiazine</strong>：acepromazine</td><td><strong>血管擴張 → 低體溫風險</strong></td><td>便宜、老藥；豬本來就容易失溫，雪上加霜</td></tr>
+            <tr><td><strong>Benzodiazepine</strong>：midazolam、diazepam</td><td>與 <strong>ketamine 合用</strong></td><td>作用在 GABA 受體：鎮靜、抗焦慮、抗痙攣、<strong>中樞性肌肉鬆弛</strong>（插管較容易），補 ketamine 不能鬆弛肌肉的缺點。常用 <strong>Zoletil</strong>（zolazepam＋tiletamine）加 α2 致效劑</td></tr>
+            <tr><td><strong>α2 致效劑</strong>：xylazine、medetomidine、dexmedetomidine</td><td><strong>效力不如在反芻動物</strong>；會<strong>嘔吐</strong></td><td>草食動物對 α2 很敏感，豬相對不敏感，要較高劑量；會吐，所以禁食很重要</td></tr>
+          </tbody>
+        </table>
+      </div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p009.jpg" alt="講義表格：豬常用的鎮靜藥劑量與途徑（下表為整理）。" loading="lazy"><div class="figure-caption">講義表格：豬常用的鎮靜藥劑量與途徑（下表為整理）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=9">p.9</a></div></div>
+      <h3>講義表格：豬常用鎮靜藥<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>劑量</th><th>途徑</th></tr></thead>
+          <tbody>
+            <tr><td>Azaperone</td><td>1–8 mg/kg</td><td>深部 IM</td></tr>
+            <tr><td>Azaperone＋ketamine</td><td>1 mg/kg＋5 mg/kg</td><td>一起深部 IM</td></tr>
+            <tr><td>Azaperone＋ketamine＋butorphanol</td><td>1–2＋5＋0.1–0.2 mg/kg</td><td>一起深部 IM</td></tr>
+            <tr><td>Acepromazine</td><td>0.03–0.1 mg/kg</td><td>深部 IM</td></tr>
+            <tr><td>Acepromazine＋ketamine</td><td>0.03–0.05＋5 mg/kg</td><td>一起深部 IM</td></tr>
+            <tr><td>Midazolam</td><td>0.1–0.5 mg/kg</td><td>深部 IM 或 IV</td></tr>
+            <tr><td>Midazolam＋ketamine</td><td>0.2＋5 mg/kg</td><td>一起深部 IM</td></tr>
+            <tr><td>Diazepam</td><td>0.5–2 mg/kg IV；1–10 mg/kg 深部 IM</td><td>IV 或深部 IM</td></tr>
+            <tr><td>Diazepam＋ketamine</td><td>2＋5–10 mg/kg</td><td>IV，之後 IV 給到有效</td></tr>
+            <tr><td>Xylazine＋ketamine＋butorphanol</td><td>1–3＋5＋0.1–0.2 mg/kg</td><td>一起深部 IM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 講義表格註明：表中藥物都沒有取得豬的使用許可（依歐盟法規）。Azaperone 講義只出現在表格中，沒有文字說明。</p>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=8">p.8–9</a>；B06 共筆。</footer>
+    </div>
+
+    <!-- INJECTABLE -->
+    <div class="section" id="section-injectable">
+      <div class="section-head"><div class="section-num">4</div><h2>注射麻醉藥 Injectable Anesthetics<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">三種藥各有一個在豬特別要注意的缺點（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=10">p.10–12</a>）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">藥物</th><th>講義</th><th>老師說明（共筆）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ketamine</strong></td><td>有止痛效果；心血管影響小；<strong>大量流涎</strong>；<strong>恢復期躁動（rough recovery）</strong></td><td>口水多又黏，會塞住氣管、甚至在氣管內管內形成栓子 → 插管前要先用棉棒把喉頭口水清乾淨；恢復時躁動、爬不起來（划水動作），容易受傷</td></tr>
+            <tr><td><strong>Alfaxalone</strong></td><td>小手術；約 <strong>15 分鐘</strong>麻醉；心血管抑制；呼吸影響小</td><td>IV、SC、IM 都可以；代謝快；貴；心跳變慢；IV 會有呼吸抑制（IM 相對不會）</td></tr>
+            <tr><td><strong>Propofol</strong></td><td><strong>只能 IV</strong>；<strong>呼吸抑制</strong>；<strong>一定要插管</strong></td><td>豬的靜脈要先倒下才上得了，所以通常不用 propofol 做第一步的誘導</td></tr>
+          </tbody>
+        </table>
+      </div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p010.jpg" alt="講義表格：豬常用的注射麻醉藥（下表為整理）。" loading="lazy"><div class="figure-caption">講義表格：豬常用的注射麻醉藥（下表為整理）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=10">p.10</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>劑量</th><th>途徑</th><th>止痛</th><th>心血管抑制</th><th>呼吸抑制</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ketamine</strong></td><td>10–20 mg/kg</td><td>IM、IV</td><td>好</td><td>極小</td><td>誘導時短暫</td></tr>
+            <tr><td>Thiopental</td><td>5–15 mg/kg</td><td>IV</td><td>極小</td><td>有</td><td>有</td></tr>
+            <tr><td>Pentobarbital</td><td>5–15 mg/kg</td><td>IV</td><td>極小</td><td>輕微</td><td>輕微</td></tr>
+            <tr><td><strong>Alfadolone／alfaxalone</strong></td><td>2–6 mg/kg</td><td>IV、IM</td><td>一些</td><td>輕微</td><td>輕微</td></tr>
+            <tr><td><strong>Propofol</strong></td><td>6–8 mg/kg</td><td>IV</td><td>無</td><td>有</td><td>有</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">換算練習（自己依講義數字算的示意）</div>
+        <p>一頭 80 kg 的肉豬用 ketamine 10–20 mg/kg IM → 800–1600 mg；若用 100 mg/mL 的製劑（題目設定），是 8–16 mL。打這麼大的量更要確定打進<strong>頸部肌肉</strong>而不是脂肪。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=10">p.10–12</a>；B06 共筆。</footer>
+    </div>
+
+    <!-- INHALANT -->
+    <div class="section" id="section-inhalant">
+      <div class="section-head"><div class="section-num">5</div><h2>吸入麻醉與惡性高熱 Inhalational Anesthetics<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">吸入麻醉要有設備（多在手術室，戶外通常做不到）；要記的是<strong>遺傳性的惡性高熱</strong>（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=13">p.13</a>）。</p>
+      <ul>
+        <li>藥物：<strong>halothane</strong>、<strong>isoflurane</strong></li>
+        <li>某些品系有<strong>遺傳</strong>傾向，講義特別提到<strong>迷你豬</strong></li>
+      </ul>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p013.jpg" alt="惡性高熱（malignant hyperthermia）：罕見但嚴重的併發症，症狀與治療。" loading="lazy"><div class="figure-caption">惡性高熱（malignant hyperthermia）：罕見但嚴重的併發症，症狀與治療。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=13">p.13</a></div></div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">症狀（講義）</div>
+          <ul>
+            <li>肌肉僵直（常造成腳趾分開）</li>
+            <li>眼外肌張力增加 → <strong>眼球深陷</strong></li>
+            <li>皮膚很燙、粉紅斑駁；黏膜很紅</li>
+            <li>呼吸急促、心跳過速、<strong>體溫上升</strong></li>
+            <li>若有 capnography：<strong>EtCO₂ 快速上升</strong></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">治療（講義）</div>
+          <ul>
+            <li><strong>停掉吸入麻醉藥並更換迴路</strong>，不讓殘留藥進入</li>
+            <li>快速通氣</li>
+            <li>IV 給冷的輸液</li>
+            <li>結腸灌洗（水管插入直腸）</li>
+            <li>皮膚放冰袋、塗酒精</li>
+            <li><strong>Dantrolene 2–10 mg/kg IV</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）</div>
+        <p>Halothane 是老藥，惡性高熱發生率高；isoflurane 較低。早期：全身高熱、皮膚黏膜潮紅、呼吸急促、心跳快、EtCO₂ 上升；晚期：抽筋、肌肉僵直。關掉吸入麻醉可改善，但若體溫太高、降溫無效，就要<strong>馬上讓動物甦醒</strong>。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充（非講義）</div>
+        <p>豬的惡性高熱與<strong>豬緊迫症候群（porcine stress syndrome, PSS）</strong>同源，和骨骼肌鈣離子釋放通道（ryanodine receptor 1, RYR1）基因突變有關（俗稱 halothane gene）；dantrolene 的作用是抑制肌漿網釋放鈣離子。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=13">p.13</a>；B06 共筆；補充另標。</footer>
+    </div>
+
+    <!-- MONITOR -->
+    <div class="section" id="section-monitor">
+      <div class="section-head"><div class="section-num">6</div><h2>麻醉監測 Monitor<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">心律、麻醉深度、通氣、術後四個面向（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=14">p.14–17</a>）。</p>
+      <h3>心臟監測</h3>
+      <ul>
+        <li>豬<strong>容易心律不整</strong>，尤其用了 <strong>α2 致效劑、halothane</strong></li>
+        <li><strong>農場豬比迷你豬</strong>更容易</li>
+        <li>監測：<strong>ECG、血氣、脈搏血氧</strong></li>
+      </ul>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p014.jpg" alt="心肺急救藥物表（講義引用的 Table 2.1 Cardiopulmonary Emergency Drugs）。" loading="lazy"><div class="figure-caption">心肺急救藥物表（講義引用的 Table 2.1 Cardiopulmonary Emergency Drugs）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=14">p.14</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）</div>
+        <p>α2 致效劑造成周邊血管收縮，可用 <strong>atipamezole</strong> 拮抗；豬的血氧數值容易亂跳，老師會直接用聽診器聽心律。</p>
+      </div>
+      <h3>麻醉深度</h3>
+      <ul>
+        <li>心跳、血壓（沒有心律不整時才有參考價值——共筆）</li>
+        <li>肌肉反射：<strong>jaw tone（下顎張力）最可靠</strong></li>
+        <li>眼反射：豬眼小、不太動，不好評估；老師用<strong>角膜反射</strong>（看眼球有沒有往後縮，不是看眨眼）（共筆）</li>
+      </ul>
+      <h3>通氣</h3>
+      <p>豬的肺<strong>對過度通氣很敏感</strong>：壓力太高 → 肺泡破裂 → <strong>肺氣腫（emphysema）</strong>、<strong>氣胸（pneumothorax）</strong>。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>參數</th><th>講義數值</th></tr></thead>
+          <tbody>
+            <tr><td>通氣壓力（ventilatory pressure）</td><td><strong>18–22 cmH₂O</strong>（老師實際用 10–12 cmH₂O，共筆）</td></tr>
+            <tr><td>潮氣容積（tidal volume）</td><td><strong>5–10 mL/kg</strong></td></tr>
+            <tr><td>呼氣末二氧化碳（EtCO₂）</td><td><strong>40–50 mmHg</strong></td></tr>
+            <tr><td>呼吸次數</td><td><strong>12–15 次／分</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p016.jpg" alt="豬插管後的通氣監測。" loading="lazy"><div class="figure-caption">豬插管後的通氣監測。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=16">p.16</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）</div>
+        <p>手動正壓通氣比機器好：肺快漲破時操作者感覺得到，可以馬上調整。</p>
+      </div>
+      <h3>術後</h3>
+      <p>監測心跳、<strong>體溫</strong>等，<strong>每 15 分鐘</strong>一次，直到<strong>翻正反射（righting reflex）</strong>恢復（豬能自己站起來）；體溫是重點（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=17">p.17</a>）。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">換算練習（自己依講義數字算的示意）</div>
+        <p>一頭 60 kg 的豬，潮氣容積 5–10 mL/kg → <strong>300–600 mL</strong>；呼吸 12–15 次／分 → 每分鐘通氣量約 3.6–9 L。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=14">p.14–17</a>；B06 共筆。</footer>
+    </div>
+
+    <!-- PAIN -->
+    <div class="section" id="section-pain">
+      <div class="section-head"><div class="section-num">7</div><h2>疼痛管理 Pain Management<span class="lv lv-know">理解</span></h2></div>
+      <p class="section-desc">豬的止痛<strong>很少被重視</strong>（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=18">p.18</a>）。</p>
+      <ul>
+        <li>常被忽略，尤其是<strong>仔豬</strong>（被認為痛苦很小）</li>
+        <li>止痛效果的評估<strong>變異很大</strong></li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>豬可用的 NSAID（講義表格）</th><th>劑量</th><th>途徑</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Meloxicam</strong></td><td>0.4 mg/kg</td><td>IM</td></tr>
+            <tr><td><strong>Ketoprofen</strong></td><td>3 mg/kg</td><td>深部 IM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">余品奐老師上課補充（共筆）</div>
+        <p>NSAID 以外的止痛藥在豬資訊很少，多半參考犬貓用法（例如不要在脫水時用 NSAID、注意腎臟與消化道副作用），但實際影響不清楚。這段的重點是：<strong>豬的動物福利還沒有被好好重視</strong>。</p>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=18">p.18</a>；B06 共筆。</footer>
+    </div>
+
+    <!-- COMPLICATIONS -->
+    <div class="section" id="section-complications">
+      <div class="section-head"><div class="section-num">8</div><h2>實際流程與併發症 Complications<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">講義引用 Trim 與 Braun 對 27 頭越南大肚豬（Vietnamese potbellied pigs, 1999–2006）的研究（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=19">p.19–21</a>）。</p>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p019.jpg" alt="研究中使用的術前給藥與誘導組合。" loading="lazy"><div class="figure-caption">研究中使用的術前給藥與誘導組合。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=19">p.19</a></div></div>
+      <h3>研究使用的流程</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階段</th><th>組合與劑量</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><strong>術前給藥</strong></td><td>Butorphanol 0.18 mg/kg ＋ atropine 0.025 mg/kg ＋ midazolam 0.2 mg/kg</td></tr>
+            <tr><td>Xylazine 0.6 mg/kg 或 medetomidine 0.01 mg/kg ＋ butorphanol ＋ atropine</td></tr>
+            <tr><td>Zoletil 3.7 mg/kg ＋ butorphanol</td></tr>
+            <tr><td><strong>誘導</strong></td><td>Ketamine 或 propofol</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 老師上課說這些藥物組合「不需要記，知道是常用的藥就好」（共筆）。</p>
+      <h3>併發症比例：豬 vs. 犬貓</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>豬（27 頭）</th><th>犬貓（另一篇研究）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>換氣不足 67%</strong></td><td>低血壓：犬 7%、貓 8.5%</td></tr>
+            <tr><td><strong>低血壓 64%</strong></td><td>心律不整：犬 2.5%、貓 1.8%</td></tr>
+            <tr><td><strong>低體溫 48%</strong></td><td>高碳酸血症：犬 1.3%、貓 &lt; 1%</td></tr>
+            <tr><td>心搏過慢 28%</td><td>低血氧：犬 0.5%</td></tr>
+            <tr><td>恢復延遲 22%</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>豬的換氣不足、低血壓、低體溫<strong>與使用的注射麻醉藥無關</strong>——是豬本身的問題。</p>
+      <h3>併發症的原因與處理（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=21">p.21</a>）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>併發症</th><th>原因</th><th>處理</th></tr></thead>
+          <tbody>
+            <tr><td><strong>換氣不足</strong></td><td>肌肉與脂肪壓迫；大肚豬缺乏喉部內收（laryngeal adduction）</td><td>插管、正壓通氣（共筆：不好插管、軟顎後壓也是原因）</td></tr>
+            <tr><td><strong>插管後呼吸暫停</strong></td><td>propofol 的作用（?）；<strong>喉痙攣在豬很容易誘發</strong>（貓也有喉部刺激後呼吸暫停的報告）</td><td>共筆：給正壓通氣改善</td></tr>
+            <tr><td><strong>大量分泌物</strong></td><td>在豬很容易發生</td><td><strong>Atropine 0.02–0.04 mg/kg</strong>，或 <strong>glycopyrrolate 0.005–0.01 mg/kg</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success">
+        <div class="alert-label">結論（講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=22">p.22</a>）</div>
+        <ul>
+          <li>需要<strong>平衡麻醉（balanced anesthesia）</strong></li>
+          <li><strong>豬沒有你想的那麼耐操</strong>：併發症率高；大多數臨床環境並不理想</li>
+          <li>止痛與麻醉藥在豬還需要更多資料</li>
+        </ul>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=19">p.19–22</a>；B06 共筆。</footer>
+    </div>
+
+    <!-- CASTRATION -->
+    <div class="section" id="section-castration">
+      <div class="section-head"><div class="section-num">9</div><h2>大動物去勢 Castration Techniques<span class="lv lv-must">必考</span></h2></div>
+      <p class="section-desc">講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=23">p.23–29</a> 只有圖，以下文字以<strong>共筆（2020 余品奐老師〈大動物絕育〉）</strong>為主。牛羊馬豬很少做卵巢子宮摘除（難度與費用太高），生育管理靠<strong>公畜去勢</strong>。</p>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p023.jpg" alt="公牛（bull）、公羊（ram）、公馬（stallion）、公豬（boar）的生殖構造：牛羊睪丸下垂在陰囊內，豬與馬的睪" loading="lazy"><div class="figure-caption">公牛（bull）、公羊（ram）、公馬（stallion）、公豬（boar）的生殖構造：牛羊睪丸下垂在陰囊內，豬與馬的睪丸較貼近體壁。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=23">p.23</a></div></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">大動物去勢要注意的事（共筆）</div>
+        <p>結紮方法與小動物大同小異，但大動物去勢後<strong>腹內壓高</strong>，臟器容易經腹股溝管脫出、掉進陰囊（<strong>疝氣</strong>）。睪丸是<strong>下垂</strong>（牛、羊）還是<strong>貼在體壁</strong>（豬、馬），決定能用哪種方法。</p>
+      </div>
+      <div class="grid-2">
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p024.jpg" alt="去勢示意：切開陰囊皮膚、擠出睪丸（仍包在總鞘膜內）。" loading="lazy"><div class="figure-caption">去勢示意：切開陰囊皮膚、擠出睪丸（仍包在總鞘膜內）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=24">p.24</a></div></div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p025.jpg" alt="封閉式與開放式：總鞘膜（common vaginal tunic）不切開或切開，於精索處結紮或以去勢鉗壓碎。" loading="lazy"><div class="figure-caption">封閉式與開放式：總鞘膜（common vaginal tunic）不切開或切開，於精索處結紮或以去勢鉗壓碎。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=25">p.25</a></div></div>
+      </div>
+      <h3>方法比較</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">方法</th><th>做法（共筆）</th><th>優點</th><th>缺點／注意</th></tr></thead>
+          <tbody>
+            <tr><td><strong>封閉式</strong></td><td>切開皮膚、擠出睪丸，<strong>不切開「白膜」</strong>（總鞘膜，與腹股溝管內襯相連、可托住腹腔臟器）；整條精索留在膜內，用 <strong>transfix</strong> 縫合結紮</td><td>不破壞總鞘膜 → 臟器不會掉進陰囊</td><td>膜很光滑堅韌，<strong>一定要用 transfix</strong>，小心縫線被推開滑脫</td></tr>
+            <tr><td><strong>開放式</strong></td><td><strong>切開白膜</strong>，看得到睪丸、副睪、精索、睪丸繫帶</td><td>不需結紮的部位（如繫帶）可分開處理；張力小、好縫、較快</td><td><strong>陰囊疝氣風險</strong> → 先把白膜固定好，結紮精索與血管後再縫合白膜</td></tr>
+            <tr><td><strong>去勢鉗（emasculator）</strong></td><td>類似封閉式，不用線，用去勢鉗把白膜連同精索、血管一起夾扁</td><td>白膜韌性抵抗血管壓力、不噴血；快、不需縫合</td><td>—</td></tr>
+            <tr><td><strong>經皮去勢鉗（Burdizzo）</strong></td><td><strong>不切開</strong>：陰囊先打局部麻醉，隔著陰囊夾斷精索</td><td>沒有傷口、感染風險小；快；只需局部麻醉</td><td><strong>只能用在睪丸下垂的牛、羊</strong>；無法確認是否成功阻斷血流；仍有整顆睪丸壞疽的風險</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p026.jpg" alt="以去勢鉗（emasculator）夾住精索。" loading="lazy"><div class="figure-caption">以去勢鉗（emasculator）夾住精索。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=26">p.26</a></div></div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p027.jpg" alt="野外去勢：保定倒臥後操作，右為取出的睪丸與止血鉗。" loading="lazy"><div class="figure-caption">野外去勢：保定倒臥後操作，右為取出的睪丸與止血鉗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=27">p.27</a></div></div>
+      </div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p028.jpg" alt="Burdizzo 去勢的夾壓位置：兩側精索錯開高度（staggered crush sites）各夾一次。" loading="lazy"><div class="figure-caption">Burdizzo 去勢的夾壓位置：兩側精索<strong>錯開高度（staggered crush sites）</strong>各夾一次。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=28">p.28</a></div></div>
+      <div class="alert alert-danger">
+        <div class="alert-label">Burdizzo：為什麼一次一側、兩側高度要錯開</div>
+        <p>如果兩側一起夾、或夾在同一高度，會把整個陰囊的血流都阻斷，造成<strong>整個陰囊壞死</strong>；目的只是阻斷<strong>睪丸</strong>的血流讓它萎縮（共筆；<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=28">p.28</a> 圖）。</p>
+      </div>
+<div class="figure"><img src="img/week07_豬麻醉與去勢/pig_p029.jpg" alt="山羊、綿羊以 Burdizzo 去勢。" loading="lazy"><div class="figure-caption">山羊、綿羊以 Burdizzo 去勢。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=29">p.29</a></div></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 大公豬精索又粗又滑，結紮要用 transfix ligature，見<a href="week01_縫合材料與結紮技術.html#section-patterns">縫合材料與結紮技術</a>；去勢鉗與無血去勢鉗的照片見<a href="week05_手術器械.html">手術器械</a>。</p>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=23">p.23–29</a>（圖）；文字依 B06 共筆〈大動物絕育〉（余品奐老師）。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">10</div><h2>比較與考試方向（推測）</h2></div>
+      <p class="section-desc">考試方向為<strong>推測</strong>。余品奐老師的考題每年換、重理解（反芻與大外考古的經驗）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>比較</th><th>豬</th><th>反芻動物（第 1 週）</th></tr></thead>
+          <tbody>
+            <tr><td>禁食</td><td>至少 6 h、理想 12 h（防嘔吐）</td><td>牛 12–24 h、前一晚禁水（防瘤胃逆流、吸入）</td></tr>
+            <tr><td>α2 致效劑</td><td>效力較弱、要較高劑量、會吐</td><td>很敏感；xylazine 劑量很低；懷孕牛小心</td></tr>
+            <tr><td>主要麻醉風險</td><td>換氣不足、低血壓、低體溫；惡性高熱</td><td>瘤胃脹氣、逆流、吸入性肺炎；橫膈受壓換氣不足</td></tr>
+            <tr><td>給藥</td><td>深部 IM（頸部，避開 4 cm 脂肪）；耳靜脈</td><td>頸靜脈；多用站立局部麻醉</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:35%;">可能的考法（推測）</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>豬麻醉為什麼困難？如何因應？</td><td>體重、保定、4 cm 脂肪（18G 1.5″ 頸部 IM）、耳靜脈、插管（仰躺）、失溫、嘔吐（禁食 6–12 h）</td></tr>
+            <tr><td>Ketamine 在豬的優缺點</td><td>止痛好、心血管影響小；流涎多（先清口水）、恢復躁動</td></tr>
+            <tr><td>為什麼 propofol 要插管</td><td>只能 IV、呼吸抑制</td></tr>
+            <tr><td>惡性高熱的症狀與處理</td><td>肌肉僵直、眼球深陷、皮膚燙紅、心跳呼吸快、EtCO₂ 上升；停吸入藥換迴路、通氣、冷輸液、灌腸、冰袋酒精、dantrolene 2–10 mg/kg IV</td></tr>
+            <tr><td>豬最可靠的麻醉深度指標</td><td>Jaw tone</td></tr>
+            <tr><td>通氣參數</td><td>18–22 cmH₂O、5–10 mL/kg、EtCO₂ 40–50 mmHg、12–15 次／分；過度通氣 → 肺氣腫、氣胸</td></tr>
+            <tr><td>大量分泌物怎麼處理</td><td>Atropine 0.02–0.04 mg/kg 或 glycopyrrolate 0.005–0.01 mg/kg</td></tr>
+            <tr><td>封閉式 vs. 開放式去勢；Burdizzo 的限制</td><td>見第 9 節比較表；Burdizzo 只用於睪丸下垂的牛羊，兩側錯開高度</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節的考法為推測。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">先自己作答再點開答案。含劑量換算與臨床情境題。</p>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 豬肌肉注射麻醉藥，依講義應如何操作？</div>
+        <ul class="quiz-options"><li>(A) 25G 短針打背部皮下</li><li>(B) 18G、1.5 吋（3.75 cm）針打頸部肌肉</li><li>(C) 打腹部皮下脂肪，吸收較慢較安全</li><li>(D) 一律 IV，不做 IM</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=4">p.4</a>：皮下脂肪約 4 cm，打進脂肪血流差、吸收慢；用 18G 1.5 吋針打頸部肌肉。共筆：打到脂肪豬很慢倒 → 以為不夠一直追加 → 醒不來。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 豬氣管插管困難，下列何者「不是」講義列出的原因？</div>
+        <ul class="quiz-options"><li>(A) 聲門窄</li><li>(B) 軟顎長</li><li>(C) 臉頰肉厚、下顎角窄</li><li>(D) 氣管軟骨環不完整</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=6">p.6</a>：narrow glottis、long soft palate、fat cheek、narrow jaw angle；仰躺讓過多的咽部組織掉開，較容易看到聲門。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q3. 豬有很厚的皮下脂肪，所以麻醉時不容易失溫。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain"><a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=7">p.7</a>：豬麻醉容易低體溫——毛少、四肢散熱、幼豬；共筆：皮膚粉紅＝微血管多、擴張後散熱快，水泥地更糟。研究中 48% 低體溫（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=20">p.20</a>）。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 下列鎮靜藥在豬的問題，配對何者正確？</div>
+        <ul class="quiz-options"><li>(A) Acepromazine：血管擴張，增加低體溫風險</li><li>(B) α2 致效劑：在豬比在反芻動物更強效</li><li>(C) Benzodiazepine：會造成大量流涎</li><li>(D) Acepromazine：會造成惡性高熱</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=9">p.9</a>：acepromazine 血管擴張 → 低體溫；α2 在豬不如反芻動物強效且會嘔吐；benzodiazepine 常與 ketamine 合用（提供肌肉鬆弛）；大量流涎是 ketamine（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=10">p.10</a>）。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 哪一種麻醉藥在豬「只能 IV、會呼吸抑制，所以必須插管」？</div>
+        <ul class="quiz-options"><li>(A) Ketamine</li><li>(B) Alfaxalone</li><li>(C) Propofol</li><li>(D) Azaperone</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=12">p.12</a>。Ketamine IM／IV 都可、呼吸抑制只在誘導時短暫；alfaxalone IV／IM 都可、約 15 分鐘。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 一頭迷你豬在 halothane 麻醉中出現肌肉僵直、眼球深陷、皮膚發燙潮紅、心跳呼吸加快、EtCO₂ 快速上升。下列處置何者「不」在講義的治療清單中？</div>
+        <ul class="quiz-options"><li>(A) 停用吸入麻醉藥並更換迴路</li><li>(B) Dantrolene 2–10 mg/kg IV</li><li>(C) 冷輸液 IV、冰袋與酒精、結腸灌洗</li><li>(D) 加深 halothane 濃度以放鬆肌肉</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">這是惡性高熱（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=13">p.13</a>）。要停掉吸入麻醉藥（halothane 正是誘因），快速通氣、冷輸液、灌腸、冰袋酒精、dantrolene。共筆：降溫無效就讓動物甦醒。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 評估豬的麻醉深度，講義認為最可靠的是？</div>
+        <ul class="quiz-options"><li>(A) 眨眼反射</li><li>(B) 瞳孔大小</li><li>(C) Jaw tone（下顎張力）</li><li>(D) 脈搏血氧數值</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=15">p.15</a>：muscle reflex — jaw tone most reliable。共筆：豬眼小不好評估，可用角膜反射；血氧數值容易亂跳。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8.（計算）一頭 50 kg 的豬插管後要設定潮氣容積，依講義應為？</div>
+        <ul class="quiz-options"><li>(A) 25–50 mL</li><li>(B) 250–500 mL</li><li>(C) 750–1000 mL</li><li>(D) 1–2 L</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">5–10 mL/kg × 50 kg ＝ 250–500 mL（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=16">p.16</a>）。通氣壓 18–22 cmH₂O、EtCO₂ 40–50 mmHg、12–15 次／分；豬的肺怕過度通氣（肺氣腫、氣胸）。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9.（計算）一頭 40 kg 的豬麻醉中口水分泌很多，用 atropine 0.02–0.04 mg/kg；若 atropine 濃度為 1 mg/mL（題目設定），應給多少？</div>
+        <ul class="quiz-options"><li>(A) 0.08–0.16 mL</li><li>(B) 0.8–1.6 mL</li><li>(C) 8–16 mL</li><li>(D) 0.02–0.04 mL</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">0.02–0.04 mg/kg × 40 kg ＝ 0.8–1.6 mg ÷ 1 mg/mL ＝ 0.8–1.6 mL（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=21">p.21</a>）；替代藥 glycopyrrolate 0.005–0.01 mg/kg。製劑濃度為題目設定。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q10. 講義引用的 27 頭越南大肚豬研究中，最常見的麻醉併發症是？</div>
+        <ul class="quiz-options"><li>(A) 心搏過慢</li><li>(B) 換氣不足</li><li>(C) 惡性高熱</li><li>(D) 恢復延遲</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=20">p.20</a>：換氣不足 67%、低血壓 64%、低體溫 48%、心搏過慢 28%、恢復延遲 22%；這三大併發症與用哪種注射麻醉藥無關。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q11. 短吻迷你豬只做小手術時，用深度鎮靜即可，不需要插管。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer false">答案：FALSE</div><p class="quiz-explain">共筆：短吻迷你豬（如蘭嶼迷你豬）短吻、會厭長，不插管容易呼吸中止，即使小手術也一定要插管；講義 <a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=8">p.8</a> 也把短吻品種、呼吸道阻塞列為鎮靜時要考慮的情況。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q12. 關於 Burdizzo 經皮去勢，下列何者正確？</div>
+        <ul class="quiz-options"><li>(A) 適用於豬與馬</li><li>(B) 兩側精索同時在同一高度一起夾，效果最好</li><li>(C) 只用於睪丸下垂的牛羊，兩側錯開高度各夾一次</li><li>(D) 需要全身麻醉並縫合陰囊</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=28">p.28</a> staggered crush sites；共筆：一起夾會阻斷整個陰囊血流 → 陰囊壞死；只需局部麻醉、不切開；缺點是無法確認是否成功、仍有睪丸壞疽風險。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q13. 開放式去勢與封閉式相比，最大的風險是？</div>
+        <ul class="quiz-options"><li>(A) 精索結紮滑脫</li><li>(B) 陰囊疝氣（臟器掉入陰囊）</li><li>(C) 睪丸壞疽</li><li>(D) 無法使用 transfix</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">共筆：開放式切開白膜（總鞘膜），臟器可能經腹股溝管掉進陰囊；解決方法是先固定白膜，結紮精索血管後再縫合白膜。封閉式的難處是白膜光滑，transfix 縫線容易滑脫。</p></details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一位飼主帶一頭 45 kg 的寵物迷你豬來做去勢，飼主說「早上只餵了一點點」。請問：(1) 禁食夠嗎？為什麼重要？(2) 鎮靜誘導與給藥要注意什麼？(3) 麻醉中最要監測哪些？(4) 術後怎麼監測？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">(1) 不夠：講義至少 6 小時、理想 12 小時（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=7">p.7</a>），豬麻醉易嘔吐；老師會禁 12–24 小時並再三確認飼主（共筆）。延後手術較安全。(2) 估準體重；深部 IM 打頸部肌肉（18G 1.5″），避開脂肪；倒下後再上耳靜脈；迷你豬短吻要插管、仰躺插管；ketamine 會流涎，要清口水，必要時 atropine 0.02–0.04 mg/kg。(3) ECG（易心律不整）、jaw tone、通氣（18–22 cmH₂O、5–10 mL/kg、EtCO₂ 40–50）、體溫；用吸入麻醉時注意迷你豬的惡性高熱。(4) 每 15 分鐘量心跳、體溫，直到翻正反射恢復、能自己站起來（<a class="pdf-link" href="pdf/豬麻醉與去勢.pdf#page=17">p.17</a>）。</p></details>
+      </div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week07_%E8%B1%AC%E9%BA%BB%E9%86%89%E8%88%87%E5%8E%BB%E5%8B%A2" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">練習題依講義與共筆出題；製劑濃度為題目設定。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷或用藥依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  problems: '豬麻醉的難處',
+  premed: '鎮靜與術前給藥',
+  injectable: '注射麻醉藥',
+  inhalant: '吸入麻醉與惡性高熱',
+  monitor: '麻醉監測',
+  pain: '疼痛管理',
+  complications: '麻醉流程與併發症',
+  castration: '大動物去勢',
+  exam: '比較與考試方向',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
