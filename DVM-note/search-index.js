@@ -11182,7 +11182,7 @@ const SEARCH_INDEX = [
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "nitrogen", sectionName: "氮循環、氨氮與亞硝酸鹽",
-    keywords: "氮循環 TAN NH3 NH4+ 亞硝酸鹽 NO2- 變性血紅素 棕血症 氯離子 硝化菌 濾床",
+    keywords: "氮循環 TAN Total Ammonia Nitrogen 總氨氮 NH3 NH4+ 亞硝酸鹽 NO2- 變性血紅素 棕血症 氯離子 硝化菌 濾床",
     snippet: "TAN 與 NH3 比例隨 pH、溫度上升；NO2- 造成棕血症、Cl- 競爭吸收；急性與長期處置。"
   },
   {
@@ -11273,7 +11273,7 @@ const SEARCH_INDEX = [
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "vtype", sectionName: "疫苗類型",
-    keywords: "疫苗 不活化 減毒 次單位 DNA疫苗 類毒素 RNAi siRNA NNV 生物膜疫苗 RPS Vibrio alginolyticus",
+    keywords: "NNV 神經壞死病毒 Nervous Necrosis Virus 病毒性神經壞死病 VNN Betanodavirus 疫苗 不活化 減毒 次單位 DNA疫苗 類毒素 RNAi siRNA NNV 生物膜疫苗 RPS Vibrio alginolyticus",
     snippet: "各類疫苗比較；不活化疫苗效力表；RNAi 疫苗與生物膜疫苗結果；水產疫苗現況補充。"
   },
   {
@@ -11639,5 +11639,12 @@ const SEARCH_INDEX = [
     section: "s17", sectionName: "其他考科的水產相關題（公共衛生學、藥理學、病理學）",
     keywords: "水產 魚病 國考 公共衛生 藥理 病理 水產用藥 殘留標準 肺吸蟲 異尖線蟲 廣節裂頭絛蟲 類丹毒 驗證基準 trichlorfon 指環蟲",
     snippet: "111–115 年公共衛生學、藥理學、病理學中與水產用藥、魚類人畜共通病原直接相關的 23 題，含官方答案與詳解。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "自我測驗：上課練習題",
+    url: "大四上/水產動物疾病學/自我測驗/quiz.html?c=%E4%B8%8A%E8%AA%B2%E7%B7%B4%E7%BF%92%E9%A1%8C",
+    section: "teacher", sectionName: "上課練習題（老師講義題）",
+    keywords: "上課練習題 老師題目 講義題 自我測驗 簡答題 建議答案 皮質醇 TMAO 趨光性 鰻行式 脾臟腫大 亞硝酸鹽 反抗期",
+    snippet: "老師講義夾帶的 34 題（第一週 8、生理 11、骨骼循環消化 9、免疫 6）照原文收錄，每題標講義頁碼與本站章節，選擇題逐選項詳解，簡答題附老師建議答案與重點拆解。"
   }
 ];

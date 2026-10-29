@@ -35,14 +35,20 @@ def build(spec_path):
             idx=f"{gi+1}_{qi+1}"
             if q[0]=='mc':
                 import random
-                rnd=random.Random(os.path.basename(spec_path)+idx); order=list(range(len(q[2]))); rnd.shuffle(order)
+                ex=q[6] if len(q)>6 else {}   # 第 7 欄（選用）：{'keep':True 不打亂選項, 's':出處 dict}
+                rnd=random.Random(os.path.basename(spec_path)+idx); order=list(range(len(q[2])))
+                if not ex.get('keep'): rnd.shuffle(order)
                 d=dict(id='q'+idx,t='mc',q=q[1],o=[q[2][i] for i in order],a=order.index(q[3]),e=q[4],p=q[5])
+                if ex.get('s'): d['s']=ex['s']
             elif q[0]=='tf': d=dict(id='q'+idx,t='tf',q=q[1],a=q[2],e=q[3],p=q[4])
+            elif q[0]=='sa':   # 簡答題：('sa', 題, 老師建議答案, 解析, 頁碼, {'s':出處})；作答後自評對錯
+                d=dict(id='q'+idx,t='sa',q=q[1],ans=q[2],e=q[3],p=q[4])
+                if len(q)>5 and q[5].get('s'): d['s']=q[5]['s']
             else:
                 if q[1] in seen: print('dup',q[1]); continue
                 seen.add(q[1]); d=xq(q[1],idx)
                 if not d: print('skip (no answer)',q[1]); continue
-            assert d['t']=='tf' or 0<=d['a']<len(d['o']),(spec_path,idx)
+            assert d['t'] in ('tf','sa') or 0<=d['a']<len(d['o']),(spec_path,idx)
             out.append(d)
         n+=len(out); groups.append(dict(name=name,note=note,qs=out))
     cid=os.path.basename(spec_path)[:-3]

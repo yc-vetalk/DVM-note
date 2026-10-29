@@ -7,6 +7,12 @@
   function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   function fmt(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>'); }
+  function srcHtml(s) {
+    if (!s) return '';
+    var h = '<p class="qz-from">出處：' + esc(s.l) + ' <a href="../pdf/' + encodeURI(s.pdf) + '#page=' + s.p + '" target="_blank">p.' + s.p + '</a>';
+    if (s.pg) { h += '｜本站：' + s.pg.map(function (x) { return '<a href="../' + encodeURI(x.f) + (x.sec ? '#section-' + x.sec : '') + '">' + esc(x.n) + '</a>'; }).join('、'); }
+    return h + '</p>';
+  }
   function el(h) { var d = document.createElement('div'); d.innerHTML = h; return d.firstElementChild; }
   function script(src, cb) { var s = document.createElement('script'); s.src = src; s.onload = cb; s.onerror = cb; document.head.appendChild(s); }
   window.toggleTheme = function () {
@@ -71,9 +77,9 @@
         root.appendChild(el('<h2 class="qz-group">' + esc(g.name) + (g.note ? '<small>' + esc(g.note) + '</small>' : '') + '</h2>'));
         g.qs.forEach(function (it) {
           n++; var q = it.q;
-          var opts = q.t === 'tf' ? ['對', '錯'] : q.o;
+          var opts = q.t === 'tf' ? ['對', '錯'] : (q.t === 'sa' ? [] : q.o);
           var ans = q.t === 'tf' ? (q.a ? 0 : 1) : q.a;
-          var card = el('<div class="qz-card"><p class="qz-q"><span class="n">' + n + '.</span>' + fmt(q.q) + '<span class="qz-tag">' + (q.t === 'tf' ? '是非' : '選擇') + '</span></p><div class="qz-opts"></div><div class="qz-exp"></div></div>');
+          var card = el('<div class="qz-card"><p class="qz-q"><span class="n">' + n + '.</span>' + fmt(q.q) + '<span class="qz-tag">' + (q.t === 'tf' ? '是非' : (q.t === 'sa' ? '簡答' : '選擇')) + '</span></p>' + srcHtml(q.s) + '<div class="qz-opts"></div><div class="qz-exp"></div></div>');
           var box = card.querySelector('.qz-opts');
           opts.forEach(function (o, i) {
             var b = el('<button type="button" class="qz-opt">' + (q.t === 'tf' ? '' : '(' + 'ABCDE'[i] + ') ') + fmt(o) + '</button>');
@@ -92,6 +98,30 @@
             };
             box.appendChild(b);
           });
+          if (q.t === 'sa') {
+            var rv = el('<button type="button" class="qz-btn primary">看老師建議答案</button>');
+            box.appendChild(rv);
+            rv.onclick = function () {
+              rv.style.display = 'none';
+              var gr = el('<div class="qz-grade"><span>先自己答，再對照：</span></div>');
+              [['我答對了', true], ['需要加強', false]].forEach(function (g) {
+                var bt = el('<button type="button" class="qz-btn">' + g[0] + '</button>');
+                bt.onclick = function () {
+                  if (card.classList.contains('done')) return;
+                  card.classList.add('done'); [].forEach.call(gr.children, function (c) { c.disabled = true; });
+                  var ok = g[1]; card.classList.add(ok ? 'ok' : 'no');
+                  answered++; if (ok) correct++; else wrongs.push({ n: n_of(card), q: q });
+                  var w = st.wrong[it.chap] = st.wrong[it.chap] || [], k = w.indexOf(q.id);
+                  if (ok && k >= 0) w.splice(k, 1); if (!ok && k < 0) w.push(q.id);
+                  save(st); upd();
+                };
+                gr.appendChild(bt);
+              });
+              box.appendChild(gr);
+              var ex = card.querySelector('.qz-exp'); ex.style.display = 'block';
+              ex.innerHTML = '<strong>老師建議答案：</strong>' + fmt(q.ans) + '<br>' + fmt(q.e || '') + (q.p ? '<span class="src">' + (q.p.indexOf('p.') === 0 ? '講義 ' : '') + esc(q.p) + '</span>' : '');
+            };
+          }
           card.dataset.n = n; root.appendChild(card);
         });
       });

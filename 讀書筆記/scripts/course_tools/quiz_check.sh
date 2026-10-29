@@ -6,7 +6,7 @@ cd "$1" || exit 1
 python3 - <<'PY'
 s=open('quiz.html',encoding='utf-8').read()
 chk='''<script>window.__e=[];window.onerror=function(m){window.__e.push(m)};addEventListener("load",function(){setTimeout(function(){
-var cards=[...document.querySelectorAll(".qz-card")];var n=0;cards.forEach(function(c){var o=c.querySelector(".qz-opt");if(o){o.click();n++;}});
+var cards=[...document.querySelectorAll(".qz-card")];var n=0;cards.forEach(function(c){var o=c.querySelector(".qz-opt");if(o){o.click();n++;}else{var r=c.querySelector(".qz-btn.primary");if(r){r.click();var g=c.querySelector(".qz-grade .qz-btn");if(g){g.click();n++;}}}});
 setTimeout(function(){document.title="R cards="+cards.length+" clicked="+n+" exp="+document.querySelectorAll(".qz-exp").length+" err="+window.__e.join("|")},800)},2500)});</script>'''
 open('_t.html','w',encoding='utf-8').write(s.replace('</body>',chk+'</body>',1))
 PY
