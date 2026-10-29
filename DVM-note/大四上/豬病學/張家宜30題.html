@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豬病學：張家宜老師範圍 30 題 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">豬病學</a><span class="sep">›</span><span class="current">張家宜老師範圍 30 題</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">張家宜老師範圍 30 題</h1>
+      <p class="page-subtitle">Predicted Questions · 第 2、3 週（ASF、CSF、JE、HEV、PCVAD、PRRS、PPV、輪狀病毒）預測題與詳解</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">豬病學（大四上・期中範圍第 2、3 週）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">第 2、3 週講義與本站筆記；題目為預測，非真題</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">30 題含逐選項詳解</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 怎麼用這一頁
+    </a>
+    <div class="section-label" style="margin-top:8px;">題目</div>
+    <a onclick="showSection('asf')" id="nav-asf">
+      <span class="nav-icon">🦟</span> 非洲豬瘟（ASF） Q1–Q5
+    </a>
+    <a onclick="showSection('csf')" id="nav-csf">
+      <span class="nav-icon">🩸</span> 豬瘟（CSF） Q6–Q11
+    </a>
+    <a onclick="showSection('jehe')" id="nav-jehe">
+      <span class="nav-icon">🧬</span> 日本腦炎（JE）與 E 型肝炎（HE） Q12–Q16
+    </a>
+    <a onclick="showSection('pcv')" id="nav-pcv">
+      <span class="nav-icon">🔬</span> 豬環狀病毒相關疾病（PCVAD） Q17–Q20
+    </a>
+    <a onclick="showSection('prrs')" id="nav-prrs">
+      <span class="nav-icon">🫁</span> 豬生殖與呼吸綜合症（PRRS） Q21–Q25
+    </a>
+    <a onclick="showSection('ppvrv')" id="nav-ppvrv">
+      <span class="nav-icon">🐖</span> 豬小病毒（PPV）與輪狀病毒（RV） Q26–Q30
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>怎麼用這一頁</h2></div>
+      <p class="section-desc">張家宜老師範圍（第 2、3 週）30 題預測題。</p>
+<div class="alert alert-warn"><div class="alert-label">先看這裡</div><p><strong>這 30 題是我依講義整理的預測題，不是真題，也不保證會考。</strong>沒有張家宜老師的考古題可以對照（過去的病毒考卷是鄭益謙老師出的）。選題依據有兩個：①第 2、3 週講義畫底線、本站標成「必考」的內容；②學長姐說張老師「考最特別的地方，畫底線的看一看就好」。答案與詳解依講義與本站各週筆記，頁碼可點開側欄對照，講義以外標「補充」。</p></div><h3>張家宜老師的範圍</h3><p>第 2 週〈Swine viral diseases (I)〉：非洲豬瘟、豬瘟、日本腦炎、E 型肝炎；第 3 週〈Swine viral diseases (II)〉：PCVAD、PRRS、PPV、輪狀病毒、豬隻疫苗接種。第 4、5 週（口蹄疫、冠狀病毒、流感、疱疹）是高啓霏老師。</p><h3>題目分配</h3><div class="table-wrap"><table><thead><tr><th>疾病</th><th>題數</th><th>題號</th></tr></thead><tbody><tr><td>非洲豬瘟（ASF）</td><td>5</td><td>Q1–Q5</td></tr><tr><td>豬瘟（CSF）</td><td>6</td><td>Q6–Q11</td></tr><tr><td>日本腦炎（JE）與 E 型肝炎（HE）</td><td>5</td><td>Q12–Q16</td></tr><tr><td>豬環狀病毒相關疾病（PCVAD）</td><td>4</td><td>Q17–Q20</td></tr><tr><td>豬生殖與呼吸綜合症（PRRS）</td><td>5</td><td>Q21–Q25</td></tr><tr><td>豬小病毒（PPV）與輪狀病毒（RV）</td><td>5</td><td>Q26–Q30</td></tr></tbody></table></div><h3>被問到的那一題：「唯一靠節肢動物傳播的病毒」</h3><p>答案是<strong>非洲豬瘟病毒（ASFV）</strong>，講義寫的是「<strong>唯一經節肢動物傳播的 <u>DNA</u> 病毒</strong>」（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=19">p.19</a>）。注意「DNA」兩個字：日本腦炎病毒也靠蚊子傳播，但它是 RNA 病毒。這句話在講義是重點，所以放在 Q1；但是不是「一定會考」，我無法保證。</p><details style="margin:10px 0"><summary style="cursor:pointer;font-weight:700">答案速查（先自己作答再打開）</summary><p>Q1 B　Q2 D　Q3 A　Q4 C　Q5 C　Q6 A　Q7 D　Q8 B　Q9 B　Q10 D　Q11 A　Q12 C　Q13 C　Q14 A　Q15 D　Q16 B　Q17 B　Q18 D　Q19 A　Q20 C　Q21 C　Q22 A　Q23 D　Q24 B　Q25 B　Q26 D　Q27 A　Q28 C　Q29 C　Q30 A</p></details>
+      <footer class="note-footer">資料來源：整理自第 2、3 週講義與本站筆記。</footer>
+    </div>
+
+    <div class="section" id="section-asf">
+      <div class="section-head"><div class="section-num">2</div><h2>非洲豬瘟（ASF）（Q1–Q5）</h2></div>
+      <p class="section-desc">先自己作答，再點開看答案與詳解。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q1（單選）</span>
+        <div class="quiz-q">下列何者是「<strong>唯一經節肢動物傳播的 DNA 病毒</strong>」？</div>
+        <ul class="quiz-options">
+          <li>(A) 豬瘟病毒（CSFV）</li>
+          <li>(B) 非洲豬瘟病毒（ASFV）</li>
+          <li>(C) 豬環狀病毒第 2 型（PCV2）</li>
+          <li>(D) 日本腦炎病毒（JEV）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(A) CSFV 是 RNA 病毒（Pestiviridae），傳播靠口、直接接觸、飛沫、精液與胎盤，不靠節肢動物。<br>(B) 對：ASFV（Asfarviridae）是唯一經節肢動物傳播的 DNA 病毒（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=19">p.19</a>）；軟蜱 <em>Ornithodoros</em> 可經蛻皮、經卵與性傳播，終生感染（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=29">p.29</a>）。<br>(C) PCV2 雖然是 DNA 病毒，但傳播主要經口鼻、胎盤、乳汁與精液，沒有節肢動物傳播。<br>(D) JEV 經 <em>Culex</em> 蚊傳播，但它是 <strong>RNA</strong> 病毒（Flaviviridae）。題幹限定「DNA」，所以不是它。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q2（單選）</span>
+        <div class="quiz-q">下列有關 ASFV 環境抵抗力的敘述，何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 在室溫的糞便中可存活數個月</li>
+          <li>(B) 肉品加熱 70°C 約 5 分鐘即可不活化</li>
+          <li>(C) pH 在 5–9 之間最容易被不活化</li>
+          <li>(D) 在 4°C 的血液中可存活長達約 18 個月</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(A) 糞便室溫只有「數日」；要數個月的是污染的豬舍。<br>(B) 講義是 70°C（150°F）<strong>30 分鐘</strong>才能不活化肉品與組織。<br>(C) 不活化的條件是 pH &lt;3.9 或 &gt;11.5（有血清存在需更高，pH 13.4，<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=24">p.24</a>），中性範圍反而穩定。<br>(D) 對：講義的存活時間表：血液 4°C 最長 18 個月、鹽漬風乾火腿 &gt;140 天、冷凍屍體數年（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=23">p.23</a>），所以對低溫特別有抵抗力。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q3（單選）</span>
+        <div class="quiz-q">下列有關 ASF 的敘述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 為人畜共通傳染病，人感染後會出現出血熱</li>
+          <li>(B) 標的細胞是單核球與巨噬細胞</li>
+          <li>(C) 病毒血症通常在感染後 4–8 天開始</li>
+          <li>(D) 因缺乏完全中和抗體，病毒血症可持續數週至數月</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 錯誤，所以選它：ASF <strong>非人畜共通</strong>，只感染家豬、野豬等豬科動物（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=10">p.10</a>）。<br>(B) 對：原發複製在最靠近入侵點的淋巴結、扁桃腺與下頜淋巴結的單核球、巨噬細胞（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=33">p.33</a>）。<br>(C) 對：講義寫進入後 4–8 天開始（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=33">p.33</a>）。<br>(D) 對：缺乏完全中和抗體是病毒血症拖很久的原因（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=33">p.33</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q4（單選）</span>
+        <div class="quiz-q">有關 ASFV 的病毒分離與<strong>血球吸附試驗（HAD）</strong>，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 不需要初代細胞培養，一般細胞株即可</li>
+          <li>(B) 所有 ASFV 毒株都會有血球吸附</li>
+          <li>(C) 感染的巨噬細胞周圍會吸附豬紅血球形成「玫瑰花環」，專一性高</li>
+          <li>(D) 試驗可在 24 小時內完成</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(A) 錯：要用豬源感受性<strong>初代細胞</strong>（單核球、巨噬細胞）；每次都要取材，是這個試驗的缺點。<br>(B) 錯：講義寫「並非所有 ASFV 株都有血球吸附」。<br>(C) 對：只有 ASFV 能在白血球培養中造成血球吸附，所以專一性高（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=52">p.52</a>）。<br>(D) 錯：試驗時間約 3–10 天。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q5（單選）</span>
+        <div class="quiz-q">下列有關 ASF 預防與控制的敘述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 新購入的豬至少與豬群隔離 30 天</li>
+          <li>(B) 不要餵未煮熟的豬肉製品（餿水、廚餘、垃圾）</li>
+          <li>(C) 已有全球公認安全有效的疫苗，非疫區可常規接種</li>
+          <li>(D) 越南 2022 年 6 月核准全球首個商業 ASF 疫苗</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(A) 對：預防直接傳播的措施（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=58">p.58</a>）。<br>(B) 對：吃入受污染豬肉製品是重要傳播來源（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=26">p.26</a>）。<br>(C) 錯誤，所以選它：講義寫疫苗目前「尚無廣泛接受的全球性解決方案」，防控仍靠生物安全、早期偵測、移動管制與撲殺（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=58">p.58</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=63">p.63</a>）。<br>(D) 對：為基因刪除減毒活疫苗，已納入越南國家控制策略（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=66">p.66</a>）。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)(II)〉；詳解頁碼見各選項。</footer>
+    </div>
+
+    <div class="section" id="section-csf">
+      <div class="section-head"><div class="section-num">3</div><h2>豬瘟（CSF）（Q6–Q11）</h2></div>
+      <p class="section-desc">先自己作答，再點開看答案與詳解。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q6（單選）</span>
+        <div class="quiz-q">下列有關古典豬瘟病毒（CSFV）的敘述，何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 屬 Pestiviridae（Orthopestivirus），有封套的 RNA 病毒，單一血清型、三個基因型</li>
+          <li>(B) 屬 Asfarviridae，為雙股 DNA 病毒</li>
+          <li>(C) 有 7 個血清型，彼此無交叉保護</li>
+          <li>(D) 無封套，對環境抵抗力極強</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對：CSFV 與 BVDV、BDV、APPV 同屬瘟病毒屬（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=76">p.76</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=79">p.79</a>）。<br>(B) 錯：這是 ASFV 的特徵；CSFV 是 RNA 病毒。<br>(C) 錯：「7 個血清型」是口蹄疫（FMDV）。CSFV 只有一個血清型。<br>(D) 錯：CSFV 有封套；4°C 存活 6 週，冷凍肉可數年，但仍可被有機溶劑、2% NaOH 不活化。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q7（單選）</span>
+        <div class="quiz-q">母豬於懷孕中期感染低毒力 CSFV，胎兒因免疫系統未成熟，無法辨識病原而不產生抗體，仔豬出生時外觀健康卻終生排毒。這種現象稱為？</div>
+        <ul class="quiz-options">
+          <li>(A) 潛伏感染（latent infection）</li>
+          <li>(B) 母源抗體干擾（maternal antibody interference）</li>
+          <li>(C) 抗原位移（antigenic shift）</li>
+          <li>(D) 免疫耐受（immunotolerance）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(A) 錯：潛伏是病毒不複製躲在細胞內（如疱疹病毒）；這裡病毒持續複製並排毒。<br>(B) 錯：母源抗體干擾是母源抗體中和疫苗病毒；這裡是胎兒自己不產生抗體。<br>(C) 錯：抗原位移是分段基因病毒（流感）的基因重組，與 CSFV 無關。<br>(D) 對：先天持續感染（late-onset CSF）的機轉。胎兒免疫系統尚未成熟，無法辨識病毒，所以驗不到抗體、疫苗效果差、終生排毒（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=102">p.102</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q8（單選）</span>
+        <div class="quiz-q">下列何者<strong>不是</strong> CSF 的特徵性大體病變？</div>
+        <ul class="quiz-options">
+          <li>(A) 脾臟邊緣梗塞</li>
+          <li>(B) 脾臟腫大、質脆、暗黑</li>
+          <li>(C) 淋巴結周邊出血</li>
+          <li>(D) 胃腸道黏膜鈕扣狀潰瘍（慢性型）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(A) 是：CSF 的特徵病變（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=107">p.107</a>）。<br>(B) 錯誤，所以選它：這是 <strong>ASF</strong> 的特徵（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=45">p.45</a>）。CSF 的脾臟是「邊緣梗塞」。<br>(C) 是：淋巴結周邊紫黑色出血（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=106">p.106</a>）。<br>(D) 是：慢性型的迴盲瓣與腸道鈕扣狀潰瘍（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=113">p.113</a>–114）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q9（單選）</span>
+        <div class="quiz-q">有關 CSF 的抗體診斷，下列何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) FAVNT 是抗原檢測，半天即可完成</li>
+          <li>(B) 螢光抗體病毒中和試驗（FAVNT）是金標準，步驟繁瑣、需細胞培養與病毒操作，約 3 天</li>
+          <li>(C) ELISA 需要細胞培養與病毒操作</li>
+          <li>(D) qRT-PCR 無法區分疫苗株與野外株</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(A) 錯：FAVNT 偵測抗體；「半天」是 ELISA 的特點。<br>(B) 對：中和抗體效價以造成 50% 螢光抑制的血清最高稀釋倍數表示（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=123">p.123</a>）。<br>(C) 錯：ELISA 步驟簡單、<strong>不需</strong>細胞培養與病毒操作，快速（約半天），但需評估與中和抗體的相關性。<br>(D) 錯：qRT-PCR 高敏感、高特異，可分基因型，也可區分疫苗株與野外株（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=120">p.120</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q10（單選）</span>
+        <div class="quiz-q">在使用 <strong>E2 次單位疫苗</strong>的地區，若要區分「野外感染」與「疫苗接種」，應檢測下列何者？</div>
+        <ul class="quiz-options">
+          <li>(A) 抗 E2 抗體</li>
+          <li>(B) 中和抗體效價</li>
+          <li>(C) 病毒分離</li>
+          <li>(D) 抗 Erns 抗體（CSFV Erns ELISA）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(A) 錯：疫苗與野毒感染<strong>都</strong>會產生抗 E2 抗體，無法區分。<br>(B) 錯：疫苗與野毒感染都誘發中和抗體，無法區分。<br>(C) 錯：病毒分離是偵測病毒本身，用於確認感染，並不是用來區分抗體來源的 DIVA 檢驗。<br>(D) 對：E2 次單位疫苗與 CP7_E2alf 嵌合疫苗都<strong>沒有 CSFV 的 Erns</strong>，所以驗到抗 Erns 抗體就是野外感染（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=137">p.137</a>）。限制：敏感度與特異度差，與 BVDV、BDV 的 Erns 抗體會交叉反應，只適合族群篩檢。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q11（單選）</span>
+        <div class="quiz-q">下列有關台灣 CSF 的敘述，何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 1996 年後田間病毒由基因型 3.4 轉為 2.1</li>
+          <li>(B) 2006 年後田間仍持續有病毒流行</li>
+          <li>(C) 2023 年起全面恢復疫苗接種</li>
+          <li>(D) LPC 疫苗只對 2.1 型有保護</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對：2.1 與 3.4 都是中等毒力（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=141">p.141</a>）。<br>(B) 錯：2006 年後田間<strong>未再檢出</strong>病毒。<br>(C) 錯：2023 年起<strong>停止</strong>疫苗接種，是長期監測加階段性停打疫苗而成功根除的案例。<br>(D) 錯：LPC 疫苗對 2.1 與 3.4 兩種都有保護。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)(II)〉；詳解頁碼見各選項。</footer>
+    </div>
+
+    <div class="section" id="section-jehe">
+      <div class="section-head"><div class="section-num">4</div><h2>日本腦炎（JE）與 E 型肝炎（HE）（Q12–Q16）</h2></div>
+      <p class="section-desc">先自己作答，再點開看答案與詳解。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q12（單選）</span>
+        <div class="quiz-q">在日本腦炎病毒的傳播循環中，豬扮演的角色是？</div>
+        <ul class="quiz-options">
+          <li>(A) 終端宿主（dead-end host）</li>
+          <li>(B) 唯一的自然保毒宿主</li>
+          <li>(C) 增幅宿主（amplifier）</li>
+          <li>(D) 傳播媒介</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(A) 錯：終端宿主是<strong>人與馬</strong>，被蚊叮咬感染但病毒量不足以再傳給蚊子（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=148">p.148</a>）。<br>(B) 錯：鷺科等野生鳥類也是重要的維持宿主，豬不是唯一。<br>(C) 對：豬感染後有高效價病毒血症 2–4 天，足以感染蚊子，所以是增幅宿主（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=152">p.152</a>）。<br>(D) 錯：傳播媒介是 <em>Culex</em> 蚊；豬是脊椎動物宿主。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q13（單選）</span>
+        <div class="quiz-q">母豬感染日本腦炎病毒，何時感染才會造成流產、死產、木乃伊胎等生殖障礙？</div>
+        <ul class="quiz-options">
+          <li>(A) 妊娠 70 天以後</li>
+          <li>(B) 配種前一天</li>
+          <li>(C) 妊娠 60–70 天以前</li>
+          <li>(D) 任何懷孕階段影響都一樣</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(A) 錯：懷孕後期感染通常對胎兒影響很小或沒有。<br>(B) 錯：講義的重點是妊娠階段，與配種前感染無關。<br>(C) 對：講義寫「妊娠 60–70 天以前感染才會發生生殖障礙」（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=157">p.157</a>）。<br>(D) 錯：胎兒結果依感染時的妊娠階段而定，這是考點。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q14（單選）</span>
+        <div class="quiz-q">下列有關日本腦炎對豬的影響，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 感染母豬常因腦炎而死亡</li>
+          <li>(B) 公豬可出現睪丸水腫、精子活動力下降，且多為暫時性</li>
+          <li>(C) 死產或虛弱仔豬常見腦水腫、小腦發育不全</li>
+          <li>(D) 感染仔豬顯微可見非化膿性腦炎，神經元壞死與血管周圍袖套</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 錯誤，所以選它：豬的 JEV 感染多為<strong>亞臨床</strong>；母豬的表現是流產、死產、木乃伊胎、虛弱仔豬，沒有特徵性病變，不是腦炎死亡（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=157">p.157</a>）。<br>(B) 對：不孕影響通常暫時，大多數完全恢復。<br>(C) 對：另有皮下水腫、脊髓髓鞘形成不全（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=161">p.161</a>）。<br>(D) 對：腦與脊髓的特徵病變（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=161">p.161</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q15（單選）</span>
+        <div class="quiz-q">E 型肝炎病毒（HEV）中，屬於<strong>人畜共通的重要基因型</strong>是？</div>
+        <ul class="quiz-options">
+          <li>(A) HEV-1、HEV-2</li>
+          <li>(B) HEV-5、HEV-6</li>
+          <li>(C) HEV-7、HEV-8</li>
+          <li>(D) HEV-3、HEV-4</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(A) 錯：僅限人類。<br>(B) 錯：感染野豬，人畜共通潛力未知。<br>(C) 錯：感染駱駝。<br>(D) 對：可感染人、豬與其他物種（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=173">p.173</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q16（單選）</span>
+        <div class="quiz-q">下列有關豬 E 型肝炎的敘述，何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 豬感染後出現黃疸與肝衰竭</li>
+          <li>(B) 豬通常無症狀，但顯微可見輕至中度淋巴漿細胞性肝炎，且是人畜共通 HEV 的重要保毒庫</li>
+          <li>(C) 主要經蚊傳播</li>
+          <li>(D) 豬肝中的 HEV 經適當烹煮仍不會被不活化</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(A) 錯：自然與實驗感染豬都<strong>無症狀</strong>。<br>(B) 對：豬肝的 HEV RNA 陽性率最高（24%），豬農抗體陽性率 29.5% 對一般人 11.5%（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=177">p.177</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=179">p.179</a>）。<br>(C) 錯：豬之間是<strong>糞口</strong>傳播；人經職業接觸或吃未煮熟的豬肉、豬肝感染。<br>(D) 錯：商業豬肝中的豬 HEV 經適當烹煮可完全不活化；但 56°C 1 小時不夠。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)(II)〉；詳解頁碼見各選項。</footer>
+    </div>
+
+    <div class="section" id="section-pcv">
+      <div class="section-head"><div class="section-num">5</div><h2>豬環狀病毒相關疾病（PCVAD）（Q17–Q20）</h2></div>
+      <p class="section-desc">先自己作答，再點開看答案與詳解。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q17（單選）</span>
+        <div class="quiz-q">有關 PCV2 的病毒特性，下列何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 有封套的雙股 DNA 病毒</li>
+          <li>(B) 無封套，含約 1.7 kb 單股環狀 DNA，對熱與酸極耐受（56°C 1 小時、pH &lt;2 仍有活性）</li>
+          <li>(C) 56°C 1 小時即可被不活化</li>
+          <li>(D) ORF1 編碼衣殼蛋白，是次單位疫苗的標的</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(A) 錯：PCV2 無封套、單股環狀。<br>(B) 對：PCV2 小、無封套、超級耐，環境中很難清除；消毒劑以氧化劑、醛類加四級銨複方效果最好（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=6">p.6</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=7">p.7</a>）。<br>(C) 錯：講義寫 56°C 1 小時、75°C 15 分鐘都不會被不活化。<br>(D) 錯：衣殼蛋白由 <strong>ORF2</strong> 編碼，是次單位疫苗抗原；ORF1 編碼複製酶 Rep（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q18（單選）</span>
+        <div class="quiz-q">下列何者<strong>不屬於</strong> PCVAD 的臨床表現？</div>
+        <ul class="quiz-options">
+          <li>(A) PCV2 全身性疾病（PCV2-SD，舊稱 PMWS）</li>
+          <li>(B) PCV2 生殖疾病（PCV2-RD）</li>
+          <li>(C) 豬皮膚炎腎病症候群（PDNS）</li>
+          <li>(D) 豬生殖與呼吸綜合症（PRRS，藍耳病）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(A) 屬於：消耗、淋巴耗竭。<br>(B) 屬於：晚期流產死產、早期規律返情。<br>(C) 屬於：PDNS 被歸在 PCVAD 底下。<br>(D) 錯誤，所以選它：不屬於：PRRS 是 Arteriviridae 的另一種病毒病。PCVAD 的四種表現是 PCV2-SD、PCV2-RD、PDNS、PCV2-SI（亞臨床）（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=5">p.5</a>）。國考 111 年第二次出過類似題。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q19（單選）</span>
+        <div class="quiz-q">下列何者最符合 <strong>PDNS</strong> 的診斷依據？</div>
+        <ul class="quiz-options">
+          <li>(A) 出血壞死性皮膚病灶（後肢、會陰）和／或腎腫大蒼白伴皮質點狀出血，加上全身性壞死性血管炎與壞死性纖維素性腎絲球腎炎；驗到 PCV2 不是必要條件</li>
+          <li>(B) 必須在病灶內驗到中到大量 PCV2</li>
+          <li>(C) 只要 PCR 驗到 PCV2 即可確診</li>
+          <li>(D) 以淋巴組織的淋巴耗竭為主要診斷依據</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對：PDNS 診斷看皮膚與腎臟的血管炎病變（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=50">p.50</a>）。傷害來自免疫反應，病變出現時病灶內病毒可能很少（補充）。<br>(B) 錯：這是 <strong>PCV2-SD</strong> 的診斷條件（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=47">p.47</a>）。<br>(C) 錯：PCR 陽性不能單獨確認 PCV2 相關疾病（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=51">p.51</a>）；PCV2 在豬場很普遍，很多豬帶毒不發病。<br>(D) 錯：這是 PCV2-SD 的病變；PDNS 看皮膚與腎。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q20（單選）</span>
+        <div class="quiz-q">下列有關 PCV2 基因型與疫苗的敘述，何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) PCV2 有多個血清型，各基因型間無交叉保護</li>
+          <li>(B) PCV2 疫苗可預期同時保護 PCV3 與 PCV4</li>
+          <li>(C) 2012 年後全球多轉為 PCV2d，部分疫苗失敗病例中可驗到</li>
+          <li>(D) PCV1 是造成 PMWS 的主要病原</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(A) 錯：各 PCV2 株間沒有重大抗原差異，一般視為<strong>單一血清型</strong>。<br>(B) 錯：PCV2 疫苗不預期保護 PCV3、PCV4。<br>(C) 對：第二次基因型轉換 2b → 2d（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=12">p.12</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=13">p.13</a>）；第一次是 2003 年後 2a → 2b，伴隨更嚴重的臨床爆發。<br>(D) 錯：PCV1 對豬不致病，最初是 PK-15 細胞的污染物；最重要的致病型是 PCV2。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)(II)〉；詳解頁碼見各選項。</footer>
+    </div>
+
+    <div class="section" id="section-prrs">
+      <div class="section-head"><div class="section-num">6</div><h2>豬生殖與呼吸綜合症（PRRS）（Q21–Q25）</h2></div>
+      <p class="section-desc">先自己作答，再點開看答案與詳解。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q21（單選）</span>
+        <div class="quiz-q">下列有關 PRRSV 的敘述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 屬 Arteriviridae，有封套的單股正股 RNA 病毒</li>
+          <li>(B) GP5、M、N 是病毒顆粒中一定找得到的三個主要蛋白，GP5 是最重要的結構蛋白之一</li>
+          <li>(C) PRRSV-1（歐洲型）與 PRRSV-2（北美型）的全基因體核苷酸相似度高達 95%</li>
+          <li>(D) 台灣 2019–2020 年檢測以 PRRSV-2 為主（約 96%）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(A) 對。<br>(B) 對：ORF6 編碼 M、ORF7 編碼 N 核衣殼蛋白。<br>(C) 錯誤，所以選它：兩者全基因體相似度只有約 <strong>50–70%</strong>（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=73">p.73</a>）。<br>(D) 對：PRRSV-1 約 3%，2018 年底首次爆發。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q22（單選）</span>
+        <div class="quiz-q">有關 PRRSV 感染後的體液免疫，下列何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 非中和抗體約 7–14 天出現高效價，主要針對 N 蛋白；中和抗體 3–4 週才出現且效價低，主要針對 GP5 等封套醣蛋白</li>
+          <li>(B) 中和抗體 7–14 天即出現高效價</li>
+          <li>(C) ELISA 抗體陽性代表豬已有保護力</li>
+          <li>(D) 早期抗體主要針對 GP5，並具有中和能力</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對：這就是 PRRS 難纏的原因之一（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=94">p.94</a>）。<br>(B) 錯：是<strong>非中和</strong>抗體先出現；中和抗體要 3–4 週。<br>(C) 錯：ELISA 驗到的多半是早期的非中和抗體，陽性不代表有保護（補充）。<br>(D) 錯：早期抗體主要針對 N，沒有中和能力；有中和力的是較晚出現的抗 GP5 等。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q23（單選）</span>
+        <div class="quiz-q">某豬群檢測結果為 <strong>RT-PCR 陽性、ELISA 陰性</strong>，最可能的情況是？</div>
+        <ul class="quiz-options">
+          <li>(A) 已清除感染且抗體轉陰（感染後 ≥6–12 個月）</li>
+          <li>(B) 未感染的仔豬帶有初乳抗體</li>
+          <li>(C) 已有前次感染或疫苗抗體的豬再感染</li>
+          <li>(D) 剛感染或剛打疫苗（&lt;14 天），還沒血清轉陽</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(A) 錯：這是 RT-PCR 陰性、ELISA 陰性的情境。<br>(B) 錯：這是 RT-PCR 陰性、ELISA 陽性的情境。<br>(C) 錯：這是 RT-PCR 陽性、ELISA 陽性的情境。<br>(D) 對：以 14 天為界：PCR 看「現在有沒有病毒」，ELISA 看「過去有沒有接觸」（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q24（單選）</span>
+        <div class="quiz-q">下列有關 PRRSV 持續感染與演化的敘述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 演化速度約 10⁻² substitutions/site/year，比許多 RNA 病毒快 1–3 個數量級</li>
+          <li>(B) 持續 RT-PCR 陽性一定代表仍有具感染力的病毒血症</li>
+          <li>(C) 以準種（quasispecies）形式存在，一頭豬內可同時有多個變異株</li>
+          <li>(D) 扁桃腺與其他淋巴組織可持續帶毒數個月</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(A) 對：原因可能是複製更頻繁，而非錯誤率較高。<br>(B) 錯誤，所以選它：講義明確寫「持續 PCR 陽性不一定代表仍有感染力的病毒血症」；有感染力的病毒血症約 4 週後明顯下降，但扁桃腺等淋巴組織可持續帶毒數月（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=82">p.82</a>）。<br>(C) 對（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=102">p.102</a>）。<br>(D) 對：感染可延長或持續數個月，排毒可能間歇性。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q25（單選）</span>
+        <div class="quiz-q">下列有關 PRRSV 傳播的敘述，何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 主要靠空氣遠距離傳播，不需動物接觸</li>
+          <li>(B) 非經口（打針、咬傷、剪耳）感染所需最低病毒量遠低於經口；精液病毒濃度最高</li>
+          <li>(C) 外觀正常的豬不會排毒</li>
+          <li>(D) 經口感染所需病毒量最低</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(A) 錯：主要經感染豬與易感豬的<strong>近距離接觸</strong>，有封套、怕乾怕熱，環境存活短（補充）。<br>(B) 對：非經口 10–10²·² TCID₅₀、經口 10⁵·³；精液約 10⁶·⁰，所以針頭共用、外傷、人工授精很有效率，種公豬精液監測很重要（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=79">p.79</a>）。<br>(C) 錯：外觀正常的豬可能是帶毒者與排毒者；引進離乳豬與更新種豬是場間傳播的重要風險因子。<br>(D) 錯：經口反而最高（10⁵·³）。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)(II)〉；詳解頁碼見各選項。</footer>
+    </div>
+
+    <div class="section" id="section-ppvrv">
+      <div class="section-head"><div class="section-num">7</div><h2>豬小病毒（PPV）與輪狀病毒（RV）（Q26–Q30）</h2></div>
+      <p class="section-desc">先自己作答，再點開看答案與詳解。</p>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q26（單選）</span>
+        <div class="quiz-q">母豬在<strong>懷孕第 35–70 天</strong>感染 PPV1，胎兒最可能的結果是？</div>
+        <ul class="quiz-options">
+          <li>(A) 胚胎死亡並被吸收，母豬返情</li>
+          <li>(B) 胎兒存活並帶有抗 PPV1 抗體出生</li>
+          <li>(C) 胎兒完全不受影響，母豬無任何表現</li>
+          <li>(D) 胎兒死亡並木乃伊化</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(A) 錯：這是<strong>第 35 天前</strong>感染的結果（還沒骨化，軟組織被吸收）。<br>(B) 錯：這是<strong>第 70 天後</strong>感染的結果，約第 70 天胎兒有免疫勝任能力（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=131">p.131</a>）。<br>(C) 錯：生殖障礙是 PPV1 唯一確立的主要臨床後果；母豬本身無症狀，但胎兒結果取決於懷孕階段。<br>(D) 對：35 天後胎兒開始骨化，死了吸收不掉，就變成木乃伊（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=130">p.130</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q27（單選）</span>
+        <div class="quiz-q">有關 PPV1 的診斷，下列何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 木乃伊胎、死產仔豬、流產胎兒是主要診斷樣本，PCR 是最實用的方法</li>
+          <li>(B) 主要診斷樣本是成年母豬的血液</li>
+          <li>(C) 血球凝集抑制試驗（HI）用來偵測病毒抗原</li>
+          <li>(D) 成年母豬通常有明顯的全身症狀</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對：同窩有正常仔豬與大小不一的木乃伊胎高度提示 PPV1；IF 可驗胎兒組織抗原。<br>(B) 錯：母豬血清只做血清學（配對血清證明近期感染），主要樣本是胎兒。<br>(C) 錯：HI 用來偵測並定量 PPV1 <strong>抗體</strong>。<br>(D) 錯：PPV1 在成豬一般沒有臨床症狀。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q28（單選）</span>
+        <div class="quiz-q">下列有關 PPV1 控制的敘述，何者<strong>最適當</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 等母豬懷孕後再開始接種</li>
+          <li>(B) 以改良活毒疫苗為首選</li>
+          <li>(C) 在配種前建立保護性免疫，以不活化疫苗為主</li>
+          <li>(D) 成豬無症狀，所以不需接種</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(A) 錯：感染結果取決於懷孕階段，要在配種前先有免疫。<br>(B) 錯：改良活毒疫苗（MLV）免疫強而持久，但因安全疑慮使用受限。<br>(C) 對：講義 Take-home：有效控制在配種前建立保護性免疫；疫苗不活化為主，更新女豬與種母豬要例行接種。<br>(D) 錯：問題在懷孕母豬的胎兒；仔豬母源抗體可持續約 14–26 週，也會影響後續接種時機。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q29（單選）</span>
+        <div class="quiz-q">有關豬輪狀病毒的致病機制與病變，下列何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 主要感染腺窩細胞，造成腺窩壞死</li>
+          <li>(B) 病變主要在大腸</li>
+          <li>(C) 感染空腸與迴腸的成熟腸細胞，造成絨毛萎縮，下痢來自吸收不良加上病毒蛋白造成的分泌作用</li>
+          <li>(D) 純粹分泌性下痢，絨毛不萎縮</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(A) 錯：感染的是絨毛上的<strong>成熟腸細胞</strong>；腺窩是修復來源。腺窩壞死是犬小病毒的特色（補充）。<br>(B) 錯：病變侷限於小腸（空腸、迴腸）。<br>(C) 對：病變限於小腸，肉眼為腸壁薄、水樣黃到灰色內容物，胃可能有未消化乳；主要感染成熟腸細胞（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=157">p.157</a>）。<br>(D) 錯：這是 ETEC（大腸桿菌）的特徵；輪狀病毒絨毛會萎縮。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">Q30（單選）</span>
+        <div class="quiz-q">下列有關豬輪狀病毒的敘述，何者<strong>正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) RVA 是人畜共通潛力最大的型別，台灣豬 RVA 與兒童中不尋常的 RVA 株遺傳相似度高</li>
+          <li>(B) 有封套，用酒精即可迅速殺滅</li>
+          <li>(C) 為單股環狀 DNA 病毒</li>
+          <li>(D) 需要大量病毒（約 10⁶ 顆）才能讓仔豬下痢</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對：人類身上驗到類豬株與人豬重組 RVA，豬可能是新 RVA 基因的保毒庫（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=150">p.150</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=155">p.155</a>）。<br>(B) 錯：無封套、分段 dsRNA，環境非常穩定；有效消毒劑是含氯化合物與戊二醛。<br>(C) 錯：輪狀病毒是分段雙股 RNA（11 段），單股環狀 DNA 是 PCV。<br>(D) 錯：感染力極高，少至 <strong>90 個</strong>病毒顆粒就能讓未吃初乳的仔豬下痢（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=156">p.156</a>）。</p>
+        </details>
+      </div>
+
+      <footer class="note-footer">資料來源：課程講義〈Swine viral diseases (I)(II)〉；詳解頁碼見各選項。</footer>
+    </div>
+
+    <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  'abstract': '怎麼用這一頁',
+  'asf': '非洲豬瘟（ASF） Q1–Q5',
+  'csf': '豬瘟（CSF） Q6–Q11',
+  'jehe': '日本腦炎（JE）與 E 型肝炎（HE） Q12–Q16',
+  'pcv': '豬環狀病毒相關疾病（PCVAD） Q17–Q20',
+  'prrs': '豬生殖與呼吸綜合症（PRRS） Q21–Q25',
+  'ppvrv': '豬小病毒（PPV）與輪狀病毒（RV） Q26–Q30'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

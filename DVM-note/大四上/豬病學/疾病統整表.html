@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豬病學：疾病統整表 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">豬病學</a><span class="sep">›</span><span class="current">疾病統整表</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">豬病學疾病統整表</h1>
+      <p class="page-subtitle">Disease Summary Tables · 期中範圍 28 個疾病：病原、臨床、病變、診斷、防治、年齡、關鍵字反查</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">豬病學（大四上・期中範圍第 1–7 週）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">本站第 1–7 週筆記；假性狂犬病、豬巨細胞病毒取自疱疹講義</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">10 張表完成</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 怎麼用這一頁
+    </a>
+    <div class="section-label" style="margin-top:8px;">疾病總表</div>
+    <a onclick="showSection('a0')" id="nav-a0">
+      <span class="nav-icon">🧍</span> A0 人畜共通病原
+    </a>
+    <a onclick="showSection('a1v')" id="nav-a1v">
+      <span class="nav-icon">🧬</span> A1 病原與流行病學（病毒）
+    </a>
+    <a onclick="showSection('a1b')" id="nav-a1b">
+      <span class="nav-icon">🦠</span> A1 病原與流行病學（細菌）
+    </a>
+    <a onclick="showSection('a2')" id="nav-a2">
+      <span class="nav-icon">🩺</span> A2 臨床與病變
+    </a>
+    <a onclick="showSection('a3')" id="nav-a3">
+      <span class="nav-icon">🧪</span> A3 診斷與防治
+    </a>
+    <div class="section-label" style="margin-top:8px;">反查與對照</div>
+    <a onclick="showSection('age')" id="nav-age">
+      <span class="nav-icon">🐖</span> B 年齡層 × 疾病
+    </a>
+    <a onclick="showSection('key')" id="nav-key">
+      <span class="nav-icon">🔎</span> C 關鍵字反查
+    </a>
+    <a onclick="showSection('lab')" id="nav-lab">
+      <span class="nav-icon">🧫</span> D 細菌實驗室特徵
+    </a>
+    <a onclick="showSection('path')" id="nav-path">
+      <span class="nav-icon">🔬</span> E 包涵體與特徵鏡檢
+    </a>
+    <div class="section-label" style="margin-top:8px;">速查</div>
+    <a onclick="showSection('num')" id="nav-num">
+      <span class="nav-icon">🔢</span> F 數字速查
+    </a>
+    <div class="section-label" style="margin-top:8px;">名詞</div>
+    <a onclick="showSection('gut')" id="nav-gut">
+      <span class="nav-icon">🫧</span> G 腸道中英對照
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>怎麼用這一頁</h2></div>
+      <p class="section-desc">期中範圍 28 個疾病的總表與反查表。</p>
+<div class="alert alert-info"><div class="alert-label">怎麼用</div><p>這頁把期中範圍（第 1–7 週）的 28 個疾病整理成總表與反查表。每個疾病名稱都可以點回原本的週次頁；假性狂犬病與豬巨細胞病毒還沒有週次頁，會直接開疱疹講義。表格內容取自各週頁與講義，講義以外的內容標 <span class="lv lv-skim">補充</span>。病原、臨床、診斷這三張大表比較寬，在表格上左右滑動可以看到右邊的欄位。</p></div><h3>本頁各表</h3><ol><li><a href="#section-a0">A0 人畜共通病原</a></li><li><a href="#section-a1v">A1 病原與流行病學</a>（病毒、細菌分兩張）</li><li><a href="#section-a2">A2 臨床與病變</a></li><li><a href="#section-a3">A3 診斷與防治</a></li><li><a href="#section-age">B 年齡層 × 疾病</a></li><li><a href="#section-key">C 關鍵字反查</a></li><li><a href="#section-lab">D 細菌實驗室特徵</a></li><li><a href="#section-path">E 包涵體與特徵鏡檢</a></li><li><a href="#section-num">F 數字速查</a></li><li><a href="#section-gut">G 腸道中英對照</a></li></ol><h3>28 個疾病</h3><div class="table-wrap"><table><thead><tr><th>週次</th><th>疾病</th></tr></thead><tbody><tr><td>第 2 週</td><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a>、<a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a>、<a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a>、<a href="week02_豬病毒性疾病I.html#section-hev">E 型肝炎（HEV）</a></td></tr><tr><td>第 3 週</td><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a>、<a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a>、<a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒（PPV）</a>、<a href="week03_豬病毒性疾病II.html#section-rv-a">輪狀病毒（RV）</a></td></tr><tr><td>第 4 週</td><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a>、<a href="week04_小RNA病毒科疾病.html#section-svd">豬水疱病（SVD）</a>、<a href="week04_小RNA病毒科疾病.html#section-svv">矽尼卡谷病毒（SVV）</a>、<a href="week04_豬痘.html#section-abstract">豬痘</a>、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a>、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒（PCMV）</a></td></tr><tr><td>第 5 週</td><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a>、<a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢（PED）</a>、<a href="week05_豬冠狀病毒病.html#section-phev">血球凝集腦脊髓炎（PHEV）</a>、<a href="week05_豬冠狀病毒病.html#section-pdcov">PDCoV</a>、<a href="week05_豬冠狀病毒病.html#section-pdcov">SADS-CoV</a>、<a href="week05_豬流行性感冒.html#section-agent">豬流感（SI）</a></td></tr><tr><td>第 6 週</td><td><a href="week06_細菌性疾病I.html#section-app-agent">胸膜肺炎（APP）</a>、<a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（AR）</a>、<a href="week06_細菌性疾病I.html#section-gp-agent">Glässer 病</a>、<a href="week06_細菌性疾病I.html#section-ec-neo">新生仔豬下痢（ETEC）</a>、<a href="week06_細菌性疾病I.html#section-ec-pwd">離乳後下痢</a>、<a href="week06_細菌性疾病I.html#section-ec-pwd">水腫病</a>、<a href="week06_細菌性疾病I.html#section-ec-other">乳房炎</a>、<a href="week06_細菌性疾病I.html#section-ec-other">泌尿道感染</a></td></tr><tr><td>第 7 週</td><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a>、<a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a>、<a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a>、<a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a></td></tr></tbody></table></div><p style="font-size:.9em;color:var(--fg-muted)">其他整理：<a href="期中總複習.html">期中總複習</a>（依症狀的鑑別表、DIVA、人畜共通）、<a href="期中考古.html">期中考古</a>、<a href="../../國考/獸醫傳染病學/統整表格.html">國考統整表格</a>。</p>
+      <footer class="note-footer">資料來源：整理自本站第 1–7 週筆記與課程講義。</footer>
+    </div>
+
+    <div class="section" id="section-a0">
+      <div class="section-head"><div class="section-num">2</div><h2>A0 人畜共通病原</h2></div>
+      <p class="section-desc">期中範圍（第 1–7 週）的人畜共通病原，以及不是人畜共通、容易被考混的點。</p>
+<h3>病毒</h3><div class="table-wrap"><table><thead><tr><th>病毒</th><th>怎麼傳給人</th><th>要注意的點</th></tr></thead><tbody><tr><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎病毒（Japanese encephalitis virus）</a></td><td>蚊子（<em>Culex</em>）叮咬</td><td>豬是<strong>增幅宿主</strong>，人與馬是<strong>終端宿主</strong>；人與豬之間不是直接傳播</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-hev">E 型肝炎病毒（Hepatitis E virus）</a></td><td>吃未煮熟的豬肉、豬肝；職業接觸感染豬</td><td>基因型 <strong>3、4</strong> 是人畜共通的重要型；豬無症狀，是保毒庫</td></tr><tr><td><a href="week05_豬流行性感冒.html#section-agent">豬流行性感冒病毒（Swine influenza virus）</a></td><td>接觸感染豬的氣膠、分泌物</td><td><strong>豬傳人較少，人傳豬（反向人畜共通）更頻繁</strong>；台灣有人類感染 H1N2v 的病例</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-rv-a">輪狀病毒 A 型（Rotavirus A）</a></td><td>零星的跨物種傳播與基因重組</td><td>是豬輪狀病毒中人畜共通潛力最大的；豬可能是新的輪狀病毒 A 型基因的保毒庫</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病病毒（Pseudorabies virus）</a></td><td>人類感染<strong>尚無定論</strong></td><td>有疑似病例報告（腦炎、眼內炎伴病毒 DNA 陽性），但證據不足</td></tr></tbody></table></div><h3>細菌</h3><div class="table-wrap"><table><thead><tr><th>細菌</th><th>怎麼傳給人</th><th>要注意的點</th></tr></thead><tbody><tr><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒菌（<em>Erysipelothrix rhusiopathiae</em>）</a></td><td>皮膚刮傷或刺傷，屬職業感染</td><td>人的病叫<strong>類丹毒</strong>（erysipeloid），也稱 fish handler's disease</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌（<em>Salmonella</em>）</a></td><td>食因性（吃受污染的豬肉）；接觸</td><td>非傷寒型沙門氏菌症是許多國家食因性疾病的主要原因</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-br">豬布氏桿菌（<em>Brucella suis</em>）</a></td><td>職業暴露（農民、獸醫、屠宰、獵人）；實驗室</td><td><strong>實驗室感染風險很大</strong>；也感染馬、牛、犬</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ar-agent">支氣管敗血性波氏桿菌（<em>Bordetella bronchiseptica</em>，萎縮性鼻炎的病原之一）</a></td><td>免疫低下者偶見</td><td>次要，第 6 週比較表有列</td></tr></tbody></table></div><h3>不是人畜共通</h3><ul><li><strong>病毒</strong>：<a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟病毒</a>、<a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟病毒</a>、<a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫病毒</a>、<a href="week04_小RNA病毒科疾病.html#section-svd">豬水疱病病毒</a>、<a href="week04_小RNA病毒科疾病.html#section-svv">矽尼卡谷病毒</a>、<a href="week04_豬痘.html#section-abstract">豬痘病毒</a>、<a href="week03_豬病毒性疾病II.html#section-pcv-virus">豬環狀病毒第 2 型</a>、<a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒</a>、<a href="week03_豬病毒性疾病II.html#section-prrs-virus">豬生殖與呼吸綜合症病毒（藍耳病病毒）</a>、<a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎病毒</a>、<a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢病毒</a></li><li><strong>細菌</strong>：<a href="week06_細菌性疾病I.html#section-app-agent">胸膜肺炎放線桿菌（<em>Actinobacillus pleuropneumoniae</em>）</a>、<a href="week06_細菌性疾病I.html#section-gp-agent">副豬格拉氏菌（<em>Glaesserella parasuis</em>，格拉氏病）</a>、<a href="week07_細菌性疾病II.html#section-ee">豬葡萄球菌（<em>Staphylococcus hyicus</em>，滲出性表皮炎）</a></li></ul><h3>容易被考混的點</h3><ol><li><strong>豬傳人 vs 人傳豬</strong>：豬流行性感冒是人傳豬（反向人畜共通）更頻繁，不是豬傳人。</li><li><strong>日本腦炎的豬不是傳染源</strong>：豬是增幅宿主，傳給人的是蚊子；人與馬是終端宿主，不會再傳給蚊子。</li><li><strong>E 型肝炎的豬沒有症狀</strong>：風險在吃未煮熟的豬肉或豬肝，以及職業接觸；基因型 3、4 才是人畜共通的重要型。</li><li><strong>沙門氏菌</strong>：任何血清型對人都可能是病原；豬霍亂沙門氏菌（<em>Salmonella</em> Choleraesuis）在亞洲是侵襲性感染的原因。</li><li><strong>假性狂犬病病毒不能寫成人畜共通</strong>：講義寫人類感染尚無定論。</li><li><strong>傳染性胃腸炎病毒、豬流行性下痢病毒不是人畜共通</strong>：<a href="期中考古.html#section-z2019">2019 期中考古</a> Q12 選項「豬流行性下痢病毒為人畜共通」是錯的。</li><li><strong>水疱性疾病</strong>：口蹄疫、豬水疱病、矽尼卡谷病毒感染症都不是人畜共通；四種水疱病中只有<strong>水疱性口炎</strong>是（但台灣沒有，也不在期中的主要疾病裡）。</li></ol><h3>講義有提到，但尚未確認</h3><ul><li>豬環狀病毒第 3 型：在多種動物中驗到，可能跨物種傳播，但人類感染未確認。</li><li>豬戴爾他冠狀病毒：講義圖中推定宿主範圍包括人，但沒有確定的人畜共通結論。</li></ul>
+      <footer class="note-footer">資料來源：第 2–7 週筆記、<a href="期中總複習.html#section-zoo">期中總複習第 5 節</a>與疱疹講義 <a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=19">p.19</a>。</footer>
+    </div>
+
+    <div class="section" id="section-a1v">
+      <div class="section-head"><div class="section-num">3</div><h2>A1 病原與流行病學：病毒</h2></div>
+      <p class="section-desc">20 個病毒病。封套與核酸類型常和環境抵抗力、消毒一起考。</p>
+<div class="table-wrap"><table style="font-size:.86em;min-width:1180px"><thead><tr><th>疾病</th><th>病原（科屬、核酸、封套）</th><th>宿主與人畜共通</th><th>好發</th><th>傳播</th><th>標的與致病關鍵</th></tr></thead><tbody><tr><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（African swine fever, ASF）</a></td><td>ASFV；Asfarviridae；dsDNA 170–193 kb；<strong>有封套</strong>；24 基因型；唯一經節肢動物傳播的 DNA 病毒</td><td>家豬、野豬；疣豬、叢林豬為儲存宿主；<strong>非</strong>人畜共通</td><td>所有年齡</td><td>直接接觸（口鼻、血液）、餿水豬肉、污染物、軟蜱 <em>Ornithodoros</em>、螫蠅（機械）</td><td>扁桃腺與下頜淋巴結的單核球、巨噬細胞；病毒血症 4–8 天，缺乏完全中和抗體</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（Classical swine fever, CSF）</a></td><td>CSFV；Pestiviridae（Orthopestivirus）；(+)ssRNA；<strong>有封套</strong>；單一血清型、3 基因型</td><td>家豬、野豬；非人畜共通</td><td>各年齡，越年輕死亡率越高</td><td>口、直接接觸、短距離飛沫、精液、胎盤</td><td>扁桃腺 → 淋巴 → 血液 → 脾、骨髓；血管內皮壞死、淋巴球與血小板減少、免疫抑制；胎兒免疫耐受</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（Japanese encephalitis, JE）</a></td><td>JEV；Flaviviridae；(+)ssRNA 約 11 kb；有封套 <span class="lv lv-skim">補充</span></td><td>豬與鷺科鳥＝<strong>增幅宿主</strong>；人、馬＝終端宿主；<strong>人畜共通</strong></td><td>懷孕母豬（妊娠 60–70 天前）</td><td><em>Culex</em> 蚊</td><td>高效價病毒血症 2–4 天；經胎盤感染胎兒；感染神經元</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-hev">E 型肝炎（Hepatitis E, HE）</a></td><td>HEV；Hepeviridae；(+)ssRNA 約 7.2 kb；無封套 <span class="lv lv-skim">補充</span></td><td>豬是保毒庫；基因型 3、4 <strong>人畜共通</strong></td><td>約 2–3 月齡（母源抗體下降）感染</td><td>豬之間糞口；人經職業接觸、吃未煮熟豬肉或豬肝</td><td>消化道 → 肝；糞便排毒 7 週；豬無症狀</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">豬環狀病毒相關疾病（Porcine circovirus-associated disease, PCVAD）</a></td><td>PCV2；Circoviridae；<strong>環狀</strong> ssDNA 1.7 kb；無封套；極耐環境</td><td>豬（PCV3 可能跨物種）</td><td>離乳後豬；PDNS 8–18 週齡</td><td>口鼻為主；胎盤、乳汁、精液</td><td>淋巴器官與肺的巨噬細胞、單核球；淋巴耗竭；多因子（共同感染、免疫刺激）</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-prrs-virus">豬生殖與呼吸綜合症（Porcine reproductive and respiratory syndrome, PRRS）</a></td><td>PRRSV；Arteriviridae；(+)ssRNA；<strong>有封套</strong>；PRRSV-1 歐洲、PRRSV-2 美洲亞洲（台灣）</td><td>豬</td><td>母豬（生殖）、仔豬（呼吸道）</td><td>移動感染豬；精液與人工授精；非經口（打針、咬傷）最有效率</td><td>巨噬細胞（PAMs、PIMs）；持續感染、準種；非中和抗體先出現</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒感染症（Porcine parvovirus, PPV）</a></td><td>PPV1；Parvoviridae；<strong>線狀</strong> ssDNA；無封套；極耐環境</td><td>豬</td><td>懷孕女豬、年輕母豬</td><td>糞便分泌物、污染物、齧齒類（機械）、公豬精液</td><td>快速分裂細胞；胎兒結果依感染日齡（35、70 天）</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-rv-a">豬輪狀病毒感染症（Porcine rotavirus, RV）</a></td><td>RV；Sedoreoviridae；<strong>分段 dsRNA</strong>（11 段）；無封套</td><td>豬；RVA 人畜共通潛力最大</td><td>新生與哺乳仔豬</td><td>糞口；污染設施器具長期存在</td><td>空腸迴腸成熟腸細胞 → 絨毛萎縮</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（Foot-and-mouth disease, FMD）</a></td><td>FMDV；Picornaviridae（Aphthovirus）；(+)ssRNA 8.3 kb；無封套；7 血清型無交叉保護</td><td>偶蹄類；豬＝<strong>增幅者</strong>、牛＝指示者、羊＝維持者；非人畜共通</td><td>所有年齡；仔豬心肌炎</td><td>直接接觸最常見、餿水、氣膠（&lt;20 km，豬傳牛）、污染物</td><td>豬經口咽 → 淋巴結 → 病毒血症 → 上皮；潛伏期短於臨床潛伏期（沒症狀就排毒）</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-svd">豬水疱病（Swine vesicular disease, SVD）</a></td><td>SVDV；Picornaviridae（Enterovirus）；(+)ssRNA；無封套；單一血清型</td><td>只有豬；非人畜共通</td><td>—</td><td>接觸、污染環境（pen disease）、餿水；症狀前 48 h 就排毒</td><td>上皮細胞；環境極穩定，只有 1% NaOH 有效</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-svv">矽尼卡谷病毒感染症（Seneca Valley virus, SVV）</a></td><td>Senecavirus A；Picornaviridae；(+)ssRNA；無封套；單一血清型</td><td>只有豬；非人畜共通</td><td>台灣案例只見成豬；&lt;1 週齡仔豬死亡率高</td><td>未證實；可能直接接觸、糞口；老鼠、蒼蠅</td><td>受體 ANTXR1</td></tr><tr><td><a href="week04_豬痘.html#section-abstract">豬痘（Swinepox）</a></td><td>SwPV；Suipoxvirus；dsDNA 146 kb；<strong>有封套</strong>；細胞質內複製</td><td>豬是唯一自然宿主；非人畜共通</td><td>&lt;3–4 月齡</td><td><strong>豬蝨</strong>（最常見）、螫蠅與蚊（機械）、直接接觸、垂直</td><td>皮膚棘層角質細胞</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（Pseudorabies, PR；Aujeszky's disease）</a></td><td>PRV（SuHV-1）；Alphaherpesvirinae（Varicellovirus）；dsDNA 約 143 kb；有封套；單一血清型</td><td>豬唯一自然宿主；牛羊犬貓兔鼠為終端宿主；鳥、馬、高等靈長類抵抗；人畜共通尚無定論</td><td>新生至 3 週齡最嚴重；&gt;10 週以呼吸道為主</td><td>直接接觸（口鼻結膜）、污染物、氣膠、配種（野豬為主）、胎盤（懷孕後期）、初乳</td><td>上呼吸道 → 扁桃腺 → 感覺神經逆行運輸（嗅、三叉、舌咽）→ CNS；潛伏於三叉、薦神經節與扁桃腺</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒感染症（Porcine cytomegalovirus, PCMV；包涵體鼻炎 IBR）</a></td><td>PCMV（SuHV-2）；Betaherpesvirinae（Roseolovirus）；dsDNA 約 130 kb；有封套</td><td>只有豬；豬群盛行率 &gt;90%</td><td>1–5 週齡（鼻炎 3–5 週）；先天感染</td><td>鼻眼分泌物、尿、噴嚏氣膠；口鼻；胎盤</td><td>鼻黏膜腺、哈氏腺、淚腺、腎小管；胎兒為血管內皮；潛伏於單核球、CD8⁺ 淋巴球</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（Transmissible gastroenteritis, TGE）</a></td><td>TGEV；Alphacoronavirus；(+)ssRNA 約 30 kb；有封套；單一血清型。PRCV＝S 蛋白 N 端刪除 227 aa 的變異株</td><td>豬；狗、貓、狐狸、椋鳥可帶毒</td><td>&lt;2 週齡嚴重；冬季</td><td>糞便為主（耐過豬排毒 2–8 週）、乳汁；PRCV 經呼吸道</td><td>空腸迴腸腸細胞壞死 → 吸收不良；受體 pAPN</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢（Porcine epidemic diarrhea, PED）</a></td><td>PEDV；Alphacoronavirus；G1（傳統）／G2（高致病）</td><td>豬</td><td>各年齡；1 週內仔豬死亡率高</td><td>糞口 <span class="lv lv-skim">補充</span></td><td>小腸腸細胞；新生仔豬腸細胞更新慢（5–7 天）</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-phev">血球凝集腦脊髓炎（Porcine hemagglutinating encephalomyelitis virus, PHEV；嘔吐衰弱病 VWD）</a></td><td>PHEV；<strong>Betacoronavirus</strong>；會凝集紅血球</td><td>豬；強烈嗜神經</td><td>3–4 週齡前感染、母豬無抗體才發病</td><td>口鼻、鼻對鼻、氣膠；沒有帶原者</td><td>呼吸道 → 神經途徑</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-pdcov">豬戴爾他冠狀病毒（Porcine deltacoronavirus, PDCoV）</a></td><td>PDCoV；<strong>Deltacoronavirus</strong></td><td>宿主範圍廣（禽、豬、哺乳類）</td><td>仔豬</td><td>推測糞口</td><td>小腸；與 TGE、PED 類似但較輕</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-pdcov">豬急性下痢症候群（Swine acute diarrhea syndrome coronavirus, SADS-CoV）</a></td><td>SADS-CoV；Alphacoronavirus；與蝙蝠 HKU2 &gt;95% 相似</td><td>豬</td><td>仔豬</td><td>—</td><td>小腸；2017 年中國南方</td></tr><tr><td><a href="week05_豬流行性感冒.html#section-agent">豬流行性感冒（Swine influenza, SI）</a></td><td>IAV；Orthomyxoviridae；8 段 (−)ssRNA；有封套；豬三大型 H1N1、H1N2、H3N2</td><td>豬是<strong>混合容器</strong>；人畜共通（人傳豬比豬傳人頻繁）</td><td>各年齡</td><td>直接接觸分泌物、吸入氣膠</td><td>呼吸道上皮；唾液酸受體 α2,3（禽）／α2,6（人、豬）</td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：第 2–5 週筆記；假性狂犬病與豬巨細胞病毒取自疱疹講義 <a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">p.11–31</a>、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">p.68–80</a>。</footer>
+    </div>
+
+    <div class="section" id="section-a1b">
+      <div class="section-head"><div class="section-num">4</div><h2>A1 病原與流行病學：細菌</h2></div>
+      <p class="section-desc">8 個細菌病；大腸桿菌各型的差異在 A2、A3 分列。</p>
+<div class="table-wrap"><table style="font-size:.86em;min-width:1180px"><thead><tr><th>疾病</th><th>病原（革蘭氏、形態）</th><th>宿主與人畜共通</th><th>好發</th><th>傳播</th><th>致病關鍵與毒力因子</th></tr></thead><tbody><tr><td><a href="week06_細菌性疾病I.html#section-app-agent">豬胸膜肺炎（Porcine pleuropneumonia, APP）</a></td><td><em>A. pleuropneumoniae</em>；G− 有莢膜球桿菌；19 血清型；Biotype I 需 NAD</td><td>豬；不感染人</td><td>生長肥育豬</td><td>鼻對鼻短距離；引進帶菌豬（扁桃腺、慢性肺病灶）</td><td>定殖 → 營養（鐵、鎳）→ 逃避清除（莢膜、LPS）→ 破壞（Apx、LPS）</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（Atrophic rhinitis, AR）</a></td><td>NPAR：<em>B. bronchiseptica</em>；PAR：產毒型 <em>P. multocida</em></td><td><em>Bb</em> 偶見於免疫低下的人</td><td>NPAR 3–4 週齡；PAR 4–12 週齡</td><td>母豬傳給第一週仔豬；飛沫；混群</td><td><em>Bb</em>（DNT、TCT、FHA）幫 <em>Pm</em> 定殖；PMT 造成鼻甲骨萎縮</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-gp-agent">格拉氏病（Glässer's disease）</a></td><td><em>Glaesserella parasuis</em>（舊名 <em>H. parasuis</em>）；G− 多形性短桿菌；15 血清群</td><td>只有家豬、野豬；呼吸道常在菌</td><td>4–8 週齡保育豬</td><td>帶菌豬或病豬接觸</td><td>黏附、生物膜、抗吞噬、侵入內皮</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-neo">大腸桿菌症（E. coli infection）</a></td><td>ETEC、AEEC（EPEC）、EDEC（STEC）、UPEC</td><td>豬</td><td>0–4 日齡；離乳後；母豬</td><td>—</td><td>線毛黏附＋毒素（LT、ST、Stx2e）</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（Swine erysipelas, SE）</a></td><td><em>E. rhusiopathiae</em>；G+ 細長不運動無芽孢桿菌，易脫色</td><td><strong>人畜共通</strong>（類丹毒、fish handler's disease）；豬與火雞帶菌</td><td>接近上市的生長肥育豬</td><td>帶菌豬（扁桃腺）糞便口鼻排菌；土壤、地下水、魚粉</td><td>neuraminidase、莢膜、SpaA</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-sal-agent">豬沙門氏菌症（Swine salmonellosis）</a></td><td><em>S.</em> Choleraesuis（豬適應）／<em>S.</em> Typhimurium（宿主廣）；G− 不發酵乳糖桿菌；兼性細胞內</td><td><strong>人畜共通</strong>（食因性）</td><td>離乳保育豬；Choleraesuis 約 12–14 週</td><td>糞口；帶菌豬是最重要感染源</td><td>SPI-1 T3SS（侵入）、SPI-2 T3SS（細胞內存活）、spv 質體</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（Exudative epidermitis, EE；油脂豬病）</a></td><td><em>Staphylococcus hyicus</em>；G+ 球菌；成豬皮膚常在菌</td><td><strong>非</strong>人畜共通</td><td>7 日齡–10 週齡</td><td>皮膚外傷為前置因子</td><td>剝落毒素 ExhA–D、ShetA/B</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症（Brucellosis）</a></td><td><em>Brucella suis</em>（biovar 1、3）；G− 球桿菌，長得慢</td><td><strong>人畜共通</strong>（職業、實驗室）；也感染馬、牛、犬</td><td>種豬</td><td>消化道、配種</td><td>urease、低內毒性 LPS、VirB T4SS、erythritol（偏好生殖組織）</td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：第 6–7 週筆記。</footer>
+    </div>
+
+    <div class="section" id="section-a2">
+      <div class="section-head"><div class="section-num">5</div><h2>A2 臨床與病變</h2></div>
+      <p class="section-desc">招牌症狀、肉眼病變、鏡檢病變。粗體是最常被拿來出題的特徵。</p>
+<div class="table-wrap"><table style="font-size:.86em;min-width:1180px"><thead><tr><th>疾病</th><th>招牌症狀</th><th>肉眼病變</th><th>鏡檢病變</th></tr></thead><tbody><tr><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a></td><td>最急性 &gt;41°C、1–4 天死；急性 40–42°C、耳腹皮膚出血發紫、血樣下痢、流產，死亡率 90–100%；亞急性 30–70%；慢性關節腫、皮膚潰瘍</td><td><strong>脾腫大、質脆、暗黑</strong>；淋巴結腫脹出血；腎皮質點狀出血、腎周水腫；胃肝韌帶出血</td><td>—</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a></td><td>急性高燒 &gt;41°C、沉鬱、結膜炎、發紺、便秘後下痢、神經症狀、流產；慢性消瘦 2–3 個月死；先天持續感染：外觀健康、驗不到抗體、終生排毒</td><td>淋巴結周邊出血、<strong>脾邊緣梗塞</strong>、腎膀胱睪丸點狀出血、扁桃腺壞死、迴盲瓣潰瘍、<strong>鈕扣狀潰瘍</strong>（慢性）</td><td>—</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a></td><td>母豬流產、死產、木乃伊、虛弱仔豬；公豬睪丸炎（暫時）；仔豬偶有神經症狀</td><td>母豬無特徵；仔豬腦水腫、皮下水腫、小腦發育不全</td><td>非化膿性腦炎：神經元壞死、血管周圍袖套</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-hev">E 型肝炎（HEV）</a></td><td>無症狀</td><td>輕至中度肝與腸繫膜淋巴結腫大</td><td>多灶性淋巴漿細胞性肝炎、局部肝細胞壞死</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a></td><td>PCV2-SD：消瘦、呼吸困難、鼠蹊淋巴結腫大、黃疸；PCV2-RD：晚期流產死產；PDNS：後肢會陰紅紫色斑</td><td>淋巴結腫大、不塌陷的肺、腎白斑；PDNS 腎腫大蒼白、皮質點狀出血</td><td>淋巴耗竭、濾泡被巨噬細胞取代、細胞質內包涵體；PDNS 壞死性血管炎＋纖維素性腎絲球腎炎</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a></td><td>母豬流產、死產、木乃伊混雜，耳發紺；仔豬呼吸困難（不咳嗽）</td><td>肺斑駁、黃褐與紅色、不塌陷；HP-PRRS 多器官出血</td><td>間質性肺炎</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒（PPV）</a></td><td>母豬無症狀；SMEDI：&lt;35 天吸收（返情）、35–70 天木乃伊、&gt;70 天存活帶抗體</td><td><strong>同窩大小不一的木乃伊胎</strong></td><td>胎兒大腦血管周圍單核細胞浸潤、肝局部壞死</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-rv-a">輪狀病毒（RV）</a></td><td>黃色水樣下痢、脫水；新生仔豬最重</td><td>小腸擴張壁薄、黃灰色內容物、胃有未消化乳</td><td>空腸迴腸絨毛萎縮（頂端）</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a></td><td>發燒、口鼻蹄冠乳頭水疱、流涎、咂嘴、跛行；發病率高、死亡率低；仔豬心肌炎猝死</td><td>水疱、糜爛；仔豬<strong>虎斑心</strong></td><td>棘層角質細胞氣球樣變性；心肌壞死、間質水腫</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-svd">豬水疱病（SVD）</a></td><td>突然跛行、短暫發燒、蹄冠與趾間水疱，比 FMD 輕；沒有仔豬猝死、沒有流產</td><td>水疱</td><td>—</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-svv">矽尼卡谷病毒（SVV）</a></td><td>跛行、昏睡、發燒、鼻與蹄冠水疱糜爛；新生仔豬下痢、死亡率增加</td><td>水疱、糜爛</td><td>台灣案例：鼻鏡角化過度與不全；蹄冠棘細胞空泡化成水疱</td></tr><tr><td><a href="week04_豬痘.html#section-abstract">豬痘</a></td><td>斑疹 → 丘疹 → 水疱 → 臍窩狀膿疱 → 結痂；幼豬嚴重；發病率高、死亡率低</td><td>痘疹（側腹、腹下、四肢、鼠蹊、耳）；先天感染全身都有</td><td>棘層角質細胞水腫變性＋<strong>嗜酸性細胞質內包涵體</strong></td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a></td><td>新生仔豬猝死；2–3 週齡神經症狀（顫抖、運動失調、<strong>犬坐</strong>、划水）；&gt;10 週呼吸道；母豬呼吸道＋發燒＋依懷孕期的生殖障礙；其他動物劇癢自殘、48 h 內死</td><td>無特徵性病變；肝、脾、肺、腸、腎上腺 1–3 mm 出血壞死灶；壞死性扁桃腺炎；壞死性胎盤炎</td><td>非化膿性腦脊髓炎、三叉神經節炎；<strong>兩染性核內包涵體</strong>（神經系統外較多）</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒（PCMV）</a></td><td>3–5 週齡包涵體鼻炎（膿性鼻炎、劇烈噴嚏）；先天感染生殖障礙、新生仔豬虛弱；喉與跗關節周圍水腫</td><td>&lt;3 週齡全身型：卡他性鼻炎、胸水、心包積水、肺與皮下水腫、腎點狀出血</td><td><strong>嗜鹼性核內包涵體</strong> 8–12 μm＋巨細胞＋巨核（三者合併具診斷性）</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a></td><td>嘔吐、黃色水樣下痢、脫水；&lt;7 日齡 2–7 天死；母豬無乳。PRCV 多為亞臨床</td><td>病變限消化道：腸壁薄透明、胃有凝乳、腸繫膜淋巴管少乳糜；PRCV 肺實質化</td><td>空腸迴腸絨毛萎縮、十二指腸常無；腺窩延長</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢（PED）</a></td><td>嘔吐、<strong>水樣</strong>下痢（不是血樣）；1 週內仔豬死亡率高</td><td>小腸充滿水樣黃色液體而擴張</td><td>絨毛變鈍融合、頂端腸細胞空泡</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-phev">血球凝集腦脊髓炎（PHEV）</a></td><td>嘔吐衰弱病（嘔吐、消瘦）或腦脊髓炎；多亞臨床；初期打噴嚏、咳嗽、發燒</td><td>—</td><td>非化膿性腦脊髓炎；胃壁神經節退化與血管周圍袖套</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-pdcov">PDCoV</a></td><td>與 TGE、PED 類似但較輕</td><td>同左</td><td>同左</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-pdcov">SADS-CoV</a></td><td>仔豬急性下痢</td><td>—</td><td>—</td></tr><tr><td><a href="week05_豬流行性感冒.html#section-agent">豬流感（SI）</a></td><td>突然發病、發燒、咳嗽、呼吸費力、快速恢復；高發病率低死亡率</td><td>肺<strong>界線清楚</strong>的紫色實質化</td><td>支氣管上皮壞死脫落、氣道被壞死細胞與嗜中性球堵塞</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-app-agent">胸膜肺炎（APP）</a></td><td>甚急性 41.5°C、發紺、張口呼吸坐姿、<strong>口鼻泡沫血</strong>、24–36 h 死</td><td><strong>雙側、界線清楚</strong>的纖維素出血壞死性胸膜肺炎；肺沾黏胸壁；胸腔帶血液體</td><td>—</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（AR）</a></td><td>打噴嚏、聳鼻、流鼻血、鼻吻歪曲、生長遲緩</td><td>鼻甲骨萎縮、鼻中膈偏移</td><td>—</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-gp-agent">Glässer 病</a></td><td>發燒、跛行、關節腫（腳尖小步）、神經症狀（划水）</td><td><strong>纖維素性多發性漿膜炎</strong>（胸、心包、腹、關節、腦膜）</td><td>—</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-neo">新生仔豬下痢（ETEC）</a></td><td>0–4 日齡水樣下痢、嚴重脫水、眼窩下陷</td><td>腸壁薄透明、積液、<strong>不發炎</strong>、胃有凝乳</td><td>絨毛<strong>不</strong>萎縮</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-pwd">離乳後下痢</a></td><td>離乳後下痢，不帶血</td><td>小腸鬱血、可發炎</td><td>AEEC：附著抹除（A/E）病灶</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-pwd">水腫病</a></td><td><strong>眼瞼、額頭水腫</strong>；不發燒；預後差</td><td>胃黏膜下層與結腸繫膜水腫</td><td>Stx2e 傷害血管內皮</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-other">乳房炎</a></td><td>看仔豬行為判斷（吃不飽）</td><td>—</td><td>—</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-other">泌尿道感染</a></td><td>母豬犬坐姿勢</td><td>腎盂腎炎、膀胱炎</td><td>—</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a></td><td>急性 40–42°C、<strong>菱形疹</strong>（指壓褪色）、關節痛、糞便乾硬；慢性跛行</td><td>腎皮質點狀出血；慢性增殖性非化膿性關節炎、<strong>疣狀心內膜炎</strong>（→ 腎脾梗塞）</td><td>—</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a></td><td>敗血型：<strong>紅耳朵</strong>（耳翼四肢發紺）、發燒；腸炎型：黃色水樣下痢（初期不帶血）</td><td>敗血型：脾腫、<strong>肝副傷寒小節</strong>、肺水腫出血；腸炎型：壞死性結腸盲腸炎、<strong>鈕扣狀潰瘍</strong></td><td>—</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a></td><td>腋下鼠蹊開始 → 全身油脂樣滲出、結痂、<strong>不癢</strong></td><td>皮毛糾結如蠟膜</td><td>表皮內水泡膿泡、棘層肥厚</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a></td><td>流產、不孕、睪丸炎、後軀麻痺跛行；<strong>公豬難恢復</strong>、母豬多會恢復</td><td>睪丸炎、化膿性壞死性胎盤炎、肝肉芽腫、脊椎炎</td><td>—</td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：第 2–7 週筆記；PRV、PCMV 取自疱疹講義 <a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=32">p.32–46</a>、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=75">p.75–78</a>。</footer>
+    </div>
+
+    <div class="section" id="section-a3">
+      <div class="section-head"><div class="section-num">6</div><h2>A3 診斷與防治</h2></div>
+      <p class="section-desc">確診方法、治療、疫苗與 DIVA。「—」表示講義沒有寫。</p>
+<div class="table-wrap"><table style="font-size:.86em;min-width:1180px"><thead><tr><th>疾病</th><th>診斷（方法與樣本）</th><th>治療</th><th>疫苗、DIVA 與防治</th></tr></thead><tbody><tr><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a></td><td>病毒分離＋<strong>血球吸附（玫瑰花環）</strong>確認、PCR；抗體 ELISA 篩檢，IBT／IFAT／IPT 確認</td><td>無</td><td>基因刪除減毒活疫苗（越南 2022 起），無全球公認；撲殺、新豬隔離 30 天</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a></td><td>RT-PCR、qRT-PCR（分基因型、區分疫苗株）；<strong>FAVNT 金標準</strong>；ELISA；樣本扁桃腺、脾、淋巴結、腎、迴盲瓣</td><td>無</td><td>LPC 減毒活疫苗；<strong>E2 次單位＋Erns ELISA（DIVA）</strong>、CP7_E2alf；台灣 2023 年停打</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a></td><td>病毒分離、RT-PCR、IHC；ELISA、IFA、VN；配對血清</td><td>無</td><td>不活化或減毒活疫苗（活毒較好）；蚊子控制</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-hev">E 型肝炎（HEV）</a></td><td>RT-PCR、ELISA（重組衣殼抗原）；糞便、血清、肝、膽汁</td><td>—</td><td>豬無疫苗（人用疫苗僅中國）；衛生、煮熟</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a></td><td>PCV2-SD：臨床＋淋巴病變＋<strong>病灶內大量 PCV2</strong>（IHC／ISH、qPCR）；PCR 陽性 ≠ PCVAD；PDNS 不需驗 PCV2</td><td>無</td><td>PCV2 疫苗（2006，多為 PCV2a）；不保護 PCV3／4</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a></td><td>RT-PCR × ELISA 合併判讀（14 天界線）；病毒分離（MARC-145）</td><td>無</td><td>MLV 與不活化疫苗，同源好、異源差；四大支柱</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒（PPV）</a></td><td><strong>PCR 最實用</strong>；IF 驗胎兒抗原；HI 驗抗體；樣本為木乃伊胎</td><td>無</td><td>不活化疫苗，配種前接種</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-rv-a">輪狀病毒（RV）</a></td><td>RT-PCR（最常用、可分型）；糞便或直腸拭子、空腸迴腸</td><td>支持療法：保溫、補液、電解質</td><td>RVA 疫苗（母豬分娩前）；乳汁 IgA 保護</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a></td><td>臨床不具診斷性；水疱材料病毒分離（BSL-3、BHK-21）、抗原 ELISA（分血清型）、RT-PCR；<strong>NSP（3A3B）抗體</strong>區分感染</td><td>無</td><td>不活化疫苗（不阻止初次感染、保護 4–6 個月）；撲殺、移動管制</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-svd">豬水疱病（SVD）</a></td><td>水疱材料電顯、分離、抗原 ELISA、RT-PCR（亞臨床可驗糞便）；VN、ELISA</td><td>無</td><td>無疫苗；禁餿水、撲殺</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-svv">矽尼卡谷病毒（SVV）</a></td><td>電顯、分離、抗原 ELISA、IHC、RT-PCR、ISH；VN、ELISA</td><td>無</td><td>無疫苗；生物安全</td></tr><tr><td><a href="week04_豬痘.html#section-abstract">豬痘</a></td><td>典型痘疹推定；電顯與組織病理確認</td><td>無特效；抗生素控制續發感染</td><td>無疫苗；衛生、外寄生蟲控制</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a></td><td>病毒：電顯、組織、分離、PCR（gB、gC、gD、gE）；潛伏驗三叉神經節與扁桃腺；抗體 VN、ELISA、LAT；<strong>gE ELISA＝DIVA</strong></td><td>無特效</td><td>減毒、不活化、gE 缺失疫苗（不阻止感染與潛伏）；DIVA 疫苗＋檢測 → 根除</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒（PCMV）</a></td><td>組織病理（包涵體＋巨細胞＋巨核）、分離、PCR；鼻甲黏膜、肺、肺巨噬細胞、腎</td><td>無</td><td>無疫苗；減少緊迫、注意引種</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a></td><td>免疫電顯、分離、IF（<strong>採空腸</strong>）、RT-PCR；<strong>阻斷 ELISA</strong> 區分 TGEV 與 PRCV</td><td>無特效</td><td>減毒與不活化疫苗；產前反飼；生物安全</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢（PED）</a></td><td>IF、電顯、RT-PCR（與 TGE 區分）</td><td>照護、飲水</td><td>疫苗（傳統疫苗對高毒新株無效）；反飼；母源抗體</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-phev">血球凝集腦脊髓炎（PHEV）</a></td><td>免疫電顯、分離（扁桃腺、腦幹、肺）、抗原檢測、RT-PCR；ELISA、VN</td><td>—</td><td>無疫苗；讓病毒在場內循環，使母豬分娩時有免疫</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-pdcov">PDCoV</a></td><td>與 TGEV、PEDV 類似</td><td>—</td><td>與 TGEV、PEDV 類似</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-pdcov">SADS-CoV</a></td><td>—</td><td>—</td><td>—</td></tr><tr><td><a href="week05_豬流行性感冒.html#section-agent">豬流感（SI）</a></td><td>發燒期鼻咽拭子；MDCK 或雞胚蛋分離；RT-PCR；<strong>HI</strong> 是最常用血清學</td><td>—</td><td>不活化全病毒苗＋佐劑，IM 兩劑間隔 2–4 週，母豬每年兩次追加</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-app-agent">胸膜肺炎（APP）</a></td><td>新鮮死亡豬；NAD 血液培養基或 chocolate agar；CAMP、urease</td><td><strong>早期注射</strong>抗菌藥、依藥敏</td><td>死菌苗、Apx 毒素次單位、活菌苗；減少混群、統進統出</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（AR）</a></td><td>臨床診斷；培養驗產毒型 <em>P. multocida</em> 確診 PAR</td><td>有正當理由才用抗菌藥</td><td>母豬分娩前 6 週與 2 週疫苗 → 初乳免疫</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-gp-agent">Glässer 病</a></td><td>培養（chocolate agar，需 V 因子）</td><td>早期抗菌藥、依藥敏</td><td>商業或自家疫苗（依血清型）</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-neo">新生仔豬下痢（ETEC）</a></td><td>講義未特別列</td><td>補液 <span class="lv lv-skim">補充</span></td><td>母豬免疫、初乳</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-pwd">離乳後下痢</a></td><td>—</td><td>必要時目標性抗菌、輸液電解質</td><td>疫苗、離乳管理、衛生、遺傳抗性</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-pwd">水腫病</a></td><td>血液培養基上溶血性 <em>E. coli</em></td><td>預防比治療重要</td><td>Stx2e／F18 疫苗</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a></td><td>—</td><td><strong>penicillin 首選</strong>，越早越好；慢性反應差</td><td>死菌苗或減毒疫苗</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a></td><td>分離：HE agar（黑心）、SMID、MacConkey（無色）</td><td>—</td><td>活菌苗效果較好；減少暴露與壓力</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a></td><td>—</td><td>早期抗菌藥（依藥敏）、局部消毒；ivermectin 無效</td><td>反覆發生可用自家疫苗</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a></td><td>血清學篩檢豬群；培養有生物安全風險</td><td><strong>不建議治療</strong></td><td>無可靠疫苗；檢測淘汰</td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：第 2–7 週筆記；PRV、PCMV 取自疱疹講義 <a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=50">p.50–55</a>、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=79">p.79–80</a>。</footer>
+    </div>
+
+    <div class="section" id="section-age">
+      <div class="section-head"><div class="section-num">7</div><h2>B 年齡層 × 疾病</h2></div>
+      <p class="section-desc">看到題目寫的日齡或生產階段，先用這張縮小範圍。括號是講義寫的好發年齡。</p>
+<div class="table-wrap"><table><thead><tr><th>階段</th><th>病毒</th><th>細菌</th></tr></thead><tbody><tr><td>哺乳仔豬<br>（新生–約 3 週）</td><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a>（&lt;2 週嚴重）、<a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢（PED）</a>（1 週內高死亡）、<a href="week03_豬病毒性疾病II.html#section-rv-a">輪狀病毒（RV）</a>、<a href="week05_豬冠狀病毒病.html#section-pdcov">PDCoV</a>、<a href="week05_豬冠狀病毒病.html#section-pdcov">SADS-CoV</a>、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a>（新生猝死；2–3 週神經）、<a href="week05_豬冠狀病毒病.html#section-phev">血球凝集腦脊髓炎（PHEV）</a>（3–4 週前感染）、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒（PCMV）</a>（1–5 週）、<a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a> 仔豬心肌炎、<a href="week04_小RNA病毒科疾病.html#section-svv">矽尼卡谷病毒（SVV）</a>（&lt;1 週）、<a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a> 產後持續感染</td><td><a href="week06_細菌性疾病I.html#section-ec-neo">新生仔豬下痢（ETEC）</a>（0–4 日齡）、<a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（AR）</a>（母豬傳第一週仔豬；NPAR 3–4 週）、<a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a>（7 日齡起）</td></tr><tr><td>保育豬<br>（離乳後–約 10 週）</td><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a>（離乳後）、<a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a> 仔豬呼吸道、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a>（3–9 週神經）、<a href="week04_豬痘.html#section-abstract">豬痘</a>（&lt;3–4 月齡）、<a href="week02_豬病毒性疾病I.html#section-hev">E 型肝炎（HEV）</a>（2–3 月齡感染、無症狀）</td><td><a href="week06_細菌性疾病I.html#section-gp-agent">Glässer 病</a>（4–8 週）、<a href="week06_細菌性疾病I.html#section-ec-pwd">離乳後下痢</a>、<a href="week06_細菌性疾病I.html#section-ec-pwd">水腫病</a>（快速生長的保育豬）、<a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（AR）</a>（PAR 4–12 週）、<a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a>（離乳保育豬；Typhimurium 約 6 週起）、<a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a>（到 10 週）</td></tr><tr><td>生長肥育豬</td><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a>（&gt;10 週呼吸道）、PDNS（8–18 週）、<a href="week05_豬流行性感冒.html#section-agent">豬流感（SI）</a></td><td><a href="week06_細菌性疾病I.html#section-app-agent">胸膜肺炎（APP）</a>、<a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a>（接近上市）、<a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a>（Choleraesuis 約 12–14 週）</td></tr><tr><td>母豬（生殖）</td><td><a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒（PPV）</a>（女豬、年輕母豬）、<a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a>、<a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a>（妊娠 60–70 天前）、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a>（依懷孕期）、PCV2-RD、<a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a>（懷孕 50–70 天 → 先天持續感染）、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒（PCMV）</a>（先天）、<a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a> 流產、<a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a> 母豬無乳</td><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a>、<a href="week06_細菌性疾病I.html#section-ec-other">乳房炎</a>、<a href="week06_細菌性疾病I.html#section-ec-other">泌尿道感染</a></td></tr><tr><td>公豬</td><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a> 睪丸炎、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a> 睪丸壞死與精子異常、<a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒（PPV）</a> 精液排毒、<a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a> 精液傳播、<a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a> 精液</td><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a> 睪丸炎（公豬難恢復）</td></tr><tr><td>各年齡</td><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a>、<a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a>、<a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a>、<a href="week04_小RNA病毒科疾病.html#section-svd">豬水疱病（SVD）</a>、<a href="week05_豬流行性感冒.html#section-agent">豬流感（SI）</a>、<a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢（PED）</a></td><td>—</td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：第 2–7 週筆記；年齡分段為本站整理。</footer>
+    </div>
+
+    <div class="section" id="section-key">
+      <div class="section-head"><div class="section-num">8</div><h2>C 關鍵字反查</h2></div>
+      <p class="section-desc">從題幹線索反查疾病。葉光勝老師常用「臨床情境＋剖檢＋培養」出單選題，這張就是對這種題型。</p>
+<h3>皮膚</h3><div class="table-wrap"><table><thead><tr><th>題目線索</th><th>想到</th><th>補一句</th></tr></thead><tbody><tr><td>紫紅色菱形突起疹（diamond skin），指壓褪色</td><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a></td><td>急性豬丹毒；菱形疹不是慢性</td></tr><tr><td>耳翼、四肢末端發紺（紅耳朵）</td><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a></td><td>敗血型（Choleraesuis）；ASF、CSF、PRRS 也有耳發紺</td></tr><tr><td>全身油脂樣滲出、結痂、<strong>不癢</strong></td><td><a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a></td><td><em>S. hyicus</em> 剝落毒素</td></tr><tr><td>後肢、會陰紅紫色斑塊（8–18 週齡）</td><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a></td><td>PDNS</td></tr><tr><td>痘疹 → 臍窩狀膿疱 → 結痂；有豬蝨</td><td><a href="week04_豬痘.html#section-abstract">豬痘</a></td><td>嗜酸性細胞質內包涵體</td></tr><tr><td>口鼻、蹄冠水疱</td><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a></td><td>確診前一律當 FMD；鑑別 SVD、SVV（只有豬）、VES、VS</td></tr><tr><td>其他動物（犬、貓、牛）劇癢自殘、48 h 內死；場內死老鼠</td><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a></td><td>終端宿主</td></tr></tbody></table></div><h3>腸道</h3><div class="table-wrap"><table><thead><tr><th>題目線索</th><th>想到</th><th>補一句</th></tr></thead><tbody><tr><td>0–4 日齡水樣下痢、腸<strong>不發炎</strong>、絨毛不萎縮、胃有凝乳</td><td><a href="week06_細菌性疾病I.html#section-ec-neo">新生仔豬下痢（ETEC）</a></td><td>分泌性下痢</td></tr><tr><td>&lt;2 週仔豬嘔吐＋水樣下痢＋高死亡、冬季</td><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a></td><td>PED 同，要靠 RT-PCR 或 IF 區分</td></tr><tr><td>新生哺乳仔豬黃色水樣下痢、絨毛萎縮</td><td><a href="week03_豬病毒性疾病II.html#section-rv-a">輪狀病毒（RV）</a></td><td>保護靠乳汁 IgA</td></tr><tr><td>結腸、盲腸鈕扣狀潰瘍、壞死性結腸盲腸炎</td><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a></td><td>腸炎型（Typhimurium）</td></tr><tr><td>迴盲瓣、腸黏膜鈕扣狀潰瘍</td><td><a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a></td><td>慢性型</td></tr><tr><td>嘔吐、消瘦（嘔吐衰弱病）</td><td><a href="week05_豬冠狀病毒病.html#section-phev">血球凝集腦脊髓炎（PHEV）</a></td><td>Betacoronavirus</td></tr><tr><td>眼瞼額頭水腫、胃黏膜下層與結腸繫膜水腫、不發燒</td><td><a href="week06_細菌性疾病I.html#section-ec-pwd">水腫病</a></td><td>F18＋Stx2e</td></tr></tbody></table></div><h3>呼吸道</h3><div class="table-wrap"><table><thead><tr><th>題目線索</th><th>想到</th><th>補一句</th></tr></thead><tbody><tr><td>肥育豬猝死、口鼻泡沫血、雙側界線清楚的纖維素出血壞死性胸膜肺炎</td><td><a href="week06_細菌性疾病I.html#section-app-agent">胸膜肺炎（APP）</a></td><td>G−、CAMP 陽性、chocolate agar</td></tr><tr><td>打噴嚏、聳鼻、鼻吻歪、鼻甲骨萎縮</td><td><a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（AR）</a></td><td>Bb＋產毒型 Pm</td></tr><tr><td>肺斑駁、不塌陷、間質性肺炎；仔豬呼吸困難不咳嗽</td><td><a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a></td><td>常與 PCVAD 病變相似</td></tr><tr><td>突然發病快速恢復；肺界線清楚紫色實質化</td><td><a href="week05_豬流行性感冒.html#section-agent">豬流感（SI）</a></td><td>高發病率低死亡率</td></tr><tr><td>3–5 週齡劇烈噴嚏、膿性鼻炎</td><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒（PCMV）</a></td><td>包涵體鼻炎</td></tr><tr><td>離乳後消瘦、鼠蹊淋巴結腫大、淋巴耗竭</td><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a></td><td>PCV2-SD（PMWS）</td></tr></tbody></table></div><h3>神經、關節、漿膜</h3><div class="table-wrap"><table><thead><tr><th>題目線索</th><th>想到</th><th>補一句</th></tr></thead><tbody><tr><td>犬坐姿勢、顫抖、划水；2–3 週齡仔豬神經症狀</td><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a></td><td>三叉神經節潛伏</td></tr><tr><td>4–8 週保育豬纖維素性多發性漿膜炎＋關節炎＋腦膜炎</td><td><a href="week06_細菌性疾病I.html#section-gp-agent">Glässer 病</a></td><td>需 V 不需 X</td></tr><tr><td>慢性增殖性非化膿性關節炎、疣狀心內膜炎</td><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a></td><td>慢性型</td></tr><tr><td>後軀麻痺跛行＋脊椎炎</td><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a></td><td>也有睪丸炎、流產</td></tr><tr><td>非化膿性腦（脊髓）炎</td><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a></td><td>PR、PHEV 也是</td></tr></tbody></table></div><h3>生殖</h3><div class="table-wrap"><table><thead><tr><th>題目線索</th><th>想到</th><th>補一句</th></tr></thead><tbody><tr><td>同窩大小不一的木乃伊胎、母豬無症狀</td><td><a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒（PPV）</a></td><td>SMEDI</td></tr><tr><td>流產＋同場仔豬呼吸道病</td><td><a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a></td><td>母豬耳發紺</td></tr><tr><td>蚊子季節、妊娠 60–70 天前、仔豬腦水腫、公豬睪丸炎</td><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a></td><td>豬是增幅宿主</td></tr><tr><td>晚期流產、胎兒心臟肥大、纖維化壞死性心肌炎</td><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a></td><td>PCV2-RD</td></tr><tr><td>外觀健康、驗不到抗體、終生排毒的仔豬</td><td><a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a></td><td>先天持續感染（免疫耐受）</td></tr><tr><td>流產＋公豬睪丸炎＋erythritol</td><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a></td><td>公豬難恢復</td></tr><tr><td>壞死性胎盤炎＋依懷孕期吸收、木乃伊、流產</td><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a></td><td>核內包涵體在滋養層</td></tr></tbody></table></div><h3>剖檢</h3><div class="table-wrap"><table><thead><tr><th>題目線索</th><th>想到</th><th>補一句</th></tr></thead><tbody><tr><td>脾腫大、質脆、暗黑</td><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a></td><td></td></tr><tr><td>脾邊緣梗塞、淋巴結周邊出血</td><td><a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a></td><td></td></tr><tr><td>仔豬虎斑心、猝死</td><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a></td><td>心肌炎</td></tr><tr><td>脾腫、肝副傷寒小節</td><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a></td><td>敗血型</td></tr><tr><td>肝、脾、肺 1–3 mm 出血壞死灶</td><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a></td><td>alphaherpesvirus 特徵</td></tr><tr><td>腎皮質點狀出血</td><td><a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a></td><td>ASF、豬丹毒、PDNS、PCMV 也有，要配合其他線索</td></tr></tbody></table></div><h3>實驗室與流行病學</h3><div class="table-wrap"><table><thead><tr><th>題目線索</th><th>想到</th><th>補一句</th></tr></thead><tbody><tr><td>血球吸附玫瑰花環</td><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a></td><td>只有 ASFV 會</td></tr><tr><td>驗 NSP（3A3B）抗體區分感染與疫苗</td><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a></td><td>PR 驗 gE；CSF 用 E2 疫苗＋Erns ELISA</td></tr><tr><td>chocolate agar、需 V 不需 X</td><td><a href="week06_細菌性疾病I.html#section-gp-agent">Glässer 病</a></td><td>APP biotype I 也需 V</td></tr><tr><td>MacConkey 無色菌落、HE agar 黑心</td><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a></td><td>不發酵乳糖</td></tr><tr><td>羊血瓊脂瓷白色不溶血菌落</td><td><a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a></td><td><em>S. hyicus</em></td></tr><tr><td>唯一蜱傳 DNA 病毒（軟蜱）</td><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a></td><td></td></tr><tr><td>豬蝨傳播</td><td><a href="week04_豬痘.html#section-abstract">豬痘</a></td><td></td></tr><tr><td>增幅宿主（蚊媒）</td><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a></td><td>FMD 的豬是增幅者；流感的豬是混合容器</td></tr><tr><td>fish handler's disease、類丹毒</td><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a></td><td>人畜共通</td></tr><tr><td>pen disease；只有 1% NaOH 能不活化</td><td><a href="week04_小RNA病毒科疾病.html#section-svd">豬水疱病（SVD）</a></td><td></td></tr><tr><td>阻斷 ELISA 區分 TGEV 與 PRCV</td><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a></td><td></td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：第 2–7 週筆記與期中考古。</footer>
+    </div>
+
+    <div class="section" id="section-lab">
+      <div class="section-head"><div class="section-num">9</div><h2>D 細菌實驗室特徵</h2></div>
+      <p class="section-desc">革蘭氏染色、培養需求、菌落與溶血。考題常給培養結果要你判斷病原。</p>
+<div class="table-wrap"><table><thead><tr><th>病原</th><th>革蘭氏與形態</th><th>培養基與生長需求</th><th>菌落與溶血</th><th>其他鑑別</th></tr></thead><tbody><tr><td><a href="week06_細菌性疾病I.html#section-app-agent">胸膜肺炎（APP）</a></td><td>G− 有莢膜球桿菌，不運動</td><td>Biotype I 需 NAD（V 因子）：NAD 血液培養基、chocolate agar</td><td>Apx 溶血（ApxIII 不溶血）</td><td><strong>CAMP 陽性</strong>、urease</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-gp-agent">Glässer 病</a></td><td>G− 多形性短桿菌</td><td>需 V 不需 X；chocolate agar</td><td>—</td><td>—</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（AR）</a></td><td><em>B. bronchiseptica</em>、<em>P. multocida</em></td><td>講義未列</td><td>—</td><td>確診 PAR 要驗產毒株或毒素基因</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-pwd">水腫病</a></td><td><em>E. coli</em>（G−）<span class="lv lv-skim">補充</span></td><td>血液培養基</td><td><strong>溶血</strong></td><td>F18 線毛＋Stx2e</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a></td><td>G+ 細長略彎桿菌，易脫色、長絲狀</td><td>羊血瓊脂</td><td>24 h 不溶血小菌落，48 h 出現溶血</td><td>可能被誤判為 G−</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a></td><td>G− 桿菌，兼性細胞內</td><td>HE agar、SMID、MacConkey</td><td>HE 黑心菌落；MacConkey <strong>無色</strong>（不發酵乳糖）</td><td>—</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a></td><td>G+ 球菌</td><td>羊血瓊脂</td><td>3–4 mm <strong>瓷白色、不溶血</strong></td><td>成豬皮膚常在菌</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a></td><td>G− 小桿菌／球桿菌，不運動</td><td>長得慢，營養豐富也只長針尖大小</td><td>半透明、表面光滑</td><td>培養有生物安全風險，豬群以血清學篩檢</td></tr></tbody></table></div><div class="alert alert-warn"><div class="alert-label">注意</div><p>V 因子（NAD）與 X 因子（hemin）：<em>G. parasuis</em> 需 V 不需 X；APP biotype I 需 V。考題常拿「需要 X 因子」當錯誤選項。</p></div>
+      <footer class="note-footer">資料來源：第 6–7 週筆記。</footer>
+    </div>
+
+    <div class="section" id="section-path">
+      <div class="section-head"><div class="section-num">10</div><h2>E 包涵體與特徵鏡檢</h2></div>
+      <p class="section-desc">包涵體位置（核內或細胞質）與染色是病毒鑑別的經典考點。</p>
+<h3>有包涵體的疾病</h3><div class="table-wrap"><table><thead><tr><th>疾病</th><th>包涵體</th><th>在哪裡</th></tr></thead><tbody><tr><td><a href="week04_豬痘.html#section-abstract">豬痘</a></td><td><strong>嗜酸性細胞質內</strong></td><td>棘層角質細胞（伴水腫變性）</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a></td><td><strong>兩染性核內</strong>（amphophilic）</td><td>神經系統外較多：上皮壞死灶、胎盤滋養層</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒（PCMV）</a></td><td><strong>嗜鹼性核內</strong>，8–12 μm，伴巨細胞與巨核</td><td>鼻黏膜腺、哈氏腺、淚腺、腎小管上皮；三者合併具診斷性</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a></td><td>細胞質內</td><td>淋巴組織（伴淋巴耗竭、濾泡被巨噬細胞取代）</td></tr></tbody></table></div><h3>特徵鏡檢病變</h3><div class="table-wrap"><table><thead><tr><th>鏡檢病變</th><th>疾病</th></tr></thead><tbody><tr><td>非化膿性腦（脊髓）炎</td><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a>、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a>（含三叉神經節炎）、<a href="week05_豬冠狀病毒病.html#section-phev">血球凝集腦脊髓炎（PHEV）</a></td></tr><tr><td>絨毛萎縮</td><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a>（空腸迴腸）、<a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢（PED）</a>、<a href="week03_豬病毒性疾病II.html#section-rv-a">輪狀病毒（RV）</a>；<a href="week06_細菌性疾病I.html#section-ec-neo">新生仔豬下痢（ETEC）</a> <strong>不</strong>萎縮</td></tr><tr><td>間質性肺炎</td><td><a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a>、<a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a></td></tr><tr><td>支氣管上皮壞死脫落、氣道被嗜中性球堵塞</td><td><a href="week05_豬流行性感冒.html#section-agent">豬流感（SI）</a></td></tr><tr><td>棘層角質細胞氣球樣變性 → 水疱</td><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a></td></tr><tr><td>淋巴漿細胞性肝炎、局部肝細胞壞死</td><td><a href="week02_豬病毒性疾病I.html#section-hev">E 型肝炎（HEV）</a></td></tr><tr><td>壞死性血管炎＋纖維素性腎絲球腎炎</td><td>PDNS（<a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a>）</td></tr><tr><td>表皮內水泡膿泡、棘層肥厚</td><td><a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a></td></tr><tr><td>Stx2e 血管內皮傷害</td><td><a href="week06_細菌性疾病I.html#section-ec-pwd">水腫病</a></td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：第 2–7 週筆記；疱疹講義 <a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=45">p.45</a>、<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=78">p.78</a>。</footer>
+    </div>
+
+    <div class="section" id="section-num">
+      <div class="section-head"><div class="section-num">11</div><h2>F 數字速查</h2></div>
+      <p class="section-desc">潛伏期、日齡界線、死亡率、年份。只列講義寫到的數字。</p>
+<div class="table-wrap"><table><thead><tr><th>疾病</th><th>數字</th></tr></thead><tbody><tr><td><a href="week02_豬病毒性疾病I.html#section-asf-a">非洲豬瘟（ASF）</a></td><td>24 基因型；潛伏期接觸 4–19 天、蜱咬 &lt;5 天；病毒血症 4–8 天；急性死亡率 90–100%、亞急性 30–70%；4°C 血液 18 個月、火腿 &gt;140 天；70°C 30 分鐘；pH &lt;3.9 或 &gt;11.5；新豬隔離 30 天</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-csf-a">豬瘟（CSF）</a></td><td>3 基因型；潛伏期 2–15 天；先天持續感染＝懷孕 50–70 天感染；慢性 2–3 個月死；4°C 6 週；65.5°C 30 分鐘或 71°C 1 分鐘；pH &lt;3 或 &gt;11；FAVNT 3 天；台灣 2006 後田間無病毒、2023 停打</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-jev">日本腦炎（JE）</a></td><td>5 基因型（台灣 I、III）；病毒血症 2–4 天；妊娠 60–70 天前；感染後 3 天可到 CNS</td></tr><tr><td><a href="week02_豬病毒性疾病I.html#section-hev">E 型肝炎（HEV）</a></td><td>8 基因型（3、4 人畜共通）；2–3 月齡感染；糞便排毒 7 週；豬肝 24%；豬農抗體 29.5% vs 一般 11.5%（3.5 倍）；母源抗體 7–9 週</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-pcv-virus">PCVAD（PCV2）</a></td><td>PCV2 1.7 kb；2a → 2b（2003）→ 2d（2012）；PDNS 8–18 週；疫苗 2006；IFA 抗體 7–14 天、中和 21–35 天</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-prrs-virus">PRRS（藍耳病）</a></td><td>非中和抗體 7–14 天、中和 3–4 週；演化 10⁻² substitutions/site/year；PCR／ELISA 以 14 天為界；非經口 10–10²·² vs 經口 10⁵·³ TCID₅₀</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-ppv">豬小病毒（PPV）</a></td><td>&lt;35 天吸收、35–70 天木乃伊、&gt;70 天有免疫；抗體 6 天出現、14–21 天高峰；母源抗體 14–26 週</td></tr><tr><td><a href="week03_豬病毒性疾病II.html#section-rv-a">輪狀病毒（RV）</a></td><td>11 段 dsRNA；潛伏期 1–4 天；約 90 顆病毒即可致病</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">口蹄疫（FMD）</a></td><td>7 血清型；感染所需 豬 10³、牛 10、羊 15 TCID₅₀；豬每天排出 10⁶–10⁸·⁶；帶毒 豬 &lt;28 天、牛最長 3.5 年；氣膠 &lt;20 km；疫苗保護 4–6 個月、母源干擾到 8–12 週齡；1997 年撲殺近 400 萬頭、約 1,700 億元；107 年 7 月停打、2020 年 6 月非疫區</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-svd">豬水疱病（SVD）</a></td><td>症狀前 48 h 排毒；1% NaOH；1966 年義大利首報</td></tr><tr><td><a href="week04_小RNA病毒科疾病.html#section-svv">矽尼卡谷病毒（SVV）</a></td><td>2002 年發現；台灣 2012 年花蓮首例、2018 年台南第二例</td></tr><tr><td><a href="week04_豬痘.html#section-abstract">豬痘</a></td><td>&lt;3–4 月齡較重；146 kb</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=11">假性狂犬病（PR）</a></td><td>143 kb、11 種醣蛋白；潛伏期 1–8 天（最長 3 週）；感染需 10⁴–10⁵ TCID₅₀（仔豬 10²）；pH 4–12 穩定；肉品 −18°C 40 天或 80°C 不活化；其他動物 48 h 內死</td></tr><tr><td><a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=68">豬巨細胞病毒（PCMV）</a></td><td>130 kb；豬群盛行率 &gt;90%；1–5 週齡、鼻炎 3–5 週；包涵體 8–12 μm</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-tge-a">傳染性胃腸炎（TGE）</a></td><td>約 30 kb；PRCV 刪 227 aa；潛伏期 18 h–3 天；&lt;7 日齡 2–7 天死；地方性死亡率 &lt;10–20%；耐過豬排毒 2–8 週（最長 18 個月）</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-ped">豬流行性下痢（PED）</a></td><td>腸細胞更新：新生仔豬 5–7 天、3 週齡 2–3 天；台灣 2013–2014 年爆發</td></tr><tr><td><a href="week05_豬冠狀病毒病.html#section-phev">血球凝集腦脊髓炎（PHEV）</a></td><td>3–4 週齡前感染才發病</td></tr><tr><td><a href="week05_豬流行性感冒.html#section-agent">豬流感（SI）</a></td><td>8 段；18 HA × 11 NA；疫苗兩劑間隔 2–4 週、母豬每年兩次</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-app-agent">胸膜肺炎（APP）</a></td><td>19 血清型、台灣以 15 型為主；41.5°C；24–36 h 死；Apx I–IV</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ar-agent">萎縮性鼻炎（AR）</a></td><td>NPAR 3–4 週、PAR 4–12 週；PMT 146 kDa；疫苗分娩前 6 週與 2 週；<em>Bb</em> 土壤存活 45 天</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-gp-agent">Glässer 病</a></td><td>15 血清群；4–8 週齡</td></tr><tr><td><a href="week06_細菌性疾病I.html#section-ec-neo">大腸桿菌症</a></td><td>新生 0–4 日齡；線毛 F4（K88）、F5（K99）、F6（987P）、F41；離乳後 F4 或 F18；水腫病 F18</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-se-agent">豬丹毒（SE）</a></td><td>40–42°C；發病 2–3 天出現菱形疹</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-sal-agent">沙門氏菌症</a></td><td>Choleraesuis 約 12–14 週；Typhimurium 約 6 週起</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-ee">滲出性表皮炎（EE）</a></td><td>7 日齡–10 週齡；菌落 3–4 mm</td></tr><tr><td><a href="week07_細菌性疾病II.html#section-br">布氏桿菌症</a></td><td><em>B. suis</em> biovar 1、3</td></tr><tr><td>養豬產業（<a href="week01_課程介紹與養豬產業.html#section-life">第 1 週</a>）</td><td>懷孕期 114–115 天（3 個月 3 週 3 天）；在養頭數 537.5 萬頭（第 1 週講義）</td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：第 1–7 週筆記與疱疹講義。</footer>
+    </div>
+
+    <div class="section" id="section-gut">
+      <div class="section-head"><div class="section-num">12</div><h2>G 腸道中英對照</h2></div>
+      <p class="section-desc">腸道各段、小腸壁構造與常見病變詞的中英文。<span class="lv lv-skim">補充</span> 名詞對照為補充；右欄只標講義有寫到的線索。</p>
+<h3>腸道各段</h3><div class="table-wrap"><table><thead><tr><th>中文</th><th>英文</th><th>豬病學裡的線索</th></tr></thead><tbody><tr><td>消化道（腸胃道）</td><td>gastrointestinal tract, GI tract</td><td></td></tr><tr><td>小腸</td><td>small intestine</td><td></td></tr><tr><td>十二指腸</td><td>duodenum</td><td>TGE 病變常無（<a class="pdf-link" href="pdf/豬冠狀病毒病.pdf#page=19">講義 p.19</a>）</td></tr><tr><td>空腸</td><td>jejunum</td><td>TGE 病變最明顯處；TGE 免疫螢光採這段最適當</td></tr><tr><td>迴腸</td><td>ileum</td><td>增生性腸病（區域性迴腸炎）；TGE 病變明顯處</td></tr><tr><td>大腸</td><td>large intestine</td><td></td></tr><tr><td>盲腸</td><td>cecum（英式 caecum）</td><td>慢性豬瘟的鈕扣狀潰瘍</td></tr><tr><td>結腸</td><td>colon</td><td>豬赤痢、沙門氏菌腸炎的病變主要在這裡</td></tr><tr><td>直腸</td><td>rectum</td><td></td></tr><tr><td>迴盲瓣</td><td>ileocecal valve</td><td>豬瘟潰瘍好發處</td></tr><tr><td>肛門</td><td>anus</td><td></td></tr></tbody></table></div><h3>小腸壁的構造</h3><div class="table-wrap"><table><thead><tr><th>中文</th><th>英文</th></tr></thead><tbody><tr><td>絨毛</td><td>villus（複數 villi）</td></tr><tr><td>絨毛萎縮</td><td>villous atrophy</td></tr><tr><td>腺窩（隱窩）</td><td>crypt（Lieberkühn 腺窩，crypt of Lieberkühn）</td></tr><tr><td>腺窩延長（增生）</td><td>crypt elongation（crypt hyperplasia）</td></tr><tr><td>腸細胞</td><td>enterocyte</td></tr><tr><td>黏膜</td><td>mucosa</td></tr><tr><td>黏膜下層</td><td>submucosa</td></tr><tr><td>肌肉層</td><td>muscularis</td></tr><tr><td>漿膜</td><td>serosa</td></tr><tr><td>腸繫膜</td><td>mesentery</td></tr><tr><td>結腸繫膜</td><td>mesocolon</td></tr><tr><td>乳糜管（絨毛中央的淋巴管）</td><td>lacteal</td></tr><tr><td>淋巴濾泡集結（派亞氏斑）</td><td>Peyer's patches</td></tr></tbody></table></div><h3>常見病變詞</h3><div class="table-wrap"><table><thead><tr><th>中文</th><th>英文</th></tr></thead><tbody><tr><td>腸炎</td><td>enteritis</td></tr><tr><td>腸結腸炎</td><td>enterocolitis</td></tr><tr><td>結腸盲腸炎</td><td>typhlocolitis</td></tr><tr><td>迴腸炎</td><td>ileitis</td></tr><tr><td>鈕扣狀潰瘍</td><td>button ulcer</td></tr><tr><td>腸繫膜水腫</td><td>mesenteric edema</td></tr><tr><td>增生性腸病</td><td>proliferative enteropathy</td></tr><tr><td>吸收不良性下痢</td><td>malabsorptive diarrhea</td></tr><tr><td>分泌性下痢</td><td>secretory diarrhea</td></tr><tr><td>滲透性下痢</td><td>osmotic diarrhea</td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：解剖與病理名詞（補充）；豬病學線索取自第 2、5、6、7 週筆記。</footer>
+    </div>
+
+    <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  'abstract': '怎麼用這一頁',
+  'a0': 'A0 人畜共通病原',
+  'a1v': 'A1 病原與流行病學（病毒）',
+  'a1b': 'A1 病原與流行病學（細菌）',
+  'a2': 'A2 臨床與病變',
+  'a3': 'A3 診斷與防治',
+  'age': 'B 年齡層 × 疾病',
+  'key': 'C 關鍵字反查',
+  'lab': 'D 細菌實驗室特徵',
+  'path': 'E 包涵體與特徵鏡檢',
+  'num': 'F 數字速查',
+  'gut': 'G 腸道中英對照'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

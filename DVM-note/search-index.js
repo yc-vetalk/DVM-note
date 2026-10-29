@@ -442,6 +442,13 @@ const SEARCH_INDEX = [
     snippet: "今年講義第 1 頁的大綱還列了盲腸、腸套疊、臍疝氣等主題，但投影片沒講到。下面是 B06 共筆（2020 許凱程老師）裡相關的內容，不是今年講義，讀的時候當背景知識；2021 期中的 ping 題來自這裡。"
   },
   {
+    subject: "大動物外科手術及實習", semester: "大四上", week: 3, weekTitle: "腹腔手術",
+    url: "大四上/大動物外科手術及實習/week03_腹腔手術.html",
+    section: "flankdiagram", sectionName: "左右側進腹圖解",
+    keywords: "左右側進腹圖解 左脅腹 右脅腹 腰旁窩 瘤胃 脾臟 蜂巢胃 大網膜 肝 膽囊 瓣胃 皺胃 LDA RDA 剖腹產 探查 示意圖 left flank right flank paralumbar fossa",
+    snippet: "左邊是瘤胃的地盤，右邊是皺胃、瓣胃、肝與腸；瘤胃手術走左，皺胃（含 LDA 的 omentopexy）、腸道、探查走右；附左右側腹腔示意圖與選邊表。"
+  },
+  {
     subject: "大動物外科手術及實習", semester: "大四上", week: 7, weekTitle: "豬的麻醉與去勢",
     url: "大四上/大動物外科手術及實習/week07_豬麻醉與去勢.html",
     section: "abstract", sectionName: "大方向與重點摘要",
@@ -2531,8 +2538,8 @@ const SEARCH_INDEX = [
     subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
     url: "大四上/豬病學/week05_豬流行性感冒.html",
     section: "mixing", sectionName: "混合容器理論與可憐豬假說",
-    keywords: "混合容器 mixing vessel 唾液酸 受體 α2,3 α2,6 禽 人 豬 呼吸道 分布 Mx 蛋白 MxA ANP32 複製 適應 大流行 反向人畜共通 可憐豬假說 poor pig 疫苗 養豬場人員",
-    snippet: "大流行流感需能感染人、致病、人傳人；禽人病毒的障礙為進入（受體）、免疫逃避（Mx）、複製（ANP32）；禽 HA 結合 α2,3、人與豬 HA 結合 α2,6；豬呼吸道同時有兩型受體但分布不同；可憐豬假說：豬受人類反向人畜共通感染的頻率高於人受豬傳染。"
+    keywords: "混合容器 mixing vessel 唾液酸 受體 α2,3 α2,6 禽 人 豬 呼吸道 分布 Mx 蛋白 MxA ANP32 ANP32A 複製 適應 大流行 反向人畜共通 可憐豬假說 poor pig 疫苗 養豬場人員 老師補充說明 190D 225D MxA-escape 適存度 fitness 2009 H1N1 重組 asymmetric dimer 106V 156S",
+    snippet: "大流行流感需能感染人、致病、人傳人；禽人病毒的障礙為進入（受體）、免疫逃避（Mx）、複製（ANP32）；禽 HA 結合 α2,3、人與豬 HA 結合 α2,6；豬呼吸道同時有兩型受體但分布不同；可憐豬假說：豬受人類反向人畜共通感染的頻率高於人受豬傳染。老師補充說明：人也有 α2,3，單看受體不足以解釋混合容器；MxA 逃脫突變會拉低適存度；豬 ANP32A（106V、156S）支持禽 IAV 聚合酶。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 5, weekTitle: "豬流行性感冒",
@@ -2687,6 +2694,202 @@ const SEARCH_INDEX = [
     section: "quiz", sectionName: "練習題",
     keywords: "練習題 抗藥性 HPCIA 六 R",
     snippet: "7 題練習題含 1 題臨床情境題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "abstract", sectionName: "總覽與出題特色",
+    keywords: "期中考古 考古題 鄭益謙 葉光勝 張家宜 出題特色 配分 2019 2022 106 111 合卷",
+    snippet: "五場期中考（鄭益謙 2019、2022、合卷；葉光勝 106、111 學年、合卷）的題型、配分、答案來源與出題習慣。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "z2019", sectionName: "鄭益謙 2019 複選",
+    keywords: "2019 複選 豬瘟 CSF PRV 假性狂犬病 PRRS FMD 口蹄疫 SVD 豬流感 PEDV 日本腦炎 mixing vessel PPV Nipah ASF 非洲豬瘟 PSS",
+    snippet: "2019 年鄭益謙老師複選 20 題，答案依考卷圈選並逐題放大核對。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "z2022", sectionName: "鄭益謙 2022 對照",
+    keywords: "2022 111 學年 題幹正反對調 stamping out 同一組題目",
+    snippet: "2022 年用 2019 年同一組題目、7 題題幹正反對調；對照表與反推答案。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "zessay", sectionName: "鄭益謙 問答題",
+    keywords: "問答 口蹄疫 DIVA 豬瘟基因結構 E2 Erns 流產 實驗室診斷 mixing vessel TGE PRCV 加分題 FAT RT-PCR 日本 2018",
+    snippet: "鄭益謙老師五個反覆出現的問答題與 2018 日本 CSF 加分題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "ye106", sectionName: "葉光勝 106 學年",
+    keywords: "106 學年 葉光勝 桃園豬 APP 李崇道 LPC 沙門氏菌 梭菌 萎縮性鼻炎 豬丹毒 滲出性表皮炎 Glässer 布氏桿菌 Lawsonia 豬赤痢 Weil 初乳 IgG",
+    snippet: "葉光勝老師 106 學年單選 30 題＋問答 4 題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "yehj", sectionName: "葉光勝 合卷",
+    keywords: "合卷 Part B 菱形疹 紅耳朵 油脂病 食因性肝病 鋅 泛酸 goose stepping 胃潰瘍 咬尾 C. novyi Type III",
+    snippet: "葉光勝老師合卷單選 20 題＋問答 4 題（年份未標）。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "ye111", sectionName: "葉光勝 111 學年",
+    keywords: "111 學年 藍瑞斯 李宋豬 chocolate agar X factor 鉤端螺旋體 MAT 破傷風 fish handler 水腫病 眼瞼 畫 APP 肺",
+    snippet: "葉光勝老師 111 學年單選 25 題＋問答 3 題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "repeat", sectionName: "重複考點表",
+    keywords: "重複考點 高頻 跨年",
+    snippet: "同一考點在不同年份出現的位置，以及本站對應頁面。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中考古",
+    url: "大四上/豬病學/期中考古.html",
+    section: "trust", sectionName: "資料可信度",
+    keywords: "待確認 答案來源 非官方",
+    snippet: "答案來源與仍待確認的題目。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "abstract", sectionName: "怎麼用這一頁",
+    keywords: "疾病統整表 總表 28 疾病 期中範圍",
+    snippet: "期中範圍 28 個疾病的總表與反查表。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "a0", sectionName: "A0 人畜共通病原",
+    keywords: "人畜共通 zoonosis 日本腦炎 E 型肝炎 豬流感 輪狀病毒 假性狂犬病 豬丹毒 類丹毒 沙門氏菌 布氏桿菌 B. suis 反向人畜共通 不是人畜共通 容易考混",
+    snippet: "期中範圍的人畜共通病原：日本腦炎病毒、E 型肝炎病毒（基因型 3、4）、豬流行性感冒病毒、輪狀病毒 A 型、假性狂犬病病毒（尚無定論）；豬丹毒菌、沙門氏菌、豬布氏桿菌、支氣管敗血性波氏桿菌；含不是人畜共通的病原與容易考混的點。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "a1v", sectionName: "A1 病原與流行病學（病毒）",
+    keywords: "病原 科屬 核酸 封套 宿主 人畜共通 傳播 ASF CSF JE HEV PCV2 PRRS PPV 輪狀 FMD SVD SVV 豬痘 假性狂犬病 PCMV TGE PED PHEV PDCoV SADS 豬流感",
+    snippet: "20 個病毒病的病原、宿主、好發、傳播與致病關鍵。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "a1b", sectionName: "A1 病原與流行病學（細菌）",
+    keywords: "APP 萎縮性鼻炎 Glässer 大腸桿菌 豬丹毒 沙門氏菌 滲出性表皮炎 布氏桿菌 革蘭氏 毒力因子",
+    snippet: "8 個細菌病的病原、宿主、傳播與毒力因子。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "a2", sectionName: "A2 臨床與病變",
+    keywords: "招牌症狀 肉眼病變 鏡檢 脾腫 鈕扣狀潰瘍 虎斑心 菱形疹 紅耳朵 木乃伊",
+    snippet: "每個疾病的招牌症狀、肉眼與鏡檢病變。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "a3", sectionName: "A3 診斷與防治",
+    keywords: "診斷 樣本 治療 疫苗 DIVA penicillin FAVNT gE NSP Erns",
+    snippet: "確診方法、治療、疫苗與 DIVA。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "age", sectionName: "B 年齡層 × 疾病",
+    keywords: "年齡 哺乳 保育 肥育 母豬 公豬 日齡 週齡",
+    snippet: "依生產階段列出好發疾病。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "key", sectionName: "C 關鍵字反查",
+    keywords: "反查 線索 鑑別 菱形疹 玫瑰花環 犬坐 鈕扣狀潰瘍 chocolate agar",
+    snippet: "從題幹線索反查疾病。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "lab", sectionName: "D 細菌實驗室特徵",
+    keywords: "革蘭氏 培養基 溶血 CAMP V 因子 X 因子 MacConkey chocolate agar",
+    snippet: "細菌的染色、培養需求與菌落特徵。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "path", sectionName: "E 包涵體與特徵鏡檢",
+    keywords: "包涵體 核內 細胞質內 巨細胞 非化膿性腦炎 絨毛萎縮",
+    snippet: "包涵體位置與各病特徵鏡檢病變。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "num", sectionName: "F 數字速查",
+    keywords: "潛伏期 死亡率 基因型 血清型 日齡 數字",
+    snippet: "各疾病講義寫到的數字。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "疾病統整表",
+    url: "大四上/豬病學/疾病統整表.html",
+    section: "gut", sectionName: "G 腸道中英對照",
+    keywords: "腸道 中英文 十二指腸 空腸 迴腸 盲腸 結腸 直腸 迴盲瓣 絨毛 腺窩 duodenum jejunum ileum cecum colon villus crypt",
+    snippet: "腸道各段、小腸壁構造與常見病變詞的中英文對照。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "張家宜老師範圍 30 題",
+    url: "大四上/豬病學/張家宜30題.html",
+    section: "abstract", sectionName: "怎麼用這一頁",
+    keywords: "張家宜 預測題 30 題 第 2 3 週 唯一經節肢動物傳播的 DNA 病毒 ASFV 必考",
+    snippet: "張家宜老師範圍 30 題預測題：範圍、題目分配、唯一經節肢動物傳播的 DNA 病毒是 ASFV。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "張家宜老師範圍 30 題",
+    url: "大四上/豬病學/張家宜30題.html",
+    section: "asf", sectionName: "非洲豬瘟 Q1–Q5",
+    keywords: "ASF 節肢動物 DNA 環境抵抗力 血球吸附 玫瑰花環 隔離 30 天 疫苗",
+    snippet: "ASF 5 題：節肢動物傳播、環境抵抗力、致病、HAD、防控。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "張家宜老師範圍 30 題",
+    url: "大四上/豬病學/張家宜30題.html",
+    section: "csf", sectionName: "豬瘟 Q6–Q11",
+    keywords: "CSF 免疫耐受 先天持續感染 脾梗塞 FAVNT Erns DIVA 台灣 2.1 3.4",
+    snippet: "CSF 6 題：病毒、免疫耐受、病變、FAVNT、DIVA、台灣 CSF。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "張家宜老師範圍 30 題",
+    url: "大四上/豬病學/張家宜30題.html",
+    section: "jehe", sectionName: "日本腦炎與 E 型肝炎 Q12–Q16",
+    keywords: "JE 增幅宿主 終端宿主 妊娠 60–70 天 HEV 基因型 3 4 人畜共通",
+    snippet: "JE、HEV 5 題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "張家宜老師範圍 30 題",
+    url: "大四上/豬病學/張家宜30題.html",
+    section: "pcv", sectionName: "PCVAD Q17–Q20",
+    keywords: "PCV2 單股環狀 PDNS 診斷 基因型轉換 2d PCVAD 不含 PRRS",
+    snippet: "PCVAD 4 題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "張家宜老師範圍 30 題",
+    url: "大四上/豬病學/張家宜30題.html",
+    section: "prrs", sectionName: "PRRS Q21–Q25",
+    keywords: "PRRSV 非中和抗體 中和抗體 RT-PCR ELISA 判讀 準種 非經口 精液",
+    snippet: "PRRS 5 題。"
+  },
+  {
+    subject: "豬病學", semester: "大四上", week: 8, weekTitle: "張家宜老師範圍 30 題",
+    url: "大四上/豬病學/張家宜30題.html",
+    section: "ppvrv", sectionName: "PPV 與輪狀病毒 Q26–Q30",
+    keywords: "PPV SMEDI 35 70 天 木乃伊 輪狀 絨毛萎縮 RVA 人畜共通 90 顆",
+    snippet: "PPV、輪狀病毒 5 題。"
   },
   {
     subject: "豬病學", semester: "大四上", week: 8, weekTitle: "期中總複習",

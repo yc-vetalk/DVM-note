@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豬病學：期中考古 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">豬病學</a><span class="sep">›</span><span class="current">期中考古</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">豬病學期中考古</h1>
+      <p class="page-subtitle">Past Midterm Exams · 鄭益謙（2019、2022、合卷）與葉光勝（106、111 學年、合卷）原卷題型＋詳解</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">豬病學（大四上・期中考）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">學長姐流傳的考卷照片與檢討；答案非官方</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">五場考試全數整理</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract">
+      <span class="nav-icon">⭐</span> 總覽與出題特色
+    </a>
+    <div class="section-label" style="margin-top:8px;">鄭益謙（病毒）</div>
+    <a onclick="showSection('z2019')" id="nav-z2019">
+      <span class="nav-icon">🧬</span> 鄭益謙 2019 複選
+    </a>
+    <a onclick="showSection('z2022')" id="nav-z2022">
+      <span class="nav-icon">🔁</span> 鄭益謙 2022 對照
+    </a>
+    <a onclick="showSection('zessay')" id="nav-zessay">
+      <span class="nav-icon">✍️</span> 鄭益謙 問答題
+    </a>
+    <div class="section-label" style="margin-top:8px;">葉光勝（細菌）</div>
+    <a onclick="showSection('ye106')" id="nav-ye106">
+      <span class="nav-icon">🦠</span> 葉光勝 106 學年
+    </a>
+    <a onclick="showSection('yehj')" id="nav-yehj">
+      <span class="nav-icon">📄</span> 葉光勝 合卷
+    </a>
+    <a onclick="showSection('ye111')" id="nav-ye111">
+      <span class="nav-icon">🦠</span> 葉光勝 111 學年
+    </a>
+    <div class="section-label" style="margin-top:8px;">整理</div>
+    <a onclick="showSection('repeat')" id="nav-repeat">
+      <span class="nav-icon">📊</span> 重複考點表
+    </a>
+    <a onclick="showSection('trust')" id="nav-trust">
+      <span class="nav-icon">🔎</span> 資料可信度
+    </a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>總覽與出題特色</h2></div>
+      <p class="section-desc">五場期中考的題型、配分、答案來源，以及從考古看得出的出題習慣。</p>
+<div class="alert alert-warn"><div class="alert-label">先看這裡</div><p>本頁的答案<strong>都不是官方答案</strong>：來源是考卷上的圈選、學長姐的檢討與手寫答案，沒有標記的題目由本站依講義推得。每題詳解開頭都寫了答案來源；有疑問的標「⚠ 待確認」，彙整在<a href="#section-trust">第 9 節</a>。</p></div>
+<h3>五場考試一覽</h3>
+<div class="table-wrap"><table><thead><tr><th>場次</th><th>老師</th><th>題型與配分</th><th>答案來源</th><th>本頁</th></tr></thead><tbody><tr><td>106 學年（2017）</td><td>葉光勝（細菌）</td><td>單選 30 題 × 2 分＋問答 4 題 × 10 分</td><td>老師檢討投影片（紅字）＋學長姐檢討</td><td><a href="#section-ye106">第 5 節</a></td></tr><tr><td>合卷（年份未標）</td><td>鄭益謙（病毒）＋葉光勝</td><td>Part A 問答 5 題 × 8 分；Part B 選擇 20 題 × 2 分＋問答（原卷寫 5 題 × 5 分，照片只有 4 題）</td><td>考卷旁手寫答案；葉老師選擇題另有學長姐整理，兩者一致</td><td><a href="#section-zessay">第 4 節</a>、<a href="#section-yehj">第 6 節</a></td></tr><tr><td>2019（108 學年）</td><td>鄭益謙</td><td>複選 20 題 × 3 分（含誤選無分）＋問答 2 題 × 20 分＋加分題 20 分</td><td>考卷藍筆圈選（已放大逐題核對）</td><td><a href="#section-z2019">第 2 節</a></td></tr><tr><td>2022（111 學年）</td><td>鄭益謙</td><td>同 2019（題目同一組，7 題題幹正反對調）</td><td>照片沒有作答記號，答案由 2019 圈選反推</td><td><a href="#section-z2022">第 3 節</a></td></tr><tr><td>2022（111 學年）</td><td>葉光勝</td><td>單選 25 題 × 3 分＋問答 3 題（10＋10＋5 分）</td><td>照片上零星批改記號＋本站推得</td><td><a href="#section-ye111">第 7 節</a></td></tr></tbody></table></div>
+<h3>出題特色（依考古推測）</h3><ul><li><strong>鄭益謙（過去的病毒老師）</strong>：複選題，含誤選就沒分。<strong>2019 與 2022 用同一組 20 題，只把其中 7 題的題幹正反對調</strong>（「正確」改「不正確」），問答題兩年完全相同。問答反覆圍繞五個題目：口蹄疫、豬瘟基因結構與 DIVA、造成流產的病毒＋三種診斷原理、流感 mixing vessel、TGE 為何減少。</li><li><strong>現在的病毒老師</strong>是張家宜、高啓霏，鄭老師的題目只能當題型與重點參考。學長姐 2023 年筆記：張家宜老師「考得簡單，把畫底線的地方看一看，都考最特別的地方」。</li><li><strong>葉光勝（細菌）</strong>：單選題，題幹多是「臨床情境＋剖檢＋培養特性」再附照片。<strong>111 學年大量沿用 106 學年</strong>（李崇道、沙門氏菌錯誤敘述、3 日齡血便梭菌、萎縮性鼻炎、布氏桿菌、水腫病、Weil、在養頭數）。問答常客：APP 致病機制、大腸桿菌新生仔豬下痢、台灣養豬產業問題。</li><li><strong>範圍</strong>：考古細菌題有不少是期末範圍（梭菌、螺旋體、黴漿菌、鉤端螺旋體、營養缺乏、胃潰瘍、行為），卡片上標 <span class="lv lv-skim">範圍外（期末）</span>，期中可以先略過。</li></ul>
+<div class="lv-legend"><span><span class="lv lv-skim">範圍外（期末）</span>不在本次期中範圍</span><span><strong style="color:var(--amber-700)">⚠ 待確認</strong>答案有疑問</span></div>
+<div class="alert alert-info"><div class="alert-label">怎麼用</div><p>每題先自己作答，再點開看答案與詳解。題號、題型（單選／複選／問答）與配分照原卷；附圖題附上原卷照片裁切。重複出現的考點整理在<a href="#section-repeat">第 8 節</a>。各週頁面的「期中考古題」節保留不動，兩邊的詳解相同。</p></div>
+      <footer class="note-footer">資料來源：整理自使用者提供的豬病學期中考古。</footer>
+    </div>
+
+    <div class="section" id="section-z2019">
+      <div class="section-head"><div class="section-num">2</div><h2>鄭益謙老師 2019（108 學年）複選題</h2></div>
+      <p class="section-desc">當時病毒由鄭益謙老師授課。答案依考卷藍筆圈選，已放大原卷逐題核對。</p>
+<div class="table-wrap"><table><thead><tr><th>大題</th><th>題型</th><th>配分</th></tr></thead><tbody><tr><td>一</td><td>複選 20 題（a–e），若未全部答對且不含誤選，依答對比例給分；含誤選無分</td><td>60 分</td></tr><tr><td>二</td><td>問答 2 題</td><td>40 分</td></tr><tr><td>加分</td><td>自由選答 1 題</td><td>20 分</td></tr></tbody></table></div>
+<details class="exam-photos" style="margin:10px 0 16px"><summary style="cursor:pointer;font-weight:700">原卷照片（2 張，姓名與學號已遮蓋）</summary><img src="img/期中考古/y2019_p1.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y2019_p2.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"></details>
+<div class="alert alert-warn"><div class="alert-label">注意</div><p>題幹有的問「正確」、有的問「不正確／錯誤／為非」，每題卡片上都標出來了。第 2 週頁面曾把 Q1 的答案看錯，這次全部重新放大原卷核對過。</p></div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q1（複選，問「不正確」）</span>
+        <div class="quiz-q">關於豬瘟（classical swine fever）與豬瘟病毒（CSFV）之敘述何者<strong>不正確</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) CSFV 之 natural reservoirs 僅有家豬與野豬</li>
+          <li>(B) 急性型易見 cecum button ulcer</li>
+          <li>(C) CSF 傳染主要藉由直接接觸</li>
+          <li>(D) 為我國行政院核定目前執行撲滅計畫之唯一豬傳染病</li>
+          <li>(E) 會透過胎盤感染</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B、D)</div>
+          <p class="quiz-explain">依考卷（藍筆叉掉的是錯誤敘述，叉在 (b) 與 (d)）：<br>(B) 錯：鈕扣狀潰瘍是<strong>慢性</strong>豬瘟的特徵，不是急性型。講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=113">p.113</a>–<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=114">114</a> 列出迴盲瓣潰瘍與胃腸道黏膜鈕扣狀潰瘍；「屬慢性」的依據是考卷旁學長姐手寫筆記（button ulcer in cecum：chronic）與國考 103 年「鈕扣狀潰瘍不是急性豬瘟的特徵病變」。<br>(D) 錯：台灣目前執行撲滅計畫的豬傳染病不只豬瘟（講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=141">p.141</a>：2006 後田間無病毒、2023 停打；補充：口蹄疫已於 2020 年 WOAH 認定非疫區）。<br>(A) 對：講義寫 CSF 易感動物為家豬與野豬（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=72">p.72</a>）；國考 103 年「豬是唯一自然宿主」也是正確敘述。<br>(C) 對：直接接觸（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=86">p.86</a>）。<br>(E) 對：經胎盤感染胎兒（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=87">p.87</a>、<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=101">p.101</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week02_豬病毒性疾病I.html#section-kaogu">第 2 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q2（複選，問「正確」）</span>
+        <div class="quiz-q">豬瘟流行病學敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 人、器械、交通工具均為傳播媒介</li>
+          <li>(B) 不會藉由精液傳播</li>
+          <li>(C) 可經空氣遠距離傳播</li>
+          <li>(D) 可經廚餘傳播</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、D)</div>
+          <p class="quiz-explain">(A) 對：環境污染、人與車輛（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=86">p.86</a>）。<br>(D) 對：口途徑，吃入受污染食物（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=86">p.86</a>）。<br>(B) 錯：<strong>精液會傳播</strong>（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=87">p.87</a>）。<br>(C) 錯：講義只寫短距離飛沫（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=87">p.87</a>），沒有遠距離空氣傳播。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week02_豬病毒性疾病I.html#section-kaogu">第 2 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q3（複選，問「正確」）</span>
+        <div class="quiz-q">豬瘟之預防控制以下何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) Stamping out without vaccination 有助於迅速成為「free status」</li>
+          <li>(B) 使用活毒疫苗免疫需注意 maternal antibody 可能造成的影響</li>
+          <li>(C) 使用減毒（attenuated）疫苗時，不易藉由血清學區分是否有野外毒感染</li>
+          <li>(D) 應用豬瘟「E2/subunit 疫苗」搭配檢測 Erns 抗體的構想是欲免疫並可區分野外 CSFV 感染</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B、C、D)</div>
+          <p class="quiz-explain">依考卷圈選 (b)(c)(d)，<strong>(a) 沒有圈</strong>：<br>(A) 未圈選：講義寫無疾病地區用撲殺政策（stamping out）並已使北美與大部分西歐根除 CSF（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=132">p.132</a>），但考卷沒有把這個選項算成正確；講義沒有說明原因，建議向老師確認（推測：可能是「迅速」這個說法，或撲殺不適用於地方流行區）。<br>(B) 對：（補充）母源抗體會干擾活毒疫苗；講義未直接寫。<br>(C) 對：減毒活疫苗誘發的抗體與野外感染無法區分，所以才需要 DIVA（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=131">p.131</a>）。<br>(D) 對：E2 次單位疫苗＋Erns ELISA 是 DIVA（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=137">p.137</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week02_豬病毒性疾病I.html#section-kaogu">第 2 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q4（複選，問「錯誤」）</span>
+        <div class="quiz-q">Pseudorabies virus（PRV）何者敘述為誤？</div>
+        <ul class="quiz-options">
+          <li>(A) latency 可因 stress 等因素而 reactivated 並再排毒／shedding</li>
+          <li>(B) 可透過胎盤感染造成流、死產</li>
+          <li>(C) trigeminal ganglion 非 latency 之所在</li>
+          <li>(D) 對成豬致害以造成死亡為主</li>
+          <li>(E) 對 naïve 仔豬造成近 100% 發病、死亡率</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C、D)</div>
+          <p class="quiz-explain">(C) 錯，所以選它：三叉神經節是 PRV 潛伏的主要部位（第 4 週）。<br>(D) 錯：成豬以呼吸症狀為主、死亡率低（第 4 週）。<br>(A)(B)(E) 對。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week02_豬病毒性疾病I.html#section-kaogu">第 2 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q5（複選，問「為非」）</span>
+        <div class="quiz-q">PRV 的感染症狀何者為非？</div>
+        <ul class="quiz-options">
+          <li>(A) 若孕期即遭感染，出生仔豬會有神經症狀</li>
+          <li>(B) 仔豬發燒體溫 &gt; 40°C</li>
+          <li>(C) respiratory distress 使仔豬出現「sitting dog」姿勢</li>
+          <li>(D) 肥育豬／grower 以呼吸道症狀為主，死亡率低</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">〔答案來源：考卷上 (c) 被螢光筆畫起來，沒有圈選記號〕<br>(C) 錯（所以選它）：犬坐姿勢（dog-sitting position）是 PRV 的<strong>神經症狀</strong>，講義和顫抖、運動失調、划水並列，不是呼吸窘迫造成的（<a class="pdf-link" href="pdf/豬疱疹病毒病.pdf#page=33">疱疹講義 p.33</a>）。<br>(A) 對：病毒可經胎盤感染，存活的仔豬出生後出現神經症狀。<br>(B) 對：仔豬高燒（p.33）。<br>(D) 對：較大的豬以呼吸道症狀為主，死亡率低（p.33）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q6（複選，問「正確」）</span>
+        <div class="quiz-q">有關 Porcine Reproductive and Respiratory Syndrome（PRRS）敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) PRRS 病毒（PRRSV）基因變異性高</li>
+          <li>(B) 在同一豬場可能出現不同病毒株併存感染</li>
+          <li>(C) 曾發生減毒疫苗 virulent reversion 憾事</li>
+          <li>(D) 為 DNA 病毒</li>
+          <li>(E) 感染不會造成 carrier，豬場容易清除 PRRS</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、B、C)</div>
+          <p class="quiz-explain">(A) 對：演化約 10⁻² substitutions/site/year、準種（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=101">p.101–102</a>）。<br>(B) 對：同一頭豬內可同時有多個變異株，同場豬序列各不相同（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=102">p.102</a>）。<br>(C) 對（考卷圈選）：（補充）減毒活毒疫苗毒力回復曾發生；講義只寫 MLV 安全性較低（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=115">p.115</a>）。<br>(D) 錯：有封套單股正股 RNA（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=70">p.70</a>）。<br>(E) 錯：持續感染、間歇排毒，很難從豬場清除（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=100">p.100</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week03_豬病毒性疾病II.html#section-kaogu">第 3 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q7（複選）</span>
+        <div class="quiz-q">PRRSV 可藉以下哪些途徑排毒？</div>
+        <ul class="quiz-options">
+          <li>(A) saliva and nasal secretions</li>
+          <li>(B) urine</li>
+          <li>(C) semen</li>
+          <li>(D) feces and milk</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、B、C、D)</div>
+          <p class="quiz-explain">(A)(B)(C)(D) 全對：唾液、鼻分泌物、尿、糞、精液都排毒（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=77">p.77</a>）；乳汁或初乳可到感染後 9 天（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=78">p.78</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week03_豬病毒性疾病II.html#section-kaogu">第 3 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q8（複選，問「正確」）</span>
+        <div class="quiz-q">關於 FMDV 之敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 台灣本島仍為疫區，持續使用疫苗免疫以控制疾病</li>
+          <li>(B) 口蹄疫疫苗多為活毒</li>
+          <li>(C) 1997 年台灣爆發的疫情屬於 O 型</li>
+          <li>(D) 族群總預防注射率超過 80% 時視為具群體保護效力</li>
+          <li>(E) 豬水疱病／Swine vesicular disease [SVD] 病毒分類與其歸屬同一 Family</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C、D、E)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選〕<br>(A) 錯：台灣 2018 年 7 月停止施打口蹄疫疫苗，2020 年 6 月台澎馬獲 WOAH 認定為不施打疫苗非疫區（<a href="week04_小RNA病毒科疾病.html#section-fmd-a">第 4 週</a>）。<br>(B) 錯：口蹄疫疫苗是不活化疫苗（補充）。<br>(C) 對：1997 年 O/Taiwan/97，親豬型（第 4 週）。<br>(D) 對：考卷圈選；群體免疫覆蓋率的概念（補充）。<br>(E) 對：SVDV（腸病毒屬）與 FMDV（Aphthovirus）都是小 RNA 病毒科（Picornaviridae）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q9（複選）</span>
+        <div class="quiz-q">口蹄疫的臨床症狀：</div>
+        <ul class="quiz-options">
+          <li>(A) 成豬口、鼻、蹄部出現水疱</li>
+          <li>(B) 哺乳母豬乳房皮膚出現水疱</li>
+          <li>(C) naïve 哺乳仔豬發高燒，24–48 小時內死亡</li>
+          <li>(D) 哺乳仔豬死亡率超過 50%</li>
+          <li>(E) 成豬少見死亡</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、B、D、E)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選〕<br>(A)(B) 對：口鼻蹄冠、乳房水疱。<br>(D) 對：仔豬因心肌炎（虎斑心）猝死，死亡率高。<br>(E) 對：發病率高、成豬死亡率低（<a href="week04_小RNA病毒科疾病.html#section-fmd-path">第 4 週</a>）。<br>(C) 考卷沒有圈：仔豬多半是心肌炎<strong>猝死</strong>，不一定先有高燒；考卷為什麼不算，講義沒有直接說明 <strong style="color:var(--amber-700)">⚠ 待確認</strong>。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q10（複選，問「正確」）</span>
+        <div class="quiz-q">關於豬水疱病／Swine vesicular disease [SVD] 敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 台灣是疫區</li>
+          <li>(B) 病毒在環境中不易被一般消毒劑清除，故使其被名為「pen disease」</li>
+          <li>(C) 會造成豬以外偶蹄類動物發病</li>
+          <li>(D) 臨床症狀不易與口蹄疫區分</li>
+          <li>(E) 有如口蹄疫，可使用疫苗免疫控制疫情</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、B、D)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選〕<br>(A) 對：台灣尚未清除 SVD（同卷 Q19）。<br>(B) 對：SVDV 抵抗力強，經圈欄間傳播（<a href="week04_小RNA病毒科疾病.html#section-svd">第 4 週</a>）。<br>(C) 錯：SVD 只造成豬發病。<br>(D) 對：水疱外觀和 FMD 無法區分，要實驗室鑑別。<br>(E) 錯：SVD、SVV 都沒有商業疫苗（第 4 週）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q11（複選，問「正確」）</span>
+        <div class="quiz-q">關於豬流行性感冒／swine influenza [SI] 敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 對豬造成呼吸道與生殖道的症狀</li>
+          <li>(B) 可造成豬呼吸道 bronchointerstitial pneumonia</li>
+          <li>(C) H1, H3 subtypes 為主</li>
+          <li>(D) N1, N2 subtypes 為主</li>
+          <li>(E) SI 病毒造成的 viremia 時間長、力價高，故容易從血中偵測 SI 病毒</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B、C、D)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選〕<br>(B) 對：支氣管間質性肺炎。<br>(C)(D) 對：豬的三大型別 H1N1、H1N2、H3N2（<a href="week05_豬流行性感冒.html#section-agent">第 5 週豬流感</a>）。<br>(A) 錯：豬流感是呼吸道疾病。<br>(E) 錯：病毒血症少見且短，要採鼻拭子或肺組織，不從血液偵測（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q12（複選，問「正確」）</span>
+        <div class="quiz-q">關於 PEDV 下列何者敘述正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 2013–2014 台灣因 PEDV 疫情損失數十萬頭仔豬</li>
+          <li>(B) 2010 年後流行於全球各地的 PEDV 病原性與 2000 年前所見者同</li>
+          <li>(C) 現為 OIE notifiable disease</li>
+          <li>(D) 為 zoonosis</li>
+          <li>(E) 臨床症狀與 TGE 無法區分</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、E)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選〕<br>(A) 對：台灣 2014 年 PED 大流行（<a href="week05_豬冠狀病毒病.html#section-ped">第 5 週</a>）。<br>(B) 錯：2010 年後的新型株致病力比過去高。<br>(C) 錯：考卷沒圈；PED 不是 WOAH 法定通報疾病（補充）。<br>(D) 錯：不是人畜共通。<br>(E) 對：臨床上和 TGE 無法區分，要靠實驗室診斷。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q13（複選）</span>
+        <div class="quiz-q">日本腦炎／Japanese Encephalitis [JE]：</div>
+        <ul class="quiz-options">
+          <li>(A) 為我國乙類動物傳染病</li>
+          <li>(B) 藉蚊媒傳播</li>
+          <li>(C) 感染母豬常造成腦炎死亡</li>
+          <li>(D) 為人畜共通傳染病／zoonoses</li>
+          <li>(E) 遭感染豬再藉互相接觸傳給健康豬</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、B、D)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選〕<br>(B)(D) 對：蚊媒、人畜共通（<a href="week02_豬病毒性疾病I.html#section-jev">第 2 週</a>）。<br>(A) 對：考卷圈選。<br>(C) 錯：母豬感染多表現為流產、死產、木乃伊胎，不是腦炎死亡。<br>(E) 錯：豬是增幅宿主，靠蚊子傳播，不靠豬隻互相接觸。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q14（複選，問「正確」）</span>
+        <div class="quiz-q">下列何者敘述正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 豬被視為口蹄疫病毒的「mixing vessel」</li>
+          <li>(B) 豬不是口蹄疫病毒的「persistent carrier」</li>
+          <li>(C) 日本腦炎病毒由媒蚊傳予人的過程中，豬被視為「amplifier」</li>
+          <li>(D) 豬被視為流行性感冒病毒的「opportunistic reservoir」</li>
+          <li>(E) 豬為豬瘟病毒唯一「natural reservoir」</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B、C、E)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選〕<br>(A) 錯：mixing vessel 是豬對<strong>流感</strong>的角色。<br>(B) 對：豬是 FMD 的增幅者（amplifier，呼出大量病毒）；持續帶原者是反芻獸（牛）。<br>(C) 對：JE 的增幅宿主（第 2 週）。<br>(D) 錯：流感是 mixing vessel。<br>(E) 對：與同卷 Q1 (A)「CSFV natural reservoirs 僅有家豬與野豬」一致。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q15（複選，問「錯誤」）</span>
+        <div class="quiz-q">以下何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 母豬懷孕期約為 114 天</li>
+          <li>(B) 豬小病毒（Porcine Parvovirus, PPV）感染可造成流死產</li>
+          <li>(C) 受孕超過 70 天的胎兒對 PPV 感染可以產生免疫力</li>
+          <li>(D) 種用公豬遭 PPV 感染其繁殖性能不受影響</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(E)</div>
+          <p class="quiz-explain">(E) 對（考卷圈選）：(A)–(D) 都正確，所以「錯誤的」選以上皆非。<br>(A) 對：114–115 天（課程介紹 <a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=46">p.46</a>）。<br>(B) 對：SMEDI。<br>(C) 對：約第 70 天胎兒具免疫勝任能力（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=131">p.131</a>）。<br>(D) 對：PPV1 在成豬一般沒有臨床症狀（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=134">p.134</a>）；考卷旁註「但會在精液排毒」（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=125">p.125</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week03_豬病毒性疾病II.html#section-kaogu">第 3 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q16（複選，問「為誤」）</span>
+        <div class="quiz-q">關於 Nipah virus 之敘述何者為誤？</div>
+        <ul class="quiz-options">
+          <li>(A) Zoonotic virus</li>
+          <li>(B) 野生蝙蝠為其自然宿主，跨物種感染豬致病</li>
+          <li>(C) 1998 年在東南亞造成受感染豬再傳給人的疫情</li>
+          <li>(D) 感染豬與人出現神經系統症狀</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer">答案：⚠ 考卷無作答記號</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 考卷上這題題號被打了叉，選項沒有圈，學長姐的答案不明 <strong style="color:var(--amber-700)">⚠ 待確認</strong>。<br>（補充）四個敘述看起來都對：Nipah 是人畜共通病毒，果蝠是自然宿主，1998–1999 年馬來西亞豬傳人疫情，豬有呼吸道與神經症狀、人以腦炎為主。照這樣判斷會選 (E)。今年第 2、3 週講義沒有 Nipah（見<a href="期中總複習.html#section-gap">期中總複習・範圍外</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q17（複選，問「正確」）</span>
+        <div class="quiz-q">關於非洲豬瘟病毒的預防控制何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 容易誘發感染宿主的中和抗體</li>
+          <li>(B) 已有效果良好的疫苗</li>
+          <li>(C) 非疫區應以銷毀方式處理源自疫區的廚餘</li>
+          <li>(D) 嚴格管制來自疫區的具感受性動物移動</li>
+          <li>(E) 疑似病例應立即診斷</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C、D、E)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選〕<br>(A) 錯：ASFV 不易誘發完全中和抗體（<a href="week02_豬病毒性疾病I.html#section-asf-b">第 2 週</a>）。<br>(B) 錯（2019 年時）：當時沒有核准疫苗；越南 2022 年 6 月才核准全球第一支商業 ASF 疫苗（<a href="week02_豬病毒性疾病I.html#section-asf-d">第 2 週</a>）。<br>(C)(D)(E) 對：廚餘、動物移動管制、早期診斷。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q18（複選，問「正確」）</span>
+        <div class="quiz-q">非洲豬瘟：</div>
+        <ul class="quiz-options">
+          <li>(A) 已傳播到歐、亞陸塊</li>
+          <li>(B) 宿主僅限於豬</li>
+          <li>(C) characteristic lesion 為 splenomegaly</li>
+          <li>(D) 臨床症狀與病毒侵犯血管上皮細胞有關</li>
+          <li>(E) 病毒初期於 monocyte、macrophage 增殖，而造成 leukocytosis 症狀</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、C、D)</div>
+          <p class="quiz-explain">依考卷圈選 (A)(C)(D)：(A) 對：歐亞疫情（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=11">p.11</a>）。(C) 對：脾臟腫大（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=45">p.45</a>）。(D) 對（老師判定）：（補充）ASF 造成血管內皮傷害與出血，講義寫病毒複製於單核球與巨噬細胞（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=33">p.33</a>）。<br>(B) 錯：宿主還有野豬、疣豬、叢林豬等（<a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=18">p.18</a>）。<br>(E) 錯：講義沒有寫造成白血球增多；（補充）ASF 常見的是淋巴球減少。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week02_豬病毒性疾病I.html#section-kaogu">第 2 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q19（複選）</span>
+        <div class="quiz-q">台灣［台、澎、金、馬］目前有哪些水疱性疾病在豬群內尚未清除？</div>
+        <ul class="quiz-options">
+          <li>(A) 豬水疱疹［VES］</li>
+          <li>(B) 口蹄疫［FMD］</li>
+          <li>(C) 豬水疱病［SVD］</li>
+          <li>(D) 矽尼卡谷病毒［SVV］感染症</li>
+          <li>(E) 水疱性口炎［VS］</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B、C、D)</div>
+          <p class="quiz-explain">〔答案來源：考卷藍筆圈選，2019 年〕<br>(C)(D) 對：SVD、SVV 台灣仍有（<a href="week04_小RNA病毒科疾病.html#section-svv">第 4 週</a>）。<br>(B) 2019 年出題時算對：台澎馬 2020 年 6 月才獲認定為不施打疫苗非疫區；題目寫「台、澎、金、馬」，金門的認定時間我沒有查到講義資料 <strong style="color:var(--amber-700)">⚠ 待確認</strong>。今年再考要注意時間點。<br>(A)(E) 錯：VES、VS 台灣沒有（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">2019 Q20（複選，問「正確」）</span>
+        <div class="quiz-q">有關 Porcine Stress Syndrome [PSS] 之敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 具遺傳特性，且與豬屠體瘦肉率有關</li>
+          <li>(B) 與肌肉細胞膜上調控鈣離子進出的 ryanodine receptor 異常有關</li>
+          <li>(C) 與豬屠體肌肉呈水樣性／exudative 有關</li>
+          <li>(D) 致病之 ryr-1 基因為 dominant</li>
+          <li>(E) 以上皆非</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A、C)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷藍筆圈 (a)(c)，(b)(d) 紅筆打叉〕<br>(A)(C) 對：遺傳性、與瘦肉率有關；屠體呈 PSE（蒼白、柔軟、滲出）肉（補充）。<br>(D) 錯：ryr-1（halothane 基因）是<strong>隱性</strong>遺傳（補充）。<br>(B) 被打叉：RyR1 是<strong>肌漿網</strong>上的鈣離子釋放通道，題目寫「肌肉細胞膜」可能就是錯的地方（推測） <strong style="color:var(--amber-700)">⚠ 待確認</strong>。PSS 屬營養與其他疾病，不在本次範圍。</p>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：使用者提供的 2019 豬病學期中考（鄭益謙老師授課部分），考卷藍筆圈選；詳解依本站各週筆記。</footer>
+    </div>
+
+    <div class="section" id="section-z2022">
+      <div class="section-head"><div class="section-num">3</div><h2>鄭益謙老師 2022（111 學年）：與 2019 對照</h2></div>
+      <p class="section-desc">照片上沒有作答記號，答案由 2019 年圈選依題幹正反反推。</p>
+<div class="alert alert-warn"><div class="alert-label">重點</div><p>2022 年的 20 題是 <strong>2019 年同一組題目</strong>，只把題幹的「正確／不正確」對調，問答題與加分題也完全相同。所以背題目要背「每個敘述本身是對還是錯」，不要背答案字母。</p></div>
+<details class="exam-photos" style="margin:10px 0 16px"><summary style="cursor:pointer;font-weight:700">原卷照片（2 張，姓名與學號已遮蓋）</summary><img src="img/期中考古/y2022v_p1.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y2022v_p2.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"></details>
+<div class="table-wrap"><table><thead><tr><th>題號</th><th>2019 題幹問</th><th>2022 題幹問</th><th>2019 答案（考卷圈選）</th><th>2022 答案（反推）</th></tr></thead><tbody><tr><td>Q1</td><td>不正確</td><td>正確</td><td>B、D</td><td>A、C、E</td></tr><tr><td>Q2</td><td>正確</td><td>正確</td><td>A、D</td><td>A、D</td></tr><tr><td>Q3</td><td>正確</td><td><strong>不正確</strong></td><td>B、C、D</td><td><strong>A</strong></td></tr><tr><td>Q4</td><td>錯誤</td><td><strong>為真</strong></td><td>C、D</td><td>A、B、E</td></tr><tr><td>Q5</td><td>為非</td><td>為非</td><td>C</td><td>C</td></tr><tr><td>Q6</td><td>正確</td><td>正確</td><td>A、B、C</td><td>A、B、C</td></tr><tr><td>Q7</td><td>排毒途徑</td><td>排毒途徑</td><td>A、B、C、D</td><td>A、B、C、D</td></tr><tr><td>Q8</td><td>正確</td><td>正確</td><td>C、D、E</td><td>C、D、E</td></tr><tr><td>Q9</td><td>臨床症狀</td><td>臨床症狀</td><td>A、B、D、E</td><td>A、B、D、E</td></tr><tr><td>Q10</td><td>正確</td><td>正確</td><td>A、B、D</td><td>A、B、D</td></tr><tr><td>Q11</td><td>正確</td><td>正確</td><td>B、C、D</td><td>B、C、D</td></tr><tr><td>Q12</td><td>正確</td><td>正確（(c) 改成「OIE listed」）</td><td>A、E</td><td>A、E</td></tr><tr><td>Q13</td><td>敘述</td><td>敘述</td><td>A、B、D</td><td>A、B、D</td></tr><tr><td>Q14</td><td>正確</td><td><strong>錯誤</strong></td><td>B、C、E</td><td>A、D</td></tr><tr><td>Q15</td><td>錯誤</td><td><strong>正確</strong></td><td>E</td><td>A、B、C、D</td></tr><tr><td>Q16</td><td>為誤</td><td>為誤</td><td>⚠ 無記號</td><td>⚠ 同左</td></tr><tr><td>Q17</td><td>正確</td><td><strong>不正確</strong></td><td>C、D、E</td><td>A、B</td></tr><tr><td>Q18</td><td>敘述</td><td>敘述</td><td>A、C、D</td><td>A、C、D</td></tr><tr><td>Q19</td><td>尚未清除</td><td>尚未清除</td><td>B、C、D</td><td>C、D？（見下）</td></tr><tr><td>Q20</td><td>正確</td><td><strong>不正確</strong>（多一個 (e) Halothane 試驗）</td><td>A、C</td><td>B、D</td></tr></tbody></table></div>
+<div class="alert alert-info"><div class="alert-label">兩卷互相印證</div><p>2019 Q3 的 (a)「Stamping out without vaccination 有助於迅速成為 free status」考卷沒有圈，原本不確定原因；2022 年把題幹改成「何者<strong>不</strong>正確」，學生把「不」圈起來，答案只剩 (a)。兩年一起看，(a) 被出題者當成錯誤敘述。</p></div>
+<div class="alert alert-warn"><div class="alert-label">時間點</div><p>Q19「目前尚未清除」：台澎馬 2020 年 6 月已獲 WOAH 認定為不施打疫苗口蹄疫非疫區（第 4 週），所以 2022 年 (b) 口蹄疫可能已經不算「尚未清除」；題目寫「台、澎、金、馬」，金門的狀態講義沒有寫 ⚠ 待確認。Q8 (a)「台灣本島仍為疫區」在 2022 年同樣是錯的。</p></div>
+<div class="alert alert-info"><div class="alert-label">Q20 新增的 (e)</div><p>「曾運用 Halothane Challenge Test 檢測表型」是正確敘述（補充；學長姐筆記也寫 PSS 用 halothane 試驗），所以「不正確」的仍是 (b)(d)。</p></div>
+      <footer class="note-footer">資料來源：使用者提供的 2022 豬病學期中考（鄭益謙老師授課部分）照片。</footer>
+    </div>
+
+    <div class="section" id="section-zessay">
+      <div class="section-head"><div class="section-num">4</div><h2>鄭益謙老師問答題（合卷、2019、2022）</h2></div>
+      <p class="section-desc">五個主題反覆出，2019 與 2022 的問答完全相同。</p>
+<div class="table-wrap"><table><thead><tr><th>題目</th><th>合卷 Part A</th><th>2019</th><th>2022</th></tr></thead><tbody><tr><td>口蹄疫：病原、流行病學／傳播、致病機制、症狀</td><td>Q1（8 分）</td><td>—</td><td>—</td></tr><tr><td>豬瘟基因結構 → 新型疫苗與 DIVA 診斷構想</td><td>Q2（8 分）</td><td>（複選 Q3 同概念）</td><td>（複選 Q3）</td></tr><tr><td>造成流產的病毒 ≥2 種＋實驗室診斷 ≥3 種（含原理）</td><td>Q3（8 分）</td><td>二-1（20 分）</td><td>二-1（20 分）</td></tr><tr><td>豬是流感 mixing vessel：病毒結構＋流行病學</td><td>Q4（8 分）</td><td>（複選 Q14）</td><td>（複選 Q14）</td></tr><tr><td>TGE 危害下降的原因與機制</td><td>Q5（8 分）</td><td>二-2（20 分）</td><td>二-2（20 分）</td></tr><tr><td>加分題：日本 2018 CSF，FAT 與 RT-PCR 結果歧異</td><td>—</td><td>加分（20 分）</td><td>加分（20 分）</td></tr></tbody></table></div>
+<details class="exam-photos" style="margin:10px 0 16px"><summary style="cursor:pointer;font-weight:700">原卷照片（合卷第 1 頁，姓名與學號已遮蓋）</summary><img src="img/期中考古/hj_p1.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"></details>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part A Q1（8 分）</span>
+        <div class="quiz-q">試述口蹄疫病毒的病原、流行病學／傳播方式、致病機制（pathogenesis）與症狀。（8 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>見<a href="week04_小RNA病毒科疾病.html#section-fmd-a">第 4 週：口蹄疫</a>。骨架：Aphthovirus、無封套 ssRNA(+)、7 血清型；豬增幅者、牛指示者、羊維持者；直接接觸、餿水、氣膠、污染人車；咽黏膜 → 淋巴結 → 病毒血症；水疱、跛行、發病率高死亡率低、仔豬虎斑心。</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week02_豬病毒性疾病I.html#section-kaogu">第 2 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part A Q2（8 分）</span>
+        <div class="quiz-q">請利用豬瘟病毒基因結構（5'-[N<sup>pro</sup>、C、E0(E<sup>rns</sup>)、E1、E2、p7、NS2、NS3、NS4A、NS4B、NS5A、NS5B]-3'），為「常在型（endemic）」發生、並使用豬瘟傳統活毒疫苗免疫控制的地區，提出兼具（1）誘發抗豬瘟效力，（2）可區別（a）野外病毒自然感染、與（b）施打疫苗的新型態疫苗及診斷構想。（8 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>骨架（本週講義 <a class="pdf-link" href="pdf/病毒性疾病I.pdf#page=131">p.131–139</a>）：<strong>E2 次單位疫苗</strong>（或 CP7_E2alf 嵌合活疫苗：BVDV 骨架、E2 換成 CSFV E2）誘發保護性中和抗體；因疫苗不含 E<sup>rns</sup>，搭配檢測 <strong>E<sup>rns</sup> 抗體的 ELISA</strong>：野外感染豬有 E<sup>rns</sup> 抗體、疫苗接種豬沒有 → DIVA。限制：E<sup>rns</sup> ELISA 敏感度與特異度差、BVDV／BDV 有交叉反應偽陽性，只適合族群篩檢。（也可提 NS3 為標記，見第 4 週 DIVA 表。）</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week02_豬病毒性疾病I.html#section-kaogu">第 2 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part A Q3（8 分）＝ 2019、2022 二-1（20 分）</span>
+        <div class="quiz-q">請列舉出至少兩種能造成懷孕母豬 abortion、stillbirth 等 reproductive failure 的病毒性疾病，及至少三種可使用於病原確診的實驗室診斷（技術「名稱」之外，需含其基本原理）。（20 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong>病毒</strong>（任選兩種以上）：PPV1、PRRSV、PCV2（PCV2-RD）、日本腦炎病毒、假性狂犬病病毒、古典豬瘟病毒。</p><p><strong>實驗室診斷與原理</strong>（以本講義為例）：</p><ul><li><strong>PCR／RT-PCR</strong>：以專一引子增幅病毒核酸（DNA 病毒如 PPV1、PCV2 用 PCR；RNA 病毒如 PRRSV 用 RT-PCR 先反轉錄成 cDNA），可驗胎兒組織、精液、血清；PPV1 最實用的方法（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=138">p.138</a>）。</li><li><strong>免疫螢光（IF）／免疫組織化學（IHC）</strong>：以帶螢光或酵素標記的專一抗體結合組織中的病毒抗原，在顯微鏡下看到訊號；用於胎兒組織 PPV1 抗原、PCV2 病灶內抗原（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=138">p.138</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=51">p.51</a>）。</li><li><strong>血球凝集抑制（HI）</strong>：PPV1 可凝集紅血球，血清中的專一抗體會抑制凝集，以抑制的最高稀釋倍數定量抗體（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=139">p.139</a>）。</li><li><strong>ELISA</strong>：抗原固定在盤上，血清抗體結合後以酵素標記二次抗體呈色，適合高通量（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=109">p.109</a>、<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=139">p.139</a>）。</li><li><strong>病毒分離</strong>：接種感受性細胞（PRRSV 用 MARC-145），觀察細胞病變再以抗體確認（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=108">p.108</a>）。</li><li><strong>胎兒體液或未吸初乳血清的抗體</strong>：胎兒（&gt;70 天）產生的抗體表示子宮內感染（<a class="pdf-link" href="pdf/病毒性疾病II.pdf#page=139">p.139</a>）。</li></ul></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week03_豬病毒性疾病II.html#section-kaogu">第 3 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part A Q4（8 分）</span>
+        <div class="quiz-q">豬被視為流行性感冒病毒的「mixing vessel」，對包含人在內各種動物造成公共衛生的影響，請從「病毒結構」、「流行病學」角度解釋其原因。（8 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>見<a href="week05_豬流行性感冒.html#section-mixing">第 5 週：混合容器理論</a>。骨架：病毒結構——8 段負股 RNA 可基因重組、HA／NA 多亞型；流行病學——豬呼吸道同時有 α2,3（禽）與 α2,6（人）唾液酸受體，人、禽、豬病毒共同感染重組（2009 H1N1）；豬 Mx1 較弱、ANP32A 支持禽聚合酶；反向人畜共通頻繁；員工接種疫苗。</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week02_豬病毒性疾病I.html#section-kaogu">第 2 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part A Q5（8 分）＝ 2019、2022 二-2（20 分）</span>
+        <div class="quiz-q">可造成兩週齡內仔豬嚴重下痢、高死亡率的豬傳染性胃腸炎（Transmissible gastroenteritis），現今的危害程度遠低於以往，試述此一現象的可能原因與機制。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong>答題骨架</strong>（<a href="week05_豬冠狀病毒病.html#section-tge-a">第 5 週 TGE</a>）</p><ol><li><strong>PRCV 出現</strong>：豬呼吸道冠狀病毒是 TGEV 的自然變異株，S 蛋白 N 端刪除約 227 個胺基酸，嗜性由腸道轉為呼吸道，不造成絨毛萎縮、死亡率低。</li><li><strong>PRCV 傳播快、普遍感染</strong>：經呼吸道（空氣）傳播，比糞口傳播的 TGEV 更容易擴散，豬群幾乎都感染過。</li><li><strong>交叉保護</strong>：兩者只有一個血清型，S 蛋白主要中和抗原位點保守，感染 PRCV 產生的抗體能中和 TGEV。</li><li><strong>共同黏膜免疫（common mucosal immunity）</strong>：PRCV 在支氣管相關淋巴組織（BALT）誘發 IgA、IgG 分泌細胞，這些細胞移到腸道相關淋巴組織（GALT），提供腸道保護；母豬經初乳與乳汁把抗體傳給仔豬（學長姐答案整理，機制細節為補充）。</li><li><strong>結論</strong>：豬群對 TGE 有廣泛免疫，TGE 的發生與危害大幅下降。</li></ol></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">加分題｜2019、2022（20 分）</span>
+        <div class="quiz-q">自由選答「加分題」（20 分）：請申論下表日本 2018 年爆發 CSF，於地方、中央用 FAT、RT-PCR 診斷，得一致的歧異結果之可能原因。<div class="table-wrap" style="margin-top:8px"><table><thead><tr><th>實驗室</th><th>檢驗</th><th>日期</th><th>結果</th></tr></thead><tbody><tr><td>岐阜縣家畜保健衛生所（地方）</td><td>直接螢光抗體（FAT）</td><td>2018/09/08</td><td>陰性</td></tr><tr><td>岐阜縣家畜保健衛生所（地方）</td><td>RT-PCR</td><td>2018/09/08</td><td>陽性</td></tr><tr><td>國立動物衛生研究所（OIE 參考實驗室）</td><td>FAT</td><td>2018/09/08</td><td>陰性</td></tr><tr><td>國立動物衛生研究所（OIE 參考實驗室）</td><td>RT-PCR</td><td>2018/09/08</td><td>陽性</td></tr><tr><td>國立動物衛生研究所（OIE 參考實驗室）</td><td>病毒定序</td><td>2018/09/09</td><td>陽性</td></tr></tbody></table></div></div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong>答題方向</strong>（本站整理，非官方答案）：兩個實驗室結果<strong>一致</strong>，所以不是單一實驗室操作失誤，而是兩種方法本身的差異。</p><ol><li><strong>原理不同</strong>：FAT 用螢光標記抗體偵測冷凍組織切片中的<strong>病毒抗原</strong>，需要組織內有足量抗原；RT-PCR 先把病毒 RNA 反轉錄再增幅，偵測<strong>核酸</strong>，少量病毒就能陽性。</li><li><strong>敏感度差異</strong>：RT-PCR 敏感度遠高於 FAT（<a href="week02_豬病毒性疾病I.html#section-csf-b">第 2 週 CSF 診斷</a>）。</li><li><strong>病毒量低的可能原因</strong>：採樣時在感染早期；病毒株毒力不高、組織內抗原量少（補充：2018 年日本岐阜株屬中等毒力的 genotype 2.1）；採樣部位或組織保存影響抗原。</li><li><strong>定序陽性</strong>：確認是 CSFV，並可判斷基因型與來源，排除疫苗株或交叉反應。</li><li><strong>結論</strong>：FAT 陰性不能排除 CSF；疑似病例要以 RT-PCR＋定序確診。</li></ol></div>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：使用者提供的期中考古（合卷 Part A、2019、2022）；答案骨架整理自學長姐答案與本站第 2–5 週筆記。</footer>
+    </div>
+
+    <div class="section" id="section-ye106">
+      <div class="section-head"><div class="section-num">5</div><h2>葉光勝老師 106 學年（2017）</h2></div>
+      <p class="section-desc">單選 30 題＋問答 4 題。答案依老師檢討投影片與學長姐檢討。</p>
+<div class="table-wrap"><table><thead><tr><th>大題</th><th>題型</th><th>配分</th></tr></thead><tbody><tr><td>一</td><td>單選 30 題</td><td>每題 2 分，共 60 分</td></tr><tr><td>二</td><td>問答 4 題</td><td>每題 10 分，共 40 分</td></tr></tbody></table></div>
+<details class="exam-photos" style="margin:10px 0 16px"><summary style="cursor:pointer;font-weight:700">原卷照片（5 張，翻拍上課檢討投影片，姓名與學號已遮蓋）</summary><img src="img/期中考古/y106_p1.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y106_p2.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y106_p3.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y106_p4.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y106_p5.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"></details>
+<div class="alert alert-warn"><div class="alert-label">照片限制</div><p>原卷照片是翻拍投影幕，Q20 與 Q27 的題幹沒拍到，依學長姐檢討整理。</p></div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q1（單選）</span>
+        <div class="quiz-q">請問以下所示為哪一種豬？此豬體軀呈長方形，頸部至背部有剛毛，顏面平廣且皺裂顯著。</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q106_01.jpg" alt="原卷附圖（翻拍投影，較模糊）" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖（翻拍投影，較模糊）</div></div>
+        <ul class="quiz-options">
+          <li>(A) Yokshire</li>
+          <li>(B) Taoyuan pig</li>
+          <li>(C) Landrace</li>
+          <li>(D) Duroc</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">〔答案來源：學長姐檢討「是桃園豬」〕桃園豬是黑色本地土種，顏面皺褶多（<a href="week01_課程介紹與養豬產業.html#section-breed">第 1 週台灣的豬種</a>）。藍瑞斯是白色大垂耳、杜洛克是紅棕色、約克夏是白色立耳。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q2（單選）</span>
+        <div class="quiz-q">若您今天到豬場，看到急性死亡的生長肥育豬隻有口鼻出血情形，您進行剖檢，見到纖維素性胸膜炎，肺臟呈現濕重且瀰漫性的出血水腫。後續追蹤，實驗室報告微生物分離可見革蘭氏陰性細菌，且 CAMP（Christie, Atkins, Munch-Petersen）reaction 為陽性反應，依此判斷，您覺得最有可能的致病原為以下何者？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Choleraesuis</li>
+          <li>(B) <em>Actinobacillus pleuropneumoniae</em></li>
+          <li>(C) <em>Bordetella bronchiseptica</em></li>
+          <li>(D) <em>Escherichia coli</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對：與 110 年國考同一模式。<br>(A) 錯：敗血型沙門氏菌症是耳翼發紺、脾腫、肝壞死點。<br>(C) 錯：萎縮性鼻炎。<br>(D) 錯：腸道與泌尿道病原。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q3（單選）</span>
+        <div class="quiz-q">民國 41 年，李崇道博士由菲律賓引進哪一種疾病病原的弱毒株，加以改良，後來在台灣發展出安全及免疫效果良好的疫苗株，並由李博士命名為 LPC-China strain？</div>
+        <ul class="quiz-options">
+          <li>(A) pseudorabies</li>
+          <li>(B) hog cholera</li>
+          <li>(C) foot and mouth disease</li>
+          <li>(D) swine influenza</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">〔答案來源：學長姐檢討〕LPC＝Lapinized Philippines Coronel，兔化豬瘟弱毒疫苗株（<a href="week01_課程介紹與養豬產業.html#section-history">第 1 週防治史</a>）。111 學年 Q4 把題目改成問「哪位學者」。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q4（單選）</span>
+        <div class="quiz-q">有關於沙門氏菌（<em>Salmonella</em>）的敘述，下列何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 在許多國家，非傷寒型的沙門氏菌症（nontyphoid salmonellosis, NTS）是食因性疾病（foodborne illness）的常見原因</li>
+          <li>(B) 可能會在豬隻分離出 Choleraesuis 或 Typhimurium 以外的其他血清型，例如 Heidelberg 或 Agona</li>
+          <li>(C) 帶菌豬隻（carrier pig）為重要的感染源</li>
+          <li>(D) 有臨床症狀的豬隻通常發生於離乳前</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 錯，所以選它：大多數爆發在集約飼養的<strong>離乳</strong>豬（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=65">p.65</a>）。<br>(A)(B)(C) 對（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=61">p.61–62</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q5（單選）</span>
+        <div class="quiz-q">假設您觀察到 3 日齡的豬隻有腹瀉，糞便帶血的情形。組織病理鏡檢下有小腸黏膜壞死及肌纖維層及黏膜下層的氣腫（emphysema），且在小腸黏膜吸附有染成革蘭氏陽性的桿菌，您覺得這豬隻最有可能感染以下何種病原？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Typhimurium</li>
+          <li>(B) <em>Clostridium perfringens</em></li>
+          <li>(C) <em>Clostridium septicum</em></li>
+          <li>(D) <em>Clostridium novyi</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕新生仔豬出血性壞死性腸炎＋氣腫＋革蘭氏陽性大桿菌 → <em>C. perfringens</em>（type C，補充）。<em>C. septicum</em> 是惡性水腫，<em>C. novyi</em> 是猝死、屍體膨脹。111 學年 Q6 同題改成區分 type A／type C。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q6（單選）</span>
+        <div class="quiz-q">豬萎縮性鼻炎是由 <em>Bordetella bronchiseptica</em> 及下列哪一個病原的感染最有關？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Typhimurium</li>
+          <li>(B) <em>Pasteurella multocida</em></li>
+          <li>(C) <em>Haemophilus parasuis</em></li>
+          <li>(D) <em>Erysipelothrix rhusiopathiae</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=50">p.50</a>）。<br>(C) 錯：Glässer 病。<br>(A)(D) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q7（單選）</span>
+        <div class="quiz-q">下列何者為治療豬丹毒（swine erysipelas）藥物的首選？</div>
+        <ul class="quiz-options">
+          <li>(A) streptomycin</li>
+          <li>(B) lincomycin</li>
+          <li>(C) penicillin</li>
+          <li>(D) tiamulin</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=34">p.34</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q8（單選）</span>
+        <div class="quiz-q">有關豬滲出性表皮炎（exudative epidermatitis）的相關敘述，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 其致病原會引起人的皮膚病</li>
+          <li>(B) 可用 ivermectin 治療此疾病</li>
+          <li>(C) 又稱為豬油脂病（greasy-pig disease）</li>
+          <li>(D) 豬隻有劇癢症狀</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對。<br>(A)(B)(D) 錯：非人畜共通、驅蟲劑無效、不癢。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q9（單選）</span>
+        <div class="quiz-q">有一種豬隻疾病，會造成敗血症，豬隻可見耳翼及四肢末端發紺，剖檢可常見脾腫大及淋巴結腫大壞死，結腸黏膜有許多黃色如鈕扣狀的潰瘍。從病灶可分離出細菌，在 MacConkey agar 上呈現無色的菌落。請問這個病原最有可能是以下何者？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Erysipelothrix rhusiopathiae</em></li>
+          <li>(B) <em>Salmonella</em> Choleraesuis</li>
+          <li>(C) <em>Bordetella bronchiseptica</em></li>
+          <li>(D) <em>Escherichia coli</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對。<br>(A) 錯：革蘭氏陽性，皮膚是菱形疹。<br>(D) 錯：粉紅色菌落。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q10（單選）</span>
+        <div class="quiz-q">有關下列的敘述，何者錯誤？</div>
+        <ul class="quiz-options">
+          <li>(A) 仔豬出生後約 24–36 小時，其腸道即失去吸收初乳的功能</li>
+          <li>(B) 豬隻的懷孕期（pregnant period）約 114–115 天</li>
+          <li>(C) 新生仔豬腸上皮細胞有 FcRn，可與初乳內的免疫球蛋白結合</li>
+          <li>(D) 豬隻初乳內免疫球蛋白主要是以 IgA 為主</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">〔答案來源：學長姐檢討〕初乳以 <strong>IgG</strong> 為主；IgA 是常乳的主要抗體（補充）。(A)(B)(C) 對：腸道閉鎖約 24–36 小時、懷孕期 114–115 天（<a href="week01_課程介紹與養豬產業.html#section-life">第 1 週</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q11（單選）</span>
+        <div class="quiz-q">您發現豬場的一隻豬隻，外觀如下圖所示（皮膚菱形斑疹，同講義 <a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=18">p.18</a>），請就以下四個選項，挑選出最合理正確的答案。</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q106_11.jpg" alt="原卷附圖" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖</div></div>
+        <ul class="quiz-options">
+          <li>(A) 此疾病主要藉由配種（mating）傳染</li>
+          <li>(B) 致病原是一種厭氧菌</li>
+          <li>(C) 此疾病好發於哺乳仔豬</li>
+          <li>(D) 此致病原為一人畜共通傳染病原</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">菱形疹＝急性豬丹毒，病原 <em>Erysipelothrix rhusiopathiae</em>。<br>(D) 對：人畜共通；人感染形成手指上的類丹毒（erysipeloid），也稱 fish handler's disease，豬與火雞帶菌率高（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=8">p.8</a>、<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=10">p.10</a>）。<br>(A) 錯：靠帶菌豬的糞便、口鼻分泌物排菌，經受污染的土壤、地下水感染，不是性病；「經配種傳染」是布氏桿菌症的特色。<br>(B) 錯：革蘭氏陽性、細長、不運動、無芽孢桿菌，<strong>兼性厭氧</strong>，不是厭氧菌（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=5">p.5</a>）。<br>(C) 錯：急性好發於接近上市體重的生長肥育豬，不是哺乳仔豬（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=16">p.16</a>）；菱形疹見 <a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=18">p.18</a>。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q12（單選）</span>
+        <div class="quiz-q">豬的多發性漿膜炎又稱之為 Glässer's disease，由下列何種病原所引起？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Haemophilus parasuis</em></li>
+          <li>(B) <em>Pasteurella multocida</em></li>
+          <li>(C) <em>Salmonella</em> Typhimurium</li>
+          <li>(D) <em>Bordetella bronchiseptica</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對。<br>(B)(D) 錯：萎縮性鼻炎。<br>(C) 錯：腸炎型沙門氏菌症。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q13（單選）</span>
+        <div class="quiz-q">以下圖示的豬隻有鼻吻部變形的情形，我們可合理預期，臨床上這隻豬比較有可能會有以下何種症狀？（考卷附圖同講義 <a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=53">p.53</a> 鼻吻部彎曲）</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q106_13.jpg" alt="原卷附圖" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖</div></div>
+        <ul class="quiz-options">
+          <li>(A) 嘔吐及下痢</li>
+          <li>(B) 迴旋及顫抖</li>
+          <li>(C) 發燒及呼吸困難</li>
+          <li>(D) 打噴嚏及聳鼻</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=65">p.65–66</a>）。<br>(A)(B)(C) 錯：分別是腸道、神經、下呼吸道症狀。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q14（單選）</span>
+        <div class="quiz-q">有關於豬隻感染 <em>Brucella suis</em> 的敘述，下列何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 患病豬隻的肝臟可能會看到肉芽腫病灶（granulomatous lesions）</li>
+          <li>(B) 患病豬隻可能會有椎間板壞死膿腫及鄰近脊椎骨炎</li>
+          <li>(C) 通常公豬的臨床症狀較母豬容易復原</li>
+          <li>(D) 目前沒有可靠及安全的疫苗可使用</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 錯，所以選它。<br>(A)(B)(D) 對。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q15（單選）</span>
+        <div class="quiz-q">假設您在保育及肥育豬舍，看到豬隻有消瘦、下痢情形，下痢便較黏稠，色澤不一，看起來有鮮紅、暗紅或灰暗色澤，而且含多量黏液及纖維素及壞死黏膜碎片，請問下列診斷何者最接近？</div>
+        <ul class="quiz-options">
+          <li>(A) swine erysipelas</li>
+          <li>(B) swine brucellosis</li>
+          <li>(C) greasy pig disease</li>
+          <li>(D) swine dysentery</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕保育、肥育豬的黏液出血性下痢＝豬赤痢（<em>Brachyspira hyodysenteriae</em>），病變在大腸（同卷 Q23）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q16（單選）</span>
+        <div class="quiz-q">下列何種 <em>Mycoplasma</em> 可引起豬的關節炎？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>M. hyopneumoniae</em> and <em>M. hyosynoviae</em></li>
+          <li>(B) <em>M. hyosynoviae</em> and <em>M. hyorhinis</em></li>
+          <li>(C) <em>M. hyosynoviae</em> and <em>M. flocculare</em></li>
+          <li>(D) <em>M. hyopneumoniae</em> and <em>M. hyorhinis</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕<em>M. hyosynoviae</em>（關節炎）、<em>M. hyorhinis</em>（多發性漿膜炎與關節炎）；<em>M. hyopneumoniae</em> 是地方性肺炎，<em>M. flocculare</em> 不致病（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q17（單選）</span>
+        <div class="quiz-q"><em>Lawsonia intracellularis</em> 會利用宿主細胞粒線體 ATP 為能量來源，是一種絕對的細胞內細菌（obligately intracellular bacterium），請問以下的選項，何者與此病原最無相關？</div>
+        <ul class="quiz-options">
+          <li>(A) regional ileitis</li>
+          <li>(B) arthritis</li>
+          <li>(C) hose pipe gut</li>
+          <li>(D) proliferative intestinal adenomatosis</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕增生性腸病的各種名稱：區域性迴腸炎、水管腸、增生性腸腺瘤病；和關節炎無關。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q18（單選）</span>
+        <div class="quiz-q">造成人類 Weil disease 的病原體，在人類嚴重的病例會有黃疸、腎衰竭等現象，在不同動物種別，有其特定的血清型感染，一般文獻報導，豬隻感染此病原體後，可能發生下列哪一種症狀？</div>
+        <ul class="quiz-options">
+          <li>(A) 呼吸道症狀</li>
+          <li>(B) 表皮發炎</li>
+          <li>(C) 流、死產現象</li>
+          <li>(D) 腸炎</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕鉤端螺旋體症在豬主要是繁殖障礙（流產、死產、弱仔）。111 學年 Q25 直接問 Weil syndrome 的病原。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q19（單選）</span>
+        <div class="quiz-q">下列何種病原可感染 1–7 日齡的仔豬，造成腸繫膜水腫、糊狀至水樣狀的黃色便，而這個細菌也會造成人類腸胃道的感染，涵蓋範圍可能從無症狀的移生（colonization）或輕微無併發症的腹瀉，到嚴重的腹瀉、偽膜性大腸炎等症狀？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Clostridium botulinum</em></li>
+          <li>(B) <em>Clostridium difficile</em></li>
+          <li>(C) <em>Clostridium septicum</em></li>
+          <li>(D) <em>Clostridium tetani</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕關鍵字：腸繫膜水腫、人類偽膜性大腸炎 → <em>C. difficile</em>。111 學年 Q22 幾乎同題。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q20（單選）</span>
+        <div class="quiz-q">有關豬隻水腫病（edema disease）的敘述，何者錯誤？（原卷照片缺這一題，選項依學長姐檢討整理，選項順序不一定與原卷相同）</div>
+        <ul class="quiz-options">
+          <li>(A) 致病原可分泌毒素傷害血管內皮細胞</li>
+          <li>(B) 常發生於出生 0–3 天的新生仔豬</li>
+          <li>(C) 常見胃及腸繫膜下層水腫</li>
+          <li>(D) 致病原若在血液培養基上生長，通常可見溶血</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">〔答案來源：學長姐檢討〕水腫病發生在<strong>離乳後</strong>，不是剛出生（<a href="week06_細菌性疾病I.html#section-ec-pwd">第 6 週</a>）。Stx2e 傷害血管內皮；胃壁與結腸繫膜水腫；溶血性大腸桿菌。合卷 Q19、111 學年 Q13 都考同一組敘述。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q21（單選）</span>
+        <div class="quiz-q">下列圖示為豬黏膜細胞的變化，這是因為細胞內受到一種微生物感染，而刺激腺窩細胞不正常增生及不斷進行有絲分裂所致，使腸黏膜呈現腺瘤樣結構，請問最有可能是受哪一種微生物感染？</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q106_21.jpg" alt="原卷附圖：增厚的腸黏膜（翻拍投影）" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖：增厚的腸黏膜（翻拍投影）</div></div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Choleraesuis</li>
+          <li>(B) <em>Brachyspira hyodysenteriae</em></li>
+          <li>(C) <em>Lawsonia intracellularis</em></li>
+          <li>(D) <em>Brucella suis</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕腺窩細胞增生、腸黏膜增厚成腺瘤樣 → 增生性腸病（<em>L. intracellularis</em>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q22（單選）</span>
+        <div class="quiz-q">有關布氏桿菌（<em>Brucella</em>）的敘述，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 當 <em>Brucella</em> 入侵細胞後，細胞空泡（vacuole）內的鹼性環境可誘導 VirB 蛋白質的產生，有助細菌繁殖於 macrophage 或 dendritic cells</li>
+          <li>(B) <em>Brucella</em> 可修飾（modify）其 LPS 成分的 O-antigen 逃避宿主細胞 Toll-like receptor 4 的偵測</li>
+          <li>(C) <em>Brucella</em> 的 lipopolysaccharide（LPS），碳鏈的長度約 12–16 個（C12–C16）</li>
+          <li>(D) <em>Brucella suis</em> 除了可感染豬以外，在自然情況下，也可感染 horses, cattle 及 dogs</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=158">p.158</a>）。<br>(A) 錯：是<strong>酸性</strong>環境（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=160">p.160</a>）。<br>(B)(C) 錯（老師紅字答案為 D）：（補充）<em>Brucella</em> 的 LPS 特點在 lipid A 為長鏈脂肪酸（遠長於 C12–C16）、O-antigen 結構使其低內毒性；講義只寫「低內毒性 LPS」。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q23（單選）</span>
+        <div class="quiz-q">由 <em>Brachyspira hyodysenteriae</em> 所造成的豬赤痢（swine dysentery），其病變主要位於何處？</div>
+        <ul class="quiz-options">
+          <li>(A) 胃</li>
+          <li>(B) 十二指腸</li>
+          <li>(C) 空腸</li>
+          <li>(D) 大腸</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕豬赤痢是大腸（盲腸、結腸）的黏液出血性腸炎。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q24（單選）</span>
+        <div class="quiz-q">豬的離乳後大腸桿菌下痢（postweaning <em>Escherichia coli</em> diarrhea）敘述，下列何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 致病原通常會帶有 F4（K88）或 F18 fimbriae</li>
+          <li>(B) 主要是因為離乳後，移行抗體下降所造成</li>
+          <li>(C) 下痢便通常帶血及黏液</li>
+          <li>(D) 常分離的致病原屬 enterotoxigenic <em>Escherichia coli</em>（ETEC），但也可分離到 attaching and effacing <em>E. coli</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 錯，所以選它：<em>E. coli</em> 下痢不帶血。<br>(A) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=130">p.130</a>）。<br>(B) 對：離乳失去乳汁抗體（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=129">p.129</a>）。<br>(D) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=130">p.130</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q25（單選）</span>
+        <div class="quiz-q">下列有關 <em>Actinobacillus pleuropneumoniae</em> 之描述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 會造成豬隻纖維出血及壞死性胸膜肺炎</li>
+          <li>(B) 此細菌產生的 APX 毒素，目前已知共有 APXI、APXII、APXIII 三種毒素</li>
+          <li>(C) 目前已知有 15 種血清型</li>
+          <li>(D) 可以依照 nicotinamide adenine dinucleotide 的需求性區分為 biotype I 與 biotype II</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 錯，所以選它（老師紅字）：已知 <strong>4 種</strong>（ApxI–IV）。<br>(A) 對。<br>(C) 當年（2017）的說法；現在講義寫 <strong>19</strong> 種血清型，今年考試要寫 19。<br>(D) 對。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q26（單選）</span>
+        <div class="quiz-q">若您在豬場看到保育豬有顫抖、運動失調、划水、抽搐、跛足等現象，剖解發現有化膿性腦膜炎以及化膿性關節炎等病灶，以下哪一個選項是較合理且符合上述症狀的致病原？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Staphylococcus hyicus</em></li>
+          <li>(B) <em>Brucella suis</em></li>
+          <li>(C) <em>Streptococcus suis</em> serotype II</li>
+          <li>(D) <em>Brachyspira hyodysenteriae</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：學長姐檢討〕保育豬化膿性腦膜炎＋關節炎＝豬鏈球菌第 2 型。合卷 Q14 同一考點。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q27（單選）</span>
+        <div class="quiz-q">誰說了「I like pigs. Dogs look up to us. Cats look down on us. But pigs treat us as equals.」？</div>
+        <ul class="quiz-options">
+          <li>(A) John Major</li>
+          <li>(B) David Cameron</li>
+          <li>(C) Tony Blair</li>
+          <li>(D) Winston Churchill</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">〔答案來源：學長姐檢討〕送分題（老師課堂提過的名言）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q28（單選）</span>
+        <div class="quiz-q">造成豬隻尿道感染的 <em>Escherichia coli</em>，最常會具有第一型線毛（type 1 fimbriae）以及哪一種線毛？</div>
+        <ul class="quiz-options">
+          <li>(A) 987P fimbriae</li>
+          <li>(B) P fimbriae</li>
+          <li>(C) curli fimbriae</li>
+          <li>(D) F41 fimbriae</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=148">p.148</a>）。<br>(A)(D) 錯：ETEC 腸道線毛（F6、F41）。<br>(C) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q29（單選）</span>
+        <div class="quiz-q">台灣目前（106 年 5 月行政院農委會公布資料）毛豬的在養頭數約多少？</div>
+        <ul class="quiz-options">
+          <li>(A) 150 萬</li>
+          <li>(B) 540 萬</li>
+          <li>(C) 850 萬</li>
+          <li>(D) 1000 萬</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">〔答案來源：學長姐檢討〕111 學年 Q18 同題，當年答案是 537 萬（<a href="week01_課程介紹與養豬產業.html#section-industry">第 1 週</a>）。數字會隨年份更新，今年看講義上的最新數字。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">106 學年 Q30（單選）</span>
+        <div class="quiz-q">下列有關豬隻沙門氏菌症的敘述，下列何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 藉由空氣傳播</li>
+          <li>(B) 肝臟有時可見黃白色點狀壞死病變</li>
+          <li>(C) 會造成臨床症狀的血清型以 Dublin 為主</li>
+          <li>(D) 為一週齡以下哺乳仔豬下痢的主因</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對：敗血型沙門氏菌症的肝臟可見黃白色點狀壞死（凝固性壞死，稱<strong>副傷寒小節</strong> paratyphoid nodule，<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=84">p.84</a>）。<br>(A) 錯：沙門氏菌主要是<strong>糞口傳播</strong>（帶菌豬是最重要的感染源，<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=63">p.63</a>），不經空氣傳播（補充：國考也考過「空氣傳播、節肢動物叮咬、配種傳播」都是錯的）。<br>(C) 錯：造成豬臨床疾病的血清型以 <strong>Choleraesuis（豬適應型、敗血症）與 Typhimurium（宿主廣、腸結腸炎）</strong>為主（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=60">p.60</a>）；Dublin 主要與牛有關（補充）。<br>(D) 錯：沙門氏菌症多發生在<strong>集約飼養的離乳豬</strong>（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=65">p.65</a>）；一週齡以下哺乳仔豬下痢的主因是大腸桿菌（ETEC，<a href="week06_細菌性疾病I.html#section-ec-neo">第 6 週</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+<h3>問答題</h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜106 學年 Q1（10 分）＝ 111 學年 Q1</span>
+        <div class="quiz-q">請陳述您覺得目前台灣養豬產業面臨的問題及可能的因應之道（問題及因應之道都要寫）。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong>學長姐答案（106 學年）</strong>：密集飼養造成疫病防治困難；以業者為主、政府輔助為共識，養豬場應發揮主動改善；疫情通報要迅速確實、不得隱瞞。</p><p><strong>可以再補的點</strong>（補充，依第 1 週講義與一般產業現況整理）：</p><ul><li>疫病：非洲豬瘟境外威脅（廚餘、走私肉品、野豬）；PRRS、PCV2、PED 等地方流行病 → 生物安全、疫苗計畫、邊境管制、疫情通報（<a href="week01_課程介紹與養豬產業.html#section-history">第 1 週防治史</a>）。</li><li>抗生素使用與抗藥性 → 減抗、用藥紀錄、獸醫處方（<a href="week01_細菌抗藥性.html">第 1 週細菌抗藥性</a>）。</li><li>環保：廢水與臭味 → 沼氣發電、廢水資源化。</li><li>成本與市場：飼料原料仰賴進口、進口豬肉競爭 → 提升效率、品牌與產銷履歷。</li><li>人力：缺工與高齡化 → 自動化、規模化。</li></ul><p>老師要的是「問題＋因應」成對寫，每個問題後面直接接對策。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜106 學年 Q2（10 分）＝ 合卷 Part B Q4</span>
+        <div class="quiz-q">請說明胸膜肺炎放線桿菌（<em>Actinobacillus pleuropneumoniae</em>）的致病機制（pathogenesis）。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>講義 <a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=15">p.15</a> 的四個階段：</p><ol><li><strong>定殖（colonization）</strong>：以線毛、LPS 黏附下呼吸道（肺泡與細支氣管末端上皮）。</li><li><strong>營養攝取（nutrient uptake）</strong>：取得鐵、鎳。（補充：以 transferrin binding protein TbpA/TbpB 與宿主搶鐵；鎳是 urease 所需。）</li><li><strong>逃避宿主清除</strong>：莢膜與 LPS 抵抗吞噬殺菌，並有抗氧化壓力防禦。（補充：SodC、DnaK。）</li><li><strong>破壞宿主組織</strong>：Apx 毒素（ApxI 強溶血強細胞毒、ApxII 弱溶血中等細胞毒、ApxIII 不溶血強細胞毒、ApxIV 全部血清型都有）造成溶血與細胞毒殺；LPS 引起發炎、細胞激素與內毒素性休克。最終組織壞死，形成纖維素出血壞死性胸膜肺炎。</li></ol><p>可加一句誘因：壓力（擁擠、通風差、溫差、混群）與 PR、PRRS 混合感染會加重病情（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=14">p.14</a>）。</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜106 學年 Q3（10 分）</span>
+        <div class="quiz-q">請說明豬黴漿菌肺炎（Mycoplasmal pneumonia of swine, MPS）的特性。（老師說可以提及飼料換肉率）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> <p><strong>學長姐答案要點</strong>：</p><ul><li>病原 <em>Mycoplasma hyopneumoniae</em>，慢性呼吸道疾病（地方性肺炎）。</li><li>空氣傳播；所有年齡都可感染。</li><li>發病率高、死亡率低（學長姐寫 30–90% 感染）。</li><li>破壞纖毛上皮，容易二次感染（例如與 PRRSV、PCV2、<em>P. multocida</em> 混合感染）。</li><li>降低飼料換肉率與生長速度，經濟損失主要在這裡。</li><li>台灣高溫濕熱、飼養密集，容易感染。</li></ul></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜106 學年 Q4（10 分）＝ 合卷 Part B Q1</span>
+        <div class="quiz-q">假設一個豬場正在爆發由大腸桿菌所造成的新生仔豬下痢，請敘述您預期會觀察到這些病死仔豬在外觀、剖檢，以及微生物特性等三個面向的情形（或：說明其致病機制）。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong>外觀</strong>：0–4 日齡仔豬黃色水樣下痢、嚴重脫水、眼窩下陷、消瘦、毛粗、肋骨與骨盆突出，畏冷擠成一堆，會陰沾滿糞便（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=122">p.122–125</a>）。</p><p><strong>剖檢</strong>：小腸擴張、壁薄透明、腸腔積液；黏膜蒼白<strong>不發炎</strong>、絨毛不萎縮；胃內充滿乳汁，凝乳塊常呈層狀（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=123">p.123</a>、<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=126">p.126–127</a>）。</p><p><strong>微生物特性與致病機制</strong>：ETEC，革蘭氏陰性桿菌、腸內細菌科。以線毛 F4（K88）、F5（K99）、F6（987P）、F41 黏附小腸上皮（不侵入、不破壞微絨毛），分泌腸毒素：LT 活化 adenylate cyclase → cAMP↑；STa 活化 guanylate cyclase → cGMP↑（另有 STb）→ 碳酸氫根、鈉、氯與水分泌到腸腔 → 分泌性下痢 → 脫水、代謝性酸中毒 → 死亡（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=117">p.117–118</a>）。</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：使用者提供的 106 學年豬病學期中考照片與學長姐檢討（考古融合檔）。</footer>
+    </div>
+
+    <div class="section" id="section-yehj">
+      <div class="section-head"><div class="section-num">6</div><h2>葉光勝老師 合卷 Part B（年份未標）</h2></div>
+      <p class="section-desc">和鄭益謙老師 Part A 印在同一份考卷。答案依考卷旁手寫答案。</p>
+<div class="table-wrap"><table><thead><tr><th>大題</th><th>題型</th><th>配分</th></tr></thead><tbody><tr><td>選擇</td><td>單選 20 題</td><td>每題 2 分，共 40 分</td></tr><tr><td>問答</td><td>原卷寫 5 題 × 5 分，照片只有 4 題</td><td>20 分</td></tr></tbody></table></div>
+<details class="exam-photos" style="margin:10px 0 16px"><summary style="cursor:pointer;font-weight:700">原卷照片（3 張，姓名與學號已遮蓋）</summary><img src="img/期中考古/hj_p2.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/hj_p3.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/hj_p4.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"></details>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q1（單選）</span>
+        <div class="quiz-q">有一種豬隻疾病，皮膚會呈現紫紅色菱形或四角型突起斑疹，一般稱之為 diamond-skin 病變，請問最有可能是以下哪一種疾病？</div>
+        <ul class="quiz-options">
+          <li>(A) 豬沙門氏菌症</li>
+          <li>(B) 豬丹毒</li>
+          <li>(C) 豬布氏桿菌症</li>
+          <li>(D) 豬鏈球菌症</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q2（單選）</span>
+        <div class="quiz-q">有一種豬隻疾病，會造成敗血症，豬隻可見耳翼及四肢末端發紺，有些農民常稱之為「紅耳朵」疾病，剖檢可常見脾腫大及淋巴結腫大壞死，請問最有可能是以下哪一種疾病？</div>
+        <ul class="quiz-options">
+          <li>(A) 豬鏈球菌症</li>
+          <li>(B) 豬丹毒</li>
+          <li>(C) 豬萎縮性鼻炎</li>
+          <li>(D) 豬沙門氏菌症</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=76">p.76</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q3（單選）</span>
+        <div class="quiz-q">何者為豬隻油脂病（greasy-pig disease）或稱之為豬隻滲出性表皮炎（exudative epidermitis）的病原？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Streptococcus pyogenes</em></li>
+          <li>(B) <em>Staphylococcus hyicus</em></li>
+          <li>(C) <em>Salmonella</em> Typhimurium</li>
+          <li>(D) <em>Staphylococcus aureus</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q4（單選）</span>
+        <div class="quiz-q">幼豬若感染 <em>Clostridium perfringens</em>，臨床上可看到出血性下痢（hemorrhagic diarrhea），剖檢可見嚴重小腸黏膜壞死及氣腫，請問最常見的是 <em>C. perfringens</em> 哪一型？</div>
+        <ul class="quiz-options">
+          <li>(A) Type A</li>
+          <li>(B) type B</li>
+          <li>(C) type C</li>
+          <li>(D) type D</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫〕新生仔豬出血性壞死性腸炎＝type C（β 毒素，補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q5（單選）</span>
+        <div class="quiz-q">若看到急性死亡的生長肥育豬隻有口鼻出血，剖檢可見纖維素性胸膜炎，肺臟呈現濕重且瀰漫性的出血水腫，微生物分離可見革蘭氏陰性桿菌，且 CAMP reaction 為陽性反應，最有可能的是該豬隻感染以下何種細菌？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Choleraesuis</li>
+          <li>(B) <em>Pasteurella multocida</em></li>
+          <li>(C) <em>Bordetella bronchiseptica</em></li>
+          <li>(D) <em>Actinobacillus pleuropneumoniae</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對：與 106 學年 Q2、110 年國考同一題型。<br>(A)(B)(C) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q6（單選）</span>
+        <div class="quiz-q">假定我們看到豬隻剖檢，發現肝臟深紅色局部或瀰漫性凹陷，診斷為食因性肝病（hepatosis dietetica），很有可能為飼料的營養成分有以下何種原因？</div>
+        <ul class="quiz-options">
+          <li>(A) vitamin A deficiency</li>
+          <li>(B) vitamin E/Se deficiency</li>
+          <li>(C) biotin deficiency</li>
+          <li>(D) vitamin D deficiency</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫；融合檔「光勝考古選擇」也是這個答案〕食因性肝病＝維生素 E／硒缺乏（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q7（單選）</span>
+        <div class="quiz-q">下列何者為豬赤痢（swine dysentery）的病原？</div>
+        <ul class="quiz-options">
+          <li>(A) 螺旋體</li>
+          <li>(B) 革蘭氏陽性球菌</li>
+          <li>(C) 革蘭氏陰性桿菌</li>
+          <li>(D) 立克次體</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫〕<em>Brachyspira hyodysenteriae</em> 是螺旋體（106 學年 Q23 考病變位置）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q8（單選）</span>
+        <div class="quiz-q">有一種革蘭氏陰性，形狀類似弧菌的病原，可在腸黏膜的細胞質內增生，造成豬隻增殖性腸病變（proliferative enteropathies），請問是以下哪一種病原？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Pasteurella multocida</em></li>
+          <li>(B) <em>Actinobacillus pleuropneumoniae</em></li>
+          <li>(C) <em>Lawsonia intracellularis</em></li>
+          <li>(D) <em>Bordetella bronchiseptica</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫〕106 學年 Q17、Q21 同一病原。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q9（單選）</span>
+        <div class="quiz-q">豬隻長期餵飼含有過多植酸（phytic acid）與鈣離子濃度過高的飼料，可能會造成皮膚角化不全（parakeratosis）症狀，這可能是因為豬隻最後體內缺發何種元素所致？</div>
+        <ul class="quiz-options">
+          <li>(A) Zn</li>
+          <li>(B) Mg</li>
+          <li>(C) Ca</li>
+          <li>(D) Cu</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫〕植酸與高鈣妨礙鋅吸收 → 鋅缺乏 → 角化不全（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q10（單選）</span>
+        <div class="quiz-q"><em>Bordetella bronchiseptica</em> 及 <em>Pasteurella multocida</em> 主要會引起豬隻那一種疾病？</div>
+        <ul class="quiz-options">
+          <li>(A) 腦膜炎</li>
+          <li>(B) 丹毒</li>
+          <li>(C) 萎縮性鼻炎</li>
+          <li>(D) 胃腸炎</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對。<br>(A) 錯：Glässer 病、豬鏈球菌。<br>(B) 錯：<em>E. rhusiopathiae</em>。<br>(D) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q11（單選）</span>
+        <div class="quiz-q">有一種疾病又稱為 Glässer's disease，剖檢豬隻可能看到纖維素性多發性漿膜炎（fibrinous polyserositis），請問是何種病原所造成？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Escherichia coli</em></li>
+          <li>(B) <em>Lawsonia intracellularis</em></li>
+          <li>(C) <em>Mycoplasma hyorhinis</em></li>
+          <li>(D) <em>Haemophilus parasuis</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對。<br>(C) 補充：<em>M. hyorhinis</em> 也會造成多發性漿膜炎與關節炎，但「Glässer's disease」專指 <em>H. parasuis</em>。<br>(A)(B) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q12（單選）</span>
+        <div class="quiz-q">沙門氏菌的致病機制有一點是可造成宿主細胞的細胞膜起皺摺（membrane ruffling），使沙門氏菌易於入侵宿主細胞。這種機制牽涉到一種特殊的蛋白質分泌系統，將細菌的作用蛋白注入細胞內，暫時改變細胞的結構及訊息傳遞系統。請問我們稱這種蛋白質分泌系統為何？</div>
+        <ul class="quiz-options">
+          <li>(A) type I</li>
+          <li>(B) type II</li>
+          <li>(C) type III</li>
+          <li>(D) type IV secretion system</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=66">p.66</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q13（單選）</span>
+        <div class="quiz-q">下列何種病原會造成母豬流產或死產？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Pasteurella</em></li>
+          <li>(B) <em>Salmonella</em></li>
+          <li>(C) <em>Mycoplasma</em></li>
+          <li>(D) <em>Leptospira</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫〕鉤端螺旋體症在豬主要表現為繁殖障礙（106 學年 Q18）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q14（單選）</span>
+        <div class="quiz-q">有一種病原可存在豬隻上呼吸道、生殖道或者消化道中，臨床上感染的豬隻可見到腦膜炎的症狀，例如站立不穩、角弓反張、抽搐或眼球震顫等現象。或者感染關節，造成關節炎。請問可能是下列何種病原？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Staphylococcus aureus</em></li>
+          <li>(B) <em>Streptococcus suis</em></li>
+          <li>(C) <em>Salmonella</em> Choleraesuis</li>
+          <li>(D) <em>Mycoplasma hyopneumoniae</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫〕腦膜炎＋關節炎＝豬鏈球菌（106 學年 Q26）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q15（單選）</span>
+        <div class="quiz-q">0–4 日齡仔豬下痢，最常見的細菌性病原為何？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Lawsonia intracellularis</em></li>
+          <li>(B) <em>Salmonella</em> Typhimurium</li>
+          <li>(C) <em>Escherichia coli</em></li>
+          <li>(D) <em>Brachyspira hyodysenteriae</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對：講義寫「哺乳仔豬的疾病中，下痢最常見、也可能最重要」，最常發生在 <strong>0–4 日齡</strong>，病原是<strong>腸毒素型大腸桿菌（ETEC）</strong>——靠線毛黏附小腸，再分泌腸毒素造成分泌性下痢（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=117">p.117</a>）。<br>(A) 錯：<em>L. intracellularis</em> 造成增生性腸病（區域性迴腸炎、水管腸），好發在離乳後較大的豬（補充，約 6–20 週齡，屬期末範圍），不是剛出生的仔豬。<br>(B) 錯：沙門氏菌症多發生在<strong>集約飼養的離乳豬</strong>，Typhimurium 約 6 週齡起反覆下痢（<a href="week07_細菌性疾病II.html#section-sal-agent">第 7 週</a>）。<br>(D) 錯：<em>B. hyodysenteriae</em> 造成豬赤痢，好發在保育與肥育豬，病變在大腸（補充，屬期末範圍）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q16（單選）</span>
+        <div class="quiz-q">假設我們在任食的豬隻（例如 garbage-fed pigs）看到豬隻有類似「goose stepping」姿勢，我們可合理懷疑可能是下列何種成分缺乏所致？</div>
+        <ul class="quiz-options">
+          <li>(A) pantothenic acid</li>
+          <li>(B) biotin</li>
+          <li>(C) vitamin K</li>
+          <li>(D) folic acid</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫；融合檔「光勝考古選擇」同〕鵝步＝泛酸缺乏（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q17（單選）</span>
+        <div class="quiz-q">豬隻若有皮毛糾結、皮膚龜裂，且伴隨有皮脂、碎屑，甚至體表結痂等現象，口腔也看到潰瘍症狀。基於以上描述，我們可合理懷疑是某一種疾病。關於這個疾病，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 這個病原不易在環境中存活</li>
+          <li>(B) 這個病原可分泌毒素</li>
+          <li>(C) 好發於肥育豬隻</li>
+          <li>(D) 豬隻有劇癢症狀</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對：剝落毒素（考卷旁手寫 exfoliative toxin）。<br>(A) 錯：環境抵抗力強（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=119">p.119</a>）。<br>(C) 錯：仔豬。<br>(D) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q18（單選）</span>
+        <div class="quiz-q">若觀察到豬隻突然死亡，外觀沒有明顯症狀，但身體呈現膨脹腫大情形，我們可合理懷疑是某一種疾病。關於這個疾病，下列敘述何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 剖檢後主要症狀為出血性腸炎</li>
+          <li>(B) 致病原為革蘭氏陽性球菌</li>
+          <li>(C) 致病原可分泌毒素，此毒素作用為當做一種超抗原（superantigen），誘導 T cell 產生大量 cytokine 所導致</li>
+          <li>(D) 剖檢後常看到肝臟有變性及氣腫情形</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案來源：考卷旁手寫「<em>C. novyi</em>」〕猝死、屍體迅速膨脹、肝臟氣腫（泡沫肝）＝<em>Clostridium novyi</em>（補充）。(B) 錯：梭菌是革蘭氏陽性<strong>桿菌</strong>。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q19（單選）</span>
+        <div class="quiz-q">有關豬隻水腫病（edema disease）的敘述，下列何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 常發生於離乳前仔豬</li>
+          <li>(B) 致病原劃在 blood agar 通常可見溶血現象</li>
+          <li>(C) 常見胃及腸系膜黏膜下層水腫</li>
+          <li>(D) 致病原可分泌毒素傷害血管內皮細胞</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 錯，所以選它：離乳<strong>後</strong>。<br>(B) 對：溶血性 <em>E. coli</em>。<br>(C) 對。<br>(D) 對：Stx2e。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">合卷 Part B Q20（單選）</span>
+        <div class="quiz-q">下列的敘述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 仔豬出生後約 24–36 小時，其腸道即失去吸收初乳的功能</li>
+          <li>(B) 豬隻的懷孕期約 114–115 天</li>
+          <li>(C) 革蘭氏陰性細菌的 lipopolysaccharide（LPS）會被細胞的 Toll-like receptor 5（TLR 5）結合</li>
+          <li>(D) 布氏桿菌（<em>Brucella</em>）是一種人畜共通傳染病原</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 錯，所以選它：LPS 的受體是 <strong>TLR4</strong>（考卷旁手寫更正；TLR5 辨識鞭毛蛋白，補充）。<br>(B) 對：課程介紹講義 <a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=46">p.46</a>。<br>(A) 對（補充）。<br>(D) 對。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+<h3>問答題</h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part B Q1（5 分）＝ 106 學年 Q4</span>
+        <div class="quiz-q">假設一個豬場正在爆發由大腸桿菌所造成的新生仔豬下痢，請敘述您預期會觀察到這些病死仔豬在外觀、剖檢，以及微生物特性等三個面向的情形（或：說明其致病機制）。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong>外觀</strong>：0–4 日齡仔豬黃色水樣下痢、嚴重脫水、眼窩下陷、消瘦、毛粗、肋骨與骨盆突出，畏冷擠成一堆，會陰沾滿糞便（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=122">p.122–125</a>）。</p><p><strong>剖檢</strong>：小腸擴張、壁薄透明、腸腔積液；黏膜蒼白<strong>不發炎</strong>、絨毛不萎縮；胃內充滿乳汁，凝乳塊常呈層狀（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=123">p.123</a>、<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=126">p.126–127</a>）。</p><p><strong>微生物特性與致病機制</strong>：ETEC，革蘭氏陰性桿菌、腸內細菌科。以線毛 F4（K88）、F5（K99）、F6（987P）、F41 黏附小腸上皮（不侵入、不破壞微絨毛），分泌腸毒素：LT 活化 adenylate cyclase → cAMP↑；STa 活化 guanylate cyclase → cGMP↑（另有 STb）→ 碳酸氫根、鈉、氯與水分泌到腸腔 → 分泌性下痢 → 脫水、代謝性酸中毒 → 死亡（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=117">p.117–118</a>）。</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part B Q2（5 分）</span>
+        <div class="quiz-q">請說明造成豬隻胃潰瘍（胃食道區潰瘍，ulceration of <em>pars oesophagea</em>）的風險因子。請依 (1) nutrition (2) housing/management (3) others 分項，每一項至少寫出 2 點並說明。（5 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> <p><strong>學長姐答案</strong>：</p><ol><li><strong>營養</strong>：穀物種類（玉米、小麥比燕麥、大麥容易造成潰瘍）；飼料粒徑太細（鎚磨比滾壓容易磨得太細）。</li><li><strong>居住與管理</strong>：集約飼養太擁擠造成緊迫；混群、運輸造成緊迫（停飼也是常見因子，補充）。</li><li><strong>其他</strong>：遺傳傾向；感染引起 histamine 上升刺激胃酸分泌。</li></ol></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part B Q3（5 分）</span>
+        <div class="quiz-q">請寫出一種豬隻的行為，並說明這個行為可能導致的結果。（5 分）</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> <p><strong>學長姐答案：咬尾（tail biting）</strong></p><ul><li>原因：缺鐵、太擁擠、通風不良、不安定、停水停飼、飼料品質差、停電、品種；主因是缺乏口腔刺激、無聊。</li><li>尾巴末段不敏感，被咬斷也不自覺，所以常見。</li><li>傷口流血 → 豬亂動、甩尾 → 吸引更多豬來咬。</li><li>結果：化膿、膿瘍、膿血症、上行感染造成癱瘓、死亡。</li></ul></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜合卷 Part B Q4（5 分）＝ 106 學年 Q2</span>
+        <div class="quiz-q">請說明胸膜肺炎放線桿菌（<em>Actinobacillus pleuropneumoniae</em>）的致病機制（pathogenesis）。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>講義 <a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=15">p.15</a> 的四個階段：</p><ol><li><strong>定殖（colonization）</strong>：以線毛、LPS 黏附下呼吸道（肺泡與細支氣管末端上皮）。</li><li><strong>營養攝取（nutrient uptake）</strong>：取得鐵、鎳。（補充：以 transferrin binding protein TbpA/TbpB 與宿主搶鐵；鎳是 urease 所需。）</li><li><strong>逃避宿主清除</strong>：莢膜與 LPS 抵抗吞噬殺菌，並有抗氧化壓力防禦。（補充：SodC、DnaK。）</li><li><strong>破壞宿主組織</strong>：Apx 毒素（ApxI 強溶血強細胞毒、ApxII 弱溶血中等細胞毒、ApxIII 不溶血強細胞毒、ApxIV 全部血清型都有）造成溶血與細胞毒殺；LPS 引起發炎、細胞激素與內毒素性休克。最終組織壞死，形成纖維素出血壞死性胸膜肺炎。</li></ol><p>可加一句誘因：壓力（擁擠、通風差、溫差、混群）與 PR、PRRS 混合感染會加重病情（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=14">p.14</a>）。</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：使用者提供的考古融合檔與 lo/豬病期中考古整理.pdf（同一份考卷）。</footer>
+    </div>
+
+    <div class="section" id="section-ye111">
+      <div class="section-head"><div class="section-num">7</div><h2>葉光勝老師 111 學年（2022）</h2></div>
+      <p class="section-desc">單選 25 題＋問答 3 題。沒有批改記號的題目，答案由本站依講義推得。</p>
+<div class="table-wrap"><table><thead><tr><th>大題</th><th>題型</th><th>配分</th></tr></thead><tbody><tr><td>I</td><td>單選 25 題</td><td>每題 3 分，共 75 分</td></tr><tr><td>II</td><td>問答 3 題</td><td>10＋10＋5 分，共 25 分</td></tr></tbody></table></div>
+<details class="exam-photos" style="margin:10px 0 16px"><summary style="cursor:pointer;font-weight:700">原卷照片（6 張，姓名與學號已遮蓋）</summary><img src="img/期中考古/y2022b_p1.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y2022b_p2.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y2022b_p3.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y2022b_p4.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y2022b_p5.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"><img src="img/期中考古/y2022b_p6.jpg" alt="原卷照片" loading="lazy" style="width:100%;max-width:820px;display:block;margin:10px auto;border:1px solid var(--line,#ddd)"></details>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q1（單選）</span>
+        <div class="quiz-q">請問以下所示為哪一種豬？這種豬群在台灣主要是用來做為母系豬種（maternal breed），其外觀特徵之一為耳朵下垂（drooping ears）。（考卷附一張耳朵下垂的白色豬照片）</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q111_01.jpg" alt="原卷附圖" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖</div></div>
+        <ul class="quiz-options">
+          <li>(A) Yorkshire</li>
+          <li>(B) Hampshire</li>
+          <li>(C) Taoyuan pig</li>
+          <li>(D) Landrace</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">依講義推得 (D)：<strong>藍瑞斯是母系、大耳下垂</strong>（<a class="pdf-link" href="pdf/課程介紹與養豬產業.pdf#page=57">p.57</a>）。約克夏雖也是母系，但耳朵直立（補充）；漢布夏是黑色公系；桃園豬是黑色土種。<strong>此題是依講義內容推得，我沒有在考卷照片上看到紅筆答案。</strong></p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week01_課程介紹與養豬產業.html">第 1 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q2（單選）</span>
+        <div class="quiz-q">若您今天到豬場，看到急性死亡的生長肥育豬隻有口鼻出血情形，您進行剖檢，見到纖維素性胸膜炎，肺臟呈現濕重且瀰漫性的出血水腫。後續追蹤，實驗室報告微生物分離可見革蘭氏陰性細菌，無法以血液培養基（blood agar）分離細菌，但利用巧克力培養基（chocolate agar）可分離得到此病原。請問以下相關敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 為人畜共通傳染病原</li>
+          <li>(B) 此病原可耐惡劣環境，在環境存活時間很長</li>
+          <li>(C) 此病原靠豬隻近距離的接觸，藉飛沫傳播</li>
+          <li>(D) 此病原具有孢子（spore）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">病原是 APP（需要 NAD 所以要 chocolate agar）。<br>(C) 對：主要傳播途徑是短距離的鼻對鼻直接接觸（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=10">p.10</a>）。<br>(A) 錯：不是人畜共通（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=8">p.8</a>）。<br>(B) 錯：環境存活時間短，尤其溫暖乾燥時（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=11">p.11</a>）。<br>(D) 錯：APP 不形成孢子（形成孢子的是梭菌、桿菌屬）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q3（單選）</span>
+        <div class="quiz-q">下列何者為治療豬丹毒（swine erysipelas）藥物的首選（drug of choice）？</div>
+        <ul class="quiz-options">
+          <li>(A) penicillin</li>
+          <li>(B) streptomycin</li>
+          <li>(C) lincomycin</li>
+          <li>(D) tiamulin</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain">(A) 對。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q4（單選）</span>
+        <div class="quiz-q">民國 41 年，由以下哪位學者自菲律賓引進一豬瘟（hog cholera）病毒的弱毒株，加以改良，後來在台灣發展出安全及免疫效果良好的疫苗株，並命名為 LPC-China strain？</div>
+        <ul class="quiz-options">
+          <li>(A) 翁仲男</li>
+          <li>(B) 鍾博</li>
+          <li>(C) 李崇道</li>
+          <li>(D) 林再春</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">〔答案：推得〕李崇道博士（<a href="week01_課程介紹與養豬產業.html#section-history">第 1 週防治史</a>）。106 學年 Q3 同一事件，改問病名。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q5（單選）</span>
+        <div class="quiz-q">有關於沙門氏菌（<em>Salmonella</em>）相關的敘述，下列何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 非傷寒型的沙門氏菌症（nontyphoid salmonellosis, NTS）是許多國家食因性疾病（foodborne illness）的常見原因</li>
+          <li>(B) 有臨床症狀的豬隻通常發生於離乳前的哺乳仔豬（suckling piglets）</li>
+          <li>(C) 不會發酵乳醣（cannot ferment lactose）</li>
+          <li>(D) 可能會在豬隻分離出 Choleraesuis 或 Typhimurium 以外的其他血清型，如 Heidelberg 或 Agona</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 錯，所以選它：離乳豬。<br>(C) 對（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=57">p.57</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q6（單選）</span>
+        <div class="quiz-q">假設您觀察到 3 日齡的豬隻有腹瀉，糞便帶血（bloody diarrhea）的情形。組織病理鏡檢下有小腸黏膜壞死及肌纖維層及黏膜下層的氣腫（emphysema），且在小腸黏膜吸附有染成革蘭氏陽性的桿菌，您覺得這豬隻最有可能感染以下何種病原？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Clostridium novyi</em></li>
+          <li>(B) <em>Clostridium perfringens</em> type A</li>
+          <li>(C) <em>Clostridium septicum</em></li>
+          <li>(D) <em>Clostridium perfringens</em> type C</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案：推得〕新生仔豬（1 週內）出血性壞死性腸炎＝type C；type A 多為較溫和的下痢（補充）。106 學年 Q5、合卷 Q4。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q7（單選）</span>
+        <div class="quiz-q">您發現豬場的一隻豬隻，外觀如下圖所示，全身皮膚可見大小不一的菱形凸起紅疹。請問以下何者<strong>錯誤</strong>？（附圖同講義 <a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=18">p.18</a>）</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q111_07.jpg" alt="原卷附圖" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖</div></div>
+        <ul class="quiz-options">
+          <li>(A) 致病原為一格蘭氏陽性桿菌</li>
+          <li>(B) 這個臨床症狀呈現於慢性期（chronic phase）</li>
+          <li>(C) 此疾病較常見於肥育豬（fattening pig）</li>
+          <li>(D) 此病原是一種人畜共通傳染病原（a zoonotic causative agent）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 錯，所以選它：菱形疹是急性期。<br>(A)(C)(D) 對。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q8（單選）</span>
+        <div class="quiz-q">如下圖所示，在剖檢的豬隻看到胸腔及腹腔的臟器有黃白色的纖維素性滲出物所沾黏，也就是一種多發性漿膜炎（polyserositis）的症狀，以下何者正確？（考卷附圖同講義 <a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=100">p.100</a>）</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q111_08.jpg" alt="原卷附圖：胸腔與腹腔臟器表面有黃白色纖維素性滲出物" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖：胸腔與腹腔臟器表面有黃白色纖維素性滲出物</div></div>
+        <ul class="quiz-options">
+          <li>(A) 應該是 <em>Salmonella</em> Choleraesuis 所造成的感染</li>
+          <li>(B) 保育豬及肥育豬極少發生（seldom occur in nursery and fattening pigs）</li>
+          <li>(C) 此病原在體外生長需要 X factor（hemin）</li>
+          <li>(D) 又稱為 Glässer disease</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對。<br>(A) 錯：病原是 <em>G. parasuis</em>。<br>(B) 錯：保育舍主要問題。<br>(C) 錯：需要 V 因子，<strong>不需要</strong> X 因子（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=89">p.89</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q9（單選）</span>
+        <div class="quiz-q">豬萎縮性鼻炎（atrophic rhinitis, AR）是由 <em>Bordetella bronchiseptica</em> 及下列哪一個病原的感染最有關？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Typhimurium</li>
+          <li>(B) <em>Haemophilus parasuis</em></li>
+          <li>(C) <em>Pasteurella multocida</em></li>
+          <li>(D) <em>Erysipelothrix rhusiopathiae</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對。<br>(B) 錯：Glässer 病。<br>(A)(D) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q10（單選）</span>
+        <div class="quiz-q">有關豬隻布氏桿菌症（brucellosis）的敘述，下列何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 可能會有椎間板壞死膿腫及鄰近脊椎骨炎（spondylitis）</li>
+          <li>(B) 母豬的臨床症狀通常較公豬容易復原</li>
+          <li>(C) 人類（human）的胎盤、乳腺、副睪等組織含有較高濃度的古柯二醇（erythritol）成分，人一旦感染 <em>Brucella suis</em>，亦容易導致流產或生殖系統障礙的病徵</li>
+          <li>(D) 目前並沒有良好、效力佳的疫苗用來預防此疾病</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 錯，所以選它：講義說的是動物組織（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=161">p.161</a>）。<br>(B) 對：母豬大多會恢復（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=163">p.163</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q11（單選）</span>
+        <div class="quiz-q">下圖所示之豬隻有消瘦、皮毛糾結、皮膚龜裂和結痂的情形。這可能是由一種格蘭氏陽性的球菌所造成的滲出性表皮炎（exudative epidermatitis），請問以下敘述何者正確？</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q111_11.jpg" alt="原卷附圖" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖</div></div>
+        <ul class="quiz-options">
+          <li>(A) 其致病原會引起人類的皮膚病</li>
+          <li>(B) 主要的致病因子與人類造成表皮剝落症候群（scalded skin syndrome in human）的毒素類似</li>
+          <li>(C) 又稱為 Glässer disease</li>
+          <li>(D) 豬隻有劇癢（pruritic）症狀</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=120">p.120</a>）。<br>(A)(C)(D) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q12（單選）</span>
+        <div class="quiz-q">下列哪一個豬種，其成熟體重約 70 公斤，適合做為生物醫學研究（biomedicine research）的動物模式？</div>
+        <ul class="quiz-options">
+          <li>(A) Landrace</li>
+          <li>(B) Hampshire</li>
+          <li>(C) Lee-Sung strain pig</li>
+          <li>(D) Duroc</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">〔答案：推得〕李宋豬是台灣培育的迷你豬，作實驗動物模式（<a href="week01_課程介紹與養豬產業.html#section-breed">第 1 週</a>）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q13（單選）</span>
+        <div class="quiz-q">下列有關豬隻水腫病（edema disease）的敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 致病原為 <em>Haemophilus parasuis</em></li>
+          <li>(B) 通常發生在 1 週齡以下豬隻</li>
+          <li>(C) 發病後，利用抗生素治療，通常可以達到很好的療效</li>
+          <li>(D) 胃黏膜下層及腸繫膜（submucosa of stomach and mesocolon）是常見水腫的區域</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=137">p.137</a>）。<br>(A) 錯：溶血性 <em>E. coli</em>。<br>(B) 錯：離乳後保育豬。<br>(C) 錯：病程快，<strong>預防比治療重要</strong>（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=139">p.139</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q14（單選）</span>
+        <div class="quiz-q">若你看到豬場的患病豬隻四肢有發紺（cyanosis），特別是耳朵處非常明顯（Panel A），剖檢可見左側脾臟有腫大（splenomegaly）情形（Panel B）。右側的肝臟有粟粒狀大小的黃白色壞死點，鏡檢可見副傷寒小節（paratyphoid nodule）（Panel C）。請問最有可能感染的疾病為何？</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q111_14.jpg" alt="原卷附圖：Panel A 耳朵發紺、Panel B 脾腫大、Panel C 肝臟壞死點與副傷寒小結節" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖：Panel A 耳朵發紺、Panel B 脾腫大、Panel C 肝臟壞死點與副傷寒小結節</div></div>
+        <ul class="quiz-options">
+          <li>(A) brucellosis</li>
+          <li>(B) salmonellosis</li>
+          <li>(C) leptospirosis</li>
+          <li>(D) swine erysipelas</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對。<br>(C) 錯：鉤端螺旋體造成生殖障礙（之後的講義）。<br>(D) 錯：菱形疹。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q15（單選）</span>
+        <div class="quiz-q">以下圖示的豬隻，剖檢可見鼻甲骨（turbinate）有破壞、變型等情形，我們可合理預期，臨床上這隻豬比較有可能會有以下何種症狀（symptoms）？（考卷附圖同講義 <a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=72">p.72</a>）</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q111_15.jpg" alt="原卷附圖：鼻甲骨剖面" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖：鼻甲骨剖面</div></div>
+        <ul class="quiz-options">
+          <li>(A) 嘔吐及下痢（vomiting and diarrhea）</li>
+          <li>(B) 打噴嚏、鼻塞及聳鼻（sneezing, snuffling and snorting）</li>
+          <li>(C) 發燒及呼吸困難（fever and dyspnea）</li>
+          <li>(D) 迴旋及顫抖（circling and tremor）</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對：講義原文 sneeze, snuffle, snort（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=65">p.65</a>）。<br>(A)(C)(D) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q16（單選）</span>
+        <div class="quiz-q">下列有關胸膜肺炎放線桿菌（<em>Actinobacillus pleuropneumoniae</em>）之描述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 造成豬隻多發性漿膜炎（polyserositis）的病原</li>
+          <li>(B) 可以依照 hemin（X factor）的需求性區分為 biotype I 與 biotype II</li>
+          <li>(C) 此細菌的 APX 毒素的作用機制類似大腸桿菌 heat labile toxin</li>
+          <li>(D) 此細菌產生的 APX 毒素，目前已知共有 APX I、APX II、APX III、APX IV 四種毒素</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain">(D) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=16">p.16</a>）。<br>(A) 錯：多發性漿膜炎是 Glässer 病。<br>(B) 錯：依 <strong>NAD（V 因子）</strong>區分。<br>(C) 錯：Apx 類似 HlyA（RTX），不是 LT（cAMP）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q17（單選）</span>
+        <div class="quiz-q">大腸桿菌（<em>Escherichia coli</em>）的哪一種線毛（fimbriae）會造成豬隻由尿道上行感染至腎臟，造成腎盂腎炎（pyelonephritis）？</div>
+        <ul class="quiz-options">
+          <li>(A) F6 fimbriae</li>
+          <li>(B) P fimbriae</li>
+          <li>(C) curli fimbriae</li>
+          <li>(D) F41 fimbriae</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">(B) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=148">p.148</a>、<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=150">p.150</a>）。<br>(A)(D) 錯：ETEC 腸道線毛。<br>(C) 錯。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q18（單選）</span>
+        <div class="quiz-q">臺灣目前（111 年 5 月行政院農委會公布資料）毛豬的在養頭數約接近多少？</div>
+        <ul class="quiz-options">
+          <li>(A) 150 萬</li>
+          <li>(B) 537 萬</li>
+          <li>(C) 850 萬</li>
+          <li>(D) 1000 萬</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">〔答案：推得〕第 1 週講義的在養頭數表為 537.5 萬頭（<a href="week01_課程介紹與養豬產業.html#section-industry">第 1 週</a>）。106 學年同題答 540 萬。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q19（單選）</span>
+        <div class="quiz-q">有關 <em>Escherichia coli</em> 所造成的新生仔豬下痢（neonatal diarrhea），下列敘述，何者<strong>錯誤</strong>？</div>
+        <ul class="quiz-options">
+          <li>(A) 由 enterotoxigenic <em>E. coli</em>（ETEC）所造成</li>
+          <li>(B) 通常發生在 0–3 天左右的仔豬</li>
+          <li>(C) 下痢便帶有血液及黏液</li>
+          <li>(D) 病原通常帶有線毛及腸毒素二個重要的致病因子</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 錯，所以選它：分泌性下痢，黃色水樣、不帶血。<br>(A)(B)(D) 對（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=117">p.117</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q20（單選）</span>
+        <div class="quiz-q">你從一隻進行過閹割（castration），卻疑似因為傷口感染而死亡的豬隻，進行病原分離。實驗室以厭氧培養環境分離出一種細菌，鏡檢照片如下，Gram stain 呈藍色，細菌可見 terminal endospores。此細菌最有可能是以下何者？</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q111_20.jpg" alt="原卷附圖：革蘭氏染色" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖：革蘭氏染色</div></div>
+        <ul class="quiz-options">
+          <li>(A) <em>Clostridium perfringens</em></li>
+          <li>(B) <em>Clostridium chauvoei</em></li>
+          <li>(C) <em>Clostridium septicum</em></li>
+          <li>(D) <em>Clostridium tetani</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(D)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案：推得〕傷口感染、厭氧、革蘭氏陽性、<strong>末端芽孢</strong>（鼓槌狀）→ 破傷風梭菌（補充）。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q21（單選）</span>
+        <div class="quiz-q">下列有關豬鉤端螺旋體症（leptospirosis）之敘述，何者正確？</div>
+        <ul class="quiz-options">
+          <li>(A) 產生的症狀為多發性漿膜炎（polyserositis）</li>
+          <li>(B) 顯微凝集試驗（microagglutination test, MAT）是常用的診斷方法</li>
+          <li>(C) 在急性期（acute phase）容易有流產、死產（abortion, stillbirth）的胎兒</li>
+          <li>(D) 常在狗身上發現的 <em>Leptospira canicola</em> 或者在棕鼠身上發現的 <em>L. icterohaemorrhagiae</em> 並不會感染豬隻，豬隻只感染 <em>L. pomona</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案：推得；考卷上 (A)(D) 被打叉〕MAT 是標準血清學診斷（補充）。流產多發生在感染後數週的慢性階段；豬也可被其他血清型感染。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q22（單選）</span>
+        <div class="quiz-q">下列哪一種梭菌會引起人類腸炎（human enteritis），在豬隻可感染 1–7 日齡的仔豬，造成腸繫膜水腫（mesocolonic edema）、糊狀至水樣狀的黃色便（pasty to watery yellowish feces）？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Clostridium difficile</em></li>
+          <li>(B) <em>Clostridium septicum</em></li>
+          <li>(C) <em>Clostridium tetani</em></li>
+          <li>(D) <em>Clostridium perfringens</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(A)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案：推得〕與 106 學年 Q19 同題。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q23（單選）</span>
+        <div class="quiz-q">我們說人類得到「fish handler's disease」，其實也就是說受到哪一種病原的感染？</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em> Choleraesuis</li>
+          <li>(B) <em>Streptococcus pyogens</em></li>
+          <li>(C) <em>Erysipelothrix rhusiopathiae</em></li>
+          <li>(D) <em>Escherichia coli</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(C)</div>
+          <p class="quiz-explain">(C) 對（<a class="pdf-link" href="pdf/細菌性疾病II.pdf#page=10">p.10</a>）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week07_細菌性疾病II.html#section-kaogu">第 7 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q24（單選）</span>
+        <div class="quiz-q">以下為一隻年齡約離乳後（post weaning）豬隻的照片，注意眼皮（eyelids）的地方，假設這是一種因細菌感染（bacterial infection）所引起的症狀，請問以下敘述，何者正確？（考卷附圖：眼瞼水腫，同講義 <a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=140">p.140</a>）</div>
+        <div class="figure" style="margin:8px 0"><img src="img/期中考古/q111_24.jpg" alt="原卷附圖：眼瞼水腫" loading="lazy" style="max-width:440px;width:100%"><div class="figure-caption">原卷附圖：眼瞼水腫</div></div>
+        <ul class="quiz-options">
+          <li>(A) 發現症狀後，利用抗生素治療應可達到治癒效果</li>
+          <li>(B) 應該是細菌分泌可以破壞蛋白質合成的毒素所造成</li>
+          <li>(C) 應該是 brucellosis</li>
+          <li>(D) 這種疾病又稱為 malignant edema</li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain">病是水腫病。<br>(B) 對：Stx2e 屬志賀毒素家族；（補充）志賀毒素會切斷核糖體 RNA、<strong>抑制蛋白質合成</strong>，使血管內皮細胞死亡。講義只寫「傷害血管內皮」。<br>(A) 錯：病程快，預防比治療重要。<br>(C) 錯：布氏桿菌症造成流產與睪丸炎。<br>(D) 錯：malignant edema（惡性水腫）是 <em>Clostridium septicum</em> 等梭菌的傷口感染（補充）。</p>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-mcq">111 學年 Q25（單選）</span>
+        <div class="quiz-q">Weil syndrome 是一種下列何種病原所造成感染，病人嚴重時會有黃疸（jaundice）現象。</div>
+        <ul class="quiz-options">
+          <li>(A) <em>Salmonella</em></li>
+          <li>(B) <em>Leptospira</em></li>
+          <li>(C) <em>Brucella</em></li>
+          <li>(D) <em>Clostridium</em></li>
+        </ul>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-answer correct">答案：(B)</div>
+          <p class="quiz-explain"><span class="lv lv-skim">範圍外（期末）</span> 〔答案：推得〕鉤端螺旋體（106 學年 Q18）。</p>
+        </details>
+      </div>
+<h3>問答題</h3>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜111 學年 Q1（10 分）＝ 106 學年 Q1</span>
+        <div class="quiz-q">請陳述您覺得目前台灣養豬產業面臨的問題及可能的因應之道（問題及因應之道都要寫）。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong>學長姐答案（106 學年）</strong>：密集飼養造成疫病防治困難；以業者為主、政府輔助為共識，養豬場應發揮主動改善；疫情通報要迅速確實、不得隱瞞。</p><p><strong>可以再補的點</strong>（補充，依第 1 週講義與一般產業現況整理）：</p><ul><li>疫病：非洲豬瘟境外威脅（廚餘、走私肉品、野豬）；PRRS、PCV2、PED 等地方流行病 → 生物安全、疫苗計畫、邊境管制、疫情通報（<a href="week01_課程介紹與養豬產業.html#section-history">第 1 週防治史</a>）。</li><li>抗生素使用與抗藥性 → 減抗、用藥紀錄、獸醫處方（<a href="week01_細菌抗藥性.html">第 1 週細菌抗藥性</a>）。</li><li>環保：廢水與臭味 → 沼氣發電、廢水資源化。</li><li>成本與市場：飼料原料仰賴進口、進口豬肉競爭 → 提升效率、品牌與產銷履歷。</li><li>人力：缺工與高齡化 → 自動化、規模化。</li></ul><p>老師要的是「問題＋因應」成對寫，每個問題後面直接接對策。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜111 學年 Q2（10 分）</span>
+        <div class="quiz-q">請敘述由 <em>Escherichia coli</em> 造成的新生仔豬下痢、<em>Salmonella</em> 所造成的下痢，以及由 <em>Clostridium perfringens</em> type C 所造成下痢，各有何特性？</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p><strong><em>E. coli</em>（本講義）</strong>：0–4 日齡；ETEC 線毛＋腸毒素；黃色水樣、不帶血；腸道不發炎、絨毛不萎縮、胃有凝乳；脫水與酸中毒。</p><p><strong>沙門氏菌</strong>：見下一講〈細菌性疾病 (II)〉。重點是離乳後保育豬、S. Typhimurium 造成黃色水樣下痢、壞死性結腸炎與盲腸炎、結腸<strong>鈕扣狀潰瘍</strong>。</p><p><strong><em>C. perfringens</em> type C</strong>：不在這兩講的範圍。（補充，供參考）1 週齡內仔豬出血性下痢，小腸（空腸）出血壞死、黏膜下氣腫，β 毒素造成。</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <div class="quiz-item exam-card">
+        <span class="quiz-type quiz-type-saq">問答｜111 學年 Q3（5 分）</span>
+        <div class="quiz-q">請你畫一個由胸膜肺炎放線桿菌（<em>Actinobacillus pleuropneumoniae</em>）所感染的豬隻肺臟，並說明在肉眼下，你會預期看到的主要病變特徵為何。</div>
+        <details class="quiz-reveal">
+          <summary></summary>
+          <div class="quiz-explain"><p>畫兩側肺（尖葉、心葉、橫膈葉），在<strong>兩側</strong>的心葉、尖葉與部分橫膈葉（特別是背側）畫出<strong>界線清楚、黑紅色、隆起</strong>的病灶，表面畫纖維素並標示與胸壁沾黏。標註：</p><ul><li>雙側、局部且界線清楚的纖維素出血壞死性胸膜肺炎（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=26">p.26</a>）。</li><li>肺暗紅、質硬，切面流血（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=31">p.31</a>）。</li><li>纖維素性胸膜炎：肺與壁層胸膜沾黏；常伴隨纖維素性心包炎（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=26">p.26</a>、<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=31">p.31</a>）。</li><li>氣管與支氣管內泡沫樣帶血黏液；胸腔帶血液體（<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=26">p.26</a>）。</li><li>慢性病例：纖維性胸膜沾黏（屠宰場所見，<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=13">p.13</a>、<a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=29">p.29</a>）。</li></ul><p>參考圖：講義 <a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=27">p.27</a>（肺葉示意）與 <a class="pdf-link" href="pdf/細菌性疾病I.pdf#page=29">p.29</a>。</p></div>
+          <p class="quiz-explain" style="margin-top:6px;font-size:.85em;color:var(--fg-muted)">本題詳解與 <a href="week06_細菌性疾病I.html#section-kaogu">第 6 週頁面</a>相同。</p>
+        </details>
+      </div>
+      <footer class="note-footer">資料來源：使用者提供的 111 學年豬病學期中考照片。</footer>
+    </div>
+
+    <div class="section" id="section-repeat">
+      <div class="section-head"><div class="section-num">8</div><h2>重複考點表</h2></div>
+      <p class="section-desc">同一個考點在不同年份出現的位置。出現越多次，越要熟。</p>
+<div class="table-wrap"><table><thead><tr><th>考點</th><th>出現的題目</th><th>本站對應</th></tr></thead><tbody><tr><td>APP 致病機制（問答）</td><td>106 問答 2、合卷 B 問答 4、111 問答 3（畫肺）</td><td><a href="week06_細菌性疾病I.html#section-app-path">第 6 週 APP</a></td></tr><tr><td>APP 臨床情境（CAMP 陽性、chocolate agar、Apx 分型）</td><td>106 Q2、Q25；合卷 Q5；111 Q2、Q16</td><td><a href="week06_細菌性疾病I.html#section-app-dx">第 6 週 APP</a></td></tr><tr><td>大腸桿菌新生仔豬下痢（問答）</td><td>106 問答 4、合卷 B 問答 1、111 問答 2</td><td><a href="week06_細菌性疾病I.html#section-ec-neo">第 6 週大腸桿菌</a></td></tr><tr><td>水腫病、離乳後下痢</td><td>106 Q20、Q24；合卷 Q15、Q19；111 Q13、Q19、Q24</td><td><a href="week06_細菌性疾病I.html#section-ec-pwd">第 6 週</a></td></tr><tr><td>大腸桿菌尿道感染 P fimbriae</td><td>106 Q28、111 Q17</td><td><a href="week06_細菌性疾病I.html#section-ec-other">第 6 週</a></td></tr><tr><td>萎縮性鼻炎（<em>B. bronchiseptica</em>＋<em>P. multocida</em>）</td><td>106 Q6、Q13；合卷 Q10；111 Q9、Q15</td><td><a href="week06_細菌性疾病I.html#section-ar-agent">第 6 週</a></td></tr><tr><td>Glässer disease（<em>H. parasuis</em>）</td><td>106 Q12；合卷 Q11；111 Q8</td><td><a href="week06_細菌性疾病I.html#section-gp-agent">第 6 週</a></td></tr><tr><td>豬丹毒（菱形疹、penicillin、fish handler）</td><td>106 Q7、Q11；合卷 Q1；111 Q3、Q7、Q23</td><td><a href="week07_細菌性疾病II.html#section-se-agent">第 7 週</a></td></tr><tr><td>沙門氏菌（錯誤敘述、紅耳朵、T3SS、副傷寒小結節）</td><td>106 Q4、Q9、Q30；合卷 Q2、Q12；111 Q5、Q14</td><td><a href="week07_細菌性疾病II.html#section-sal-agent">第 7 週</a></td></tr><tr><td>滲出性表皮炎</td><td>106 Q8；合卷 Q3、Q17；111 Q11</td><td><a href="week07_細菌性疾病II.html#section-ee">第 7 週</a></td></tr><tr><td>布氏桿菌</td><td>106 Q14、Q22；合卷 Q20；111 Q10</td><td><a href="week07_細菌性疾病II.html#section-br">第 7 週</a></td></tr><tr><td>李崇道與 LPC 疫苗、在養頭數、品種</td><td>106 Q1、Q3、Q29；111 Q1、Q4、Q12、Q18</td><td><a href="week01_課程介紹與養豬產業.html#section-history">第 1 週</a></td></tr><tr><td>初乳吸收與懷孕期</td><td>106 Q10；合卷 Q20；2019 Q15</td><td><a href="week01_課程介紹與養豬產業.html#section-life">第 1 週</a></td></tr><tr><td>台灣養豬產業問題（問答）</td><td>106 問答 1、111 問答 1</td><td><a href="week01_課程介紹與養豬產業.html#section-industry">第 1 週</a></td></tr><tr><td>豬瘟：流行病學、DIVA、E2 次單位＋Erns</td><td>合卷 A2；2019／2022 Q1–Q3、Q14</td><td><a href="week02_豬病毒性疾病I.html#section-csf-c">第 2 週</a></td></tr><tr><td>流產病毒＋三種診斷原理（問答）</td><td>合卷 A3；2019、2022 二-1</td><td><a href="week03_豬病毒性疾病II.html#section-kaogu">第 3 週</a></td></tr><tr><td>口蹄疫、豬水疱病、SVV</td><td>合卷 A1；2019／2022 Q8–Q10、Q19</td><td><a href="week04_小RNA病毒科疾病.html#section-fmd-a">第 4 週</a></td></tr><tr><td>流感 mixing vessel</td><td>合卷 A4；2019／2022 Q11、Q14</td><td><a href="week05_豬流行性感冒.html#section-mixing">第 5 週豬流感</a></td></tr><tr><td>TGE 與 PRCV（問答）</td><td>合卷 A5；2019、2022 二-2</td><td><a href="week05_豬冠狀病毒病.html#section-tge-a">第 5 週</a></td></tr><tr><td><span class="lv lv-skim">範圍外</span> 梭菌</td><td>106 Q5、Q19；合卷 Q4、Q18；111 Q6、Q20、Q22</td><td>期末</td></tr><tr><td><span class="lv lv-skim">範圍外</span> 鉤端螺旋體</td><td>106 Q18；合卷 Q13；111 Q21、Q25</td><td>期末</td></tr><tr><td><span class="lv lv-skim">範圍外</span> 豬赤痢、增生性腸病</td><td>106 Q15、Q17、Q21、Q23；合卷 Q7、Q8</td><td>期末</td></tr></tbody></table></div>
+      <footer class="note-footer">資料來源：整理自本頁各卷。</footer>
+    </div>
+
+    <div class="section" id="section-trust">
+      <div class="section-head"><div class="section-num">9</div><h2>資料可信度與待確認</h2></div>
+      <p class="section-desc">答案從哪裡來、哪些題目還有疑問。</p>
+<ul><li><strong>答案來源</strong>：2019 鄭益謙＝考卷藍筆圈選；2022 鄭益謙＝由 2019 反推；106 學年＝老師檢討投影片紅字與學長姐檢討；合卷＝考卷旁手寫答案；111 學年葉光勝＝考卷零星批改記號，其餘由本站推得。都不是官方答案。</li><li><strong>⚠ 待確認</strong>：<ul><li>2019 Q9 (c)「naïve 哺乳仔豬發高燒，24–48 小時內死亡」考卷沒圈，原因不明。</li><li>2019 Q16 Nipah：考卷沒有作答記號；依常識四個敘述都對，會選 (E)。範圍外。</li><li>2019／2022 Q19 (b) 口蹄疫：答案會隨出題年份改變（2020 年台澎馬成為非疫區），金門狀態講義未寫。</li><li>2019 Q20 (b) ryanodine receptor：考卷紅筆打叉，推測錯在「細胞膜」（應為肌漿網）。範圍外。</li><li>2019 Q3 (a) stamping out：2022 年題幹改問「不正確」時，(a) 是唯一答案，兩卷互相印證；但講義沒有說明為什麼算錯，可以問老師。</li></ul></li><li><strong>照片限制</strong>：106 學年是翻拍投影幕，Q20、Q27 題幹沒拍到；合卷葉老師問答原卷寫 5 題，照片只有 4 題。</li><li><strong>合卷的年份</strong>：考卷上沒有年份；同學整理檔建立於 2021 年以前。</li><li><strong>來源檔案</strong>：<code>NTU/考古+國考/大四上考古 from 林/期中/豬/</code>（考古融合 PDF、2022 PDF、lo 資料夾為同一批考卷的另一份）。學長姐 2023 年的張家宜老師講義筆記不是考卷，本頁沒有收。</li></ul>
+      <footer class="note-footer">資料來源：本節為個人整理。</footer>
+    </div>
+
+    <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  'abstract': '總覽與出題特色',
+  'z2019': '鄭益謙 2019 複選',
+  'z2022': '鄭益謙 2022 對照',
+  'zessay': '鄭益謙 問答題',
+  'ye106': '葉光勝 106 學年',
+  'yehj': '葉光勝 合卷',
+  'ye111': '葉光勝 111 學年',
+  'repeat': '重複考點表',
+  'trust': '資料可信度'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
