@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫臨床及影像診斷學：期中考古 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫臨床及影像診斷學</a><span class="sep">›</span><span class="current">期中考古</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">期中考古（依老師分區） Midterm Past Exams</h1>
+      <p class="page-subtitle">王尚麟（超音波）、張雅珮（X 光原理與神經影像）、王麗倩（臨床檢查）、萬灼華（實驗動物影像）各年期中考題，照原卷題型呈現；每題先作答再展開答案與逐選項詳解</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫臨床及影像診斷學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">考古資料夾：〈2022 影診期中〉與參考答案、〈臨影診期中考古融合〉18 頁（100-1、107-1、108-1、109-1、2018 及年份不明的考卷照片與學長姐整理）、〈Mid 108 影診萬萬〉44 頁（108 學年學長姐彙整，含各老師答案與筆記）、B09（2023）學長姐心得。答案為學長姐作答或整理者依講義撰寫，非官方</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/X光學基礎.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 總覽與使用方式</a>
+    <div class="section-label" style="margin-top:8px;">各老師</div>
+    <a onclick="showSection('ws')" id="nav-ws"><span class="nav-icon">🔊</span> 王尚麟：超音波</a>
+    <a onclick="showSection('cymc')" id="nav-cymc"><span class="nav-icon">☢️</span> 張雅珮：X 光原理</a>
+    <a onclick="showSection('cyimg')" id="nav-cyimg"><span class="nav-icon">🩻</span> 張雅珮：看圖題</a>
+    <a onclick="showSection('lq')" id="nav-lq"><span class="nav-icon">🩺</span> 王麗倩：臨床檢查</a>
+    <a onclick="showSection('wan')" id="nav-wan"><span class="nav-icon">🐭</span> 萬灼華：實驗動物影像</a>
+    <a onclick="showSection('older')" id="nav-older"><span class="nav-icon">📂</span> 其他老師與舊年度</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('repeat')" id="nav-repeat"><span class="nav-icon">🔁</span> 跨年重複題</a>
+    <a onclick="showSection('trust')" id="nav-trust"><span class="nav-icon">⚠️</span> 資料可信度與待確認</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>總覽與使用方式</h2></div>
+      <div class="overview">
+        <div class="overview__title">影診期中考古的大方向</div>
+        <dl>
+          <dt>這頁收了什麼</dt>
+          <dd>考古資料夾裡能讀到的所有期中題目，依<strong>老師</strong>分四區。每題照原卷寫法（單選、圈選、是非、Yes/No、問答、看圖題與配分），答案收在「顯示答案」裡：先標<strong>學長姐作答</strong>（考卷上的筆跡或融合檔整理），再寫整理者依講義寫的<strong>逐選項詳解</strong>與講義頁碼。</dd>
+          <dt>學長姐心得（回憶，非官方）</dt>
+          <dd><ul style="margin:4px 0 0; padding-left:1.2em;">
+            <li>2022：「<strong>萬的跟考古一模一樣</strong>」；「王麗倩的跟有照片那個考古一樣，除了第四題（改問 What medical causes 影響 animal behaviors?）」。</li>
+            <li>〈Mid 108 影診萬萬〉（108 學年）：王麗倩「<strong>行為學（講義）的 10～23 頁可能會考</strong>」「要能分辨 X 光下每個臟器的區別」「給一張 X 光，給出診斷和解釋」；張雅珮另附「96 年據說考這兩張圖」；「李繼忠（今年沒有）」。</li>
+            <li>B09（2023）：「王尚麟的<strong>真的要讀書</strong>！！」「王麗倩基本上考古」「張雅珮 B09 <strong>不考 CT、MR</strong>，也是全考古」「老萬的我背了答案順序直接填上去」。</li>
+          </ul></dd>
+          <dt>讀書優先順序（推測）</dt>
+          <dd><ol style="margin:4px 0 0; padding-left:1.2em;">
+            <li><a href="#section-wan">萬灼華</a>：10 題每年相同，直接背；題目與詳解在<a href="week08_實驗動物影像.html#section-kaogu">實驗動物影像頁第 10 節</a>。</li>
+            <li><a href="#section-cymc">張雅珮 X 光原理</a>：光電效應圈選、影響對比度的因素、mA／kVp、肺野放哪一側，幾乎每年同一組題目換字（見<a href="#section-repeat">第 8 節</a>整合表）。</li>
+            <li><a href="#section-lq">王麗倩</a>：黏膜顏色、鋇劑造影認結構、腸套疊、行為病史，年年相同。</li>
+            <li><a href="#section-cyimg">張雅珮看圖題</a>：每年換片，但考法固定——寫出異常、定位節數、下診斷。</li>
+            <li><a href="#section-ws">王尚麟超音波</a>：只有 2022 一份，學長姐說要真的讀。</li>
+          </ol></dd>
+          <dt>要小心</dt>
+          <dd>學長姐的作答<strong>不一定對</strong>：本頁發現至少 4 處和講義衝突（王尚麟 2022 第 1、2 題；2022 張雅珮第 3a、4h 題；108-1 第 7-3 題），每題都標了「⚠」並寫出講義依據，彙整在<a href="#section-trust">第 9 節</a>。</dd>
+        </dl>
+      </div>
+      <h3>考卷 × 老師對照<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>考卷</th><th>老師</th><th>題目</th><th>答案來源</th><th>本頁位置</th></tr></thead>
+        <tbody>
+          <tr><td>2022（111-1）期中</td><td>王尚麟</td><td>單選 10 題</td><td>學長姐參考答案（藍筆）</td><td><a href="#section-ws">第 2 節</a></td></tr>
+          <tr><td>2022（111-1）期中</td><td>張雅珮（80%）</td><td>圈選 2、Yes/No 5、是非 10、看圖 Q5–8</td><td>考卷勾選＋學長姐註解</td><td><a href="#section-cymc">第 3 節</a>、<a href="#section-cyimg">第 4 節</a></td></tr>
+          <tr><td>2022 期中</td><td>王麗倩</td><td>同照片考卷，第 4 題改問行為的醫學原因</td><td>融合檔學長姐整理</td><td><a href="#section-lq">第 5 節</a></td></tr>
+          <tr><td>2022 期中</td><td>萬灼華</td><td>同考古 10 題</td><td>學長姐作答</td><td><a href="#section-wan">第 6 節</a></td></tr>
+          <tr><td>100-1 期末（principles of radiology / neural system）</td><td>張雅珮（推測）</td><td>單選 3、問答 1</td><td>考卷筆跡</td><td><a href="#section-cymc">第 3 節</a></td></tr>
+          <tr><td>107-1、108-1（90%）、109-1（90%）期中</td><td>張雅珮</td><td>圈選、單選、看圖</td><td>考卷筆跡（108-1 看圖題有手寫作答）</td><td><a href="#section-cymc">第 3 節</a>、<a href="#section-cyimg">第 4 節</a></td></tr>
+          <tr><td>年份不明（融合檔 p.13–16）</td><td>張雅珮（推測）</td><td>看圖 Question 3、4</td><td>融合檔所附英文答案（來源不明）</td><td><a href="#section-cyimg">第 4 節</a></td></tr>
+          <tr><td>照片考卷（年份不明）</td><td>王麗倩</td><td>問答 4 題</td><td>學長姐整理</td><td><a href="#section-lq">第 5 節</a></td></tr>
+          <tr><td>2018 Mid Session（HPH）</td><td><strong>黃慧璧</strong>（萬萬檔 p.39 標明「黃慧璧 臨床診斷」）</td><td>量表題 1 題</td><td>學長姐整理</td><td><a href="#section-older">第 7 節</a></td></tr>
+          <tr><td>〈Mid 108 影診萬萬〉108 學年彙整</td><td>萬灼華、張雅珮、王麗倩、向才園、黃慧璧、跛行檢查（老師不明）</td><td>答案、筆記、舊年度題目；附註「李繼忠（今年沒有）」</td><td>學長姐整理</td><td>分散在各節＋<a href="#section-older">第 7 節</a></td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>考卷照片已遮蓋姓名、學號與病歷資訊。標「學長姐作答」的是考古原檔上的答案；「詳解」是整理者依講義寫的，<strong>都不是官方答案</strong>。考試範圍以老師上課為準。講義頁碼可點開右側 PDF 對照。</p>
+      </div>
+      <footer class="note-footer">資料來源：考古資料夾〈2022 影診期中〉、〈2022 影診期中（參考答案）〉、〈臨影診期中考古融合〉、B09（2023）學長姐心得。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- WS -->
+    <div class="section" id="section-ws">
+      <div class="section-head"><div class="section-num">2</div><h2>王尚麟：超音波（2022）</h2></div>
+      <p class="section-desc">2022 唯一一份，10 題單選，範圍是<a href="week02_超音波診斷入門.html">超音波診斷入門</a>。學長姐的參考答案有 2 題和講義原理衝突，已標 ⚠。</p>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">原卷照片（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/ws2022.jpg" alt="2022 王尚麟期中考卷照片" loading="lazy"><div class="figure-caption">2022 期中王尚麟部分原卷照片（10 題單選）。</div><div class="figure-source">來源：考古〈2022 影診期中〉p.1</div></div>
+      </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">1. Which tissue (material) has the highest acoustic impedance? (A) Air (B) Bladder (C) Bone</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：(C)　⚠ 學長姐作答 (B)</div><p class="quiz-explain">聲阻抗＝組織密度 × 聲速，三者中<strong>骨頭密度與聲速都最高</strong>，聲阻抗最大。(A) 空氣密度極低，聲阻抗最低；它會造成強反射，是因為和軟組織的阻抗<strong>差距</strong>大，不是因為它本身阻抗高。(B) 膀胱內是尿液，接近水，阻抗中等，所以超音波下是無迴音（anechoic）。(C) 對。講義寫回音產生在「不同聲阻抗的界面」（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=1">〈超音波診斷入門〉p.1</a>），並把骨頭、結石列為造成乾淨聲影的高反射構造（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=2">〈超音波診斷入門〉p.2</a>）；聲阻抗公式為補充。學長姐選 (B) 應為筆誤或錯答。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">2. Which tissue (material) was not suitable for ultrasound examination? (A) Kidney (B) Lung (C) Prostate</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：(B)　⚠ 學長姐作答 (A)</div><p class="quiz-explain">(A) 腎臟是腹部超音波的常規器官，講義有腎臟與肝、脾回音比較（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=9">〈超音波診斷入門〉p.9</a>）。(B) 對：正常肺充滿空氣，超音波幾乎全被反射，只看得到肋膜線與 A-line 這類偽像（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=4">〈超音波診斷入門〉p.4</a> Normal dry lung），看不到肺實質；只有肺變濕或實質化時才看得到（B-line、肺葉扭轉）。(C) 前列腺可經腹部掃查（補充）。學長姐選 (A) 與講義不符。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">3. Which color will be used to represent the blood flow toward the probe? (A) Red (B) Blue</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(A)</div><p class="quiz-explain">(A) 對：紅血球<strong>朝向</strong>探頭移動，回音頻率升高 → 紅色（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=2">〈超音波診斷入門〉p.2</a>）。(B) 錯：藍色是遠離探頭、頻率降低。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">4. Which was not a common ultrasound artifact? (A) Acoustic shadowing (B) Edge shadowing (C) Mirror image (D) Lung rocket</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(D)</div><p class="quiz-explain">(A)(B)(C) 都在講義的偽像清單（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=2">〈超音波診斷入門〉p.2</a>–<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=3">〈超音波診斷入門〉p.3</a>：acoustic shadowing、edge shadowing、enhancement、reverberation、mirror image）。(D) 對：lung rocket（B-line）是胸腔 POCUS 判斷濕肺的<strong>徵象</strong>，講義放在胸腔章節（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=4">〈超音波診斷入門〉p.4</a>），不在「常見偽像」清單裡。補充：B-line 本質上也是一種迴響類偽像，這題考的是講義分類。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">5. Which site was not commonly used in thorax ultrasonography? (A) Pericardial site (B) Diaphragmatico-hepatic site (C) Mediastinum site (D) Chest tube site</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(C)</div><p class="quiz-explain">講義的胸腔掃查三個位置：<strong>CTS（chest tube site）、PCS（pericardial site）、DH（diaphragmatico-hepatic）</strong>（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=3">〈超音波診斷入門〉p.3</a>）。(A)(B)(D) 都是。(C) 對：縱膈腔在講義是「要評估的構造」（分辨脂肪、液體或腫塊，<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=5">〈超音波診斷入門〉p.5</a>），不是標準掃查位置。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">6. Which was not routine evaluate in cardiac ultrasonography? (A) Valve number (B) Chamber size (C) Regurgitation (D) Velocity</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(A)</div><p class="quiz-explain">講義列的評估項目：chamber、muscle、valve、stenosis、systolic/diastolic function、velocity、regurgitation（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=5">〈超音波診斷入門〉p.5</a>）。(B)(C)(D) 都在清單。(A) 對：評估的是<strong>瓣膜（valve）的構造與功能</strong>，不是「數瓣膜有幾個」。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">7. Which mode was used to evaluate cardiac systolic function? (A) Velocity-mode (B) Motion-mode (C) Chamber-mode</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(B)</div><p class="quiz-explain">(B) 對：M-mode 記錄心臟短軸徑隨時間的變化（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=6">〈超音波診斷入門〉p.6</a>），可量收縮期與舒張期的心室內徑，算出收縮分率（補充）。(A)(C) 錯：沒有這兩種模式；流速是用都卜勒量。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">8. Which was the most common cardiac disease in cats? (A) Dilated cardiomyopathy (B) Chronic degenerative valve disease (C) Heartworm (D) Hypertrophic cardiomyopathy</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(D)</div><p class="quiz-explain">(A) 擴張型心肌病（DCM）好發大型犬。(B) 慢性退化性瓣膜病（CDVD）是<strong>犬</strong>最常見的後天心臟病（學長姐旁註 dog）。(C) 心絲蟲不是貓最常見的心臟病。(D) 對：肥厚型心肌病（HCM）是貓最常見（學長姐旁註 cat）（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=7">〈超音波診斷入門〉p.7</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">9. Which tissue is hyperechoic than others? (A) Spleen (B) Liver (C) Renal cortex</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(A)</div><p class="quiz-explain">講義（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=9">〈超音波診斷入門〉p.9</a>）：肝臟相對低迴音、質地較粗；肝臟與右腎皮質約等迴音。所以三者中<strong>脾臟最亮</strong>（A 對），(B)(C) 錯。常見順序：脾 &gt; 肝 ≥ 腎皮質（順序為補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">10. Which layer was the thickest in the intestine? (A) Mucosa (B) Submucosa (C) Muscularis (D) Serosa</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(A)</div><p class="quiz-explain">(A) 對：正常小腸腸壁五層中<strong>黏膜層最厚</strong>，超音波下是寬的低迴音層（講義只有五層構造圖，<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=10">〈超音波診斷入門〉p.10</a>；最厚為補充）。(B) 黏膜下層是細的高迴音線。(C) 肌肉層是細的低迴音層；肌肉層增厚是異常（講義列 intestinal wall muscular thickening）。(D) 漿膜層是最外側的細高迴音線。</p></details>
+      </div>
+      <footer class="note-footer">資料來源：考古〈2022 影診期中〉與參考答案 p.1；課程講義〈Introduction to medical images: Ultrasonography〉（王尚麟）。答案非官方。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CYMC -->
+    <div class="section" id="section-cymc">
+      <div class="section-head"><div class="section-num">3</div><h2>張雅珮：X 光原理與攝影（100-1、107-1、108-1、109-1、2022）</h2></div>
+      <p class="section-desc">每年同一組題目換字：光電效應圈選 → 影響對比度的因素 → mA／kVp 敘述哪個錯 → 光子穿透數 → 擺位。範圍是<a href="week03_X光學基礎.html">X 光學基礎</a>與<a href="week03_脊椎影像判讀.html">脊椎影像判讀</a>。</p>
+      <div class="alert alert-success"><div class="alert-label">重點：所有圈選題都用同一條邏輯</div><p>原子序或密度越高 → <strong>光電效應越高</strong>（吸收越多）→ 穿過去打到底片的 X 光<strong>越少</strong> → radiopacity <strong>越高</strong> → 影像越<strong>白</strong>。kVp 越高 → X 光能量越高 → 光電效應越<strong>低</strong> → 穿過的越多 → radiopacity 越低 → 組織間<strong>對比度下降</strong>（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=6">〈X光學基礎〉p.6</a>）。順序：空氣 &lt; 脂肪 &lt; 水／軟組織 &lt; 骨 &lt; 金屬（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=13">〈X光學基礎〉p.13</a> 的密度與原子序表）。</p></div>
+      <h3>2022（111-1）張雅珮部分 80%<span class="lv lv-must">必考</span></h3>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">原卷照片（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/cy2022_1.jpg" alt="2022 張雅珮期中考卷第 1 至 4 題" loading="lazy"><div class="figure-caption">111-1 期中張雅珮部分第 1–4 題，含原作答者的勾選與學長姐藍筆註解（右上貼了講義的 subject contrast 四因素）。</div><div class="figure-source">來源：考古〈2022 影診期中（參考答案）〉p.2</div></div>
+      </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">圈選（8）</span>
+        <div class="quiz-q">1. Compared to the lung, the heart causes <u>higher / lower</u> photoelectric effect. When x-rays strike at the vertebra, there are <u>more / less</u> x-rays pass through and expose to the film, result in the <u>higher / lower</u> radiopacity and appear <u>brighter / darker</u> on the radiograph.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">higher、less、higher、brighter</div><p class="quiz-explain">心臟（軟組織）比肺（空氣多）密度高 → 光電效應較高；脊椎是骨頭，吸收多 → 穿過少 → radiopacity 高 → 白（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=6">〈X光學基礎〉p.6</a>、<a class="pdf-link" href="pdf/X光學基礎.pdf#page=13">〈X光學基礎〉p.13</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">圈選（6）</span>
+        <div class="quiz-q">2. Higher kVp results in <u>higher / lower</u> photoelectric effect. When x-rays produced from higher kVp strike at the tissue, <u>more / less</u> x-rays pass through and expose to the film, result in <u>higher / lower</u> radiopacity.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">lower、more、lower</div><p class="quiz-explain">光電效應與 1/E³ 成正比（E＝光子能量），kVp 越高能量越高 → 光電效應越低 → 穿過越多 → radiopacity 越低（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=6">〈X光學基礎〉p.6</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">Yes / No（10）</span>
+        <div class="quiz-q">3. Which factor would affect the radiographic contrast? Choose yes or no for each factor. (a) Collimator (b) Physical density of the subject (c) Thickness of the body part (d) Distance between the object and the film (e) Voltage difference between the anode and cathode in the X-ray tube</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：a Yes（⚠ 有爭議）、b Yes、c Yes、d No、e Yes</div><p class="quiz-explain">講義（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=11">〈X光學基礎〉p.11</a> Factors affecting contrast）：radiographic contrast 取決於<strong>底片對比、霧化與散射（fog and scatter）、主體對比</strong>；主體對比受<strong>密度、原子序、厚度、X 光能量（kVp）</strong>影響。<br>(a) ⚠ 準直器限制照野、減少散射與霧化（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=9">〈X光學基礎〉p.9</a>：non-useful radiation degrades image quality because of fogging），依講義會影響對比，傾向 Yes；學長姐在旁註「準直儀→接觸大小 ✗」判為 No，原作答者也勾 No。兩種說法都列出，以老師上課為準。補充：107-1、108-1 的訂正答案（不影響對比的只有 filter）也隱含準直器是影響對比的。<br>(b) Yes：密度差異。(c) Yes：厚度差異。(d) No：物體與底片距離影響的是<strong>放大與變形</strong>（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=17">〈X光學基礎〉p.17</a>），不是對比（學長姐也打 ✗）。(e) Yes：陰陽極電壓差就是 <strong>kVp</strong>（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=4">〈X光學基礎〉p.4</a>）。原作答者只勾 e 為 Yes，與講義不符。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非（20）</span>
+        <div class="quiz-q">4. Which statement is correct? Choose true or false for each statement.<br>(a) mA is applied to the anode to produce electrons.<br>(b) By increasing mA, the electrons are accelerated to higher velocities, producing high-energy x-ray.<br>(c) X-ray beam collimation would reduce patient's radiation dose and improve the imaging quality.<br>(d) When taking radiographs, fast exposure time is the best way to reduce the imaging influence from involuntary motion.<br>(e) For chest radiographs, the lung field of primary interest should be placed close to the X-ray film.<br>(f) Standard radiographs of the spine should include a lateral projection and dorsoventral projection.<br>(g) In a lateral radiograph of normal cervical spine, the dens should not be seen clearly due to the superimposition of the C1 transverse wing.<br>(h) The CT number of fat tissue is about 100.<br>(i) For a CT image, if the window level (WL) is 50 and the window width (WW) is 350, it means tissue with CT number &gt; 225 would appear dark in the image.<br>(j) Comparing two CT settings: (A) WL 50, WW 350. (B) WL −600, WW 1600. Setting (B) is more suitable for examining the lung.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">a F、b F、c T、d T、e F、f F、g T、h F（⚠）、i F、j T</div><p class="quiz-explain">(a) F：mA 是通過<strong>陰極</strong>燈絲的電流，決定電子數量（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=4">〈X光學基礎〉p.4</a>）。<br>(b) F：加速電子、產生高能 X 光的是 <strong>kVp</strong>，不是 mA（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=4">〈X光學基礎〉p.4</a>）。<br>(c) T：準直減少病患劑量、減少霧化（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=9">〈X光學基礎〉p.9</a>）。<br>(d) T：講義選 kVp、mAs 時要考慮 motion（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=10">〈X光學基礎〉p.10</a>），縮短曝光時間可減少不自主動作的影響。<br>(e) F：一般原則是感興趣區靠近底片以避免放大，但<strong>肺部病灶是例外</strong>——靠下側的肺會塌陷（atelectasis）把病灶邊界消掉，所以要看的那一側肺放<strong>遠離</strong>底片（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=17">〈X光學基礎〉p.17</a>；學長姐註「如果想看右邊要把右邊放在上面」）。<br>(f) F：脊椎標準投照是 lateral 與 <strong>VD</strong>（ventrodorsal），不是 DV（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=17">〈脊椎影像判讀〉p.17</a>、<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=24">〈脊椎影像判讀〉p.24</a>）。<br>(g) T：學長姐作答 True（旁註「應該？」）；側位片上 C1 寰椎翼與齒突重疊，所以齒突看不清楚（講義未直接寫，依解剖推測）。<br>(h) F：⚠ 脂肪的 CT 值約 <strong>−100 HU</strong>（<a class="pdf-link" href="pdf/CT與MRI原理.pdf#page=13">〈CT與MRI原理〉p.13</a> 的 Hounsfield unit 表：fat −100）；原作答者勾 True 是錯的。<br>(i) F：WL 50、WW 350 → 顯示範圍 50 ± 175＝<strong>−125 到 225</strong>；&gt; 225 的組織顯示為<strong>白色</strong>，&lt; −125 才是黑（學長姐註 −125～225）。<br>(j) T：(B) 範圍 −600 ± 800＝−1400 到 200，涵蓋空氣與肺組織，是肺窗。<br><span style="color:var(--fg-muted);">h–j 學長姐標「不考」：2023 學長姐心得說張雅珮不考 CT、MR（B09），但 2022 有考，準備時至少要會算窗寬窗位。</span></p></details>
+      </div>
+      <h3>109-1 張雅珮部分 90%<span class="lv lv-must">必考</span></h3>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">原卷照片（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/cy109.jpg" alt="109-1 張雅珮期中考卷" loading="lazy"><div class="figure-caption">109-1 期中張雅珮部分（另 10% 為隨堂考成績），沒有作答痕跡。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.11</div></div>
+      </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">圈選（8）</span>
+        <div class="quiz-q">1. Compared to the vertebrae, bladder causes <u>higher / lower</u> photoelectric effect. When x-rays strike at the bladder, there are <u>more / less</u> x-rays pass through and expose to the film, result in the <u>higher / lower</u> radiopacity and appear <u>brighter / darker</u> on the radiograph.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">lower、more、lower、darker</div><p class="quiz-explain">膀胱（尿液，水的密度）比脊椎（骨）光電效應低 → 穿過多 → radiopacity 低 → 比骨頭暗。注意比較對象換了方向：和 107-1 的「比脂肪」答案相反（見第 8 節）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">圈選（8）</span>
+        <div class="quiz-q">2. Higher kVp results in <u>higher / lower</u> photoelectric effect. When x-rays produced from higher kVp strike at the tissue, <u>more / less</u> x-rays pass through and expose to the film, result in <u>higher / lower</u> radiopacity. This is a method to <u>increase / decrease</u> contrast between different tissues.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">lower、more、lower、decrease</div><p class="quiz-explain">高 kVp → 光電效應下降 → 組織間吸收差異縮小 → 對比<strong>下降</strong>；反過來，低 kVp 是高對比的決定因素之一（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=6">〈X光學基礎〉p.6</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選（10）</span>
+        <div class="quiz-q">3. Which factor does not affect the radiographic contrast? (a) Thickness of the body part (b) Film (c) Photoelectric effect (d) Collimator (e) Grid (f) All factors listed above affect the radiographic contrast</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：(f)</div><p class="quiz-explain">(a) 厚度＝主體對比。(b) 底片＝film contrast。(c) 光電效應是成像的主要機制，直接決定組織間差異（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=6">〈X光學基礎〉p.6</a>）。(d) 準直器減少散射與霧化。(e) 濾線柵（grid）吸收散射線（補充）。fog and scatter 是講義列的對比因素，所以 (a)–(e) 都影響，答 (f)。<br>⚠ 這題的選項<strong>沒有 filter</strong>，所以答案是「全部都影響」。同一份考卷第 4 題 (b) 把「filter 不影響對比」當成正確敘述；107-1、108-1 同題的訂正答案則是 <strong>filter</strong>（見下方 108-1 第 3 題）。三份合起來：<strong>只有 filter 不影響對比</strong>，其餘（含準直器、濾線柵）都影響。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選（10）</span>
+        <div class="quiz-q">4. Which statement is incorrect? (a) mA is applied to the cathode to produce electrons. (b) The filter in the X-ray tube does not affect the radiographic contrast. (c) By increasing mA, the electrons are accelerated to higher velocities, producing high-energy x-ray. (d) With the same thickness, fluid and muscle have similar radiopacity on the radiographs. (e) When taking radiographs, fast exposure time is the best way to reduce the imaging influence from involuntary motion.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：(c)</div><p class="quiz-explain">(a) 對：mA 加在陰極產生電子（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=4">〈X光學基礎〉p.4</a>）。(b) 對：老師把濾片設定為不影響對比——107-1、108-1「哪個不影響對比」的學長姐訂正答案都是 filter（見上方 108-1 第 3 題）。(c) 錯：加速電子的是 kVp（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=4">〈X光學基礎〉p.4</a>）——這是本題答案。(d) 對：液體與肌肉同屬「軟組織 radiopacity」（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=13">〈X光學基礎〉p.13</a>）。(e) 對（同 2022 第 4d 題）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選（10）</span>
+        <div class="quiz-q">5. Which statement is incorrect? (a) For chest radiographs, the lung field of primary interest should be placed close to the X-ray film. (b) Standard radiographs of the spine should include a lateral projection and ventrodorsal projection. (c) When taking a lateral radiograph of cervical spine, the forelimbs should be pulled backward. (d) In a lateral radiograph of normal cervical spine, the dens should not be seen clearly due to the superimposition of the C1 transverse wing.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：(a)</div><p class="quiz-explain">(a) 錯：肺部病灶的例外，要看的肺放遠離底片（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=17">〈X光學基礎〉p.17</a>）——本題答案。(b) 對：lateral＋VD（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=17">〈脊椎影像判讀〉p.17</a>）。(c) 對：頸椎側位前肢往尾側拉（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=18">〈脊椎影像判讀〉p.18</a>）。(d) 對（同 2022 第 4g 題）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">看圖（6）</span>
+        <div class="quiz-q">6-1. Please see the radiographs on the screen. Evaluate the position of lateral radiograph and explain your conclusion.</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">考場投影片沒有留下（融合檔 p.12 的「Question 6」投影照片年份未標，見第 4 節）。答題方向：先判斷是左側位還是右側位，依據是 marker、心臟形狀、橫膈腳與後腔靜脈的關係、兩側肋骨與肢體是否重疊（擺位是否標準），再寫結論（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=35">〈X光學基礎〉p.35</a>、<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=18">〈脊椎影像判讀〉p.18</a>）。</p></details>
+      </div>
+      <h3>108-1 張雅珮部分 90%<span class="lv lv-must">必考</span></h3>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">原卷照片（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/cy108_1.jpg" alt="108-1 張雅珮期中考卷第 1 至 6 題" loading="lazy"><div class="figure-caption">108-1 期中張雅珮部分第 1–6 題（選擇題皆單選，標示不清或複選該題 0 分），藍圈為作答。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.9</div></div>
+      </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">圈選（8）</span>
+        <div class="quiz-q">1. Compared to spleen, fat causes <u>higher / lower</u> photoelectric effect. When x-rays strike at fat tissue, there are <u>more / less</u> x-rays pass through and expose to the film, result in the <u>higher / lower</u> radiopacity and appear <u>brighter / darker</u> on the radiograph.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">lower、more、lower、darker（與考卷圈選相同）</div><p class="quiz-explain">脂肪密度 0.92、原子序 6.5，都比軟組織（脾臟）低（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=13">〈X光學基礎〉p.13</a>）→ 光電效應低 → 穿過多 → 比脾臟暗。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">圈選（8）</span>
+        <div class="quiz-q">2. Higher kVp results in <u>higher / lower</u> photoelectric effect. When x-rays produced from higher kVp strike at the tissue, <u>more / less</u> x-rays pass through and expose to the film, result in <u>higher / lower</u> radiopacity. This is a method to <u>increase / decrease</u> contrast between different tissues.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">lower、more、lower、decrease（與考卷圈選相同）</div><p class="quiz-explain">同 109-1 第 2 題。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選（10）</span>
+        <div class="quiz-q">3. Which factor does not affect the radiographic contrast? (a) Thickness of the body part (b) Film (c) Photoelectric effect (d) Collimator (e) Grid (f) Filter in the x-ray tube (g) All factors listed above affect the radiographic contrast</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：(f) Filter（⚠ 原作答 (g)）</div><p class="quiz-explain">三份資料互相印證：萬萬檔 p.26 的同一張考卷影本，藍筆在 (f) 旁寫「f ?」；萬萬檔 p.13 的 107-1 同題紅筆訂正為 (a) Filter；109-1 第 4 題把「The filter in the X-ray tube does not affect the radiographic contrast」當成<strong>正確敘述</strong>。所以老師的設定是<strong>濾片不影響對比</strong>。(a) 厚度、(b) 底片、(c) 光電效應、(d) 準直器（減少散射霧化）、(e) 濾線柵（吸收散射線，學長姐註「鉛做的柵欄」）都會影響對比。濾片的功用是先濾掉低能量 X 光（學長姐註「濾掉低的能量」），主要是降低病患皮膚劑量（補充）。講義沒有寫 filter，以老師上課為準。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選（10）</span>
+        <div class="quiz-q">4. Which statement is incorrect? (a) By increasing mA, the electrons are accelerated to higher velocities, therefore produce high-energy x-ray. (b) mA is applied to the cathode to produce electrons. (c) For chest radiographs, the lung field of primary interest should be placed close to x-ray tube. (d) With the same thickness, fluid and muscle have similar radiopacity on the radiographs. (e) Fast exposure time is the best way to prevent involuntary motion.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">考卷作答：(a)</div><p class="quiz-explain">(a) 錯：加速電子靠 kVp——本題答案。(b) 對。(c) 對：要看的肺放靠近<strong>X 光管</strong>（＝遠離底片），這正是肺部病灶的例外（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=17">〈X光學基礎〉p.17</a>）；109-1 把同一句改成「close to the X-ray film」變成錯的敘述，要看清楚是 tube 還是 film。(d) 對。(e) 對。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選（10）</span>
+        <div class="quiz-q">5. The number of X-ray photons that are transmitted through a material depends on the: (a) Energy of the photons (b) Thickness of the material (c) Atomic number of the material (d) All of the above</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">考卷作答：(d)</div><p class="quiz-explain">(a) 能量越高穿透越多（光電效應 ∝ 1/E³）；(b) 越厚吸收越多（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=14">〈X光學基礎〉p.14</a>）；(c) 原子序越高吸收越多（∝ Z³）（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=6">〈X光學基礎〉p.6</a>）。三者都對，答 (d)。</p></details>
+      </div>
+      <h3>107-1 張雅珮部分<span class="lv lv-know">理解</span></h3>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">原卷照片（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/cy107.jpg" alt="2018 量表題與 107-1 張雅珮期中考卷" loading="lazy"><div class="figure-caption">上方疊著 2018 Mid Session（HPH，黃慧璧）的量表題（見第 7 節），下方為 107-1 張雅珮部分第 1–6 題，含作答筆跡。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.8</div></div>
+      </details>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:8%;">題</th><th>題目</th><th style="width:30%;">答案與理由</th></tr></thead>
+        <tbody>
+          <tr><td>1 圈選</td><td>Compared to fat, bladder causes higher / lower photoelectric effect… more / less x-rays pass… higher / lower radiopacity… brighter / darker</td><td><strong>higher、less、higher、brighter</strong>（考卷圈選相同）：尿液（水）比脂肪密度與原子序高</td></tr>
+          <tr><td>2 圈選</td><td>Higher kVp…（同 108-1 第 2 題）</td><td><strong>lower、more、lower、decrease</strong></td></tr>
+          <tr><td>3 單選</td><td>Which factor does not affect contrast? (a) filter (b) photoelectric effect (c) film (d) thickness (e) grid (f) collimator (g) all affect</td><td>鉛筆作答 (g)；<strong>紅筆訂正 (a) Filter</strong>（萬萬檔 p.13；紅筆旁註：影響對比的是 tissue 性質、X 光能量、film、fog、scatter）</td></tr>
+          <tr><td>4 單選</td><td>Which is incorrect? (a) mA applied to cathode (b) increasing mA accelerates electrons (c) chest: lung field of interest close to x-ray tube (d) fluid ≈ muscle (e) fast exposure</td><td>考卷作答 <strong>(b)</strong>：加速電子的是 kVp</td></tr>
+          <tr><td>5 單選</td><td>Number of photons transmitted depends on (a) energy (b) thickness (c) atomic number (d) all</td><td>考卷作答 <strong>(d)</strong></td></tr>
+          <tr><td>6 看圖</td><td>6-1 Comment the position of these radiographs and explain how you achieve the conclusion（6）</td><td>考場影像未收錄；答法同 109-1 第 6-1 題</td></tr>
+        </tbody>
+      </table></div>
+      <h3>100-1 期末（principles of radiology / neural system）<span class="lv lv-know">理解</span></h3>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">原卷照片（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/cy100_1.jpg" alt="100-1 臨影診期末考卷" loading="lazy"><div class="figure-caption">100-1 臨影診 Final exam 第 1–4 題（考卷標頭的學號姓名已裁除），左側為作答筆跡。這份是<strong>期末</strong>，但題目與後來的期中幾乎相同，所以一起收。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.7</div></div>
+      </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">1. Which statement is incorrect? (a) High contrast is related to having very few shades of grey on a film. (b) Compared to fluid, bone has higher photoelectric effect. When x-rays strike bone tissue, there are more x-rays pass through and expose to the film, result in the higher radiopacity. (c) One determining factor of high contrast is a result of low kVp. (d) High-energy x-rays can change the photoelectric effect of body parts, therefore decrease the contrast between tissues of various types.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">考卷作答：(b)</div><p class="quiz-explain">(a) 對：高對比＝灰階層次少（黑白分明）。(b) 錯：骨頭光電效應高 → 穿過的 X 光<strong>少</strong>，不是多——本題答案。(c) 對：低 kVp → 光電效應差異大 → 高對比。(d) 對：高能 X 光降低光電效應 → 對比下降（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=6">〈X光學基礎〉p.6</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">2. Which statement is incorrect? (a) Improper tube centering has effect on shape distortion. (b) The area of primary interest should be placed close to the x-ray tube to avoid distortion. (c) The purpose of contrast on a radiographic film is to see different structures within the radiograph. (d) Two projections 90 degrees to each other are the general rule of choosing projections when taking radiographs.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：(b)</div><p class="quiz-explain">(a) 對：中心偏移造成同一物體各部位放大程度不同＝變形（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=17">〈X光學基礎〉p.17</a>）。(b) 錯：感興趣區要放<strong>靠近底片（cassette）</strong>避免放大（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=17">〈X光學基礎〉p.17</a>）——本題答案；肺部病灶才是例外。(c) 對。(d) 對：至少兩個互相垂直的投照（orthogonal views）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選</span>
+        <div class="quiz-q">3. Which statement is incorrect? (a) The charge of the cathode side of the x-ray tube is negative. (b) mA is applied to the cathode to produce electrons. (c) By increasing mA, the electrons are accelerated to higher velocities, therefore produce high-energy x-ray. (d) X-ray beam collimation for radiography is important for patient dose and imaging quality.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">整理者答案：(c)</div><p class="quiz-explain">(a) 對：陰極帶負電、釋放電子。(b) 對。(c) 錯：kVp 才加速電子——本題答案（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=4">〈X光學基礎〉p.4</a>）。(d) 對（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=9">〈X光學基礎〉p.9</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答</span>
+        <div class="quiz-q">4. What are the five basic radiopacities seen on the radiographs?</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">由黑到白：氣體（gas／air）、脂肪（fat）、軟組織／液體（soft tissue／fluid）、骨（bone／mineral）、金屬（metal）</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/X光學基礎.pdf#page=13">〈X光學基礎〉p.13</a> 的表依密度與原子序排列空氣、脂肪、水、肌肉、骨、鉛，並說明液體（血、尿、膽汁、腦脊髓液）與組織（軟骨、肌肉、筋膜、肌腱、韌帶、器官）同屬「軟組織 radiopacity」。⚠ 考卷上的作答把脂肪併進軟組織、另列 water，少了「脂肪」一類，不要照抄。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答</span>
+        <div class="quiz-q">5. 請問照 spine 的 general 姿勢（標準投照）？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">側位（lateral）＋腹背位（ventrodorsal, VD）</div><p class="quiz-explain">融合檔 p.6 學長姐整理列為張雅珮問答第 2 題；考卷筆跡寫「LV-RD」，萬萬檔 p.40 註「照 spine＝LV-RD」，推測是 lateral＋VD 的縮寫寫法。學長姐另一版答案寫「VD（仰躺，脊椎清楚）＋oblique（斜躺，減少重疊）」（萬萬檔 p.20），但講義的標準是 <strong>lateral 與 VD</strong>，oblique、屈曲伸展、牽引是依需要另外加的投照（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=17">〈脊椎影像判讀〉p.17</a>）。答題時可補一句：側位要讓脊椎與檯面平行，頸椎前肢往後拉、胸腰椎前肢往前後肢往後（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=18">〈脊椎影像判讀〉p.18</a>）。</p></details>
+      </div>
+      <footer class="note-footer">資料來源：考古〈2022 影診期中（參考答案）〉p.2、〈臨影診期中考古融合〉p.6–11、〈Mid 108 影診萬萬〉p.13、p.20、p.26、p.40；課程講義〈Radiology - introduction 2026〉、〈Radiology - neuro - spine〉、〈CT and MRI - principles 2026〉（張雅珮）。答案非官方。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CYIMG -->
+    <div class="section" id="section-cyimg">
+      <div class="section-head"><div class="section-num">4</div><h2>張雅珮：看圖題（神經影像與脊椎）</h2></div>
+      <p class="section-desc">每年換片，考法固定：<strong>寫出異常 → 定位到節數 → 診斷</strong>。描述用 A SPINE 與六個維度（<a href="week03_脊椎影像判讀.html#section-interpretation">脊椎影像判讀第 4 節</a>）。</p>
+      <h3>2022 第 5–8 題<span class="lv lv-must">必考</span></h3>
+      <div class="alert alert-info"><div class="alert-label">資訊</div><p>學長姐留下的是「考場圖的類似圖」（第 5 題寫「給類似」，第 8 題寫「好像是這張」），不是原圖；第 6 與第 8 題可能是同一系列頸椎片。學長姐的手寫答案見下方原卷照片。</p></div>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">學長姐作答原卷（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/cy2022_2.jpg" alt="2022 張雅珮期中看圖題作答" loading="lazy"><div class="figure-caption">111-1 期中第 5–8 題手寫作答。</div><div class="figure-source">來源：考古〈2022 影診期中〉p.4</div></div>
+      </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（6）</span>
+        <div class="quiz-q">5. Among these images, they are T1-weighted, T2-weighted, or FLAIR transverse MR images of the brain. Please identify them.</div>
+        <div class="figure"><img src="img/期中考古/cy2022_q5.jpg" alt="腦部 MRI 橫切面兩張" loading="lazy"><div class="figure-caption">學長姐找到的類似圖：腦部橫切面 MRI，右圖可見一個很亮的圓形病灶。</div><div class="figure-source">來源：考古〈2022 影診期中〉p.3（非原考題圖）</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：A T2-weighted、B T1-weighted、C FLAIR</div><p class="quiz-explain">判斷順序：先看<strong>腦脊髓液（腦室）</strong>——T1W 黑、T2W 白、FLAIR 黑（自由水被抑制）；再看脂肪——T1W、T2W 都偏亮。T2W 與 FLAIR 灰白質對比相近，但 FLAIR 腦室是黑的；T1W 灰白質對比明顯、腦室黑（<a class="pdf-link" href="pdf/CT與MRI原理.pdf#page=35">〈CT與MRI原理〉p.35</a>、<a class="pdf-link" href="pdf/CT與MRI原理.pdf#page=37">〈CT與MRI原理〉p.37</a> 的 T1W／T2W／FLAIR 比較，詳見<a href="week04_CT與MRI原理.html">CT 與 MRI 原理</a>）。學長姐答案旁註「水、脂肪、去水」就是這三個判斷點。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（6＋4）</span>
+        <div class="quiz-q">6-1. Please see the radiographs on the screen. Write down your finding(s).<br>6-2. The dog presented with severe neck pain, what is the most important diagnosis and its location based on your imaging finding(s)?</div>
+        <div class="figure"><img src="img/期中考古/cy2022_q6.jpg" alt="犬頸椎側位 X 光" loading="lazy"><div class="figure-caption">學長姐留下的頸椎側位片（第 6、8 題可能都是這一系列）。</div><div class="figure-source">來源：考古〈2022 影診期中〉p.3</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：6-1 C5–C6 calcified disc material；C5/C6 disc space 變小。6-2 C5–C6 鈣化物質壓迫 neural canal，造成劇烈疼痛。</div><p class="quiz-explain">對應講義：椎間盤空間變窄＋椎間孔變窄＋椎間盤物質鈣化是<strong>退化性椎間盤疾病（Intervertebral Disc Disease, IVDD）</strong>的 X 光表現（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=91">〈脊椎影像判讀〉p.91</a>）。寫法：「C5/C6 椎間盤空間變窄，椎間盤空間／椎間孔內可見鈣化物質 → 主要診斷 C5/C6 椎間盤突出（Hansen type I 推測）壓迫脊髓／神經根，符合頸部劇痛」；並寫「X 光無法確認壓迫程度，建議 CT 或 MRI」（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=92">〈脊椎影像判讀〉p.92</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（6＋4）</span>
+        <div class="quiz-q">7-1. Please see the radiographs on the screen. Describe the abnormal findings.<br>7-2. What is your diagnosis and its location?</div>
+        <div class="figure"><img src="img/期中考古/cy2022_q7.jpg" alt="寰樞椎不穩定中立位與伸展位 X 光" loading="lazy"><div class="figure-caption">學長姐附的圖就是講義 p.41 寰樞椎不穩定（中立位、伸展位、VD）。</div><div class="figure-source">來源：考古〈2022 影診期中〉p.3；講義〈Radiology - neuro - spine〉p.41</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：7-1 C1–C2 間角度異常，像 subluxation（低頭、仰頭時幅度都異常大）；VD 看 C1/C2 間隙異常大；C3/C4、C4/C5 alignment abnormal。7-2 atlantoaxial problem，VD 看得到 dens，推測是韌帶出問題；鎮靜麻醉時要小心操作。</div><p class="quiz-explain">對應講義：脊椎排列異常的鑑別診斷含<strong>寰樞椎不穩定（atlanto-axial instability）</strong>（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=35">〈脊椎影像判讀〉p.35</a>）；用中立／屈曲／伸展位比較寰樞椎間角度（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=41">〈脊椎影像判讀〉p.41</a>、<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=68">〈脊椎影像判讀〉p.68</a>–<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=70">〈脊椎影像判讀〉p.70</a>）。標準寫法：「C1–C2 排列異常，伸展（或屈曲）時寰椎背弓與樞椎棘突間距異常增大 → 寰樞椎不穩定／半脫位；建議 CT 確認齒突（dens）是否發育不全」。學長姐提到「看得到 dens → 推測韌帶問題」是合理推論（齒突存在時，不穩定較可能來自韌帶），講義未寫，標推測。動態攝影與麻醉要小心過度屈曲（見<a href="week03_脊椎影像判讀.html#drug-atlantoaxial">脊椎影像判讀</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（6＋4）</span>
+        <div class="quiz-q">8-1. Please see the radiographs on the screen. Describe the abnormal findings.<br>8-2. What is your diagnosis and its location?</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：8-1 C2/C3 disc space 小；C3 vertebral body 異常。8-2 未作答。</div><p class="quiz-explain">影像沒有留下（學長姐寫「好像是」第 6 題那張）。依作答描述，鑑別診斷方向（推測）：C2/C3 椎間盤空間變窄＋C3 椎體形狀或密度異常 → 依六維度表考慮<strong>椎間盤感染（discospondylitis，終板溶解）</strong>、骨折、腫瘤或椎間盤突出（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=42">〈脊椎影像判讀〉p.42</a>、<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=54">〈脊椎影像判讀〉p.54</a>、<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=74">〈脊椎影像判讀〉p.74</a>）。判斷關鍵是終板有沒有溶解、是單一椎體還是跨椎間盤。</p></details>
+      </div>
+      <h3>108-1 第 6–8 題（手寫作答）<span class="lv lv-must">必考</span></h3>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">作答原卷（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/cy108_2.jpg" alt="108-1 張雅珮期中看圖題手寫作答" loading="lazy"><div class="figure-caption">108-1 期中第 6-2 至 8-3 題手寫作答（字跡辨識可能有誤）。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.10</div></div>
+        <div class="figure"><img src="img/期中考古/cyQ6_screen.jpg" alt="考場投影 Question 6 側位與 VD 胸腰椎 X 光" loading="lazy"><div class="figure-caption">融合檔 p.12 的考場投影「Question 6」：A 側位、B VD 胸腰椎片；年份未標，<strong>推測</strong>對應這份 108-1 第 6 題（題目要求比較 lateral 與 VD）。照片已裁切，只留投影幕。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.12</div></div>
+      </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（6＋8＋6）</span>
+        <div class="quiz-q">6-1. Comment the position of lateral radiograph and explain how you achieve the conclusion.<br>6-2. Write down your finding(s) on the lateral and VD radiographs.<br>6-3. What is the imaging diagnosis and its location based on your findings?</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">作答（手寫辨識）：6-1 右側躺的胸腔側照（另一份影本藍筆補充判斷依據：position 正不正、有沒有 rotate、看 rib、椎體、spinous process）。6-2 胸椎部分明顯較白，但不確定是內臟還是脊椎問題；提高對比後可發現左側第三根肋骨有斷裂；側照可發現腹側骨折，第二、三腰椎有異常。6-3 推測為外傷造成的左側肋骨骨折以及腰椎斷裂；胸腔很白，可能肺臟有受傷，需要確認。</div><p class="quiz-explain">寫法建議：6-2 依 A SPINE 分項，每個異常寫「位置（第幾節、左右）＋變化（骨皮質中斷、排列中斷、椎體縮短）」；6-3 分<strong>主要診斷</strong>（與神經症狀相符的脊椎骨折／脫位）與<strong>合併外傷</strong>（肋骨骨折、肺挫傷），並建議胸腔片與 CT。這題和下方 Question 3、<a href="week03_脊椎影像判讀.html#drug-trauma">脊椎影像判讀的創傷 CT 案例</a>是同一類題型。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（4＋2＋2＋4）</span>
+        <div class="quiz-q">7-1. Describe the abnormal findings in Figure A.<br>7-2. Describe the type of imaging of Figure B.<br>7-3. For Figure B, where is the contrast medium? (a) Extra-dural space (b) Subarachnoid space (c) Intramedullary space<br>7-4. What is your diagnosis (and its location) for this animal based on findings from Figure A–C?</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">7-3 整理者答案：(b)　⚠ 作答圈 (c)</div><p class="quiz-explain">作答（手寫辨識）：7-1 椎間孔明顯較窄且有白色，可能有 neoplasia 或反應；7-2 造影，可看到脊髓腔在最後一節胸椎處的造影劑出現凹陷，表示外物擠壓；7-4 可能和高齡椎間盤突出、內部神經被壓迫有關。<br><strong>7-2</strong>：這是<strong>脊髓造影（myelography）</strong>。<strong>7-3</strong>：脊髓造影的顯影劑注入<strong>蜘蛛膜下腔（subarachnoid space）</strong>，所以 (b)。(a) 硬膜外腔不是注射位置；(c) 髓內（intramedullary）是脊髓實質本身，顯影劑不會在那裡——作答選 (c) 是錯的。講義的三種壓迫分類：硬膜外壓迫（extradural，退化性 IVDD 典型，<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=92">〈脊椎影像判讀〉p.92</a>）、ANNPE 的「髓內病灶」（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=98">〈脊椎影像判讀〉p.98</a>），名詞要分清楚（脊髓造影原理為補充）。<br><strong>7-1／7-4</strong>：椎間孔變窄＋密度增加 → 依六維度表最先想到<strong>椎間盤突出合併鈣化椎間盤物質</strong>（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=49">〈脊椎影像判讀〉p.49</a>–<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=51">〈脊椎影像判讀〉p.51</a>）；造影劑柱在該處被往內推＝<strong>硬膜外壓迫</strong> → 診斷為該節椎間盤突出壓迫脊髓（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=92">〈脊椎影像判讀〉p.92</a>）。作答寫 neoplasia 是椎間孔「變大」的鑑別，方向相反。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（4＋4＋4）</span>
+        <div class="quiz-q">8-1. What is the structure A–B? Describe the vertebra number and the structure if appropriate.<br>8-2. Describe the abnormal findings.<br>8-3. What is your diagnosis?</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">作答（手寫辨識）：8-1 A–B＝transverse process（第一頸椎）；另一份影本藍筆寫 axis、atlas（萬萬檔 p.27）；8-2 第二、三頸椎接合處不平整，可發現第二頸椎往上方偏移；8-3 頸椎處的骨折導致頸椎斷裂。<br>影像沒有留下，無法核對。寫法提醒：C1 的橫突特別大，稱<strong>寰椎翼（wing of atlas）</strong>；排列中斷要寫清楚哪一節相對哪一節往哪個方向移位（背側／腹側），再寫是半脫位還是骨折脫位（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=35">〈脊椎影像判讀〉p.35</a>、<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=86">〈脊椎影像判讀〉p.86</a>）。</p></details>
+      </div>
+      <h3>學長姐整理的其他看圖題型（萬萬檔 p.32–36）<span class="lv lv-must">必考</span></h3>
+      <p style="font-size:.9em; color:var(--fg-muted);">影像多來自舊講義與教科書圖譜，本頁不轉貼圖片，只列題型與答案要點；對照圖見連結的筆記頁。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:30%;">題型</th><th>學長姐答案要點</th><th style="width:20%;">對照</th></tr></thead>
+        <tbody>
+          <tr><td>「96 年據說考這兩張圖」①頸椎側位</td><td>C5–C6–C7 椎體下緣骨贅增生＝脊椎黏連性關節病（spondylosis deformans）；學長姐另認為 C1–C2 間隙異常＝寰樞椎不穩定／半脫位（atlanto-axial instability, C1–C2 subluxation）</td><td><a href="week03_脊椎影像判讀.html#drug-atlantoaxial">寰樞椎不穩定</a></td></tr>
+          <tr><td>②胸腰椎側位，數腰椎</td><td>「神經有！」——最後一根肋骨接 T13，往後數到髂骨嵴上方只有 6 節腰椎 → 過渡椎（transitional vertebra），少一節腰椎或 L1 長出肋骨</td><td><a href="week03_脊椎影像判讀.html#drug-congenital">先天性異常</a></td></tr>
+          <tr><td>給影像，寫出圈起來的構造</td><td>頸椎側位：上圈 atlas wing（寰椎翼）、下圈 spine of scapula（學長姐不確定）；腰椎側位：上圈 articular process joint 或 intervertebral foramen、下圈 transverse process；另需認 spinous process、intervertebral disc space</td><td><a href="week03_脊椎影像解剖圖譜.html">脊椎影像解剖圖譜</a></td></tr>
+          <tr><td>給兩張 X 光，選哪張照得比較好、說明原因</td><td>體位正：看肋骨是否對稱、胸骨與 spinous process 位置、C1（atlas wing）、C6（transverse process）、scapula、iliac crest；減少重疊：側照頸椎前肢往後拉，側照胸腰椎前肢往前、後肢往後</td><td><a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=18">〈脊椎影像判讀〉p.18</a>、<a class="pdf-link" href="pdf/X光學基礎.pdf#page=29">〈X光學基礎〉p.29</a></td></tr>
+          <tr><td>辨認脊椎疾病影像</td><td>過渡椎、癒合椎、半椎體、蝴蝶椎、寰樞椎不穩定、spondylosis deformans、discospondylitis、腫瘤、創傷（脫位、骨折）、退化性 IVDD、創傷性 IVDD（學長姐表格：創傷造成椎間盤破裂，內容物是水樣、不壓迫脊髓而造成脊髓腫脹，椎間盤變窄——即講義的 ANNPE）</td><td><a href="week03_脊椎影像判讀.html#section-diseases">常見脊椎疾病</a></td></tr>
+        </tbody>
+      </table></div>
+      <h3>年份不明：Question 3、Question 4（融合檔 p.13–16）<span class="lv lv-must">必考</span></h3>
+      <p style="font-size:.9em; color:var(--fg-muted);">融合檔只留下影像與英文答案，沒有題目原文與年份；答案是打字的，來源不明（可能是老師公布或學長姐整理）。題號 3-2、3-3 推測是「描述異常」與「診斷」。</p>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖</span>
+        <div class="quiz-q">Question 3. 請描述這張側位片的異常（3-2），並寫出診斷（3-3）。</div>
+        <div class="figure"><img src="img/期中考古/cyQ3.jpg" alt="Question 3 胸腰椎側位 X 光" loading="lazy"><div class="figure-caption">Question 3 的胸腰椎側位片（作答前先自己找：肋骨、排列、椎體形狀）。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.13</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">融合檔所附答案</div><p class="quiz-explain"><strong>3-2 異常</strong>：(1) T8–T13 一側肋骨形狀不連續；(2) L1/2 脊椎排列錯位（看椎體與神經管）；(3) L3/4（L5）脊椎排列錯位；(4) L4 椎體變短、變形，L4 上方椎管變窄，L4 椎體顱腹側部分 radiopacity 增加。<br><strong>3-3 診斷</strong>：(5) T8–T13 肋骨骨折（單側）；(6) L1/L2 半脫位；(7) L3/4 半脫位；(8) L4 椎體骨折。<br>學習重點：這份答案示範了「描述」與「診斷」分開寫——描述只寫看到的變化（不連續、錯位、變短、密度增加），診斷才寫病名。L4 椎體顱腹側密度增加是骨折後骨片重疊或壓縮的表現（推測）。和<a href="week03_脊椎影像判讀.html#drug-trauma">脊椎影像判讀：創傷</a>的 L1 骨折合併 T13/L1 半脫位是同一類。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖</span>
+        <div class="quiz-q">Question 4. 請描述這張胸腰椎側位片的異常。</div>
+        <div class="figure"><img src="img/期中考古/cyQ4.jpg" alt="Question 4 胸腰椎右側位 X 光" loading="lazy"><div class="figure-caption">Question 4 的胸腰椎右側位片（R 為右側標記；右上角醫院與病歷資訊已遮蓋）。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.15</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">融合檔所附答案</div><p class="quiz-explain">• T11/T12、T13/L1、L2/L3 椎間盤空間內有<strong>鈣化的椎間盤物質</strong>（calcified disc material）<br>• T12/T13（T10/T11）椎間盤空間<strong>變窄</strong><br>• L1/L2、L2/L3 <strong>脊椎黏連性關節病</strong>（spondylosis deformans；答案原本寫 discospondylosis，被劃掉改正）<br>• L1/L2 <strong>椎間孔內有鈣化椎間盤物質</strong><br>學習重點：同一張片同時考「椎間盤空間密度增加（鈣化）」「寬度變窄」「椎間孔密度增加」三個維度（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=49">〈脊椎影像判讀〉p.49</a>–<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=57">〈脊椎影像判讀〉p.57</a>）；鈣化椎間盤本身不等於突出，<strong>出現在椎間孔內</strong>才表示物質已經跑出去（<a class="pdf-link" href="pdf/脊椎影像判讀.pdf#page=91">〈脊椎影像判讀〉p.91</a>）。discospondylitis（感染）和 spondylosis（退化增生）只差幾個字母，答案就曾寫錯。</p></details>
+      </div>
+      <footer class="note-footer">資料來源：考古〈2022 影診期中〉p.3–4、〈臨影診期中考古融合〉p.10、p.12–16；課程講義〈Radiology - neuro - spine〉、〈CT and MRI - principles 2026〉（張雅珮）。答案非官方。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- LQ -->
+    <div class="section" id="section-lq">
+      <div class="section-head"><div class="section-num">5</div><h2>王麗倩：臨床檢查、消化道影像與行為病史</h2></div>
+      <p class="section-desc">學長姐說「基本上考古」。照片考卷 4 題年年相同，2022 只把第 4 題換成行為的醫學原因。範圍：<a href="week09_物理檢查.html">物理檢查</a>、<a href="week09_檢體採集.html">檢體採集</a>、<a href="week06_消化道臨床檢查與影像.html">消化道臨床檢查與影像</a>，以及行為病史（目前資料夾沒有這份講義）。</p>
+      <details class="alert alert-info" style="margin:0 0 1rem;"><summary style="cursor:pointer;font-weight:700;">原卷照片（點開）</summary>
+        <div class="figure" style="margin-top:.6rem;"><img src="img/期中考古/lq_exam.jpg" alt="王麗倩期中考卷照片" loading="lazy"><div class="figure-caption">王麗倩照片考卷（年份未標）：黑色手寫為原作答，紅字為學長姐後來整理的答案。</div><div class="figure-source">來源：考古〈臨影診期中考古融合〉p.5</div></div>
+      </details>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答（36%）</span>
+        <div class="quiz-q">1. What are the possible causes for the following mucous membrane color — pale, blue, yellow and petechiae? And how do you interpret them?</div>
+        <details class="quiz-reveal"><summary></summary><div class="table-wrap"><table>
+          <thead><tr><th>顏色</th><th>代表（Interpretation）</th><th>可能原因</th></tr></thead>
+          <tbody>
+            <tr><td>Pale／white</td><td>貧血、灌流不良、血管收縮</td><td>失血、休克、周邊血流下降</td></tr>
+            <tr><td>Blue（cyanotic）</td><td>氧合不足</td><td>低血氧</td></tr>
+            <tr><td>Yellow（icteric）</td><td>膽紅素堆積</td><td>肝臟或膽道疾病，及／或溶血</td></tr>
+            <tr><td>Petechiae</td><td>凝血異常</td><td>血小板異常、DIC、凝血因子缺乏</td></tr>
+          </tbody></table></div>
+          <p class="quiz-explain">出自物理檢查講義的黏膜顏色表（<a class="pdf-link" href="pdf/物理檢查.pdf#page=26">〈物理檢查〉p.26</a>；整理見<a href="week09_物理檢查.html#section-mm">物理檢查頁第 7 節</a>）。學長姐紅字答案把 petechiae 只寫成「免疫問題造成血小板過低」，範圍太窄；講義的三個原因（血小板、DIC、凝血因子）都要寫。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（20%）</span>
+        <div class="quiz-q">2. The picture below was taken 30 min after barium administration in a dog. Please identify the specified items (A, B, 5, 8, 12) of body parts on this radiograph.</div>
+        <div class="figure"><img src="img/消化道影像/gi_p46.jpg" alt="鋇劑給藥 30 分鐘犬腹部側位 X 光" loading="lazy"><div class="figure-caption">考卷的影像就是消化道講義 p.46 這張（考卷另外加了 A、B 兩個箭頭指向腹側的實質器官，編號 5、8、12 與講義相同）。</div><div class="figure-source">來源：課程講義〈臨床影像診斷－消化道 2026〉p.46</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">5 幽門竇（pyloric antrum）、8 十二指腸降部（descending portion of duodenum）、12 空腸與迴腸迴圈（loops of jejunum and ileum）；A 肝臟、B 脾臟（學長姐答案）</div><p class="quiz-explain">5、8、12 照講義 p.46 的圖例（<a class="pdf-link" href="pdf/消化道臨床檢查與影像.pdf#page=46">〈消化道臨床檢查與影像〉p.46</a>）。學長姐紅字把 5 寫成 pylorus、8 寫成 duodenum，答題要寫完整講義名稱。A、B 講義圖上沒有標，學長姐答肝、脾：A 指向胃前腹側的大片軟組織（肝臟），B 指向胃後腹側（側位片上脾臟位於腹側、胃的尾側，推測）。原作答者寫的 5 stomach、8 jejunum、12 ascending colon 都是錯的。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">看圖（14%）</span>
+        <div class="quiz-q">3. What have you seen on this radiograph? Give a diagnosis and explain.</div>
+        <div class="figure"><img src="img/消化道影像/gi_p64.jpg" alt="腸套疊鋇劑灌腸 X 光" loading="lazy"><div class="figure-caption">考卷影像與消化道講義 p.64 右圖相同：鋇劑灌腸（barium enema）後，結腸內的鋇劑柱在某處突然中斷、呈杯口狀。</div><div class="figure-source">來源：課程講義〈臨床影像診斷－消化道 2026〉p.64</div></div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">腸套疊（intussusception）</div><p class="quiz-explain">學長姐答案：「顯影劑受阻礙，因為發生腸套疊，只有部分鋇劑流過去」。寫法建議：描述 → 「鋇劑灌腸後，結腸內鋇劑柱在 ×× 處中斷，末端呈杯口狀／彈簧圈狀（coiled spring）充盈缺損」；診斷 → 「腸套疊，套入的腸段（intussusceptum）阻擋鋇劑」；解釋 → 套疊腸段在腸腔內形成軟組織團塊，鋇劑只能包在周圍（<a class="pdf-link" href="pdf/消化道臨床檢查與影像.pdf#page=62">〈消化道臨床檢查與影像〉p.62</a>–<a class="pdf-link" href="pdf/消化道臨床檢查與影像.pdf#page=64">〈消化道臨床檢查與影像〉p.64</a>）。超音波的靶樣徵象見<a href="week02_超音波診斷入門.html">超音波診斷入門</a>。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答（30%）</span>
+        <div class="quiz-q">4. What issues should you pay attention to while taking behavioral history?</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">學長姐整理（行為講義不在本資料夾，無法核對）：(1) 基本資料 signalment；(2) 飼主主訴；(3) 就診原因（為什麼來？是否被告）；(4) 主要照顧者（轉移性攻擊）；(5) 活動狀況（每日行程、散步）；(6) 家裡環境（物品、多隻動物）；(7) 醫療狀況（病史、用藥，用藥前看肝腎功能）；(8) 問題行為的實際描述（叫聲、姿態、耳尾眼睛）；(9) 發生頻率與持續時間、模式是否改變；(10) 飼主狀態（第幾手、飼養原因）；(11) 是否毆打過動物；(12) 家族遺傳病史；(13) 過去的行為治療與結果；(14) 發病年齡；(15) 安置或安樂死的考量；(16) 飼主與動物的互動；(17) 還有什麼沒說的。<br>融合檔 p.3 另有一份英文 17 點清單（Signalment、Client's complaint、Reason for seeking help、Primary caretaker、Activity pattern、Medical considerations、Actual descriptions of problem behavior、Listing of incidents、Pattern、Client/owner、Previous treatment and outcomes、Age at onset and duration、Familial history、Changes in pattern、Placement/euthanasia、Client behavior and interaction、What has been left unsaid）。<br>萬萬檔 p.37、p.41 再補：<strong>不能用引導式問題、要用開放式問題</strong>；要知道行為<strong>什麼時候開始</strong>異常、是行為本身有問題還是無法配合飼主的生活方式；了解寵物與哪些人互動；飼主說錯也<strong>不能用批判的口氣</strong>；要<strong>保密資料</strong>；是否有用藥；家中有沒有發生重大改變（搬家）；之前發生問題時飼主怎麼處置；事先問卷，2–4 週要重做一次問卷。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答（2022 第 4 題）</span>
+        <div class="quiz-q">4（2022）. What medical causes affect animal behaviors?</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">學長姐整理（融合檔 p.4，依病因分類，行為講義不在本資料夾）：<br>(1) 先天／遺傳：嗜睡症、癲癇；腦積水、搖擺症候群（wobbler syndrome）；小腦發育不全；致死性肢皮炎（Bull terrier）。<br>(2) 傳染病：李斯特菌（Listeria）；狂犬病、犬瘟熱；隱球菌；心絲蟲、馬蠅幼蟲、弓蟲。<br>(3) 代謝：肝腦病（先天、後天門脈分流）；低血糖（胰島細胞瘤、營養不良）；儲積症（Fucosidosis、α-甘露糖症）；銅中毒（貝林登梗）；多系統神經元退化（可卡犬）。<br>(4) 中毒：藥物（Ibuprofen、Levamisole）、殺蟲劑（DEET）、鉛、汞。<br>(5) 營養：維生素 B1 缺乏、食物不良反應。<br>(6) 腫瘤：腦瘤、腦膜瘤、轉移性腫瘤。<br>(7) 免疫與發炎：類固醇反應性腦膜炎、肉芽腫性腦膜腦炎。<br>(8) 內分泌：甲狀腺功能低下／亢進、腎上腺皮質功能亢進。<br>(9) 退化：老化、認知功能障礙。(10) 外傷：頭部外傷。(11) 血管：出血、梗塞。(12) 神經：顳葉癲癇（精神運動性癲癇）、受體或神經傳導物質異常。(13) 特發性：憤怒症候群（rage syndrome）。<br>萬萬檔 p.37–38、p.42 補上「疾病 → 行為」的對應例子（答題加分）：腦瘤 → 精神狀態改變（mentation alterations）；食物過敏 → 貓自我舔咬脫毛（self-induced alopecia）；牙科疾病 → 厭食；膀胱炎 → 亂尿（house soiling）；關節炎 → 攻擊；cortisol → 抑制學習、使甲狀腺素下降；甲狀腺功能低下 → 攻擊性、極度害羞；糖尿病 → 護食。<br>答題可用 DAMNIT-V 的病因分類當骨架（見<a href="week03_脊椎影像判讀.html#section-interpretation">脊椎影像判讀第 4 節</a>的補充）。</p></details>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">重點：萬萬檔的王麗倩提示</div><ul style="margin:6px 0 0;padding-left:1.2em;">
+        <li>「麗倩<strong>行為學的 10～23 頁</strong>可能會考」（行為學講義不在本資料夾，拿到講義後要補讀）。</li>
+        <li>「要能分辨 X 光下每個臟器的區別」→ 第 2 題的鋇劑造影認結構；學長姐另附 Coulson &amp; Lewis 側位與 VD 腹部標號圖（教科書，不轉貼），重點：胃底有氣體、肝尾端正常在肋骨後方、左腎長度約第 2 腰椎的 2.5–3 倍、右腎較前且靠中線、盲腸在 VD 偏右、大型犬降結腸有一個折彎。</li>
+        <li>「給一張 X 光，給出診斷和解釋」→ 第 3 題<strong>每年換圖</strong>，學長姐整理過的四種：<strong>脾臟腫大</strong>（VD 左側偏後一大塊軟組織）、<strong>肝臟腫大</strong>（肝尾端超出肋弓很多）、<strong>胃內異物</strong>、<strong>腸套疊</strong>（鋇劑灌腸過不去、coiled spring）。四種影像都在<a href="week06_消化道臨床檢查與影像.html#section-abnormal">消化道頁第 8 節</a>。</li>
+        <li>王麗倩「技術理學檢查」範圍另有：<strong>齒式</strong>（犬永久齒 3142／3143、貓 3131／3121；乳齒犬 313／313、貓 313／312）與口腔檢查（牙齦、黏性、CRT、舌繫帶 frenulum、扁桃腺；口鼻瘻管 oro-nasal fistula），見<a href="week07_犬貓完整口腔評估與治療COHAT.html">COHAT 頁</a>。</li>
+      </ul></div>
+      <h3>學長姐整理的其他王麗倩題目（融合檔 p.1–2）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:32%;">題目</th><th>答題重點（學長姐版＋講義）</th><th style="width:18%;">講義</th></tr></thead>
+        <tbody>
+          <tr><td>Body form（可拿來寫 Ordinal scale）</td><td>very thin、underweight、ideal、overweight、obese 五級，看肋骨、髖骨、俯視腰身、側看腹線、頸部與尾根「游泳圈」</td><td><a href="week09_物理檢查.html#section-impression">物理檢查第 3 節</a></td></tr>
+          <tr><td>Color of mucous membrane（可拿來寫 Nominal scale）</td><td>七種顏色、代表、可能原因三欄</td><td><a class="pdf-link" href="pdf/物理檢查.pdf#page=26">〈物理檢查〉p.26</a></td></tr>
+          <tr><td>正常犬貓呼吸、心跳、體溫</td><td>犬 10–30、60–120、38.0–39.0 ℃；貓 20–40、120–180、38.5–39.0 ℃</td><td><a class="pdf-link" href="pdf/物理檢查.pdf#page=17">〈物理檢查〉p.17</a>–<a class="pdf-link" href="pdf/物理檢查.pdf#page=19">〈物理檢查〉p.19</a></td></tr>
+          <tr><td>CRT &gt; 2 sec 的臨床意義</td><td>循環受損：寒冷、休克、心血管疾病、貧血</td><td><a class="pdf-link" href="pdf/物理檢查.pdf#page=25">〈物理檢查〉p.25</a></td></tr>
+          <tr><td>Try to explain the image construction in 2D ultrasonography</td><td>探頭發出聲波並接收回音，回音的振幅轉換成亮點的亮度（B-mode），依回音時間定位深度，數百條掃描線組成影像（這題屬超音波，可能是王尚麟的題）</td><td><a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=1">〈超音波診斷入門〉p.1</a></td></tr>
+          <tr><td>The reasons of DIC</td><td>細菌感染（內毒素）、病毒感染、抗原抗體複合物、血管內溶血、大面積燒傷、瀰漫性血管內皮受損、休克</td><td>講義只出現「點狀出血→DIC」</td></tr>
+          <tr><td>腹腔穿刺位置</td><td>腹正中線、臍後 2–3 cm</td><td><a class="pdf-link" href="pdf/檢體採集.pdf#page=40">〈檢體採集〉p.40</a></td></tr>
+          <tr><td>胸腔穿刺位置</td><td>第 6–7（–8）肋間、肋軟骨交接處正上方、肋骨前緣進針</td><td><a class="pdf-link" href="pdf/檢體採集.pdf#page=43">〈檢體採集〉p.43</a>–<a class="pdf-link" href="pdf/檢體採集.pdf#page=44">〈檢體採集〉p.44</a></td></tr>
+          <tr><td>小腸與大腸性下痢</td><td>小腸性：糞便量大、體重下降、腹鳴脹氣；大腸性：次數多、裡急後重、量少、含黏液與血</td><td><a href="week06_消化道臨床檢查與影像.html#section-symptoms">消化道頁</a></td></tr>
+          <tr><td>糞便檢查</td><td>消化試驗、塗抹法、浮游法；後兩者查寄生蟲（梨形鞭毛蟲在小腸、纖毛蟲在大腸）</td><td>講義未教</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：考古〈臨影診期中考古融合〉p.1–5、〈Mid 108 影診萬萬〉p.3–6、p.14–25、p.29–31、p.37–44、〈2022 影診期中〉p.1 學長姐心得；課程講義〈Physical examinations〉、〈Material collection for laboratory examination〉、〈臨床影像診斷－消化道 2026〉。答案非官方。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- WAN -->
+    <div class="section" id="section-wan">
+      <div class="section-head"><div class="section-num">6</div><h2>萬灼華：實驗動物影像</h2></div>
+      <p class="section-desc">10 題每年相同（2022 學長姐：「萬的跟考古一模一樣」）。題目、學長姐作答與逐選項詳解放在講義頁，避免兩邊各寫一份。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:8%;">題</th><th>考什麼</th><th style="width:22%;">學長姐作答</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>看圖：四隻小鼠的影像是哪種 imaging</td><td>(D) Bioluminescence</td></tr>
+          <tr><td>2–6</td><td>電磁波譜圖上 CT、MRI、PET、螢光、SPECT 的位置</td><td>C、A、D、B、D</td></tr>
+          <tr><td>7（複選）</td><td>整隻活小鼠 MRI 的磁場強度</td><td>(C) 4.7 T、(D) 9.4 T</td></tr>
+          <tr><td>8（複選）</td><td>小鼠影像中心的人員</td><td>ABCD</td></tr>
+          <tr><td>9（是非）</td><td>影像中心工作和醫院影像中心相似，其他像辦公室文書</td><td>✕</td></tr>
+          <tr><td>10（是非）</td><td>MRI 要放在射頻屏蔽室</td><td>○</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">萬萬檔 p.1 是同一份考卷的另一份作答，十題答案與上表完全相同（另註：PET＝正子電腦斷層、螢光屬光學影像 fluorescence／bioluminescence；第 8 題四個選項旁註「技師、照顧、vet」）。</p>
+      <p><a class="btn" href="week08_實驗動物影像.html#section-kaogu">→ 到實驗動物影像頁作答（第 10 節）</a></p>
+      <footer class="note-footer">資料來源：考古〈臨影診期中考古融合〉p.17–18、〈Mid 108 影診萬萬〉p.1–2。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- OLDER -->
+    <div class="section" id="section-older">
+      <div class="section-head"><div class="section-num">7</div><h2>其他老師與舊年度題目（向才園、黃慧璧、跛行檢查、期末）</h2></div>
+      <p class="section-desc">來自〈Mid 108 影診萬萬〉。這些老師或範圍不一定在今年（2026）的期中考，先當參考；今年的授課表以老師公告為準（本學期講義由王尚麟教超音波）。</p>
+      <h3>黃慧璧：臨床診斷（量表與檢驗特性）<span class="lv lv-know">理解</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答（2018 Mid Session，HPH）</span>
+        <div class="quiz-q">Provide an example of the scale of measurement for symptoms or clinical signs, in terms of interval, ordinal and nominal scales (an example for each scale).</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">學長姐答案（萬萬檔 p.18、p.31、p.39 三版合併）：<br>• <strong>Interval scale（等距尺度）</strong>：以相同標準做定量比對、數字之間的差距有意義，可加減：<strong>體溫</strong>、心跳數（犬 &lt;60 徐緩、60–120 正常、&gt;120 過速；貓 &lt;120、120–180、&gt;180）、病灶大小、<strong>VHS（vertebral heart scale＝L＋S）</strong>、血壓、血檢數值、以第 2 腰椎長度評估腎臟大小（正常約兩個 L2）。<br>• <strong>Ordinal scale（順序尺度）</strong>：半定量的分級：<strong>BCS</strong>、肌肉狀態評分、<strong>心雜音 Grade I–VI</strong>、脫水分級、膝蓋骨異位第一到第四級、乳牛跛行評分 1–5（normal → severely lame）、觸診硬度（水袋 → 泥狀 → 軟橡膠 → 硬橡膠 → 石頭）。<br>• <strong>Nominal scale（類別尺度）</strong>：用已知事物去類比、沒有大小：<strong>黏膜顏色</strong>、扣診音（金屬音、空洞音、濁音、鈍音）。<br>出題者：萬萬檔 p.39 標「黃慧璧 臨床診斷」，HPH 為其縮寫（推測）；學長姐稱「第一堂課的考試」。</p></details>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:20%;">名詞</th><th>學長姐筆記（萬萬檔 p.39）</th></tr></thead>
+        <tbody>
+          <tr><td>Precision 精確</td><td>重複測量之間差多少（亂或整齊）</td></tr>
+          <tr><td>Accuracy 準確</td><td>多靠近真實數據；不準可以校正</td></tr>
+          <tr><td>Sensitivity 敏感度</td><td>例：有咳嗽可能有心臟病（有病的找得出來）</td></tr>
+          <tr><td>Specificity 特異度</td><td>例：心臟病會咳嗽，沒病沒症狀（沒病的不會誤判）</td></tr>
+        </tbody>
+      </table></div>
+      <h3>向才園：超音波（舊年度）<span class="lv lv-know">理解</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答</span>
+        <div class="quiz-q">Try to explain the advantage and disadvantage of the ultrasonography.</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">學長姐答案（萬萬檔 p.19、p.39）：<strong>優點</strong>——安全、非侵入、無輻射；比其他全身檢查便宜（耗材少）、儀器方便易操作、可在床邊做；即時成像、解析度高；有治療潛力（如震碎結石）。<strong>缺點</strong>——判讀較主觀、需要技術熟練度；聲波對骨頭穿透性差、肺部附近較難取得影像；容易受氣體干擾；肥胖病患或較深的器官不易。對照<a href="week02_超音波診斷入門.html">超音波診斷入門</a>。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答</span>
+        <div class="quiz-q">Explain the steps of the echocardiogram exam.</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">學長姐答案（萬萬檔 p.8–9）：<strong>準備</strong>——短毛動物用酒精把毛弄平、塗 gel；長毛動物在胸骨旁（肘後）剃毛。需要鎮靜時：<strong>Acepromazine 0.025 mg/lb（最多 1 mg）IV＋Buprenorphine（Buprenex）0.01–0.02 mg/kg</strong>（學長姐整理，Buprenex 的途徑未寫、非本學期講義內容）。<strong>過程</strong>——右側臥，觸摸心尖搏動放探頭，探頭垂直心臟縱軸，眼睛看螢幕調整到短軸。短軸由心尖往心基部依序：LV（乳突肌，前後乳突肌大小相同）→ Apex → Chordae tendineae（腱索）→ Mitral valve → Aortic valve（RV 內三尖瓣與肺動脈瓣、下方 LA）→ Pulmonary artery。再<strong>逆時針轉 90°</strong> 換長軸：4 chamber（左上 RV、右上 RA、左下 LV、右下 LA）→ 往肩膀方向調整成 LVOT。切面圖見<a href="week02_超音波診斷入門.html#section-echoviews">超音波診斷入門</a>。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答</span>
+        <div class="quiz-q">Try to explain the steps of the abdominal ultrasonography exam.</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">學長姐答案（萬萬檔 p.10–11、p.39，含「老師版」）：檢查前先問診、理學檢查、確認病史；禁食但可給水；塗水溶性 gel。<br>(1) <strong>肝、膽囊、胃</strong>：仰躺，從劍突開始、由右到左逐葉檢查（肝佔前腹腔約 2/3），膽囊在右側，肝左側找到胃；先 sagittal 再 transverse，看邊緣、質地、門脈。<br>(2) <strong>脾、左腎、腎上腺</strong>：左側找到胃再找脾；左腹壁找左腎，量長短軸、看腎動脈（可加測 RI、PI）；瘦狗或深胸狗用側躺較好找，胖狗胖貓用仰躺；腎上腺在腎的前內側。<br>(3) <strong>膀胱</strong>：脹尿時最清楚，長短軸；背側可找到後腔靜脈與主動脈，往尾側找尿道與公畜前列腺。<br>(4) <strong>右腎、十二指腸、胰臟</strong>：右肋緣處由肝找右腎；transverse 下右腎外側是十二指腸、右腎頭端十二指腸內側是胰臟。<br>(5) <strong>消化道</strong>：依序胃 → 幽門 → 十二指腸 → 小腸 → 大腸，看腸壁厚度、運動性、內容物、腸繫膜淋巴結，以蛇行方式掃 2–3 次。<br>(6) <strong>生殖</strong>：母畜由膀胱順子宮體往子宮角、腎的方向找卵巢；公畜多可直接觸診。</p></details>
+      </div>
+      <h3>跛行檢查（老師不明，萬萬檔 p.44）<span class="lv lv-skim">看過</span></h3>
+      <ul style="font-size:.95em;">
+        <li><strong>問診</strong>：功能、受傷部位、什麼時候開始、經過、程度、頻率、有無改變位置。</li>
+        <li><strong>觀察站姿、步伐</strong>：急性 → 患肢抬起（骨折、脫臼、韌帶斷裂）；慢性 → 單側肌肉萎縮；varus＝內翻、valgus＝外翻；torsion（骨頭沿長軸轉）、rotation（從關節出發的肢端沿長軸轉）；abduction 外展、adduction 內收。</li>
+        <li><strong>步行檢查</strong>：stride（著地瞬間）、stance phase（負重期）、swing phase（擺動期）；直線步行看患肢負重期縮短、點頭運動（前肢異常）、腰擺動與兔子跳（後肢異常）；圓周步行時患肢在圓心側較痛。跛行分級 grade 1–4。</li>
+      </ul>
+      <h3>期末考（參考）：眼科<span class="lv lv-skim">看過</span></h3>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">問答（臨診影診期末考）</span>
+        <div class="quiz-q">請問螢光染色（fluorescein staining）最常應用在眼科診斷的三個方面？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：① 角膜潰瘍檢查 ② TBT（tear break-up time）淚膜分解時間 ③ 鼻淚管阻塞與否</div><p class="quiz-explain">萬萬檔 p.2 的期末考題照片。這是期末範圍，期中不一定考；眼科講義不在本資料夾。補充：角膜潰瘍處上皮缺損，螢光素會染上基質呈綠色；TBT 是染色後到淚膜出現破洞的秒數；鼻淚管通暢時染劑會在數分鐘內從同側鼻孔流出（Jones test）。</p></details>
+      </div>
+      <footer class="note-footer">資料來源：考古〈Mid 108 影診萬萬〉p.2、p.8–11、p.18–19、p.31、p.39、p.44（學長姐整理，非官方）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- REPEAT -->
+    <div class="section" id="section-repeat">
+      <div class="section-head"><div class="section-num">8</div><h2>跨年重複題整合（張雅珮 X 光原理）</h2></div>
+      <p class="section-desc">同一題每年換比較對象或換一個字，就從對變錯。年份越多越要背。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:26%;">題型</th><th>各年的變化</th><th style="width:22%;">答案</th><th style="width:14%;">出現</th></tr></thead>
+        <tbody>
+          <tr><td>光電效應圈選（比較兩種組織）</td><td>膀胱 vs 脂肪（107-1）／脂肪 vs 脾（108-1）／膀胱 vs 脊椎（109-1）／心臟 vs 肺，再問脊椎（2022）／骨 vs 液體（100-1 改成敘述題）</td><td>密度高的那個：higher 光電效應、less 穿透、higher radiopacity、brighter</td><td>100-1、107-1、108-1、109-1、2022</td></tr>
+          <tr><td>高 kVp 圈選</td><td>幾乎逐字相同；108-1、109-1 多問「increase / decrease contrast」</td><td>lower、more、lower、decrease</td><td>107-1、108-1、109-1、2022</td></tr>
+          <tr><td>哪個因素不影響對比</td><td>選項有時有 filter、有時沒有；2022 改成逐項 Yes／No</td><td>107-1、108-1：答案是 <strong>filter</strong>（紅筆、藍筆訂正，原作答「全部都影響」是錯的）；109-1：選項沒有 filter，答「全部都影響」；2022 Yes/No：距離 No，其他 Yes（準直器有爭議）。整理：只有 filter 不影響對比</td><td>107-1、108-1、109-1、2022</td></tr>
+          <tr><td>mA vs kVp</td><td>「increasing mA accelerates electrons」每年都是錯的敘述；2022 再加「mA applied to the anode」也錯</td><td>mA＝陰極、電子數量；kVp＝加速、能量</td><td>100-1、107-1、108-1、109-1、2022</td></tr>
+          <tr><td>胸腔片肺野放哪裡</td><td>「close to x-ray <strong>tube</strong>」＝對（107-1、108-1）；「close to the X-ray <strong>film</strong>」＝錯（109-1、2022）</td><td>要看的肺放遠離底片</td><td>107-1、108-1、109-1、2022</td></tr>
+          <tr><td>感興趣區放哪裡（一般）</td><td>「close to the x-ray tube to avoid distortion」＝錯</td><td>一般放靠近底片；肺是例外</td><td>100-1</td></tr>
+          <tr><td>液體與肌肉同厚度 radiopacity 相近</td><td>每次都是對的敘述</td><td>對（同屬軟組織）</td><td>107-1、108-1、109-1</td></tr>
+          <tr><td>快速曝光減少不自主動作</td><td>每次都是對的敘述</td><td>對</td><td>107-1、108-1、109-1、2022</td></tr>
+          <tr><td>脊椎標準投照</td><td>lateral＋<strong>VD</strong>＝對（109-1）；lateral＋<strong>DV</strong>＝錯（2022）</td><td>lateral＋VD</td><td>109-1、2022</td></tr>
+          <tr><td>頸椎側位齒突看不清楚（C1 翼重疊）</td><td>兩年都出現</td><td>對（學長姐答案）</td><td>109-1、2022</td></tr>
+          <tr><td>光子穿透數取決於</td><td>能量、厚度、原子序</td><td>All of the above</td><td>107-1、108-1</td></tr>
+          <tr><td>看圖：評估側位片擺位</td><td>每年第 6-1 題</td><td>左／右側位判斷＋理由</td><td>107-1、108-1、109-1</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：本頁第 3 節各年考卷。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- TRUST -->
+    <div class="section" id="section-trust">
+      <div class="section-head"><div class="section-num">9</div><h2>資料可信度與待確認</h2></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:24%;">題目</th><th>考古上的答案</th><th>講義依據與本頁處理</th></tr></thead>
+        <tbody>
+          <tr><td>2022 王尚麟第 1 題（最高聲阻抗）</td><td>學長姐 (B) 膀胱</td><td>依原理應為 (C) 骨頭；頁面寫 (C)，標 ⚠</td></tr>
+          <tr><td>2022 王尚麟第 2 題（不適合超音波）</td><td>學長姐 (A) 腎臟</td><td>依講義應為 (B) 肺（<a class="pdf-link" href="pdf/超音波診斷入門.pdf#page=4">〈超音波診斷入門〉p.4</a>）；頁面寫 (B)</td></tr>
+          <tr><td>2022 張雅珮第 3a 題（準直器是否影響對比）</td><td>原作答 No、學長姐 ✗</td><td>講義列 fog and scatter 為對比因素、準直減少霧化（<a class="pdf-link" href="pdf/X光學基礎.pdf#page=9">〈X光學基礎〉p.9</a>），傾向 Yes；兩說並列，請以老師上課為準</td></tr>
+          <tr><td>2022 張雅珮第 4h 題（脂肪 CT 值約 100）</td><td>原作答 True</td><td>講義脂肪 −100 HU；頁面寫 False</td></tr>
+          <tr><td>109-1 第 4 題（哪個敘述錯）</td><td>無作答</td><td>已解決：萬萬檔的 107-1 紅筆、108-1 藍筆都把「不影響對比」訂正為 filter，與 109-1 (b) 為正確敘述一致；頁面 109-1 答 (c)、107-1 答 (a)、108-1 答 (f)。講義沒有寫 filter，仍以老師上課為準</td></tr>
+          <tr><td>108-1 第 7-3 題（脊髓造影顯影劑位置）</td><td>作答圈 (c) intramedullary</td><td>脊髓造影在蜘蛛膜下腔，頁面寫 (b)</td></tr>
+          <tr><td>100-1 第 4 題（五種基本 radiopacity）</td><td>作答少了脂肪</td><td>頁面寫氣、脂肪、軟組織／液體、骨、金屬</td></tr>
+          <tr><td>2022 第 5–8 題影像</td><td>學長姐只留「類似圖」</td><td>考場原圖不在資料夾；第 8 題影像缺</td></tr>
+          <tr><td>融合檔 Question 3、4</td><td>英文答案來源不明</td><td>沒有年份與題目原文，照錄</td></tr>
+          <tr><td>老師歸屬</td><td>—</td><td>100-1 期末、融合檔 Q3／Q4 的老師是依內容推測；2018（HPH）量表題依萬萬檔改為黃慧璧；萬萬檔 p.44 跛行檢查的老師不明（標「ili」）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">本頁答案均非官方；若老師公布答案，請以老師為準。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '總覽與使用方式',
+  ws: '王尚麟：超音波',
+  cymc: '張雅珮：X 光原理',
+  cyimg: '張雅珮：看圖題',
+  lq: '王麗倩：臨床檢查',
+  wan: '萬灼華：實驗動物影像',
+  older: '其他老師與舊年度',
+  repeat: '跨年重複題',
+  trust: '資料可信度與待確認',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

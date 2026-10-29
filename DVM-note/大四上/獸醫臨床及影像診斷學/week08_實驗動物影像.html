@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫臨床及影像診斷學：實驗動物影像與影像中心設計 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫臨床及影像診斷學</a><span class="sep">›</span><span class="current">實驗動物影像</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">實驗動物影像與影像中心設計 Lab Animal Imaging &amp; Imaging Center Design</h1>
+      <p class="page-subtitle">實驗動物（小鼠為主）可用的影像技術：X 光與 microCT、超音波、MRI、核醫（SPECT／PET）、光學影像（螢光、生物冷光）、多模態影像，以及電磁波譜對照、各技術比較表與實驗動物影像中心的設計考量</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫臨床及影像診斷學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈Lab Animal Imaging〉（43 頁，萬灼華副教授，國立臺灣大學獸醫專業學院，2026-10-22；圖片多引自《The Mouse in Biomedical Research》第 14 章）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/實驗動物影像.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">影像技術</div>
+    <a onclick="showSection('spectrum')" id="nav-spectrum"><span class="nav-icon">🌈</span> 電磁波譜與技術比較</a>
+    <a onclick="showSection('xray')" id="nav-xray"><span class="nav-icon">☢️</span> X 光與 CT</a>
+    <a onclick="showSection('us')" id="nav-us"><span class="nav-icon">🔊</span> 超音波</a>
+    <a onclick="showSection('mri')" id="nav-mri"><span class="nav-icon">🧲</span> MRI</a>
+    <a onclick="showSection('nuclear')" id="nav-nuclear"><span class="nav-icon">☢</span> 核醫影像 SPECT／PET</a>
+    <a onclick="showSection('optical')" id="nav-optical"><span class="nav-icon">💡</span> 光學影像</a>
+    <a onclick="showSection('multi')" id="nav-multi"><span class="nav-icon">🧩</span> 多模態影像</a>
+    <div class="section-label" style="margin-top:8px;">影像中心</div>
+    <a onclick="showSection('center')" id="nav-center"><span class="nav-icon">🏢</span> 影像中心設計</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('kaogu')" id="nav-kaogu"><span class="nav-icon">🎯</span> 考古題</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">實驗動物影像的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>同樣的影像技術用在<strong>實驗動物</strong>（主要是小鼠、大鼠）時要怎麼調整：講義列出七種技術（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=2">p.2</a>），重點是每種技術用<strong>電磁波譜的哪一段</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a>）、各自的解析度與適用情境，以及小鼠專用的設備（microCT、7 T 以上的小口徑 MRI、SPECT／PET、光學影像暗箱）。後半段講<strong>實驗動物影像中心的設計</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=32">p.32–41</a>）。</dd>
+          <dt>為什麼重要</dt>
+          <dd>實驗動物影像同時用於<strong>實驗（研究）與診斷</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=2">p.2</a>），可以對同一隻活體動物做長期追蹤（例如腫瘤隨時間長大，<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=22">p.22</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=28">p.28</a>），減少犧牲動物的數量。講義第一個提醒就是<strong>「Animal size!」</strong>——小鼠只有幾十公克，臨床犬貓用的設備解析度不夠，必須用專用機型。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-spectrum">電磁波譜</a>：<strong>MRI 用無線電波</strong>（最長波長）、<strong>光學影像用可見光</strong>、<strong>X 光與 CT 用 X 射線</strong>、<strong>PET 與 SPECT 用 γ 射線</strong>（最短波長）（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a>）——考古連考 5 題。</li>
+              <li><a href="#section-xray">X 光</a>：組織密度與化學組成不同 → 吸收 X 光程度不同；透視攝影（fluoroscopy）看<strong>連續的內部動作</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=4">p.4–5</a>）。</li>
+              <li><a href="#section-us">超音波</a>：分辨囊性與實質腫塊、找不透 X 光的結石、導引切片與膀胱穿刺、心臟超音波、驗孕（雪貂、非人靈長類）（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=9">p.9</a>）。</li>
+              <li><a href="#section-mri">MRI</a>：舊稱 NMR；整隻小鼠、大鼠影像要用<strong>小口徑、強磁場機型（4.7 T、7 T、9.4 T、11.6 T）</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=13">p.13</a>）；小鼠以 isoflurane 麻醉、監測呼吸（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=16">p.16</a>）。</li>
+              <li><a href="#section-nuclear">核醫影像</a>：功能性／分子影像，用放射性示蹤劑；<strong>SPECT</strong>＝放出單一或多個 γ（或 X）光子＋旋轉 γ 攝影機斷層；<strong>PET</strong>＝正子衰變產生<strong>兩個相隔 180° 的光子</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19</a>）。</li>
+              <li><a href="#section-optical">光學影像</a>：小鼠全身活體影像<strong>最常用可見光</strong>；螢光（報導基因如 GFP，全身影像<strong>紅光端最適合</strong>）與生物冷光（luciferase，訊號很弱但<strong>沒有背景</strong>）（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23–27</a>）。</li>
+              <li><a href="#section-center">影像中心設計</a>：設施、動物支援、人員、設備、資料管理五大面向；<strong>MRI 要放在射頻屏蔽室（RF-shielded room）</strong>，磁場會影響心律調節器等維生裝置（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=32">p.32–40</a>）。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>SPECT vs PET</strong>：SPECT 是單光子（一次放一個或多個 γ 光子，要靠準直器定位）；PET 是正子湮滅產生<strong>兩個方向相反（180°）</strong>的光子，靠兩邊同時偵測定位。<strong>螢光 vs 生物冷光</strong>：螢光要外部光源激發（暗箱要有光源與濾鏡），生物冷光是酵素反應自己發光（要注射受質），訊號很弱但沒有背景。<strong>CT 與 MRI 的波譜</strong>：CT 是 X 射線（游離輻射），MRI 是無線電波（非游離輻射）。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（依學長姐考古）</span></dt>
+          <dd>學長姐說萬灼華老師的題目「<strong>跟考古一模一樣</strong>」（2022 學長姐回憶）。考古 10 題：看圖判斷是哪一種影像（生物冷光）、在電磁波譜圖上指出 CT／MRI／PET／螢光／SPECT 的位置、整隻活小鼠 MRI 需要的磁場強度（複選）、影像中心的人員（複選）、影像中心工作的是非題、MRI 要放在射頻屏蔽室的是非題。全部題目與詳解見<a href="#section-kaogu">第 10 節</a>。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體；講義圖片的英文圖說由整理者翻譯。標示「補充」的段落是講義以外的延伸；標示「學長姐回憶」的是考古資料夾裡的學長姐整理，非官方答案。考試範圍以老師上課為準。圖片為老師講義截圖。</p>
+      </div>
+      <h3>講義列出的影像技術（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=2">p.2</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>用途：<strong>實驗與診斷</strong>（Experimental &amp; Diagnostic, in lab animal field）；第一個考量是<strong>動物體型（Animal size!）</strong>。</li>
+        <li>技術：X 光（平片與造影 plain &amp; contrast）、透視攝影（Fluoroscopy）、X 光電腦斷層（CT，含動態造影 CT）、超音波（Ultrasonography）、磁振造影（MRI）、正子斷層造影（Positron Emission Tomography, PET）、單光子電腦斷層造影（Single Photon Emission Computed Tomography, SPECT）；後面另講光學影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23</a>）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=2">p.2–3</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=9">p.9</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=13">p.13</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=16">p.16</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23–27</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=32">p.32–40</a>；學長姐考古心得（非官方）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SPECTRUM -->
+    <div class="section" id="section-spectrum">
+      <div class="section-head"><div class="section-num">2</div><h2>電磁波譜與各技術比較 Electromagnetic Spectrum &amp; Comparison</h2></div>
+      <p class="section-desc">考古最大宗：在波譜圖上指出每種影像用哪一段。記法：波長由長到短＝<strong>MRI → 光學 → X 光／CT → PET／SPECT</strong>。</p>
+      <div class="figure"><img src="img/week08_實驗動物影像/la_p003.jpg" alt="活體影像使用的電磁波譜（Electromagnetic Spectrum for In-vivo Imaging，p.3" loading="lazy"><div class="figure-caption">活體影像使用的電磁波譜（Electromagnetic Spectrum for In-vivo Imaging，<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a>）：上方是波長（公尺），由左到右從 10 m 到 10<sup>−13</sup> m，依序是無線電波（RADIO）、微波（MICROWAVE）、紅外線（INFRARED）、可見光（VISIBLE）、紫外線（ULTRAVIOLET）、X 射線（X-Rays）、γ 射線（GAMMA RAYS）。下方黑條標示各影像技術使用的波段：最左邊無線電波＝<strong>MRI</strong>；可見光＝<strong>光學影像（Optical Imaging）</strong>；X 射線＝<strong>X 光與 CT</strong>；最右邊 γ 射線＝<strong>PET 與 SPECT</strong>。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a></div></div>
+      <h3>波段對照<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>影像技術</th><th>電磁波</th><th>在 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a> 圖上的位置</th><th>是否游離輻射（補充）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>MRI</strong></td><td>無線電波（radiofrequency）</td><td>最左（波長最長）</td><td>否</td></tr>
+          <tr><td><strong>光學影像</strong>（螢光、生物冷光）</td><td>可見光</td><td>中間</td><td>否</td></tr>
+          <tr><td><strong>X 光、CT</strong></td><td>X 射線</td><td>偏右</td><td>是</td></tr>
+          <tr><td><strong>PET、SPECT</strong></td><td>γ 射線</td><td>最右（波長最短）</td><td>是</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ 超音波是機械波（聲波），不是電磁波，所以不在這張圖上（補充）。</p>
+      <h3>小鼠全身活體影像技術比較（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=31">p.31</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>技術</th><th>空間解析度</th><th>靈敏度（造影劑濃度）</th><th>取像時間</th><th>輻射劑量</th><th>成本</th></tr></thead>
+        <tbody>
+          <tr><td>X 光攝影</td><td>~20–100 µm</td><td>~mM</td><td>~秒</td><td>~1–50 µGy</td><td>$</td></tr>
+          <tr><td>X 光 CT</td><td>~20–250 µm</td><td>~mM</td><td>~分鐘</td><td>~1–20 cGy</td><td>$$</td></tr>
+          <tr><td>超音波</td><td>~50–200 µm</td><td>?</td><td>即時</td><td>無</td><td>$–$$</td></tr>
+          <tr><td><strong>MRI</strong></td><td>~50–500 µm</td><td>~mM–µM</td><td><strong>~分鐘–小時</strong></td><td>無</td><td><strong>$$–$$$</strong></td></tr>
+          <tr><td><strong>SPECT</strong></td><td>~0.2–4 mm</td><td><strong>~nM–pM</strong></td><td><strong>~分鐘–小時</strong></td><td>~1–100 cGy</td><td>$$</td></tr>
+          <tr><td><strong>PET</strong></td><td>~0.8–2.5 mm</td><td><strong>~nM–pM</strong></td><td><strong>~分鐘–小時</strong></td><td>~1–100 cGy</td><td><strong>$$–$$$</strong></td></tr>
+          <tr><td>生物冷光</td><td>~mm</td><td>~nM</td><td>~秒–分鐘</td><td>無</td><td>$–$$</td></tr>
+          <tr><td>螢光</td><td>~mm</td><td>~nM</td><td>~秒–分鐘</td><td>無</td><td>$$</td></tr>
+        </tbody>
+      </table></div>
+      <div class="figure"><img src="img/week08_實驗動物影像/la_p031.jpg" alt="講義原表（Summary of Major Whole-Body In-Vivo Mouse Imaging Modal" loading="lazy"><div class="figure-caption">講義原表（Summary of Major Whole-Body In-Vivo Mouse Imaging Modalities，<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=31">p.31</a>）：老師用框標出 MRI、SPECT、PET 三列與它們的取像時間（分鐘到小時）和成本（較貴）。上方 HTML 表為逐欄翻譯。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=31">p.31</a></div></div>
+      <div class="alert alert-success"><div class="alert-label">重點：怎麼讀這張表</div><p><strong>解析度 vs 靈敏度是取捨</strong>：X 光、CT、MRI 解析度好（幾十到幾百 µm），但要很高濃度的造影劑（mM）；SPECT、PET 解析度差（mm），但<strong>只要 nM–pM 的示蹤劑就看得到</strong>，所以適合追蹤分子與代謝。老師框起來的三種（MRI、SPECT、PET）共同點是<strong>取像慢（分鐘到小時）、成本高</strong>——小鼠要在麻醉下維持很久，這也是後面影像中心要有麻醉與生理監測的原因。</p></div>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=31">p.31</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- XRAY -->
+    <div class="section" id="section-xray">
+      <div class="section-head"><div class="section-num">3</div><h2>X 光、透視攝影與 CT X-ray Imaging</h2></div>
+      <p class="section-desc">原理和犬貓一樣（密度高的組織吸收多），差別在設備：要用高解析度的軟片與專用機型才看得清楚小鼠。</p>
+      <h3>原理與應用<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>利用不同<strong>密度與化學組成</strong>的組織對 X 光的吸收差異成像；<strong>高密度組織（骨）吸收多、低密度組織（肺）吸收少</strong>；包含 X 光電腦斷層（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=4">p.4</a>）。</li>
+        <li>改良與新用法（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=5">p.5</a>）：人類牙科用的高速軟片也用在實驗動物；人類乳房攝影用的專用設備可得到高解析度軟組織影像，也用在小鼠、大鼠。</li>
+        <li><strong>透視攝影（fluoroscopy）</strong>：X 光的變化型，用來看<strong>內部構造的連續動作</strong>；例如<strong>硫酸鋇－鉭糊劑</strong>（barium sulfate-tantalum paste）附著在軟組織上增加可見度（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=5">p.5</a>；給藥途徑講義未寫，用於消化道時一般為口服 PO，補充）。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p006.jpg" alt="小鼠 X 光片（p.6）：(A) 全身影像，調整顯示窗讓骨與軟組織都看得到；(B) 給予血管造影劑後的小鼠腎臟影像。" loading="lazy"><div class="figure-caption">小鼠 X 光片（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=6">p.6</a>）：(A) 全身影像，調整顯示窗讓骨與軟組織都看得到；(B) 給予<strong>血管造影劑</strong>後的小鼠腎臟影像。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=6">p.6</a></div></div>
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p007.jpg" alt="小鼠全身 CT（p.7）：同時使用口服（PO）與腹腔內（IP）造影劑，顯示橫切面（transaxial）、冠狀面（cor" loading="lazy"><div class="figure-caption">小鼠全身 CT（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=7">p.7</a>）：同時使用<strong>口服（PO）與腹腔內（IP）造影劑</strong>，顯示橫切面（transaxial）、冠狀面（coronal）、矢狀面（sagittal）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=7">p.7</a></div></div>
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p008.jpg" alt="高解析度 3D microCT（p.8）：小鼠股骨頭的體積成像（左、中）與單張 2D 切面（右），可看到骨小樑結構。" loading="lazy"><div class="figure-caption">高解析度 3D microCT（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=8">p.8</a>）：小鼠股骨頭的體積成像（左、中）與單張 2D 切面（右），可看到骨小樑結構。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=8">p.8</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=4">p.4–8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- US -->
+    <div class="section" id="section-us">
+      <div class="section-head"><div class="section-num">4</div><h2>超音波 Ultrasonography</h2></div>
+      <p class="section-desc">用高頻聲波的回音成像；即時、沒有輻射，可以導引注射到小鼠胚胎。</p>
+      <h3>用途（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=9">p.9</a>）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>分辨<strong>囊性與實質</strong>腫塊；判斷可疑實質腫塊的質地。</li>
+        <li>探查<strong>充滿液體的體腔</strong>（液體會妨礙 X 光判讀）。</li>
+        <li>找出器官內<strong>不透 X 光的結石</strong>（nonradiopaque calculi）。</li>
+        <li><strong>導引</strong>內部腫塊切片與膀胱穿刺。</li>
+        <li>評估心臟（心臟超音波，例如小鼠心肌梗塞模式）、肌肉、肌腱。</li>
+        <li><strong>驗孕</strong>（雪貂、非人靈長類 NHP）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p010.jpg" alt="超音波成像的基本原理（p.10）：探頭（transducer）經耦合劑（coupling gel）發出超音波，遇到聲學性" loading="lazy"><div class="figure-caption">超音波成像的基本原理（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=10">p.10</a>）：探頭（transducer）經耦合劑（coupling gel）發出超音波，遇到聲學性質不同的組織交界會反射一部分回探頭；<strong>回音回來的時間</strong>代表交界的深度，掃過組織就組成 2D 或 3D 影像。原理見<a href="week02_超音波診斷入門.html">超音波診斷入門</a>。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=10">p.10</a></div></div>
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p011.jpg" alt="即時影像（p.11）：超音波導引下把針注射到 11.5 天大小鼠胚胎的中腦（ultrasound-guided inje" loading="lazy"><div class="figure-caption">即時影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=11">p.11</a>）：超音波導引下把針注射到 <strong>11.5 天大小鼠胚胎的中腦</strong>（ultrasound-guided injection into the midbrain of a 11.5-day-old mouse embryo）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=11">p.11</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=9">p.9–11</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MRI -->
+    <div class="section" id="section-mri">
+      <div class="section-head"><div class="section-num">5</div><h2>磁振造影 MRI</h2></div>
+      <p class="section-desc">小鼠 MRI 的關鍵詞：<strong>小口徑、強磁場</strong>（4.7 T 以上）；考古問過「整隻活小鼠要用哪種磁場強度」。</p>
+      <h3>原理與應用<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>舊稱<strong>核磁共振（nuclear magnetic resonance, NMR）影像</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=12">p.12</a>）。</li>
+        <li>原理：在磁場中，以<strong>共振頻率</strong>（由磁場強度決定）的無線電波照射，組織被激發；被激發的組織放出無線電訊號，由放在組織周圍的<strong>線圈（coil）</strong>接收後成像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=12">p.12</a>）。詳細原理見<a href="week04_CT與MRI原理.html">CT 與 MRI 原理</a>。</li>
+        <li>強大且彈性的活體影像工具；常用來評估<strong>頭部、骨盆構造、骨與關節</strong>；一般用在較大的動物、兔、貓、犬、非人靈長類（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=13">p.13</a>）。</li>
+        <li><strong>整隻小鼠、大鼠的 MRI 要用小口徑、強磁場機型：4.7 T、7 T、9.4 T、11.6 T</strong>（Mouse Imaging Facility）（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=13">p.13</a>）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：犬貓臨床常見的 MRI 多在 0.2–1.5 T（低到中場）；磁場越強訊噪比越高，才能把只有幾公分大的小鼠拍出足夠解析度。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p014.jpg" alt="7 T 小鼠 MRI（p.14）：小口徑、強磁場的研究用 MRI 機台。" loading="lazy"><div class="figure-caption">7 T 小鼠 MRI（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=14">p.14</a>）：小口徑、強磁場的研究用 MRI 機台。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=14">p.14</a></div></div>
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p015.jpg" alt="多隻小鼠同時掃描的「小鼠蜂巢」（p.15）：每隻小鼠放在離心管裡（mouse hive），排在裝載架（loading a" loading="lazy"><div class="figure-caption">多隻小鼠同時掃描的「小鼠蜂巢」（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=15">p.15</a>）：每隻小鼠放在離心管裡（mouse hive），排在裝載架（loading array）上，沿著軌道（rail）送進磁體。講義此頁沒有文字。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=15">p.15</a></div></div>
+      </div>
+      <h3>小鼠 MRI 的麻醉與監測（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=16">p.16</a>）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:26%;">項目</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td>麻醉</td><td><strong>Isoflurane 吸入麻醉</strong>；圖說：1–2% isoflurane 與空氣的混合氣體送到鼻部區域</td></tr>
+          <tr><td>固定</td><td>自製床，以<strong>咬齒架（tooth-bar）</strong>固定頭部位置</td></tr>
+          <tr><td>呼吸監測</td><td>背上放一個氣球（air balloon）偵測呼吸，連到電腦顯示呼吸波形；講義寫<strong>呼吸 70–110 次/分</strong></td></tr>
+          <tr><td>體溫</td><td>講義原文「BT (blanket/hot water) @ 32 ℃」——用加熱毯或溫水維持體溫；32 ℃ 指的是加熱設定溫度還是小鼠體溫，講義沒有說明</td></tr>
+        </tbody>
+      </table></div>
+      <div class="figure"><img src="img/week08_實驗動物影像/la_p016.jpg" alt="小鼠 MRI 的保定與監測（p.16）：裸鼠（nude mouse）放在自製床上，咬齒架固定頭部，鼻部接 isoflur" loading="lazy"><div class="figure-caption">小鼠 MRI 的保定與監測（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=16">p.16</a>）：裸鼠（nude mouse）放在自製床上，咬齒架固定頭部，鼻部接 isoflurane 管路（isoflurane connection），背上的氣球量測呼吸，下方螢幕顯示呼吸波形。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=16">p.16</a></div></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p017.jpg" alt="4.7 T MRI 小鼠腦部影像（p.17）：同一切面在不同相位差（Δφ＝180°、0°、90°、270°）下的影像，以" loading="lazy"><div class="figure-caption">4.7 T MRI 小鼠腦部影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=17">p.17</a>）：同一切面在不同相位差（Δφ＝180°、0°、90°、270°）下的影像，以及合成影像（e、f、g，箭頭處）。講義此頁沒有文字說明。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=17">p.17</a></div></div>
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p018.jpg" alt="小鼠 MRI（p.18）：(A) 灌流釓（Gd）造影劑後的小鼠全身 3D T1 加權影像（T1-weighted）；(B" loading="lazy"><div class="figure-caption">小鼠 MRI（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=18">p.18</a>）：(A) 灌流<strong>釓（Gd）造影劑</strong>後的小鼠全身 3D T1 加權影像（T1-weighted）；(B) 小鼠腦部單一切面的高解析度 MR 影像。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=18">p.18</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=12">p.12–18</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- NUCLEAR -->
+    <div class="section" id="section-nuclear">
+      <div class="section-head"><div class="section-num">6</div><h2>核醫影像 Nuclear Imaging（SPECT &amp; PET）</h2></div>
+      <p class="section-desc">看的是「功能」不是「構造」：把放射性示蹤劑打進體內，看它跑去哪裡。</p>
+      <h3>原理<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>功能性或分子影像</strong>；用<strong>放射性標記分子或示蹤劑</strong>（針對特定標的或代謝途徑）提供對比；<strong>體內沒有背景</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19</a>）。</li>
+      </ul>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:16%;"></th><th>單光子影像／SPECT</th><th>PET</th></tr></thead>
+        <tbody>
+          <tr><td>放射性核種</td><td>衰變時放出<strong>一個或多個 γ 射線或 X 射線</strong></td><td>以<strong>正子放射</strong>（positron emission）衰變</td></tr>
+          <tr><td>偵測的光子</td><td>單一光子</td><td><strong>兩個光子，角度嚴格相關、相隔 180°</strong></td></tr>
+          <tr><td>斷層</td><td>單光子影像結合電腦斷層（<strong>旋轉 γ 攝影機</strong>）→ SPECT</td><td>—</td></tr>
+          <tr><td>講義例子</td><td>巴金森氏症小鼠模式的多巴胺系統（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=21">p.21</a>）</td><td>乳癌小鼠模式的腫瘤發生與進展，示蹤劑 <sup>18</sup>F-FDG（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=22">p.22</a>）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="figure"><img src="img/week08_實驗動物影像/la_p020.jpg" alt="核醫影像（p.20）：(A) 單光子影像：示蹤劑放出的光子要先經過針孔準直器（pinhole collimator），只" loading="lazy"><div class="figure-caption">核醫影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=20">p.20</a>）：(A) 單光子影像：示蹤劑放出的光子要先經過<strong>針孔準直器（pinhole collimator）</strong>，只有特定方向的光子打到閃爍晶體（scintillator）與光偵測器，才能定位；(B) PET：兩個方向相反的光子同時被兩側偵測器接收，不需要準直器。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=20">p.20</a></div></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p021.jpg" alt="SPECT 影像（p.21）：單側損傷的巴金森氏症小鼠模式。(A) 以 99mTc-TRODAT-1 顯示多巴胺轉運體（" loading="lazy"><div class="figure-caption">SPECT 影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=21">p.21</a>）：單側損傷的巴金森氏症小鼠模式。(A) 以 <sup>99m</sup>Tc-TRODAT-1 顯示<strong>多巴胺轉運體（DAT）</strong>：損傷側紋狀體（黃箭頭）幾乎沒有攝取，未損傷側（紅箭頭）攝取正常；(B) 以 <sup>123</sup>I-IBF 顯示 <strong>D2 受體</strong>：兩側都正常，代表損傷只影響突觸前神經元、突觸後神經元完好。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=21">p.21</a></div></div>
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p022.jpg" alt="PET 影像（p.22）：乳癌小鼠模式第 4、7、10、12 週的影像，示蹤劑 18F-FDG 是葡萄糖類似物，聚積程度" loading="lazy"><div class="figure-caption">PET 影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=22">p.22</a>）：乳癌小鼠模式第 4、7、10、12 週的影像，示蹤劑 <sup>18</sup>F-FDG 是<strong>葡萄糖類似物</strong>，聚積程度反映局部<strong>葡萄糖代謝</strong>，可看到腫瘤（紅點）隨時間增加。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=22">p.22</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：<sup>18</sup>F-FDG、<sup>99m</sup>Tc 示蹤劑一般經靜脈（IV）注射，講義沒有寫給藥途徑。腫瘤細胞葡萄糖代謝旺盛，所以 FDG 會聚積在腫瘤；發炎組織也會攝取 FDG，判讀時要注意。</p>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19–22</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- OPTICAL -->
+    <div class="section" id="section-optical">
+      <div class="section-head"><div class="section-num">7</div><h2>光學影像：螢光與生物冷光 Optical Imaging</h2></div>
+      <p class="section-desc">小鼠全身活體影像<strong>最常用的就是可見光</strong>：便宜、快、沒有輻射，但只有 mm 級解析度。</p>
+      <h3>兩大分支<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:18%;"></th><th>螢光影像 Fluorescence</th><th>生物冷光影像 Bioluminescence</th></tr></thead>
+        <tbody>
+          <tr><td>怎麼產生訊號</td><td>注射<strong>螢光標記的造影劑</strong>，或組織帶有<strong>螢光轉殖基因</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23</a>）；通常用<strong>螢光報導基因</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=25">p.25</a>）</td><td>小鼠帶有<strong>生物冷光報導基因</strong>，再注射反應的<strong>受質</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23</a>）；需要一個編碼催化冷光反應酵素的基因（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=27">p.27</a>）</td></tr>
+          <tr><td>代表</td><td>最有名：<strong>綠色螢光蛋白（GFP）</strong>；全身活體影像<strong>最適合紅光端</strong>：DsRed、單體紅色螢光蛋白（mRFP1）（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=25">p.25</a>）</td><td>兩種系統：<strong>螢火蟲 luciferase（630 nm，37 ℃）</strong>與<strong>海腎 renilla luciferase（482 nm）</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=27">p.27</a>）</td></tr>
+          <tr><td>訊號</td><td>—</td><td><strong>非常弱</strong>，但小鼠體內<strong>沒有背景</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=27">p.27</a>）</td></tr>
+          <tr><td>設備</td><td colspan="2">在<strong>暗箱</strong>（light-tight box）裡取像；螢光系統另外需要<strong>光源與濾鏡</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23–24</a>）</td></tr>
+          <tr><td>應用</td><td>不帶報導基因時，也可以只用螢光標記的造影劑（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=25">p.25</a>）</td><td>轉染細胞的腫瘤研究、把基因放進病原（病毒、細菌）做感染症研究、基因表現研究（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=27">p.27</a>）</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：為什麼紅光比較好？組織（特別是血紅素）大量吸收藍綠光，波長越長（越偏紅）穿透組織越深、背景自體螢光越少，所以 GFP 適合細胞實驗，全身活體影像要用紅色螢光蛋白。</p>
+      <div class="figure"><img src="img/week08_實驗動物影像/la_p024.jpg" alt="光學影像系統示意圖（p.24）：暗箱（light-tight box）頂端是 CCD 攝影機與物鏡（objective " loading="lazy"><div class="figure-caption">光學影像系統示意圖（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=24">p.24</a>）：暗箱（light-tight box）頂端是 <strong>CCD 攝影機</strong>與物鏡（objective lens）、發射濾鏡（emission filters）；側邊的光源（light source）與激發濾鏡（excitation filters）<strong>只有螢光影像需要</strong>。生物冷光不需要外部光源。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=24">p.24</a></div></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p026.jpg" alt="螢光影像（p.26）：小鼠側腹植入 9L 膠質瘤，注射 Cy5.5 螢光探針（只會被腫瘤內高濃度的 Cathepsin " loading="lazy"><div class="figure-caption">螢光影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=26">p.26</a>）：小鼠側腹植入 9L 膠質瘤，注射 <strong>Cy5.5 螢光探針</strong>（只會被腫瘤內高濃度的 Cathepsin B 等蛋白酶活化）；左側腫瘤另帶 <strong>GFP</strong> 報導基因。左到右：白光、Cy5.5 探針、GFP，用不同的激發與發射濾鏡分別取像。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week08_實驗動物影像/la_p028.jpg" alt="生物冷光影像（p.28）：同一隻小鼠在第 1、4、8、9 週的影像；這隻轉殖小鼠在前列腺表現螢火蟲 luciferase" loading="lazy"><div class="figure-caption">生物冷光影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=28">p.28</a>）：<strong>同一隻小鼠</strong>在第 1、4、8、9 週的影像；這隻轉殖小鼠在前列腺表現<strong>螢火蟲 luciferase</strong> 並發展前列腺腫瘤，發光強度與表現 luciferase 的細胞數成正比，所以亮度隨時間增加代表腫瘤長大；顏色對應右側色階（相對光單位）。<strong>這張圖就是考古第 1 題的圖。</strong></div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=28">p.28</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23–28</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MULTI -->
+    <div class="section" id="section-multi">
+      <div class="section-head"><div class="section-num">8</div><h2>多模態影像 Multimodality Imaging</h2></div>
+      <p class="section-desc">把「看構造」的影像和「看功能」的影像疊在一起：CT 或 MRI 給位置，SPECT／PET／光學給訊號。</p>
+      <ul>
+        <li>用多種影像技術研究動物模式：取得 <strong>SPECT/CT、PET/CT、PET/MRI</strong> 資料，以及螢光、生物冷光、X 光訊號的 2D 影像系統（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=29">p.29</a>）。</li>
+        <li>例：用標靶螢光探針或放射性示蹤劑，與 microCT 或 MRI 影像<strong>共同配準（co-register）</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=29">p.29</a>）。</li>
+        <li><strong>SPECT/CT 的 3D 合成</strong>：CT 顯示骨骼，SPECT 顯示標記物質的體內分布（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=29">p.29–30</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/week08_實驗動物影像/la_p030.jpg" alt="SPECT/CT 3D 合成影像（p.30）：CT 顯示骨骼（黃色），SPECT 顯示 99mTc 標記的親腫瘤放射藥物" loading="lazy"><div class="figure-caption">SPECT/CT 3D 合成影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=30">p.30</a>）：CT 顯示骨骼（黃色），SPECT 顯示 <sup>99m</sup>Tc 標記的<strong>親腫瘤放射藥物</strong>在體內的分布，腫瘤（Tumor）處有聚積。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=30">p.30</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=29">p.29–30</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CENTER -->
+    <div class="section" id="section-center">
+      <div class="section-head"><div class="section-num">9</div><h2>實驗動物影像中心的設計與設置 Imaging Center Design &amp; Setup</h2></div>
+      <p class="section-desc">五大面向：設施設計、動物影像支援、人員、影像設備、資料管理（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=32">p.32</a>）。考古的人員、RF 屏蔽、影像中心工作三題都在這一節。</p>
+      <h3>設施設計：一般考量（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=33">p.33</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>動線（traffic patterns）</strong>：盡量減少動物與人員的交叉動線；考量實驗動物的健康狀態（<strong>亞臨床感染</strong>）。</li>
+        <li><strong>物資儲存室</strong>：通常被<strong>低估</strong>！</li>
+        <li>行政與人員辦公室、休息室、會議室；廁所與淋浴間（依動物設施的<strong>生物安全等級</strong>）。</li>
+        <li>環境：動物與人員區濕度較高，運轉中的設備會產生大量熱。</li>
+      </ul>
+      <h3>動物飼養與影像支援（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=34">p.34</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=37">p.37</a>）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>理想</strong>：影像中心內含動物飼養空間，或緊鄰動物飼養設施。</li>
+        <li>飼養室大小與類型依物種（囓齒類、非人靈長類…）；要有影像前後的<strong>暫時檢疫空間</strong>。</li>
+        <li><strong>操作室與飼養室比例通常 1：4</strong>。</li>
+        <li>洗籠區分「髒」與「乾淨」兩側；飼養物資儲存；安樂死空間。</li>
+        <li>動物影像支援（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=37">p.37</a>）：<strong>麻醉設備、生理監測、手術支援</strong>。</li>
+      </ul>
+      <h3>MRI 專屬設計（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=35">p.35</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:22%;">考量</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td>位置</td><td>磁力可能讓<strong>維生裝置失效或改變（心律調節器、胰島素幫浦）</strong>——健康危害；也可能干擾其他設備</td></tr>
+          <tr><td>結構</td><td>MRI 用射頻（RF）產生影像，會被其他裝置的射頻干擾，所以要放在<strong>射頻屏蔽室（RF-shielded rooms）</strong></td></tr>
+          <tr><td>冷媒</td><td>需要<strong>液態氦與液態氮</strong></td></tr>
+          <tr><td>環境</td><td>溫度穩定；持續監測溫度、濕度與<strong>氧氣濃度</strong></td></tr>
+          <tr><td>其他</td><td>工作區與工具</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：監測氧氣濃度是因為液態氦如果大量氣化（失超 quench），會在密閉空間排擠氧氣造成窒息；工具要用非磁性材質，避免被磁體吸過去。</p>
+      <h3>其他、人員、設備與資料（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=36">p.36</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=38">p.38–40</a>）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:22%;">面向</th><th>講義列出的項目</th></tr></thead>
+        <tbody>
+          <tr><td>其他考量（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=36">p.36</a>）</td><td>輻射安全、動物生物安全、層流櫃（laminar flow hoods）、有導管的生物安全櫃（ducted biosafety cabinets）、滅菌</td></tr>
+          <tr><td><strong>人員（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=38">p.38</a>）</strong></td><td><strong>影像專家</strong>（imaging specialist）、<strong>動物支援</strong>（animal support）、<strong>電腦資訊技術</strong>（computer information technology）、清潔與設施維護、MRI 特有的人員安全考量</td></tr>
+          <tr><td>影像設備（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=39">p.39</a>）</td><td>MRI、X 光 CT、PET、超音波、光學影像</td></tr>
+          <tr><td>資料管理（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=40">p.40</a>）</td><td>資料處理、分析、儲存</td></tr>
+        </tbody>
+      </table></div>
+      <div class="figure"><img src="img/week08_實驗動物影像/la_p041.jpg" alt="臺大分子生醫影像研究中心（MIC）的核心實驗室（p.41）：光學、磁振、超音波、紅外線、正子、電鏡分子影像，數位分子影像" loading="lazy"><div class="figure-caption">臺大分子生醫影像研究中心（MIC）的核心實驗室（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=41">p.41</a>）：光學、磁振、超音波、紅外線、正子、電鏡分子影像，數位分子影像資料庫，分子探針合成，共八個核心實驗室。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=41">p.41</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈Lab Animal Imaging〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=32">p.32–41</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- KAOGU -->
+    <div class="section" id="section-kaogu">
+      <div class="section-head"><div class="section-num">10</div><h2>考古題（萬灼華，學長姐整理）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>來源：〈臨影診期中考古融合〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=17">p.17</a>（考卷照片，題目為 General introduction to laboratory animal medicine，每個答案 10 分、共 10 個答案）。學長姐 2022 年心得：「萬的跟考古一模一樣」；另一份心得：「背了答案順序直接填上去」（學長姐回憶）。<strong>括號內的答案是學長姐的作答，非官方</strong>；詳解為整理者依講義寫的。</p></div>
+      <p>第 1–6 題的「上圖」就是講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a> 的電磁波譜圖，考卷把四個黑條標成 (A)、(B)、(C)、(D)：<strong>(A) 無線電波段、(B) 可見光段、(C) X 射線段、(D) γ 射線段</strong>（對照本頁<a href="#section-spectrum">第 2 節</a>的圖）。</p>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q">考古 1. 依 PowerPoint 圖檔（考場投影講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=28">p.28</a> 的四隻小鼠影像），請問這是哪種 imaging？(A) SPECT/CT (B) PET/CT (C) microCT (D) Bioluminescence imaging</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(D)</div><p class="quiz-explain">(D) 對：同一隻小鼠第 1、4、8、9 週在暗箱中拍攝，影像疊在白光照片上、以色階表示相對光單位，是講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=28">p.28</a> 的生物冷光影像（firefly luciferase 前列腺腫瘤）。(A)(B) 錯：SPECT/CT、PET/CT 會有 CT 的骨骼影像（如 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=30">p.30</a>），這張沒有。(C) 錯：microCT 是 X 光斷層，看的是骨骼構造（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=8">p.8</a>），不是發光訊號。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q">考古 2. 依上圖，CT 的 spectrum wavelength 範圍？(A) (B) (C) (D)</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(C)</div><p class="quiz-explain">(C) 對：CT 用 X 射線（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a>、<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=4">p.4</a>）。(A) 錯：無線電波段是 MRI。(B) 錯：可見光段是光學影像。(D) 錯：γ 射線段是 PET、SPECT。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q">考古 3. 依上圖，MRI 的 spectrum wavelength 範圍？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(A)</div><p class="quiz-explain">(A) 對：MRI 以共振頻率的無線電波激發組織（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=12">p.12</a>），在波譜最左、波長最長（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a>）。(B) 錯：可見光是光學影像。(C) 錯：X 射線是 X 光與 CT。(D) 錯：γ 射線是核醫影像。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q">考古 4. 依上圖，Positron Emission Tomography 的 spectrum wavelength 範圍？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(D)</div><p class="quiz-explain">(D) 對：PET 偵測正子湮滅產生的兩個 γ 光子（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19</a>），在 γ 射線段（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a>）。(A)(B)(C) 錯：分別是 MRI、光學、X 光／CT 的波段。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q">考古 5. 依上圖，Fluorescence Imaging 的 spectrum wavelength 範圍？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(B)</div><p class="quiz-explain">(B) 對：螢光屬於光學影像，用<strong>可見光</strong>（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23</a>：mostly widely used radiation … is visible light）。(A)(C)(D) 錯：分別是 MRI、X 光／CT、PET／SPECT。注意螢光雖然「最適合紅光端」，紅光仍在可見光範圍內，不是紅外線那一格。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">單選題</span>
+        <div class="quiz-q">考古 6. 依上圖，Single Photon Emission Computed Tomography 的 spectrum wavelength 範圍？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(D)</div><p class="quiz-explain">(D) 對：SPECT 的核種放出 γ 射線（或 X 射線）（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19</a>），<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a> 圖上和 PET 標在同一段。(A)(B)(C) 錯。PET 與 SPECT 都選 (D)，是這組題目的陷阱：不要以為每個選項只用一次。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">複選題</span>
+        <div class="quiz-q">考古 7.【複選題】目前實驗動物科學應用時，常需使用 MRI scan 整隻活的小鼠，請問須使用以下哪種磁力強度的機型？(A) 0.2 T (B) 0.8 T (C) 4.7 T (D) 9.4 T</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(C)(D)</div><p class="quiz-explain">(C)(D) 對：講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=13">p.13</a> 列出整隻小鼠、大鼠用的小口徑強磁場機型為 4.7 T、7 T、9.4 T、11.6 T。(A)(B) 錯：0.2 T、0.8 T 屬於低場機型，講義沒有列在小鼠用途，解析度不足（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">複選題</span>
+        <div class="quiz-q">考古 8.【複選題】In an in-vivo Mouse Imaging Facility, personnel support should include (A) imaging specialist (B) animal caretaker (C) veterinary staff (D) computer technology support</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：(A)(B)(C)(D)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=38">p.38</a> Personnel：imaging specialist（對應 A）、animal support（動物支援，對應 B 動物照護人員與 C 獸醫人員；講義沒有再細分，推測兩者都屬於動物支援）、computer information technology（對應 D），另有清潔與設施維護、MRI 人員安全。四個都對。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">考古 9. 實驗動物影像中心（Lab Animal Imaging Center）的相關工作，與醫院的影像診斷中心相似，最具挑戰的是影像掃描的專業服務與昂貴儀器維護管理，其他方面則與辦公室人員／文書紀錄管理服務工作相似。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：錯（✕）</div><p class="quiz-explain">實驗動物影像中心除了影像與儀器，還要處理<strong>動物</strong>：飼養與暫時檢疫空間、操作室比例、洗籠、安樂死（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=34">p.34</a>），動線要避免動物與人員交叉、顧慮亞臨床感染與生物安全等級（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=33">p.33</a>），以及麻醉、生理監測、手術支援（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=37">p.37</a>）、動物生物安全與滅菌（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=36">p.36</a>）。這些都不是「辦公室文書工作」，所以敘述錯。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">考古 10. MRI equipment must be located in a radiofrequency-shielded room.</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">學長姐作答：對（○）</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=35">p.35</a>：MRI 以射頻（RF）產生影像，可能被其他裝置的射頻干擾，所以放在 RF-shielded rooms。</p></details>
+      </div>
+      <footer class="note-footer">資料來源：考古〈臨影診期中考古融合〉<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=17">p.17</a>（考卷照片，學長姐作答）與學長姐心得（非官方）；詳解依課程講義〈Lab Animal Imaging〉。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">考古以外再練 12 題，答案預設隱藏。</p>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 電磁波波長由長到短，影像技術的排列何者正確？</div>
+        <ul class="quiz-options"><li>(A) MRI → 光學影像 → X 光／CT → PET／SPECT</li><li>(B) PET → CT → MRI → 光學影像</li><li>(C) 光學影像 → MRI → PET → CT</li><li>(D) CT → MRI → 光學影像 → PET</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">(A) 對：<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=3">p.3</a> 由左（長波長）到右：無線電（MRI）、可見光（光學）、X 射線（X 光、CT）、γ 射線（PET、SPECT）。(B) 錯：PET 波長最短，不該排第一。(C) 錯：MRI 比可見光長。(D) 錯：CT 用 X 射線，比 MRI、可見光都短。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 關於 PET，下列何者正確？</div>
+        <ul class="quiz-options"><li>(A) 偵測單一 γ 光子，需旋轉 γ 攝影機</li><li>(B) 正子衰變產生兩個相隔 180° 的光子</li><li>(C) 使用無線電波激發組織</li><li>(D) 屬於構造影像，不能看代謝</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(A) 錯：這是 SPECT（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19</a>）。(B) 對：two photons w/ strict angular correlation; 180° apart（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19</a>）。(C) 錯：這是 MRI（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=12">p.12</a>）。(D) 錯：核醫是功能性／分子影像（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=19">p.19</a>），例如 <sup>18</sup>F-FDG 反映葡萄糖代謝（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=22">p.22</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 依講義的比較表，下列哪一組技術「靈敏度最高（nM–pM）」但「空間解析度最差（mm 級）」？</div>
+        <ul class="quiz-options"><li>(A) X 光與 CT</li><li>(B) 超音波與 MRI</li><li>(C) SPECT 與 PET</li><li>(D) 螢光與生物冷光</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">(A) 錯：X 光、CT 解析度 20–250 µm，靈敏度只有 mM。(B) 錯：超音波、MRI 解析度 50–500 µm。(C) 對：SPECT 0.2–4 mm、PET 0.8–2.5 mm，靈敏度 nM–pM（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=31">p.31</a>）。(D) 錯：光學影像解析度 mm 級，但靈敏度是 nM，不到 pM。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 做小鼠全身螢光活體影像時，講義說最適合用哪一段光譜的螢光蛋白？</div>
+        <ul class="quiz-options"><li>(A) 藍光（如 BFP）</li><li>(B) 綠光（GFP）</li><li>(C) 紅光端（DsRed、mRFP1）</li><li>(D) 紫外光</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">(A)(D) 錯：講義沒有，且短波長穿透組織差（補充）。(B) 錯：GFP 是「最有名」，不是「最適合全身影像」（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=25">p.25</a>）。(C) 對：best suitable for whole-body in-vivo imaging is red part of the spectrum（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=25">p.25</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 關於生物冷光影像，何者錯誤？</div>
+        <ul class="quiz-options"><li>(A) 需要編碼冷光酵素的基因</li><li>(B) 訊號非常弱，但小鼠體內沒有背景</li><li>(C) 一定要外部光源與激發濾鏡</li><li>(D) 螢火蟲 luciferase 發光波長約 630 nm</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">(A)(B)(D) 都是講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=27">p.27</a> 的內容。(C) 錯：光源與濾鏡是<strong>螢光</strong>系統才需要（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=23">p.23</a> light source &amp; filter for Fluo system；<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=24">p.24</a> 示意圖）；生物冷光由酵素催化受質自己發光。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 下列何者<strong>不是</strong>講義列出的超音波用途？</div>
+        <ul class="quiz-options"><li>(A) 分辨囊性與實質腫塊</li><li>(B) 找出不透 X 光的結石</li><li>(C) 導引膀胱穿刺</li><li>(D) 以正子示蹤劑評估葡萄糖代謝</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">(A)(B)(C) 都在 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=9">p.9</a>。(D) 是 PET（<sup>18</sup>F-FDG，<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=22">p.22</a>），不是超音波。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=21">p.21</a> 的 SPECT：單側損傷巴金森氏症小鼠，DAT 影像損傷側幾乎沒有攝取，D2 受體影像兩側都正常，代表？</div>
+        <ul class="quiz-options"><li>(A) 突觸前與突觸後神經元都被破壞</li><li>(B) 只有突觸前神經元受損，突觸後神經元完好</li><li>(C) 只有突觸後神經元受損</li><li>(D) 示蹤劑沒有注射成功</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(B) 對：DAT 在突觸前神經元末梢，D2 受體在突觸後；圖說寫 lesioning has only affected the presynaptic neurons, leaving the post-synaptic neurons intact（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=21">p.21</a>）。(A)(C) 錯：與 D2 正常不符。(D) 錯：未損傷側（紅箭頭）攝取正常，代表示蹤劑有作用。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 講義小鼠 MRI 的麻醉與監測，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 注射 ketamine，不監測呼吸</li><li>(B) Isoflurane 吸入麻醉，背上的氣球監測呼吸，呼吸 70–110 次/分</li><li>(C) 不需要麻醉，用保定筒固定</li><li>(D) 用心電圖監測，不需保溫</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(B) 對：<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=16">p.16</a> anesthetized w/ isoflurane；氣球放在背上量呼吸；resp rate 70–110；以加熱毯／溫水保溫。(A) 錯：講義用 isoflurane（吸入），且有監測呼吸。(C) 錯：講義有麻醉。(D) 錯：講義有保溫，監測的是呼吸。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 實驗動物影像中心設計時，物資儲存室的需求通常被高估。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=33">p.33</a>：Supply storage rooms（usu. <strong>under-estimated</strong>!）——通常被低估。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q10. 實驗動物影像中心的操作室與動物飼養室比例通常約為 1：4。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/實驗動物影像.pdf#page=34">p.34</a>：Procedure Rooms: usu. 1:4 ratio of procedure rooms vs animal holding rooms。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. MRI 專屬的設施設計要考量哪些事？（至少寫四點）</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">(1) 位置：磁力可能讓心律調節器、胰島素幫浦等維生裝置失效（健康危害），也會干擾其他設備；(2) 結構：要放在<strong>射頻屏蔽室</strong>，避免其他裝置的射頻干擾；(3) 冷媒：液態氦、液態氮；(4) 環境：溫度穩定，持續監測溫度、濕度與氧氣濃度；(5) 工作區與工具（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=35">p.35</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">情境題</span>
+        <div class="quiz-q">Q12.【情境】研究者想追蹤同一批小鼠的前列腺腫瘤在 12 週內怎麼長大，而且希望看到腫瘤的代謝活性與骨轉移位置。請問：(1) 便宜、快速、可重複追蹤的方法？需要什麼條件？(2) 要看代謝用什麼？示蹤劑舉例？(3) 要同時知道骨骼位置怎麼做？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 生物冷光影像：小鼠（或腫瘤細胞）要帶有 luciferase 報導基因，取像前注射受質，在暗箱拍攝；發光強度與腫瘤細胞數成正比（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=27">p.27–28</a>）。<br><strong>(2)</strong> PET，示蹤劑 <sup>18</sup>F-FDG（葡萄糖類似物，反映局部葡萄糖代謝）（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=22">p.22</a>）。<br><strong>(3)</strong> 多模態影像：PET/CT 或 SPECT/CT，CT 提供骨骼構造，核醫提供標記物分布，3D 合成（<a class="pdf-link" href="pdf/實驗動物影像.pdf#page=29">p.29–30</a>）。</p></details>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  spectrum: '電磁波譜與技術比較',
+  xray: 'X 光與 CT',
+  us: '超音波',
+  mri: 'MRI',
+  nuclear: '核醫影像 SPECT／PET',
+  optical: '光學影像',
+  multi: '多模態影像',
+  center: '影像中心設計',
+  kaogu: '考古題',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

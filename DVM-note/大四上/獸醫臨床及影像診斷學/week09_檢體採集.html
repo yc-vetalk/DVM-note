@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獸醫臨床及影像診斷學：檢體採集 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">獸醫臨床及影像診斷學</a><span class="sep">›</span><span class="current">檢體採集</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">實驗室檢查的檢體採集 Material Collection for Laboratory Examination</h1>
+      <p class="page-subtitle">犬貓採血（頸靜脈、頭靜脈、外側與內側隱靜脈）、採尿（公母犬導尿、膀胱穿刺）、皮膚檢體（刮皮、膠帶法、吸塵法、膿疱培養）、腹腔穿刺與胸腔穿刺的位置與步驟</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">獸醫臨床及影像診斷學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈Material collection for laboratory examination〉（47 頁，講義未署名，推測為王麗倩老師；圖片多引自 Taylor 2022《Small Animal Clinical Techniques》）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/檢體採集.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">採集方法</div>
+    <a onclick="showSection('blood')" id="nav-blood"><span class="nav-icon">🩸</span> 採血</a>
+    <a onclick="showSection('urine')" id="nav-urine"><span class="nav-icon">💧</span> 採尿</a>
+    <a onclick="showSection('skin')" id="nav-skin"><span class="nav-icon">🔬</span> 皮膚檢體</a>
+    <div class="section-label" style="margin-top:8px;">體腔液</div>
+    <a onclick="showSection('abdo')" id="nav-abdo"><span class="nav-icon">🫃</span> 腹腔穿刺</a>
+    <a onclick="showSection('thoraco')" id="nav-thoraco"><span class="nav-icon">🫁</span> 胸腔穿刺</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 考試方向</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">檢體採集的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>把理學檢查找到的問題送進實驗室之前，<strong>怎麼正確採到檢體</strong>：血液（四條靜脈）、尿液（導尿、膀胱穿刺）、皮膚（刮皮、膠帶、吸塵、膿疱培養）、體腔液（腹腔穿刺、胸腔穿刺）。講義幾乎都是 Taylor《小動物臨床技術》的步驟照片，文字很少，<strong>資訊多在照片的英文圖說裡</strong>，本頁把圖說逐一翻譯並整理成步驟。</dd>
+          <dt>為什麼重要</dt>
+          <dd>檢體採錯，後面的檢驗就沒有意義：例如自然排尿會被下泌尿道的細菌、細胞與碎屑汙染，要做尿液培養就需要<strong>膀胱穿刺</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=16">p.16</a>）；刮皮刮不夠深就找不到毛囊蟲。胸腹腔穿刺則是診斷也是治療（抽胸水緩解呼吸困難）。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-blood">採血四條靜脈</a>：外頸靜脈（external jugular）、頭靜脈（cephalic）、外側隱靜脈（lateral saphenous，犬常用）、內側隱靜脈（medial saphenous，貓常用）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=3">p.3</a>）。</li>
+              <li><a href="#section-blood">頸靜脈的位置</a>：在<strong>頸靜脈溝（jugular furrow）</strong>，位於頸部側面、氣管的背外側（<a class="pdf-link" href="pdf/檢體採集.pdf#page=6">p.6</a>）。</li>
+              <li><a href="#section-urine">膀胱穿刺的目的</a>：取得<strong>不受下泌尿道細菌、細胞、碎屑汙染</strong>的尿液（<a class="pdf-link" href="pdf/檢體採集.pdf#page=16">p.16</a>）；針頭朝<strong>背尾側（dorsocaudally）</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=27">p.27</a>）。</li>
+              <li><a href="#section-urine">母犬導尿</a>：尿道口在<strong>陰道腹側底部的小隆起</strong>上；前庭往背頭側陡升（<a class="pdf-link" href="pdf/檢體採集.pdf#page=21">p.21</a>、<a class="pdf-link" href="pdf/檢體採集.pdf#page=24">p.24</a>）。</li>
+              <li><a href="#section-skin">皮膚檢體</a>：疥癬蟲與毛囊蟲好發位置不同；刮皮要刮到<strong>滲出血清與微血管出血</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=31">p.31</a>）；夏蟲（Cheyletiella）用<strong>膠帶法</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=36">p.36</a>）；跳蚤糞用吸塵法＋白紙加水看擴散（<a class="pdf-link" href="pdf/檢體採集.pdf#page=37">p.37</a>）。</li>
+              <li><a href="#section-abdo">腹腔穿刺</a>：<strong>腹正中線、臍後方 2–3 cm</strong>；少量積液常是陰性 → 診斷性腹膜灌洗：溫生理食鹽水 <strong>20 mL/kg 腹腔內灌入</strong>，按摩後取至少 1 mL（<a class="pdf-link" href="pdf/檢體採集.pdf#page=40">p.40</a>）。</li>
+              <li><a href="#section-thoraco">胸腔穿刺</a>：動物站立或趴姿讓胸水聚到腹側；<strong>第 6–8 肋間、肋軟骨交接處正上方</strong>進針；肋間血管神經在<strong>每根肋骨的正後方</strong>，所以貼著肋骨<strong>前緣</strong>進針（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43–44</a>）。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>外側 vs 內側隱靜脈</strong>：外側隱靜脈在後肢外側、跗關節上方，犬常用；內側隱靜脈在後肢內側，貓常用（講義用貓示範，<a class="pdf-link" href="pdf/檢體採集.pdf#page=14">p.14</a>）。<strong>疥癬蟲 vs 毛囊蟲</strong>：疥癬好發耳緣、肘、跗關節、腹側（<a class="pdf-link" href="pdf/檢體採集.pdf#page=29">p.29</a>）；毛囊蟲的照片病灶在臉（眼周、臉部）與腳（<a class="pdf-link" href="pdf/檢體採集.pdf#page=30">p.30</a>）。<strong>胸腔穿刺貼肋骨前緣</strong>，不是後緣：血管神經走在肋骨後緣（<a class="pdf-link" href="pdf/檢體採集.pdf#page=44">p.44</a>）。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（依學長姐考古）</span></dt>
+          <dd>學長姐整理的王麗倩考古出現過：<strong>腹腔穿刺位置</strong>、<strong>胸腔穿刺位置（含肋骨前緣進針）</strong>、DIC 的原因、小腸與大腸性下痢、糞便檢查方法（後三題見<a href="#section-exam">第 7 節</a>）。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體；講義照片的英文圖說由整理者翻譯。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸；標示「推測」的是依講義推測；標示「學長姐回憶」的是考古資料夾裡的學長姐整理，非官方答案。考試範圍以老師上課為準。圖片為老師講義截圖（講義引自 Taylor 2022）。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-node">理學檢查找到問題</div><div class="flow-arrow">→</div>
+        <div class="flow-node accent">選擇檢體<br><span style="font-size:.85em;">血、尿、皮膚、體腔液</span></div><div class="flow-arrow">→</div>
+        <div class="flow-node">正確保定與採集</div><div class="flow-arrow">→</div>
+        <div class="flow-node">細胞學、生化學、微生物學分析</div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Material collection for laboratory examination〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=3">p.3</a>、<a class="pdf-link" href="pdf/檢體採集.pdf#page=6">p.6</a>、<a class="pdf-link" href="pdf/檢體採集.pdf#page=14">p.14–16</a>、<a class="pdf-link" href="pdf/檢體採集.pdf#page=21">p.21–31</a>、<a class="pdf-link" href="pdf/檢體採集.pdf#page=36">p.36–37</a>、<a class="pdf-link" href="pdf/檢體採集.pdf#page=40">p.40–44</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BLOOD -->
+    <div class="section" id="section-blood">
+      <div class="section-head"><div class="section-num">2</div><h2>採血 Blood Collection（Venipuncture）</h2></div>
+      <p class="section-desc">四條靜脈都照同樣三步：<strong>保定 → 讓血管怒張（壓住近心端）→ 用拇指固定血管</strong>再下針。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p002.jpg" alt="採血器材（p.2）：酒精、採血管、針頭與注射器（Equipment required for venipuncture " loading="lazy"><div class="figure-caption">採血器材（<a class="pdf-link" href="pdf/檢體採集.pdf#page=2">p.2</a>）：酒精、採血管、針頭與注射器（Equipment required for venipuncture in dogs and cats）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=2">p.2</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p003.jpg" alt="犬貓可採靜脈血的血管（p.3）：外頸靜脈（external jugular vein，頸部）、頭靜脈（cephalic " loading="lazy"><div class="figure-caption">犬貓可採靜脈血的血管（<a class="pdf-link" href="pdf/檢體採集.pdf#page=3">p.3</a>）：<strong>外頸靜脈</strong>（external jugular vein，頸部）、<strong>頭靜脈</strong>（cephalic vein，前肢前側）、<strong>內側隱靜脈</strong>（medial saphenous vein，後肢內側）、<strong>外側隱靜脈</strong>（lateral saphenous vein，後肢外側、跗關節上方）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=3">p.3</a></div></div>
+      </div>
+      <h3>四條靜脈比較<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:18%;">靜脈</th><th>保定（講義照片）</th><th>讓血管怒張與固定</th></tr></thead>
+        <tbody>
+          <tr><td><strong>外頸靜脈</strong> external jugular</td><td>貓：抱住身體、頭往上抬（<a class="pdf-link" href="pdf/檢體採集.pdf#page=4">p.4</a>）；中型犬：坐姿，保定者抱住身體與頭（<a class="pdf-link" href="pdf/檢體採集.pdf#page=5">p.5</a>）；大型犬：坐姿，保定者在側面控制頭與身體（<a class="pdf-link" href="pdf/檢體採集.pdf#page=6">p.6</a>）</td><td>位於<strong>頸靜脈溝</strong>（頸側、氣管背外側）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=6">p.6</a>）；在頸部基部壓住使血管怒張（<a class="pdf-link" href="pdf/檢體採集.pdf#page=7">p.7</a>）</td></tr>
+          <tr><td><strong>頭靜脈</strong> cephalic</td><td>犬趴姿，保定者一手環住頭頸、一手握前肢肘部（<a class="pdf-link" href="pdf/檢體採集.pdf#page=8">p.8</a>）</td><td>握肢那隻手的<strong>拇指把頭靜脈往外側推並壓住</strong>，血管就會怒張（<a class="pdf-link" href="pdf/檢體採集.pdf#page=9">p.9</a>）；下針時固定血管（<a class="pdf-link" href="pdf/檢體採集.pdf#page=10">p.10</a>）</td></tr>
+          <tr><td><strong>外側隱靜脈</strong> lateral saphenous</td><td>犬側躺（<a class="pdf-link" href="pdf/檢體採集.pdf#page=11">p.11</a>）</td><td>壓住血管上方使其怒張（<a class="pdf-link" href="pdf/檢體採集.pdf#page=12">p.12</a>）；<strong>拇指貼在血管旁</strong>固定後下針（<a class="pdf-link" href="pdf/檢體採集.pdf#page=13">p.13</a>）</td></tr>
+          <tr><td><strong>內側隱靜脈</strong> medial saphenous</td><td><strong>貓</strong>側躺，保定者一手控制頭頸、一手拉住後肢（<a class="pdf-link" href="pdf/檢體採集.pdf#page=14">p.14</a>）</td><td>壓住後肢內側近端使血管怒張（<a class="pdf-link" href="pdf/檢體採集.pdf#page=15">p.15</a>）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p004.jpg" alt="外頸靜脈 1（p.4）：保定貓做頸靜脈採血（Restraining a cat for jugular venipunc" loading="lazy"><div class="figure-caption">外頸靜脈 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=4">p.4</a>）：保定貓做頸靜脈採血（Restraining a cat for jugular venipuncture），頭往上抬讓頸部伸展。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=4">p.4</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p005.jpg" alt="外頸靜脈 2（p.5）：中型犬的兩種保定方式（2A、2B），都讓犬坐在台上、頭往上抬。" loading="lazy"><div class="figure-caption">外頸靜脈 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=5">p.5</a>）：中型犬的兩種保定方式（2A、2B），都讓犬坐在台上、頭往上抬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=5">p.5</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p006.jpg" alt="外頸靜脈 3（p.6）：大型犬坐在地上保定（左）；右圖藍線標示外頸靜脈位在頸靜脈溝（jugular furrow）——頸" loading="lazy"><div class="figure-caption">外頸靜脈 3（<a class="pdf-link" href="pdf/檢體採集.pdf#page=6">p.6</a>）：大型犬坐在地上保定（左）；右圖藍線標示外頸靜脈位在<strong>頸靜脈溝</strong>（jugular furrow）——頸部側面、氣管背外側的凹槽。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=6">p.6</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p007.jpg" alt="外頸靜脈 4（p.7）：2A 下針；2B 藍色標示外頸靜脈，在頸部基部壓住使血管怒張（Distending the ju" loading="lazy"><div class="figure-caption">外頸靜脈 4（<a class="pdf-link" href="pdf/檢體採集.pdf#page=7">p.7</a>）：2A 下針；2B 藍色標示外頸靜脈，在頸部基部壓住使血管怒張（Distending the jugular vein）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=7">p.7</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p008.jpg" alt="頭靜脈 1（p.8）：頭靜脈採血的正確保定（Proper restraint for cephalic venipunc" loading="lazy"><div class="figure-caption">頭靜脈 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=8">p.8</a>）：頭靜脈採血的正確保定（Proper restraint for cephalic venipuncture）：犬趴姿，保定者環抱頭頸並握住前肢。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=8">p.8</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p009.jpg" alt="頭靜脈 2（p.9）：1A 保定者握住肘部；1B 藍線為頭靜脈——握肢那隻手的拇指把頭靜脈往外側轉並壓住，血管充血怒張。" loading="lazy"><div class="figure-caption">頭靜脈 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=9">p.9</a>）：1A 保定者握住肘部；1B 藍線為頭靜脈——<strong>握肢那隻手的拇指把頭靜脈往外側轉並壓住</strong>，血管充血怒張。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=9">p.9</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p010.jpg" alt="頭靜脈 3（p.10）：酒精消毒後，用拇指固定頭靜脈再下針（Stabilizing the cephalic vein）" loading="lazy"><div class="figure-caption">頭靜脈 3（<a class="pdf-link" href="pdf/檢體採集.pdf#page=10">p.10</a>）：酒精消毒後，用拇指固定頭靜脈再下針（Stabilizing the cephalic vein）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=10">p.10</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p011.jpg" alt="外側隱靜脈 1（p.11）：外側隱靜脈採血的正確保定：犬側躺，保定者控制頭頸與後肢。" loading="lazy"><div class="figure-caption">外側隱靜脈 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=11">p.11</a>）：外側隱靜脈採血的正確保定：犬側躺，保定者控制頭頸與後肢。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=11">p.11</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p012.jpg" alt="外側隱靜脈 2（p.12）：壓住外側隱靜脈近端使其怒張（Compressing the lateral saphenou" loading="lazy"><div class="figure-caption">外側隱靜脈 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=12">p.12</a>）：壓住外側隱靜脈近端使其怒張（Compressing the lateral saphenous vein, causing it to distend with blood）；1B 藍線為血管走向，在後肢外側、跗關節上方斜行。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=12">p.12</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p013.jpg" alt="外側隱靜脈 3（p.13）：拇指貼在血管旁固定外側隱靜脈再下針（Stabilizing the lateral saph" loading="lazy"><div class="figure-caption">外側隱靜脈 3（<a class="pdf-link" href="pdf/檢體採集.pdf#page=13">p.13</a>）：<strong>拇指貼在血管旁</strong>固定外側隱靜脈再下針（Stabilizing the lateral saphenous vein by placing the thumb adjacent to the vein）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=13">p.13</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p014.jpg" alt="內側隱靜脈 1（p.14）：貓做內側隱靜脈採血的正確保定：側躺，一手控制頭頸、一手把上方後肢拉開，露出下方後肢內側。" loading="lazy"><div class="figure-caption">內側隱靜脈 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=14">p.14</a>）：貓做內側隱靜脈採血的正確保定：側躺，一手控制頭頸、一手把上方後肢拉開，露出下方後肢內側。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=14">p.14</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p015.jpg" alt="內側隱靜脈 2（p.15）：壓住內側隱靜脈使其怒張（Occluding the medial saphenous vei" loading="lazy"><div class="figure-caption">內側隱靜脈 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=15">p.15</a>）：壓住內側隱靜脈使其怒張（Occluding the medial saphenous vein, causing it to distend with blood）；1B 藍線為血管走向，在後肢內側。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=15">p.15</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：頸靜脈管徑大、血流快，適合一次採較多血或需要避免溶血的檢體；貓常用內側隱靜脈、犬常用外側隱靜脈，是因為貓的內側隱靜脈較明顯、犬的外側隱靜脈較明顯。講義沒有寫各靜脈的使用時機，以上為一般臨床做法。</p>
+      <footer class="note-footer">資料來源：課程講義〈Material collection for laboratory examination〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=2">p.2–15</a>（照片與圖說引自 Taylor 2022）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- URINE -->
+    <div class="section" id="section-urine">
+      <div class="section-head"><div class="section-num">3</div><h2>採尿 Urine Collection</h2></div>
+      <p class="section-desc">兩種方法：導尿（公犬、母犬做法不同）與膀胱穿刺。要做尿液培養時，膀胱穿刺是最乾淨的檢體。</p>
+      <h3>兩種方法的目的<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>導尿</strong> Urinary catheterization：公犬（male）、母犬（female）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=16">p.16</a>）。</li>
+        <li><strong>膀胱穿刺</strong> Cystocentesis：<strong>取得不受下泌尿道來源的細菌、細胞、碎屑汙染的尿液</strong>（To collect urine samples that are free from contamination by bacteria, cells, and debris originating from the lower urinary tract）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=16">p.16</a>）。</li>
+      </ul>
+      <h3>公犬導尿<span class="lv lv-know">理解</span></h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">犬側躺，助手把上方後肢拉開；量好導尿管要插入的長度（<a class="pdf-link" href="pdf/檢體採集.pdf#page=17">p.17</a>）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">把陰莖從包皮推出、清潔；導尿管前端塗潤滑劑（照片為公貓導尿管 tomcat urinary catheter）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=18">p.18</a>）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>把推出的陰莖往正後方（尾側）拉直</strong>，可以減少尿道的自然彎曲，讓導尿管容易通過（<a class="pdf-link" href="pdf/檢體採集.pdf#page=19">p.19</a>）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">導尿管進入膀胱後，接注射器抽出尿液（<a class="pdf-link" href="pdf/檢體採集.pdf#page=20">p.20</a>）。</div></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p017.jpg" alt="公犬導尿 1（p.17）：犬側躺、上方後肢拉開，操作者持導尿管比對插入長度。" loading="lazy"><div class="figure-caption">公犬導尿 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=17">p.17</a>）：犬側躺、上方後肢拉開，操作者持導尿管比對插入長度。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=17">p.17</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p018.jpg" alt="公犬導尿 2（p.18）：左為推出陰莖、以紗布清潔；右為在導尿管前端塗潤滑劑（Lubricating the tip o" loading="lazy"><div class="figure-caption">公犬導尿 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=18">p.18</a>）：左為推出陰莖、以紗布清潔；右為在導尿管前端塗潤滑劑（Lubricating the tip of a tomcat urinary catheter）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=18">p.18</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p019.jpg" alt="公犬導尿 3（p.19）：側面剖面示意圖。6A 陰莖未拉直時尿道彎曲；6B 把推出的陰莖往尾側拉直，尿道變直，導尿管容易" loading="lazy"><div class="figure-caption">公犬導尿 3（<a class="pdf-link" href="pdf/檢體採集.pdf#page=19">p.19</a>）：側面剖面示意圖。6A 陰莖未拉直時尿道彎曲；6B <strong>把推出的陰莖往尾側拉直</strong>，尿道變直，導尿管容易通過（Pulling the extruded penis straight back caudally reduces the natural curvature of the urethra）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=19">p.19</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p020.jpg" alt="公犬導尿 4（p.20）：導尿管已置入，接注射器抽取尿液（管內可見黃色尿液）。" loading="lazy"><div class="figure-caption">公犬導尿 4（<a class="pdf-link" href="pdf/檢體採集.pdf#page=20">p.20</a>）：導尿管已置入，接注射器抽取尿液（管內可見黃色尿液）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=20">p.20</a></div></div>
+      </div>
+      <h3>母犬導尿<span class="lv lv-know">理解</span></h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">保定（照片為站立保定）；外陰周圍皮膚與外陰用消毒液清潔、沖洗（<a class="pdf-link" href="pdf/檢體採集.pdf#page=22">p.22</a>）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">用注射器以<strong>無菌生理食鹽水沖洗陰道與前庭</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=23">p.23</a>）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">擴張器（speculum）從陰唇插入後<strong>朝背側</strong>推進，再撐開，就能看到前庭與陰道（<a class="pdf-link" href="pdf/檢體採集.pdf#page=23">p.23</a>）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">找到<strong>尿道口：在陰道腹側底部的一個小隆起上</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=24">p.24</a>）；導尿管前端塗無菌水性潤滑劑（<a class="pdf-link" href="pdf/檢體採集.pdf#page=24">p.24</a>）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">導尿管插入外尿道口，推進到膀胱內（<a class="pdf-link" href="pdf/檢體採集.pdf#page=25">p.25</a>）。</div></div>
+      <div class="figure"><img src="img/week09_檢體採集/mc_p021.jpg" alt="母犬導尿 1（p.21）：左為解剖示意圖，標出結腸（colon）、膀胱（bladder）、尿道（urethra）、外尿道" loading="lazy"><div class="figure-caption">母犬導尿 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=21">p.21</a>）：左為解剖示意圖，標出結腸（colon）、膀胱（bladder）、尿道（urethra）、外尿道口（external urethral orifice）、前庭（vestibule）、陰蒂（clitoris）——<strong>陰道尾側的前庭往背頭側陡升</strong>，一直到尿道結節之後（The caudal portion of the vagina is the vestibule, which is angled steeply dorsocranially until just past the urethral tubercle）。右為導尿管進入尿道的示意圖。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=21">p.21</a></div></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p022.jpg" alt="母犬導尿 2（p.22）：左為導尿保定（Restraint for urinary catheterization）；右" loading="lazy"><div class="figure-caption">母犬導尿 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=22">p.22</a>）：左為導尿保定（Restraint for urinary catheterization）；右為外陰周圍皮膚與外陰以消毒液清潔並沖洗。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=22">p.22</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p023.jpg" alt="母犬導尿 3（p.23）：4 用注射器以無菌生理食鹽水沖洗陰道與前庭；5A、5B 擴張器從陰唇插入後朝背側推進、再撐開，" loading="lazy"><div class="figure-caption">母犬導尿 3（<a class="pdf-link" href="pdf/檢體採集.pdf#page=23">p.23</a>）：4 用注射器以無菌生理食鹽水沖洗陰道與前庭；5A、5B 擴張器從陰唇插入後朝背側推進、再撐開，觀察前庭與陰道。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=23">p.23</a></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p024.jpg" alt="母犬導尿 4（p.24）：6 尿道口位於陰道腹側底部的小隆起上（The urethral orifice is loca" loading="lazy"><div class="figure-caption">母犬導尿 4（<a class="pdf-link" href="pdf/檢體採集.pdf#page=24">p.24</a>）：6 <strong>尿道口位於陰道腹側底部的小隆起上</strong>（The urethral orifice is located on a small tubercle on the ventral floor of the vagina）；7 導尿管前端塗無菌水性潤滑劑。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=24">p.24</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p025.jpg" alt="母犬導尿 5（p.25）：導尿管插入外尿道口，推進到膀胱內（The catheter is inserted into " loading="lazy"><div class="figure-caption">母犬導尿 5（<a class="pdf-link" href="pdf/檢體採集.pdf#page=25">p.25</a>）：導尿管插入外尿道口，推進到膀胱內（The catheter is inserted into the external urethral orifice and advanced into the lumen of the bladder）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=25">p.25</a></div></div>
+      </div>
+      <h3>膀胱穿刺<span class="lv lv-must">必考</span></h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>輕柔觸診找到並固定膀胱</strong>（Locating and immobilizing the urinary bladder by gentle palpation）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=26">p.26</a>）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">針頭<strong>朝背尾側（dorsocaudally）</strong>刺入膀胱抽尿（Directing the needle dorsocaudally during cystocentesis）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=27">p.27</a>）。</div></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p026.jpg" alt="膀胱穿刺 1（p.26）：貓側躺，操作者以手觸診找到膀胱並固定；右圖黃色為膀胱位置示意。" loading="lazy"><div class="figure-caption">膀胱穿刺 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=26">p.26</a>）：貓側躺，操作者以手觸診找到膀胱並固定；右圖黃色為膀胱位置示意。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p027.jpg" alt="膀胱穿刺 2（p.27）：一手固定膀胱，另一手持注射器，針頭朝背尾側刺入。" loading="lazy"><div class="figure-caption">膀胱穿刺 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=27">p.27</a>）：一手固定膀胱，另一手持注射器，<strong>針頭朝背尾側</strong>刺入。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=27">p.27</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：針頭朝背尾側，是讓針對準膀胱頸方向、遠離膀胱頂；講義沒有寫為什麼，這是一般說法。膀胱太小摸不到時盲穿風險高，臨床常用超音波導引。</p>
+      <footer class="note-footer">資料來源：課程講義〈Material collection for laboratory examination〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=16">p.16–27</a>（照片與圖說引自 Taylor 2022）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SKIN -->
+    <div class="section" id="section-skin">
+      <div class="section-head"><div class="section-num">4</div><h2>皮膚檢體 Collecting Integumentary Specimens</h2></div>
+      <p class="section-desc">先依病灶位置猜是哪種蟲，再選方法：刮皮（疥癬蟲、毛囊蟲）、膠帶法（夏蟲）、吸塵法（跳蚤糞）、膿疱培養（細菌）。</p>
+      <h3>疥癬蟲與毛囊蟲的好發位置<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:20%;">蟲</th><th>好發位置（講義示意圖）</th><th>照片的病變</th></tr></thead>
+        <tbody>
+          <tr><td><strong>疥癬蟲</strong> Sarcoptic mange（<em>Sarcoptes scabiei</em>）</td><td><strong>耳緣、肘、跗關節、腹側</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=29">p.29</a> 示意圖紅色區）</td><td>脫毛、紅斑、抓傷（alopecia, erythema, excoriations）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=29">p.29</a>）</td></tr>
+          <tr><td><strong>毛囊蟲</strong> Demodex（<em>Demodex canis</em>）</td><td>示意圖標示好發位置（<a class="pdf-link" href="pdf/檢體採集.pdf#page=30">p.30</a>）；照片病灶在<strong>眼周、臉部、腳</strong></td><td>眼周脫毛紅斑脫屑（黃金獵犬）、臉部紅斑脫屑結痂（年輕鬥牛犬）、毛囊蟲性趾間皮膚炎（pododermatitis）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=30">p.30</a>）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p029.jpg" alt="疥癬蟲（p.29）：2A 示意圖標出疥癬蟲最常見的位置（耳緣、肘、跗關節、腹側，紅色區）；2B 疥癬犬的脫毛、紅斑與抓傷" loading="lazy"><div class="figure-caption">疥癬蟲（<a class="pdf-link" href="pdf/檢體採集.pdf#page=29">p.29</a>）：2A 示意圖標出疥癬蟲最常見的位置（耳緣、肘、跗關節、腹側，紅色區）；2B 疥癬犬的脫毛、紅斑與抓傷。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=29">p.29</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p030.jpg" alt="毛囊蟲（p.30）：3A 毛囊蟲好發位置示意圖；3B 年輕鬥牛犬臉部紅斑、脫屑與結痂；3C 黃金獵犬眼周脫毛、紅斑與脫屑" loading="lazy"><div class="figure-caption">毛囊蟲（<a class="pdf-link" href="pdf/檢體採集.pdf#page=30">p.30</a>）：3A 毛囊蟲好發位置示意圖；3B 年輕鬥牛犬臉部紅斑、脫屑與結痂；3C 黃金獵犬眼周脫毛、紅斑與脫屑；3D 毛囊蟲性趾間皮膚炎。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=30">p.30</a></div></div>
+      </div>
+      <h3>刮皮 Skin scraping<span class="lv lv-must">必考</span></h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text">把<strong>手術刀片的鈍端沾礦物油</strong>（Dipping the dull end of a scalpel blade in mineral oil）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=31">p.31</a>）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">捏起皮膚刮，<strong>刮到有血清滲出、微血管出血為止</strong>（The skin is scraped until serum oozes and drops of capillary blood appear）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=31">p.31</a>）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">刮下的物質放到玻片上的一滴礦物油裡，蓋上蓋玻片（<a class="pdf-link" href="pdf/檢體採集.pdf#page=32">p.32</a>），用顯微鏡看（<a class="pdf-link" href="pdf/檢體採集.pdf#page=33">p.33</a>）。</div></div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p031.jpg" alt="刮皮 1（p.31）：2 刀片鈍端沾礦物油；4A、4B 捏起皮膚刮，直到滲出血清與微血管出血。" loading="lazy"><div class="figure-caption">刮皮 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=31">p.31</a>）：2 刀片鈍端沾礦物油；4A、4B 捏起皮膚刮，直到滲出血清與微血管出血。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=31">p.31</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p032.jpg" alt="刮皮 2（p.32）：5A 刮下的物質放到玻片上的一滴礦物油裡；5B 蓋上蓋玻片。" loading="lazy"><div class="figure-caption">刮皮 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=32">p.32</a>）：5A 刮下的物質放到玻片上的一滴礦物油裡；5B 蓋上蓋玻片。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=32">p.32</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p033.jpg" alt="刮皮鏡檢（p.33）：1 疥癬蟲（Sarcoptes scabiei）——圓形、短足；2 毛囊蟲（Demodex can" loading="lazy"><div class="figure-caption">刮皮鏡檢（<a class="pdf-link" href="pdf/檢體採集.pdf#page=33">p.33</a>）：1 疥癬蟲（<em>Sarcoptes scabiei</em>）——圓形、短足；2 毛囊蟲（<em>Demodex canis</em>）——細長如雪茄。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=33">p.33</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：毛囊蟲住在毛囊深處，刮皮要刮到微血管出血（深層刮皮）才找得到；疥癬蟲在表皮隧道內、數量少，常要刮大範圍、多個位置，陰性不能排除。講義只寫「刮到出血」，深淺之分為一般說法。</p>
+      <h3>膠帶法 Cellophane tape method<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>器材：玻片、透明膠帶、礦物油（<a class="pdf-link" href="pdf/檢體採集.pdf#page=34">p.34</a>）。</li>
+        <li>膠帶黏面貼在毛與皮膚上，<strong>黏起皮屑與碎屑</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=34">p.34</a>）；黏面朝下貼到滴了礦物油的玻片上（<a class="pdf-link" href="pdf/檢體採集.pdf#page=35">p.35</a>）。</li>
+        <li>講義例子：<strong>夏蟲（<em>Cheyletiella yasguri</em>）</strong>——幼犬脫屑與搔癢，俗稱「會走路的皮屑（walking dandruff）」，用膠帶法在顯微鏡下找到（<a class="pdf-link" href="pdf/檢體採集.pdf#page=36">p.36</a>）。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p034.jpg" alt="膠帶法 1（p.34）：左為器材（玻片、透明膠帶、礦物油）；右為膠帶黏面貼在毛與皮膚上收集皮屑與碎屑。" loading="lazy"><div class="figure-caption">膠帶法 1（<a class="pdf-link" href="pdf/檢體採集.pdf#page=34">p.34</a>）：左為器材（玻片、透明膠帶、礦物油）；右為膠帶黏面貼在毛與皮膚上收集皮屑與碎屑。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=34">p.34</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p035.jpg" alt="膠帶法 2（p.35）：3A 玻片滴礦物油；3B、3C 膠帶黏面朝下貼在玻片的油滴上。" loading="lazy"><div class="figure-caption">膠帶法 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=35">p.35</a>）：3A 玻片滴礦物油；3B、3C 膠帶黏面朝下貼在玻片的油滴上。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=35">p.35</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p036.jpg" alt="膠帶法 3（p.36）：左為幼犬感染夏蟲的脫屑與搔癢（walking dandruff）；右為膠帶法鏡檢找到的夏蟲（Ch" loading="lazy"><div class="figure-caption">膠帶法 3（<a class="pdf-link" href="pdf/檢體採集.pdf#page=36">p.36</a>）：左為幼犬感染夏蟲的脫屑與搔癢（walking dandruff）；右為膠帶法鏡檢找到的夏蟲（<em>Cheyletiella yasguri</em>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=36">p.36</a></div></div>
+      </div>
+      <h3>吸塵法與膿疱細菌培養<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>吸塵法 Vacuuming</strong>：在全身被毛吸取（<a class="pdf-link" href="pdf/檢體採集.pdf#page=37">p.37</a>）；吸到的碎屑放在<strong>白紙上加幾滴水</strong>，<strong>血色從黑點擴散出來</strong>，就確認黑點是<strong>跳蚤糞（flea dirt）</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=37">p.37</a>）。</li>
+        <li><strong>膿疱細菌培養</strong>：講義為四格示意圖（<a class="pdf-link" href="pdf/檢體採集.pdf#page=38">p.38</a>）——剪毛（不刷洗）→ 以酒精輕噴表面、等它乾 → 用無菌針頭挑破膿疱 → 用無菌棉棒沾取膿液送培養（步驟文字依圖示推測，講義沒有寫）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p037.jpg" alt="吸塵法（p.37）：左為在全身被毛吸取（Applying suction to all areas of coat）；右" loading="lazy"><div class="figure-caption">吸塵法（<a class="pdf-link" href="pdf/檢體採集.pdf#page=37">p.37</a>）：左為在全身被毛吸取（Applying suction to all areas of coat）；右為吸到的碎屑放白紙上加水，血色從黑點擴散出來，證實黑點是跳蚤糞。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=37">p.37</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p038.jpg" alt="膿疱細菌培養（p.38）：四格示意圖：剪毛、酒精噴表面、無菌針頭挑破膿疱、棉棒取膿液。講義此頁沒有文字。" loading="lazy"><div class="figure-caption">膿疱細菌培養（<a class="pdf-link" href="pdf/檢體採集.pdf#page=38">p.38</a>）：四格示意圖：剪毛、酒精噴表面、無菌針頭挑破膿疱、棉棒取膿液。講義此頁沒有文字。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=38">p.38</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈Material collection for laboratory examination〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=29">p.29–38</a>（照片與圖說引自 Taylor 2022）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ABDO -->
+    <div class="section" id="section-abdo">
+      <div class="section-head"><div class="section-num">5</div><h2>腹腔穿刺 Abdominocentesis</h2></div>
+      <p class="section-desc">腹腔出現積液時做；位置記一個數字：<strong>臍後 2–3 cm 的腹正中線</strong>。</p>
+      <h3>位置與診斷性腹膜灌洗<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:24%;">項目</th><th>內容（<a class="pdf-link" href="pdf/檢體採集.pdf#page=40">p.40</a>）</th></tr></thead>
+        <tbody>
+          <tr><td>適應症</td><td>腹腔出現積液</td></tr>
+          <tr><td><strong>針刺位置</strong></td><td><strong>腹正中線、臍後方 2–3 cm</strong></td></tr>
+          <tr><td>少量積液</td><td><strong>檢查結果多為陰性</strong>（抽不到）</td></tr>
+          <tr><td><strong>診斷性腹膜灌洗</strong></td><td>灌入<strong>溫生理食鹽水 20 mL/kg</strong>（腹腔內），按摩使液體分布均勻 → 腹腔穿刺取至少 <strong>1 mL</strong> 灌洗液</td></tr>
+          <tr><td>送檢</td><td>細胞學、生化學、微生物學分析</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-success"><div class="alert-label">重點：20 mL/kg 怎麼用</div><p>例：10 kg 的犬，灌洗量＝20 mL/kg × 10 kg＝<strong>200 mL 溫生理食鹽水</strong>（腹腔內灌入）。計算為整理者示意，數字 20 mL/kg 與「至少 1 mL」出自講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=40">p.40</a>。</p></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p041.jpg" alt="腹腔穿刺 2（p.41）：左為貓側躺保定做腹腔穿刺（A cat restrained in lateral recumb" loading="lazy"><div class="figure-caption">腹腔穿刺 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=41">p.41</a>）：左為貓側躺保定做腹腔穿刺（A cat restrained in lateral recumbency for abdominocentesis）；右 2A 在腹正中線附近下針，針座接管路收集腹水。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=41">p.41</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p042.jpg" alt="腹腔穿刺 3（p.42）：6A、6B 犬站立保定，操作者在腹部腹側下針、以管路收集液體。" loading="lazy"><div class="figure-caption">腹腔穿刺 3（<a class="pdf-link" href="pdf/檢體採集.pdf#page=42">p.42</a>）：6A、6B 犬站立保定，操作者在腹部腹側下針、以管路收集液體。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=42">p.42</a></div></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：講義的位置在「臍後」，是為了避開臍前方的鐮狀韌帶脂肪與脾臟；腹水的鑑別（漏出液、修飾性漏出液、滲出液）屬臨床病理學內容，講義沒有寫。</p>
+      <footer class="note-footer">資料來源：課程講義〈Material collection for laboratory examination〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=40">p.40–42</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- THORACO -->
+    <div class="section" id="section-thoraco">
+      <div class="section-head"><div class="section-num">6</div><h2>胸腔穿刺 Thoracentesis</h2></div>
+      <p class="section-desc">先用理學檢查與 X 光確認胸水的量和位置，再在第 6–8 肋間、肋軟骨交接處上方、貼肋骨前緣進針。</p>
+      <h3>什麼時候想到胸水<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>液體蓄積在<strong>胸膜腔</strong>（臟層胸膜與壁層胸膜之間）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）。</li>
+        <li>臨床：<strong>呼吸快而淺，腹側心音與肺音模糊</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）——和<a href="week09_物理檢查.html#section-systems">物理檢查頁</a>「快而淺＝胸膜腔疾病」、「心音模糊可能是胸腔積液」對得上。</li>
+        <li>X 光檢查確認（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）。</li>
+      </ul>
+      <h3>穿刺位置<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:24%;">項目</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td>姿勢</td><td>動物<strong>站立或正趴（胸骨臥）</strong>，讓液體聚積在<strong>腹側</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43–44</a>）</td></tr>
+          <tr><td>找位置</td><td>配合理學與 X 光檢查找出胸水的量與位置（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）</td></tr>
+          <tr><td><strong>進針點</strong></td><td><strong>第 6–7–8 肋間、肋軟骨交接處正上方</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）</td></tr>
+          <tr><td><strong>貼哪一邊</strong></td><td>肋間的靜脈、動脈、神經<strong>位在每根肋骨的正後方</strong>（<a class="pdf-link" href="pdf/檢體採集.pdf#page=44">p.44</a>）→ 貼著<strong>肋骨前緣</strong>進針，避開血管神經（學長姐考古答案也寫「肋骨前緣進針」）</td></tr>
+          <tr><td>送檢</td><td>細胞學、生化學、微生物學分析（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week09_檢體採集/mc_p044.jpg" alt="胸腔穿刺 2（p.44）：上圖：站立或胸骨臥的動物，胸水聚積在胸腔腹側（Pleural fluid accumulate" loading="lazy"><div class="figure-caption">胸腔穿刺 2（<a class="pdf-link" href="pdf/檢體採集.pdf#page=44">p.44</a>）：上圖：站立或胸骨臥的動物，胸水聚積在胸腔腹側（Pleural fluid accumulates ventrally in the standing or sternal patient）；下圖：肋間剖面，由上而下依序是靜脈、動脈、神經（VEIN、ARTERY、NERVE），<strong>緊貼在每根肋骨的後方</strong>（The intercostal vessels are located immediately caudal to each rib）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=44">p.44</a></div></div>
+        <div class="figure"><img src="img/week09_檢體採集/mc_p045.jpg" alt="胸腔穿刺 3（p.45）：左為犬站立保定做胸腔穿刺（Dog restrained while standing for " loading="lazy"><div class="figure-caption">胸腔穿刺 3（<a class="pdf-link" href="pdf/檢體採集.pdf#page=45">p.45</a>）：左為犬站立保定做胸腔穿刺（Dog restrained while standing for thoracentesis）；右為從右心衰竭犬的胸膜腔抽出的修飾性漏出液（modified transudate）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=45">p.45</a></div></div>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>「貼肋骨前緣」是因為血管神經在肋骨<strong>後緣</strong>。容易寫反：答題時寫「於肋骨前緣進針，以避開走在肋骨後緣的肋間血管與神經」。</p></div>
+      <footer class="note-footer">資料來源：課程講義〈Material collection for laboratory examination〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43–45</a>；考古〈臨影診期中考古融合〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=2">p.2</a>（學長姐整理）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">7</div><h2>考試方向（依學長姐考古）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>學長姐心得說王麗倩老師的部分「<strong>基本上考古</strong>」（學長姐回憶）。下表依〈臨影診期中考古融合〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=1">p.1–2</a> 的學長姐整理，答案為學長姐版本加上本頁講義內容，<strong>非官方</strong>。DIC、下痢、糞便檢查三題本講義沒有教，列出學長姐答案供參考。</p></div>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:30%;">考古題目</th><th>答題重點</th><th style="width:18%;">出處</th></tr></thead>
+        <tbody>
+          <tr><td>腹腔穿刺位置</td><td>腹正中線、臍後方 2–3 cm；少量積液可做診斷性腹膜灌洗（溫生理食鹽水 20 mL/kg 腹腔內）</td><td>本頁第 5 節（<a class="pdf-link" href="pdf/檢體採集.pdf#page=40">p.40</a>）</td></tr>
+          <tr><td>胸腔穿刺位置</td><td>第 6–7（–8）肋間、肋軟骨交接處正上方，<strong>肋骨前緣進針</strong>（血管神經在肋骨後緣）；站立或胸骨臥</td><td>本頁第 6 節（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43–44</a>）</td></tr>
+          <tr><td>DIC 的原因</td><td>學長姐答案：細菌感染（內毒素）、病毒感染、抗原抗體複合物、血管內溶血、大面積燒傷、瀰漫性血管內皮受損、休克 → 凝血被廣泛活化，造成全身微血栓與消耗性出血、溶血性貧血</td><td>本講義未教；物理檢查講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=26">p.26</a> 只出現「點狀出血→DIC」</td></tr>
+          <tr><td>小腸性 vs 大腸性下痢</td><td>學長姐答案：小腸性——糞便量大、體重下降、腹鳴脹氣（病毒使絨毛萎縮、球蟲）；大腸性——排便次數多、裡急後重、糞便量少、含黏液與血</td><td><a href="week06_消化道臨床檢查與影像.html#section-symptoms">消化道頁「症狀」節</a></td></tr>
+          <tr><td>糞便檢查方法</td><td>學長姐答案：消化試驗、塗抹法、浮游法；塗抹法看原蟲（如梨形鞭毛蟲在小腸、纖毛蟲在大腸），浮游法看線蟲卵與球蟲卵囊（學長姐原文寫「單胞類／線蟲原蟲類」，分法不嚴謹，以老師上課為準）</td><td>本講義未教</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">推測可能出的題：四條採血靜脈的名稱與位置、頸靜脈溝的位置、膀胱穿刺的目的與進針方向、母犬尿道口位置、疥癬蟲與毛囊蟲的好發部位、刮皮刮到什麼程度、夏蟲用什麼方法、跳蚤糞怎麼確認。</p>
+      <footer class="note-footer">資料來源：考古〈臨影診期中考古融合〉<a class="pdf-link" href="pdf/檢體採集.pdf#page=1">p.1–2</a> 與學長姐心得（非官方）；本頁各節講義頁碼。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">8</div><h2>練習題 Practice Quiz</h2></div>
+      <p class="section-desc">13 題，答案預設隱藏；先自己寫再點開核對。</p>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 依講義，胸腔穿刺的進針位置何者正確？</div>
+        <ul class="quiz-options"><li>(A) 第 3–4 肋間、胸骨旁，貼肋骨後緣</li><li>(B) 第 6–8 肋間、肋軟骨交接處正上方，貼肋骨前緣</li><li>(C) 第 10–12 肋間、脊椎旁，貼肋骨後緣</li><li>(D) 第 6–8 肋間、肋軟骨交接處正上方，貼肋骨後緣</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(A) 錯：肋間位置不對，而且貼後緣會碰到血管神經。(B) 對：6th–7th–8th 肋間、肋軟骨交接處正上方（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）；肋間血管神經在每根肋骨正後方（<a class="pdf-link" href="pdf/檢體採集.pdf#page=44">p.44</a>），所以貼前緣。(C) 錯：位置太後、太背側；站立或胸骨臥時胸水聚積在腹側（<a class="pdf-link" href="pdf/檢體採集.pdf#page=44">p.44</a>）。(D) 錯：位置對但貼後緣會傷到肋間血管神經。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 依講義，腹腔穿刺的針刺位置是？</div>
+        <ul class="quiz-options"><li>(A) 腹正中線、臍前方 2–3 cm</li><li>(B) 腹正中線、臍後方 2–3 cm</li><li>(C) 右側最後肋骨後方</li><li>(D) 左側腰下窩</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(A) 錯：是臍「後」不是臍前。(B) 對：腹正中線臍後方 2–3 cm（<a class="pdf-link" href="pdf/檢體採集.pdf#page=40">p.40</a>）。(C)(D) 錯：講義沒有這些位置；左側腰下窩是反芻動物瘤胃的位置，不是犬貓腹腔穿刺點（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 一隻 15 kg 犬疑似少量腹腔積液、腹腔穿刺抽不到，依講義做診斷性腹膜灌洗應灌入多少溫生理食鹽水？</div>
+        <ul class="quiz-options"><li>(A) 15 mL</li><li>(B) 150 mL</li><li>(C) 300 mL</li><li>(D) 1500 mL</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=40">p.40</a>：灌入 20 mL/kg 溫生理食鹽水（腹腔內）。20 × 15＝300 mL。(A) 是 1 mL/kg；(B) 是 10 mL/kg；(D) 是 100 mL/kg，都不是講義的劑量。灌完按摩使液體分布，再穿刺取至少 1 mL 灌洗液。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 做膀胱穿刺的主要目的，依講義是？</div>
+        <ul class="quiz-options"><li>(A) 採集量最多的尿液</li><li>(B) 取得不受下泌尿道細菌、細胞與碎屑汙染的尿液</li><li>(C) 避免任何侵入性操作</li><li>(D) 可同時治療尿道阻塞</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(A) 錯：量不是目的。(B) 對：to collect urine samples that are free from contamination by bacteria, cells, and debris originating from the lower urinary tract（<a class="pdf-link" href="pdf/檢體採集.pdf#page=16">p.16</a>）。(C) 錯：膀胱穿刺本身就是侵入性操作。(D) 錯：講義沒有這個說法；解除尿道阻塞要靠導尿（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 膀胱穿刺時，講義照片的針頭方向是？</div>
+        <ul class="quiz-options"><li>(A) 朝背尾側（dorsocaudally）</li><li>(B) 朝腹頭側</li><li>(C) 垂直腹壁朝正上方</li><li>(D) 朝頭側、對準膀胱頂</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">(A) 對：Directing the needle dorsocaudally during cystocentesis（<a class="pdf-link" href="pdf/檢體採集.pdf#page=27">p.27</a>）。(B)(C)(D) 錯：講義沒有這些方向；朝頭側對準膀胱頂的方向與講義相反。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 母犬導尿時，尿道口位於？</div>
+        <ul class="quiz-options"><li>(A) 陰道背側頂部</li><li>(B) 陰道腹側底部的小隆起上</li><li>(C) 陰蒂窩內</li><li>(D) 子宮頸旁</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(A) 錯：方向相反。(B) 對：The urethral orifice is located on a small tubercle on the ventral floor of the vagina（<a class="pdf-link" href="pdf/檢體採集.pdf#page=24">p.24</a>）。(C) 錯：陰蒂在前庭尾側，不是尿道口（<a class="pdf-link" href="pdf/檢體採集.pdf#page=21">p.21</a> 示意圖）。(D) 錯：子宮頸更頭側，導尿不會到那裡。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 公犬導尿時，講義建議怎麼讓導尿管更容易通過？</div>
+        <ul class="quiz-options"><li>(A) 讓犬仰躺並把陰莖往頭側推</li><li>(B) 把推出的陰莖往正後方（尾側）拉直，減少尿道彎曲</li><li>(C) 先做膀胱穿刺減壓</li><li>(D) 用較粗的導尿管</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(A) 錯：方向相反。(B) 對：Pulling the extruded penis straight back caudally reduces the natural curvature of the urethra and simplifies passage of a urinary catheter（<a class="pdf-link" href="pdf/檢體採集.pdf#page=19">p.19</a>）。(C)(D) 錯：講義沒有這樣的建議。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q8. 依講義示意圖，疥癬蟲最常見的部位是？</div>
+        <ul class="quiz-options"><li>(A) 耳緣、肘、跗關節、腹側</li><li>(B) 只有背部</li><li>(C) 只有趾間</li><li>(D) 尾根</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">(A) 對：<a class="pdf-link" href="pdf/檢體採集.pdf#page=29">p.29</a> 示意圖紅色區在耳緣、肘、跗關節與腹側。(B) 錯：背部不是疥癬好發處；尾根背側是跳蚤過敏常見位置（補充）。(C) 錯：趾間皮膚炎是講義毛囊蟲的照片（<a class="pdf-link" href="pdf/檢體採集.pdf#page=30">p.30</a>）。(D) 錯：講義未標示。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q9. 幼犬背部大量脫屑、搔癢，飼主說皮屑「會動」，最適合的檢體採集方法是？</div>
+        <ul class="quiz-options"><li>(A) 膀胱穿刺</li><li>(B) 膠帶法</li><li>(C) 腹腔穿刺</li><li>(D) 膿疱培養</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">(A)(C) 錯：與皮膚無關。(B) 對：講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=36">p.36</a> 夏蟲（<em>Cheyletiella yasguri</em>）造成脫屑與搔癢（walking dandruff），用膠帶法找到。(D) 錯：膿疱培養是為了細菌，題目沒有膿疱。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q10. 刮皮時只要輕刮表面皮屑即可，看到出血代表刮太深、檢體不合格。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=31">p.31</a>：The skin is scraped until serum oozes and drops of capillary blood appear——要刮到滲出血清與微血管出血。刀片鈍端先沾礦物油，刮下物放在玻片油滴上鏡檢（<a class="pdf-link" href="pdf/檢體採集.pdf#page=31">p.31–32</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q11. 吸塵法收集到的黑色碎屑放在白紙上加水，若出現紅色擴散，代表是跳蚤糞。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/檢體採集.pdf#page=37">p.37</a>：Debris collected by vacuuming is mixed with a few drops of water on a white card. Blood diffuses out of the debris, confirming that the black specks are flea dirt。跳蚤糞是消化過的血，遇水會擴散出紅色（補充）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q12. 寫出犬貓可採靜脈血的四條血管，並說明頭靜脈怎麼讓它怒張。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">外頸靜脈、頭靜脈、外側隱靜脈、內側隱靜脈（<a class="pdf-link" href="pdf/檢體採集.pdf#page=3">p.3</a>）。頭靜脈：保定者握住前肢，<strong>用拇指把頭靜脈往外側轉並壓住</strong>，血管就會充血怒張（<a class="pdf-link" href="pdf/檢體採集.pdf#page=9">p.9</a>）；下針時用拇指固定血管（<a class="pdf-link" href="pdf/檢體採集.pdf#page=10">p.10</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】10 歲犬，呼吸快而淺，聽診腹側心音與肺音模糊。請問：(1) 最先懷疑什麼？(2) 怎麼確認？(3) 穿刺時動物擺什麼姿勢、在哪裡進針？(4) 抽出的液體送哪些檢查？講義照片的例子是什麼液體？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 胸膜腔積液（胸水）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>；物理檢查手冊：快而淺＝胸膜腔疾病）。<br><strong>(2)</strong> X 光檢查，配合理學檢查找出胸水的量與位置（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）。<br><strong>(3)</strong> 站立或正趴，讓液體聚到腹側；第 6–8 肋間、肋軟骨交接處正上方，<strong>貼肋骨前緣</strong>進針（肋間血管神經在肋骨後緣）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43–44</a>）。<br><strong>(4)</strong> 細胞學、生化學、微生物學分析（<a class="pdf-link" href="pdf/檢體採集.pdf#page=43">p.43</a>）；講義照片是右心衰竭犬的<strong>修飾性漏出液</strong>（modified transudate）（<a class="pdf-link" href="pdf/檢體採集.pdf#page=45">p.45</a>）。</p></details>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  blood: '採血',
+  urine: '採尿',
+  skin: '皮膚檢體',
+  abdo: '腹腔穿刺',
+  thoraco: '胸腔穿刺',
+  exam: '考試方向',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

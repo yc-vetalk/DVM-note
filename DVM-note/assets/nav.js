@@ -481,3 +481,17 @@ function initSiteNav(containerId, panelId) {
   s.src = me.src.replace(/nav\.js(\?.*)?$/, 'spotlight.js');
   document.head.appendChild(s);
 })();
+
+/* 標注圖顯示／隱藏切換：頁面有 .figure.anno 才載入 assets/anno.js */
+(function () {
+  var me = document.currentScript;
+  if (!me || window.__anno) return;
+  function go() {
+    if (!document.querySelector('.figure.anno')) return;
+    window.__anno = true;
+    var s = document.createElement('script');
+    s.src = me.src.replace(/nav\.js(\?.*)?$/, 'anno.js');
+    document.head.appendChild(s);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+})();
