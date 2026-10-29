@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水產動物疾病學：養殖模式與水質管理 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">水產動物疾病學</a><span class="sep">›</span><span class="current">第一週：養殖模式與水質管理</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">養殖模式與水質管理 Aquaculture Systems and Water Quality Management</h1>
+      <p class="page-subtitle">疾病不是從病原開始，而是從系統壓力開始：先認養殖模式的風險型態，再用水質（溫度、DO、pH、氮循環、H2S、ORP）判斷急性致死因子，最後才採樣找病原</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">水產動物疾病學（大四上・第一週・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《水生動物疾病學》第一週講義〈養殖模式與水質管理〉（蘇豐傑助理教授，檔名 Week1-4.pdf）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/養殖模式與水質管理.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week01_%E9%A4%8A%E6%AE%96%E6%A8%A1%E5%BC%8F%E8%88%87%E6%B0%B4%E8%B3%AA%E7%AE%A1%E7%90%86">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（講義 p.1–68；病例照片頁以 A–I 代稱）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">養殖系統</div>
+    <a onclick="showSection('systems')" id="nav-systems"><span class="nav-icon">🏭</span> 養殖產業與養殖模式</a>
+    <div class="section-label" style="margin-top:8px;">水質診斷</div>
+    <a onclick="showSection('diagnosis')" id="nav-diagnosis"><span class="nav-icon">🩺</span> 水質診斷、問診與處置優先序</a>
+    <a onclick="showSection('physical')" id="nav-physical"><span class="nav-icon">🌡️</span> 水溫、溶氧與 pH</a>
+    <div class="section-label" style="margin-top:8px;">氮化物與底泥</div>
+    <a onclick="showSection('nitrogen')" id="nav-nitrogen"><span class="nav-icon">⚗️</span> 氮循環、氨氮與亞硝酸鹽</a>
+    <a onclick="showSection('sediment')" id="nav-sediment"><span class="nav-icon">🕳️</span> 硫化氫、ORP 與底泥</a>
+    <div class="section-label" style="margin-top:8px;">臨床案例</div>
+    <a onclick="showSection('cases')" id="nav-cases"><span class="nav-icon">📋</span> 案例討論與病例照片</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 國考方向與參數總表</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week01_%E9%A4%8A%E6%AE%96%E6%A8%A1%E5%BC%8F%E8%88%87%E6%B0%B4%E8%B3%AA%E7%AE%A1%E7%90%86" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">養殖模式與水質管理的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>水生動物生病，常常<strong>不是病原先出問題，而是水質與養殖系統先出問題</strong>。這一章教你：養殖現場有哪幾種<strong>養殖模式</strong>、各自的風險長什麼樣；遇到死魚、浮頭時要<strong>怎麼問診、先量什麼、先處置什麼</strong>；以及每個水質參數（水溫、DO、pH、氨氮、亞硝酸鹽、H2S、ORP）的<strong>因果鏈</strong>。</dd>
+          <dt>為什麼重要</dt>
+          <dd>講義強調：水質異常<strong>可直接造成死亡</strong>，也<strong>提高感染性疾病風險</strong>；<strong>同一病原在不同水質下嚴重度可能完全不同</strong>；國考題常把水質、症狀與處置混在同一題（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=4">p.4</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=67">p.67</a>）。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-diagnosis">處置順序</a>：<strong>立即測水 → 降低急性風險 → 採樣檢驗 → 回推原因 → 制定處置</strong>；看到死魚先量水、看到浮頭先量 DO（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=28">p.28</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=51">p.51</a>）。</li>
+              <li><a href="#section-systems">養殖模式</a>：池塘、混養、箱網、溪流式、循環水（RAS）、魚菜共生、生物團絮各有不同風險型態（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=9">p.9</a>）。</li>
+              <li><a href="#section-physical">DO</a> 是<strong>最優先排除的急性死亡因子</strong>；急救優先序<strong>增氧 &gt; 停餌 &gt; 減少擾動 &gt; 必要換水</strong>（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=31">p.31</a>）。</li>
+              <li><a href="#section-nitrogen">氨氮</a>：TAN = NH3 + NH4+，<strong>真正毒的是 NH3 的比例</strong>，pH 與水溫越高比例越高（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=35">p.35</a>）。</li>
+              <li><a href="#section-nitrogen">亞硝酸鹽</a>：氧化血紅素成<strong>變性血紅素（棕血症）</strong>，水中有氧魚仍缺氧；<strong>Cl- 會競爭進入鰓</strong>（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=38">p.38</a>）。</li>
+              <li><a href="#section-sediment">H2S 與 ORP</a>：黑泥、腐蛋味＝底泥厭氧；ORP &lt; +50 mV 通常表示有機物堆積（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=42">p.42</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=45">p.45</a>）。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>TAN 與 NH3</strong>：TAN 是總量，NH3（非離子氨）才是主要毒性來源。<strong>亞硝酸鹽中毒與低溶氧</strong>：兩者都會浮頭、呼吸加快，但亞硝酸鹽是「水裡有氧、血液不能攜氧」。<strong>急救</strong>與<strong>長期</strong>處置不同：急性先降低毒性與暴露（增氧、停餌、換水），長期才是降密度、成熟濾床。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>為什麼診斷前先量水質；各參數的毒性機轉與處置；TAN 與 pH、水溫的關係；Cl- 為何能減輕亞硝酸鹽毒性；RAS 的氮循環與濾床；養殖模式優缺點；水質、症狀、處置混合的臨床題。養殖模式優缺點為學長姐回憶的 2023 助教預告考題之一（見考古頁，待建），但那份是回憶，不是官方。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落是講義以外的延伸；標示「推測」的是依講義強調處推測的出題方向，不是考古題。講義的「建議答案」頁在本頁標為「講義建議答案」。<strong>病例照片頁（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=55">p.55–66</a>）的病歷號已省略</strong>，改用病例 A–I 代稱。範圍以老師上課為準。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-node">高密度、投餌增加</div><div class="flow-arrow">→</div>
+        <div class="flow-node">TAN／有機物上升、耗氧增加</div><div class="flow-arrow">→</div>
+        <div class="flow-node">水質惡化，鰓與免疫受壓</div><div class="flow-arrow">→</div>
+        <div class="flow-node">病原爆發、死亡與用藥風險</div>
+      </div>
+      <p style="font-size:.85em; color:var(--ah-muted,#777);">主線：多數水質問題都可追溯到「負荷大於系統處理能力」（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=46">p.46</a>）。</p>
+      <div class="figure"><img src="img/week01_養殖模式與水質管理/aq_p004.jpg" alt="疾病三環理論（環境、宿主、病原）與「為什麼第一週先講養殖與水質」的獸醫判讀順序：是否急性環境事件？是否與密度、投餌、換水" loading="lazy"><div class="figure-caption">疾病三環理論（環境、宿主、病原）與「為什麼第一週先講養殖與水質」的獸醫判讀順序：是否急性環境事件？是否與密度、投餌、換水、溫度改變有關？是否需立即採樣排除細菌、病毒、寄生蟲？</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=4">p.4</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義建議答案</div>
+        <p><strong>為什麼在診斷疾病之前，首先需要量測水質？</strong>水質異常可造成直接死亡，也會提高感染性疾病風險；同一病原在不同水質條件下，臨床嚴重度可能完全不同，因此量測水質是確定疾病原因的首要步驟（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=5">p.5</a>）。</p>
+      </div>
+      <footer class="note-footer">資料來源：《水生動物疾病學》第一週講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=4">p.4–5</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=46">p.46</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=51">p.51</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=67">p.67</a>。「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SYSTEMS -->
+    <div class="section" id="section-systems">
+      <div class="section-head"><div class="section-num">2</div><h2>養殖產業與養殖模式 Aquaculture Systems</h2></div>
+      <p class="section-desc">講義的口訣是：<strong>不是哪一種系統最好，而是每種系統的風險不同</strong>——環境控制程度決定水質風險的型態（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=9">p.9</a>）。</p>
+      <h3>臺灣養殖現場：從苗到成魚是分工系統<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階段</th><th>主要風險（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=6">p.6</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=47">p.47–48</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>種魚場</strong></td><td>親魚來源、<strong>垂直傳播</strong>、性成熟壓力；卵質、親魚營養、卵圓鞭毛蟲、弧菌與垂直／水平傳播</td></tr>
+            <tr><td><strong>孵化場</strong></td><td>卵質、輪蟲／豐年蝦（餌料生物）、弧菌與病毒風險；水體微生物與微小水質波動</td></tr>
+            <tr><td><strong>中間育成</strong></td><td>高密度、規格差、轉池與運輸壓力</td></tr>
+            <tr><td><strong>成魚場</strong>（育成／成魚）</td><td>水質負荷、天候、投餌與市場規格；密度、轉池、投餌、水車、<strong>虹彩病毒</strong>與細菌性二次感染</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>講義提醒：任何一段出問題，都可能在下一段被放大（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=6">p.6</a>）。<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=7">p.7</a> 另列蝦的交配型式：<strong>開放式</strong>（精莢不需置於雌蝦生殖輔助器內，如美洲白蝦 <em>Litopenaeus vannamei</em>，交配不必等蛻殼後新殼未硬化）與<strong>封閉式</strong>（精莢需置於生殖輔助器內，如草蝦 <em>Penaeus monodon</em>、斑節蝦 <em>Marsupenaeus japonicus</em>，需雌蝦蛻殼後新殼尚未硬化時交配）。經濟魚種重視單位面積產量、疾病損失與水車、換水能力；觀賞魚種重視運輸緊迫、混養來源與小水體氨氮／亞硝酸鹽波動（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=8">p.8</a>）。</p>
+      <p style="font-size:.85em;"><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=2">p.2–3</a> 為四大家魚（青魚、草魚、鰱、鱅）與臺灣十大名魚的介紹頁（午仔魚、黃臘鰺、白鯧、土魠、鮸魚、真鯛等，列肉質特色），屬背景資訊，沒有水質或疾病內容，不逐項整理。</p>
+      <h3>養殖模式總覽與風險對照<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week01_養殖模式與水質管理/aq_p009.jpg" alt="養殖模式總覽：池塘式、混養、箱網、溪流式、循環水、魚菜共生／生物團絮，每一種各有主要風險（講義 p.9）。" loading="lazy"><div class="figure-caption">養殖模式總覽：池塘式、混養、箱網、溪流式、循環水、魚菜共生／生物團絮，每一種各有主要風險（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=9">p.9</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=9">p.9</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">模式</th><th>優點／特色</th><th>風險與限制</th><th>獸醫重點與現場提示</th></tr></thead>
+          <tbody>
+            <tr><td><strong>池塘式</strong><br><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=9">p.9–12</a></td><td>設備門檻較低、適合多種經濟魚蝦、管理經驗成熟；最常見</td><td>颱風、豪雨、熱浪、倒藻、底泥厭氧與有機物累積；天候與底泥影響大</td><td>死亡時間、池色、底泥氣味、水車運轉與最近投餌量。<strong>魚浮頭先不要判定感染</strong>，先看清晨 DO、pH 日變化、氨氮與亞硝酸鹽</td></tr>
+            <tr><td><strong>混養</strong><br><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=13">p.13</a></td><td>共生、互補、互利（如虱目魚、白蝦、貝類）；分散單一物種市場與疾病風險；利用不同棲位與餌料來源</td><td>不同物種耐受水質範圍不同；用藥與<strong>休藥期</strong>管理更複雜；診斷變項增加</td><td>若<strong>白蝦先死、魚暫時正常</strong>，常見於底層低氧、H2S 或亞硝酸鹽壓力；同池不同物種症狀出現的順序可推估水層與毒性來源。詢問近期加水、換水、施肥、下菌、下藥、改飼料</td></tr>
+            <tr><td><strong>溪流式</strong><br><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=14">p.14–15</a></td><td>適合冷水性魚類；水溫低時溶氧較高</td><td>水源品質決定風險；<strong>上游污染可造成整批異常</strong></td><td>開放水體不能只看單場，要評估<strong>水源、鄰近場、流向與近期氣候事件</strong></td></tr>
+            <tr><td><strong>箱網</strong><br><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=14">p.14</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=16">p.16–17</a></td><td>適合大型魚類；開放性高、換水能力強</td><td>外海環境依賴高；水質變化太大（講義原文）；更受外界水體與污染事件支配</td><td>同溪流式：評估水源、鄰近場、流向與近期氣候事件</td></tr>
+            <tr><td><strong>循環水（RAS）</strong><br><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=18">p.18–19</a></td><td>降低自然災害變因；水質可即時監控；用水量與排放量較可控</td><td>水質穩定依賴機械過濾、生物濾床、增氧、殺菌與監測；<strong>生物濾床失效或病原進入系統，在高密度下快速擴散</strong></td><td>國考常考氨氮 → 亞硝酸鹽 → 硝酸鹽、濾床成熟度與硝化菌功能。常見：<strong>清洗濾材過度、突然大量換水、消毒劑殘留、停電低氧</strong></td></tr>
+            <tr><td><strong>魚菜共生</strong><br><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=20">p.20–25</a></td><td>RAS 結合水耕栽培；植物根系吸收養殖水營養鹽，淨化後的水回收或排放，可減少用水與化學肥料，作物增加收益；系統中的魚如吳郭魚、泥鰍、銀鱸、大嘴鱸、淡水蝦、香魚、錦鯉，植物如蕃茄、黃瓜、羅勒、胡荽等</td><td>魚要水質穩定、植物要營養、硝化菌要氧與表面積，三者最佳條件未必一致</td><td>水質監測仍<strong>以魚的急性毒性風險優先</strong>；pH 若只為植物調整，可能影響氨毒性與硝化菌效率</td></tr>
+            <tr><td><strong>生物團絮（Biofloc）</strong><br><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=26">p.26</a></td><td>透過碳源與曝氣促進異營菌同化無機氮，把廢氮轉成<strong>微生物蛋白</strong>（可攝食顆粒）</td><td>曝氣不足或固體物過量，可能快速轉為低氧、底泥惡化與 H2S 風險</td><td>核心是<strong>碳氮比、曝氣、懸浮固體與微生物社群</strong>；不是「水越濃越好」，要監測 TSS、沉降體積、DO 與 ORP。白蝦系統常見氮源、碳源、菌相與底泥同時影響健康</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week01_養殖模式與水質管理/aq_p018.jpg" alt="循環水養殖系統（RAS）流程：養殖池 → 顆粒去除 → 生物濾膜 → UV 殺菌 → 增氧 → 回養殖池。" loading="lazy"><div class="figure-caption">循環水養殖系統（RAS）流程：養殖池 → 顆粒去除 → 生物濾膜 → UV 殺菌 → 增氧 → 回養殖池。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=18">p.18</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義建議答案</div>
+        <p><strong>影響池塘水質的日夜循環因素？</strong>底泥的累積和水質的日夜變化會影響水中的溶氧、pH、氨氮和亞硝酸鹽等指標（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=12">p.12</a>）。<br><strong>溪流式養殖如何應對上游污染導致的異常？</strong>必須評估水源、鄰近場、流向與近期氣候事件，以制定合適的應對策略（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=15">p.15</a>）。<br><strong>開放水體中獸醫處置應考量哪些因素？</strong>水源的質量、鄰近養殖場的狀況、流向及近期氣候事件（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=17">p.17</a>）。</p>
+      </div>
+      <footer class="note-footer">資料來源：《水生動物疾病學》第一週講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=2">p.2–26</a>。「RAS 是水質變因較少的系統」等比較是講義文字的整理，模式優缺點的完整標準答案以老師為準。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <div class="section" id="section-diagnosis">
+      <div class="section-head"><div class="section-num">3</div><h2>水質診斷、問診與處置優先序 Diagnosis Framework</h2></div>
+      <p class="section-desc">原則只有一句：<strong>先救環境，再做病原診斷</strong>。若水質尚未穩定，單純下藥通常效果有限（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=51">p.51</a>）。</p>
+      <h3>水質診斷框架：先量急性致死因子，再追慢性壓力<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">類別</th><th>內容（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=27">p.27</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>即時致死</strong></td><td>DO、H2S、急性 pH、毒性 NH3</td></tr>
+            <tr><td><strong>慢性壓力</strong></td><td>亞硝酸鹽、低度氨、鹽度不穩、ORP 低</td></tr>
+            <tr><td><strong>誘發感染</strong></td><td>高密度、有機物、鰓刺激、免疫抑制</td></tr>
+            <tr><td><strong>系統追蹤</strong></td><td>投餌、水色、藻相、底泥、換水紀錄</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>要量的六項：pH、水溫、氨氮、亞硝酸鹽、硫化氫、ORP（另加 DO，見 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=50">p.50</a> 現場測值）。</p>
+      <h3>採樣：數值只有在採樣正確時才有意義<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>時間</strong>：清晨低 DO 與午後高 pH 都要掌握。<strong>位置</strong>：入水口、排水口、魚群聚集區、底層皆可能不同（早晨、午後、表層、底層測值可能完全不同）。</li>
+        <li><strong>儀器</strong>：DO、pH、溫度、鹽度需校正；氨氮／亞硝酸鹽要看試劑有效期。<strong>紀錄</strong>：天氣、投餌、死亡數、換水、用藥、消毒、停電。</li>
+        <li>現場原則：<strong>看到死魚先量水；看到浮頭先量 DO；看到急性大量死亡，先排除水質與毒性</strong>（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=28">p.28</a>）。</li>
+      </ul>
+      <h3>現場問診模板：不要只問「魚怎麼死」<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">問什麼</th><th>內容（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=50">p.50</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>基本資料</td><td>魚種／規格／密度／批次來源</td></tr>
+            <tr><td>死亡概況</td><td>死亡開始時間、死亡速度、死亡魚大小是否一致</td></tr>
+            <tr><td>最近 7 天</td><td>天氣、溫度、換水、投餌、消毒、用藥、轉池</td></tr>
+            <tr><td>現場測值</td><td>水溫、DO、pH、鹽度、TAN、NO2-、ORP</td></tr>
+            <tr><td>魚體表現</td><td>浮頭、靠水車、離群、擦身、體色、鰓色、黏液</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">重點：判斷重點（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=50">p.50</a>）</div><p><strong>急性大量死亡</strong>先想<strong>水質或毒性</strong>；<strong>慢性零星死亡</strong>再整合病原、營養與管理。</p></div>
+      <h3>現場處置優先序<span class="lv lv-must">必考</span></h3>
+      <div class="flow">
+        <div class="flow-node">① 立即測水</div><div class="flow-arrow">→</div>
+        <div class="flow-node">② 降低急性風險</div><div class="flow-arrow">→</div>
+        <div class="flow-node">③ 採樣檢驗</div><div class="flow-arrow">→</div>
+        <div class="flow-node">④ 回推原因</div><div class="flow-arrow">→</div>
+        <div class="flow-node">⑤ 制定處置</div>
+      </div>
+      <h3>密度、投餌與水質：疾病爆發的操作鏈<span class="lv lv-know">理解</span></h3>
+      <p>高密度 → 氧需求上升；投餌增加 → TAN／有機物上升；兩者合起來 → 水質惡化、鰓與免疫壓力 → 病原爆發 → 死亡與用藥風險（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=46">p.46</a>）。<strong>若魚病案例同時有近期加料、換季、水色改變或水車不足，必須先處理系統壓力，否則治療效果會很差。</strong></p>
+      <footer class="note-footer">資料來源：《水生動物疾病學》第一週講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=27">p.27–28</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=46">p.46</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=50">p.50–51</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- PHYSICAL -->
+    <div class="section" id="section-physical">
+      <div class="section-head"><div class="section-num">4</div><h2>水溫、溶氧（DO）與 pH Temperature, DO, pH</h2></div>
+      <p class="section-desc">三個參數互相牽動：溫度升高 → 代謝與耗氧增加、氧溶解度下降、NH3 比例上升；pH 又決定氨與硫化氫的存在型態。</p>
+      <h3>水溫：控制代謝、耗氧、氨毒性與病原增殖速度<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">魚體反應</div><p>溫度升高通常<strong>提高代謝與耗氧</strong>，若超出適溫會造成緊迫與攝食下降。</p></div>
+        <div class="card"><div class="card-title">水質反應</div><p>高溫<strong>降低氧溶解度</strong>，並<strong>增加非離子氨 NH3 比例</strong>與藻華／倒藻風險。</p></div>
+      </div>
+      <ul>
+        <li>現場問：最近是否熱浪、寒流、換入地下水或加遮陽網。觀察：攝食量、浮頭時間、水色快速改變、夜間死亡（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=29">p.29</a>）。</li>
+        <li><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=29">p.29–30</a> 附藻色（26℃、28℃ 兩池水色對比）與<strong>藻華</strong>、換水添加藻種（等鞭金藻、扁藻、擬球藻、小球藻）及去除絲藻的現場圖，講義未再細說。</li>
+      </ul>
+      <h3>溶氧（DO）：最優先排除的急性死亡因子<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">項目</th><th>內容（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=31">p.31</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>為什麼最優先</strong></td><td>低氧可以<strong>快速致死</strong>，也會讓其他毒性與感染問題更嚴重</td></tr>
+            <tr><td><strong>常見原因</strong></td><td>夜間藻類與微生物呼吸、倒藻、有機物過高、天氣悶熱、停電或水車不足</td></tr>
+            <tr><td><strong>臨床表現</strong></td><td>浮頭、靠近入水口或水車、急促呼吸、<strong>清晨死亡增加</strong>、魚群不下沉</td></tr>
+            <tr><td><strong>急救優先序</strong></td><td><strong>增氧 &gt; 停餌 &gt; 減少擾動 &gt; 必要換水</strong></td></tr>
+            <tr><td><strong>長期管理</strong></td><td>密度、投餌、有機負荷、水車配置與夜間監測</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義建議答案</div>
+        <p><strong>溶氧是最優先要排除的急性死亡因子，因為低氧的影響是什麼？</strong>低氧可以快速導致水生動物的死亡，並使其他的毒性問題和感染更加嚴重（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=32">p.32</a>）。</p>
+      </div>
+      <h3>pH：不是越中性越好，而是穩定且符合物種需求<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">pH 過低</div><p>酸性水質可能影響<strong>血液酸鹼平衡、鰓功能與滲透調節</strong>。</p></div>
+        <div class="card"><div class="card-title">pH 過高</div><p>增加 <strong>NH3 比例</strong>，使 TAN 的實際毒性上升。</p></div>
+      </div>
+      <ul>
+        <li>日變化：<strong>下午 pH 常因光合作用升高，清晨較低</strong>。判讀 TAN 時必須同時看 pH 與水溫。</li>
+        <li>處置避免急降急升：劇烈調 pH 本身也是緊迫（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=33">p.33</a>）。</li>
+        <li>pH 會改變<strong>氨與硫化氫的存在型態</strong>：pH 高 → NH3 多；酸性 → H2S 比例高（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=33">p.33</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=67">p.67</a>）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《水生動物疾病學》第一週講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=29">p.29–33</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- NITROGEN -->
+    <div class="section" id="section-nitrogen">
+      <div class="section-head"><div class="section-num">5</div><h2>氮循環、氨氮與亞硝酸鹽 Nitrogen Cycle, Ammonia &amp; Nitrite</h2></div>
+      <p class="section-desc">投餌越多，水體處理壓力越大：飼料蛋白、糞便與死亡生物進入「氨氮 → 亞硝酸鹽 → 硝酸鹽」路徑，每一步的毒性與處置都不同。</p>
+      <h3>氮循環<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week01_養殖模式與水質管理/aq_p034.jpg" alt="氮循環：蛋白質飼料、殘餌與糞便 → 氨氮 TAN（NH3＋NH4+）→ 亞硝酸鹽 NO2-（棕血症風險）→ 硝酸鹽 NO" loading="lazy"><div class="figure-caption">氮循環：蛋白質飼料、殘餌與糞便 → 氨氮 TAN（NH3＋NH4+）→ 亞硝酸鹽 NO2-（棕血症風險）→ 硝酸鹽 NO3-（相對低毒但需累積管理）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=34">p.34</a></div></div>
+      <div class="flow">
+        <div class="flow-node">蛋白質飼料、殘餌／糞便</div><div class="flow-arrow">→</div>
+        <div class="flow-node">氨氮 TAN<br>NH3 + NH4+</div><div class="flow-arrow">→</div>
+        <div class="flow-node">亞硝酸鹽 NO2-<br>棕血症風險</div><div class="flow-arrow">→</div>
+        <div class="flow-node">硝酸鹽 NO3-<br>相對低毒，需累積管理</div>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">重點：獸醫診斷含意（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=34">p.34</a>）</div><p>同一個 TAN 數值，在<strong>高 pH 與高溫</strong>時風險更高；同一個 NO2- 數值，在<strong>低氯環境</strong>下風險更高。</p></div>
+      <h3>氨氮：TAN 與非離子氨 NH3，真正毒的是比例<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>TAN = NH3 + NH4+</strong>；NH3 比例隨 pH 與溫度上升而增加。<strong>同樣 TAN，pH 越高，NH3 毒性風險越高</strong>。</li>
+        <li><strong>臨床風險</strong>：呼吸急促、竄游、體色改變、黏液增加、鰓刺激與神經症狀（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=35">p.35</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/week01_養殖模式與水質管理/aq_p035.jpg" alt="氨氮 TAN 與 NH3 的核心概念，左下為 NH3 比例隨 pH、水溫變化的對照表。" loading="lazy"><div class="figure-caption">氨氮 TAN 與 NH3 的核心概念，左下為 NH3 比例隨 pH、水溫變化的對照表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=35">p.35</a></div></div>
+      <p><strong>講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=35">p.35</a> 的對照表</strong>（數值為講義所附，單位講義未標；依一般水質資料，應為 NH3 佔 TAN 的百分比，屬補充判讀）：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>pH＼水溫</th><th>15℃</th><th>20℃</th><th>25℃</th><th>30℃</th></tr></thead>
+          <tbody>
+            <tr><td>6.0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>6.5</td><td>0</td><td>0.1</td><td>0.2</td><td>0.3</td></tr>
+            <tr><td>7.0</td><td>0.3</td><td>0.4</td><td>0.6</td><td>0.8</td></tr>
+            <tr><td>7.5</td><td>0.9</td><td>1.2</td><td>1.8</td><td>2.5</td></tr>
+            <tr><td>8.0</td><td>2.7</td><td>3.8</td><td>5.5</td><td>7.5</td></tr>
+            <tr><td>8.5</td><td>8.0</td><td>11.0</td><td>15.0</td><td>20.0</td></tr>
+            <tr><td>9.0</td><td>21.0</td><td>28.0</td><td>36.0</td><td>45.0</td></tr>
+            <tr><td>9.5</td><td>46.0</td><td>56.0</td><td>64.0</td><td>72.0</td></tr>
+            <tr><td>10.0</td><td>73.0</td><td>80.0</td><td>85.0</td><td>89.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>讀法：pH 7.0 時 20–30℃ 的 NH3 只有不到 1%，pH 9.0 時 25℃ 已有 36%。<strong>pH 每升高 0.5，NH3 比例差不多成倍上升</strong>（pH 7.5–8.5 之間尤其明顯）；溫度升高也會增加比例。這就是午後高 pH、高溫時同樣 TAN 更危險的原因。</p>
+      <h3>氨氮過高的處置<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">階段</th><th>做法（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=36">p.36</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>急性處置</strong></td><td>增氧、停餌或減餌、部分換水、降低 pH 波動、移除死魚與殘餌</td></tr>
+            <tr><td><strong>長期處置</strong></td><td>降低密度、改善底泥、成熟生物濾床、穩定投餌與定期監測 TAN／pH／溫度</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>處置不是只有「加菌」</strong>：不要只看 TAN，要換算或至少同步紀錄 pH、溫度；<strong>加硝化菌前先確認 DO、鹼度與毒性消毒劑殘留</strong>。</li>
+        <li>講義選擇題：氨氮過高的急性處置不包括 <strong>降低密度</strong>（降密度屬長期處置，<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=37">p.37</a>）。</li>
+      </ul>
+      <h3>亞硝酸鹽 NO2-：典型棕血症與缺氧假象<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/week01_養殖模式與水質管理/aq_p038.jpg" alt="亞硝酸鹽：作用機制（氧化血紅素形成變性血紅素）、氯離子保護與現場表現。" loading="lazy"><div class="figure-caption">亞硝酸鹽：作用機制（氧化血紅素形成變性血紅素）、氯離子保護與現場表現。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=38">p.38</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">項目</th><th>內容（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=38">p.38–40</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>為什麼像缺氧</strong></td><td>水中有氧，魚仍然缺氧；問題在<strong>血紅素攜氧功能</strong></td></tr>
+            <tr><td><strong>作用機制</strong></td><td>NO2- 氧化血紅素形成<strong>變性血紅素</strong>（<strong>棕血症</strong>），降低攜氧能力</td></tr>
+            <tr><td><strong>氯離子保護</strong></td><td>NO2- 經鰓進入時與 <strong>Cl- 競爭</strong>，水中氯離子濃度會影響毒性</td></tr>
+            <tr><td><strong>現場表現</strong></td><td>浮頭、呼吸加快、鰓色異常、慢性累積、攝食下降與二次感染；毒性慢慢累積</td></tr>
+            <tr><td><strong>常見情境</strong></td><td>淡水魚與觀賞魚系統：新缸、新池、濾床未成熟或大量用藥後；<strong>RAS</strong> 濾床失衡時 NO2- 可快速累積</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>亞硝酸鹽過高的處置<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>急性</strong>：換水、增氧、停餌、<strong>必要時提高 Cl- 競爭吸收</strong>，同時確認物種耐鹽性。目標是減少 NO2- 進入鰓、降低水中濃度（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=39">p.39</a>）。</li>
+        <li><strong>系統</strong>：重建硝化菌、<strong>避免一次性清洗所有濾材</strong>、降低有機負荷與 TAN 來源。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">講義建議答案</div>
+        <p><strong>如何具體操作降低水中 NO2- 濃度？</strong>增加換水頻率、使用活性炭過濾或添加有助於硝化的微生物（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=41">p.41</a>）。</p>
+      </div>
+      <details class="alert alert-warn study-note"><summary>讀書補充Note - 氨與亞硝酸鹽為什麼會傷害魚？（專業魚病角度）</summary>
+        <div style="font-size:.9em;">
+        <h4>1. 氨（講義 p.35 的機轉補充）</h4>
+        <ul>
+          <li>NH3 是<strong>不帶電的小分子</strong>，能直接穿過鰓上皮；NH4+ 帶電，不易通過。所以「真正毒的是 NH3」不只是比例問題，而是<strong>哪一型能進入魚體</strong>。</li>
+          <li>魚平常靠鰓把血氨往外排；水中 NH3 濃度升高，濃度梯度變小，<strong>血氨排不出去而上升</strong>，造成神經症狀（竄游、抽搐）與鰓損傷（Randall &amp; Tsui 2002，即講義 [R2]）。</li>
+        </ul>
+        <h4>2. 亞硝酸鹽（講義 p.38 的機轉補充）</h4>
+        <ul>
+          <li>NO2- 主要<strong>經鰓的氯細胞（chloride cell）吸收</strong>，走的是原本吸 Cl- 的路徑，所以 Cl- 多了會「搶位置」，這就是 Cl- 保護的來源（講義 [R5] Tomasso 1979 的 channel catfish 研究）。</li>
+          <li>臨床上用 <strong>Cl-:NO2--N 的比值</strong>評估防護程度；文獻常見經驗值（如 channel catfish 約 10:1 以上）因魚種而異，<strong>具體加鹽量要依魚種、水體與法規，待核對文獻，不要直接套用</strong>。</li>
+          <li>血液因變性血紅素呈<strong>巧克力褐色</strong>，所以叫「棕血症」；剖檢鰓與血液偏褐是現場可看到的線索。</li>
+        </ul>
+        <h4>3. 為什麼水質不好又容易繼發感染</h4>
+        <ul>
+          <li>氨、亞硝酸鹽、低氧都是<strong>慢性壓力源</strong>，會經壓力反應（皮質醇）抑制免疫並傷害鰓與皮膚屏障，機會性病原（如柱狀病的 <em>Flavobacterium columnare</em>、<em>Aeromonas</em>、<em>Vibrio</em>）更容易發病。壓力與免疫的關係見「魚類免疫與疫苗」頁。</li>
+        </ul>
+        <p>標示：以上為補充（一般魚病學教科書與文獻），講義沒有寫這些機轉細節；數值以講義為準。</p>
+        </div>
+      </details>
+      <footer class="note-footer">資料來源：《水生動物疾病學》第一週講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=34">p.34–41</a>。NH3 比例表的「單位」為補充判讀。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SEDIMENT -->
+    <div class="section" id="section-sediment">
+      <div class="section-head"><div class="section-num">6</div><h2>硫化氫（H2S）、ORP 與底泥 Hydrogen Sulfide, ORP &amp; Sediment</h2></div>
+      <p class="section-desc">底層環境惡化常先影響蝦、蟹、貝類與底棲魚；魚類可能只表現為浮頭與慢性緊迫。</p>
+      <h3>硫化氫 H2S：底泥厭氧與黑泥味的危險訊號<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">項目</th><th>內容（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=42">p.42–44</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>來源</strong></td><td>底泥有機物在<strong>缺氧</strong>狀態下經<strong>硫酸鹽還原</strong>產生 H2S；<strong>黑泥與腐蛋味</strong>是警訊。酸性、低氧與有機物累積使底層毒性風險升高（<strong>酸性下 H2S 比例較高</strong>，<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=67">p.67</a>）</td></tr>
+            <tr><td><strong>風險</strong></td><td>H2S 可干擾呼吸與氧利用；<strong>底棲蝦蟹與貝類</strong>特別容易受到影響</td></tr>
+            <tr><td><strong>講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=43">p.43</a> 的機轉說明</strong></td><td>經呼吸作用進入血液，迅速與血紅素結合造成永久變形；造成黏膜及呼吸道受損；魚隻生長遲緩、免疫下降；例：河蟹水腫症</td></tr>
+            <tr><td><strong>處置</strong></td><td>增氧、<strong>避免翻動黑泥</strong>、降低有機負荷、局部換水、改善底質；<strong>不要在急性低氧與黑泥狀況下大幅擾動底泥</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>講義選擇題：<strong>增加底泥毒性風險的環境因素是「有機物累積」</strong>（不是高氧、低酸性、高溫；<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=44">p.44</a>）。補充：一般教科書常把硫化物毒性描述為抑制粒線體細胞色素氧化酶（以細胞呼吸為標的），與講義「結合血紅素」的說法不同，兩者出處差異未核對，以講義為準。</p>
+      <h3>ORP 與底泥：快速判斷有機負荷與還原環境<span class="lv lv-know">理解</span></h3>
+      <div class="figure"><img src="img/week01_養殖模式與水質管理/aq_p045.jpg" alt="ORP 與底泥：電位基準 −200 至 +400 mV，低於 +50 mV 通常表示有機物堆積，可簡單判別水中微生物是否" loading="lazy"><div class="figure-caption">ORP 與底泥：電位基準 −200 至 +400 mV，低於 +50 mV 通常表示有機物堆積，可簡單判別水中微生物是否過多。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=45">p.45</a></div></div>
+      <ul>
+        <li>電位基準 <strong>−200 至 +400 mV</strong>；<strong>低於 +50 mV 通常表示有機物堆積</strong>；低 ORP 常見於有機物累積、底部缺氧、厭氧分解旺盛。</li>
+        <li><strong>ORP 低不等於疾病診斷</strong>，但可提示底泥與微生物負荷惡化。</li>
+        <li>採樣要看<strong>底層</strong>，而非只看表層水；翻池、撈捕、暴雨後底泥擾動，可能引發急性毒性（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=45">p.45</a>）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：《水生動物疾病學》第一週講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=42">p.42–45</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=67">p.67</a>。「細胞色素氧化酶」為補充。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CASES -->
+    <div class="section" id="section-cases">
+      <div class="section-head"><div class="section-num">7</div><h2>案例討論與病例照片 Cases</h2></div>
+      <p class="section-desc">三個案例討論只問一件事：<strong>先處理水質與毒性，再談病原</strong>。後面的病例照片頁是教學病例的症狀、鏡檢與處理對照。</p>
+      <h3>案例討論 1–3<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">案例</th><th>病史線索</th><th>優先測值</th><th>處置思路（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=52">p.52–54</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. 清晨浮頭與少量死亡</strong></td><td>前一天高溫、午後水色變深、晚上水車不足、近期加料</td><td>清晨 DO、pH、溫度、TAN、NO2-；必要時看底泥與 ORP</td><td>先判斷<strong>急性缺氧</strong>，排除氨氮與亞硝酸鹽共同作用。立即增氧、停餌、移除死魚；等魚穩定後再做病原採樣</td></tr>
+            <tr><td><strong>2. RAS 新系統亞硝酸鹽上升</strong></td><td>新系統、濾材清洗、曾使用消毒劑或抗菌藥、近期進魚與加料</td><td>TAN、NO2-、pH、溫度、DO；檢查濾床與水流是否正常</td><td>魚缸有氧但血液攜氧能力下降，容易被<strong>誤判為低氧</strong>。降低 NO2- 暴露、恢復硝化系統、避免再次破壞濾床</td></tr>
+            <tr><td><strong>3. 觀賞魚白點與水質惡化併發</strong></td><td>可能病因：白點蟲／纖毛蟲、運輸緊迫、混養來源複雜、濾床不成熟</td><td>TAN、NO2-、pH、溫度與換水頻率；小水體尤其要看<strong>新缸症候群</strong></td><td>感染處置前，先確認氨氮與亞硝酸鹽是否讓魚無法承受治療。<strong>先改善水質與穩定魚體，再選擇適合物種與系統的寄生蟲處理</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>各階段與觀賞魚的水質風險<span class="lv lv-know">理解</span></h3>
+      <p><strong>觀賞魚</strong>（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=49">p.49</a>）：水族箱水質波動常比養殖池更快。常見問題為新缸硝化未成熟、過度餵食、混養密度高、運輸後緊迫與水溫／pH 衝擊；<strong>白點、爛鰭、爛鰓或體表潰瘍常伴隨氨氮或亞硝酸鹽問題</strong>。檢查 TAN、NO2-、pH、溫度、換水頻率、過濾系統成熟度；問診問新魚入缸、換水、清濾材、下藥、停電。</p>
+      <h3>病例照片頁（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=55">p.55–66</a>）<span class="lv lv-know">理解</span></h3>
+      <p>以下為講義列出的 9 個教學病例（病歷號省略，改以 A–I 代稱）。<strong>空白欄是講義沒寫</strong>；講義未寫診斷結論，我也不補病名，只照原文列「症狀 → 鏡檢／分離結果 → 處理」。講義列的處理（福馬林、藥浴等）<strong>劑量、途徑與休藥期講義多半沒寫</strong>，不可直接當用藥依據。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>病例</th><th>檢體與外觀症狀</th><th>鏡檢</th><th>剖檢</th><th>細菌／病毒</th><th>處理方式（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>A</td><td>金魚；爛鰓、眼窩凹陷、腹部膨脹</td><td>指環蟲</td><td>腎臟出血</td><td>病毒分離：<em>CyHV-2</em>（講義寫 cyhv-2，鯉疱疹病毒 2 型）</td><td>（空白）</td></tr>
+            <tr><td>B</td><td>龍虎班；鰭基部潰爛、體表潰爛</td><td>無寄生蟲</td><td>腎臟腫大</td><td>細菌：<em>Vibrio anguillarum</em></td><td>Florfenicol（講義未寫給藥途徑）</td></tr>
+            <tr><td>C</td><td>錦鯉；眼窩凹陷、體表潰瘍</td><td>無寄生蟲</td><td>無發現</td><td>病毒鑑定：KHV</td><td>改善水質</td></tr>
+            <tr><td>D</td><td>泰國獅頭；爛鰓、臟器潰爛</td><td>大量鞭毛蟲、指環蟲</td><td>無發現</td><td>細菌無、病毒無</td><td>使用福馬林處理寄生蟲</td></tr>
+            <tr><td>E</td><td>石賓、馬口魚；體表膿包</td><td>「雙殖吸蟲」（講義原文）</td><td>（空白）</td><td>（空白）</td><td>0.3 ppm 魚加寶藥浴</td></tr>
+            <tr><td>F</td><td>莫瑞雪；背鰭有白點</td><td>鐘形蟲</td><td>正常</td><td>細菌無、病毒無</td><td>福馬林治療</td></tr>
+            <tr><td>G</td><td>黃金波羅；體表有白點</td><td>白點蟲、梨形四膜蟲</td><td>（空白）</td><td>（空白）</td><td>（空白）</td></tr>
+            <tr><td>H</td><td>香魚；畸形、肛門紅腫</td><td>鰓有車輪蟲</td><td>內臟有白點（講義註：微孢子蟲）</td><td>（空白）</td><td>（空白）</td></tr>
+            <tr><td>I</td><td>老鼠斑；體表泛紅（同缸其他魚身上有白點）</td><td>體表有大量梨形四膜蟲及卵圓鞭毛蟲卵</td><td>肝略白，其他臟器無異常</td><td>細菌：<em>Vibrio harveyi</em>、<em>Vibrio coralliilyticus</em></td><td>（空白）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>黃吸蟲（Yellow grub）</strong>（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=60">p.60</a>）：複殖吸蟲亞綱（Digenea）、彎口屬（<em>Clinostomum</em>）。講義附生活史圖：第一中間宿主（螺）→ 第二中間宿主（魚，囊狀尾蚴／後囊尾蚴）→ 終宿主（鳥）。<strong>講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=59">p.59</a>（病例 E）寫「雙殖吸蟲」，緊接著的 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=60">p.60</a> 寫「複殖吸蟲亞綱」，兩處用字不同，整理者推測病例 E 與黃吸蟲相關但講義沒有明說（待確認）。</strong></li>
+        <li><a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=66">p.66</a> 只有兩張魚的照片與問句「膘病？」，講義沒有答案或說明，整理者不補。</li>
+      </ul>
+      <div class="figure"><img src="img/week01_養殖模式與水質管理/aq_p060.jpg" alt="黃吸蟲（Yellow grub）：複殖吸蟲亞綱 Digenea、彎口屬 Clinostomum，附生活史圖。" loading="lazy"><div class="figure-caption">黃吸蟲（Yellow grub）：複殖吸蟲亞綱 Digenea、彎口屬 Clinostomum，附生活史圖。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=60">p.60</a></div></div>
+      <footer class="note-footer">資料來源：《水生動物疾病學》第一週講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=49">p.49</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=52">p.52–66</a>。病歷號已省略。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">8</div><h2>國考方向與水質參數總表</h2></div>
+      <p class="section-desc">講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=67">p.67</a>「獸醫師國考與現場養殖」列出六個常考方向；下面再把每個水質參數壓成一張表，方便複習。</p>
+      <h3>講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=67">p.67</a>：常考六點<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">方向</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td>一、氨氮</td><td>TAN 需合併 pH 與水溫判讀；NH3 毒性高於 NH4+</td></tr>
+            <tr><td>二、亞硝酸鹽</td><td>NO2- 造成變性血紅素；Cl- 可競爭吸收</td></tr>
+            <tr><td>三、低溶氧</td><td>清晨、悶熱、倒藻、停電與有機物過高是常見背景</td></tr>
+            <tr><td>四、硫化氫</td><td>黑泥、腐蛋味、底層厭氧；酸性下 H2S 比例較高</td></tr>
+            <tr><td>五、系統判讀</td><td>RAS 看濾床；池塘看日夜變化；觀賞魚看新缸與過濾成熟度</td></tr>
+            <tr><td>六、處置順序</td><td>急性死亡先救水質，再採樣與鑑別病原</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>水質參數總表<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>參數</th><th>怎麼傷害魚／蝦</th><th>危險情境</th><th>急性處置</th></tr></thead>
+          <tbody>
+            <tr><td><strong>低 DO</strong></td><td>快速致死，加重其他毒性與感染</td><td>夜間呼吸、倒藻、悶熱、停電、水車不足、有機物高</td><td>增氧 &gt; 停餌 &gt; 減少擾動 &gt; 必要換水</td></tr>
+            <tr><td><strong>NH3（TAN）</strong></td><td>神經毒性、鰓刺激、黏液增加</td><td>pH 高、水溫高、投餌多、濾床未成熟</td><td>增氧、停／減餌、部分換水、降低 pH 波動、移除死魚與殘餌</td></tr>
+            <tr><td><strong>NO2-</strong></td><td>變性血紅素（棕血症），水中有氧仍缺氧；Cl- 競爭吸收</td><td>新缸／新池、濾床未成熟、清洗濾材、用藥後、RAS 濾床失衡</td><td>換水、增氧、停餌、必要時提高 Cl-（確認耐鹽性）；重建硝化菌</td></tr>
+            <tr><td><strong>H2S</strong></td><td>干擾呼吸與氧利用；底棲蝦蟹貝類特別受影響</td><td>黑泥、腐蛋味、酸性、低氧、有機物累積</td><td>增氧、避免翻動黑泥、降低有機負荷、局部換水</td></tr>
+            <tr><td><strong>pH</strong></td><td>過低：酸鹼平衡、鰓功能、滲透調節；過高：NH3 比例上升</td><td>藻類光合作用（午後高、清晨低）</td><td>避免急降急升；判讀 TAN 同看 pH、溫度</td></tr>
+            <tr><td><strong>ORP 低</strong></td><td>提示有機物堆積、厭氧分解旺盛（不是診斷）</td><td>&lt; +50 mV；翻池、暴雨擾動底泥</td><td>看底層；改善底質、降低有機負荷</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>水產用藥有法規與休藥期，本講義這一章沒有寫藥物劑量與休藥期；混養模式的用藥與休藥期管理更複雜（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=13">p.13</a>）。表中「必要時提高 Cl-」是講義原話，加鹽量與魚種耐受範圍講義沒給，不要自行推算。</p></div>
+      <details class="alert alert-warn study-note"><summary>讀書補充Note - 國考怎麼考水質？（97–115 年獸醫傳染病學）</summary>
+        <div style="font-size:.9em;">
+        <h4>1. 先講結論</h4>
+        <ul>
+          <li>本站收錄的歷屆獸醫傳染病學試卷中，<strong>沒有直接考 DO、氨氮、亞硝酸鹽數值或計算</strong>的題目；水質是以「題幹線索」出現，要你判斷是<strong>環境壓力型</strong>還是<strong>傳染病型</strong>。水質化學本身比較像期中筆試（助教部分，見考古頁）的內容。</li>
+        </ul>
+        <h4>2. 題幹線索舉例（官方答案）</h4>
+        <div class="table-wrap"><table>
+          <thead><tr><th>題幹線索</th><th>怎麼想</th><th>題號與官方答案</th></tr></thead>
+          <tbody>
+            <tr><td><strong>水質不良</strong>的淡水養殖場，魚群浮頭、爛尾，鰓蓋打開有病變，體表培養得<strong>滑走性長桿菌</strong>，內臟分離不到</td><td>水質差 → 鰓與體表屏障受損 → 外部性細菌病：<strong>柱狀病（題目選項寫 Flexibacter columnaris，現名 <em>Flavobacterium columnare</em>）</strong></td><td>101-2 第 61 題，官方答案 C；106-1 有幾乎相同的題</td></tr>
+            <tr><td>水溫 23℃ 左右、<strong>水質良好</strong>的錦鯉養殖場，各年齡層大量死亡，體表無明顯症狀，鰓部出血或糜爛</td><td>「水質良好」排除環境壓力 → 傳染性病毒病：<strong>錦鯉疱疹病毒（KHV）</strong></td><td>110-2 第 74 題，官方答案 B（99-2 有類似題）</td></tr>
+            <tr><td>魚群浮頭，鰓顏色斑駁，鍍銀染色見二級鰓薄板有黑色絲狀物</td><td>浮頭不一定是低氧，<strong>鰓病</strong>（黴菌性鰓病等）也會浮頭；要看鰓壓片與組織切片</td><td>100-1 第 66 題（官方答案尚未取得）、106-2 同型題</td></tr>
+          </tbody>
+        </table></div>
+        <h4>3. 專業魚病老師的看法：浮頭先分三類</h4>
+        <ul>
+          <li><strong>環境型</strong>（低 DO、氨、亞硝酸鹽）：多為<strong>全池一起</strong>、<strong>清晨明顯</strong>、增氧後明顯好轉；水質測值異常。</li>
+          <li><strong>鰓病型</strong>（寄生蟲、細菌性鰓病、黴菌性鰓病）：<strong>白天也浮頭</strong>、增氧效果有限；鰓壓片（wet mount）能看到蟲體或菌絲。</li>
+          <li><strong>全身感染型</strong>（病毒、細菌敗血症）：有<strong>特定魚種、年齡層或規格</strong>的選擇性，剖檢可見臟器病變。</li>
+          <li>所以現場順序才會是「量水 → 鰓／體表壓片 → 剖檢 → 分離鑑定」，與講義 p.51 的處置優先序一致。</li>
+        </ul>
+        <p>標示：題幹與官方答案取自國考專區試卷檔；「三類」是整理者依魚病學臨床思路的歸納（補充），不是講義原文。講義尚未教疾病各論，上述病名先當作之後各論的預告。</p>
+        </div>
+      </details>
+      <footer class="note-footer">資料來源：《水生動物疾病學》第一週講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=13">p.13</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=67">p.67</a>；參數總表為上方各節的整理。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">9</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 看到池塘魚群清晨浮頭、靠水車，第一個動作應該是？</div>
+        <ul class="quiz-options"><li>(A) 立即下抗生素</li><li>(B) 採樣送病原分離</li><li>(C) 量測 DO（並增氧）</li><li>(D) 大量換水</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=28">p.28</a>：看到浮頭先量 DO，DO 是最優先排除的急性死亡因子（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=31">p.31</a>）。(A) 水質尚未穩定就下藥通常效果有限（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=51">p.51</a>），且浮頭不要先判定感染（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=10">p.10</a>）；(B) 採樣是第三步，在立即測水與降低急性風險之後；(D) 急救優先序是增氧 &gt; 停餌 &gt; 減少擾動 &gt; 必要換水，換水排在最後。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 同樣的 TAN 數值，下列哪一種條件下 NH3 毒性風險最高？</div>
+        <ul class="quiz-options"><li>(A) pH 7、15℃</li><li>(B) pH 7、30℃</li><li>(C) pH 9、15℃</li><li>(D) pH 9、30℃</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">NH3 比例隨 pH 與溫度上升而增加（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=35">p.35</a>）。講義表中 pH 9、30℃ 約 45%，pH 9、15℃ 約 21%，pH 7、30℃ 約 0.8%，pH 7、15℃ 約 0.3%，所以 (D) 最高；(A) 最低；(B) 溫度雖高但 pH 低；(C) pH 高但溫度低，兩者都低於 (D)。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 亞硝酸鹽中毒的魚，水中 DO 正常卻出現浮頭、鰓色異常，主要原因是？</div>
+        <ul class="quiz-options"><li>(A) NO2- 直接使水中氧氣減少</li><li>(B) NO2- 氧化血紅素形成變性血紅素，降低攜氧能力</li><li>(C) NO2- 使鰓上皮完全壞死，無法交換氣體</li><li>(D) NO2- 使魚體 pH 上升</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=38">p.38</a>：水中有氧，魚仍然缺氧，問題在血紅素攜氧功能（棕血症）。(A) 水中氧氣並未減少，所以才叫「缺氧假象」；(C) 講義未寫鰓完全壞死，而是 NO2- 干擾呼吸與離子調節；(D) 與 pH 無關。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 為什麼提高水中 Cl- 濃度可降低亞硝酸鹽毒性？</div>
+        <ul class="quiz-options"><li>(A) Cl- 直接把 NO2- 氧化成 NO3-</li><li>(B) Cl- 與 NO2- 競爭經鰓進入體內</li><li>(C) Cl- 使變性血紅素還原</li><li>(D) Cl- 增加水中溶氧</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=38">p.38–39</a>：NO2- 經鰓進入時與 Cl- 競爭，所以氯離子濃度會影響毒性，急性處置可提高 Cl- 競爭吸收（同時確認物種耐鹽性）。(A) 氧化成硝酸鹽是硝化菌的工作；(C)、(D) 講義沒有這些機轉。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 氨氮過高的處置，何者「不屬於」急性處置？</div>
+        <ul class="quiz-options"><li>(A) 增氧</li><li>(B) 移除死魚與殘餌</li><li>(C) 降低密度</li><li>(D) 停餌或減餌</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=37">p.37</a> 正確答案 C。(A)、(B)、(D) 都是 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=36">p.36</a> 的急性處置；降低密度列在長期處置（和改善底泥、成熟濾床、穩定投餌、定期監測一起）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 混養池中白蝦先死亡、魚暫時正常，最先要懷疑？</div>
+        <ul class="quiz-options"><li>(A) 底層低氧、H2S 或亞硝酸鹽壓力</li><li>(B) 上游污染</li><li>(C) 表層水溫過低</li><li>(D) pH 過低導致魚先死</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=13">p.13</a>：白蝦先死、魚暫時正常，常見於底層低氧、H2S 或亞硝酸鹽壓力；同池不同物種症狀順序可協助推估水層與毒性來源。(B) 上游污染是溪流式養殖的風險；(C)、(D) 講義沒有此說法，且蝦的底棲特性使其先受底層惡化影響。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. ORP 低於多少通常表示有機物堆積？</div>
+        <ul class="quiz-options"><li>(A) +400 mV</li><li>(B) +200 mV</li><li>(C) +50 mV</li><li>(D) −200 mV 才算</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=45">p.45</a>：電位基準 −200 至 +400 mV，低於 +50 mV 通常表示有機物堆積。(A) +400 是基準範圍上限；(B) 不是講義切點；(D) −200 只是範圍下限，不是判讀切點。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. 看到池塘魚浮頭，就可以先判定是細菌感染並先開始投藥。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=10">p.10</a>：浮頭不要先判定感染，先看清晨 DO、pH 日變化、氨氮與亞硝酸鹽。浮頭可由低 DO、氨氮、亞硝酸鹽、鰓寄生蟲或細菌性鰓病造成（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=4">p.4</a>），第一步必須先量水質。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 氨氮與 pH 無關，只要 TAN 數值相同，毒性就相同。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">TAN = NH3 + NH4+，真正毒的是 NH3 的比例，pH 與水溫決定比例；同樣 TAN，pH 越高風險越高（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=35">p.35</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q10. 為什麼在診斷疾病之前，首先需要量測水質？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">水質異常可造成直接死亡，也會提高感染性疾病風險；同一病原在不同水質條件下，臨床嚴重度可能完全不同，所以量測水質是確定疾病原因的首要步驟（講義 <a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=5">p.5</a> 建議答案）。急性大量死亡先想水質或毒性，慢性零星死亡再整合病原、營養與管理（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=50">p.50</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. 說明 RAS 氮循環的三步，以及哪些操作最容易讓 RAS 的亞硝酸鹽失控？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">飼料蛋白、糞便、殘餌 → 氨氮 TAN → 亞硝酸鹽 NO2-（棕血症風險）→ 硝酸鹽 NO3-（相對低毒，需累積管理）（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=34">p.34</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=18">p.18</a>）。濾床靠硝化菌轉換，所以<strong>清洗濾材過度、突然大量換水、消毒劑殘留、停電低氧</strong>（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=18">p.18</a>）以及大量用藥（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=39">p.39</a>）都可能破壞濾床，使 NO2- 快速累積。處置要避免一次性清洗所有濾材並重建硝化菌（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=39">p.39</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q12.【臨床情境】一個池塘前一天高溫，午後水色變深，晚上水車不足、近期加料。清晨發現魚浮頭、靠水車、少量死亡。請問：(1) 最可能的急性原因？(2) 要先量哪些項目？(3) 初步處置與順序？(4) 為什麼不先下藥？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 夜間藻類與微生物呼吸耗氧、水車不足導致的<strong>急性低溶氧</strong>，並要排除氨氮與亞硝酸鹽共同作用（案例 1，<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=52">p.52</a>）。<br><strong>(2)</strong> 清晨 DO、pH、溫度、TAN、NO2-；必要時看底泥與 ORP。<br><strong>(3)</strong> 立即增氧、停餌、減少擾動、移除死魚，必要時再換水；魚穩定後才採樣找病原（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=31">p.31</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=52">p.52</a>）。<br><strong>(4)</strong> 水質尚未穩定時單純下藥效果有限，且浮頭本身可由多種水質問題造成，不能先判定感染（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=10">p.10</a>、<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=51">p.51</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一套新設的 RAS 養魚系統，近日魚浮頭、呼吸快、鰓色偏褐。DO 正常。病史：濾材剛清洗過、前幾天使用過消毒劑，近期進魚與加料。請問：(1) 最可能原因？(2) 為什麼 DO 正常魚仍像缺氧？(3) 要量什麼？(4) 處置思路？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 硝化系統受破壞（濾床未成熟或被清洗、消毒劑傷害硝化菌），造成<strong>亞硝酸鹽（NO2-）上升</strong>（案例 2，<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=53">p.53</a>）。<br><strong>(2)</strong> NO2- 氧化血紅素成變性血紅素（棕血症），水中有氧但血液攜氧能力下降，常被誤判為低氧（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=38">p.38</a>）。<br><strong>(3)</strong> TAN、NO2-、pH、溫度、DO；檢查濾床與水流。<br><strong>(4)</strong> 降低 NO2- 暴露（換水、增氧、停餌、必要時提高 Cl- 並確認耐鹽性）、恢復硝化系統、避免再次一次性清洗所有濾材（<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=39">p.39</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】新缸的觀賞魚體表出現白點，同缸魚陸續爛鰭，飼主想直接買藥治白點。要怎麼回應？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">先<strong>量 TAN、NO2-、pH、溫度並問換水頻率與濾床成熟度</strong>（案例 3，<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=54">p.54</a>；<a class="pdf-link" href="pdf/養殖模式與水質管理.pdf#page=49">p.49</a>）：新缸硝化未成熟、運輸緊迫與混養來源複雜，會讓魚在氨氮／亞硝酸鹽壓力下承受不了治療。白點、爛鰭、爛鰓常伴隨氨氮或亞硝酸鹽問題。原則是<strong>先改善水質與穩定魚體，再選擇適合物種與系統的寄生蟲處理</strong>；講義沒有寫具體藥物與劑量，要用藥請依魚種與法規。</p></details>
+      </div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week01_%E9%A4%8A%E6%AE%96%E6%A8%A1%E5%BC%8F%E8%88%87%E6%B0%B4%E8%B3%AA%E7%AE%A1%E7%90%86" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  systems: '養殖產業與養殖模式',
+  diagnosis: '水質診斷、問診與處置優先序',
+  physical: '水溫、溶氧與 pH',
+  nitrogen: '氮循環、氨氮與亞硝酸鹽',
+  sediment: '硫化氫、ORP 與底泥',
+  cases: '案例討論與病例照片',
+  exam: '國考方向與參數總表',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

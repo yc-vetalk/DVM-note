@@ -93,19 +93,23 @@ for name,cfg in species.SPECIES.items():
     pats=[(d[0],re.compile(d[1],re.I)) for d in cfg['diseases']]
     for pp in papers:
         for q in pp['qs']:
-            if sr.search(q['q']):
+            _k=f"{pp['year']}-{ {'一':'1','二':'2'}.get(pp['batch'],pp['batch']) }"
+            _in = (cfg['ranges'].get(_k,(0,-1))[0] <= q['n'] <= cfg['ranges'].get(_k,(0,-1))[1] and f"{_k}#{q['n']}" not in cfg.get('exclude',())) if 'ranges' in cfg else sr.search(q['q'])
+            if _in:
                 g=None
-                for nm,r in pats:
+                _ov=cfg.get('override',{}).get(f"{_k}#{q['n']}")
+                if _ov: g=next((d[0] for d in cfg['diseases'] if d[0].startswith(_ov)), None) or (g if _ov!='其他' else None)
+                for nm,r in ([] if (g or _ov=='其他') else pats):
                     if r.search(q['q']): g=nm;break
-                if g is None and cfg.get('answer_group'):
+                if g is None and cfg.get('answer_group') and _ov!='其他':
                     at=' '.join(q['opts'].get(x,'') for x in re.findall(r'[A-D]',q.get('ans') or ''))
                     for nm,r in pats:
                         if at and r.search(at): g=nm;break
                 groups[g or '其他（題幹提及但未歸入上列疾病）'].append((pp,q))
-            elif wr.search(' '.join(q['opts'].values())) :
+            elif 'ranges' not in cfg and wr.search(' '.join(q['opts'].values())) :
                 weak.append((pp,q))
     tot=sum(len(v) for v in groups.values())
-    t=f"# {name}・歷屆國考題彙整（獸醫師・獸醫傳染病學）\n\n- 來源：考選部「考畢試題查詢平台」專技高考獸醫師「獸醫傳染病學」，民國 97–115 年共 {len(papers)} 份、{sum(len(p['qs']) for p in papers)} 題\n- 本檔挑出題幹與{cfg.get("short",name[0])}相關者共 **{tot}** 題（依疾病分組、組內依年份排序），另列「選項提及{cfg.get("short",name[0])}」{len(weak)} 題\n- 篩選為關鍵字自動判斷，**可能漏題或誤收**；完整試卷見 `獸醫傳染病學/` 資料夾\n- 只有題目與官方答案，未附詳解\n\n"
+    t=f"# {name}・歷屆國考題彙整（獸醫師・獸醫傳染病學）\n\n- 來源：考選部「考畢試題查詢平台」專技高考獸醫師「獸醫傳染病學」，民國 97–115 年共 {len(papers)} 份、{sum(len(p['qs']) for p in papers)} 題\n- 本檔挑出題幹與{cfg.get("short",name[0])}相關者共 **{tot}** 題（依疾病分組、組內依年份排序），另列「選項提及{cfg.get("short",name[0])}」{len(weak)} 題\n{'- 水產題在各卷固定集中在最後一段連續題號，本檔依題號區間挑題（含只寫「如圖」而無病名的題），夾雜的非水產題已人工剔除；疾病分組為依題幹與正解選項的關鍵字自動判斷，少數題人工調整，**分組可能有誤**；完整試卷見 `獸醫傳染病學/` 資料夾\n' if 'ranges' in cfg else '- 篩選為關鍵字自動判斷，**可能漏題或誤收**；完整試卷見 `獸醫傳染病學/` 資料夾\n'}- 只有題目與官方答案，未附詳解\n\n"
     for nm,lst in groups.items():
         if not lst: continue
         t+=f"## {nm}（{len(lst)} 題）\n\n"

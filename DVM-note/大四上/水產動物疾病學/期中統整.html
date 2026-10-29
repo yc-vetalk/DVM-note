@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水產動物疾病學：期中統整 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">水產動物疾病學</a><span class="sep">›</span><span class="current">期中統整</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">水產動物疾病學期中統整 Midterm Summary</h1>
+      <p class="page-subtitle">把水質、魚類生理、免疫與疫苗三份講義，加上期中考古的重複考點，壓成簡答題可以直接套用的對照表；每格都連回原筆記</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">水產動物疾病學（大四上・期中統整）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">整理自本站「養殖模式與水質管理」「魚類解剖與生理」「魚類免疫與疫苗」「期中考古」四頁；補充段落另依一般魚病學教科書標示</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">跨筆記統整（水質、生理、免疫；講義尚未涵蓋疾病各論）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 怎麼用這一頁</a>
+    <div class="section-label" style="margin-top:8px;">水質與養殖</div>
+    <a onclick="showSection('culture')" id="nav-culture"><span class="nav-icon">🏭</span> 養殖模式優缺點</a>
+    <a onclick="showSection('water')" id="nav-water"><span class="nav-icon">💧</span> 水質參數與處置</a>
+    <div class="section-label" style="margin-top:8px;">魚類生理</div>
+    <a onclick="showSection('physio')" id="nav-physio"><span class="nav-icon">🐟</span> 趨性、呼吸、Bohr／Root、滲透壓</a>
+    <div class="section-label" style="margin-top:8px;">免疫與疫苗</div>
+    <a onclick="showSection('immune')" id="nav-immune"><span class="nav-icon">🛡️</span> 免疫器官與疫苗投予方式</a>
+    <div class="section-label" style="margin-top:8px;">查詢與速背</div>
+    <a onclick="showSection('confuse')" id="nav-confuse"><span class="nav-icon">🧩</span> 容易混淆比較表</a>
+    <a onclick="showSection('numbers')" id="nav-numbers"><span class="nav-icon">🔢</span> 數字與關鍵字速背</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>怎麼用這一頁與考點地圖</h2></div>
+      <div class="overview">
+        <div class="overview__title">期中統整：簡答題怎麼準備</div>
+        <dl>
+          <dt>這一頁是什麼</dt>
+          <dd>水產動物疾病學期中考的<strong>助教部分</strong>（養殖與水質、魚類生理、免疫與疫苗）是手寫簡答，年年類似（見<a href="期中考古.html#section-repeat">考古重複考點表</a>）。這頁把講義內容壓成<strong>可以直接套用的答題表</strong>，每格都標來源，想看細節點連結回原頁。</dd>
+          <dt>範圍與限制</dt>
+          <dd>只整理<strong>已有講義</strong>的三大塊。蝦與無脊椎、細菌、寄生蟲等疾病各論<strong>講義尚未涵蓋</strong>，考古的那幾份請直接看<a href="期中考古.html">期中考古</a>頁，這頁不重複。老師已全部換人，考古只當出題方式參考。</dd>
+          <dt>考點地圖（依考古）</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-culture">養殖模式優缺點</a>、<a href="#section-water">水質參數</a>：2022、2023、109、107 都出現。</li>
+              <li><a href="#section-physio">趨性、逆／順流氣體交換、Bohr／Root、滲透壓與氯細胞</a>：2019、2022、2023、109、107、105 反覆出現。</li>
+              <li><a href="#section-immune">免疫器官、疫苗投予方式</a>：2022、2023（加分題）、109。</li>
+              <li><a href="#section-confuse">容易混淆比較表</a>與<a href="#section-numbers">數字速背</a>：寫答案前最後一眼。</li>
+            </ol>
+          </dd>
+          <dt>標示規則</dt>
+          <dd>正文＝講義內容（有講義矛盾的地方沿用原頁的「待核對」）；黃框「讀書補充Note」＝補充：依一般教科書與魚病臨床思路，講義沒寫，預設收起；「學長姐」＝學長姐回憶，非官方。藥物、劑量、休藥期一律沒寫，講義沒有。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p>講義簡單、老師上課補充多。所以這頁每個主題後面有「老師可能怎麼補充／現場怎麼用」黃框，是依魚病臨床思路預想的補充方向，<strong>不是老師說過的話</strong>；實際補充以你上課筆記為準。</p></div>
+      <div class="flow">
+        <div class="flow-node">水質（環境）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">鰓、皮膚、腸道受傷（生理）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">壓力與免疫抑制（免疫）</div><div class="flow-arrow">→</div>
+        <div class="flow-node">病原致病；疫苗預防</div>
+      </div>
+      <p style="font-size:.85em;">三塊內容其實是一條線：水質惡化經鰓進入魚體、造成壓力與免疫抑制，才讓病原得逞；疫苗則是預先建立保護（<a href="魚類免疫與疫苗.html#section-stress">壓力與免疫</a>）。</p>
+      <footer class="note-footer">資料來源：本站四頁筆記；考古年份見期中考古頁第 12 節。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CULTURE -->
+    <div class="section" id="section-culture">
+      <div class="section-head"><div class="section-num">2</div><h2>養殖模式：優缺點與風險</h2></div>
+      <p class="section-desc">考古：2022 Q1（10 分）、2023 Q1、109 Q3、107 Q4。題目通常只問<strong>「一種」</strong>，選最熟的寫透。</p>
+      <h3>七種模式一張表<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:13%;">模式</th><th>優點</th><th>缺點／風險</th><th>獸醫重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>池塘式</strong></td><td>設備門檻低；適合多種魚蝦；管理經驗成熟</td><td>颱風、豪雨、熱浪、倒藻；底泥厭氧、有機物累積；天候影響大</td><td>先看清晨 DO、pH 日變化、氨氮、亞硝酸鹽；浮頭不先判定感染</td></tr>
+            <tr><td><strong>混養</strong></td><td>分散市場與疾病風險；利用不同棲位與餌料</td><td>各物種耐受不同；用藥與休藥期更複雜；診斷變項多</td><td>白蝦先死、魚暫時正常 → 底層低氧、H2S 或亞硝酸鹽</td></tr>
+            <tr><td><strong>溪流式</strong></td><td>適合冷水性魚類；水溫低、溶氧較高</td><td>水源決定風險；上游污染整批異常</td><td>評估水源、鄰近場、流向、近期氣候</td></tr>
+            <tr><td><strong>箱網</strong></td><td>適合大型魚；開放性高、換水能力強</td><td>外海環境依賴高；水質變化大；受外界污染事件支配</td><td>同溪流式</td></tr>
+            <tr><td><strong>循環水 RAS</strong></td><td>降低自然災害變因；水質可即時監控；用水與排放量可控</td><td>依賴機械過濾、生物濾床、增氧、殺菌；濾床失效或病原進入在高密度下快速擴散</td><td>氨氮→亞硝酸鹽→硝酸鹽；清洗濾材過度、突然大量換水、消毒劑殘留、停電低氧</td></tr>
+            <tr><td><strong>魚菜共生</strong></td><td>RAS＋水耕；植物吸收營養鹽；省水、減肥料</td><td>魚、菌、植物最佳條件不一致</td><td>以魚的急性毒性風險優先；只為植物調 pH 會影響氨毒性與硝化菌</td></tr>
+            <tr><td><strong>生物團絮</strong></td><td>異營菌同化無機氮，轉成微生物蛋白</td><td>曝氣不足或固體物過量 → 低氧、底泥惡化、H2S</td><td>監測 TSS、沉降體積、DO、ORP；不是水越濃越好</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>來源：<a href="week01_養殖模式與水質管理.html#section-systems">水質頁 第 2 節</a>（講義 水質 P.9–26）。口訣式結論：<strong>環境控制程度決定水質風險型態</strong>，不是哪種最好。</p>
+      <details class="alert alert-warn study-note"><summary>讀書補充Note - 養殖模式簡答怎麼寫、老師可能怎麼補充</summary>
+        <div style="font-size:.9em;">
+        <h4>1. 答題模板（補充：整理者的答題建議）</h4>
+        <ul>
+          <li>一句定義 → 優點 2–3 → 缺點 2–3 → 獸醫重點一句；比把七種都列出更安全（考古題通常問「一種」）。</li>
+          <li>優缺點最後都落到<strong>「水質風險型態不同」</strong>，這是第一週的主線，閱卷者最想看到這句。</li>
+        </ul>
+        <h4>2. 老師上課可能補的方向（推測，非考古證據）</h4>
+        <ul>
+          <li>臺灣現場：池塘（虱目魚、吳郭魚、白蝦）最常見；循環水多用在高單價或觀賞魚；箱網以海水魚為主。</li>
+          <li>學長姐 2023 預告版（非官方）池塘寫「優點利潤大；缺點風險大：天災、停電、停水、颱風、水管破」，骨架可用，但講義的底泥與日夜變化要補進去。</li>
+        </ul>
+        </div>
+      </details>
+      <footer class="note-footer">資料來源：<a href="week01_養殖模式與水質管理.html#section-systems">水質頁第 2 節</a>、<a href="期中考古.html#section-ta2022">期中考古 2022 Q1</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- WATER -->
+    <div class="section" id="section-water">
+      <div class="section-head"><div class="section-num">3</div><h2>水質參數：機轉、閾值、處置</h2></div>
+      <p class="section-desc">考古：2022 Q2（10 分）「水質處理須注意的參數」、2023 Q2（20 分，學長姐版只寫 pH、水溫、氨氮）、109 Q1、107 Q1、105 Q1（氨）。<strong>挑 3–4 個寫透</strong>：為什麼要量 → 太高太低會怎樣 → 怎麼處置。</p>
+      <h3>參數總表<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>參數</th><th>怎麼傷害魚</th><th>危險情境</th><th>急性處置</th></tr></thead>
+          <tbody>
+            <tr><td><strong>低 DO</strong></td><td>快速致死、加重其他毒性與感染；浮頭、靠水車、清晨死亡增加</td><td>夜間呼吸、倒藻、悶熱、停電、水車不足、有機物高</td><td>增氧 &gt; 停餌 &gt; 減少擾動 &gt; 必要換水</td></tr>
+            <tr><td><strong>氨 TAN／NH3</strong></td><td>TAN＝NH3＋NH4+，真正毒的是 NH3；呼吸急促、竄游、黏液增加、鰓刺激、神經症狀</td><td>pH 高、水溫高、投餌多、濾床未成熟</td><td>增氧、停／減餌、部分換水、降低 pH 波動、移除死魚殘餌；長期：降密度、成熟濾床</td></tr>
+            <tr><td><strong>亞硝酸鹽 NO2-</strong></td><td>氧化血紅素成變性血紅素（棕血症），水中有氧仍缺氧；Cl- 競爭進入鰓</td><td>新缸新池、濾床未成熟、清洗濾材、大量用藥後、RAS 濾床失衡</td><td>換水、增氧、停餌、必要時提高 Cl-（確認耐鹽性）；重建硝化菌、避免一次性清洗所有濾材</td></tr>
+            <tr><td><strong>H2S</strong></td><td>干擾呼吸與氧利用；底棲蝦蟹貝類特別受影響</td><td>黑泥、腐蛋味、酸性、低氧、有機物累積</td><td>增氧、避免翻動黑泥、降低有機負荷、局部換水</td></tr>
+            <tr><td><strong>pH</strong></td><td>過低：血液酸鹼、鰓功能、滲透調節；過高：NH3 比例上升</td><td>藻類光合作用（午後高、清晨低）</td><td>避免急降急升</td></tr>
+            <tr><td><strong>水溫</strong></td><td>升高 → 代謝與耗氧增加、氧溶解度下降、NH3 比例上升、藻華倒藻風險</td><td>熱浪、寒流、換入地下水</td><td>問近期天氣與換水、加遮陽網</td></tr>
+            <tr><td><strong>ORP</strong></td><td>低＝有機物堆積、厭氧分解旺盛（不是診斷）</td><td>＜ +50 mV；翻池、暴雨擾動底泥</td><td>看底層；改善底質</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>來源：<a href="week01_養殖模式與水質管理.html#section-physical">水質頁 第 4 節</a>（DO、pH、水溫）、<a href="week01_養殖模式與水質管理.html#section-nitrogen">第 5 節</a>（氨、亞硝酸鹽）、<a href="week01_養殖模式與水質管理.html#section-sediment">第 6 節</a>（H2S、ORP）、<a href="week01_養殖模式與水質管理.html#section-exam">第 8 節</a>（總表）。</p>
+      <h3>三條因果鏈（最常被追問）<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>pH／水溫 → NH3 比例</strong>：同樣 TAN，pH 越高、水溫越高，NH3 越多。講義表：pH 7.0、20℃ 約 0.4；pH 9.0、25℃ 約 36（單位推測為佔 TAN 的百分比，補充判讀）。</li>
+        <li><strong>NO2- → 變性血紅素；Cl- 競爭</strong>：水裡有氧、魚仍缺氧；加 Cl- 減少 NO2- 進入鰓。</li>
+        <li><strong>有機物＋缺氧 → H2S；酸性下 H2S 比例高</strong>：黑泥、腐蛋味。</li>
+      </ul>
+      <div class="alert alert-info"><div class="alert-label">講義建議答案</div><p><strong>為什麼診斷前先量水質？</strong>水質異常可造成直接死亡，也提高感染性疾病風險；同一病原在不同水質下嚴重度可能完全不同，所以量水質是確定疾病原因的首要步驟（水質 P.5）。<strong>現場處置順序：</strong>立即測水 → 降低急性風險 → 採樣檢驗 → 回推原因 → 制定處置（P.51）。</p></div>
+      <details class="alert alert-warn study-note"><summary>讀書補充Note - 水質題怎麼答、現場怎麼用</summary>
+        <div style="font-size:.9em;">
+        <h4>1. 若題目只要「三個」（補充：整理者建議）</h4>
+        <ul>
+          <li>學長姐 2023 預告版寫 pH、水溫、氨氮 NH3。依講義的「先量急性致死因子」，也可答 <strong>DO、氨氮、亞硝酸鹽</strong>；兩種組合都要能寫，標準答案以老師為準。</li>
+          <li>不要把「加硝化菌」當成氨氮控制的唯一手段；講義寫加菌前先確認 DO、鹼度與消毒劑殘留。</li>
+        </ul>
+        <h4>2. 現場怎麼用（推測：臨床思路）</h4>
+        <ul>
+          <li>一到現場先量水、再看魚：清晨 DO、午後 pH、TAN、NO2-；浮頭先分「環境型、鰓病型、全身感染型」（見水質頁補充Note）。</li>
+          <li>數值只有在採樣正確時才有意義：時間（清晨／午後）、位置（入出水口、底層）、儀器校正、試劑效期。</li>
+        </ul>
+        </div>
+      </details>
+      <footer class="note-footer">資料來源：<a href="week01_養殖模式與水質管理.html">養殖模式與水質管理頁</a>第 3–8 節、<a href="期中考古.html#section-ta2022">期中考古 2022 Q2</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- PHYSIO -->
+    <div class="section" id="section-physio">
+      <div class="section-head"><div class="section-num">4</div><h2>魚類生理：趨性、呼吸、Bohr／Root、滲透壓</h2></div>
+      <p class="section-desc">四個問法最常重複：趨性（2022 Q4、2023 Q3）、軟硬骨魚氣體交換（2019、2022 Q5、2023 Q4–5、109 Q6）、Bohr／Root（2022 Q6、109 Q7、107 Q5）、滲透壓（2022 Q8、109 Q5–6、107 Q6、105 Q8–9）。</p>
+      <h3>魚類趨性<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>趨性</th><th>定義與例子（講義 生理上 P.24–26）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>趨光性</strong></td><td>對光的反應；正趨光游向光源（燈光誘魚）、負趨光迴避</td></tr>
+            <tr><td><strong>趨流性</strong></td><td>對水流方向與強度反應；正趨流逆流而上（鮭鱒洄游）、負趨流順流而下</td></tr>
+            <tr><td><strong>趨溫性</strong></td><td>變溫動物主動尋找最適溫度；冷水性（鱒、鮭）10–18℃、溫水性（鯉、鯰）20–30℃</td></tr>
+            <tr><td><strong>趨鹽性</strong></td><td>廣鹽性（鮭、鱸）可在淡海水間移動、狹鹽性只能在特定鹽度；涉及鰓離子交換與腎臟調整</td></tr>
+            <tr><td><strong>趨化性</strong></td><td>靠嗅覺、味覺感知化學物質：覓食、避敵、找配偶、鮭認出生河流、警戒素</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>助教預告版（學長姐，非官方）另有<strong>趨電性</strong>（感電、麻痺、趨陽三種反應）與<strong>趨觸性</strong>；講義沒有，被問到時標「助教補充」。來源：<a href="魚類解剖與生理.html#section-locomotion">生理頁 第 3 節</a>、<a href="期中考古.html#section-ta2022">考古 2022 Q4</a>。</p>
+      <h3>氣體交換：逆流 vs 順流、軟骨魚 vs 硬骨魚<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>硬骨魚</th><th>軟骨魚（講義寫法）</th></tr></thead>
+          <tbody>
+            <tr><td>鰓蓋</td><td>有（保護鰓並協調呼吸運動）</td><td>沒有，鰓裂直接暴露</td></tr>
+            <tr><td>鰓弓</td><td>通常具骨質</td><td>軟骨</td></tr>
+            <tr><td>交換方式</td><td><strong>逆水流效應</strong>：血液與水反向，維持濃度梯度，約 <strong>80%</strong></td><td><strong>順水流效應</strong>：同向，約 <strong>50%</strong>，效率較低但節能、活動量小</td></tr>
+            <tr><td>假鰓</td><td>—</td><td>部分軟骨魚有，退化、講義說無氣體交換功能</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">待核對</div><p>講義 生理上 P.40 說順流在魚類中較少見，P.44 又說軟骨魚用順流；一般教科書說軟骨魚鰓同樣是逆流（差異在鰓蓋與換水方式）。考試照講義寫（逆 80%、順 50%），並在上課時<strong>問老師標準答案</strong>。學長姐 2023「第 5 題很怪」的推論見<a href="期中考古.html#section-ta2023">考古 2023</a>。</p></div>
+      <p>另可補：鰓的三大功能＝氣體交換、離子調節（氯細胞）、酸鹼調節；結構＝鰓弓 → 鰓絲 → 鰓小片（講義選擇題答鰓絲，正文寫鰓絲上的鰓小片，見生理頁待核對）。來源：<a href="魚類解剖與生理.html#section-respiration">生理頁 第 4 節</a>。</p>
+      <h3>Bohr effect 與 Root effect（定義分開寫）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>講義 生理上 P.51 的寫法</th><th>補充：一般教科書的標準分法（講義沒寫）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bohr</strong></td><td>血中 CO2 升高 → Hb 對氧親和力降低，促進氧釋放到氣體腺</td><td>CO2／H+ 增加使氧合曲線<strong>右移</strong>（親和力下降），但高氧分壓下 Hb 仍能飽和</td></tr>
+            <tr><td><strong>Root</strong></td><td>血液 pH 降低 → Hb 對氧親和力降低，促進氧釋放</td><td>酸性下<strong>最大攜氧量（飽和度）也下降</strong>，曲線平台降低；許多硬骨魚特有，是鰾與眼脈絡膜奇網濃縮氧的關鍵</td></tr>
+            <tr><td>共同</td><td>氣體腺產生<strong>乳酸</strong>降低周圍 pH，觸發兩個效應，把氧擠入鰾；需要消耗能量</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>答題建議（標待核對）：Bohr＝<strong>親和力下降（曲線右移）</strong>；Root＝<strong>連最大攜氧量都下降（平台降低）</strong>；兩者都由 CO2／H+ 增加引起。2022 Q6「利用 Bohr 或 Root？」答案不是二選一，魚類兩者都有、Root 特別強。來源：<a href="魚類解剖與生理.html#section-swimbladder">生理頁 第 5 節</a>、<a href="期中考古.html#section-ta2022">考古 2022 Q6</a>。</p>
+      <h3>滲透壓與氯細胞<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>海水魚</th><th>淡水魚</th><th>軟骨魚（鯊）</th></tr></thead>
+          <tbody>
+            <tr><td>體液 vs 環境</td><td>體液濃度低於海水</td><td>體液濃度高於外界</td><td>血液存<strong>尿素 350–400 mM</strong>（硬骨魚的 100 倍以上），使滲透壓與海水相近</td></tr>
+            <tr><td>水分</td><td>會脫水 → <strong>喝水</strong></td><td>水滲入 → <strong>不喝水、不斷排尿</strong></td><td>避免脫水；<strong>TMAO</strong> 保護蛋白免受尿素變性</td></tr>
+            <tr><td>氯細胞（MRC）</td><td>主動<strong>排出</strong> Na+、Cl-、K+（含大量 Na+-K+-ATPase）</td><td>主動<strong>吸收</strong>稀少的離子，並排出過多水分</td><td>腎臟特化，重吸收尿素</td></tr>
+            <tr><td>尿</td><td>少量，等滲（講義圖示）</td><td>多量，低滲（講義圖示）</td><td>部分鯊魚能進入河口淡水區</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>氯細胞別名 ionocytes、mitochondrial-rich cells（MRC）、acidophilic cells；鰓上皮四種細胞＝平鋪細胞（約 90%）、氯細胞、黏液細胞、未分化細胞；MRC 數量隨鹽度改變（日本鰻實驗）。來源：<a href="魚類解剖與生理.html#section-osmo">生理頁 第 10 節</a>、<a href="期中考古.html#section-ta2022">考古 2022 Q8</a>。學長姐常寫「魚細胞內濃度」，答案寫<strong>體液（血漿）滲透壓</strong>更精確。</p>
+      <details class="alert alert-warn study-note"><summary>讀書補充Note - 生理題為什麼臨床上重要、老師可能怎麼補充</summary>
+        <div style="font-size:.9em;">
+        <h4>1. 連回臨床（補充：依一般魚病學思路）</h4>
+        <ul>
+          <li><strong>鰓</strong>同時負責呼吸、離子、酸鹼、排氨：水質問題（氨、亞硝酸鹽、H2S）和鰓病（寄生蟲、細菌、黴菌）都先傷鰓，所以浮頭、鰓蓋怒張要鑑別（講義 生理上 P.46–47：鰓病、水質惡化、中毒；浮頭另有缺氧、鰾異常）。</li>
+          <li><strong>滲透壓</strong>失調是許多魚病的死因：體表潰爛、鰓損傷都破壞離子調節；淡水魚尿多、海水魚少尿，所以處置（加鹽、鹽度變化）要考慮魚種耐鹽性。</li>
+          <li><strong>鰾疾病</strong>表現為浮頭、沉底、游泳不穩；診斷依症狀、X 光、超音波（講義 P.55–56，沒寫藥名與劑量）。</li>
+        </ul>
+        <h4>2. 答題小撇步（推測）</h4>
+        <ul>
+          <li>氣體交換、滲透壓都建議<strong>畫圖或做表</strong>；圖示逆流用箭頭＋0→100 的氧梯度；滲透壓用「環境／水往哪走／喝不喝／氯細胞／尿」五欄。</li>
+          <li>Bohr／Root 先寫講義定義，再補「Root＝連最大攜氧量下降」，並標待核對，避免被扣分。</li>
+        </ul>
+        </div>
+      </details>
+      <footer class="note-footer">資料來源：<a href="魚類解剖與生理.html">魚類解剖與生理頁</a>第 3–5、10 節；考古年份見<a href="期中考古.html#section-repeat">考古第 12 節</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- IMMUNE -->
+    <div class="section" id="section-immune">
+      <div class="section-head"><div class="section-num">5</div><h2>免疫器官與疫苗投予方式</h2></div>
+      <p class="section-desc">考古：免疫器官 2022 Q9、2023 Q6、109 Q4；疫苗投予方式 2019（助教 5）、2022 Q10、2023 加分。兩題都是<strong>表格題</strong>，建議做表作答。</p>
+      <h3>免疫器官與功能<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">器官</th><th>功能（講義 免疫 P.53–55）</th><th>關鍵字</th></tr></thead>
+          <tbody>
+            <tr><td><strong>腎臟（前／頭腎）</strong></td><td>血流慢，抗原被困住，接觸網狀細胞、巨噬細胞、淋巴球；<strong>前段是「memory」發生處</strong>；造血</td><td>最重要；memory</td></tr>
+            <tr><td><strong>脾臟</strong></td><td>次於腎臟；免疫反應與血球形成；注射抗原後由 melanomacrophage centers 與橢球體產生反應</td><td>反應＋造血</td></tr>
+            <tr><td><strong>肝臟</strong></td><td>可能產生補體成分；講義說「not real clear」</td><td>補體（機制不明）</td></tr>
+            <tr><td><strong>網狀內皮系統</strong></td><td>全身組織中吞噬力強的細胞</td><td>先天免疫吞噬網</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>硬骨魚造血以腎臟與脾臟為主（P.54）。先天細胞：單核球與巨噬細胞（最重要、產生細胞激素）、嗜中性球（發炎早期）、自然殺手樣細胞（寄生蟲與病毒）。來源：<a href="魚類免疫與疫苗.html#section-organs">免疫頁 第 2 節</a>、<a href="期中考古.html#section-ta2022">考古 2022 Q9</a>。講義 P.9 前驅細胞寫「骨髓」、P.53「memory」的精確意義，免疫頁都標待核對。</p>
+      <h3>疫苗投予方式比較<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">途徑</th><th>講義寫的</th><th>優點</th><th>缺點／限制</th><th>適用</th></tr></thead>
+          <tbody>
+            <tr><td><strong>注射</strong><br>（腹腔等）</td><td>注射抗原後免疫反應由脾臟 MMC 與橢球體產生；講義圖：腹腔注射加追加保護率最高</td><td>保護率最高</td><td>（補充）逐尾操作、緊迫、人力；小魚不適用</td><td>較大魚、需高保護率</td></tr>
+            <tr><td><strong>口服</strong><br>（拌飼料）</td><td>最理想、方便；減少緊迫；用量比浸泡少、經濟；最適用於稚魚；做法：酒精包埋、飼料混合重塑形</td><td>省人力、無緊迫、適合大量魚群</td><td>（講義圖）保護率不如注射追加；（補充）抗原在消化道可能被破壞、劑量不易控制</td><td>稚魚、大量魚群</td></tr>
+            <tr><td><strong>浸泡</strong></td><td>操作簡單、容易汙染、免疫機制尚待闡明</td><td>操作簡單</td><td>容易汙染；機制不清；（講義圖）浸泡加浸泡保護率最低</td><td>小魚、無法注射時</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>來源：<a href="魚類免疫與疫苗.html#section-vroute">免疫頁 第 3 節</a>、<a href="期中考古.html#section-ta2022">考古 2022 Q10</a>。講義沒有寫劑量、休藥期與疫苗產品，不要自行補。疫苗類型（不活化、類毒素、次單位、DNA、減毒、RNAi、生物膜）見<a href="魚類免疫與疫苗.html#section-vtype">免疫頁 第 9 節</a>；國考只出過 102-2 第 65 題（鮭魚 <em>Aeromonas salmonicida</em> 油質疫苗，官方答案 B）。</p>
+      <h3>壓力如何削弱免疫（補充題型）<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>壓力三階段：<strong>反抗、適應、衰竭</strong>；三級反應：初級（兒茶酚胺、皮質醇）→ 次級（血糖上升、心跳鰓血流增加）→ 第三級（生長、抗病力、行為、存活率下降）。</li>
+        <li><strong>皮質醇升高 → 抑制吞噬細胞、降低循環淋巴球</strong>（免疫 P.9）；所以水質惡化的壓力會引發疾病。來源：<a href="魚類免疫與疫苗.html#section-stress">免疫頁 第 4 節</a>。</li>
+      </ul>
+      <details class="alert alert-warn study-note"><summary>讀書補充Note - 疫苗與免疫器官怎麼補、現場怎麼用</summary>
+        <div style="font-size:.9em;">
+        <h4>1. 免疫器官（補充：依一般教科書）</h4>
+        <ul>
+          <li>硬骨魚<strong>沒有骨髓與淋巴結</strong>，前（頭）腎同時承擔造血與免疫的角色；黏膜淋巴組織（鰓、皮膚、腸）是第一線防禦，講義的第一道防線與腸道免疫兩節在說這件事。</li>
+          <li>可加答：免疫器官＋黏液（抗體、溶菌酶、補體）＋黏膜屏障，三層一起答比只寫器官完整（學長姐預告筆記另寫鰓黏液細胞分泌抗菌胜肽與溶菌酶，非官方）。</li>
+        </ul>
+        <h4>2. 疫苗投予（推測：臨床思路）</h4>
+        <ul>
+          <li>選途徑看<strong>魚體大小、數量、病原與疫苗型式</strong>：大魚、高價值魚種多用注射（油質佐劑疫苗多需注射，如 102-2 的鮭魚油質疫苗題）；稚魚或大量魚群偏浸泡或口服（補充：一般實務，細節待核對）。</li>
+          <li>2019 助教題問「你會選哪一種疫苗＋投予方式（優缺點）」：要寫你選哪一種、為什麼，不要只列三種。</li>
+          <li>疫苗效力與壓力有關：水質不良、壓力大的魚疫苗保護力會下降（連回皮質醇抑制免疫）。</li>
+        </ul>
+        </div>
+      </details>
+      <footer class="note-footer">資料來源：<a href="魚類免疫與疫苗.html">魚類免疫與疫苗頁</a>第 2–4、9 節；<a href="期中考古.html#section-ta2022">期中考古 2022 助教卷</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CONFUSE -->
+    <div class="section" id="section-confuse">
+      <div class="section-head"><div class="section-num">6</div><h2>容易混淆的比較表</h2></div>
+      <p class="section-desc">寫答案前最後一眼：這幾組最容易被問「差別是什麼」。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">比較</th><th>A</th><th>B</th><th>來源</th></tr></thead>
+          <tbody>
+            <tr><td><strong>TAN 與 NH3</strong></td><td>TAN＝NH3＋NH4+，總量</td><td>NH3 才是主要毒性；比例隨 pH、水溫上升</td><td><a href="week01_養殖模式與水質管理.html#section-nitrogen">水質 §5</a></td></tr>
+            <tr><td><strong>亞硝酸鹽中毒 vs 低溶氧</strong></td><td>NO2-：水裡有氧，血液攜氧能力下降（棕血症）；Cl- 可競爭</td><td>低 DO：水中真的缺氧；清晨、悶熱、停電；增氧即改善</td><td><a href="week01_養殖模式與水質管理.html#section-nitrogen">水質 §5</a></td></tr>
+            <tr><td><strong>急性 vs 長期處置</strong></td><td>急性：增氧、停餌、換水、移除死魚</td><td>長期：降密度、成熟濾床、穩定投餌、監測</td><td><a href="week01_養殖模式與水質管理.html#section-nitrogen">水質 §5</a></td></tr>
+            <tr><td><strong>逆流 vs 順流</strong></td><td>逆流：反向、約 80%、硬骨魚</td><td>順流：同向、約 50%、講義寫軟骨魚（待核對）</td><td><a href="魚類解剖與生理.html#section-respiration">生理 §4</a></td></tr>
+            <tr><td><strong>Bohr vs Root</strong></td><td>Bohr：CO2／H+ 使親和力下降，曲線右移</td><td>Root：連最大攜氧量下降，平台降低（講義寫法重疊）</td><td><a href="魚類解剖與生理.html#section-swimbladder">生理 §5</a></td></tr>
+            <tr><td><strong>海水魚 vs 淡水魚</strong></td><td>海水：喝水、排離子、少尿</td><td>淡水：不喝水、吸收離子、多尿</td><td><a href="魚類解剖與生理.html#section-osmo">生理 §10</a></td></tr>
+            <tr><td><strong>硬骨魚 vs 軟骨魚（滲透）</strong></td><td>硬骨魚：靠喝水與氯細胞排鹽</td><td>軟骨魚：存尿素＋TMAO，血滲透壓近海水</td><td><a href="魚類解剖與生理.html#section-osmo">生理 §10</a></td></tr>
+            <tr><td><strong>先天 vs 適應性免疫</strong></td><td>溶菌酶、抗菌胜肽、吞噬、NK 樣細胞</td><td>T 細胞、B 細胞、抗體；MHC I→CD8+、MHC II→CD4+</td><td><a href="魚類免疫與疫苗.html#section-adaptive">免疫 §6</a></td></tr>
+            <tr><td><strong>MIC vs MBEC</strong></td><td>MIC：殺浮游菌的最低濃度</td><td>MBEC：殺生物膜內細菌，濃度高很多（講義 16384 µg/mL）</td><td><a href="魚類免疫與疫苗.html#section-biofilm">免疫 §8</a></td></tr>
+            <tr><td><strong>浮頭三類（補充）</strong></td><td>環境型：全池、清晨、增氧好轉</td><td>鰓病型：白天也浮頭、鰓壓片見蟲或菌；全身感染型：特定魚種規格</td><td><a href="week01_養殖模式與水質管理.html#section-exam">水質 §8 補充</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：本站三頁筆記，「浮頭三類」為補充歸納。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- NUMBERS -->
+    <div class="section" id="section-numbers">
+      <div class="section-head"><div class="section-num">7</div><h2>數字與關鍵字速背</h2></div>
+      <p class="section-desc">只收講義有的數字，出處標在後面；沒有把握的不放。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>數字／關鍵字</th><th>內容</th><th>來源</th></tr></thead>
+          <tbody>
+            <tr><td>輻鰭魚</td><td>占所有魚種 <strong>95%</strong> 以上；養殖主體</td><td>生理 上 P.6</td></tr>
+            <tr><td>逆流／順流效率</td><td>約 <strong>80%</strong>／約 <strong>50%</strong></td><td>生理 上 P.40、P.44</td></tr>
+            <tr><td>冷水魚／溫水魚適溫</td><td><strong>10–18℃</strong>／<strong>20–30℃</strong></td><td>生理 上 P.25</td></tr>
+            <tr><td>鯊魚血尿素</td><td><strong>350–400 mM</strong>，為硬骨魚 100 倍以上；TMAO 保護蛋白</td><td>生理 下 P.46</td></tr>
+            <tr><td>鰓上皮平鋪細胞</td><td>約 <strong>90%</strong> 鰓絲表面</td><td>生理 下 P.42</td></tr>
+            <tr><td>側線</td><td>講義寫可反應最遠約 <strong>100 公尺</strong>外的微小水流</td><td>生理 下 P.17</td></tr>
+            <tr><td>鯊魚肝油</td><td>可占體重 <strong>25%</strong> 以上，調節浮力</td><td>生理 上 P.58</td></tr>
+            <tr><td>ORP</td><td>基準 −200 至 +400 mV；＜ <strong>+50 mV</strong> 有機物堆積</td><td>水質 P.45</td></tr>
+            <tr><td>處置順序（5 步）</td><td>測水 → 降急性風險 → 採樣 → 回推原因 → 制定處置</td><td>水質 P.51</td></tr>
+            <tr><td>DO 急救順序</td><td>增氧 &gt; 停餌 &gt; 減少擾動 &gt; 必要換水</td><td>水質 P.31</td></tr>
+            <tr><td>壓力三階段</td><td>反抗、適應、衰竭</td><td>免疫 P.7</td></tr>
+            <tr><td>抗菌胜肽</td><td>12–80 個胺基酸，含 cathelin domain</td><td>免疫 P.43</td></tr>
+            <tr><td>MIC／MBEC</td><td>多數 &lt; 1 µg/mL；MBEC 16384 µg/mL</td><td>免疫 P.80</td></tr>
+            <tr><td>免疫器官三字</td><td>腎（memory）、脾（反應＋造血）、肝（補體）</td><td>免疫 P.53</td></tr>
+            <tr><td>疫苗三途徑</td><td>注射、浸泡、口服</td><td>免疫 P.86</td></tr>
+            <tr><td>心臟四室順序</td><td>靜脈竇 → 心房 → 心室 → 動脈球／動脈圓錐；單循環</td><td>生理 下 P.6–7</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>疾病各論（蝦病、魚疱疹、細菌、寄生蟲）請看<a href="期中考古.html#section-repeat">考古第 12 節的國考對照表</a>；講義尚未涵蓋，之後補。</p>
+      <footer class="note-footer">資料來源：本站三頁筆記，數字頁碼寫「上／下」＝生理兩份講義（上＝生理學P2、下＝skeletal-system）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '怎麼用這一頁',
+  culture: '養殖模式優缺點',
+  water: '水質參數與處置',
+  physio: '趨性、呼吸、Bohr／Root、滲透壓',
+  immune: '免疫器官與疫苗投予方式',
+  confuse: '容易混淆比較表',
+  numbers: '數字與關鍵字速背',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

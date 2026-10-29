@@ -2,11 +2,13 @@
 
 用法（在 repo 根目錄執行）：
   python3 讀書筆記/scripts/course_tools/add_quiz_entries.py DVM-note/大四上/反芻動物疾病學
+可再加檔名樣式：... 水產動物疾病學 'week*.html' '魚類*.html'
 條件：自我測驗/data/<頁面檔名去掉 .html>.js 存在才加。
 """
 import sys, os, glob, urllib.parse
 d = sys.argv[1].rstrip('/') + '/'
-for fn in sorted(glob.glob(d + 'week*.html')):
+pats = sys.argv[2:] or ['week*.html']   # 可額外給檔名樣式，例如 '魚類*.html'（水產動物疾病學的主題頁不是 weekNN 開頭）
+for fn in sorted(f for pt in pats for f in glob.glob(d + pt)):
     cid = os.path.basename(fn)[:-5]
     if not os.path.exists(f'{d}自我測驗/data/{cid}.js'): print('沒有題庫，跳過', cid); continue
     url = f'自我測驗/quiz.html?c={urllib.parse.quote(cid)}'

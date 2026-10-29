@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水產動物疾病學：魚類解剖與生理 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">水產動物疾病學</a><span class="sep">›</span><span class="current">魚類解剖與生理</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">魚類解剖與生理 Fish Anatomy and Physiology</h1>
+      <p class="page-subtitle">鰓與呼吸（逆流交換、Bohr／Root）、鰾與浮力、皮膚黏液與鱗、心臟與單循環、感覺器官、肝脾腎、滲透壓與氯細胞、生殖：講義內容與專業補充分開整理，並對照國考魚病題</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">水產動物疾病學（大四上・課堂）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義《生理學P2.pdf》（79 頁）與《skeletal-system.pdf》（59 頁）；兩份講義均無署名，補充段落依一般魚病學教科書與文獻</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/魚類解剖與生理_上.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=%E9%AD%9A%E9%A1%9E%E8%A7%A3%E5%89%96%E8%88%87%E7%94%9F%E7%90%86">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（兩份講義合併；補充 Note 預設收起）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">外形與運動</div>
+    <a onclick="showSection('classification')" id="nav-classification"><span class="nav-icon">🐟</span> 魚類定義與分類</a>
+    <a onclick="showSection('locomotion')" id="nav-locomotion"><span class="nav-icon">🏊</span> 運動、游泳與趨性</a>
+    <div class="section-label" style="margin-top:8px;">呼吸與浮力</div>
+    <a onclick="showSection('respiration')" id="nav-respiration"><span class="nav-icon">🫧</span> 鰓與呼吸</a>
+    <a onclick="showSection('swimbladder')" id="nav-swimbladder"><span class="nav-icon">🎈</span> 鰾與浮力（含 Bohr、Root 效應）</a>
+    <div class="section-label" style="margin-top:8px;">體表與循環</div>
+    <a onclick="showSection('skin')" id="nav-skin"><span class="nav-icon">🛡️</span> 皮膚、鱗與黏液</a>
+    <a onclick="showSection('circulation')" id="nav-circulation"><span class="nav-icon">❤️</span> 心臟與血液循環</a>
+    <div class="section-label" style="margin-top:8px;">感覺與內臟</div>
+    <a onclick="showSection('sense')" id="nav-sense"><span class="nav-icon">👁️</span> 感覺器官：耳、側線、嗅、味、眼</a>
+    <a onclick="showSection('organs')" id="nav-organs"><span class="nav-icon">🫀</span> 肝、脾、腎與消化道</a>
+    <div class="section-label" style="margin-top:8px;">滲透壓與其他</div>
+    <a onclick="showSection('osmo')" id="nav-osmo"><span class="nav-icon">🧂</span> 滲透壓與氯細胞</a>
+    <a onclick="showSection('muscle')" id="nav-muscle"><span class="nav-icon">💪</span> 肌肉、體色、壓力與生殖</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 國考關聯與講義核對</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=%E9%AD%9A%E9%A1%9E%E8%A7%A3%E5%89%96%E8%88%87%E7%94%9F%E7%90%86" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">魚類解剖與生理的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>魚的解剖生理是之後所有疾病的底層：<strong>鰓</strong>（呼吸、離子、酸鹼、排氨）、<strong>鰾</strong>（浮力）、<strong>皮膚與黏液</strong>（第一道防線）、<strong>腎與脾</strong>（免疫與排泄）、<strong>滲透壓調節</strong>（淡水魚與海水魚相反）。兩份講義文字很簡略，這頁在每節把講義寫了什麼、講義沒寫但臨床上該懂什麼分開放（黃框「讀書補充Note」預設收起）。</dd>
+          <dt>為什麼重要</dt>
+          <dd>鰓是水質問題最先受傷的器官（第一週的氨氮、亞硝酸鹽、H2S 都經鰓進入）；鰓、皮膚、黏液是病原進入的門戶；滲透壓失調是許多魚病的死因；鰾與腎、脾的變化是剖檢時的線索。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-respiration">鰓</a>：氣體交換在<strong>鰓小片</strong>，血流與水流<strong>逆流</strong>（講義：逆流約 80%、順流約 50% 的氧交換效率，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=40">上 p.40</a>）；<strong>鰓蓋怒張、浮頭</strong>的原因要會鑑別（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=46">上 p.46–47</a>）。</li>
+              <li><a href="#section-swimbladder">鰾</a>：調節浮力；氣體腺靠<strong>乳酸＋Bohr／Root 效應</strong>充氣，卵圓窗放氣（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=50">上 p.50–51</a>）。</li>
+              <li><a href="#section-skin">皮膚與黏液</a>：黏液＝物理屏障＋免疫（抗體、溶菌酶、補體）＋清潔；<strong>立鱗病</strong>是講義標「***」的重點（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=67">上 p.67</a>）。</li>
+              <li><a href="#section-osmo">滲透壓</a>：<strong>海水魚喝水、排鹽；淡水魚不喝水、一直排尿、吸收離子</strong>；鯊魚存尿素＋TMAO（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=40">下 p.40–46</a>）。</li>
+              <li><a href="#section-organs">肝、脾、腎</a>：肝脂肪代謝、黃肝；脾腫大的原因（講義選擇題「不包括環境溫度過高」）；腎排泄與離子平衡。</li>
+              <li><a href="#section-circulation">循環</a>：<strong>單循環</strong>、四腔室順序（靜脈竇 → 心房 → 心室 → 動脈球／動脈圓錐）。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>Bohr 與 Root</strong>：講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=51">p.51</a> 兩者寫法幾乎一樣，這頁分開寫並標差異。<strong>淡水魚與海水魚</strong>：喝水、尿量、氯細胞方向都相反。<strong>鰓絲與鰓小片</strong>：講義選擇題答「鰓絲」，實際氣體交換在鰓絲上的鰓小片。<strong>軟骨魚鰓流向</strong>：講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=44">p.44</a> 說「順水流」，與一般教科書不同，見「講義核對」。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>逆流交換的原理與效率；鰓的結構與功能；軟骨魚與硬骨魚鰓、滲透壓比較；Bohr／Root；鰾充氣機制；黏液的功能；趨性種類；免疫器官（腎、脾）。學長姐整理的 2023 助教預告有趨性、軟硬骨魚氧氣利用、Bohr／Root、免疫器官（回憶，非官方，見考古頁，待建）。<strong>國考（獸醫傳染病學）沒有直接考魚類生理，但很多魚病題以「鰓、鰾、浮頭」為載體</strong>，見「國考關聯」。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>講義（兩份都沒署名，文字簡短且有些段落是通用說明、與一般教科書不完全一致）與整理者補充<strong>分開標示</strong>：正文是講義內容；黃框「讀書補充Note」與標「補充」的段落是依一般魚病學教科書與文獻補上的專業說明，講義沒寫；與講義矛盾處集中在「講義核對」一節並標「待核對」。頁碼寫「上 p.N」＝《生理學P2》、「下 p.N」＝《skeletal-system》。講義圖片可公開（使用者已確認）。</p>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p006.jpg" alt="魚類分類（上 p.6）：盲鰻、七鰓鰻、軟骨魚、肉鰭魚、輻鰭魚。" loading="lazy"><div class="figure-caption">魚類分類（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=6">上 p.6</a>）：盲鰻、七鰓鰻、軟骨魚、肉鰭魚、輻鰭魚。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=6">p.6</a></div></div>
+      <footer class="note-footer">資料來源：《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=1">上 p.1–79</a>、《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=1">下 p.1–59</a>。「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CLASSIFICATION -->
+    <div class="section" id="section-classification">
+      <div class="section-head"><div class="section-num">2</div><h2>魚類定義、分類與基本構造 Classification</h2></div>
+      <p class="section-desc">講義這一段偏通識：魚的定義、主要類群、各類群的代表特徵。養殖與臨床上的魚幾乎都是<strong>輻鰭魚綱硬骨魚</strong>，之後的鰓、鰾、滲透壓都以硬骨魚為預設。</p>
+      <h3>定義與主要特徵<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>廣義：所有<strong>具有鰓且生活在水中、沒有帶趾四肢的有頭動物</strong>；主要特徵＝鰓（水中呼吸）、鰭（游泳）、鱗片、適應水中的形態；包含軟骨魚（鯊、魟）與硬骨魚（鮭、金魚）（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=3">上 p.3</a>）。講義選擇題：<strong>不是魚類主要特徵的是「具有四肢」</strong>（答 B，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=4">上 p.4</a>）。</li>
+        <li><strong>文昌魚</strong>：脊索動物但沒有真正脊椎、脊索貫穿全身、濾食性（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=5">上 p.5</a>）。</li>
+        <li>外部形態：頭、軀幹、尾；內部器官有腦、心臟、鰓、肝、腎、腸、生殖器官（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=17">上 p.17</a>）；選擇題答「頭部、軀幹和尾部」（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=18">上 p.18</a>）。</li>
+      </ul>
+      <h3>五大類群比較<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">類群</th><th>特徵（講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=6">上 p.6</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=8">p.8–14</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=16">p.16</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>盲鰻亞綱</strong>（Myxini）</td><td>最原始脊索動物之一；全身黏液腺、可迅速分泌大量黏液防禦（黏液球可堵住捕食者的鰓）；沒有真正眼睛、脊椎與顎；<strong>腐食性</strong>、海洋清道夫；會打結清除黏液（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=13">p.13–14</a>）。選擇題：以「腐食性」為主（答 C，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=7">p.7</a>）</td></tr>
+            <tr><td><strong>七鰓鰻亞綱</strong></td><td>無顎類圓口綱；圓形吸盤口器與角質齒；幼體濾食、成體寄生或半寄生；溯河洄游；部分成體不進食、繁殖後死亡（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=11">p.11</a>）</td></tr>
+            <tr><td><strong>軟骨魚綱</strong></td><td>鯊、魟、銀鮫；<strong>骨骼完全為軟骨</strong>；<strong>盾鱗</strong>；<strong>腸道有螺旋瓣</strong>（增加消化吸收面積）；內部受精；卵生（卵莢）、卵胎生、胎生都有（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=8">p.8–9</a>）</td></tr>
+            <tr><td><strong>肉鰭魚總綱</strong></td><td>現存肺魚與腔棘魚；鰭基部有肌肉與骨骼，是四肢雛形；有肺或鰭囊等輔助呼吸構造，與四足動物演化最接近（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=10">p.10</a>）</td></tr>
+            <tr><td><strong>輻鰭魚總綱</strong></td><td>占所有魚種 <strong>95% 以上</strong>；鰭由骨質鰭條呈放射狀支撐；<strong>鰓蓋</strong>與<strong>鰾</strong>調節呼吸與浮力；水產養殖主要對象（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=6">p.6</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=16">p.16</a>）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em;"><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=12">p.12</a> 講到<strong>魚蛭</strong>（體外寄生蟲，附著於體表、鰓或口腔吸血）：症狀為食慾不振、體重下降、活動力降低；防治分物理（移到乾淨水中並清除）、化學（「使用藥物」，講義沒寫藥名、途徑與劑量）、生物（天敵）。其餘如大西洋睡鯊壽命（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=30">上 p.30</a>）、海鰻形態與偽裝（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=22">上 p.22–23</a>）屬趣味背景，不逐項整理。</p>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 為什麼臨床只需要先抓「硬骨魚」？</summary>
+        <p><strong>補充：依一般教科書／文獻（講義沒寫）</strong></p>
+        <ul>
+          <li>臺灣養殖與觀賞魚（吳郭魚、虱目魚、石斑、鯉科、鱸、鰻、鮭鱒、金魚錦鯉）幾乎都屬<strong>輻鰭魚綱的硬骨魚（teleosts）</strong>；所以考試與臨床問的「鰓怎麼流、有沒有鰾、怎麼調節滲透壓」，預設都是硬骨魚。</li>
+          <li>軟骨魚（鯊、魟）與硬骨魚在<strong>滲透壓策略</strong>（尿素＋TMAO vs. 淡水魚／海水魚各自策略）、<strong>鰓構造</strong>（鰓裂直接開口 vs. 鰓蓋覆蓋）與<strong>浮力</strong>（肝油 vs. 鰾）都不同，這就是考試愛問「軟骨魚與硬骨魚比較」的原因。</li>
+          <li>寫比較題時先講「類群」再講「機制」，不要把鯊魚的特徵套到養殖魚上。</li>
+        </ul>
+      </details>
+      <footer class="note-footer">資料來源：《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=3">上 p.3–14</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=16">p.16–18</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=30">p.30</a>。補充為一般教科書概念。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- LOCOMOTION -->
+    <div class="section" id="section-locomotion">
+      <div class="section-head"><div class="section-num">3</div><h2>運動、游泳方式與趨性 Locomotion &amp; Taxis</h2></div>
+      <p class="section-desc">講義考點：<strong>三種游泳方式</strong>（鰻行、鱒行、鮪行）與<strong>五種趨性</strong>。</p>
+      <h3>鰭與運動<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>魚主要靠<strong>鰭</strong>運動：<strong>胸鰭</strong>用於平衡與轉彎、<strong>背鰭與臀鰭</strong>穩定身體、<strong>尾鰭</strong>推進；也靠身體彎曲產生推進力；特殊方式如鰻蠕動、海馬背鰭擺動、飛魚胸鰭滑翔（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=19">上 p.19</a>）。</li>
+        <li><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=1">下 p.1</a>：硬骨魚類進化程度愈高，<strong>腹鰭的位置愈位於體的前部</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p001.jpg" alt="魚類骨骼系統（下 p.1）：頭骨、脊椎、肋骨與鰭的骨骼。" loading="lazy"><div class="figure-caption">魚類骨骼系統（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=1">下 p.1</a>）：頭骨、脊椎、肋骨與鰭的骨骼。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=1">p.1</a></div></div>
+      <h3>三種游泳方式<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p020.jpg" alt="游泳方式示意（上 p.20）：(a) 鰻行式、(b) 鱒行式、(c) 鮪行式。" loading="lazy"><div class="figure-caption">游泳方式示意（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=20">上 p.20</a>）：(a) 鰻行式、(b) 鱒行式、(c) 鮪行式。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=20">p.20</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">方式</th><th>怎麼游（講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=20">上 p.20</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=27">p.27</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=29">p.29</a>）</th><th>例子與特徵</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鰻行式</strong></td><td>身體<strong>蠕動</strong>游泳（選擇題答案「通過身體的蠕動」，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=21">p.21</a>）；狹窄環境靈活、省能量</td><td>鰻魚、水蛇；講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=27">p.27</a> 寫尾鰭圓形、擺動幅度大、游速慢</td></tr>
+            <tr><td><strong>鱒行式</strong></td><td>身體擺動＋尾鰭推進；最常見、效率高、可快速移動</td><td>鱒魚、鱸魚、鯡魚；尾鰭截形；被掠食者靈活轉彎加速（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=29">p.29</a>）</td></tr>
+            <tr><td><strong>鮪行式</strong></td><td><strong>尾鰭高速擺動</strong>、身體幾乎不動；高速但耗能大</td><td>鮪、鯖、馬林魚；尾鰭新月形；身體流線型、肌肉強大；掠食者（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=29">p.29</a>）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em;">講義判別法（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=27">p.27</a>）：身體擺動幅度大 → 鰻行、鱒行；擺動小 → 鮪行；尾鰭新月形 → 鮪行、截形 → 鱒行、圓形 → 鰻行；速度快 → 鮪行。</p>
+      <h3>魚類的趨性<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">趨性</th><th>內容（講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=24">上 p.24–26</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>趨光性</strong></td><td>對光的反應；<strong>正趨光性游向光源</strong>（選擇題答案，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=25">p.25</a>），負趨光性迴避；例：表層魚夜間聚集在漁船燈下（燈光誘魚）</td></tr>
+            <tr><td><strong>趨流性</strong></td><td>對水流方向與強度的反應；正趨流性逆流而上（鮭鱒逆流回出生地產卵）、負趨流性順流而下（幼體擴散）；受流速、水溫、食物分布、繁殖需求影響（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=26">p.26</a>）</td></tr>
+            <tr><td><strong>趨溫性</strong></td><td>變溫動物主動尋找最適溫度區間；講義舉例<strong>冷水性（鱒、鮭）偏好 10–18℃、溫水性（鯉、鯰）可適應 20–30℃</strong>；影響地理分布、季節遷徙、垂直分層</td></tr>
+            <tr><td><strong>趨鹽性</strong></td><td>廣鹽性（鮭、鱸）可在淡水與海水間遷移、狹鹽性只能在特定鹽度；涉及滲透壓調節（鰓離子交換、腎功能調整）</td></tr>
+            <tr><td><strong>趨化性</strong></td><td>對水中化學物質的反應，靠<strong>嗅覺與味覺</strong>；覓食、逃避捕食者、找配偶、<strong>鮭魚以嗅覺辨認出生河流氣味</strong>；同類受傷釋放警戒素讓同類逃離</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 游泳與趨性在養殖現場的意思</summary>
+        <p><strong>補充：依一般魚病學概念（講義沒寫）</strong></p>
+        <ul>
+          <li><strong>行為是最早的臨床徵象</strong>：魚病診斷第一步看游泳與分布（講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=48">p.48</a> 也強調觀察行為）。正常游泳型態改變（打轉、側游、沉底、浮頭、靠近入水口或水車）常早於死亡出現；浮頭與靠水車見第一週低 DO 的臨床表現。</li>
+          <li><strong>趨性可解釋聚集行為</strong>：負趨光性魚在強光池會躲到暗處；趨溫性使魚在溫度分層的池或箱網裡集中在適溫層，溫度突變時才會浮頭或挨擠。這是「趨溫性」與第一週水溫、DO 連動的臨床意義。</li>
+          <li>趨化性相關：魚能感知水中毒物／氨氮，會出現竄游、逃避行為（第一週氨氮臨床表現含「竄游」）。</li>
+        </ul>
+      </details>
+      <footer class="note-footer">資料來源：《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=19">上 p.19–21</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=24">p.24–27</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=29">p.29</a>；《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=1">下 p.1</a>。補充為一般概念。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- RESPIRATION -->
+    <div class="section" id="section-respiration">
+      <div class="section-head"><div class="section-num">4</div><h2>鰓與呼吸 Gills &amp; Respiration</h2></div>
+      <p class="section-desc">這一節是考古的核心：鰓的結構、<strong>逆流交換</strong>、<strong>軟骨魚與硬骨魚的比較</strong>、鰓蓋怒張與浮頭的鑑別。</p>
+      <h3>呼吸器官與鰓的三大功能<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>呼吸器官：<strong>鰓</strong>（主要）；<strong>輔助呼吸器官</strong>（迷器、樹狀結構、肺、腸等，使魚在缺氧或乾燥時存活）；<strong>皮膚呼吸</strong>（小型魚較常見）（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=31">上 p.31</a>）。講義選擇題：鰓進行的主要生理過程是<strong>氣體交換</strong>（B，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=32">p.32</a>）。</li>
+        <li>鰓的功能（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=33">p.33</a>）：<strong>① 氣體交換</strong>（吸氧、排 CO2）、<strong>② 離子調節</strong>（氯細胞 chloride cells 吸收或排出離子）、<strong>③ 酸鹼調節</strong>（排出酸性或鹼性物質）。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p033.jpg" alt="鰓的功能（上 p.33）：氣體交換、離子調節、酸鹼調節。" loading="lazy"><div class="figure-caption">鰓的功能（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=33">上 p.33</a>）：氣體交換、離子調節、酸鹼調節。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=33">p.33</a></div></div>
+      <h3>鰓的構造：鰓弓、鰓絲、鰓小片<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">構造</th><th>講義內容（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=36">上 p.36</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鰓弓</strong></td><td>支持鰓絲的骨骼結構，每個鰓弓上有<strong>兩排鰓絲</strong></td></tr>
+            <tr><td><strong>鰓絲</strong></td><td>氣體交換的主要場所，每個鰓絲上有許多<strong>鰓小片</strong>，增加面積</td></tr>
+            <tr><td><strong>鰓小片</strong></td><td>鰓絲上的微小結構，血管豐富、與水進行氣體交換，進一步增加面積</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=34">p.34</a> 填空題「鰓中負責氣體交換的結構是什麼？」答<strong>鰓絲</strong>；<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=36">p.36</a> 正文卻說氣體交換在鰓絲上的鰓小片進行，細節見黃框與「講義核對」。</p>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p041.jpg" alt="鰓組織微觀構造（上 p.41）：1 初級鰓板（primary lamella）、2 次級鰓板（secondary lam" loading="lazy"><div class="figure-caption">鰓組織微觀構造（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=41">上 p.41</a>）：1 初級鰓板（primary lamella）、2 次級鰓板（secondary lamella）、3 上皮細胞、4 黏液細胞、5 柱細胞（pillar cell）、6 微血管腔、7 紅血球、8 氯細胞、9 棒狀細胞、10 未分化基底細胞。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=41">p.41</a></div></div>
+      <h3>硬骨魚怎麼讓水流過鰓<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>方式</th><th>內容（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=35">上 p.35</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=37">p.37</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鰓蓋活動</strong>（主動）</td><td>鰓蓋打開時水從口流入、關閉時水由鰓裂流出；呼吸運動分<strong>吸水</strong>（張口、擴大鰓腔）與<strong>壓水</strong>（閉口、收縮鰓腔壓水過鰓）兩步，鰓蓋協調</td></tr>
+            <tr><td><strong>胸鰭活動</strong>（輔助）</td><td>小型魚較常見</td></tr>
+            <tr><td><strong>快速游泳</strong>（被動）</td><td>水從口進、經鰓流出；大型魚較常見</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p037.jpg" alt="呼吸運動（上 p.37）：吸水、壓水與鰓蓋的運動。" loading="lazy"><div class="figure-caption">呼吸運動（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=37">上 p.37</a>）：吸水、壓水與鰓蓋的運動。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=37">p.37</a></div></div>
+      <h3>氣體交換與逆流交換<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>氧氣吸收需要<strong>血液與水之間的氧氣濃度梯度</strong>（選擇題答 C，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=39">上 p.39</a>）；CO2 也依濃度梯度排入水中（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=38">p.38</a>）。</li>
+        <li><strong>逆流交換</strong>（counter-current exchange）：血液與水<strong>以相反方向</strong>流過鰓，使濃度梯度維持在較高水準，<strong>氧交換效率約 80%</strong>；<strong>順流交換</strong>（同向）<strong>只有約 50%</strong>，在魚類中較少見（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=38">上 p.38</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=40">p.40</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p040.jpg" alt="順流與逆流交換效率（上 p.40）：同向最多約 50%，逆向約 80%。" loading="lazy"><div class="figure-caption">順流與逆流交換效率（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=40">上 p.40</a>）：同向最多約 50%，逆向約 80%。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=40">p.40</a></div></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 逆流交換為什麼比較有效？鰓的構造與鰓病的關聯</summary>
+        <p><strong>補充：依一般魚病學／魚類生理教科書（講義沒寫細節；數字 50%、80% 為講義說法）</strong></p>
+        <p><strong>1. 為什麼逆流比較好</strong></p>
+        <ul>
+          <li>水沿鰓小片流向與鰓小片內血流方向<strong>相反</strong>。血液一路走向入水端的過程中，沿途每一點的水氧分壓都<strong>高於</strong>該點血液的氧分壓，所以<strong>整段鰓小片都在吸氧</strong>。</li>
+          <li>若血與水同向，兩者分壓會很快趨近平衡，後半段不再交換，<strong>理論上血液氧分壓最多追到與水的混合平衡點</strong>（約一半），所以講義寫順流約 50%。</li>
+          <li>臨床意義：逆流效率高，但<strong>依賴鰓小片完整、水流不中斷</strong>。鰓小片增生、融合、黏液過多、寄生蟲覆蓋，都會降低有效交換面積，<strong>即使水中 DO 正常，魚也會缺氧</strong>（與第一週的亞硝酸鹽「水裡有氧、血液不能攜氧」是兩條不同的缺氧路徑）。</li>
+        </ul>
+        <p><strong>2. 鰓的構造要這樣記</strong></p>
+        <ul>
+          <li>硬骨魚一側通常有 <strong>4 個鰓弓</strong>；每個鰓弓有兩排<strong>鰓絲</strong>（初級鰓板 primary lamellae）；鰓絲兩側整齊排列<strong>鰓小片</strong>（次級鰓板 secondary lamellae），<strong>氣體交換主要在鰓小片</strong>：由<strong>扁平上皮（pavement cells）</strong>與<strong>柱細胞（pillar cells）</strong>構成薄的血水屏障。講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=34">p.34</a> 答「鰓絲」只是較粗略的答案，考試如問「負責氣體交換的最小構造」寫鰓小片更精確。</li>
+          <li>氯細胞（MRC）一般分布於<strong>鰓絲上皮與鰓小片基部</strong>（講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=41">p.41</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=42">p.42</a> 只說在鰓上皮，實際位置因魚種與環境鹽度而異，待核對）；氯細胞增生會增厚鰓上皮、拉長擴散距離（補充，待核對）。</li>
+        </ul>
+        <p><strong>3. 與鰓病、水質的關聯</strong></p>
+        <ul>
+          <li>鰓是水質與病原最先接觸的器官：氨氮、亞硝酸鹽、低 pH、化學藥劑、寄生蟲、細菌與黴菌都先傷鰓。常見病理變化是<strong>鰓小片上皮增生與融合</strong>（國考 101-1 第 73 題：細菌性鰓病主要病變＝鰓薄板增生、融合）。</li>
+          <li>後果＝有效交換面積下降 + 離子與酸鹼調節失衡 + 氨排出受阻（鰓同時是多數硬骨魚排氨的主要部位），所以水質不好與鰓病<strong>會互相惡化</strong>。</li>
+        </ul>
+      </details>
+      <h3>軟骨魚與硬骨魚：鰓構造與氣體交換方式<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p043.jpg" alt="軟骨魚（左）與硬骨魚（右）鰓構造比較（上 p.43）：鰓蓋、鰓弓、假鰓。" loading="lazy"><div class="figure-caption">軟骨魚（左）與硬骨魚（右）鰓構造比較（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=43">上 p.43</a>）：鰓蓋、鰓弓、假鰓。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=43">p.43</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">項目</th><th>硬骨魚</th><th>軟骨魚</th></tr></thead>
+          <tbody>
+            <tr><td>鰓蓋（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=43">p.43</a>）</td><td>有，保護鰓並協調呼吸運動</td><td>沒有，鰓裂直接暴露在水中</td></tr>
+            <tr><td>鰓弓</td><td>通常具骨質</td><td>軟骨構成</td></tr>
+            <tr><td>假鰓（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=43">p.43</a>）</td><td>—</td><td>講義：一些軟骨魚有假鰓，退化、「沒有氣體交換功能」，功能不明</td></tr>
+            <tr><td>交換方式（<strong>講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=44">上 p.44</a></strong>）</td><td>逆水流效應（效率高）</td><td>講義寫<strong>順水流效應</strong>，效率較低但可節省能量、活動量小；整體效率低於硬骨魚</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">待核對：講義內部不一致</div><p>講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=40">上 p.40</a> 說順流交換「在魚類中較少見」，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=44">p.44</a> 又說軟骨魚用順水流效應。一般教科書指出<strong>軟骨魚（板鰓類）的鰓同樣是逆流交換</strong>，差異在鰓蓋（板鰓類由鰓間隔與鰓裂構成、無鰓蓋）與換水方式。考試若問「軟骨魚與硬骨魚氣體交換比較」，建議先問老師或對照上課筆記再決定答案；整理者不確定老師的標準答案，故兩種說法都保留。</p></div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p044.jpg" alt="軟骨魚與硬骨魚氣體交換方式比較（上 p.44）。" loading="lazy"><div class="figure-caption">軟骨魚與硬骨魚氣體交換方式比較（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=44">上 p.44</a>）。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=44">p.44</a></div></div>
+      <h3>迷器與其他輔助呼吸<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>迷器</strong>（labyrinth organ）：輔助呼吸器官，血管豐富、可從空氣取氧；常見於<strong>攀鱸科</strong>；使魚能在缺氧的沼澤、池塘、稻田生存；由鰓弓上的骨骼與上皮組織形成，多褶皺（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=42">上 p.42</a>）。</li>
+        <li>輔助呼吸還包含鰾（肺魚明顯，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=49">上 p.49</a>）與肺魚的肺（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=12">下 p.12</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p042.jpg" alt="迷器（上 p.42）：鰓上方的褶皺構造。" loading="lazy"><div class="figure-caption">迷器（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=42">上 p.42</a>）：鰓上方的褶皺構造。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=42">p.42</a></div></div>
+      <h3>鰓蓋怒張與浮頭的原因<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">現象</th><th>原因（講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=46">上 p.46–47</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鰓蓋怒張</strong>（鰓蓋張開）</td><td>① <strong>鰓部疾病</strong>（細菌、寄生蟲、真菌）；② <strong>水質惡化</strong>（氨氮、亞硝酸鹽超標、pH 異常）；③ <strong>中毒</strong>（農藥、重金屬、工業廢水）——都影響鰓功能、造成呼吸困難</td></tr>
+            <tr><td><strong>浮頭</strong></td><td>① <strong>缺氧</strong>（水質惡化、藻類大量繁殖、氣溫升高）；② <strong>鰓部疾病</strong>；③ <strong>鰾功能異常</strong>（感染、損傷、先天畸形）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p046.jpg" alt="鰓蓋怒張的原因（上 p.46）：鰓部疾病、水質惡化、中毒。" loading="lazy"><div class="figure-caption">鰓蓋怒張的原因（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=46">上 p.46</a>）：鰓部疾病、水質惡化、中毒。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=46">p.46</a></div></div>
+      <p>講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=48">p.48</a> 的臨床思路：<strong>觀察行為</strong>（游泳、食慾、活動力、體色、外觀）→ <strong>判斷原因</strong>（水質、飼料、疾病、環境）→ <strong>及時處理</strong>（隔離病魚、改善水質、調整飼料與用藥）。與第一週「先測水、先救環境」互相呼應。</p>
+      <footer class="note-footer">資料來源：《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=31">上 p.31–48</a>。補充為一般教科書概念，數字 50%／80% 為講義說法。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SWIMBLADDER -->
+    <div class="section" id="section-swimbladder">
+      <div class="section-head"><div class="section-num">5</div><h2>鰾與浮力 Swim Bladder, Bohr &amp; Root</h2></div>
+      <p class="section-desc">鰾＝調節浮力的充氣囊。重點是<strong>氣體腺怎麼把氧氣充進去</strong>，以及<strong>Bohr 與 Root 的差別</strong>（講義寫得簡略，這頁分開寫）。</p>
+      <h3>鰾的功能與結構<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">項目</th><th>講義內容（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=49">上 p.49–50</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>功能</strong></td><td>① <strong>調節密度（浮力）</strong>，充氣或放氣改變浮力、使魚在水中保持平衡並省能量；② <strong>呼吸</strong>（部分魚，肺魚明顯）；③ <strong>感知</strong>（感知水中震動與聲音，傳到內耳）</td></tr>
+            <tr><td><strong>鰾壁</strong></td><td>外層結構，結締組織與肌肉，控制氣體進出</td></tr>
+            <tr><td><strong>氣體腺</strong>（gas gland）</td><td>位於鰾壁，<strong>向鰾中充氣</strong>；血管豐富、特殊細胞，把血中氣體釋放到鰾裡</td></tr>
+            <tr><td><strong>卵圓窗</strong>（oval）</td><td>位於鰾壁，<strong>從鰾中釋放氣體</strong>；有括約肌控制</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p050.jpg" alt="鰾的結構（上 p.50）：鰾壁、氣體腺與奇網、卵圓窗。" loading="lazy"><div class="figure-caption">鰾的結構（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=50">上 p.50</a>）：鰾壁、氣體腺與奇網、卵圓窗。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=50">p.50</a></div></div>
+      <h3>氣體腺充氣機制與 Bohr、Root<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p051.jpg" alt="氣體腺充氣機制（上 p.51）：右圖黑線為正常氧合曲線，紅線（Bohr）右移，藍線（Root）飽和度上限明顯降低。" loading="lazy"><div class="figure-caption">氣體腺充氣機制（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=51">上 p.51</a>）：右圖黑線為正常氧合曲線，紅線（Bohr）右移，藍線（Root）飽和度上限明顯降低。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=51">p.51</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">項目</th><th>講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=51">上 p.51</a> 的寫法</th><th>補充：依一般教科書的標準定義（講義沒寫）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bohr 效應</strong></td><td>血液中 <strong>CO2 濃度升高</strong>，導致血紅蛋白對氧的<strong>親和力降低</strong>；促進氧從血液釋放到氣體腺</td><td>CO2 升高（pH 下降，即 H+ 增加）使氧合曲線<strong>右移</strong>，Hb 對氧親和力下降（P50 上升），但<strong>在高氧分壓下 Hb 仍可飽和</strong>；曲線形狀由 S 形右移</td></tr>
+            <tr><td><strong>Root 效應</strong></td><td>血液中 <strong>pH 降低</strong>，導致血紅蛋白對氧的親和力降低；促進氧釋放到氣體腺</td><td>在酸性（H+ 高）下，Hb <strong>攜氧容量下降</strong>：曲線<strong>不再能飽和</strong>（講義圖中藍線的平台降低），即使氧分壓很高，Hb 也無法再結合氧；為許多硬骨魚特有，是<strong>鰾與眼脈絡膜奇網能把氧濃縮到極高分壓</strong>的關鍵</td></tr>
+            <tr><td><strong>乳酸的產生</strong></td><td>氣體腺產生乳酸，降低周圍 pH，促進氧從血中釋出；<strong>需要消耗能量</strong></td><td>氣體腺細胞以<strong>無氧糖解</strong>把葡萄糖代謝成乳酸與 CO2，酸化流入的血液，觸發 Bohr + Root，使血氧被擠出進入鰾</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">待核對：講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=51">p.51</a> 兩者寫法重疊</div><p>講義的 Bohr（CO2 升高 → 親和力降低）與 Root（pH 降低 → 親和力降低）幾乎是同一件事，沒有寫出<strong>Root 效應的關鍵＝「攜氧容量／飽和度下降」</strong>。學長姐回憶 2023 助教預告考 Bohr／Root，但該年題目沒出現（見魚病製作指引），所以答案寫法以老師上課為準。建議答題時寫：<strong>Bohr＝親和力下降（曲線右移）；Root＝連最大攜氧量都下降（曲線平台下降）</strong>，兩者都由 CO2／H+ 增加引起。</p></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 氣體腺怎麼把氧「擠」進鰾？奇網與逆流濃縮</summary>
+        <p><strong>補充：依一般魚類生理教科書（講義沒寫；細節待核對）</strong></p>
+        <ol>
+          <li>血液經動脈進入<strong>奇網（rete mirabile）</strong>：密集平行的動、靜脈毛細血管，血流<strong>方向相反</strong>。</li>
+          <li><strong>氣體腺細胞</strong>以無氧糖解產生乳酸與 CO2，使局部血液酸化。</li>
+          <li>酸化後的血液因 <strong>Bohr 與 Root 效應</strong>把氧擠出血紅蛋白（Root 使 Hb 連飽和量都下降），血中氧分壓大增；此外乳酸、CO2 也降低氣體在血中的溶解度（鹽析效應 salting-out）。</li>
+          <li>奇網的<strong>逆流倍增</strong>機制把這些高分壓氣體留在鰾附近、不被血流帶走，氣體因此能擴散進鰾，使鰾內氣壓可以高於周圍水壓（深水魚尤其如此）。</li>
+        </ol>
+        <p><strong>臨床關聯</strong></p>
+        <ul>
+          <li>鰾有<strong>開鰾（physostome，有鰾管連消化道，可吞空氣）</strong>與<strong>閉鰾（physoclist，無鰾管，靠氣體腺充氣與卵圓窗放氣）</strong>。鯉科（金魚、錦鯉）、鰻、鮭鱒屬開鰾；鱸形目多屬閉鰾。講義的「氣體腺、卵圓窗」描述的是閉鰾。</li>
+          <li>金魚的「浮鰾病」（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=53">上 p.53</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=54">p.54</a>）、鰻魚鰾線蟲（<em>Anguillicola</em>，國考 101-1 第 69 題、104-2 第 69 題）、鰾的細菌感染，都會造成浮力失調。</li>
+        </ul>
+      </details>
+      <h3>深海魚、鯊魚的浮力策略<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>深海魚</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=52">上 p.52</a>）：許多<strong>缺乏鰾</strong>（深海充放氣耗能大）、<strong>儲存大量脂肪</strong>（密度低於水）、<strong>骨骼輕量化</strong>（缺鈣質）。</li>
+        <li><strong>鯊魚</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=58">上 p.58</a>）：沒有鰾，靠<strong>巨大肝臟的油脂</strong>（可占體重 25% 以上，富含<strong>角鯊烯</strong>，密度低於水）調節浮力，並可儲存能量。</li>
+      </ul>
+      <h3>鰾疾病：腫大、診斷、治療<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">項目</th><th>講義內容（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=53">上 p.53</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=55">p.55–56</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鰾腫大原因</strong></td><td><strong>感染</strong>（細菌、病毒、寄生蟲引起鰾炎、氣體積聚）；<strong>損傷</strong>（外力撞擊或手術操作不當引起出血與氣體積聚）</td></tr>
+            <tr><td><strong>診斷</strong></td><td>觀察症狀（浮頭、沉底、游泳不穩、食慾不振）→ <strong>X 光</strong>（形態與大小，看腫大、感染、損傷）→ <strong>超音波</strong>（內部結構，看腫瘤或積液）</td></tr>
+            <tr><td><strong>治療</strong></td><td><strong>藥物</strong>：適用細菌、病毒、寄生蟲引起者，常用抗生素、抗病毒藥、驅蟲藥，依疾病類型與嚴重程度選擇藥物與劑量；<strong>手術</strong>：適用鰾腫大與損傷（抽取、修復損傷、矯正畸形），具風險</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em;">講義沒有寫具體藥名、給藥途徑（口服混飼、藥浴或注射）與劑量；實務上要依魚種、病因與水產用藥法規與休藥期決定，這頁不補劑量。</p>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p053.jpg" alt="金魚浮鰾病（上 p.53）：浮力失調、腹部腫脹的金魚。" loading="lazy"><div class="figure-caption">金魚浮鰾病（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=53">上 p.53</a>）：浮力失調、腹部腫脹的金魚。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=53">p.53</a></div></div>
+      <footer class="note-footer">資料來源：《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=49">上 p.49–58</a>。補充為一般教科書概念，細節待核對。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SKIN -->
+    <div class="section" id="section-skin">
+      <div class="section-head"><div class="section-num">6</div><h2>皮膚、鱗與黏液 Skin, Scales &amp; Mucus</h2></div>
+      <p class="section-desc">皮膚與黏液是魚的<strong>第一道防線</strong>，也是病原的入口。立鱗病與體表潰爛是這一節的臨床重點。</p>
+      <h3>皮膚的功能與結構<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">項目</th><th>講義內容（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=59">上 p.59–63</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>三大功能</strong></td><td>保護（擋細菌、病毒、寄生蟲與紫外線；選擇題答「防止入侵細菌和病毒」B，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=60">p.60</a>）、感覺（震動、溫度、壓力、化學物質）、呼吸（小型魚較常見）；另有<strong>排泄與滲透調節</strong>（皮膚氯細胞，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=63">p.63</a>）</td></tr>
+            <tr><td><strong>表皮</strong></td><td>最外層、多層上皮細胞；<strong>缺乏角質層</strong>、保持濕潤、便於氣體交換；<strong>分泌黏液</strong>、減少阻力</td></tr>
+            <tr><td><strong>真皮</strong></td><td>表皮下、<strong>結締組織</strong>（選擇題答 B，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=62">p.62</a>）；含血管、神經與感覺器官；<strong>儲存色素、決定體色</strong></td></tr>
+            <tr><td><strong>鱗片</strong></td><td>骨質或角質，保護身體</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p061.jpg" alt="魚皮膚結構（上 p.61）：表皮、黏液腺、鱗片、真皮、皮下組織與肌肉。" loading="lazy"><div class="figure-caption">魚皮膚結構（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=61">上 p.61</a>）：表皮、黏液腺、鱗片、真皮、皮下組織與肌肉。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=61">p.61</a></div></div>
+      <h3>鱗的種類<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>種類</th><th>講義內容（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=64">上 p.64</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>骨鱗</strong></td><td>硬骨魚最常見，骨質；分<strong>圓鱗</strong>與<strong>櫛鱗</strong>；提供保護並減少阻力</td></tr>
+            <tr><td><strong>硬鱗</strong></td><td>厚重堅硬、多層骨質，保護更強；古代魚類較常見</td></tr>
+            <tr><td><strong>盾鱗</strong></td><td>牙齒狀結構，<strong>軟骨魚</strong>常見；減少阻力；排列影響游速</td></tr>
+            <tr><td>「鰭頸鱗」</td><td>講義寫為鯊魚與鰩特有、外形似牙齒、由牙本質與琺瑯質構成。此描述與盾鱗相同，名稱「鰭頸鱗」疑為誤植（待核對）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p064.jpg" alt="鱗的種類（上 p.64）。" loading="lazy"><div class="figure-caption">鱗的種類（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=64">上 p.64</a>）。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=64">p.64</a></div></div>
+      <h3>黏液在防禦中的角色<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>物理屏障</strong>：覆蓋體表、減少病原與皮膚接觸（選擇題答 B，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=66">上 p.66</a>）。</li>
+        <li><strong>免疫功能</strong>：含抗體、溶菌酶、補體，殺滅病原並活化免疫。</li>
+        <li><strong>清潔功能</strong>：吸附污物與病原，隨水流沖走（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=65">p.65</a>）。</li>
+      </ul>
+      <h3>立鱗病（講義標「***」）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">項目</th><th>講義內容（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=67">上 p.67</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>症狀</strong></td><td>魚鱗豎起、體表腫脹、食慾不振、活動力降低；嚴重可致死；通常由<strong>細菌感染</strong>引起</td></tr>
+            <tr><td><strong>診斷</strong></td><td>主要看症狀；魚鱗豎起、體表腫脹可初步判斷；要確定病原可做<strong>細菌培養與藥物敏感性試驗</strong></td></tr>
+            <tr><td><strong>防治</strong></td><td>改善水質、<strong>使用抗生素</strong>（講義沒寫藥名、途徑、劑量）、加強營養提升免疫</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p067.jpg" alt="立鱗病（上 p.67）：鱗片豎起的魚（以及症狀、診斷、防治）。" loading="lazy"><div class="figure-caption">立鱗病（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=67">上 p.67</a>）：鱗片豎起的魚（以及症狀、診斷、防治）。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=67">p.67</a></div></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 立鱗病的機轉、與水質和滲透壓的關係、用藥注意</summary>
+        <p><strong>補充：依一般魚病學教科書（講義沒寫，細節待核對）</strong></p>
+        <ul>
+          <li><strong>怎麼形成</strong>：鱗片是靠真皮的鱗囊固定；當<strong>體液滯留（水腫）或鱗囊積液</strong>使真皮腫脹，鱗片被頂起、呈「松果狀」（pinecone）。它是<strong>徵象</strong>，不是單一病名；常伴隨腹水（腹部膨大）、凸眼，代表<strong>全身性水腫／敗血症</strong>或<strong>體液與電解質調節失衡</strong>。</li>
+          <li><strong>病因</strong>：講義寫細菌（常見為氣單胞菌屬 <em>Aeromonas</em> 一類）；一般資料另指出病毒或其他全身性疾病也會造成立鱗與腹水（病因待核對）。所以<strong>做細菌培養與藥敏很重要</strong>。</li>
+          <li><strong>與滲透壓的關聯</strong>：淡水魚本來要持續排出大量水分（見滲透壓一節）；皮膚、鰓或腎受損時排水與離子調節失靈，水分滯留，就容易出現水腫與立鱗。</li>
+          <li><strong>用藥原則</strong>（補充）：抗生素依<strong>藥敏結果與法規</strong>選用；病魚多已不吃，口服混飼效果有限，臨床常用<strong>藥浴或注射</strong>（途徑依魚種、規模而定）；食用魚必須遵守休藥期。劑量與休藥期各國規定不同，不憑記憶寫。</li>
+        </ul>
+      </details>
+      <h3>體表潰爛：原因與預防<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>原因（講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=73">上 p.73</a>）</th><th>講義列的常見病原</th></tr></thead>
+          <tbody>
+            <tr><td><strong>細菌</strong></td><td>嗜水氣單胞菌（<em>Aeromonas hydrophila</em>）、柱狀屈撓桿菌（<em>Flexibacter／Flavobacterium columnare</em>）</td></tr>
+            <tr><td><strong>真菌</strong></td><td>水黴菌、絲狀菌</td></tr>
+            <tr><td><strong>寄生蟲</strong></td><td>魚虱、指環蟲</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>預防（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=74">上 p.74</a>）：<strong>改善水質</strong>（保持清潔、定期換水）→ <strong>控制密度</strong> → <strong>加強營養</strong>（均衡飼料，可添加免疫增強劑，講義沒寫品名）。呼應第一週：水質先處理。</p>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p073.jpg" alt="魚類體表潰爛（上 p.73）：細菌、真菌、寄生蟲感染。" loading="lazy"><div class="figure-caption">魚類體表潰爛（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=73">上 p.73</a>）：細菌、真菌、寄生蟲感染。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=73">p.73</a></div></div>
+      <footer class="note-footer">資料來源：《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=59">上 p.59–67</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=73">p.73–74</a>。補充為一般教科書概念，細節待核對。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CIRCULATION -->
+    <div class="section" id="section-circulation">
+      <div class="section-head"><div class="section-num">7</div><h2>心臟與血液循環 Heart &amp; Circulation</h2></div>
+      <p class="section-desc">記住<strong>單循環</strong>：血液從心臟打到鰓、再到全身，<strong>回心前只經過一次心臟</strong>。</p>
+      <h3>單循環與心臟腔室<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>魚類採<strong>單一循環路徑</strong>；心臟由<strong>四個依序排列的腔室</strong>組成：<strong>靜脈竇 → 心房 → 心室 → 動脈球（或動脈圓錐）</strong>（選擇題答 A，<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=6">下 p.6–7</a>）。血液只經過心臟一次；心臟泵出<strong>缺氧血</strong>到鰓氧合，再送全身（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=6">下 p.6</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=8">p.8–9</a>）。</li>
+        <li>心臟在頭後方腹腔前端、靠近鰓；約占體重 0.2%–0.3%；紅血球<strong>有細胞核</strong>且較大（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=6">下 p.6</a>）。單循環較省能量，但限制代謝率與活動力。</li>
+        <li>瓣膜：<strong>竇房之間、房室之間、動脈球內</strong>都有瓣膜（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=8">p.8</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p008.jpg" alt="魚類的心臟與血液循環（下 p.8）：硬骨魚心臟、單循環、軟骨魚與硬骨魚的出流道差異。" loading="lazy"><div class="figure-caption">魚類的心臟與血液循環（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=8">下 p.8</a>）：硬骨魚心臟、單循環、軟骨魚與硬骨魚的出流道差異。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=8">p.8</a></div></div>
+      <h3>硬骨魚與軟骨魚的差異<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>腔室／構造</th><th>硬骨魚</th><th>軟骨魚（如鯊魚）</th></tr></thead>
+          <tbody>
+            <tr><td>出流道（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=8">下 p.8</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=10">p.10</a>）</td><td><strong>動脈球</strong>（Bulbus arteriosus）：彈性壁、緩衝心搏、降低脈衝壓力，維持血流穩定</td><td><strong>動脈圓錐</strong>（Conus arteriosus）：肌性、含多層瓣膜，調節血壓、提高循環效率</td></tr>
+            <tr><td>靜脈竇／心房</td><td>收集靜脈血 → 薄壁彈性的心房</td><td>靜脈竇相對較大、心房肌肉較發達（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=10">p.10</a>）</td></tr>
+            <tr><td>心室</td><td>壁厚、泵血主力；高速游泳魚（如鮪）心室肌肉更發達（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=6">p.6</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=10">p.10</a>）</td><td>同左</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p010.jpg" alt="硬骨魚與鯊魚心臟（下 p.10）：靜脈竇、心房、心室與出流道。" loading="lazy"><div class="figure-caption">硬骨魚與鯊魚心臟（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=10">下 p.10</a>）：靜脈竇、心房、心室與出流道。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=10">p.10</a></div></div>
+      <h3>肺魚與恆溫適應<span class="lv lv-skim">看過</span></h3>
+      <ul>
+        <li><strong>肺魚</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=11">下 p.11–12</a>）：講義寫有<strong>兩個心房、兩個心室</strong>，構造較近兩棲類；有原始肺與鰓，可在缺氧水域生存，乾旱時挖泥休眠並分泌黏液繭；僅分布於非洲、南美、澳洲三個屬。</li>
+        <li><strong>部分魚類的區域性恆溫</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=14">下 p.14</a>）：鮪、旗魚、鯊等大型掠食魚有<strong>奇網（rete mirabile）</strong>，以<strong>逆流熱交換</strong>保留肌肉產熱，體溫可比周圍水溫高約 5–10 度。</li>
+      </ul>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 單循環的臨床意義：鰓阻力、血壓與水腫</summary>
+        <p><strong>補充：依一般魚類生理教科書（講義沒寫）</strong></p>
+        <ul>
+          <li><strong>血液先過鰓、再進全身</strong>：心室打出的血先經鰓小片的微血管再到體循環，所以<strong>體循環血壓比哺乳類低</strong>，鰓血管阻力是重要的心臟負荷。鰓病造成鰓小片增生、堵塞時，既影響交換、也增加心臟負擔。</li>
+          <li><strong>動脈球的緩衝</strong>：硬骨魚的彈性動脈球把脈動變成較平穩的血流，保護鰓小片這種薄壁血管；這是它在硬骨魚的意義（講義：緩衝心搏、降低脈衝壓力）。</li>
+          <li><strong>剖檢與診斷</strong>：心臟位置靠近鰓、鰓蓋後；剖檢時紅血球有核、血液顏色與哺乳類不同；慢性鰓、腎或循環問題可見心包或腹腔積液（腹水），與立鱗病同屬體液滯留的表現（病因待核對）。</li>
+          <li>講義說肺魚「兩心房兩心室」是簡化說法；一般資料描述為<strong>部分分隔的心房與心室</strong>（演化上的過渡構造），待核對。</li>
+        </ul>
+      </details>
+      <footer class="note-footer">資料來源：《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=6">下 p.6–14</a>。補充為一般教科書概念，細節待核對。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SENSE -->
+    <div class="section" id="section-sense">
+      <div class="section-head"><div class="section-num">8</div><h2>感覺器官：耳、側線、嗅、味、眼 Sensory Organs</h2></div>
+      <p class="section-desc">下半份講義用整頁文字與圖列出魚的感覺器官；多為背景知識，臨床上最常用到的是<strong>眼</strong>（凸眼）與<strong>側線</strong>（行為判讀）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:12%;">器官</th><th>講義內容（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=15">下 p.15–25</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>耳</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=15">p.15</a>）</td><td>內耳，兼具<strong>聽覺與平衡</strong>，沒有外耳或耳道；<strong>半規管</strong>三個（平衡、偵測三維運動）、<strong>耳石</strong>（碳酸鈣，使毛細胞彎曲偵測聲音）、<strong>魏氏小骨</strong>（把鰾的聲波傳到內耳；鯉、鯰可聽到高達 13,000 Hz）、鰾作為聲波放大器；鯊魚無鰾，主要偵測 1,000 Hz 以下低頻聲音</td></tr>
+            <tr><td><strong>側線</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=17">p.17</a>）</td><td>特有感覺系統，偵測水流、壓力變化、振動；<strong>充滿液體的管道與感應毛細胞</strong>，「遠距離觸覺」；黑暗、濁水中導航、偵測捕食者與獵物、群游避免碰撞；講義寫可反應最遠約 100 公尺外的微小水流擾動</td></tr>
+            <tr><td><strong>嗅覺</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=18">p.18</a>）</td><td>每側一對嗅囊（<strong>嗅板</strong>增加感應面積）；與呼吸系統<strong>分開</strong>；偵測極低濃度化學物質，辨識食物、天敵、同類與繁殖對象；鮭魚辨認出生河流氣味</td></tr>
+            <tr><td><strong>味覺</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=19">p.19</a>）</td><td><strong>分布全身多個部位</strong>（選擇題答 B，<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=20">p.20</a>）：口唇與口腔味蕾、鬚與觸鬚（如鯰魚）、體表與鰭（如鯉科）；與嗅覺合作，在混濁或黑暗環境比視覺更重要</td></tr>
+            <tr><td><strong>眼</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=21">p.21–24</a>）</td><td>大部分魚<strong>近視</strong>（焦距約 2–3 m；水折射率 1.33 vs 空氣 1.0）；<strong>沒有眼瞼</strong>，由堅硬透明角膜保護、靠水流清潔；視網膜後有<strong>反光層（tapetum lucidum）</strong>；淺水魚對約 500 nm 藍綠光最敏感、深海魚偏 475–480 nm；多數硬骨魚三色視覺（如虹鱒 455、530、625 nm）；鯊魚與許多深海魚有瞬膜；眼的位置與捕食習性相關（上位眼＝底棲掠食、前向眼＝主動獵食、側向眼＝群游）</td></tr>
+            <tr><td><strong>凸眼</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=25">p.25</a>）</td><td>圖示金魚等凸眼病例；講義寫「<strong>鏈球菌造成滲透壓調節出問題</strong>」</td></tr>
+            <tr><td><strong>魚類年齡</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=16">p.16</a>）</td><td>只有圖，沒有文字：<strong>耳石（otolith）</strong>切面與年輪（annulus）；圖中標示第 1、2 年輪與耳石核心</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p015.jpg" alt="魚的耳（下 p.15）：半規管、耳石、魏氏小骨與鰾。" loading="lazy"><div class="figure-caption">魚的耳（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=15">下 p.15</a>）：半規管、耳石、魏氏小骨與鰾。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=15">p.15</a></div></div>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p016.jpg" alt="魚類年齡（下 p.16）：耳石切面的年輪。" loading="lazy"><div class="figure-caption">魚類年齡（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=16">下 p.16</a>）：耳石切面的年輪。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=16">p.16</a></div></div>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p017.jpg" alt="側線系統（下 p.17）：充滿液體的管道與感應毛細胞。" loading="lazy"><div class="figure-caption">側線系統（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=17">下 p.17</a>）：充滿液體的管道與感應毛細胞。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=17">p.17</a></div></div>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p021.jpg" alt="魚眼與哺乳類眼的差異（下 p.21）：折射與近視。" loading="lazy"><div class="figure-caption">魚眼與哺乳類眼的差異（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=21">下 p.21</a>）：折射與近視。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=21">p.21</a></div></div>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p025.jpg" alt="凸眼（下 p.25）：圖中文字為「鏈球菌造成滲透壓調節出問題」。" loading="lazy"><div class="figure-caption">凸眼（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=25">下 p.25</a>）：圖中文字為「鏈球菌造成滲透壓調節出問題」。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=25">p.25</a></div></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 凸眼的鑑別診斷，與「魏氏小骨」的名詞</summary>
+        <p><strong>補充：依一般魚病學教科書（講義沒寫；機轉待核對）</strong></p>
+        <ul>
+          <li><strong>凸眼（exophthalmia）是徵象</strong>，常見原因：<strong>全身性細菌感染／敗血症</strong>（如鏈球菌、氣單胞菌；國考 102-2 有「出血性敗血症及凸眼症」題）、<strong>氣泡病（gas bubble disease）</strong>、<strong>眼球後積液</strong>、局部外傷。要和<strong>立鱗病、腹水</strong>一起看，判斷是不是全身性水腫。講義說「鏈球菌造成滲透壓調節出問題」是把機轉簡化，是否唯一機轉未核對。</li>
+          <li><strong>魏氏小骨（Weberian ossicles）</strong>：講義寫「只存在於鰭脂類魚類（如鯉魚、鯰魚）」，一般說法為<strong>骨鰾總目（Ostariophysi，包括鯉形目、鯰形目等）</strong>才有，「鰭脂類」疑為翻譯錯誤（待核對）。</li>
+          <li>耳石與鱗片年輪常用於<strong>推估年齡</strong>（講義只給圖，細節補充）。</li>
+        </ul>
+      </details>
+      <footer class="note-footer">資料來源：《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=15">下 p.15–25</a>。補充為一般教科書概念，細節待核對。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ORGANS -->
+    <div class="section" id="section-organs">
+      <div class="section-head"><div class="section-num">9</div><h2>肝、脾、腎與消化道 Liver, Spleen, Kidney &amp; Digestion</h2></div>
+      <p class="section-desc">剖檢最常看的幾個器官：肝（黃肝、脂肪肝）、脾（腫大）、腎、消化道（含腸道免疫）。</p>
+      <h3>肝臟<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>魚最大的內部器官之一，紅褐色、位於體腔前部；<strong>脂溶性維生素（A、D、K）儲存</strong>、蛋白質合成、<strong>主要脂質儲存器官</strong>，飲食失衡可致<strong>脂肪肝</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=27">下 p.27</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=31">p.31</a>）。</li>
+        <li>五大功能（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=28">p.28</a>）：脂肪代謝、解毒、蛋白質合成（血漿蛋白、酵素）、能量儲存、色素代謝。選擇題：<strong>不包括「呼吸作用」</strong>（答 C，<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=29">p.29</a>）。</li>
+        <li><strong>黃肝</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=30">p.30</a>）：肝色黃或黃褐，原因＝脂肪代謝異常（攝取過量脂肪或碳水化合物致脂肪堆積）、毒素（重金屬、農藥、藻毒素）、營養不良（缺<strong>維生素 E</strong>與抗氧化物）、病原感染；是肝功能受損的指標，預防靠改善水質、調整飲食、控制密度。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p030.jpg" alt="黃肝（下 p.30）：肝顏色異常與血流示意。" loading="lazy"><div class="figure-caption">黃肝（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=30">下 p.30</a>）：肝顏色異常與血流示意。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=30">p.30</a></div></div>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p031.jpg" alt="脂肪肝（下 p.31）：肉眼外觀與組織切片。" loading="lazy"><div class="figure-caption">脂肪肝（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=31">下 p.31</a>）：肉眼外觀與組織切片。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=31">p.31</a></div></div>
+      <h3>脾臟<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">項目</th><th>講義內容（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=33">下 p.33–36</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>功能</strong></td><td>① <strong>免疫</strong>（偵測並對抗病原，釋放免疫細胞與抗體）；② <strong>血液儲備</strong>（需要時釋放紅血球，增加血容量）；③ <strong>血小板產生</strong>；④ <strong>過濾</strong>（老化細胞、細菌、異物）；⑤ <strong>儲存能量</strong></td></tr>
+            <tr><td><strong>脾腫大原因</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=35">p.35</a>）</td><td>① <strong>病原體感染</strong>（嗜水氣單胞菌、病毒、寄生蟲）；② <strong>水質不良</strong>（氨氮高、溶氧低）；③ <strong>營養失衡</strong>（缺維生素 C、E 或礦物質；脂肪肝也與脾腫大有關）；④ <strong>遺傳或腫瘤性疾病</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>講義選擇題（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=36">p.36</a>）「脾腫大的主要原因<strong>不包括</strong>」答<strong>C 環境溫度過高</strong>：我對照正文 <a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=35">p.35</a> 的四大原因（病原、水質不良、營養失衡、遺傳／腫瘤），正文沒有列溫度，答案與正文一致；但溫度升高會透過第一週的水質（低氧、NH3 比例上升）間接造成壓力，所以這題是「正文沒列」而不是「臨床上完全無關」。</p>
+      <h3>腎臟<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>講義（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=38">下 p.38–39</a>）：① <strong>排泄廢物</strong>（氮廢物）；② <strong>電解質平衡</strong>（鈉、鉀、鈣、氯）；③ <strong>濃縮尿液以節省水分</strong>（講義寫法）；④ 體溫調節（講義寫法）；⑤ <strong>酸鹼平衡</strong>。</li>
+        <li><strong>講義內部矛盾</strong>：<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=38">p.38–39</a> 寫腎臟「濃縮尿液、節省水分」，但 <a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=43">p.43</a>（淡水魚）寫「魚就不需要喝水，只需要不斷排尿」。淡水魚排的是<strong>大量稀釋尿</strong>，海水魚才少尿，見滲透壓一節；講義「體溫調節」一項也不是一般教科書的腎臟主要功能，待核對。</li>
+      </ul>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 魚的腎與脾是「免疫器官」：頭腎、體腎、脾，和骨髓的對應</summary>
+        <p><strong>補充：依一般魚類免疫學教科書（講義沒寫；之後「魚類免疫」頁會再展開）</strong></p>
+        <ul>
+          <li>硬骨魚<strong>沒有骨髓與淋巴結</strong>。<strong>造血與主要的淋巴器官是頭腎（head kidney，前腎）與脾臟</strong>；胸腺負責 T 細胞成熟。</li>
+          <li><strong>頭腎</strong>：造血、B 細胞與抗體產生場所之一，並含<strong>間腎組織（interrenal，分泌皮質醇）</strong>與<strong>鉻親和組織（chromaffin，分泌兒茶酚胺）</strong>，是魚的壓力內分泌核心；這就是講義 <a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=77">p.77</a> 圖「Stress：Brain–Hypothalamus–Pituitary–Interrenal（cortisol）／Chromaffin（catecholamine）」的位置。<strong>體腎（後腎）</strong>主要負責<strong>排泄與滲透調節</strong>。</li>
+          <li><strong>脾臟</strong>：血液過濾、抗原補捉與免疫反應，含<strong>黑色素巨噬細胞中心（melano-macrophage centres）</strong>。</li>
+          <li>剖檢意義：腎、脾腫大或出血是細菌與病毒敗血症常見變化，也和講義說「脾腫大是免疫反應」一致。學長姐回憶 2023 助教講「腎臟＝memory 所在」，回憶、非官方，待核對。</li>
+        </ul>
+      </details>
+      <h3>消化道<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>基本構造（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=49">下 p.49</a>）：口 → 食道 → 胃（<strong>部分魚缺胃</strong>）→ 腸 → 肛門；<strong>肉食性魚腸較短、草食性魚腸較長</strong>；肝、胰、膽囊輔助；<strong>幽門垂（pyloric caeca）</strong>增加吸收面積；咽喉齒、胃可大幅擴張、腸有微絨毛；<strong>水溫升高加速消化</strong>。</li>
+        <li>功能（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=50">p.50</a>）：消化、吸收營養、維持水分與電解質平衡、排除廢物。</li>
+        <li><strong>腸道免疫</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=51">p.51</a>）：腸黏膜屏障可防止病原進入血液（選擇題答 B，<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=52">p.52</a>）；巨噬細胞、T 與 B 淋巴細胞形成<strong>腸道相關淋巴組織（GALT）</strong>；黏液層有抗菌蛋白與免疫球蛋白；益生菌與免疫增強劑可改善腸道健康（講義沒寫品名與劑量）。</li>
+        <li>呼應講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=8">上 p.8</a>：<strong>軟骨魚腸有螺旋瓣</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p049.jpg" alt="消化系統（下 p.49）：構造、消化腺與適應特點。" loading="lazy"><div class="figure-caption">消化系統（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=49">下 p.49</a>）：構造、消化腺與適應特點。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=49">p.49</a></div></div>
+      <footer class="note-footer">資料來源：《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=27">下 p.27–39</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=49">p.49–52</a>；《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=77">上 p.77</a>。補充為一般教科書概念，細節待核對。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- OSMO -->
+    <div class="section" id="section-osmo">
+      <div class="section-head"><div class="section-num">10</div><h2>滲透壓調節與氯細胞 Osmoregulation &amp; Chloride Cells</h2></div>
+      <p class="section-desc">考古年年有的一題：<strong>淡水魚、海水魚、軟骨魚的滲透壓策略</strong>與<strong>氯細胞</strong>。講義的描述分散在 <a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=40">p.40–46</a>，下面整理成一張表。</p>
+      <h3>淡水魚與海水魚相反<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p040.jpg" alt="海水魚的滲透壓調節（下 p.40）：喝水、排鹽、等滲尿液（少量）。" loading="lazy"><div class="figure-caption">海水魚的滲透壓調節（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=40">下 p.40</a>）：喝水、排鹽、等滲尿液（少量）。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=40">p.40</a></div></div>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p043.jpg" alt="淡水魚的滲透壓調節（下 p.43）：不喝水、排尿、吸收離子。" loading="lazy"><div class="figure-caption">淡水魚的滲透壓調節（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=43">下 p.43</a>）：不喝水、排尿、吸收離子。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=43">p.43</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">項目</th><th>海水魚（講義<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=40">下 p.40–41</a>）</th><th>淡水魚（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=41">下 p.41</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=43">p.43</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>體液與環境</td><td><strong>細胞內液濃度小於海水</strong></td><td><strong>細胞內液濃度大於外界</strong></td></tr>
+            <tr><td>水分</td><td>會脫水 → <strong>必須喝水</strong>（「不喝水就會渴死」）</td><td>水會滲入 → <strong>不需喝水、不斷排尿</strong>（不能儲存太多水以免膨脹）</td></tr>
+            <tr><td>氯細胞作用</td><td><strong>排出過多離子</strong>（Na+、Cl-、K+），吸收少量水</td><td><strong>吸收環境中稀少的離子</strong>，並排出過多水分</td></tr>
+            <tr><td>尿</td><td>講義有圖示「等滲尿（少量）」</td><td>講義有圖示「低滲尿（多量）」</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>氯細胞（富含粒線體細胞，MRC）<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p041.jpg" alt="氯細胞（下 p.41）：鰓上皮的離子運輸，含大量 Na+-K+-ATPase。" loading="lazy"><div class="figure-caption">氯細胞（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=41">下 p.41</a>）：鰓上皮的離子運輸，含大量 Na+-K+-ATPase。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=41">p.41</a></div></div>
+      <ul>
+        <li>分布在<strong>鰓上皮</strong>；含大量 <strong>Na+-K+-ATPase（NKA）</strong>（主動運輸離子的能量依賴酶）、特殊離子通道與共輸送蛋白。<strong>海水魚主動排出 Na+、Cl-、K+；淡水魚主要吸收離子</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=41">下 p.41</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=44">p.44</a>）。</li>
+        <li>別名：acidophilic cells、ionocytes、<strong>mitochondrial-rich cells（MRC）</strong>；也參與<strong>碳酸氫鹽（HCO3-）運輸與酸鹼平衡</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=44">p.44</a>）。數量與活性隨環境鹽度調整，是<strong>洄游魚能在淡水與海水間轉換</strong>的關鍵；可用<strong>測 NKA 活性</strong>評估離子調節能力（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=42">p.42</a>）。</li>
+        <li><strong>鰓上皮四種細胞</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=42">p.42</a>）：<strong>平鋪細胞</strong>（約占鰓絲表面 90%，氣體交換）、<strong>氯細胞（MRC）</strong>、<strong>黏液細胞</strong>（保護層、減少水流磨損）、<strong>未分化細胞</strong>（幹細胞，修復鰓損傷）。</li>
+        <li><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=45">p.45</a>（日本鰻的實驗圖）：<strong>環境鹽度越高，MRC 數量越多</strong>，淡水下 MRC 頂端開口小而平（吸收離子，與 NKA 相關），海水下開口大且凹陷（分泌離子，與 <strong>CFTR</strong> 氯離子通道相關）。污染物與酸化也會影響 MRC（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=44">p.44</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p045.jpg" alt="MRC 對鹽度的適應（下 p.45）：日本鰻在不同鹽度下 MRC 的數量與頂端開口型態。" loading="lazy"><div class="figure-caption">MRC 對鹽度的適應（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=45">下 p.45</a>）：日本鰻在不同鹽度下 MRC 的數量與頂端開口型態。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=45">p.45</a></div></div>
+      <p style="font-size:.85em;">講義 <a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=44">p.44</a> 一句寫「氯細胞主要是吸收水中的離子以維持魚體內離子濃度」，與 <a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=41">p.41</a> 海水魚「排出離子」並列，是在講<strong>淡水魚</strong>的情況；<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=44">p.44</a> 後文有分開寫海水、淡水。</p>
+      <h3>軟骨魚（鯊魚）的尿素策略<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>血液儲存<strong>高濃度尿素（350–400 mM）</strong>，是硬骨魚的 100 倍以上，使血液滲透壓與海水相近、避免脫水（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=46">下 p.46</a>）。</li>
+        <li><strong>TMAO（三甲胺氧化物）保護組織蛋白質免受高濃度尿素的變性作用</strong>（選擇題答 C，<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=47">p.47</a>）。</li>
+        <li>特化腎臟結構<strong>重吸收尿素</strong>而不排出；部分鯊魚可進入河口或淡水區域。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p046.jpg" alt="鯊魚的尿素調節（下 p.46）：尿素、TMAO、特化腎臟與環境適應。" loading="lazy"><div class="figure-caption">鯊魚的尿素調節（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=46">下 p.46</a>）：尿素、TMAO、特化腎臟與環境適應。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=46">p.46</a></div></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 滲透壓三種策略總表：講義寫了哪些、沒寫哪些</summary>
+        <p><strong>補充：依一般魚類生理教科書（講義沒寫的部分；細節待核對）</strong></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th></th><th>淡水硬骨魚</th><th>海水硬骨魚</th><th>板鰓類（鯊、魟）</th></tr></thead>
+          <tbody>
+            <tr><td>體液滲透壓 vs. 環境</td><td>高於水（高張）</td><td>低於海水（低張）</td><td>約等於或略高於海水（尿素＋TMAO）</td></tr>
+            <tr><td>水分流動方向</td><td>水<strong>經鰓與皮膚滲入</strong></td><td>水<strong>經鰓與皮膚流失</strong></td><td>幾乎無淨流失</td></tr>
+            <tr><td>喝水</td><td>基本不喝</td><td><strong>大量喝海水</strong>，腸吸收水與離子</td><td>少量</td></tr>
+            <tr><td>尿</td><td><strong>大量稀釋尿</strong></td><td><strong>少量</strong>、含 Mg2+、SO4 2- 等二價離子</td><td>少量；腎重吸收尿素</td></tr>
+            <tr><td>排鹽／吸鹽</td><td>鰓氯細胞<strong>主動吸收</strong> Na+、Cl-</td><td>鰓氯細胞<strong>主動排出</strong> Na+、Cl-（NKA、共輸送蛋白、CFTR）</td><td>多餘鹽由<strong>直腸腺</strong>排出</td></tr>
+          </tbody>
+        </table></div>
+        <ul>
+          <li><strong>臨床意義</strong>：緊迫、鰓或皮膚受損、水質惡化時，離子與水的調節失靈，淡水魚容易<strong>水腫、立鱗</strong>，海水魚容易<strong>脫水</strong>。淡水魚處理時常會在水中加鹽減輕滲透負擔，物種耐鹽度不同，劑量與時間講義沒寫，這頁不補。</li>
+          <li><strong>第一週關聯</strong>：亞硝酸鹽經鰓以氯細胞的離子吸收途徑進入，因此提高水中 Cl- 能競爭降低毒性（見養殖與水質頁）。</li>
+          <li>板鰓類的直腸腺排鹽與血中高濃度尿素是一般教科書的標準內容，講義只寫了尿素與 TMAO。</li>
+        </ul>
+      </details>
+      <footer class="note-footer">資料來源：《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=40">下 p.40–47</a>。補充為一般教科書概念，細節待核對。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MUSCLE -->
+    <div class="section" id="section-muscle">
+      <div class="section-head"><div class="section-num">11</div><h2>肌肉、體色、壓力與生殖 Muscle, Color, Stress &amp; Reproduction</h2></div>
+      <h3>肌肉<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>肌纖維<strong>片狀排列</strong>（選擇題答 B，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=69">上 p.69</a>），每一小段<strong>肌節</strong>不到數公分，使魚靈活運動；肌肉分<strong>紅肌</strong>（多肌紅蛋白、有氧代謝、持久）與<strong>白肌</strong>（無氧代謝、爆發力）；<strong>結締組織脆弱</strong>（膠原蛋白中強化結構的胺基酸較牛肉少，講義寫法）（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=68">p.68</a>）。</li>
+        <li><strong>血合肉</strong>：顏色較深的肌肉，位於側面與尾部，含肌紅蛋白與血紅蛋白、有氧代謝；<strong>分布與游泳能力有關</strong>（填空答「游泳能力」，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=71">p.71</a>），游泳能力強的魚含量較高；味道濃、口感較粗（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=70">p.70</a>）。</li>
+        <li><strong>電鰻放電</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=72">p.72</a>）：放電細胞（特殊肌肉細胞）＋離子通道（神經控制開閉）→ 大量放電細胞同時放電可產生高壓電。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p068.jpg" alt="魚類肌肉系統（上 p.68）：片狀排列的肌節。" loading="lazy"><div class="figure-caption">魚類肌肉系統（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=68">上 p.68</a>）：片狀排列的肌節。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=68">p.68</a></div></div>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p070.jpg" alt="血合肉的分布（上 p.70）。" loading="lazy"><div class="figure-caption">血合肉的分布（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=70">上 p.70</a>）。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=70">p.70</a></div></div>
+      <h3>體色與壓力<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>體色變黑</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=75">上 p.75–76</a>）：<strong>應激反應</strong>（水質惡化、環境變化、捕撈）、<strong>疾病</strong>（講義舉「黑死病、爛鰓病」，影響色素細胞）、<strong>環境因素</strong>（光照不足、水溫過低）。</li>
+        <li><strong>蝦紅素</strong>（astaxanthin，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=78">p.78</a>）：使魚呈鮮紅色，沉積於皮膚、肌肉、卵巢；有抗氧化與免疫增強作用（講義寫法；用量與給藥方式講義沒寫）。</li>
+        <li><strong>魚背深、魚腹淺</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=79">p.79</a>）：保護色；背黑色素細胞多、腹白色素細胞多。講義第二點「適應光線」的描述前後矛盾（淺色魚腹反射更多光反而更容易被發現），不採用，待核對。</li>
+        <li><strong><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=77">p.77</a></strong> 沒有文字，只有壓力圖：<strong>Stress → 腦－下視丘－腦下垂體 → 間腎組織（皮質醇）與鉻親和組織（兒茶酚胺）</strong> → 一級反應 → 二級反應（免疫、細胞離子、代謝營養、循環呼吸等）；這是「魚類免疫」頁的起點。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/phy_p077.jpg" alt="魚類壓力反應（上 p.77）：下視丘－腦下垂體－間腎組織（cortisol）與鉻親和組織（catecholamine）；" loading="lazy"><div class="figure-caption">魚類壓力反應（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=77">上 p.77</a>）：下視丘－腦下垂體－間腎組織（cortisol）與鉻親和組織（catecholamine）；一級、二級反應。</div><div class="figure-source">來源：課程講義《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=77">p.77</a></div></div>
+      <h3>生殖與生殖隔閡<span class="lv lv-skim">看過</span></h3>
+      <ul>
+        <li><strong>生殖策略</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=53">下 p.53</a>）：<strong>卵生</strong>（產卵）、<strong>卵胎生</strong>（體內受精但產卵，講義寫法）、<strong>胎生</strong>（體內發育並產下幼魚）；生殖腺為卵巢與精巢（選擇題答 A，<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=54">下 p.54</a>）。</li>
+        <li><strong>雌雄同體</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=55">下 p.55</a>）：先雄後雌（protandric）、先雌後雄（protogynous；石斑、鸚哥魚、隆頭魚，常由<strong>社會因素</strong>觸發，如優勢雄魚消失）、雌雄異體（鯉、鮭與多數養殖魚）、同時性雌雄同體（少見）。</li>
+        <li><strong>生殖隔閡</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=56">下 p.56–57</a>）：前合子（棲地、行為、配子不相容）、後合子（雜交不育）、生殖時間隔閡；功能＝<strong>防止不同魚種間交配</strong>（選擇題答 A，<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=57">下 p.57</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類解剖與生理/skel_p055.jpg" alt="魚類雌雄同體現象（下 p.55）：先雄後雌、先雌後雄、雌雄異體、同時性雌雄同體。" loading="lazy"><div class="figure-caption">魚類雌雄同體現象（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=55">下 p.55</a>）：先雄後雌、先雌後雄、雌雄異體、同時性雌雄同體。</div><div class="figure-source">來源：課程講義《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=55">p.55</a></div></div>
+      <footer class="note-footer">資料來源：《生理學P2》<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=68">上 p.68–72</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=75">p.75–79</a>；《skeletal-system》<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=53">下 p.53–57</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">12</div><h2>國考關聯與講義核對 Exam Links &amp; Fact-check</h2></div>
+      <p class="section-desc">我在「國考專區」的獸醫傳染病學考科（100–115 年）搜尋鰓、鰾、浮頭、滲透壓、氯細胞、Bohr、黏液、立鱗等關鍵字：<strong>沒有直接考魚類生理（滲透壓、氯細胞、Bohr、逆流交換）的題目</strong>，魚類相關題幾乎都是疾病各論（病原鑑別）。下面七題用「鰓、鰾、浮頭」當題幹線索，和這一章最有關；病原的詳細機轉屬疾病各論，講義尚未提供，解析的原因為<strong>補充（依一般教科書與題目敘述）</strong>。</p>
+      <h3>國考關聯題（含官方答案）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">題目（年別、題號）</th><th>題幹關鍵字</th><th>官方答案與逐項說明（補充）</th></tr></thead>
+          <tbody>
+            <tr><td>101-2 第 61 題；106-1 第 74 題（同題）</td><td>水質不良淡水養殖場、浮頭、爛尾、鰓蓋打開有病變、<strong>滑走性長桿菌</strong>、內臟分離不到</td><td><strong>C：柱狀病菌（<em>Flexibacter／Flavobacterium columnare</em>）</strong>。滑走性（gliding）長桿菌、鰓與體表（鰓、尾鰭）病變、內臟分離不到＝局部／體表感染。A 非典型 <em>Aeromonas salmonicida</em> 多見於冷水魚皮膚潰瘍；B <em>Pseudomonas anguillarum</em> 是 <em>Vibrio anguillarum</em> 的舊名，弧菌症（短彎桿，多為海水魚）；D <em>Aeromonas hydrophila</em> 是運動性（非滑走）桿菌，常造成敗血症與體表潰爛</td></tr>
+            <tr><td>106-2 第 77 題</td><td>浮頭、鰓顏色紅白雜陳、鍍銀染色可見二級鰓薄板中黑色絲狀物</td><td><strong>B：<em>Branchiomyces</em> spp.（鰓黴菌）</strong>。鰓黴菌的菌絲侵入鰓小片血管，鰓呈<strong>紅白相間（大理石狀）</strong>壞死，鍍銀染色（如 GMS）菌絲呈黑色。A <em>Saprolegnia</em>、D <em>Achlya</em> 是水黴，多在體表、卵呈棉絮狀；C <em>Dermocystidium</em> 為囊胞狀，鰓與皮膚的囊腫為主（待核對）</td></tr>
+            <tr><td>101-1 第 73 題</td><td>細菌性鰓病的主要病變</td><td><strong>C：鰓薄板增生、融合</strong>。這正對應本章「鰓小片是氣體交換面積」的概念：增生融合 → 面積下降 → 缺氧、浮頭。A 鰓絲壞死缺損較像鰓黴菌或柱狀病的壞死性病變；B 敗血症是全身性；D 體表糜爛潰瘍是皮膚病變（皆補充，待核對）</td></tr>
+            <tr><td>109-1 第 72 題</td><td>錦鯉天氣轉熱浮頭呼吸困難、鰓有<strong>白色結節</strong>、內臟正常</td><td><strong>A：<em>Myxobolus koi</em></strong>（黏液孢子蟲，鰓寄生形成孢囊結節）。B <em>Mycobacterium</em>、C <em>Nocardia</em> 多形成<strong>內臟</strong>（及體表）白色結節，題目內臟正常；D <em>Glugea plecoglossi</em> 是香魚的微孢子蟲（對應第一週病例 H 的「內臟白點」），與錦鯉鰓不符</td></tr>
+            <tr><td>104-2 第 69 題</td><td>鰻魚攝食減少、<strong>鰾部見蟲體</strong></td><td><strong>D：<em>Anguillicola</em> sp.（鰻鰾線蟲）</strong>。A <em>Anisakis</em>（異尖線蟲）幼蟲見於海水魚、生食可感染人，成蟲寄生在海洋哺乳類，不是鰻鰾線蟲；B 水蛭（leech）吸血於體表或鰓；C 棘頭蟲（acanthocephalans）寄生在腸道</td></tr>
+            <tr><td>101-1 第 69 題</td><td>鰻魚鰾線蟲的<strong>中間宿主</strong></td><td><strong>A：橈腳類（copepods）</strong>。線蟲幼蟲在橈腳類體內發育；B 螺類是吸蟲類的中間宿主；C 水蛭是某些血液寄生蟲的媒介；D 大肚魚並非此線蟲的中間宿主（是否為轉續宿主待核對）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85em;">以上為官方答案（國考專區 試卷 md）；逐項說明的「原因」為整理者依題目敘述與一般教科書補充，不是官方詳解。更多魚病題（病毒、細菌、寄生蟲、蝦病）等疾病各論講義進來後再整理成完整詳解與自我測驗。</p>
+      <h3>講義核對：與一般教科書不同處（待核對清單）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">講義說法</th><th>一般教科書／內部矛盾</th><th>建議</th></tr></thead>
+          <tbody>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=51">上 p.51</a>：Bohr＝CO2 升高 → 親和力降低；Root＝pH 降低 → 親和力降低</td><td>Root 的關鍵是<strong>攜氧容量（飽和度）下降</strong>，不只是親和力；兩者重疊</td><td>答題兩者分開寫；以老師上課為準</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=44">上 p.44</a>：軟骨魚用<strong>順水流</strong>氣體交換</td><td>與<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=40">上 p.40</a>「順流在魚類中較少見」矛盾；一般教科書：板鰓類也是<strong>逆流</strong></td><td>問老師</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=34">上 p.34</a>：負責氣體交換的是<strong>鰓絲</strong></td><td>正文 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=36">p.36</a> 與一般教科書：<strong>鰓小片</strong>是氣體交換的主要場所</td><td>考試寫「鰓絲上的鰓小片」</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=43">上 p.43</a>：假鰓<strong>沒有氣體交換功能</strong></td><td>一般教科書的硬骨魚假鰓與眼部血流有關；軟骨魚假鰓的功能有不同說法</td><td>待核對</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=38">下 p.38</a>：腎臟<strong>濃縮尿液</strong>節省水分；腎臟參與體溫調節</td><td>淡水魚排<strong>大量稀釋尿</strong>（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=43">下 p.43</a> 也寫淡水魚「不斷排尿」）；腎不是體溫調節器官</td><td>以滲透壓一節為準</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=15">下 p.15</a>：魏氏小骨只存在「鰭脂類」魚類</td><td>應為<strong>骨鰾總目（Ostariophysi）</strong>（鯉、鯰等）</td><td>翻譯疑誤</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=64">上 p.64</a>：「鰭頸鱗」為鯊魚特有、牙本質與琺瑯質</td><td>描述與<strong>盾鱗</strong>相同</td><td>名稱疑誤</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=79">上 p.79</a>：淺色魚腹「在黑暗水底更容易被發現」</td><td>內容前後矛盾</td><td>不採用，僅記保護色（背深腹淺）</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=11">下 p.11</a>：肺魚兩心房兩心室</td><td>多為部分分隔的過渡構造</td><td>簡化說法</td></tr>
+            <tr><td><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=36">下 p.36</a> 脾腫大「不包括環境溫度過高」</td><td>與正文四大原因一致</td><td>答案 C 無誤（溫度間接影響見正文）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>講義夾帶的其他選擇題我已逐題對照正文：<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=4">上 p.4</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=7">p.7</a>（C）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=18">p.18</a>（A）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=21">p.21</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=25">p.25</a>（A）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=32">p.32</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=39">p.39</a>（C）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=60">p.60</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=62">p.62</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=66">p.66</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=69">p.69</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=71">p.71</a>（游泳能力）；<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=7">下 p.7</a>（A）、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=9">p.9</a>（A）、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=20">p.20</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=29">p.29</a>（C）、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=36">p.36</a>（C）、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=47">p.47</a>（C）、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=52">p.52</a>（B）、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=54">p.54</a>（A）、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=57">p.57</a>（A）。除上表列的疑義外，答案與正文一致。</p>
+      <footer class="note-footer">資料來源：兩份講義；國考官方答案取自 國考專區/考科/獸醫傳染病學/試卷。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 下列何者「不是」魚類的主要特徵？</div>
+        <ul class="quiz-options"><li>(A) 具有鰓</li><li>(B) 具有帶趾四肢</li><li>(C) 具有鰭</li><li>(D) 身體覆蓋鱗片</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=3">上 p.3–4</a>：魚類具鰓（水中呼吸）、鰭（游泳）、鱗片，且缺乏帶趾四肢，所以 (A)、(C)、(D) 都是特徵；肉鰭魚的鰭只是四肢的雛形，不是帶趾四肢。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 魚類氣體交換效率較高的方式與原因，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 血與水同向流動，氧交換效率約 80%</li><li>(B) 血與水逆向流動，氧交換效率約 80%</li><li>(C) 血與水逆向流動，氧交換效率約 50%</li><li>(D) 血與水同向流動，沿整段鰓小片都持續吸氧</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=40">上 p.40</a>：逆流約 80%、順流約 50%。(A) 把兩者倒過來；(C) 數字與方向不配；(D) 同向時血水分壓很快趨近平衡，後半段就不再有效吸氧，「整段持續吸氧」正是逆流的特點。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 淡水硬骨魚的滲透壓調節，何者正確？</div>
+        <ul class="quiz-options"><li>(A) 大量喝水，鰓氯細胞主動排鹽，排少量尿</li><li>(B) 不喝水，排大量稀釋尿，鰓氯細胞主動吸收離子</li><li>(C) 不喝水，排少量濃縮尿，鰓氯細胞主動排鹽</li><li>(D) 靠高濃度尿素與 TMAO 使體液與環境等滲</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=41">下 p.41</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=43">p.43</a>：淡水魚體液濃度大於環境，水會滲入，所以不需喝水、不斷排尿，氯細胞吸收稀少的離子；(A) 是海水魚；(C) 排鹽是海水魚的做法，且淡水魚尿量大；(D) 是軟骨魚（鯊魚）的策略（<a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=46">下 p.46</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 三甲胺氧化物（TMAO）在鯊魚體內的主要功能是？</div>
+        <ul class="quiz-options"><li>(A) 增強免疫系統</li><li>(B) 促進新陳代謝</li><li>(C) 保護組織蛋白質免受高濃度尿素變性</li><li>(D) 幫助消化</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=46">下 p.46–47</a>：軟骨魚血中高尿素（350–400 mM）使滲透壓與海水相近，TMAO 等滲透質保護蛋白質免受尿素變性。(A)、(B)、(D) 講義沒有此功能。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 魚鰾氣體腺把氧氣充入鰾的關鍵，不包括下列哪一項？</div>
+        <ul class="quiz-options"><li>(A) 氣體腺產生乳酸降低局部 pH</li><li>(B) Bohr 效應使血紅蛋白親和力降低</li><li>(C) Root 效應使血紅蛋白攜氧容量下降</li><li>(D) 卵圓窗開啟把氣體釋出</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">講義<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=50">上 p.50–51</a>：氣體腺負責<strong>充氣</strong>（乳酸 → pH 降 → Bohr／Root 把氧擠出血紅蛋白）；卵圓窗是<strong>放氣</strong>構造（括約肌控制）。(A)(B)(C) 都是充氣機制；其中 Root 效應的「攜氧容量下降」定義為補充（講義寫親和力降低）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 魚類「鰓蓋怒張」的原因，講義列出何者？</div>
+        <ul class="quiz-options"><li>(A) 鰓部疾病、水質惡化、中毒</li><li>(B) 僅鰓部疾病</li><li>(C) 鰾功能異常、缺氧、鰓部疾病</li><li>(D) 營養不良、體色變黑、鰾腫大</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=46">上 p.46</a>。(B) 漏掉水質與中毒；(C) 是講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=47">p.47</a>「<strong>浮頭</strong>」的三個原因（缺氧、鰓部疾病、鰾功能異常），不是鰓蓋怒張；(D) 與題目無關。注意兩者很接近，考試容易混。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 魚類脾臟腫大的主要原因「不包括」？</div>
+        <ul class="quiz-options"><li>(A) 病原體感染</li><li>(B) 水質不良</li><li>(C) 環境溫度過高</li><li>(D) 遺傳或腫瘤性疾病</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain"><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=35">下 p.35–36</a>：正文列的四類原因是病原體感染、水質不良、營養失衡、遺傳或腫瘤性疾病，沒有「環境溫度過高」；(A)、(B)、(D) 都在正文內。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. 魚類的紅血球與哺乳類一樣沒有細胞核。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain"><a class="pdf-link" href="pdf/魚類解剖與生理_下.pdf#page=6">下 p.6</a>：魚類紅血球含細胞核且體積較大；魚的心臟為單循環，血只經過心臟一次。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 魚的皮膚表皮有厚角質層，所以幾乎不能做氣體交換與離子調節。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain"><a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=61">上 p.61</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=63">p.63</a>：表皮<strong>缺乏角質層</strong>、保持濕潤、便於氣體交換；皮膚還能排泄與滲透調節（皮膚氯細胞）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q10. 說明魚鰓的三大功能，並指出硬骨魚讓水流過鰓的三種方式。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">三大功能：氣體交換、離子調節（氯細胞）、酸鹼調節（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=33">上 p.33</a>）。水流方式：鰓蓋活動（主動，吸水與壓水）、胸鰭活動（輔助、小型魚）、快速游泳（被動、大型魚）（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=35">上 p.35</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=37">p.37</a>）。補充：鰓同時是多數硬骨魚排氨的主要部位。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. 比較 Bohr 效應與 Root 效應，並說明它們在鰾充氣中的角色。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>Bohr</strong>：CO2 增加、pH 下降 → Hb 對氧親和力下降（曲線右移），高氧分壓下仍可飽和。<strong>Root</strong>：酸性下 Hb 攜氧容量下降，曲線平台降低，高分壓下也不能飽和（補充：標準定義；講義 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=51">p.51</a> 兩者都只寫親和力降低）。<strong>鰾充氣</strong>：氣體腺把糖解成乳酸與 CO2 → 血液酸化 → Bohr＋Root 把氧擠出血紅蛋白 → 氧分壓升高並進入鰾（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=51">上 p.51</a>）；補充：奇網的逆流倍增保留高分壓氣體。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q12.【臨床情境】淡水養殖場的魚清晨浮頭，鰓蓋怒張，水中 DO 正常，氨氮、亞硝酸鹽也正常。鰓壓片鏡檢可見鰓小片上皮增生、部分融合，黏液增多。請問：(1) 為什麼 DO 正常仍呼吸困難？(2) 這與第一週亞硝酸鹽造成的缺氧有何不同？(3) 還要如何鑑別？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 鰓小片增生融合使<strong>有效氣體交換面積下降</strong>且擴散距離增加，逆流交換效率下降（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=36">上 p.36</a>、<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=40">p.40</a>；國考 101-1 第 73 題：細菌性鰓病病變為鰓薄板增生融合）。同時離子與酸鹼調節也受影響。<br><strong>(2)</strong> 亞硝酸鹽是水中有氧、血紅素被氧化而不能攜氧（第一週 <a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=38">p.38</a>）；鰓病是<strong>交換界面本身</strong>出問題。兩者都表現浮頭、鰓蓋怒張。<br><strong>(3)</strong> 鰓部疾病（細菌、寄生蟲、真菌，<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=46">上 p.46</a>）＋水質＋中毒＋鰾功能異常；取鰓壓片、細菌培養、鍍銀染色（如鰓黴菌）；用藥與處理依病因，給藥途徑（藥浴為主）、劑量、休藥期講義沒寫，需依法規。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一尾金魚游泳姿勢傾斜、浮在水面、腹部腫脹。請列出診斷流程與可能原因，並說明為何不可以直接開藥。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">觀察症狀（浮頭、沉底、游泳不穩、食慾）→ <strong>X 光</strong>看鰾形態、大小、腫大、感染或損傷 → <strong>超音波</strong>看內部結構、積液或腫瘤（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=55">上 p.55</a>）。原因：鰾<strong>感染</strong>（細菌、病毒、寄生蟲）或<strong>損傷</strong>（外力、手術不當）（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=53">p.53</a>），還要排除<strong>鰓部疾病與缺氧</strong>造成的浮頭（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=47">p.47</a>）。藥物治療要依病因與嚴重度選擇（抗生素、抗病毒藥、驅蟲藥），手術為腫大或損傷的選項（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=56">p.56</a>）；講義沒寫藥名、途徑與劑量，要依診斷、魚種與法規；金魚為觀賞魚，仍應先排水質。補充：鯉科金魚屬開鰾，與閉鰾的氣體腺、卵圓窗機制不同。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】一尾淡水魚體表鱗片豎起呈松果狀、腹部膨大、眼球突出。(1) 這代表什麼？(2) 講義對立鱗病的診斷與防治怎麼說？(3) 為什麼水質與營養要一併處理？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1)</strong> 立鱗病的表現，常合併腹水與凸眼，代表<strong>全身性水腫／敗血症或體液調節失衡</strong>（補充：機轉待核對；講義只寫細菌感染與魚鱗豎起、體表腫脹）。<strong>(2)</strong> 診斷主要看症狀，可做細菌培養與藥敏；防治＝改善水質、使用抗生素、加強營養（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=67">上 p.67</a>；講義沒寫藥名、途徑與劑量）。<strong>(3)</strong> 水質差、營養不足會降低免疫、增加病原數量與壓力（<a class="pdf-link" href="pdf/魚類解剖與生理_上.pdf#page=74">上 p.74</a>）；並與第一週「先救環境、再做病原診斷」一致。</p></details>
+      </div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=%E9%AD%9A%E9%A1%9E%E8%A7%A3%E5%89%96%E8%88%87%E7%94%9F%E7%90%86" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考；標「補充」處為一般教科書概念。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  classification: '魚類定義與分類',
+  locomotion: '運動、游泳與趨性',
+  respiration: '鰓與呼吸',
+  swimbladder: '鰾與浮力（含 Bohr、Root 效應）',
+  skin: '皮膚、鱗與黏液',
+  circulation: '心臟與血液循環',
+  sense: '感覺器官：耳、側線、嗅、味、眼',
+  organs: '肝、脾、腎與消化道',
+  osmo: '滲透壓與氯細胞',
+  muscle: '肌肉、體色、壓力與生殖',
+  exam: '國考關聯與講義核對',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

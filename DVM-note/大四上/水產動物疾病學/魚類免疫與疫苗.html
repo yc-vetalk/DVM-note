@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水產動物疾病學：魚類免疫與疫苗 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">水產動物疾病學</a><span class="sep">›</span><span class="current">魚類免疫與疫苗</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">魚類免疫與疫苗 Fish Immunity and Vaccines</h1>
+      <p class="page-subtitle">壓力與皮質醇如何削弱免疫、魚體第一道防線與免疫器官、先天與適應性免疫、腸道免疫、生物膜，以及三種疫苗投予方式與各類疫苗</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">水產動物疾病學（大四上・免疫與疫苗）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">《水生動物疾病學》〈Fish immunity〉講義（檔名 Fish immunity.pdf，112 頁；講義未署名）；黃框「讀書補充Note」為整理者查文獻補充</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-10-29</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/魚類免疫與疫苗.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=%E9%AD%9A%E9%A1%9E%E5%85%8D%E7%96%AB%E8%88%87%E7%96%AB%E8%8B%97">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記（講義 p.1–112；含文獻補充 Note）</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">考古重點（先看）</div>
+    <a onclick="showSection('organs')" id="nav-organs"><span class="nav-icon">🫘</span> 免疫器官與免疫細胞</a>
+    <a onclick="showSection('vroute')" id="nav-vroute"><span class="nav-icon">💉</span> 疫苗投予方式與疫苗類型比較</a>
+    <div class="section-label" style="margin-top:8px;">免疫基礎</div>
+    <a onclick="showSection('stress')" id="nav-stress"><span class="nav-icon">⚡</span> 壓力與免疫</a>
+    <a onclick="showSection('barrier')" id="nav-barrier"><span class="nav-icon">🛡️</span> 第一道防線：鰓、皮膚、黏液</a>
+    <a onclick="showSection('adaptive')" id="nav-adaptive"><span class="nav-icon">🧬</span> 適應性免疫：T 細胞與抗體</a>
+    <a onclick="showSection('gut')" id="nav-gut"><span class="nav-icon">🍽️</span> 腸道免疫</a>
+    <div class="section-label" style="margin-top:8px;">細菌與疫苗</div>
+    <a onclick="showSection('biofilm')" id="nav-biofilm"><span class="nav-icon">🧫</span> 對細菌的免疫反應：生物膜</a>
+    <a onclick="showSection('vtype')" id="nav-vtype"><span class="nav-icon">🧪</span> 疫苗類型</a>
+    <div class="section-label" style="margin-top:8px;">整合與複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">📝</span> 考古與國考對照</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=%E9%AD%9A%E9%A1%9E%E5%85%8D%E7%96%AB%E8%88%87%E7%96%AB%E8%8B%97" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">魚類免疫與疫苗的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>講義的目的是「了解魚類免疫，以利後續疫苗及魚類診斷的相關知識」（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=3">p.3</a>）。順序是：<strong>壓力</strong>（緊迫會抑制免疫）→ 魚類<strong>免疫系統</strong>（第一道防線、免疫器官、先天與適應性免疫、腸道免疫）→ <strong>對細菌的免疫反應</strong>（生物膜如何躲過免疫）→ <strong>疫苗</strong>（投予方式與各種疫苗）。講義幾乎都是圖與英文關鍵字，<strong>內容很精簡</strong>，上課會補充很多；本頁在講義之外另有黃框「讀書補充Note」，是依文獻與一般教科書補的，與講義內容分開標示。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-organs">免疫器官</a>：<strong>腎臟</strong>血流慢、抗原被困住，<strong>前段（anterior）是「memory」發生處</strong>；脾臟次之；肝臟可能產生補體成分（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=53">p.53</a>）。</li>
+              <li><a href="#section-vroute">疫苗投予方式</a>：<strong>注射</strong>、<strong>浸泡</strong>、<strong>口服</strong>各有優缺點；口服最適合稚魚、減少緊迫；浸泡操作簡單但容易汙染、免疫機制待闡明（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=86">p.86–91</a>）。</li>
+              <li><a href="#section-stress">壓力</a>：<strong>皮質醇</strong>升高會抑制吞噬細胞、降低循環淋巴球；壓力三階段（反抗、適應、衰竭）與三級反應（初級、次級、第三級）。</li>
+              <li><a href="#section-barrier">第一道防線</a>：鰓與皮膚是魚最先接觸病原處；黏液、抗菌胜肽、<strong>溶菌酶</strong>（作用於肽聚醣）。</li>
+              <li><a href="#section-biofilm">生物膜</a>：抗生素需要比 MIC 高很多的濃度才殺得到（MBEC），並躲避補體、把巨噬細胞推向 M2。</li>
+              <li><a href="#section-vtype">各類疫苗</a>：不活化、減毒、次單位、DNA、類毒素、RNAi（siRNA）、生物膜疫苗。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>先天（非特異性）與適應性免疫</strong>：溶菌酶、抗菌胜肽、吞噬、NK 樣細胞屬先天；T 細胞、B 細胞與抗體屬適應性。<strong>MHC I 與 MHC II</strong>：I 呈現給 CD8+ 毒殺 T 細胞、II 呈現給 CD4+ 輔助 T 細胞。<strong>MIC 與 MBEC</strong>：前者殺浮游菌，後者殺生物膜裡的菌。</dd>
+          <dt>考試可能怎麼問<br><span style="font-weight:400; font-size:.85em;">（推測）</span></dt>
+          <dd>免疫器官與功能（學長姐回憶 2023 助教預告）、疫苗投予方式與優缺點（同上，加分題）；壓力的生理反應；溶菌酶作用；國考曾考「鮭魚 Aeromonas salmonicida 的商品化油質疫苗」（102-2）與 NNV（102-1）。細節見「考古與國考對照」一節。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>講義內容與「讀書補充Note」嚴格分開：正文只寫講義有的（附 p.N）；黃框是依文獻補的，標「補充：依一般教科書／文獻」並說明講義沒寫，文獻不確定的標「待核對」。講義夾帶的選擇題（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=5">p.5</a>、8、10、13、32、35）答案已與同一份講義正文核對，彼此一致。講義沒有作者署名；圖片與 PDF 已獲使用者確認可公開。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-node">壓力、環境惡化</div><div class="flow-arrow">→</div>
+        <div class="flow-node">皮質醇升高，免疫抑制</div><div class="flow-arrow">→</div>
+        <div class="flow-node">病原突破鰓／皮膚／腸道防線</div><div class="flow-arrow">→</div>
+        <div class="flow-node">腎臟、脾臟免疫反應與抗體</div><div class="flow-arrow">→</div>
+        <div class="flow-node">疫苗誘發保護</div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=4">p.4</a> 疾病抵抗力</div>
+        <p>並非每次疾病爆發時所有魚都會生病死亡；個體對潛在病原的反應受許多因素影響，且<strong>病原（細菌、寄生蟲、病毒）本身必須有能力致病</strong>。（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=5">p.5</a> 選擇題：真菌、細菌、病毒都可引起魚類疾病，答案 D。）</p>
+      </div>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=1">p.1–5</a>。「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ORGANS -->
+    <div class="section" id="section-organs">
+      <div class="section-head"><div class="section-num">2</div><h2>免疫器官與免疫細胞 Immune Organs &amp; Cells</h2></div>
+      <p class="section-desc">考古年年有（學長姐回憶 2023 助教預告：免疫器官，腎臟＝memory 所在、脾臟…）。先記<strong>三個器官</strong>：腎臟（特別是前段）、脾臟、肝臟。</p>
+      <h3>免疫器官比較表<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p051.jpg" alt="魚體內接觸病原的位置：頭腎（Head kidney）、胸腺（Thymus）、鰓、肝、脾、腸道相關淋巴組織（Gut-ass" loading="lazy"><div class="figure-caption">魚體內接觸病原的位置：頭腎（Head kidney）、胸腺（Thymus）、鰓、肝、脾、腸道相關淋巴組織（Gut-associated lymphoid tissue）、黏液皮膚（Mucous skin）（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=51">p.51</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=51">p.51</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">器官</th><th>講義的描述（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=53">p.53–55</a>）</th><th>要記的重點</th></tr></thead>
+          <tbody>
+            <tr><td><strong>腎臟 Kidney</strong></td><td>血液流經腎臟<strong>很慢</strong>，抗原被「困住」（trapped）或暴露給網狀細胞（reticular cells）、巨噬細胞、淋巴球；<strong>前段（Anterior）是「memory」發生處</strong></td><td>最重要的免疫器官；造血部位之一（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=54">p.54</a>：硬骨魚造血部位主要是腎臟與脾臟）</td></tr>
+            <tr><td><strong>脾臟 Spleen</strong></td><td>次於腎臟（secondary to kidney）；參與免疫反應與血球形成，含淋巴球與巨噬細胞</td><td>造血＋免疫；注射抗原後的反應由脾臟 melanomacrophage centers 與橢球體產生（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=87">p.87</a>）</td></tr>
+            <tr><td><strong>肝臟 Liver</strong></td><td>可能參與<strong>補體（complement）</strong>成分的產生，對抗病力重要；「not real clear」（講義原話：不太清楚）</td><td>補體來源；講義自己也說機制不明</td></tr>
+            <tr><td><strong>網狀內皮系統</strong>（Reticuloendothelial system）</td><td>由分布全身各組織、<strong>吞噬力很強</strong>的細胞組成（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=55">p.55</a>）</td><td>先天免疫的吞噬細胞網</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p054.jpg" alt="免疫系統的細胞譜系：幹細胞（Stem cell）分為淋巴性（T、B、NK 與漿細胞）與骨髓性（嗜中性球、嗜酸性球、嗜鹼性" loading="lazy"><div class="figure-caption">免疫系統的細胞譜系：幹細胞（Stem cell）分為淋巴性（T、B、NK 與漿細胞）與骨髓性（嗜中性球、嗜酸性球、嗜鹼性球、肥大細胞、巨噬細胞、樹突細胞）；講義註明硬骨魚造血部位主要是腎臟與脾臟（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=54">p.54</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=54">p.54</a></div></div>
+      <h3>非特異性（先天）免疫細胞<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">細胞</th><th>功能（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=56">p.56</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>單核球與組織巨噬細胞</strong> Monocytes &amp; tissue macrophages</td><td>免疫反應<strong>最重要</strong>的細胞；產生細胞激素；主要吞噬細胞，初次辨識與再次感染時<strong>最先殺死病原</strong></td></tr>
+            <tr><td><strong>嗜中性球</strong> Neutrophils</td><td>發炎<strong>早期</strong>的主要細胞；產生細胞激素招募免疫細胞到受損或感染處；在 <em>I. punctatus</em>（斑點叉尾鮰）具吞噬力，以<strong>細胞外機制</strong>殺菌</td></tr>
+            <tr><td><strong>自然殺手樣細胞</strong> Natural killer-like cells</td><td>以受體結合標的細胞並使其溶解；對<strong>寄生蟲與病毒免疫</strong>重要</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>吞噬作用 Phagocytosis<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>最原始的防禦機制，分階段進行（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=63">p.63</a>）：吞噬細胞沿<strong>趨化作用（chemotaxis，有方向）</strong>或<strong>化學動力作用（chemokinesis，無方向）</strong>移向異物（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=61">p.61</a> 附圖）。</li>
+        <li>① 經<strong>凝集素（lectins）</strong>附著 → ② 吞入異物 → ③ 殺死與消化。殺菌機制分<strong>不依賴氧</strong>（低 pH、溶菌酶、乳鐵蛋白、蛋白水解／水解酶）與<strong>依賴氧</strong>兩類。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p064.jpg" alt="吞噬作用流程：偽足包圍病原 → 內吞形成液泡 → 與溶酶體融合 → 毒性物質破壞病原 → 殘渣胞吐排出（講義 p.64）" loading="lazy"><div class="figure-caption">吞噬作用流程：偽足包圍病原 → 內吞形成液泡 → 與溶酶體融合 → 毒性物質破壞病原 → 殘渣胞吐排出（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=64">p.64</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=64">p.64</a></div></div>
+      <h3>模式辨識受體 PRR 與干擾素<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:26%;">受體（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=57">p.57</a>）</th><th>辨識什麼</th></tr></thead>
+          <tbody>
+            <tr><td><strong>TLR</strong> Toll-like receptor</td><td>病原相關分子模式（PAMP）</td></tr>
+            <tr><td><strong>CLR</strong> C-type lectin receptor</td><td>病原表面的碳水化合物（CHO）</td></tr>
+            <tr><td><strong>RLR</strong> RIG-I-like receptor</td><td>感染細胞<strong>細胞質中的病毒 RNA</strong></td></tr>
+            <tr><td><strong>NLR</strong> Nod-like receptor</td><td>PAMP；危險相關分子模式（DAMP）</td></tr>
+            <tr><td><strong>清道夫受體</strong> Scavenger receptors</td><td>DAMP</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p058.jpg" alt="Toll-like receptor（TLR）的訊息傳遞示意（講義 p.58；講義沒有文字說明）。" loading="lazy"><div class="figure-caption">Toll-like receptor（TLR）的訊息傳遞示意（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=58">p.58</a>；講義沒有文字說明）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=58">p.58</a></div></div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p060.jpg" alt="干擾素（Interferon）的抗病毒作用示意（講義 p.60；講義只有圖，沒有文字說明）。" loading="lazy"><div class="figure-caption">干擾素（Interferon）的抗病毒作用示意（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=60">p.60</a>；講義只有圖，沒有文字說明）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=60">p.60</a></div></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 魚的免疫器官：和哺乳類差在哪？「腎臟＝memory」怎麼理解？</summary>
+
+        <p><strong>1. 這是講義沒寫的補充</strong>（補充：依文獻，來源見最後）。講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=53">p.53</a> 只列腎臟、脾臟、肝臟三個器官與一句「Anterior is where memory occurs」。</p>
+        <p><strong>2. 硬骨魚的淋巴器官</strong></p>
+        <ol>
+          <li><strong>沒有淋巴結、沒有骨髓</strong>；有<strong>胸腺、脾臟、頭腎</strong>。</li>
+          <li><strong>頭腎（head kidney，腎臟前段）</strong>是主要的造血組織，是哺乳類骨髓的<strong>功能對應器官</strong>；講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=9">p.9</a> 把 glucocorticoid 的體外實驗說成「骨髓（bone marrow）」前驅細胞，整理者推測是原文照搬哺乳類用語，魚本身沒有骨髓（待核對原文）。</li>
+          <li><strong>胸腺</strong>：T 細胞分化處；<strong>脾臟</strong>：次級器官；<strong>頭腎</strong>：B 細胞分化與 IgM 分泌細胞（漿細胞）主要所在。</li>
+          <li>講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=9">p.9</a> 說急性緊迫或皮質醇使循環淋巴球聚集到<strong>胸腺與頭腎</strong>，血中淋巴球減少，與上述兩個器官角色相符。</li>
+        </ol>
+        <p><strong>3. 怎麼理解「腎臟前段＝memory 所在」</strong></p>
+        <ol>
+          <li>文獻指出抗體分泌細胞<strong>先出現在頭腎，其次脾臟，再來才是黏膜組織</strong>，頭腎是 IgM 漿細胞聚集處，與講義「前段是 memory 發生處」方向一致。</li>
+          <li>「memory」精確指哪一種記憶細胞、能存留多久，我沒有查到可靠的單一說法，標<strong>待核對</strong>；考試寫「腎臟前段（頭腎）是造血與抗體產生（記憶）的主要部位」即可。</li>
+        </ol>
+        <p><strong>4. 黏膜相關淋巴組織（MALT）</strong></p>
+        <ul>
+          <li>硬骨魚只有<strong>擴散型</strong>的 MALT，<strong>沒有 Peyer's patch、扁桃腺</strong>等有組織的結構。</li>
+          <li>共六處：<strong>腸（GALT）、皮膚（SALT）、鰓（GIALT）、嗅覺器官（NALT）</strong>，以及頰部、咽部 MALT。</li>
+          <li>講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=51">p.51</a> 圖標的「Gut-associated lymphoid tissue」「Mucous skin」「Gills」就是這些黏膜防線。</li>
+        </ul>
+        <p style="font-size:.85em;">來源：Yu et al. 2020, <em>Front Immunol</em> 11:567941（<a href="https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2020.567941/full" target="_blank" rel="noopener">連結</a>）；<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7566178" target="_blank" rel="noopener">PMC7566178</a>、<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5125549" target="_blank" rel="noopener">PMC5125549</a> 摘要。以上為文獻層級的概述，不同魚種有差異。</p>
+      </details>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=51">p.51–64</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VROUTE -->
+    <div class="section" id="section-vroute">
+      <div class="section-head"><div class="section-num">3</div><h2>疫苗投予方式 Vaccine Administration</h2></div>
+      <p class="section-desc">考古年年有（學長姐回憶 2023 助教預告：疫苗給予方式，加分題 10 分）。講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=86">p.86</a>：<strong>疫苗接種是對抗疾病最有效的方法</strong>（Plant &amp; Lapatra, 2011），投予途徑有注射、浸泡、口服三種。</p>
+      <h3>三種投予方式比較表<span class="lv lv-must">必考</span></h3>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p091.jpg" alt="不同投予途徑的相對保護率（RPS，%）：i.p.+i.p.（腹腔注射＋腹腔注射追加）最高，約 100／85；i.p.+i" loading="lazy"><div class="figure-caption">不同投予途徑的相對保護率（RPS，%）：i.p.+i.p.（腹腔注射＋腹腔注射追加）最高，約 100／85；i.p.+imm. 約 60／45；imm.+imm. 約 31／15；oral 約 64／52（黑柱 5.0×10^5、白柱 5.0×10^7 cfu/fish）。數值為讀圖估計，講義未說明菌種、魚種與兩個劑量的意義（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=91">p.91</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=91">p.91</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:12%;">途徑</th><th>講義寫的（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=86">p.86–91</a>）</th><th>優點</th><th>缺點／限制</th><th>適用情境</th></tr></thead>
+          <tbody>
+            <tr><td><strong>注射</strong><br>injection（腹腔注射 i.p. 等）</td><td>硬骨魚（teleost）注射抗原後的免疫反應由<strong>脾臟的 melanomacrophage centers 及橢球體（ellipsoids）</strong>產生（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=87">p.87</a>）。<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=91">p.91</a> 圖：腹腔注射＋腹腔注射追加的保護率最高</td><td>（講義圖）保護率最高</td><td>講義沒有直接寫缺點（見下方補充：緊迫、人工、小魚不適用）</td><td>較大的魚、需要高保護率時</td></tr>
+            <tr><td><strong>口服</strong><br>oral（拌入飼料）</td><td>直接把疫苗<strong>添加入餌料</strong>施用，<strong>最理想、方便</strong>，可<strong>減少魚的緊迫壓力</strong>，使用量比浸泡型少、<strong>經濟</strong>，是<strong>最適用於稚魚免疫</strong>的方法（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=88">p.88</a>）。製備法：<strong>酒精包埋法</strong>、<strong>飼料混合重新塑型</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=89">p.89</a>）</td><td>省人力、無緊迫、用量少、經濟、適合稚魚與大量魚群</td><td>（講義圖）保護率不如注射追加（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=91">p.91</a> oral 約 64／52）</td><td>稚魚、大量魚群</td></tr>
+            <tr><td><strong>浸泡</strong><br>immersion</td><td><strong>操作簡單</strong>、<strong>容易汙染</strong>、<strong>免疫機制尚待闡明</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=90">p.90</a>）</td><td>操作簡單</td><td>容易汙染；免疫機制不清；（講義圖）imm.+imm. 保護率最低</td><td>小魚、無法注射時</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info"><div class="alert-label">給藥途徑一覽（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=86">p.86</a> 圖示）</div><p>注射（針筒）、浸泡（水桶）、口服（魚吃飼料）三種。講義沒有寫劑量、休藥期與疫苗產品名稱，不可直接當用藥依據。</p></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 疫苗投予方式的優缺點與實務（以專業魚病學角度補充）</summary>
+
+        <p>以下為<strong>補充：依一般教科書／文獻</strong>，講義沒寫，數字不精確處標待核對。</p>
+        <p><strong>1. 注射（最有效，但最累）</strong></p>
+        <ul>
+          <li>最有保護力，疫苗用量可精準、浪費少，<strong>可以加佐劑</strong>（常用油質佐劑）。</li>
+          <li>缺點：<strong>緊迫大、費工</strong>（一尾一尾打、需麻醉）、可能有佐劑副作用（腹腔黏連等）、<strong>太小的魚無法注射</strong>（一篇地中海養殖綜述寫約 &lt;15 g 不實際，待核對）。</li>
+          <li>所以常見做法：<strong>稚魚浸泡或口服基礎免疫 → 魚長到足夠大再注射追加</strong>（類似講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=91">p.91</a> 的 i.p.+imm. 概念，但該圖的設計講義沒有說明）。</li>
+        </ul>
+        <p><strong>2. 浸泡（簡單，但弱）</strong></p>
+        <ul>
+          <li>比注射<strong>緊迫小</strong>，適合小魚、可一次處理很多尾。</li>
+          <li>效果<strong>依疫苗種類而異</strong>：活的減毒疫苗效果較好，不活化疫苗效果較差；保護期常較短，常需追加（文獻綜述）。</li>
+          <li>黏膜（鰓、皮膚）直接接觸抗原，所以也被視為誘發黏膜免疫的途徑（Yu 2020），但浸泡後 Ig 反應<strong>研究仍不多</strong>，與講義說「免疫機制尚待闡明」一致。</li>
+        </ul>
+        <p><strong>3. 口服（最方便，但最難做好）</strong></p>
+        <ul>
+          <li>無緊迫、省人力、可大量群體施用。</li>
+          <li><strong>主要問題是效果低</strong>：抗原在胃腸道被分解、可能產生<strong>口服耐受（oral tolerance）</strong>；常需要<strong>包埋保護</strong>（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=89">p.89</a> 的酒精包埋法就是一種）。</li>
+          <li>例外：智利鮭魚的口服疫苗（對 ISA、SRS）已大規模使用，報導超過 4,000 萬尾（Global Seafood Alliance 報導，數字待核對）。</li>
+        </ul>
+        <p><strong>4. 其他新途徑</strong>：肛門（anal）與鼻腔（nasal）等黏膜途徑有研究，仍屬發展中（Yu 2020）。</p>
+        <p><strong>5. 一句話選擇</strong>：要最高保護 → 注射；魚太小 → 浸泡／口服；要省工 → 口服（但效力要驗證）。</p>
+        <p style="font-size:.85em;">來源：Yu et al. 2020, <em>Front Immunol</em> 11:567941；<a href="https://ressources.ciheam.org/ressources/om/pdf/a86/00801070.pdf" target="_blank" rel="noopener">CIHEAM 地中海水產疫苗綜述</a>；<a href="https://www.globalseafood.org/advocate/oral-vaccine-delivery-effective-in-reducing-salmon-diseases/" target="_blank" rel="noopener">Global Seafood Alliance</a>；<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9660215" target="_blank" rel="noopener">PMC9660215</a>（搜尋摘要，未逐篇精讀）。</p>
+      </details>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=86">p.86–91</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- STRESS -->
+    <div class="section" id="section-stress">
+      <div class="section-head"><div class="section-num">4</div><h2>壓力與免疫 Stress &amp; Immunity</h2></div>
+      <p class="section-desc">養殖環境惡化 → 緊迫 → 內分泌改變（<strong>皮質醇</strong>、<strong>兒茶酚胺</strong>）→ 免疫被抑制。這一節解釋為什麼第一週的水質問題會變成疾病。</p>
+      <h3>壓力的定義與壓力源<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>Selye (1973)：壓力是身體對任何要求的<strong>非特異性反應</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=11">p.11</a>）。壓力反應被視為一種<strong>適應機制</strong>，讓魚應付真實或感知到的壓力源、維持恆定狀態；壓力可視為「恆定受威脅，由一組複雜的適應反應重新建立」（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=12">p.12–13</a>，講義選擇題答 B 適應機制）。</li>
+        <li>壓力源改變魚的周圍環境（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=14">p.14</a>）：<strong>化學</strong>（污染物、低氧、酸化）、<strong>物理</strong>（處理、捕撈、圈養、運輸）、<strong>感知</strong>（驚嚇、掠食者）。</li>
+        <li>依時間與頻率分<strong>急性</strong>（短暫，如處理）與<strong>慢性</strong>（持續或反覆暴露，造成長期生理反應）；兩者都嚴重損害生長與健康（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=15">p.15</a>）。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">壓力源類別</th><th>講義列舉（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=17">p.17–25</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>化學</strong> Chemical</td><td>水質不良、汙染、飼料組成、含氮與其他代謝廢物</td></tr>
+            <tr><td><strong>生物</strong> Biological</td><td>族群密度、其他魚種、微生物、大型生物</td></tr>
+            <tr><td><strong>物理</strong> Physical</td><td>溫度、光線、聲音／噪音</td></tr>
+            <tr><td><strong>操作</strong> Procedural</td><td>處理、運輸（shipping）、疾病治療</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>光</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=21">p.21–23</a>）：講義用暗、白光、藍光（450 nm）、綠光（525 nm）處理後比較魚體長、殘食次數（cannibalism）與血糖值，只有圖，<strong>講義沒有寫結論</strong>，不整理數值。</li>
+        <li><strong>噪音</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=24">p.24</a>，Smith et al., 2004, J Exp Biol）：誘發暴露魚的壓力反應、可造成暫時聽力喪失、專一化的魚更敏感、魚可隨時間恢復。</li>
+        <li>壓力後<strong>行為反應</strong>是最立即的徵象（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=26">p.26</a>）：攝食、避敵、捕食、洄游、棲地選擇，可作為環境壓力指標。</li>
+      </ul>
+      <h3>壓力的三階段與 HPI 軸<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">階段（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=7">p.7</a>）</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. 反抗期</strong> resistance</td><td>魚產生<strong>迴避行為</strong>，並藉生理調節恢復原有恆定。壓力訊息經中樞神經匯集到<strong>下視丘前葉（preoptic anterior hypothalamus）</strong>：一方面經自律神經傳給<strong>嗜鉻細胞（chromaffin cells）</strong>，分泌<strong>兒茶酚胺</strong>入血，產生應急反應；另一方面下視丘分泌 <strong>CRF</strong> → 腦下垂體分泌 <strong>ACTH</strong></td></tr>
+            <tr><td><strong>2. 適應期</strong> adaptation</td><td>長期受刺激下，體內生理調節逐漸達到<strong>新的恆定狀態</strong></td></tr>
+            <tr><td><strong>3. 衰竭期</strong> exhaustion</td><td>刺激過強或持續過久，個體來不及調整，或耗盡能量與激素前驅物，失去平衡而<strong>死亡</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p036.jpg" alt="壓力反應總覽：壓力 → 腦（下視丘）→ 腦下垂體 → 腎間組織（皮質醇）與嗜鉻組織（CAT，兒茶酚胺）；次級反應（初級屏" loading="lazy"><div class="figure-caption">壓力反應總覽：壓力 → 腦（下視丘）→ 腦下垂體 → 腎間組織（皮質醇）與嗜鉻組織（CAT，兒茶酚胺）；次級反應（初級屏障與免疫、細胞離子、代謝營養、循環呼吸）；第三級反應（生長、抗病力、游泳能力、行為、繁殖）（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=36">p.36</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=36">p.36</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">反應級別</th><th>內容（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=27">p.27–34</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>初級反應</strong> Primary</td><td>啟動並分泌激素入血：<strong>兒茶酚胺</strong>（腎上腺素／正腎上腺素，戰或逃）來自<strong>嗜鉻組織</strong>（腎臟與心臟附近，酪胺酸羥化酶 TH 陽性）；<strong>皮質類固醇（皮質醇、皮質酮、可體松）</strong>來自<strong>腎間組織（interrenal）</strong>，與壓力反應、滲透調節、蛋白質／碳水化合物代謝有關</td></tr>
+            <tr><td><strong>次級反應</strong> Secondary</td><td>激素觸發：<strong>血糖上升</strong>（提供能量）、心跳加快、鰓血流增加、代謝率上升，造成血乳酸與血容比改變（<strong>循環淋巴球減少</strong>）。血糖升高是常見指標；<strong>腎上腺素作用短期、皮質醇作用長期</strong></td></tr>
+            <tr><td><strong>第三級反應</strong> Tertiary</td><td>全身性改變：<strong>生長率下降、抗病力下降、行為改變、存活率下降</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-success"><div class="alert-label">重點：皮質醇如何削弱免疫（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=9">p.9</a>）</div><p>血中皮質醇升高 → <strong>抑制吞噬細胞</strong>、<strong>降低循環性 T 樣與 B 樣淋巴球</strong>。鱒魚在急性緊迫或直接注射皮質醇後，循環淋巴球趨向<strong>胸腺與頭腎</strong>淋巴組織，血中數量降低；體外實驗中糖皮質激素抑制單核球與顆粒球前驅細胞的分化增生。講義說淋巴球變化「目前還有很多尚未釐清」。</p></div>
+      <p>講義選擇題核對：<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=8">p.8</a>（反抗期的反應是「產生迴避行為」，B）、<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=10">p.10</a>（皮質醇升高→抑制吞噬細胞與降低淋巴球，B）、<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=32">p.32</a>（不是壓力生理變化的是「白血球數量增加」，C，與 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=31">p.31</a>「循環淋巴球減少」一致）、<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=35">p.35</a>（第三級反應導致「行為改變」，C，與 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=34">p.34</a> 一致）。</p>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 壓力為什麼和疫苗、治療失敗有關？</summary>
+
+        <p><strong>補充：依一般教科書</strong>（講義沒寫；不是具體數字，無需查證的概念層次）。</p>
+        <ol>
+          <li>HPI 軸（下視丘—腦下垂體—腎間組織軸）相當於哺乳類的 HPA 軸；魚沒有獨立的腎上腺，<strong>腎間組織與嗜鉻組織分散在頭腎</strong>（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=28">p.28–29</a> 圖示在腎臟與心臟附近）。</li>
+          <li>臨床意義：<strong>運輸、分池、密度高、水質差、噪音</strong>都會讓皮質醇升高 → 免疫被抑制。這時候即使沒有新病原，原本潛伏的病原（如細菌）也容易爆發；<strong>在高壓力時打疫苗，效力也可能下降</strong>（這是一般觀念，沒有查到具體量化文獻，待核對）。</li>
+          <li>所以第一週強調的「先救環境」不只是避免直接死亡，也是維持免疫功能。</li>
+        </ol>
+      </details>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=7">p.7–36</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BARRIER -->
+    <div class="section" id="section-barrier">
+      <div class="section-head"><div class="section-num">5</div><h2>第一道防線：鰓、皮膚、黏液與溶菌酶 Barriers, Mucus &amp; Lysozyme</h2></div>
+      <p class="section-desc">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=38">p.38</a>：魚類<strong>最先接觸病原</strong>的位置。病原進入前，先要突破這幾道物理與化學防線。</p>
+      <h3>鰓與皮膚<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>鰓 Gill</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=39">p.39–40</a>）：氣體交換、離子調節（ionoregulation）、酸鹼調節、<strong>解毒（含氮廢物）</strong>。講義附鰓組織切片：初級鰓瓣、次級鰓瓣、上皮細胞、<strong>黏液細胞</strong>、柱狀細胞、毛細血管腔、紅血球、<strong>氯細胞</strong>、rodlet cell、未分化基底細胞。</li>
+        <li><strong>皮膚 Skin</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=41">p.41</a>）：表皮<strong>沒有死亡的角質化細胞</strong>，真皮為密度不一的結締組織；附圖標示 cuticle、杯狀細胞（goblet cell）、club cell、基底膜、鱗囊、色素細胞。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p040.jpg" alt="鰓組織切片（Formalin、H&amp;E）：1 初級鰓瓣、2 次級鰓瓣、3 上皮細胞、4 黏液細胞、5 柱狀細胞、6 毛細血" loading="lazy"><div class="figure-caption">鰓組織切片（Formalin、H&E）：1 初級鰓瓣、2 次級鰓瓣、3 上皮細胞、4 黏液細胞、5 柱狀細胞、6 毛細血管腔、7 腔內紅血球、8 氯細胞、9 rodlet cell、10 未分化基底細胞（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=40">p.40</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=40">p.40</a></div></div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p041.jpg" alt="魚皮膚構造：表皮（Epidermis，含杯狀細胞、club cell）、真皮（Dermis）、下皮（Hypodermis" loading="lazy"><div class="figure-caption">魚皮膚構造：表皮（Epidermis，含杯狀細胞、club cell）、真皮（Dermis）、下皮（Hypodermis）與鱗片（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=41">p.41</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=41">p.41</a></div></div>
+      <h3>黏液、抗菌胜肽與溶菌酶<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">項目</th><th>講義內容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>黏液 Mucus</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=42">p.42</a>）</td><td><strong>困住微生物</strong>並持續抑制它們在體表定殖；感染時<strong>黏液分泌速率增加</strong>；魚的黏液對<strong>某些微生物有毒</strong></td></tr>
+            <tr><td><strong>抗菌胜肽</strong> Antimicrobial peptides（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=43">p.43</a>、46–47）</td><td>12–80 個胺基酸，含 cathelin domain；附圖說明胜肽機制（A、B、C 三步）</td></tr>
+            <tr><td><strong>溶菌酶</strong> Lysozyme（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=48">p.48–50</a>）</td><td>魚類研究最多的先天免疫反應之一；作用於細菌細胞壁的<strong>肽聚醣（peptidoglycan）層</strong>，造成<strong>細菌溶解</strong>；反應<strong>非常快</strong>，除了細菌，<strong>壓力等警報狀況後也會出現</strong>。附革蘭氏陽性與陰性菌壁對照圖（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=49">p.49</a>）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>臨床連結（整理者推測）：講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=48">p.48</a> 說壓力後溶菌酶會升高，所以血清溶菌酶活性可當作壓力與先天免疫的指標；講義沒有寫臨床檢驗方法。</p>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=37">p.37–50</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ADAPTIVE -->
+    <div class="section" id="section-adaptive">
+      <div class="section-head"><div class="section-num">6</div><h2>適應性免疫：T 細胞、MHC 與抗體 Adaptive Immunity</h2></div>
+      <p class="section-desc">講義這部分<strong>只有英文原文與圖</strong>，幾乎完全是一般免疫學概念；魚類特有的部分在黃框補充。</p>
+      <h3>T 細胞與 MHC<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目</th><th>講義（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=65">p.65–68</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>輔助 T 細胞</strong> Helper T（CD4+）</td><td>通知 B 細胞開始製造抗體；活化其他 T 細胞與巨噬細胞；影響產生哪一種抗體</td></tr>
+            <tr><td><strong>毒殺 T 細胞</strong> Cytotoxic T（CD8+，CTL）</td><td>成為殺手細胞，攻擊並消滅被感染的細胞</td></tr>
+            <tr><td><strong>MHC II</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=67">p.67</a>）</td><td>巨噬細胞吞入並處理抗原後，把抗原片段與 <strong>Class II MHC</strong> 一起呈現在表面，吸引並活化<strong>輔助 T 細胞</strong></td></tr>
+            <tr><td><strong>MHC I</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=68">p.68</a>）</td><td>抗原片段與 <strong>Class I MHC</strong> 一起呈現，循環中靜止的<strong>毒殺 T 細胞</strong>受體辨識並結合；結合加上輔助 T 細胞使毒殺 T 細胞活化，攻擊並摧毀病變細胞</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p066.jpg" alt="MHC class I 與 class II 的抗原處理與呈現途徑（講義 p.66；講義沒有文字說明）。" loading="lazy"><div class="figure-caption">MHC class I 與 class II 的抗原處理與呈現途徑（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=66">p.66</a>；講義沒有文字說明）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=66">p.66</a></div></div>
+      <h3>抗體<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=69">p.69</a> 圖：抗原被巨噬細胞攝入、呈現給輔助 T 細胞，刺激 B 細胞增殖為<strong>漿細胞</strong>（製造抗體）與<strong>記憶 B 細胞</strong>；再次接觸抗原時反應更快。</li>
+        <li><a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=71">p.71</a>：人類的抗體種類（IgG、IgE、IgD、IgM、IgA）。<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=72">p.72</a>「Antibody in fish」圖只標示兩種：<strong>IgZ 與 IgM</strong>，附頭腎（head kidney）等器官位置；講義沒有文字說明。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p072.jpg" alt="魚類的抗體基因座與分泌型／膜型 IgZ、IgM，並標示產生部位（講義 p.72；講義只有圖）。" loading="lazy"><div class="figure-caption">魚類的抗體基因座與分泌型／膜型 IgZ、IgM，並標示產生部位（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=72">p.72</a>；講義只有圖）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=72">p.72</a></div></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 魚的抗體：IgM、IgD、IgT（IgZ）與哺乳類的差別</summary>
+
+        <p><strong>補充：依文獻</strong>（Yu et al. 2020；講義只標 IgZ、IgM 兩個，沒有講功能）。</p>
+        <ol>
+          <li><strong>魚有三種：IgM、IgD、IgT／IgZ</strong>，<strong>沒有 IgG、IgA、IgE</strong>。講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=72">p.72</a> 的 IgZ 與 IgT 是同一類抗體的不同命名（依文獻）。</li>
+          <li><strong>IgM</strong>：主要的<strong>全身性（systemic）</strong>抗體，通常為四聚體；血清最多，也出現在黏液。</li>
+          <li><strong>IgT／IgZ</strong>：<strong>黏膜專用</strong>，被認為最古老的黏膜抗體，功能類似哺乳類 IgA；在腸、鰓、皮膚等黏膜對病原反應中占主導，並覆蓋大量共生菌。<strong>不是所有魚都有 IgT 基因</strong>（例如斑點叉尾鮰沒有，只有 IgM 與 IgD）。</li>
+          <li><strong>IgD</strong>：分泌型的保護功能比較不明；有研究顯示可包被部分共生菌。</li>
+          <li><strong>魚的抗體不做類別轉換（class switching）</strong>：這篇綜述寫「沒有任何魚種發生類別轉換」，與哺乳類 IgM → IgG／IgA 的轉換不同。</li>
+          <li>臨床與疫苗意義：黏膜途徑（浸泡、口服）能否誘導 IgT 反應是黏膜疫苗的研究重點；全身性注射疫苗主要誘導血清 IgM（概念整理，具體機制仍在研究）。</li>
+        </ol>
+        <p style="font-size:.85em;">來源：Yu et al. 2020, <em>Front Immunol</em> 11:567941；<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7566178" target="_blank" rel="noopener">PMC7566178</a>。</p>
+      </details>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=65">p.65–72</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- GUT -->
+    <div class="section" id="section-gut">
+      <div class="section-head"><div class="section-num">7</div><h2>腸道免疫 Intestinal Immunity</h2></div>
+      <p class="section-desc">口服疫苗要作用，就得先懂腸道的免疫反應。講義這部分<strong>只有三張圖（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=73">p.73–75</a>），沒有文字</strong>。</p>
+      <ul>
+        <li><a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=73">p.73</a>：魚體輪廓與消化道位置圖；<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=74">p.74</a>：魚腸的解剖圖，標示膽管（Bile duct）、幽門盲囊（Pyloric caeca）、胃（Stomach）、第二腸段（2nd gut segment）、肛門（Anus）。</li>
+        <li><a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=75">p.75</a>：腸道免疫反應示意圖：腸腔（含黏液、抗原與微生物）、上皮細胞、固有層（lamina propria）內的巨噬細胞、嗜中性球與淋巴球，以及<strong>腸道相關淋巴組織（GALT）</strong>；右側標示養分、電解質、水與抗原的運輸。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p075.jpg" alt="腸道免疫反應機制示意：腸腔、黏液、上皮、固有層（Lamina propria）與 GALT（講義 p.75；講義沒有文字" loading="lazy"><div class="figure-caption">腸道免疫反應機制示意：腸腔、黏液、上皮、固有層（Lamina propria）與 GALT（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=75">p.75</a>；講義沒有文字說明）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=75">p.75</a></div></div>
+      <div class="alert alert-warn"><div class="alert-label">講義沒寫</div><p>腸道免疫的機制、細胞與抗體類型講義都沒有文字，這一節僅整理圖面標示；相關概念（GALT 為擴散型、腸道 IgT）見前面「免疫器官」與「抗體」的黃框補充。</p></div>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=73">p.73–75</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BIOFILM -->
+    <div class="section" id="section-biofilm">
+      <div class="section-head"><div class="section-num">8</div><h2>生物膜 Biofilm 如何躲過免疫</h2></div>
+      <p class="section-desc">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=76">p.76</a>「魚類免疫的現況」之後進入生物膜：細菌形成生物膜後，抗生素與宿主免疫都很難清除，這也是後面「生物膜疫苗」的背景。</p>
+      <h3>生物膜的重點<span class="lv lv-know">理解</span></h3>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p080.jpg" alt="MIC 與 MBEC 對照：以 Erythromycin、Florfenicol 兩種藥為例，MIC（殺浮游菌）多數 &amp;" loading="lazy"><div class="figure-caption">MIC 與 MBEC 對照：以 Erythromycin、Florfenicol 兩種藥為例，MIC（殺浮游菌）多數 &lt; 1 µg/mL，而 MBEC（殺生物膜）幾乎都在 16384 µg/mL（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=80">p.80</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=80">p.80</a></div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">主題</th><th>講義（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=77">p.77–84</a>）</th><th>意義</th></tr></thead>
+          <tbody>
+            <tr><td><strong>生物膜形成</strong></td><td>附著（Attachment）→ 細胞間黏附 → 增殖 → 成熟 → 分散（Dispersion）（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=77">p.77</a> 圖）；基質含多醣、DNA、小分子與蛋白質（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=79">p.79</a>）</td><td>浮游菌（Planktonic）與生物膜（Biofilm）的電顯照片對照（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=81">p.81</a>）</td></tr>
+            <tr><td><strong>MIC 與 MBEC</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=80">p.80</a>）</td><td>Erythromycin 與 Florfenicol：MIC 多數 &lt; 1 µg/mL（21–22 株），MBEC 則在 <strong>16384 µg/mL</strong>（22 株）。講義沒有標菌種</td><td><strong>殺生物膜裡的細菌需要的藥物濃度遠高於殺浮游菌</strong>，臨床用藥劑量難以達到</td></tr>
+            <tr><td><strong>躲避補體</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=82">p.82</a>）</td><td>肺炎鏈球菌 <em>Streptococcus pneumoniae</em> 形成生物膜，是躲避補體古典途徑與 pspC 依賴型替代途徑的有效方式（Domenech et al., 2013）</td><td>生物膜降低補體免疫的作用</td></tr>
+            <tr><td><strong>推動巨噬細胞 M0 → M2</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=83">p.83</a>）</td><td>金黃色葡萄球菌 <em>S. aureus</em> 有 30 多種胞外蛋白；其生物膜使巨噬細胞基因表現偏向<strong>替代活化的 M2 表型</strong>（Thurlow et al., 2011）：M1 偏清除細菌，M2 偏細菌持續存在</td><td>免疫從清除轉為容忍</td></tr>
+            <tr><td><strong>與宿主免疫的交互作用</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=84">p.84</a>）</td><td>圖示生物膜抑制白血球吞噬與調理、補體 C3b 沉積、抗菌胜肽（AMPs）；基質成分（PIA、蛋白、teichoic acid、eDNA）與通道形成促使剝離與擴散</td><td>多重抑制免疫作用</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p084.jpg" alt="生物膜與宿主免疫系統的交互作用：抑制白血球吞噬、補體、AMPs，並釋出基質成分與擴散細菌（講義 p.84）。" loading="lazy"><div class="figure-caption">生物膜與宿主免疫系統的交互作用：抑制白血球吞噬、補體、AMPs，並釋出基質成分與擴散細菌（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=84">p.84</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=84">p.84</a></div></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div><p><a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=82">p.82–83</a> 的研究對象是人類病原（肺炎鏈球菌、金黃色葡萄球菌），講義沒有寫魚類病原的生物膜資料；<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=85">p.85</a> 為魚體組織潰爛的照片（無說明）。把它當作「生物膜為什麼難清除、為什麼要做生物膜疫苗」的機制背景。</p></div>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=76">p.76–85</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- VTYPE -->
+    <div class="section" id="section-vtype">
+      <div class="section-head"><div class="section-num">9</div><h2>疫苗類型 Types of Vaccines</h2></div>
+      <p class="section-desc">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=92">p.92</a> 把<strong>傳統疫苗</strong>分成五類：DNA 疫苗、減毒疫苗、次單位疫苗、不活化疫苗、類毒素疫苗；之後另講 RNAi（siRNA）與生物膜疫苗。</p>
+      <h3>各類疫苗比較表<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">類型</th><th>講義內容</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td><strong>不活化疫苗</strong> Inactivated（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=104">p.104–105</a>）</td><td>去活性的病毒、細菌整體或微生物／寄生蟲的部分抗原；製造過程通常以<strong>變性或化學方法修飾抗原決定位（epitopes）</strong>去除活性；一般選擇與致病性相關的微生物作材料，較能引起好的免疫反應</td><td><a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=105">p.105</a> 表：對銀鯛（<em>Sparus sarba</em>）<em>Vibrio alginolyticus</em> 的疫苗效力，見下表</td></tr>
+            <tr><td><strong>類毒素疫苗</strong> Toxoid（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=96">p.96</a>）</td><td>把具毒性的細菌毒素（通常為<strong>外毒素</strong>）以化學或物理方法使之失去毒性、保留免疫性</td><td>適用於毒素致病的細菌</td></tr>
+            <tr><td><strong>次單位疫苗</strong> Subunit（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=97">p.97–98</a>）</td><td>從病原基因體<strong>選殖抗原蛋白基因</strong>，用遺傳工程送入其他細胞（如<strong>大腸桿菌</strong>）大量生產，收集、破壞大腸桿菌純化抗原蛋白，再製成疫苗；<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=98">p.98</a> 為「次單位疫苗是什麼？重組純化病毒蛋白」新聞截圖</td><td>重組蛋白</td></tr>
+            <tr><td><strong>DNA 疫苗</strong> DNA vaccine（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=93">p.93–95</a>）</td><td>DNA 載體進入細胞後表現抗原，經 MHC I 刺激 CD8+ T 細胞（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=93">p.93</a> 圖）。<strong>理論上的安全疑慮</strong>：質體在接種動物體內的去向；疫苗 DNA 序列<strong>整合進宿主基因體</strong>及後續副作用（含整合進生殖細胞後垂直傳遞）；<strong>誘發抗 DNA 免疫反應</strong></td><td>安全性是主要顧慮</td></tr>
+            <tr><td><strong>減毒疫苗</strong> Attenuated（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=92">p.92</a>）</td><td>只在 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=92">p.92</a> 圖中列出，講義沒有文字說明</td><td>—</td></tr>
+            <tr><td><strong>RNAi（siRNA）疫苗</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=99">p.99–103</a>）</td><td>siRNA 可有效且專一地抑制病毒基因表現與複製：人類 B 型肝炎病毒（Meng et al., 2009）、土撥鼠肝炎病毒（WHV）；<strong>蝦類 dsRNA 與 siRNA 可減少黃頭病毒（YHV）與白點病毒（WSSV）基因表現</strong>（Shekhar &amp; Lu, 2009）。<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=101">p.101</a> 機制圖：質體 DNA → shRNA → <strong>Dicer</strong> → dsRNA → <strong>RISC</strong> → 對準 <strong>NNV RNA2</strong>。<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=102">p.102</a>：石斑魚餵食 siRNA 疫苗後的腸道組織（明視野／暗視野）</td><td>目標是 NNV（神經壞死病毒）；<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=103">p.103</a> 圖比較病毒量與 siRNA 表現</td></tr>
+            <tr><td><strong>生物膜疫苗</strong> Biofilm vaccine（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=106">p.106–111</a>）</td><td><strong>有較多免疫原性</strong>；<strong>製作繁瑣</strong>。<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=107">p.107</a>：靜置生物膜與懸浮顆粒生物膜培養比較；<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=109">p.109</a>（口服疫苗劑量 PBS、10^6、10^8、10^10）：血清殺菌活性、血清溶菌酶活性、吞噬活性、抗體反應（第 7、14、21 天）；<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=110">p.110</a>：TNF-α、IL-1β、C3、TLR-2 mRNA 表現；<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=111">p.111</a>：生存率曲線</td><td>講義沒有寫魚種與病原；見下方讀圖</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=105">p.105</a>：不同不活化疫苗對 <em>Vibrio alginolyticus</em> 的效力（銀鯛）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疫苗</th><th>接種魚數</th><th>攻毒魚數</th><th>死亡魚數</th><th>死亡率 %</th><th>RPS</th></tr></thead>
+          <tbody>
+            <tr><td colspan="6"><em>全細胞菌苗（Whole cell bacterins）</em></td></tr>
+            <tr><td>Formalin-killed</td><td>36</td><td>35</td><td>7</td><td>20</td><td>80</td></tr>
+            <tr><td>Phenol-killed</td><td>36</td><td>34</td><td>8</td><td>23.5</td><td>76.5</td></tr>
+            <tr><td>Chloroform-killed</td><td>36</td><td>35</td><td>25</td><td>71.4</td><td>28.6</td></tr>
+            <tr><td>Heat-killed</td><td>36</td><td>36</td><td>18</td><td>50</td><td>50</td></tr>
+            <tr><td colspan="6"><em>次細胞菌苗（Subcellular bacterins）</em></td></tr>
+            <tr><td>LPS</td><td>36</td><td>36</td><td>0</td><td>0</td><td>100</td></tr>
+            <tr><td>Control</td><td>36</td><td>36</td><td>36</td><td>100</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>RPS = relative percentage of survival（相對存活百分比）。讀法：<strong>去活性方式不同，效力差很多</strong>——福馬林、酚去活的全細胞菌苗保護力高（RPS 80、76.5），氯仿去活最差（28.6），加熱去活居中（50）；LPS 次細胞菌苗在這份資料中 RPS 100。這呼應講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=104">p.104</a>「修飾抗原決定位的方法會影響免疫反應」。</p>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p093.jpg" alt="DNA 疫苗：DNA 載體進入細胞、轉錄轉譯後經 MHC I 呈現，刺激 CD8+ T 細胞（講義 p.93）。" loading="lazy"><div class="figure-caption">DNA 疫苗：DNA 載體進入細胞、轉錄轉譯後經 MHC I 呈現，刺激 CD8+ T 細胞（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=93">p.93</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=93">p.93</a></div></div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p101.jpg" alt="RNAi 機制：質體 DNA → shRNA → Dicer → dsRNA → RISC → 切割 NNV RNA2（" loading="lazy"><div class="figure-caption">RNAi 機制：質體 DNA → shRNA → Dicer → dsRNA → RISC → 切割 NNV RNA2（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=101">p.101</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=101">p.101</a></div></div>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p103.jpg" alt="RNAi 疫苗結果：藍柱為病毒量（NNV copy number）、紅柱為 siRNA 相對表現（講義 p.103；講義" loading="lazy"><div class="figure-caption">RNAi 疫苗結果：藍柱為病毒量（NNV copy number）、紅柱為 siRNA 相對表現（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=103">p.103</a>；講義未說明各組處理）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=103">p.103</a></div></div>
+      <h3>生物膜疫苗的結果（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=109">p.109–111</a>，讀圖）<span class="lv lv-skim">看過</span></h3>
+      <ul>
+        <li>口服劑量 PBS、10^6、10^8、10^10（cfu，講義未標單位）：<strong>劑量越高，血清殺菌活性、吞噬活性與抗體反應（第 7、14、21 天）越高</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=109">p.109</a>，有星號者為統計顯著）；血清溶菌酶活性各組看起來接近。</li>
+        <li>基因表現（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=110">p.110</a>）：生物膜疫苗組的 <strong>TNF-α、IL-1β、TLR-2</strong> 相對 PBS 上升較多，C3 差異較不明顯。</li>
+        <li>存活（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=111">p.111</a>，30 天）：<strong>生物膜疫苗組存活最高（約 80%）</strong>，浮游菌疫苗組約 25–30%，顆粒組與 PBS 組約 10%（讀圖估計，講義沒有文字結論）。</li>
+      </ul>
+      <div class="figure"><img src="img/魚類免疫與疫苗/imm_p111.jpg" alt="生物膜疫苗的 30 天存活曲線：生物膜疫苗組最高，浮游菌疫苗、顆粒、PBS 組較低；另有未攻毒的陰性對照（講義 p.11" loading="lazy"><div class="figure-caption">生物膜疫苗的 30 天存活曲線：生物膜疫苗組最高，浮游菌疫苗、顆粒、PBS 組較低；另有未攻毒的陰性對照（講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=111">p.111</a>）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=111">p.111</a></div></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 水產疫苗現況與各類疫苗的實務優缺點</summary>
+
+        <p><strong>補充：依文獻與一般教科書</strong>（講義沒寫；數字不一致處已標明，不憑記憶編數字）。</p>
+        <p><strong>1. 水產疫苗現況</strong></p>
+        <ul>
+          <li><strong>已上市疫苗的數量說法不一</strong>：不同文獻寫「超過 26 種」「超過 50 種」「超過 210 種」，差異來自統計方式與年代，我沒有可靠的單一數字，<strong>待核對</strong>。</li>
+          <li>多數已授權的魚類疫苗是<strong>不活化病原＋佐劑</strong>，以<strong>浸泡或注射</strong>投予（文獻綜述）。</li>
+          <li><strong>病毒性疾病的疫苗少</strong>（綜述一致）；我查到的資料<strong>沒有確認石斑魚 NNV 疫苗是否已有商品化</strong>（待核對）；吳郭魚鏈球菌的資料多為實驗性或自家菌株（autogenous）疫苗，不是商品化。</li>
+          <li>最早的例子：<strong>鮭魚類的 <em>Yersinia ruckeri</em>（腸紅嘴病）疫苗 1976 年在美國核准</strong>；<em>Aeromonas salmonicida</em> 疫苗也屬早期成功的例子（文獻）。鮭魚 <em>A. salmonicida</em> 的<strong>油質疫苗</strong>是國考考過的題材（見考古與國考對照）。</li>
+        </ul>
+        <p><strong>2. 各類疫苗的實務優缺點</strong>（一般教科書觀念，非具體數字）</p>
+        <ol>
+          <li><strong>不活化</strong>：安全、穩定、製造較容易；但免疫較弱，常需<strong>佐劑與追加</strong>。</li>
+          <li><strong>減毒</strong>：免疫力強、可誘發細胞性免疫；但有<strong>回復毒力、環境散播</strong>的疑慮，法規與生物安全要求高。</li>
+          <li><strong>次單位／重組蛋白</strong>：安全、可大量生產；但抗原性不如完整病原，常需佐劑。</li>
+          <li><strong>DNA 疫苗</strong>：能誘發細胞性免疫，但有講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=95">p.95</a> 列出的理論安全疑慮與法規障礙。</li>
+          <li><strong>類毒素</strong>：用於毒素致病的細菌，安全。</li>
+        </ol>
+        <p><strong>3. 為什麼病毒疫苗少、NNV 難做</strong>：整理者推測是病毒在魚體內的免疫反應研究較少、稚魚期就發病（此時免疫尚未成熟）；講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=99">p.99</a> 只寫一句「魚類免疫尚未完全感染病毒」（原文，語意不完整），沒有展開，這個說法<strong>待核對</strong>。</p>
+        <p style="font-size:.85em;">來源：<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8980389/" target="_blank" rel="noopener">PMC8980389</a>（馬來西亞魚類疫苗現況）、<a href="https://www.fao.org/fileadmin/user_upload/faoweb/FI/news/AMR_docs/06_WANG.pdf" target="_blank" rel="noopener">FAO 簡報</a>、<a href="https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2022.1040336/pdf" target="_blank" rel="noopener">Front Immunol 2022 綜述</a>、<a href="https://encyclopedia.pub/8442" target="_blank" rel="noopener">encyclopedia.pub</a>（搜尋摘要，未逐篇精讀）。</p>
+      </details>
+      <footer class="note-footer">資料來源：《水生動物疾病學》Fish immunity 講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=92">p.92–111</a>。<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=105">p.105</a> 表為講義截圖轉寫。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">10</div><h2>考古與國考對照</h2></div>
+      <p class="section-desc">魚類免疫與疫苗在<strong>國考（獸醫傳染病學）</strong>幾乎沒有直接題，只找到與本頁相關的兩題；<strong>學長姐回憶的助教預告考題</strong>（2023）則明確包含免疫器官與疫苗給予方式。</p>
+      <h3>學長姐回憶：2023 助教預告與考題清單<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>內容（學長姐回憶，非官方）</th><th>對應本頁</th></tr></thead>
+          <tbody>
+            <tr><td>免疫器官</td><td>記憶所在為腎臟、脾臟…；2023 清單中「免疫器官」佔 20 分</td><td>免疫器官與免疫細胞一節</td></tr>
+            <tr><td>疫苗給予方式（加分題 10 分）</td><td>疫苗的投予方式</td><td>疫苗投予方式一節</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>這是學長姐整理的回憶資料，詳細版本見之後的期中考古頁（待建）；答案以老師上課為準。</p>
+      <h3>國考（獸醫傳染病學）相關題<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">題目</th><th>題幹與官方答案</th><th>與本頁關係</th></tr></thead>
+          <tbody>
+            <tr><td><strong>102-2 第 65 題</strong></td><td>「下列何種病原已有商品化油質疫苗可應用於養殖鮭魚，且效果佳？」A <em>Nocardia seriolae</em>；B <em>Aeromonas salmonicida</em>；C <em>Lactococcus garvieae</em>；D <em>Aeromonas hydrophila</em>。<strong>官方答案 B</strong></td><td>疫苗實務（見水產疫苗現況補充）；講義沒寫</td></tr>
+            <tr><td><strong>102-1 第 68 題</strong></td><td>「下列有關魚類病毒性神經壞死病之敘述，何者錯誤？」A 石斑魚幼苗死亡率高；B 迴旋是症狀之一；C 石斑魚成魚感染，但死亡率低；D 蝦類也會感染，但死亡率低。<strong>官方答案 D</strong></td><td>講義 RNAi 疫苗以 NNV RNA2 為標的（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=101">p.101</a>）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>搜尋範圍是 <code>國考專區/考科/獸醫傳染病學/試卷</code>；浸泡驅蟲藥的題目（100-1、101-2、105-1）是藥物使用題，不屬於疫苗投予，不收。<strong>魚類免疫器官、壓力、抗體的題目沒有找到。</strong></p>
+      <footer class="note-footer">資料來源：國考專區獸醫傳染病學試卷 102-1、102-2；學長姐 2023 回憶資料（見製作指引）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>練習題 Practice Quiz</h2></div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q1. 依講義，魚類免疫器官中，血流緩慢使抗原被「困住」、且前段是「memory」發生處的是？</div>
+        <ul class="quiz-options"><li>(A) 肝臟</li><li>(B) 腎臟</li><li>(C) 脾臟</li><li>(D) 鰓</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=53">p.53</a>：腎臟血流慢，抗原被困住或暴露給網狀細胞、巨噬細胞、淋巴球，前段是 memory 所在。(A) 肝臟只是可能產生補體成分，講義也說機制不太清楚；(C) 脾臟是次於腎臟的次級器官，參與免疫與血球形成；(D) 鰓是魚最先接觸病原的位置之一，是防線不是免疫器官。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q2. 關於口服疫苗，下列敘述何者「不正確」？</div>
+        <ul class="quiz-options"><li>(A) 把疫苗添加入餌料施用</li><li>(B) 可減少魚的緊迫壓力</li><li>(C) 使用量較浸泡型疫苗少、較經濟</li><li>(D) 免疫機制已完全闡明，也最不容易汙染</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(D)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=90">p.90</a> 把「容易汙染」「免疫機制尚待闡明」寫在<strong>浸泡</strong>疫苗，不是口服；(A)(B)(C) 都是 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=88">p.88</a> 對口服疫苗的描述，口服最適用於稚魚。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q3. 血中皮質醇濃度升高對魚類免疫的影響是？</div>
+        <ul class="quiz-options"><li>(A) 提高免疫系統活動</li><li>(B) 抑制吞噬細胞、降低循環淋巴球數量</li><li>(C) 增加淋巴球生成</li><li>(D) 促進骨髓增生</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=9">p.9</a>、<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=10">p.10</a>。(A)(C)(D) 與講義相反；皮質醇會抑制吞噬細胞、降低循環 T 樣與 B 樣淋巴球，體外實驗也抑制單核球與顆粒球前驅細胞分化。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q4. 魚類在壓力下的生理變化，下列何者「不是」？</div>
+        <ul class="quiz-options"><li>(A) 心率增加</li><li>(B) 血乳酸增加</li><li>(C) 白血球（淋巴球）數量增加</li><li>(D) 鰓血流量增加</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(C)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=31">p.31</a>：次級反應包含血糖上升、心跳加快、鰓血流增加、代謝率上升，造成血乳酸與血容比改變（循環淋巴球<strong>減少</strong>）。(A)(B)(D) 都是次級反應。與講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=32">p.32</a> 的答案 C 一致。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q5. 溶菌酶（lysozyme）作用於細菌的哪個部位？</div>
+        <ul class="quiz-options"><li>(A) 核糖體</li><li>(B) 細胞壁的肽聚醣層</li><li>(C) 鞭毛</li><li>(D) 質體 DNA</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=48">p.48</a>：溶菌酶作用於細菌細胞壁的肽聚醣層，造成細菌溶解；反應很快，壓力後也會升高。(A)(C)(D) 不是溶菌酶的標的。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q6. 巨噬細胞以 MHC class I 呈現抗原，主要被哪種細胞辨識？</div>
+        <ul class="quiz-options"><li>(A) 靜止的毒殺 T 細胞（CD8+）</li><li>(B) 輔助 T 細胞（CD4+）</li><li>(C) 嗜中性球</li><li>(D) 漿細胞</li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(A)</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=68">p.68</a>：Class I MHC 與抗原片段呈現，循環中靜止的毒殺 T 細胞受體辨識並結合，再加上輔助 T 細胞活化。(B) 是 MHC II 的對象（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=67">p.67</a>）；(C) 嗜中性球是先天免疫細胞，不靠 MHC 辨識；(D) 漿細胞是 B 細胞分化來的抗體工廠。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-mcq">選擇題</span>
+        <div class="quiz-q">Q7. 國考 102-2：下列何種病原已有商品化油質疫苗可應用於養殖鮭魚，且效果佳？</div>
+        <ul class="quiz-options"><li>(A) <em>Nocardia seriolae</em></li><li>(B) <em>Aeromonas salmonicida</em></li><li>(C) <em>Lactococcus garvieae</em></li><li>(D) <em>Aeromonas hydrophila</em></li></ul>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：(B)</div><p class="quiz-explain">官方答案 B：<em>A. salmonicida</em> 是鮭魚癤瘡病（furunculosis）病原，鮭魚油質疫苗是典型例子（補充，講義沒寫）。(A) <em>N. seriolae</em> 是奴卡氏菌症病原，常見於鰤魚等；(C) <em>L. garvieae</em> 與鏈球菌症有關；(D) <em>A. hydrophila</em> 是淡水魚常見的運動性氣單胞菌。這三個選項是否在其他地區有疫苗，我沒有查證，本題以官方答案 B 為準。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q8. 浸泡疫苗的優點是操作簡單，缺點是容易汙染且免疫機制尚待闡明。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：正確</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=90">p.90</a> 的三個要點正是「操作簡單」「容易汙染」「免疫機制尚待闡明」。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-tf">是非題</span>
+        <div class="quiz-q">Q9. 生物膜內細菌對抗生素的耐受性與浮游菌相同，所以 MIC 可直接用來決定生物膜感染的給藥濃度。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-answer correct">答案：錯誤</div><p class="quiz-explain">講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=80">p.80</a>：MIC 多數 &lt; 1 µg/mL，而殺生物膜的 MBEC 高達 16384 µg/mL；生物膜還能躲避補體（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=82">p.82</a>）並使巨噬細胞偏向 M2（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=83">p.83</a>）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q10. 比較注射、浸泡、口服三種疫苗投予方式的優缺點與適用情境。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>講義</strong>：口服（拌入餌料，最方便、減少緊迫、用量少較經濟，最適合稚魚；製備可用酒精包埋或飼料重新塑型）；浸泡（操作簡單，但容易汙染、免疫機制待闡明）；注射（硬骨魚的抗原反應在脾臟 melanomacrophage centers 與橢球體；講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=91">p.91</a> 圖中腹腔注射＋追加保護率最高）。<br><strong>補充</strong>：注射保護最好但緊迫大、費工、小魚不適用，可加佐劑；浸泡簡單、小魚適用，但保護力依疫苗類型而異且常較短；口服最省工但效力常較低、需防抗原在腸道被分解與口服耐受。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q11. 說明魚類免疫器官（腎臟、脾臟、肝臟）各自的角色，並說明為什麼壓力會使魚更容易生病。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">腎臟：血流慢、抗原被困、網狀細胞／巨噬細胞／淋巴球聚集，前段是 memory 所在，也是造血處；脾臟：次級器官，免疫反應與血球形成，含淋巴球與巨噬細胞；肝臟：可能參與補體成分生成（機制不太清楚）（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=53">p.53</a>）。壓力：HPI 軸活化，兒茶酚胺與皮質醇升高；皮質醇抑制吞噬細胞、降低循環淋巴球；第三級反應使生長、抗病力、存活下降（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=9">p.9</a>、<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=34">p.34</a>），所以壓力使魚易生病。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-saq">簡答題</span>
+        <div class="quiz-q">Q12. 列出講義的傳統疫苗五類，並說明 DNA 疫苗的理論安全疑慮。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain">五類（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=92">p.92</a>）：DNA 疫苗、減毒疫苗、次單位疫苗、不活化疫苗、類毒素疫苗。DNA 疫苗疑慮（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=95">p.95</a>）：質體在接種動物體內的去向；疫苗 DNA 序列整合進宿主基因體及後續副作用（含整合進生殖細胞後垂直傳遞）；誘發抗 DNA 免疫反應。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q13.【臨床情境】一個石斑魚場稚魚期大量死亡，場主想「打疫苗」預防，但稚魚只有幾公克、數量上萬尾，且近期才運輸分池。你要怎麼規劃疫苗接種與整體管理？</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>(1) 先處理壓力</strong>：運輸與分池使皮質醇升高、免疫被抑制（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=9">p.9</a>、<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=34">p.34</a>），先改善水質（第一週）、降低緊迫，再談疫苗；壓力下接種效力可能下降（補充，待核對）。<br><strong>(2) 投予方式</strong>：稚魚數量大且體小，<strong>不適合逐尾注射</strong>，口服最適合稚魚（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=88">p.88</a>），浸泡也可（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=90">p.90</a>）；長大後可考慮注射追加（補充）。<br><strong>(3) 診斷</strong>：若懷疑 NNV，先確認病原，不要直接套疫苗；講義的 siRNA 疫苗以 NNV RNA2 為標的（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=101">p.101</a>），但這是研究中的方法；我沒有查到石斑魚 NNV 商品化疫苗的確認資料（待核對）。</p></details>
+      </div>
+      <div class="quiz-item"><span class="quiz-type quiz-type-vignette">臨床情境題</span>
+        <div class="quiz-q">Q14.【臨床情境】同一種細菌病，用抗生素治療後一度好轉，停藥後反覆復發，體表潰瘍處培養到細菌並有膜狀物。請用講義的生物膜概念解釋，並說明這和疫苗策略的關係。</div>
+        <details class="quiz-reveal"><summary></summary><p class="quiz-explain"><strong>解釋</strong>：生物膜內細菌對藥物耐受遠高於浮游菌（MBEC 遠大於 MIC，<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=80">p.80</a>），且能躲避補體（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=82">p.82</a>）並使巨噬細胞偏向 M2（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=83">p.83</a>），所以抗生素與免疫都不易清除，停藥後復發。<br><strong>疫苗策略</strong>：講義提出生物膜疫苗，因為<strong>免疫原性較多</strong>（<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=106">p.106</a>），但<strong>製作繁瑣</strong>；講義 <a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=111">p.111</a> 結果中口服生物膜疫苗組存活明顯高於浮游菌疫苗組（讀圖，<a class="pdf-link" href="pdf/魚類免疫與疫苗.pdf#page=111">p.111</a>；魚種與病原講義未說明）。臨床上先評估水質與壓力、再考慮用藥與疫苗，具體用藥與休藥期依法規（講義沒寫）。</p></details>
+      </div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=%E9%AD%9A%E9%A1%9E%E5%85%8D%E7%96%AB%E8%88%87%E7%96%AB%E8%8B%97" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">練習題依講義內容出題，答案與解析僅供自我複習參考；標「補充」的內容來自講義以外的文獻或教科書。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  organs: '免疫器官與免疫細胞',
+  vroute: '疫苗投予方式與疫苗類型比較',
+  stress: '壓力與免疫',
+  barrier: '第一道防線：鰓、皮膚、黏液',
+  adaptive: '適應性免疫：T 細胞與抗體',
+  gut: '腸道免疫',
+  biofilm: '對細菌的免疫反應：生物膜',
+  vtype: '疫苗類型',
+  exam: '考古與國考對照',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

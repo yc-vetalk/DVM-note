@@ -11149,5 +11149,495 @@ const SEARCH_INDEX = [
     section: "case", sectionName: "書中病例與相關適應症",
     keywords: "病例 Jack Russell CKD 失智 TBI 創傷性腦損傷 DM 退化性脊髓病變 IVDD",
     snippet: "書p.179病例：17歲CKD犬5個月後出現失智，加腦部protocol後症狀逆轉（單一病例）；TBI可用相同參數但亞急性不建議。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "水質 養殖模式 三環理論 處置順序 立即測水 TAN NH3 亞硝酸鹽 棕血症",
+    snippet: "水生動物疾病學第一週總覽：先量水質再找病原，主線為高密度投餌→水質惡化→病原爆發。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "systems", sectionName: "養殖產業與養殖模式",
+    keywords: "池塘 混養 箱網 溪流式 循環水 RAS 魚菜共生 生物團絮 Biofloc 種魚場 孵化場",
+    snippet: "各養殖模式的優點、風險與獸醫重點對照表，RAS 濾床與氮循環。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "diagnosis", sectionName: "水質診斷、問診與處置優先序",
+    keywords: "問診 採樣 即時致死 慢性壓力 處置優先序 浮頭 急性大量死亡",
+    snippet: "先救環境再做病原診斷：立即測水→降低急性風險→採樣→回推原因→制定處置。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "physical", sectionName: "水溫、溶氧與 pH",
+    keywords: "水溫 溶氧 DO 浮頭 增氧 pH 藻華 氧溶解度",
+    snippet: "DO 是最優先排除的急性死亡因子；急救優先序增氧>停餌>減少擾動>必要換水。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "nitrogen", sectionName: "氮循環、氨氮與亞硝酸鹽",
+    keywords: "氮循環 TAN NH3 NH4+ 亞硝酸鹽 NO2- 變性血紅素 棕血症 氯離子 硝化菌 濾床",
+    snippet: "TAN 與 NH3 比例隨 pH、溫度上升；NO2- 造成棕血症、Cl- 競爭吸收；急性與長期處置。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "sediment", sectionName: "硫化氫、ORP 與底泥",
+    keywords: "硫化氫 H2S 黑泥 腐蛋味 ORP 底泥 硫酸鹽還原 厭氧",
+    snippet: "底泥厭氧產生 H2S；ORP 低於 +50 mV 通常表示有機物堆積。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "cases", sectionName: "案例討論與病例照片",
+    keywords: "案例 清晨浮頭 RAS 亞硝酸鹽 白點 新缸症候群 黃吸蟲 Clinostomum 指環蟲 KHV CyHV-2 Vibrio",
+    snippet: "三個水質案例與講義 9 個教學病例的症狀、鏡檢、分離與處理對照。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "exam", sectionName: "國考方向與參數總表",
+    keywords: "國考 常考 水質參數 總表",
+    snippet: "講義 p.67 常考六點與水質參數（DO、NH3、NO2-、H2S、pH、ORP）總表。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
+    url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 測驗",
+    snippet: "14 題：選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "魚類免疫 疫苗 壓力 皮質醇 免疫器官 腎臟 脾臟 生物膜 投予方式",
+    snippet: "魚類免疫與疫苗總覽：壓力、免疫系統、生物膜、疫苗投予方式與類型。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "organs", sectionName: "免疫器官與免疫細胞",
+    keywords: "免疫器官 腎臟 頭腎 memory 脾臟 肝臟 補體 巨噬細胞 嗜中性球 NK 吞噬 PRR TLR 干擾素 MALT",
+    snippet: "腎臟血流慢、前段是 memory 所在；脾臟次之；肝臟可能產生補體；先天免疫細胞與吞噬作用；含文獻補充。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "vroute", sectionName: "疫苗投予方式與疫苗類型比較",
+    keywords: "疫苗 投予方式 注射 浸泡 口服 免疫 優缺點 稚魚 佐劑 酒精包埋 RPS",
+    snippet: "注射、浸泡、口服三種投予方式的優缺點與適用情境比較（講義＋補充）。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "stress", sectionName: "壓力與免疫",
+    keywords: "壓力 皮質醇 兒茶酚胺 HPI CRF ACTH 嗜鉻細胞 腎間組織 反抗期 適應期 衰竭期 三級反應",
+    snippet: "壓力三階段與三級反應；皮質醇抑制吞噬細胞並降低循環淋巴球。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "barrier", sectionName: "第一道防線：鰓、皮膚、黏液",
+    keywords: "鰓 皮膚 黏液 抗菌胜肽 溶菌酶 肽聚醣 氯細胞 杯狀細胞",
+    snippet: "鰓與皮膚是最先接觸病原處；黏液、抗菌胜肽、溶菌酶（作用於肽聚醣）。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "adaptive", sectionName: "適應性免疫：T 細胞與抗體",
+    keywords: "T 細胞 CD4 CD8 MHC I MHC II 抗體 IgM IgZ IgT 漿細胞 類別轉換",
+    snippet: "輔助與毒殺 T 細胞、MHC I/II；魚的抗體 IgM、IgT/IgZ（補充）。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "gut", sectionName: "腸道免疫",
+    keywords: "腸道免疫 GALT 固有層 幽門盲囊 口服疫苗",
+    snippet: "講義僅有腸道免疫圖；GALT 概念見補充。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "biofilm", sectionName: "對細菌的免疫反應：生物膜",
+    keywords: "生物膜 Biofilm MIC MBEC 補體 M2 巨噬細胞 抗生素耐受",
+    snippet: "生物膜的 MBEC 遠高於 MIC，躲避補體並使巨噬細胞偏向 M2。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "vtype", sectionName: "疫苗類型",
+    keywords: "疫苗 不活化 減毒 次單位 DNA疫苗 類毒素 RNAi siRNA NNV 生物膜疫苗 RPS Vibrio alginolyticus",
+    snippet: "各類疫苗比較；不活化疫苗效力表；RNAi 疫苗與生物膜疫苗結果；水產疫苗現況補充。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "exam", sectionName: "考古與國考對照",
+    keywords: "考古 國考 102-2 Aeromonas salmonicida 油質疫苗 102-1 NNV 神經壞死病 2023 助教",
+    snippet: "學長姐回憶 2023 助教預告與兩題相關國考題。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
+    url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 測驗",
+    snippet: "14 題：選擇、是非、簡答與臨床情境題（含國考 102-2）。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "魚類解剖 生理 鰓 鰾 皮膚 黏液 滲透壓 氯細胞 逆流交換 Bohr Root",
+    snippet: "魚類解剖與生理總覽：鰓、鰾、皮膚黏液、滲透壓的重點與容易混淆處。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "classification", sectionName: "魚類定義、分類與基本構造",
+    keywords: "魚類分類 盲鰻 七鰓鰻 軟骨魚 硬骨魚 肉鰭魚 輻鰭魚 螺旋瓣 盾鱗",
+    snippet: "五大類群比較；臨床上以輻鰭魚綱硬骨魚為預設。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "locomotion", sectionName: "運動、游泳方式與趨性",
+    keywords: "鰻行式 鱒行式 鮪行式 趨光性 趨流性 趨溫性 趨鹽性 趨化性 游泳",
+    snippet: "三種游泳方式與五種趨性。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "respiration", sectionName: "鰓與呼吸",
+    keywords: "鰓 鰓弓 鰓絲 鰓小片 逆流交換 順流 氯細胞 迷器 鰓蓋怒張 浮頭 軟骨魚 硬骨魚 假鰓",
+    snippet: "鰓的構造與三大功能、逆流交換（約80%對50%）、軟硬骨魚鰓比較、鰓蓋怒張與浮頭的鑑別。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "swimbladder", sectionName: "鰾與浮力（含 Bohr、Root 效應）",
+    keywords: "鰾 氣體腺 卵圓窗 奇網 Bohr效應 Root效應 乳酸 浮鰾病 深海魚 鯊魚肝油 浮力",
+    snippet: "鰾的功能與構造、氣體腺充氣機制、Bohr 與 Root 的差別、鰾疾病診斷治療。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "skin", sectionName: "皮膚、鱗與黏液",
+    keywords: "皮膚 表皮 真皮 鱗 骨鱗 硬鱗 盾鱗 黏液 立鱗病 體表潰爛 嗜水氣單胞菌 柱狀屈撓桿菌",
+    snippet: "皮膚三大功能、鱗的種類、黏液防禦、立鱗病（講義標***）、體表潰爛。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "circulation", sectionName: "心臟與血液循環",
+    keywords: "單循環 靜脈竇 心房 心室 動脈球 動脈圓錐 肺魚 奇網 逆流熱交換",
+    snippet: "單循環與四腔室、硬骨魚動脈球與軟骨魚動脈圓錐。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "sense", sectionName: "感覺器官：耳、側線、嗅、味、眼",
+    keywords: "耳石 魏氏小骨 側線 嗅覺 味覺 眼 近視 反光層 凸眼 魚類年齡",
+    snippet: "魚類耳、側線、嗅覺、味覺、眼的特點與凸眼鑑別。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "organs", sectionName: "肝、脾、腎與消化道",
+    keywords: "肝臟 黃肝 脂肪肝 脾臟 脾腫大 腎臟 頭腎 幽門垂 腸道免疫 GALT",
+    snippet: "肝脾腎功能、黃肝、脾腫大原因（不含溫度過高）、腎與消化道。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "osmo", sectionName: "滲透壓與氯細胞",
+    keywords: "滲透壓 氯細胞 MRC Na+-K+-ATPase CFTR 淡水魚 海水魚 尿素 TMAO 直腸腺",
+    snippet: "淡水魚與海水魚相反、氯細胞、鯊魚尿素＋TMAO。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "muscle", sectionName: "肌肉、體色、壓力與生殖",
+    keywords: "肌肉 血合肉 紅肌 白肌 電鰻 體色變黑 蝦紅素 壓力 皮質醇 雌雄同體 生殖隔閡",
+    snippet: "肌肉、體色、壓力軸與生殖策略。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "exam", sectionName: "國考關聯與講義核對",
+    keywords: "國考 柱狀病 鰓黴菌 鰓薄板增生 黏液孢子蟲 鰻鰾線蟲 橈腳類 講義核對",
+    snippet: "與鰓、鰾、浮頭有關的 6 類國考魚病題與講義疑義清單。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
+    url: "大四上/水產動物疾病學/魚類解剖與生理.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 測驗",
+    snippet: "14 題：選擇、是非、簡答與臨床情境題。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "abstract", sectionName: "怎麼讀這份考古與年份總覽",
+    keywords: "期中考古 助教 蝦與無脊椎 年份 題型 非官方",
+    snippet: "魚病期中考古資料與讀法、年份與題型總覽。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "ta2022", sectionName: "2022 助教卷",
+    keywords: "養殖模式 水質參數 魚類分類 趨向性 趨光 趨流 趨電 逆水流 順水流 Bohr Root 血液培養基 溶血 滲透壓 氯細胞 免疫器官 疫苗 注射 浸泡 口服",
+    snippet: "2022 助教卷 10 題逐題詳解：養殖、水質、分類、趨性、氣體交換、Bohr／Root、滲透壓、免疫器官、疫苗。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "ta2023", sectionName: "2023 助教預告與實際考題",
+    keywords: "2023 助教 預告 回憶 逆水流效應 加分題 疫苗",
+    snippet: "2023 助教預告與學長姐回憶的實際題目；第 5 題可能是逆／順水流效應。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "y109", sectionName: "109 學年度",
+    keywords: "109 死亡率曲線 殺蟲藥 trichlorfon 三氯松 溪流式 浮頭 免疫器官 氯細胞",
+    snippet: "109 學年 8 題：死亡率曲線、唯一合法殺蟲藥、溪流式、免疫器官、滲透壓、Bohr／Root、浮頭。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "y107", sectionName: "107 學年度",
+    keywords: "107 診斷流程 白色結節 爛鰓 箱網 滲透壓 MS-222",
+    snippet: "107 學年：經濟魚類診斷流程、白色結節鑑別、爛鰓、箱網、Bohr／Root、滲透壓。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "y105", sectionName: "105 學年度",
+    keywords: "105 氨中毒 貧血 白色結節 白點蟲 橈腳類 單殖吸蟲 泳鰾 氯細胞",
+    snippet: "105 學年寄生蟲為主：白色結節、白點、橈腳類、單殖吸蟲、泳鰾充氣、氯細胞。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "y2019", sectionName: "2019 範圍筆記",
+    keywords: "2019 MS-222 麻醉 呼吸 寄生蟲 疫苗 投予方式 助教",
+    snippet: "2019 手寫範圍：MS-222、呼吸、滲透壓、寄生蟲、疫苗投予方式。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "shrimp2022", sectionName: "2022 蝦與無脊椎配對卷",
+    keywords: "蝦 Keys IPS IHHNV AHPND WSSV 陶拉 Taura 白尾病 酵母菌 蝦蟹瘟 crayfish plague AVG 鮑魚 EHP HPV",
+    snippet: "2022 蝦及無脊椎配對卷 9 題英文病例（病名與病原）詳解，答案為整理者推論。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "y2020", sectionName: "2020 無脊椎動物",
+    keywords: "2020 蝦 鐘形蟲 AbHV AHPND 白尾病 黃頭病 桿狀病毒 Withering syndrome 國考題",
+    snippet: "2020 無脊椎動物卷：看圖題與國考題核對，學長姐答案與官方答案比對。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "y108", sectionName: "108 上學期無脊椎",
+    keywords: "108 鮑魚 疱疹病毒 AVG AHPND pirA pirB",
+    snippet: "108 上學期無脊椎英文選擇題前 3 題。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "b07", sectionName: "2022（B07）出題心得",
+    keywords: "2022 B07 心得 細菌 Nocardia mycobacteria Aeromonas 結節 魚腸炎 三角形包涵體",
+    snippet: "2022 年三位老師的出題心得：蝦與無脊椎、細菌與寄生蟲。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中考古",
+    url: "大四上/水產動物疾病學/期中考古.html",
+    section: "repeat", sectionName: "重複考點與國考對照",
+    keywords: "重複考點 國考對照 獸醫傳染病學 蝦病 魚病",
+    snippet: "歷年重複考點表與本站國考題庫對照。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/水產動物疾病學/期中統整.html",
+    section: "abstract", sectionName: "怎麼用這一頁與考點地圖",
+    keywords: "期中統整 考點地圖 簡答題 助教 重複考點",
+    snippet: "水產期中統整：三大塊講義的簡答題答題表與考古重複考點地圖。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/水產動物疾病學/期中統整.html",
+    section: "culture", sectionName: "養殖模式：優缺點與風險",
+    keywords: "養殖模式 池塘 混養 箱網 溪流式 RAS 魚菜共生 生物團絮 優缺點 簡答",
+    snippet: "七種養殖模式優缺點、風險與獸醫重點一張表，附答題模板。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/水產動物疾病學/期中統整.html",
+    section: "water", sectionName: "水質參數：機轉、閾值、處置",
+    keywords: "水質 DO 氨 TAN NH3 亞硝酸鹽 H2S pH 水溫 ORP 處置 簡答",
+    snippet: "水質參數總表與三條因果鏈（pH／水溫→NH3、NO2-→棕血症、H2S）。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/水產動物疾病學/期中統整.html",
+    section: "physio", sectionName: "魚類生理：趨性、呼吸、Bohr／Root、滲透壓",
+    keywords: "趨性 逆流 順流 軟骨魚 硬骨魚 Bohr Root 滲透壓 氯細胞 尿素 TMAO",
+    snippet: "趨性、逆／順流氣體交換、Bohr 與 Root 定義、海淡水與軟骨魚滲透壓對照表。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/水產動物疾病學/期中統整.html",
+    section: "immune", sectionName: "免疫器官與疫苗投予方式",
+    keywords: "免疫器官 腎臟 脾臟 肝臟 疫苗 注射 浸泡 口服 壓力 皮質醇",
+    snippet: "免疫器官功能表、疫苗三種投予途徑優缺點、壓力削弱免疫。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/水產動物疾病學/期中統整.html",
+    section: "confuse", sectionName: "容易混淆的比較表",
+    keywords: "比較 TAN NH3 亞硝酸鹽 低溶氧 Bohr Root MIC MBEC 先天免疫 適應性免疫 浮頭",
+    snippet: "十組易混淆概念的對照。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/水產動物疾病學/期中統整.html",
+    section: "numbers", sectionName: "數字與關鍵字速背",
+    keywords: "數字 80% 50% 95% 350 400 mM ORP 50 mV 速背",
+    snippet: "講義數字與關鍵字速查表，附來源頁碼。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s0", sectionName: "蝦蟹類疾病（白斑症候群、陶拉、黃頭、IHHNV、桿狀病毒、白尾病、AHPND、螯蝦瘟等）",
+    keywords: "水產 魚病 蝦病 國考 蝦蟹類疾病 白斑症候群 陶拉 黃頭 IHHNV 桿狀病毒 白尾病 AHPND 螯蝦瘟等 ",
+    snippet: "歷屆國考獸醫傳染病學 36 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s1", sectionName: "魚類疱疹病毒（KHV／CyHV、CCV、鮑疱疹病毒）",
+    keywords: "水產 魚病 蝦病 國考 魚類疱疹病毒 KHV CyHV CCV 鮑疱疹病毒 ",
+    snippet: "歷屆國考獸醫傳染病學 17 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s2", sectionName: "虹彩病毒科與淋巴囊腫（Iridovirus、Megalocytivirus、Ranavirus、LCDV）",
+    keywords: "水產 魚病 蝦病 國考 虹彩病毒科與淋巴囊腫 Iridovirus Megalocytivirus Ranavirus LCDV ",
+    snippet: "歷屆國考獸醫傳染病學 14 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s3", sectionName: "神經壞死病（Viral Nervous Necrosis, VNN／Nodavirus）",
+    keywords: "水產 魚病 蝦病 國考 神經壞死病 Viral Nervous Necrosis  VNN Nodavirus ",
+    snippet: "歷屆國考獸醫傳染病學 5 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s4", sectionName: "IPN、棒狀病毒（SVC、VHS、IHN）與其他魚病毒",
+    keywords: "水產 魚病 蝦病 國考 IPN 棒狀病毒 SVC VHS IHN 與其他魚病毒",
+    snippet: "歷屆國考獸醫傳染病學 20 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s5", sectionName: "弧菌、光桿菌與冷水弧菌（Vibrio、Photobacterium、Hitra）",
+    keywords: "水產 魚病 蝦病 國考 弧菌 光桿菌與冷水弧菌 Vibrio Photobacterium Hitra ",
+    snippet: "歷屆國考獸醫傳染病學 11 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s6", sectionName: "柱狀病與黏細菌（Flavobacterium columnare、Tenacibaculum、細菌性鰓病、爛尾）",
+    keywords: "水產 魚病 蝦病 國考 柱狀病與黏細菌 Flavobacterium columnare Tenacibaculum 細菌性鰓病 爛尾 ",
+    snippet: "歷屆國考獸醫傳染病學 13 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s7", sectionName: "產氣單胞菌、愛德華氏菌、耶氏菌（Aeromonas、Edwardsiella、Yersinia ruckeri）",
+    keywords: "水產 魚病 蝦病 國考 產氣單胞菌 愛德華氏菌 耶氏菌 Aeromonas Edwardsiella Yersinia ruckeri ",
+    snippet: "歷屆國考獸醫傳染病學 33 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s8", sectionName: "鏈球菌與乳球菌（Streptococcus、Lactococcus）",
+    keywords: "水產 魚病 蝦病 國考 鏈球菌與乳球菌 Streptococcus Lactococcus ",
+    snippet: "歷屆國考獸醫傳染病學 22 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s9", sectionName: "分枝桿菌、奴卡氏菌與其他細胞內細菌（Mycobacterium、Nocardia、Francisella、Piscirickettsia、Renibacterium）",
+    keywords: "水產 魚病 蝦病 國考 分枝桿菌 奴卡氏菌與其他細胞內細菌 Mycobacterium Nocardia Francisella Piscirickettsia Renibacterium ",
+    snippet: "歷屆國考獸醫傳染病學 38 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s10", sectionName: "水黴、鰓黴與其他真菌（Saprolegnia、Branchiomyces、Aphanomyces、Ichthyophonus、蛙壺菌）",
+    keywords: "水產 魚病 蝦病 國考 水黴 鰓黴與其他真菌 Saprolegnia Branchiomyces Aphanomyces Ichthyophonus 蛙壺菌 ",
+    snippet: "歷屆國考獸醫傳染病學 21 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s11", sectionName: "原蟲與纖毛蟲（白點蟲、卵圓鞭毛蟲、車輪蟲、鞭毛蟲、梨形四膜蟲、口絲蟲）",
+    keywords: "水產 魚病 蝦病 國考 原蟲與纖毛蟲 白點蟲 卵圓鞭毛蟲 車輪蟲 鞭毛蟲 梨形四膜蟲 口絲蟲 ",
+    snippet: "歷屆國考獸醫傳染病學 43 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s12", sectionName: "黏液孢子蟲與微孢子蟲（Myxozoa、Microsporidia）",
+    keywords: "水產 魚病 蝦病 國考 黏液孢子蟲與微孢子蟲 Myxozoa Microsporidia ",
+    snippet: "歷屆國考獸醫傳染病學 20 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s13", sectionName: "蠕蟲類（單殖吸蟲、複殖吸蟲、線蟲、鈎頭蟲、絛蟲）",
+    keywords: "水產 魚病 蝦病 國考 蠕蟲類 單殖吸蟲 複殖吸蟲 線蟲 鈎頭蟲 絛蟲 ",
+    snippet: "歷屆國考獸醫傳染病學 37 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s14", sectionName: "甲殼類與其他體外寄生蟲（橈腳類、錨蟲、魚蝨、魚蛭）",
+    keywords: "水產 魚病 蝦病 國考 甲殼類與其他體外寄生蟲 橈腳類 錨蟲 魚蝨 魚蛭 ",
+    snippet: "歷屆國考獸醫傳染病學 12 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s15", sectionName: "疫苗、藥物與法規（水產用藥、OIE 規範、疫苗）",
+    keywords: "水產 魚病 蝦病 國考 疫苗 藥物與法規 水產用藥 OIE 規範 疫苗 ",
+    snippet: "歷屆國考獸醫傳染病學 9 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s16", sectionName: "其他（題幹提及但未歸入上列疾病）",
+    keywords: "水產 魚病 蝦病 國考 其他 題幹提及但未歸入上列疾病 ",
+    snippet: "歷屆國考獸醫傳染病學 11 題，含官方答案與逐選項詳解（講義尚未涵蓋，詳解依教科書撰寫）。"
+  },
+  {
+    subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
+    url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
+    section: "s17", sectionName: "其他考科的水產相關題（公共衛生學、藥理學、病理學）",
+    keywords: "水產 魚病 國考 公共衛生 藥理 病理 水產用藥 殘留標準 肺吸蟲 異尖線蟲 廣節裂頭絛蟲 類丹毒 驗證基準 trichlorfon 指環蟲",
+    snippet: "111–115 年公共衛生學、藥理學、病理學中與水產用藥、魚類人畜共通病原直接相關的 23 題，含官方答案與詳解。"
   }
 ];
