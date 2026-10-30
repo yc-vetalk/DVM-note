@@ -40,7 +40,9 @@ def build(spec_path):
                 if not ex.get('keep'): rnd.shuffle(order)
                 d=dict(id='q'+idx,t='mc',q=q[1],o=[q[2][i] for i in order],a=order.index(q[3]),e=q[4],p=q[5])
                 if ex.get('s'): d['s']=ex['s']
-            elif q[0]=='tf': d=dict(id='q'+idx,t='tf',q=q[1],a=q[2],e=q[3],p=q[4])
+            elif q[0]=='tf':
+                d=dict(id='q'+idx,t='tf',q=q[1],a=q[2],e=q[3],p=q[4])
+                if len(q)>5 and q[5].get('s'): d['s']=q[5]['s']   # 第 6 欄（選用）：{'s':出處 dict}
             elif q[0]=='sa':   # 簡答題：('sa', 題, 老師建議答案, 解析, 頁碼, {'s':出處})；作答後自評對錯
                 d=dict(id='q'+idx,t='sa',q=q[1],ans=q[2],e=q[3],p=q[4])
                 if len(q)>5 and q[5].get('s'): d['s']=q[5]['s']

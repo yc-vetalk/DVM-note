@@ -11154,49 +11154,49 @@ const SEARCH_INDEX = [
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "abstract", sectionName: "大方向與重點摘要",
-    keywords: "水質 養殖模式 三環理論 處置順序 立即測水 TAN NH3 亞硝酸鹽 棕血症",
+    keywords: "老師口述 考試提示 情境題 淡水亞硝酸 海水氨氮 同學錄音筆記 水質 養殖模式 三環理論 處置順序 立即測水 TAN NH3 亞硝酸鹽 棕血症",
     snippet: "水生動物疾病學第一週總覽：先量水質再找病原，主線為高密度投餌→水質惡化→病原爆發。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "systems", sectionName: "養殖產業與養殖模式",
-    keywords: "池塘 混養 箱網 溪流式 循環水 RAS 魚菜共生 生物團絮 Biofloc 種魚場 孵化場",
+    keywords: "老師口述 產業分工 石斑 輪蟲 蝦類 白蝦 育成率 餌料台 WSSV 通報 觀賞魚 孔雀綠 甲基藍 問診五重點 漁電共生 混養 溪流式 虹鱒 香魚 上游污染 箱網 寄生蟲 藥浴 RAS 魚菜共生 生物團絮 池塘 混養 箱網 溪流式 循環水 RAS 魚菜共生 生物團絮 Biofloc 種魚場 孵化場",
     snippet: "各養殖模式的優點、風險與獸醫重點對照表，RAS 濾床與氮循環。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "diagnosis", sectionName: "水質診斷、問診與處置優先序",
-    keywords: "問診 採樣 即時致死 慢性壓力 處置優先序 浮頭 急性大量死亡",
+    keywords: "老師口述 死亡數 用藥紀錄 停餌 處置順序 擦身 NNV 虹彩病毒 脾臟腫大 時間線 問診 採樣 即時致死 慢性壓力 處置優先序 浮頭 急性大量死亡",
     snippet: "先救環境再做病原診斷：立即測水→降低急性風險→採樣→回推原因→制定處置。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "physical", sectionName: "水溫、溶氧與 pH",
-    keywords: "水溫 溶氧 DO 浮頭 增氧 pH 藻華 氧溶解度",
+    keywords: "老師口述 藻華 補藻 等鞭金藻 絲藻 除藻劑 停電 發電機 藻相 菌相 pH 水溫 溶氧 DO 浮頭 增氧 pH 藻華 氧溶解度",
     snippet: "DO 是最優先排除的急性死亡因子；急救優先序增氧>停餌>減少擾動>必要換水。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "nitrogen", sectionName: "氮循環、氨氮與亞硝酸鹽",
-    keywords: "氮循環 TAN Total Ammonia Nitrogen 總氨氮 NH3 NH4+ 亞硝酸鹽 NO2- 變性血紅素 棕血症 氯離子 硝化菌 濾床",
+    keywords: "老師口述 氨氮很高魚沒事 糖蜜 碳源 棕血症可逆 淡水亞硝酸 海水氨氮 枯草桿菌 光合菌 Nitrospira Nitrobacter 氮循環 TAN Total Ammonia Nitrogen 總氨氮 NH3 NH4+ 亞硝酸鹽 NO2- 變性血紅素 棕血症 氯離子 硝化菌 濾床",
     snippet: "TAN 與 NH3 比例隨 pH、溫度上升；NO2- 造成棕血症、Cl- 競爭吸收；急性與長期處置。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "sediment", sectionName: "硫化氫、ORP 與底泥",
-    keywords: "硫化氫 H2S 黑泥 腐蛋味 ORP 底泥 硫酸鹽還原 厭氧",
+    keywords: "老師口述 水清無魚 光合菌 文蛤 ORP 寄生蟲 降密度 硫化氫 H2S 黑泥 腐蛋味 ORP 底泥 硫酸鹽還原 厭氧",
     snippet: "底泥厭氧產生 H2S；ORP 低於 +50 mV 通常表示有機物堆積。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "cases", sectionName: "案例討論與病例照片",
-    keywords: "案例 清晨浮頭 RAS 亞硝酸鹽 白點 新缸症候群 黃吸蟲 Clinostomum 指環蟲 KHV CyHV-2 Vibrio",
+    keywords: "老師口述 卵圓鞭毛蟲 停電 種魚 NNV 龍膽石斑 觀賞魚餵食 膽囊 白點蟲 馬蹄形核 CyHV-2 KHV 眼窩凹陷 魚加寶 黃吸蟲 鐘形蟲 微孢子蟲 鰾病 案例 清晨浮頭 RAS 亞硝酸鹽 白點 新缸症候群 黃吸蟲 Clinostomum 指環蟲 KHV CyHV-2 Vibrio",
     snippet: "三個水質案例與講義 9 個教學病例的症狀、鏡檢、分離與處理對照。"
   },
   {
@@ -11224,56 +11224,56 @@ const SEARCH_INDEX = [
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "organs", sectionName: "免疫器官與免疫細胞",
-    keywords: "免疫器官 腎臟 頭腎 memory 脾臟 肝臟 補體 巨噬細胞 嗜中性球 NK 吞噬 PRR TLR 干擾素 MALT",
+    keywords: "免疫器官 腎臟 頭腎 memory 脾臟 肝臟 補體 巨噬細胞 嗜中性球 NK 吞噬 PRR TLR 干擾素 MALT M1 M2 NK-like dendritic-like TLR4 MyD88 干擾素 Mx PKR OAS 趨化作用 呼吸爆發 老師口述",
     snippet: "腎臟血流慢、前段是 memory 所在；脾臟次之；肝臟可能產生補體；先天免疫細胞與吞噬作用；含文獻補充。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "vroute", sectionName: "疫苗投予方式與疫苗類型比較",
-    keywords: "疫苗 投予方式 注射 浸泡 口服 免疫 優缺點 稚魚 佐劑 酒精包埋 RPS",
+    keywords: "疫苗 投予方式 注射 浸泡 口服 免疫 優缺點 稚魚 佐劑 酒精包埋 RPS 酒精包埋法 疫苗與酒精混合噴在飼料上 淡水魚浸泡 口服 RPS 70-80% 老師口述",
     snippet: "注射、浸泡、口服三種投予方式的優缺點與適用情境比較（講義＋補充）。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "stress", sectionName: "壓力與免疫",
-    keywords: "壓力 皮質醇 兒茶酚胺 HPI CRF ACTH 嗜鉻細胞 腎間組織 反抗期 適應期 衰竭期 三級反應",
+    keywords: "壓力 皮質醇 兒茶酚胺 HPI CRF ACTH 嗜鉻細胞 腎間組織 反抗期 適應期 衰竭期 三級反應 適應期 衰竭期 運輸 下銅離子 打氣 龍虎斑 綠光 殘食 噪音 嗜鉻組織 老師口述",
     snippet: "壓力三階段與三級反應；皮質醇抑制吞噬細胞並降低循環淋巴球。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "barrier", sectionName: "第一道防線：鰓、皮膚、黏液",
-    keywords: "鰓 皮膚 黏液 抗菌胜肽 溶菌酶 肽聚醣 氯細胞 杯狀細胞",
+    keywords: "鰓 皮膚 黏液 抗菌胜肽 溶菌酶 肽聚醣 氯細胞 杯狀細胞 鰓耙 杯狀細胞 棒狀細胞 鱗囊 抗菌胜肽 溶菌酶 N-乙醯胞壁酸 鸚哥魚 老師口述",
     snippet: "鰓與皮膚是最先接觸病原處；黏液、抗菌胜肽、溶菌酶（作用於肽聚醣）。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "adaptive", sectionName: "適應性免疫：T 細胞與抗體",
-    keywords: "T 細胞 CD4 CD8 MHC I MHC II 抗體 IgM IgZ IgT 漿細胞 類別轉換",
+    keywords: "T 細胞 CD4 CD8 MHC I MHC II 抗體 IgM IgZ IgT 漿細胞 類別轉換 CD4 CD8 穿孔素 顆粒酶 IgT 斑馬魚 虹鱒 老師口述",
     snippet: "輔助與毒殺 T 細胞、MHC I/II；魚的抗體 IgM、IgT/IgZ（補充）。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "gut", sectionName: "腸道免疫",
-    keywords: "腸道免疫 GALT 固有層 幽門盲囊 口服疫苗",
+    keywords: "腸道免疫 GALT 固有層 幽門盲囊 口服疫苗 草食性魚 無胃 第二段腸道 IgM IgT IgD 老師口述",
     snippet: "講義僅有腸道免疫圖；GALT 概念見補充。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "biofilm", sectionName: "對細菌的免疫反應：生物膜",
-    keywords: "生物膜 Biofilm MIC MBEC 補體 M2 巨噬細胞 抗生素耐受",
+    keywords: "生物膜 Biofilm MIC MBEC 補體 M2 巨噬細胞 抗生素耐受 eDNA AIP MIC MBEC 16384 M2 抗菌胜肽正電 體表潰瘍 老師口述",
     snippet: "生物膜的 MBEC 遠高於 MIC，躲避補體並使巨噬細胞偏向 M2。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類免疫與疫苗",
     url: "大四上/水產動物疾病學/魚類免疫與疫苗.html",
     section: "vtype", sectionName: "疫苗類型",
-    keywords: "NNV 神經壞死病毒 Nervous Necrosis Virus 病毒性神經壞死病 VNN Betanodavirus 疫苗 不活化 減毒 次單位 DNA疫苗 類毒素 RNAi siRNA NNV 生物膜疫苗 RPS Vibrio alginolyticus",
+    keywords: "NNV 神經壞死病毒 Nervous Necrosis Virus 病毒性神經壞死病 VNN Betanodavirus 疫苗 不活化 減毒 次單位 DNA疫苗 類毒素 RNAi siRNA NNV 生物膜疫苗 RPS Vibrio alginolyticus siRNA stem-loop 莖環 NNV 10^9 DNA疫苗 類毒素 次單位 福馬林 LPS 生物膜疫苗 10^10 老師口述",
     snippet: "各類疫苗比較；不活化疫苗效力表；RNAi 疫苗與生物膜疫苗結果；水產疫苗現況補充。"
   },
   {
@@ -11294,77 +11294,77 @@ const SEARCH_INDEX = [
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "abstract", sectionName: "大方向與重點摘要",
-    keywords: "魚類解剖 生理 鰓 鰾 皮膚 黏液 滲透壓 氯細胞 逆流交換 Bohr Root",
+    keywords: "魚類解剖 生理 鰓 鰾 皮膚 黏液 滲透壓 氯細胞 逆流交換 Bohr Root 期中考範圍 軟骨魚 硬骨魚 老師提示 解剖課 生殖乳頭 頭腎",
     snippet: "魚類解剖與生理總覽：鰓、鰾、皮膚黏液、滲透壓的重點與容易混淆處。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "classification", sectionName: "魚類定義、分類與基本構造",
-    keywords: "魚類分類 盲鰻 七鰓鰻 軟骨魚 硬骨魚 肉鰭魚 輻鰭魚 螺旋瓣 盾鱗",
+    keywords: "魚類分類 盲鰻 七鰓鰻 軟骨魚 硬骨魚 肉鰭魚 輻鰭魚 螺旋瓣 盾鱗 魚蛭 寄生蟲 細菌 先處理寄生蟲 三氯松 福馬林 文昌魚 鰻魚 鱗片 盲鰻 打結 KHV 眼窩凹陷 鏈球菌 突眼 毛筆狀 營養性畸形",
     snippet: "五大類群比較；臨床上以輻鰭魚綱硬骨魚為預設。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "locomotion", sectionName: "運動、游泳方式與趨性",
-    keywords: "鰻行式 鱒行式 鮪行式 趨光性 趨流性 趨溫性 趨鹽性 趨化性 游泳",
+    keywords: "鰻行式 鱒行式 鮪行式 趨光性 趨流性 趨溫性 趨鹽性 趨化性 游泳 蹦火仔 趨化性 離群 游姿 NNV 螺旋狀游動 睡鯊 小丑魚",
     snippet: "三種游泳方式與五種趨性。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "respiration", sectionName: "鰓與呼吸",
-    keywords: "鰓 鰓弓 鰓絲 鰓小片 逆流交換 順流 氯細胞 迷器 鰓蓋怒張 浮頭 軟骨魚 硬骨魚 假鰓",
+    keywords: "鰓 鰓弓 鰓絲 鰓小片 逆流交換 順流 氯細胞 迷器 鰓蓋怒張 浮頭 軟骨魚 硬骨魚 假鰓 翻鰓 鰓蓋 鰓耙 二級鰓小片融合 鰓蒼白 死後變化 白盆測試 浮頭 搶食 甲基藍 鬥魚 彈塗魚 KHV 潛伏",
     snippet: "鰓的構造與三大功能、逆流交換（約80%對50%）、軟硬骨魚鰓比較、鰓蓋怒張與浮頭的鑑別。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "swimbladder", sectionName: "鰾與浮力（含 Bohr、Root 效應）",
-    keywords: "鰾 氣體腺 卵圓窗 奇網 Bohr效應 Root效應 乳酸 浮鰾病 深海魚 鯊魚肝油 浮力",
+    keywords: "鰾 氣體腺 卵圓窗 奇網 Bohr效應 Root效應 乳酸 浮鰾病 深海魚 鯊魚肝油 浮力 鰾病 腸道積氣 翻肚 開鰾 閉鰾 氣體腺 奇網 減壓傷害 皇帶魚 難治",
     snippet: "鰾的功能與構造、氣體腺充氣機制、Bohr 與 Root 的差別、鰾疾病診斷治療。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "skin", sectionName: "皮膚、鱗與黏液",
-    keywords: "皮膚 表皮 真皮 鱗 骨鱗 硬鱗 盾鱗 黏液 立鱗病 體表潰爛 嗜水氣單胞菌 柱狀屈撓桿菌",
+    keywords: "皮膚 表皮 真皮 鱗 骨鱗 硬鱗 盾鱗 黏液 立鱗病 體表潰爛 嗜水氣單胞菌 柱狀屈撓桿菌 立鱗病 抗生素濫用 處方飼料 藥敏 掉鱗 體色變黑 虹彩病毒 水黴",
     snippet: "皮膚三大功能、鱗的種類、黏液防禦、立鱗病（講義標***）、體表潰爛。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "circulation", sectionName: "心臟與血液循環",
-    keywords: "單循環 靜脈竇 心房 心室 動脈球 動脈圓錐 肺魚 奇網 逆流熱交換",
+    keywords: "單循環 靜脈竇 心房 心室 動脈球 動脈圓錐 肺魚 奇網 逆流熱交換 動脈圓錐 動脈球 肺魚 月魚 Opah 區域恆溫 紅血球有核",
     snippet: "單循環與四腔室、硬骨魚動脈球與軟骨魚動脈圓錐。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "sense", sectionName: "感覺器官：耳、側線、嗅、味、眼",
-    keywords: "耳石 魏氏小骨 側線 嗅覺 味覺 眼 近視 反光層 凸眼 魚類年齡",
+    keywords: "耳石 魏氏小骨 側線 嗅覺 味覺 眼 近視 反光層 凸眼 魚類年齡 耳石 年齡 側線 嗅囊 凸眼 革蘭氏陽性球菌 鏈球菌 打窩 石斑 藍光 殘食",
     snippet: "魚類耳、側線、嗅覺、味覺、眼的特點與凸眼鑑別。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "organs", sectionName: "肝、脾、腎與消化道",
-    keywords: "肝臟 黃肝 脂肪肝 脾臟 脾腫大 腎臟 頭腎 幽門垂 腸道免疫 GALT",
+    keywords: "肝臟 黃肝 脂肪肝 脾臟 脾腫大 腎臟 頭腎 幽門垂 腸道免疫 GALT 脂肪肝 黃肝 膽汁 脾腫大 虹彩病毒 凝血細胞 黑色素巨噬細胞中心 白便 幽門垂",
     snippet: "肝脾腎功能、黃肝、脾腫大原因（不含溫度過高）、腎與消化道。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "osmo", sectionName: "滲透壓與氯細胞",
-    keywords: "滲透壓 氯細胞 MRC Na+-K+-ATPase CFTR 淡水魚 海水魚 尿素 TMAO 直腸腺",
+    keywords: "滲透壓 氯細胞 MRC Na+-K+-ATPase CFTR 淡水魚 海水魚 尿素 TMAO 直腸腺 鯊魚肉 尿素 氯細胞 NKA 日本鰻 富含粒線體細胞",
     snippet: "淡水魚與海水魚相反、氯細胞、鯊魚尿素＋TMAO。"
   },
   {
     subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "魚類解剖與生理",
     url: "大四上/水產動物疾病學/魚類解剖與生理.html",
     section: "muscle", sectionName: "肌肉、體色、壓力與生殖",
-    keywords: "肌肉 血合肉 紅肌 白肌 電鰻 體色變黑 蝦紅素 壓力 皮質醇 雌雄同體 生殖隔閡",
+    keywords: "肌肉 血合肉 紅肌 白肌 電鰻 體色變黑 蝦紅素 壓力 皮質醇 雌雄同體 生殖隔閡 血合肉 側線 先雌後雄 先雄後雌 石斑 小丑魚 黑鯛 時間隔離 海馬 安康魚",
     snippet: "肌肉、體色、壓力軸與生殖策略。"
   },
   {
@@ -11515,6 +11515,13 @@ const SEARCH_INDEX = [
     snippet: "講義數字與關鍵字速查表，附來源頁碼。"
   },
   {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/水產動物疾病學/期中統整.html",
+    section: "teacher", sectionName: "老師口述的考試提示與現場重點",
+    keywords: "老師口述 考試提示 期中範圍 軟骨魚 硬骨魚 情境題 淡水魚 亞硝酸 海水魚 氨氮 浮頭 寄生蟲 先處理寄生蟲 白盆測試 翻鰓 順流 逆流 脂肪肝 膽汁 脾腫大 虹彩病毒 NNV 時間線 KHV 白點蟲 馬蹄形 MHC CD8 CD4 疫苗途徑 酒精包埋法 用藥時間與劑量計算 同學錄音筆記",
+    snippet: "同學的上課錄音筆記整理的老師口述：期中範圍與軟硬骨魚重點、水質與生理的現場判斷、免疫與疫苗途徑，以及與原有說法的出入（待核對）。"
+  },
+  {
     subject: "獸醫傳染病學", semester: "國考", week: null, weekTitle: "水產動物疾病學統整（歷屆國考題）",
     url: "國考/獸醫傳染病學/水產動物疾病學統整.html",
     section: "s0", sectionName: "蝦蟹類疾病（白斑症候群、陶拉、黃頭、IHHNV、桿狀病毒、白尾病、AHPND、螯蝦瘟等）",
@@ -11646,5 +11653,19 @@ const SEARCH_INDEX = [
     section: "teacher", sectionName: "上課練習題（老師講義題）",
     keywords: "上課練習題 老師題目 講義題 自我測驗 簡答題 建議答案 皮質醇 TMAO 趨光性 鰻行式 脾臟腫大 亞硝酸鹽 反抗期",
     snippet: "老師講義夾帶的 34 題（第一週 8、生理 11、骨骼循環消化 9、免疫 6）照原文收錄，每題標講義頁碼與本站章節，選擇題逐選項詳解，簡答題附老師建議答案與重點拆解。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "自我測驗：上課內容題・魚類免疫",
+    url: "大四上/水產動物疾病學/自我測驗/quiz.html?c=%E4%B8%8A%E8%AA%B2%E5%85%A7%E5%AE%B9%E9%A1%8C_%E5%85%8D%E7%96%AB",
+    section: "classnote-immunity", sectionName: "上課內容題・魚類免疫（老師口述）",
+    keywords: "上課內容題 魚類免疫 老師口述 同學預測題 酒精包埋法 皮質醇 生物膜 MHC 干擾素 NNV RNAi 疫苗 RPS",
+    snippet: "依同學的上課錄音筆記（非官方逐字稿）出題 108 題：壓力、體表屏障、免疫器官與細胞、PRR 與干擾素、T 細胞與抗體、生物膜、NNV 與 RNAi、疫苗途徑與種類，加上同學預測題 24 題；每題標出處，選擇題逐選項詳解。"
+  },
+  {
+    subject: "水產動物疾病學", semester: "大四上", week: null, weekTitle: "自我測驗：上課內容題・魚類生理",
+    url: "大四上/水產動物疾病學/自我測驗/quiz.html?c=%E4%B8%8A%E8%AA%B2%E5%85%A7%E5%AE%B9%E9%A1%8C_%E7%94%9F%E7%90%86",
+    section: "oral-phy", sectionName: "上課內容題・魚類生理（同學的上課錄音筆記）",
+    keywords: "上課內容題 錄音筆記 老師口述 生理 軟骨魚 硬骨魚 翻鰓 二級鰓小片融合 白盆測試 浮頭 搶食 鰾病 腸道積氣 立鱗病 脂肪肝 膽汁 脾腫大 耳石 凸眼 先雌後雄 同學預測題",
+    snippet: "同學的上課錄音筆記整理的老師口述範圍出題（163 題）：開場與考試提示、魚蛭與混合感染、游姿與趨化性、鰓與看診、鰾病、體表與血合肉、循環、感覺、肝脾腎、滲透壓與生殖，加同學預測題與臨床情境；預測題非官方。"
   }
 ];
