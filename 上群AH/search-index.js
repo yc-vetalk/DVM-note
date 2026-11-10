@@ -369,4 +369,464 @@ const SEARCH_INDEX = [
     keywords: "抗生素 antibiotics 牙周病 拔牙 antimicrobial stewardship Feline Grimace Scale 止痛 食道造口管 esophagostomy tube",
     snippet: "常規牙周治療與拔牙術後多不需抗生素，僅免疫抑制或高感染風險考慮；多模式止痛3-7天，以Feline Grimace Scale追蹤..."
   },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+    url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+    section: "overview",
+    sectionName: "貓眼的三個臨床陷阱",
+    keywords: "貓 狗 差異 鑑別 FHV-1 FDIM 視網膜剝離 高血壓 Kobayashi FASAVA 2026",
+    snippet: "持續性角膜炎狗找局部原因、貓先想FHV-1；虹膜變黑貓進展預後差；視網膜剝離貓先想高血壓..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+    url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+    section: "fhv",
+    sectionName: "角膜結膜炎與 FHV-1",
+    keywords: "貓疱疹病毒 FHV-1 樹枝狀潰瘍 dendritic 角膜黑色壞死 sequestrum 嗜酸性角膜炎 短頭 披衣菌 內翻",
+    snippet: "沒有樹枝狀潰瘍不能排除FHV-1；短頭貓潰瘍OR 3.0、黑色壞死OR 9.0；需排除披衣菌、內翻、淚膜異常..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+    url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+    section: "fhv-tx",
+    sectionName: "FHV-1 治療與復發",
+    keywords: "famciclovir 90 mg/kg idoxuridine IDU 玻尿酸 益生菌 SF68 L-lysine 干擾素 潛伏 三叉神經節 PACK-CXL",
+    snippet: "famciclovir 90 mg/kg PO q12h；IDU 每日6次；玻尿酸與益生菌為講者首選；病毒潛伏、緩解後不減量..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+    url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+    section: "cases-ocular",
+    sectionName: "眼表病例：Lyli 與 Neko",
+    keywords: "Lyli Neko 淋巴瘤 化療 類固醇 NSAID 眼藥 防腐劑 第三眼瞼糜爛 免疫抑制",
+    snippet: "FHV-1合併免疫抑制與不當消炎眼藥導致惡化；免疫支持是關鍵..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+    url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+    section: "fdim",
+    sectionName: "瀰漫性虹膜黑色素瘤 FDIM",
+    keywords: "FDIM 虹膜黑色素瘤 melanosis 轉移 19-63% Kayes 摘除時機 Gregorio Moco 青光眼",
+    snippet: "FDIM轉移率19-63%；基質侵犯定義惡性；晚期存活顯著較短；摘除時機的新資料僅為假說..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+    url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+    section: "fdim-dx",
+    sectionName: "FDIM 診斷與雷射",
+    keywords: "虹膜切片 iris biopsy AS-OCT 前眼節OCT PN比值 二極體雷射 diode laser Fuchs Popo Featherstone Beetz",
+    snippet: "切片陽性支持摘除、陰性不能安心等；OCT輔助不確診；雷射1年存活96%，術後青光眼5%..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+    url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+    section: "rd",
+    sectionName: "視網膜剝離鑑別",
+    keywords: "視網膜剝離 retinal detachment 滲出性 孔源性 FIP 弓形蟲 隱球菌 淋巴瘤 GS-441524 急性失明 量血壓",
+    snippet: "貓以滲出性剝離為主；老貓急性雙側失明先量血壓；年輕貓想FIP、流浪貓想弓形蟲隱球菌、老貓排除淋巴瘤..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+    url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+    section: "htn",
+    sectionName: "高血壓脈絡視網膜病變",
+    keywords: "高血壓 hypertension amlodipine 0.625 mg ACVIM 2018 TOD 脈絡膜 CKD 甲狀腺機能亢進 benazepril telmisartan Young 2019",
+    snippet: "視網膜剝離即TOD不必等重複測量；amlodipine 0.625 mg/cat q24h起始；失明貓57.6%恢復視力..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "犬貓角膜顏色：診斷與治療",
+    url: "研討會/犬貓角膜顏色診斷與治療.html",
+    section: "talks",
+    sectionName: "講者與兩場演講",
+    keywords: "Manbok Jeong 全南大學 角膜顏色 corneal color 診斷 治療 FASAVA 2026 DAiCVO",
+    snippet: "Jeong醫師兩場演講大會摘要：角膜白藍紅褐黑顏色對應病理與治療選擇..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "犬貓角膜顏色：診斷與治療",
+    url: "研討會/犬貓角膜顏色診斷與治療.html",
+    section: "colors",
+    sectionName: "角膜顏色對照表",
+    keywords: "角膜 顏色 水腫 edema 內皮失養 sequestrum 黑色壞死 pannus 血管翳 脂質 礦物質 色素 melanocytoma",
+    snippet: "藍灰=水腫，白=浸潤或沉積，紅=血管新生，褐=色素，黑=貓黑色壞死..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "犬貓角膜顏色：診斷與治療",
+    url: "研討會/犬貓角膜顏色診斷與治療.html",
+    section: "details",
+    sectionName: "重點病灶說明",
+    keywords: "色素性角膜炎 pigmentary keratitis 巴哥犬 cyclosporine tacrolimus descemetocele 結膜瓣 conjunctival graft sequestrum",
+    snippet: "色素性角膜炎先處理誘因再局部免疫調節；descemetocele需手術..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "犬貓角膜顏色：診斷與治療",
+    url: "研討會/犬貓角膜顏色診斷與治療.html",
+    section: "treatment",
+    sectionName: "內科或手術",
+    keywords: "內科 手術 角膜潰瘍 descemetocele 轉診 穿孔",
+    snippet: "單純潰瘍內科、深層潰瘍與黑色壞死傾向手術，術前術後仍需內科..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "柴犬的眼睛：白內障、青光眼與角膜內皮炎",
+    url: "研討會/柴犬眼科-白內障青光眼與角膜內皮炎.html",
+    section: "cataract",
+    sectionName: "白內障基礎與併發症",
+    keywords: "柴犬 Shiba Inu 白內障 cataract LIU 水晶體誘發葡萄膜炎 phacolytic phacoclastic 水晶體脫位 糖尿病 分期",
+    snippet: "柴犬白內障手術年齡中位2.1歲；LIU未成熟也可能發生；併發症造成疼痛..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "柴犬的眼睛：白內障、青光眼與角膜內皮炎",
+    url: "研討會/柴犬眼科-白內障青光眼與角膜內皮炎.html",
+    section: "cataract-shiba",
+    sectionName: "柴犬白內障：資料與篩檢",
+    keywords: "柴犬 手術年齡 2.1歲 8.4歲 phaco 後照法 retroillumination 87.7% 視力保留 轉診",
+    snippet: "柴犬 vs 其他品種手術年齡與術後視力；後照法篩檢與轉診前檢查..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "柴犬的眼睛：白內障、青光眼與角膜內皮炎",
+    url: "研討會/柴犬眼科-白內障青光眼與角膜內皮炎.html",
+    section: "pacg",
+    sectionName: "PACG：認識與診斷",
+    keywords: "原發性隅角閉鎖青光眼 PACG 柴犬 隅角鏡 gonioscopy 眼壓 Kato 2006 80.6%",
+    snippet: "柴犬占日本青光眼33%；隅角鏡是風險分級不是診斷；瞇眼當天量眼壓..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "柴犬的眼睛：白內障、青光眼與角膜內皮炎",
+    url: "研討會/柴犬眼科-白內障青光眼與角膜內皮炎.html",
+    section: "pacg-tx",
+    sectionName: "PACG：治療、病例與預防",
+    keywords: "latanoprost 前列腺素 CAI timolol mannitol Ahmed valve AGV 72小時 對側眼預防 SRBD1 SIX6",
+    snippet: "72小時內就診86.7%有視力；Ahmed閥12個月視力69.2% vs 藥物7.7%；對側眼預防..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "柴犬的眼睛：白內障、青光眼與角膜內皮炎",
+    url: "研討會/柴犬眼科-白內障青光眼與角膜內皮炎.html",
+    section: "endo",
+    sectionName: "角膜內皮疾病與內皮炎",
+    keywords: "角膜內皮炎 endotheliitis PCED 柴犬 地圖狀內皮混濁 局部類固醇 ripasudil 鏡面顯微鏡 CAV-1 藍眼",
+    snippet: "柴犬角膜內皮炎對類固醇有反應但會復發；緩解不等於內皮恢復..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "柴犬的眼睛：白內障、青光眼與角膜內皮炎",
+    url: "研討會/柴犬眼科-白內障青光眼與角膜內皮炎.html",
+    section: "endo-case",
+    sectionName: "病例 3：35 個月追蹤",
+    keywords: "內皮炎 病例 betamethasone ripasudil 內皮細胞密度 cells/mm2 鏡面顯微鏡",
+    snippet: "病例3：右眼細胞密度1511→595，加ripasudil後35個月緩解維持..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "鸚鵡醫學：幼雛、老年與腫瘤",
+    url: "研討會/鸚鵡醫學-幼雛老年與腫瘤.html",
+    section: "juvenile",
+    sectionName: "幼雛與青年鸚鵡",
+    keywords: "鸚鵡 幼雛 嗉囊停滯 crop stasis 酸嗉囊 禽波納病毒 ABV PDD PBFD 喙羽病 多瘤病毒 APV 念珠菌 嗉囊燒傷 代謝性骨病",
+    snippet: "幼雛嗉囊排空延遲是紅旗；先查飼養管理；每天秤重；嗉囊與糞便細胞學最快..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "鸚鵡醫學：幼雛、老年與腫瘤",
+    url: "研討會/鸚鵡醫學-幼雛老年與腫瘤.html",
+    section: "geriatric",
+    sectionName: "老年鸚鵡",
+    keywords: "老年鸚鵡 骨關節炎 動脈粥樣硬化 腎病 痛風 白內障 麻醉 meloxicam pimobendan",
+    snippet: "老年鸚鵡多系統評估；鳥的疼痛隱晦；環境調整就是治療；麻醉前先給氧..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "鸚鵡醫學：幼雛、老年與腫瘤",
+    url: "研討會/鸚鵡醫學-幼雛老年與腫瘤.html",
+    section: "oncology",
+    sectionName: "鳥類腫瘤",
+    keywords: "鳥類腫瘤 鱗狀細胞癌 SCC 淋巴瘤 垂體腺瘤 黃瘤 脂肪瘤 化療 carboplatin 光動力 PDT 細胞學",
+    snippet: "鳥類腫瘤沒有標準治療；細胞學與組織病理一致率72.8%；惡性87.5%、良性55.6%..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "鸚鵡醫學：幼雛、老年與腫瘤",
+    url: "研討會/鸚鵡醫學-幼雛老年與腫瘤.html",
+    section: "other",
+    sectionName: "爬蟲與小型哺乳類腫瘤",
+    keywords: "兔 子宮腺癌 天竺鼠 脂肪瘤 雪貂 腎上腺 胰島素瘤 蛇 軟組織肉瘤 爬蟲腫瘤",
+    snippet: "未結紮母兔子宮腺癌5歲前可達80%；雪貂腎上腺腫瘤內科治療無病期較長..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "異寵超音波：從入門到進階",
+    url: "研討會/異寵超音波-從入門到進階.html",
+    section: "overview",
+    sectionName: "設備、保定與檢查路徑",
+    keywords: "異寵 超音波 探頭 5-11 MHz 線性 24 MHz 保定 isoflurane 檢查路徑 蛇 心臟",
+    snippet: "鳥麻醉下檢查；呼吸窘迫不麻醉；蛇從心臟往尾側，其他從肝與膽囊開始..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "異寵超音波：從入門到進階",
+    url: "研討會/異寵超音波-從入門到進階.html",
+    section: "bird",
+    sectionName: "鳥類超音波",
+    keywords: "鳥 超音波 氣囊 air sac 聲窗 劍突 腹水 卵阻塞 心血管 動脈粥樣硬化 心衰竭",
+    snippet: "氣囊反射超音波；4個聲窗；腹水是最佳對比；心衰竭是老鳥主因..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "異寵超音波：從入門到進階",
+    url: "研討會/異寵超音波-從入門到進階.html",
+    section: "reptile",
+    sectionName: "爬蟲超音波",
+    keywords: "爬蟲 超音波 蛻皮 ecdysis 卵泡停滯 卵阻塞 egg binding 異物 肛囊",
+    snippet: "蛻皮前後不能掃；生殖道最重要；可區分卵阻塞與卵泡停滯..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "異寵超音波：從入門到進階",
+    url: "研討會/異寵超音波-從入門到進階.html",
+    section: "mammal",
+    sectionName: "小型哺乳類超音波",
+    keywords: "天竺鼠 兔 雪貂 卵巢囊腫 腸氣 結石 懷孕 腎上腺",
+    snippet: "小型哺乳類像狗貓，限制為腸氣；生殖道為首選；雪貂腎上腺腫瘤..."
+  },
+  {
+    subject: "FASAVA 2026",
+    week: null,
+    weekTitle: "FASAVA 2026 三天課表",
+    url: "FASAVA2026/index.html",
+    section: "",
+    sectionName: "課表與依科別瀏覽",
+    keywords: "FASAVA 2026 課表 program 講者 Gawor Heng Xie Mori Nakashima Ishida Steagall Fatjo Bowen Mills Jeong Kobayashi Jank Morissette Boyd Côté Simpson Baranidharan Hochleithner Stanley Marks",
+    snippet: "10/31–11/2 三天課表，可依日期或科別查看講者、講義與筆記..."
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛評估與抗 NGF 單株抗體",
+    url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+    section: "abstract",
+    sectionName: "重點摘要",
+    keywords: "骨關節炎 OA 慢性疼痛 Steagall FASAVA 重點",
+    snippet: "OA 不是老狗的病；X 光無法告訴你多痛；抗 NGF 單抗與 APBR 安全訊號"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛評估與抗 NGF 單株抗體",
+    url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+    section: "concept",
+    sectionName: "急性與慢性疼痛",
+    keywords: "適應性 非適應性 中樞敏感化 wind-up 持續性術後疼痛 PPSP 眼睛疼痛 FCGS 去爪 感覺過敏症候群 配合度 compliance",
+    snippet: "慢性疼痛是神經系統的改變；常見原因；多重用藥讓配合度下降"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛評估與抗 NGF 單株抗體",
+    url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+    section: "assess",
+    sectionName: "OA 的三步驟臨床評估",
+    keywords: "病史 飼主參與 家中影片 兔跳 bunny hop 理學檢查 X 光 34% 危險因子",
+    snippet: "病史與飼主參與、低壓力理學檢查、X 光只能確認不能告訴你多痛"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛評估與抗 NGF 單株抗體",
+    url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+    section: "scales",
+    sectionName: "慢性疼痛量表",
+    keywords: "CBPI HCPI LOAD COAST Feline MiPSC FMPI-sf CSOM 量表 篩檢清單 Gober",
+    snippet: "慢性量表沒有給藥切點、要同一位飼主填；貓三步驟量表"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛評估與抗 NGF 單株抗體",
+    url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+    section: "ngf",
+    sectionName: "OA 疼痛與 NGF 機轉",
+    keywords: "NGF TrkA 神經性發炎 neurogenic inflammation QST 安慰劑 NSAID 不良反應 厭食",
+    snippet: "NGF 結合發炎細胞 TrkA，釋放介質與更多 NGF，促進並延續慢性疼痛"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛評估與抗 NGF 單株抗體",
+    url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+    section: "mab",
+    sectionName: "Bedinvetmab 與 frunevetmab",
+    keywords: "bedinvetmab frunevetmab Librela Solensia 單株抗體 起效 第 2 劑 每 4 週 SC",
+    snippet: "物種專一抗 NGF 單抗，最早 2 週見效，第 2 劑後達最大效果"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛評估與抗 NGF 單株抗體",
+    url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+    section: "safety",
+    sectionName: "安全性與藥物警戒",
+    keywords: "藥物警戒 pharmacovigilance VMD FDA APBR 骨重塑 Budsberg 肘 跗 NSAID 併用 RPOA tanezumab Farrell",
+    snippet: "9.48 件／萬劑屬罕見；186 隻狗 APBR；不建議與 NSAID 併用；關節腫脹拍 X 光考慮停藥"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛評估與抗 NGF 單株抗體",
+    url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+    section: "quiz",
+    sectionName: "練習題",
+    keywords: "練習題 情境 Librela carprofen 併用 關節腫脹",
+    snippet: "7 題臨床情境問答"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "abstract",
+    sectionName: "重點摘要",
+    keywords: "慢性疼痛 治療 證據 Steagall 輔助止痛藥",
+    snippet: "第一線 NSAID 與抗 NGF 單抗；tramadol 狗無效；gabapentin CKD 貓減量"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "overview",
+    sectionName: "課程架構與劑量總表",
+    keywords: "劑量 grapiprant paracetamol tramadol gabapentin pregabalin amitriptyline amantadine mg/kg PO",
+    snippet: "輔助止痛藥與抗發炎藥的劑量、途徑、物種與證據一覽"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "screen",
+    sectionName: "篩檢的新證據",
+    keywords: "Wright 2022 篩檢清單 carprofen 年輕狗 Enomoto 39.8% 盛行率",
+    snippet: "37.6% 確認 OA；4 歲以下的狗 39.8% 有 X 光 OA 但幾乎沒治療"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "plan",
+    sectionName: "治療計畫與止痛試驗",
+    keywords: "止痛試驗 analgesic challenge 4-6 週 照顧者負擔 金字塔 嚴重度 安樂死",
+    snippet: "止痛試驗 4–6 週是專家共識；依 OA 嚴重度逐層加藥"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "nsaid",
+    sectionName: "NSAID",
+    keywords: "NSAID 禁忌 厭食 嘔吐 5% 監測 washout 48 小時 robenacoxib meloxicam carprofen CKD",
+    snippet: "一種 NSAID 禁忌通常全部禁忌；換藥 washout 約 48 小時；厭食是最早徵兆"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "other",
+    sectionName: "其他抗發炎藥與比較試驗",
+    keywords: "grapiprant EP4 paracetamol 貓禁忌 bedinvetmab meloxicam Innes COI 不良事件",
+    snippet: "Grapiprant 2 mg/kg PO q24h；bedinvetmab 與 meloxicam 一樣有效、不良事件較少"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "tramadol",
+    sectionName: "Tramadol",
+    keywords: "tramadol O-desmethyltramadol M1 血清素 狗無效 貓 2-5 mg/kg",
+    snippet: "狗幾乎不產生活性代謝物；貓 2–5 mg/kg PO q8–12h"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "gaba",
+    sectionName: "Gabapentin 與 pregabalin",
+    keywords: "gabapentin pregabalin CKD 貓 減量 Quimby 運送焦慮 鎮靜 急性疼痛 麻醉減量",
+    snippet: "5–10 mg/kg PO q8–12h；CKD 貓減量；不建議用於急性疼痛"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "nmda",
+    sectionName: "Amitriptyline、amantadine 與 ketamine",
+    keywords: "amitriptyline amantadine NMDA ketamine 皮下 FIC 骨肉瘤 Lascelles",
+    snippet: "Amantadine 3–5 mg/kg PO q24h 有證據；amitriptyline 證據不足；每月皮下 ketamine 沒有證據"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "qa",
+    sectionName: "圓桌問答",
+    keywords: "保健品 葡萄糖胺 軟骨素 pentosan omega-3 FCGS 齦口炎 CKD 貓 肌少症 監測頻率",
+    snippet: "關節保健品證據弱；CKD＋OA 貓首選抗 NGF 單抗；FCGS 先做口腔處置"
+  },
+  {
+    subject: "研討會",
+    week: null,
+    weekTitle: "慢性疼痛藥物治療：證據整理",
+    url: "研討會/慢性疼痛藥物治療-證據整理.html",
+    section: "quiz",
+    sectionName: "練習題",
+    keywords: "練習題 情境 tramadol gabapentin 保健品 meloxicam",
+    snippet: "7 題臨床情境問答"
+  },
 ];

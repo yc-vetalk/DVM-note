@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鸚鵡醫學：幼雛、老年與腫瘤 - 上群動物醫院</title>
+<link rel="stylesheet" href="../assets/nav.css?v=3">
+<link rel="stylesheet" href="../assets/ah.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群動物醫院" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="研討會"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">上群動物醫院 首頁</a>
+      <span class="sep">›</span>
+      <a href="index.html">研討會</a>
+      <span class="sep">›</span>
+      <span class="current">鸚鵡醫學：幼雛、老年與腫瘤</span>
+    </div>
+
+    <div class="page-head">
+      <h1 class="page-title">鸚鵡醫學：幼雛、老年與腫瘤</h1>
+      <p class="page-subtitle">幼雛的嗉囊與病毒、老年的關節與心血管、鳥類與異寵腫瘤——FASAVA 2026 明日課程預習整理（含網路補充）。</p>
+    </div>
+    <div class="pagehead__actions">
+      <a class="btn fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Parrot_Medicine.pdf#page=1" data-label="p.1">📄 講義 PDF</a>
+      <span style="font-size:11.5px;opacity:.7;">點開會在右側閱讀（需先雙擊「開啟筆記網站」，再從 localhost 開本頁）；PDF 只存在本機，不上傳。</span>
+    </div>
+
+
+        <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科別</div><div class="meta-value">異寵（鸚鵡）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">FASAVA 2026 台北，Claudia 與 Manfred Hochleithner（維也納 Tierarztpraxis Strebersdorf）書面講義「The Young, the Old, and the Ugly」，另加網路補充</div></div>
+      <div class="meta-item"><div class="meta-label">性質</div><div class="meta-value">上課前預習整理，講義只有文字、無圖、無劑量</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">預習版：待上課後補老師口述與影像</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 預習重點</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 講者與講義架構</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-1" onclick="goSub('h3-1')">講者</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-2" onclick="goSub('h3-2')">講義架構</a>
+    <div class="section-label">幼、老、腫瘤</div>
+    <a onclick="showSection('juvenile')" id="nav-juvenile"><span class="nav-icon">🐣</span> 幼雛與青年鸚鵡</a>
+    <a class="toc-sub" data-sec="juvenile" id="nav-h3-3" onclick="goSub('h3-3')">幼雛的生理特點</a>
+    <a class="toc-sub" data-sec="juvenile" id="nav-h3-4" onclick="goSub('h3-4')">病雛的診斷流程</a>
+    <a class="toc-sub" data-sec="juvenile" id="nav-h3-5" onclick="goSub('h3-5')">幼雛的主要感染性疾病</a>
+    <a class="toc-sub" data-sec="juvenile" id="nav-h3-6" onclick="goSub('h3-6')">非感染性與幼雛急症</a>
+    <a onclick="showSection('geriatric')" id="nav-geriatric"><span class="nav-icon">🦜</span> 老年鸚鵡</a>
+    <a class="toc-sub" data-sec="geriatric" id="nav-h3-7" onclick="goSub('h3-7')">各類鸚鵡幾歲算老年</a>
+    <a class="toc-sub" data-sec="geriatric" id="nav-h3-8" onclick="goSub('h3-8')">骨關節炎</a>
+    <a class="toc-sub" data-sec="geriatric" id="nav-h3-9" onclick="goSub('h3-9')">心血管疾病與動脈粥樣硬化</a>
+    <a class="toc-sub" data-sec="geriatric" id="nav-h3-10" onclick="goSub('h3-10')">眼睛病變</a>
+    <a class="toc-sub" data-sec="geriatric" id="nav-h3-11" onclick="goSub('h3-11')">腎臟疾病與內臟／關節痛風</a>
+    <a class="toc-sub" data-sec="geriatric" id="nav-h3-12" onclick="goSub('h3-12')">老年病患的檢查與麻醉</a>
+    <a onclick="showSection('oncology')" id="nav-oncology"><span class="nav-icon">🎗️</span> 鳥類腫瘤</a>
+    <a class="toc-sub" data-sec="oncology" id="nav-h3-13" onclick="goSub('h3-13')">主要腫瘤類型</a>
+    <a class="toc-sub" data-sec="oncology" id="nav-h3-14" onclick="goSub('h3-14')">偽腫瘤皮膚病變</a>
+    <a class="toc-sub" data-sec="oncology" id="nav-h3-15" onclick="goSub('h3-15')">化療與放療</a>
+    <a class="toc-sub" data-sec="oncology" id="nav-h3-16" onclick="goSub('h3-16')">診斷：細胞學準不準？</a>
+    <a onclick="showSection('other')" id="nav-other"><span class="nav-icon">🦎</span> 爬蟲與小型哺乳類腫瘤</a>
+    <a class="toc-sub" data-sec="other" id="nav-h3-17" onclick="goSub('h3-17')">爬蟲</a>
+    <a class="toc-sub" data-sec="other" id="nav-h3-18" onclick="goSub('h3-18')">小型哺乳類</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('glossary')" id="nav-glossary"><span class="nav-icon">🔤</span> 縮寫與名詞對照</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 預習問題</a>
+    <a onclick="showSection('references')" id="nav-references"><span class="nav-icon">📚</span> 參考資料</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>預習重點 <span style="font-weight:400;font-size:.62em;opacity:.75;">What to know before the lecture</span></h2></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">先說明資料來源</div>
+        <p>本頁整理自老師提供的書面講義（11 頁文字，沒有投影片、沒有圖，也<strong>沒有給藥劑量</strong>），再加上我上網搜尋到的補充（標示為「補充」框，來源連結在框內；我只讀到搜尋摘要，沒讀全文）。老師明天口頭講的內容可能比講義多，請以上課為準。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">五個要先抓住的重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>題目結構是「幼、老、腫瘤」三個生命階段：</strong>幼雛看體溫、嗉囊（crop）與病毒；老年看關節、心血管、眼睛、腎臟；腫瘤看鱗狀細胞癌、淋巴瘤、垂體腺瘤。最後還延伸到爬蟲與小型哺乳類的腫瘤。</li>
+          <li><strong>幼雛的紅旗是「嗉囊排空延遲」（crop stasis／sour crop）：</strong>多數從飼養管理出錯開始（溫度、配方溫度），但也可能是全身疾病；每天清晨餵食前量體重；嗉囊與糞便細胞學是最快的診斷工具。</li>
+          <li><strong>三個幼雛病毒：</strong>禽波納病毒（Avian bornavirus, ABV）、鸚鵡喙羽病（Psittacine beak and feather disease, PBFD，圓環病毒 circovirus）、禽多瘤病毒（Avian polyomavirus, APV）；診斷以 PCR 為主。</li>
+          <li><strong>老年鸚鵡很少只有一種病：</strong>心臟、腎臟、關節要一起評估；鳥類的疼痛很隱晦（理毛減少、鳴叫改變、棲位改變）；環境調整本身就是治療。</li>
+          <li><strong>鳥類腫瘤沒有標準治療：</strong>化療耐受性比預期高、反應卻不理想；細胞學與組織病理的一致率 72.8%；兔子的子宮腺癌在 5 歲前可達 80%（未結紮母兔）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>講者與講義架構 <span style="font-weight:400;font-size:.62em;opacity:.75;">The Young, the Old, and the Ugly</span></h2></div>
+      <p class="section-desc">Exotics animal medicine｜Parrot Medicine Covering Juvenile, Senior and Oncological Patients</p>
+      <h3 id="h3-1">講者</h3>
+      <p>Claudia Hochleithner 與 Manfred Hochleithner 是夫妻，在維也納共同經營 Tierarztpraxis Strebersdorf（Mühlweg 5, 1210 Wien），院內約一半病患是異寵，合計有 30 年以上異寵經驗；兩人也共同製作 WSAVA 異寵課程的第一個模組（小型哺乳類）。（<a href="https://wsava.org/?p=1803" target="_blank" rel="noopener">WSAVA</a>）</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>Manfred Hochleithner：</strong>維也納獸醫大學 1980–1985 年就讀；EBVS 歐洲獸醫專科醫師（禽類醫學與外科），也是歐洲動物園醫學學院（ECZM，禽類）的 Diplomate；Strebersdorf 診所負責人；奧地利小動物協會（VOEK）會長 2012–2016、維也納獸醫公會會長 2017 至今；WSAVA 奧地利代表（2012 起）；2003 年創立保育組織 Endangered；50 篇以上的論文與書籍章節。（<a href="https://www.ebvs.eu/profile-public/3329" target="_blank" rel="noopener">EBVS 個人頁</a>）</li>
+        <li><strong>Claudia Hochleithner：</strong>會議講者頁列為 1991 年畢業於維也納獸醫大學、1992 年起主持診所；曾在德國、美國、荷蘭、英國做鳥類與異寵進修；受過小動物與異寵超音波訓練，合著異寵論文，並寫過一本爬蟲醫學書的超音波章節；常與丈夫一起在奧地利獸醫公會的線上研習講鸚鵡黴菌感染、龜殼病、鳥類／爬蟲／小型寵物超音波。（<a href="https://cslide.ctimeetingtech.com/wsava21/attendee/person/661" target="_blank" rel="noopener">WSAVA 2021 講者頁</a>——我讀不到全文，是搜尋摘要）</li>
+      </ul>
+      <p style="font-size:11.5px;color:var(--text3);">查證限制：Manfred 的資料主要來自 EBVS 個人頁（自述）；另一次搜尋找不到公會會長或 Diplomate 的獨立佐證，建議向公會官網核對。Claudia 的學位在不同來源寫法不同（公會寫 Mag.，會議頁寫 DVM）。講義標示的「Dipl. ECAMS」，我找不到對應組織，EBVS 頁寫的是 ECZM（禽類）。</p>
+      <h3 id="h3-2">講義架構</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>部分</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>一、幼雛與青年鸚鵡（Pediatric &amp; Juvenile）</td><td>生理特點、病雛診斷流程、感染性疾病、非感染性急症</td></tr>
+            <tr><td>二、老年鸚鵡（Geriatric）</td><td>年齡定義、關節炎、心血管與動脈粥樣硬化、眼睛、腎臟與痛風、麻醉考量</td></tr>
+            <tr><td>三、腫瘤（Oncology）</td><td>鳥類腫瘤、化療與放療、光動力療法、診斷準確度；爬蟲；小型哺乳類</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-juvenile">
+      <div class="section-head"><div class="section-num">3</div><h2>幼雛與青年鸚鵡 <span style="font-weight:400;font-size:.62em;opacity:.75;">Pediatric &amp; juvenile psittacine medicine</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Parrot_Medicine.pdf#page=1" data-label="p.1">p.1–4</a></p>
+
+
+      <h3 id="h3-3">幼雛的生理特點 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Unique pediatric physiology</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>體溫調節（Thermoregulation）：</strong>新生與幼雛缺乏足夠的絨羽（down）與皮下脂肪，容易低體溫並造成嗉囊停滯。</li>
+        <li><strong>免疫（Immune status）：</strong>母源抗體消退早於自身免疫成熟，中間有一段易感窗口，容易被伺機性細菌、黴菌與病毒感染。</li>
+        <li><strong>胃腸道通過時間：</strong>健康幼雛嗉囊排空很快；任何延遲（嗉囊停滯、「酸嗉囊」sour crop）都是系統性疾病、飼養錯誤或感染的紅旗。</li>
+      </ul>
+
+      <h3 id="h3-4">病雛的診斷流程 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Diagnostic approach to the sick chick</span></h3>
+      <p>因為幼雛生理儲備很少，要系統化處理。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>步驟</th><th>內容（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>病史與飼養稽核</td><td>孵化與育雛參數（溫度、濕度、通風）；飲食與餵食方式（配方溫度、頻率、量、稠度）；<strong>體重追蹤：每天清晨第一餐前秤重</strong>，是早期發現疾病的關鍵工具</td></tr>
+            <tr><td>臨床檢查</td><td>嗉囊張力、回填、蠕動；脫水（手指與蹠部皮膚彈性、黏膜）；羽毛囊發育與皮膚顏色／張力；對刺激的反應與乞食行為</td></tr>
+            <tr><td>診斷</td><td><strong>嗉囊細胞學與革蘭氏染色</strong>（念珠菌 Candida 的出芽酵母／菌絲、異常菌叢、鞭毛蟲 Trichomonas）；糞便／泄殖腔直接抹片、革蘭氏染色與病毒 PCR panel；血液學與生化（微量採血：頸靜脈或基底／尺靜脈；PCV、TS、白血球像：異嗜性球增多與毒性變化、肝酵素 AST／GLDH、尿酸）；X 光與超音波（嗉囊體積、腺胃／肌胃大小、肝緣、體腔細節）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="h3-5">幼雛的主要感染性疾病 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Major infectious diseases</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>疾病</th><th>病原與好發</th><th>幼雛臨床表現</th><th>診斷</th><th>處理</th></tr></thead>
+          <tbody>
+            <tr><td><strong>禽波納病毒（ABV）與禽波納病毒神經節炎（ABNG／PDD）</strong></td><td>嗜神經的波納病毒，造成胃腸功能障礙與中樞／周邊神經症狀</td><td>嗉囊排空延遲、反芻、糞便有未消化種子、食慾好卻快速消瘦、腿無力或共濟失調</td><td>RT-PCR（口咽／泄殖腔拭子、嗉囊切片）加血清學</td><td>NSAID、支持性腸道營養（易消化液態配方）、促腸蠕動藥、嚴格隔離</td></tr>
+            <tr><td><strong>鸚鵡喙羽病（PBFD／圓環病毒）</strong></td><td>鸚鵡圓環病毒（Psittacine circovirus）</td><td><strong>急性型</strong>（幼年非洲灰鸚鵡與鳳頭鸚鵡）：急性腸炎、嗉囊停滯、嚴重白血球／全血球減少、肝壞死、羽毛病變出現前就猝死；<strong>慢性型</strong>：羽毛發育不良（滯留鞘、髓質出血）與喙變形</td><td>血液或羽毛囊 PCR；細胞質內包涵體</td><td>支持性照護；急性幼雛型預後保留到嚴重</td></tr>
+            <tr><td><strong>禽多瘤病毒（APV）</strong></td><td>多瘤病毒；人工育雛的幼鳥（虎皮鸚鵡、折衷鸚鵡、金剛鸚鵡、小型鸚鵡）</td><td>嗉囊排空延遲、皮下出血／瘀斑、腹脹、斷奶期急性死亡</td><td>血液／泄殖腔拭子 PCR；死後組織學（核內包涵體）</td><td>嚴格衛生、生物安全；有疫苗的地區接種</td></tr>
+            <tr><td><strong>腸道與呼吸道細菌感染</strong></td><td>革蘭氏陰性菌（E. coli、Klebsiella、Pseudomonas、Salmonella）、Enterococcus</td><td>乞食反應變差、酸嗉囊、腹瀉、呼吸窘迫、敗血症</td><td>嗉囊與泄殖腔採樣培養與藥敏</td><td>依藥敏做全身性抗菌治療；輸液支持</td></tr>
+            <tr><td><strong>黴菌感染</strong></td><td>念珠菌（Candida）：長期抗生素、育雛器衛生差、配方溫度不當後過度生長；麴菌（Aspergillus）：免疫低下或通風差</td><td>念珠菌：嗉囊壁增厚、口腔白色斑塊、排空延遲；麴菌：呼吸道</td><td>嗉囊細胞學</td><td>念珠菌：nystatin（局部腸道作用），全身或難治時 fluconazole／itraconazole</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充（講義以外的文獻）</div>
+        <p><strong>波納病毒與其他病毒的診斷</strong></p>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li>2021 年 <i>Animals</i> 的 PDD 診斷回顧：活體可用 RT-PCR 與 ELISA 辨認波納病毒感染，死後用肉眼病理、組織病理、免疫組織化學與 RT-PCR；另外要排除其他造成腺胃擴張的原因：異物、腫瘤、鉛中毒、<i>Macrorhabdus ornithogaster</i>。（<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8697990/" target="_blank" rel="noopener">PMC8697990</a>）</li>
+          <li>胸部羽毛的羽軸腔（feather calami）是微創取得 RNA 做 RT-PCR 的來源；RT-PCR 陰性時血清 ELISA 偵測抗 P40 抗體可找出感染鳥；2024 年一項研究測口咽、食道、泄殖腔與羽毛拭子，發現沒有單一理想的活體檢體，<strong>四種一起檢測</strong>比任何單一檢體找到更多感染。</li>
+          <li>PBFD 是圓環病毒，不是多瘤病毒，是獨立的診斷問題；沒有針對性治療。整體來說 PCR 是鸚鵡病毒診斷的首選方法。我沒有找到幼雛專屬的表現或 APV 與 PBFD PCR 敏感度數字。</li>
+        </ul>
+      </div>
+
+      <h3 id="h3-6">非感染性與幼雛急症 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Non-infectious &amp; pediatric emergencies</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>問題</th><th>原因</th><th>處理（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>嗉囊停滯（Crop stasis）</td><td>系統性疾病、育雛器溫度過低、異物或毛球（bezoar）</td><td>溫熱輸液；以溫的無菌生理食鹽水沖洗嗉囊（lavage）；非常輕柔的手法按摩；促腸蠕動藥（metoclopramide／cisapride）</td></tr>
+            <tr><td>嗉囊燒傷與瘻管（Crop burn &amp; fistula）</td><td>餵食過熱的配方（&gt;42°C／108°F）；組織壞死、脫落、嗉囊—皮膚瘻管</td><td>清創，待組織界線分明後手術二層縫合</td></tr>
+            <tr><td>代謝性骨病（MBD）與折疊性骨折</td><td>鈣磷比例失衡，或缺乏維生素 D3 合成／補充</td><td>修正飲食；非口服或口服葡萄糖酸／乳酸鈣；控制 UVB 照射；軟墊材。徵象：長骨 S 形彎曲、脊柱變形、喙變軟如橡皮、病理性折疊性骨折</td></tr>
+            <tr><td>異物攝入</td><td>墊材、餵食管尖端、玩具</td><td>X 光或內視鏡；內視鏡取出或手術（腺胃切開術 proventriculotomy／嗉囊切開術 cropotomy）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info">
+        <div class="alert-label">講義的四個帶回訊息</div>
+        <ol style="margin:6px 0 0 0;padding-left:1.4em;line-height:1.8;">
+          <li>先查飼養管理：多數幼雛嗉囊停滯從溫度或配方錯誤開始。</li>
+          <li>每天秤重：人工育雛的幼雛體重下降要立即診斷。</li>
+          <li>細胞學是最好的快速工具：嗉囊與糞便的院內細胞學能立刻指引診斷。</li>
+          <li>早期積極的支持照護能救命：保暖、補水、溫和的腸胃支持，優先於侵入性治療。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section" id="section-geriatric">
+      <div class="section-head"><div class="section-num">4</div><h2>老年鸚鵡 <span style="font-weight:400;font-size:.62em;opacity:.75;">Geriatric psittacine medicine</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Parrot_Medicine.pdf#page=4" data-label="p.4">p.4–7</a></p>
+
+      <p class="section-desc">寵物鸚鵡壽命越來越長，老年病患常有複雜的多系統慢性疾病；要分辨「老化造成」與「亞臨床慢性病」，才能做以生活品質為優先的長期計畫。</p>
+
+      <h3 id="h3-7">各類鸚鵡幾歲算老年 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Defining geriatric by species group</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分類</th><th>物種</th><th>老年的年齡（講義）</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">小型</td><td>虎皮鸚鵡（Budgerigar，<i>Melopsittacus undulatus</i>）</td><td>&gt;3–5 歲（早發腫瘤與腎病比例高）</td></tr>
+            <tr><td>愛情鳥（Lovebird，<i>Agapornis</i> spp.）</td><td>&gt;10–15 歲</td></tr>
+            <tr><td>玄鳳鸚鵡（Cockatiel，<i>Nymphicus hollandicus</i>）</td><td>&gt;20–25 歲</td></tr>
+            <tr><td>中型</td><td>錐尾鸚鵡（Conure）、部分亞馬遜鸚鵡</td><td>&gt;20–25 歲</td></tr>
+            <tr><td>大型</td><td>金剛鸚鵡（Macaw）、鳳頭鸚鵡（Cockatoo）、部分亞馬遜鸚鵡、非洲灰鸚鵡</td><td>&gt;30–35 歲</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="h3-8">骨關節炎 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Osteoarthritis (degenerative joint disease, DJD)</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>誘發因素：</strong>肥胖、慢性蹠皮炎（pododermatitis）、棲木直徑或質地不當、外傷、關節痛風。</li>
+        <li><strong>表現：</strong>步態僵硬、不願飛或動、待在籠底、指甲過長、針對關節的啄羽行為、重心頻繁轉移。</li>
+        <li><strong>診斷：</strong>X 光（關節間隙變窄、骨贅 osteophytosis、軟骨下硬化）。</li>
+        <li><strong>治療：</strong>止痛（meloxicam、gabapentin、tramadol）；環境調整（包 Vetrap 或繩的軟平棲木、降低食水碗、讓籠子容易進出）；營養補充（omega-3、glucosamine／chondroitin）。</li>
+      </ul>
+
+      <h3 id="h3-9">心血管疾病與動脈粥樣硬化 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Cardiovascular disease &amp; atherosclerosis</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>誘發因素：</strong>高脂的種子飲食、缺乏飛行運動、高齡、物種易感性（亞馬遜鸚鵡、非洲灰鸚鵡、鳳頭鸚鵡）。</li>
+        <li><strong>表現：</strong>運動不耐受、呼吸困難、嗜睡、突然倒下、暈厥、虛弱，甚至猝死。</li>
+        <li><strong>診斷：</strong>高解析度數位 X 光或 CT（主動脈弓與大血管鈣化）、心臟超音波（echocardiography）、血脂（膽固醇、三酸甘油酯）。</li>
+        <li><strong>治療（講義列出的藥）：</strong>isoxsuprine、pentoxifylline、ACE 抑制劑（enalapril／benazepril）、pimobendan、furosemide，並改成富含 omega-3 的配方顆粒飼料。<strong>講義沒有給劑量。</strong></li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">補充（講義以外的文獻）</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>診斷：</strong>活體主要靠影像；血管切片對活體風險太高，確診組織學多在死後。X 光是通常的起點（不是每隻病患都穩定到能做更多檢查）；<strong>心臟超音波是唯一能直接評估心臟功能的活體方法</strong>。（<a href="https://www.harrisonsbirdfoods.com/wp-content/uploads/2026/04/Atherosclerosis.pdf" target="_blank" rel="noopener">Harrison's 參考</a>）</li>
+          <li><strong>風險族群：</strong>MSD 獸醫手冊列亞馬遜鸚鵡、金剛鸚鵡、非洲灰鸚鵡為較高風險；IVIS 章節提到老年更常見，但非洲灰鸚鵡可能更早發病；Harrison's 參考提醒沒有任何物種可以視為免疫。（<a href="https://www.msdvetmanual.com/en-gb/bird-owners/disorders-and-diseases-of-birds/heart-and-blood-vessel-disorders-of-pet-birds" target="_blank" rel="noopener">MSD</a>；<a href="https://www.ivis.org/library/avian-health-and-disease/cardiovascular-system-diseases" target="_blank" rel="noopener">IVIS</a>）</li>
+          <li><strong>血脂：</strong>血脂（膽固醇、三酸甘油酯、HDL）是診斷必要的；一篇脂質疾病回顧說鳥類的 LDL 測值不可靠，但 2025 年 <i>Animals</i> 的研究卻有報告 LDL-C，兩者並不一致；膽固醇隨物種、飲食、年齡、體況與是否繁殖而不同。（<a href="https://oa-fund.ub.uni-muenchen.de/id/eprint/1981/3/animals-15-02493.pdf" target="_blank" rel="noopener">Animals 2025</a>）</li>
+          <li><strong>無法逆轉：</strong>Harrison's 參考說已形成的動脈粥樣硬化沒有任何治療可以逆轉；IVIS 章節列必需脂肪酸與人參為支持選項，但我沒找到對照證據。經典回顧：Bavelaar &amp; Beynen. Atherosclerosis in parrots. <i>Vet Q</i> 2004;26(2):50–60（我只在引用清單看到，未讀內容）。</li>
+        </ul>
+      </div>
+
+      <h3 id="h3-10">眼睛病變 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Ocular pathology (cataracts, nuclear sclerosis, uveitis)</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>表現：水晶體逐漸混濁、視力下降、迷向、昏暗處不願移動；老年亞馬遜鸚鵡與金剛鸚鵡發生率高。</li>
+        <li>診斷：眼底鏡、裂隙燈生物顯微鏡、螢光染色（排除外傷造成的角膜潰瘍）。</li>
+        <li>治療：選擇性病例做水晶體乳化手術（phacoemulsification）。（可與同組研討會的柴犬與貓眼頁對照白內障與葡萄膜炎概念。）</li>
+      </ul>
+
+      <h3 id="h3-11">腎臟疾病與內臟／關節痛風 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Renal disease &amp; visceral/articular gout</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>病因：</strong>慢性脫水、長期高蛋白飲食、感染性腎炎、終生的腎毒性治療。</li>
+        <li><strong>表現：</strong>多尿多飲、體重下降、精神沉鬱、指間關節腫痛（關節痛風 articular gout）、尿酸排泄物性狀改變。</li>
+        <li><strong>診斷：</strong>血漿尿酸 &gt;10 mg/dL、離子鈣、腎臟超音波／CT、內視鏡引導腎臟切片。</li>
+        <li><strong>治療：</strong>皮下或口服輸液、allopurinol、colchicine（關節痛風的發炎）、止痛。</li>
+      </ul>
+
+      <h3 id="h3-12">老年病患的檢查與麻醉 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Diagnostic &amp; anesthetic considerations</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>臨床考量</th><th>行動計畫（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>麻醉前評估</td><td>亞臨床肝、腎、心臟損害風險較高</td><td>選擇性手術前一定要有基礎生化、尿酸與 X 光</td></tr>
+            <tr><td>麻醉方案</td><td>心輸出量與呼吸儲備降低</td><td>預先給氧 3–5 分鐘；降低 isoflurane／sevoflurane 維持濃度；IPPV（間歇正壓通氣）；溫輸液（38°C）</td></tr>
+            <tr><td>保定</td><td>骨質疏鬆脆弱、氣道受影響、壓力耐受差</td><td>毛巾保定要短；用支撐墊；必要時把檢查分成多個短步驟</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講義的三個帶回訊息</div>
+        <ol style="margin:6px 0 0 0;padding-left:1.4em;line-height:1.8;">
+          <li>鳥的疼痛很隱晦：理毛減少、鳴叫改變、棲位改變，常是嚴重關節炎僅有的徵象。</li>
+          <li>環境調整就是治療：改變籠子與棲木設計，能大幅提升生活品質，不只靠藥。</li>
+          <li>多系統思考：老鸚鵡很少只有一種病，要一起評估心、腎、關節。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section" id="section-oncology">
+      <div class="section-head"><div class="section-num">5</div><h2>鳥類腫瘤 <span style="font-weight:400;font-size:.62em;opacity:.75;">Oncology in companion birds</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Parrot_Medicine.pdf#page=7" data-label="p.7">p.7–9</a></p>
+
+      <p class="section-desc">寵物鳥壽命變長，加上飼主對腫瘤診斷與治療的期待提高，需求增加；但<strong>多數腫瘤沒有標準治療</strong>，預後與抗腫瘤療效的資料不足。</p>
+
+      <h3 id="h3-13">主要腫瘤類型 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Common tumors</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>腫瘤</th><th>好發部位與特點（講義）</th><th>臨床表現</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鱗狀細胞癌（Squamous cell carcinoma, SCC）</strong></td><td>中度到低分化的鱗狀細胞惡性腫瘤；最常在皮膚與喙、口腔、食道或嗉囊、翼遠端與指骨；局部侵犯；常在慢性刺激處（實驗顯示發炎可促進腫瘤增生）；尾脂腺（uropygial gland）SCC 造成腺體腫大潰瘍；喙 SCC 造成喙過度生長變形；鼻竇或口腔腫瘤邊界不清，伴壞死與出血</td><td>增生性腫塊或像傷口的潰瘍</td></tr>
+            <tr><td><strong>體腔腫瘤（Coelomic tumors）</strong></td><td>胃癌通常死後才診斷，常在腺胃—肌胃交界處；死亡原因可能是出血、胃穿孔與敗血症、內毒素休克或衰竭消瘦</td><td>厭食、體重下降、沉鬱、呼吸困難（器官腫大壓迫氣囊）</td></tr>
+            <tr><td><strong>垂體腺瘤（Pituitary adenoma）</strong></td><td>虎皮鸚鵡與玄鳳鸚鵡最常見，其他鸚鵡也有</td><td>急性神經症狀：癲癇、角弓反張（opisthotonos）、共濟失調、失明、飛行困難</td></tr>
+            <tr><td><strong>淋巴瘤（Lymphoma／lymphosarcoma）</strong></td><td>鸚鵡與雀形目最常見的淋巴系腫瘤；多中心型最常見，淋巴性白血病少見；可累及脾、肝、腎、胃腸、皮膚、骨、輸卵管、肺、鼻竇、胸腺、睾丸、腦、腸繫膜、氣管、胰臟，<strong>肝臟最常見</strong>，其次是脾與腎；年輕非洲灰鸚鵡的突眼多為眼球後淋巴瘤；皮膚型常在頭頸部，灰黃色、瀰漫或多發，像黃瘤或發炎</td><td>沉鬱、厭食、體重下降、體腔膨大、輕癱、跛行、失明、反芻或呼吸困難；金絲雀常因「不唱歌了」就診</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>診斷工具：</strong>X 光（可加鋇劑造影）、CT，或超音波加細針抽吸（FNA）細胞學或切片。</p>
+
+      <h3 id="h3-14">偽腫瘤皮膚病變 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Pseudoneoplastic skin conditions</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>黃瘤（Xanthoma）：</strong>不是腫瘤，是局部侵犯的皮下黃色脂肪團塊；很少在內臟；常在翼遠端、龍骨、胸骨—恥骨區；玄鳳與虎皮鸚鵡比例偏高，但多數鸚鵡都會有。</li>
+        <li><strong>脂肪瘤（Lipoma）：</strong>最常見於虎皮鸚鵡、粉紅鳳頭鸚鵡（Galah）、亞馬遜鸚鵡與玄鳳；良性、柔軟、淡黃色、有包膜的皮下團塊，多在龍骨或胸骨—恥骨區；受傷時可能發炎或壞死。</li>
+      </ul>
+
+      <h3 id="h3-15">化療與放療 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Chemotherapy and radiation therapy agents</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>多數鳥類化療報告：<strong>耐受性比預期高，但腫瘤反應不如期待</strong>；零星報告顯示鳥類腫瘤對放療比哺乳類更有抗性。</li>
+        <li>carboplatin 與 cisplatin 已成功用在多種內臟癌；鳳頭鸚鵡的 cisplatin 毒性研究顯示鸚鵡的耐受可能比哺乳類更高。</li>
+        <li>多例卵巢腫瘤用 GnRH 促效劑（leuprolide 或 deslorelin 植入）有部分成效；輸卵管腫瘤建議手術切除。</li>
+        <li><strong>光動力療法（Photodynamic therapy, PDT）：</strong>靜脈（多為全身）給予能聚集在腫瘤的光敏劑後 24–48 小時，用穿透組織的光照射腫瘤；光波長依光敏劑而定；被特定波長活化後會光化學地產生細胞毒性氧自由基。</li>
+        <li class="muted">講義沒有給劑量；實際療程請查專科文獻或轉診。</li>
+      </ul>
+
+      <h3 id="h3-16">診斷：細胞學準不準？ <span style="font-weight:400;font-size:.8em;opacity:.7;">— Cytology vs histopathology</span></h3>
+      <p>澳洲墨爾本研究（Sutherland，<i>J Avian Med Surg</i> 2023;37(3):243–265）以組織病理為金標準，評估細胞學在鳥類偵測腫瘤與分辨良惡性的準確度：</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>細胞學與組織病理完全一致：<strong>72.8%（43/59）</strong>。</li>
+        <li>細胞學正確辨認惡性腫瘤：<strong>87.5%（35/40）</strong>；良性：<strong>55.6%（5/9）</strong>。</li>
+        <li>解讀：細胞學對「惡性」比較可靠，對「良性」較不可靠——細胞學說良性時，仍要考慮切片。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-other">
+      <div class="section-head"><div class="section-num">6</div><h2>爬蟲與小型哺乳類的腫瘤 <span style="font-weight:400;font-size:.62em;opacity:.75;">Reptiles and small mammals</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Parrot_Medicine.pdf#page=9" data-label="p.9">p.9–11</a></p>
+
+
+      <h3 id="h3-17">爬蟲 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Reptiles</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>近十年有很多病例報告與病例系列，但<strong>沒有跨機構的整體盛行率</strong>，也沒有深入評估治療與存活。</li>
+        <li><strong>蜥蜴類（Saurians）：</strong>最常受影響的是造血系統、肝與皮膚；作者自己的回顧也發現肌肉骨骼系統腫瘤不少；蜥蜴有非特異症狀時，腫瘤是重要鑑別。</li>
+        <li><strong>蛇：</strong>腫瘤似乎比其他爬蟲多，但腫瘤類型與最佳治療所知不多；以惡性為主，<strong>軟組織肉瘤最常見</strong>。</li>
+        <li><strong>治療計畫要個別化：</strong>考慮物種、年齡、腫瘤位置、分級與分期。</li>
+        <li>爬蟲是變溫動物（ectotherm），免疫反應取決於是否提供合適的溫度梯度，住院與支持照護需求比哺乳類或鳥類多。</li>
+      </ul>
+
+      <h3 id="h3-18">小型哺乳類 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Small mammals</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>動物</th><th>講義重點</th></tr></thead>
+          <tbody>
+            <tr><td>天竺鼠（Guinea pig）</td><td>皮膚腫瘤以軟組織腫瘤為主，多來自脂肪細胞或纖維母細胞；最常見是<strong>脂肪瘤（lipoma）</strong>（包括單純、纖維脂肪瘤，少見浸潤性），最常在鼠蹊部</td></tr>
+            <tr><td>大鼠（Rat）</td><td>皮膚腫瘤以<strong>軟組織肉瘤</strong>為主</td></tr>
+            <tr><td>兔（Rabbit）</td><td>腫瘤主要在泌尿生殖、血液淋巴與皮膚系統；&gt;5 歲更容易有生殖腫瘤，最常見是<strong>子宮腺癌（uterine adenocarcinoma）</strong>——母兔最常見的腫瘤，未結紮母兔到 5 歲可高達 80%；荷蘭兔、垂耳兔等品種較好發，生過小兔不會降低風險；表現：流產或死胎、厭食、沉鬱、體重下降、血尿與血性陰道分泌物，晚期可轉移肺而呼吸困難；通常生長緩慢，常 1–2 年才被發現；公兔較常有皮膚腫瘤，以軟組織肉瘤最常見</td></tr>
+            <tr><td>雪貂（Ferret）</td><td>約一半的腫瘤在內分泌或血液淋巴系統；<strong>腎上腺腫瘤的內科治療比腎上腺切除有更長的無病期</strong>；胰島素瘤（insulinoma）的內科與手術治療，平均存活時間沒有差別</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-glossary">
+      <div class="section-head"><div class="section-num">7</div><h2>縮寫與名詞對照 <span style="font-weight:400;font-size:.62em;opacity:.75;">Glossary</span></h2></div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td style="white-space:nowrap;"><strong>ABV</strong></td><td>Avian Bornavirus（禽波納病毒）</td><td style="white-space:nowrap;"><strong>ABNG／PDD</strong></td><td>Avian Bornaviral Ganglioneuritis／Proventricular Dilatation Disease（禽波納病毒神經節炎／腺胃擴張症）</td></tr>
+            <tr><td><strong>PBFD</strong></td><td>Psittacine Beak and Feather Disease（鸚鵡喙羽病）</td><td><strong>APV</strong></td><td>Avian Polyomavirus（禽多瘤病毒）</td></tr>
+            <tr><td><strong>MBD</strong></td><td>Metabolic Bone Disease（代謝性骨病）</td><td><strong>DJD</strong></td><td>Degenerative Joint Disease（退化性關節病）</td></tr>
+            <tr><td><strong>SCC</strong></td><td>Squamous Cell Carcinoma（鱗狀細胞癌）</td><td><strong>PDT</strong></td><td>Photodynamic Therapy（光動力療法）</td></tr>
+            <tr><td><strong>PCV／TS</strong></td><td>Packed Cell Volume／Total Solids（血容比／總固體）</td><td><strong>AST／GLDH</strong></td><td>Aspartate Aminotransferase／Glutamate Dehydrogenase（天門冬胺酸轉胺酶／麩胺酸脫氫酶）</td></tr>
+            <tr><td><strong>PCR／RT-PCR</strong></td><td>聚合酶連鎖反應／反轉錄 PCR</td><td><strong>FNA</strong></td><td>Fine Needle Aspiration（細針抽吸）</td></tr>
+            <tr><td><strong>IPPV</strong></td><td>Intermittent Positive Pressure Ventilation（間歇正壓通氣）</td><td><strong>GnRH</strong></td><td>Gonadotropin-Releasing Hormone（促性腺激素釋放素）</td></tr>
+            <tr><td><strong>ECZM／EBVS</strong></td><td>European College of Zoological Medicine／European Board of Veterinary Specialisation（歐洲動物園醫學學院／歐洲獸醫專科委員會）；講義寫的 ECAMS 找不到對應</td><td><strong>PU/PD</strong></td><td>Polyuria/Polydipsia（多尿多飲）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">8</div><h2>預習問題 <span style="font-weight:400;font-size:.62em;opacity:.75;">Self-check questions</span></h2></div>
+      <p class="section-desc">看完筆記後先自行作答；上課時可以對照老師的重點。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q1. 3 週齡人工育雛的鸚鵡，嗉囊排空變慢、體重掉了 10%。你的檢查順序與第一步處置？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">先稽核飼養管理（育雛溫濕度與通風、配方溫度與稠度、餵食頻率與量），這是最常見的原因；查體重紀錄（每天清晨第一餐前秤重）。臨床檢查嗉囊張力與蠕動、脫水、羽毛囊與乞食反應。快速診斷：嗉囊與糞便的細胞學與革蘭氏染色（念珠菌出芽酵母、異常菌叢、Trichomonas）；必要時微量採血做 PCV、TS、白血球像、AST／GLDH、尿酸，與 X 光或超音波。處置先保暖、補水、溫和腸胃支持（溫生理食鹽水沖洗嗉囊、輕柔按摩、促腸蠕動藥如 metoclopramide／cisapride），優先於侵入性治療；同時依細胞學處理念珠菌或細菌，並排除 ABV、PBFD、APV 等病毒（PCR）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q2. 年輕非洲灰鸚鵡突然腸炎、嗉囊停滯、白血球與血小板都極低，之後猝死，羽毛沒有明顯病變。最該懷疑什麼？確診方法？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">PBFD 的急性型（鸚鵡圓環病毒）：急性腸炎、嗉囊停滯、嚴重全血球減少、肝壞死、羽毛病變出現前猝死；幼年非洲灰鸚鵡與鳳頭鸚鵡好發。診斷：血液或羽毛囊 PCR；組織學可見細胞質內包涵體。處理以支持性照護為主，急性幼雛型預後保留到嚴重；同籠與新鳥要隔離。要與 APV（人工育雛、皮下出血、核內包涵體）、ABV（嗉囊排空延遲、未消化種子）區分。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q3. 28 歲亞馬遜鸚鵡突然倒地一次後恢復，近來不愛飛、活動後喘。你的鑑別與檢查？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">高度懷疑心血管疾病／動脈粥樣硬化（亞馬遜鸚鵡、非洲灰、鳳頭鸚鵡易感；高脂種子飲食、缺乏飛行）。檢查：X 光或 CT 看主動脈弓與大血管鈣化、心臟超音波、血脂（膽固醇、三酸甘油酯）。老鸚鵡很少只有一種病，同時評估腎（尿酸）與關節。講義列的藥物：isoxsuprine、pentoxifylline、ACE 抑制劑、pimobendan、furosemide；改成富含 omega-3 的配方顆粒。補充文獻提醒已形成的病變無法逆轉。麻醉前要先做基礎生化、尿酸與 X 光，預先給氧 3–5 分鐘並降低吸入麻醉維持濃度。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q4. 母兔 6 歲未結紮，近來食慾差、血尿。最可能的腫瘤與要跟飼主說明的事？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">子宮腺癌（母兔最常見的腫瘤，未結紮母兔 5 歲前可高達 80%）。表現：生殖失敗（流產、死胎）、厭食、沉鬱、體重下降、血尿與血性陰道分泌物，晚期轉移肺造成呼吸困難。生長慢，常 1–2 年才被發現。生過小兔不會降低風險。講義沒有談治療；一般建議在評估轉移後考慮手術，但這不是講義的內容，上課時可以問老師。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q5. 鳥類腫塊的細胞學報告是「良性」，飼主因此想觀察就好。怎麼回應？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">依 Sutherland 2023，細胞學與組織病理完全一致只有 72.8%；對惡性辨認正確率 87.5%，但對良性只有 55.6%（5/9）。所以細胞學說良性不夠可靠，建議切片；同時定期測量與追蹤，並比較健側。</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="section" id="section-references">
+      <div class="section-head"><div class="section-num">9</div><h2>參考資料 <span style="font-weight:400;font-size:.62em;opacity:.75;">References</span></h2></div>
+      <ul style="margin:0;padding-left:1.2em;line-height:1.9;">
+        <li>Hochleithner C, Hochleithner M. <i>The Young, the Old, and the Ugly: Parrot Medicine Covering Juvenile, Senior and Oncological Patients</i>（FASAVA 2026 講義，書面稿）。</li>
+        <li>Sutherland M. Survey of the clinical, cytological, and histopathological features associated with neoplasms in captive avian species in Melbourne, Australia. <i>J Avian Med Surg</i> 2023;37(3):243–265（講義引用）。</li>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8697990/" target="_blank" rel="noopener">Diagnostic tools for proventricular dilatation disease in psittacine birds（Animals 2021, PMC8697990）</a></li>
+        <li><a href="https://www.harrisonsbirdfoods.com/wp-content/uploads/2026/04/Atherosclerosis.pdf" target="_blank" rel="noopener">Harrison's：Atherosclerosis（臨床參考）</a>；<a href="https://www.msdvetmanual.com/en-gb/bird-owners/disorders-and-diseases-of-birds/heart-and-blood-vessel-disorders-of-pet-birds" target="_blank" rel="noopener">MSD Vet Manual</a>；<a href="https://www.ivis.org/library/avian-health-and-disease/cardiovascular-system-diseases" target="_blank" rel="noopener">IVIS</a>；<a href="https://oa-fund.ub.uni-muenchen.de/id/eprint/1981/3/animals-15-02493.pdf" target="_blank" rel="noopener">Animals 2025 膽固醇研究</a></li>
+        <li><a href="https://wsava.org/?p=1803" target="_blank" rel="noopener">WSAVA</a>、<a href="https://www.ebvs.eu/profile-public/3329" target="_blank" rel="noopener">EBVS</a>（講者背景）。</li>
+      </ul>
+      <p style="font-size:11.5px;color:var(--text3);">「補充」框的內容只讀到搜尋摘要，沒有讀全文；講義的數字沒有另外核對。</p>
+    </div>
+
+    <footer class="note-footer">
+      本頁內容整理自 FASAVA 2026 台北 Hochleithner 夫婦「The Young, the Old, and the Ugly」書面講義與網路文獻，僅供院內教學預習使用；講義未給劑量，實際用藥請查專科處方集與仿單，不作為單獨診斷或用藥依據。
+    </footer>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('open', x.dataset.sec === id));
+}
+function goSub(hid) {
+  const el = document.getElementById(hid);
+  if (el) el.scrollIntoView({ block: 'start' });
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + hid));
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+  const hio = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + e.target.id)); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('.section h3[id^="h3-"]').forEach(h => hio.observe(h));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '預習重點',
+  overview: '講者與講義架構',
+  juvenile: '幼雛與青年鸚鵡',
+  geriatric: '老年鸚鵡',
+  oncology: '鳥類腫瘤',
+  other: '爬蟲與小型哺乳類腫瘤',
+  glossary: '縮寫與名詞對照',
+  quiz: '預習問題',
+  references: '參考資料'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js?v=3"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="../assets/pdf-viewer.js"></script>
+
+</body>
+</html>

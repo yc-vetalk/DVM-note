@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伴侶動物復健：復健相關解剖學及生理學 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">伴侶動物復健及物理治療學</a><span class="sep">›</span><span class="current">復健相關解剖學及生理學</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">復健相關解剖學及生理學 Anatomy &amp; Physiology for Rehabilitation</h1>
+      <p class="page-subtitle">Week 2 · 9/16 · 各組織（骨、肌肉、肌腱、韌帶、軟骨、神經）的構造與癒合時間軸，決定「什麼時候固定、什麼時候開始動、動多少」</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">伴侶動物復健及物理治療學（大四上）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈復健相關解剖學及生理學〉，劉金鳴 獸醫師（臺大附設動物醫院復健及整合醫學科）；學長姐考前整理（非官方）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-11-09</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week02_%E5%BE%A9%E5%81%A5%E7%9B%B8%E9%97%9C%E8%A7%A3%E5%89%96%E5%AD%B8%E5%8F%8A%E7%94%9F%E7%90%86%E5%AD%B8">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">基礎解剖</div>
+    <a onclick="showSection('anatomy')" id="nav-anatomy"><span class="nav-icon">🦴</span> 方位、骨骼與肌肉</a>
+    <div class="section-label" style="margin-top:8px;">組織與癒合</div>
+    <a onclick="showSection('wound')" id="nav-wound"><span class="nav-icon">🩹</span> 傷口癒合三期</a>
+    <a onclick="showSection('connective')" id="nav-connective"><span class="nav-icon">🧶</span> 結締組織</a>
+    <a onclick="showSection('bone')" id="nav-bone"><span class="nav-icon">🦴</span> 骨與骨癒合</a>
+    <a onclick="showSection('muscle')" id="nav-muscle"><span class="nav-icon">💪</span> 肌肉構造與能量</a>
+    <a onclick="showSection('musclerehab')" id="nav-musclerehab"><span class="nav-icon">🏋️</span> 肌肉癒合、萎縮與收縮</a>
+    <a onclick="showSection('tendon')" id="nav-tendon"><span class="nav-icon">🪢</span> 肌腱與韌帶</a>
+    <a onclick="showSection('joint')" id="nav-joint"><span class="nav-icon">🦿</span> 關節囊與軟骨</a>
+    <div class="section-label" style="margin-top:8px;">臨床對應</div>
+    <a onclick="showSection('clinical')" id="nav-clinical"><span class="nav-icon">🩺</span> 相關肌肉骨骼疾病</a>
+    <a onclick="showSection('nerve')" id="nav-nerve"><span class="nav-icon">🧠</span> 神經</a>
+    <a onclick="showSection('timeline')" id="nav-timeline"><span class="nav-icon">📊</span> 組織癒合時間總表</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week02_%E5%BE%A9%E5%81%A5%E7%9B%B8%E9%97%9C%E8%A7%A3%E5%89%96%E5%AD%B8%E5%8F%8A%E7%94%9F%E7%90%86%E5%AD%B8" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">這堂課的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>復健的「時間表」從哪裡來：每一種組織（<strong>骨、骨骼肌、肌腱、韌帶、關節軟骨、神經</strong>）都有自己的構造與癒合速度。講義先複習方位、骨骼、肌肉與關節活動度，再講傷口癒合三期、結締組織的膠原與彈性纖維，然後逐一講各組織的<strong>癒合時間軸</strong>與<strong>對復健的意涵</strong>（固定多久、何時開始被動／主動運動、何時恢復多少強度）。</dd>
+          <dt>為什麼重要</dt>
+          <dd>第 3、4 週的疾病復健方案都是建立在這些數字上：例如肌腱術後要固定 3–6 週、6 週後才輕度負重、1 年只回到約 80% 強度。太早用力會再受傷，太晚動會讓組織變弱、軟骨退化。學長姐考前整理把這份講義的數字幾乎整段列出。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-wound">傷口癒合三期</a>：發炎期（0–5 天，只用儀器、避免主動運動）→ 修補期（5–21 天，適度物理壓力幫助纖維排列）→ 重建期（21 天～1 年）。</li>
+              <li><a href="#section-connective">膠原纖維三型</a>：I 型抗張力（肌腱、韌帶、骨）、II 型抗壓力（軟骨、椎間盤、半月板）、III 型傷口癒合；膠原只能延長約 5%，彈性纖維 70%–220%。</li>
+              <li><a href="#section-bone">骨癒合</a>：初級（間隙 &lt; 1 mm、應變 &lt; 2%，無骨痂）與次級（&gt; 1 mm、&gt; 2%，骨痂 10–12 天出現）；Wolff's law；簡單骨折約 90 天完成重建。</li>
+              <li><a href="#section-musclerehab">肌肉</a>：先固定 0–5 天 → 保護性活動 4 週 → 再加強；三種收縮（等長、向心、離心）；三種萎縮（廢用、神經性、肌少症）。</li>
+              <li><a href="#section-tendon">肌腱與韌帶</a>：術後固定 3–6 週、6 週後輕度負重、1 年約 80% 強度；韌帶參數比照肌腱，1 年 50–70%。</li>
+              <li><a href="#section-joint">關節軟骨</a>：無血管、無神經、靠關節液；固定 3–4 個月後年輕犬要近 1 年才完全再生；持續被動關節活動（PROM）有助修復。</li>
+              <li><a href="#section-nerve">神經</a>：中樞無法恢復但有可塑性；<strong>深層痛覺是預後關鍵</strong>；周邊神經損傷三級。</li>
+              <li><a href="#section-timeline">組織癒合時間總表</a>：一張表比較各組織的時間與強度數字。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>初級 vs 次級骨癒合</strong>：初級沒有骨痂，早期穩定度較差，植入物要留更久。<strong>向心 vs 離心收縮</strong>：向心是肌纖維縮短產生動作，離心是肌纖維被拉長以控制或抵抗動作（學長姐筆記：下坡練離心）。<strong>廢用性 vs 神經性萎縮</strong>：前者慢、可逆、伸肌較明顯；後者快（約 1 週內）、會攣縮纖維化。<strong>部分厚度 vs 全厚度軟骨缺損</strong>：部分厚度沒有發炎反應、反而修不好；全厚度到軟骨下骨，有骨髓細胞參與，但長出來的是纖維軟骨。</dd>
+          <dt>考試可能怎麼問<br><span style="font-size:.85em; font-weight:400;">（推測）</span></dt>
+          <dd>各組織固定與恢復時間（學長姐整理列出）；膠原纖維類型與功能；初級與次級骨癒合的條件；三種收縮型態；三種肌肉萎縮比較；Ruffini 與 Pacini 感受器；軟骨固定與再生時間；周邊神經損傷分級；深層痛覺與預後。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落（含「讀書補充Note」）是講義以外的延伸；標示「推測」的是依講義強調處推測的出題方向，不是考古題。標 <span class="tag tag-exam">學長姐整理</span> 的地方表示學長姐考前整理（非官方，見<a href="#section-exam">第 13 節</a>）有列這一點，不代表老師確定會考。考試範圍以老師上課為準。圖片為老師講義截圖。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-node">發炎期<br><span style="font-size:.85em;">約 0–3／0–5 天<br>止痛消炎、只用儀器</span></div><div class="flow-arrow">→</div>
+        <div class="flow-node">修補期<br><span style="font-size:.85em;">約 3／5 天–3／6 週<br>控制下的小負荷</span></div><div class="flow-arrow">→</div>
+        <div class="flow-node">重建期<br><span style="font-size:.85em;">3 週–1 年以上<br>逐步加量、依應力排列</span></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：各組織的期別天數略有不同（見第 12 節總表），上圖取講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a> 一般傷口癒合與 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=20">p.20</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=32">p.32</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a> 的範圍合併表示。</p>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1–64</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ANATOMY -->
+    <div class="section" id="section-anatomy">
+      <div class="section-head"><div class="section-num">2</div><h2>方位、骨骼、肌肉與關節活動度 Basic Anatomy</h2></div>
+      <p class="section-desc">復健描述動作與位置的共同語言，以及前後肢「跨幾個關節」的肌肉——跨越的關節越多，伸展與受傷的考量越多。</p>
+      <h3>方位與切面<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>方位（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=2">p.2</a>）</th><th>意思</th><th>切面（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=2">p.2</a>）</th><th>意思</th></tr></thead>
+          <tbody>
+            <tr><td>背側 dorsal／腹側 ventral</td><td>朝背／朝腹</td><td>正中切面（縱剖面）median plane</td><td>把身體分成左右兩半</td></tr>
+            <tr><td>吻端 rostral</td><td>頭部朝鼻端</td><td>矢狀面 sagittal plane</td><td>與正中面平行</td></tr>
+            <tr><td>前側 cranial／後側 caudal</td><td>朝頭／朝尾</td><td>橫剖面 transverse plane</td><td>與長軸垂直</td></tr>
+            <tr><td>內側 medial／外側 lateral</td><td>靠近／遠離正中面</td><td>背剖面 dorsal plane</td><td>與背面平行，分成上下</td></tr>
+            <tr><td>近端 proximal／遠端 distal</td><td>四肢靠近／遠離軀幹</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：「意思」欄是整理者補的；四肢遠端的前後面另稱掌側（palmar，前肢）與蹠側（plantar，後肢）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p002.jpg" alt="身體方位與切面：背側、腹側、吻端、前側、後側、內外側、近遠端；正中（縱剖）面、矢狀面、橫剖面、背剖面。" loading="lazy"><div class="figure-caption">身體方位與切面：背側、腹側、吻端、前側、後側、內外側、近遠端；正中（縱剖）面、矢狀面、橫剖面、背剖面。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=2">p.2</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p003.jpg" alt="犬的骨骼：頸椎、胸椎、腰椎、薦骨；肩胛骨、肱骨、橈尺骨、腕骨、掌骨、指骨；股骨、膝蓋骨、脛腓骨、跗骨（跟骨）、蹠骨。" loading="lazy"><div class="figure-caption">犬的骨骼：頸椎、胸椎、腰椎、薦骨；肩胛骨、肱骨、橈尺骨、腕骨、掌骨、指骨；股骨、膝蓋骨、脛腓骨、跗骨（跟骨）、蹠骨。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=3">p.3</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p004.jpg" alt="犬的表層肌肉（大丹犬）：斜方肌、三角肌、三頭肌、臀肌、股二頭肌、半腱狀肌、半膜狀肌（膕繩肌 hamstring）、股四頭" loading="lazy"><div class="figure-caption">犬的表層肌肉（大丹犬）：斜方肌、三角肌、三頭肌、臀肌、股二頭肌、半腱狀肌、半膜狀肌（膕繩肌 hamstring）、股四頭肌、縫匠肌、腓腸肌、阿基里氏腱等。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=4">p.4</a></div></div>
+      <h3>跨多關節的肌肉<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:14%;">肢</th><th>跨 2 關節</th><th>跨 3 關節</th><th>講義圖上其他肌肉</th></tr></thead>
+          <tbody>
+            <tr><td><strong>前肢</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=5">p.5</a>）</td><td>二頭肌、橈腕伸肌</td><td>總指伸肌、淺指屈肌、深指屈肌</td><td>棘上肌、大圓肌、三頭肌（4 頭）、尺腕屈肌（2 頭）、骨間肌</td></tr>
+            <tr><td><strong>後肢</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=6">p.6</a>）</td><td>股四頭肌、半腱狀肌、腓腸肌、深趾屈肌</td><td>淺趾屈肌、長趾伸肌</td><td>中臀肌、髂腰肌、股二頭肌、半膜狀肌、前脛骨肌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>膕繩肌（Hamstring）</strong>＝股二頭肌＋半膜狀肌＋半腱狀肌（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=4">p.4</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=6">p.6</a>）。</li>
+        <li>股四頭肌由股直肌、外側肌、內側肌、中間肌組成（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=4">p.4</a>）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：跨多個關節的肌肉在一個關節伸展時會被另一個關節「牽制」，所以伸展這類肌肉要同時擺好兩三個關節的位置；它們也較容易拉傷（例如後面的髂腰肌、股薄肌）。這段解釋講義沒寫。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p005.jpg" alt="前肢肌肉的起止與跨越關節：二頭肌、橈腕伸肌跨 2 關節；總指伸肌、淺指屈肌、深指屈肌跨 3 關節。" loading="lazy"><div class="figure-caption">前肢肌肉的起止與跨越關節：二頭肌、橈腕伸肌跨 2 關節；總指伸肌、淺指屈肌、深指屈肌跨 3 關節。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=5">p.5</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p006.jpg" alt="後肢肌肉：股四頭肌、半腱狀肌、腓腸肌、深趾屈肌跨 2 關節；淺趾屈肌、長趾伸肌跨 3 關節；膕繩肌＝股二頭肌＋半膜狀肌＋" loading="lazy"><div class="figure-caption">後肢肌肉：股四頭肌、半腱狀肌、腓腸肌、深趾屈肌跨 2 關節；淺趾屈肌、長趾伸肌跨 3 關節；膕繩肌＝股二頭肌＋半膜狀肌＋半腱狀肌。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=6">p.6</a></div></div>
+      </div>
+      <h3>關節伸屈方向與正常活動範圍<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>前肢關節</th><th>屈曲～伸展角度（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=7">p.7</a>）</th><th>後肢關節</th><th>屈曲～伸展角度（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=7">p.7</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>肩關節</td><td><strong>50°–160°</strong></td><td>髖關節</td><td><strong>45°–160°</strong></td></tr>
+            <tr><td>肘關節</td><td><strong>30°–160°</strong></td><td>膝關節</td><td><strong>35°–155°</strong></td></tr>
+            <tr><td>腕關節</td><td><strong>35°–200°</strong></td><td>跗關節</td><td><strong>35°–155°</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info"><div class="alert-label">這組數字代表什麼</div>
+        <p>用量角器（goniometer）量關節「最大屈曲」與「最大伸展」的角度。前一個數字越小代表彎得越緊，後一個越大代表伸得越直。講義圖的來源是 Duerr 2020《Canine Lameness》（整理自 Thomas et al. 2006，德國牧羊犬與拉布拉多的測量值）。<strong>腕關節可以伸到 200°</strong>（超過 180°，就是站立時腕部微微過伸），是唯一超過 180° 的。關節活動度的量法見第 8 週（補充）。</p>
+      </div>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p007.jpg" alt="關節伸屈方向：左為前肢與後肢的量角器測量值（肩 50°–160°、肘 30°–160°、腕 35°–200°；髖 45°" loading="lazy"><div class="figure-caption">關節伸屈方向：左為前肢與後肢的量角器測量值（肩 50°–160°、肘 30°–160°、腕 35°–200°；髖 45°–160°、膝 35°–155°、跗 35°–155°），右為前後肢各關節的屈側面（flexor surface）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=7">p.7</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=2">p.2–7</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- WOUND -->
+    <div class="section" id="section-wound">
+      <div class="section-head"><div class="section-num">3</div><h2>傷口癒合 Wound Healing</h2></div>
+      <p class="section-desc">所有組織都走「發炎 → 修補 → 重建」三期；每一期能做的復健不同，這是後面所有時間表的骨架。</p>
+      <h3>再生與修補<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>再生 Regeneration</h4><p>恢復<strong>原本的</strong>性質與功能，例如<strong>骨癒合</strong>。</p></div>
+        <div class="card"><h4>修補 Repair</h4><p>以<strong>疤痕組織</strong>取代，例如<strong>軟骨、肌肉、韌帶、肌腱</strong>的癒合。</p></div>
+      </div>
+      <h3>三期與復健原則<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">期別（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>）</th><th style="width:20%;">時間</th><th>復健原則</th></tr></thead>
+          <tbody>
+            <tr><td><strong>發炎期</strong> Inflammatory</td><td><strong>day 0–5</strong>（血管期 0–2 天、細胞期 2–5 天）</td><td><strong>僅能使用</strong>加速癒合、減少炎症的復健設備（modalities）；<strong>避免主動運動</strong></td></tr>
+            <tr><td><strong>修補期</strong> Reparative（proliferative, fibroblastic）</td><td><strong>day 5–21</strong></td><td>施加<strong>物理性壓力</strong>可增進組織排列及穩定度</td></tr>
+            <tr><td><strong>重建期</strong> Remodeling（consolidation and maturation）</td><td><strong>day 21～1 年</strong></td><td>能承受<strong>更多應力</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ 講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a> 左側文字寫發炎期 day 0–5，右側圖寫「Inflammatory phase 2nd–5th day」，是因為圖把前 2 天另標為血管期（vascular section）。</p>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p008.jpg" alt="傷口癒合三期：血管期（0–2 天）、細胞期（2–5 天）組成發炎期；修補期 5–21 天；重建期 21 天以後。" loading="lazy"><div class="figure-caption">傷口癒合三期：血管期（0–2 天）、細胞期（2–5 天）組成發炎期；修補期 5–21 天；重建期 21 天以後。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>（引自 Bockstahler 2019）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CONNECTIVE -->
+    <div class="section" id="section-connective">
+      <div class="section-head"><div class="section-num">4</div><h2>結締組織 Connective Tissue</h2></div>
+      <p class="section-desc">肌腱、韌帶、骨、軟骨都是結締組織；它們的強度與彈性取決於膠原纖維、彈性纖維與基質的比例。</p>
+      <h3>功能、類型與組成<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">項目</th><th>內容（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=9">p.9–10</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>功能</td><td>連接（關節囊、肌腱、韌帶）、支持及保護（骨骼）、營養及廢物運送、身體防禦</td></tr>
+            <tr><td>類型</td><td><strong>纖維組織</strong>（皮膚、肌腱、韌帶、腱膜）、<strong>脂肪組織</strong>、<strong>骨架組織</strong>（骨、軟骨）</td></tr>
+            <tr><td>細胞</td><td>纖維母細胞／纖維細胞、成骨細胞／骨細胞、軟骨母細胞／軟骨細胞、肥大細胞、脂肪細胞、巨噬細胞、白血球</td></tr>
+            <tr><td>細胞外基質 ECM</td><td>膠原纖維、彈性纖維、基質（ground substance）、水、非膠原纖維（如交連蛋白）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p010.jpg" alt="結締組織的細胞與細胞外基質（膠原纖維、彈性纖維、蛋白聚醣等）示意。" loading="lazy"><div class="figure-caption">結締組織的細胞與細胞外基質（膠原纖維、彈性纖維、蛋白聚醣等）示意。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=10">p.10</a></div></div>
+      <h3>膠原纖維三型<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:12%;">類型</th><th>分布（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=11">p.11</a>）</th><th>負責</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Type I</strong></td><td>韌帶、肌腱、關節囊、骨</td><td>承受<strong>伸展力</strong>（tensile stress）</td></tr>
+            <tr><td><strong>Type II</strong></td><td>軟骨、椎間盤、半月板</td><td>承受<strong>壓縮力</strong>（pressure force）</td></tr>
+            <tr><td><strong>Type III</strong></td><td>皮膚、皮下組織、滑膜</td><td><strong>傷口癒合</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>膠原纖維給結締組織穩定性與結構；<strong>只能延長約 5%</strong>。</li>
+        <li><strong>快速、突然的力量容易造成損傷</strong>：物理治療與伸展時勿急速施力。</li>
+        <li><strong>增加應力</strong>使膠原纖維變厚、更穩定；<strong>固定不動</strong>會減少承受負載的能力。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p011.jpg" alt="膠原纖維三型與特性：Type I 承受伸展力、Type II 承受壓縮力、Type III 負責傷口癒合；可延長約 5%" loading="lazy"><div class="figure-caption">膠原纖維三型與特性：Type I 承受伸展力、Type II 承受壓縮力、Type III 負責傷口癒合；可延長約 5%，急速施力易損傷，增加應力使纖維變厚，固定會降低承重能力。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=11">p.11</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p012.jpg" alt="彈性纖維：彈性蛋白被微纖維包圍、呈網狀；可延伸 70%，最高達 220%；受力時先由彈性纖維承受，再轉移給膠原纖維。" loading="lazy"><div class="figure-caption">彈性纖維：彈性蛋白被微纖維包圍、呈網狀；可延伸 70%，最高達 220%；受力時先由彈性纖維承受，再轉移給膠原纖維。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=12">p.12</a></div></div>
+      </div>
+      <h3>彈性纖維與基質<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">成分</th><th>特性</th></tr></thead>
+          <tbody>
+            <tr><td><strong>彈性纖維</strong>（黃纖維）</td><td>分布於皮膚、血管、疏鬆結締組織，少部分在肌腱與韌帶；網狀結構；可延伸 <strong>70%，最高 220%</strong>；受力時<strong>先由彈性纖維承受，再慢慢轉給膠原纖維</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=12">p.12</a>）</td></tr>
+            <tr><td><strong>膠原纖維</strong>（白纖維）</td><td>主要在韌帶、皮膚真皮；強大韌性與抗拉力，但缺乏彈力（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=13">p.13</a>）</td></tr>
+            <tr><td><strong>基質</strong> ground substance</td><td>蛋白聚醣聚合體，親水、含水量高；<strong>吸收外力保護組織</strong>（軟骨、椎間盤、半月板最明顯）；醣胺聚醣（GAG）與蛋白聚醣（PG）結合纖維穩定組織；提供彈性讓組織受力後回復形狀（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=14">p.14</a>）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p013.jpg" alt="彈性纖維與膠原纖維：年輕與老化皮膚的比較（老化時膠原與彈性纖維減少）。" loading="lazy"><div class="figure-caption">彈性纖維與膠原纖維：年輕與老化皮膚的比較（老化時膠原與彈性纖維減少）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=13">p.13</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p014.jpg" alt="基質：蛋白聚醣與蛋白聚醣聚合體（以玻尿酸為骨架）的構造。" loading="lazy"><div class="figure-caption">基質：蛋白聚醣與蛋白聚醣聚合體（以玻尿酸為骨架）的構造。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=14">p.14</a></div></div>
+      </div>
+      <h3>結締組織的營養<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>氧氣、營養與廢物經<strong>微血管血液</strong>及<strong>組織液</strong>傳輸到細胞（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=15">p.15</a>）。</li>
+        <li>組織內：有血流灌流的靠血液；<strong>無血流灌流的靠滲透及擴散</strong>。</li>
+        <li><strong>組織負重與不負重</strong>：機械應力促進血流循環與<strong>壓電效應</strong>；肌肉、肌腱靠收縮及伸展，軟骨、椎間盤、半月板靠壓縮力。</li>
+      </ul>
+      <div class="alert alert-success"><div class="alert-label">重點</div><p>沒有血管的組織（軟骨、椎間盤、半月板）靠「壓一下、放一下」把組織液擠出又吸回來換營養，所以<strong>完全不動對它們是有害的</strong>——這就是第 9 節軟骨要做持續被動關節活動的理由。（整理者串連 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=15">p.15</a> 與 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=52">p.52–57</a>）</p></div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=9">p.9–15</a>（引自 Bockstahler）。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- BONE -->
+    <div class="section" id="section-bone">
+      <div class="section-head"><div class="section-num">5</div><h2>骨與骨癒合 Bone &amp; Bone Healing</h2></div>
+      <p class="section-desc">骨是唯一能「再生」回原樣的組織；但初級或次級癒合、早期穩定度與骨折間隙，決定了復健可以多早給負荷。</p>
+      <h3>骨的構造與組成<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>分段：關節軟骨、骨骺（epiphysis）、幹骺端（metaphysis）、骨幹（diaphysis）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=16">p.16</a>）。</li>
+        <li>組成：<strong>水 5–10%、有機物 20%</strong>（細胞與基質）、<strong>礦物質 70%</strong>（羥基磷灰石 Ca<sub>5</sub>(PO<sub>4</sub>)<sub>3</sub>(OH)）。</li>
+        <li>結構：密質骨（皮質骨）、鬆質骨（海綿骨）、哈維氏系統、血液循環。骨的結構完全適應生物力學需求，並隨負荷<strong>不斷重塑</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p016.jpg" alt="骨的構造：長骨分段（骨骺、幹骺端、骨幹）、密質骨與鬆質骨、哈維氏系統與血液供應。" loading="lazy"><div class="figure-caption">骨的構造：長骨分段（骨骺、幹骺端、骨幹）、密質骨與鬆質骨、哈維氏系統與血液供應。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=16">p.16</a></div></div>
+      <h3>初級與次級骨癒合<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;"></th><th>初級（直接）骨癒合 Direct／primary</th><th>次級（間接）骨癒合 Indirect／secondary</th></tr></thead>
+          <tbody>
+            <tr><td>條件（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）</td><td>骨折間隙 <strong>&lt; 1 mm</strong>、間隙應變 <strong>&lt; 2%</strong></td><td>間隙 <strong>&gt; 1 mm</strong>、應變 <strong>&gt; 2%</strong></td></tr>
+            <tr><td>方式</td><td>接觸癒合（contact healing）；間隙癒合（gap healing，&gt; 0.1 mm 但 &lt; 1 mm）</td><td>依一般組織癒合模式形成<strong>骨痂</strong>（callus）</td></tr>
+            <tr><td>影像（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=19">p.19</a>）</td><td>沒有骨痂；骨折線消失比次級慢</td><td>骨痂 <strong>10–12 天</strong>出現，骨折線最早 <strong>30 天</strong>內消失</td></tr>
+            <tr><td>穩定度（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=19">p.19</a>）</td><td><strong>早期穩定度較差</strong>，要靠植入物，植入物留置時間<strong>較久</strong></td><td>骨痂提供早期穩定</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：「應變（strain）」＝骨折間隙在受力時長度改變的百分比；骨板加壓固定、骨折端緊密貼合時才可能是初級癒合。</p>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 初級 vs 次級骨癒合：差在骨折端貼得多緊、動得多少</summary>
+        <p><strong>先講結論</strong></p>
+        <p><strong>骨折端幾乎貼緊又不動（間隙 &lt; 1 mm、應變 &lt; 2%）→ 初級，不長骨痂；有縫又會微動（&gt; 1 mm、&gt; 2%）→ 次級，先長骨痂再重塑</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）。初級沒有骨痂撐，早期穩定度靠植入物（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=19">p.19</a>）。</p>
+        <p><strong>1. 兩個條件是什麼</strong></p>
+        <ul>
+          <li><strong>骨折間隙（gap）</strong>：兩個骨折端之間的縫有多寬。</li>
+          <li><strong>間隙應變（strain）</strong>：受力時這條縫被擠壓、拉開，長度變化的百分比。</li>
+        </ul>
+        <p><strong>2. 兩種癒合比較</strong></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th></th><th>初級（直接）癒合</th><th>次級（間接）癒合</th></tr></thead>
+          <tbody>
+            <tr><td>條件（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）</td><td>間隙 &lt; 1 mm、應變 &lt; 2%</td><td>間隙 &gt; 1 mm、應變 &gt; 2%</td></tr>
+            <tr><td>常見情境（補充）</td><td>骨板加壓、骨折端緊密貼合，幾乎不動</td><td>外固定、骨髓釘、未加壓骨板，骨折端會微動</td></tr>
+            <tr><td>怎麼長（補充）</td><td>不形成骨痂；骨細胞直接跨過骨折線，把兩端接起來</td><td>走一般傷口癒合：血腫 → 軟骨痂 → 硬骨痂 → 重塑</td></tr>
+            <tr><td>X 光（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=19">p.19</a>）</td><td><strong>看不到骨痂</strong>；骨折線消失比次級慢</td><td><strong>10–12 天出現骨痂</strong>；骨折線最早 30 天內消失</td></tr>
+            <tr><td>早期穩定（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=19">p.19</a>）</td><td>較差，要完全靠植入物，植入物留置較久</td><td>骨痂像天然外固定，提早提供穩定</td></tr>
+          </tbody>
+        </table></div>
+        <p><strong>3. 為什麼切點是 1 mm、2%</strong></p>
+        <ul><li>骨細胞只能長在幾乎不動的環境；縫太寬或動太多它跨不過去，身體就先長軟骨與骨痂「填縫、穩住」，再慢慢換成骨頭。</li></ul>
+        <p><strong>4. 最容易卡住的觀念</strong></p>
+        <ol>
+          <li><strong>初級不等於「比較穩」</strong>
+            <ul><li>初級癒合本身沒有骨痂，早期穩定度靠的是骨板，不是骨頭自己。</li></ul></li>
+          <li><strong>沒有骨痂不代表沒在癒合</strong>
+            <ul><li>骨板加壓固定的術後片看不到骨痂是預期中的；植入物不能太早移除。</li></ul></li>
+          <li><strong>跟 TPLO 的關係</strong>
+            <ul><li>TPLO 用骨板固定、鋸口貼合，通常偏向初級癒合，見<a href="../../上群/2026-11-11_專題-TPLO規劃數值解讀.html#section-rehab">TPLO 專題第 7 節</a>。</li></ul></li>
+        </ol>
+        <p><strong>要不要背</strong></p>
+        <ol>
+          <li><strong>一定要會</strong>
+            <ul><li>初級 &lt; 1 mm、&lt; 2%、無骨痂、早期穩定差、植入物留久；次級 &gt; 1 mm、&gt; 2%、骨痂 10–12 天。</li></ul></li>
+          <li><strong>懂原理就好</strong>
+            <ul><li>為什麼不動才能直接癒合、骨痂的穩定作用。</li></ul></li>
+          <li><strong>不用背</strong>
+            <ul><li>常見情境對應的固定方式、骨痂各階段名稱。</li></ul></li>
+        </ol>
+        <p style="font-size:.9em; color:var(--fg-muted);">補充：標講義頁碼的是講義內容；「常見情境」「怎麼長」「為什麼切點是這樣」與 TPLO 連結為整理者依一般骨科學補充。</p>
+      </details>
+
+      <h3>Wolff's law 與壓電效應<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>沃爾夫定律（Wolff's law）</strong>：健康個體的骨骼在負載增加時會慢慢變強壯，以承受該負載；重建期<strong>約 3 個月</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）。</li>
+        <li><strong>壓電效應（piezoelectric effect）</strong>：張力側（＋）蝕骨細胞增加；壓縮側（－）成骨細胞增加（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）。</li>
+        <li><strong>解除固定後第一個月</strong>建議<strong>牽繩慢走或輕度跑步機</strong>活動 <span class="tag tag-exam">學長姐整理</span>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p017.jpg" alt="骨癒合：初級骨癒合（切割錐 cutting cone）、次級骨癒合的骨痂形成過程，與骨重建的壓電效應示意。" loading="lazy"><div class="figure-caption">骨癒合：初級骨癒合（切割錐 cutting cone）、次級骨癒合的骨痂形成過程，與骨重建的壓電效應示意。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a></div></div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 骨的壓電效應（piezoelectric effect）</summary>
+        <p><strong>先講結論</strong></p>
+        <p><strong>骨受力變形會產生電荷：張力側帶正電（＋）→ 蝕骨細胞（osteoclast）增加、骨被吸收；壓縮側帶負電（－）→ 成骨細胞（osteoblast）增加、骨被加上去</strong>（講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）。這是沃爾夫定律（Wolff's law）的一種細胞層級解釋：壓電效應是機制，Wolff's law 是結果。</p>
+        <p><strong>1. 電從哪裡來</strong></p>
+        <ul>
+          <li>骨的有機基質主要是第一型膠原（type I collagen），排列很規則；被拉長或擠壓時，分子內電荷偏離平衡位置，表面出現電位差，這就是「機械力 → 電」的壓電效應。</li>
+          <li>另一個來源是流動電位（streaming potential）：受力時骨小管（canaliculi）內的組織液被擠著流動，帶電離子跟著移動，也會產生電位。</li>
+        </ul>
+        <p><strong>2. 電怎麼變成「長骨或吃骨」</strong></p>
+        <ul>
+          <li>骨被彎曲時（講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a> 右下股骨圖）：<strong>凹側被壓 → 負電位 → 成骨</strong>；<strong>凸側被拉 → 正電位 → 吸收</strong>。</li>
+          <li>結果是骨往受力最大的方向加厚、不需要的地方變薄。</li>
+        </ul>
+        <p><strong>3. 跟復健的關係</strong></p>
+        <ol>
+          <li><strong>為什麼要負重</strong>
+            <ul><li>骨要週期性受力才會持續產生電訊號、維持重塑；長期固定或不負重 → 吸收大於生成 → 廢用性骨流失。所以講義建議解除固定後第一個月牽繩慢走或輕度跑步機（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>），給小量可控的負荷。</li></ul></li>
+          <li><strong>為什麼不能太猛</strong>
+            <ul><li>骨痂強度還不夠，負荷過大會再骨折或植入物鬆脫；對應<a href="week04_骨科疾病復健.html#section-fracture">第 4 週骨折「勿過度操作」</a>。</li></ul></li>
+          <li><strong>幼犬骨折癒合後角度會慢慢變直</strong>
+            <ul><li>彎曲處凹側持續被壓而加骨、凸側被吸收，骨逐漸往正中線重塑。</li></ul></li>
+          <li><strong>電與磁的治療</strong>
+            <ul><li>既然電訊號能刺激成骨，外加電磁刺激也用來促進骨癒合：講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=18">p.18</a> 影響骨癒合的因素列「電場效應」；<a href="week06_震波雷射水療與PEMF.html#section-pemf">第 6 週 PEMF</a> 適應症列「骨癒合／生長」。</li></ul></li>
+        </ol>
+        <p><strong>4. 現代觀點</strong></p>
+        <ul>
+          <li>壓電效應是較早期的理論。現在一般認為感受力量的主角是埋在骨基質裡的骨細胞（osteocyte）：受力讓骨小管液體流動，骨細胞感受剪力後調整訊號（例如減少硬化蛋白 sclerostin、調整 RANKL／OPG），再指揮成骨與蝕骨細胞。講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a> 中間的骨重塑圖畫的 osteocyte、sclerostin、RANKL 就是這條路徑。</li>
+        </ul>
+        <p><strong>要不要背</strong></p>
+        <ol>
+          <li><strong>一定要會</strong>
+            <ul><li>張力側（＋）→ 蝕骨細胞增加；壓縮側（－）→ 成骨細胞增加；與 Wolff's law 的關係。</li></ul></li>
+          <li><strong>懂原理就好</strong>
+            <ul><li>負重與固定對骨重塑的影響、電磁刺激促進骨癒合的道理。</li></ul></li>
+          <li><strong>不用背</strong>
+            <ul><li>流動電位、骨細胞機械傳導、sclerostin／RANKL 的細節。</li></ul></li>
+        </ol>
+        <p style="font-size:.9em; color:var(--fg-muted);">補充：除了標講義頁碼的句子，其餘為整理者依一般骨生理學補充，非講義內容；「要不要背」依講義強調處判斷，以老師上課為準。</p>
+      </details>
+
+      <h3>影響骨癒合的因素<span class="lv lv-know">理解</span></h3>
+      <p>生物力學因子（Wolff's law）、電場效應、內分泌（PTH、calcitonin、維生素 D、甲狀腺）、年齡（年輕 &gt; 老年）、治療性超音波與體外震波（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=18">p.18</a>）。</p>
+      <h3>骨的癒合時間軸與復健<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">期別</th><th>時間與變化（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=19">p.19</a>）</th><th>復健意涵（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=20">p.20</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>發炎期</td><td>立即～<strong>72 小時</strong>（血腫與發炎），初級與次級相似</td><td>（立即～2–3 天）減少疼痛、減少軟組織發炎；在骨折穩定的前提下維持關節健康與活動度、建立安全可控的活動</td></tr>
+            <tr><td>修補期</td><td>骨痂 10–12 天出現；骨折線 30 天內消失</td><td>（<strong>3 天～4–6 週</strong>）小量、逐漸增加的<strong>循環負荷</strong>增加微動，促進次級癒合的骨痂形成；持續主動或被動 ROM</td></tr>
+            <tr><td>重建期</td><td>骨痂上形成編織骨；簡單骨折約 <strong>90 天</strong>骨痂完全重建</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p040.jpg" alt="骨折與 TPLO：術前與術後 X 光（TPA 由 24.7° 矯正為 5°）。" loading="lazy"><div class="figure-caption">骨折與 TPLO：術前與術後 X 光（TPA 由 24.7° 矯正為 5°）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=40">p.40</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p064.jpg" alt="組織癒合時間總表（Shaw 2020）：骨癒合約在 5–7 週至 2–3 個月；本表完整解讀見第 12 節。" loading="lazy"><div class="figure-caption">組織癒合時間總表（Shaw 2020）：骨癒合約在 5–7 週至 2–3 個月；本表完整解讀見第 12 節。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=64">p.64</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=16">p.16–20</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=40">p.40</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MUSCLE -->
+    <div class="section" id="section-muscle">
+      <div class="section-head"><div class="section-num">6</div><h2>肌肉構造、纖維類型與能量系統 Muscle Structure</h2></div>
+      <p class="section-desc">肌小節怎麼縮短、慢肌與快肌的差別、三種供能系統——解釋為什麼耐力訓練和爆發訓練要分開設計。</p>
+      <h3>肌肉單位與肌小節<span class="lv lv-know">理解</span></h3>
+      <p>肌纖維束 → 肌纖維 → 肌原纖維 → 肌球蛋白微絲（粗肌絲）、肌動蛋白絲（細肌絲）→ 肌小節（Z 線、M 線、I 帶、A 帶、H 區）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=21">p.21</a>）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>肌小節部位</th><th>收縮時</th><th>為什麼（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=23">p.23</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>A 帶（暗帶）</td><td><strong>不變</strong></td><td>代表粗肌絲全長，粗肌絲本身沒有變短</td></tr>
+            <tr><td>粗肌絲、細肌絲</td><td><strong>不變</strong></td><td>蛋白質纖維本身長度固定</td></tr>
+            <tr><td>I 帶（明帶）</td><td>變短</td><td>只含細肌絲的區域，隨細肌絲被拉向中央而縮短</td></tr>
+            <tr><td>H 區</td><td>變短甚至消失</td><td>A 帶中央只含粗肌絲的區域，細肌絲插入而縮短</td></tr>
+            <tr><td>肌小節</td><td>變短</td><td>兩條 Z 線被拉近</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p021.jpg" alt="肌肉單位：肌纖維束、肌纖維、肌原纖維、粗細肌絲與肌小節。" loading="lazy"><div class="figure-caption">肌肉單位：肌纖維束、肌纖維、肌原纖維、粗細肌絲與肌小節。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=21">p.21</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p022.jpg" alt="肌小節收縮：肌球蛋白拉動肌動蛋白往中央滑動；鈣離子與旋轉素、旋轉肌球素的調控。" loading="lazy"><div class="figure-caption">肌小節收縮：肌球蛋白拉動肌動蛋白往中央滑動；鈣離子與旋轉素、旋轉肌球素的調控。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=22">p.22</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p023.jpg" alt="肌小節各部位收縮時的變化表（A 帶不變，I 帶、H 區、肌小節變短）。" loading="lazy"><div class="figure-caption">肌小節各部位收縮時的變化表（A 帶不變，I 帶、H 區、肌小節變短）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=23">p.23</a></div></div>
+      </div>
+      <h3>肌纖維類型<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;"></th><th>慢肌 Slow twitch（Type 1）</th><th>快肌 Fast twitch（Type 2）</th></tr></thead>
+          <tbody>
+            <tr><td>顏色與代謝（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=24">p.24</a>）</td><td>紅肌；<strong>有氧</strong>（氧化酶、肌紅素、粒線體多）</td><td>白肌；<strong>無氧</strong>（糖解酶多）</td></tr>
+            <tr><td>收縮</td><td>收縮時間<strong>長</strong>、耐力高、<strong>抗疲勞</strong>；抗重力伸肌收縮</td><td>收縮時間<strong>短</strong>、爆發力大，適合跳躍、衝刺；<strong>容易疲勞</strong></td></tr>
+            <tr><td>例子</td><td><strong>股四頭肌</strong></td><td><strong>腓腸肌</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>犬有 5 類肌纖維</strong>：type I、IIa、IIx，以及兩種混合型（I＋IIa、IIax）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=24">p.24</a>）。</li>
+        <li>肌纖維組成與肌肉功能密切相關，並<strong>會隨功能需求改變</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p024.jpg" alt="肌纖維類型：慢肌（Type 1，紅肌、有氧、抗疲勞，如股四頭肌）與快肌（Type 2，白肌、無氧、易疲勞，如腓腸肌）；犬" loading="lazy"><div class="figure-caption">肌纖維類型：慢肌（Type 1，紅肌、有氧、抗疲勞，如股四頭肌）與快肌（Type 2，白肌、無氧、易疲勞，如腓腸肌）；犬有 5 類肌纖維。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=24">p.24</a></div></div>
+      <h3>能量系統<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>能量系統（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=25">p.25</a>）</th><th>供能方式</th><th>供能時間</th><th>需要氧氣</th></tr></thead>
+          <tbody>
+            <tr><td><strong>即時能量系統</strong></td><td>儲存的高能量物質直接提供</td><td>約 5–10 秒（頂尖運動員約 20 秒）</td><td>不需要</td></tr>
+            <tr><td><strong>糖解系統</strong></td><td>無氧分解葡萄糖</td><td>約 5–20 秒至 2 分鐘</td><td>不需要</td></tr>
+            <tr><td><strong>氧化系統</strong></td><td>有氧代謝</td><td>約 2 分鐘後成為重要來源</td><td><strong>需要</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>比較（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=27">p.27</a>）</th><th>無氧醣解</th><th>有氧醣解</th></tr></thead>
+          <tbody>
+            <tr><td>最終產物</td><td>乳酸與 2–3 個 ATP</td><td>丙酮酸進粒線體 → CO<sub>2</sub>、水與約 30–32 個 ATP</td></tr>
+            <tr><td>速度</td><td>極快，瞬間爆發</td><td>較慢</td></tr>
+            <tr><td>運動強度</td><td>高強度（全力衝刺、高強度間歇）</td><td>中低強度（慢跑、健走、長距離）</td></tr>
+            <tr><td>維持時間</td><td>約 30 秒至 2 分鐘</td><td>數十分鐘至數小時</td></tr>
+            <tr><td>主要限制</td><td>乳酸與氫離子累積 → 肌肉痠痛、疲勞</td><td>肝醣耗盡</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">學長姐整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>：「耐力訓練必須超過 15 分鐘才算，如快走、跑步、游泳、拉雪橇」——這句出自<a href="week04_骨科疾病復健.html#section-generalrehab">第 4 週骨科講義</a>第 22 頁（例如快走、跑步、游泳、長距離拉雪橇），本講義沒有；與上表「有氧系統約 2 分鐘後才成為主要來源」方向一致。</p>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p025.jpg" alt="能量系統：無氧與有氧醣解、粒線體構造，以及三種能量系統比較表。" loading="lazy"><div class="figure-caption">能量系統：無氧與有氧醣解、粒線體構造，以及三種能量系統比較表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=25">p.25</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p026.jpg" alt="粒線體電子傳遞鏈與克氏循環（Krebs cycle）示意。" loading="lazy"><div class="figure-caption">粒線體電子傳遞鏈與克氏循環（Krebs cycle）示意。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p027.jpg" alt="無氧醣解與有氧醣解的核心差異對比表。" loading="lazy"><div class="figure-caption">無氧醣解與有氧醣解的核心差異對比表。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=27">p.27</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=21">p.21–27</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- MUSCLEREHAB -->
+    <div class="section" id="section-musclerehab">
+      <div class="section-head"><div class="section-num">7</div><h2>肌肉癒合、萎縮與收縮型態 Muscle Healing, Atrophy &amp; Contraction</h2></div>
+      <p class="section-desc">肌肉受傷後「先短暫固定、再保護性活動、最後加強」；固定太久會萎縮，而萎縮的種類決定恢復速度。</p>
+      <h3>肌肉損傷的種類與嚴重度<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>種類（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=28">p.28</a>）</h4><ul><li>挫傷 Contusion（鈍力）</li><li>拉傷 Strain（間接）</li><li>撕裂傷 Laceration（銳器）</li></ul></div>
+        <div class="card"><h4>嚴重度（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=28">p.28</a>）</h4><ul><li>Stage I：肌炎（myositis）</li><li>Stage II：筋膜鞘發炎</li><li>Stage III：肌纖維斷裂及血腫</li></ul></div>
+      </div>
+      <h3>肌肉癒合時間軸<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">期別</th><th>內容（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=32">p.32</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>發炎期</td><td>立即～<strong>72 小時</strong></td></tr>
+            <tr><td>修補期</td><td><strong>3 天</strong>起以<strong>第 III 型膠原</strong>作為肌纖維的支架；<strong>&gt; 6 週</strong>才有正常比例的膠原</td></tr>
+            <tr><td>重建期</td><td>功能性肌纖維與疤痕組織的比例，<strong>取決於受傷處間隙的大小</strong></td></tr>
+            <tr><td>強度</td><td>完全恢復功能需正常組織再生，<strong>最少 4–6 週</strong>。兔子試驗：肌腹<strong>完全撕裂</strong> 12 週後恢復 <strong>50% 張力、80% 收縮縮短</strong>；<strong>部分撕裂</strong> 12 週恢復 <strong>60% 張力</strong>與正常收縮力</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>肌肉復健時程<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="flow">
+        <div class="flow-node"><strong>0–5 天</strong><br>固定 immobilization</div><div class="flow-arrow">→</div>
+        <div class="flow-node"><strong>4 週</strong><br>控制下的保護性活動</div><div class="flow-arrow">→</div>
+        <div class="flow-node"><strong>之後</strong><br>開始強化運動</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">損傷程度（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=33">p.33</a>）</th><th>處理</th></tr></thead>
+          <tbody>
+            <tr><td><strong>輕微拉傷</strong></td><td>短暫固定 <strong>3–5 天</strong>，再以主動肌肉收縮活動 → 肌纖維較能穿過疤痕、肌力與大小較好</td></tr>
+            <tr><td><strong>肌肉撕裂</strong></td><td>至少固定 <strong>2–3 週</strong>，保護修補、促進新膠原</td></tr>
+            <tr><td><strong>完全斷裂</strong></td><td><strong>4–8 週</strong>可開始中度活動；<strong>8–12 週</strong>可不限制活動</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>肌肉復原時收縮力降低的程度，與<strong>受傷程度</strong>及<strong>纖維組織長入的程度</strong>直接相關（例如髂腰肌損傷、棘下肌攣縮）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=33">p.33</a>）。</p>
+      <h3>三種肌肉萎縮<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>廢用性萎縮 Disuse</th><th>神經性萎縮 Neurogenic</th><th>肌少症 Sarcopenia</th></tr></thead>
+          <tbody>
+            <tr><td>原因（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>）</td><td>跛行、關節固定（繃帶、外固定器）</td><td>癱瘓</td><td>老化</td></tr>
+            <tr><td>速度</td><td><strong>慢</strong></td><td><strong>快，約 1 週內</strong></td><td>漸進</td></tr>
+            <tr><td>特徵</td><td><strong>可逆但不完全</strong>；<strong>伸肌比屈肌易受影響</strong>；主要是維持姿勢的<strong>第一型纖維</strong>肌群</td><td>先攣縮、再纖維化；嚴重度依神經損傷程度</td><td>肌纖維凋亡、變小；早期肌肉周徑可能不變（被<strong>脂肪與纖維組織</strong>取代）</td></tr>
+            <tr><td>處理</td><td>重新活動</td><td>依神經恢復</td><td>無法完全預防；延緩兩方法：<strong>增加蛋白質</strong>、<strong>向心收縮運動</strong>（肢體負重、水療、平衡板）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>肌肉重新活動要點</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>）：依動物狀態選擇；增加機械負荷；強度訓練如跑步機、游泳；離心與向心收縮運動。</p>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p029.jpg" alt="肌肉萎縮：廢用性萎縮、神經性萎縮、肌少症的比較，以及肌肉重新活動要點。" loading="lazy"><div class="figure-caption">肌肉萎縮：廢用性萎縮、神經性萎縮、肌少症的比較，以及肌肉重新活動要點。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a></div></div>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p045.jpg" alt="肌少症：老化時運動單位減少、第二型纖維萎縮，肌肉截面積下降（Influence of age on muscle mot" loading="lazy"><div class="figure-caption">肌少症：老化時運動單位減少、第二型纖維萎縮，肌肉截面積下降（Influence of age on muscle motor units）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=45">p.45</a></div></div>
+      <h3>三種收縮型態<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:26%;">收縮（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=30">p.30–31</a>）</th><th>肌纖維長度</th><th>作用</th><th>例子（補充）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>等長收縮</strong> Isometric</td><td><strong>不變</strong></td><td>維持姿勢、穩定關節</td><td>站立平衡、在平衡板上維持不動</td></tr>
+            <tr><td><strong>向心收縮</strong> Concentric</td><td><strong>縮短</strong></td><td>產生關節動作</td><td>上坡、坐到站</td></tr>
+            <tr><td><strong>離心收縮</strong> Eccentric</td><td><strong>拉長</strong></td><td>控制或抵抗動作</td><td><strong>下坡</strong>（學長姐筆記：下坡路能練離心）、站到坐。⚠ 第 4 週骨科講義第 22 頁卻把「水療機坡度上升、上斜坡」列為離心例子，兩者不同，見<a href="week04_骨科疾病復健.html#section-generalrehab">第 4 週</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p030.jpg" alt="向心收縮、離心收縮、等長收縮（以手臂舉物示意）。" loading="lazy"><div class="figure-caption">向心收縮、離心收縮、等長收縮（以手臂舉物示意）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=30">p.30</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p031.jpg" alt="Muscular action：等長（纖維長度不變）、向心（縮短產生動作）、離心（拉長以控制或抵抗動作），以三角肌舉臂為" loading="lazy"><div class="figure-caption">Muscular action：等長（纖維長度不變）、向心（縮短產生動作）、離心（拉長以控制或抵抗動作），以三角肌舉臂為例。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=31">p.31</a></div></div>
+      </div>
+      <details class="alert alert-warn study-note" style="font-size:.9em;line-height:1.65;margin:1rem 0">
+        <summary style="cursor:pointer;font-weight:700;color:var(--amber-700)">讀書補充Note - 三種收縮型態怎麼分</summary>
+        <p><strong>先講結論</strong></p>
+        <p><strong>只問兩件事：① 這條肌肉有沒有在出力？② 出力時它的長度在變短、變長，還是不變？</strong>變短＝向心，不變＝等長，一邊出力一邊被拉長＝離心（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=30">p.30</a>–<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=31">p.31</a>）。</p>
+        <p><strong>1. 出力和外力的關係</strong></p>
+        <div class="table-wrap"><table>
+          <thead><tr><th></th><th>出力 vs 外力（重量、重力）</th><th>肌肉長度</th><th>關節</th></tr></thead>
+          <tbody>
+            <tr><td>向心（Concentric）</td><td>出力 <strong>大於</strong> 外力</td><td>變短</td><td>被肌肉拉著動</td></tr>
+            <tr><td>等長（Isometric）</td><td>出力 <strong>等於</strong> 外力</td><td>不變</td><td>不動</td></tr>
+            <tr><td>離心（Eccentric）</td><td>出力 <strong>小於</strong> 外力，但沒有放鬆</td><td>被拉長</td><td>被外力帶著動，肌肉在踩煞車</td></tr>
+          </tbody>
+        </table></div>
+        <p><strong>2. 用講義的圖來看</strong></p>
+        <ol>
+          <li><strong>手拿杯子（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=30">p.30</a>，主角是二頭肌）</strong>
+            <ul>
+              <li>把杯子舉起來：出力大於杯子重量，肌肉變短、手肘彎起 → 向心。</li>
+              <li>手肘停在半空中拿著：出力等於杯子重量，長度不變 → 等長。</li>
+              <li><strong>慢慢</strong>放下杯子：二頭肌仍在出力，只是比重力小一點，所以一邊用力一邊被拉長 → 離心。二頭肌真的放鬆的話，杯子會直接掉下去；「慢慢放」這個控制就是離心收縮。</li>
+            </ul></li>
+          <li><strong>三角肌舉手臂（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=31">p.31</a>）</strong>
+            <ul><li>手臂往外舉＝向心；舉著不動＝等長；慢慢放下＝離心（三角肌對抗重力踩煞車）。</li></ul></li>
+        </ol>
+        <p><strong>3. 換成狗（看後肢伸肌：股四頭肌、臀肌、膕繩肌）</strong></p>
+        <ul>
+          <li><strong>坐 → 站</strong>：伸肌把身體推上去，肌肉變短 → 向心。</li>
+          <li><strong>站 → 坐</strong>：伸肌讓身體慢慢坐下、不是摔下去，一邊出力一邊變長 → 離心。</li>
+          <li><strong>上坡</strong>：伸肌出力推身體往上 → 以向心為主。</li>
+          <li><strong>下坡</strong>：重力把身體往下帶，伸肌煞車，避免膝和髖一直彎下去 → 以離心為主（學長姐「下坡練離心」）。</li>
+          <li><strong>站在平衡板上不動</strong>：一直出力維持姿勢，長度幾乎不變 → 等長。</li>
+        </ul>
+        <p><strong>4. 跟第 4 週講義不一致的地方</strong></p>
+        <ul><li><a href="week04_骨科疾病復健.html#section-generalrehab">第 4 週</a>講義第 22 頁把「水療機坡度上升、上斜坡」列為離心例子，跟本講義定義與學長姐筆記不同。依定義，上坡時後肢伸肌主要是向心；考題若明確引用第 4 週的寫法，就照那份講義作答。</li></ul>
+        <p><strong>5. 臨床意義</strong></p>
+        <ul><li>離心收縮能產生的力量最大，但也最容易造成肌肉微損傷與延遲性肌肉痠痛（Delayed Onset Muscle Soreness, DOMS）。所以術後復健通常先做等長（平衡板、站立），再做向心（坐站、上坡），離心（下坡、下樓梯）較晚才加；例如第 4 週肘關節發育不良「鞏固期才做下階梯」。</li></ul>
+        <p><strong>要不要背</strong></p>
+        <ol>
+          <li><strong>一定要會</strong>
+            <ul><li>三種收縮的長度變化與作用；坐站、上下坡、平衡板各屬哪一種。</li></ul></li>
+          <li><strong>懂原理就好</strong>
+            <ul><li>出力與外力的大小關係；離心為什麼放在復健後期。</li></ul></li>
+          <li><strong>不用背</strong>
+            <ul><li>DOMS 的機轉細節。</li></ul></li>
+        </ol>
+        <p style="font-size:.9em; color:var(--fg-muted);">補充：除了標講義頁碼的句子，其餘（狗的例子、出力與外力的比較、臨床意義）為整理者依一般運動生理學補充；「要不要背」依講義強調處判斷，以老師上課為準。</p>
+      </details>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=28">p.28–33</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=45">p.45</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- TENDON -->
+    <div class="section" id="section-tendon">
+      <div class="section-head"><div class="section-num">8</div><h2>肌腱與韌帶 Tendon &amp; Ligament</h2></div>
+      <p class="section-desc">肌腱與韌帶幾乎全是 I 型膠原、血流少，所以修得慢：固定 3–6 週、6 週後才輕度負重、1 年後強度仍不到原本的八成。</p>
+      <h3>構造比較<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>肌腱 Tendon</th><th>韌帶 Ligament</th></tr></thead>
+          <tbody>
+            <tr><td>連接（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=34">p.34</a>）</td><td><strong>肌肉 → 骨</strong>，伸屈關節</td><td><strong>骨 → 骨</strong>，控制動作、穩定關節</td></tr>
+            <tr><td>膠原</td><td><strong>&gt; 98% type I</strong>；長度可改變約 5%</td><td><strong>90% type I／10% type III</strong></td></tr>
+            <tr><td>分類</td><td><strong>腱旁組織包覆（有血管）</strong>：如腓腸肌、三頭肌肌腱<br><strong>滑膜鞘包覆（無血管）</strong>：如指屈肌腱</td><td>關節囊內（如十字韌帶）、關節囊外（如脊柱的韌帶）</td></tr>
+            <tr><td>感受器</td><td>—</td><td>含痛覺感受器、<strong>Golgi 感受器</strong>（偵測拉力）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p034.jpg" alt="肌腱與韌帶：構造、分類與肌腱應力－應變曲線（腳趾區 → 彈性變形區 → 屈服點 → 塑性變形區 → 斷裂）。" loading="lazy"><div class="figure-caption">肌腱與韌帶：構造、分類與肌腱應力－應變曲線（腳趾區 → 彈性變形區 → 屈服點 → 塑性變形區 → 斷裂）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=34">p.34</a></div></div>
+      <div class="alert alert-info"><div class="alert-label">應力－應變曲線怎麼讀（補充）</div>
+        <p>剛開始拉時，捲曲的膠原先被拉直（<strong>腳趾區</strong>，不太費力）；接著膠原本身被拉長，放手可回復（<strong>彈性區</strong>）；超過<strong>屈服點</strong>後纖維開始斷裂、放手也回不去（<strong>塑性區</strong>）；最後<strong>斷裂</strong>。伸展運動要停在彈性區內。</p>
+      </div>
+      <h3>肌腱癒合時間軸<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">期別</th><th>內容（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>發炎期</td><td>立即～<strong>72 小時</strong></td></tr>
+            <tr><td>修補期</td><td><strong>第 5 天</strong>起膠原隨機排列並逐漸增加達 4 週；膠原生成在受傷後 <strong>5–12 天</strong>達高峰，<strong>第 60 天</strong>明顯減少</td></tr>
+            <tr><td>重建期</td><td>至少 <strong>28 天</strong>膠原纖維才依應力方向排列；<strong>112 天</strong>肌腱外觀正常</td></tr>
+            <tr><td>強度</td><td><strong>6 週約 56%</strong>，<strong>1 年以上約 79%</strong>。間隙 &gt; 3 mm 的肌腱 6 週時強度較差；<strong>滑膜鞘（無血管）肌腱比有血管的癒合更久</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>肌腱復健時程<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="flow">
+        <div class="flow-node"><strong>術後 3–6 週</strong><br>固定（可從第 5 天開始有限制的被動活動）</div><div class="flow-arrow">→</div>
+        <div class="flow-node"><strong>6 週後</strong><br>輕度負重運動</div><div class="flow-arrow">→</div>
+        <div class="flow-node"><strong>≥ 12 週</strong><br>較不受限的主動負荷</div><div class="flow-arrow">→</div>
+        <div class="flow-node"><strong>1 年</strong><br>強度約 80%</div>
+      </div>
+      <ul>
+        <li>大肌腱修復後可能需要支撐<strong>最多 6 週</strong>（方式依外科醫師、部位、動物行為而定）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li>
+        <li><strong>長期固定有害</strong>：完全固定超過 <strong>21 天</strong>會減少傷口處血管新生；<strong>21 天內</strong>開始早期控制下的被動活動最理想；完全或部分斷裂手術修復後，<strong>術後第 5 天</strong>開始被動活動最佳（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li>
+        <li><strong>6 週</strong>可開始輕度負重的保守運動，因為肌腱有正常強度的 <strong>25–30%</strong> 就足以承受正常肌肉力量（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li>
+        <li>最少 <strong>12 週</strong>才能較不受限、較主動的負荷；恢復到足以正常活動負重可能要好幾個月（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li>
+        <li>輕度運動維持 ROM 並刺激癒傷組織細胞；癒傷組織成熟需要一些負重（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li>
+      </ul>
+      <div class="alert alert-warn"><div class="alert-label">數字比對</div>
+        <p>講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=34">p.34</a> 寫「術後 1 年肌腱強度恢復 <strong>80%</strong>」（學長姐整理也寫 80%），<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a> 寫「6 週 56%、1 年以上 <strong>79%</strong>」，兩頁是約略相同的數字。考試寫 80%（1 年）較保險，但兩個都可能出現。</p>
+      </div>
+      <h3>韌帶（扭傷）癒合與復健<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">項目</th><th>內容（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=37">p.37–38</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>發炎期</td><td>立即～72 小時</td></tr>
+            <tr><td>修補期</td><td><strong>2–3 天至 6 週</strong></td></tr>
+            <tr><td>強度</td><td>依分級（I–III）需數天至超過 1 年；<strong>1 年時 50–70%</strong> 張力；不同韌帶差異大；間隙形成可能讓韌帶變長</td></tr>
+            <tr><td>何時開始復健</td><td>依韌帶而異；<strong>不確定時比照肌腱的參數</strong></td></tr>
+            <tr><td>固定的影響</td><td>固定期間關節活動與應力減少 → 韌帶強度與張力下降（固定期間做關節活動可減緩）</td></tr>
+            <tr><td>運動</td><td>馬的研究：<strong>每次 30 分鐘、每週 6 天</strong>（低時長、高頻率）對韌帶強度最有益</td></tr>
+            <tr><td>預後</td><td>韌帶與骨交界處的<strong>扭傷－撕裂骨折（sprain-avulsion fracture）</strong>恢復正常張力的預後最好</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=34">p.34–38</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- JOINT -->
+    <div class="section" id="section-joint">
+      <div class="section-head"><div class="section-num">9</div><h2>關節囊與關節軟骨 Joint Capsule &amp; Cartilage</h2></div>
+      <p class="section-desc">軟骨沒有血管、神經、淋巴，營養全靠關節液交換；所以它最怕「不動」，也最難修好。</p>
+      <h3>關節囊<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>包覆關節、<strong>產生關節液</strong>，讓動作無摩擦；關節液提供軟骨營養；含許多<strong>本體感覺感受器</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=39">p.39</a>）。</li>
+        <li><strong>外層</strong>：纖維層（主要是膠原），力學穩定。<strong>內層</strong>：滑膜層，靠近滑膜下血管叢；<strong>A 型滑膜細胞</strong>有吞噬作用，<strong>B 型</strong>分泌<strong>玻尿酸</strong>。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:30%;">關節囊感受器（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=39">p.39</a>）</th><th>講義英文原文</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ruffini 末梢</strong>（關節感受器 type I）</td><td>傳遞關節的<strong>位置</strong>與<strong>動作</strong>資訊</td></tr>
+            <tr><td><strong>Pacini 小體</strong>（關節感受器 type II）</td><td>傳遞關節<strong>動作</strong>資訊，所以又稱<strong>動態感受器</strong>（dynamic receptor）</td></tr>
+            <tr><td>痛覺感受器 nociceptor</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn"><div class="alert-label">講義中英文不一致</div>
+        <p>講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=39">p.39</a> 英文寫 Ruffini＝位置＋動作、Pacini＝動作（動態）；但同頁中文摘要寫成「Ruffini 感知關節動作，Pacini 感知關節體位及關節動作」，兩者對調。上表照<strong>英文原文</strong>（也與一般教科書一致：Ruffini 為慢適應、感知靜態位置，Pacini 為快適應、感知動作，補充）。考試若遇到，建議以英文版為準並可附註，<strong>⚠ 建議向老師確認</strong>。</p>
+      </div>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p039.jpg" alt="關節囊膜：Ruffini 末梢、Pacini 小體、Golgi 肌腱器、游離神經末梢在膝關節的分布。" loading="lazy"><div class="figure-caption">關節囊膜：Ruffini 末梢、Pacini 小體、Golgi 肌腱器、游離神經末梢在膝關節的分布。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=39">p.39</a></div></div>
+      <h3>關節與軟骨的類型<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>關節：<strong>滑膜關節</strong>（如肩）、<strong>纖維關節</strong>（如冠狀縫）、<strong>軟骨關節</strong>（如恥骨聯合）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=51">p.51</a>）。</li>
+        <li>軟骨三種：透明軟骨、彈性軟骨、纖維軟骨。<strong>透明軟骨</strong>減少關節內摩擦、吸收作用於關節的力量。</li>
+        <li>軟骨組成：軟骨細胞、細胞外基質與水（<strong>水 65–80%</strong>）；第二型膠原、蛋白聚醣聚合體（含玻尿酸）、醣胺聚醣（硫酸角質素、硫酸軟骨素）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=52">p.52</a>）。</li>
+        <li><strong>無血液、無神經、無淋巴</strong>；營養與廢物<strong>完全靠關節液交換</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=52">p.52</a>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p051.jpg" alt="關節的類型與典型滑膜關節構造（關節囊纖維層、滑膜、關節軟骨、半月板）。" loading="lazy"><div class="figure-caption">關節的類型與典型滑膜關節構造（關節囊纖維層、滑膜、關節軟骨、半月板）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=51">p.51</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p052.jpg" alt="關節軟骨構造：軟骨細胞、第二型膠原、蛋白聚醣聚合體（以玻尿酸為骨架，接上硫酸角質素與硫酸軟骨素），水占 65–80%。" loading="lazy"><div class="figure-caption">關節軟骨構造：軟骨細胞、第二型膠原、蛋白聚醣聚合體（以玻尿酸為骨架，接上硫酸角質素與硫酸軟骨素），水占 65–80%。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=52">p.52</a></div></div>
+      </div>
+      <h3>軟骨損傷與癒合<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>部分厚度缺損 Partial thickness（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=54">p.54</a>）</th><th>全厚度缺損 Full thickness（達軟骨下骨）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=55">p.55</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>發炎期</td><td><strong>沒有發炎反應</strong>（無血管）</td><td>立即～3–5 天（炎症細胞來自<strong>骨髓</strong>）</td></tr>
+            <tr><td>修補期</td><td>受傷 <strong>1 週後</strong>有絲分裂就停止</td><td>5–7 天至 2 個月</td></tr>
+            <tr><td>重建期</td><td><strong>1 年也無法填滿缺損</strong>（缺乏發炎修復反應）</td><td>2–6 個月；6 個月時修復組織已明顯不同於透明軟骨，是<strong>纖維性</strong>、較差；<strong>1 年時只有 20% 為第二型膠原</strong></td></tr>
+            <tr><td>結論</td><td colspan="2">修復取決於年齡、缺損大小與位置；無論如何，<strong>透明軟骨極少完全復原</strong>。持續受損最終走向<strong>骨關節炎（OA）</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=53">p.53</a>）。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>固定與重新活動對軟骨的影響<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <ul>
+        <li>軟骨復原與<strong>關節固定時間長短</strong>、損傷程度、動物狀態有關；<strong>年輕犬固定 3–4 個月後，需近 1 年才完全再生</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=53">p.53</a>）。</li>
+        <li><strong>持續被動關節活動（continuous PROM）</strong>改善修復：兔子試驗中以透明軟骨為主修復的缺損，青春期 <strong>60%</strong>、成年 <strong>44%</strong>；對照組（石膏固定或籠內自由活動）<strong>≤ 10%</strong>。缺損直徑 &gt; 3 mm 效果較差（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=56">p.56</a>）。</li>
+        <li>固定 <strong>6 週</strong>後，<strong>3 週</strong>自由、低強度活動 → 軟骨恢復正常（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=57">p.57</a>）。</li>
+        <li>固定越久，恢復越久；年輕犬固定<strong>超過 15 週</strong>，即使再活動 <strong>50 週</strong>也可能無法完全恢復（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=57">p.57</a>）。</li>
+        <li><strong>解除固定後劇烈運動對軟骨有害</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=57">p.57</a>）。</li>
+      </ul>
+      <div class="alert alert-success"><div class="alert-label">一句話</div><p>軟骨：<strong>早動（被動）、慢慢加量、不要猛衝</strong>。固定 6 週還救得回來，固定超過 15 週可能救不回來。</p></div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=39">p.39</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=51">p.51–57</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="section" id="section-clinical">
+      <div class="section-head"><div class="section-num">10</div><h2>相關肌肉、肌腱、韌帶與關節疾病 Clinical Correlates</h2></div>
+      <p class="section-desc">講義用一串常見病把上面的組織學接到臨床：每個病要知道是哪條肌肉／肌腱／韌帶、起止點與功能、怎麼分級。各病的復健方案見第 4 週骨科。</p>
+      <h3>髂腰肌拉傷（Iliopsoas strain）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td style="width:18%;">起點（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=42">p.42</a>）</td><td>髂肌：髂骨腹側；腰大肌：<strong>L2–L3 橫突</strong>與 <strong>L4–L7 椎體腹側</strong></td></tr>
+            <tr><td>止點</td><td>兩肌融合成共同肌腱，止於股骨<strong>小轉子</strong>（lesser trochanter）</td></tr>
+            <tr><td>功能</td><td>把後肢往前帶、<strong>髖屈肌</strong>、髖外旋肌、脊柱穩定肌</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">急性肌肉肌腱拉傷分級（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=42">p.42</a>）</th><th>描述</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Grade I</strong>（輕度）</td><td>功能無損失，<strong>&lt; 5%</strong> 肌肉受累，局部水腫或出血</td></tr>
+            <tr><td>Grade I–II</td><td>同上，加輕微筋膜撕裂</td></tr>
+            <tr><td><strong>Grade II</strong>（中度）</td><td>肌肉肌腱單位強度下降，<strong>&gt; 5%</strong> 肌肉受累，輕微纖維斷裂，水腫出血增加</td></tr>
+            <tr><td>Grade II–III</td><td>同上，加筋膜撕裂、輕度纖維破壞</td></tr>
+            <tr><td><strong>Grade III</strong>（重度）</td><td>明顯筋膜撕裂、大部分至完全肌纖維斷裂、明顯水腫出血</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p042.jpg" alt="髂腰肌拉傷：解剖（腰小肌、腰大肌、髂肌）、敏捷犬跳躍時受力位置，以及急性肌肉肌腱拉傷分級表（Veterinary Evi" loading="lazy"><div class="figure-caption">髂腰肌拉傷：解剖（腰小肌、腰大肌、髂肌）、敏捷犬跳躍時受力位置，以及急性肌肉肌腱拉傷分級表（Veterinary Evidence 2017）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=42">p.42</a></div></div>
+      <h3>纖維化肌病（Fibrotic myopathy）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">疾病</th><th>起點</th><th>止點</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>棘下肌攣縮</strong>（Infraspinatus contracture）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=43">p.43</a>）</td><td>肩胛骨<strong>棘下窩</strong>，在三角肌下方往外走</td><td>肱骨<strong>大結節</strong></td><td>外展、外旋（講義句子未寫完：abducts and externally…）</td></tr>
+            <tr><td><strong>股薄肌攣縮</strong>（Gracilis contracture）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=44">p.44</a>）</td><td><strong>骨盆聯合</strong></td><td>脛骨前側與小腿筋膜；腱膜分出一條強化帶與半腱狀肌一起加入<strong>總跟腱</strong></td><td>強力的<strong>髖內收肌</strong>，可協助膝伸展</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：棘下肌攣縮的典型表現是站立時肘內收、前掌外旋，走路時前肢向外甩（講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=43">p.43</a> 照片）；股薄肌／半腱肌病多見於德國牧羊犬，步態末期後掌快速內旋（補充，講義未寫）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p043.jpg" alt="棘下肌攣縮：棘下肌、棘上肌、小圓肌與二頭肌腱的位置，以及患犬前肢外旋外展的站姿。" loading="lazy"><div class="figure-caption">棘下肌攣縮：棘下肌、棘上肌、小圓肌與二頭肌腱的位置，以及患犬前肢外旋外展的站姿。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=43">p.43</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p044.jpg" alt="股薄肌攣縮：股薄肌、半膜狀肌、半腱狀肌的位置與患肢大腿內側的纖維化外觀。" loading="lazy"><div class="figure-caption">股薄肌攣縮：股薄肌、半膜狀肌、半腱狀肌的位置與患肢大腿內側的纖維化外觀。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=44">p.44</a></div></div>
+      </div>
+      <h3>肩部肌腱病變與肩內側不穩定<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">疾病</th><th>起點</th><th>止點</th><th>功能</th></tr></thead>
+          <tbody>
+            <tr><td><strong>棘上肌腱病變</strong>（Supraspinatus tendinopathy）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=46">p.46</a>）</td><td>肩胛骨<strong>棘上窩</strong>，往外越過肩關節</td><td>肱骨<strong>大結節</strong></td><td>肩關節的穩定與<strong>伸展</strong></td></tr>
+            <tr><td><strong>二頭肌腱病變</strong>（Biceps tendinopathy）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=46">p.46</a>）</td><td>肩胛骨<strong>盂上結節</strong>，經<strong>結節間溝</strong>往遠端</td><td>肘關節近端分兩支：較強的一支止於尺骨前內側，較弱的止於橈骨</td><td><strong>肩伸展、肘屈曲</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>肩內側不穩定</strong>（Medial Shoulder Instability, MSI）：<strong>內側盂肱韌帶（MGL）</strong>與<strong>肩胛下肌腱（SST）</strong>部分撕裂；用<strong>外展試驗（abduction test）</strong>評估；正常犬的肩外展角度中位數約 <strong>45°</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=50">p.50</a>）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：SST 講義只寫縮寫，指 subscapularis tendon。MSI 患犬的外展角度會比 45° 大（關節較鬆）；確切切點講義沒寫，不列數字。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p046.jpg" alt="棘上肌腱病變與二頭肌腱病變：棘上肌、二頭肌腱、內側盂肱韌帶、橫肱韌帶的位置。" loading="lazy"><div class="figure-caption">棘上肌腱病變與二頭肌腱病變：棘上肌、二頭肌腱、內側盂肱韌帶、橫肱韌帶的位置。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=46">p.46</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p050.jpg" alt="肩內側不穩定（MSI）：內側盂肱韌帶與肩胛下肌腱部分撕裂；外展試驗的操作。" loading="lazy"><div class="figure-caption">肩內側不穩定（MSI）：內側盂肱韌帶與肩胛下肌腱部分撕裂；外展試驗的操作。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=50">p.50</a></div></div>
+      </div>
+      <h3>跟腱斷裂與趾屈肌拉傷<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <ul>
+        <li><strong>跟腱（阿基里斯腱）斷裂</strong>＝<strong>跗關節下垂（dropped hock）</strong>。總跟腱（common calcanean tendon）由<strong>淺趾屈肌（SDF）</strong>、<strong>腓腸肌</strong>與<strong>聯合腱</strong>（股二頭肌、半腱狀肌、股薄肌）組成（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=47">p.47</a>）。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">分級（Meutstege 1993）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=47">p.47</a>）</th><th>病理</th><th>站姿</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Type I</strong></td><td><strong>完全斷裂</strong></td><td><strong>蹠行</strong>（plantigrade，整個蹠部著地）</td></tr>
+            <tr><td><strong>Type II</strong></td><td>部分斷裂</td><td>跗關節稍微多屈曲</td></tr>
+            <tr><td>　IIa</td><td>肌肉肌腱交界處</td><td></td></tr>
+            <tr><td>　IIb</td><td>類似 Type I 但腱旁組織（paratenon）完整</td><td>不會完全蹠行</td></tr>
+            <tr><td>　IIc</td><td><strong>只有腓腸肌腱</strong>斷，淺趾屈肌腱完整</td><td>趾屈肌張力增加 → <strong>蟹爪（crab claw）</strong></td></tr>
+            <tr><td><strong>Type III</strong></td><td>只有肌腱病變（tendinosis）</td><td>正常</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info"><div class="alert-label">記法</div>
+        <p>學長姐整理：「只有腓腸肌撕裂 → 部分蟹爪；所有肌腱（腓腸肌＋淺趾屈肌）撕裂 → 蹠行」。理由（補充）：腓腸肌斷了而淺趾屈肌還在，跗關節下垂時把淺趾屈肌腱拉緊，腳趾就被拉彎成蟹爪；兩條都斷了，就沒有東西撐住跗關節，整個蹠部貼地。</p>
+      </div>
+      <ul>
+        <li><strong>淺指（趾）屈肌拉傷 SDF strain</strong> → <strong>扁平趾（flat toe）</strong>；<strong>深指（趾）屈肌拉傷 DDF strain</strong> → <strong>趾尖翹起（knuckled up toe）</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=48">p.48</a>，講義原文寫 Knucked up toe）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p047.jpg" alt="跟腱斷裂：正常、腓腸肌與聯合腱斷裂（部分）、全部肌腱斷裂（蹠行）的站姿示意，與 Meutstege 1993 分級。" loading="lazy"><div class="figure-caption">跟腱斷裂：正常、腓腸肌與聯合腱斷裂（部分）、全部肌腱斷裂（蹠行）的站姿示意，與 Meutstege 1993 分級。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=47">p.47</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p048.jpg" alt="淺指屈肌拉傷（扁平趾）與深指屈肌拉傷（趾尖翹起）的外觀與指屈肌腱解剖。" loading="lazy"><div class="figure-caption">淺指屈肌拉傷（扁平趾）與深指屈肌拉傷（趾尖翹起）的外觀與指屈肌腱解剖。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=48">p.48</a></div></div>
+      </div>
+      <h3>韌帶與關節疾病<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li><strong>前十字韌帶斷裂</strong>（Cranial Cruciate Ligament Rupture, CCLR）：分部分與完全斷裂；檢查用<strong>抽屜試驗（drawer test）</strong>與<strong>脛骨推進試驗（tibial thrust test）</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=49">p.49</a>）。手術如 TPLO（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=40">p.40</a>）。</li>
+        <li>其他關節疾病（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=58">p.58</a>）：<strong>肘關節發育不良</strong>（Elbow dysplasia：肘突未癒合 UAP、內側冠狀突碎裂 FMCP、剝離性骨軟骨炎 OCD）、<strong>膝蓋骨內側脫位</strong>（Medial Patellar Luxation, MPL）、<strong>髖關節發育不良</strong>（Hip Dysplasia, HD）。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>MPL 圖示（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=58">p.58</a>）</th><th>1：In-in</th><th>2：In-out</th><th>3：Out-in</th><th>4：Out-out</th></tr></thead>
+          <tbody>
+            <tr><td>意思（補充）</td><td>平常在溝內，可推出，放手回位</td><td>平常在溝內，會自行脫出</td><td>平常在溝外，可推回</td><td>永遠在溝外，推不回</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=58">p.58</a> 只有「In-in in-out out-in out-out」四張圖，沒有文字說明；「意思」欄是整理者依一般 MPL 分級（grade 1–4）補的。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p049.jpg" alt="前十字韌帶斷裂：部分與完全斷裂、抽屜試驗與脛骨推進試驗示意。" loading="lazy"><div class="figure-caption">前十字韌帶斷裂：部分與完全斷裂、抽屜試驗與脛骨推進試驗示意。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=49">p.49</a></div></div>
+        <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p058.jpg" alt="肘關節發育不良（UAP、FMCP、OCD）、膝蓋骨內側脫位四級（In-in → Out-out）與髖關節發育不良。" loading="lazy"><div class="figure-caption">肘關節發育不良（UAP、FMCP、OCD）、膝蓋骨內側脫位四級（In-in → Out-out）與髖關節發育不良。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=58">p.58</a></div></div>
+      </div>
+      <p>講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=41">p.41</a> 把肌肉相關問題整理為：髂腰肌拉傷、纖維化肌病（棘下肌攣縮、股薄肌／半腱肌病）、肌少症。</p>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=40">p.40–50</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=58">p.58</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- NERVE -->
+    <div class="section" id="section-nerve">
+      <div class="section-head"><div class="section-num">11</div><h2>神經系統的損傷與恢復 Nerve</h2></div>
+      <p class="section-desc">中樞神經細胞死了不會再生，但迴路可以重新連結；周邊神經依損傷層級決定能不能自己長回來。</p>
+      <h3>中樞神經的可塑性<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>中樞神經（CNS）不可逆損傷後<strong>無法恢復</strong>，但神經迴路可以發生<strong>可塑性改變</strong>，帶來驚人的功能恢復（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=59">p.59</a>）。</li>
+        <li><strong>突觸可塑性（synaptic plasticity）</strong>：CNS 面對改變的正常策略（如超敏感 supersensitivity）；離子通道改變或<strong>產生新突觸</strong>——<strong>新突觸的生成可被復健正向影響</strong>。</li>
+        <li><strong>突觸形成（synaptogenesis）</strong>與完整傳入神經的<strong>側枝發芽（collateral sprouting）</strong>。</li>
+        <li>動物也能<strong>學習新的移動方式</strong>：<strong>脊髓步行（spinal walking）</strong>＝後肢隨機、有節律、交替的動作，<strong>沒有脊髓以上或皮質的控制</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p059.jpg" alt="中樞神經可塑性：突觸可塑性（超敏感、新突觸）與突觸形成、側枝發芽（J. Integr. Neurosci. 2020）。" loading="lazy"><div class="figure-caption">中樞神經可塑性：突觸可塑性（超敏感、新突觸）與突觸形成、側枝發芽（J. Integr. Neurosci. 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=59">p.59</a></div></div>
+      <h3>中樞神經損傷與預後<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <ul>
+        <li>常見原因：椎體骨折或移位、椎間盤突出、退化性腰薦椎狹窄（Degenerative Lumbosacral Stenosis, DLSS）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=60">p.60</a>）。</li>
+        <li><strong>深層痛覺（deep pain sensation）是預後的關鍵</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=60">p.60</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p060.jpg" alt="中樞神經損傷：椎間盤突出的 MRI、椎體骨折的 X 光；深層痛覺是預後關鍵。" loading="lazy"><div class="figure-caption">中樞神經損傷：椎間盤突出的 MRI、椎體骨折的 X 光；深層痛覺是預後關鍵。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=60">p.60</a></div></div>
+      <h3>脊髓創傷的病理<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>機械性挫傷引起神經元與神經膠細胞的<strong>繼發性損傷</strong>（壞死與凋亡）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=61">p.61</a>）。</li>
+        <li>初期發炎兩階段：<strong>嗜中性球</strong>數小時內達高峰 → <strong>巨噬細胞</strong>約 <strong>1 週</strong>達高峰。</li>
+        <li><strong>繼發性細胞事件比最初的機械性挫傷更重要</strong>：一連串生化與代謝變化可持續<strong>數週</strong>。</li>
+        <li><strong>寡突膠質細胞</strong>與<strong>星形膠質細胞</strong>可在 CNS 再生。寡突膠質細胞被破壞 → 髓鞘破壞 → 傳導變差（有證據顯示沒有髓鞘的變慢功能仍可再訓練）。星形膠質細胞增生肥大（gliosis）→ 形成 CNS 的<strong>疤痕</strong>，<strong>阻礙軸突再生長</strong>。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p061.jpg" alt="脊髓創傷：繼發性損傷、嗜中性球與巨噬細胞浸潤時序、寡突膠質細胞與星形膠質細胞的角色。" loading="lazy"><div class="figure-caption">脊髓創傷：繼發性損傷、嗜中性球與巨噬細胞浸潤時序、寡突膠質細胞與星形膠質細胞的角色。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=61">p.61</a></div></div>
+      <h3>周邊神經損傷<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">分級（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=62">p.62</a>）</th><th>損傷的構造（補充）</th><th>預後（補充）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>神經失用</strong> Neurapraxia</td><td>只有髓鞘局部受損，軸突完整</td><td>最好，數天至數週恢復</td></tr>
+            <tr><td><strong>軸索斷裂</strong> Axonotmesis</td><td>軸突斷，但神經內膜等結締組織鞘完整</td><td>可沿原路徑再生，慢（以月計）</td></tr>
+            <tr><td><strong>神經截斷</strong> Neurotmesis</td><td>整條神經（含神經外膜）斷開</td><td>最差，通常需手術</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>神經的結締組織鞘由外到內：<strong>神經外膜</strong>（epineurium）、<strong>神經束膜</strong>（perineurium）、<strong>神經內膜</strong>（endoneurium）；外圍另有神經鞘（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=62">p.62</a>）。</p>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=62">p.62</a> 只有三級的名稱與示意圖，「損傷的構造」「預後」兩欄是整理者依一般神經學補的（Seddon 分級）。</p>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p062.jpg" alt="周邊神經構造（神經外膜、神經束膜、神經內膜、髓鞘）與三種損傷：神經失用、軸索斷裂、神經截斷。" loading="lazy"><div class="figure-caption">周邊神經構造（神經外膜、神經束膜、神經內膜、髓鞘）與三種損傷：神經失用、軸索斷裂、神經截斷。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=62">p.62</a></div></div>
+      <h3>講義舉的神經疾病<span class="lv lv-skim">看過</span></h3>
+      <ul>
+        <li><strong>退化性脊髓病</strong>（Degenerative Myelopathy, DM）：圖示常見品種德國牧羊犬、拳師犬、西伯利亞哈士奇、柯基；約 40 個品種受影響，發病年齡 <strong>8–14 歲</strong>，許多其他品種與混種也會發生（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=63">p.63</a>）。詳見<a href="week03_神經科疾病復健.html">第 3 週</a>。</li>
+        <li><strong>臂神經叢撕脫</strong>（Brachial plexus avulsion）：講義只有照片（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=63">p.63</a>）。</li>
+      </ul>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p063.jpg" alt="退化性脊髓病好發品種（德國牧羊犬、拳師犬、哈士奇、柯基，約 40 品種，8–14 歲發病）與臂神經叢撕脫患犬。" loading="lazy"><div class="figure-caption">退化性脊髓病好發品種（德國牧羊犬、拳師犬、哈士奇、柯基，約 40 品種，8–14 歲發病）與臂神經叢撕脫患犬。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=63">p.63</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=59">p.59–63</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="section" id="section-timeline">
+      <div class="section-head"><div class="section-num">12</div><h2>組織癒合時間總表 Tissue Healing Timeline</h2></div>
+      <p class="section-desc">把本講義所有數字放在同一張表：考前最該看的一節。</p>
+      <h3>各組織比較（講義數字）<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:12%;">組織</th><th>發炎期</th><th>修補期</th><th>重建／成熟</th><th>固定與開始活動</th><th>強度恢復</th></tr></thead>
+          <tbody>
+            <tr><td><strong>一般傷口</strong></td><td>0–5 天</td><td>5–21 天</td><td>21 天～1 年</td><td>發炎期只用儀器、避免主動運動</td><td>—</td></tr>
+            <tr><td><strong>骨</strong></td><td>～72 小時</td><td>3 天～4–6 週；骨痂 10–12 天</td><td>骨折線 30 天消失；骨痂 90 天完全重建</td><td>修補期逐步增加循環負荷；解除固定第 1 個月牽繩慢走或輕度跑步機</td><td>Wolff's law；約 3 個月重建</td></tr>
+            <tr><td><strong>骨骼肌</strong></td><td>～72 小時</td><td>3 天起（III 型膠原支架）；&gt; 6 週膠原比例正常</td><td>依間隙大小</td><td><strong>0–5 天固定 → 4 週保護性活動 → 之後強化</strong>；撕裂固定 2–3 週；完全斷裂 4–8 週中度、8–12 週不限制</td><td>最少 4–6 週；完全撕裂 12 週 50% 張力</td></tr>
+            <tr><td><strong>肌腱</strong></td><td>～72 小時</td><td>5 天起，膠原 5–12 天高峰</td><td>≥ 28 天依應力排列；112 天外觀正常</td><td><strong>術後固定 3–6 週</strong>（第 5 天可開始被動活動，固定 &gt; 21 天有害）；<strong>6 週輕度負重</strong>；≥ 12 週較主動負荷</td><td>6 週 56%；<strong>1 年約 80%</strong>（79%）</td></tr>
+            <tr><td><strong>韌帶</strong></td><td>～72 小時</td><td>2–3 天至 6 週</td><td>數天至 &gt; 1 年</td><td><strong>比照肌腱</strong></td><td><strong>1 年 50–70%</strong></td></tr>
+            <tr><td><strong>軟骨（部分厚度）</strong></td><td>無</td><td>1 週後停止分裂</td><td>1 年仍填不滿</td><td rowspan="2">持續被動 ROM 有幫助；固定 6 週 → 3 週低強度活動可恢復；&gt; 15 週可能無法恢復；劇烈運動有害</td><td rowspan="2"><strong>固定 3–4 個月 → 年輕犬近 1 年才完全再生</strong>；極少完全恢復成透明軟骨</td></tr>
+            <tr><td><strong>軟骨（全厚度）</strong></td><td>3–5 天</td><td>5–7 天至 2 個月</td><td>2–6 個月，纖維性；1 年 20% II 型膠原</td></tr>
+            <tr><td><strong>中樞神經</strong></td><td>嗜中性球數小時、巨噬細胞約 1 週高峰</td><td colspan="2">繼發性損傷可持續數週；神經元不再生，靠可塑性</td><td>復健可促進新突觸生成</td><td><strong>深層痛覺是預後關鍵</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Shaw 2020 癒合速度表<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>組織與分級（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=64">p.64</a>）</th><th>約略癒合期間（依圖中色條判讀）</th></tr></thead>
+          <tbody>
+            <tr><td>皮膚 Skin</td><td>4–14 天 ～ 6–12 個月</td></tr>
+            <tr><td>皮下 SQ</td><td>4–14 天 ～ 3–4 週</td></tr>
+            <tr><td>筋膜 Fascia</td><td>3–4 週 ～ 5–7 週</td></tr>
+            <tr><td>肌肉：運動引起的延遲性痠痛 DOMS／Grade 1／2／3</td><td>0–3 天／0–3 天～3–4 週／3–4 週～2–3 個月／5–7 週～3–6 個月</td></tr>
+            <tr><td>肌腱：急性／亞急性／慢性／斷裂或手術修復</td><td>3–4 週～5–7 週／2–3 個月～3–6 個月／3–6 個月～&gt; 1 年／3–6 個月～&gt; 1 年</td></tr>
+            <tr><td>韌帶（關節外）：Grade 1／2／3</td><td>4–14 天～3–4 週／3–4 週～3–6 個月／5–7 週～6–12 個月</td></tr>
+            <tr><td><strong>關節內韌帶</strong>（如前十字韌帶）</td><td><strong>&gt; 1 年，幾乎無法癒合</strong>（unlikely to fully heal）</td></tr>
+            <tr><td>骨 Bone</td><td>5–7 週 ～ 2–3 個月</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ 原表是色條圖，上表是整理者依色條起訖欄位判讀，邊界可能差一格；以講義原圖為準。原文：Shaw KK, Fundamental principles of rehabilitation and musculoskeletal tissue healing, Veterinary Surgery 2020（以前十字韌帶術後復健為背景）。</p>
+      <div class="figure"><img src="img/week02_復健相關解剖學及生理學/ap_p064.jpg" alt="組織癒合速度表（Shaw 2020）：皮膚、皮下、筋膜、肌肉、肌腱、關節外韌帶、關節內韌帶（幾乎無法癒合）、骨。" loading="lazy"><div class="figure-caption">組織癒合速度表（Shaw 2020）：皮膚、皮下、筋膜、肌肉、肌腱、關節外韌帶、關節內韌帶（幾乎無法癒合）、骨。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=64">p.64</a></div></div>
+      <footer class="note-footer">資料來源：課程講義〈復健相關解剖學及生理學〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17–20</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=28">p.28–38</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=53">p.53–57</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=60">p.60–64</a>；學長姐考前整理 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">13</div><h2>考試方向（推測）與學長姐整理</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div>
+        <p>本科沒有考卷，只有一份<strong>學長姐考前整理</strong>（標題「老師上課說會考的地方」，屬學長姐轉述，非官方、可能過時）。下表左半是學長姐整理列出、且在本講義找得到的內容；右半是依講義強調處<strong>推測</strong>的方向。考試範圍以老師上課為準。</p></div>
+      <h3>學長姐整理對照本講義<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:36%;">學長姐整理寫的</th><th>本講義出處與核對</th></tr></thead>
+          <tbody>
+            <tr><td>等長／向心／離心收縮的定義；「下坡路能練離心」</td><td><a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=30">p.30–31</a> 定義一致；「下坡」是學長姐筆記，講義沒寫（<a href="#section-musclerehab">第 7 節</a>）</td></tr>
+            <tr><td>肌腱術後固定 3–6 週；6 週後輕度負重；1 年達 80% 強度；韌帶參數與肌腱相似</td><td><a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=34">p.34</a> 一致；<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a> 另寫 1 年 79%（<a href="#section-tendon">第 8 節</a>）</td></tr>
+            <tr><td>肌肉：0–5 天固定、4 週保護性活動、之後強化</td><td><a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=28">p.28</a> 一致</td></tr>
+            <tr><td>軟骨：固定 3–4 個月 → 近 1 年完全再生</td><td><a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=53">p.53</a> 一致（年輕犬）</td></tr>
+            <tr><td>慢肌 Type 1 收縮長、快肌 Type 2 收縮短</td><td><a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=24">p.24</a> 一致</td></tr>
+            <tr><td>解除固定第 1 個月：牽繩慢走或輕度跑步機</td><td><a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a> 一致（骨）</td></tr>
+            <tr><td>神經：深層痛覺是預後關鍵</td><td><a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=60">p.60</a> 一致</td></tr>
+            <tr><td>跟腱斷裂：只有腓腸肌 → 部分蟹爪；全部 → 蹠行</td><td><a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=47">p.47</a> 一致</td></tr>
+            <tr><td>耐力訓練須超過 15 分鐘才算</td><td>本講義沒有；出自第 4 週骨科講義第 22 頁</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">學長姐整理另列的神經節段（C1–C5、C6–T2、T3–L3、L4–S3）、跛行 0–5 級、UWTM 浮力比例、髖關節置換術後不能跌倒，屬其他講義（第 3、4、6、8 週），在對應頁整理。</p>
+      <h3>其他可能考法（推測）<span class="lv lv-know">理解</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:42%;">可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>傷口癒合三期與各期復健原則</td><td>發炎 0–5 天只用儀器、避免主動運動；修補 5–21 天施加物理壓力；重建 21 天～1 年承受更多應力</td></tr>
+            <tr><td>膠原纖維三型的分布與功能</td><td>I 伸展力（肌腱、韌帶、骨）；II 壓縮力（軟骨、椎間盤、半月板）；III 傷口癒合</td></tr>
+            <tr><td>初級 vs 次級骨癒合</td><td>&lt; 1 mm／&lt; 2% 無骨痂、早期穩定差；&gt; 1 mm／&gt; 2% 骨痂 10–12 天</td></tr>
+            <tr><td>Wolff's law／壓電效應</td><td>負載增加骨變強；張力側蝕骨、壓縮側成骨</td></tr>
+            <tr><td>三種肌肉萎縮比較</td><td>廢用慢可逆伸肌；神經性 1 週內攣縮纖維化；肌少症蛋白質＋向心運動</td></tr>
+            <tr><td>Ruffini vs Pacini</td><td>英文：Ruffini 位置＋動作；Pacini 動作（動態）（中文頁對調，見第 9 節）</td></tr>
+            <tr><td>部分 vs 全厚度軟骨缺損</td><td>部分無發炎修不好；全厚度骨髓細胞參與、纖維軟骨</td></tr>
+            <tr><td>周邊神經損傷三級</td><td>神經失用、軸索斷裂、神經截斷</td></tr>
+            <tr><td>關節正常活動度</td><td>肩 50–160、肘 30–160、腕 35–200；髖 45–160、膝 35–155、跗 35–155</td></tr>
+            <tr><td>髂腰肌起止與功能、拉傷分級</td><td>L2–L3 橫突與 L4–L7 椎體 → 小轉子；髖屈；Grade I &lt; 5%、II &gt; 5%、III 完全</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">資料來源：學長姐考前整理〈復健期中（每個表格、分級都很重要）〉<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=1">p.1</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>（非官方）；其餘為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">14</div><h2>練習題</h2></div>
+      <p class="section-desc">先自己作答再展開；解析附講義頁碼。</p>
+      <div class="card"><h4>1. 選擇題</h4>
+        <p>傷口癒合的發炎期（約 day 0–5），講義建議的復健做法是：</p>
+        <p>(A) 開始主動肌力訓練　(B) 只用可減少炎症、加速癒合的儀器，避免主動運動　(C) 施加物理壓力幫助纖維排列　(D) 完全不做任何處置</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：發炎期要避免主動運動（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>）。</li><li>(B) 對：發炎期僅能使用減少炎症、加速癒合的設備（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>）。</li><li>(C) 錯：施加物理壓力增進排列是<strong>修補期</strong>（5–21 天）的原則（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>）。</li><li>(D) 錯：發炎期仍可用儀器止痛消炎，不是什麼都不做（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=8">p.8</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>2. 選擇題</h4>
+        <p>主要負責承受「壓縮力」的膠原纖維類型與其分布是：</p>
+        <p>(A) Type I；肌腱、韌帶　(B) Type II；軟骨、椎間盤、半月板　(C) Type III；皮膚、滑膜　(D) Type II；肌腱、骨</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：Type I 承受<strong>伸展力</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=11">p.11</a>）。</li><li>(B) 對：Type II 在軟骨、椎間盤、半月板，承受壓縮力（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=11">p.11</a>）。</li><li>(C) 錯：Type III 負責傷口癒合（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=11">p.11</a>）。</li><li>(D) 錯：類型對但分布錯，肌腱、骨是 Type I（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=11">p.11</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>3. 選擇題</h4>
+        <p>下列何者符合「初級（直接）骨癒合」？</p>
+        <p>(A) 骨折間隙 &gt; 1 mm　(B) 10–12 天在 X 光上看到骨痂　(C) 間隙應變 &lt; 2%，早期穩定度較差、植入物需留置較久　(D) 間隙應變 &gt; 2%</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(C)</strong></p>
+          <ul><li>(A) 錯：&gt; 1 mm 是次級癒合（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）。</li><li>(B) 錯：骨痂是次級癒合的特徵，初級沒有骨痂（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=19">p.19</a>）。</li><li>(C) 對：初級條件為間隙 &lt; 1 mm、應變 &lt; 2%；早期穩定度較差，要靠植入物、留置較久（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=19">p.19</a>）。</li><li>(D) 錯：應變 &gt; 2% 是次級（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=17">p.17</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>4. 選擇題</h4>
+        <p>依講義，肌腱手術修復後的時程何者正確？</p>
+        <p>(A) 固定 1 週後即可正常活動　(B) 固定 3–6 週，6 週後開始輕度負重，1 年約恢復 80% 強度　(C) 固定 12 週，之後強度完全恢復　(D) 不需固定，立即負重</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：1 週太早，肌腱膠原在 5–12 天才達生成高峰（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a>）。</li><li>(B) 對：<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=34">p.34</a> 原文，學長姐整理亦同。</li><li>(C) 錯：固定超過 21 天會減少血管新生，有害；且強度 1 年才約 80%，不會完全恢復（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=34">p.34</a>、<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li><li>(D) 錯：大肌腱修復後可能需支撐最多 6 週（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>5. 選擇題</h4>
+        <p>肌腱修復後為什麼 6 週就可以開始輕度負重？</p>
+        <p>(A) 6 週時已恢復 100% 強度　(B) 肌腱只要有正常強度的 25–30% 就足以承受正常肌肉力量　(C) 6 週後膠原就不再生成　(D) 6 週時疤痕已完全被吸收</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：6 週約 56%（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a>）。</li><li>(B) 對：<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a> 原文理由。</li><li>(C) 錯：膠原生成到第 60 天才明顯減少（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a>）。</li><li>(D) 錯：講義沒有這種說法；重建期仍在進行（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>6. 選擇題</h4>
+        <p>下列何者是「神經性萎縮」的特徵？</p>
+        <p>(A) 發展緩慢、可逆　(B) 約 1 週內快速發展，之後攣縮、纖維化　(C) 主要因老化、肌纖維凋亡　(D) 伸肌比屈肌更容易受影響是其定義</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：這是<strong>廢用性萎縮</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>）。</li><li>(B) 對：癱瘓動物約 1 週內快速萎縮，嚴重者攣縮與纖維化（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>）。</li><li>(C) 錯：這是<strong>肌少症</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>）。</li><li>(D) 錯：「伸肌比屈肌易受影響」是講義寫在<strong>廢用性萎縮</strong>的特徵（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>7. 選擇題</h4>
+        <p>老年犬肌少症，講義建議用哪兩種方式延緩？</p>
+        <p>(A) 增加蛋白質攝取＋向心收縮運動　(B) 完全休息＋限制飲食　(C) 離心收縮運動＋減少蛋白質　(D) 只做被動 ROM</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(A)</strong></p>
+          <ul><li>(A) 對：增加蛋白質、加入向心收縮運動（如肢體負重、水療、平衡板）（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>）。</li><li>(B) 錯：休息會加速萎縮（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a> 廢用性萎縮）。</li><li>(C) 錯：<strong>關鍵錯誤是「減少蛋白質」</strong>，肌少症要增加蛋白質（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>）。離心收縮本身不是錯的：本講義 <a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=29">p.29</a>「肌肉重新活動」列了離心與向心收縮運動，<a href="week07_慢性疼痛管理與老年寵物復健.html#section-sarcopenia">第 7 週</a>講義肌少症的運動也列等長、向心、離心（第 7 週第 64 頁）；只是本講義「延緩肌少症」這一句寫的兩個方法是增加蛋白質與向心收縮。</li><li>(D) 錯：被動 ROM 不會增加肌肉負荷（補充）。</li></ul>
+        </details></div>
+      <div class="card"><h4>8. 選擇題</h4>
+        <p>關節軟骨「部分厚度缺損」的癒合特徵是：</p>
+        <p>(A) 骨髓細胞進入引起發炎修復　(B) 沒有發炎反應，有絲分裂 1 週後停止，1 年仍無法填滿缺損　(C) 2–6 個月後由纖維軟骨填補　(D) 6 週內完全恢復透明軟骨</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：骨髓細胞參與的是<strong>全厚度</strong>缺損（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=55">p.55</a>）。</li><li>(B) 對：<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=54">p.54</a> 原文。</li><li>(C) 錯：纖維性修復組織是全厚度缺損的結果（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=55">p.55</a>）。</li><li>(D) 錯：透明軟骨極少完全復原（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=55">p.55</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>9. 選擇題</h4>
+        <p>跟腱損傷時，「只有腓腸肌腱斷裂、淺趾屈肌腱完整」（Type IIc）的站姿是：</p>
+        <p>(A) 完全蹠行　(B) 正常　(C) 跗關節稍多屈曲且腳趾呈蟹爪　(D) 腕關節過伸</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(C)</strong></p>
+          <ul><li>(A) 錯：完全蹠行是 Type I 全部斷裂（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=47">p.47</a>）。</li><li>(B) 錯：站姿正常是 Type III 只有肌腱病變（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=47">p.47</a>）。</li><li>(C) 對：淺趾屈肌腱被拉緊造成趾屈曲增加，「crab claw」（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=47">p.47</a>）。</li><li>(D) 錯：腕關節屬前肢，與跟腱無關。</li></ul>
+        </details></div>
+      <div class="card"><h4>10. 選擇題</h4>
+        <p>周邊神經損傷中，整條神經（含神經外膜）斷開的是：</p>
+        <p>(A) 神經失用 neurapraxia　(B) 軸索斷裂 axonotmesis　(C) 神經截斷 neurotmesis　(D) 脊髓步行 spinal walking</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(C)</strong></p>
+          <ul><li>(A) 錯：神經失用只有傳導阻斷，軸突完整（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=62">p.62</a>；構造說明為補充）。</li><li>(B) 錯：軸突斷但結締組織鞘完整（補充）。</li><li>(C) 對：神經截斷是完全斷開（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=62">p.62</a>；補充）。</li><li>(D) 錯：脊髓步行是中樞損傷後無皮質控制的後肢節律動作，不是周邊神經損傷分級（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=59">p.59</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>11. 是非題</h4>
+        <p>彈性纖維與膠原纖維都只能延長約 5%。</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：錯</strong>。膠原纖維約 5%；彈性纖維可延伸 70%，最高達 220%（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=11">p.11–12</a>）。</p>
+        </details></div>
+      <div class="card"><h4>12. 是非題</h4>
+        <p>年輕犬關節固定超過 15 週，只要之後持續活動 50 週，軟骨一定能完全恢復。</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：錯</strong>。固定超過 15 週，即使再活動 50 週也<strong>可能無法</strong>完全恢復；而且解除固定後劇烈運動對軟骨有害（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=57">p.57</a>）。</p>
+        </details></div>
+      <div class="card"><h4>13. 簡答題</h4>
+        <p>寫出等長、向心、離心收縮的定義，並各舉一個復健運動的例子。</p>
+        <details class="quiz-reveal"><summary></summary>
+          <ul><li><strong>等長</strong>：肌纖維長度不變（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=31">p.31</a>）。例：平衡板上維持站姿（補充）。</li><li><strong>向心</strong>：肌纖維縮短以產生關節動作（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=31">p.31</a>）。例：上坡、坐到站（補充）。</li><li><strong>離心</strong>：肌纖維拉長以控制或抵抗動作（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=31">p.31</a>）。例：下坡（學長姐筆記）、站到坐（補充）。</li></ul>
+        </details></div>
+      <div class="card"><h4>14. 臨床情境題</h4>
+        <p>3 歲邊境牧羊犬，敏捷賽跳躍後左後肢跛行，觸診髖部內側與股骨小轉子附近疼痛，伸展髖關節時疼痛加劇，超音波顯示肌肉內局部出血，受累範圍估計約 3%，沒有明顯纖維斷裂。</p>
+        <p>(1) 最可能是哪條肌肉受傷？起止點？<br>(2) 依講義的分級是幾級？<br>(3) 依講義的肌肉復健原則，固定與活動時程怎麼安排？<br>(4) 飼主問「什麼時候可以再比賽」，依本講義的肌肉癒合數字怎麼說明？</p>
+        <details class="quiz-reveal"><summary></summary>
+          <ol>
+            <li><strong>髂腰肌</strong>：髂肌起於髂骨腹側、腰大肌起於 L2–L3 橫突與 L4–L7 椎體腹側，共同止於股骨小轉子（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=42">p.42</a>）。伸展髖關節會拉到髖屈肌，所以疼痛加劇（補充）。</li>
+            <li>&lt; 5% 肌肉受累、局部出血、功能未明顯喪失 → <strong>Grade I</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=42">p.42</a>）。</li>
+            <li>輕微拉傷：短暫固定（限制活動）<strong>3–5 天</strong>，再以主動肌肉收縮活動（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=33">p.33</a>）；一般原則 0–5 天固定 → 4 週保護性活動 → 之後強化（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=28">p.28</a>）。</li>
+            <li>肌肉恢復完整功能最少需 <strong>4–6 週</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=32">p.32</a>）；Shaw 2020 表中 Grade 1 肌肉傷約在 3–4 週內（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=64">p.64</a>）。重返敏捷賽需在保護期後逐步加強，實際時間依複診評估（補充）。</li>
+          </ol>
+        </details></div>
+      <div class="card"><h4>15. 臨床情境題</h4>
+        <p>5 歲拉布拉多，右後肢跟腱完全斷裂，已手術修復並以外固定支撐。</p>
+        <p>(1) 術前站姿與分級？<br>(2) 術後什麼時候可以開始被動活動？固定為什麼不宜超過 21 天？<br>(3) 什麼時候開始輕度負重？理由？<br>(4) 1 年後強度大約恢復多少？</p>
+        <details class="quiz-reveal"><summary></summary>
+          <ol>
+            <li>完全斷裂 → <strong>蹠行</strong>（plantigrade），Meutstege <strong>Type I</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=47">p.47</a>）。</li>
+            <li>完全或部分斷裂手術修復後，<strong>術後第 5 天</strong>開始被動活動最佳；完全固定超過 21 天會減少傷口處血管新生（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li>
+            <li><strong>6 週</strong>；肌腱有正常強度 25–30% 就足以承受正常肌肉力量（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。較不受限的主動負荷最少 12 週（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=36">p.36</a>）。</li>
+            <li>約 <strong>80%</strong>（<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=34">p.34</a>；<a class="pdf-link" href="pdf/復健相關解剖學及生理學.pdf#page=35">p.35</a> 寫 1 年以上 79%）。</li>
+          </ol>
+        </details></div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week02_%E5%BE%A9%E5%81%A5%E7%9B%B8%E9%97%9C%E8%A7%A3%E5%89%96%E5%AD%B8%E5%8F%8A%E7%94%9F%E7%90%86%E5%AD%B8" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  anatomy: '方位、骨骼與肌肉',
+  wound: '傷口癒合三期',
+  connective: '結締組織',
+  bone: '骨與骨癒合',
+  muscle: '肌肉構造與能量',
+  musclerehab: '肌肉癒合、萎縮與收縮',
+  tendon: '肌腱與韌帶',
+  joint: '關節囊與軟骨',
+  clinical: '相關肌肉骨骼疾病',
+  nerve: '神經',
+  timeline: '組織癒合時間總表',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

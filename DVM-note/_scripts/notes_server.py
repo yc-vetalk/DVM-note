@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""筆記網站本機伺服器：只開放 DVM-note/ 與 textbook/，其他資料夾（病歷等）一律拒絕。
+"""筆記網站本機伺服器：只開放 DVM-note/、上群AH/、textbook/、研討會講義/，其他資料夾（病歷等）一律拒絕。
 本機（127.0.0.1）免金鑰；其他裝置（手機）第一次需帶 ?key=金鑰，之後以 cookie 記住。
 金鑰存在 repo 根目錄的 .notes_server_key（已列入 .gitignore）。"""
 import http.server, os, sys, urllib.parse
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 KEY = open(os.path.join(ROOT, '.notes_server_key')).read().strip()
-ALLOWED = ('/DVM-note/', '/textbook/')
+ALLOWED = ('/DVM-note/', '/textbook/', '/上群AH/', '/研討會講義/')
 
 class H(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *a, **k): super().__init__(*a, directory=ROOT, **k)

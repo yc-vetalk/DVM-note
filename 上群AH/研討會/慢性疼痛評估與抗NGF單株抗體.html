@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>慢性疼痛評估與抗 NGF 單株抗體 - 上群動物醫院</title>
+<link rel="stylesheet" href="../assets/nav.css?v=3">
+<link rel="stylesheet" href="../assets/ah.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群動物醫院" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="研討會"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">上群動物醫院 首頁</a>
+      <span class="sep">›</span>
+      <a href="../FASAVA2026/index.html#1101">FASAVA 2026</a>
+      <span class="sep">›</span>
+      <span class="current">慢性疼痛評估與抗 NGF 單株抗體</span>
+    </div>
+
+    <div class="page-head">
+      <h1 class="page-title">慢性疼痛評估與抗 NGF 單株抗體</h1>
+      <p class="page-subtitle">怎麼在門診找出犬貓的骨關節炎疼痛、用哪些量表追蹤，以及 bedinvetmab／frunevetmab 的機轉、療效與最新安全性資料。</p>
+    </div>
+    <div class="pagehead__actions">
+      <a class="btn fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=1" data-label="評估 p.1">📄 講義一：疼痛評估</a>
+      <a class="btn fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=1" data-label="抗 NGF p.1">📄 講義二：抗 NGF</a>
+      <span style="font-size:11.5px;opacity:.7;">點開會在右側閱讀（需先雙擊「開啟筆記網站」，再從 localhost 開本頁）；PDF 只存在本機，不上傳。</span>
+    </div>
+
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">場次</div><div class="meta-value">FASAVA 2026 台北｜11/1（日）09:00–10:30｜D 廳 疼痛管理（Pain management）第 1 節</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">Paulo Steagall 投影片兩份（34 頁、30 頁）＋現場錄音逐字稿（約 1 小時 26 分）＋網路查證</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-11-09</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">課後完整版</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 講者與課程架構</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-1" onclick="goSub('h3-1')">講者</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-2" onclick="goSub('h3-2')">這堂課的架構</a>
+    <div class="section-label">第一部分：慢性疼痛評估</div>
+    <a onclick="showSection('concept')" id="nav-concept"><span class="nav-icon">🧠</span> 急性與慢性疼痛</a>
+    <a class="toc-sub" data-sec="concept" id="nav-h3-3" onclick="goSub('h3-3')">適應性與非適應性疼痛</a>
+    <a class="toc-sub" data-sec="concept" id="nav-h3-4" onclick="goSub('h3-4')">犬貓慢性疼痛的常見原因</a>
+    <a class="toc-sub" data-sec="concept" id="nav-h3-5" onclick="goSub('h3-5')">獸醫師的認知與飼主配合度</a>
+    <a onclick="showSection('assess')" id="nav-assess"><span class="nav-icon">🩺</span> OA 的三步驟臨床評估</a>
+    <a class="toc-sub" data-sec="assess" id="nav-h3-6" onclick="goSub('h3-6')">為什麼聚焦骨關節炎</a>
+    <a class="toc-sub" data-sec="assess" id="nav-h3-7" onclick="goSub('h3-7')">步驟一：病史與飼主參與</a>
+    <a class="toc-sub" data-sec="assess" id="nav-h3-8" onclick="goSub('h3-8')">飼主會看到的四類改變</a>
+    <a class="toc-sub" data-sec="assess" id="nav-h3-9" onclick="goSub('h3-9')">步驟二：低壓力理學檢查</a>
+    <a class="toc-sub" data-sec="assess" id="nav-h3-10" onclick="goSub('h3-10')">步驟三：X 光有用嗎</a>
+    <a onclick="showSection('scales')" id="nav-scales"><span class="nav-icon">📋</span> 慢性疼痛量表</a>
+    <a class="toc-sub" data-sec="scales" id="nav-h3-11" onclick="goSub('h3-11')">與急性疼痛量表的差別</a>
+    <a class="toc-sub" data-sec="scales" id="nav-h3-12" onclick="goSub('h3-12')">狗的量表</a>
+    <a class="toc-sub" data-sec="scales" id="nav-h3-13" onclick="goSub('h3-13')">貓的三步驟量表</a>
+    <a class="toc-sub" data-sec="scales" id="nav-h3-14" onclick="goSub('h3-14')">CSOM 怎麼寫</a>
+    <a onclick="showSection('goals')" id="nav-goals"><span class="nav-icon">🎯</span> 治療目標與惡性循環</a>
+    <div class="section-label">第二部分：抗 NGF 單株抗體</div>
+    <a onclick="showSection('ngf')" id="nav-ngf"><span class="nav-icon">🔬</span> OA 疼痛與 NGF 機轉</a>
+    <a class="toc-sub" data-sec="ngf" id="nav-h3-15" onclick="goSub('h3-15')">OA 的病理與疼痛</a>
+    <a class="toc-sub" data-sec="ngf" id="nav-h3-16" onclick="goSub('h3-16')">在抗 NGF 之前：NSAID</a>
+    <a class="toc-sub" data-sec="ngf" id="nav-h3-17" onclick="goSub('h3-17')">NGF 如何放大疼痛</a>
+    <a onclick="showSection('mab')" id="nav-mab"><span class="nav-icon">💉</span> Bedinvetmab 與 frunevetmab</a>
+    <a class="toc-sub" data-sec="mab" id="nav-h3-18" onclick="goSub('h3-18')">藥物與療效證據</a>
+    <a class="toc-sub" data-sec="mab" id="nav-h3-19" onclick="goSub('h3-19')">起效時間與給藥</a>
+    <a onclick="showSection('safety')" id="nav-safety"><span class="nav-icon">⚠️</span> 安全性與藥物警戒</a>
+    <a class="toc-sub" data-sec="safety" id="nav-h3-20" onclick="goSub('h3-20')">主管機關的時間軸</a>
+    <a class="toc-sub" data-sec="safety" id="nav-h3-21" onclick="goSub('h3-21')">全球藥物警戒研究</a>
+    <a class="toc-sub" data-sec="safety" id="nav-h3-22" onclick="goSub('h3-22')">異常關節周圍骨重塑（APBR）</a>
+    <a class="toc-sub" data-sec="safety" id="nav-h3-23" onclick="goSub('h3-23')">臨床上怎麼做</a>
+    <a onclick="showSection('guide')" id="nav-guide"><span class="nav-icon">🧭</span> 指南與多模式治療</a>
+    <a onclick="showSection('qa')" id="nav-qa"><span class="nav-icon">💬</span> 現場問答</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('glossary')" id="nav-glossary"><span class="nav-icon">🔤</span> 縮寫與名詞對照</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <a onclick="showSection('references')" id="nav-references"><span class="nav-icon">📚</span> 參考資料</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要 <span style="font-weight:400;font-size:.62em;opacity:.75;">Key take-home messages</span></h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>骨關節炎（Osteoarthritis, OA）不是老狗的病：</strong>講者引用的資料是 1 歲以上的狗超過 20%、12 歲以上的貓超過 90% 有 OA；只要開始用篩檢問卷，檢出率會大幅上升（貓從病歷回溯的約 2% 升到前瞻篩檢的 37–38%）。</li>
+          <li><strong>X 光無法告訴你動物有多痛：</strong>貓有 34% 的疼痛關節在 X 光上沒有 OA 變化；X 光的角色是建立基準、排除腫瘤與外傷，不是確診疼痛的必要條件。</li>
+          <li><strong>慢性疼痛量表沒有「給藥切點」：</strong>急性量表（如貓鬼臉量表 Feline Grimace Scale, FGS ≥ 4/10）會告訴你何時給止痛；慢性量表（CBPI、LOAD、FMPI、CSOM）是用來區分有無 OA、以及追蹤治療前後的變化，而且每次都要由同一位飼主填寫。</li>
+          <li><strong>抗神經生長因子（Nerve growth factor, NGF）單株抗體療效證據紮實：</strong>bedinvetmab（狗，Librela）與 frunevetmab（貓，Solensia）都有安慰劑對照試驗；全球藥物警戒資料的不良反應整體發生率約 9.48 件／萬劑，屬「罕見」等級。</li>
+          <li><strong>新的安全性訊號要主動告知飼主：</strong>2026 年 JAVMA 研究在約 3,400 萬劑中找到 186 隻狗出現異常關節周圍骨重塑（Abnormal periarticular bone remodeling, APBR）。講者提醒最常見於肘與跗關節、很多病例同時用了 NSAID；在有更多資料前，他<strong>不建議 NSAID 與抗 NGF 單抗併用</strong>。出現新的關節腫脹或疼痛時要拍 X 光並考慮停藥。</li>
+        </ul>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">資料來源說明</div>
+        <p>本頁以講者投影片為架構，大部分內容來自現場錄音的逐字稿（自動語音辨識，括號內標示錄音時間，方便回頭聽）。投影片文字很少，講者口述的數據我盡量上網核對；查不到原文的地方會直接寫「講者口述、未核對」。投影片本身沒有附劑量以外的用藥細節。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>講者與課程架構 <span style="font-weight:400;font-size:.62em;opacity:.75;">Speaker and outline</span></h2></div>
+      <p class="section-desc">Practical Canine and Feline Chronic Pain Assessment ＋ Monoclonal Antibodies Anti-NGF: A New Era for the Management of OA</p>
+      <h3 id="h3-1">講者</h3>
+      <p><strong>Paulo Steagall</strong>（MV, MSc, PhD, DACVAA），香港城市大學（City University of Hong Kong）獸醫麻醉與疼痛管理教授，美國獸醫麻醉與鎮痛學院（American College of Veterinary Anesthesia and Analgesia, ACVAA）專科醫師。他是貓鬼臉量表（Feline Grimace Scale）的開發者之一，也參與 2022 年 WSAVA 疼痛指南、ISFM／AAFP 貓長期使用 NSAID 指南、COAST 犬 OA 分期工具的撰寫。</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>利益揭露：</strong>第一部分（評估）講者表示沒有利益衝突；第二部分（抗 NGF）揭露擔任 Boehringer Ingelheim、Dechra、Elanco、Virbac、Zoetis 的顧問，並收過 AnimalCare 與上述藥廠的演講費。本場由 Zoetis 台灣協辦（Librela、Solensia 的廠商），問答時段由 Zoetis 台灣的 Dora 主持。<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=2" data-label="抗 NGF p.2">講義二 p.2</a></li>
+      </ul>
+      <h3 id="h3-2">這堂課的架構</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>部分</th><th>內容</th><th>講義</th></tr></thead>
+          <tbody>
+            <tr><td>一、慢性疼痛評估（約 40 分鐘）</td><td>急性與慢性疼痛、常見原因、OA 三步驟評估、狗與貓的量表、治療目標</td><td><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=1" data-label="評估 p.1">講義一 p.1–34</a></td></tr>
+            <tr><td>二、抗 NGF 單株抗體（約 40 分鐘）</td><td>OA 病理、NGF 的作用、bedinvetmab 與 frunevetmab、療效與安全性研究、指南與多模式治療</td><td><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=3" data-label="抗 NGF p.3">講義二 p.1–30</a></td></tr>
+            <tr><td>三、現場問答</td><td>X 光陰性的 OA、OA 與退化性脊髓病共病、急性疼痛量表推薦</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>同一天 11:00 的第 2 節接著講藥物治療（NSAID、grapiprant、tramadol、gabapentin、amantadine 等），筆記在 <a href="慢性疼痛藥物治療-證據整理.html">慢性疼痛藥物治療：證據整理</a>。</p>
+    </div>
+
+    <div class="section" id="section-concept">
+      <div class="section-head"><div class="section-num">3</div><h2>急性與慢性疼痛 <span style="font-weight:400;font-size:.62em;opacity:.75;">Adaptive vs maladaptive pain</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=3" data-label="評估 p.3">講義一 p.3–9</a>；錄音 0:02–0:12</p>
+      <h3 id="h3-3">適應性與非適應性疼痛（Adaptive vs maladaptive）</h3>
+      <p>講者說國際疼痛研究學會（International Association for the Study of Pain, IASP）有一套新的術語（nociceptive、nociplastic 等），但臨床上先記住一件事：「超過 3 個月就叫慢性」只是時間上的簡化定義，慢性疼痛的本質是神經系統的改變。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>適應性（急性）疼痛 Adaptive (acute)</th><th>非適應性（慢性）疼痛 Maladaptive (chronic)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>與組織傷害的關係</strong></td><td>與實際或潛在的組織傷害有關</td><td>與癒合無關；可以在沒有明確原因下存在（例：人的幻肢痛）</td></tr>
+            <tr><td><strong>目的</strong></td><td>保護身體，在癒合期間避免或減少傷害</td><td>沒有保護功能</td></tr>
+            <tr><td><strong>病程</strong></td><td>自限性（self-limiting），有明確的開始與結束</td><td>超過急性疾病預期的病程，沒有明確終點</td></tr>
+            <tr><td><strong>機轉</strong></td><td>周邊敏感化（peripheral sensitization）：發炎介質「湯」</td><td>脊髓背角（dorsal horn）神經元互相串連、形成新的路徑——上發條現象（wind-up）／中樞敏感化（central sensitization）；高位腦中樞的抑制系統也參與調控</td></tr>
+            <tr><td><strong>例子</strong></td><td>術後疼痛、外傷</td><td>OA、癌症、牙齦炎（gingivitis）等</td></tr>
+            <tr><td><strong>治療</strong></td><td>一般止痛藥（如類鴉片）有效</td><td>一般急性止痛藥效果差，這是慢性疼痛難治的原因</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">急性疼痛什麼時候會變成慢性</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.8;">
+          <li>牽涉神經病變性疼痛（neuropathic pain），例如截肢（limb amputation）。</li>
+          <li>受傷當下疼痛沒有被妥善處理。講者用「持續性術後疼痛」（Persistent post-surgical pain, PPSP）說明：手術當下做的事會影響動物好幾個月。他引用英國一項人醫研究，乳房切除的女性約 60% 在術後 6 個月內仍有持續性疼痛，且與「災難化」（catastrophizing）的性格有關；這也是術中要妥善使用局部麻醉阻斷的理由。（錄音 0:05；講者口述，未核對原文）</li>
+        </ul>
+      </div>
+
+      <h3 id="h3-4">犬貓慢性疼痛的常見原因</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">狗</div>
+          <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+            <li>骨關節炎（OA）：最常見，活動力下降</li>
+            <li>持續性術後疼痛：骨折未修復造成的畸形癒合、截肢等侵入性手術後</li>
+            <li>骨肉瘤（Osteosarcoma）：牽涉神經、血管與腫瘤本身，很難處理</li>
+            <li>頸椎脊髓病（Cervical spondylomyelopathy, Wobbler syndrome）：大型與巨型犬</li>
+            <li><strong>眼睛疼痛（常被忽略）：</strong>角膜潰瘍、青光眼、乾性角結膜炎（Keratoconjunctivitis sicca, KCS）</li>
+            <li>牙周病（Periodontal disease）、耳炎（otitis）</li>
+            <li>腸胃：發炎性腸病（Inflammatory bowel disease, IBD）、胰臟炎</li>
+            <li>吉娃娃等小型犬：Chiari 樣畸形（Chiari-like malformation）與脊髓空洞症（Syringomyelia）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">貓</div>
+          <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+            <li>骨關節炎（本堂課的重點）</li>
+            <li>癌症，例如口腔鱗狀細胞癌（Oral squamous cell carcinoma, OSCC）</li>
+            <li>貓慢性齦口炎（Feline chronic gingivostomatitis, FCGS）</li>
+            <li>貓自發性膀胱炎（Feline idiopathic cystitis, FIC）</li>
+            <li>去爪術（Onychectomy／declawing）後的持續性疼痛（美國部分州仍在做）</li>
+            <li>貓感覺過敏症候群（Feline hyperesthesia syndrome, FHS）：多因子、很難診斷，常與神經病變性疼痛有關</li>
+            <li>貓口顏面疼痛症候群（Feline orofacial pain syndrome, FOPS）：類似人的三叉神經痛，部分貓口腔治療後改善</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講者的研究</div>
+        <p>他們最近描述貓的眼睛疼痛：因眼睛問題來院的貓，<strong>100% 在院內評估時有疼痛</strong>。獸醫對眼睛疼痛的表現、程度與變化所知很少，人醫資料也有限。（錄音 0:07）</p>
+      </div>
+
+      <h3 id="h3-5">獸醫師的認知與飼主配合度</h3>
+      <p>英國獸醫與全球專科醫師的問卷（Bell et al. 2014）<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=7" data-label="評估 p.7">講義一 p.7</a>：</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>獸醫師認為狗慢性疼痛前三大原因是 OA、牙科與口腔疼痛、耳朵疼痛（嚴重耳炎）。</li>
+        <li>受訪者認為 87% 的癌症疼痛被低估診斷（underdiagnosed）。</li>
+        <li>最常用的止痛藥是 NSAID 與類鴉片；有人用 NSAID 處理癌症疼痛，但效果可能有限。</li>
+        <li>困難點：疼痛評估困難、飼主的花費與照顧負擔、<strong>飼主配合度（compliance）</strong>。</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">多重用藥會讓配合度下降</div>
+        <p>講者引用一篇犬癲癇用藥研究：只開 1 種藥，配合度約 82–83%（約 20% 的時候飼主沒給到）；加到第 2 種藥，配合度掉到 60% 多。我們以為開越多藥是「多模式止痛（multimodal analgesia）」，但實際上飼主未必做得到。（錄音 0:09；講者未給完整出處）</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-assess">
+      <div class="section-head"><div class="section-num">4</div><h2>OA 的三步驟臨床評估 <span style="font-weight:400;font-size:.62em;opacity:.75;">Step-wise clinical assessment</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=10" data-label="評估 p.10">講義一 p.10–22</a>；錄音 0:12–0:26</p>
+      <h3 id="h3-6">為什麼聚焦骨關節炎</h3>
+      <p>OA 是犬貓證據最多的慢性疼痛，評估工具與知識多來自 OA，部分可以延伸到其他慢性疼痛。講者引用的盛行率：<strong>1 歲以上的狗超過 20%、12 歲以上的貓超過 90%</strong>；看到老狗老貓就應該聊 OA，但後面會看到年輕動物也不少。</p>
+      <p><strong>OA 疼痛的三個來源</strong>（修改自 Eitner &amp; Schaible 2017）<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=11" data-label="評估 p.11">講義一 p.11</a>：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>來源</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>關節的病理變化（Pathological changes of the joint）</td><td>軟骨破壞、硬化／骨贅（sclerosis／osteophytes）、滑膜炎（synovitis）、骨髓病灶（bone marrow lesions）、機械因素</td></tr>
+            <tr><td>神經系統的可塑性改變（Neuroplastic changes）</td><td>周邊敏感化、中樞敏感化</td></tr>
+            <tr><td>全身因素（General factors）</td><td>肥胖、代謝疾病、遺傳、心理因素、生活型態（久坐、飲食）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>危險因子</strong><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=15" data-label="評估 p.15">講義一 p.15</a>：年齡與先天易感的關節病（如髖關節發育不良）、品種／遺傳、體重、肌肉骨骼傷害、結紮狀態；貓還要考慮室內或室外飼養。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>病史與飼主參與（History and caregiver involvement）</strong>——目前整個專業最重視的一步，也是讓護理師、技術員、櫃檯一起參與的機會。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>低壓力理學檢查（Low-stress physical examination）</strong>——特別注意關節。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>實驗室／影像評估（Laboratory／imaging assessment）</strong>——講者在投影片上給這一步一張皺眉的臉：有用，但沒有大家想的那麼重要。</div></div>
+
+      <h3 id="h3-7">步驟一：病史與飼主參與</h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>把飼主當成醫療團隊的一員（health care team）</strong>：這是長期治療，診斷可能讓飼主難過，但越早診斷越能介入、減少對生活品質的影響。</li>
+        <li><strong>問時間軸</strong>：飼主很容易把改變當成「只是變老」，要問「跟一、兩年前比，這些行為有什麼不同？」</li>
+        <li><strong>家中的日常行為</strong>：包括與飼主及家中其他寵物的互動。</li>
+        <li><strong>請飼主拍家中影片（home-made videos）</strong>：研究也在用，因為那才是動物真正的行為。</li>
+        <li><strong>飼主不願意接受診斷時</strong>：用疼痛量表，並安排止痛試驗（analgesic challenge），多數指南建議 4–6 週。</li>
+        <li><strong>OA 早期與例行篩檢</strong><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=14" data-label="評估 p.14">講義一 p.14</a>：OA 不是老狗的病、徵兆可能很細微、在每年健檢時就聊、一邊找危險因子一邊建立信任。</li>
+      </ul>
+
+      <h3 id="h3-8">飼主會看到的四類改變</h3>
+      <p>Monteiro 2020（Vet Clin North Am）整理的「飼主回報與臨床觀察到的改變」<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=18" data-label="評估 p.18">講義一 p.18</a>：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>類別</th><th>表現</th></tr></thead>
+          <tbody>
+            <tr><td>活動力與活動（Mobility &amp; activity）</td><td>動作變僵硬、活動減少、起身困難、避免跳躍或爬樓梯、玩耍減少；休息後的僵硬（inactivity stiffness）</td></tr>
+            <tr><td>社交互動（Social interactions）</td><td>互動減少、變得易怒、離群、對環境或玩具失去興趣、不喜歡被觸摸或抱</td></tr>
+            <tr><td>自我照顧（Self-care）</td><td>被毛差、指甲髒或過長、過度理毛或掉毛、少抓（磨爪）少伸展、食慾或飲水改變、排泄困難（貓砂盆外排泄常是因為跳不進去）</td></tr>
+            <tr><td>過度敏感（Hypersensitivity）</td><td>檢查時疼痛、不喜歡被碰或梳毛、突然叫或閃避、突然舔或咬某個部位</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講者播的影片（錄音 0:19–0:21）</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.8;">
+          <li><strong>一隻貓下高處：</strong>不再直接跳到地上，而是先滑到低一層再下來；大量的猶豫與「計算」；落地後開始舔——不是單純理毛，是跳的時候有地方不舒服。</li>
+          <li><strong>另一隻貓：</strong>肘外翻（outward rotation of the elbows）、僵硬、猶豫、輕微跛行（貓不是不會跛，是比較細微）、肌肉量流失（常合併慢性腎病）。</li>
+          <li><strong>狗的兔跳（bunny hop）：</strong>兩後腳同時往前推進，用一連串跳躍取代流暢步態，目的是減少髖關節後伸的幅度與衝擊；關節明顯不穩定。</li>
+          <li>也要注意與認知功能障礙（cognitive dysfunction）等共病的重疊。</li>
+        </ul>
+      </div>
+
+      <h3 id="h3-9">步驟二：低壓力理學檢查</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>狗：飼主會說</th><th>貓：飼主會說</th><th>犬貓：理學檢查會看到</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>跛行／僵硬；運動耐受度下降（排除心臟問題）；不願或無法爬或跳；休息後僵硬；社交減少</td>
+              <td>活動減少；日常活動能力下降（跳上跳下、理毛、用貓砂盆）；社交減少</td>
+              <td>跛行（貓較細微）；關節觸診疼痛、關節積液（effusion）、摩擦音（crepitus）；活動範圍（range of motion, ROM）減少；肌肉量流失</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">講義一 <a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=20" data-label="評估 p.20">p.20</a></p>
+
+      <h3 id="h3-10">步驟三：X 光有用嗎</h3>
+      <p>講者承認這很有爭議：有一派主張「什麼都要拍」。他的立場<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=22" data-label="評估 p.22">講義一 p.22</a>：</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>X 光表現與疼痛的相關性很差：有疼痛但 X 光沒變化的動物，也有 X 光很糟但沒有臨床症狀的動物。</li>
+        <li><strong>貓：34% 的疼痛關節沒有 X 光上的 OA 變化</strong>（由骨科專科醫師評估）；貓的骨贅也不像狗那麼明顯。</li>
+        <li>狗：不同關節、不同品種產生骨贅的程度不同。</li>
+        <li>疼痛不只來自關節損傷。</li>
+        <li>X 光的用途：<strong>記錄與確認 OA、排除其他診斷（癌症、外傷、其他骨科疾病）</strong>。敏感度有限，而且完全無法告訴你動物有多痛。</li>
+        <li>實務：預算允許時，年輕（例如 4 歲）狗值得拍一組當基準；但很多同業做不到，這不影響臨床診斷與治療。講者也提到，後面談到的抗 NGF 單抗不良反應病例，很多在用藥前沒有 X 光。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-scales">
+      <div class="section-head"><div class="section-num">5</div><h2>慢性疼痛量表 <span style="font-weight:400;font-size:.62em;opacity:.75;">Clinical metrology instruments</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=23" data-label="評估 p.23">講義一 p.23–32</a>；錄音 0:26–0:36</p>
+      <h3 id="h3-11">與急性疼痛量表的差別</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>急性疼痛量表</th><th>慢性疼痛量表</th></tr></thead>
+          <tbody>
+            <tr><td>給藥切點（cut-off）</td><td>有。例：貓鬼臉量表 ≥ 4/10 建議給止痛（以嚴謹統計建立）</td><td><strong>沒有</strong>，不會告訴你「到幾分就要治療」</td></tr>
+            <tr><td>用途</td><td>決定當下要不要給止痛</td><td>區分有 OA 與沒有 OA、區分有治療（NSAID 或單抗）與沒治療的動物；追蹤分數有沒有變好</td></tr>
+            <tr><td>誰填</td><td>臨床人員觀察</td><td><strong>飼主填寫</strong>（像問卷），獸醫師邊問邊對話</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">注意</div>
+        <p>每次都要由<strong>同一位飼主</strong>填寫。不同家人對「5 分」「7 分」的認知差很多，換人填分數就不能比較。</p>
+      </div>
+
+      <h3 id="h3-12">狗的量表</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>量表</th><th>內容</th><th>講者的評語</th></tr></thead>
+          <tbody>
+            <tr><td><strong>犬簡明疼痛量表（Canine Brief Pain Inventory, CBPI）</strong></td><td>三部分：疼痛嚴重度（4 題）、疼痛對功能的干擾（6 題，含一般活動、生活樂趣、起身、走、跑、爬樓梯）、整體生活品質（1 題）；共 11 題，0–10 分</td><td>講者最喜歡；OA 與骨肉瘤都驗證過；可在賓州大學網站下載 <a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=24" data-label="評估 p.24">講義一 p.24</a></td></tr>
+            <tr><td><strong>赫爾辛基慢性疼痛指數（Helsinki Chronic Pain Index, HCPI）</strong></td><td>11 題，評估活動力、功能與活動</td><td>第 2 節 Wright 2022 研究用它來評估嚴重度</td></tr>
+            <tr><td><strong>利物浦犬骨關節炎量表（Liverpool Osteoarthritis in Dogs, LOAD）</strong></td><td>著重活動力：一般活動力 5 題＋運動時 8 題，最後得出 LOAD 分數</td><td><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=25" data-label="評估 p.25">講義一 p.25</a></td></tr>
+            <tr><td><strong>犬骨關節炎分期工具（Canine Osteoarthritis Staging Tool, COAST）</strong></td><td>分期工具：從「有風險」到「嚴重」</td><td>講者是共同作者，但這次沒細講</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>現在有很多 App 與廠商提供線上版，可以在日常門診使用。</p>
+
+      <h3 id="h3-13">貓的三步驟量表</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>篩檢：貓肌肉骨骼疼痛篩檢清單（Feline Musculoskeletal Pain Screening Checklist, Feline MiPSC，又稱 Cat OA Pain Checklist）</strong>（Enomoto et al. JFMS 2020）——6 題是非題：能正常跳上？跳下？爬上樓梯？爬下樓梯？跑步？追逐移動物體（玩具、獵物）？<strong>只要有 1 題答「否」，就有很高的機會是 OA</strong>（敏感度高）。網站 TheNewScienceofOAPain.com 有動畫，示範有關節病的貓怎麼用最省力的方式上下樓梯、跳上桌子。<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=27" data-label="評估 p.27">講義一 p.27–30</a></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>進一步評估：貓肌肉骨骼疼痛指數簡式（Feline Musculoskeletal Pain Index – short form, FMPI-sf）</strong>（Enomoto et al. JFMS 2021）——9 題活動（跳上、跳上流理台高度、跳下、玩玩具／追東西、與其他寵物互動、從休息姿勢起身、躺下／坐下、伸展、理毛），每題分「正常」到「完全做不到」五級；北卡州立大學（NC State）Lascelles 團隊開發，有 QR code 可下載。也可以直接進入完整的臨床檢查與止痛試驗。<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=31" data-label="評估 p.31">講義一 p.31</a></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>追蹤：飼主個別化結果量表（Client-specific outcome measure, CSOM）</strong>——不想用複雜問卷時的選擇，也經過驗證，可以區分有疼痛與沒疼痛的 OA 貓。<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=32" data-label="評估 p.32">講義一 p.32</a></div></div>
+      <div class="alert alert-info">
+        <div class="alert-label">篩檢讓 OA「多出來」的研究</div>
+        <p>Gober 2025（JFMS）在一般門診前瞻導入貓 OA 篩檢清單：依講者口述，回溯病歷時 OA 盛行率只有約 2%，前瞻用清單篩檢後達 37–38%，相當於門診每 10 隻貓就有 4 隻可能有輕到重度 OA。（錄音 0:32）<br><span style="font-size:.9em;opacity:.8;">查證：我讀不到原文全文；二手摘要寫的是 5 家一般診所，回溯 502 份病歷約 1% 被標記骨科問題，前瞻 437 份篩檢表有 39% 至少出現一項 OA 相關行為。兩組是不同的貓群。（<a href="https://www.myvetcandy.com/news/2025/11/5/are-we-missing-feline-osteoarthritis-in-98-of-our-patients-new-study-reveals-a-massive-detection-gap" target="_blank" rel="noopener">Vet Candy 摘要</a>）</span></p>
+      </div>
+
+      <h3 id="h3-14">CSOM 怎麼寫</h3>
+      <p>請飼主說出 3 個動物最喜歡的日常活動，描述要具體（什麼時候、在哪裡、怎麼做），寫下來；每次回診請飼主評困難程度，並和治療前比較。<strong>回診時不要讓飼主看到上次的答案。</strong>止痛試驗通常 4–6 週後回診。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>活動（講者的範例）</th><th>沒問題</th><th>輕度困難</th><th>中度困難</th><th>重度困難</th><th>做不到</th><th>和治療前比</th></tr></thead>
+          <tbody>
+            <tr><td>1. 早餐後跳上廚房窗台，不用椅子墊腳</td><td></td><td></td><td>✕</td><td></td><td></td><td>改善</td></tr>
+            <tr><td>2. 晚餐前玩緞帶玩具</td><td></td><td>✕</td><td></td><td></td><td></td><td>改善</td></tr>
+            <tr><td>3. 用完貓砂盆後清理屁股（一天中任何時候）</td><td></td><td></td><td>✕</td><td></td><td></td><td>差不多</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-goals">
+      <div class="section-head"><div class="section-num">6</div><h2>治療目標與惡性循環 <span style="font-weight:400;font-size:.62em;opacity:.75;">Goals of treatment and the deconditioning cycle</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Assessment.pdf#page=33" data-label="評估 p.33">講義一 p.33</a>；錄音 0:37–0:40</p>
+      <div class="flow">
+        <div class="flow-node">減輕疼痛（Decrease pain）</div>
+        <div class="flow-arrow">＋</div>
+        <div class="flow-node">改善功能（Improve function）</div>
+        <div class="flow-arrow">＋</div>
+        <div class="flow-node">促進正向情緒（Promote positive emotions）</div>
+      </div>
+      <p>最終目標是動物過著「值得活的生活」（a life worth living）：做牠喜歡的事——早上曬太陽、在後院玩、跟飼主散步。生活品質也是安寧照護與臨終決定的判斷點。</p>
+      <p><strong>身體去適應的惡性循環（Physical deconditioning）</strong>：慢性疼痛 → 不想動 → 久坐的生活型態（運動能力與耐力下降）→ 肌肉量減少、肥胖 → 關節負擔與全身發炎增加 → 更痛。</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>有些藥會讓循環更糟：例如 gabapentin 類藥物（gabapentinoids）造成鎮靜，動物更不想動。</li>
+        <li>肥胖本身就是發炎：狗的研究顯示脂肪細胞產生的瘦素（leptin）是重要的介質，所以肥胖對 OA 的影響不只是機械負擔，還有代謝成分。</li>
+        <li>講者的一句話：<strong>最好的抗發炎藥是溫和運動</strong>；再加上營養、減重與環境調整，有時比藥物更重要。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-ngf">
+      <div class="section-head"><div class="section-num">7</div><h2>OA 疼痛與 NGF 機轉 <span style="font-weight:400;font-size:.62em;opacity:.75;">NGF and its contribution to pain and inflammation</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=4" data-label="抗 NGF p.4">講義二 p.4–14</a>；錄音 0:45–1:05</p>
+      <h3 id="h3-15">OA 的病理與疼痛</h3>
+      <p>OA 是滑液關節的退化性發炎疾病，關節軟骨、軟骨下骨、滑膜、韌帶都有結構與功能的改變；OA 疼痛起源於關節內。<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=5" data-label="抗 NGF p.5">講義二 p.5</a></p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>疼痛在個體之間與個體內差異很大，與病理只有中度相關（Vincent &amp; Miller, Osteoarthritis Cartilage）。</li>
+        <li>疼痛來源：滑膜炎、骨贅上骨膜被拉扯、軟骨下骨的微骨折、關節囊擴張、肌肉痙攣、韌帶附著處與受損的半月板。</li>
+        <li>病理循環（Monteiro &amp; Steagall,《The Cat》第 2 版）<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=6" data-label="抗 NGF p.6">講義二 p.6</a>：肥胖、久坐、老化 → 發炎、生物力學與代謝成分 → OA → 病理生理改變與肌肉骨骼退化 → 疼痛、功能下降、情緒影響 → 回頭加重發炎。</li>
+        <li>新的研究方向：慢性疼痛動物的認知、情緒與<strong>睡眠</strong>，和人一樣睡不好。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>犬貓 OA 的影響（講義二 p.7）</th><th>講者口述補充</th></tr></thead>
+          <tbody>
+            <tr><td>第一大慢性疼痛疾病</td><td>1990 年代末 carprofen 上市時估計狗的盛行率約 20%；現在知道約 40%，連年輕狗也是；12 歲以上的貓 90%</td></tr>
+            <tr><td>影響活動、社交、睡眠與生活品質，甚至安樂死</td><td>活動障礙是貓安樂死的第三大原因（數篇研究）；大型與巨型犬常因此安樂死</td></tr>
+            <tr><td>受影響關節<strong>以及次發與遠端部位</strong>都變敏感</td><td>定量感覺測試（Quantitative sensory testing, QST）發現約 <strong>30%</strong> 的慢性 OA 犬貓有廣泛性敏感化（全身都痛）</td></tr>
+            <tr><td>部分病例對 NSAID 沒反應</td><td>這可能就是單一藥物（只用 NSAID 或只用單抗）治療時，約 30% 效果不夠的原因——不只是藥沒效，是 OA 本身嚴重</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="h3-16">在抗 NGF 之前：NSAID</h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>演進：</strong>1990 年代有人用類固醇治 OA，多尿多飲（PU/PD）等副作用多 → 非類固醇抗發炎藥（Nonsteroidal anti-inflammatory drugs, NSAIDs）抑制環氧化酶（cyclooxygenase, COX）→ 偏好性與選擇性 COX-2 抑制劑（coxibs）→ grapiprant（前列腺素 E2 的 EP4 受體拮抗劑）。<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=8" data-label="抗 NGF p.8">講義二 p.8</a></li>
+        <li><strong>選擇性不等於比較安全：</strong>臨床試驗中，偏好性與選擇性 COX 抑制劑在長期使用的安全性沒有可靠差異；早期 deracoxib 的研究甚至發現胃腸潰瘍比偏好性的 meloxicam、carprofen 多（與其他用藥因素有關）。</li>
+        <li><strong>NSAID 的證據很強</strong><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=9" data-label="抗 NGF p.9">講義二 p.9</a>：增加活動與活動力、改善飼主評的疼痛分數、優於安慰劑、可用於有共病的動物。講者說每天用 NSAID 管理慢性疼痛完全沒問題，只要篩選病患並監測副作用，不是「過時」。</li>
+        <li><strong>為什麼一定要有安慰劑組：</strong>安慰劑效應在這類臨床試驗中可達 30–40%。「我用了覺得有效」可能有高達 40% 只是印象；給一顆糖錠說「這很有效」，下次回診飼主也會說很好。NSAID 與抗 NGF 單抗都有幾百隻狗、多次追蹤、以驗證量表與活動監測器為結果、並有安慰劑對照的試驗。</li>
+        <li><strong>NSAID 不良反應多半來自誤用</strong>（Monteiro-Steagall et al. JVIM 2013 系統性回顧）<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=10" data-label="抗 NGF p.10">講義二 p.10</a>：超過仿單劑量、有禁忌的共病、同時用多種 NSAID（含一個外用一個全身）、合併類固醇、過敏或胃潰瘍病史。
+          <ul style="padding-left:1.2em;">
+            <li><strong>第一個徵兆通常是食慾不振（anorexia）</strong>：飼主常覺得「今天不吃、明天不吃」還繼續給，結果變成急性中毒。厭食就應該停藥並聯絡獸醫。</li>
+            <li>回顧中約 5% 的狗在試驗期間嘔吐，<strong>安慰劑組也是 5%</strong>；單次嘔吐不一定是 NSAID 造成。</li>
+          </ul>
+        </li>
+        <li><strong>拿 NSAID 和新藥的不良反應率比較未必公平：</strong>講者反問「你上次通報 NSAID 不良反應是什麼時候？」很多胃腸穿孔沒有被通報。</li>
+      </ul>
+
+      <h3 id="h3-17">NGF 如何放大疼痛</h3>
+      <p>神經生長因子（Nerve growth factor, NGF）是一種神經營養蛋白（neurotrophin）。約 2014 年起的研究發現，阻斷 NGF 能在多個物種（含人）減輕 OA 疼痛、改善活動。<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=12" data-label="抗 NGF p.12">講義二 p.12</a></p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">發育期</div>
+          <p style="margin:0;">神經元的生長、維持、增生與存活；神經可塑性與記憶也需要 NGF。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">成年：促進痛覺的蛋白（pro-nociceptive）</div>
+          <p style="margin:0;">關節軟骨受傷後由發炎與免疫細胞大量產生；與酪胺酸激酶 A 受體（Tropomyosin receptor kinase A, TrkA）結合；引發<strong>神經性發炎（neurogenic inflammation）</strong>。COX 路徑仍然存在，這是另一條平行的疼痛路徑。</p>
+        </div>
+      </div>
+      <figure class="figure">
+        <svg viewBox="0 0 640 210" role="img" aria-label="NGF 結合發炎細胞上的 TrkA，釋放組織胺、血清素、氫離子與更多 NGF，作用在痛覺受器造成敏感化，形成自我放大的迴圈">
+          <defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+          <rect x="10" y="60" width="120" height="60" rx="6" fill="var(--accent-bg)" stroke="var(--accent)" stroke-width="2"/>
+          <text x="70" y="86" font-size="14" text-anchor="middle" fill="currentColor" font-weight="700">游離 NGF</text>
+          <text x="70" y="104" font-size="11" text-anchor="middle" fill="currentColor">關節受傷後產生</text>
+          <line x1="132" y1="90" x2="178" y2="90" stroke="currentColor" stroke-width="1.6" marker-end="url(#ar1)"/>
+          <rect x="180" y="60" width="130" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="245" y="84" font-size="13" text-anchor="middle" fill="currentColor" font-weight="700">發炎／免疫細胞</text>
+          <text x="245" y="102" font-size="11" text-anchor="middle" fill="currentColor">肥大細胞、嗜酸球、淋巴球</text>
+          <text x="245" y="116" font-size="11" text-anchor="middle" fill="currentColor">（帶 TrkA 受體）</text>
+          <line x1="312" y1="90" x2="358" y2="90" stroke="currentColor" stroke-width="1.6" marker-end="url(#ar1)"/>
+          <rect x="360" y="50" width="120" height="80" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="420" y="72" font-size="13" text-anchor="middle" fill="currentColor" font-weight="700">釋放介質</text>
+          <text x="420" y="92" font-size="11" text-anchor="middle" fill="currentColor">組織胺、血清素（5-HT）</text>
+          <text x="420" y="108" font-size="11" text-anchor="middle" fill="currentColor">氫離子（H⁺）</text>
+          <text x="420" y="124" font-size="11" text-anchor="middle" fill="currentColor" font-weight="700">＋更多 NGF</text>
+          <line x1="482" y1="90" x2="518" y2="90" stroke="currentColor" stroke-width="1.6" marker-end="url(#ar1)"/>
+          <rect x="520" y="60" width="110" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text x="575" y="84" font-size="13" text-anchor="middle" fill="currentColor" font-weight="700">痛覺受器</text>
+          <text x="575" y="102" font-size="11" text-anchor="middle" fill="currentColor">閾值下降、興奮性上升</text>
+          <path d="M420,132 C420,185 70,185 70,124" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar1)"/>
+          <text x="245" y="200" font-size="12" text-anchor="middle" fill="var(--accent)" font-weight="700">自我放大：發炎導致更多發炎</text>
+          <text x="245" y="30" font-size="12" text-anchor="middle" fill="currentColor">抗 NGF 單抗在這裡中和游離 NGF</text>
+          <line x1="155" y1="36" x2="155" y2="82" stroke="currentColor" stroke-width="1.2" marker-end="url(#ar1)"/>
+        </svg>
+        <figcaption class="figure-caption"><strong>NGF 是慢性疼痛的促進者與延續者（facilitator and perpetuator）</strong>　游離 NGF 結合發炎細胞上的 TrkA，釋放組織胺、血清素、氫離子與更多 NGF，再作用在痛覺受器的受體與離子通道，使閾值下降、神經纖維興奮性上升，形成迴圈。</figcaption>
+        <div class="figure-source">依講者口述與 Barker et al. 2020（J Pain Res）Fig.2 重繪的示意圖，<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=13" data-label="抗 NGF p.13">講義二 p.13</a>。</div>
+      </figure>
+    </div>
+
+    <div class="section" id="section-mab">
+      <div class="section-head"><div class="section-num">8</div><h2>Bedinvetmab 與 frunevetmab <span style="font-weight:400;font-size:.62em;opacity:.75;">Anti-NGF monoclonal antibodies</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=15" data-label="抗 NGF p.15">講義二 p.15–17</a>；錄音 1:05–1:08，第 2 節問答 0:56–1:02</p>
+      <h3 id="h3-18">藥物與療效證據</h3>
+      <p>講者形容這是 NSAID 之後最大的突破：生物製劑已經用在皮膚科、慢性疼痛，研究也在看犬慢性腸病與貓慢性腎病。單株抗體可以做成物種專一（species-specific），只針對 NGF 這個小蛋白。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Bedinvetmab</th><th>Frunevetmab</th></tr></thead>
+          <tbody>
+            <tr><td>商品名</td><td>Librela（另有 Beransa）</td><td>Solensia</td></tr>
+            <tr><td>物種</td><td>狗（犬化抗體）</td><td>貓（貓化抗體）</td></tr>
+            <tr><td>作用</td><td colspan="2">中和游離 NGF，緩解 OA 相關疼痛</td></tr>
+            <tr><td>給藥</td><td colspan="2">每 4 週皮下注射（SC）一次，依體重選瓶；仿單的劑量是 bedinvetmab 0.5–1.0 mg/kg SC、frunevetmab 1–2.8 mg/kg SC 每月一次（<span style="opacity:.8;">補充：仿單資料，講者沒有講劑量</span>）</td></tr>
+            <tr><td>原始試驗中已知的不良反應</td><td>部分 PU/PD 等</td><td>搔癢（pruritus）等</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>有 6–8 個大型、設計嚴謹的臨床試驗（數百隻動物），證明優於安慰劑：CSOM 改善、活動量比安慰劑與治療前顯著增加。</li>
+        <li>講者的提醒：幾百隻動物的試驗看不到「幾百萬劑」才會出現的罕見不良反應，上市後才發現新的不良反應是正常的（第四期、真實世界研究）。</li>
+      </ul>
+      <h3 id="h3-19">起效時間與給藥</h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>起效：</strong>最早約 2 週可見改善；<strong>最大效果約在第 2 劑之後</strong>，要評估「有沒有效、要不要換」應以第 2 劑後為準。（第 2 節問答 0:56）</li>
+        <li><strong>等待起效的頭幾天：</strong>講者會用其他藥物（如 gabapentin、amantadine）過渡，<strong>避免與 NSAID 併用</strong>（理由見下一節）。</li>
+        <li><strong>長期使用：</strong>依仿單每 4 週一次，可長期使用，除非出現關節腫脹、跛行或其他構成禁忌的不良反應。</li>
+        <li><strong>配合度：</strong>廠商在數個歐洲國家的研究顯示配合度 82–85%，獸醫與飼主滿意度高；改用 bedinvetmab 後常能減少其他藥物與營養補充品（減少多重用藥）。（第 2 節問答 1:01；廠商資料）</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-safety">
+      <div class="section-head"><div class="section-num">9</div><h2>安全性與藥物警戒 <span style="font-weight:400;font-size:.62em;opacity:.75;">Post-approval safety and pharmacovigilance</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=18" data-label="抗 NGF p.18">講義二 p.18–26</a>；錄音 1:08–1:24</p>
+      <h3 id="h3-20">主管機關的時間軸</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>時間</th><th>機關</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>2023 年（FDA 信中寫 5 月 5 日核准；投影片寫 3 月）</td><td>美國食品藥物管理局（FDA）</td><td>Librela 對控制犬 OA 疼痛安全有效（歐洲 EMA 已核准數年）</td></tr>
+            <tr><td>2024 年 12 月</td><td>英國獸醫藥品管理局（Veterinary Medicines Directorate, VMD）</td><td>罕見（rare）：腹瀉、嘔吐、運動失調、尿失禁、厭食、嗜睡；非常罕見（very rare）：癲癇發作。不良反應盛行率 0.0015（每萬劑不到 15 隻）。「整體效益大於風險」</td></tr>
+            <tr><td>2025 年 1 月 15 日</td><td>英國 VMD</td><td>針對媒體報導嚴重不良反應發布回應</td></tr>
+            <tr><td>2025 年 2 月</td><td>美國 FDA</td><td>致獸醫師信：仿單加入運動失調、癲癇、輕癱（paresis）、躺臥不起（recumbency）、尿失禁、多尿多飲等；部分病例死亡（含安樂死）</td></tr>
+            <tr><td>2026 年 5 月</td><td>英國 VMD</td><td>警語加入關節腫脹、關節痛、軟組織骨化、異位骨形成；<strong>更新：重複給藥後可能出現廣泛、不規則的骨膜礦化組織形成與局部骨溶解，可能進行性惡化，非常罕見下導致骨折。臨床指引：用藥中出現新的或加重的關節腫脹／疼痛，應加做影像並考慮停藥。</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">講義二 <a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=18" data-label="抗 NGF p.18">p.18–21</a>。講者說 FDA 仿單用語受到批評，但這些用語是規定好的不良反應詞庫，不是廠商自己選的；他比較欣賞 VMD 有給臨床指引。罕見＝每萬劑 1–10 件，非常罕見＝每萬劑不到 1 件。</p>
+
+      <h3 id="h3-21">全球藥物警戒研究</h3>
+      <p>Monteiro et al. 2025（Front Vet Sci，Zoetis 與 NC State 作者）<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=22" data-label="抗 NGF p.22">講義二 p.22–25</a>：講者說這是獸醫史上最大的全球藥物警戒（pharmacovigilance, PV）研究之一，廠商主動公開也少見。</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>資料：2021 年 2 月到 2024 年 6 月全球上市資料，包含社群媒體提到的事件（廠商必須主動聯繫）；當時售出 18,102,535 劑（講者說現在應該超過 4,000 萬劑）。</li>
+        <li>17,775 隻狗共 17,162 件不良事件；<strong>整體 9.48 件／萬劑，屬罕見</strong>（國際醫學科學組織理事會 CIOMS 分級：非常常見 ≥ 10%、常見 1–10%、不常見 0.1–1%、罕見 0.01–0.1%、非常罕見 &lt; 0.01%；計算假設每劑一隻狗）。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>排名</th><th>VeDDRA 用語</th><th>每萬劑</th><th>排名</th><th>VeDDRA 用語</th><th>每萬劑</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><strong>療效不足（Lack of efficacy, LoE）</strong></td><td>1.70</td><td>11</td><td>肌肉無力（Muscle weakness）</td><td>0.56</td></tr>
+            <tr><td>2</td><td>多渴（Polydipsia）</td><td>1.50</td><td>12</td><td>抽搐（Convulsion）</td><td>0.53</td></tr>
+            <tr><td>3</td><td>運動失調（Ataxia）</td><td>1.41</td><td>13</td><td>肌肉顫抖（Muscle tremor）</td><td>0.46</td></tr>
+            <tr><td>4</td><td>多尿／頻尿（PU/PK）</td><td>1.28</td><td>14</td><td>呼吸急促（Tachypnoea）</td><td>0.45</td></tr>
+            <tr><td>5</td><td>厭食（Anorexia）</td><td>1.23</td><td>15</td><td>泌尿道感染（UTI）</td><td>0.44</td></tr>
+            <tr><td>6</td><td>嗜睡（Lethargy）</td><td>1.19</td><td>16</td><td>輕癱（Paresis）</td><td>0.42</td></tr>
+            <tr><td>7</td><td>死亡（Death）</td><td>1.16</td><td>17</td><td>肌肉骨骼疾病未分類（MSD NOS）</td><td>0.40</td></tr>
+            <tr><td>8</td><td>嘔吐（Emesis）</td><td>1.06</td><td>18</td><td>過動（Hyperactivity）</td><td>0.37</td></tr>
+            <tr><td>9</td><td>腹瀉（Diarrhoea）</td><td>0.96</td><td>19</td><td>BUN 上升（↑BUN）</td><td>0.36</td></tr>
+            <tr><td>10</td><td>尿失禁（Urinary incontinence）</td><td>0.95</td><td>20</td><td>跛行（Lameness）</td><td>0.36</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">依講義二 <a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=25" data-label="抗 NGF p.25">p.25</a>（Monteiro 2025 Fig.2）的長條圖抄錄；圖很小，數字對應的項目順序請以原圖為準。</p>
+      <div class="alert alert-info">
+        <div class="alert-label">講者怎麼解讀</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.8;">
+          <li>第一名「療效不足」可能是：藥對這隻狗無效、OA 太嚴重需要加藥、或其實不是 OA（用錯適應症）。</li>
+          <li>大家很在意的跛行在最後（0.36），每萬劑低於 1 都算非常罕見。這份資料裡沒有人醫所說的「快速進展性骨關節炎」（Rapidly progressive osteoarthritis, RPOA）。</li>
+        </ul>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">另一方的研究（補充）</div>
+        <p>講者沒有提到：Farrell et al. 2025（Front Vet Sci）用美國 FDA 不良事件資料做不成比例分析（disproportionality analysis），發現韌帶／肌腱傷、多發性關節炎、骨折、肌肉骨骼腫瘤、敗血性關節炎在 Librela 的通報頻率約是 6 種比較藥物合計的 9 倍；專家小組看 19 個病例後「強烈懷疑」與加速關節破壞有因果關係。這篇的方法學受到多篇評論質疑（包括廠商）。兩派結論不同，證據都屬於觀察性資料。（<a href="https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2025.1581490" target="_blank" rel="noopener">Farrell 2025</a>；<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12307179/" target="_blank" rel="noopener">評論</a>；我只讀到摘要與搜尋整理）</p>
+      </div>
+
+      <h3 id="h3-22">異常關節周圍骨重塑（APBR）</h3>
+      <p>講者說這是「一個月前剛發表、也由廠商支持」的研究：Budsberg et al. 2026，JAVMA，2026 年 8 月 31 日線上發表。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>內容</th><th>來源</th></tr></thead>
+          <tbody>
+            <tr><td>規模</td><td>約 3,400 萬劑中，<strong>186 隻狗</strong>出現異常關節周圍骨重塑（Abnormal periarticular bone remodeling, APBR）</td><td>已核對（dvm360 報導）</td></tr>
+            <tr><td>方法</td><td>Zoetis 全球藥物警戒資料庫（2020 年 11 月–2025 年 12 月）用關鍵字搜尋，篩出約 319 個可能的肌肉骨骼病例；由外部的病理、影像、骨科專科醫師小組審閱影像</td><td>二手摘要</td></tr>
+            <tr><td>表現</td><td>廣泛、不規則的骨膜礦化組織形成，延伸到關節之外；<strong>新骨長在關節周圍，關節面本身可能保留</strong>，所以不同於人醫的 RPOA</td><td>已核對（「not really the joint surface itself」）</td></tr>
+            <tr><td>好發關節</td><td><strong>肘關節與跗關節最常見</strong>；有關節不穩定時牽涉膝關節（stifle），關節腫脹以膝最常見</td><td>講者口述（二手摘要也寫肘或跗）；未讀到原文</td></tr>
+            <tr><td>發生時機</td><td>沒有單一的臨床表現：可在幾劑後急性出現，也可慢性出現；多數病例回報時已打超過 10 劑；單側或雙側、單一或多個關節；首發可能是關節腫脹或跛行</td><td>講者口述</td></tr>
+            <tr><td>病患</td><td>平均約 9 歲（老年大型犬本來就是最常用藥的族群）；拉布拉多比例稍高但可能未達顯著</td><td>講者口述</td></tr>
+            <tr><td><strong>併用 NSAID</strong></td><td><strong>約 63% 的病例同時使用 NSAID 與單抗</strong>，可能是易發因素</td><td>講者口述（錄音 1:22、第 2 節 0:55）；未讀到原文</td></tr>
+            <tr><td>機轉</td><td>不清楚。作者提出 NGF 對成骨與軟骨細胞的合成代謝作用可能失控；講者認為不只是「不痛了就多動、肌肉少」的負荷問題</td><td>講者口述</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">為什麼不要與 NSAID 併用</div>
+        <p>人醫的抗 NGF 單抗（tanezumab）沒有上市，原因是部分病患出現快速進展性骨關節炎，而這在合併 NSAID 的病患更常見（講者口述約 6%）。犬的資料只有一篇在實驗犬併用 14 天的研究，不是臨床病患。所以講者從來不支持兩者併用；他說「也許明年仿單就會寫：這兩種藥絕對不要併用」。</p>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充：停藥後不一定會恢復</div>
+        <p>2026 年一篇綜論描述兩種型態：（1）類似 RPOA 的快速關節破壞；（2）較隱伏、廣泛的關節周圍異位礦化。文中提到停用 bedinvetmab 後，關節周圍的礦化似乎不會逆轉。（<a href="https://www.magonlinelibrary.com/doi/abs/10.12968/coan.2026.0009" target="_blank" rel="noopener">Armitage 2026, Companion Animal</a>；只讀到摘要）</p>
+      </div>
+
+      <h3 id="h3-23">臨床上怎麼做</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>沒有藥是 100% 無風險</strong>；上市後出現以前沒報告過的不良反應是正常的。<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=26" data-label="抗 NGF p.26">講義二 p.26</a></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>用證據給飼主資訊、簽同意書</strong>：療效證據充分，但要說明罕見的風險。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>告訴飼主：</strong>「看到關節腫起來就打給我、帶回來」，回診討論、換治療。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>通報！</strong>懷疑就通報，NSAID 也一樣；附上病史、給藥頻率、批號（lot／vial number）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>選擇病例時</strong>：有同業在關節不穩定（如十字韌帶損傷）時不用單抗，這與研究中膝關節的發現一致；年輕、要長期治療的狗，用藥前拍 X 光當基準較有價值。</div></div>
+    </div>
+
+    <div class="section" id="section-guide">
+      <div class="section-head"><div class="section-num">10</div><h2>指南與多模式治療 <span style="font-weight:400;font-size:.62em;opacity:.75;">What do the guidelines say?</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Anti-NGF_mAb.pdf#page=27" data-label="抗 NGF p.27">講義二 p.27–30</a>；錄音 1:24–1:26</p>
+      <p>講者列的指南：2022 WSAVA 疼痛辨識、評估與治療指南；2024 ISFM／AAFP 貓長期使用 NSAID 共識；2022 AAHA 犬貓疼痛管理指南；COAST 發展小組的犬 OA 治療國際共識；Feline Practitioner 的慢性疼痛教育工具包。</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>NSAID 與抗 NGF 單抗都可以用於 OA 疼痛</strong>，誰當第一線由獸醫決定；沒有指南規定單抗只能在中重度才用。講者自己偏好先用 NSAID、嚴重時再換，但單抗的試驗都是當第一線使用。</li>
+        <li>「第一線」不代表忽略溫和運動、減重、飲食與家中環境調整。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="card"><div class="card-title">藥物治療</div><p style="margin:0;">NSAID、抗 NGF 單抗；必要時加輔助止痛藥</p></div>
+        <div class="card"><div class="card-title">非藥物治療</div><p style="margin:0;">營養、漸進且適度的運動、減重、環境調整</p></div>
+        <div class="card"><div class="card-title">正向情緒</div><p style="margin:0;">人與動物的連結；一項研究讓孩子、照顧者與寵物定期一起散步，全家都受益（Morrison et al. 2013）</p></div>
+      </div>
+    </div>
+
+    <div class="section" id="section-qa">
+      <div class="section-head"><div class="section-num">11</div><h2>現場問答 <span style="font-weight:400;font-size:.62em;opacity:.75;">Q&amp;A</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">錄音 0:40–0:45</p>
+      <div class="card">
+        <div class="card-title">Q：X 光看不到，狗和貓也可能有 OA 嗎？</div>
+        <p style="margin:0;">可以，前提是有臨床症狀。貓 34% 的疼痛關節 X 光沒有變化，而且是骨科專科醫師判讀的。不需要用 X 光確認 OA，很多人因預算直接依臨床治療；要不要全部拍是有爭議的話題，東南亞很多地方做不到。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Q：OA 和退化性脊髓病（Degenerative myelopathy, DM）症狀很像，怎麼分哪些功能喪失來自疼痛、哪些來自不痛的神經病？</div>
+        <p style="margin:0;">沒有完美答案。先處理你認為最影響這隻動物的主要疾病；神經病有時比 OA 的發作（flare）更急性，那就先處理它。有時 NSAID 對兩者都有幫助。提問者的做法是「先治疼痛，看會不會變好」——也就是止痛試驗，講者同意這是合理做法。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Q：急性疼痛量表推薦哪一個？</div>
+        <p style="margin:0;">貓：貓鬼臉量表（講者是開發者之一，有 App 與網站）。狗：驗證最完整又好用的是格拉斯哥綜合疼痛量表簡式（Glasgow Composite Measure Pain Scale – Short Form, CMPS-SF）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-glossary">
+      <div class="section-head"><div class="section-num">12</div><h2>縮寫與名詞對照 <span style="font-weight:400;font-size:.62em;opacity:.75;">Glossary</span></h2></div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td style="white-space:nowrap;"><strong>OA</strong></td><td>Osteoarthritis（骨關節炎）</td><td style="white-space:nowrap;"><strong>DJD</strong></td><td>Degenerative joint disease（退化性關節病）</td></tr>
+            <tr><td><strong>NGF</strong></td><td>Nerve growth factor（神經生長因子）</td><td><strong>TrkA</strong></td><td>Tropomyosin receptor kinase A（酪胺酸激酶 A 受體，NGF 的受體）</td></tr>
+            <tr><td><strong>mAb</strong></td><td>Monoclonal antibody（單株抗體）</td><td><strong>NSAID</strong></td><td>Nonsteroidal anti-inflammatory drug（非類固醇抗發炎藥）</td></tr>
+            <tr><td><strong>COX</strong></td><td>Cyclooxygenase（環氧化酶）</td><td><strong>EP4</strong></td><td>Prostaglandin E2 receptor subtype 4（前列腺素 E2 第 4 型受體）</td></tr>
+            <tr><td><strong>PPSP</strong></td><td>Persistent post-surgical pain（持續性術後疼痛）</td><td><strong>QST</strong></td><td>Quantitative sensory testing（定量感覺測試）</td></tr>
+            <tr><td><strong>CBPI</strong></td><td>Canine Brief Pain Inventory（犬簡明疼痛量表）</td><td><strong>HCPI</strong></td><td>Helsinki Chronic Pain Index（赫爾辛基慢性疼痛指數）</td></tr>
+            <tr><td><strong>LOAD</strong></td><td>Liverpool Osteoarthritis in Dogs（利物浦犬骨關節炎量表）</td><td><strong>COAST</strong></td><td>Canine Osteoarthritis Staging Tool（犬骨關節炎分期工具）</td></tr>
+            <tr><td><strong>Feline MiPSC</strong></td><td>Feline Musculoskeletal Pain Screening Checklist（貓肌肉骨骼疼痛篩檢清單）</td><td><strong>FMPI-sf</strong></td><td>Feline Musculoskeletal Pain Index – short form（貓肌肉骨骼疼痛指數簡式）</td></tr>
+            <tr><td><strong>CSOM</strong></td><td>Client-specific outcome measure（飼主個別化結果量表）</td><td><strong>FGS</strong></td><td>Feline Grimace Scale（貓鬼臉量表）</td></tr>
+            <tr><td><strong>CMPS-SF</strong></td><td>Glasgow Composite Measure Pain Scale – Short Form（格拉斯哥綜合疼痛量表簡式）</td><td><strong>ROM</strong></td><td>Range of motion（關節活動範圍）</td></tr>
+            <tr><td><strong>PV</strong></td><td>Pharmacovigilance（藥物警戒）</td><td><strong>VeDDRA</strong></td><td>Veterinary Dictionary for Drug Regulatory Activities（獸醫藥品法規活動詞庫）</td></tr>
+            <tr><td><strong>CIOMS</strong></td><td>Council for International Organizations of Medical Sciences（國際醫學科學組織理事會）</td><td><strong>VMD</strong></td><td>Veterinary Medicines Directorate（英國獸醫藥品管理局）</td></tr>
+            <tr><td><strong>APBR</strong></td><td>Abnormal periarticular bone remodeling（異常關節周圍骨重塑）</td><td><strong>RPOA</strong></td><td>Rapidly progressive osteoarthritis（快速進展性骨關節炎，人醫用語）</td></tr>
+            <tr><td><strong>FCGS</strong></td><td>Feline chronic gingivostomatitis（貓慢性齦口炎）</td><td><strong>FIC</strong></td><td>Feline idiopathic cystitis（貓自發性膀胱炎）</td></tr>
+            <tr><td><strong>FHS</strong></td><td>Feline hyperesthesia syndrome（貓感覺過敏症候群）</td><td><strong>FOPS</strong></td><td>Feline orofacial pain syndrome（貓口顏面疼痛症候群）</td></tr>
+            <tr><td><strong>KCS</strong></td><td>Keratoconjunctivitis sicca（乾性角結膜炎）</td><td><strong>DM</strong></td><td>Degenerative myelopathy（退化性脊髓病）</td></tr>
+            <tr><td><strong>PU/PD</strong></td><td>Polyuria/polydipsia（多尿多飲）</td><td><strong>LoE</strong></td><td>Lack of efficacy（療效不足）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題 <span style="font-weight:400;font-size:.62em;opacity:.75;">Clinical scenarios</span></h2></div>
+      <p class="section-desc">先自己想答案，再點開對照。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q1. 13 歲米克斯貓來打預防針，飼主說「牠只是變老，比較懶」。你在 5 分鐘內可以怎麼篩 OA？如果飼主不相信呢？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">用 Feline MiPSC 的 6 題是非題（跳上、跳下、上樓梯、下樓梯、跑、追玩具）；只要 1 題「否」就高度懷疑 OA。接著問時間軸（跟一兩年前比）、請飼主拍家中跳上跳下與用貓砂盆的影片、做低壓力關節觸診（疼痛、積液、摩擦音、ROM、肌肉量）。不需要先拍 X 光才能診斷（34% 疼痛關節 X 光正常）。飼主不相信時：一起填 CSOM（3 個最喜歡的活動，描述具體），安排 4–6 週的止痛試驗，回診時不給飼主看上次答案再評一次。12 歲以上的貓超過 90% 有 OA，這是在每年健檢就該聊的事。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q2. 一隻狗的 X 光髖關節骨贅非常明顯，但飼主說狗跑跳都正常；另一隻貓 X 光幾乎正常，卻不再跳上床。你怎麼解讀，治療決定依據什麼？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">X 光表現與疼痛相關性差，只能確認與記錄 OA、排除腫瘤外傷，無法告訴你多痛。治療依據是臨床：病史（飼主回報的四類改變）、理學檢查、量表分數。狗：仍要做關節檢查與 CBPI／LOAD，若真的沒有功能影響，重點是危險因子管理（體重、適度運動）並定期追蹤。貓：有功能改變就是疼痛的證據，可直接開始止痛試驗並用 FMPI-sf 或 CSOM 追蹤。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q3. 飼主拿家人填的 CBPI 來回診：上次是太太填 4 分，這次是兒子填 7 分。你怎麼解讀？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">不能直接比較。慢性量表由飼主主觀評分，不同人對分數的尺度差異很大，所以每次都要由同一位照顧者填寫。請上次填寫的太太重填，或從這次起固定由同一人填寫並重建基準。也要記得慢性量表沒有「到幾分要治療」的切點，用途是追蹤同一隻動物的變化。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q4. 10 歲拉布拉多正在吃 carprofen，飼主想改打 Librela，問「可以先兩個一起用，等針劑有效再停口服藥嗎？」</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">講者不建議併用。理由：人醫抗 NGF 單抗（tanezumab）因快速進展性 OA 未上市，合併 NSAID 的病患更常發生；2026 Budsberg 研究的 APBR 病例依講者口述約 63% 同時用了 NSAID；犬併用的資料只有一篇 14 天的實驗犬研究。做法：停 carprofen（依藥動學，換藥之間約 48 小時的 washout 就足夠），開始 bedinvetmab；單抗最早約 2 週見效，第 2 劑後達最大效果，等待期間可用 gabapentin 或 amantadine 過渡。用藥前若可行，拍關節 X 光當基準；告知飼主出現新的關節腫脹或跛行要立即回診，並把通報流程說清楚。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q5. 一隻 9 歲狗打了 12 劑 bedinvetmab，最近右跗關節腫起來、跛行加重。你的處置與要跟飼主說的話？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">依英國 VMD 2026 年 5 月的臨床指引：出現新的或加重的關節腫脹／疼痛，要加做影像（X 光）並考慮停藥。X 光看有沒有廣泛、不規則的骨膜礦化組織與局部骨溶解（APBR：常在肘與跗關節，關節面可能保留，與一般 OA 進展不同）；同時排除其他原因（感染、腫瘤、韌帶傷、免疫性關節炎）。停用單抗、改其他止痛方案。通報廠商與主管機關，附病史、給藥紀錄、批號。告訴飼主：這是罕見但已知的不良反應，停藥後礦化不一定會消退，需要追蹤。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q6. 同事說「Librela 的藥物警戒報告第一名是療效不足，所以這個藥其實沒效」。你怎麼回應？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">療效不足的通報率約 1.70 件／萬劑，仍屬罕見。它可能代表：這隻狗對藥沒反應（約 30% 的慢性 OA 有廣泛性中樞敏感化，單一藥物不夠）、OA 太嚴重需要加輔助止痛藥、或根本不是 OA（適應症用錯）。療效要看有安慰劑對照的試驗：bedinvetmab 與 frunevetmab 都優於安慰劑，CSOM 與活動量顯著改善。也要考慮評估時機——最大效果在第 2 劑之後。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q7. 一隻吃 meloxicam 的老狗今天嘔吐一次、精神食慾正常；另一隻吃 meloxicam 的狗連續兩天不吃。哪一隻比較需要擔心？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">第二隻。系統性回顧中約 5% 的狗在試驗期間嘔吐，安慰劑組也是 5%，單次嘔吐不一定是 NSAID 造成。厭食才是 NSAID 中毒最常見、最早、也最常被飼主忽略的徵兆；飼主常繼續給藥而發展成急性中毒。應停藥、評估脫水、腸胃與腎肝功能。也要事先教飼主「不吃就停藥、打電話」。</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="section" id="section-references">
+      <div class="section-head"><div class="section-num">14</div><h2>參考資料 <span style="font-weight:400;font-size:.62em;opacity:.75;">References</span></h2></div>
+      <p><strong>講者投影片與錄音</strong></p>
+      <ul style="margin:0 0 10px 0;padding-left:1.2em;line-height:1.9;">
+        <li>Steagall P. <i>Practical Canine and Feline Chronic Pain Assessment</i>. FASAVA 2026, Taipei（投影片 34 頁）。</li>
+        <li>Steagall P. <i>Monoclonal Antibodies Anti-NGF: A New Era for the Management of OA</i>. FASAVA 2026, Taipei（投影片 30 頁）。</li>
+        <li>現場錄音 2026-11-01 09:01（約 1 小時 26 分）與 11:00 場問答，mlx-whisper 自動轉錄。</li>
+      </ul>
+      <p><strong>講義引用的文獻（我沒有讀原文，除非另外註明）</strong></p>
+      <ul style="margin:0 0 10px 0;padding-left:1.2em;line-height:1.9;">
+        <li>Bell A, Helm J, Reid J. Veterinarians' attitudes to chronic pain in dogs. <i>Vet Rec</i> 2014.</li>
+        <li>Monteiro BP. Feline chronic pain and osteoarthritis. <i>Vet Clin North Am Small Anim Pract</i> 2020.</li>
+        <li>Enomoto M, et al. Development of a checklist for the detection of degenerative joint disease-associated pain in cats. <i>J Feline Med Surg</i> 2020.</li>
+        <li>Enomoto M, et al. Development and testing of a short-form Feline Musculoskeletal Pain Index (FMPI-sf). <i>J Feline Med Surg</i> 2021.</li>
+        <li>Gober M. Implementation of a prospective in-clinic validated Feline Osteoarthritis Checklist. <i>J Feline Med Surg</i> 2025. DOI: <a href="https://doi.org/10.1177/1098612X251368007" target="_blank" rel="noopener">10.1177/1098612X251368007</a></li>
+        <li>Monteiro-Steagall BP, Steagall PVM, Lascelles BDX. Systematic review of nonsteroidal anti-inflammatory drug-induced adverse effects in dogs. <i>J Vet Intern Med</i> 2013;27:1011–1019.</li>
+        <li>Barker et al. 2020, <i>J Pain Research</i>（NGF 對發炎細胞的作用，Fig.2）。</li>
+        <li>Monteiro BP, Simon A, Knesl O, et al. Global pharmacovigilance reporting of the first monoclonal antibody for canine osteoarthritis: a case study with bedinvetmab (Librela™). <i>Front Vet Sci</i> 2025. DOI: <a href="https://doi.org/10.3389/fvets.2025.1558222" target="_blank" rel="noopener">10.3389/fvets.2025.1558222</a></li>
+        <li>Morrison R, et al. 2013（孩子、照顧者與寵物一起運動）。</li>
+      </ul>
+      <p><strong>我另外查證的資料</strong></p>
+      <ul style="margin:0 0 10px 0;padding-left:1.2em;line-height:1.9;">
+        <li>Budsberg SC, et al. Atypical radiographic changes seen in dogs treated with bedinvetmab (Librela). <i>JAVMA</i> 2026（2026-08-31 線上）——讀到 <a href="https://www.dvm360.com/view/q-a-what-zoetis-new-javma-study-reveals-about-librela-and-a-rare-condition-in-dogs" target="_blank" rel="noopener">dvm360 報導</a>，未讀原文。</li>
+        <li>Farrell M, et al. Musculoskeletal adverse events in dogs receiving bedinvetmab (Librela). <i>Front Vet Sci</i> 2025. <a href="https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2025.1581490" target="_blank" rel="noopener">連結</a>；評論：<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12307179/" target="_blank" rel="noopener">PMC12307179</a>。</li>
+        <li>Armitage 2026. Identification and possible pathogenesis of bedinvetmab-associated adverse joint events. <i>Companion Animal</i>. <a href="https://www.magonlinelibrary.com/doi/abs/10.12968/coan.2026.0009" target="_blank" rel="noopener">摘要</a>。</li>
+        <li>Rapidly progressive osteoarthritis in companion animals treated with bedinvetmab: an expected pathophysiological phenomenon or a cause for concern? <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12426869/" target="_blank" rel="noopener">PMC12426869</a>。</li>
+        <li>Gober 2025 的數字：<a href="https://www.myvetcandy.com/news/2025/11/5/are-we-missing-feline-osteoarthritis-in-98-of-our-patients-new-study-reveals-a-massive-detection-gap" target="_blank" rel="noopener">Vet Candy 摘要</a>（二手）。</li>
+      </ul>
+      <p style="font-size:11.5px;color:var(--text3);">逐字稿是自動語音辨識，專有名詞偶有錯字，我已依上下文修正；數字若與講義不同，以講義為準。</p>
+    </div>
+
+    <footer class="note-footer">
+      本頁內容整理自 FASAVA 2026 台北 Paulo Steagall 演講投影片與現場錄音，並加上網路查證，僅供院內教學使用；劑量請以仿單與專科處方集為準，不作為單獨診斷或用藥依據。
+    </footer>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('open', x.dataset.sec === id));
+}
+function goSub(hid) {
+  const el = document.getElementById(hid);
+  if (el) el.scrollIntoView({ block: 'start' });
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + hid));
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+  const hio = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + e.target.id)); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('.section h3[id^="h3-"]').forEach(h => hio.observe(h));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  overview: '講者與課程架構',
+  concept: '急性與慢性疼痛',
+  assess: 'OA 的三步驟臨床評估',
+  scales: '慢性疼痛量表',
+  goals: '治療目標與惡性循環',
+  ngf: 'OA 疼痛與 NGF 機轉',
+  mab: 'Bedinvetmab 與 frunevetmab',
+  safety: '安全性與藥物警戒',
+  guide: '指南與多模式治療',
+  qa: '現場問答',
+  glossary: '縮寫與名詞對照',
+  quiz: '練習題',
+  references: '參考資料'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js?v=3"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="../assets/pdf-viewer.js"></script>
+
+</body>
+</html>

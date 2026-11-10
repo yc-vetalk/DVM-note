@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<title>FASAVA 2026 - 上群動物醫院</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/nav.css?v=3">
+<link rel="stylesheet" href="../assets/ah.css?v=5">
+<link rel="stylesheet" href="../assets/fasava.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群動物醫院" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="FASAVA 2026"></div>
+  <div class="header-right">
+    <div class="search-wrap lg" style="width:260px;">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="跨科別／主題搜尋..." autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <p class="pagehead__eyebrow"><a href="../index.html">上群動物醫院</a><i>/</i><span>FASAVA 2026</span></p>
+    <h1 class="pagehead__title">FASAVA 2026</h1>
+    <p class="pagehead__lede">2026/10/31–11/2，台北南港展覽館 2 館（TaiNEX 2）。三天課表與講義筆記都在這裡。</p>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">整理進度</div><div class="meta-value" id="fasStats"></div></div>
+      <div class="meta-item"><div class="meta-label">課表來源</div><div class="meta-value">大會官網 Program 頁（截圖抄錄）</div></div>
+    </div>
+  </div>
+</section>
+
+<main class="homewrap fas-main">
+  <section class="fas-schedule">
+  <h2 id="schedule">三天課表</h2>
+  <div class="fas-stickytabs">
+    <div class="fas-tabs" id="fasTabs" role="tablist" aria-label="選擇日期"></div>
+  </div>
+  <p class="fas-legend">
+    <span>有標記的格子可以點開：</span>
+    <span class="fas-badge fas-badge--note">筆記</span><span>已做成網頁</span>
+    <span class="fas-badge fas-badge--pdf">講義</span><span>有 PDF</span>
+    <span class="fas-badge">錄音</span><span class="fas-badge">逐字稿</span><span>現場錄音與轉錄</span>
+  </p>
+  <div id="fasPanel" role="tabpanel">
+    <div class="fas-grid" id="fasGrid"></div>
+  </div>
+  </section>
+
+  <h2 id="topics">依科別瀏覽</h2>
+  <ul class="fas-topics" id="fasTopics"></ul>
+</main>
+
+<dialog class="fas-dlg" id="fasDialog" aria-labelledby="fasDlgTitle">
+  <div class="fas-dlg__head">
+    <div>
+      <h2 class="fas-dlg__title" id="fasDlgTitle"></h2>
+      <p class="fas-dlg__sub"></p>
+    </div>
+    <button type="button" class="fas-dlg__close" aria-label="關閉">×</button>
+  </div>
+  <div class="fas-dlg__body"></div>
+</dialog>
+
+<footer class="sitefoot">
+  <div class="sitefoot__inner">本站內容為醫院住院醫師訓練整理資料，僅供院內學習與討論使用，不作為正式診斷或用藥依據。</div>
+</footer>
+
+<script src="../assets/site.js"></script>
+<script src="../search-index.js"></script>
+<script src="../assets/global-search.js"></script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js?v=3"></script>
+<script>
+const SITE_ROOT = "../";
+initGlobalSearch('searchInput', 'searchResults');
+initSiteNav('siteNav', 'navPanel');
+</script>
+<script src="fasava-data.js?v=3"></script>
+<script src="fasava-files.js"></script>
+<script src="fasava.js?v=4"></script>
+
+</body>
+</html>

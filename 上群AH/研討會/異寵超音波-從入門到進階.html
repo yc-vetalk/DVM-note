@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>異寵超音波：從入門到進階 - 上群動物醫院</title>
+<link rel="stylesheet" href="../assets/nav.css?v=3">
+<link rel="stylesheet" href="../assets/ah.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群動物醫院" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="研討會"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">上群動物醫院 首頁</a>
+      <span class="sep">›</span>
+      <a href="index.html">研討會</a>
+      <span class="sep">›</span>
+      <span class="current">異寵超音波：從入門到進階</span>
+    </div>
+
+    <div class="page-head">
+      <h1 class="page-title">異寵超音波：從入門到進階</h1>
+      <p class="page-subtitle">鳥、爬蟲與小型哺乳類的超音波適應症、限制與固定檢查路徑——FASAVA 2026 明日課程預習整理（含網路補充）。</p>
+    </div>
+    <div class="pagehead__actions">
+      <a class="btn fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Ultrasound.pdf#page=1" data-label="p.1">📄 講義 PDF</a>
+      <span style="font-size:11.5px;opacity:.7;">點開會在右側閱讀（需先雙擊「開啟筆記網站」，再從 localhost 開本頁）；PDF 只存在本機，不上傳。</span>
+    </div>
+
+
+        <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科別</div><div class="meta-value">影像診斷（異寵）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">FASAVA 2026 台北，Claudia 與 Manfred Hochleithner（維也納 Tierarztpraxis Strebersdorf）書面講義「Ultrasound in Exotic Pets: From Beginning to Advanced」，另加網路補充</div></div>
+      <div class="meta-item"><div class="meta-label">性質</div><div class="meta-value">上課前預習整理，講義只有文字、無影像範例</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">預習版：待上課後補影像與老師口述</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 預習重點</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 設備、保定與檢查路徑</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-1" onclick="goSub('h3-1')">為什麼現在異寵也常規做超音波</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-2" onclick="goSub('h3-2')">講者診所的設備</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-3" onclick="goSub('h3-3')">保定與麻醉</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-4" onclick="goSub('h3-4')">檢查的固定路徑</a>
+    <div class="section-label">各類動物</div>
+    <a onclick="showSection('bird')" id="nav-bird"><span class="nav-icon">🦜</span> 鳥類超音波</a>
+    <a class="toc-sub" data-sec="bird" id="nav-h3-5" onclick="goSub('h3-5')">限制：氣囊</a>
+    <a class="toc-sub" data-sec="bird" id="nav-h3-6" onclick="goSub('h3-6')">適應症</a>
+    <a class="toc-sub" data-sec="bird" id="nav-h3-7" onclick="goSub('h3-7')">老鸚鵡與心血管疾病</a>
+    <a onclick="showSection('reptile')" id="nav-reptile"><span class="nav-icon">🦎</span> 爬蟲超音波</a>
+    <a class="toc-sub" data-sec="reptile" id="nav-h3-8" onclick="goSub('h3-8')">限制因素</a>
+    <a class="toc-sub" data-sec="reptile" id="nav-h3-9" onclick="goSub('h3-9')">適應症</a>
+    <a onclick="showSection('mammal')" id="nav-mammal"><span class="nav-icon">🐹</span> 小型哺乳類超音波</a>
+    <a class="toc-sub" data-sec="mammal" id="nav-h3-10" onclick="goSub('h3-10')">適應症</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('glossary')" id="nav-glossary"><span class="nav-icon">🔤</span> 縮寫與名詞對照</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 預習問題</a>
+    <a onclick="showSection('references')" id="nav-references"><span class="nav-icon">📚</span> 參考資料</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>預習重點 <span style="font-weight:400;font-size:.62em;opacity:.75;">What to know before the lecture</span></h2></div>
+      <div class="alert alert-warn">
+        <div class="alert-label">先說明資料來源</div>
+        <p>本頁整理自老師提供的書面講義（4 頁文字，沒有圖，也沒有影像範例），再加上我上網搜尋到的補充（「補充」框，來源連結在框內；我只讀到搜尋摘要，沒讀全文）。講義談的是「怎麼用」與「適應症」，沒有各物種的正常超音波影像或測量值——這部分老師上課大概會用影像講，請以上課為準。</p>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">五個要先抓住的重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>鳥的第一個限制是氣囊（air sac）：</strong>超音波束被空氣層完全反射，空氣下面什麼都看不到，所以適應症有限，聲窗（acoustic window）也很小。氣囊被積水或腫塊取代時反而是最好的檢查時機。</li>
+          <li><strong>鳥有 4 個聲窗：</strong>劍突後方的前腹側（cranioventral）、骨盆內的後腹側（caudoventral）、胸骨旁側面（鸚鵡幾乎不可能）、經腸道（需要特殊高頻探頭，昂貴）。</li>
+          <li><strong>爬蟲與鳥的重點不同：</strong>爬蟲最重要的適應症是生殖道（卵巢功能、卵阻塞 vs 排卵前卵泡停滯、卵胎生蛇的胚胎）；蛇的檢查路徑從心臟開始往尾側走；蛻皮前後空氣在皮膚層間，不能掃。</li>
+          <li><strong>小型哺乳類最像狗貓，但腸道氣體是限制：</strong>天竺鼠與兔的腸氣特別多；生殖道是首選檢查（天竺鼠卵巢囊腫、懷孕、腫瘤）；也能找尿路結石、雪貂腎上腺腫瘤。</li>
+          <li><strong>「固定路徑」是核心觀念：</strong>每次用同一條路徑檢查才不會漏器官；鳥與爬蟲的器官外觀和小型哺乳類不同（例如腎臟），要把基本超音波知識延伸到這些物種。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>總覽：設備、保定與檢查路徑 <span style="font-weight:400;font-size:.62em;opacity:.75;">Ultrasound in exotic pets: from beginning to advanced</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Ultrasound.pdf#page=1" data-label="p.1">p.1</a></p>
+
+      <p class="section-desc">講者 Claudia Hochleithner 與 Manfred Hochleithner（維也納 Tierarztpraxis Strebersdorf，Manfred 的資料見同組「鸚鵡醫學」頁）。</p>
+
+      <h3 id="h3-1">為什麼現在異寵也常規做超音波 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Why exotic practitioners use ultrasound routinely</span></h3>
+      <p>商用高頻探頭的超音波機不再只限大學或特殊實驗室；而且異寵飼主受過教育、想要最好的檢查與治療。能用的限制因素不多。</p>
+
+      <h3 id="h3-2">講者診所的設備 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Equipment</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>探頭</th><th>頻率</th></tr></thead>
+          <tbody>
+            <tr><td>Mindray M9Vet 超音波機：微凸陣探頭（micro-convex）</td><td>5–11 MHz</td></tr>
+            <tr><td>線性探頭（linear）</td><td>10–14 MHz</td></tr>
+            <tr><td>超高頻線性探頭（ultra-high linear）</td><td>可推到 24 MHz</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">補充（講義以外的文獻）</div>
+        <p>搜尋到的基礎原理：診斷超音波約 2–15 MHz；<strong>頻率越高，解析度越好但穿透越淺</strong>，所以依目標深度選擇。小動物淺層構造（如皮膚、肌肉、骨骼腫塊）才需要高頻線性探頭；講義也說這些構造離探頭很近，用低於 10 MHz 的探頭會很困難，有時要加墊高墊（stand-off pad）。我沒有找到針對鸚鵡的頻率建議。</p>
+      </div>
+
+      <h3 id="h3-3">保定與麻醉 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Positioning and anesthesia</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>多數動物以<strong>側臥或背臥</strong>、不麻醉檢查，耐受很好。</li>
+        <li><strong>鳥類</strong>講者偏好像拍 X 光一樣，在 isoflurane 麻醉下檢查，因為比較不會亂動；較大的鳥（如雞）可以站著檢查。</li>
+        <li><strong>例外：</strong>有心臟或呼吸窘迫的動物（鳥類常見）。要評估檢查的時間對動物是否太緊迫；這時最好維持牠的正常姿勢（腹臥），不麻醉，直接把動物放到探頭上。</li>
+      </ul>
+
+      <h3 id="h3-4">檢查的固定路徑 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Routine investigation route</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>動物</th><th>路徑（講義）</th></tr></thead>
+          <tbody>
+            <tr><td>蛇</td><td>從<strong>心臟</strong>開始往尾側：肝 → 胃 → 膽囊 → 腸 → 性腺 → 腎 → 泄殖腔</td></tr>
+            <tr><td>其他動物</td><td>從<strong>肝與膽囊</strong>（如果有）開始，再依固定順序看整個腹腔</td></tr>
+            <tr><td>小型哺乳類</td><td>有時從膀胱開始（用來調機器）→ 往頭側：腸 → 腎 → 母的卵巢 → 最後肝與膽囊；也可以先看肝與膽囊、最後看膀胱，依主要問題而定</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>記得：<strong>鳥與爬蟲的腎臟等器官外觀和小型哺乳類不同</strong>，基礎超音波知識要延伸到這些物種。</p>
+    </div>
+
+    <div class="section" id="section-bird">
+      <div class="section-head"><div class="section-num">3</div><h2>鳥類超音波 <span style="font-weight:400;font-size:.62em;opacity:.75;">Ultrasound in the avian client</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Ultrasound.pdf#page=1" data-label="p.1">p.1–3</a></p>
+
+
+      <h3 id="h3-5">限制：氣囊 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Air sacs as the first limiting factor</span></h3>
+      <p>超音波束在空氣層被完全反射，遠端消失（distal extinction），所以空氣層下面什麼都看不見；因此鳥類的適應症有限，聲窗很小：</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>前腹側：</strong>劍突（xiphoid）後方，朝頭側（cranioventral）。</li>
+        <li><strong>後腹側：</strong>骨盆內（caudoventral）。</li>
+        <li><strong>胸骨旁側面：</strong>幾乎不可能用在鸚鵡。</li>
+        <li><strong>經腸道：</strong>需要特殊高頻探頭（昂貴）。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">補充（講義以外的文獻）</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>什麼情況最好掃：</strong>空氣被積液或實質腫塊取代時；器官腫大、氣囊被擠開、積液都會改善影像。健康鳥的內臟超音波影像很難取得，但生病的鳥就沒那麼難。（<a href="https://www.ivis.org/library/sevc/sevc-annual-conference-granada-2016/avian-ultrasonography" target="_blank" rel="noopener">IVIS</a>）</li>
+          <li><strong>探頭位置：</strong>可放腹側（胸骨後）或側面（胸骨旁），依想看的區域與物種而定；肝臟的腹側中線入路（胸骨正後方）有文獻描述，但那篇是談內視鏡與切片，不是超音波。（<a href="https://www.dvm360.com/view/avian-radiology-proceedings" target="_blank" rel="noopener">dvm360</a>）</li>
+          <li><strong>缺乏參考值：</strong>鳥類超音波文獻少、沒有參考範圍，也不能像哺乳類那樣拿肝臟回音性與脾臟或脂肪比較。</li>
+          <li>找到一個可能有用的線索：LafeberVet 的「Ultrasound in Birds: From Finch to Goose」大綱（Schnitzer），但我沒有讀到內容。（<a href="https://lafeber.com/vet/wp-content/uploads/2022/02/Ultrasound-in-Birds-Outline-LV.pdf" target="_blank" rel="noopener">連結</a>）</li>
+        </ul>
+      </div>
+
+      <h3 id="h3-6">適應症 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Indications in birds</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>適應症</th><th>講義重點</th></tr></thead>
+          <tbody>
+            <tr><td>腹部腫大：不明來源腫瘤、腹水（ascites）</td><td><strong>首選檢查</strong>。腹水是超音波的完美對比劑，此時超音波可取代 X 光。但腹水的鳥常有呼吸問題，要權衡：「影像沒那麼完美但活著的鳥」vs「完美診斷但可能死掉的動物」</td></tr>
+            <tr><td>器官評估</td><td>大小、形狀與回音型態變化：囊腫、肝硬化、腫瘤</td></tr>
+            <tr><td>母鳥生殖道</td><td>監測卵巢功能；偵測卵阻塞（egg binding）、變形或多層蛋殼的蛋</td></tr>
+            <tr><td>心臟疾病、心包積液</td><td>很容易看見</td></tr>
+            <tr><td>皮膚、肌肉、骨骼腫瘤</td><td>可測量與追蹤；常因位置貼近探頭，用 &lt;10 MHz 探頭不容易，有時需墊高墊（stand-off pad）；<strong>一定也要掃健側做對照</strong></td></tr>
+            <tr><td>老年或外傷鳥的關節、肌肉、肌腱</td><td>腫脹、發炎、軟骨損傷、裂縫與結構改變</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="h3-7">老鸚鵡與心血管疾病 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Old parrots and cardiovascular disease</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>心血管疾病在鳥類很常見；<strong>心衰竭是老鳥（30 歲以上）發病與死亡的主因</strong>（講者的經驗）。</li>
+        <li><strong>鳥心臟的特點：</strong>飛行造成較高的代謝需求，所以心輸出量高，靠較大的心臟與每單位時間更多的血液來達成；與哺乳類一樣是四腔心加心包膜；哺乳類的心尖略偏胸腔左側，鳥的心臟略偏中線右側。</li>
+        <li>寵物鳥的心血管疾病比野鳥常見，可能與壽命較長、運動與飲食有關。</li>
+        <li><strong>診斷的難處：</strong>可以聽診，但幫助不大；鳥<strong>沒有可摸的脈搏</strong>；所以常需要 X 光、心臟超音波、心電圖，甚至死後檢查。徵象不特異（嗜睡、呼吸困難、運動不耐受），要問病史、飲食、環境與繁殖。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>研究（講義引用）</th><th>結果</th></tr></thead>
+          <tbody>
+            <tr><td>269 隻鸚形目：充血性心衰竭</td><td>發生率高達 9.7%；有心臟問題的鳥中 58% 以心臟衰竭為死因，10% 為右心室或雙心室衰竭，其餘 5% 為左心室衰竭；42% 的心臟病變被視為偶發或次發</td></tr>
+            <tr><td>107 隻圈養鸚形目（虎皮鸚鵡與澳洲國王鸚鵡）</td><td>36% 有心臟或大血管的肉眼病變；<strong>99% 的鳥血管或心臟有某種程度的病理改變</strong>；6% 心包積液、15% 漿液纖維素性心包膜附著、另 15% 心室肥厚或擴張</td></tr>
+            <tr><td>動脈粥樣硬化（2013 年研究）</td><td>7,683 隻鸚鵡中晚期粥樣硬化盛行率 6.8%；其發生率與 45–75 歲的人類相近，年齡是重要決定因素（同「鸚鵡醫學」頁的心血管補充）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">講義提醒：大型心血管研究多來自商業鳥群，育種遺傳可能是高發生率的原因，結果未必適用野鳥或其他鳥種。</p>
+    </div>
+
+    <div class="section" id="section-reptile">
+      <div class="section-head"><div class="section-num">4</div><h2>爬蟲超音波 <span style="font-weight:400;font-size:.62em;opacity:.75;">Ultrasound in the reptile client</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Ultrasound.pdf#page=3" data-label="p.3">p.3–4</a></p>
+
+      <p class="section-desc">蛇、蜥蜴、龜鱉、鱷魚合起來約 8,000 種，要知道每個物種的器官在哪裡，需要物種特有的解剖知識。</p>
+
+      <h3 id="h3-8">限制因素 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Limiting factors</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>某些蛇與蜥蜴的<strong>肺很往尾側延伸，幾乎到骨盆</strong>（肺有空氣，會擋住）。</li>
+        <li>有些物種有骨化的鱗片（Tiliqua 與 Heloderma 屬）。</li>
+        <li>有些物種腹部鱗片強烈鈣化。</li>
+        <li><strong>蛻皮（ecdysis）前與蛻皮中不能做超音波</strong>，因為皮膚層之間與層內有空氣。</li>
+      </ul>
+
+      <h3 id="h3-9">適應症 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Indications in reptiles</span></h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>雌雄生殖道是最重要的適應症：</strong>可監測卵巢功能（整個生殖週期）直到卵阻塞；<strong>藉卵泡或蛋的形狀與大小，區分卵阻塞（egg binding）與排卵前卵泡停滯（preovulatory follicle stasis）</strong>；卵胎生蛇可以監測子宮裡的胚胎。</li>
+        <li><strong>相較 X 光的優勢：</strong>X 光看到不明原因的腹部腫大時，超音波能找出原因。</li>
+        <li>內臟的大小、形狀與型態變化；<strong>腸內異物</strong>有典型超音波變化，也可在肛囊（anal bladder）找到異物。</li>
+      </ul>
+      <div class="alert alert-info">
+        <div class="alert-label">補充（講義以外的文獻）</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>蛇的位置概念：</strong>前 1/3 有食道、氣管與心臟；後 1/3 有幽門、十二指腸、腸、腎、性腺、脂肪體與泄殖腔；經腹側體壁、用水性耦合劑成像；<strong>肋骨往尾側覆蓋部分體腔會擋住視野</strong>。（<a href="https://www.vettimes.co.uk/app/uploads/wp-post-to-pdf-enhanced-cache/1/ultrasonography-for-exotics-effective-methods-of-working.pdf" target="_blank" rel="noopener">Vet Times 文章</a>）</li>
+          <li><strong>卵泡停滯（follicular stasis）：</strong>大的高回音卵泡（有或沒有游離體腔液）具診斷性；超音波也能找出卵泡退化或「無用的卵」（slugs）。</li>
+          <li><strong>探頭頻率的例子：</strong>蛇的研究用過 10–12 MHz 或 7.5–10 MHz 線性陣列；小型蜥蜴用過 6–15 MHz 或 8–18 MHz 線性探頭；一項豹紋守宮的研究看不到心臟，作者推測是體型小與沒用到更高頻探頭。（<a href="https://improveinternational.com/us/clinical-library/ultrasonographic-anatomy-of-reproductive-female-leopard-geckos" target="_blank" rel="noopener">豹紋守宮研究</a>）</li>
+          <li>同一項守宮研究中，有一隻正在蛻皮，鬆脫的皮膚讓影像完全取不到——與講義一致。蛇的生殖超音波研究多為皇蟒與紅尾蚺。我沒有找到蛇難產或蛻皮影響的專門文獻。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="section-mammal">
+      <div class="section-head"><div class="section-num">5</div><h2>小型哺乳類超音波 <span style="font-weight:400;font-size:.62em;opacity:.75;">Ultrasound in small mammals</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Hochleithner_Ultrasound.pdf#page=4" data-label="p.4">p.4</a></p>
+
+      <p class="section-desc">像狗貓一樣可以做；唯一的限制是某些物種（如天竺鼠與兔）腸道氣體太多。多數動物不需壓力就能完成。</p>
+      <h3 id="h3-10">適應症 <span style="font-weight:400;font-size:.8em;opacity:.7;">— Indications in small mammals</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>系統</th><th>講義重點</th></tr></thead>
+          <tbody>
+            <tr><td>雌性生殖道</td><td>與其他異寵一樣是<strong>首選檢查</strong>：天竺鼠卵巢囊腫很容易診斷；監測子宮變化；找到胚胎就可確認懷孕</td></tr>
+            <tr><td>腫瘤</td><td>生殖道、睪丸、乳腺的腫瘤可以測量與追蹤；<strong>雪貂的腎上腺腫瘤</strong>也可以</td></tr>
+            <tr><td>所有器官</td><td>回音結構、大小與形狀的改變；<strong>泌尿道結石</strong>很容易偵測</td></tr>
+            <tr><td>老年動物</td><td>可偵測心臟疾病，並以定期檢查追蹤治療成效</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-glossary">
+      <div class="section-head"><div class="section-num">6</div><h2>縮寫與名詞對照 <span style="font-weight:400;font-size:.62em;opacity:.75;">Glossary</span></h2></div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td style="white-space:nowrap;"><strong>Acoustic window</strong></td><td>聲窗：超音波能穿過、不被空氣或骨頭擋住的探頭位置</td><td style="white-space:nowrap;"><strong>Distal extinction</strong></td><td>遠端消失：超音波束被強反射後，其後方看不到任何構造</td></tr>
+            <tr><td><strong>Air sac</strong></td><td>氣囊（鳥類的呼吸系統構造）</td><td><strong>Stand-off pad</strong></td><td>墊高墊：貼在探頭與淺層構造之間，讓構造落在探頭焦距內</td></tr>
+            <tr><td><strong>Micro-convex／Linear</strong></td><td>微凸陣探頭／線性探頭</td><td><strong>MHz</strong></td><td>兆赫：超音波頻率單位，越高解析度越好、穿透越淺</td></tr>
+            <tr><td><strong>Ecdysis</strong></td><td>蛻皮</td><td><strong>Egg binding</strong></td><td>卵阻塞（難產）</td></tr>
+            <tr><td><strong>Preovulatory follicle stasis</strong></td><td>排卵前卵泡停滯（爬蟲生殖疾病）</td><td><strong>Anal bladder</strong></td><td>肛囊（部分爬蟲的構造）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">7</div><h2>預習問題 <span style="font-weight:400;font-size:.62em;opacity:.75;">Self-check questions</span></h2></div>
+      <p class="section-desc">看完筆記後先自行作答；上課時可以對照老師的重點。</p>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q1. 鳥類為什麼超音波的適應症受限？什麼情況最適合做？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">因為氣囊內的空氣會完全反射超音波束，空氣層後面看不到（遠端消失），聲窗很小。最適合的是腹部腫大：不明來源的腫瘤或腹水；腹水讓液體取代氣囊，是超音波的完美對比劑，可取代 X 光。要注意腹水的鳥常有呼吸問題，要權衡「不完美的影像但活著」與「完美的診斷但可能死亡」。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q2. 列出鳥類的 4 個聲窗，並說明哪一個在鸚鵡幾乎不可行。</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">前腹側（劍突後方，朝頭側）、後腹側（骨盆內）、胸骨旁側面（鸚鵡幾乎不可能）、經腸道（需要特殊高頻探頭、昂貴）。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q3. 呼吸困難的鸚鵡需要做腹部超音波，你會怎麼保定？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">一般會在 isoflurane 麻醉下做（像 X 光一樣，比較不會動）；但有心臟或呼吸窘迫的鳥要評估檢查時間對動物是否太緊迫，最好維持牠的正常姿勢（腹臥），不麻醉，直接把動物放在探頭上。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q4. 母蛇腹部腫大，X 光看到不明團塊。超音波能提供什麼？有哪些限制？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">能找出腫大原因（相較 X 光的優勢），監測卵巢功能與卵泡／蛋的形狀與大小，區分卵阻塞與排卵前卵泡停滯，卵胎生蛇可看子宮裡的胚胎，也能找腸內異物。限制：蛻皮前與蛻皮中不能做（皮膚層間有空氣）；有些蛇的肺往尾側延伸很遠；鱗片可能骨化或鈣化；每個物種的器官位置不同。蛇的檢查路徑從心臟開始往尾側。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q5. 為什麼超音波是異寵雌性生殖道疾病的首選檢查？小型哺乳類做超音波有什麼限制？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">雌性生殖道（卵巢囊腫在天竺鼠容易診斷、子宮變化、懷孕與腫瘤）是異寵超音波的首選適應症。限制是腸道氣體太多（天竺鼠與兔）。</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="section" id="section-references">
+      <div class="section-head"><div class="section-num">8</div><h2>參考資料 <span style="font-weight:400;font-size:.62em;opacity:.75;">References</span></h2></div>
+      <ul style="margin:0;padding-left:1.2em;line-height:1.9;">
+        <li>Hochleithner C, Hochleithner M. <i>Ultrasound in Exotic Pets: From Beginning to Advanced</i>（FASAVA 2026 講義，書面稿）。</li>
+        <li><a href="https://www.ivis.org/library/sevc/sevc-annual-conference-granada-2016/avian-ultrasonography" target="_blank" rel="noopener">IVIS：Avian ultrasonography</a>；<a href="https://www.dvm360.com/view/avian-radiology-proceedings" target="_blank" rel="noopener">dvm360：Avian radiology proceedings</a>；<a href="https://lafeber.com/vet/wp-content/uploads/2022/02/Ultrasound-in-Birds-Outline-LV.pdf" target="_blank" rel="noopener">LafeberVet：Ultrasound in birds outline</a></li>
+        <li><a href="https://www.vettimes.co.uk/app/uploads/wp-post-to-pdf-enhanced-cache/1/ultrasonography-for-exotics-effective-methods-of-working.pdf" target="_blank" rel="noopener">Vet Times：Ultrasonography for exotics</a>；<a href="https://improveinternational.com/us/clinical-library/ultrasonographic-anatomy-of-reproductive-female-leopard-geckos" target="_blank" rel="noopener">豹紋守宮生殖超音波解剖</a></li>
+        <li><a href="https://www.vin.com/doc/?id=3850314" target="_blank" rel="noopener">VIN：Indications and contraindications of ultrasound in exotic animals and pet birds</a>（搜尋到的相關條目，我沒有讀到內容）。</li>
+      </ul>
+      <p style="font-size:11.5px;color:var(--text3);">「補充」框的內容只讀到搜尋摘要，沒有讀全文；講義的數字沒有另外核對。</p>
+    </div>
+
+    <footer class="note-footer">
+      本頁內容整理自 FASAVA 2026 台北 Hochleithner 夫婦「Ultrasound in Exotic Pets: From Beginning to Advanced」書面講義與網路文獻，僅供院內教學預習使用，不作為單獨診斷依據。
+    </footer>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('open', x.dataset.sec === id));
+}
+function goSub(hid) {
+  const el = document.getElementById(hid);
+  if (el) el.scrollIntoView({ block: 'start' });
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + hid));
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+  const hio = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + e.target.id)); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('.section h3[id^="h3-"]').forEach(h => hio.observe(h));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '預習重點',
+  overview: '設備、保定與檢查路徑',
+  bird: '鳥類超音波',
+  reptile: '爬蟲超音波',
+  mammal: '小型哺乳類超音波',
+  glossary: '縮寫與名詞對照',
+  quiz: '預習問題',
+  references: '參考資料'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js?v=3"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="../assets/pdf-viewer.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：專題 - 眼球超音波判讀 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">專題：眼球超音波判讀</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">專題：眼球超音波判讀</h1>
+      <p class="page-subtitle">眼科超音波（ocular ultrasonography）從原理、操作、正常影像與測量值，到前段、玻璃體、視網膜、眼球與球後的異常表現；最後一節整理貓瀰漫性虹膜黑色素瘤（Feline Diffuse Iris Melanoma, FDIM）各期在超音波上看得到與看不到的東西</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">院內參考專題（影像判讀；非單一病例紀錄，未含病患識別資料）</div></div>
+      <div class="meta-item"><div class="meta-label">主要問題</div><div class="meta-value">眼球超音波正常長什麼樣、異常怎麼分辨；FDIM 在 B-mode 與 UBM 上能看到什麼</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">Kim 2026（貓 UBM 正常值）、Mirshahi 2014（波斯貓 B-mode）、Kim 2024（犬 B-mode）、Kim 2025（UBM 回顧）、Gallhoefer 2013、Lamagna 2019 等文獻，以及 FASAVA 2026 Kobayashi 講義（見第 12 節）</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-11-07</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">結論</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 核心結論</a>
+    <div class="section-label" style="margin-top:8px;">基礎</div>
+    <a onclick="showSection('principle')" id="nav-principle"><span class="nav-icon">1</span> 原理、設備與適應症</a>
+    <a onclick="showSection('technique')" id="nav-technique"><span class="nav-icon">2</span> 操作步驟與副作用</a>
+    <a onclick="showSection('normal')" id="nav-normal"><span class="nav-icon">3</span> 正常影像</a>
+    <a onclick="showSection('values')" id="nav-values"><span class="nav-icon">4</span> 正常測量值（貓／犬）</a>
+    <div class="section-label" style="margin-top:8px;">異常</div>
+    <a onclick="showSection('ant')" id="nav-ant"><span class="nav-icon">5</span> 前段與水晶體</a>
+    <a onclick="showSection('post')" id="nav-post"><span class="nav-icon">6</span> 玻璃體與視網膜</a>
+    <a onclick="showSection('globe')" id="nav-globe"><span class="nav-icon">7</span> 眼球大小與球後</a>
+    <div class="section-label" style="margin-top:8px;">應用</div>
+    <a onclick="showSection('fdim')" id="nav-fdim"><span class="nav-icon">8</span> FDIM 在超音波上</a>
+    <a onclick="showSection('pitfalls')" id="nav-pitfalls"><span class="nav-icon">9</span> 陷阱與限制</a>
+    <a onclick="showSection('report')" id="nav-report"><span class="nav-icon">10</span> 判讀順序與報告範本</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 自我測驗</a>
+    <a onclick="showSection('refs')" id="nav-refs"><span class="nav-icon">📚</span> 參考資料與圖片授權</a>
+    <a onclick="showSection('followup')" id="nav-followup"><span class="nav-icon">📌</span> 待確認事項</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 0 ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">0</div><h2>核心結論</h2></div>
+
+      <div class="overview">
+        <div class="overview__title">這個專題的大方向</div>
+        <dl>
+          <dt>什麼時候用</dt>
+          <dd>眼睛裡面<strong>看不進去</strong>的時候（角膜水腫、前房出血、成熟白內障、瞳孔縮小），或需要知道<strong>眼睛裡面有沒有東西、東西在哪裡、眼球多大</strong>的時候：外傷、突眼、牛眼、白內障手術前、眼內腫瘤分期。</dd>
+          <dt>兩種機器</dt>
+          <dd><strong>一般 B-mode</strong>（約 7.5–15 MHz）看整顆眼球與球後；<strong>超音波生物顯微鏡（Ultrasound Biomicroscopy, UBM）</strong>（35–100 MHz）只看前段 4–5 mm，但能量出虹膜、睫狀體、隅角的厚度與角度（Kim 2026）。</dd>
+          <dt>正常影像的口訣式重點</dt>
+          <dd>液體（前房、玻璃體）是黑的；<strong>水晶體只看得到前後兩條囊的弧線</strong>，內部是黑的；後壁是一條連續亮弧，視網膜、脈絡膜、鞏膜正常時分不開；視神經是後方的低回音帶。</dd>
+          <dt>貓的數字</dt>
+          <dd>波斯貓 B-mode：前房 4.1、水晶體 7.7、玻璃體 8.2、眼軸 20.7 mm（Mirshahi 2014）。家貓 UBM：<strong>虹膜中段厚度 0.53 ± 0.11 mm、根部 0.34 ± 0.06 mm</strong>、隅角 28.9°（Kim 2026）。貓前房比狗深。</dd>
+          <dt>FDIM 在超音波上</dt>
+          <dd><strong>黑色素沉著與早期 FDIM 在一般 B-mode 上通常都是正常的</strong>，B-mode 分不出來。UBM（或 OCT）可能看到病灶處虹膜比對側厚。晚期才會在 B-mode 看到：虹膜／睫狀體增厚或團塊、隅角被堵、牛眼、水晶體脫位、視網膜剝離、腫瘤長出鞏膜。所以 FDIM 的超音波是用來<strong>排除腫瘤已往後走</strong>和<strong>留基準值</strong>，不是用來確診。</dd>
+          <dt>容易搞混</dt>
+          <dd>① 出血或發炎團塊在超音波上可以像腫瘤（Gallhoefer 2013）。② 有出血時，約三分之一的視網膜剝離會被漏判。③ 視網膜剝離的膜<strong>後端連在視神經盤</strong>，後玻璃體剝離不連。④ 老年動物的玻璃體輕度液化很常見，不要過度解讀。</dd>
+        </dl>
+      </div>
+
+      <div class="flow">
+        <div class="flow-node">確認角膜可以接觸（無深層潰瘍、穿孔）</div><span class="flow-arrow">→</span>
+        <div class="flow-node">先做淚液、螢光染色、眼壓、採樣</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">表面麻醉＋無菌凝膠，兩眼同設定掃水平與垂直切面</div><span class="flow-arrow">→</span>
+        <div class="flow-node">由前往後逐層判讀，與對側眼比較</div><span class="flow-arrow">→</span>
+        <div class="flow-node">洗掉凝膠、記錄測量值</div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">本頁怎麼讀</div>
+        <p>標「文獻」的是這次讀到全文或摘要的研究，作者年份寫在旁邊；標「講義」的是 FASAVA 2026 Kobayashi 講義；標「補充」的是一般影像學與眼科知識，這次沒有另外找文獻逐條核對；標「推論」的是我依資料推出的看法。<strong>所有示意圖都是自繪的</strong>，表達的是文獻描述的特徵，不是實際比例；實際影像都標了出處與授權。FDIM 本身的分期、採樣與處置見〈<a href="2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html">貓虹膜色素沉著與 FDIM 診斷流程</a>〉。</p>
+      </div>
+      <footer class="note-footer">本頁為個人學習整理，僅供學習與院內討論使用，不作為正式診斷或治療依據；實際判讀以影像或眼科專科醫師評估為準。</footer>
+    </div>
+
+    <!-- 1 PRINCIPLE -->
+    <div class="section" id="section-principle">
+      <div class="section-head"><div class="section-num">1</div><h2>原理、設備與適應症</h2></div>
+      <p class="section-desc">眼球幾乎都是液體，是超音波最好穿透的器官之一。頻率越高，解析度越好、但看得越淺：看整顆眼球用一般探頭，看虹膜與隅角的細節要用 UBM。</p>
+
+      <h3>四種眼科超音波工具</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>工具</th><th>頻率／特性</th><th>看什麼</th><th>出處</th></tr></thead>
+        <tbody>
+          <tr><td><strong>B-mode（亮度模式）</strong></td><td>一般醫院的線性或微凸探頭，約 7.5–15 MHz；貓眼內腫瘤病例用 13 MHz 線性探頭</td><td>整顆眼球、水晶體位置、玻璃體、視網膜、眼球大小、球後</td><td>補充；Lamagna 2019</td></tr>
+          <tr><td><strong>UBM（超音波生物顯微鏡）</strong></td><td>35–100 MHz，軸向解析度可到 20 μm、側向 50 μm，但穿透只有 4–5 mm</td><td>角膜、前房、虹膜厚度、睫狀體、隅角（iridocorneal angle）、睫狀裂（ciliary cleft）</td><td>文獻：Kim 2026</td></tr>
+          <tr><td><strong>都卜勒（Doppler）</strong></td><td>彩色或能量都卜勒看血流</td><td>團塊裡有沒有血流（腫瘤 vs 血塊）、剝離的膜有沒有血管</td><td>補充；犬病例報告用能量都卜勒分辨剝離視網膜與血塊（見 FDIM 專題第 6 節）</td></tr>
+          <tr><td><strong>顯影超音波（Contrast-Enhanced Ultrasound, CEUS）</strong></td><td>靜脈打微氣泡顯影劑</td><td>在犬貓用來分辨視網膜剝離與玻璃體膜，比 B-mode 和都卜勒好；也用來看團塊灌流</td><td>文獻：Labruyère 2011（標題與一句結論）；Blohm 2019 引述</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>適應症</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>情境</th><th>超音波要回答的問題</th></tr></thead>
+        <tbody>
+          <tr><td><strong>眼內看不到</strong>：角膜水腫或瘢痕、前房出血或積膿、成熟白內障、瞳孔無法散大</td><td>視網膜有沒有剝離？有沒有團塊？水晶體在哪裡？</td></tr>
+          <tr><td><strong>白內障手術前</strong></td><td>排除視網膜剝離、水晶體囊破裂、玻璃體病變；剝離的眼睛手術後也看不到</td></tr>
+          <tr><td><strong>外傷</strong></td><td>眼球有沒有破裂、異物、出血、水晶體脫位</td></tr>
+          <tr><td><strong>眼球突出、斜視、第三眼瞼突出</strong></td><td>球後有沒有團塊、膿瘍、異物</td></tr>
+          <tr><td><strong>牛眼或眼球變小</strong></td><td>兩眼眼軸長度比較、眼內有沒有團塊（續發性青光眼的原因）</td></tr>
+          <tr><td><strong>眼內團塊或虹膜色素病灶</strong></td><td>範圍、有沒有延伸到睫狀體／脈絡膜／鞏膜外（腫瘤分期）</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：上表為一般眼科影像學教材的適應症整理。</p>
+
+      <div class="alert alert-danger"><div class="alert-label">禁忌</div>
+        <p>角膜有<strong>深層潰瘍、後彈力膜膨出（descemetocele）或已穿孔</strong>時，不要用探頭直接壓角膜，探頭壓力可能讓角膜破裂（文獻回顧）。改用隔著閉合眼瞼掃描，或延後檢查。懷疑眼球破裂時同樣避免加壓。</p></div>
+      <footer class="note-footer">資料來源：Kim 2026（Vet Sci 13:50）、Lamagna 2019、Labruyère 2011、Blohm 2019；其餘為補充。</footer>
+    </div>
+
+    <!-- 2 TECHNIQUE -->
+    <div class="section" id="section-technique">
+      <div class="section-head"><div class="section-num">2</div><h2>操作步驟與副作用</h2></div>
+      <p class="section-desc">一般 B-mode 多數動物清醒、只點表面麻醉就能做；UBM 要讓眼球完全不動，貓的研究是在全身麻醉下做的。</p>
+
+      <h3>B-mode 操作步驟</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>先做會被干擾的檢查</strong>：淚液試驗（Schirmer tear test）、螢光染色、眼壓、細菌培養或細胞學採樣，都要在點麻醉劑和塗凝膠<strong>之前</strong>完成（推論：表面麻醉劑會降低淚液量並可能影響培養，凝膠會干擾染色判讀）。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>保定</strong>：清醒、趴姿或坐姿，輕柔固定頭部。貓眼內腫瘤病例是在不鎮靜、胸臥姿下完成（Lamagna 2019）。避免壓迫頸部（會升高眼壓）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>表面麻醉</strong>：點 0.5% proparacaine（貓 UBM 研究使用的藥），等藥效出現再接觸角膜（補充）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>耦合劑</strong>：用<strong>無菌</strong>凝膠（貓病例用 Aquasonic 100 無菌包裝，Lamagna 2019）。三種接觸方式：<br>
+        ① <strong>經角膜（transcorneal）</strong>：探頭隔大量凝膠直接放角膜上，影像最好。<br>
+        ② <strong>經眼瞼（transpalpebral）</strong>：閉眼後放在上眼瞼上，影像較差、有眼瞼的回音，但適合角膜脆弱或不配合的動物。<br>
+        ③ <strong>墊高（standoff）</strong>：加厚的凝膠層或水囊，讓角膜離開探頭近場的雜訊區，前段看得較清楚（補充）。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>切面</strong>：至少掃<strong>水平軸向</strong>和<strong>垂直軸向</strong>兩個切面，再左右、上下掃過整顆眼球。<strong>軸向切面的判斷標準：同一張影像上同時看到角膜、水晶體前後囊、視神經</strong>，這時量的眼軸長度才準（Kim 2024 在水平切面量測）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>增益（gain）</strong>：先開高找玻璃體裡淡的膜或點，再調低區分高回音構造（補充）。<strong>兩眼用同樣的深度與增益</strong>，否則無法比較。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>動態觀察</strong>：輕晃探頭或等眼球自己動，看玻璃體裡的東西會不會飄動、停止後是否繼續晃（後動作, after-movement）。剝離的視網膜因為固定在視神經盤，晃動幅度較小（補充）。</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-text"><strong>結束</strong>：用洗眼液把凝膠沖乾淨，必要時再做一次螢光染色確認角膜沒有擦傷（補充）。</div></div>
+
+      <h3>UBM 的做法（貓研究）</h3>
+      <ul>
+        <li>Kim 2026 的 20 隻家貓：檢查前 1 小時口服 gabapentin 100 mg，再以 propofol 6 mg/kg IV 誘導、isoflurane 維持，<strong>背臥</strong>、上眼瞼開瞼器，點 0.5% proparacaine，探頭套內裝蒸餾水的薄膜套（ClearScan），探頭垂直角膜緣掃 12 點鐘位置（文獻）。</li>
+        <li>作者說明<strong>貓和狗不同</strong>：貓角膜相對大、鞏膜露出少，要看清楚角膜緣必須讓眼球完全不動，所以用全身麻醉（文獻）。</li>
+        <li>UBM 探頭要持續接觸，<strong>壓力會讓隅角變形</strong>，量出來的角度會變（Kim 2025 回顧）。追蹤時盡量同一人、同姿勢、同位置。</li>
+      </ul>
+
+      <h3>副作用與風險</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>風險</th><th>原因</th><th>預防</th></tr></thead>
+        <tbody>
+          <tr><td>角膜擦傷</td><td>探頭摩擦、凝膠乾掉</td><td>凝膠給足、不拖行；結束後沖洗，必要時螢光染色（補充）</td></tr>
+          <tr><td>角膜破裂</td><td>深層潰瘍或後彈力膜膨出時加壓</td><td>改經眼瞼或延後（文獻回顧）</td></tr>
+          <tr><td>眼心反射（oculocardiac reflex）</td><td>壓迫眼球引起迷走神經反射、心跳變慢</td><td>輕壓；麻醉下做 UBM 時監測心跳（補充）</td></tr>
+          <tr><td>麻醉風險</td><td>UBM 在貓需要全身麻醉</td><td>依一般麻醉前評估（文獻：Kim 2026 的做法）</td></tr>
+          <tr><td>影響其他檢查結果</td><td>麻醉劑、凝膠</td><td>依步驟 1 的順序（推論）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：Kim 2026、Lamagna 2019、Kim 2024、Kim 2025；其餘為補充或推論。</footer>
+    </div>
+
+    <!-- 3 NORMAL -->
+    <div class="section" id="section-normal">
+      <div class="section-head"><div class="section-num">3</div><h2>正常影像</h2></div>
+      <p class="section-desc">判讀的基本規則：<strong>液體黑、界面亮</strong>。超音波只有在兩種組織交界、而且聲波垂直打到時才會有強回音，所以水晶體只看得到前後囊。</p>
+
+      <div class="figure"><svg viewBox="0 0 620 402" role="img" aria-label="正常眼球軸向 B-mode 超音波示意圖" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>正常眼球軸向 B-mode 超音波示意圖</title><polygon points="140,318 280,318 330,380 90,380" fill="#9a9a9a" opacity=".75"/><rect x="199" y="314" width="22" height="66" fill="#4a4a4a"/><circle cx="210" cy="180" r="135" fill="none" stroke="#4a4a4a" stroke-width="3"/><path d="M89,240 A135,135 0 0 0 331,240" fill="none" stroke="#f2f2f2" stroke-width="6"/><path d="M125,75 Q210,15 295,75" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M131,80 Q210,25 289,80" fill="none" stroke="#f2f2f2" stroke-width="2"/><path d="M106,100 L172,106" stroke="#9a9a9a" stroke-width="6" stroke-linecap="round"/><path d="M314,100 L248,106" stroke="#9a9a9a" stroke-width="6" stroke-linecap="round"/><ellipse cx="124" cy="120" rx="16" ry="9" fill="#9a9a9a" transform="rotate(35 124 120)"/><ellipse cx="296" cy="120" rx="16" ry="9" fill="#9a9a9a" transform="rotate(-35 296 120)"/><path d="M150,118 Q210,72 270,118" fill="none" stroke="#f2f2f2" stroke-width="4"/><path d="M150,150 Q210,240 270,150" fill="none" stroke="#f2f2f2" stroke-width="4"/><line x1="262" y1="58" x2="380" y2="51" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="262" cy="58" r="2.5" fill="#f3dfb4"/><text x="384" y="55" fill="#f3dfb4" font-size="13">角膜（雙條高回音線）</text><line x1="210" y1="72" x2="380" y2="84" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="210" cy="72" r="2.5" fill="#f3dfb4"/><text x="384" y="88" fill="#f3dfb4" font-size="13">前房（無回音）</text><line x1="300" y1="102" x2="380" y2="114" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="300" cy="102" r="2.5" fill="#f3dfb4"/><text x="384" y="118" fill="#f3dfb4" font-size="13">虹膜（中等回音）</text><line x1="300" y1="124" x2="380" y2="142" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="300" cy="124" r="2.5" fill="#f3dfb4"/><text x="384" y="146" fill="#f3dfb4" font-size="13">睫狀體</text><line x1="262" y1="112" x2="380" y2="172" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="262" cy="112" r="2.5" fill="#f3dfb4"/><text x="384" y="176" fill="#f3dfb4" font-size="13">水晶體前囊／後囊（高回音弧線）</text><line x1="210" y1="150" x2="380" y2="202" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="210" cy="150" r="2.5" fill="#f3dfb4"/><text x="384" y="206" fill="#f3dfb4" font-size="13">水晶體內部（正常無回音）</text><line x1="230" y1="250" x2="380" y2="236" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="230" cy="250" r="2.5" fill="#f3dfb4"/><text x="384" y="240" fill="#f3dfb4" font-size="13">玻璃體（無回音）</text><line x1="312" y1="268" x2="380" y2="270" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="312" cy="268" r="2.5" fill="#f3dfb4"/><text x="384" y="274" fill="#f3dfb4" font-size="13">後壁：視網膜＋脈絡膜＋鞏膜</text><text x="384" y="306" fill="#f3dfb4" font-size="13">　（正常時分不開）</text><line x1="221" y1="345" x2="380" y2="334" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="221" cy="345" r="2.5" fill="#f3dfb4"/><text x="384" y="338" fill="#f3dfb4" font-size="13">視神經（低回音帶）</text><line x1="290" y1="365" x2="380" y2="362" stroke="#f3dfb4" stroke-width="1" opacity=".7"/><circle cx="290" cy="365" r="2.5" fill="#f3dfb4"/><text x="384" y="366" fill="#f3dfb4" font-size="13">球後脂肪（高回音）</text><text x="12" y="22" fill="#f2f2f2" font-size="12">探頭（經角膜，水平軸向切面）↓</text><text x="384" y="394" fill="#9a9a9a" font-size="11">自繪示意圖，比例約依貓眼文獻平均值</text></svg>
+        <div class="figure-caption">正常眼球水平軸向 B-mode 示意。由上而下：角膜雙線 → 無回音前房 → 兩側虹膜與睫狀體 → 水晶體前囊、後囊兩條弧線（內部無回音） → 無回音玻璃體 → 後壁亮弧 → 視神經低回音帶與高回音球後脂肪。</div>
+        <div class="figure-source">來源：自繪示意圖，比例參考 Mirshahi 2014 波斯貓平均值（前房 4.1、水晶體 7.7、玻璃體 8.2 mm）</div></div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>構造</th><th>正常回音</th><th>判讀要點</th></tr></thead>
+        <tbody>
+          <tr><td>角膜</td><td>最前方一到兩條平行高回音線</td><td>貼探頭的近場常有雜訊，要看角膜用墊高法或 UBM</td></tr>
+          <tr><td>前房</td><td>無回音</td><td>出現點狀或線狀回音：出血、積膿、纖維蛋白</td></tr>
+          <tr><td>虹膜、睫狀體</td><td>水晶體前方兩側的中等回音條帶，根部接睫狀體</td><td>B-mode 只看得到大概輪廓，厚度要用 UBM 量</td></tr>
+          <tr><td>水晶體</td><td>前囊、後囊兩條弧形高回音，內部無回音；赤道部通常看不到</td><td>內部出現回音＝白內障；位置偏移＝脫位</td></tr>
+          <tr><td>玻璃體</td><td>無回音</td><td>老年動物可見少量淡回音（液化），不一定有臨床意義</td></tr>
+          <tr><td>後壁</td><td>連續的弧形高回音（視網膜＋脈絡膜＋鞏膜）</td><td>正常時三層分不開；分開或往內隆起就是異常</td></tr>
+          <tr><td>視神經</td><td>後壁正後方的低回音帶</td><td>視神經盤處後壁略凹或略隆</td></tr>
+          <tr><td>球後</td><td>高回音的脂肪錐，內有低回音的肌肉</td><td>出現低回音腔或團塊，或眼球後壁被壓凹：球後病變</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：上表為一般影像學教材的正常回音描述。</p>
+
+      <div class="figure"><img src="img/ocular-us/dog_bmode_normal_kim2024.jpg" alt="犬正常眼球水平切面超音波與測量方法" loading="lazy">
+        <div class="figure-caption">真實的正常犬眼水平切面。可對照上方示意圖：上方兩條亮弧是角膜，中間亮弧是水晶體前囊，下方較亮的弧是水晶體後囊，最底下是後壁。標示的是 Kim 2024 的量法：AC 前房（角膜內皮到水晶體前囊）、LAL 水晶體軸長（前囊到後囊）、VC 玻璃體腔（後囊到視網膜）、GAL 眼軸長度、LEL 水晶體赤道徑。</div>
+        <div class="figure-source">來源：Kim Y, Kim B, Lee K, Yoon H. Front Vet Sci. 2024;11:1482948, Figure 1（CC BY 4.0）</div></div>
+
+      <h3>UBM 看到的前段</h3>
+      <div class="figure"><img src="img/ocular-us/ubm_schematic_kim2025.jpg" alt="隅角與睫狀體解剖與房水流向示意圖" loading="lazy">
+        <div class="figure-caption">隅角與睫狀體的解剖。房水由睫狀體產生（下方黃色箭頭），經後房、瞳孔到前房，再從睫狀裂（ciliary cleft，藍色網點區）流出。FDIM 晚期堵住的就是這個出口。</div>
+        <div class="figure-source">來源：Kim D, Kwon H, Hwang J, Jung JS, et al. Front Vet Sci. 2025;12:1501405, Figure 1（CC BY 4.0）</div></div>
+      <div class="figure"><img src="img/ocular-us/ubm_normal_dog_kim2025.jpg" alt="犬隅角 UBM 影像" loading="lazy">
+        <div class="figure-caption">犬正常隅角的 UBM 影像，和上圖解剖示意對照：角膜、鞏膜、梳狀韌帶（pectinate ligament）、小樑網（trabecular meshwork）、睫狀裂、虹膜、睫狀體、水晶體都分得出來。一般 B-mode 的解析度看不到這些細節。</div>
+        <div class="figure-source">來源：Kim D, et al. Front Vet Sci. 2025;12:1501405, Figure 2（CC BY 4.0）。貓 UBM 量法的原圖見 Kim 2026 Figure 1（<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12846405/" target="_blank" rel="noopener">PMC 全文</a>，CC BY 4.0；出版社網站拒絕下載，所以只放連結）</div></div>
+      <footer class="note-footer">資料來源：Kim 2024、Kim 2025、Mirshahi 2014；表格為補充。</footer>
+    </div>
+
+    <!-- 4 VALUES -->
+    <div class="section" id="section-values">
+      <div class="section-head"><div class="section-num">4</div><h2>正常測量值（貓／犬）</h2></div>
+      <p class="section-desc">貓的資料比狗少很多。實務上最可靠的仍是<strong>和對側眼比</strong>；下面的數字用來判斷「兩眼都異常」或沒有對側眼可比的時候。</p>
+
+      <h3>貓 B-mode：波斯貓（Mirshahi 2014）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>平均 ± 標準差（mm）</th></tr></thead>
+        <tbody>
+          <tr><td>前房深度</td><td>4.1 ± 0.7</td></tr>
+          <tr><td>水晶體厚度</td><td>7.7 ± 0.5</td></tr>
+          <tr><td>玻璃體腔深度</td><td>8.2 ± 0.4</td></tr>
+          <tr><td>眼球前後徑（眼軸）</td><td>20.7 ± 1.0</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>20 隻健康波斯貓、40 眼；左右眼之間、水平與垂直切面之間都沒有顯著差異。眼軸、前房、水晶體厚度與頭圍正相關（文獻：摘要，作者未開放全文）。</li>
+        <li><strong>限制</strong>：波斯貓是短頭品種。2026 年土耳其研究比較短頭與非短頭貓，短頭貓的眼軸與水晶體赤道徑較短、前房較深、水晶體較厚、玻璃體較淺（文獻：摘要，數值未讀到）。所以這組數字<strong>不能直接套到家貓</strong>。</li>
+      </ul>
+
+      <h3>貓 UBM：家貓（Kim 2026）</h3>
+      <p>20 隻健康短毛家貓（Domestic Shorthair）、20 眼，全身麻醉下量 12 點鐘位置（文獻：全文）。挑出和臨床最相關的項目：</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>平均 ± 標準差</th><th>範圍</th><th>臨床意義</th></tr></thead>
+        <tbody>
+          <tr><td><strong>虹膜中段厚度（Iris Middle Width, IMW）</strong></td><td><strong>0.53 ± 0.11 mm</strong></td><td>0.35–0.73</td><td>FDIM、淋巴瘤造成的虹膜增厚</td></tr>
+          <tr><td><strong>虹膜根部厚度（Iris Base Width, IBW）</strong></td><td><strong>0.34 ± 0.06 mm</strong></td><td>0.24–0.47</td><td>同上；根部增厚會壓迫隅角</td></tr>
+          <tr><td>前房深度（ACD）</td><td>4.11 ± 0.32 mm</td><td>3.60–4.65</td><td>和波斯貓 B-mode 的 4.1 mm 一致</td></tr>
+          <tr><td>周邊前房深度（P-ACD）</td><td>3.11 ± 0.21 mm</td><td>2.63–3.52</td><td></td></tr>
+          <tr><td>隅角（Iridocorneal Angle, ICA）</td><td>28.89 ± 4.40°</td><td>20.3–37.0</td><td>變窄：續發性青光眼、虹膜根部被推擠</td></tr>
+          <tr><td>隅角開口距離（AOD）</td><td>1.71 ± 0.40 mm</td><td>1.12–2.58</td><td></td></tr>
+          <tr><td>睫狀裂寬度（CCW）</td><td>1.19 ± 0.16 mm</td><td>0.84–1.41</td><td>房水出口</td></tr>
+          <tr><td>睫狀裂長度（CCL）</td><td>2.07 ± 0.23 mm</td><td>1.66–2.48</td><td></td></tr>
+          <tr><td>睫狀體厚度（縱向纖維區，Lf-CBT）</td><td>0.48 ± 0.08 mm</td><td>0.36–0.62</td><td>睫狀體增厚：腫瘤浸潤、發炎</td></tr>
+          <tr><td>睫狀體軸長（CBAXL）</td><td>2.04 ± 0.39 mm</td><td>1.19–2.56</td><td></td></tr>
+          <tr><td>角膜緣角膜厚度（PCT）</td><td>590 ± 72 μm</td><td>350–680</td><td>水腫時增加</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>多數參數不受性別、體重、年齡影響，只有少數虹膜與前房參數有相關（文獻）。</li>
+        <li>作者明確寫到：虹膜厚度（IBW、IMW）在貓特別有用，因為黑色素沉著與 FDIM 難區分，<strong>IBW 或 IMW 增加與腫瘤侵犯和進展有關</strong>，這組正常值可用於縱向追蹤（文獻，引用 Kayes &amp; Blacklock 2022 與一例 FDIM 病例報告）。<strong>但沒有提出區分 FDIM 的切點</strong>。</li>
+        <li>和狗比：貓的前房明顯較深（水晶體位置較後面），幾何隅角也較寬（文獻：Kim 2026 引言）。</li>
+      </ul>
+
+      <h3>犬 B-mode（Kim 2024，120 隻體態理想的健康犬）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>體重組</th><th>前房 AC</th><th>水晶體軸長 LAL</th><th>玻璃體 VC</th><th>眼軸 GAL</th></tr></thead>
+        <tbody>
+          <tr><td>1–5 kg（n=51）</td><td>2.6 mm</td><td>6.1 mm</td><td>7.8 mm</td><td>17.3 mm</td></tr>
+          <tr><td>5–10 kg（n=45）</td><td>2.8 mm</td><td>6.2 mm</td><td>9.1 mm</td><td>18.4 mm</td></tr>
+          <tr><td>10–20 kg（n=12）</td><td>3.3 mm</td><td>6.2 mm</td><td>9.1 mm</td><td>19.2 mm</td></tr>
+          <tr><td>20–35 kg（n=12）</td><td>3.5 mm</td><td>6.7 mm</td><td>9.5 mm</td><td>20.3 mm</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>原文單位為 cm，此表換算成 mm 並四捨五入；左右眼無差異（文獻：全文表 1）。</li>
+        <li>水晶體赤道徑與眼軸長度隨體重增加；<strong>水晶體赤道徑 ÷ 眼軸長度（LEL:GAL）= 0.642 ± 0.022</strong>，不受體重與品種影響，可以在沒有品種正常值時參考（文獻）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：Mirshahi 2014（摘要）、Kim 2026（全文）、Kim 2024（全文）、Kafkas Univ Vet Fak Derg 2026 短頭貓研究（摘要）。</footer>
+    </div>
+
+    <!-- 5 ANTERIOR -->
+    <div class="section" id="section-ant">
+      <div class="section-head"><div class="section-num">5</div><h2>異常：前段與水晶體</h2></div>
+      <p class="section-desc">前段的問題多半用裂隙燈就看得到；超音波的價值在角膜或前房混濁時，以及要知道團塊往後延伸多深的時候。</p>
+
+      <div class="us-atlas">
+        <div class="figure"><svg viewBox="0 0 200 200" role="img" aria-label="虹膜睫狀體腫塊示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>虹膜睫狀體腫塊示意</title><polygon points="70,180 130,180 150,200 50,200" fill="#9a9a9a" opacity=".7"/><rect x="94" y="178" width="12" height="22" fill="#4a4a4a"/><circle cx="100" cy="100" r="80" fill="none" stroke="#4a4a4a" stroke-width="2"/><path d="M31,140 A80,80 0 0 0 169,140" fill="none" stroke="#f2f2f2" stroke-width="4"/><path d="M42,45 Q100,0 158,45" fill="none" stroke="#f2f2f2" stroke-width="2.5"/><path d="M30,60 L74,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M170,60 L126,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M70,70 Q100,46 130,70" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M70,86 Q100,128 130,86" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M28,56 Q40,48 72,60 Q78,80 70,104 Q52,118 34,110 Q22,84 28,56 Z" fill="#9a9a9a" stroke="#ff8a65" stroke-width="2.5"/><circle cx="48.5" cy="76.7" r="0.9" fill="#f2f2f2"/><circle cx="64.7" cy="58.3" r="1.2" fill="#f2f2f2"/><circle cx="65.9" cy="62.0" r="1.2" fill="#f2f2f2"/><circle cx="54.7" cy="60.0" r="1.1" fill="#f2f2f2"/><circle cx="58.1" cy="80.6" r="1.4" fill="#f2f2f2"/><circle cx="36.3" cy="69.9" r="0.9" fill="#f2f2f2"/><circle cx="50.3" cy="104.2" r="1.3" fill="#f2f2f2"/><circle cx="61.0" cy="77.2" r="1.4" fill="#f2f2f2"/><circle cx="34.1" cy="72.6" r="1.3" fill="#f2f2f2"/><circle cx="59.0" cy="79.1" r="0.9" fill="#f2f2f2"/><circle cx="40.7" cy="68.5" r="1.0" fill="#f2f2f2"/><circle cx="62.4" cy="68.0" r="1.5" fill="#f2f2f2"/><circle cx="65.2" cy="60.7" r="1.1" fill="#f2f2f2"/><circle cx="49.7" cy="59.2" r="1.1" fill="#f2f2f2"/><circle cx="66.3" cy="63.6" r="1.3" fill="#f2f2f2"/><circle cx="34.8" cy="86.9" r="1.5" fill="#f2f2f2"/><circle cx="33.3" cy="85.0" r="0.8" fill="#f2f2f2"/><circle cx="33.4" cy="82.8" r="1.5" fill="#f2f2f2"/><circle cx="46.8" cy="77.9" r="1.3" fill="#f2f2f2"/><circle cx="33.7" cy="87.0" r="0.9" fill="#f2f2f2"/><circle cx="54.4" cy="105.9" r="0.8" fill="#f2f2f2"/><circle cx="52.2" cy="88.3" r="0.9" fill="#f2f2f2"/><circle cx="40.7" cy="107.7" r="1.6" fill="#f2f2f2"/><circle cx="34.9" cy="93.3" r="1.6" fill="#f2f2f2"/><circle cx="39.5" cy="88.6" r="0.8" fill="#f2f2f2"/><circle cx="44.6" cy="91.7" r="1.3" fill="#f2f2f2"/><circle cx="61.0" cy="62.3" r="1.1" fill="#f2f2f2"/><circle cx="64.6" cy="87.2" r="1.2" fill="#f2f2f2"/><circle cx="46.1" cy="107.3" r="1.3" fill="#f2f2f2"/></svg><div class="figure-caption"><strong>虹膜／睫狀體腫塊</strong>：從虹膜根部或睫狀體長出的實質、有回音團塊，可能往後凸入玻璃體。</div></div>
+        <div class="figure"><svg viewBox="0 0 200 200" role="img" aria-label="葡萄膜囊腫示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>葡萄膜囊腫示意</title><polygon points="70,180 130,180 150,200 50,200" fill="#9a9a9a" opacity=".7"/><rect x="94" y="178" width="12" height="22" fill="#4a4a4a"/><circle cx="100" cy="100" r="80" fill="none" stroke="#4a4a4a" stroke-width="2"/><path d="M31,140 A80,80 0 0 0 169,140" fill="none" stroke="#f2f2f2" stroke-width="4"/><path d="M42,45 Q100,0 158,45" fill="none" stroke="#f2f2f2" stroke-width="2.5"/><path d="M30,60 L74,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M170,60 L126,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M70,70 Q100,46 130,70" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M70,86 Q100,128 130,86" fill="none" stroke="#f2f2f2" stroke-width="3"/><circle cx="52" cy="78" r="15" fill="#0d0d0d" stroke="#ff8a65" stroke-width="2"/></svg><div class="figure-caption"><strong>葡萄膜囊腫</strong>：圓形、壁薄、內部無回音，可能附著在虹膜後方或飄在前房。</div></div>
+        <div class="figure"><svg viewBox="0 0 200 200" role="img" aria-label="水晶體後脫位示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>水晶體後脫位示意</title><polygon points="70,180 130,180 150,200 50,200" fill="#9a9a9a" opacity=".7"/><rect x="94" y="178" width="12" height="22" fill="#4a4a4a"/><circle cx="100" cy="100" r="80" fill="none" stroke="#4a4a4a" stroke-width="2"/><path d="M31,140 A80,80 0 0 0 169,140" fill="none" stroke="#f2f2f2" stroke-width="4"/><path d="M42,45 Q100,0 158,45" fill="none" stroke="#f2f2f2" stroke-width="2.5"/><path d="M30,60 L74,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M170,60 L126,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M70,70 Q100,46 130,70 M70,86 Q100,128 130,86" fill="none" stroke="#4a4a4a" stroke-width="1.5" stroke-dasharray="4 3"/><ellipse cx="104" cy="148" rx="26" ry="15" fill="none" stroke="#ff8a65" stroke-width="3"/></svg><div class="figure-caption"><strong>水晶體後脫位</strong>：原位置空掉，水晶體沉到玻璃體下方；前脫位時則出現在前房。</div></div>
+      </div>
+      <div class="figure-source" style="margin-top:-4px;">來源：自繪示意圖，依文獻與一般教材描述繪製</div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>發現</th><th>超音波表現</th><th>鑑別與意義</th></tr></thead>
+        <tbody>
+          <tr><td><strong>前房出血／積膿／纖維蛋白</strong></td><td>前房內點狀、絮狀或線狀回音，可沉積在下方</td><td>出血的血塊可以像團塊；有疑慮時看都卜勒有無血流（補充）</td></tr>
+          <tr><td><strong>虹膜／睫狀體腫塊</strong></td><td>實質、中到高回音，形狀不規則，可能有血流</td><td>貓：FDIM、淋巴瘤、外傷後肉瘤、虹膜睫狀體腺瘤（補充）。超音波和組織學在虹膜睫狀體腫瘤的一致性好（Gallhoefer 2013）</td></tr>
+          <tr><td><strong>葡萄膜囊腫</strong></td><td>圓形、壁薄、內部無回音</td><td>和實質腫瘤最重要的分別：<strong>囊腫內部是黑的</strong>，腫瘤內部有回音（補充）</td></tr>
+          <tr><td><strong>虹膜增厚</strong></td><td>B-mode 多半看不出；UBM 厚度大於對側或超過正常範圍</td><td>FDIM、淋巴瘤、葡萄膜炎（文獻：Kim 2026 引言）</td></tr>
+          <tr><td><strong>隅角變窄或關閉</strong></td><td>UBM：虹膜根部貼到角膜後面、ICA 變小、睫狀裂塌陷</td><td>續發性青光眼。貓正常 ICA 約 29°（Kim 2026）</td></tr>
+          <tr><td><strong>白內障</strong></td><td>水晶體內部出現回音；膨脹期水晶體變厚</td><td>白內障手術前必須做超音波排除視網膜剝離（補充）</td></tr>
+          <tr><td><strong>水晶體囊破裂</strong></td><td>囊的亮弧不連續、水晶體物質流到玻璃體</td><td>外傷；貓外傷後肉瘤與水晶體破裂有關（補充）</td></tr>
+          <tr><td><strong>水晶體脫位</strong></td><td>前脫位：水晶體在前房；後脫位：在玻璃體，常沉到下方</td><td>貓多為慢性葡萄膜炎或青光眼的續發結果（補充）。講義晚期 FDIM 病例 Moco 也有脫位</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：Gallhoefer 2013、Kim 2026、講義 p.45；其餘為補充。</footer>
+    </div>
+
+    <!-- 6 POSTERIOR -->
+    <div class="section" id="section-post">
+      <div class="section-head"><div class="section-num">6</div><h2>異常：玻璃體與視網膜</h2></div>
+      <p class="section-desc">這是 B-mode 最常被問的區域：眼底看不到時，視網膜還在不在原位？玻璃體裡那條線到底是什麼？</p>
+
+      <div class="us-atlas">
+        <div class="figure"><svg viewBox="0 0 200 200" role="img" aria-label="視網膜完全剝離示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>視網膜完全剝離示意</title><polygon points="70,180 130,180 150,200 50,200" fill="#9a9a9a" opacity=".7"/><rect x="94" y="178" width="12" height="22" fill="#4a4a4a"/><circle cx="100" cy="100" r="80" fill="none" stroke="#4a4a4a" stroke-width="2"/><path d="M31,140 A80,80 0 0 0 169,140" fill="none" stroke="#f2f2f2" stroke-width="4"/><path d="M42,45 Q100,0 158,45" fill="none" stroke="#f2f2f2" stroke-width="2.5"/><path d="M30,60 L74,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M170,60 L126,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M70,70 Q100,46 130,70" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M70,86 Q100,128 130,86" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M36,92 Q62,132 100,178 Q138,132 164,92" fill="none" stroke="#ff8a65" stroke-width="3.5"/></svg><div class="figure-caption"><strong>視網膜完全剝離</strong>：V 字形或海鷗翅膀狀亮膜，尖端連在視神經盤，兩端連到鋸齒緣（ora serrata）。</div></div>
+        <div class="figure"><svg viewBox="0 0 200 200" role="img" aria-label="後玻璃體剝離示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>後玻璃體剝離示意</title><polygon points="70,180 130,180 150,200 50,200" fill="#9a9a9a" opacity=".7"/><rect x="94" y="178" width="12" height="22" fill="#4a4a4a"/><circle cx="100" cy="100" r="80" fill="none" stroke="#4a4a4a" stroke-width="2"/><path d="M31,140 A80,80 0 0 0 169,140" fill="none" stroke="#f2f2f2" stroke-width="4"/><path d="M42,45 Q100,0 158,45" fill="none" stroke="#f2f2f2" stroke-width="2.5"/><path d="M30,60 L74,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M170,60 L126,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M70,70 Q100,46 130,70" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M70,86 Q100,128 130,86" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M40,118 Q100,150 160,118" fill="none" stroke="#ff8a65" stroke-width="1.5" stroke-dasharray="5 3"/></svg><div class="figure-caption"><strong>後玻璃體剝離（Posterior Vitreous Detachment, PVD）</strong>：細、淡的膜，不連到視神經盤，晃動明顯。</div></div>
+        <div class="figure"><svg viewBox="0 0 200 200" role="img" aria-label="玻璃體出血示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>玻璃體出血示意</title><polygon points="70,180 130,180 150,200 50,200" fill="#9a9a9a" opacity=".7"/><rect x="94" y="178" width="12" height="22" fill="#4a4a4a"/><circle cx="100" cy="100" r="80" fill="none" stroke="#4a4a4a" stroke-width="2"/><path d="M31,140 A80,80 0 0 0 169,140" fill="none" stroke="#f2f2f2" stroke-width="4"/><path d="M42,45 Q100,0 158,45" fill="none" stroke="#f2f2f2" stroke-width="2.5"/><path d="M30,60 L74,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M170,60 L126,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M70,70 Q100,46 130,70" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M70,86 Q100,128 130,86" fill="none" stroke="#f2f2f2" stroke-width="3"/><circle cx="63.3" cy="138.5" r="1.4" fill="#9a9a9a"/><circle cx="114.5" cy="145.1" r="1.1" fill="#9a9a9a"/><circle cx="66.3" cy="113.7" r="2.2" fill="#9a9a9a"/><circle cx="95.8" cy="161.9" r="1.6" fill="#9a9a9a"/><circle cx="119.5" cy="107.0" r="1.8" fill="#9a9a9a"/><circle cx="151.5" cy="136.9" r="1.9" fill="#9a9a9a"/><circle cx="124.0" cy="100.1" r="1.9" fill="#9a9a9a"/><circle cx="112.8" cy="119.1" r="1.0" fill="#9a9a9a"/><circle cx="151.2" cy="132.8" r="1.9" fill="#9a9a9a"/><circle cx="159.0" cy="126.6" r="2.0" fill="#9a9a9a"/><circle cx="92.2" cy="169.8" r="2.1" fill="#9a9a9a"/><circle cx="43.6" cy="105.9" r="1.3" fill="#9a9a9a"/><circle cx="165.2" cy="129.9" r="1.8" fill="#9a9a9a"/><circle cx="72.1" cy="135.6" r="1.5" fill="#9a9a9a"/><circle cx="79.1" cy="141.8" r="1.7" fill="#9a9a9a"/><circle cx="109.7" cy="152.1" r="1.3" fill="#9a9a9a"/><circle cx="146.4" cy="140.9" r="1.3" fill="#9a9a9a"/><circle cx="168.6" cy="102.1" r="2.0" fill="#9a9a9a"/><circle cx="87.5" cy="107.1" r="1.4" fill="#9a9a9a"/><circle cx="76.3" cy="165.5" r="2.2" fill="#9a9a9a"/><circle cx="73.4" cy="101.2" r="1.7" fill="#9a9a9a"/><circle cx="34.4" cy="110.8" r="1.5" fill="#9a9a9a"/><circle cx="115.5" cy="107.5" r="1.1" fill="#9a9a9a"/><circle cx="151.5" cy="120.1" r="2.2" fill="#9a9a9a"/><circle cx="155.5" cy="125.2" r="1.6" fill="#9a9a9a"/><circle cx="102.8" cy="146.5" r="1.7" fill="#9a9a9a"/><circle cx="108.3" cy="144.6" r="2.1" fill="#9a9a9a"/><circle cx="101.0" cy="129.5" r="1.9" fill="#9a9a9a"/><circle cx="63.3" cy="119.1" r="2.2" fill="#9a9a9a"/><circle cx="103.0" cy="138.9" r="1.0" fill="#9a9a9a"/><circle cx="88.1" cy="141.4" r="1.0" fill="#9a9a9a"/><circle cx="116.2" cy="145.6" r="1.1" fill="#9a9a9a"/><circle cx="117.8" cy="132.3" r="1.8" fill="#9a9a9a"/><circle cx="79.4" cy="151.6" r="1.9" fill="#9a9a9a"/><circle cx="33.1" cy="99.8" r="1.8" fill="#9a9a9a"/><circle cx="164.9" cy="115.1" r="1.5" fill="#9a9a9a"/><circle cx="113.0" cy="120.6" r="1.4" fill="#9a9a9a"/><circle cx="73.8" cy="124.5" r="1.7" fill="#9a9a9a"/><circle cx="72.1" cy="125.2" r="1.9" fill="#9a9a9a"/><circle cx="132.9" cy="119.8" r="1.3" fill="#9a9a9a"/><circle cx="142.5" cy="114.1" r="1.2" fill="#9a9a9a"/><circle cx="90.9" cy="150.8" r="1.1" fill="#9a9a9a"/><circle cx="75.1" cy="121.7" r="2.0" fill="#9a9a9a"/><circle cx="91.4" cy="163.4" r="1.2" fill="#9a9a9a"/><circle cx="77.1" cy="147.0" r="2.1" fill="#9a9a9a"/><circle cx="93.2" cy="113.0" r="1.1" fill="#9a9a9a"/><circle cx="104.1" cy="110.3" r="2.0" fill="#9a9a9a"/><circle cx="147.4" cy="109.7" r="1.3" fill="#9a9a9a"/><circle cx="143.0" cy="146.4" r="2.0" fill="#9a9a9a"/><circle cx="78.3" cy="105.4" r="1.4" fill="#9a9a9a"/><circle cx="141.1" cy="116.7" r="1.4" fill="#9a9a9a"/><circle cx="88.4" cy="128.6" r="1.5" fill="#9a9a9a"/><circle cx="158.9" cy="107.5" r="1.0" fill="#9a9a9a"/><circle cx="61.1" cy="154.6" r="2.0" fill="#9a9a9a"/><circle cx="122.8" cy="136.5" r="1.3" fill="#9a9a9a"/><circle cx="77.7" cy="113.2" r="1.1" fill="#9a9a9a"/><circle cx="112.4" cy="118.0" r="2.0" fill="#9a9a9a"/><circle cx="110.8" cy="96.1" r="1.9" fill="#9a9a9a"/><circle cx="54.1" cy="119.0" r="1.8" fill="#9a9a9a"/><circle cx="103.5" cy="128.1" r="2.1" fill="#9a9a9a"/><circle cx="115.7" cy="122.3" r="1.3" fill="#9a9a9a"/><circle cx="150.6" cy="133.2" r="1.9" fill="#9a9a9a"/><circle cx="79.3" cy="110.8" r="1.6" fill="#9a9a9a"/><circle cx="144.4" cy="108.7" r="2.0" fill="#9a9a9a"/><circle cx="145.3" cy="95.6" r="1.8" fill="#9a9a9a"/><circle cx="150.8" cy="99.0" r="1.3" fill="#9a9a9a"/><circle cx="67.6" cy="137.2" r="1.5" fill="#9a9a9a"/><circle cx="96.2" cy="157.1" r="1.0" fill="#9a9a9a"/><circle cx="37.7" cy="105.1" r="1.1" fill="#9a9a9a"/><circle cx="96.0" cy="156.9" r="1.9" fill="#f2f2f2"/><circle cx="109.6" cy="150.4" r="1.5" fill="#f2f2f2"/><circle cx="134.5" cy="154.5" r="2.2" fill="#f2f2f2"/><circle cx="51.5" cy="150.0" r="2.3" fill="#f2f2f2"/><circle cx="62.2" cy="156.0" r="2.5" fill="#f2f2f2"/><circle cx="123.1" cy="155.7" r="2.4" fill="#f2f2f2"/><circle cx="82.0" cy="154.6" r="1.4" fill="#f2f2f2"/><circle cx="113.4" cy="150.1" r="2.1" fill="#f2f2f2"/><circle cx="78.9" cy="158.7" r="2.3" fill="#f2f2f2"/><circle cx="97.5" cy="158.8" r="1.8" fill="#f2f2f2"/><circle cx="126.6" cy="151.6" r="2.5" fill="#f2f2f2"/><circle cx="144.8" cy="150.5" r="2.2" fill="#f2f2f2"/><circle cx="82.6" cy="166.2" r="1.2" fill="#f2f2f2"/><circle cx="81.1" cy="164.7" r="2.2" fill="#f2f2f2"/><circle cx="105.9" cy="158.7" r="1.6" fill="#f2f2f2"/><circle cx="58.1" cy="152.2" r="1.4" fill="#f2f2f2"/></svg><div class="figure-caption"><strong>玻璃體出血</strong>：點狀、絮狀回音，量多時沉積在下方或形成膜。</div></div>
+        <div class="figure"><svg viewBox="0 0 200 200" role="img" aria-label="星狀玻璃體變性示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>星狀玻璃體變性示意</title><polygon points="70,180 130,180 150,200 50,200" fill="#9a9a9a" opacity=".7"/><rect x="94" y="178" width="12" height="22" fill="#4a4a4a"/><circle cx="100" cy="100" r="80" fill="none" stroke="#4a4a4a" stroke-width="2"/><path d="M31,140 A80,80 0 0 0 169,140" fill="none" stroke="#f2f2f2" stroke-width="4"/><path d="M42,45 Q100,0 158,45" fill="none" stroke="#f2f2f2" stroke-width="2.5"/><path d="M30,60 L74,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M170,60 L126,64" stroke="#9a9a9a" stroke-width="4" stroke-linecap="round"/><path d="M70,70 Q100,46 130,70" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M70,86 Q100,128 130,86" fill="none" stroke="#f2f2f2" stroke-width="3"/><circle cx="94.3" cy="124.5" r="2.5" fill="#f2f2f2"/><circle cx="95.9" cy="121.5" r="2.1" fill="#f2f2f2"/><circle cx="62.2" cy="121.7" r="2.2" fill="#f2f2f2"/><circle cx="135.2" cy="97.5" r="1.8" fill="#f2f2f2"/><circle cx="50.9" cy="139.0" r="2.2" fill="#f2f2f2"/><circle cx="155.8" cy="129.9" r="2.1" fill="#f2f2f2"/><circle cx="58.9" cy="92.9" r="2.0" fill="#f2f2f2"/><circle cx="47.1" cy="103.0" r="1.7" fill="#f2f2f2"/><circle cx="43.6" cy="118.9" r="1.9" fill="#f2f2f2"/><circle cx="141.1" cy="122.1" r="2.2" fill="#f2f2f2"/><circle cx="100.0" cy="130.4" r="1.9" fill="#f2f2f2"/><circle cx="73.4" cy="149.9" r="2.6" fill="#f2f2f2"/><circle cx="140.8" cy="133.1" r="1.8" fill="#f2f2f2"/><circle cx="67.6" cy="108.8" r="1.5" fill="#f2f2f2"/><circle cx="132.0" cy="115.2" r="2.4" fill="#f2f2f2"/><circle cx="86.4" cy="147.6" r="2.4" fill="#f2f2f2"/><circle cx="40.1" cy="104.2" r="2.5" fill="#f2f2f2"/><circle cx="96.4" cy="148.9" r="1.9" fill="#f2f2f2"/><circle cx="48.8" cy="128.5" r="2.3" fill="#f2f2f2"/><circle cx="72.4" cy="97.1" r="1.8" fill="#f2f2f2"/><circle cx="155.7" cy="136.0" r="1.5" fill="#f2f2f2"/><circle cx="69.6" cy="97.9" r="1.5" fill="#f2f2f2"/><circle cx="135.6" cy="102.3" r="2.1" fill="#f2f2f2"/><circle cx="93.7" cy="103.1" r="2.3" fill="#f2f2f2"/><circle cx="55.7" cy="129.3" r="1.5" fill="#f2f2f2"/><circle cx="90.5" cy="104.3" r="1.7" fill="#f2f2f2"/><circle cx="156.5" cy="138.6" r="1.8" fill="#f2f2f2"/><circle cx="146.2" cy="104.2" r="1.9" fill="#f2f2f2"/><circle cx="142.5" cy="129.2" r="1.5" fill="#f2f2f2"/><circle cx="158.7" cy="104.4" r="1.7" fill="#f2f2f2"/><circle cx="132.7" cy="111.1" r="1.8" fill="#f2f2f2"/><circle cx="48.8" cy="97.2" r="2.1" fill="#f2f2f2"/><circle cx="69.2" cy="126.9" r="1.8" fill="#f2f2f2"/><circle cx="94.4" cy="147.6" r="2.0" fill="#f2f2f2"/><circle cx="108.9" cy="142.3" r="1.6" fill="#f2f2f2"/><circle cx="58.5" cy="144.7" r="2.4" fill="#f2f2f2"/><circle cx="69.9" cy="103.0" r="2.3" fill="#f2f2f2"/><circle cx="152.8" cy="103.4" r="2.5" fill="#f2f2f2"/><circle cx="145.9" cy="127.0" r="1.9" fill="#f2f2f2"/><circle cx="52.5" cy="94.2" r="2.6" fill="#f2f2f2"/><circle cx="68.6" cy="132.9" r="1.7" fill="#f2f2f2"/><circle cx="138.8" cy="126.6" r="1.8" fill="#f2f2f2"/><circle cx="61.1" cy="133.8" r="1.5" fill="#f2f2f2"/><circle cx="67.4" cy="124.4" r="2.4" fill="#f2f2f2"/><circle cx="113.7" cy="108.3" r="2.5" fill="#f2f2f2"/><circle cx="64.5" cy="93.0" r="1.7" fill="#f2f2f2"/><circle cx="93.5" cy="95.5" r="1.6" fill="#f2f2f2"/><circle cx="84.3" cy="125.2" r="1.6" fill="#f2f2f2"/><circle cx="83.5" cy="143.7" r="2.6" fill="#f2f2f2"/><circle cx="118.8" cy="132.1" r="2.1" fill="#f2f2f2"/><circle cx="56.8" cy="94.0" r="1.4" fill="#f2f2f2"/><circle cx="149.2" cy="132.7" r="2.6" fill="#f2f2f2"/><circle cx="42.6" cy="128.9" r="2.0" fill="#f2f2f2"/><circle cx="127.7" cy="110.5" r="2.6" fill="#f2f2f2"/><circle cx="49.0" cy="123.7" r="2.3" fill="#f2f2f2"/><circle cx="148.0" cy="134.8" r="2.2" fill="#f2f2f2"/><circle cx="135.2" cy="145.1" r="1.8" fill="#f2f2f2"/><circle cx="122.2" cy="144.2" r="2.4" fill="#f2f2f2"/><circle cx="90.1" cy="137.9" r="2.4" fill="#f2f2f2"/><circle cx="108.7" cy="128.2" r="1.9" fill="#f2f2f2"/><circle cx="109.9" cy="127.3" r="1.5" fill="#f2f2f2"/><circle cx="116.7" cy="149.6" r="2.5" fill="#f2f2f2"/><circle cx="127.4" cy="114.5" r="2.3" fill="#f2f2f2"/><circle cx="109.7" cy="117.6" r="2.4" fill="#f2f2f2"/><circle cx="50.1" cy="135.5" r="1.4" fill="#f2f2f2"/><circle cx="112.2" cy="119.9" r="1.7" fill="#f2f2f2"/><circle cx="123.8" cy="120.8" r="2.1" fill="#f2f2f2"/><circle cx="150.5" cy="106.8" r="1.4" fill="#f2f2f2"/><circle cx="76.1" cy="131.3" r="1.6" fill="#f2f2f2"/></svg><div class="figure-caption"><strong>星狀玻璃體變性（asteroid hyalosis）</strong>：許多明亮小點，隨眼動飄動，與後壁之間常留一層無回音空隙。</div></div>
+      </div>
+      <div class="figure-source" style="margin-top:-4px;">來源：自繪示意圖，依文獻與一般教材描述繪製</div>
+
+      <h3>視網膜剝離 vs 後玻璃體剝離</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>視網膜剝離（Retinal Detachment, RD）</th><th>後玻璃體剝離（PVD）／玻璃體膜</th></tr></thead>
+        <tbody>
+          <tr><td>後端附著</td><td><strong>連在視神經盤</strong>（文獻：犬 182 例系列、Vet Times 回顧）</td><td>不連，或只鬆鬆地貼近</td></tr>
+          <tr><td>前端</td><td>連到鋸齒緣</td><td>可延伸到水晶體後方</td></tr>
+          <tr><td>形狀</td><td>完全剝離呈 V 形、海鷗翅膀狀；部分剝離或合併撕裂時沒有典型形狀（文獻回顧）</td><td>平滑弧線</td></tr>
+          <tr><td>亮度與厚度</td><td>較亮、較厚，降低增益後仍看得到（補充）</td><td>較細、較淡，降增益就消失（補充）</td></tr>
+          <tr><td>動態</td><td>晃動較小</td><td>晃動大、後動作明顯（補充）</td></tr>
+          <tr><td>血流</td><td>可能有血流訊號；CEUS 會顯影</td><td>沒有血流（文獻：Labruyère 2011 犬貓 CEUS）</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="figure"><img src="img/ocular-us/rd_human_commons.jpg" alt="人類視網膜剝離 B-scan 超音波" loading="lazy">
+        <div class="figure-caption">真實的視網膜剝離 B-scan（人類病患，視力只剩光覺）。可以看到剝離的視網膜在玻璃體腔裡形成亮膜，往下收攏到視神經盤的位置，呈 V 形。犬貓的表現原理相同，但眼球比例不同。</div>
+        <div class="figure-source">來源：Wikimedia Commons，CheckDO，〈Retinal Detachment.jpg〉（CC BY-SA 4.0，未修改；<a href="https://commons.wikimedia.org/wiki/File:Retinal_Detachment.jpg" target="_blank" rel="noopener">原檔</a>）</div></div>
+
+      <h3>其他後段發現</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>發現</th><th>超音波表現</th><th>意義</th></tr></thead>
+        <tbody>
+          <tr><td><strong>玻璃體液化（syneresis）、退化</strong></td><td>玻璃體內淡的點或細線</td><td>正常老年犬常見、與年齡相關，<strong>不要過度解讀</strong>（文獻回顧）</td></tr>
+          <tr><td><strong>玻璃體出血</strong></td><td>點狀回音，可沉積、機化成膜</td><td>外傷、高血壓、凝血異常、腫瘤（補充）。<strong>出血會遮住視網膜剝離</strong>（Gallhoefer 2013，見第 9 節）</td></tr>
+          <tr><td><strong>星狀玻璃體變性</strong></td><td>多個高回音點，懸浮在玻璃體中</td><td>鈣與脂質複合物，多半是老化或偶然發現（文獻回顧）</td></tr>
+          <tr><td><strong>眼內炎（endophthalmitis）</strong></td><td>玻璃體瀰漫性回音、膜狀物，眼壁增厚</td><td>貓有專門研究眼內炎超音波表現（Ali 2020，只讀到標題，補充）</td></tr>
+          <tr><td><strong>脈絡膜剝離</strong></td><td>從周邊往內的厚、圓頂狀隆起，不連到視神經盤</td><td>低眼壓、手術後、發炎（補充）</td></tr>
+          <tr><td><strong>後壁團塊或增厚</strong></td><td>從眼壁往內隆起的實質團塊，或局部眼壁增厚</td><td>貓：淋巴瘤、轉移性腫瘤、FDIM 侵犯脈絡膜、肉芽腫（補充）</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="alert alert-info"><div class="alert-label">資訊</div>
+        <p>貓視網膜剝離最常見的原因是<strong>全身性高血壓</strong>（講義 Part 3），看到剝離要量血壓，並找慢性腎病、甲狀腺功能亢進等病因。高血壓也常伴隨眼內出血。</p></div>
+      <footer class="note-footer">資料來源：Gallhoefer 2013、Labruyère 2011、犬 182 例 B-scan 系列（Iranian J Vet Res 2014）、Vet Times 眼科超音波回顧（2022）、講義 Part 3；其餘為補充。</footer>
+    </div>
+
+    <!-- 7 GLOBE -->
+    <div class="section" id="section-globe">
+      <div class="section-head"><div class="section-num">7</div><h2>異常：眼球大小與球後</h2></div>
+      <p class="section-desc">眼球大小一定要兩眼一起量，同一切面、同一量法。</p>
+
+      <div class="us-atlas">
+        <div class="figure"><svg viewBox="0 0 200 200" role="img" aria-label="牛眼示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>牛眼示意</title><circle cx="100" cy="100" r="66" fill="none" stroke="#4a4a4a" stroke-width="1.5" stroke-dasharray="4 3"/><circle cx="100" cy="100" r="90" fill="none" stroke="#ff8a65" stroke-width="3"/><path d="M45,34 Q100,-6 155,34" fill="none" stroke="#f2f2f2" stroke-width="2.5"/><path d="M100,12 L100,188" stroke="#f3dfb4" stroke-width="1" stroke-dasharray="3 3"/><text x="104" y="104" fill="#f3dfb4" font-size="10">眼軸長度↑</text><text x="106" y="150" fill="#9a9a9a" font-size="9">虛線＝對側眼</text></svg><div class="figure-caption"><strong>牛眼（buphthalmos）</strong>：眼軸明顯長於對側眼（虛線）。常合併水晶體脫位、視網膜剝離。</div></div>
+      </div>
+      <div class="figure-source" style="margin-top:-4px;">來源：自繪示意圖</div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>發現</th><th>超音波表現</th><th>意義</th></tr></thead>
+        <tbody>
+          <tr><td><strong>牛眼</strong></td><td>眼軸大於對側眼</td><td>慢性青光眼。講義病例 Moco 患眼 28.8 mm（講義 p.45），對照波斯貓平均 20.7 mm</td></tr>
+          <tr><td><strong>眼球萎縮（phthisis bulbi）／小眼</strong></td><td>眼球小、壁厚、內部結構紊亂，可能有礦物化</td><td>慢性發炎或外傷的終點。萎縮眼仍可能長出腫瘤（Lamagna 2019）</td></tr>
+          <tr><td><strong>眼球破裂</strong></td><td>輪廓不規則或塌陷、眼內大量出血</td><td>檢查時不要加壓（補充）</td></tr>
+          <tr><td><strong>異物</strong></td><td>高回音點或線，後方有聲影或迴響</td><td>穿刺傷；植物性異物回音可能不強（補充）</td></tr>
+          <tr><td><strong>球後膿瘍／蜂窩性組織炎</strong></td><td>球後低回音腔或不均質區、眼球後壁被壓平或壓凹</td><td>常與口腔或牙齒問題相關；可超音波導引採樣（補充）</td></tr>
+          <tr><td><strong>球後腫瘤</strong></td><td>球後實質團塊，眼球被推移</td><td>超音波看範圍有限，骨頭侵犯要用 CT（補充）</td></tr>
+          <tr><td><strong>腫瘤長出鞏膜外</strong></td><td>眼壁亮弧中斷、鞏膜外出現軟組織</td><td>晚期 FDIM 的不良預後因子之一（見 FDIM 專題第 1 節）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：講義 p.45、Lamagna 2019、Mirshahi 2014；其餘為補充。</footer>
+    </div>
+
+    <!-- 8 FDIM -->
+    <div class="section" id="section-fdim">
+      <div class="section-head"><div class="section-num">8</div><h2>FDIM 在超音波上看得到什麼</h2></div>
+      <p class="section-desc">FDIM 從虹膜前表面開始，往下侵犯基質，再往隅角、睫狀體、脈絡膜、鞏膜走。超音波看得到的，是它<strong>已經走到哪裡</strong>；一般 B-mode 的解析度追不到最早的變化。</p>
+
+      <div class="alert alert-warn"><div class="alert-label">重點</div>
+        <p><strong>黑色素沉著和早期 FDIM 在一般 B-mode 上通常都是正常的。</strong>B-mode 沒有異常不能排除 FDIM；有異常時，則表示病灶可能已經不是早期。早期變化要靠 UBM 或前眼節 OCT 看「病灶處虹膜有沒有比對側厚」，這也只是輔助（推論，依 Kim 2026、Komatsu 2024、Kayes &amp; Blacklock 2022 整理）。</p></div>
+
+      <h3>各期的超音波表現</h3>
+      <div class="us-atlas us-atlas--3">
+        <div class="figure"><svg viewBox="0 0 260 140" role="img" aria-label="虹膜黑色素沉著 UBM 示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>虹膜黑色素沉著 UBM 示意</title><path d="M0,22 Q130,4 260,22" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M0,30 Q60,40 20,70" fill="none" stroke="#9a9a9a" stroke-width="10" opacity=".55"/><path d="M150,128 Q215,92 260,96" fill="none" stroke="#f2f2f2" stroke-width="3"/><ellipse cx="40" cy="104" rx="26" ry="12" fill="#9a9a9a" transform="rotate(30 40 104)"/><path d="M28,74 L210,92" stroke="#9a9a9a" stroke-width="7" stroke-linecap="round"/><path d="M110,82 L170,88" stroke="#f2f2f2" stroke-width="2"/></svg><div class="figure-caption"><strong>黑色素沉著</strong>：色素在前表面，虹膜厚度與對側相同。</div></div>
+        <div class="figure"><svg viewBox="0 0 260 140" role="img" aria-label="早期 FDIM UBM 示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>早期 FDIM UBM 示意</title><path d="M0,22 Q130,4 260,22" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M0,30 Q60,40 20,70" fill="none" stroke="#9a9a9a" stroke-width="10" opacity=".55"/><path d="M150,128 Q215,92 260,96" fill="none" stroke="#f2f2f2" stroke-width="3"/><ellipse cx="40" cy="104" rx="26" ry="12" fill="#9a9a9a" transform="rotate(30 40 104)"/><path d="M28,74 L210,92" stroke="#9a9a9a" stroke-width="7" stroke-linecap="round"/><path d="M100,79 Q135,66 175,87 L170,90 Q135,84 104,83 Z" fill="#9a9a9a" stroke="#ff8a65" stroke-width="2"/></svg><div class="figure-caption"><strong>早期 FDIM</strong>：腫瘤細胞侵入基質，病灶處可能局部增厚，也可能看不出來。</div></div>
+        <div class="figure"><svg viewBox="0 0 260 140" role="img" aria-label="晚期 FDIM UBM 示意" style="width:100%;height:auto;display:block;background:#0d0d0d;border-radius:6px;" xmlns="http://www.w3.org/2000/svg"><title>晚期 FDIM UBM 示意</title><path d="M0,22 Q130,4 260,22" fill="none" stroke="#f2f2f2" stroke-width="3"/><path d="M0,30 Q60,40 20,70" fill="none" stroke="#9a9a9a" stroke-width="10" opacity=".55"/><path d="M150,128 Q215,92 260,96" fill="none" stroke="#f2f2f2" stroke-width="3"/><ellipse cx="40" cy="104" rx="26" ry="12" fill="#9a9a9a" transform="rotate(30 40 104)"/><path d="M22,62 Q80,58 210,90 L206,100 Q90,96 30,98 Z" fill="#9a9a9a" stroke="#ff8a65" stroke-width="2.5"/><path d="M14,40 Q30,52 30,70 Q40,96 64,114 Q38,124 18,108 Z" fill="#9a9a9a" stroke="#ff8a65" stroke-width="2"/><text x="70" y="46" fill="#ff8a65" font-size="10">隅角被堵</text><path d="M68,44 L34,56" stroke="#ff8a65" stroke-width="1"/></svg><div class="figure-caption"><strong>晚期 FDIM</strong>：虹膜全面增厚，延伸到隅角、睫狀體，房水出口被堵。</div></div>
+      </div>
+      <div class="figure-source" style="margin-top:-4px;">來源：自繪示意圖（UBM 尺度的前段放大），依 Kayes 2025 分期與 Kim 2026 描述繪製</div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>分期（Kayes 2025）</th><th>一般 B-mode</th><th>UBM／前眼節 OCT</th><th>判讀</th></tr></thead>
+        <tbody>
+          <tr><td><strong>黑色素沉著</strong>（色素細胞只在前表面）</td><td>正常</td><td>厚度與對側眼相當。OCT 的 PN 比值平均 0.99（Komatsu 2024）；UBM 家貓正常虹膜中段 0.53 ± 0.11 mm（Kim 2026）</td><td>留下兩眼基準值，之後追蹤</td></tr>
+          <tr><td><strong>早期 FDIM</strong>（侵入虹膜基質）</td><td>通常正常</td><td>可能局部增厚。OCT PN 比值平均 1.28（Komatsu 2024），但早期 FDIM 4 隻中有 2 隻表面平滑；<strong>UBM 沒有發表過的切點</strong></td><td>增厚支持往積極處置走，但不增厚也不能排除</td></tr>
+          <tr><td><strong>晚期 FDIM</strong>（侵犯睫狀體、脈絡膜、鞏膜）</td><td>虹膜／睫狀體增厚或團塊、隅角區軟組織、牛眼、水晶體脫位、視網膜剝離；鞏膜外延伸時眼壁亮弧中斷</td><td>虹膜全面增厚、根部與睫狀體被浸潤、ICA 變窄或關閉、睫狀裂塌陷</td><td>轉移風險高（Wiggans 2016：鞏膜外延伸、侵犯脈絡膜為預測因子），建議摘眼並做全身分期</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>真實影像</h3>
+      <div class="figure"><img src="../../上群AH/研討會/img/slides/p45.jpg" alt="講義病例 Moco：晚期 FDIM 牛眼與超音波" loading="lazy">
+        <div class="figure-caption">晚期 FDIM 在 B-mode 上：眼球 28.8 mm（牛眼）、水晶體脫位、從虹膜延伸到脈絡膜的寬廣高回音團塊。對側眼只有 4 點鐘方向的淡褐色虹膜色素。摘眼後確認腫瘤已突破鞏膜，貓 15 個月後死於擴散性黑色素瘤。</div>
+        <div class="figure-source">來源：講義 p.45（Tokyo Animal Eye Clinic 病例，經講者同意轉載，依使用者回報）</div></div>
+
+      <div class="figure"><img src="img/ocular-us/cat_iris_melanoma_us_lamagna2019.jpg" alt="13 歲家貓虹膜黑色素瘤合併眼球萎縮的水平切面超音波" loading="lazy">
+        <div class="figure-caption">13 歲家貓，萎縮眼長出虹膜黑色素瘤。水平切面呈「沙漏形」：前方較大、有回音、血流豐富的橢圓形病灶（白色實心箭頭），後方接著較小、混合回音的圓形部分，為玻璃體腔與眼底（空心箭頭），玻璃體部分被前方病灶侵入。13 MHz 線性探頭、不鎮靜。<strong>注意：這隻是少色素、侵犯性強的非典型病例，不是典型 FDIM 的外觀</strong>，放在這裡是示範「眼內腫瘤長大後 B-mode 長什麼樣」。</div>
+        <div class="figure-source">來源：Lamagna B, Uccello V, Prisco F, Russo V, et al. Vet Q. 2019;39(1):131 起, Figure 1（CC BY 4.0）</div></div>
+
+      <h3>超音波在 FDIM 追蹤裡的實際用途</h3>
+      <ol>
+        <li><strong>第一次發現色斑時留基準值</strong>：兩眼眼軸長度、前房深度，有 UBM 時加量病灶處與對側同部位的虹膜厚度、隅角（推論）。</li>
+        <li><strong>決定摘眼前</strong>：確認有沒有往睫狀體、脈絡膜、鞏膜外走，這會影響預後判斷（推論，依 Wiggans 2016 的預測因子）。</li>
+        <li><strong>眼內看不清楚時</strong>：角膜水腫、前房出血、青光眼眼睛，只能靠超音波看眼內（補充）。</li>
+        <li><strong>全身分期</strong>：FDIM 轉移最常見到肝、肺、脾、淋巴結、骨（講義 p.40），腹部超音波看肝脾、胸腔 X 光或 CT 看肺，這是另一種超音波，見 FDIM 專題第 7 節。</li>
+      </ol>
+
+      <h3>貓虹膜／睫狀體團塊的鑑別（超音波分不出組織類型）</h3>
+      <ul>
+        <li><strong>FDIM</strong>：從色斑開始、慢慢進展，通常單側。</li>
+        <li><strong>淋巴瘤</strong>：虹膜與睫狀體瀰漫增厚，常合併葡萄膜炎，可能雙側（補充）；Kim 2026 也把淋巴瘤列為虹膜增厚的原因。</li>
+        <li><strong>外傷後眼內肉瘤</strong>：有外傷或水晶體破裂病史，多年後出現（補充）。</li>
+        <li><strong>虹膜睫狀體腺瘤／腺癌</strong>、<strong>葡萄膜囊腫</strong>（內部無回音）、<strong>肉芽腫或膿瘍</strong>（葡萄膜炎）（補充）。</li>
+        <li>出血或發炎團塊可以像腫瘤（Gallhoefer 2013），最終要靠組織學。</li>
+      </ul>
+      <footer class="note-footer">資料來源：Kayes 2025、Komatsu 2024、Kim 2026、Wiggans 2016、Gallhoefer 2013、Lamagna 2019、講義 p.40、p.45；其餘為補充或推論。</footer>
+    </div>
+
+    <!-- 9 PITFALLS -->
+    <div class="section" id="section-pitfalls">
+      <div class="section-head"><div class="section-num">9</div><h2>陷阱與限制</h2></div>
+      <p class="section-desc">超音波很敏感，但不一定特異；看到東西不等於知道它是什麼，沒看到也不等於沒有。</p>
+
+      <div class="card">
+        <div class="card-title">Gallhoefer 2013：超音波 vs 組織學（116 眼、113 隻動物、兩個機構）</div>
+        <ul>
+          <li>虹膜或睫狀體腫瘤：超音波和組織學的一致性<strong>好</strong>。</li>
+          <li>視網膜剝離：一致性只有中等；其中一個機構漏判 <strong>14／38 眼（37%）</strong>，多數是有眼內出血的眼睛。</li>
+          <li>出血或發炎團塊有時被判讀成腫瘤。</li>
+        </ul>
+        <p style="font-size:.85em; color:var(--fg-muted);">文獻：J Am Vet Med Assoc. 2013;243(3):376–388（摘要）</p>
+      </div>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>陷阱</th><th>怎麼避免</th></tr></thead>
+        <tbody>
+          <tr><td>近場雜訊蓋住角膜與前房</td><td>墊高法（加厚凝膠或水囊）、改用 UBM（補充）</td></tr>
+          <tr><td>切面不在軸上，前房或眼軸量錯</td><td>確認同時看到水晶體前後囊與視神經（Kim 2024 量法）</td></tr>
+          <tr><td>增益太高，玻璃體出現假回音；太低，淡的剝離不見</td><td>先高後低，兩眼同設定（補充）</td></tr>
+          <tr><td>水晶體後方的折射與聲影，讓後壁看起來不連續</td><td>從不同角度斜掃（補充）</td></tr>
+          <tr><td>老年動物玻璃體液化被當成病變</td><td>與年齡相關、常見，不要過度解讀（文獻回顧）</td></tr>
+          <tr><td>UBM 探頭壓力讓隅角變形</td><td>輕壓、同一人同姿勢同位置追蹤（Kim 2025）</td></tr>
+          <tr><td>拿波斯貓或狗的數字套家貓</td><td>優先和對側眼比；記住短頭貓的眼睛比例不同（Kafkas 2026 摘要）</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：Gallhoefer 2013、Kim 2024、Kim 2025；其餘為補充。</footer>
+    </div>
+
+    <!-- 10 REPORT -->
+    <div class="section" id="section-report">
+      <div class="section-head"><div class="section-num">10</div><h2>判讀順序與報告範本</h2></div>
+      <p class="section-desc">固定由外往內、由前往後，才不會只看到最明顯的東西就停下來。</p>
+
+      <div class="flow">
+        <div class="flow-node">眼球大小、輪廓</div><span class="flow-arrow">→</span>
+        <div class="flow-node">角膜</div><span class="flow-arrow">→</span>
+        <div class="flow-node">前房</div><span class="flow-arrow">→</span>
+        <div class="flow-node">虹膜／睫狀體／隅角</div><span class="flow-arrow">→</span>
+        <div class="flow-node">水晶體</div><span class="flow-arrow">→</span>
+        <div class="flow-node">玻璃體</div><span class="flow-arrow">→</span>
+        <div class="flow-node">後壁／視網膜</div><span class="flow-arrow">→</span>
+        <div class="flow-node">視神經、球後</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">兩眼比較</div>
+      </div>
+
+      <h3>報告範本</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>右眼 OD</th><th>左眼 OS</th></tr></thead>
+        <tbody>
+          <tr><td>方式</td><td colspan="2">經角膜／經眼瞼；探頭 ___ MHz；鎮靜：有／無；切面：水平、垂直</td></tr>
+          <tr><td>眼軸長度（mm）</td><td></td><td></td></tr>
+          <tr><td>前房深度（mm）</td><td></td><td></td></tr>
+          <tr><td>水晶體厚度（mm）、位置、內部回音</td><td></td><td></td></tr>
+          <tr><td>虹膜／睫狀體（厚度、團塊、位置以時鐘方向描述）</td><td></td><td></td></tr>
+          <tr><td>玻璃體（無回音／點狀／膜狀；動態）</td><td></td><td></td></tr>
+          <tr><td>視網膜／後壁（是否附著；剝離是否連到視神經盤）</td><td></td><td></td></tr>
+          <tr><td>視神經、球後</td><td></td><td></td></tr>
+          <tr><td>都卜勒（若有團塊）</td><td></td><td></td></tr>
+          <tr><td>結論與建議</td><td colspan="2">例：「右眼 B-mode 未見虹膜睫狀體團塊、水晶體位置正常、視網膜附著；B-mode 無法評估早期虹膜浸潤，建議 UBM／OCT 並依 FDIM 流程追蹤」</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">推論：範本依本頁各節整理；描述位置時用時鐘方向（例如「4 點鐘」），與裂隙燈照片對得起來。</p>
+      <footer class="note-footer">本節為整理範本，非正式報告格式。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">11</div><h2>自我測驗</h2></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 題目為依本頁內容自編的複習題，不是國考或考古題。</p>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 正常眼球 B-mode 上，水晶體為什麼只看得到兩條弧線？(A) 水晶體內部是空的 (B) 水晶體內部組織均勻、只有前後囊與周圍液體的交界會產生強回音 (C) 探頭頻率太低 (D) 水晶體會吸收所有聲波</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。回音來自聲阻不同的組織交界；透明水晶體內部均勻，所以只有前囊、後囊兩個界面亮起來（第 3 節）。(A) 錯：水晶體是實心的蛋白質構造，不是空的。(C) 錯：用 UBM 看水晶體內部同樣是無回音，問題不在頻率。(D) 錯：聲波可以穿透水晶體，所以後方的玻璃體和後壁仍然看得到。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. 玻璃體內看到一條 V 字形亮膜，最能支持「視網膜剝離」而非「後玻璃體剝離」的是哪一點？(A) 膜很細且淡 (B) 膜的尖端連在視神經盤 (C) 眼球一動膜就大幅飄動 (D) 降低增益後膜就消失</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。視網膜固定在視神經盤和鋸齒緣，剝離後仍連在視神經盤（第 6 節表格）。(A) 錯：細而淡較像玻璃體膜。(C) 錯：大幅飄動、後動作明顯較像玻璃體膜。(D) 錯：降增益就消失表示回音弱，也較像玻璃體膜。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">3. 根據 Gallhoefer 2013，下列哪種情況最容易讓超音波漏判視網膜剝離？(A) 白內障 (B) 眼內出血 (C) 牛眼 (D) 前房很深</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。漏判的 14／38 眼（37%）多數有眼內出血，出血的回音會遮住或混淆剝離的膜（第 9 節）。(A) 錯：白內障擋的是眼底鏡，超音波可以穿過；這正是白內障術前要做超音波的原因。(C) 錯：牛眼本身不會遮住視網膜。(D) 錯：貓前房本來就深，與漏判無關。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">4. 一隻貓虹膜有扁平褐色斑，一般 B-mode 完全正常。下列敘述何者正確？(A) 可以排除 FDIM (B) 表示是黑色素沉著 (C) 黑色素沉著與早期 FDIM 在 B-mode 上通常都正常，無法區分 (D) 應立即摘眼</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。B-mode 解析度看不到早期虹膜基質的浸潤（第 8 節）。(A)、(B) 錯：B-mode 正常不能排除早期 FDIM，也不能確定是良性。(D) 錯：B-mode 正常不構成摘眼理由；應依裂隙燈、拍照、眼壓、OCT／UBM 追蹤，出現警訊再積極處置。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">5. Kim 2026 的家貓 UBM 研究中，虹膜中段厚度（IMW）的正常值約為？(A) 0.1 mm (B) 0.53 mm (C) 2.0 mm (D) 4.1 mm</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。0.53 ± 0.11 mm（範圍 0.35–0.73）；根部（IBW）0.34 ± 0.06 mm（第 4 節）。(A) 錯：太薄，低於研究範圍。(C) 錯：約是睫狀體軸長或睫狀裂長度的大小。(D) 錯：那是前房深度。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">6. 角膜有後彈力膜膨出的狗需要評估眼內，最適當的做法是？(A) 經角膜直接加壓掃描 (B) 經閉合眼瞼掃描或延後 (C) 改用 UBM 直接接觸角膜 (D) 先做角膜刮片再掃</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。探頭壓力可能讓脆弱角膜破裂（第 1 節禁忌）。(A) 錯：正是要避免的動作。(C) 錯：UBM 同樣需要接觸並施壓。(D) 錯：刮片會進一步傷害變薄的角膜。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">7. 前房內一個圓形構造，壁很薄、內部完全無回音。最可能是？(A) 虹膜黑色素瘤 (B) 葡萄膜囊腫 (C) 血塊 (D) 脫位的水晶體</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。囊腫內部是液體所以是黑的；腫瘤是實質組織，內部有回音（第 5 節）。(A) 錯：黑色素瘤內部有回音。(C) 錯：血塊是有回音的不規則團塊。(D) 錯：脫位水晶體會看到兩條囊的弧線，而且體積比囊腫大得多。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">8. 為什麼淚液試驗、螢光染色和細菌培養要在眼球超音波之前做？(A) 超音波會讓眼壓上升 (B) 表面麻醉劑和凝膠會干擾這些檢查 (C) 超音波會殺死細菌 (D) 沒有特別理由</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。麻醉劑會降低淚液分泌並可能影響培養，凝膠會干擾螢光判讀（第 2 節步驟 1，屬推論）。(A) 錯：輕壓不會造成有意義的持續性眼壓上升，這也不是排順序的理由。(C) 錯：診斷用超音波不會殺菌。(D) 錯：順序會影響結果。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">9. 是非題：老年犬 B-mode 的玻璃體中看到少量淡回音，就表示有玻璃體出血。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。玻璃體液化／退化在正常老年犬常見、與年齡相關，不要過度解讀（第 6 節）。出血要配合病史、量與分布、其他眼內發現判斷。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">10. 簡答：一隻 10 歲貓右眼虹膜色斑多年，最近瞳孔變形、眼壓升高。B-mode 應該特別看哪些地方？為什麼？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">參考答案：① 兩眼眼軸長度（牛眼＝慢性青光眼）；② 虹膜與睫狀體是否增厚或有團塊，延伸到哪裡；③ 水晶體位置（脫位）；④ 玻璃體與視網膜（剝離、出血）；⑤ 眼壁是否完整、鞏膜外有無軟組織（鞏膜外延伸）。理由：瞳孔變形與眼壓升高是 FDIM 往晚期走的警訊，這些發現代表腫瘤已侵犯隅角或更後方，影響預後與是否需要摘眼和全身分期（第 8 節）。若有 UBM，再加量虹膜厚度與隅角。</div></details>
+      </div>
+    </div>
+
+    <!-- REFS -->
+    <div class="section" id="section-refs">
+      <div class="section-head"><div class="section-num">12</div><h2>參考資料與圖片授權</h2></div>
+      <h3>讀到全文的文獻</h3>
+      <ul>
+        <li>Kim D, Kwon M, Jung JS, Hwang J, et al. Anterior segment measurements in normal cats using ultrasound biomicroscopy. Vet Sci. 2026;13(1):50. doi:10.3390/vetsci13010050（<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12846405/" target="_blank" rel="noopener">PMC 全文</a>，CC BY 4.0）</li>
+        <li>Kim Y, Kim B, Lee K, Yoon H. Ultrasonographic assessment of ocular parameters in dogs: effects of weight and breed, controlled for BCS and age. Front Vet Sci. 2024;11:1482948.（<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11588713/" target="_blank" rel="noopener">PMC 全文</a>，CC BY 4.0）</li>
+        <li>Kim D, Kwon H, Hwang J, Jung JS, et al. An in-depth review on utilizing ultrasound biomicroscopy for assessing the iridocorneal angle and ciliary body in canines. Front Vet Sci. 2025;12:1501405.（<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11897051/" target="_blank" rel="noopener">PMC 全文</a>，CC BY 4.0）</li>
+        <li>Lamagna B, Uccello V, Prisco F, Russo V, et al. Iris melanoma associated with unilateral phthisis bulbi in a 13-year-old domestic shorthair female cat. Vet Q. 2019;39(1):131 起.（<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6831019/" target="_blank" rel="noopener">PMC 全文</a>，CC BY 4.0）</li>
+        <li>Blohm KO, Hittmair KM, Tichy A, et al. Quantitative, noninvasive assessment of intra- and extraocular perfusion by contrast-enhanced ultrasonography and its clinical applicability in healthy dogs. Vet Ophthalmol. 2019;22(6):767 起.（<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6899557/" target="_blank" rel="noopener">PMC 全文</a>）</li>
+        <li>Komatsu H, et al. Vet Sci. 2024;11(6):261（OCT 與 PN 比值；細節見 FDIM 專題）。</li>
+      </ul>
+      <h3>只讀到摘要或標題</h3>
+      <ul>
+        <li>Mirshahi A, Shafigh S, Azizzadeh M. Ultrasonographic biometry of the normal eye of the Persian cat. Aust Vet J. 2014;92(7):246–249. doi:10.1111/avj.12189（<a href="https://profdoc.um.ac.ir/paper-abstract-1041987.html" target="_blank" rel="noopener">摘要</a>）</li>
+        <li>Gallhoefer NS, Bentley E, Ruetten M, et al. Comparison of ultrasonography and histologic examination for identification of ocular diseases of animals: 113 cases (2000–2010). J Am Vet Med Assoc. 2013;243(3):376–388.（<a href="https://www.ophth.wisc.edu/blog/2013/08/01/comparison-of-ultrasonography-and-histologic-examination-for-identification-of-ocular-diseases-of-animals-113-cases-2000-2010/" target="_blank" rel="noopener">摘要</a>）</li>
+        <li>Labruyère, Hartley, Holloway. Contrast-enhanced ultrasonography in the differentiation of retinal detachment and vitreous membrane in dogs and cats. J Small Anim Pract. 2011.（標題與一句結論）</li>
+        <li>B-scan ultrasonography of ocular abnormalities: a review of 182 dogs. Iranian J Vet Res. 2014.（<a href="https://ijvr.shirazu.ac.ir/article_2350.html" target="_blank" rel="noopener">連結</a>）</li>
+        <li>Ocular ultrasonography, part 1–2. Vet Times. 2022.（<a href="https://www.vettimes.co.uk/article/ocular-ultrasonography-part-1" target="_blank" rel="noopener">part 1</a>、<a href="https://vettimes.co.uk/article/ocular-ultrasonography-part-2" target="_blank" rel="noopener">part 2</a>；只讀到搜尋摘要）</li>
+        <li>短頭與非短頭貓眼球超音波測量比較. Kafkas Univ Vet Fak Derg. 2026（<a href="https://vetdergikafkas.org/abstract.php?id=3297" target="_blank" rel="noopener">摘要</a>）</li>
+        <li>Kayes D, Blacklock B. Feline uveal melanoma review: our current understanding and recent research advances. Vet Sci. 2022;9(2):46.（摘要）</li>
+        <li>Wiggans 2016、Kayes 2025：見 FDIM 專題參考資料。</li>
+      </ul>
+      <h3>講義</h3>
+      <ul>
+        <li>Kobayashi Y. The Unique Feline Eye. FASAVA 2026 Taipei（p.40、p.45；Part 3 高血壓性視網膜病變）。講義整理見上群AH〈<a href="../../上群AH/研討會/貓眼的獨特性-眼表虹膜與眼底.html">貓眼的獨特性</a>〉。</li>
+      </ul>
+      <h3>圖片授權</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>圖</th><th>出處</th><th>授權</th></tr></thead>
+        <tbody>
+          <tr><td>所有黑底示意圖（正常眼球、異常圖譜、FDIM 三期）</td><td>自繪</td><td>本站</td></tr>
+          <tr><td>犬正常 B-mode 與量法</td><td>Kim 2024 Fig. 1</td><td>CC BY 4.0</td></tr>
+          <tr><td>隅角解剖示意、犬隅角 UBM</td><td>Kim 2025 Fig. 1、2</td><td>CC BY 4.0</td></tr>
+          <tr><td>貓虹膜黑色素瘤超音波</td><td>Lamagna 2019 Fig. 1</td><td>CC BY 4.0</td></tr>
+          <tr><td>人類視網膜剝離 B-scan</td><td>Wikimedia Commons，CheckDO</td><td>CC BY-SA 4.0</td></tr>
+          <tr><td>Moco 病例</td><td>Kobayashi 講義 p.45</td><td>經講者同意轉載（依使用者回報）</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- FOLLOWUP -->
+    <div class="section" id="section-followup">
+      <div class="section-head"><div class="section-num">13</div><h2>待確認事項</h2></div>
+      <ul>
+        <li><strong>家貓（非短頭）B-mode 正常值</strong>：只找到波斯貓（短頭）的數字；短頭貓研究（Kafkas 2026）的數值沒讀到。</li>
+        <li><strong>UBM 或 OCT 區分 FDIM 的厚度切點</strong>：Kim 2026 只說虹膜厚度增加與侵犯有關，沒有切點；OCT 的 PN 比值（Komatsu 2024）是 9 隻貓的先導研究。</li>
+        <li><strong>Gallhoefer 2013、Labruyère 2011 全文</strong>：只讀到摘要，敏感度、特異度等細節未核對。</li>
+        <li><strong>貓眼內炎的超音波表現</strong>（Ali 2020, J Adv Vet Sci）：只讀到標題。</li>
+        <li><strong>犬貓的真實異常影像</strong>：這次找到可以合法轉載（CC 授權）的只有正常犬眼、犬隅角 UBM、貓虹膜黑色素瘤病例；視網膜剝離用的是人類影像。之後若院內有影像（去識別化），可以替換或補充。</li>
+        <li>標「補充」的正常／異常回音描述，之後若取得影像學教科書（例如 Penninck &amp; d'Anjou 的 Atlas of Small Animal Ultrasonography）可逐條核對。</li>
+      </ul>
+    </div>
+
+  </main>
+</div>
+
+<style>
+  .us-atlas { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; margin: 12px 0; }
+  .us-atlas--3 { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .us-atlas .figure { margin: 0; }
+  .us-atlas .figure-caption { font-size: .85em; }
+</style>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch (e) {}
+}
+(function(){ try { const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } } catch (e) {} })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 核心結論",
+  "principle": "1 原理、設備與適應症",
+  "technique": "2 操作步驟與副作用",
+  "normal": "3 正常影像",
+  "values": "4 正常測量值（貓／犬）",
+  "ant": "5 前段與水晶體",
+  "post": "6 玻璃體與視網膜",
+  "globe": "7 眼球大小與球後",
+  "fdim": "8 FDIM 在超音波上",
+  "pitfalls": "9 陷阱與限制",
+  "report": "10 判讀順序與報告範本",
+  "quiz": "✏️ 自我測驗",
+  "refs": "📚 參考資料與圖片授權",
+  "followup": "📌 待確認事項"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>主題名稱 - 上群動物醫院</title>
-<link rel="stylesheet" href="../assets/nav.css">
-<link rel="stylesheet" href="../assets/ah.css?v=4">
+<link rel="stylesheet" href="../assets/nav.css?v=3">
+<link rel="stylesheet" href="../assets/ah.css?v=5">
 </head>
 <body class="ah">
 
@@ -50,6 +50,7 @@
     <a class="active" onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 概述</a>
     <div class="section-label">內容</div>
     <a onclick="showSection('part1')" id="nav-part1"><span class="nav-icon">📋</span> 第一部分</a>
+    <a class="toc-sub" data-sec="part1" id="nav-h3-1" onclick="goSub('h3-1')">小標題</a>
     <a onclick="showSection('part2')" id="nav-part2"><span class="nav-icon">🔧</span> 第二部分</a>
     <div class="section-label">複習</div>
     <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
@@ -66,7 +67,7 @@
 
     <div class="section" id="section-part1">
       <div class="section-head"><div class="section-num">2</div><h2>第一部分</h2></div>
-      <h3>小標題</h3>
+      <h3 id="h3-1">小標題</h3>
       <div class="flow"><span class="flow-node">步驟 A</span><span class="flow-arrow">→</span><span class="flow-node">步驟 B</span><span class="flow-arrow">→</span><span class="flow-node danger">危險點</span></div>
       <div class="step"><div class="step-num">1</div><div class="step-text"><strong>第一步。</strong>說明。</div></div>
       <div class="step"><div class="step-num">2</div><div class="step-text">第二步。</div></div>
@@ -122,6 +123,12 @@ function setActive(id) {
   document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
   const a = document.getElementById('nav-' + id);
   if (a) a.classList.add('active');
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('open', x.dataset.sec === id));
+}
+function goSub(hid) {
+  const el = document.getElementById(hid);
+  if (el) el.scrollIntoView({ block: 'start' });
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + hid));
 }
 (function () {
   const secs = [...document.querySelectorAll('.section[id^="section-"]')];
@@ -129,6 +136,10 @@ function setActive(id) {
     es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
   }, { rootMargin: '-15% 0px -75% 0px' });
   secs.forEach(sec => io.observe(sec));
+  const hio = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + e.target.id)); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('.section h3[id^="h3-"]').forEach(h => hio.observe(h));
 })();
 function toggleTheme() {
   const html = document.documentElement, btn = document.getElementById('themeBtn');
@@ -226,7 +237,7 @@ function doSearch(q) {
 }
 </script>
 <script src="../assets/nav-data.js"></script>
-<script src="../assets/nav.js"></script>
+<script src="../assets/nav.js?v=3"></script>
 <script>
 initSiteNav('siteNav', 'navPanel');
 </script>

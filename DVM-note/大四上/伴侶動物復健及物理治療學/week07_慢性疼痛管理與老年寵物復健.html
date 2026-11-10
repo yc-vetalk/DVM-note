@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伴侶動物復健：慢性疼痛管理與老年寵物復健 - yc._vetalk</title>
+<link rel="stylesheet" href="../../assets/nav.css">
+<link rel="stylesheet" href="../../assets/ah.css?v=4">
+<style>
+.pdf-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
+.pdf-link:hover{color:var(--accent)}
+.exam-card .figure img{max-width:460px}
+.exam-card .quiz-type{white-space:nowrap}
+:root{--pdfw:46vw}
+#pdfPanel{position:fixed;top:0;right:0;bottom:0;width:var(--pdfw);z-index:900;display:none;flex-direction:column;background:var(--bg,#fff);border-left:1px solid var(--line,#ddd);box-shadow:-6px 0 18px rgba(0,0,0,.08)}
+body.pdf-open #pdfPanel{display:flex}
+body.pdf-open{padding-right:var(--pdfw)}
+#pdfPanel .pdfbar{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line,#ddd);font-size:.85rem;background:var(--bg-soft,#f7f4ef)}
+#pdfPanel .pdfbar strong{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pdfPanel .pdfbar button,#pdfPanel .pdfbar a{font:inherit;border:1px solid var(--line,#ccc);background:var(--bg,#fff);color:var(--fg,#333);border-radius:6px;padding:3px 9px;cursor:pointer;text-decoration:none}
+#pdfPanel iframe{flex:1;width:100%;border:0;background:#525659}
+#pdfDrag{position:absolute;left:-5px;top:0;bottom:0;width:10px;cursor:col-resize;z-index:2}
+#pdfDrag::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:48px;margin-top:-24px;border-radius:2px;background:var(--line,#bbb)}
+body.pdf-dragging iframe{pointer-events:none}
+body.pdf-dragging{user-select:none;cursor:col-resize}
+@media (max-width:900px){:root{--pdfw:100vw}body.pdf-open{padding-right:0}}
+</style>
+
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../../" data-current="大四"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">伴侶動物復健及物理治療學</a><span class="sep">›</span><span class="current">慢性疼痛管理與老年寵物復健</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">慢性疼痛管理與老年寵物復健 Chronic Pain Management &amp; Geriatric Rehabilitation</h1>
+      <p class="page-subtitle">Week 7 · 10/21 · 疼痛途徑與種類、評估量表、多模式止痛（藥物、注射、新療法、非藥物）；老年犬的骨刺、骨關節炎、肌少症、行動功能評估與失智症</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">科目</div><div class="meta-value">伴侶動物復健及物理治療學（大四上）</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">課程講義〈慢性疼痛管理與老年寵物復健〉，劉金鳴 獸醫師（臺大附設動物醫院復健及整合醫學科）；學長姐考前整理（非官方）</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-11-09</div></div>
+      <div class="meta-item"><div class="meta-label">講義 PDF</div><div class="meta-value"><a class="pdf-open-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=1">在右側開啟講義</a></div></div>
+      <div class="meta-item"><div class="meta-label">自我測驗</div><div class="meta-value"><a href="自我測驗/quiz.html?c=week07_%E6%85%A2%E6%80%A7%E7%96%BC%E7%97%9B%E7%AE%A1%E7%90%86%E8%88%87%E8%80%81%E5%B9%B4%E5%AF%B5%E7%89%A9%E5%BE%A9%E5%81%A5">做題 →</a></div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">完整筆記</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 大方向與重點摘要</a>
+    <div class="section-label" style="margin-top:8px;">慢性疼痛管理</div>
+    <a onclick="showSection('painbasic')" id="nav-painbasic"><span class="nav-icon">⚡</span> 疼痛途徑與種類</a>
+    <a onclick="showSection('assess')" id="nav-assess"><span class="nav-icon">📋</span> 疼痛與生活品質評估</a>
+    <a onclick="showSection('pharm')" id="nav-pharm"><span class="nav-icon">💊</span> 慢性疼痛藥物</a>
+    <a onclick="showSection('oadrug')" id="nav-oadrug"><span class="nav-icon">🦴</span> DMOAD、營養品與 CBD</a>
+    <a onclick="showSection('inj')" id="nav-inj"><span class="nav-icon">💉</span> 關節注射與新療法</a>
+    <a onclick="showSection('nonpharm')" id="nav-nonpharm"><span class="nav-icon">🧘</span> 非藥物疼痛管理</a>
+    <div class="section-label" style="margin-top:8px;">老年寵物復健</div>
+    <a onclick="showSection('spondylosis')" id="nav-spondylosis"><span class="nav-icon">🦴</span> 骨刺</a>
+    <a onclick="showSection('oa')" id="nav-oa"><span class="nav-icon">🦵</span> 骨關節炎 OA</a>
+    <a onclick="showSection('sarcopenia')" id="nav-sarcopenia"><span class="nav-icon">💪</span> 肌少症</a>
+    <a onclick="showSection('geriatric')" id="nav-geriatric"><span class="nav-icon">🐕‍🦺</span> 老年狗復健與功能評估</a>
+    <a onclick="showSection('ccds')" id="nav-ccds"><span class="nav-icon">🧠</span> 犬失智症</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('exam')" id="nav-exam"><span class="nav-icon">🎯</span> 考試方向（推測）</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <div class="section-label" style="margin-top:8px;">練習</div>
+    <a href="自我測驗/quiz.html?c=week07_%E6%85%A2%E6%80%A7%E7%96%BC%E7%97%9B%E7%AE%A1%E7%90%86%E8%88%87%E8%80%81%E5%B9%B4%E5%AF%B5%E7%89%A9%E5%BE%A9%E5%81%A5" id="nav-quiz-link"><span class="nav-icon">📝</span> 自我測驗</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>大方向與重點摘要</h2></div>
+      <div class="overview">
+        <div class="overview__title">這堂課的大方向</div>
+        <dl>
+          <dt>這章在講什麼</dt>
+          <dd>兩大塊。<strong>慢性疼痛管理</strong>：疼痛怎麼傳（轉換 → 傳送 → 調變 → 感知）、從適應性到適應不良性疼痛、怎麼評估（量表）、怎麼治（藥物金字塔、軟骨保護與營養品、關節注射、放射性錫 Tin-117m、抗 NGF 單株抗體，以及體重、運動、針灸、激痛點等非藥物方法）。<strong>老年寵物復健</strong>：老年犬常見的骨刺、骨關節炎（OA）、肌少症、犬失智症，以及老年犬運動原則與行動功能測試。</dd>
+          <dt>為什麼重要</dt>
+          <dd>OA 估計影響約 <strong>20% 的 1 歲以上犬、90% 的 5 歲以上犬</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=46">p.46</a>）；老年犬就診多半是「痛、走不動、失智」三件事同時存在（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=66">p.66</a>）。學長姐整理貼了本講義的疼痛種類、止痛劑金字塔與 COAST，並手寫「NSAIDs → COX2 → PGE2」。</dd>
+          <dt>這章要抓的重點</dt>
+          <dd>
+            <ol>
+              <li><a href="#section-painbasic">疼痛</a>：生理性、急性（適應性）→ 慢性、神經病變痛（適應不良性）；敏感化（wind-up）導致痛覺過敏、感覺異常、輕觸痛。</li>
+              <li><a href="#section-assess">評估</a>：CBPI、HCPI、COI、LOAD、VAS、CMPS-SF、<strong>COAST</strong>；生活品質 <strong>5H2M（總分 &gt; 35 可接受）</strong>。</li>
+              <li><a href="#section-pharm">止痛劑金字塔</a>：底層體重控制與運動 → NSAID → tramadol（2–10 mg/kg tid）→ gabapentin（2–20 mg/kg bid）→ amantadine（3–5 mg/kg sid）→ 鴉片類。</li>
+              <li><a href="#section-oadrug">DMOAD 與注射</a>：Adequan® SC／IM 每週 2 次 ×4 週；類固醇關節內注射每 3 個月、每年最多 4 次；HA 每週 1 次 ×3 週；Tin-117m 每年一次、FDA 核准犬肘。</li>
+              <li><a href="#section-inj">抗 NGF 單抗</a>：OA 止痛有效，但有<strong>快速進展性 OA（RPOA）</strong>疑慮，神經疾病犬勿用、長期使用要定期評估。</li>
+              <li><a href="#section-geriatric">老年犬運動</a>：<strong>低強度、高頻率</strong>；至少 3 種運動、一週 3 次；每天至少一組 6–8 回；體重控制 80% 靠營養、20% 靠運動。</li>
+              <li><a href="#section-ccds">犬失智症（CCDS）</a>：通常 11 歲以上；漫無目的走路、日夜顛倒（57%）、互動改變（51%）、焦慮（46%）；DISHAA 量表。</li>
+            </ol>
+          </dd>
+          <dt>容易混淆</dt>
+          <dd><strong>肌少症 vs 惡病質</strong>：肌少症是老化造成的瘦肉組織流失、無其他疾病；惡病質由心、腫瘤、腎等疾病引起。<strong>骨刺（變形性脊椎病）不是發炎</strong>（-itis 才是發炎），也不直接壓迫脊髓，痛多來自側枝神經根受壓。<strong>Tramadol 在犬</strong>：活性代謝物 M1 在人與貓有、在犬幾乎沒有（犬代謝太快）。</dd>
+          <dt>考試可能怎麼問<br><span style="font-size:.85em; font-weight:400;">（推測）</span></dt>
+          <dd>疼痛種類與 wind-up；疼痛評估量表縮寫配對（尤其 COAST）；止痛劑金字塔與作用位置；NSAID 的 COX 路徑；Adequan／Cartrophen 用法；關節注射頻率；Tin-117m 要點；肌少症定義與處理；老年犬運動原則；老年狗行動功能測試；犬失智症症狀與治療。</dd>
+        </dl>
+        <div class="lv-legend"><span><span class="lv lv-must">必考</span>要能寫出來</span><span><span class="lv lv-know">理解</span>懂原理，不必逐字背</span><span><span class="lv lv-skim">看過</span>知道有這件事就好</span></div>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">補充說明</div>
+        <p>內容以老師講義為主體。標示「補充」的段落是講義以外的延伸（含多數藥物的<strong>給藥途徑</strong>：講義只列藥名與部分劑量，途徑多為整理者依常用劑型補的）；標示「推測」的是出題方向，不是考古題。標 <span class="tag tag-exam">學長姐整理</span> 的地方是學長姐考前整理（非官方）有貼的投影片。考試範圍以老師上課為準。圖片為老師講義截圖。</p>
+      </div>
+      <p>延伸閱讀（補充）：站上另有 FASAVA 2026 疼痛講座筆記：<a href="../../../上群AH/研討會/慢性疼痛評估與抗NGF單株抗體.html">慢性疼痛評估與抗 NGF 單株抗體</a>、<a href="../../../上群AH/研討會/慢性疼痛藥物治療-證據整理.html">慢性疼痛藥物治療證據整理</a>。</p>
+      <footer class="note-footer">資料來源：課程講義〈慢性疼痛管理與老年寵物復健〉<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=1">p.1–92</a>；學長姐考前整理第 2、10 頁；「考試可能怎麼問」為個人推測。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- PAINBASIC -->
+    <div class="section" id="section-painbasic">
+      <div class="section-head"><div class="section-num">2</div><h2>疼痛途徑與種類 Pain Pathway &amp; Types</h2></div>
+      <p class="section-desc">疼痛從周邊到大腦走四步；急性疼痛是保護，慢性與神經病變痛則是神經系統被「調高音量」後的病。</p>
+      <h3>疼痛的徵象<span class="lv lv-skim">看過</span></h3>
+      <p>講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=3">p.3</a> 引用的八個犬疼痛徵象：食慾下降、過度理毛（舔）、怪異姿勢或步態、痛苦的叫聲、嗜睡、反社會行為、喘、發抖。</p>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p003.jpg" alt="狗疼痛的 8 個徵象。" loading="lazy"><div class="figure-caption">狗疼痛的 8 個徵象。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=3">p.3</a></div></div>
+      <h3>疼痛途徑<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="flow">
+        <div class="flow-node"><strong>轉換</strong> Transduction<br><span style="font-size:.85em;">痛覺受器把刺激變成電訊號</span></div><div class="flow-arrow">→</div>
+        <div class="flow-node"><strong>傳送</strong> Transmission<br><span style="font-size:.85em;">周邊神經傳到脊髓</span></div><div class="flow-arrow">→</div>
+        <div class="flow-node"><strong>調變</strong> Modulation<br><span style="font-size:.85em;">脊髓背角放大或抑制</span></div><div class="flow-arrow">→</div>
+        <div class="flow-node"><strong>感知</strong> Perception<br><span style="font-size:.85em;">大腦意識到痛</span></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>步驟（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a> 圖）</th><th>可阻斷的藥物</th></tr></thead>
+          <tbody>
+            <tr><td>轉換（周邊痛覺受器活化）</td><td>局部麻醉、鴉片類、<strong>NSAIDs</strong></td></tr>
+            <tr><td>傳送（周邊神經傳導）</td><td>局部麻醉、α2 促效劑</td></tr>
+            <tr><td>調變（脊髓敏感化）</td><td>鴉片類、NSAIDs、NMDA 拮抗劑、α2 促效劑、局部麻醉</td></tr>
+            <tr><td>感知（意識）</td><td>鴉片類、全身麻醉、α2 促效劑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：每一步說明（第一欄括號）依講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=4">p.4</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a> 的圖整理；這張表就是「多模式止痛」的理由——不同藥擋不同關卡。</p>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p004.jpg" alt="疼痛途徑：轉換、傳送、調變、感知，一級、二級、三級神經元；急性與慢性疼痛在脊髓背角的差異（Fox 2014）。" loading="lazy"><div class="figure-caption">疼痛途徑：轉換、傳送、調變、感知，一級、二級、三級神經元；急性與慢性疼痛在脊髓背角的差異（Fox 2014）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=4">p.4</a></div></div>
+      <h3>疼痛種類<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">類型（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=5">p.5</a>）</th><th>種類</th><th>意義（補充）</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="2"><strong>適應性</strong> Adaptive</td><td>生理性疼痛 Physiologic pain</td><td>短暫、保護性，提醒避開傷害</td></tr>
+            <tr><td>急性疼痛 Acute pain</td><td>組織受傷後，隨癒合消失</td></tr>
+            <tr><td rowspan="2"><strong>適應不良性</strong> Maladaptive</td><td>慢性疼痛 Chronic pain</td><td>超過正常癒合時間、本身就是疾病</td></tr>
+            <tr><td>神經病變痛 Neuropathic pain</td><td>神經本身受損或功能異常</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>敏感化（Hypersensitization, wind-up）</strong>發生在慢性與神經病變痛，造成三種現象（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=5">p.5</a>）：</p>
+      <div class="grid-3">
+        <div class="card"><h4>痛覺過敏 Hyperalgesia</h4><p>原本會痛的刺激變得<strong>更痛</strong>。</p></div>
+        <div class="card"><h4>感覺異常 Dysesthesia</h4><p>不正常、不舒服的異樣感覺（如刺麻、灼熱）。</p></div>
+        <div class="card"><h4>輕觸痛 Allodynia</h4><p>原本<strong>不會痛</strong>的刺激（輕摸）也會痛。</p></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：三個卡片的解釋是整理者補的。學長姐筆記第 10 頁在這張圖旁寫了小字註解（部分字小不易辨識，未全文轉寫）。</p>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p005.jpg" alt="疼痛種類：適應性（生理性、急性）到適應不良性（慢性、神經病變痛），以及 wind-up 敏感化與痛覺過敏、感覺異常、輕觸" loading="lazy"><div class="figure-caption">疼痛種類：適應性（生理性、急性）到適應不良性（慢性、神經病變痛），以及 wind-up 敏感化與痛覺過敏、感覺異常、輕觸痛；右為疼痛刺激－反應曲線。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=5">p.5</a></div></div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=2">p.2–7</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a>；學長姐考前整理第 2、10 頁。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- ASSESS -->
+    <div class="section" id="section-assess">
+      <div class="section-head"><div class="section-num">3</div><h2>疼痛與生活品質評估 Pain &amp; QOL Assessment</h2></div>
+      <p class="section-desc">慢性疼痛的治療要靠「量化」才知道有沒有效：飼主問卷（CMI）、獸醫分級工具、活動監測器，以及生活品質量表。</p>
+      <h3>經認證的疼痛量表（CSOM）<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">縮寫（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=49">p.49</a>）</th><th>全名</th><th>中文</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CBPI</strong></td><td>Canine Brief Pain Inventory（2009）</td><td>犬簡要疼痛清單</td></tr>
+            <tr><td>HCPI</td><td>Helsinki Chronic Pain Index</td><td>赫爾辛基慢性疼痛量表</td></tr>
+            <tr><td>COI</td><td>Canine Orthopedic Index</td><td>犬骨科活動量表</td></tr>
+            <tr><td><strong>LOAD</strong></td><td>Liverpool Osteoarthritis in Dogs（2013）</td><td>利物浦犬慢性關節炎量表</td></tr>
+            <tr><td>VAS</td><td>Visual Analog Scale</td><td>視覺類比量表</td></tr>
+            <tr><td>CMPS-SF</td><td>Glasgow Composite Measure Pain Scale Short Form</td><td>簡式格拉斯哥複合式疼痛量表</td></tr>
+            <tr><td><strong>COAST</strong></td><td>Canine Osteoarthritis Staging Tool（2018）</td><td>犬慢性關節炎分級工具（學長姐註：獸醫的工具）</td></tr>
+            <tr><td>CODI</td><td>Cincinnati Orthopedic Disability Index（2003）</td><td>（講義未給中文）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>CSOM＝Client Specific Outcome Measurement（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a>）。評估慢性關節炎時講義分成 <strong>CMI（臨床計量工具：CODI、CBPI、LOAD、COAST）</strong>與 <strong>QOL（生活品質）</strong>兩類（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=49">p.49</a>）。其他工具：活動監測器（Actical、PLUS CYCLE）、Pain Trace device（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=33">p.33</a>）。</p>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：多數量表由<strong>飼主</strong>填寫（CBPI、LOAD、HCPI、CODI），COAST 則由<strong>獸醫</strong>綜合飼主問卷與檢查來分期；講義只寫名稱，這個區分是整理者補的，學長姐註「獸醫的工具」與此相符。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p008.jpg" alt="經認證的疼痛量表清單（CBPI、HCPI、COI、LOAD、VAS、CMPS-SF、COAST）。" loading="lazy"><div class="figure-caption">經認證的疼痛量表清單（CBPI、HCPI、COI、LOAD、VAS、CMPS-SF、COAST）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p049.jpg" alt="評估 CMI（CODI、CBPI、LOAD、COAST）與 QOL（5H2M）；寵物疼痛常見徵象（IVAPM）。" loading="lazy"><div class="figure-caption">評估 CMI（CODI、CBPI、LOAD、COAST）與 QOL（5H2M）；寵物疼痛常見徵象（IVAPM）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=49">p.49</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p033.jpg" alt="疼痛評估工具：量表與活動監測器。" loading="lazy"><div class="figure-caption">疼痛評估工具：量表與活動監測器。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=33">p.33</a></div></div>
+      <h3>生活品質量表 5H2M<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">項目（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=91">p.91</a>，各 0–10 分）</th><th>問什麼</th></tr></thead>
+          <tbody>
+            <tr><td><strong>H</strong>urt 疼痛</td><td>會痛嗎？呼吸困難嗎？疼痛控制住了嗎？要氧氣嗎？</td></tr>
+            <tr><td><strong>H</strong>unger 飢餓</td><td>吃得夠嗎？需要手餵或餵食管嗎？</td></tr>
+            <tr><td><strong>H</strong>ydration 水合</td><td>脫水嗎？每日皮下輸液 1–2 次夠嗎？</td></tr>
+            <tr><td><strong>H</strong>ygiene 整潔衛生</td><td>排泄後能保持清潔嗎？有褥瘡嗎？</td></tr>
+            <tr><td><strong>H</strong>appiness 快樂</td><td>對家人玩具有反應嗎？沮喪孤單焦慮嗎？</td></tr>
+            <tr><td><strong>M</strong>obility 活動力</td><td>能自己站起來嗎？需要人或輪椅協助嗎？</td></tr>
+            <tr><td><strong>M</strong>ore good days than bad 好日子比壞日子多</td><td>壞日子多於好日子時，表示生命終點將近</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>總分 &gt; 35 分＝仍有可接受的生活品質</strong>（滿分 70）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=91">p.91</a>）。另有 21 題的犬生活品質量表 CHQLS-21（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=92">p.92</a>）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p091.jpg" alt="5H2M（HHHHHMM）生活品質量表：七項各 0–10 分，總分 &amp;gt; 35 代表仍有生活品質。" loading="lazy"><div class="figure-caption">5H2M（HHHHHMM）生活品質量表：七項各 0–10 分，總分 &gt; 35 代表仍有生活品質。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=91">p.91</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p092.jpg" alt="犬健康相關生活品質量表 CHQLS-21。" loading="lazy"><div class="figure-caption">犬健康相關生活品質量表 CHQLS-21。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=92">p.92</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=33">p.33</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=49">p.49</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=91">p.91–92</a>；學長姐考前整理第 10 頁。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- PHARM -->
+    <div class="section" id="section-pharm">
+      <div class="section-head"><div class="section-num">4</div><h2>慢性疼痛止痛劑 Analgesics for Chronic Pain</h2></div>
+      <p class="section-desc">止痛劑金字塔：越往上越強、越針對神經病變痛；底層永遠是體重控制、運動、營養與復健。</p>
+      <h3>藥物與非藥物總覽<span class="lv lv-know">理解</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>藥物（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=9">p.9</a>）</h4><p>NSAIDs／Galliprant®、Gabapentin（「新 tramadol」）、Amantadine、DMOAD、營養品（omega-3、葡萄糖胺…）、CBD、關節內注射、抗 NGF 單株抗體、TRPV1 促效劑。</p></div>
+        <div class="card"><h4>非藥物（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=9">p.9</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=28">p.28</a>）</h4><p>體重最佳化、運動與復健、針灸與按摩、激痛點（MTrP）、環境改善。講義也列 2015 AAHA/AAFP 與 2022 AAHA 疼痛指引。</p></div>
+      </div>
+      <h3>止痛劑金字塔<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層級（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a>，Goldberg 2015，由上而下）</th><th>講義寫的劑量與機轉</th><th style="width:18%;">途徑（補充）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>鴉片類止痛劑</strong> Opioid（μ、κ）</td><td>—</td><td>依藥物</td></tr>
+            <tr><td><strong>神經止痛劑</strong> Amantadine</td><td><strong>3–5 mg/kg sid</strong>；NMDA 拮抗</td><td>PO</td></tr>
+            <tr><td><strong>神經止痛劑</strong> Gabapentin</td><td><strong>2–20 mg/kg bid</strong>；Ca²⁺ 通道</td><td>PO</td></tr>
+            <tr><td><strong>類嗎啡止痛劑</strong> Tramadol</td><td><strong>2–10 mg/kg tid</strong>；鴉片／血清素／正腎上腺素</td><td>PO</td></tr>
+            <tr><td><strong>非類固醇消炎止痛劑</strong> NSAID</td><td>環氧化酶（COX）</td><td>多為 PO</td></tr>
+            <tr><td>底層</td><td>體重控制／運動；軟骨保護劑、EPA、飲食；物理治療復健</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>金字塔左側箭頭標「神經病變痛」：越往上的藥越適合神經病變痛（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a>）。學長姐整理第 10 頁貼了這張圖。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">類別（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a> Examples）</th><th>藥名</th><th style="width:32%;">常用途徑（補充）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>NSAIDs</strong></td><td>Meloxicam、Carprofen、Onsior®（robenacoxib）、Previcox®（firocoxib）、Galliprant®（grapiprant）、diclofenac</td><td>犬多為 PO；meloxicam、carprofen、robenacoxib 另有 SC 注射劑型；diclofenac 講義只列名</td></tr>
+            <tr><td><strong>Opioids</strong></td><td>Codeine、Buprenorphine、Tramadol、Butorphanol</td><td>codeine、tramadol PO；buprenorphine IV／IM／SC，貓可 OTM；butorphanol IV／IM／SC</td></tr>
+            <tr><td><strong>α2 促效劑</strong></td><td>Dexmedetomidine</td><td>IV／IM</td></tr>
+            <tr><td><strong>NMDA 拮抗劑</strong></td><td>Ketamine、Amantadine</td><td>ketamine IV（常以 CRI）；amantadine PO</td></tr>
+            <tr><td><strong>局部麻醉</strong></td><td>Nocita®、Lidocaine</td><td>Nocita®（微脂體 bupivacaine）手術部位局部浸潤；lidocaine 局部，或 IV CRI</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p010.jpg" alt="慢性疼痛止痛劑：金字塔（含劑量）與各藥作用的疼痛途徑位置（轉換、傳送、調變、感知）。" loading="lazy"><div class="figure-caption">慢性疼痛止痛劑：金字塔（含劑量）與各藥作用的疼痛途徑位置（轉換、傳送、調變、感知）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a></div></div>
+      <h3>NSAIDs／Galliprant 的作用<span class="lv lv-must">必考</span> <span class="tag tag-exam">學長姐整理</span></h3>
+      <ul>
+        <li>作用：<strong>抗發炎</strong>、抑制<strong>周邊敏感化</strong>、抑制<strong>中樞敏感化</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=11">p.11</a>）。</li>
+        <li>路徑：細胞膜 →（phospholipase A2）→ 花生四烯酸 → <strong>COX-1</strong>（恆定功能：胃保護、血管擴張、低灌流時維持腎血流）／<strong>COX-2</strong> → <strong>PGE2</strong> → 經 EP 受體（EP1–EP4）→ 痛覺受器敏感化、發炎（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=11">p.11</a>）。</li>
+        <li>講義在 COX-2 旁標 carprofen、meloxicam、Previcox®、Onsior®；在 <strong>EP4</strong> 受體旁放 Galliprant（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=11">p.11</a> 圖）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：grapiprant（Galliprant®）不抑制 COX，而是<strong>拮抗 EP4 受體</strong>，所以保留 COX-1 的恆定功能；講義只用圖位置表示。學長姐手寫「NSAIDs → COX2 → PGE2」與 Onsior、meloxicam，與本頁一致。</p>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p011.jpg" alt="NSAIDs／Galliprant：花生四烯酸經 COX-1（恆定功能）與 COX-2 產生 PGE2，經 EP1–EP" loading="lazy"><div class="figure-caption">NSAIDs／Galliprant：花生四烯酸經 COX-1（恆定功能）與 COX-2 產生 PGE2，經 EP1–EP4 受體造成敏感化與發炎。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=11">p.11</a></div></div>
+      <h3>Tramadol、Gabapentin、Amantadine<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">藥物</th><th>機轉與特點（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=12">p.12</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=14">p.14</a>）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tramadol</strong></td><td>弱 μ 受體促效（類鴉片效果）；止痛可能來自<strong>抑制血清素與正腎上腺素回收</strong>（兩者皆為抑制性神經傳導物質）；活性代謝物 <strong>M1（O-desmethyltramadol, ODT）</strong>：<strong>人、貓有 √；犬 ×</strong>（犬排除比貓快）</td></tr>
+            <tr><td><strong>Gabapentin</strong></td><td>Ca²⁺ 通道 ↓、血清素 ↑、正腎上腺素 ↑、Na⁺ 通道 ↓、NMDA 受體拮抗；止痛；副作用<strong>虛弱（weakness）</strong>；講義稱「new tramadol」</td></tr>
+            <tr><td><strong>Amantadine</strong></td><td>抗病毒藥；<strong>NMDA 受體拮抗</strong>；<strong>gabapentin 的幫手</strong>；經腎排泄</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：「犬 ×」的意思是犬體內 M1 產生極少、tramadol 在犬的鴉片類止痛效果有限（與近年研究一致）；amantadine 經腎排泄，腎病犬要注意劑量（推測）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p012.jpg" alt="Tramadol：弱 μ 促效、抑制血清素與正腎上腺素回收；M1 代謝物人與貓有、犬無。" loading="lazy"><div class="figure-caption">Tramadol：弱 μ 促效、抑制血清素與正腎上腺素回收；M1 代謝物人與貓有、犬無。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=12">p.12</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p014.jpg" alt="Gabapentin（Ca²⁺ 通道 ↓、NMDA 拮抗、副作用虛弱）與 Amantadine（NMDA 拮抗、gaba" loading="lazy"><div class="figure-caption">Gabapentin（Ca²⁺ 通道 ↓、NMDA 拮抗、副作用虛弱）與 Amantadine（NMDA 拮抗、gabapentin 的幫手、腎排泄）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=14">p.14</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=9">p.9–15</a>；學長姐考前整理第 2、10 頁。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- OADRUG -->
+    <div class="section" id="section-oadrug">
+      <div class="section-head"><div class="section-num">5</div><h2>疾病修飾藥物、營養補充品與 CBD</h2></div>
+      <p class="section-desc">軟骨保護劑（DMOAD）是講義少數寫明途徑與療程的藥；營養品與 CBD 是輔助。</p>
+      <h3>疾病修飾藥物 DMOAD<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:24%;">藥物（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=16">p.16</a>）</th><th>途徑與療程</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Adequan®</strong>（polysulfated glycosaminoglycan, PSGAG）</td><td>講義：美國 FDA 唯一認可對骨關節炎有療效者；<strong>每週 2 次 SC 或 IM，連續 4 週</strong> → 之後每週 1 次連續 4 週 → 以後視需要</td></tr>
+            <tr><td><strong>Cartrophen®</strong>（pentosan）</td><td><strong>每週 1 次 SC，連續 4 週</strong> → 之後視需要每 2 週 1 次 → 以後視需要</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>營養補充品（Nutraceuticals）：<strong>Omega-3 脂肪酸、葡萄糖胺（glucosamine）、軟骨素（chondroitin）、UC-II</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=16">p.16</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=50">p.50</a>）；骨刺講義另列 MSM（methylsulphonylmethane）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=44">p.44</a>）。給予途徑多為 PO（補充）。</p>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p016.jpg" alt="慢性關節炎營養補充品：DMOAD（Adequan®、Cartrophen®）與 omega-3、葡萄糖胺、軟骨素、UC-" loading="lazy"><div class="figure-caption">慢性關節炎營養補充品：DMOAD（Adequan®、Cartrophen®）與 omega-3、葡萄糖胺、軟骨素、UC-II。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=16">p.16</a></div></div>
+      <h3>CBD 大麻二酚<span class="lv lv-know">理解</span></h3>
+      <ul>
+        <li>Marijuana（大麻，講義寫醫療用）、Hemp（漢麻，工業大麻；講義寫娛樂用）；CBD（cannabidiol，大麻二酚）、THC（tetrahydrocannabinol，四氫大麻酚）；產品分純油、廣譜油、全譜油（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=17">p.17</a>）。</li>
+        <li>內源大麻素系統（ECS）：<strong>CB1 主要在大腦與周邊神經，CB2 主要在免疫調節器官</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=18">p.18</a>）。</li>
+        <li>全譜大麻萃取物透過 TRPV1、GPR55、5-HT1A、Gly、GABA、T-type Ca²⁺ 通道、COX-2、PPARγ 等多靶點，降低痛覺與發炎（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=19">p.19</a>）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">※ 講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=17">p.17</a>「Marijuana 醫療用大麻、Hemp 娛樂用大麻」照原文；一般用語中 hemp 是 THC 含量低的工業大麻，「娛樂用」通常指 marijuana（補充，建議以老師上課說法為準）。CBD 油多為 PO（補充）；台灣法規未開放動物用 CBD 產品（補充，未在講義）。</p>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p017.jpg" alt="CBD 是什麼：大麻與漢麻、CBD 與 THC、純油／廣譜油／全譜油。" loading="lazy"><div class="figure-caption">CBD 是什麼：大麻與漢麻、CBD 與 THC、純油／廣譜油／全譜油。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=17">p.17</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p018.jpg" alt="內源大麻素受體 CB1（腦與神經）與 CB2（免疫細胞與周邊器官）。" loading="lazy"><div class="figure-caption">內源大麻素受體 CB1（腦與神經）與 CB2（免疫細胞與周邊器官）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=18">p.18</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p020.jpg" alt="關節注射：類固醇、玻尿酸、PRP、幹細胞、外泌體、水凝膠、Tin-117m。" loading="lazy"><div class="figure-caption">關節注射：類固醇、玻尿酸、PRP、幹細胞、外泌體、水凝膠、Tin-117m。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=20">p.20</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=16">p.16–19</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=44">p.44</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=50">p.50</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- INJ -->
+    <div class="section" id="section-inj">
+      <div class="section-head"><div class="section-num">6</div><h2>關節注射、放射性錫與抗 NGF 單抗 Intra-articular &amp; Novel Therapies</h2></div>
+      <p class="section-desc">口服藥控制不了或不能長期吃時的選項：關節內注射、放射線滑膜切除（Tin-117m）、抗 NGF 單株抗體。</p>
+      <h3>關節內注射（IA）<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">藥物（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=20">p.20</a>）</th><th>劑量與頻率（皆為關節內注射）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>類固醇</strong></td><td>Triamcinolone <strong>1–3 mg/joint</strong>（10 mg/mL）；Methylprednisolone <strong>10–20 mg/joint</strong>（20 或 40 mg/mL）；<strong>每 3 個月一次、最多 2 年</strong>；<strong>每年最多 4 次</strong></td></tr>
+            <tr><td><strong>玻尿酸 HA</strong>（黏彈性補充劑）</td><td>馬與人常用；關節液 HA 分子量：人 6.0×10⁶、馬 3.0×10⁶、<strong>犬 1–2×10⁶ Dalton</strong>；<strong>每週 1 次，共 3 週</strong></td></tr>
+            <tr><td>其他</td><td>PRP（高濃度血小板血漿）、幹細胞、外泌體（secretome-exosome）、水凝膠（Spryng、Arthamid® 2.5% polyacrylamide 聚丙烯醯胺）、Tin-117m</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>放射線滑膜切除術：Tin-117m<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>放射性同位素用途：<sup>153</sup>Sm（釤）找骨的放射藥物、<sup>90</sup>Y（釔）近接治療骨肉瘤、<strong><sup>117m</sup>Sn（錫）放射線滑膜切除治療骨關節炎</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=21">p.21</a>）。</li>
+        <li>低劑量放射線直接對<strong>滑膜</strong>抗發炎；簡易、低侵入；可避免長期吃止痛藥或類固醇；<strong>每年一次</strong>關節內注射；目前<strong>美國 FDA 核准犬肘關節</strong>使用（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=24">p.24</a>）。</li>
+        <li>操作者需 Radiation Safety License；<strong>注射後不需住院，2–4 週不要與主人同床</strong>；顆粒 2–20 μm 被巨噬細胞吞噬、不漏出關節腔；最終經淋巴到肝代謝（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=24">p.24</a>）。</li>
+        <li>輻射量（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=23">p.23</a>）：人平均暴露 300 mrem；人病人放射治療允許釋放到環境上限 500 mrem／年；<strong>獸醫職業暴露上限 100 mrem／年</strong>；頭部 CT 200、胸部 X 光 10 mrem；<strong>Synovetin OA 注射後釋放 40–90 mrem／整年</strong>。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p021.jpg" alt="放射線滑膜切除：153Sm、90Y、117mSn 的用途；Tin-117m 治療退化性關節病。" loading="lazy"><div class="figure-caption">放射線滑膜切除：153Sm、90Y、117mSn 的用途；Tin-117m 治療退化性關節病。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=21">p.21</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p023.jpg" alt="輻射劑量比較：Synovetin OA 一年 40–90 mrem，低於頭部 CT（200）。" loading="lazy"><div class="figure-caption">輻射劑量比較：Synovetin OA 一年 40–90 mrem，低於頭部 CT（200）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=23">p.23</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p024.jpg" alt="Tin-117m 要點：滑膜抗發炎、每年一次、FDA 核准犬肘、2–4 週不與主人同床。" loading="lazy"><div class="figure-caption">Tin-117m 要點：滑膜抗發炎、每年一次、FDA 核准犬肘、2–4 週不與主人同床。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=24">p.24</a></div></div>
+      </div>
+      <h3>抗 NGF 單株抗體與 TRPV1 促效劑<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>抗神經生長因子單株抗體（anti-NGF mAb）；TRPV1 促效劑（capsaicin，辣椒素藥膏，外用）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=25">p.25</a>）。</li>
+        <li>講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=27">p.27</a>（JAVMA 2026 June，bedinvetmab／Librela®）：NGF 對骨、軟骨與關節恆定有影響；<strong>aNGFmAb 在人會造成快速進展性 OA（RPOA）</strong>，美國 FDA 與歐洲 EMA 拒絕人用上市。犬用核准依據是 32 隻健康年輕米格魯、26 週的安全試驗，影像資料只有 5 隻。</li>
+        <li>結論：對 OA 止痛有效，但須<strong>告知飼主不良反應（ADE）</strong>、小心使用時機；<strong>神經疾病犬勿使用</strong>；長期使用須定期評估、留意 RPOA（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=27">p.27</a>）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：犬用 bedinvetmab（Librela®）與貓用 frunevetmab（Solensia®）都是每月 SC 注射；講義沒寫途徑與頻率。詳見站上 FASAVA 講座筆記（摘要頁連結）。</p>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p025.jpg" alt="抗 NGF 單株抗體的作用位置與 TRPV1 促效劑（capsaicin 藥膏）。" loading="lazy"><div class="figure-caption">抗 NGF 單株抗體的作用位置與 TRPV1 促效劑（capsaicin 藥膏）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=25">p.25</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p026.jpg" alt="抗 NGF 單株抗體（犬與貓）。" loading="lazy"><div class="figure-caption">抗 NGF 單株抗體（犬與貓）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=26">p.26</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p027.jpg" alt="JAVMA 2026：bedinvetmab 安全疑慮（快速進展性 OA），講義重點整理與通報數趨勢。" loading="lazy"><div class="figure-caption">JAVMA 2026：bedinvetmab 安全疑慮（快速進展性 OA），講義重點整理與通報數趨勢。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=27">p.27</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=20">p.20–27</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- NONPHARM -->
+    <div class="section" id="section-nonpharm">
+      <div class="section-head"><div class="section-num">7</div><h2>非藥物疼痛管理與激痛點 Non-pharmacologic Modalities</h2></div>
+      <p class="section-desc">體重、運動、針灸按摩、激痛點與環境：不用藥也能降低疼痛，而且是金字塔的底層。</p>
+      <h3>五個非藥物方法<span class="lv lv-must">必考</span></h3>
+      <p><strong>體重最佳化</strong>、<strong>運動與復健治療</strong>、<strong>針灸與按摩</strong>、<strong>激痛點（MTrP）</strong>、<strong>環境改善</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=28">p.28</a>）。</p>
+      <p>按摩四法（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=29">p.29</a>）：輕撫法（effleurage）、揉撫法（petrissage）、敲擊法（tapotement）、交錯摩擦法（cross-friction）；講義附皮膚感受器（游離神經末梢、Ruffini、Merkel、Meissner、Pacinian 等）圖。手法細節見<a href="week04_骨科疾病復健.html#section-generalrehab">第 4 週</a>。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p028.jpg" alt="非藥物慢性疼痛管理：體重、運動復健、針灸按摩、激痛點、環境改善。" loading="lazy"><div class="figure-caption">非藥物慢性疼痛管理：體重、運動復健、針灸按摩、激痛點、環境改善。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=28">p.28</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p029.jpg" alt="按摩四法與皮膚感覺受器。" loading="lazy"><div class="figure-caption">按摩四法與皮膚感覺受器。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=29">p.29</a></div></div>
+      </div>
+      <h3>激痛點 MTrP 的治療<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:22%;">方法（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=30">p.30</a>，Petty 2024）</th><th>參數</th></tr></thead>
+          <tbody>
+            <tr><td>針灸</td><td>—</td></tr>
+            <tr><td><strong>雷射</strong>（光生物調節）</td><td>作者經驗 <strong>8–10 J/cm²</strong></td></tr>
+            <tr><td><strong>徒手治療</strong></td><td>缺血性壓迫（ischemic compression）：沿緊繃帶施加穩定指壓，或「撥弦」（strum）</td></tr>
+            <tr><td><strong>體外震波</strong></td><td>犬 <strong>0.12–0.15 mJ/mm²</strong>；每次 <strong>200–500 發</strong>；<strong>每週 1 次，共 3–4 週</strong></td></tr>
+            <tr><td>溫熱治療</td><td>淺層熱敷：緩解肌肉痛、放鬆肌纖維</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">對照：第 6 週講義 ESWT 一般設定 0.01–0.15 mJ/mm²、每 7–14 天一次共 2–3 次；這裡是針對激痛點的較高能量、每週一次（見<a href="week06_震波雷射水療與PEMF.html#section-eswtclin">第 6 週</a>）。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p030.jpg" alt="激痛點治療：針灸、雷射 8–10 J/cm²、缺血性壓迫、ESWT 0.12–0.15 mJ/mm²、熱療。" loading="lazy"><div class="figure-caption">激痛點治療：針灸、雷射 8–10 J/cm²、缺血性壓迫、ESWT 0.12–0.15 mJ/mm²、熱療。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=30">p.30</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p031.jpg" alt="犬肌筋膜激痛點分布圖。" loading="lazy"><div class="figure-caption">犬肌筋膜激痛點分布圖。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=31">p.31</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=28">p.28–32</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SPONDYLOSIS -->
+    <div class="section" id="section-spondylosis">
+      <div class="section-head"><div class="section-num">8</div><h2>骨刺（變形性脊椎病）Spondylosis Deformans</h2></div>
+      <p class="section-desc">老年大型犬 X 光上很常見的「搭橋」；本身不是發炎、也不直接壓脊髓，痛多來自神經根被擠。</p>
+      <h3>脊椎相關疾病<span class="lv lv-know">理解</span></h3>
+      <p>變形性脊椎病（Spondylosis deformans，脊椎骨贅）、瀰漫性自發性骨肥厚（Diffuse Idiopathic Skeletal Hyperostosis, DISH）、脊椎椎間盤炎（Discospondylitis）、椎間盤疾病（IVDD）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=37">p.37</a>）。</p>
+      <h3>流行病學與特徵<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li><strong>9 歲以上</strong>發生率高（約 25–70%），<strong>大型犬</strong>高風險；盛行率與嚴重度隨年齡增加（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=39">p.39</a>）。</li>
+        <li><strong>拳師犬</strong>特別高（約 40–85%，依年齡）；早期研究：拳師犬 6 歲約 50%、9 歲約 75%（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=39">p.39</a>）。</li>
+        <li>常見位置：<strong>L7–S1 最常見</strong>，其次 <strong>T12–L3</strong>，頸椎較少（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=39">p.39</a>）。</li>
+        <li>「-itis」才是發炎；<strong>spondylosis deformans 是非發炎性的退化性疾病</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=39">p.39</a>）。</li>
+      </ul>
+      <h3>X 光、症狀與治療<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>一般 X 光即可判定；通常是<strong>腹側</strong>相鄰兩椎骨間逐漸<strong>搭橋</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=41">p.41</a>）。</li>
+        <li><strong>不造成脊髓直接壓迫</strong>；嚴重者脊椎漸僵直；<strong>疼痛大多來自側枝神經根受壓</strong>；行動不便或緩慢（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=41">p.41</a>）。</li>
+        <li>治療（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=44">p.44</a>）：止痛藥<strong>以 NSAIDs 為主</strong>（PO，補充）；營養品葡萄糖胺、MSM、軟骨素、omega-3；非藥物治療如脊骨矯正、整骨、針灸、物理治療、按摩。神經講義的骨刺分期復健方案見<a href="week03_神經科疾病復健.html#section-diseases">第 3 週</a>。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p038.jpg" alt="骨刺分級（0–3）與 X 光，比較變形性脊椎病與 DISH。" loading="lazy"><div class="figure-caption">骨刺分級（0–3）與 X 光，比較變形性脊椎病與 DISH。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=38">p.38</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p039.jpg" alt="骨刺流行病學：9 歲以上 25–70%、拳師犬 40–85%、L7–S1 最常見。" loading="lazy"><div class="figure-caption">骨刺流行病學：9 歲以上 25–70%、拳師犬 40–85%、L7–S1 最常見。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=39">p.39</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p041.jpg" alt="骨刺：X 光可判定、腹側搭橋、不直接壓迫脊髓、痛來自神經根。" loading="lazy"><div class="figure-caption">骨刺：X 光可判定、腹側搭橋、不直接壓迫脊髓、痛來自神經根。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=41">p.41</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=37">p.37–44</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- OA -->
+    <div class="section" id="section-oa">
+      <div class="section-head"><div class="section-num">9</div><h2>骨關節炎（Osteoarthritis, OA）</h2></div>
+      <p class="section-desc">把關節當成一個「器官」：軟骨、軟骨下骨、滑膜、骨贅一起壞；治療目標是疼痛、肌力、活動度、生活品質四塊拼圖。</p>
+      <h3>定義與病理<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>骨關節炎（OA）＝退化性關節病（Degenerative Joint Disease, DJD）；關節分可動、微動、不動關節（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=45">p.45</a>）。</li>
+        <li>估計影響約 <strong>20% 的 ≥ 1 歲犬</strong>、<strong>90% 的 &gt; 5 歲犬</strong>；關節可視為一個「器官」（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=46">p.46</a>）。</li>
+        <li>進行性疾病：<strong>軟骨損壞、軟骨下骨硬化、滑膜發炎、關節周圍骨贅</strong>；好發肩、肘、髖、膝、脊椎；症狀關節痛、積液、跛行、ROM ↓（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=46">p.46</a>）。</li>
+        <li>原因：原發（特發性）；繼發（發育異常、關節不穩定、創傷）。症狀：關節疼痛、腫脹、摩擦音、僵硬、行動不便。診斷：骨科學檢查、神經學檢查、X 光（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=47">p.47</a>）。</li>
+      </ul>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p046.jpg" alt="OA 影響 20% 的 1 歲以上犬、90% 的 5 歲以上犬；關節是一個器官（軟骨、滑膜、軟骨下骨、骨贅）。" loading="lazy"><div class="figure-caption">OA 影響 20% 的 1 歲以上犬、90% 的 5 歲以上犬；關節是一個器官（軟骨、滑膜、軟骨下骨、骨贅）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=46">p.46</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p047.jpg" alt="OA 的原因、症狀、診斷（X 光）。" loading="lazy"><div class="figure-caption">OA 的原因、症狀、診斷（X 光）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=47">p.47</a></div></div>
+      </div>
+      <h3>治療目標與方法<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>四個目標（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=48">p.48</a>）</h4><ul><li>疼痛管理 Pain</li><li>加強肌力 Strength</li><li>活動力與關節活動 Mobility &amp; ROM</li><li>生活品質 QOL</li></ul></div>
+        <div class="card"><h4>方法（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=48">p.48</a>）</h4><ul><li>疼痛管理：藥物、營養品、疾病修飾藥、關節內注射</li><li>復健：理療、徒手治療、水療、居家運動、肥胖控制、環境改善</li><li>評估：CMI 與 QOL</li></ul></div>
+      </div>
+      <p>非藥物部分（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=51">p.51–56</a>）：中獸醫針灸（止痛、幫助修復、恢復功能；機轉見<a href="week01_概論與課程說明.html#section-manual">第 1 週</a>）；依患病關節選穴（Baker-Meuten 2020，例：髖 BL-54、GB-29–GB-30；膝 SP-10、GB-34；肩 LI-15、SI-9…）；理療（雷射、治療超音波、脈衝磁圈、震波、水療、電療）；居家運動（上下緩坡、坐站練習、關節活動）；手技（推拿按摩、關節活動與伸展、關節鬆動術）；體重控制與環境改善。</p>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p048.jpg" alt="OA 治療四目標拼圖：疼痛、肌力、活動力、生活品質。" loading="lazy"><div class="figure-caption">OA 治療四目標拼圖：疼痛、肌力、活動力、生活品質。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=48">p.48</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p052.jpg" alt="依患病關節選擇的針灸穴位（Baker-Meuten et al. 2020）。" loading="lazy"><div class="figure-caption">依患病關節選擇的針灸穴位（Baker-Meuten et al. 2020）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=52">p.52</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p054.jpg" alt="居家運動：上下緩坡、坐站、關節活動。" loading="lazy"><div class="figure-caption">居家運動：上下緩坡、坐站、關節活動。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=54">p.54</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p056.jpg" alt="體重控制（體態評分）與環境改善（止滑、輔具）。" loading="lazy"><div class="figure-caption">體重控制（體態評分）與環境改善（止滑、輔具）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=56">p.56</a></div></div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=45">p.45–56</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- SARCOPENIA -->
+    <div class="section" id="section-sarcopenia">
+      <div class="section-head"><div class="section-num">10</div><h2>肌少症 Sarcopenia</h2></div>
+      <p class="section-desc">老化本身造成的瘦肉組織流失，體重不一定會變；要靠肌肉狀態評分與肌力測試抓出來，治療靠營養加阻力與有氧運動。</p>
+      <h3>定義：肌少症 vs 惡病質<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>肌少症 Sarcopenia（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=57">p.57–58</a>）</h4><ul><li>原因：<strong>老化</strong>，無其他疾病。</li><li>瘦肉組織流失；人 20–80 歲約流失 <strong>30%</strong>；瘦肉減少伴隨脂肪堆積，<strong>不易從體重看出</strong>。</li><li>機轉：蛋白質代謝異常、內分泌異常、慢性發炎、氧化反應異常、活動量減少；第 1、2 型肌纖維比例改變。</li></ul></div>
+        <div class="card"><h4>惡病質 Cachexia（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=57">p.57</a>）</h4><ul><li>心臟、腫瘤、腎臟惡病質；急性疾病與傷害。</li><li>由<strong>疾病</strong>引起（高度發炎）；肌少症為老化的低度慢性發炎（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=59">p.59</a>）。</li></ul></div>
+      </div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p058.jpg" alt="肌少症：瘦肉組織流失、原因與第 1、2 型肌纖維。" loading="lazy"><div class="figure-caption">肌少症：瘦肉組織流失、原因與第 1、2 型肌纖維。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=58">p.58</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p059.jpg" alt="慢性疾病（高度發炎）→ 惡病質；老化（低度慢性發炎）→ 肌少症；兩者皆造成骨骼肌功能異常、發病率與致死率增加。" loading="lazy"><div class="figure-caption">慢性疾病（高度發炎）→ 惡病質；老化（低度慢性發炎）→ 肌少症；兩者皆造成骨骼肌功能異常、發病率與致死率增加。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=59">p.59</a></div></div>
+      </div>
+      <h3>診斷與治療：人 vs 犬<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;"></th><th>人（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=61">p.61</a>）</th><th>犬（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=62">p.62</a>）</th></tr></thead>
+          <tbody>
+            <tr><td>身體表現</td><td>步速、起身時間（SARC-F）</td><td>（?）講義標問號</td></tr>
+            <tr><td>肌力</td><td>握力計</td><td><strong>C-MMT</strong>（犬徒手肌肉測試）</td></tr>
+            <tr><td>肌肉量</td><td>DEXA、CT、MRI</td><td><strong>MCS（肌肉狀態評分）</strong>、DEXA、CT、MRI</td></tr>
+            <tr><td>治療</td><td>藥物（合成代謝、抗分解）、營養、omega-3、新藥（ghrelin 受體促效、myostatin 拮抗）、身體活動（阻力與有氧）</td><td>營養、omega-3、身體活動（阻力與有氧）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>肌力測試：C-MMT（canine manual muscle test）、閉鎖鏈式活動分級（closed-chain motion 3/5）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=63">p.63</a>）。</li>
+        <li>營養（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=64">p.64</a>）：乳清蛋白、白胺酸（leucine，支鏈胺基酸 BCAA）、Fortetropin®、Ursolyx™（熊果酸）——皆為 PO（補充）。</li>
+        <li>運動（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=64">p.64</a>）：等長、向心、離心收縮；無氧 vs 有氧。第 2 週講義：肌少症延緩靠<strong>增加蛋白質＋向心收縮運動</strong>（<a href="week02_復健相關解剖學及生理學.html#section-musclerehab">第 2 週</a>）。</li>
+      </ul>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p061.jpg" alt="人的肌少症：步速、起身時間、握力計、DEXA／CT／MRI；治療。" loading="lazy"><div class="figure-caption">人的肌少症：步速、起身時間、握力計、DEXA／CT／MRI；治療。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=61">p.61</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p062.jpg" alt="犬的肌少症：WSAVA 肌肉狀態評分（MCS）、C-MMT。" loading="lazy"><div class="figure-caption">犬的肌少症：WSAVA 肌肉狀態評分（MCS）、C-MMT。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=62">p.62</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p063.jpg" alt="肌力測試：C-MMT 與閉鎖鏈式活動分級。" loading="lazy"><div class="figure-caption">肌力測試：C-MMT 與閉鎖鏈式活動分級。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=63">p.63</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p064.jpg" alt="肌少症的營養（乳清蛋白、白胺酸、Fortetropin®、熊果酸）與運動（等長、向心、離心；無氧與有氧）。" loading="lazy"><div class="figure-caption">肌少症的營養（乳清蛋白、白胺酸、Fortetropin®、熊果酸）與運動（等長、向心、離心；無氧與有氧）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=64">p.64</a></div></div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=57">p.57–65</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- GERIATRIC -->
+    <div class="section" id="section-geriatric">
+      <div class="section-head"><div class="section-num">11</div><h2>老年狗復健項目、運動原則與行動功能評估</h2></div>
+      <p class="section-desc">老年犬的三角：疼痛、行動能力、失智互相影響生活品質；評估 → 執行 → 再評估 → 追蹤。</p>
+      <h3>五大復健項目<span class="lv lv-must">必考</span></h3>
+      <p>營養、理療復健、針灸推拿按摩、運動復健、輔具應用及居家環境調整（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=68">p.68</a>）。疼痛、行動能力、失智三者影響生活品質（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=66">p.66</a>）；流程為評估 → 執行 → 評估 → 後續追蹤，並納入狀況考量（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=67">p.67</a>）。</p>
+      <ul>
+        <li><strong>體重控制：80% 靠營養、20% 靠運動</strong>；快肌（type 2）與慢肌（type 1）都要練（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=69">p.69</a>）。</li>
+        <li>理療：雷射、治療超音波、脈衝磁圈、水療（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=70">p.70</a>）；針灸：止痛、幫助修復、恢復功能、<strong>失智</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=71">p.71</a>）。</li>
+      </ul>
+      <h3>老年狗運動目標與原則<span class="lv lv-must">必考</span></h3>
+      <div class="grid-2">
+        <div class="card"><h4>目標（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=73">p.73</a>）</h4><ul><li>預防或減少肌肉萎縮</li><li>維持關節活動</li><li>活化大腦</li><li>維持幸福感（psychological well-being）</li></ul></div>
+        <div class="card"><h4>原則（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=73">p.73</a>）</h4><ul><li><strong>低強度、高頻率</strong>、持續穩定增進</li><li><strong>至少 3 種運動、一週 3 次</strong></li><li>依能力調整，一般<strong>每天至少一組 6–8 回</strong></li><li>運動間要有<strong>休息日</strong>讓組織修復，切勿過度</li><li>增加樂趣、促進認知鍛鍊，避免無聊呆板</li></ul></div>
+      </div>
+      <p>建議的居家運動（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=73">p.73</a>）：側腰伸展、對角或三足站立、搖擺板、不平穩地面坐與站、側身走路、走窄平台、走短階梯、匍匐前進、倒退走、跨障礙、繞障礙、<strong>走下坡／下緩坡</strong>、游泳或淺水走路。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p069.jpg" alt="老年狗營養：體重控制 80% 營養、20% 運動；體態評分；快肌與慢肌。" loading="lazy"><div class="figure-caption">老年狗營養：體重控制 80% 營養、20% 運動；體態評分；快肌與慢肌。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=69">p.69</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p073.jpg" alt="老年狗運動復健目標、原則與建議居家運動。" loading="lazy"><div class="figure-caption">老年狗運動復健目標、原則與建議居家運動。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=73">p.73</a></div></div>
+      </div>
+      <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p074.jpg" alt="輔具應用與居家環境調整：保護靴、止滑、吊帶、輪椅、骨科床。" loading="lazy"><div class="figure-caption">輔具應用與居家環境調整：保護靴、止滑、吊帶、輪椅、骨科床。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=74">p.74</a></div></div>
+      <h3>行動功能評估<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>老人活力曲線：隨年齡由「樂趣」→「功能」→「虛弱」→「衰竭」（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=75">p.75</a>）。</li>
+        <li>人：30 秒坐站測試；<strong>5xSST</strong>（從椅子站起 5 次所需秒數）；起身走 3 公尺轉身回座不超過 12 秒（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=76">p.76</a>）。</li>
+        <li>老年狗：身體正趴起立、走 10 個身長距離的時間（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=76">p.76</a>）。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:18%;">測試（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=77">p.77</a>，Frye 2022）</th><th>方法</th><th>給分（0–4）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A. TUG</strong>（坐站起走）</td><td>正趴起身，前進 10 個身長距離</td><td>0 無法；1 &gt; 15 秒；2 10–15 秒；3 5–10 秒；4 &lt; 5 秒</td></tr>
+            <tr><td><strong>B. 跨越橫桿</strong></td><td>牽繩跨越及腳踝高的橫桿，去回共 4 次</td><td>0 無法；1 撞桿、緩慢困難；2 常碰桿、會部分調整；3 偶而碰桿、會自行調整；4 幾乎不碰、方向感正確</td></tr>
+            <tr><td><strong>C. 8 字型繞圈</strong></td><td>直徑一個身長，做 4 次</td><td>0 無法；1 腳背拖地、嚴重困難、延遲轉身；2 有時腳背拖地；3 延遲轉身、腳趾有時拖曳；4 順利完成</td></tr>
+            <tr><td><strong>D. 趴到站</strong></td><td>60 秒內正趴起身次數</td><td>0 無法；1 &lt; 5 次；2 5–10 次；3 10–15 次；4 &gt; 15 次</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>總分（0–16）</strong>：0–4 差、5–8 一般、9–12 好、13–16 優良（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=77">p.77</a>）。</p>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p075.jpg" alt="老人活力曲線：樂趣、功能、虛弱、衰竭。" loading="lazy"><div class="figure-caption">老人活力曲線：樂趣、功能、虛弱、衰竭。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=75">p.75</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p076.jpg" alt="人的 30 秒坐站與 5xSST；老年狗起立走 10 個身長。" loading="lazy"><div class="figure-caption">人的 30 秒坐站與 5xSST；老年狗起立走 10 個身長。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=76">p.76</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p077.jpg" alt="老年狗行動功能測試量表：TUG、跨越橫桿、8 字型、趴到站，總分 0–16。" loading="lazy"><div class="figure-caption">老年狗行動功能測試量表：TUG、跨越橫桿、8 字型、趴到站，總分 0–16。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=77">p.77</a></div></div>
+      </div>
+      <h3>監控進展與評估要點<span class="lv lv-must">必考</span></h3>
+      <ol>
+        <li>定期血檢、尿檢，監控使用 NSAIDs 及身體代謝狀況。</li>
+        <li>定期專業復健<strong>每週 1–2 次</strong>（治療性注射、針灸、按摩、理療如雷射、治療超音波、水療）。</li>
+        <li><strong>每 4–6 週</strong>依狀況調整目標與復健。</li>
+        <li><strong>每 4–6 週</strong>體重監控。</li>
+        <li>使用評估量表與步態分析等客觀設備（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=90">p.90</a>）。</li>
+      </ol>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=66">p.66–77</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=90">p.90</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- CCDS -->
+    <div class="section" id="section-ccds">
+      <div class="section-head"><div class="section-num">12</div><h2>犬認知功能障礙（Canine Cognitive Dysfunction Syndrome, CCDS）</h2></div>
+      <p class="section-desc">大腦退化造成學習、記憶、社交、睡眠與活動的漸進性異常；治療目標是延緩神經細胞受損、改善症狀，靠藥、食、補充品、中獸醫、雷射、運動與環境。</p>
+      <h3>是什麼<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>犬失智症（Canine Dementia）正式名稱為<strong>犬認知功能障礙（CCDS）</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=78">p.78</a>）。</li>
+        <li>大腦退化引起學習、記憶、認知、社交互動、生活習慣、睡眠、活動力等行為異常的<strong>漸進性</strong>疾病（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=78">p.78</a>）。</li>
+        <li>通常 <strong>11 歲以上</strong>飼主發現記憶與學習下降，甚至提早到 6 歲（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=78">p.78</a>）。</li>
+        <li>最常見症狀：<strong>漫無目的走路、角落發呆、白天睡多晚上不睡（57%）</strong>；與人或動物互動改變（51%）；焦慮不安（46%）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=78">p.78</a>）。</li>
+        <li>沒有特別好發品種；門診常見年紀大的<strong>柴犬、迷你雪納瑞、混種犬</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=78">p.78</a>）。</li>
+      </ul>
+      <h3>診斷<span class="lv lv-must">必考</span></h3>
+      <ul>
+        <li>臨床症狀、失智量表、腦部 MRI、生物標記（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=79">p.79</a>）。</li>
+        <li>量表（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=80">p.80</a>）：<strong>DISHAA</strong>（2003／2012，辨識臨床症狀敏感度高）、<strong>CCDR</strong>（2011，準確度 98.9%，n=957）、<strong>CADES</strong>（2015，預測嚴重度進程）、CCAS、PCT。</li>
+        <li>生物標記（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=89">p.89</a>）：11–15.6 歲 CDS 犬 <strong>Aβ42、Aβ40 ↓</strong>；<strong>神經絲輕鏈（NFL）↑</strong>。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：DISHAA 六個字母是 Disorientation（定向障礙）、Interactions（互動改變）、Sleep–wake cycle（睡眠週期）、House soiling（隨地便溺）、Activity（活動量改變）、Anxiety（焦慮）；講義只列名稱。</p>
+      <div class="grid-2">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p079.jpg" alt="犬失智症診斷：臨床症狀、DISHAA、MRI（腦萎縮、腦室擴大）、生物標記。" loading="lazy"><div class="figure-caption">犬失智症診斷：臨床症狀、DISHAA、MRI（腦萎縮、腦室擴大）、生物標記。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=79">p.79</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p080.jpg" alt="失智量表：DISHAA、CCDR、CADES、CCAS、PCT。" loading="lazy"><div class="figure-caption">失智量表：DISHAA、CCDR、CADES、CCAS、PCT。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=80">p.80</a></div></div>
+      </div>
+      <h3>治療與照顧<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:16%;">類別（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=81">p.81–82</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=88">p.88–89</a>）</th><th>內容</th><th style="width:22%;">途徑（補充）</th></tr></thead>
+          <tbody>
+            <tr><td>藥物</td><td><strong>Selegiline®（已停產）、Eldepryl®</strong>：MAO-B 抑制劑 → dopamine ↑；<strong>Propentofylline（Vivitonin®）</strong>：可通過血腦屏障、限制自由基並抑制發炎</td><td>PO</td></tr>
+            <tr><td>飲食</td><td>Hill's Canine b/d、Purina One Vibrant Maturity 7+、MCT（中鏈三酸甘油酯）</td><td>PO</td></tr>
+            <tr><td>補充品</td><td>Phosphatidylserine（磷脂醯絲胺酸；AKTIVAIT®、Senilife®）增加細胞膜流動性；SAMe；CogniCap®；Zylkene®；褪黑激素（melatonin）</td><td>PO</td></tr>
+            <tr><td>中獸醫</td><td>針灸：GB-34、GV-20、LIV-3、SP-10、ST-36 減少微膠細胞表現；LI-4、LIV-3 活化記憶與認知腦區；GV-20、GV-14、ST-36 增加海馬迴 synaptophysin 與神經營養因子。中藥：賽絡通（人參、銀杏、紅花）、複方丹參、六味地黃、八味地黃、抑肝散</td><td>中藥 PO</td></tr>
+            <tr><td><strong>經顱雷射 PBMT</strong></td><td>減少發炎、增加微循環；<strong>10 Hz、0.3–3.0 J/cm² 照頭部</strong>；<strong>每週 2 次 ×2 週 → 每週 1 次 ×2 週 → 每 2–3 週視需要</strong>；660 與 810 nm 可穿透到腦；Class 3b／4 時間較短，Class 1 居家約 5–10 分鐘</td><td>—</td></tr>
+            <tr><td>新藥</td><td><strong>GedaCure®（crisdesalazine）</strong>：減少阿茲海默症病理特徵（神經元凋亡、tau 病變、澱粉樣斑塊）；給藥 4 週後犬能重新認主人、夜眠改善</td><td>講義未寫</td></tr>
+            <tr><td>環境</td><td>精油芳香療法（白天柑橘、尤加利、檸檬振奮；晚上薰衣草、洋甘菊安撫）；規律戶外散步、新玩具、嗅聞盤</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>居家主動運動<span class="lv lv-must">必考</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:20%;">運動（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=83">p.83–87</a>）</th><th>做法</th><th>頻率</th></tr></thead>
+          <tbody>
+            <tr><td>握手或擊掌（High 5）</td><td>坐著、站著、平衡板上握手</td><td>每天 1–3 次，每次 3–5 回</td></tr>
+            <tr><td>由坐到站</td><td>坐 5 秒後站；訓練<strong>髖與膝伸肌</strong></td><td>每天 3–5 次，每次 3–5 回，可增至 15 回</td></tr>
+            <tr><td>由趴下到站立</td><td>訓練<strong>髖膝伸肌與肩肘伸肌</strong></td><td>每天 3–5 次，每次 3–5 回，可增至 10–15 回</td></tr>
+            <tr><td>跨越橫桿</td><td>越高、越窄越難；可不規律排列</td><td>每天 2–3 次，每次 3–5 趟，可增至 10–20 趟</td></tr>
+            <tr><td>穿梭錐、繞圈、8 字形</td><td>圈越小越難</td><td>每天 2–5 次，共 2–3 分鐘，最多不超過 5 分鐘</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p081.jpg" alt="犬失智症藥物、飲食與補充品。" loading="lazy"><div class="figure-caption">犬失智症藥物、飲食與補充品。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=81">p.81</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p082.jpg" alt="中獸醫（針灸穴位、中藥）、經顱雷射參數與居家運動。" loading="lazy"><div class="figure-caption">中獸醫（針灸穴位、中藥）、經顱雷射參數與居家運動。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=82">p.82</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p089.jpg" alt="最新資訊：GedaCure®、經顱雷射波長與分級、生物標記 Aβ42、NFL。" loading="lazy"><div class="figure-caption">最新資訊：GedaCure®、經顱雷射波長與分級、生物標記 Aβ42、NFL。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=89">p.89</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p083.jpg" alt="主動運動：握手、擊掌。" loading="lazy"><div class="figure-caption">主動運動：握手、擊掌。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=83">p.83</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p084.jpg" alt="主動運動：由坐到站。" loading="lazy"><div class="figure-caption">主動運動：由坐到站。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=84">p.84</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p085.jpg" alt="主動運動：由趴下到站立。" loading="lazy"><div class="figure-caption">主動運動：由趴下到站立。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=85">p.85</a></div></div>
+      </div>
+      <div class="grid-3">
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p086.jpg" alt="主動運動：跨越橫桿。" loading="lazy"><div class="figure-caption">主動運動：跨越橫桿。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=86">p.86</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p087.jpg" alt="主動運動：穿梭錐、繞圈、8 字形。" loading="lazy"><div class="figure-caption">主動運動：穿梭錐、繞圈、8 字形。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=87">p.87</a></div></div>
+        <div class="figure"><img src="img/week07_慢性疼痛管理與老年寵物復健/pain_p088.jpg" alt="芳香療法與豐富環境（嗅聞盤、益智玩具）。" loading="lazy"><div class="figure-caption">芳香療法與豐富環境（嗅聞盤、益智玩具）。</div><div class="figure-source">來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=88">p.88</a></div></div>
+      </div>
+      <footer class="note-footer">資料來源：課程講義 <a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=78">p.78–89</a>。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- EXAM -->
+    <div class="section" id="section-exam">
+      <div class="section-head"><div class="section-num">13</div><h2>考試方向（推測）</h2></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div>
+        <p>以下是依講義強調處與學長姐整理<strong>推測</strong>的出題方向，不是考古題。學長姐整理第 2、10 頁貼了本講義的疼痛途徑、疼痛種類、止痛劑金字塔，並寫了 COAST 與 NSAIDs → COX2 → PGE2。</p></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:40%;">可能考法</th><th>答題重點</th></tr></thead>
+          <tbody>
+            <tr><td>疼痛四步驟</td><td>轉換、傳送、調變、感知</td></tr>
+            <tr><td>疼痛種類與 wind-up</td><td>適應性（生理、急性）vs 適應不良性（慢性、神經病變）；痛覺過敏、感覺異常、輕觸痛</td></tr>
+            <tr><td>量表縮寫</td><td>CBPI、HCPI、COI、LOAD、VAS、CMPS-SF、COAST（犬慢性關節炎分級工具）</td></tr>
+            <tr><td>止痛劑金字塔</td><td>NSAID → tramadol（2–10 mg/kg tid）→ gabapentin（2–20 bid）→ amantadine（3–5 sid）→ opioid；底層體重與運動</td></tr>
+            <tr><td>NSAID 機轉</td><td>花生四烯酸 → COX-2 → PGE2 → EP 受體；COX-1 恆定功能；grapiprant 在 EP4</td></tr>
+            <tr><td>Tramadol 犬貓差異</td><td>M1 代謝物人貓有、犬無</td></tr>
+            <tr><td>Adequan／Cartrophen</td><td>Adequan SC／IM 每週 2 次 ×4 週；Cartrophen SC 每週 1 次 ×4 週</td></tr>
+            <tr><td>關節注射</td><td>類固醇每 3 個月、每年最多 4 次；HA 每週 ×3 週</td></tr>
+            <tr><td>Tin-117m</td><td>滑膜抗發炎、每年一次、FDA 核准犬肘、2–4 週不同床</td></tr>
+            <tr><td>抗 NGF 單抗</td><td>RPOA 疑慮、神經疾病犬勿用、長期定期評估</td></tr>
+            <tr><td>骨刺</td><td>非發炎、L7–S1 最常見、不直接壓脊髓、拳師犬</td></tr>
+            <tr><td>肌少症</td><td>老化造成瘦肉流失、體重看不出；MCS、C-MMT；營養＋阻力有氧運動</td></tr>
+            <tr><td>老年犬運動</td><td>低強度高頻率、至少 3 種、一週 3 次、每天 6–8 回；體重 80% 營養</td></tr>
+            <tr><td>失智症</td><td>CCDS、11 歲以上、症狀百分比、DISHAA、selegiline（MAO-B）、經顱雷射 10 Hz 0.3–3 J/cm²</td></tr>
+            <tr><td>5H2M</td><td>七項各 0–10，總分 &gt; 35 可接受</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="note-footer">本節為個人推測，非考古題。本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">14</div><h2>練習題</h2></div>
+      <p class="section-desc">先自己作答再展開；解析附講義頁碼。</p>
+      <div class="card"><h4>1. 選擇題</h4>
+        <p>原本不會痛的輕觸刺激變得會痛，稱為：</p>
+        <p>(A) Hyperalgesia　(B) Allodynia　(C) Dysesthesia　(D) Physiologic pain</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：痛覺過敏是原本會痛的刺激變得更痛（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=5">p.5</a>；解釋為補充）。</li><li>(B) 對：輕觸痛（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=5">p.5</a>）。</li><li>(C) 錯：感覺異常是不正常的異樣感覺（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=5">p.5</a>）。</li><li>(D) 錯：生理性疼痛是適應性、保護性的疼痛（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=5">p.5</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>2. 選擇題</h4>
+        <p>下列哪一個量表是「犬慢性關節炎分級工具」？</p>
+        <p>(A) CBPI　(B) LOAD　(C) COAST　(D) CMPS-SF</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(C)</strong></p>
+          <ul><li>(A) 錯：CBPI 是犬簡要疼痛清單（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a>）。</li><li>(B) 錯：LOAD 是利物浦犬慢性關節炎量表（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a>）。</li><li>(C) 對：Canine Osteoarthritis Staging Tool（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a>；學長姐整理有列）。</li><li>(D) 錯：CMPS-SF 是簡式格拉斯哥複合式疼痛量表（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>3. 選擇題</h4>
+        <p>依講義止痛劑金字塔，gabapentin 的劑量與作用是：</p>
+        <p>(A) 3–5 mg/kg sid，NMDA 拮抗　(B) 2–20 mg/kg bid，Ca²⁺ 通道　(C) 2–10 mg/kg tid，鴉片／血清素／正腎上腺素　(D) 直接抑制 COX-2</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：這是 amantadine（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a>）。</li><li>(B) 對（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a>）；途徑 PO（補充）。</li><li>(C) 錯：這是 tramadol（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a>）。</li><li>(D) 錯：這是 NSAIDs（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10–11</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>4. 選擇題</h4>
+        <p>關於 tramadol，何者正確？</p>
+        <p>(A) 強效 μ 受體促效劑　(B) 犬體內大量產生活性代謝物 M1　(C) 止痛可能來自抑制血清素與正腎上腺素回收　(D) 主要作用是 COX 抑制</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(C)</strong></p>
+          <ul><li>(A) 錯：是<strong>弱</strong> μ 受體促效（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=12">p.12</a>）。</li><li>(B) 錯：M1 人與貓有，犬 ×（犬排除比貓快）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=12">p.12</a>）。</li><li>(C) 對（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=12">p.12</a>）。</li><li>(D) 錯：COX 抑制是 NSAIDs（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=11">p.11</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>5. 選擇題</h4>
+        <p>Adequan® 的用法，講義寫：</p>
+        <p>(A) 每天 PO　(B) 每週 2 次 SC 或 IM，連續 4 週，之後每週 1 次連續 4 週　(C) 每 3 個月關節內注射一次　(D) 每年一次關節內注射</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：Adequan 是注射劑（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=16">p.16</a>）。</li><li>(B) 對（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=16">p.16</a>）。</li><li>(C) 錯：每 3 個月一次是<strong>關節內類固醇</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=20">p.20</a>）。</li><li>(D) 錯：每年一次是 <strong>Tin-117m</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=24">p.24</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>6. 選擇題</h4>
+        <p>關節內類固醇注射的限制，講義寫：</p>
+        <p>(A) 每週一次　(B) 每 3 個月一次、最多 2 年、每年最多 4 次　(C) 只能打一次　(D) 每年一次</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(B)</strong></p>
+          <ul><li>(A) 錯：每週一次 ×3 週是玻尿酸（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=20">p.20</a>）。</li><li>(B) 對（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=20">p.20</a>）。</li><li>(C) 錯：講義沒這樣寫。</li><li>(D) 錯：每年一次是 Tin-117m（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=24">p.24</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>7. 選擇題</h4>
+        <p>關於 Tin-117m（Synovetin OA）何者錯誤？</p>
+        <p>(A) 低劑量放射線直接對滑膜抗發炎　(B) 美國 FDA 核准用於犬肘關節　(C) 注射後須住院隔離 2–4 週　(D) 每年一次關節內注射</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(C)</strong></p>
+          <ul><li>(A)(B)(D) 正確（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=24">p.24</a>）。</li><li>(C) 錯誤：注射後<strong>不需要住院</strong>，只是 2–4 週不要與主人同床（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=24">p.24</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>8. 選擇題</h4>
+        <p>抗 NGF 單株抗體的安全疑慮與使用注意，何者正確？</p>
+        <p>(A) 會造成快速進展性 OA（RPOA），神經疾病犬勿用　(B) 完全沒有不良反應　(C) 人類已廣泛上市使用　(D) 犬用核准依據是 1000 隻 OA 犬的長期試驗</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(A)</strong></p>
+          <ul><li>(A) 對（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=27">p.27</a>）。</li><li>(B) 錯：須告知飼主不良反應（ADE）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=27">p.27</a>）。</li><li>(C) 錯：FDA 與 EMA 拒絕人用上市（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=27">p.27</a>）。</li><li>(D) 錯：依據是 32 隻健康年輕米格魯、26 週試驗（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=27">p.27</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>9. 選擇題</h4>
+        <p>關於變形性脊椎病（骨刺），何者正確？</p>
+        <p>(A) 是發炎性疾病　(B) 最常見於頸椎　(C) 腹側相鄰椎骨搭橋，不直接壓迫脊髓，疼痛多來自側枝神經根　(D) 小型犬風險最高</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(C)</strong></p>
+          <ul><li>(A) 錯：非發炎性退化疾病（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=39">p.39</a>）。</li><li>(B) 錯：L7–S1 最常見，其次 T12–L3，頸椎較少（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=39">p.39</a>）。</li><li>(C) 對（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=41">p.41</a>）。</li><li>(D) 錯：大型犬、拳師犬風險高（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=39">p.39</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>10. 選擇題</h4>
+        <p>老年狗運動復健原則，何者<strong>錯誤</strong>？</p>
+        <p>(A) 低強度、高頻率　(B) 至少選 3 種運動，一週 3 次　(C) 每天至少一組 6–8 回　(D) 每天都要做到疲勞才有效，不需休息日</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：(D)</strong></p>
+          <ul><li>(A)(B)(C) 正確（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=73">p.73</a>）。</li><li>(D) 錯誤：所有運動都要有幾天休息讓組織修復，切勿過度（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=73">p.73</a>）。</li></ul>
+        </details></div>
+      <div class="card"><h4>11. 是非題</h4>
+        <p>肌少症的狗體重一定會明顯下降，所以量體重就能發現。</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：錯</strong>。瘦肉流失伴隨脂肪堆積，<strong>不易由體重變化看出</strong>（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=58">p.58</a>）；犬要用肌肉狀態評分（MCS）、C-MMT 等評估（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=62">p.62</a>）。</p>
+        </details></div>
+      <div class="card"><h4>12. 是非題</h4>
+        <p>5H2M 生活品質量表總分超過 35 分，代表仍有可接受的生活品質。</p>
+        <details class="quiz-reveal"><summary></summary>
+          <p><strong>答案：對</strong>。七項各 0–10 分（滿分 70），&gt; 35 分代表仍有生活品質（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=91">p.91</a>）。</p>
+        </details></div>
+      <div class="card"><h4>13. 臨床情境題</h4>
+        <p>12 歲拉布拉多，30 kg，雙側髖關節 OA，口服 NSAID 中，最近走路更慢、起身困難。</p>
+        <p>(1) 用什麼工具評估疼痛與生活品質？<br>(2) 止痛加藥的順序（依講義金字塔）？給一個 gabapentin 的劑量範圍與每次劑量計算。<br>(3) 長期吃 NSAID 要監測什麼、多久調整一次？<br>(4) 可以考慮哪些非口服的方法？</p>
+        <details class="quiz-reveal"><summary></summary>
+          <ol>
+            <li>CBPI、LOAD、COAST（獸醫分期）等 CMI；生活品質用 5H2M（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=8">p.8</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=49">p.49</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=91">p.91</a>）。</li>
+            <li>NSAID 之上依序 tramadol → gabapentin → amantadine → opioid（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a>）。Gabapentin 2–20 mg/kg bid（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=10">p.10</a>）：30 kg × 5 mg/kg（範圍內的示意值）= 150 mg PO bid（途徑補充、劑量依醫囑）；amantadine 3–5 mg/kg sid 可當 gabapentin 的幫手（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=14">p.14</a>）。</li>
+            <li>定期血檢與尿檢監控 NSAID 與代謝；每 4–6 週調整目標與體重監控；專業復健每週 1–2 次（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=90">p.90</a>）。</li>
+            <li>Adequan® SC／IM 療程（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=16">p.16</a>）、關節內注射（類固醇、HA、PRP 等）、Tin-117m（目前 FDA 核准犬肘）、抗 NGF 單抗（注意 RPOA）（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=20">p.20–27</a>）；體重控制（80% 營養）、低強度高頻率運動、針灸、雷射、水療（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=48">p.48–56</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=69">p.69–73</a>）。</li>
+          </ol>
+        </details></div>
+      <div class="card"><h4>14. 臨床情境題</h4>
+        <p>13 歲柴犬，最近晚上不睡、白天睡、在角落發呆、會卡在家具後面出不來，飼主很困擾。</p>
+        <p>(1) 最可能的診斷與正式名稱？<br>(2) 用什麼量表輔助診斷？<br>(3) 講義列的藥物與作用？<br>(4) 經顱雷射的參數與頻率？<br>(5) 居家可以做什麼運動與環境安排？</p>
+        <details class="quiz-reveal"><summary></summary>
+          <ol>
+            <li>犬失智症，正式名稱犬認知功能障礙（CCDS）；日夜顛倒（57%）、漫無目的走路與角落發呆是最常見症狀；柴犬是門診常見（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=78">p.78</a>）。</li>
+            <li>DISHAA、CCDR、CADES 等（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=80">p.80</a>）；必要時 MRI 與生物標記（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=79">p.79</a>、<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=89">p.89</a>）。</li>
+            <li>Selegiline®／Eldepryl®：MAO-B 抑制、dopamine ↑；propentofylline（Vivitonin®）：通過血腦屏障、抑制自由基與發炎（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=81">p.81</a>）；口服（補充）。補充品如 phosphatidylserine、SAMe、褪黑激素（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=81">p.81</a>）。</li>
+            <li>10 Hz、0.3–3.0 J/cm² 照頭部；每週 2 次 ×2 週 → 每週 1 次 ×2 週 → 每 2–3 週視需要（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=82">p.82</a>）。</li>
+            <li>擊掌、坐到站、趴下到站立、跨越橫桿、穿梭（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=82">p.82–87</a>）；白天振奮、晚上安撫的芳香療法，規律散步、新玩具、嗅聞盤（<a class="pdf-link" href="pdf/慢性疼痛管理與老年寵物復健.pdf#page=88">p.88</a>）。</li>
+          </ol>
+        </details></div>
+      <div class="quiz-cta" style="margin:2.5rem 0 1rem;padding:1.4rem 1.6rem;text-align:center;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--bg-soft)">
+        <p style="margin:0 0 .8rem;font-weight:600;color:var(--accent-deep)">讀完了？用題目檢查一下這章</p>
+        <a href="自我測驗/quiz.html?c=week07_%E6%85%A2%E6%80%A7%E7%96%BC%E7%97%9B%E7%AE%A1%E7%90%86%E8%88%87%E8%80%81%E5%B9%B4%E5%AF%B5%E7%89%A9%E5%BE%A9%E5%81%A5" style="display:inline-block;padding:.6rem 1.6rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none">📝 做這章的自我測驗 →</a>
+        <p style="margin:.7rem 0 0;font-size:.85em;color:var(--fg-muted)">每題作答後立即顯示解析；答錯的會進錯題本。</p>
+      </div>
+      <footer class="note-footer">本頁為個人課堂筆記整理，僅供學習與複習使用，不作為正式診斷依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '大方向與重點摘要',
+  painbasic: '疼痛途徑與種類',
+  assess: '疼痛與生活品質評估',
+  pharm: '慢性疼痛藥物',
+  oadrug: 'DMOAD、營養品與 CBD',
+  inj: '關節注射與新療法',
+  nonpharm: '非藥物疼痛管理',
+  spondylosis: '骨刺',
+  oa: '骨關節炎 OA',
+  sarcopenia: '肌少症',
+  geriatric: '老年狗復健與功能評估',
+  ccds: '犬失智症',
+  exam: '考試方向（推測）',
+  quiz: '練習題',
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<div id="pdfPanel" aria-label="講義 PDF">
+  <div id="pdfDrag" title="拖曳調整寬度"></div>
+  <div class="pdfbar">
+    <strong id="pdfTitle">講義</strong>
+    <button type="button" id="pdfPrev" title="上一頁">‹</button>
+    <button type="button" id="pdfNext" title="下一頁">›</button>
+    <a id="pdfNewTab" href="#" target="_blank" rel="noopener" title="在新分頁開啟">↗</a>
+    <button type="button" id="pdfClose" title="關閉">✕</button>
+  </div>
+  <iframe id="pdfFrame" title="講義 PDF"></iframe>
+</div>
+<script>
+(function () {
+  var panel = document.getElementById('pdfPanel'), frame = document.getElementById('pdfFrame');
+  var cur = { file: '', page: 1 };
+  function show(file, page) {
+    cur.file = file; cur.page = page;
+    var url = file + '#page=' + page;
+    // 同一份 PDF 只改 #page 時 Safari 不會跳頁，先清空再載入
+    if (frame.dataset.file === file) { frame.src = 'about:blank'; setTimeout(function () { frame.src = url; }, 30); }
+    else { frame.src = url; frame.dataset.file = file; }
+    document.getElementById('pdfTitle').textContent = '講義 p.' + page;
+    document.getElementById('pdfNewTab').href = url;
+    document.body.classList.add('pdf-open');
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pdf-link, a.pdf-open-link');
+    if (!a || e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    var m = a.getAttribute('href').match(/^(.*?)(?:#page=(\d+))?$/);
+    show(m[1], parseInt(m[2] || '1', 10));
+  });
+  document.getElementById('pdfClose').onclick = function () { document.body.classList.remove('pdf-open'); };
+  document.getElementById('pdfPrev').onclick = function () { if (cur.page > 1) show(cur.file, cur.page - 1); };
+  document.getElementById('pdfNext').onclick = function () { show(cur.file, cur.page + 1); };
+  var drag = document.getElementById('pdfDrag');
+  drag.addEventListener('mousedown', function (e) {
+    e.preventDefault(); document.body.classList.add('pdf-dragging');
+    function mv(ev) { var w = Math.min(Math.max(window.innerWidth - ev.clientX, 320), window.innerWidth - 360); document.documentElement.style.setProperty('--pdfw', w + 'px'); }
+    function up() { document.body.classList.remove('pdf-dragging'); removeEventListener('mousemove', mv); removeEventListener('mouseup', up);
+      try { localStorage.setItem('pdfw', getComputedStyle(document.documentElement).getPropertyValue('--pdfw')); } catch (_) {} }
+    addEventListener('mousemove', mv); addEventListener('mouseup', up);
+  });
+  try { var w = localStorage.getItem('pdfw'); if (w) document.documentElement.style.setProperty('--pdfw', w); } catch (_) {}
+})();
+</script>
+
+<script src="../../assets/nav-data.js"></script>
+<script src="../../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

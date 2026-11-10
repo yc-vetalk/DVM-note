@@ -5930,200 +5930,711 @@ const SEARCH_INDEX = [
     snippet: "涵蓋感染組織效果、毒性時序、Prilocaine、Procaine與磺胺的練習題（共4題）。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
-    section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 病灶定位 四階段復健 深層痛覺 前庭疾病 退化性脊髓病 針灸",
-    snippet: "七個臨床重點：病灶定位表、四階段復健框架、Compressive/Non-compressive分類、深層痛覺、前庭疾病、針灸處方、DM存活期實證。"
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 包含哪些領域 用哪些方法 由誰來做 運動醫學 復健與物理治療 疼痛管理 動物醫事助理 2020 成立正式科別 DACVSMR 與 CCRP 專科獸醫師 認證 UWTM 與 LTM PW 與 CW",
+    snippet: "整門課的地圖：獸醫復健（康復）包含哪些領域（運動醫學、復健與物理治療、疼痛管理）、用哪些方法（理療儀器、運動復健、手技、中獸醫針灸），以及在歐美與台灣由誰來做、要有什麼認證。最後用臺大動物醫院復健科的設備與一隻四肢癱瘓老犬的病例，示範這些方法怎麼串在一起。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "scope", sectionName: "復健的三大領域",
+    keywords: "三大領域 講義縮寫的全名 運動醫學 復健與物理治療 骨科 神經科 老年 矯具與義肢 疼痛管理 CVPP",
+    snippet: "講義把獸醫復健分成三塊：運動醫學、復健與物理治療、疼痛管理。每一塊後面都有對應的課。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "modalities", sectionName: "常用理療復健",
+    keywords: "常用理療復健 Physical Modalities 七種常用理療 TENS NMES Class III Class IV PW CW PEMF tPEMF Focus Radial",
+    snippet: "講義 p.5 列出七種「常用理療復健」，就是第 5、6 週兩份儀器講義的主角。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "exercise", sectionName: "運動復健",
+    keywords: "運動復健 Therapeutic Exercise 運動治療目標 常用項目 CSCC CCFT",
+    snippet: "運動復健分「目標」「門診常用項目」「居家項目」三層；目標是之後各疾病頁反覆出現的五個詞。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "manual", sectionName: "手技復健與中獸醫",
+    keywords: "手技復健與中獸醫 Manual Therapy & TCVM 手技復健的五種方法 中獸醫：針灸 推拿按摩 關節鬆動術 關節活動與伸展 肌內效貼紮 CVTP CCMT CVMMP CSMP CKTP 止痛 幫助修復 恢復功能 CVA 通則不痛 腦內啡釋放 門戶理論 細微創傷",
+    snippet: "不靠儀器、用手做的治療，以及中獸醫針灸。詳細內容在第 9 週（針灸推拿按摩）與第 11、13 週（手技、肌內效貼紮實作）。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "workforce", sectionName: "人醫與獸醫、專科與認證",
+    keywords: "人醫與獸醫的分工、專科與認證 Workforce & Certification 復健醫療人醫及獸醫比較表 歐美專科獸醫師 國際認證課程 本課出現過的認證縮寫總表 台灣（以臺大為例） 診斷及治療 復健治療 輔助 協助 台灣目前由動物醫事助理「輔助」復健治療 DACVSMR DECVSMR 犬（canine） 馬（equine） 住院醫師訓練 3–5 年 CCRP CCRT CCRV CCAT -P -T -V -N -VT -A 獸醫外科 獸醫復健及整合醫學科 2018 年 2020 年成立正式科別",
+    snippet: "誰可以診斷、誰執行治療、誰協助：人醫、歐美獸醫、台灣獸醫三套制度對照。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "ntuh", sectionName: "臺大動物醫院復健科實況",
+    keywords: "門診與空間 特殊診斷評估設備 治療空間與居家運動 復健門診 中獸醫門診 疼痛門診",
+    snippet: "門診類別、評估設備與治療空間；這些設備在第 5、6、8 週會分別細講。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "case", sectionName: "病例：四肢癱瘓老犬",
+    keywords: "病例介紹：頸椎外傷後四肢癱瘓 Case Report 基本資料 Outcomes 進展時間軸 14 歲 四肢癱瘓（tetraplegia） 頸椎外傷性椎間盤 四肢癱瘓 水中跑步機（UWTM） 陸上跑步機（LTM） 不需協助可以行走 恢復 治療隨功能升級 時間長",
+    snippet: "一隻 14 歲大型混種犬，從四肢癱瘓到恢復自由活動約 11 個月；看每一階段換成什麼治療。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "schedule", sectionName: "課程安排與參考書",
+    keywords: "課程安排與參考文獻 Course Schedule 課程安排 參考文獻 10 11/11 期中考 16 12/23 期末考",
+    snippet: "16 週課表（第 10 週期中考、第 16 週期末考）與老師列的參考書。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 推測",
+    snippet: "10考試方向（推測） 注意 以下是依講義強調的內容推測的出題方向，不是考古題，考試範圍以老師上課為準。本科唯一的考古資料（學長姐考前整理）沒有列到這一講的內容。 可能考法答題重點 獸醫復健包含哪些項目？運動醫學；復健與物理治療（骨科、神經科"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "概論與課程說明",
+    url: "大四上/伴侶動物復健及物理治療學/week01_概論與課程說明.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 不屬於 答案：(C) 手技復健 答案：(D) 錯誤 Kinesio-taping CVTP 不包括 答案：(B) 運動醫學 老年 答案：錯 2020 年 骨科",
+    snippet: "先自己作答再展開；解析附講義頁碼。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 骨、骨骼肌、肌腱、韌帶、關節軟骨、神經 癒合時間軸 對復健的意涵 深層痛覺是預後關鍵 初級 vs 次級骨癒合 向心 vs 離心收縮 廢用性 vs 神經性萎縮 部分厚度 vs 全厚度軟骨缺損",
+    snippet: "復健的「時間表」從哪裡來：每一種組織（骨、骨骼肌、肌腱、韌帶、關節軟骨、神經）都有自己的構造與癒合速度。講義先複習方位、骨骼、肌肉與關節活動度，再講傷口癒合三期、結締組織的膠原與彈性纖維，然後逐一講各組織的癒合時間軸與對復健的意涵（固定多久、何時開始被動／主動運動、何時恢復多少強度）。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "anatomy", sectionName: "方位、骨骼與肌肉",
+    keywords: "方位、骨骼、肌肉與關節活動度 Basic Anatomy 方位與切面 跨多關節的肌肉 關節伸屈方向與正常活動範圍 前肢 後肢 膕繩肌（Hamstring） 50°–160° 45°–160° 30°–160° 35°–155° 35°–200° 腕關節可以伸到 200°",
+    snippet: "復健描述動作與位置的共同語言，以及前後肢「跨幾個關節」的肌肉——跨越的關節越多，伸展與受傷的考量越多。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "wound", sectionName: "傷口癒合三期",
+    keywords: "傷口癒合 Wound Healing 再生與修補 三期與復健原則 原本的 骨癒合 疤痕組織 軟骨、肌肉、韌帶、肌腱 發炎期 day 0–5 僅能使用 避免主動運動 修補期 day 5–21 物理性壓力 重建期 day 21～1 年 更多應力",
+    snippet: "所有組織都走「發炎 → 修補 → 重建」三期；每一期能做的復健不同，這是後面所有時間表的骨架。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "connective", sectionName: "結締組織",
+    keywords: "結締組織 Connective Tissue 功能、類型與組成 膠原纖維三型 彈性纖維與基質 結締組織的營養 纖維組織 脂肪組織 骨架組織 Type I 伸展力 Type II 壓縮力 Type III 傷口癒合 只能延長約 5% 快速、突然的力量容易造成損傷 增加應力 固定不動 彈性纖維 70%，最高 220% 先由彈性纖維承受，再慢慢轉給膠原纖維 膠原纖維 基質 吸收外力保護組織 微血管血液 組織液 無血流灌流的靠滲透及擴散 組織負重與不負重 壓電效應 完全不動對它們是有害的",
+    snippet: "肌腱、韌帶、骨、軟骨都是結締組織；它們的強度與彈性取決於膠原纖維、彈性纖維與基質的比例。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "bone", sectionName: "骨與骨癒合",
+    keywords: "骨與骨癒合 Bone & Bone Healing 骨的構造與組成 初級與次級骨癒合 Wolff's law 與壓電效應 影響骨癒合的因素 骨的癒合時間軸與復健 水 5–10%、有機物 20% 礦物質 70% 不斷重塑 < 1 mm < 2% > 1 mm > 2% 骨痂 10–12 天 30 天 早期穩定度較差 較久 沃爾夫定律（Wolff's law） 約 3 個月 壓電效應（piezoelectric effect） 解除固定後第一個月 牽繩慢走或輕度跑步機 72 小時 3 天～4–6 週 循環負荷 90 天",
+    snippet: "骨是唯一能「再生」回原樣的組織；但初級或次級癒合、早期穩定度與骨折間隙，決定了復健可以多早給負荷。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "muscle", sectionName: "肌肉構造與能量",
+    keywords: "肌肉構造、纖維類型與能量系統 Muscle Structure 肌肉單位與肌小節 肌纖維類型 能量系統 不變 有氧 無氧 長 抗疲勞 短 容易疲勞 股四頭肌 腓腸肌 犬有 5 類肌纖維 會隨功能需求改變 即時能量系統 糖解系統 氧化系統 需要 ⚠ 待確認",
+    snippet: "肌小節怎麼縮短、慢肌與快肌的差別、三種供能系統——解釋為什麼耐力訓練和爆發訓練要分開設計。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "musclerehab", sectionName: "肌肉癒合、萎縮與收縮",
+    keywords: "肌肉損傷的種類與嚴重度 肌肉癒合時間軸必考 學長姐整理 肌肉復健時程必考 學長姐整理 三種肌肉萎縮 三種收縮型態必考 學長姐整理 72 小時 3 天 第 III 型膠原 > 6 週 取決於受傷處間隙的大小 最少 4–6 週 完全撕裂 50% 張力、80% 收縮縮短 部分撕裂 60% 張力 0–5 天 4 週 之後 輕微拉傷 3–5 天 肌肉撕裂 2–3 週 完全斷裂 4–8 週 8–12 週 受傷程度 纖維組織長入的程度 慢 快，約 1 週內 可逆但不完全 伸肌比屈肌易受影響 第一型纖維 脂肪與纖維組織 增加蛋白質 向心收縮運動 肌肉重新活動要點 等長收縮 不變 向心收縮 縮短 離心收縮 拉長 下坡",
+    snippet: "肌肉受傷後「先短暫固定、再保護性活動、最後加強」；固定太久會萎縮，而萎縮的種類決定恢復速度。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "tendon", sectionName: "肌腱與韌帶",
+    keywords: "肌腱與韌帶 Tendon & Ligament 構造比較 肌腱癒合時間軸 肌腱復健時程必考 學長姐整理 韌帶（扭傷）癒合與復健必考 學長姐整理 肌肉 → 骨 骨 → 骨 > 98% type I 90% type I／10% type III 腱旁組織包覆（有血管） 滑膜鞘包覆（無血管） Golgi 感受器 腳趾區 彈性區 屈服點 塑性區 斷裂 72 小時 第 5 天 5–12 天 第 60 天 28 天 112 天 6 週約 56% 1 年以上約 79% 滑膜鞘（無血管）肌腱比有血管的癒合更久 術後 3–6 週 6 週後 ≥ 12 週 1 年 最多 6 週 長期固定有害 21 天 21 天內 術後第 5 天 6 週 25–30% 12 週 80% 79% 2–3 天至 6 週 1 年時 50–70% 不確定時比照肌腱的參數 每次 30 分鐘、每週 6 天 扭傷－撕裂骨折（sprain-a",
+    snippet: "肌腱與韌帶幾乎全是 I 型膠原、血流少，所以修得慢：固定 3–6 週、6 週後才輕度負重、1 年後強度仍不到原本的八成。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "joint", sectionName: "關節囊與軟骨",
+    keywords: "關節囊與關節軟骨 Joint Capsule & Cartilage 關節囊 關節與軟骨的類型 軟骨損傷與癒合 固定與重新活動對軟骨的影響必考 學長姐整理 產生關節液 本體感覺感受器 外層 內層 A 型滑膜細胞 B 型 玻尿酸 Ruffini 末梢 位置 動作 Pacini 小體 動態感受器 英文原文 ⚠ 建議向老師確認 滑膜關節 纖維關節 軟骨關節 透明軟骨 水 65–80% 無血液、無神經、無淋巴 完全靠關節液交換 沒有發炎反應 骨髓 1 週後 1 年也無法填滿缺損 纖維性 1 年時只有 20% 為第二型膠原 透明軟骨極少完全復原 骨關節炎（OA） 關節固定時間長短 年輕犬固定 3–4 個月後，需近 1 年才完全再生 持續被動關節活動（continuous PROM） 60% 44% ≤ 10% 6 週 3 週 超過 15 週 50 週 解除固定後劇烈運動對軟骨有害 早動（被動）、慢慢",
+    snippet: "軟骨沒有血管、神經、淋巴，營養全靠關節液交換；所以它最怕「不動」，也最難修好。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "clinical", sectionName: "相關肌肉骨骼疾病",
+    keywords: "相關肌肉、肌腱、韌帶與關節疾病 Clinical Correlates 髂腰肌拉傷（Iliopsoas strain） 纖維化肌病（Fibrotic myopathy） 肩部肌腱病變與肩內側不穩定 跟腱斷裂與趾屈肌拉傷必考 學長姐整理 韌帶與關節疾病 L2–L3 橫突 L4–L7 椎體腹側 小轉子 髖屈肌 Grade I < 5% Grade II > 5% Grade III 棘下肌攣縮 棘下窩 大結節 股薄肌攣縮 骨盆聯合 總跟腱 髖內收肌 棘上肌腱病變 棘上窩 伸展 二頭肌腱病變 盂上結節 結節間溝 肩伸展、肘屈曲 肩內側不穩定 內側盂肱韌帶（MGL） 肩胛下肌腱（SST） 外展試驗（abduction test） 45° 跟腱（阿基里斯腱）斷裂 跗關節下垂（dropped hock） 淺趾屈肌（SDF） 腓腸肌 聯合腱 Type I 完全斷裂 蹠行 Type II 只有腓腸肌腱 蟹",
+    snippet: "講義用一串常見病把上面的組織學接到臨床：每個病要知道是哪條肌肉／肌腱／韌帶、起止點與功能、怎麼分級。各病的復健方案見第 4 週骨科。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "nerve", sectionName: "神經",
+    keywords: "神經系統的損傷與恢復 Nerve 中樞神經的可塑性 中樞神經損傷與預後必考 學長姐整理 脊髓創傷的病理 周邊神經損傷 講義舉的神經疾病 無法恢復 可塑性改變 突觸可塑性（synaptic plasticity） 產生新突觸 新突觸的生成可被復健正向影響 突觸形成（synaptogenesis） 側枝發芽（collateral sprouting） 學習新的移動方式 脊髓步行（spinal walking） 沒有脊髓以上或皮質的控制 深層痛覺（deep pain sensation）是預後的關鍵 繼發性損傷 嗜中性球 巨噬細胞 1 週 繼發性細胞事件比最初的機械性挫傷更重要 數週 寡突膠質細胞 星形膠質細胞 疤痕 阻礙軸突再生長 神經失用 軸索斷裂 神經截斷 神經外膜 神經束膜 神經內膜 退化性脊髓病 8–14 歲 臂神經叢撕脫",
+    snippet: "中樞神經細胞死了不會再生，但迴路可以重新連結；周邊神經依損傷層級決定能不能自己長回來。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "timeline", sectionName: "組織癒合時間總表",
+    keywords: "組織癒合時間總表 Tissue Healing Timeline 各組織比較（講義數字）必考 學長姐整理 Shaw 2020 癒合速度表 一般傷口 骨 骨骼肌 0–5 天固定 → 4 週保護性活動 → 之後強化 肌腱 術後固定 3–6 週 6 週輕度負重 1 年約 80% 韌帶 比照肌腱 1 年 50–70% 軟骨（部分厚度） 固定 3–4 個月 → 年輕犬近 1 年才完全再生 軟骨（全厚度） 中樞神經 深層痛覺是預後關鍵 關節內韌帶 > 1 年，幾乎無法癒合",
+    snippet: "把本講義所有數字放在同一張表：考前最該看的一節。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測）與學長姐整理 學長姐整理對照本講義 其他可能考法（推測） 學長姐考前整理 推測 ⚠ 本講義沒有",
+    snippet: "13考試方向（推測）與學長姐整理 注意 本科沒有考卷，只有一份學長姐考前整理（標題「老師上課說會考的地方」，屬學長姐轉述，非官方、可能過時）。下表左半是學長姐整理列出、且在本講義找得到的內容；右半是依講義強調處推測的方向。考試範圍以老師上課"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "復健相關解剖學及生理學",
+    url: "大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 答案：(B) 修補期 伸展力 答案：(C) 廢用性萎縮 肌少症 答案：(A) 全厚度 答案：錯 可能無法 等長 向心 離心 髂腰肌 Grade I 3–5 天 4–6 週 蹠行 Type I 術後第 5 天 6 週 80%",
+    snippet: "先自己作答再展開；解析附講義頁碼。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
+    section: "abstract", sectionName: "重點摘要",
+    keywords: "重點摘要 一套通用的復健邏輯，套用在一長串常見神經科疾病上 病灶定位 四階段復健框架 退化性脊髓病（DM） 病灶定位靠「前肢＋後肢步態組合」反推： 前庭疾病常被飼主誤認為「中風」： 針灸處方遵循「由簡入繁」的四級治療選項邏輯： 退化性脊髓病是本章實證等級最高的案例：",
+    snippet: "1重點摘要 這份講義在講什麼？ 這份講義的主線是「一套通用的復健邏輯，套用在一長串常見神經科疾病上」。先建立兩個基礎工具：①病灶定位——用四肢步態表現反推病灶在哪一段脊髓／腦；②四階段復健框架（急性期→增生期→鞏固期→組織期）——幾乎每一種"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
     section: "anatomy", sectionName: "解剖學與病灶定位",
-    keywords: "本體感覺路徑 步態產生 病灶定位表 UMN LMN C1-C5 C6-T2 T3-L3 L4-S1 神經功能恢復順序 NDS",
-    snippet: "依前後肢UMN/LMN組合與步態反推病灶位置；雙引擎步態對應C6-T2；神經功能恢復順序側躺→趴正→坐立→站立→行走。"
+    keywords: "解剖學與病灶定位 Anatomy & Lesion Localization 本體感覺與步態相關傳導路徑 病灶定位表（依步態表現分段）必考 學長姐整理 依脊髓分段的詳細神經學徵象 步態產生（Gait generation）相關脊髓神經束： 顱內 Intracranial C1–C5 C6–T2 雙引擎 T3–L3 L4–S1 S1–S3 有考這個，挖掉問你是啥 LMN",
+    snippet: "神經科復健的第一步永遠是定位病灶——因為復健方案、預後判斷都建立在「病灶在哪一段」之上。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
     section: "rehabphases", sectionName: "復健四階段框架",
-    keywords: "急性期 增生期 鞏固期 組織期 四階段 復健時間軸",
-    snippet: "急性期1-5天、增生期5-21天、鞏固期21-60天、組織期61天以後，是幾乎所有神經疾病復健方案的通用骨架。"
+    keywords: "四階段時間與目標 四階段時間軸與目標 急性期 Acute 增生期 Proliferative 鞏固期 Consolidation 組織期 Organization 禁止玩耍、禁止爬樓梯 名稱、天數與目標 各期的項目每種疾病都不同",
+    snippet: "講義每一種疾病的復健方案都用同一套四階段時間軸與目標；各期放什麼項目則依疾病不同（見下一節總表）。下表的處置欄以講義第一個疾病 A/A 不穩定為例（p.12）。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
     section: "diseases", sectionName: "常見神經科疾病復健方案",
-    keywords: "A/A不穩定 CCSM Wobbler IVDD type I type II ANNPE HNPE FCE 臂神經叢撕裂 馬尾部症候群 脊椎病 浣熊犬麻痺症 坐骨神經損傷 前庭疾病",
-    snippet: "13種常見神經疾病的病因、診斷、是否手術與復健特色整理，含Compressive/Non-compressive分類與2025回溯性研究。"
+    keywords: "總覽比較表 各疾病四階段方案總表（講義原文） 各疾病重點 手術病例 非手術 3–6 週可自發痊癒 A/A 不穩定（p.12） 禁止玩耍、禁止爬樓梯 CCSM（p.13） 頸部慢速零食伸展（slow cookie stretch on neck） IVDD type I（p.14） 刺激足部反射、重心偏移、站立 UWTM（有自主運動才加） 繞樁（weave poles） IVDD type II（p.15） 避免特定動作 終身治療（life-long therapy） FCE（p.16） 退化性脊髓病 DM（p.19） 臂神經叢撕裂（p.20） 前方懸掛零食誘導撥爪（pawing at a treat dangling） 馬尾症候群（p.21） 變形性脊椎病（p.22） 不同地面行走 浣熊犬麻痺症（p.23） NMES 坐骨神經損傷（p.24） 前庭疾病（p.26） 休息、避免興奮 不穩定動",
+    snippet: "講義 p.12–26 依序介紹 12 種常見神經疾病，每種都是「病因／好發 → 診斷 → 治療選項 → 四階段復健方案」。先看總覽，再看四階段總表，最後看各病重點。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
     section: "paralysis", sectionName: "癱瘓總論：分級與診斷流程",
-    keywords: "paresis plegia paralysis tetra hemi para 深層痛覺 CNS PNS NMJ 病灶定位",
-    snippet: "輕癱/截癱/癱瘓程度分級；無深層痛覺表示預後不佳；神經學檢查→病灶定位→鑑別診斷→確定診斷流程。"
+    keywords: "什麼是癱瘓（Paralysis）？必考 學長姐整理 癱瘓診斷流程 癱瘓復健治療與照顧總覽 輕癱（paresis）、截癱（plegia）、癱瘓（paralysis） 四肢同時發生（tetra-）、單側偏癱（hemi-）、後半身癱瘓（para-） 無深層痛覺（deep pain）表示預後不佳 CNS PNS NMJ 肌肉 Muscle",
+    snippet: "在進入個別疾病細節之前，先建立「癱瘓」這個臨床名詞本身的分級與診斷邏輯。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
     section: "modalities", sectionName: "輔助治療模式",
-    keywords: "針灸 Acupuncture EAP 雷射 Laser tPEMF HBOT 高壓氧 穴位 JJJ HTJJ",
-    snippet: "四肢癱瘓與後軀癱瘓針灸處方（由簡入繁四選項）；雷射與tPEMF實證研究；HBOT神經保護機轉。"
+    keywords: "輔助治療模式：針灸、雷射、tPEMF、HBOT 針灸治療 Acupuncture 雷射治療 Laser t-PEMF 標地式脈衝式電磁場治療 高壓氧治療（Hyperbaric Oxygen Therapy, HBOT） 選項 1： 選項 2： 選項 3： 每週兩次 選項 4： 4 級雷射 4 J/cm² 每日一次，連續 14 天 術區傷口癒合明顯較快，且止痛藥使用量減少 1.4 ATA 2.0 ATA",
+    snippet: "四種常用於神經科復健的輔助治療工具，各有明確的處方細節或實證研究支持。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
     section: "exercise", sectionName: "肢體復健運動與輔具",
-    keywords: "PROM 按摩 PNF 神經抑制術 運動復健 輔具 UWTM 水中跑步機 居家環境調整",
-    snippet: "PROM/按摩/伸展頻率；PNF（促進）vs神經抑制術（放鬆）；運動復健項目；A-Frame/Cart/Toe grip等輔具。"
+    keywords: "肌肉、關節與本體感覺基礎項目 神經抑制（放鬆）術 Neuro-inhibitory Techniques 運動復健 Therapeutic Exercise 輔具使用 Assistive Devices 居家環境調整 Home Environment Modification 術後第 7 天 2–3 分鐘／天，採低速高水位 促進 降低 一對相反工具 居家運動復健：",
+    snippet: "從基本的關節活動與感覺刺激，到功能性運動訓練與居家輔具，是四階段框架中實際執行的動作內容庫。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
     section: "dm", sectionName: "退化性脊髓病深入",
-    keywords: "Degenerative Myelopathy DM SOD1基因 髓鞘脫失 分期 Kathmann 存活期 游泳 UWTM 雷射",
-    snippet: "SOD1基因突變機轉、Stage 1-3分期、Kathmann 2006存活期實證（55/130/255天）、雷射劑量與存活期研究。"
+    keywords: "退化性脊髓病深入 Degenerative Myelopathy (DM) 什麼是退化性脊髓病（漸凍症）？ 好發品種 診斷 臨床分級必考 學長姐整理 退化性脊髓病治療與照顧 復健強度與存活期的實證關聯 詳細物理治療處方表 游泳與水中跑步機（UWTM）的差異 其他照護重點 發病年齡與預後 雷射治療劑量與 退化性脊髓病（DM） 存活期的實證研究 運動神經元疾病 不痛 不可逆 SOD1（superoxide dismutase）基因突變 髓鞘脫失（demyelination） 軸突退化（axonal degeneration） 基因突變檢測 MRI 與 CT 通常沒有明顯異常 確定診斷需靠組織病理學（histopathology） 完全沒做復健： 中度復健 存活期 130 天 積極復健 存活期 255 天 復健強度與存活期呈現明確的量效關係 腳背反摺翻正 保護及止滑 輔具協助 5 歲以上 9 歲",
+    snippet: "講義以退化性脊髓病作為壓軸案例深入介紹，串連基因致病機轉、分期系統，與復健強度影響存活期的實證研究——是全份講義實證等級最高、也最完整的疾病案例。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
     section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 神經科復健 國考",
-    snippet: "十點總複習：病灶定位、四階段框架、深層痛覺、椎間盤分類、浣熊犬麻痺症、坐骨神經損傷、前庭疾病、針灸邏輯、DM實證、雷射tPEMF研究。"
+    keywords: "學習重點整理 病灶定位表務必背熟： 四階段復健框架 深層痛覺消失 >48 小時＝預後不良 浣熊犬麻痺症（Coonhound paralysis）3–6 週可自發痊癒 坐骨神經損傷 脛神經單獨受損預後優於坐骨或腓神經受累 前庭疾病常被誤認中風 針灸處方遵循「由簡入繁」四級疊加邏輯 雷射／tPEMF 皆有具體實證支持 不作為正式臨床診斷或用藥依據",
+    snippet: "考試／臨床實務角度整理，複習前先快速掃過本節。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 1, weekTitle: "常見神經科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week01_神經科疾病復健.html",
-    section: "quiz", sectionName: "練習題",
-    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 神經科復健",
-    snippet: "涵蓋病灶定位、椎間盤分類、坐骨神經損傷、前庭疾病、PNF、DM分期的練習題（共9題，含2題臨床情境整合題）。"
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "常見神經科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week03_神經科疾病復健.html",
+    section: "quiz", sectionName: "quiz",
+    keywords: "練習題 Practice Quiz 答案：(C) LMN 答案：(B) 答案：(D) 股神經 腹側 不是 答案：錯 常同時診斷出椎間盤突出等其他疾病 Stage 1",
+    snippet: "先自己作答再展開；解析附講義頁碼。第 1–2 題對應學長姐整理「有考這個，挖掉問你是啥」的定位表。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
     section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 骨科疾病復健 四階段框架",
-    snippet: "骨科復健總覽：疼痛與物理治療模式、關節肌肉本體感覺核心復健、骨折修復、前後肢疾病、截肢輔具，套用同一套四階段框架。"
+    keywords: "重點摘要 共同的框架抽出來獨立整理 四階段復健框架是這份講義（也是整個復健科）的核心邏輯： 骨折病患復健的「三不一要」最容易被忽略： 跛足評估量表（0-5級）與疼痛評估量表是骨科復健的共同語言： 前十字韌帶斷裂（CCL rupture）是小動物骨科最常見的疾病之一， 髖關節發育不良的復健方案依手術方式（FHNO vs. THR）明顯不同： 不作為正式臨床診斷或治療依據",
+    snippet: "1重點摘要 這堂課在讀什麼？ 這份講義的架構跟上一份神經科疾病復健講義完全平行——一樣分「總論 General」與「各論 Individual」，一樣套用同一套急性期（1-5天）→增生期（5-21天）→鞏固期（21-60天）→組織期（61天"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
     section: "painmodalities", sectionName: "疼痛評估與物理治療模式",
-    keywords: "疼痛評估 VAS Colorado pain scale 跛足評估量表 lameness scale 冰敷 熱敷 針灸 雷射 TENS 治療超音波 NMES 止痛劑 NSAID Gabapentin",
-    snippet: "VAS/Colorado疼痛量表、0-5跛足評估量表、骨科常用止痛劑、七種物理治療模式原理與使用時機。"
+    keywords: "VAS（visual analogue scale，疼痛視覺模擬量表） Colorado Canine Acute Pain Scale 0 1 2 3 步距變短 4 腳趾點地 5 無法負重 NSAIDs Gabapentin 冰敷 Cryotherapy 創傷後立即使用最有效 24–72 小時 1–4 公分 熱敷 Thermal Therapy 創傷後 72 小時 15–30 分鐘 1–5 公分 2–4°C 45°C 針灸 Acupuncture 雷射 Laser TENS 經皮神經電刺激 治療超音波 Therapeutic Ultrasound NMES 神經肌肉電刺激 避免使用 TENS 不作為正式臨床診斷或治療依據",
+    snippet: "骨科復健的第一步永遠是評估——先量化疼痛與跛足程度，才能判斷治療是否有效；接著才是講義列出的七種物理治療工具，各有各的原理與適應時機。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
     section: "generalrehab", sectionName: "關節、肌肉、本體感覺與核心復健",
-    keywords: "PROM AROM 關節活動 關節囊膜 joint capsule 肌肉萎縮 massage NMES 等長收縮 等張收縮 本體感覺 proprioception 核心肌群",
-    snippet: "關節活動範圍評量表、關節囊膜感受體、按摩四手法、等長等張收縮訓練、本體感覺與核心肌群復健方式。"
+    keywords: "PROM（passive range of motion，被動式關節活動） AROM（active range of motion，主動式關節活動） 運動復健（therapeutic exercises） UWTM（underwater treadmill，水中跑步機） Ruffini Endings Pacinian Corpuscles Free Nerve Endings Golgi Tendon Organs Effleurage Petrissage Tapotement Cross-friction 運動治療 Therapeutic Exercises 等長收縮（isometric contracture） 等張收縮（isotonic contracture） 耐力訓練（endurance）須持續超過 15 分鐘才算 UWTM水療 離心收縮 下坡 向心 離心 91% BW 85",
+    snippet: "這節是骨科復健的四大共同目標，之後每個疾病的復健方案，本質上都是從這四塊裡挑選合適的項目組合而成。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
     section: "fracture", sectionName: "骨折修復復健",
-    keywords: "骨折修復 fracture repair 骨幹骨折 幹骺端骨折 四階段框架 骨折病患復健注意事項",
-    snippet: "復健計畫決定因素、骨折病患三不一要、骨幹骨折術後逐週復健時間表完整範例。"
+    keywords: "骨折修復復健 Fracture Repair Rehabilitation重要 骨折部位 骨折型態 復位方式 膝關節專屬 按摩 由腳趾向心臟 股四頭肌 PROM 掐腳趾回縮反射，膝關節屈曲很重要 行走 第 5 天 UWTM 階梯 6 週 不作為正式臨床診斷或治療依據",
+    snippet: "講義從這節開始進入「各論」。骨折修復的復健方案是整份講義中示範最完整的一套四階段時間表，之後每個疾病的表格基本上都是同一個模板的變化版，所以這節值得花時間扎實理解。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
     section: "fronts", sectionName: "前肢關節與肌腱疾病",
-    keywords: "肩胛骨脫臼 scapular luxation 內側肩關節不穩定 MSI 棘上肌肌腱病 棘下肌攣縮 二頭肌肌腱病 biceps tendinopathy 肘關節發育不良 elbow dysplasia FMCP UAP OCD 腕關節過度伸展 carpal hyperextension",
-    snippet: "前肢7種疾病：肩胛骨脫臼、MSI、棘上/棘下肌、二頭肌肌腱病、肘關節發育不良、腕關節過度伸展的診斷與復健重點。"
+    keywords: "前肢關節、肌肉與肌腱疾病 Forelimb Conditions重要 肩胛骨脫臼 內側肩關節不穩定 棘上肌肌腱病 棘下肌攣縮 二頭肌肌腱病 避免伸展動作（avoid stretching） 肘關節發育不良 肱骨髁骨化不全／肱骨內髁間裂 腕關節過度伸展 33° 45° 肩胛骨脫臼（p.43） Velpeau sling 移除吊帶 避免外展內收 MSI（p.44） hobble vest 棘上肌腱病（p.46） 雷射及／或脈衝超音波 ESWT 處理鈣化性肌腱病 棘下肌攣縮（p.47） 二頭肌腱病（p.48） 避免伸展 避免劇烈伸展或屈曲 溫和伸展 肘關節發育不良（p.50） 避免主動運動 劇烈伸屈如下階梯 IOHC／HIF（p.54） 腕關節過度伸展（p.56） 趾頭 PROM UWTM 水位到肩 超音波：急性期用間斷波（脈衝），慢性期用連續波 ESWT 急性發炎期勿用，每 2 週 1 次 胸",
+    snippet: "講義列出 7 種前肢疾病（p.42）並另附肱骨髁骨化不全（p.54），每個都寫「病因／機轉 → 診斷 → 治療選項 → 四階段復健計畫」。先看總覽表，再看四階段方案總表與術後時間表。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
     section: "hinds", sectionName: "後肢關節與韌帶疾病",
-    keywords: "髂腰肌扭傷 髖關節發育不良 hip dysplasia FHNO THR 纖維化肌病 前十字韌帶斷裂 CCL rupture drawer test TPLO TTA CBLO 膝蓋骨異位 patellar luxation 總跟腱斷裂 calcaneal tendon rupture",
-    snippet: "後肢6種疾病：髂腰肌扭傷、髖關節發育不良（FHNO vs THR）、CCL斷裂、膝蓋骨異位、跟腱斷裂的診斷與復健重點。"
+    keywords: "後肢關節、肌肉與韌帶疾病 Hindlimb Conditions重要 髂腰肌扭傷 髖關節發育不良 FHNO術後可積極做髖關節伸展運動 THR術後則需嚴格控制走動姿勢、避免內收外展、防止跌倒 股薄肌／半腱肌半膜肌纖維化肌病 肌肉纖維化後通常不痛 前十字韌帶斷裂 抽屜試驗（drawer test）陽性 避免膝關節過度伸展與旋轉 膝蓋骨異位 總跟腱（阿基里斯腱）斷裂 髂腰肌扭傷（p.59） PW 超音波 跳舞（dancing） 髖關節發育不良：FHNO 術後（p.61） 髖伸展 髖關節發育不良：THR 術後（p.61） 避免外展內收、防跌倒 控制下 前十字韌帶斷裂：術後（p.68） PROM 避免伸展 避免劇烈屈曲 前十字韌帶斷裂：保守（p.68） 避免劇烈伸展 避免跳躍與激烈玩耍 膝蓋骨異位（p.73） 彈跳（bouncing） 總跟腱斷裂（p.76） 鉸鏈式護具每 3 週增加 5° 屈曲 至",
+    snippet: "講義列出 6 種後肢疾病（p.42），前十字韌帶斷裂與髖關節發育不良著墨最多，各附 2–4 張逐週術後表。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
     section: "amputation", sectionName: "截肢術後復健與義肢輔具",
-    keywords: "截肢 amputation 義肢 輔具 prosthetics orthotics",
-    snippet: "截肢術後復健注意事項與頻率、義肢與輔具實例。"
+    keywords: "截肢術後復健與義肢輔具 Amputation & Prosthetics 不作為正式臨床診斷或治療依據",
+    snippet: "講義最後以截肢與輔具作結，這也是骨科復健中少數不追求「恢復原本肢體功能」、而是聚焦在「協助動物用剩餘肢體代償」的類別。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
     section: "summary", sectionName: "學習重點整理",
-    keywords: "複習 重點整理 骨科疾病復健",
-    snippet: "五點總複習：四階段框架、骨折三不一要、前肢動作禁忌、CCL斷裂重點、髖關節FHNO與THR復健差異。"
+    keywords: "學習重點整理 四階段框架貫穿全頁： 骨折病患復健三不一要： 前肢兩個動作禁忌： CCL斷裂： 髖關節發育不良的復健依術式而異： 不作為正式診斷依據",
+    snippet: "考前快速掃過，標重要的三節是我認為這頁份量最重的地方。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 2, weekTitle: "常見骨科疾病復健",
-    url: "大四上/伴侶動物復健及物理治療學/week02_骨科疾病復健.html",
-    section: "quiz", sectionName: "練習題",
-    keywords: "練習題 選擇題 是非題 簡答題 臨床情境題 骨科疾病復健",
-    snippet: "涵蓋物理治療模式、骨折復健原則、CCL斷裂、髖關節手術復健差異的練習題，含臨床情境整合題。"
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 4, weekTitle: "常見骨科疾病復健",
+    url: "大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html",
+    section: "quiz", sectionName: "quiz",
+    keywords: "練習題 Practice Quiz 答案：(C) 步距正常 答案：(B) 治療超音波 答案：(D) 浮力 肌肉量 15 分鐘 錯誤 勿過度關籠休養 答案：(A) 腕關節過度伸展 髖伸展 答案：錯 2.5 個月後常復發 急性期用間斷波 慢性期用連續波 拆線後 hobble vest 避免外展與內收",
+    snippet: "先自己作答再展開；解析附講義頁碼。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
     section: "abstract", sectionName: "重點摘要",
-    keywords: "重點摘要 儀器物理治療 物理治療儀器 physical modalities 冷敷 熱敷 超音波 電刺激",
-    snippet: "四種儀器的總覽：冷熱分界時間、局部與全身冷療相反、超音波兩種效應、頻率依深度選、NMES與TENS、共通禁忌。"
+    keywords: "重點摘要 現在是組織癒合的哪個階段？ 要處理的組織有多深？ 冷熱分界是時間： 局部冰敷和全身冷浸的效果相反： 超音波有兩種效應，用模式切換： 超音波頻率依深度選： 電刺激分兩種目的： 幾個儀器共通的禁忌： 這份 PDF 實際只講到前四項 不作為正式臨床診斷或治療依據",
+    snippet: "1重點摘要 這堂課在讀什麼？ 骨科疾病復健那份講義用一張表帶過七種物理治療模式，這份講義則把其中四種儀器拆開來細講。每一種儀器都照同一個順序講：治療簡介 → 儀器原理 → 生物效應 → 適應症 → 禁忌症 → 注意事項 → 治療內容（參數、"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
     section: "overview", sectionName: "四種儀器怎麼選",
-    keywords: "時機 深度 組織癒合 急性期 72小時 48小時 作用深度 比較表",
-    snippet: "組織癒合階段與四種儀器使用時機的示意圖、各儀器作用深度比較、四種儀器一表比較。"
+    keywords: "四種儀器怎麼選：時機與深度重要 時機：組織癒合階段 深度：每種儀器能作用到多深 四種儀器一表比較 超音波與急性發炎： 還在出血 TENS 與急性發炎： 冰敷 熱敷 治療用超音波 電刺激 48 小時內 72 小時",
+    snippet: "先畫兩張圖：一張是「組織癒合的哪個階段用什麼」，一張是「每種儀器能作用到多深」。這兩張圖記住，後面每一節的適應症和參數設定大多能推出來。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
     section: "cryo", sectionName: "冷凍療法（冰敷）",
-    keywords: "冰敷 冷敷 cryotherapy 冷療 IBAN 冰按摩 冷壓縮 cold compression 全身冷浸 肌梭 血管收縮 凍傷",
-    snippet: "冰敷的生物效應、適應症（72小時內）、局部vs全身冷浸、禁忌症、IBAN、裝置與治療時間（10–20分鐘、一天3–6次）。"
+    keywords: "冷凍療法（冰敷） Cryotherapy 生物效應 適應症必考 學長姐整理 注意事項：局部與全身的效果不同 禁忌症必考 學長姐整理 操作安全 裝置 治療時間與頻率必考 學長姐整理 脊髓門控理論 急性發炎期 72 小時內 急性關節炎發作 預防運動後發炎反應 做法 對肌肉 快速動作能力下降 痙攣增加 對結締組織 全身反應 血壓上升 臨床意義 不要把冰塊直接放在皮膚上 皮膚變紅是正常反應 變蒼白代表發生損傷 IBAN 冰按摩 小而不規則 冷壓縮裝置 膝關節術後 越早越好 10–20 分鐘",
+    snippet: "最古老的物理治療方法。用在組織受傷與癒合的急性期，減輕損傷和後遺症；也用在復健運動之後，減少繼發性發炎反應。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
     section: "thermo", sectionName: "溫熱療法（熱敷）",
-    keywords: "熱敷 溫熱療法 thermotherapy 熱敷包 紅外線燈 微波 透熱 電熱毯 暖暖包 低溫燙傷 45度",
-    snippet: "淺層與深層熱療、生理反應鏈、適應症、禁忌（48小時內）、熱敷包紅外線微波等方法、15–30分鐘、居家熱敷經驗。"
+    keywords: "溫熱療法（熱敷） Thermotherapy 淺層與深層熱療 生物效應：局部淺層熱療的生理反應鏈 適應症必考 學長姐整理 禁忌症與注意事項必考 學長姐整理 方法 治療時間與頻率必考 學長姐整理 講師的臨床經驗：居家熱敷 溫度／深度 升溫分布 用途 改善關節活動範圍（Range of Motion, ROM） 延展性提高 慢性退化性疾病 急性發作期不用 運動前預熱 亞急性和慢性發炎或創傷 急性發炎（受傷後 48 小時內） 老年動物 熱敷包 測溫： 紅外線燈 無法行走、無法自己躲開熱源的動物要小心 溫水浴、漩渦浴 微波深層熱療 禁用於體內有金屬植入物的區域 15 分鐘到最多 30 分鐘 2–4°C 超過 45°C 會造成蛋白質變性 白色區域 鮮紅斑點 電熱毯： 暖暖包： 低溫燙傷 吹風機： 比乾熱深 濕熱毛巾（50–70°C）： 濕熱電毯： 溫水浴：",
+    snippet: "三個目標：緩解疼痛、改變組織癒合的生理過程、增加結締組織（肌肉、肌腱、韌帶、關節囊）的彈性。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
     section: "ultrasound", sectionName: "治療用超音波",
-    keywords: "治療用超音波 therapeutic ultrasound 1 MHz 3.3 MHz 連續式 脈衝式 duty cycle 總效率週期 ERA 熱效應 機械效應 膠原 椎板切除 參數解釋 強度 W/cm2 有效輻射面積 治療時間 探頭移動 頻率 深度",
-    snippet: "超音波熱效應與機械效應、癒合三階段、目標溫度、頻率強度面積時間設定、決策流程、加熱速率、參數試算工具、禁忌症。"
+    keywords: "治療用超音波 Therapeutic Ultrasound重要 兩種效應 熱效應分級（講義表 6.2） 參數 超音波參數試算 操作技巧 禁忌症必考 學長姐整理 治療頻率與療程必考 學長姐整理 作用 加速 第三型轉為第一型 適應症 不容易升溫 富含膠原蛋白 發炎期 不是擴大發炎，而是加速發炎走完 增生期 重塑期 模式 總效率週期 頻率 1 MHz 3.3 MHz 強度 0.5 W/cm² 1–2 W/cm² 治療面積 治療時間 4 分鐘 8 分鐘 一直發射 發射一下、停一下 熱效應 機械效應 連續＝加熱，脈衝＝按摩細胞。 20% 一個脈衝週期 100% 熱，20% 不熱。 1 MHz 打得深、3.3 MHz 打得淺 能量被吸收的範圍 選頻率的規則 數字越大，打得越淺。 火力大小 急性小火，慢性大火；動物喊痛就降火。 2–4 倍 治療區最多四個探頭大。 一個探頭面積四分鐘。 盡量垂直皮膚 4 ",
+    snippet: "電流通過晶體產生高頻聲波（高速振動），遇到纖維組織時引起振動而產熱，屬於深層加熱方式。用於肌肉骨骼疾病復健：關節攣縮造成的活動範圍受限、疼痛與肌肉痙攣、傷口癒合。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
     section: "estim", sectionName: "電刺激（NMES／TENS）",
-    keywords: "電刺激 NMES TENS 神經肌肉電刺激 經皮神經電刺激 門控理論 腦內啡 運動點 干擾波 蘇聯波 Russian current 雙動態波 坡度 ramp 電極 脊髓節段 參數解釋 頻率 波形 幅度 脈衝時間 開關時間比 電極大小",
-    snippet: "NMES與TENS比較、脈衝參數、常見電流種類、低頻vs中頻、電極放置與關節對應神經節段、禁忌（癲癇等）、治療時間與居家使用。"
+    keywords: "電刺激 Electrical Stimulation：NMES 與 TENS重要 NMES 與 TENS 比較 脈衝參數 電極 禁忌症必考 學長姐整理 治療時間與頻率必考 學長姐整理 作用方式 完整的神經 去神經支配 治療目的 生物效應 但關掉後效果不持續 門控理論 腦內啡 開關時間比 1:1 1:4 適應症 支持神經再生 電極位置 運動點 3 週內後肢肌肉量會流失 50% 頻率 波形 幅度 脈衝時間 微秒（μs） 開關時間 坡度 高頻 低頻 TENS：急性高頻、慢性低頻；要打深用中頻。 波形決定「電長什麼樣子」。 從零慢慢往上調，看動物反應。 幅度是「多大」，脈衝時間是「多久」，兩者一起決定刺激強弱。 NMES 1:1 TENS 1:4 練肌力 1:1，止痛 1:4。 慢慢加、慢慢退，動物才不會嚇到。 電極剛好蓋住目標肌肉。 深層 電流頻率 使用時間 適用範圍 禁忌部位 剃毛 酒精清潔 ",
+    snippet: "同一類機器，兩種目的：NMES 讓肌肉收縮，TENS 止痛。差別主要在參數（頻率、開關時間比）和電極貼的位置。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
     section: "contra", sectionName: "禁忌症總表與篩選",
-    keywords: "禁忌症 contraindication 篩選 腫瘤 懷孕 心律調節器 癲癇 骨折 金屬植入物 生長板 感覺缺失",
-    snippet: "勾選病患狀況，標出冰敷、熱敷、超音波、電刺激哪些在講義中列為禁忌或需注意。"
+    keywords: "禁忌症總表與篩選 「—」代表講義沒有提到，不代表一定安全",
+    snippet: "勾選病患有的狀況，表格會標出哪些儀器在講義中列為禁忌或需要注意。「—」代表講義沒有提到，不代表一定安全，要另外判斷。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
     section: "summary", sectionName: "學習重點整理",
-    keywords: "學習重點 考前複習 儀器物理治療",
-    snippet: "七條考前重點：冷熱時間分界、皮膚顏色判讀、局部vs全身冷療、超音波參數四步驟、機械效應、NMES vs TENS、特殊禁忌。"
+    keywords: "學習重點整理 冷熱的時間分界： 皮膚顏色判讀： 局部冰敷 vs. 全身冷浸： 超音波參數四步驟： 超音波機械效應： NMES vs. TENS： 特殊禁忌：",
+    snippet: "考前快速掃過。"
   },
   {
-    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 3, weekTitle: "儀器物理治療",
-    url: "大四上/伴侶動物復健及物理治療學/week03_儀器物理治療.html",
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 5, weekTitle: "儀器物理治療（一）：冷熱敷、超音波、電療",
+    url: "大四上/伴侶動物復健及物理治療學/week05_冷熱敷超音波與電療.html",
+    section: "quiz", sectionName: "quiz",
+    keywords: "練習題 Practice Quiz 正常反應 反而增加痙攣 12 分鐘 分成兩個以上的區域 錯誤 刺激關閉後效果不會持續 加速 出血期 (1) (2) 超音波 電刺激 癲癇為禁忌 熱敷 (3) 在伸展或運動前熱敷 不包括 適應症 不是 10 分鐘 3.3 分鐘",
+    snippet: "先自己作答再點開答案。Q7–Q8 是臨床情境題，Q9–Q14 為 2026-11-09 新增（含一題計算）。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 體外震波（ESWT） 雷射（Laser） 水療（Aquatic therapy，含水中跑步機 UWTM） 脈衝電磁場（PEMF） 適應症、禁忌症、使用時機 聚焦型 放射型 禁忌 7–14 天 2–3 次 深色皮膚劑量 +25% 聚焦 vs 放射震波 雷射 Class 3B vs 4 UWTM 的 9／15／62% 是浮力 ESWT 與 NSAID ESWT 雷射 UWTM PEMF",
+    snippet: "接續第 5 週的冷熱敷、超音波、電刺激，講義後半的四種儀器：體外震波（ESWT）、雷射（Laser）、水療（Aquatic therapy，含水中跑步機 UWTM）、脈衝電磁場（PEMF）。每種都照同一個順序：治療簡介 → 儀器原理 → 生物效應 → 適應症 → 禁忌症 → 注意事項 → 治療內容（p.2）。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "eswt", sectionName: "震波原理與產生方式",
+    keywords: "體外震波原理與產生方式 ESWT Basics 什麼是 ESWT 聚焦型 vs 放射型 不是第一線 較深層的組織受損或頑固的肌肉與肌腱疼痛 再破壞、重建設 立即性止痛 症狀改善約在 2 週後 較高壓力（2–3 mJ/mm²） 低能量（< 0.5 mJ/mm²） 肌腱疾病 骨關節炎 電液法 壓電法 電磁法 彈道原理 固定距離 矽膠墊片 探頭與皮膚交界處最大 距離平方 淺層肌群",
+    snippet: "震波是陡峭上升、再進入負壓期的高能量機械聲波；依產生方式分聚焦型與放射型，決定能量落在多深。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "eswtbio", sectionName: "震波生物效應",
+    keywords: "體外震波的生物效應 Biologic Effects 兩種模型 細胞與生長因子 四種效果 直接震波效應 骨癒合 間接空化氣泡效應 慣性空化 促進正常組織增殖 1 週開始上升，8 週仍在高峰，約 12 週回到初始",
+    snippet: "正壓波直接撞擊（機械效應）＋負壓造成空化氣泡破裂（間接效應），兩者都導向「可控的微小傷害 → 修復」。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "eswtclin", sectionName: "震波臨床使用",
+    keywords: "適應症必考 學長姐整理 禁忌症必考 學長姐整理 治療程序與參數 副作用與頻率 研究證據 髂腰肌拉傷 手術植入物 急性發炎期 感染 不穩定骨折 免疫媒介性關節疾病 腫瘤 凝血障礙 骨骼未成熟 生長板仍存在 懷孕子宮 須有明確診斷 需要幾週 NSAID 0.01–0.15 mJ/mm² 1–8 Hz 輕度鎮靜（軟組織） 全身麻醉（骨頭） 24–48 小時內消退 每 7–14 天重複一次，總共 2–3 次",
+    snippet: "先確診、排除禁忌，告訴飼主要等幾週；每 7–14 天一次、共 2–3 次，並搭配其他物理治療。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "laser", sectionName: "雷射原理與參數",
+    keywords: "雷射原理：波長、發射方式、頻率、功率 Laser Basics 基本概念 波長 發射方式與脈衝頻率 功率、能量與雷射分級 620 nm（紅光）至 1200 nm（近紅外光） 波長是決定組織穿透深度的主要因素 600–810 nm 淺表 750–1500 nm 970–980 nm 915 nm 800 nm 660 nm 連續波（CW） 脈衝波 擔心加熱組織時可選脈衝 < 500 Hz 500–2000 Hz 2000–10,000 Hz > 10,000 Hz 越硬越低頻、越軟越高頻 功率（W）＝能量（J）／時間（秒） J＝W × 秒 縮短治療時間 表皮燙傷風險增加 能量密度（J/cm²） Class 3B 5–500 mW（0.5 W） 治療 Class 4 > 500 mW 反射光",
+    snippet: "雷射治療的四個旋鈕：波長（多深、被誰吸收）、連續或脈衝、脈衝頻率（給哪種組織）、功率與能量（多快、多少）。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "laserbio", sectionName: "雷射效應、適應症、禁忌",
+    keywords: "生物效應 治療效果 禁忌症必考 學長姐整理 適應症必考 學長姐整理 細胞色素 C 氧化酶 增加 ATP 與 cAMP 囟門與生長板 甲狀腺 生殖腺 腫瘤 起搏器 光敏藥物 紋身 血糖測試貼片 一週內注射過 NSAIDs／類固醇的部位 操作時所有人與動物都要戴護目鏡 貓口炎",
+    snippet: "光被粒線體吸收 → ATP 增加 → 抗發炎、抗水腫、止痛、加速癒合；禁忌集中在「生長中、會增生、會被光影響」的東西。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "lasercases", sectionName: "雷射臨床應用照片",
+    keywords: "雷射的臨床應用 Clinical Applications 應用範圍",
+    snippet: "講義用一系列照片示範雷射能用的範圍：從術中、術後傷口，到口腔、內臟、神經、行為與特寵。講義這段以照片為主，說明文字很少。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "lasertx", sectionName: "雷射治療與劑量計算",
+    keywords: "雷射治療步驟與劑量計算 Laser Treatment 劑量建議 計算步驟 操作要點 治療頻率必考 學長姐整理 1–4 J/cm² 4–30 J/cm² 2–4 J/cm² 4–8 J/cm² 6–20 J/cm² 急性 < 慢性、淺層 < 深層 10 J/cm² × 60 cm² = 600 J 10 W 60 秒 所有人與動物都要戴安全護目鏡 探頭與皮膚垂直（90°） 傷口、針灸 → 非接觸 體腔內發炎 → 接觸 肌肉發炎、關節炎、關節伸展 → 接觸並深壓 3–5 cm/s 圍繞關節內外側 術後與急性傷口 0–7 天每天 3-2-1／WK 慢性發炎 0–14 天隔天一次 維持期兩週一次",
+    snippet: "先量面積、選劑量（J/cm²），算出總焦耳數，再除以功率得到秒數；操作時垂直、平均、3–5 cm/s，所有人戴護目鏡。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "aquatic", sectionName: "水療原理",
+    keywords: "水療原理與適用對象 Aquatic Therapy 水療是什麼 四個基本原理 適用對象 游泳 水中行走 浮力 黏滯度與阻力 靜水壓 減少腫脹與水腫 吸氣困難 表面張力 失智動物運動 減重",
+    snippet: "水的四個物理性質各自對應一個治療用途：浮力減重、黏滯阻力練肌力、靜水壓消腫、表面張力增加阻力。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "uwtm", sectionName: "水中跑步機 UWTM",
+    keywords: "水中跑步機 Underwater Treadmill (UWTM) 適應症必考 學長姐整理 禁忌症必考 學長姐整理 設備與前中後注意 水位、水溫、速度必考 學長姐整理 訓練模式與治療過程 療程規劃 IVDD 術後水療分期 體表感染 心肺疾病 腹瀉或失禁 極度怕水 急性肌腱炎 嚴重肌肉拉傷（發炎、腫脹） 使用外固定器的骨折修復 下水前 治療中 治療後 9% 15% 62% 28–32°C 30–32°C 28–30°C 神經病患用溫水（30–32°C） 0.6–0.8 km/h 1.0–2.0 km/h > 2.0 km/h 間斷訓練 被動／人工增加阻力行走 持續行走 漫步 從底部上升 切勿讓狗在水中無人看管 關節伸展比游泳更完整 每週總時間可增加 10–15% 呼吸困難（喘、咳）或失去有節奏的步態 2–10 分鐘 2–3 分鐘 10–30 分鐘 每週 2 次 8–12 次 術後 2–4 週",
+    snippet: "UWTM 的四個旋鈕：水位（浮力）、水溫、速度、坡度；再加上訓練模式與療程規劃。IVDD 術後有一套由高水位慢速到降水位加坡的分期。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "pemf", sectionName: "脈衝電磁場 PEMF",
+    keywords: "原理 ASSISI LOOP 參數 適應症必考 學長姐整理 使用方式與注意事項 加速正常的抗發炎活性 非侵入式、非藥物性 0.05 高斯 27.12 MHz 2 毫秒 2 Hz 適合居家使用 貓、極老動物 輔助療法 2–4 次 2–4 週 線圈直徑 每次 15 分鐘，間隔 2 小時以上 心臟起搏器或其他電子設備",
+    snippet: "把特定訊號以磁場脈衝送到患處、感應出微小電訊號，加速抗發炎到組織重塑；可以居家使用，是輔助療法。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "contra", sectionName: "八種理療禁忌症總表",
+    keywords: "八種理療的禁忌症總表 Contraindications 禁忌 × 儀器對照必考 學長姐整理 腫瘤 生長板 懷孕子宮 起搏器／電子設備",
+    snippet: "把第 5 週（冰敷、熱敷、超音波、電刺激）與本週（ESWT、雷射、UWTM、PEMF）的禁忌放在同一張表，看哪些禁忌是共同的。學長姐整理：徐老師重點是「適應症、禁忌症、使用時機」。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 推測",
+    snippet: "13考試方向（推測） 注意 以下是依講義強調處與學長姐整理推測的出題方向，不是考古題，考試範圍以老師上課為準。 可能考法答題重點 聚焦型與放射型震波差異產生方式（電液／壓電／電磁 vs 彈道）；最大能量位置（固定焦點 vs 探頭表面、隨距離"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 6, weekTitle: "儀器物理治療（二）：震波、雷射、水療、PEMF",
+    url: "大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html",
     section: "quiz", sectionName: "練習題",
-    keywords: "練習題 選擇題 是非題 計算題 臨床情境題",
-    snippet: "8題：冰敷皮膚反應、全身冷浸、超音波參數選擇、治療時間計算、NMES/TENS、機械效應、IVDD術後癲癇犬、老犬居家熱敷。"
+    keywords: "練習題 答案：(C) 不是 適應症 答案：(B) 答案：(D) 10 J/cm² 600 J 75 秒 不包括 承重 答案：錯 不應 30–32°C PEMF",
+    snippet: "先自己作答再展開；解析附講義頁碼。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 慢性疼痛管理 老年寵物復健 20% 的 1 歲以上犬、90% 的 5 歲以上犬 COAST 5H2M（總分 > 35 可接受） 快速進展性 OA（RPOA） 低強度、高頻率 肌少症 vs 惡病質 骨刺（變形性脊椎病）不是發炎 Tramadol 在犬 給藥途徑",
+    snippet: "兩大塊。慢性疼痛管理：疼痛怎麼傳（轉換 → 傳送 → 調變 → 感知）、從適應性到適應不良性疼痛、怎麼評估（量表）、怎麼治（藥物金字塔、軟骨保護與營養品、關節注射、放射性錫 Tin-117m、抗 NGF 單株抗體，以及體重、運動、針灸、激痛點等非藥物方法）。老年寵物復健：老年犬常見的骨刺、骨關節炎（OA）、肌少症、犬失"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "painbasic", sectionName: "疼痛途徑與種類",
+    keywords: "疼痛途徑與種類 Pain Pathway & Types 疼痛的徵象 疼痛途徑必考 學長姐整理 疼痛種類必考 學長姐整理 轉換 傳送 調變 感知 NSAIDs 適應性 適應不良性 敏感化（Hypersensitization, wind-up） 更痛 不會痛",
+    snippet: "疼痛從周邊到大腦走四步；急性疼痛是保護，慢性與神經病變痛則是神經系統被「調高音量」後的病。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "assess", sectionName: "疼痛與生活品質評估",
+    keywords: "疼痛與生活品質評估 Pain & QOL Assessment 經認證的疼痛量表（CSOM）必考 學長姐整理 生活品質量表 5H2M CBPI LOAD COAST CMI（臨床計量工具：CODI、CBPI、LOAD、COAST） QOL（生活品質） 飼主 獸醫 H M 總分 > 35 分＝仍有可接受的生活品質",
+    snippet: "慢性疼痛的治療要靠「量化」才知道有沒有效：飼主問卷（CMI）、獸醫分級工具、活動監測器，以及生活品質量表。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "pharm", sectionName: "慢性疼痛藥物",
+    keywords: "慢性疼痛止痛劑 Analgesics for Chronic Pain 藥物與非藥物總覽 止痛劑金字塔必考 學長姐整理 NSAIDs／Galliprant 的作用必考 學長姐整理 Tramadol、Gabapentin、Amantadine 鴉片類止痛劑 神經止痛劑 3–5 mg/kg sid 2–20 mg/kg bid 類嗎啡止痛劑 2–10 mg/kg tid 非類固醇消炎止痛劑 NSAIDs Opioids α2 促效劑 NMDA 拮抗劑 局部麻醉 抗發炎 周邊敏感化 中樞敏感化 COX-1 COX-2 PGE2 EP4 拮抗 EP4 受體 Tramadol 抑制血清素與正腎上腺素回收 M1（O-desmethyltramadol, ODT） 人、貓有 √；犬 × Gabapentin 虛弱（weakness） Amantadine NMDA 受體拮抗 gabapentin 的幫手",
+    snippet: "止痛劑金字塔：越往上越強、越針對神經病變痛；底層永遠是體重控制、運動、營養與復健。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "oadrug", sectionName: "DMOAD、營養品與 CBD",
+    keywords: "疾病修飾藥物、營養補充品與 CBD 疾病修飾藥物 DMOAD CBD 大麻二酚 Adequan® 每週 2 次 SC 或 IM，連續 4 週 Cartrophen® 每週 1 次 SC，連續 4 週 CB1 主要在大腦與周邊神經，CB2 主要在免疫調節器官",
+    snippet: "軟骨保護劑（DMOAD）是講義少數寫明途徑與療程的藥；營養品與 CBD 是輔助。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "inj", sectionName: "關節注射與新療法",
+    keywords: "關節內注射（IA） 放射線滑膜切除術：Tin-117m 抗 NGF 單株抗體與 TRPV1 促效劑 類固醇 1–3 mg/joint 10–20 mg/joint 每 3 個月一次、最多 2 年 每年最多 4 次 玻尿酸 HA 犬 1–2×10⁶ Dalton 每週 1 次，共 3 週 117mSn（錫）放射線滑膜切除治療骨關節炎 滑膜 每年一次 美國 FDA 核准犬肘關節 注射後不需住院，2–4 週不要與主人同床 獸醫職業暴露上限 100 mrem／年 Synovetin OA 注射後釋放 40–90 mrem／整年 aNGFmAb 在人會造成快速進展性 OA（RPOA） 告知飼主不良反應（ADE） 神經疾病犬勿使用",
+    snippet: "口服藥控制不了或不能長期吃時的選項：關節內注射、放射線滑膜切除（Tin-117m）、抗 NGF 單株抗體。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "nonpharm", sectionName: "非藥物疼痛管理",
+    keywords: "非藥物疼痛管理與激痛點 Non-pharmacologic Modalities 五個非藥物方法 激痛點 MTrP 的治療 體重最佳化 運動與復健治療 針灸與按摩 激痛點（MTrP） 環境改善 雷射 8–10 J/cm² 徒手治療 體外震波 0.12–0.15 mJ/mm² 200–500 發 每週 1 次，共 3–4 週",
+    snippet: "體重、運動、針灸按摩、激痛點與環境：不用藥也能降低疼痛，而且是金字塔的底層。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "spondylosis", sectionName: "骨刺",
+    keywords: "骨刺（變形性脊椎病）Spondylosis Deformans 脊椎相關疾病 流行病學與特徵 X 光、症狀與治療 9 歲以上 大型犬 拳師犬 L7–S1 最常見 T12–L3 spondylosis deformans 是非發炎性的退化性疾病 腹側 搭橋 不造成脊髓直接壓迫 疼痛大多來自側枝神經根受壓 以 NSAIDs 為主",
+    snippet: "老年大型犬 X 光上很常見的「搭橋」；本身不是發炎、也不直接壓脊髓，痛多來自神經根被擠。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "oa", sectionName: "骨關節炎 OA",
+    keywords: "骨關節炎（Osteoarthritis, OA） 定義與病理 治療目標與方法 20% 的 ≥ 1 歲犬 90% 的 > 5 歲犬 軟骨損壞、軟骨下骨硬化、滑膜發炎、關節周圍骨贅",
+    snippet: "把關節當成一個「器官」：軟骨、軟骨下骨、滑膜、骨贅一起壞；治療目標是疼痛、肌力、活動度、生活品質四塊拼圖。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "sarcopenia", sectionName: "肌少症",
+    keywords: "肌少症 Sarcopenia 定義：肌少症 vs 惡病質 診斷與治療：人 vs 犬 老化 30% 不易從體重看出 疾病 C-MMT MCS（肌肉狀態評分） 增加蛋白質＋向心收縮運動",
+    snippet: "老化本身造成的瘦肉組織流失，體重不一定會變；要靠肌肉狀態評分與肌力測試抓出來，治療靠營養加阻力與有氧運動。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "geriatric", sectionName: "老年狗復健與功能評估",
+    keywords: "老年狗復健項目、運動原則與行動功能評估 五大復健項目 老年狗運動目標與原則 行動功能評估 監控進展與評估要點 體重控制：80% 靠營養、20% 靠運動 失智 低強度、高頻率 至少 3 種運動、一週 3 次 每天至少一組 6–8 回 休息日 走下坡／下緩坡 5xSST A. TUG B. 跨越橫桿 C. 8 字型繞圈 D. 趴到站 總分（0–16） 每週 1–2 次 每 4–6 週",
+    snippet: "老年犬的三角：疼痛、行動能力、失智互相影響生活品質；評估 → 執行 → 再評估 → 追蹤。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "ccds", sectionName: "犬失智症",
+    keywords: "是什麼 診斷 治療與照顧 居家主動運動 犬認知功能障礙（CCDS） 漸進性 11 歲以上 漫無目的走路、角落發呆、白天睡多晚上不睡（57%） 柴犬、迷你雪納瑞、混種犬 DISHAA CCDR CADES Aβ42、Aβ40 ↓ 神經絲輕鏈（NFL）↑ Selegiline®（已停產）、Eldepryl® Propentofylline（Vivitonin®） 經顱雷射 PBMT 10 Hz、0.3–3.0 J/cm² 照頭部 每週 2 次 ×2 週 → 每週 1 次 ×2 週 → 每 2–3 週視需要 GedaCure®（crisdesalazine） 髖與膝伸肌 髖膝伸肌與肩肘伸肌",
+    snippet: "大腦退化造成學習、記憶、社交、睡眠與活動的漸進性異常；治療目標是延緩神經細胞受損、改善症狀，靠藥、食、補充品、中獸醫、雷射、運動與環境。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 推測",
+    snippet: "13考試方向（推測） 注意 以下是依講義強調處與學長姐整理推測的出題方向，不是考古題。學長姐整理第 2、10 頁貼了本講義的疼痛途徑、疼痛種類、止痛劑金字塔，並寫了 COAST 與 NSAIDs → COX2 → PGE2。 可能考法答題重"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 7, weekTitle: "慢性疼痛管理與老年寵物復健",
+    url: "大四上/伴侶動物復健及物理治療學/week07_慢性疼痛管理與老年寵物復健.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 答案：(B) 答案：(C) 弱 關節內類固醇 Tin-117m 不需要住院 答案：(A) 錯誤 答案：(D) 答案：錯 不易由體重變化看出 答案：對",
+    snippet: "先自己作答再展開；解析附講義頁碼。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 骨科學檢查 神經學檢查 骨科還是神經 有考這個，挖掉問你是啥 60% 40% 前肢看點頭、後肢看抬臀、尾巴往上甩 LMN UMN 點頭與抬臀方向 UMN vs LMN 步態 Ataxia vs Paresis UMN vs LMN 膀胱",
+    snippet: "復健前的評估：骨科學檢查依序是病史與基本資料 → 視診（關節活動度、站姿坐姿）→ 主觀步態分析（觀察、步態類型、辨別患肢、跛行分數）→ 客觀步態分析（動力學、運動學儀器）→ 觸診（Ortolani、膝蓋骨異位、抽屜與脛骨壓迫、內外翻、二頭肌腱、髂腰肌）（p.3、p.50）。神經學檢查依序是觀察（意識行為、靜止姿態、步態"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "history", sectionName: "檢查步驟與病史",
+    keywords: "檢查步驟、病史與基本資料 History & Signalment 骨科學檢查五步驟 病史要問的七題 從病程推方向 基本資料 誘因 多久 活動量 變差、不變還是改善 運動後 診斷 治療 跛多久 小型犬：膝蓋骨異位 大型犬：髖關節發育不良、骨軟骨病 年輕 老年 全骨炎（panosteitis）：雄性犬風險為雌性的 4 倍",
+    snippet: "問對問題，就先把可能性縮小一半：跛多久、運動後變好還是變差、品種年齡性別。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "visual", sectionName: "視診：ROM 與站坐姿",
+    keywords: "視診：關節活動度與站姿坐姿 Visual Exam 視診看什麼 關節活動度 ROM 站姿 坐姿 站立時卸載（off-loading） 關節周圍腫脹 關節角度增加 → 跟腱斷裂 最大彎曲角度與最大伸展角度之間 腕 195° 腕關節是唯一伸展超過 180° 的 負重平衡：前肢約 60%、後肢約 40% 後肢膝關節角度過直（站姿較直）的犬容易有十字韌帶問題 直接蹲下而坐、膝蓋彎曲 Sit test 用於前十字韌帶疾病（CCLD）",
+    snippet: "動物站著、坐著就能看出很多：哪肢不承重、關節腫、角度異常。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "gait", sectionName: "主觀步態分析",
+    keywords: "觀察：休息與移動 步態類型 轉移重心：辨別患肢小技巧必考 學長姐整理 跛行分數必考 學長姐整理 避免屈曲 猶豫不肯坐下 起身困難 自發性腳背著地（knuckling） 神經 關節 韌帶 Walk 唯一同時有三隻腳在地上 Pace 同側 可能為疼痛的代償 Trot 對角線 最高效率 最易觀察輕微負重跛行 頭部上下動 Vertical head movement 前腳 頭抬起來那隻腳是疼痛腳 骨盆動 Pelvic movement 後腳 屁股抬起來那隻腳是疼痛腳 尾巴動 Tail movement 尾巴往上甩那隻腳是疼痛腳 難以判定患肢 輕微 明顯 偶爾不負重／腳尖點地 始終不負重 走路及／或小跑 4、5 分開始出現不負重",
+    snippet: "休息時、移動時各看什麼；認識三種主要步態；用頭、臀、尾的上下動作找出痛腳，再給 0–5 分。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "objective", sectionName: "客觀步態分析",
+    keywords: "客觀步態分析：動力學與運動學 Objective Gait Analysis 動力學 vs 運動學 四種儀器比較 Kinetic（力量、壓力） Kinematic（運動） 站立分析 只提供靜態 小型犬較不適合 測力板 Peak vertical force（PVF） 準確性高 研究用 中大型犬較適合 壓力感應走道 小型犬也適用 無法提供關節動態資訊 運動學 關節角度變化",
+    snippet: "用儀器量化步態：量「力」的是動力學（kinetic），量「動作角度」的是運動學（kinematic）。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "palpation", sectionName: "骨科觸診測試",
+    keywords: "骨科觸診測試 Palpation Tests Ortolani test（髖關節半脫位） 膝蓋骨異位必考 學長姐整理 抽屜試驗與脛骨壓迫試驗（前十字韌帶） 內翻／外翻（側副韌帶） 二頭肌腱與髂腰肌 內收（adduction） 背側 大轉子 外展（abduction） 若有半脫位，可感到「喀」一聲或大拇指往下陷 O 型腿 內八 伸直＋內轉 彎曲＋外轉 第一級 內 可以 回到正常位置 第二級 停留在內側或外側 第三級 外 滑回異常位置 第四級 不行 第一、二級依臨床症狀決定是否手術；第三、四級建議手術 前抽屜試驗（cranial drawer test） 膝蓋骨 外側腓腸豆 腓骨頭 脛骨粗隆 可往前移位即表示前十字韌帶缺損 脛骨壓迫試驗（cranial tibial compression test） 屈曲跗關節 內／外側副韌帶 伸展 髂腰肌 彎曲髖關節、外旋髖關節、彎曲腰椎 通常為繼發性／代",
+    snippet: "六個常用觸診：Ortolani（髖）、膝蓋骨異位、抽屜與脛骨壓迫（前十字）、內翻外翻（側副韌帶）、二頭肌腱、髂腰肌。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "neuroobs", sectionName: "神經檢查：觀察",
+    keywords: "神經學檢查：意識、姿態、步態 Neurologic Observation 檢查步驟 意識狀態 繞圈、頭傾斜與眼球震顫 靜止姿態 Ataxia vs Paresis 沉鬱 清醒 木僵 可藉痛覺刺激喚醒 昏迷 反應喪失（包含疼痛） 大圓圈 → 前腦 小圓圈 → 前庭 頭部傾斜（head tilt）→ 前庭 頭部轉向（head turn）→ 前腦 凸起（kyphosis） 側彎（scoliosis） 凹陷（lordosis） 不協調 減弱或喪失 感覺 運動 Ataxia 無 paresis → 小腦 Paresis 無 ataxia → 神經肌肉",
+    snippet: "先不動手：看意識與行為、靜止時的姿態、走路的樣子，就能猜出病灶大概在腦、前庭、小腦、脊髓還是周邊。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "neuro", sectionName: "姿勢反應、節段與反射",
+    keywords: "姿勢反應 脊髓節段與 UMN／LMN必考 學長姐整理 脊髓反射 UMN vs LMN 的表現 交叉伸肌反射 本體感覺受體 → 感覺神經元 → 大腦 → 運動神經元 → 骨骼肌 整套完好的神經系統 放置反應（proprioceptive placing） 跳躍反應（hopping） 臂神經叢 腰薦神經叢 UMN 對肌肉伸展反射（myotatic reflexes）有抑制作用 LMN 最後一個神經元 前肢 後肢 有考這個，挖掉問你是啥 經過大腦 不需經過大腦 C6–T2 L4–6 股神經 L6–S2 坐骨神經 S1–Cd5 S1–3 較晚、輕微 早、嚴重 正常～↑ ↓～消失 僵硬、痙攣、大步（long strides） 看起來像跛、支撐問題、小步（short strides） 尿滯留 大且緊繃 擠尿困難 尿失禁 大但鬆垮 擠尿容易 對側腳出現伸展 UMN sign C1–C5 C1–L3",
+    snippet: "姿勢反應要整條神經系統都好才會正常（篩檢用）；脊髓反射只需要那一段的 LMN 迴路（定位用）。兩者合起來就能定出 C1–C5、C6–T2、T3–L3、L4–S3 四段。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "sensory", sectionName: "皮肌反射、痛覺與 IVDD 分級",
+    keywords: "皮肌反射、觸診、痛覺與胸腰椎 IVDD 分級 皮肌反射 Cutaneous trunci reflex 觸診與痛覺 胸腰椎 IVDD 癱瘓分級必考 學長姐整理 T2–L5 C8–T1 外側胸神經 髂骨翼 由後往前 有反應時往前數 2 節（0–4 節） 進一步縮小 T3–L3 的脊髓病灶 經過大腦 脊髓白質深處 嚴重脊髓損傷才會傷到 若有自主運動就不用測 1 2 3 4 有 5 無 64% 5–10 週 14.6% 最嚴重的併發症 第 4 級到第 5 級的差別就是深層痛覺",
+    snippet: "皮肌反射幫你把 T3–L3 的病灶縮得更小；深層痛覺決定預後；IVDD 分級把兩者串起來。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "exam", sectionName: "考試方向",
+    keywords: "考試方向（推測）與學長姐整理 推測 UMN／LMN 表挖空 轉移重心辨別患肢 跛行分數 膝蓋骨異位分級",
+    snippet: "10考試方向（推測）與學長姐整理 注意 學長姐考前整理第 11 頁貼了本講義四張投影片（UMN／LMN 表、跛行分數、轉移重心、膝蓋骨異位分級），註「有考這個，挖掉問你是啥」——這是學長姐回憶，非官方。其餘為依講義強調處的推測。 可能考法答"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 8, weekTitle: "復健檢查、評量以及步態分析",
+    url: "大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 正常 UMN LMN 答案：(A) 頭抬起來那隻腳是疼痛腳 答案：(C) 答案：(B) 答案：錯 有自主運動就不用測 改善 變差 T3–L3 UMN 膀胱 無深層痛覺 第 5 級 前十字韌帶疾病 前抽屜試驗 脛骨壓迫試驗 右側臀部抬起",
+    snippet: "先自己作答再展開；解析附講義頁碼。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "abstract", sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要 針灸在復健的應用 徒手治療的應用 局部、節段、中樞 導入、傳送與調節、認知 乾針（dry needling）兩種意思 激痛點 寸 vs 吋 電針低頻 vs 高頻 講義有幾張投影片是上課填空的空框",
+    snippet: "兩份投影片。針灸在復健的應用（p.1–75）分四部分：01 基礎理論（中西醫怎麼看針灸與疼痛、三層鎮痛效應、多模式治療）、02 針灸小撇步（解剖定位、寸與吋）、03 針灸技術（乾針、電針、水針、艾灸、雷射針灸、穴位植入）、04 文獻回顧。徒手治療的應用（p.76–84）：按摩與推拿的定義與手法分類。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "theory", sectionName: "針灸與疼痛：中西醫觀點",
+    keywords: "針灸的定義 針灸在復健中的角色 中醫觀點的疼痛 西醫觀點的疼痛 acupoints（穴位） 中醫 氣 平衡 西醫 生理變化 講義未寫答案 痛則不通 通則不痛 痹症（Bi syndrome） 不愉快的感覺與情緒經驗 疼痛是第五生命徵象",
+    snippet: "同一根針，中醫說是讓氣流動、回到平衡；西醫說是刺激穴位產生生理變化。兩套語言描述同一件事。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "effects", sectionName: "針灸三層鎮痛效應",
+    keywords: "針灸鎮痛效應：局部、節段、中樞 Acupuncture Analgesia 三層效應總表 局部效應的細節 局部效應 導入 西醫：微小創傷（microtrauma） 中醫：得氣（De Qi） 節段效應 傳送、調節 門控理論（gate theory） 腦啡肽（enkephalin）、強啡肽（dynorphin） 中樞效應 調節、認知 激素理論（hormonal theory） β-內啡肽 ALL!!! 西醫眼中的穴位 游離神經末梢 微小創傷 → 發炎湯（inflammatory soup） 局部免疫 ↑、局部血流 ↑、局部肌肉與組織放鬆 ↑ 得氣反應 治療效果與得氣密切相關，若沒有得氣，效果會減弱",
+    snippet: "針灸的生理作用不是單一機制，而是三層互動；每一層剛好攔截疼痛路徑的不同階段。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "multimodal", sectionName: "多模式治療計畫",
+    keywords: "多模式治療計畫 Multimodal Treatment Plan 為什麼要多模式 六大類工具 指引中的位置 同時結合多種不同作用機制 多點同步攔截、發揮協同療效 分散治療風險、減少藥物副作用 打破惡性循環、兼顧止痛與功能恢復 股票 債券 用多種不同方法阻斷比只靠單一受體或機制更有效 針灸列在「Physical modalities」 多模式",
+    snippet: "疼痛有多條路徑，所以用「藥物＋非藥物」多種機制同時攔截；針灸是其中的物理治療之一。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "locate", sectionName: "取穴：解剖與寸",
+    keywords: "取穴：解剖定位與寸 Locating Acupoints 解剖定位 三個代表穴位 寸（Cun）與吋（Inch） Take home message 講義留空，上課填寫 頂椎（anticlinal vertebra） 棘突垂直 T11 大型犬最常 T11、小型犬最常 T10 定位 L2 肋軟骨 BL-23（腎俞） L2 棘突後緣旁開 1.5 寸 GB-30（環跳） 股骨大轉子與坐骨粗隆連線中點 TH-14（肩髎） 肩峰後下側 身體比例 第一尾椎的長度＝1 寸 最後一根肋骨的寬度＝1 寸 1 inch＝2.54 cm 小吉（吉娃娃）和大丹的前臂都是 12 寸嗎？",
+    snippet: "找穴位先找骨頭地標：頂椎、L2、大轉子；再用「寸」這個隨體型縮放的比例單位量距離。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "techniques", sectionName: "六種針灸技術",
+    keywords: "針灸技術 Stimulating Methods 六種技術 乾針 電針 水針 艾灸 文獻回顧 最常用 促進血液循環＝消炎 疼痛緩解 恢復平衡 經絡 肌肉骨骼功能障礙 氣 穴位 阿是穴（A-shi point） 激痛點（trigger point） 單手進針法 雙手進針法 溫和電流 鎮痛效果 神經再生 頻率、強度、時間 頻率 低頻 20–30 Hz → 釋放內啡肽（endorphin）→ 疼痛 高頻 80–120 Hz → 釋放血清素（serotonin）→ 內科狀況 強度 針在抽動（needle twitching） 時間 10–30 分鐘 肌肉萎縮 內科、神經麻痺 疼痛 EAP 20 Hz、15 分鐘、每週兩次 癲癇動物 極度緊張或虛弱 不可連接跨越 懷孕動物的腹部 有起搏器患者的胸部 腫瘤 無菌液體或可溶性物質注射到穴位 雙重刺激 物理刺激 化學刺激 快速完成 安全性高 艾草（moxa",
+    snippet: "六種刺激穴位的方式：乾針、電針、水針、艾灸、雷射針灸、穴位植入物；講義詳述前四種。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "manual", sectionName: "按摩與推拿",
+    keywords: "徒手治療：按摩與推拿 Massage & Tui-Na 徒手治療的範圍 定義 推拿六大類手法（韓平式推拿） 按摩六法（瑞典式按摩） 按摩（軟組織鬆動） 推拿 軟組織 皮膚、肌腱、韌帶、筋膜、肌肉 中醫徒手治療 穴位與經絡 輕撫法 按壓法 揉捏法 輕扣式按摩法 橫向摩擦或交叉摩擦 缺血性按壓",
+    snippet: "按摩作用在軟組織，推拿作用在穴位與經絡；兩者的手法分類不同。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "exam", sectionName: "考試方向（推測）",
+    keywords: "考試方向（推測） 推測",
+    snippet: "8考試方向（推測） 注意 以下是依講義強調處推測的出題方向，不是考古題；學長姐整理沒有列這一講。講義的空框（p.10、p.14、p.43、p.46、p.52）可能就是上課強調的點，請對照自己的上課筆記。 可能考法答題重點 三層鎮痛效應局部（"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: 9, weekTitle: "針灸、推拿及按摩",
+    url: "大四上/伴侶動物復健及物理治療學/week09_針灸推拿及按摩.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 答案：(B) 不是 答案：(D) 答案：(A) 答案：(C) 不包括 答案：錯 答案：對 癲癇動物 極度緊張 水針 間斷波 大轉子與坐骨粗隆連線中點",
+    snippet: "先自己作答再展開；解析附講義頁碼。"
   },
   {
     subject: "獸醫藥理學", semester: "大三", week: null, weekTitle: "抗癲癇藥物",
@@ -11151,6 +11662,181 @@ const SEARCH_INDEX = [
     snippet: "書p.179病例：17歲CKD犬5個月後出現失智，加腦部protocol後症狀逆轉（單一病例）；TBI可用相同參數但亞急性不建議。"
   },
   {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "abstract", sectionName: "核心結論",
+    keywords: "FDIM 瀰漫性虹膜黑色素瘤 feline diffuse iris melanoma 虹膜色斑 虹膜色素沉著 melanosis 貓 眼科 診斷流程",
+    snippet: "黑色素沉著與早期FDIM外觀相同；靠拍照、眼壓、隅角、OCT追蹤，切片陽性才有意義，摘眼是唯一根治。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "fdim", sectionName: "FDIM 是什麼：分期與預後",
+    keywords: "Kayes 2025 分期 基質侵犯 stroma 鞏膜靜脈叢 Wiggans 核分裂指數 7/10 HPF 轉移 Kalishman 預後 青光眼",
+    snippet: "早期FDIM定義為腫瘤細胞侵入虹膜基質；晚期侵犯隅角、睫狀體、鞏膜；核分裂>7/10HPF、鞏膜外延伸、壞死、脈絡膜侵犯預測轉移。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "ddx", sectionName: "虹膜色素變化的鑑別",
+    keywords: "鑑別診斷 雀斑 freckle 痣 nevus 虎斑 tiger-stripe 葡萄膜炎 flare KPs FIP FeLV FIV 弓蟲 淋巴瘤",
+    snippet: "先分清是色素病灶還是葡萄膜炎造成的變色；有flare或KPs先找FIP、FeLV/FIV、弓蟲、淋巴瘤。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "slitlamp", sectionName: "裂隙燈與標準化拍照",
+    keywords: "裂隙燈 slit lamp 拍照 天鵝絨 velvet 增厚 瞳孔變形 dyscoria PLR 色素散落 Coster",
+    snippet: "六項觀察：厚度、表面質地、顏色、瞳孔、色素散落、發炎與眼壓；每次固定條件拍兩眼。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "iop", sectionName: "眼壓與隅角鏡",
+    keywords: "眼壓 IOP TonoVet Tono-Pen 參考值 青光眼 隅角鏡 gonioscopy 梳狀韌帶 pectinate ligament 小樑網",
+    snippet: "眼壓參考值依儀器而異（TonoVet Plus 16.9、Tono-Pen Avia 16.2 mmHg），Tono-Pen低估高眼壓；眼壓升高或隅角侵犯為晚期警訊。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "oct", sectionName: "前眼節 OCT＋PN 計算",
+    keywords: "AS-OCT OCT 光學同調斷層掃描 PN 比值 Komatsu 2024 虹膜厚度 MIT 高反射線 Spectralis",
+    snippet: "PN比值＝病灶虹膜厚度÷對側眼同部位；黑色素沉著0.99、早期FDIM 1.28；早期FDIM表面高反射線消失。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "us", sectionName: "眼球超音波與 UBM",
+    keywords: "眼球超音波 B-mode UBM 超音波生物顯微鏡 睫狀體 水晶體脫位 牛眼 視網膜剝離 玻璃體出血 判讀",
+    snippet: "一般B-mode看後段延伸（睫狀體腫塊、水晶體脫位、牛眼），看虹膜與隅角要用UBM；出血可能讓腫瘤誤判、剝離漏判。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "systemic", sectionName: "全身評估與轉移分期",
+    keywords: "轉移篩檢 胸腔X光 CT 腹部超音波 FeLV FIV FCoV 弓蟲 分期",
+    snippet: "發炎時找感染病因；懷疑FDIM時做血液、胸腔影像、腹部超音波篩檢轉移，早期微小轉移可能看不到。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "sampling", sectionName: "採樣方式與副作用",
+    keywords: "虹膜切片 iris biopsy 房水穿刺 aqueocentesis Featherstone Beetz 副作用 併發症 假性多瞳 病理報告",
+    snippet: "虹膜切片：麻醉、角膜緣切口、黏彈劑、虹膜剪；併發症多輕微；與整顆眼球一致率81.6%，陰性不能排除。房水細胞學不能診斷FDIM。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "options", sectionName: "處置選項比較",
+    keywords: "監測 二極體雷射 diode laser Fuchs 2023 PPSS 摘眼 enucleation Gregorio 2026 Oncept",
+    snippet: "雷射1年存活96%、PPSS≥4術後青光眼17.8%；摘眼唯一根治需送病理；Gregorio 2026摘眼與否存活無顯著差異但僅為假說。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "workflow", sectionName: "建議診斷流程與時程",
+    keywords: "診斷流程 時程 追蹤頻率 每2-3個月 警訊 轉診 眼科",
+    snippet: "基準檢查→每2–3個月拍照＋眼壓→出現增厚、瞳孔變形、色素散落、眼壓上升、發炎時轉積極處置。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "apply", sectionName: "套用：年輕貓的進展性色斑",
+    keywords: "年輕貓 進展 色斑 眼科門診 問題清單",
+    snippet: "年輕且進展中是講者建議考慮摘眼的情境；關鍵是有無增厚、隅角與眼壓是否正常。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：貓虹膜色素沉著與 FDIM 診斷流程",
+    url: "上群/2026-11-07_專題-貓虹膜色素沉著與FDIM診斷流程.html",
+    section: "quiz", sectionName: "自我測驗",
+    keywords: "練習題 自我測驗 FDIM OCT 切片 眼壓",
+    snippet: "14 題：分期、PN 比值、切片解讀、超音波、眼壓、雷射與臨床情境題。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "abstract", sectionName: "核心結論",
+    keywords: "眼球超音波 眼科超音波 ocular ultrasound B-mode UBM 判讀 重點",
+    snippet: "眼內看不進去時用超音波；液體黑、界面亮；FDIM 早期在 B-mode 通常正常。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "principle", sectionName: "原理、設備與適應症",
+    keywords: "B-mode UBM 超音波生物顯微鏡 都卜勒 CEUS 顯影超音波 頻率 適應症 禁忌 後彈力膜膨出",
+    snippet: "四種眼科超音波工具、適應症（角膜混濁、白內障術前、外傷、突眼）與禁忌。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "technique", sectionName: "操作步驟與副作用",
+    keywords: "經角膜 經眼瞼 墊高 standoff 表面麻醉 proparacaine 無菌凝膠 軸向切面 增益 眼心反射 角膜擦傷",
+    snippet: "B-mode 操作八步驟、貓 UBM 全身麻醉做法、副作用與預防。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "normal", sectionName: "正常影像",
+    keywords: "正常眼球超音波 角膜 前房 水晶體囊 玻璃體 後壁 視神經 球後脂肪 隅角 睫狀裂",
+    snippet: "正常 B-mode 自繪示意圖、犬正常影像與量法、UBM 隅角解剖。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "values", sectionName: "正常測量值（貓／犬）",
+    keywords: "正常值 眼軸長度 前房深度 水晶體厚度 波斯貓 Mirshahi 家貓 UBM Kim 2026 虹膜厚度 IMW IBW 隅角 ICA 犬 LEL:GAL",
+    snippet: "波斯貓眼軸 20.7 mm；家貓 UBM 虹膜中段 0.53、根部 0.34 mm、隅角 28.9°；犬依體重分組。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "ant", sectionName: "異常：前段與水晶體",
+    keywords: "前房出血 積膿 虹膜腫塊 睫狀體腫塊 葡萄膜囊腫 隅角關閉 白內障 水晶體脫位 水晶體囊破裂",
+    snippet: "前段異常的超音波表現：囊腫內部無回音、腫瘤實質有回音。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "post", sectionName: "異常：玻璃體與視網膜",
+    keywords: "視網膜剝離 海鷗 V形 後玻璃體剝離 PVD 玻璃體出血 星狀玻璃體變性 asteroid hyalosis 玻璃體液化 眼內炎 脈絡膜剝離 高血壓",
+    snippet: "視網膜剝離連在視神經盤、玻璃體膜不連；老年玻璃體液化不要過度解讀。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "globe", sectionName: "異常：眼球大小與球後",
+    keywords: "牛眼 buphthalmos 眼球萎縮 phthisis 眼球破裂 異物 球後膿瘍 球後腫瘤 鞏膜外延伸",
+    snippet: "兩眼眼軸比較；牛眼、萎縮、破裂、異物與球後病變。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "fdim", sectionName: "FDIM 在超音波上看得到什麼",
+    keywords: "FDIM 貓瀰漫性虹膜黑色素瘤 超音波 UBM 虹膜增厚 黑色素沉著 早期 晚期 睫狀體 隅角 鑑別 淋巴瘤",
+    snippet: "黑色素沉著與早期 FDIM 在 B-mode 通常正常；晚期才見增厚、團塊、牛眼、脫位。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "pitfalls", sectionName: "陷阱與限制",
+    keywords: "Gallhoefer 漏判 出血 視網膜剝離 37% 假象 增益 近場 UBM 壓力",
+    snippet: "有出血時約 37% 視網膜剝離被漏判；出血或發炎團塊可像腫瘤。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "report", sectionName: "判讀順序與報告範本",
+    keywords: "判讀順序 報告範本 眼球超音波報告 兩眼比較",
+    snippet: "由外往內、由前往後的判讀順序與兩眼對照報告表。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：眼球超音波判讀",
+    url: "上群/2026-11-07_專題-眼球超音波判讀.html",
+    section: "quiz", sectionName: "自我測驗",
+    keywords: "練習題 自我測驗 眼球超音波 視網膜剝離 UBM FDIM",
+    snippet: "10 題：正常影像、剝離鑑別、漏判陷阱、FDIM、操作順序與情境題。"
+  },
+  {
     subject: "水產動物疾病學", semester: "大四上", week: 1, weekTitle: "養殖模式與水質管理",
     url: "大四上/水產動物疾病學/week01_養殖模式與水質管理.html",
     section: "abstract", sectionName: "大方向與重點摘要",
@@ -11667,5 +12353,504 @@ const SEARCH_INDEX = [
     section: "oral-phy", sectionName: "上課內容題・魚類生理（同學的上課錄音筆記）",
     keywords: "上課內容題 錄音筆記 老師口述 生理 軟骨魚 硬骨魚 翻鰓 二級鰓小片融合 白盆測試 浮頭 搶食 鰾病 腸道積氣 立鱗病 脂肪肝 膽汁 脾腫大 耳石 凸眼 先雌後雄 同學預測題",
     snippet: "同學的上課錄音筆記整理的老師口述範圍出題（163 題）：開場與考試提示、魚蛭與混合感染、游姿與趨化性、鰓與看診、鰾病、體表與血合肉、循環、感覺、肝脾腎、滲透壓與生殖，加同學預測題與臨床情境；預測題非官方。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "abstract",
+    sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要",
+    snippet: "跛行（lameness）病患從病史 → 站姿與步態觀察 → ROM 與肌肉量 → 一般觸診 → 逐關節骨科特殊試驗 → 影像 → 關節液的完整流程（p.3）。目標有三個：功能診斷（機械性受限？疼痛？）、解剖診斷（病灶在哪"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "history",
+    sectionName: "病史 History",
+    keywords: "病史 History 運動系統的組成與檢查流程 問診重點",
+    snippet: "跛行的病史問什麼、不同病程分別提示什麼。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "ddx",
+    sectionName: "依年齡、體型、前後肢的鑑別診斷",
+    keywords: "依年齡、體型、前後肢的鑑別診斷 關鍵疾病一句話解釋",
+    snippet: "看到「幾歲、大型還小型、前肢還後肢」就先縮出診斷清單，後面的觸診與 X 光再去驗證。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "stance",
+    sectionName: "站姿觀察與名詞 Observation of Stance",
+    keywords: "站姿觀察與名詞 Observation of Stance 站姿的名詞定義",
+    snippet: "先遠看、不碰動物：站姿、負重、頭頸脊椎與四肢的相對位置。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "gait",
+    sectionName: "步行檢查與跛行分級 Gait & Lameness Scale",
+    keywords: "步行檢查與跛行分級 Gait & Lameness Scale 怎麼做步行檢查 跛行分級 Lameness scale 為了減輕疼痛，動物會怎麼代償",
+    snippet: "在不滑的地面看直線與圓周步行，並用四級量表記錄嚴重度。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "rom",
+    sectionName: "關節活動度與肌肉量 ROM & Muscle Volume",
+    keywords: "關節活動度與肌肉量 ROM & Muscle Volume",
+    snippet: "兩側互相比較，量化「關節能動多少」與「肌肉剩多少」。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "palpation",
+    sectionName: "一般觸診與檢查表單",
+    keywords: "一般觸診與檢查表單 站姿異常與可能的疾病 骨科學觸診紀錄表",
+    snippet: "兩側肢體同時比較，由遠端往近端、由後肢到脊椎再到前肢。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "fore",
+    sectionName: "前肢逐關節檢查（腕、肘、肩）",
+    keywords: "前肢逐關節檢查（腕、肘、肩） 腕關節 Carpal joint 肘關節 Elbow joint FMCP 壓痛試驗（內側勾狀突起斷裂） 二頭肌腱試驗 Bicipital tendon test 肩關節 Shoulder joint",
+    snippet: "從遠端往近端：腕 → 肘（Campbell、FMCP）→ 肩（二頭肌腱、伸展、抽屜、外展）。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "hind",
+    sectionName: "後肢逐關節檢查（跗、膝、髖）",
+    keywords: "後肢逐關節檢查（跗、膝、髖） 跗關節與阿基里斯腱 膝蓋骨脫臼 Patellar luxation 前十字韌帶 Anterior（Cranial）cruciate ligament 髖關節 Hip joint",
+    snippet: "跗關節與阿基里斯腱 → 膝蓋骨與前十字韌帶 → 髖關節鬆弛與脫位。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "exam",
+    sectionName: "考試方向（推測，期末考古尚未取得）",
+    keywords: "考試方向（推測，期末考古尚未取得）",
+    snippet: "目前沒有這份講義的考古或老師提示，以下是依講義強調處與臨床邏輯推測的出題方向，不是官方範圍。拿到期末考古後會補上。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨科理學檢查",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨科理學檢查.html",
+    section: "quiz",
+    sectionName: "練習題 Practice Quiz",
+    keywords: "練習題 Practice Quiz",
+    snippet: "14 題，答案預設隱藏；先自己寫再點開核對。數字以講義為準。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "abstract",
+    sectionName: "大方向與重點摘要",
+    keywords: "大方向與重點摘要",
+    snippet: "前半（p.74–112）是怎麼拍、怎麼讀四肢骨的 X 光：保定與攝影原則、各關節擺位、骨頭構造、異常的描述語言（形狀、密度、皮質、骨小樑、骨骺與關節、分布）、骨密度增加／減少、骨膜反應、關節疾病徵象、骨折癒合。後半（p."
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "principle",
+    sectionName: "骨骼攝影原則與各關節擺位",
+    keywords: "骨骼攝影原則與各關節擺位 攝影原則 各關節的擺位重點 長骨攝影：額面與矢狀面如何判斷擺位正確",
+    snippet: "拍得對，後面的判讀才有意義。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "reading",
+    sectionName: "X 光判讀順序與骨骼構造",
+    keywords: "X 光判讀順序與骨骼構造 判讀骨科 X 光的檢查清單",
+    snippet: "先確認方向、曝光與地標，再分區看骨頭。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "abnormal",
+    sectionName: "X 光異常的描述語言 General Description of Abnormalities",
+    keywords: "X 光異常的描述語言 General Description of Abnormalities",
+    snippet: "寫判讀報告時照這份清單描述，不要只寫「骨頭怪怪的」。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "density",
+    sectionName: "骨密度增加與降低 Opacity Changes",
+    keywords: "骨密度增加與降低 Opacity Changes 密度增加 Increased opacity 密度降低 Decreased opacity Osteolysis 三型",
+    snippet: "不透射線性增加（硬化、死骨）與降低（疏鬆、溶骨）。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "periosteal",
+    sectionName: "骨膜反應 Periosteal Response",
+    keywords: "骨膜反應 Periosteal Response 骨膜反應的九期 活躍度與侵略性 Codman's triangle",
+    snippet: "骨頭受傷或生病時，骨膜被掀起並長出新骨。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "joint",
+    sectionName: "關節疾病徵象與骨折癒合 Signs of Joint Disease & Fracture Healing",
+    keywords: "關節疾病徵象與骨折癒合 Signs of Joint Disease & Fracture Healing Osteophyte vs Enthesophyte 關節疾病的 X 光徵象（Box 1.2） 骨折癒合 Fracture healing",
+    snippet: "關節問題在 X 光上的八個徵象，以及骨折癒合的時間軸。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "classify",
+    sectionName: "犬常見骨科疾病的分類",
+    keywords: "犬常見骨科疾病的分類 發育期骨科疾病的共同點",
+    snippet: "用發病年齡與原因把疾病先分成六大類。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "diseases",
+    sectionName: "關鍵疾病：機制、臨床與影像",
+    keywords: "關鍵疾病：機制、臨床與影像 1. 分離性骨軟骨炎 Osteochondritis dissecans（OCD） 2. 肘關節發育不良 Elbow dysplasia（UAP、FMCP、OCD） 3. 留存性軟骨核 Retained cartilage core 4. 髖關節發育不良 Hip dysplasia（CHD） 5. Legg-Calvé-Perthes 病（股骨頭缺血性壞死） 6. 內側膝蓋骨脫臼 Medial patellar luxation（MPL） 7. 前十字韌帶斷裂 Rupture of the ACL（CCL） 8. 免疫介導多發性關節炎 IMPA 9. 退化性關節疾病 DJD／骨關節病 OA 10. 骨肉瘤與軟骨肉瘤 Osteosarcoma & Chondrosarcoma 11. 骨髓炎 Osteomyelitis",
+    snippet: "每個疾病都照「是什麼 → 誰會得 → 為什麼 → 怎麼查（理學＋影像）」整理；講義沒寫的內容標「補充」。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "fluid",
+    sectionName: "關節液檢查與關節穿刺 Arthrocentesis",
+    keywords: "關節液檢查與關節穿刺 Arthrocentesis",
+    snippet: "臨床判讀：關節液黏稠度下降、混濁、白血球增加提示發炎；細菌性關節炎多為中性球顯著增多並找到細菌；免疫性多為中性球增加但培養陰性（一般臨床常識，非講義內容）。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "shoulder",
+    sectionName: "肩部肌腱與肌肉疾病（二頭肌、棘上肌、棘下肌）",
+    keywords: "肩部肌腱與肌肉疾病（二頭肌、棘上肌、棘下肌） 二頭肌腱鞘炎 Bicipital tenosynovitis 棘上肌腱鈣化 Calcification of supraspinatus tendon 棘下肌／棘上肌攣縮 Contracture of infraspinatus or supraspinatus muscle",
+    snippet: "肩部肌腱與肌肉疾病（二頭肌、棘上肌、棘下肌）"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "table",
+    sectionName: "關鍵疾病總表（複習用）",
+    keywords: "關鍵疾病總表（複習用）",
+    snippet: "關鍵疾病總表（複習用）"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "exam",
+    sectionName: "考試方向（推測，期末考古尚未取得）",
+    keywords: "考試方向（推測，期末考古尚未取得）",
+    snippet: "目前沒有這份講義的考古或老師提示，以下是依講義強調處與臨床邏輯推測的出題方向，不是官方範圍。拿到期末考古後會補上。"
+  },
+  {
+    subject: "獸醫臨床及影像診斷學",
+    semester: "大四上",
+    week: 10,
+    weekTitle: "骨骼影像與骨科疾病",
+    url: "大四上/獸醫臨床及影像診斷學/week10_骨骼影像與骨科疾病.html",
+    section: "quiz",
+    sectionName: "練習題 Practice Quiz",
+    keywords: "練習題 Practice Quiz",
+    snippet: "14 題，答案預設隱藏；先自己寫再點開核對。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "abstract", sectionName: "怎麼用這一頁",
+    keywords: "期中統整 單選題 考點地圖 自我測驗 學長姐整理",
+    snippet: "復健期中統整：第 1–9 週單選題考點地圖與自我測驗入口。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "framework", sectionName: "兩條主線：癒合三期與復健四階段",
+    keywords: "傷口癒合 發炎期 修補期 重建期 四階段 急性期 增生期 鞏固期 組織期 肌腱 韌帶 軟骨 骨痂 膠原 收縮 萎縮",
+    snippet: "癒合三期、四階段框架與各組織固定和強度恢復數字一張表。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "neuroloc", sectionName: "神經定位：UMN／LMN、反射節段、IVDD 分級",
+    keywords: "UMN LMN C1-C5 C6-T2 T3-L3 L4-S3 雙引擎 膝反射 回縮反射 膀胱 交叉伸肌 皮肌反射 IVDD 分級 深層痛覺 脊髓軟化",
+    snippet: "UMN／LMN 定位表（學長姐：挖空考）、反射節段、膀胱、IVDD 1–5 級。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "neurodz", sectionName: "神經科疾病：每病特有的一格",
+    keywords: "A/A CCSM Wobbler IVDD ANNPE HNPE FCE 臂神經叢 馬尾 骨刺 浣熊犬麻痺 坐骨神經 前庭 DM SOD1 Kathmann PNF 神經抑制",
+    snippet: "十二種神經疾病的特有復健項目、DM 分期與存活數字、PNF 與神經抑制。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "ortho", sectionName: "骨科：量表、UWTM 水位、各病動作禁忌",
+    keywords: "跛足 0-5 UWTM 水位 浮力 骨折 三不一要 MSI hobble vest Velpeau 二頭肌腱 FHNO THR 前十字 TPLO 膝蓋骨 跟腱 截肢",
+    snippet: "跛足量表、UWTM 9／15／62%、前後肢疾病固定方式與全程避免動作。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "modal1", sectionName: "儀器（一）：冰熱敷、超音波、電刺激",
+    keywords: "冰敷 熱敷 72 48 超音波 1 MHz 3.3 MHz duty cycle 探頭 NMES TENS 1:1 1:4 禁忌",
+    snippet: "冰熱敷時機與禁忌、超音波參數、NMES 與 TENS 比較。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "modal2", sectionName: "儀器（二）：震波、雷射、水療、PEMF",
+    keywords: "ESWT 聚焦 放射 雷射 波長 Class 4 劑量 J/cm2 水療 浮力 靜水壓 UWTM 水溫 PEMF",
+    snippet: "震波、雷射波長與劑量計算、水療四原理與 UWTM、PEMF 用法。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "contra", sectionName: "八種理療禁忌總表",
+    keywords: "禁忌 冰敷 熱敷 超音波 電刺激 ESWT 雷射 UWTM PEMF 電針 腫瘤 生長板 起搏器 癲癇",
+    snippet: "九種治療各自的特色禁忌一張表。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "pain", sectionName: "慢性疼痛：途徑、金字塔、量表、注射",
+    keywords: "疼痛途徑 轉換 傳送 調變 感知 wind-up 金字塔 tramadol gabapentin amantadine NSAID COX-2 PGE2 Adequan Cartrophen Tin-117m COAST 5H2M",
+    snippet: "疼痛四步驟、止痛劑金字塔劑量、DMOAD 與關節注射、量表縮寫。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "geri", sectionName: "老年犬：骨刺、OA、肌少症、運動、失智",
+    keywords: "骨刺 spondylosis L7-S1 OA 肌少症 MCS C-MMT 老年運動 TUG CCDS selegiline",
+    snippet: "骨刺、OA、肌少症、老年運動原則與行動評估、犬失智症。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "exam8", sectionName: "檢查評量與步態",
+    keywords: "病史 運動後 發炎性 機械性 步態 trot 患肢 頭部 骨盆 跛行分數 膝蓋骨異位 分級 測力板 壓力走道 Ortolani 抽屜",
+    snippet: "病程推方向、辨別患肢、跛行分數、膝蓋骨分級、步態儀器、觸診。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "acu", sectionName: "針灸、推拿與按摩",
+    keywords: "針灸 局部 節段 中樞 得氣 門控 頂椎 寸 BL-23 GB-30 TH-14 電針 水針 推拿 按摩",
+    snippet: "針灸三層效應、取穴、電針頻率波形、水針、推拿與按摩分類。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "intro", sectionName: "概論：分類、分工與認證",
+    keywords: "三大領域 七種理療 運動目標 CCRP CCRT CCRV CCAT DACVSMR 動物醫事助理",
+    snippet: "概論的分類、人醫獸醫分工與認證縮寫。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "conflict", sectionName: "講義互相矛盾的地方",
+    keywords: "矛盾 48 72 MSI 33 45 離心 下坡 Ruffini Pacini 關節活動度",
+    snippet: "各週講義說法不同的地方，作答前對照。"
+  },
+  {
+    subject: "伴侶動物復健及物理治療學", semester: "大四上", week: null, weekTitle: "期中統整",
+    url: "大四上/伴侶動物復健及物理治療學/期中統整.html",
+    section: "numbers", sectionName: "數字速背",
+    keywords: "數字 時間 百分比 參數",
+    snippet: "時間、百分比、儀器參數三欄速背。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "abstract", sectionName: "一句話與數值總表",
+    keywords: "TPLO TPA D1 D2 SAW 鋸片 Rotation 旋轉距離 骨板 2.7 broad 規劃",
+    snippet: "TPLO 規劃片數值一覽：TPA 30.5° 轉到 5°、鋸片 21 mm、轉 9.3 mm。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "why", sectionName: "為什麼要轉平台",
+    keywords: "脛骨前推力 cranial tibial thrust 前十字韌帶 CCL 動態穩定",
+    snippet: "前十字斷裂後的脛骨前推力，與 TPLO 把平台改平的原理。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "tpa", sectionName: "TPA 怎麼量、怎麼拍",
+    keywords: "TPA 量法 功能軸 髁間隆起 距骨 平台線 拍片 90 度 股骨髁重疊",
+    snippet: "功能軸與平台線的定位、拍片條件、Oreo 術前片。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "plan", sectionName: "Oreo 規劃片逐項看",
+    keywords: "D1 D2 脛骨粗隆 TTW 10 mm 骨折 鋸片選擇 弦長 弧長 9.3",
+    snippet: "依手術順序看規劃數字；旋轉距離公式與 D1／TTW 風險。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "interactive", sectionName: "互動示意：轉平台",
+    keywords: "互動 示意 TPA 旋轉 鋸片半徑 滑桿",
+    snippet: "可拖動的 TPLO 轉平台示意與旋轉距離計算。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "postop", sectionName: "術後片怎麼看",
+    keywords: "術後 X 光 術後 TPA 螺絲 腓骨 粗隆 對位",
+    snippet: "TPLO 術後片檢查清單。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "rehab", sectionName: "術後復健與追蹤",
+    keywords: "TPLO 術後復健 UWTM 冰敷 PROM 髕韌帶增厚 ESWT NSAID",
+    snippet: "TPLO 術後時間表、全程禁忌與髕韌帶增厚處理。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "confirm", sectionName: "需要跟主刀確認的地方",
+    keywords: "側別 目標 TPA 半月板",
+    snippet: "規劃與術後需要跟主刀確認的事。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：TPLO 規劃數值解讀",
+    url: "上群/2026-11-11_專題-TPLO規劃數值解讀.html",
+    section: "refs", sectionName: "資料來源",
+    keywords: "Todd 2026 Kim 2022 Fujino 2020 參考文獻",
+    snippet: "TPLO 規劃相關文獻。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：簡短神經學檢查與病灶定位",
+    url: "上群/2026-11-11_專題-簡短神經學檢查與病灶定位.html",
+    section: "abstract", sectionName: "一句話與檢查流程",
+    keywords: "神經學檢查 病灶定位 UMN LMN 五步驟 意識 姿勢反應 脊髓反射 痛覺",
+    snippet: "神經學檢查五步驟與定位的核心問題。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：簡短神經學檢查與病灶定位",
+    url: "上群/2026-11-11_專題-簡短神經學檢查與病灶定位.html",
+    section: "umnlmn", sectionName: "UMN 與 LMN",
+    keywords: "UMN LMN 上運動神經元 下運動神經元 反射 肌張力 萎縮 膀胱 神經叢 示意圖",
+    snippet: "UMN 是幹線、LMN 是最後一條電線；兩者的反射、張力、萎縮、步態、膀胱差異。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：簡短神經學檢查與病灶定位",
+    url: "上群/2026-11-11_專題-簡短神經學檢查與病灶定位.html",
+    section: "exam", sectionName: "簡短檢查五步驟",
+    keywords: "腦神經 姿勢反應 本體感覺 脊髓反射 深層痛覺 ataxia paresis 站姿",
+    snippet: "每一步看什麼、異常代表什麼。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：簡短神經學檢查與病灶定位",
+    url: "上群/2026-11-11_專題-簡短神經學檢查與病灶定位.html",
+    section: "interactive", sectionName: "互動：病灶定位",
+    keywords: "C1-C5 C6-T2 T3-L3 L4-S1 S1-S3 Cd1-Cd5 雙引擎 前肢 後肢 UMN LMN 互動",
+    snippet: "點選脊髓節段看前後肢是 UMN、LMN 或正常。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：簡短神經學檢查與病灶定位",
+    url: "上群/2026-11-11_專題-簡短神經學檢查與病灶定位.html",
+    section: "reflex", sectionName: "脊髓反射",
+    keywords: "膝反射 L4-6 股神經 回縮反射 C6-T2 L6-S2 坐骨神經 肛門反射 皮肌反射 交叉伸肌反射",
+    snippet: "各脊髓反射的節段與神經、交叉伸肌與皮肌反射。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：簡短神經學檢查與病灶定位",
+    url: "上群/2026-11-11_專題-簡短神經學檢查與病灶定位.html",
+    section: "clinical", sectionName: "臨床串連",
+    keywords: "深層痛覺 預後 IVDD Schiff-Sherrington 浣熊犬麻痺",
+    snippet: "深層痛覺是預後、Schiff-Sherrington、周邊神經病不照此表。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：簡短神經學檢查與病灶定位",
+    url: "上群/2026-11-11_專題-簡短神經學檢查與病灶定位.html",
+    section: "quiz", sectionName: "練習題",
+    keywords: "練習題 UMN LMN 膀胱 深層痛覺 姿勢反應",
+    snippet: "6 題神經學檢查與定位題。"
+  },
+  {
+    subject: "住院醫師筆記", semester: "上群", week: null, weekTitle: "專題：簡短神經學檢查與病灶定位",
+    url: "上群/2026-11-11_專題-簡短神經學檢查與病灶定位.html",
+    section: "refs", sectionName: "資料來源與圖示說明",
+    keywords: "Repac BSAVA 神經學 參考",
+    snippet: "資料來源與自繪圖說明。"
   }
 ];

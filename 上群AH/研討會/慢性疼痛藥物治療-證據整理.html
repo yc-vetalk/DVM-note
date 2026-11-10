@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>慢性疼痛藥物治療：證據整理 - 上群動物醫院</title>
+<link rel="stylesheet" href="../assets/nav.css?v=3">
+<link rel="stylesheet" href="../assets/ah.css?v=5">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <img src="../assets/logo.svg" alt="上群動物醫院" class="brand-logo">
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="研討會"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">上群動物醫院 首頁</a>
+      <span class="sep">›</span>
+      <a href="../FASAVA2026/index.html#1101">FASAVA 2026</a>
+      <span class="sep">›</span>
+      <span class="current">慢性疼痛藥物治療：證據整理</span>
+    </div>
+
+    <div class="page-head">
+      <h1 class="page-title">慢性疼痛藥物治療：證據整理</h1>
+      <p class="page-subtitle">NSAID、grapiprant、抗 NGF 單抗、tramadol、gabapentin／pregabalin、amitriptyline、amantadine——各自有多少證據、劑量與途徑、什麼時候用。</p>
+    </div>
+    <div class="pagehead__actions">
+      <a class="btn fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=1" data-label="治療 p.1">📄 講義 PDF</a>
+      <span style="font-size:11.5px;opacity:.7;">點開會在右側閱讀（需先雙擊「開啟筆記網站」，再從 localhost 開本頁）；PDF 只存在本機，不上傳。</span>
+    </div>
+
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">場次</div><div class="meta-value">FASAVA 2026 台北｜11/1（日）11:00–12:30｜D 廳 疼痛管理（Pain management）第 2 節</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">Paulo Steagall 投影片「Therapeutics Used for Chronic Pain Management: What's the Evidence?」（36 頁）＋現場錄音逐字稿（約 1 小時 33 分，含 40 分鐘圓桌問答）＋網路查證</div></div>
+      <div class="meta-item"><div class="meta-label">最後更新</div><div class="meta-value">2026-11-09</div></div>
+      <div class="meta-item"><div class="meta-label">整理狀態</div><div class="meta-value">課後完整版</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">總覽</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
+    <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 課程架構與劑量總表</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-1" onclick="goSub('h3-1')">這堂課的架構</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-2" onclick="goSub('h3-2')">藥物劑量總表</a>
+    <div class="section-label">治療之前</div>
+    <a onclick="showSection('screen')" id="nav-screen"><span class="nav-icon">🔎</span> 篩檢的新證據</a>
+    <a class="toc-sub" data-sec="screen" id="nav-h3-3" onclick="goSub('h3-3')">飼主線上篩檢清單（Wright 2022）</a>
+    <a class="toc-sub" data-sec="screen" id="nav-h3-4" onclick="goSub('h3-4')">年輕狗的 OA（Enomoto 2024）</a>
+    <a onclick="showSection('plan')" id="nav-plan"><span class="nav-icon">🗺️</span> 治療計畫與止痛試驗</a>
+    <a class="toc-sub" data-sec="plan" id="nav-h3-5" onclick="goSub('h3-5')">不只是給藥</a>
+    <a class="toc-sub" data-sec="plan" id="nav-h3-6" onclick="goSub('h3-6')">止痛試驗</a>
+    <a class="toc-sub" data-sec="plan" id="nav-h3-7" onclick="goSub('h3-7')">依 OA 嚴重度的階梯</a>
+    <div class="section-label">第一線</div>
+    <a onclick="showSection('nsaid')" id="nav-nsaid"><span class="nav-icon">💊</span> NSAID</a>
+    <a class="toc-sub" data-sec="nsaid" id="nav-h3-8" onclick="goSub('h3-8')">臨床使用與禁忌</a>
+    <a class="toc-sub" data-sec="nsaid" id="nav-h3-9" onclick="goSub('h3-9')">不良反應與監測</a>
+    <a class="toc-sub" data-sec="nsaid" id="nav-h3-10" onclick="goSub('h3-10')">換藥與停藥間隔</a>
+    <a onclick="showSection('other')" id="nav-other"><span class="nav-icon">⚖️</span> 其他抗發炎藥與比較試驗</a>
+    <a class="toc-sub" data-sec="other" id="nav-h3-11" onclick="goSub('h3-11')">Grapiprant 與 paracetamol</a>
+    <a class="toc-sub" data-sec="other" id="nav-h3-12" onclick="goSub('h3-12')">Grapiprant vs meloxicam</a>
+    <a class="toc-sub" data-sec="other" id="nav-h3-13" onclick="goSub('h3-13')">Bedinvetmab vs meloxicam</a>
+    <div class="section-label">輔助止痛藥</div>
+    <a onclick="showSection('tramadol')" id="nav-tramadol"><span class="nav-icon">🧪</span> Tramadol</a>
+    <a onclick="showSection('gaba')" id="nav-gaba"><span class="nav-icon">🧠</span> Gabapentin 與 pregabalin</a>
+    <a class="toc-sub" data-sec="gaba" id="nav-h3-14" onclick="goSub('h3-14')">機轉與慢性疼痛證據</a>
+    <a class="toc-sub" data-sec="gaba" id="nav-h3-15" onclick="goSub('h3-15')">CKD 貓要減量</a>
+    <a class="toc-sub" data-sec="gaba" id="nav-h3-16" onclick="goSub('h3-16')">Pregabalin 與運送焦慮</a>
+    <a class="toc-sub" data-sec="gaba" id="nav-h3-17" onclick="goSub('h3-17')">急性疼痛與麻醉</a>
+    <a onclick="showSection('nmda')" id="nav-nmda"><span class="nav-icon">🔗</span> Amitriptyline、amantadine 與 ketamine</a>
+    <a onclick="showSection('conclusion')" id="nav-conclusion"><span class="nav-icon">✅</span> 結論</a>
+    <a onclick="showSection('qa')" id="nav-qa"><span class="nav-icon">💬</span> 圓桌問答</a>
+    <a class="toc-sub" data-sec="qa" id="nav-h3-18" onclick="goSub('h3-18')">抗 NGF 單抗相關</a>
+    <a class="toc-sub" data-sec="qa" id="nav-h3-19" onclick="goSub('h3-19')">貓齦口炎、CKD 貓</a>
+    <a class="toc-sub" data-sec="qa" id="nav-h3-20" onclick="goSub('h3-20')">關節保健品</a>
+    <a class="toc-sub" data-sec="qa" id="nav-h3-21" onclick="goSub('h3-21')">療程與劑量調整</a>
+    <div class="section-label">複習</div>
+    <a onclick="showSection('glossary')" id="nav-glossary"><span class="nav-icon">🔤</span> 縮寫與名詞對照</a>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
+    <a onclick="showSection('references')" id="nav-references"><span class="nav-icon">📚</span> 參考資料</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>重點摘要 <span style="font-weight:400;font-size:.62em;opacity:.75;">Key take-home messages</span></h2></div>
+      <div class="alert alert-info">
+        <div class="alert-label">重點</div>
+        <ul style="margin:8px 0 0 0;padding-left:1.2em;line-height:1.85;">
+          <li><strong>第一線只有兩類：</strong>NSAID 與抗 NGF 單株抗體，都有安慰劑對照的大型試驗。輔助止痛藥（tramadol、gabapentin、amitriptyline、amantadine）證據少很多，用在有禁忌、副作用、或單一藥物不夠（約 30% 有廣泛性中樞敏感化）的病例。</li>
+          <li><strong>一種 NSAID 禁忌，通常就是所有 NSAID 禁忌：</strong>不同 NSAID 之間、grapiprant 與 NSAID 之間，療效與不良反應發生率都沒有證明誰比較好。換藥只需約 48 小時的停藥間隔（washout）。NSAID 中毒最早、最常被忽略的徵兆是<strong>厭食</strong>。</li>
+          <li><strong>Tramadol 在狗幾乎無效：</strong>狗幾乎不產生有止痛活性的代謝物 O-desmethyltramadol；貓會產生，劑量 2–5 mg/kg PO q8–12h，但貓很難連續餵超過兩天（苦味）。</li>
+          <li><strong>Gabapentin 讓飼主覺得變好、但貓的活動量反而下降（鎮靜）；CKD 貓要減量：</strong>CKD 貓給 10 mg/kg 的血中濃度比健康貓給 20 mg/kg 還高；慢性疼痛劑量 5–10 mg/kg PO q8–12h，CKD 貓可從 5 mg/kg 開始。人醫已建議不要用 gabapentinoids 處理急性疼痛。</li>
+          <li><strong>同為「同名不同劑量」要分清楚：</strong>gabapentin 慢性疼痛 5–10 mg/kg，但貓運送前抗焦慮是每隻 50–100 mg（不是 mg/kg）；amitriptyline 1–2 mg/kg PO q24h 與 amantadine 3–5 mg/kg PO q24h 都是每天一次。關節保健品幾乎沒有安慰劑對照的證據，講者最推薦的「關節保健品」是短程散步與減重。</li>
+        </ul>
+      </div>
+      <div class="alert alert-warn">
+        <div class="alert-label">資料來源說明</div>
+        <p>以講者投影片為架構，大部分內容來自現場錄音逐字稿（自動語音辨識，括號內為錄音時間）。投影片列出的劑量都已抄入；講者口述的劑量與數據有標註。前一堂（評估與抗 NGF）見 <a href="慢性疼痛評估與抗NGF單株抗體.html">慢性疼痛評估與抗 NGF 單株抗體</a>。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-overview">
+      <div class="section-head"><div class="section-num">2</div><h2>課程架構與劑量總表 <span style="font-weight:400;font-size:.62em;opacity:.75;">Outline and dosing summary</span></h2></div>
+      <p class="section-desc">Therapeutics Used for Chronic Pain Management: What's the Evidence?</p>
+      <h3 id="h3-1">這堂課的架構</h3>
+      <p>講者 Paulo Steagall（香港城市大學獸醫麻醉與疼痛管理教授，DACVAA）。前 53 分鐘講課，之後由 Zoetis 台灣的 Dora 主持圓桌問答。治療目標延續上一堂：減輕疼痛、改善功能、促進正向情緒。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>部分</th><th>內容</th><th>講義</th></tr></thead>
+          <tbody>
+            <tr><td>一、治療之前</td><td>惡性循環、OA 篩檢的兩篇新研究、治療計畫、止痛試驗、依嚴重度的階梯</td><td><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=2" data-label="治療 p.2">p.2–14</a></td></tr>
+            <tr><td>二、抗發炎藥</td><td>NSAID、grapiprant、paracetamol、比較試驗</td><td><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=15" data-label="治療 p.15">p.15–22</a></td></tr>
+            <tr><td>三、輔助止痛藥</td><td>Tramadol、gabapentinoids、amitriptyline、amantadine</td><td><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=23" data-label="治療 p.23">p.23–35</a></td></tr>
+            <tr><td>四、結論與圓桌問答</td><td>NSAID＋單抗併用、監測頻率、保健品、CKD 貓、FCGS</td><td><a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=36" data-label="治療 p.36">p.36</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="h3-2">藥物劑量總表</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>藥物</th><th>機轉</th><th>劑量與途徑</th><th>物種</th><th>證據與定位</th></tr></thead>
+          <tbody>
+            <tr><td><strong>NSAID</strong>（carprofen、meloxicam、robenacoxib 等）</td><td>抑制 COX</td><td>依各藥仿單（講者沒有逐一列劑量）</td><td>犬、貓（meloxicam、robenacoxib 在部分地區核准貓長期使用）</td><td>第一線；證據強</td></tr>
+            <tr><td><strong>抗 NGF 單抗</strong>（bedinvetmab／frunevetmab）</td><td>中和 NGF</td><td>每 4 週 SC 一次，依體重選瓶</td><td>犬／貓</td><td>第一線；證據強</td></tr>
+            <tr><td><strong>Grapiprant</strong></td><td>EP4 受體拮抗</td><td><strong>2 mg/kg PO q24h</strong></td><td>犬</td><td>有安慰劑對照試驗；不比 NSAID 安全</td></tr>
+            <tr><td><strong>Paracetamol（acetaminophen）</strong></td><td>中樞作用（COX-3、CB 受體）</td><td>犬急性疼痛：10–15 mg/kg（講者口述，常用注射劑型）</td><td>犬；<strong>貓絕對禁忌</strong></td><td>慢性疼痛療效不明</td></tr>
+            <tr><td><strong>Tramadol</strong></td><td>弱 μ 類鴉片＋血清素／正腎上腺素再回收抑制</td><td><strong>貓 2–5 mg/kg PO q8–12h</strong></td><td>貓（狗幾乎無效）</td><td>貓 OA 有少數試驗</td></tr>
+            <tr><td><strong>Gabapentin</strong></td><td>阻斷電壓門控鈣離子通道 α2δ</td><td><strong>犬貓 5–10 mg/kg PO q8–12h</strong>（狗依藥動學應 q8h）；CKD 貓減量（約 5 mg/kg 起）</td><td>犬、貓</td><td>中等；貓 OA 試驗：飼主評分改善、活動量下降</td></tr>
+            <tr><td><strong>Gabapentin（運送焦慮）</strong></td><td>同上</td><td>貓 <strong>50–100 mg／隻 PO</strong>，看診前約 90 分鐘</td><td>貓</td><td>證據紮實（不是止痛用途）</td></tr>
+            <tr><td><strong>Pregabalin</strong></td><td>同上，對 α2δ 親和力較高</td><td>貓運送焦慮的核准口服液（補充：仿單 5 mg/kg PO，出發前約 1.5 小時）</td><td>貓</td><td>與 gabapentin 沒有直接比較</td></tr>
+            <tr><td><strong>Amitriptyline</strong></td><td>三環抗憂鬱劑：血清素／正腎上腺素再回收抑制</td><td><strong>犬貓 1–2 mg/kg PO q24h</strong></td><td>犬、貓</td><td>證據不足；FIC 結果矛盾</td></tr>
+            <tr><td><strong>Amantadine</strong></td><td>NMDA 受體拮抗</td><td><strong>犬貓 3–5 mg/kg PO q24h</strong></td><td>犬、貓</td><td>中等；犬 NSAID 難治 OA 加用有效、貓 OA 有效</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">禁忌</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.8;">
+          <li>Paracetamol：<strong>貓絕對禁忌</strong>。</li>
+          <li>Tramadol 與 amitriptyline：<strong>不要與其他血清素作用藥物併用</strong>（血清素症候群風險）。</li>
+          <li>NSAID 與抗 NGF 單抗：講者不建議併用（見前一堂的安全性章節）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="section-screen">
+      <div class="section-head"><div class="section-num">3</div><h2>篩檢的新證據 <span style="font-weight:400;font-size:.62em;opacity:.75;">Deeper with canine osteoarthritis</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=3" data-label="治療 p.3">p.3–10</a>；錄音 0:01–0:11</p>
+      <p>先回顧上一堂的惡性循環<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=3" data-label="治療 p.3">p.3</a>：慢性疼痛 → 活動減少 → 久坐 → 瘦體組織減少（肌少症 sarcopenia 降低肌力、關節穩定度與活動力）與肥胖（體重增加關節負擔與全身發炎）→ 關節退化加速、功能下降、體重再增加、肌肉流失、生活品質下降。<strong>早期發現與介入可以打破這個循環。</strong></p>
+      <p>講者要先講的兩個新觀念：<strong>（1）要篩檢；（2）OA 不是老狗的病。</strong>1990 年代 carprofen 試驗時以為狗的 OA 盛行率約 20%，現在知道約 40% 的犬貓有<strong>臨床症狀</strong>的 OA，不只是 X 光變化。</p>
+
+      <h3 id="h3-3">飼主線上篩檢清單（Wright et al. 2022, JSAP）</h3>
+      <p>Identification of canine osteoarthritis using an owner-reported questionnaire and treatment monitoring using functional mobility tests. <a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=5" data-label="治療 p.5">p.5–8</a></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>設計</th><th>結果</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+                  <li>500 隻 1 歲以上的狗，飼主線上清單至少 1 題陽性（跳上跳下、跑、移動、上下樓梯、走、慢跑）</li>
+                  <li>清單原本 9 題，最後刪到約 5 題（講者口述）</li>
+                  <li>由病史與骨科檢查決定有無 OA；X 光由獸醫自行決定要不要拍，不是確診必要條件</li>
+                  <li>符合條件的 133 隻給 carprofen，第 0、30、120 天追蹤</li>
+                  <li>評估：拍攝日常活動的功能測試影片（平地走、慢跑、從坐或躺起身、上下樓梯）由他人看影片評視覺類比量表（VAS）；嚴重度用赫爾辛基慢性疼痛指數（HCPI，11 題）</li>
+                </ul>
+              </td>
+              <td>
+                <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+                  <li><strong>188 隻（37.6%）</strong>經獸醫確認有 OA，多數活動力受損</li>
+                  <li>清單對找出<strong>真陽性</strong>特別有幫助——高敏感度比找出真陰性更重要</li>
+                  <li>OA 最常在<strong>雙側後肢</strong></li>
+                  <li>治療後第 30 與 120 天改善</li>
+                  <li>結論：簡單清單＋問對問題，就能找出比以往估計更多的 OA 狗</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="h3-4">年輕狗的 OA（Enomoto et al., Scientific Reports）</h3>
+      <p>Prevalence of radiographic appendicular osteoarthritis and associated clinical signs in young dogs. <a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=9" data-label="治療 p.9">p.9–10</a></p>
+      <p>第一篇看 <strong>4 歲以下</strong>狗的四肢 OA，而且同時以關節檢查評估臨床症狀，不只看 X 光。（英國 VetCompass 大型資料庫的盛行率只有約 7%，因為對 OA 的定義很嚴格。）</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>結果（投影片）</th><th>占族群比例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>39.8%</strong> 的狗至少一個關節有 X 光 OA 變化（依序：肘、髖、跗、膝）</td><td>39.8%</td></tr>
+            <tr><td>其中 60% 至少有輕度疼痛（關節觸診反應）</td><td>23.6%</td></tr>
+            <tr><td>其中 40% 有中度以上疼痛</td><td>16.3%</td></tr>
+            <tr><td><strong>只有很少數有在治療</strong>（講者口述約 1–2%）</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info">
+        <div class="alert-label">講者的結論</div>
+        <p>我們不只漏掉 OA 病患，診斷和治療之間也有落差。篩檢要提早做——等到 OA 嚴重、生活品質已受影響、又有共病時，就很難處理了。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-plan">
+      <div class="section-head"><div class="section-num">4</div><h2>治療計畫與止痛試驗 <span style="font-weight:400;font-size:.62em;opacity:.75;">Chronic pain therapy and the analgesic challenge</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=11" data-label="治療 p.11">p.11–14</a>；錄音 0:11–0:18</p>
+      <h3 id="h3-5">不只是給藥</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">治療計畫（Treatment plan）</div>
+          <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+            <li>逐案決定：有的飼主喜歡每 4 週打一針，有的喜歡每天餵藥的安心感</li>
+            <li>多模式（藥物＋非藥物）</li>
+            <li>監測與再評估：要有回診計畫，用量表（CSOM、清單）建立基準，不能幾個月見一次只問「還好嗎」</li>
+            <li><strong>可能的安樂死</strong>：活動障礙是安樂死前三大原因之一，安寧照護與臨終規劃遲早要談（講者提到香港同事在某些文化中談這件事有困難）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">飼主！（Owners!!!）</div>
+          <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+            <li>參與（engagement）與配合度（compliance）</li>
+            <li>多重用藥會讓配合度下降</li>
+            <li><strong>照顧者負擔（caregiver burden）</strong>：情緒、金錢、後勤（「我不能出國了，誰照顧牠？牠在受苦嗎？什麼時候會死？」），我們常低估</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="h3-6">止痛試驗（Analgesic challenge）</h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>懷疑慢性疼痛但不確定時，給止痛藥當作試驗；症狀減輕或消失就支持診斷，也能說服飼主。</li>
+        <li><strong>沒改善不代表沒有慢性疼痛</strong>：重新評估診斷、單一藥物可能不夠、調整劑量與途徑、或加輔助止痛藥。</li>
+        <li>多數指南建議至少 <strong>4–6 週</strong>再判斷要不要換治療。圓桌問答時講者承認這是專家共識（他是 WSAVA 疼痛指南與 ISFM NSAID 指南的共同作者），沒有證據支持；用意是給飼主時間調整習慣、安排散步、改家裡環境，並安排一個月到一個半月後回診。現場有醫師用 2 週試驗，停藥後飼主發現動物又上不了床、上不了車，講者認為也很合理。</li>
+      </ul>
+
+      <h3 id="h3-7">依 OA 嚴重度的階梯</h3>
+      <figure class="figure">
+        <svg viewBox="0 0 600 250" role="img" aria-label="OA 治療金字塔：輕度以非藥物為主、NSAID 需要時用；輕到中度加 NSAID 或抗 NGF 單抗；中到重度加輔助止痛藥；重度再加輔助藥並考慮安樂死">
+          <polygon points="300,10 360,70 240,70" fill="var(--accent)" opacity="0.9"/>
+          <polygon points="240,74 360,74 410,124 190,124" fill="var(--accent)" opacity="0.65"/>
+          <polygon points="190,128 410,128 460,178 140,178" fill="var(--accent)" opacity="0.4"/>
+          <polygon points="140,182 460,182 510,240 90,240" fill="var(--accent)" opacity="0.2"/>
+          <text x="300" y="58" font-size="13" text-anchor="middle" fill="#fff" font-weight="700">重度</text>
+          <text x="300" y="104" font-size="13" text-anchor="middle" fill="#fff" font-weight="700">中到重度</text>
+          <text x="300" y="158" font-size="13" text-anchor="middle" fill="currentColor" font-weight="700">輕到中度</text>
+          <text x="300" y="216" font-size="13" text-anchor="middle" fill="currentColor" font-weight="700">輕度</text>
+          <text x="370" y="40" font-size="11" fill="currentColor">再加輔助止痛藥；疼痛控制不了考慮安樂死</text>
+          <text x="420" y="100" font-size="11" fill="currentColor">加 tramadol、gabapentin、amitriptyline</text>
+          <text x="470" y="152" font-size="11" fill="currentColor">加 NSAID</text>
+          <text x="470" y="166" font-size="11" fill="currentColor">或抗 NGF 單抗</text>
+          <text x="20" y="200" font-size="11" fill="currentColor">環境豐富化、體重控制、</text>
+          <text x="20" y="214" font-size="11" fill="currentColor">運動、其他非藥物方法；</text>
+          <text x="20" y="228" font-size="11" fill="currentColor">NSAID 必要時使用</text>
+        </svg>
+        <figcaption class="figure-caption"><strong>每一層都疊在下一層之上</strong>　輕度時重點是危險因子與非藥物治療，週末運動後急性發作（acute on chronic flare）可短期給 NSAID；功能開始受損（輕到中度）才是真正開始藥物治療的時候。</figcaption>
+        <div class="figure-source">依講義 <a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=13" data-label="治療 p.13">p.13</a> 的金字塔重繪。</div>
+      </figure>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>沒有研究說單抗只能用在中重度。講者自己偏好先用 NSAID、嚴重時換單抗，但單抗的臨床試驗多是當第一線使用。</li>
+        <li>多數輕到中度病例，多模式的整體照護＋一種主要藥物就夠。約 30% 有廣泛性中樞敏感化的病例，單一藥物不夠，才往上加輔助止痛藥。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-nsaid">
+      <div class="section-head"><div class="section-num">5</div><h2>NSAID <span style="font-weight:400;font-size:.62em;opacity:.75;">Nonsteroidal anti-inflammatory drugs</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=16" data-label="治療 p.16">p.16–18</a>；錄音 0:18–0:26</p>
+      <p>機轉（講義 p.16 花生四烯酸路徑圖）：細胞膜磷脂 →（磷脂酶，被類固醇抑制）→ 花生四烯酸 →（COX-1／COX-2，被 NSAID 抑制）→ PGH₂ → TXA₂、PGI₂、PGE₂（EP1–EP4 受體；grapiprant 拮抗 EP4）；另一路經 5-脂氧合酶（5-lipoxygenase）產生 HPETE。</p>
+      <h3 id="h3-8">臨床使用與禁忌</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">臨床使用</div>
+          <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+            <li>與發炎有關的慢性疼痛；OA 有低度發炎，部分病例也有 NGF 的神經性發炎</li>
+            <li><strong>OA 第一線，療效已證實</strong></li>
+            <li>短期試驗可以引導診斷與治療</li>
+            <li>Carprofen、meloxicam 在狗有多年的藥物警戒資料</li>
+            <li>依地區不同，meloxicam 與 robenacoxib 核准用於貓的長期 OA 疼痛</li>
+            <li>新興研究：<strong>穩定的 IRIS 1–2 期慢性腎病（CKD）貓</strong>使用 NSAID</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">禁忌（Contraindications）</div>
+          <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+            <li>胃腸、肝、腎疾病或凝血病史——講者強調是「未控制的」肝腎病或真正的肝病，不是最近單一肝指數偏高</li>
+            <li>同時使用其他 NSAID 或類固醇</li>
+            <li>貧血、脫水、低蛋白血症（hypoproteinemia）等——這些比較常是急性病例的問題，典型 OA 病例較少遇到，但常被忘記</li>
+            <li>仔細選擇病患並監測不良反應</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="h3-9">不良反應與監測</h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>多半來自誤用</strong>（Monteiro-Steagall 2013 系統性回顧）：超過劑量、共病、併用多種 NSAID、併用類固醇、過敏或胃潰瘍病史；也就是仿單外使用或忽略明確禁忌。</li>
+        <li><strong>厭食是 NSAID 中毒最早、最常被忽略的徵兆</strong>，要列入飼主衛教。</li>
+        <li>約 5% 的狗在試驗中嘔吐，<strong>安慰劑組也是 5%</strong>——單次嘔吐不一定是 NSAID 造成。</li>
+        <li><strong>監測頻率</strong>（圓桌問答）：開始長期用藥前做基本生化（常是這隻動物第一次全面檢查）；ISFM 長期 NSAID 指南建議已有肌酸酐、BUN 上升的病患每 3 個月複查，其他每 6 個月——講者說這是專家共識，不是科學證據；病程變化、出現新症狀時就提早檢查。</li>
+        <li><strong>劑量調整</strong>：改善後可以減量到最低有效劑量（minimum effective dose，常用於 meloxicam；robenacoxib 長期劑量有範圍，可從 1 mg/kg 起），但要有監測計畫。<strong>寧可每天給很小的劑量，也不要三天給一次大劑量</strong>，維持穩定血中濃度，飼主也比較好記。</li>
+      </ul>
+
+      <h3 id="h3-10">換藥與停藥間隔</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">重點</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.8;">
+          <li><strong>一種 NSAID 有禁忌，通常所有 NSAID 都有禁忌</strong>，沒有哪一種會比較好。</li>
+          <li>效果不好時，現在有其他選擇（包括抗 NGF 單抗），講者傾向直接換類別，而不是換另一種 NSAID；但也有個案經驗是 robenacoxib 不適合、換 meloxicam 或 carprofen 就比較好。</li>
+          <li><strong>停藥間隔（washout）</strong>：多數 NSAID 半衰期約 5–9 小時，依藥動學 <strong>48 小時</strong>就夠。Colorado 早期有研究用 deracoxib 做 5–7 天 washout 沒有問題，但那是實驗犬。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="section-other">
+      <div class="section-head"><div class="section-num">6</div><h2>其他抗發炎藥與比較試驗 <span style="font-weight:400;font-size:.62em;opacity:.75;">Other anti-inflammatories and head-to-head trials</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=19" data-label="治療 p.19">p.19–22</a>；錄音 0:22–0:29</p>
+      <h3 id="h3-11">Grapiprant 與 paracetamol</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Grapiprant（狗 2 mg/kg PO q24h）</div>
+          <p style="margin:0;">前列腺素 E2 的 EP4 受體拮抗劑（piprant 類），在發炎路徑的最下游阻斷，有安慰劑對照的試驗顯示改善功能與活動。上市時希望不良反應少很多，但<strong>結果並沒有</strong>；療效與不良反應發生率都沒有優於其他 NSAID。</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Paracetamol（acetaminophen、對乙醯胺基酚）</div>
+          <p style="margin:0;"><strong>慢性疼痛療效不明，不應隨意使用。</strong>現在常與 NSAID 併用處理狗的<strong>急性</strong>疼痛：10–15 mg/kg（講者口述，多用注射劑型）。在這個劑量是止痛藥而非抗發炎藥：快速通過血腦屏障，作用在 COX-1 的亞型（COX-3）與大麻素 CB 受體。<strong>貓：絕對禁忌！</strong></p>
+        </div>
+      </div>
+
+      <h3 id="h3-12">Grapiprant vs meloxicam（Cassemiche et al. 2024, JVIM）</h3>
+      <p>Comparison of grapiprant and meloxicam for management of postoperative joint pain in dogs: a randomized, double-blinded, prospective clinical trial.<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=20" data-label="治療 p.20">p.20</a></p>
+      <div class="alert alert-warn">
+        <div class="alert-label">講者的批評</div>
+        <p>常被引用來說「grapiprant 比 meloxicam 好」：十字韌帶手術（TPLO）後第 3 天，grapiprant 在部分疼痛嚴重度上較佳。但這篇用的主要結果是 <strong>CBPI——慢性疼痛量表——拿來評估術後急性疼痛</strong>，講者認為工具不恰當，比較沒有價值。整體而言，meloxicam、carprofen 與選擇性 COX-2 抑制劑（如 robenacoxib）之間，以及 grapiprant 與其他 NSAID 之間，療效與不良反應都沒有證明誰較好；選擇依你的熟悉度與病患篩選。</p>
+      </div>
+
+      <h3 id="h3-13">Bedinvetmab vs meloxicam（Innes et al. 2025, Front Vet Sci）</h3>
+      <p>A randomised, parallel-group clinical trial comparing bedinvetmab to meloxicam for the management of canine osteoarthritis.<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=21" data-label="治療 p.21">p.21–22</a></p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>兩組的犬骨科指數（Canine Orthopedic Index, COI）都比基準顯著下降。</li>
+        <li><strong>兩者一樣有效</strong>，療效都隨時間增加。</li>
+        <li>Bedinvetmab 發生不良事件的機率顯著較低。</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>不良事件（VeDDRA 系統器官分類，至少發生一次的狗數）</th><th>Meloxicam 每日（n = 49）</th><th>Bedinvetmab 每月 SC（n = 52）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>任何不良事件</strong></td><td><strong>17</strong></td><td><strong>4</strong></td></tr>
+            <tr><td>皮膚與附屬器（搔癢、皮膚炎）</td><td>1</td><td>1</td></tr>
+            <tr><td>消化道（腹瀉、嘔吐）</td><td>8</td><td>0</td></tr>
+            <tr><td>全身性（多渴、嗜睡）</td><td>1</td><td>1</td></tr>
+            <tr><td>肌肉骨骼（跛行、關節痛）</td><td>3</td><td>2</td></tr>
+            <tr><td>行為（攻擊）</td><td>1</td><td>0</td></tr>
+            <tr><td>神經（運動失調）</td><td>3</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11.5px;color:var(--text3);">抄自講義 p.22（原文 Table 5）。講者提醒：這比的是「發生率」，不是「嚴重度」；也不要說單抗副作用「很少」，正確說法是依藥物警戒資料「每劑的不良反應屬罕見」。</p>
+    </div>
+
+    <div class="section" id="section-tramadol">
+      <div class="section-head"><div class="section-num">7</div><h2>Tramadol <span style="font-weight:400;font-size:.62em;opacity:.75;">Tramadol</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=23" data-label="治療 p.23">p.23–24</a>；錄音 0:29–0:34</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>機轉（Mechanism）</th><th>臨床使用（Clinical use）</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+                  <li>雙重、中樞作用的止痛藥</li>
+                  <li>對類鴉片受體親和力弱（所以貓有時會吐）；<strong>活性代謝物 O-desmethyltramadol（M1）</strong>是多種物種中負責止痛的成分</li>
+                  <li>血清素與正腎上腺素再回收抑制（同 amitriptyline）：參與下行性疼痛調控，講者形容是「加分」或讓動物感覺好一點，不算真正的第一線止痛機轉</li>
+                  <li><strong>物種差異：狗幾乎不產生活性代謝物；貓產生得快、量多、半衰期長</strong></li>
+                </ul>
+              </td>
+              <td>
+                <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+                  <li>中樞敏感化：OA、癌症等</li>
+                  <li><strong>OA：貓有效、狗無效</strong></li>
+                  <li>狗的神經病變性疼痛：單獨使用無效</li>
+                  <li>禁忌：不要與其他血清素作用藥物併用</li>
+                  <li style="color:var(--accent);font-weight:700;">貓：2–5 mg/kg PO q8–12h</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>為什麼 2000 年代大家都用：</strong>早期研究的藥物濃度與代謝物分析方法有缺陷；分析技術改進後，結論改變了，狗的幾個試驗中 tramadol 失敗。</li>
+        <li><strong>貓的實務問題：</strong>苦味，連續餵超過一兩天就變成惡夢，有些研究還要一天兩次。</li>
+        <li>「我用了有效」——別忘了 30–40% 的安慰劑效應；再回收抑制的作用是否有臨床意義也不確定。</li>
+        <li>有些貓的研究是 tramadol 與 NSAID 併用加強，那是單抗出現之前的事。有些地方沒有其他選擇，或出院帶藥時仍在用；現場仍有人舉手說還在用。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-gaba">
+      <div class="section-head"><div class="section-num">8</div><h2>Gabapentin 與 pregabalin <span style="font-weight:400;font-size:.62em;opacity:.75;">Gabapentinoids</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=25" data-label="治療 p.25">p.25–30</a>；錄音 0:34–0:44</p>
+      <h3 id="h3-14">機轉與慢性疼痛證據</h3>
+      <p>有人說「gabapentin 是新的 tramadol」。在囓齒類模式治療神經病變性與慢性疼痛的研究很紮實；它是抗癲癇藥（講者認為治癲癇效果不好），藉由阻斷電壓門控鈣離子通道降低神經興奮性，所以神經系統整體被抑制，<strong>鎮靜</strong>是主要副作用。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>適應症／研究</th><th>結果</th></tr></thead>
+          <tbody>
+            <tr><td>適用範圍（講義 p.25）</td><td>神經病變性疼痛、OA、癌症、持續性術後疼痛</td></tr>
+            <tr><td>狗的自然發生神經病變性疼痛（Ruel et al., PLOS ONE，講者的研究）</td><td>gabapentin 單用效果有限；與 NSAID（meloxicam）合併時部分病例較好；飼主評分改善</td></tr>
+            <tr><td>老年 OA 貓（Guedes et al. 2018，≥ 10 歲 20 隻，盲性、安慰劑對照、交叉設計）</td><td>gabapentin 10 mg/kg PO q12h × 2 週：<strong>飼主評的活動障礙（CSOM）改善，但項圈加速度計測得的活動量下降</strong>——貓可能是被鎮靜了；這樣會不會反而讓體重增加，是另一個問題</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>劑量（講義）：犬貓 5–10 mg/kg PO q8–12h。</strong>依狗的藥動學應該一天三次，臨床常給兩次。</li>
+        <li><strong>講者的親身經驗：</strong>他吃過幾天 gabapentin，「整天躺在沙發上動不了，生活沒有樂趣」；他的貓也是。這是為什麼它會加重久坐的惡性循環。</li>
+        <li><strong>濫用（diversion）：</strong>美國有研究描述 gabapentin 被飼主挪用（「一顆給貓、一顆給我」），開藥時要注意。</li>
+        <li>結論：在特定情況有它的位置，但不該不加區分地用在所有病例。</li>
+      </ul>
+
+      <h3 id="h3-15">CKD 貓要減量（Quimby et al. 2022, JFMS）</h3>
+      <p>講者的 CKD 貓吃一劑 gabapentin 會「消失」約 36 小時才醒來。Serum concentrations of gabapentin in cats with chronic kidney disease：</p>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li>5 隻健康貓給 20 mg/kg（運送抗緊張劑量），25 隻穩定 IRIS 2–3 期 CKD 貓給一半的 10 mg/kg。</li>
+        <li><strong>CKD 貓的劑量校正血中濃度在 3 與 8 小時顯著較高，且與血清肌酸酐、SDMA 正相關</strong>——給 10 mg/kg 的 CKD 貓，濃度比給 20 mg/kg 的健康貓還高。</li>
+        <li>10 mg/kg 的 CKD 貓都沒有被判定過度鎮靜（二手摘要）。</li>
+        <li><strong>CKD 貓要減量，但確切劑量不知道</strong>：講者說有人從 5 mg/kg 開始（慢性疼痛原本 10）；運送用的劑量也一樣要調整。</li>
+      </ul>
+      <p style="font-size:11.5px;color:var(--text3);">查證：<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9395545/" target="_blank" rel="noopener">PMC9395545</a>（只讀到搜尋摘要）。</p>
+
+      <h3 id="h3-16">Pregabalin 與運送焦慮</h3>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>Gabapentin 用於貓運送與看診焦慮</strong>：減少恐懼與焦慮行為，從獸醫與飼主角度都改善看診，研究很紮實。劑量 <strong>50–100 mg／隻 PO</strong>，看診前約 90 分鐘；講者說法國有研究用到 200 mg（錄音聽起來像「200 mg/kg per cat」，應是每隻 200 mg），他認為太高，建議從低劑量開始、沒反應再增加。</li>
+        <li><strong>Pregabalin</strong>：已核准用於貓的運送焦慮（歐洲，講者認為美國也核准了），口服液好餵。對鈣離子通道親和力比 gabapentin 高，所以劑量較低；貓的藥動學研究顯示半衰期比 gabapentin 長——慢性疼痛當輔助止痛藥時也許一天一次就夠，但尚未驗證。<strong>沒有直接比較研究證明 pregabalin 比 gabapentin 好。</strong>（講義 p.30：Madan JAVMA、Lamminen 的藥動學與運送焦慮研究）</li>
+      </ul>
+      <p style="font-size:11.5px;color:var(--text3);">補充（講者沒講）：歐洲核准的貓用 pregabalin 口服液（Bonqat）仿單劑量為 5 mg/kg PO，出發前約 1.5 小時給一次。</p>
+
+      <h3 id="h3-17">急性疼痛與麻醉</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">不建議用於急性疼痛</div>
+        <p>2022 年人醫一篇系統性回顧與統合分析（講者記得是 Anesthesiology 或 Anesthesia &amp; Analgesia）建議停止用 gabapentinoids 處理急性疼痛：研究有缺陷、不良反應多、沒有顯著療效。獸醫只有一兩篇結果矛盾的試驗（講者自己做過一篇），而且鎮靜會干擾疼痛評估。<strong>講者目前不建議 gabapentinoids 用於急性疼痛。</strong></p>
+      </div>
+      <ul style="margin:0 0 8px 0;padding-left:1.2em;line-height:1.85;">
+        <li><strong>麻醉減量效應（anesthetic sparing）</strong>：狗給 10 mg/kg 時，吸入麻醉需要量可降低 20–25%。</li>
+        <li>對心臟超音波結果看起來影響不大，神經學檢查也不太受干擾。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-nmda">
+      <div class="section-head"><div class="section-num">9</div><h2>Amitriptyline、amantadine 與 ketamine <span style="font-weight:400;font-size:.62em;opacity:.75;">TCAs and NMDA antagonists</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=31" data-label="治療 p.31">p.31–35</a>；錄音 0:44–0:52</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Amitriptyline（三環抗憂鬱劑，TCA）</div>
+          <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+            <li>血清素與正腎上腺素再回收抑制</li>
+            <li>中樞敏感化（OA、口顏面疼痛症候群等）</li>
+            <li><strong>骨肉瘤的狗：效果不明</strong>——唯一的試驗（Monteiro et al., PLOS ONE）是飼主拒絕截肢的骨肉瘤狗，開放標記、逐步加藥，最後才加 amitriptyline，結果無法判斷</li>
+            <li><strong>貓自發性膀胱炎：結果矛盾</strong>，主要看尿道阻塞復發，幫助不大；FIC 多是環境問題（如多貓家庭）</li>
+            <li>禁忌：不要與其他血清素作用藥物併用</li>
+            <li style="color:var(--accent);font-weight:700;">犬貓：1–2 mg/kg PO q24h</li>
+          </ul>
+          <p style="margin:8px 0 0 0;">講者結論：<strong>目前沒有證據支持用 amitriptyline 治慢性疼痛。</strong></p>
+        </div>
+        <div class="card">
+          <div class="card-title">Amantadine（NMDA 受體拮抗劑）</div>
+          <ul style="margin:0;padding-left:1.2em;line-height:1.8;">
+            <li>N-甲基-D-天門冬胺酸（N-methyl-D-aspartate, NMDA）受體是慢性疼痛發展與延續的主要受體之一；拮抗劑可預防或治療中樞敏感化（wind-up）</li>
+            <li>中樞敏感化：OA、慢性間質性膀胱炎等</li>
+            <li><strong>NSAID 難治的 OA 狗：加 amantadine 後活動改善</strong>（Lascelles et al. JVIM 2008：31 隻，meloxicam 5 週，第 21 天起加 amantadine 3–5 mg/kg PO q24h 或安慰劑 21 天，第 42 天 amantadine 組 CSOM 活動較好）</li>
+            <li><strong>貓 OA 有效</strong>（Shipley et al. JFMS 2021）：飼主評的活動力與生活品質改善，但活動量下降，可能是鎮靜</li>
+            <li>不良反應：未知；鎮靜在開始幾天後似乎會適應改善（gabapentinoids 也是）</li>
+            <li style="color:var(--accent);font-weight:700;">犬貓：3–5 mg/kg PO q24h</li>
+          </ul>
+          <p style="margin:8px 0 0 0;">註：amantadine 是抗病毒藥，為避免抗藥性，歐洲 EMA 已禁止在獸醫使用。</p>
+        </div>
+      </div>
+      <div class="alert alert-danger">
+        <div class="alert-label">每月一次皮下 ketamine：沒有證據</div>
+        <p>有同業每月皮下注射一次 ketamine（0.5 mg/kg）治慢性疼痛。講者的問題：OA 是輕中重哪一級？同時還用了哪三種治療？皮下吸收多少不知道；這個做法來自美國的人醫 ketamine 診所，那裡有精神科醫師、心理師，主要治療合併慢性疼痛的憂鬱症。<strong>完全沒有證據</strong>，講者說「我們這個專業很擅長開始用沒被核准、沒有科學根據的東西」。Ketamine 本身是 NMDA 拮抗劑，但重新分布很快，所以一般建議用輸注（CRI）。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-conclusion">
+      <div class="section-head"><div class="section-num">10</div><h2>結論 <span style="font-weight:400;font-size:.62em;opacity:.75;">Conclusion: treatment of canine and feline OA</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">📎 講義原文：<a class="fig-link" href="../../研討會講義/FASAVA2026/Steagall_Chronic_Pain_Therapeutics.pdf#page=36" data-label="治療 p.36">p.36</a></p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>NSAID 與抗 NGF 單抗是 OA 的第一線治療</strong>，療效與安全性證據都越來越多。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">輔助止痛藥較少用，作為特定情況的替代（例如有禁忌或藥物不良反應）。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">輔助止痛藥的證據少很多：tramadol 主要在貓有幾個 OA 試驗；gabapentinoids 與 amantadine 有尚可的證據。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">OA 要用多模式治療（藥物＋體重控制、溫和運動、環境調整、飲食）。</div></div>
+    </div>
+
+    <div class="section" id="section-qa">
+      <div class="section-head"><div class="section-num">11</div><h2>圓桌問答 <span style="font-weight:400;font-size:.62em;opacity:.75;">Round-table discussion</span></h2></div>
+      <p style="font-size:11.5px;color:var(--text3);margin:2px 0 8px 0;">錄音 0:54–1:32；主持：Dora（Zoetis 台灣）</p>
+      <h3 id="h3-18">抗 NGF 單抗相關</h3>
+      <div class="card">
+        <div class="card-title">Q：狗可以同時用 NSAID 和抗 NGF 單抗嗎？</div>
+        <p style="margin:0;">講者不建議。一個月前的 APBR 研究中，63% 的病例兩種藥同時用；犬併用的資料只有一篇在實驗犬給 14 天的研究；人醫的抗 NGF 單抗下市，就是因為很多病患出現快速進展性 OA，其中很多合併 NSAID。他說也許明年仿單會寫「絕對不要併用」。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Q：開始用單抗後多久有效？等待期間怎麼辦？</div>
+        <p style="margin:0;">最早約 2 週見改善，第 2 劑後達最大效果，要判斷「有效或換藥」以第 2 劑後為準。頭幾天可以用其他治療過渡（gabapentin、amantadine），但避免 NSAID。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Q：用單抗或 NSAID 時，X 光和血檢多久做一次？</div>
+        <p style="margin:0;">沒有固定規則，要看預算與醫療可近性（spectrum of care）。講者更重視完整的病史、理學、骨科與神經學檢查——很多人愛用診斷工具，卻不會做好骨科檢查。X 光可以建立基準、排除其他骨科病；年輕（如 4 歲）要長期治療的狗，早點拍比較好。NSAID 開始前做基本生化；ISFM 指南建議腎指數已偏高者每 3 個月、其他每 6 個月複查（專家共識）。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Q：Bedinvetmab 長期每個月打嗎？配合度如何？</div>
+        <p style="margin:0;">依仿單每 4 週一次，可長期使用，除非出現關節腫脹、跛行或其他構成禁忌的不良反應。廠商在數個歐洲國家的研究：配合度 82–85%，獸醫與飼主滿意度高，還能減少原本的營養品、NSAID 等多重用藥（換成只用 NSAID 也可能有同樣效果）。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Q：老狗肌少症，止痛後變活潑、但肌肉沒長回來，是不是因此造成快速 OA 進展？（現場醫師提出，他們以測力板 force plate 測到 Librela 增加地面反作用力）</div>
+        <p style="margin:0;">講者認為「不是」。這些劇烈的骨重塑看起來有代謝性的機轉，作者提出 NGF 阻斷後可能讓成軟骨細胞過度增生；為什麼特定關節、特定個體會發生還不知道。病例平均約 9 歲，因為老年大中型犬本來就是最常用藥的族群。肌肉量的角色值得研究，但他不認為是「狗開心多動」造成的。</p>
+      </div>
+
+      <h3 id="h3-19">貓齦口炎、CKD 貓</h3>
+      <div class="card">
+        <div class="card-title">Q：抗 NGF 單抗可以用在貓慢性齦口炎（FCGS）嗎？FCGS 的第一線是什麼？</div>
+        <p style="margin:0;">很多同業在用，背景是 NGF 在牙周病與齦口炎（人也是）上升；但 NGF 在很多情況都會上升，這不代表有效。目前沒有證據，屬仿單外使用；這些貓常免疫抑制（FeLV、FIV 陽性），也要處理。講者建議至少先做牙科 X 光、洗牙等口腔處置，而不是直接用止痛代替。每天 NSAID 只是延後問題；多數需要多顆或全口拔牙，約 60–70% 的貓會改善（講者說他不是牙科醫師）。拔牙後疼痛很嚴重，至少 72 小時需要類鴉片。幹細胞治療過去 10 年有很好的研究結果，美國大型中心漸漸可做，但病例數還不夠。止痛藥只是緩解到下一次發作。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Q：CKD＋OA 的貓，單抗比 NSAID 安全嗎？怎麼排優先？</div>
+        <p style="margin:0;">沒有兩類直接比較的優勢研究；廠商有內部研究顯示 CKD 貓用單抗安全。過去 NSAID 用在穩定 CKD 貓的研究，都是在單抗出現之前。兩者共病比我們以為的常見，而且很多貓最後安樂死不是因為 CKD，而是活動障礙。講者現在的做法：持續治療 CKD（水分、飲食支持、定期血檢），<strong>OA 的第一選擇是抗 NGF 單抗</strong>。</p>
+      </div>
+
+      <h3 id="h3-20">關節保健品</h3>
+      <div class="alert alert-warn">
+        <div class="alert-label">講者的立場</div>
+        <ul style="margin:6px 0 0 0;padding-left:1.2em;line-height:1.8;">
+          <li>多模式指的是體重控制、溫和運動、環境調整與飲食，不是一堆保健品。</li>
+          <li>飲食中的 omega-3 有一篇很獨特的研究，但 omega-3／omega-6 的比例似乎也重要；這是他所知唯一紮實的臨床試驗。</li>
+          <li>市面上的關節保健品（含葡萄糖胺 glucosamine、軟骨素 chondroitin、pentosan 等）證據<strong>很弱或不存在</strong>：少數研究顯示比基準好 15–20%，但沒有安慰劑組，而安慰劑效應就有 30–40%。囓齒類模式的結果很難轉譯到臨床。</li>
+          <li>台灣飼主很愛買保健品，怎麼選？講者沒有推薦的產品，他會先問：「有在短程散步嗎？減重計畫有在做嗎？」——<strong>最好的關節保健品是散步，而且是天然的。</strong></li>
+          <li>現場一位醫師分享：pentosan 對不想用藥的飼主可以當「入門藥」，讓飼主看到效果後願意接受真正的止痛藥，也能降低止痛藥劑量。講者認同其中有溝通與心理的層面，但仍擔心安慰劑效應；建議找出飼主不願開始治療的原因（不相信寵物會痛、自己都不吃止痛藥、費用），再用清單或短期試驗說服。</li>
+        </ul>
+      </div>
+
+      <h3 id="h3-21">療程與劑量調整</h3>
+      <div class="card">
+        <div class="card-title">Q：NSAID 吃一週就明顯改善，還要吃滿 4–6 週嗎？可以減量嗎？</div>
+        <p style="margin:0;">4–6 週是專家共識，沒有科學證據，目的是讓飼主調整期待與習慣，並安排回診時間。一週就改善要想到安慰劑效應；但 COX 抑制在一兩週內就能有效，所以可以減量（最低有效劑量），前提是有監測計畫。頻率上寧可每天小劑量，不要三天一次大劑量。單抗則依體重與藥瓶濃度給。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-glossary">
+      <div class="section-head"><div class="section-num">12</div><h2>縮寫與名詞對照 <span style="font-weight:400;font-size:.62em;opacity:.75;">Glossary</span></h2></div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td style="white-space:nowrap;"><strong>OA</strong></td><td>Osteoarthritis（骨關節炎）</td><td style="white-space:nowrap;"><strong>NSAID</strong></td><td>Nonsteroidal anti-inflammatory drug（非類固醇抗發炎藥）</td></tr>
+            <tr><td><strong>COX</strong></td><td>Cyclooxygenase（環氧化酶）</td><td><strong>EP4</strong></td><td>Prostaglandin E2 receptor subtype 4（前列腺素 E2 第 4 型受體）</td></tr>
+            <tr><td><strong>PGE₂／TXA₂／PGI₂</strong></td><td>Prostaglandin E2／Thromboxane A2／Prostacyclin（前列腺素 E2／血栓素 A2／前列環素）</td><td><strong>HPETE</strong></td><td>Hydroperoxyeicosatetraenoic acid（氫過氧二十碳四烯酸）</td></tr>
+            <tr><td><strong>NGF／mAb</strong></td><td>Nerve growth factor／Monoclonal antibody（神經生長因子／單株抗體）</td><td><strong>NMDA</strong></td><td>N-methyl-D-aspartate（N-甲基-D-天門冬胺酸）受體</td></tr>
+            <tr><td><strong>TCA</strong></td><td>Tricyclic antidepressant（三環抗憂鬱劑）</td><td><strong>M1</strong></td><td>O-desmethyltramadol（tramadol 的活性代謝物）</td></tr>
+            <tr><td><strong>CKD／IRIS</strong></td><td>Chronic kidney disease／International Renal Interest Society（慢性腎病／國際腎臟學會分期）</td><td><strong>SDMA</strong></td><td>Symmetric dimethylarginine（對稱性二甲基精胺酸）</td></tr>
+            <tr><td><strong>FCGS</strong></td><td>Feline chronic gingivostomatitis（貓慢性齦口炎）</td><td><strong>FIC</strong></td><td>Feline idiopathic cystitis（貓自發性膀胱炎）</td></tr>
+            <tr><td><strong>TPLO</strong></td><td>Tibial plateau leveling osteotomy（脛骨高原平整截骨術）</td><td><strong>COI</strong></td><td>Canine Orthopedic Index（犬骨科指數）</td></tr>
+            <tr><td><strong>CBPI</strong></td><td>Canine Brief Pain Inventory（犬簡明疼痛量表）</td><td><strong>HCPI</strong></td><td>Helsinki Chronic Pain Index（赫爾辛基慢性疼痛指數）</td></tr>
+            <tr><td><strong>CSOM</strong></td><td>Client-specific outcome measure（飼主個別化結果量表）</td><td><strong>VAS</strong></td><td>Visual analogue scale（視覺類比量表）</td></tr>
+            <tr><td><strong>VeDDRA</strong></td><td>Veterinary Dictionary for Drug Regulatory Activities（獸醫藥品法規活動詞庫）</td><td><strong>APBR</strong></td><td>Abnormal periarticular bone remodeling（異常關節周圍骨重塑）</td></tr>
+            <tr><td><strong>ISFM／AAFP</strong></td><td>International Society of Feline Medicine／American Association of Feline Practitioners（國際貓醫學會／美國貓科醫師協會）</td><td><strong>WSAVA</strong></td><td>World Small Animal Veterinary Association（世界小動物獸醫師協會）</td></tr>
+            <tr><td><strong>PO／SC／CRI</strong></td><td>口服／皮下注射／恆速輸注</td><td><strong>q8h／q12h／q24h</strong></td><td>每 8／12／24 小時一次</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">13</div><h2>練習題 <span style="font-weight:400;font-size:.62em;opacity:.75;">Clinical scenarios</span></h2></div>
+      <p class="section-desc">先自己想答案，再點開對照。</p>
+
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q1. 30 kg 的 11 歲狗 OA，吃 robenacoxib 兩週後軟便、食慾下降。飼主問能不能換 carprofen 繼續吃？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">先停藥：食慾下降是 NSAID 中毒最早、最常被忽略的徵兆。評估脫水、腸胃出血跡象、腎肝指數。原則上「一種 NSAID 有禁忌，通常所有 NSAID 都有禁忌」，不同 NSAID 之間不良反應率沒有證明誰較低；講者傾向直接換類別（抗 NGF 單抗 bedinvetmab 每 4 週 SC），而不是換另一種 NSAID。若檢查無異常、飼主偏好口服，個案上換 carprofen 也有成功經驗，換藥前約 48 小時 washout 就夠。若改用單抗，就不要再併用 NSAID；等待起效的頭兩週可用 gabapentin 或 amantadine 過渡。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q2. 轉診單寫「OA 狗，NSAID 效果不夠，已加 tramadol 5 mg/kg PO q8h 一個月」。你會怎麼調整？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">Tramadol 在狗幾乎不產生活性代謝物 O-desmethyltramadol，OA 的試驗顯示無效，飼主覺得有效可能是 30–40% 的安慰劑效應。先重新評估：診斷對不對（神經病、腫瘤）、NSAID 劑量與配合度、體重與運動。若確定是單一藥物不夠（約 30% 有廣泛性中樞敏感化），改加證據較好的輔助藥：amantadine 3–5 mg/kg PO q24h（Lascelles 2008：NSAID 難治 OA 狗加用後活動改善）或 gabapentin 5–10 mg/kg PO q8–12h（注意鎮靜）；或改用抗 NGF 單抗（不與 NSAID 併用）。若病患同時用其他血清素作用藥物，tramadol 更要停。用 CBPI 或 CSOM 追蹤 4–6 週。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q3. 4 kg、15 歲、IRIS 3 期 CKD 的貓，OA 明顯。飼主同時希望看診前給 gabapentin 減少緊張。你怎麼開？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">OA：講者對 CKD＋OA 貓的第一選擇是抗 NGF 單抗 frunevetmab 每月 SC（沒有與 NSAID 的直接比較研究；NSAID 在 CKD 貓的研究多限於穩定 IRIS 1–2 期），同時持續 CKD 的水分、飲食與血檢追蹤。看診前 gabapentin：健康貓常用每隻 50–100 mg PO 看診前約 90 分鐘，但 Quimby 2022 顯示 CKD 貓給 10 mg/kg 的血中濃度比健康貓給 20 mg/kg 還高，且與肌酸酐、SDMA 正相關，所以要減量；確切劑量講者說沒有人知道，從低於健康貓的劑量開始、依反應調整，提醒飼主鎮靜可能持續很久（講者的 CKD 貓一劑睡約 36 小時）。若要用 gabapentin 當慢性輔助止痛藥，也從約 5 mg/kg 開始。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q4. 同事想對 TPLO 術後的狗常規加 gabapentin 10 mg/kg 止痛，理由是「多模式」。你的看法？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">講者不建議 gabapentinoids 用於急性疼痛：2022 年人醫統合分析建議停止這樣用（研究缺陷、不良反應多、療效不顯著）；獸醫只有一兩篇結果矛盾的試驗，而且鎮靜會干擾疼痛評估。術後急性疼痛應以類鴉片、局部麻醉阻斷、NSAID 為主。若病患已在長期吃 gabapentin（10 mg/kg），麻醉時吸入麻醉需要量可降低約 20–25%，要調整。另外，評估 TPLO 術後急性疼痛應用急性量表（Glasgow CMPS-SF），不是 CBPI 這類慢性量表——這也是講者批評 grapiprant vs meloxicam 研究的原因。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q5. 飼主拿來三罐關節保健品問「哪一罐最好？」，狗 BCS 7/9、OA 中度、目前只吃保健品。你怎麼回答？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">誠實說明：關節保健品（葡萄糖胺、軟骨素、pentosan 等）幾乎沒有安慰劑對照的證據，少數研究的 15–20% 改善小於 30–40% 的安慰劑效應；飲食 omega-3（與 omega-3／6 比例）有較好的證據。中度 OA 已經需要藥物：NSAID 或抗 NGF 單抗都是第一線，可以先做 4–6 週止痛試驗，用 CBPI 或 CSOM 記錄基準。同時處理體重（BCS 7/9：肥胖本身是發炎，瘦素參與）與每天短程散步——「最好的關節保健品」。了解飼主不想用藥的原因（覺得狗不痛、自己不吃止痛藥、費用），對症溝通。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q6. 一隻 3 歲拉布拉多來打疫苗，飼主說牠「散步後隔天比較懶」。根據這堂課的新證據，你會怎麼做？</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">Enomoto 的年輕狗研究：4 歲以下的狗 39.8% 有 X 光 OA（肘、髖、跗、膝），其中 60% 有疼痛（占族群 23.6%）、40% 中度以上（16.3%），但幾乎沒有在治療。所以年輕不是排除 OA 的理由。做骨科檢查（尤其肘與髖）、用飼主篩檢清單（Wright 2022：1 題陽性就深入評估，高敏感度）；年輕且可能長期治療，若預算允許拍 X 光建立基準並排除其他骨科病（如肘發育不良）。輕度時以體重控制、適度且漸進的運動為主，週末運動後的急性發作可短期給 NSAID；功能受損時再開始規律藥物治療。</p>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <span class="quiz-type quiz-type-saq">問答題</span>
+        <div class="quiz-q">Q7. 飼主問：「每天餵 meloxicam 太麻煩，可以改成三天給一次大劑量嗎？」</div>
+        <details class="quiz-reveal"><summary></summary>
+          <p class="quiz-explain">不建議。講者寧可每天給很小的劑量（最低有效劑量），也不要三天一次大劑量：每天給才能維持穩定的血中濃度，飼主的習慣也比較一致；大劑量增加不良反應風險，也屬仿單外用法。若飼主真的很難每天餵，可以討論每 4 週一次的抗 NGF 單抗（配合度研究約 82–85%），但要說明罕見的骨重塑風險，並且不與 NSAID 併用。</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="section" id="section-references">
+      <div class="section-head"><div class="section-num">14</div><h2>參考資料 <span style="font-weight:400;font-size:.62em;opacity:.75;">References</span></h2></div>
+      <p><strong>講者投影片與錄音</strong></p>
+      <ul style="margin:0 0 10px 0;padding-left:1.2em;line-height:1.9;">
+        <li>Steagall P. <i>Therapeutics Used for Chronic Pain Management: What's the Evidence?</i> FASAVA 2026, Taipei（投影片 36 頁）。</li>
+        <li>現場錄音 2026-11-01 11:00（約 1 小時 33 分），mlx-whisper 自動轉錄。</li>
+      </ul>
+      <p><strong>講義引用的文獻（我沒有讀原文，除非另外註明）</strong></p>
+      <ul style="margin:0 0 10px 0;padding-left:1.2em;line-height:1.9;">
+        <li>Wright A, Amodie DM, Cernicchiaro N, Lascelles BDX, Pavlock AM, Roberts C, Bartram DJ. Identification of canine osteoarthritis using an owner-reported questionnaire and treatment monitoring using functional mobility tests. <i>J Small Anim Pract</i> 2022;63:609–618. DOI: <a href="https://doi.org/10.1111/jsap.13500" target="_blank" rel="noopener">10.1111/jsap.13500</a></li>
+        <li>Enomoto M, de Castro N, Hash J, et al. Prevalence of radiographic appendicular osteoarthritis and associated clinical signs in young dogs. <i>Sci Rep</i>.</li>
+        <li>Monteiro-Steagall BP, Steagall PVM, Lascelles BDX. Systematic review of nonsteroidal anti-inflammatory drug-induced adverse effects in dogs. <i>J Vet Intern Med</i> 2013;27:1011–1019.</li>
+        <li>Cassemiche A, Schoffit S, Manassero M, Kohlhauer M. Comparison of grapiprant and meloxicam for management of postoperative joint pain in dogs. <i>J Vet Intern Med</i> 2024. DOI: <a href="https://doi.org/10.1111/jvim.17136" target="_blank" rel="noopener">10.1111/jvim.17136</a></li>
+        <li>Innes JF, Lascelles BDX, et al. A randomised, parallel-group clinical trial comparing bedinvetmab to meloxicam for the management of canine osteoarthritis. <i>Front Vet Sci</i> 2025. DOI: <a href="https://doi.org/10.3389/fvets.2025.1502218" target="_blank" rel="noopener">10.3389/fvets.2025.1502218</a></li>
+        <li>Ruel HLM, Watanabe R, Evangelista MC, et al., Steagall PV. Pain burden, sensory profile and inflammatory cytokines of dogs with naturally-occurring neuropathic pain treated with gabapentin alone or with meloxicam. <i>PLOS ONE</i>.</li>
+        <li>Guedes AGP, Meadows JM, Pypendop BH, Johnson EG, Zaffarano B. Assessment of the effects of gabapentin on activity levels and owner-perceived mobility impairment and quality of life in osteoarthritic geriatric cats. <i>J Am Vet Med Assoc</i> 2018.</li>
+        <li>Quimby JM, Lorbach SK, Saffire A, et al. Serum concentrations of gabapentin in cats with chronic kidney disease. <i>J Feline Med Surg</i> 2022;24(12):1260–1266. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9395545/" target="_blank" rel="noopener">PMC9395545</a>（讀到摘要）</li>
+        <li>Madan RD, et al. Pregabalin produces similar effects as gabapentin for preanesthetic sedation in cats. <i>J Am Vet Med Assoc</i>.</li>
+        <li>Lamminen T, et al. Pharmacokinetics of single and repeated oral doses of pregabalin oral solution formulation in cats；Pregabalin alleviates anxiety and fear in cats during transportation and veterinary visits（<i>Animals</i>）；Efficacy of a single dose of pregabalin on signs of anxiety in cats during transportation（<i>Front Vet Sci</i>）。</li>
+        <li>Monteiro BP, de Lorimier LP, Moreau M, et al., Troncy E. Pain characterization and response to palliative care in dogs with naturally-occurring appendicular osteosarcoma: an open label clinical trial. <i>PLOS ONE</i>.</li>
+        <li>Shipley H, Flynn K, Tucker L, et al., Guedes A. Owner evaluation of quality of life and mobility in osteoarthritic cats treated with amantadine or placebo. <i>J Feline Med Surg</i> 2021;23(6):568–574.</li>
+        <li>Lascelles BDX, Gaynor JS, Smith ES, et al. Amantadine in a multimodal analgesic regimen for alleviation of refractory osteoarthritis pain in dogs. <i>J Vet Intern Med</i> 2008;22:53–59.</li>
+      </ul>
+      <p style="font-size:11.5px;color:var(--text3);">逐字稿是自動語音辨識，專有名詞偶有錯字，我已依上下文修正；數字若與講義不同，以講義為準。標為「補充」的劑量（抗 NGF 單抗、pregabalin 仿單）不是講者說的。</p>
+    </div>
+
+    <footer class="note-footer">
+      本頁內容整理自 FASAVA 2026 台北 Paulo Steagall 演講投影片與現場錄音，並加上網路查證，僅供院內教學使用；劑量請以仿單與專科處方集為準，不作為單獨診斷或用藥依據。
+    </footer>
+
+  </main>
+</div>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('open', x.dataset.sec === id));
+}
+function goSub(hid) {
+  const el = document.getElementById(hid);
+  if (el) el.scrollIntoView({ block: 'start' });
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + hid));
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+  const hio = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + e.target.id)); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('.section h3[id^="h3-"]').forEach(h => hio.observe(h));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){ const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  abstract: '重點摘要',
+  overview: '課程架構與劑量總表',
+  screen: '篩檢的新證據',
+  plan: '治療計畫與止痛試驗',
+  nsaid: 'NSAID',
+  other: '其他抗發炎藥與比較試驗',
+  tramadol: 'Tramadol',
+  gaba: 'Gabapentin 與 pregabalin',
+  nmda: 'Amitriptyline、amantadine 與 ketamine',
+  conclusion: '結論',
+  qa: '圓桌問答',
+  glossary: '縮寫與名詞對照',
+  quiz: '練習題',
+  references: '參考資料'
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js?v=3"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="../assets/pdf-viewer.js"></script>
+
+</body>
+</html>

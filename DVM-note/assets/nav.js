@@ -495,3 +495,32 @@ function initSiteNav(containerId, panelId) {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
 })();
+
+/* 回到頂端：往下捲超過一個畫面後，右下角出現「↑」按鈕；點頁首空白處也會回到頂端 */
+(function () {
+  function init() {
+    if (document.getElementById('toTop')) return;
+    var st = document.createElement('style');
+    st.textContent =
+      '#toTop{position:fixed;right:16px;bottom:16px;z-index:880;width:44px;height:44px;border-radius:50%;border:1px solid var(--line,#ddd);' +
+      'background:var(--bg,#fff);color:var(--fg,#333);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.15);' +
+      'opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}' +
+      '#toTop.show{opacity:.92;pointer-events:auto;transform:none}#toTop:hover{opacity:1}' +
+      '#toTop.lift{bottom:68px}' +
+      '@media (min-width:901px){body.pdf-open #toTop{right:calc(var(--pdfw,46vw) + 16px)}body.pv-open #toTop{right:calc(50vw + 16px)}}';
+    document.head.appendChild(st);
+    var b = document.createElement('button');
+    b.id = 'toTop'; b.type = 'button'; b.title = '回到頂端'; b.setAttribute('aria-label', '回到頂端'); b.textContent = '↑';
+    document.body.appendChild(b);
+    function top() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    b.onclick = top;
+    var hd = document.querySelector('body > header');
+    if (hd) hd.addEventListener('click', function (e) { if (e.target === hd) top(); });
+    function upd() {
+      b.classList.toggle('show', window.scrollY > window.innerHeight * 0.8);
+      b.classList.toggle('lift', !!document.querySelector('.anno-all, .pin-fab.show'));
+    }
+    window.addEventListener('scroll', upd, { passive: true }); upd();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>貓糖尿病照護指南 - 上群動物醫院</title>
-<link rel="stylesheet" href="../assets/nav.css">
-<link rel="stylesheet" href="../assets/ah.css?v=4">
+<link rel="stylesheet" href="../assets/nav.css?v=3">
+<link rel="stylesheet" href="../assets/ah.css?v=5">
 </head>
 <body class="ah">
 
@@ -59,14 +59,33 @@
     <div class="section-label">總覽</div>
     <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 重點摘要</a>
     <a onclick="showSection('overview')" id="nav-overview"><span class="nav-icon">📖</span> 總覽與病理機轉</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-1" onclick="goSub('h3-1')">診斷：小心與壓力性高血糖混淆</a>
+    <a class="toc-sub" data-sec="overview" id="nav-h3-2" onclick="goSub('h3-2')">病理機轉</a>
     <div class="section-label">治療決策</div>
     <a onclick="showSection('choice')" id="nav-choice"><span class="nav-icon">🧭</span> 胰島素 vs SGLT2 抑制劑</a>
+    <a class="toc-sub" data-sec="choice" id="nav-h3-3" onclick="goSub('h3-3')">初步評估項目</a>
     <a onclick="showSection('sglt2')" id="nav-sglt2"><span class="nav-icon">💊</span> SGLT2 抑制劑治療</a>
+    <a class="toc-sub" data-sec="sglt2" id="nav-h3-4" onclick="goSub('h3-4')">使用前篩檢</a>
+    <a class="toc-sub" data-sec="sglt2" id="nav-h3-5" onclick="goSub('h3-5')">起始治療後的監測排程</a>
+    <a class="toc-sub" data-sec="sglt2" id="nav-h3-6" onclick="goSub('h3-6')">不良反應</a>
+    <a class="toc-sub" data-sec="sglt2" id="nav-h3-7" onclick="goSub('h3-7')">後續監測（2 週後）</a>
     <a onclick="showSection('insulin')" id="nav-insulin"><span class="nav-icon">💉</span> 胰島素治療</a>
+    <a class="toc-sub" data-sec="insulin" id="nav-h3-8" onclick="goSub('h3-8')">劑量調整原則</a>
     <div class="section-label">監測與併發症</div>
     <a onclick="showSection('monitor')" id="nav-monitor"><span class="nav-icon">📊</span> 居家與院內監測</a>
+    <a class="toc-sub" data-sec="monitor" id="nav-h3-9" onclick="goSub('h3-9')">連續血糖監測（CGM）— FreeStyle Libre</a>
+    <a class="toc-sub" data-sec="monitor" id="nav-h3-10" onclick="goSub('h3-10')">居家血糖曲線（胰島素治療貓）</a>
+    <a class="toc-sub" data-sec="monitor" id="nav-h3-11" onclick="goSub('h3-11')">ALIVE 臨床評分（Diabetic Clinical Score, DCS）</a>
     <a onclick="showSection('special')" id="nav-special"><span class="nav-icon">⚠️</span> 特殊情境與併發症</a>
+    <a class="toc-sub" data-sec="special" id="nav-h3-12" onclick="goSub('h3-12')">肢端肥大症（HST）— 最常見的胰島素阻抗原因</a>
+    <a class="toc-sub" data-sec="special" id="nav-h3-13" onclick="goSub('h3-13')">其他造成/加重糖尿病的共病</a>
+    <a class="toc-sub" data-sec="special" id="nav-h3-14" onclick="goSub('h3-14')">DKA／eDKA 急性處置</a>
+    <a class="toc-sub" data-sec="special" id="nav-h3-15" onclick="goSub('h3-15')">胰臟炎</a>
+    <a class="toc-sub" data-sec="special" id="nav-h3-16" onclick="goSub('h3-16')">血糖持續控制不佳時的排查</a>
+    <a class="toc-sub" data-sec="special" id="nav-h3-17" onclick="goSub('h3-17')">低血糖處置</a>
     <a onclick="showSection('diet')" id="nav-diet"><span class="nav-icon">🍽️</span> 飲食與緩解</a>
+    <a class="toc-sub" data-sec="diet" id="nav-h3-18" onclick="goSub('h3-18')">飲食目標</a>
+    <a class="toc-sub" data-sec="diet" id="nav-h3-19" onclick="goSub('h3-19')">緩解（Remission）</a>
     <div class="section-label">複習</div>
     <a onclick="showSection('glossary')" id="nav-glossary"><span class="nav-icon">🔤</span> 縮寫對照表</a>
     <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">📝</span> 練習題</a>
@@ -99,7 +118,7 @@
         <p>「貓糖尿病沒有單一『最好』的治療方式，而是一個照護光譜，治療方案應該依每隻貓的狀況個別化。」——不是每隻貓都要走同一套流程，選胰島素或 SGLT2 抑制劑取決於下一節的篩選條件。</p>
       </div>
 
-      <h3>診斷：小心與壓力性高血糖混淆</h3>
+      <h3 id="h3-1">診斷：小心與壓力性高血糖混淆</h3>
       <p>貓的壓力性高血糖可以到任何程度，單次血糖高不能確診糖尿病。診斷需要：<strong>多次測量持續偏高的血糖</strong>，或<strong>臨床症狀＋持續尿糖</strong>，或<strong>糖化蛋白升高＋臨床症狀</strong>。無法區分時，可用居家血糖測量、連續血糖監測（CGM）或居家採尿 dipstick 輔助判斷。</p>
 
       <div class="table-wrap">
@@ -112,7 +131,7 @@
         </table>
       </div>
 
-      <h3>病理機轉</h3>
+      <h3 id="h3-2">病理機轉</h3>
       <div class="grid-3">
         <div class="card"><div class="card-title">第二型糖尿病（75–80%）</div><p style="margin:0;">部分 β 細胞功能不全＋β 細胞喪失＋胰島素阻抗形成惡性循環；糖毒性（glucotoxicity）與脂毒性持續傷害 β 細胞，加速惡化。</p></div>
         <div class="card"><div class="card-title">肢端肥大症相關（HST，20–25%）</div><p style="margin:0;">生長激素過量造成胰島素阻抗。<strong>過去認為罕見，現在認為每 3–5 隻糖尿病貓就有 1 隻是 HST</strong>，是貓胰島素阻抗型糖尿病最常見的原因。</p></div>
@@ -130,7 +149,7 @@
         <p>貓有<strong>厭食／食慾不振、嗜睡、脫水或其他嚴重病容</strong>時，先當作 DKA／eDKA 處理（見第 6 節），不要直接開始門診胰島素或 SGLT2 抑制劑流程。</p>
       </div>
 
-      <h3>初步評估項目</h3>
+      <h3 id="h3-3">初步評估項目</h3>
       <div class="step"><div class="step-num">1</div><div class="step-text">病史：目前飲食／餵食方式、用藥史（類固醇、黃體素）、身體狀態評分（BCS）、肌肉量評分</div></div>
       <div class="step"><div class="step-num">2</div><div class="step-text">理學檢查找共病：警覺是否有掉毛、腹部下垂、皮膚脆弱（懷疑皮質醇過高）；體重增加卻控制不佳、極端多食、打鼾／呼吸有雜音（懷疑 HST）</div></div>
       <div class="step"><div class="step-num">3</div><div class="step-text">基礎檢驗：全血球計數、生化、尿液分析＋尿酮；記錄體重與目標體重</div></div>
@@ -203,7 +222,7 @@
         <div class="figure-source">依《2025 iCatCare 貓糖尿病共識指南》內文機轉重繪</div>
       </figure>
 
-      <h3>使用前篩檢</h3>
+      <h3 id="h3-4">使用前篩檢</h3>
       <div class="card">
         <div class="card-title">適合的病患輪廓</div>
         <p style="margin:0;">「臨床穩定（happy）、沒有容易誘發不良反應的潛在共病」的糖尿病貓。篩檢項目：詳細病史與理學檢查、常規血球與生化、尿液分析＋尿酮（部分醫師偏好加測血中 β-羥基丁酸 BHB）、記錄 BCS 與體重。</p>
@@ -214,7 +233,7 @@
         <p>原廠仿單建議血中 BHB <span class="dose">&gt;3.6 mmol/L</span> 不應起始 bexagliflozin；BHB <span class="dose">&gt;2.4 mmol/L</span> 合併酸血症或腎功能不佳病史者也不應起始。部分臨床醫師依經驗容許 BHB 略高於仿單標準但貓臨床穩定、進食正常時仍謹慎起始並密切監測。</p>
       </div>
 
-      <h3>起始治療後的監測排程</h3>
+      <h3 id="h3-5">起始治療後的監測排程</h3>
       <div class="alert alert-danger">
         <div class="alert-label">重要警示</div>
         <p><strong>絕大多數 eDKA（正常血糖酮酸血症）發生在起始治療的前 2 週內。</strong>此期間血中 BHB 監測的重要性高於血糖，務必密切監測，一旦懷疑 eDKA 立即停藥並依 DKA 流程處置。</p>
@@ -241,7 +260,7 @@
       </div>
       <p style="font-size:11.5px;color:var(--text3);">依據 AAHA 2026 貓糖尿病照護指南 Table 6.1 整理。貓咪一旦精神食慾變差，<strong>務必檢測尿酮或血酮</strong>——但要注意：出現酮尿／酮症本身並不能預測即將發生 DKA／eDKA，有不少貓輕度酮症但臨床仍穩定。</p>
 
-      <h3>不良反應</h3>
+      <h3 id="h3-6">不良反應</h3>
       <div class="table-wrap">
         <table>
           <thead><tr><th>不良反應</th><th>發生率／特徵</th><th>處置</th></tr></thead>
@@ -256,7 +275,7 @@
         </table>
       </div>
 
-      <h3>後續監測（2 週後）</h3>
+      <h3 id="h3-7">後續監測（2 週後）</h3>
       <p>療效通常在 1–2 週內顯現；2 週仍無反應，先確認給藥方式正確、排除壓力性高血糖。之後每 10–14 天回診一次，穩定後每 3 個月一次：評估多渴多尿與多食改善程度、點測血糖（SGLT2i 治療下血糖較平坦，點測比胰島素治療貓更有意義）、fructosamine、體重、CGM、生活品質評分（DCS 或 DIAQoL-pet）。<strong>尿糖監測在 SGLT2i 治療下失去意義</strong>（藥物本來就是讓糖從尿液排出）。若懷疑已緩解，需<strong>停藥後</strong>以 CGM 或每天 1–2 次血糖點測（至少連續 1 週）重新走一次監測流程確認，因為用藥期間血糖與 fructosamine 都可能正常，無法單靠檢驗判斷。</p>
     </div>
 
@@ -284,7 +303,7 @@
         <div class="card"><div class="card-title">基礎胰島素（Degludec／Glargine U300）目標</div><p style="margin:0;">追求「平坦」曲線，一天多數時間維持正常血糖，最低點可能落在下次注射時間附近；Glargine U300 起始建議直接<strong>配戴 CGM</strong>，每 1–3 天調整劑量直到低點落在 80–120 mg/dL；若已達低點但每天仍有 &gt;12 小時血糖 &gt;300 mg/dL，考慮改為一天兩次給藥。</p></div>
       </div>
 
-      <h3>劑量調整原則</h3>
+      <h3 id="h3-8">劑量調整原則</h3>
       <div class="step"><div class="step-num">1</div><div class="step-text">Glargine U100／PZI 起始劑量固定為 <span class="dose">1 U/cat q12h</span>（不依體重計算）；Glargine U100／PZI 治療第 5–7 天做第一次血糖評估</div></div>
       <div class="step"><div class="step-num">2</div><div class="step-text">之後每 5–7 天回診一次，評估臨床症狀、體重與血糖控制；居家資訊完整可靠時可延長至每 10–14 天</div></div>
       <div class="step"><div class="step-num">3</div><div class="step-text">調整幅度：每次增加 10% 或 0.5–1 U（取較大值）；<strong>多數貓最終會穩定在每次 4 U 以內</strong>，超過此劑量需考慮胰島素阻抗、重新評估共病</div></div>
@@ -301,7 +320,7 @@
       <div class="section-head"><div class="section-num">6</div><h2>居家與院內監測</h2></div>
       <p class="section-desc">新版指南的另一個重大轉向：<strong>不再建議常規院內血糖曲線</strong>（住院壓力本身會干擾血糖），改以居家監測與 CGM 為主。</p>
 
-      <h3>連續血糖監測（CGM）— FreeStyle Libre</h3>
+      <h3 id="h3-9">連續血糖監測（CGM）— FreeStyle Libre</h3>
       <div class="grid-2">
         <div class="card">
           <div class="card-title">裝置規格</div>
@@ -325,10 +344,10 @@
         <p>FreeStyle Libre 在<strong>低血糖範圍準確度較低</strong>：間質液血糖在低血糖與正常血糖範圍多半會低估實際血糖，但在明顯低血糖（&lt;3.3 mmol/L／60 mg/dL）時反而會高估——<strong>這個關鍵範圍的數值要謹慎判讀</strong>。感應器實際使用壽命常只有 5.5–10 天，短於原廠標示。間質液血糖 &lt;3.6 mmol/L（&lt;65 mg/dL）在控制良好的貓很常見，<strong>不代表一定是低血糖</strong>。</p>
       </div>
 
-      <h3>居家血糖曲線（胰島素治療貓）</h3>
+      <h3 id="h3-10">居家血糖曲線（胰島素治療貓）</h3>
       <p>晨間胰島素注射前開始測，之後每 2 小時測一次直到晚間給藥（12 小時曲線）；若看不到最低點則延長到 14–16 小時。初期每週一次，穩定後每 3–4 週一次。<strong>人用血糖機測貓血通常會偏低</strong>，注意種間差異。點測血糖對胰島素治療貓通常不足以評估整體控制（除了抓低血糖），但對 SGLT2i 治療貓更有參考價值（血糖曲線較平坦）。</p>
 
-      <h3>ALIVE 臨床評分（Diabetic Clinical Score, DCS）</h3>
+      <h3 id="h3-11">ALIVE 臨床評分（Diabetic Clinical Score, DCS）</h3>
       <div class="table-wrap">
         <table>
           <thead><tr><th>項目</th><th>0 分</th><th>1 分</th><th>2 分</th><th>3 分</th></tr></thead>
@@ -348,7 +367,7 @@
       <div class="section-head"><div class="section-num">7</div><h2>特殊情境與併發症</h2></div>
       <p class="section-desc">胰島素阻抗型糖尿病、急性失代償、藥物誘發性糖尿病都需要跳出常規流程另外處理。</p>
 
-      <h3>肢端肥大症（HST）— 最常見的胰島素阻抗原因</h3>
+      <h3 id="h3-12">肢端肥大症（HST）— 最常見的胰島素阻抗原因</h3>
       <p><strong>過去認為罕見，現在認為每 3–5 隻糖尿病貓就有 1 隻是 HST</strong>，是貓臨床上最常見造成胰島素阻抗型糖尿病的原因。<strong>75% 的 HST 貓理學檢查完全看不出異狀</strong>，所以不能因為外觀正常就不篩檢。</p>
 
       <div class="grid-2">
@@ -385,7 +404,7 @@
         </table>
       </div>
 
-      <h3>其他造成/加重糖尿病的共病</h3>
+      <h3 id="h3-13">其他造成/加重糖尿病的共病</h3>
       <div class="grid-2">
         <div class="card">
           <div class="card-title">皮質醇過高（Cushing's）</div>
@@ -397,7 +416,7 @@
         </div>
       </div>
 
-      <h3>DKA／eDKA 急性處置</h3>
+      <h3 id="h3-14">DKA／eDKA 急性處置</h3>
       <div class="alert alert-danger">
         <div class="alert-label">重要警示</div>
         <p>厭食／食慾不振、嘔吐、精神極差、脫水等急症表現時，直接啟動 DKA 處置流程；病情嚴重（明顯脫水、電解質嚴重失衡、意識改變）建議轉診 24 小時重症照護。eDKA（正常血糖 DKA）的差異是血糖多維持 &lt;13.9 mmol/L（&lt;250 mg/dL），但酮症／酸血症一樣致命，不能因為血糖正常就放心；若正在使用 SGLT2 抑制劑，<strong>立即停藥且之後不再重新使用</strong>。</p>
@@ -427,10 +446,10 @@
         <p>停用 SGLT2 抑制劑後，其降血糖效果<strong>可能持續數天</strong>（尤其合併肝病／肝脂肪沉積時），輸液起始就要加入至少 5% 葡萄糖；血糖持續 &gt;150 mg/dL 且血鉀 &gt;3.0 mEq/L 時，於 <span class="dose">4 小時內</span>開始胰島素；BHB 監測頻率較密（每 8–12 小時一次）；穩定後轉為長效胰島素做長期管理，<strong>不再重新使用 SGLT2 抑制劑</strong>。</p>
       </div>
 
-      <h3>胰臟炎</h3>
+      <h3 id="h3-15">胰臟炎</h3>
       <p>胰臟炎常與糖尿病並存，兩者可能互為因果（胰臟炎破壞胰島細胞致病，糖尿病也可能誘發胰臟炎），關係尚不完全清楚。合併胰臟炎可能增加血糖波動、降低緩解機會，但診斷胰臟炎本身<strong>不代表</strong>血糖無法控制或不能緩解。要注意：糖尿病貓的胰臟超音波異常或胰臟脂肪酶升高很常見，<strong>沒有臨床症狀時對預測有意義胰臟炎的預測力很低</strong>，不需過度解讀。</p>
 
-      <h3>血糖持續控制不佳時的排查</h3>
+      <h3 id="h3-16">血糖持續控制不佳時的排查</h3>
       <p>先確認胰島素保存與給藥方式正確（效期、開封後使用期限、針具是否對應濃度、是否正確搖勻／滾動混合），排除照護者操作問題後才考慮胰島素阻抗。<strong>高劑量</strong>定義為每次 &gt;4 U/cat（一天兩次）。</p>
       <div class="grid-2">
         <div class="card">
@@ -444,7 +463,7 @@
       </div>
       <p style="font-size:11.5px;color:var(--text3);">若排查後仍找不到共病、或共病已處理但控制仍不佳，建議轉換胰島素種類（以「起始劑量」重新開始）或轉診專科。</p>
 
-      <h3>低血糖處置</h3>
+      <h3 id="h3-17">低血糖處置</h3>
       <div class="step"><div class="step-num">1</div><div class="step-text">血糖 &lt;60 mg/dL 且有臨床症狀（嗜睡、震顫、異常行為、癲癇）：清醒貓可餵食高碳水食物（米飯、麵包、義大利麵、玉米糖漿），意識不清或反應遲鈍貓可將少量玉米糖漿塗抹於牙齦（避免將手指伸入低血糖貓口中），5 分鐘內恢復意識即可餵食，之後盡速就醫</div></div>
       <div class="step"><div class="step-num">2</div><div class="step-text">血糖持續 &lt;13.9 mmol/L（&lt;250 mg/dL）且胰島素劑量已在 1 U bid 或更低：考慮已進入緩解，停用胰島素，3–7 天內以尿糖或 CGM 監測確認</div></div>
       <div class="step"><div class="step-num">3</div><div class="step-text">沒有低血糖臨床症狀：減量 25–50% 或減少 0.5–1 U（取較大值），24 小時內以血糖曲線或 CGM 複查</div></div>
@@ -455,7 +474,7 @@
       <div class="section-head"><div class="section-num">8</div><h2>飲食與緩解</h2></div>
       <p class="section-desc">飲食是所有治療路線共通的基礎，也是決定能不能緩解的重要因子。</p>
 
-      <h3>飲食目標</h3>
+      <h3 id="h3-18">飲食目標</h3>
       <div class="card">
         <div class="card-title">低碳水化合物飲食</div>
         <p style="margin:0;">乾物基礎碳水 &lt;25%，或代謝能佔比 &lt;15%，或每 100 kcal 碳水 &lt;5g。低碳、中高蛋白脂肪飲食與較高的緩解率及血糖控制相關。但<strong>不要為了追求特定飲食犧牲進食量或造成照護者經濟壓力</strong>——吃較高碳水飲食的貓一樣有機會緩解。</p>
@@ -466,7 +485,7 @@
         <div class="card"><div class="card-title">體重過輕貓</div><p style="margin:0;">先確保攝取量足夠再談飲食調整；食慾不振不是糖尿病典型表現，應優先排除其他共病。<strong>Capromorelin 可能誘發高血糖、抑制胰島素分泌</strong>，選食慾促進劑時要考慮這點。</p></div>
       </div>
 
-      <h3>緩解（Remission）</h3>
+      <h3 id="h3-19">緩解（Remission）</h3>
       <p>定義為<strong>至少 4 週不需要外源胰島素，且無糖尿病臨床症狀</strong>。緩解幾乎是貓糖尿病特有的現象，反映 β 細胞功能因胰島素阻抗與糖毒性被移除後而恢復；緩解與較長存活期、照護者回報的生活品質改善相關，但屬於「暫時狀態」，胰臟的胰島素儲備能力永久有限，可能維持數週到數年（中位 120–150 天），<strong>13–40% 會復發</strong>，且復發後第二次緩解的機率更低（約 0–22%）。</p>
 
       <div class="grid-2">
@@ -596,6 +615,12 @@ function setActive(id) {
   document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
   const a = document.getElementById('nav-' + id);
   if (a) a.classList.add('active');
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('open', x.dataset.sec === id));
+}
+function goSub(hid) {
+  const el = document.getElementById(hid);
+  if (el) el.scrollIntoView({ block: 'start' });
+  document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + hid));
 }
 (function () {
   const secs = [...document.querySelectorAll('.section[id^="section-"]')];
@@ -603,6 +628,10 @@ function setActive(id) {
     es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
   }, { rootMargin: '-15% 0px -75% 0px' });
   secs.forEach(sec => io.observe(sec));
+  const hio = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) document.querySelectorAll('nav.toc a.toc-sub').forEach(x => x.classList.toggle('active', x.id === 'nav-' + e.target.id)); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('.section h3[id^="h3-"]').forEach(h => hio.observe(h));
 })();
 function toggleTheme() {
   const html = document.documentElement, btn = document.getElementById('themeBtn');
@@ -704,7 +733,7 @@ function doSearch(q) {
 }
 </script>
 <script src="../assets/nav-data.js"></script>
-<script src="../assets/nav.js"></script>
+<script src="../assets/nav.js?v=3"></script>
 <script>
 initSiteNav('siteNav', 'navPanel');
 </script>

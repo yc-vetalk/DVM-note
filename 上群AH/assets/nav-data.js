@@ -91,6 +91,17 @@ const SITE_NAV = [
     topics: []
   },
   {
+    id: "FASAVA 2026",
+    label: "FASAVA 2026",
+    icon: "🎤",
+    url: "FASAVA2026/index.html",
+    topics: [
+      { title: "10/31（六）第一天", url: "FASAVA2026/index.html#1031", desc: "牙科、放射、腫瘤、中獸醫、營養、心臟外科（Mori）等" },
+      { title: "11/1（日）第二天", url: "FASAVA2026/index.html#1101", desc: "心臟、腸胃、行為、疼痛、神經、內分泌、皮膚、腎臟、眼科（Jeong、Kobayashi）等" },
+      { title: "11/2（一）第三天", url: "FASAVA2026/index.html#1102", desc: "急診、軟組織外科、行為、心臟、腸胃、輸血、呼吸、異寵（Hochleithner）等" }
+    ]
+  },
+  {
     id: "研討會",
     label: "研討會",
     icon: "📝",
@@ -100,6 +111,41 @@ const SITE_NAV = [
         title: "犬淋巴瘤照護與診斷新趨勢",
         url: "研討會/犬淋巴瘤照護與診斷新趨勢.html",
         desc: "診斷工具比較、分期與分亞期預後、治療選擇與液態切片新工具整理"
+      },
+      {
+        title: "貓眼的獨特性：眼表、虹膜與眼底疾病",
+        url: "研討會/貓眼的獨特性-眼表虹膜與眼底.html",
+        desc: "FHV-1 角膜結膜炎、FDIM 虹膜黑色素瘤、高血壓視網膜剝離（FASAVA 2026）"
+      },
+      {
+        title: "犬貓角膜顏色：診斷與治療",
+        url: "研討會/犬貓角膜顏色診斷與治療.html",
+        desc: "角膜顏色對應病理、色素性角膜炎、黑色壞死、內科或手術（FASAVA 2026 Jeong）"
+      },
+      {
+        title: "柴犬的眼睛：白內障、青光眼與角膜內皮炎",
+        url: "研討會/柴犬眼科-白內障青光眼與角膜內皮炎.html",
+        desc: "柴犬遺傳性白內障、PACG 青光眼、角膜內皮炎（FASAVA 2026 Kobayashi）"
+      },
+      {
+        title: "鸚鵡醫學：幼雛、老年與腫瘤",
+        url: "研討會/鸚鵡醫學-幼雛老年與腫瘤.html",
+        desc: "幼雛嗉囊與病毒、老年關節與心血管、鳥類與異寵腫瘤（FASAVA 2026 預習）"
+      },
+      {
+        title: "異寵超音波：從入門到進階",
+        url: "研討會/異寵超音波-從入門到進階.html",
+        desc: "鳥、爬蟲、小型哺乳類的超音波適應症、限制與檢查路徑（FASAVA 2026 預習）"
+      },
+      {
+        title: "慢性疼痛評估與抗 NGF 單株抗體",
+        url: "研討會/慢性疼痛評估與抗NGF單株抗體.html",
+        desc: "OA 三步驟評估、犬貓慢性疼痛量表、bedinvetmab／frunevetmab 療效與骨重塑安全性（FASAVA 2026 Steagall）"
+      },
+      {
+        title: "慢性疼痛藥物治療：證據整理",
+        url: "研討會/慢性疼痛藥物治療-證據整理.html",
+        desc: "NSAID、grapiprant、tramadol、gabapentin、amantadine 的證據與劑量，含圓桌問答（FASAVA 2026 Steagall）"
       }
     ]
   }

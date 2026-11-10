@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：專題 - TPLO 規劃數值解讀 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">專題：TPLO 規劃數值解讀</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">專題：TPLO 規劃數值解讀（Oreo）</h1>
+      <p class="page-subtitle">脛骨高原平整截骨術（Tibial Plateau Leveling Osteotomy, TPLO）術前規劃片上的 TPA、D1、D2、SAW、Rotation、骨板各代表什麼、怎麼算出來；附可拖動的轉平台示意、術後片檢查清單與術後復健時程</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">個案</div><div class="meta-value">Oreo・犬・前十字韌帶斷裂（Cranial Cruciate Ligament Rupture, CCLR），左後肢 TPLO（術後片 2026-11-09）</div></div>
+      <div class="meta-item"><div class="meta-label">主要問題</div><div class="meta-value">TPLO 規劃片上每個數字的意義與彼此關係</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">Todd 2026、Kim 2022、Fujino 2020（見第 9 節）；課程講義第 2、4、6 週；影像為院內 X 光（已遮蔽病歷號）</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-11-11</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 一句話與數值總表</a>
+    <a onclick="showSection('why')" id="nav-why"><span class="nav-icon">❓</span> 為什麼要轉平台</a>
+    <a onclick="showSection('tpa')" id="nav-tpa"><span class="nav-icon">📐</span> TPA 怎麼量、怎麼拍</a>
+    <a onclick="showSection('plan')" id="nav-plan"><span class="nav-icon">🗺️</span> Oreo 規劃片逐項看</a>
+    <a onclick="showSection('interactive')" id="nav-interactive"><span class="nav-icon">🎚️</span> 互動示意：轉平台</a>
+    <a onclick="showSection('postop')" id="nav-postop"><span class="nav-icon">🩻</span> 術後片怎麼看</a>
+    <a onclick="showSection('rehab')" id="nav-rehab"><span class="nav-icon">🐕</span> 術後復健與追蹤</a>
+    <a onclick="showSection('confirm')" id="nav-confirm"><span class="nav-icon">❔</span> 需要跟主刀確認</a>
+    <a onclick="showSection('refs')" id="nav-refs"><span class="nav-icon">📚</span> 資料來源</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">1</div><h2>一句話與數值總表</h2></div>
+      <div class="overview">
+        <div class="overview__title">一句話</div>
+        <p>TPLO（Tibial Plateau Leveling Osteotomy，脛骨高原平整截骨術）沿著一個<strong>以髁間隆起為圓心的圓弧</strong>把脛骨近端鋸開，再把帶著關節面的那一塊<strong>沿圓弧轉</strong>，讓脛骨平台角（Tibial Plateau Angle, TPA）從術前的 <strong>30.5°</strong> 降到約 <strong>5°</strong>，最後用骨板固定。規劃片上的每個數字，都在回答「從哪裡鋸、鋸多大的圓、要轉多少、用什麼板」。</p>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:20%">規劃片上的標註</th><th style="width:16%">Oreo 的值</th><th>意思</th><th style="width:22%">怎麼用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TPA</strong></td><td><strong>30.5°</strong></td><td>脛骨平台線與「垂直於脛骨功能軸的線」之間的夾角；越大，平台越斜</td><td>決定要轉多少度（30.5 → 5，轉 25.5°）</td></tr>
+          <tr><td>粉紅色角度</td><td>120.5°</td><td>平台線與功能軸直接量出的夾角；<strong>TPA ＝ 這個角 − 90°</strong></td><td>軟體算 TPA 的中間值（講義範例 114.7° → TPA 24.7°）</td></tr>
+          <tr><td>綠色長線</td><td>220.2 mm</td><td>脛骨功能軸長度（髁間隆起中點 → 距骨中心）</td><td>確認軸線畫對、評估脛骨大小</td></tr>
+          <tr><td>綠色斜線</td><td>111.8 mm</td><td>畫出來的平台線長度（軟體把線延伸到圖外）</td><td>沒有臨床意義，只用它的<strong>方向</strong></td></tr>
+          <tr><td><strong>SAW</strong></td><td><strong>21</strong></td><td>弧形鋸片（radial／biradial saw blade）<strong>半徑 21 mm</strong>；紅圈就是鋸路</td><td>鋸片尺寸常見 12、15、18、21、24、27、30 mm</td></tr>
+          <tr><td><strong>D1</strong></td><td><strong>12.5 mm</strong></td><td>髕韌帶在脛骨粗隆的附著點 → 鋸路，<strong>垂直於脛骨前緣</strong>量</td><td>術中用尺量出鋸路位置；也約等於留下的<strong>脛骨粗隆寬度</strong></td></tr>
+          <tr><td><strong>D2</strong></td><td><strong>13.5 mm</strong></td><td>同一個附著點 → 鋸路，<strong>沿脛骨近端前上緣</strong>量</td><td>和 D1 兩點定位，把圓心擺在髁間隆起</td></tr>
+          <tr><td><strong>Rotation</strong></td><td><strong>9.3 mm</strong></td><td>關節塊沿鋸路要滑動的距離</td><td>術中在鋸路兩側各做一個記號，轉到兩記號相距 9.3 mm</td></tr>
+          <tr><td><strong>plate 2.7 broad</strong></td><td>—</td><td>用 2.7 mm 系統（配 2.7 mm 螺絲）的寬版 TPLO 骨板</td><td>依體型與骨大小選</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-warn"><div class="alert-label">注意</div>
+        <p>本頁數值解讀依文獻與規劃軟體的常見用法整理（出處見第 9 節），不是主刀醫師的說明；各醫院軟體的標註方式可能略有不同。第 8 節列了幾點需要跟主刀確認的地方。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-why">
+      <div class="section-head"><div class="section-num">2</div><h2>為什麼要「轉平台」</h2></div>
+      <p class="section-desc">先懂問題在哪，數字才有意義。</p>
+      <div class="grid-2">
+        <div class="card"><h4>前十字韌帶斷了會怎樣</h4>
+          <p>脛骨平台是往後下方傾斜的斜坡。狗站立負重時，股骨踩在這個斜坡上，會把脛骨往前推，這個力叫<strong>脛骨前推力（cranial tibial thrust）</strong>。正常時由前十字韌帶（Cranial Cruciate Ligament, CCL）擋住；韌帶斷了，脛骨每一步都往前滑，造成疼痛、跛行、半月板受傷，最後走向骨關節炎（Osteoarthritis, OA）。</p></div>
+        <div class="card"><h4>TPLO 的想法</h4>
+          <p>不修韌帶，而是<strong>把斜坡改平</strong>。平台角越小，前推力越小；轉到約 5° 時，負重的力量大致垂直壓在平台上，脛骨就不會一直往前滑，膝關節靠肌肉與其他構造就能穩定。這叫「動態穩定」，所以術後抽屜試驗仍可能是陽性，但功能上已經穩了（補充）。</p></div>
+      </div>
+      <p>TPA 參考值：健康米格魯的 TPA 平均約 24°（X 光 24.3 ± 2.5°；Kim 2022）；一組接受 TPLO 的犬術前 TPA 平均 28.3 ± 3.2°（範圍 22–36°；Fujino 2020）。Oreo 的 30.5° 落在這個範圍內，偏陡。</p>
+      <p style="font-size:.9em">課程連結：<a href="../大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html#section-clinical">第 2 週 CCLR 檢查（抽屜、脛骨推進試驗）</a>、<a href="../大四上/伴侶動物復健及物理治療學/week08_復健檢查評量與步態分析.html#section-palpation">第 8 週觸診測試</a>。</p>
+    </div>
+
+    <div class="section" id="section-tpa">
+      <div class="section-head"><div class="section-num">3</div><h2>TPA 怎麼量、片子要怎麼拍</h2></div>
+      <div class="grid-2">
+        <div class="card"><h4>兩條線（Kim 2022）</h4><ol>
+          <li><strong>脛骨功能軸</strong>：髁間隆起（intercondylar tubercles）的中點 → 距骨（talus）中心。</li>
+          <li><strong>脛骨平台線</strong>：內側脛骨髁的前緣 → 後緣。</li>
+          <li><strong>TPA</strong>：平台線與「垂直於功能軸的線」的夾角。</li></ol>
+          <p style="font-size:.9em">規劃軟體通常直接量平台線與功能軸的夾角（Oreo 片上粉紅色 120.5°），減 90° 就是 TPA。內側髁的後緣在片子上不好找，是 TPA 量測誤差的主要來源（Kim 2022）。</p></div>
+        <div class="card"><h4>拍片條件</h4><ul>
+          <li>側躺，<strong>膝關節與跗關節都屈曲 90°</strong>。</li>
+          <li>兩側<strong>股骨髁重疊在 2 mm 以內</strong>（真正的側位）。</li>
+          <li>片子要包含整條脛骨：上到膝、下到跗關節，才能找到距骨中心。</li>
+          <li>量 mm 之前要先做放大率校正（補充）：Oreo 片上方吊著的金屬圓片看起來就是校正用的標記物。</li></ul>
+          <p style="font-size:.9em">位置歪掉（轉動、膝角度不對），TPA 會差好幾度，連帶轉錯量。</p></div>
+      </div>
+      <h3>Oreo 的術前片（2026-11-07）</h3>
+      <div class="grid-3">
+        <div class="figure"><img src="img/tplo-oreo/preop_lateral_R.jpg" alt="Oreo 右後肢膝與脛骨側位片" loading="lazy"><div class="figure-caption">右後肢側位（標記 R）。</div><div class="figure-source">來源：上群動物醫院 2026-11-07（已遮蔽病歷號）</div></div>
+        <div class="figure"><img src="img/tplo-oreo/preop_lateral_L.jpg" alt="Oreo 左後肢膝與脛骨側位片" loading="lazy"><div class="figure-caption">左後肢側位（標記 L）。這張膝與跗的角度跟另外兩張不同，不是規劃用的那張。</div><div class="figure-source">來源：上群動物醫院 2026-11-07（已遮蔽病歷號）</div></div>
+        <div class="figure"><img src="img/tplo-oreo/preop_lateral_planning_source.jpg" alt="規劃所用的側位原片" loading="lazy"><div class="figure-caption">規劃片的原片（沒有左右標記；構圖與下一節的規劃片完全相同）。</div><div class="figure-source">來源：上群動物醫院 2026-11-07（已遮蔽病歷號）</div></div>
+      </div>
+      <p style="font-size:.9em">自己檢查時可以看：股骨髁兩側有沒有重疊成一個、膝與跗是不是接近 90°、距骨有沒有在片內。螢幕截圖的解析度不夠，本頁不判斷髁的重疊是否在 2 mm 內。</p>
+    </div>
+
+    <div class="section" id="section-plan">
+      <div class="section-head"><div class="section-num">4</div><h2>Oreo 的規劃片逐項看</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/tplo-oreo/planning_lateral.jpg" alt="Oreo TPLO 術前規劃片，標註 TPA 30.5、D1 12.5、D2 13.5、SAW 21、Rotation 9.3、plate 2.7 broad" loading="lazy"><div class="figure-caption">規劃片：綠色長線＝功能軸（220.2 mm）；綠色斜線＝平台線（111.8 mm）；粉紅色＝兩線夾角 120.5°（TPA ＝ 120.5 − 90 ＝ 30.5°）；紅圈＝半徑 21 mm 的鋸路，圓心在髁間隆起；灰色是骨板模板；前方小三角形是 D1、D2 的量測點。</div><div class="figure-source">來源：上群動物醫院術前規劃（已遮蔽病歷號）</div></div>
+        <div>
+          <h3>依手術順序看這些數字</h3>
+          <ol>
+            <li><strong>量 TPA（30.5°）</strong>：決定要轉 30.5 − 5 ＝ <strong>25.5°</strong>。</li>
+            <li><strong>選鋸片（SAW 21）</strong>：圓要大到能包住關節面那一塊，又不能大到把前面的脛骨粗隆削得太薄。Fujino 2020 的選法：量脛骨前緣到內側平台後緣的寬度 W，取前 1/3 處到髁間隆起的距離當半徑，挑最接近的鋸片。</li>
+            <li><strong>定位鋸路（D1 12.5、D2 13.5）</strong>：術中看不到 X 光，就從摸得到的髕韌帶附著點，用尺量 D1、D2 兩個距離標出鋸路，讓圓心落在髁間隆起。三篇研究的 D1、D2 定義都相同，術中誤差約 2 mm 內（Todd 2026）。</li>
+            <li><strong>轉（Rotation 9.3）</strong>：鋸開前在鋸路兩側做記號；鋸開後把關節塊沿圓弧轉，直到兩個記號相距 9.3 mm，平台就從 30.5° 變成約 5°。</li>
+            <li><strong>固定（plate 2.7 broad）</strong>：上方螺絲固定關節塊、下方固定脛骨幹。</li>
+          </ol>
+        </div>
+      </div>
+      <h3>9.3 mm 是怎麼算出來的</h3>
+      <p>關節塊是繞著圓心轉的，所以記號移動的距離由<strong>鋸片半徑</strong>和<strong>要轉的角度</strong>決定：</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>算法</th><th>公式</th><th>Oreo（R ＝ 21 mm，轉 25.5°）</th></tr></thead>
+        <tbody>
+          <tr><td>弦長（兩記號的直線距離）</td><td>2 × R × sin(轉角 ÷ 2)</td><td>2 × 21 × sin 12.75° ≈ <strong>9.27 mm</strong></td></tr>
+          <tr><td>弧長（沿圓弧走的距離）</td><td>R × 轉角（弧度）</td><td>21 × 0.445 ≈ <strong>9.35 mm</strong></td></tr>
+        </tbody>
+      </table></div>
+      <p>兩種算法四捨五入後都是 9.3 mm，可以反推這份規劃的<strong>目標 TPA 是 5°</strong>。如果目標是 6.5°，轉 24° 時弦長只有約 8.7 mm。三篇參考文獻都沒寫轉量表是用弦長還是弧長；轉角小時兩者幾乎相同。</p>
+      <div class="alert alert-info"><div class="alert-label">D1 為什麼重要</div>
+        <p>D1 大約就是鋸完後留在前面的<strong>脛骨粗隆寬度（tibial tuberosity width, TTW）</strong>。大型犬（平均約 40 kg）的 TTW 小於 10 mm 時，術後脛骨粗隆骨折的風險增加（Bergh 2008，Todd 2026 與 Fujino 2020 引用）；10 mm 是大型犬的合理目標，巨型犬通常更小、小型犬可以更薄（&lt; 15 kg 犬平均 7.7 mm 也沒有骨折）。另一種標準是留下 &gt; 1 cm 或脛骨前後寬度的 25% 以上（Kim 2022）。Oreo 的 D1 是 12.5 mm。</p>
+      </div>
+    </div>
+
+    <div class="section" id="section-interactive">
+      <div class="section-head"><div class="section-num">5</div><h2>互動示意：轉平台</h2></div>
+      <p class="section-desc">拖動滑桿：可以調整術前 TPA、目標 TPA、鋸片半徑，再用「旋轉進度」看關節塊沿圓弧轉下去的樣子。圖是示意，不是 Oreo 的實際比例。</p>
+      <div class="tplo-wrap">
+        <svg id="tploSvg" viewBox="0 0 130 120" role="img" aria-label="TPLO 旋轉示意圖">
+          <defs>
+            <clipPath id="tpClipIn"><circle id="tpCircClip" cx="70" cy="34" r="21"/></clipPath>
+            <mask id="tpMaskOut"><rect x="0" y="0" width="130" height="120" fill="white"/><circle id="tpCircMask" cx="70" cy="34" r="21" fill="black"/></mask>
+          </defs>
+          <g mask="url(#tpMaskOut)"><path id="tpBoneBase" class="tp-bone"/></g>
+          <g id="tpFrag"><g clip-path="url(#tpClipIn)"><path id="tpBoneFrag" class="tp-bone tp-frag"/></g>
+            <line id="tpPlateau" class="tp-plateau"/><circle id="tpMarkFrag" r="1.3" class="tp-mark2"/></g>
+          <circle id="tpSaw" cx="70" cy="34" r="21" class="tp-saw"/>
+          <line id="tpAxis" x1="70" y1="34" x2="70" y2="118" class="tp-axis"/>
+          <line id="tpPerp" class="tp-perp"/>
+          <circle id="tpMarkBase" r="1.3" class="tp-mark1"/>
+          <line id="tpChord" class="tp-chord"/>
+          <circle cx="70" cy="34" r="1" class="tp-center"/>
+          <text x="3" y="8" class="tp-lbl">前（cranial）</text><text x="104" y="8" class="tp-lbl">後（caudal）</text>
+          <text x="72" y="116" class="tp-lbl">功能軸</text>
+          <text id="tpTpaTxt" x="96" y="26" class="tp-big"></text>
+        </svg>
+        <div class="tplo-ctrl">
+          <label>術前 TPA：<b id="vPre">30.5</b>°<input type="range" id="sPre" min="15" max="40" step="0.5" value="30.5"></label>
+          <label>目標 TPA：<b id="vTgt">5</b>°<input type="range" id="sTgt" min="0" max="10" step="0.5" value="5"></label>
+          <label>鋸片半徑：<select id="sSaw"><option>12</option><option>15</option><option>18</option><option selected>21</option><option>24</option><option>27</option><option>30</option></select> mm</label>
+          <label>旋轉進度：<b id="vT">0</b>%<input type="range" id="sT" min="0" max="100" step="1" value="0"></label>
+          <div class="tplo-out" id="tpOut"></div>
+          <p style="font-size:.82em;color:var(--fg-muted)">圖例：藍點＝鋸開前在脛骨幹側的記號（不動）；紅點＝關節塊上的記號（跟著轉）；兩點間虛線＝旋轉距離。紅虛線圓＝鋸路。黃線＝平台線。示意 TTW 的計算只用來說明「鋸片越大、粗隆越薄」，不是實測值。</p>
+        </div>
+      </div>
+      <p>可以試試看：</p>
+      <ul>
+        <li>把術前 TPA 調大（例如 36°），同樣的鋸片要轉更多 mm。</li>
+        <li>把鋸片換成 27 或 30 mm：轉同樣角度要走更長的距離，而且前面的粗隆變薄（示意 TTW 掉到 10 mm 以下會出現提醒）。</li>
+        <li>目標改成 6.5°，看旋轉距離少多少。</li>
+      </ul>
+    </div>
+
+    <div class="section" id="section-postop">
+      <div class="section-head"><div class="section-num">6</div><h2>術後片怎麼看（2026-11-09，左後肢）</h2></div>
+      <div class="grid-2">
+        <div class="figure"><img src="img/tplo-oreo/postop_lateral_L.jpg" alt="Oreo 左後肢 TPLO 術後側位片" loading="lazy"><div class="figure-caption">術後側位：脛骨近端可見 TPLO 骨板與螺絲（TPLO 骨板一般放在脛骨內側），皮膚有釘皮釘；帶關節面的那一塊已經沿鋸路轉過。</div><div class="figure-source">來源：上群動物醫院 2026-11-09（已遮蔽病歷號）</div></div>
+        <div class="figure"><img src="img/tplo-oreo/postop_crcd_L.jpg" alt="Oreo 左後肢 TPLO 術後正位片" loading="lazy"><div class="figure-caption">術後正位：骨板與近端、遠端螺絲；可檢查對位與螺絲是否進入關節。</div><div class="figure-source">來源：上群動物醫院 2026-11-09</div></div>
+      </div>
+      <h3>術後片檢查清單（補充，依一般 TPLO 術後評估整理）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:24%">看什麼</th><th>為什麼</th></tr></thead>
+        <tbody>
+          <tr><td>術後 TPA</td><td>目標約 5°（文獻常寫 5–6.5°）。Robinson 2006 的分法：&lt; 4° 過度轉、4–8° 適當、&gt; 8° 轉不夠（Todd 2026 引用）。過度轉可能增加後十字韌帶的負擔，轉不夠則前推力沒消除（補充）。</td></tr>
+          <tr><td>鋸路位置</td><td>圓心是否落在髁間隆起；鋸路偏前或偏遠端，留下的粗隆會變薄（Fujino 2020）。</td></tr>
+          <tr><td>脛骨粗隆</td><td>寬度夠不夠、有沒有裂線；這是術後骨折的好發處。</td></tr>
+          <tr><td>螺絲</td><td>近端螺絲不能進關節；螺絲長度與皮質骨咬合。</td></tr>
+          <tr><td>腓骨</td><td>有沒有骨折（常見的術中或術後併發症之一，補充）。</td></tr>
+          <tr><td>正位片的對位</td><td>有沒有內翻、外翻或旋轉錯位。</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em">這兩張是螢幕截圖，解析度與位置不足以精確量術後 TPA，本頁不提供 Oreo 的術後數值；要量請在原始 DICOM 上用同樣的兩條線量。</p>
+    </div>
+
+    <div class="section" id="section-rehab">
+      <div class="section-head"><div class="section-num">7</div><h2>術後復健與追蹤</h2></div>
+      <p class="section-desc">課程講義（第 4 週 p.71–72，Fossum 修改）的 TPLO 術後時間表，加上其他週相關的內容。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:18%">時期</th><th>重點</th></tr></thead>
+        <tbody>
+          <tr><td>第 1–7 天</td><td>冰敷：運動前每日 3 回、每回 10–15 分鐘；按摩每日 3 回、每回 5 分鐘，由腳趾往髖部；PROM 每日 3 回、每回 10 次，伸屈膝以上與膝以下關節；牽繩短距離如廁。</td></tr>
+          <tr><td>拆線後</td><td>水中跑步機（UWTM）每日 3 回、每回 10 分鐘（傷口未癒合不下水）。</td></tr>
+          <tr><td>第 1–21 天起</td><td>跨橫桿、坐站、穿梭轉圈（低強度）。</td></tr>
+          <tr><td>第 3–4 週</td><td>UWTM 每週 3 次、每次 10 分鐘；講義寫「動物走得不錯就不需要 PROM」。</td></tr>
+          <tr><td>第 8–12 週</td><td>改上坡行走，逐步增加時間與強度；回診照片確認骨癒合後再放寬活動（補充）。</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li><strong>全程避免</strong>：膝關節過度伸展與旋轉（第 4 週 p.68）、跳躍與激烈玩耍；家中地板止滑。</li>
+        <li><strong>止痛</strong>：講義列 Carprofen、Deracoxib、Firocoxib、Meloxicam（NSAIDs）與 Gabapentin（第 4 週 p.8）；常用途徑多為 PO，Carprofen 另有 SC、Meloxicam 另有 SC／IV 劑型（途徑為補充）。實際藥物與劑量依主治醫囑。</li>
+        <li><strong>髕韌帶增厚（patellar desmitis）</strong>：TPLO 術後常見；Gallagher 2012 在術後第 4、6 週各給一次體外震波（ESWT）600 發，第 6、8 週髕韌帶厚度明顯減少（第 6 週 p.24）。</li>
+        <li><strong>骨癒合</strong>：骨板加壓、間隙小時可能是初級骨癒合，沒有骨痂、骨折線消失較慢；解除限制後第一個月牽繩慢走或輕度跑步機（第 2 週 p.17）。</li>
+      </ul>
+      <p style="font-size:.9em">課程連結：<a href="../大四上/伴侶動物復健及物理治療學/week04_骨科疾病復健.html#section-hinds">第 4 週後肢疾病與術後時間表</a>、<a href="../大四上/伴侶動物復健及物理治療學/week06_震波雷射水療與PEMF.html#section-eswtclin">第 6 週 ESWT 臨床</a>、<a href="../大四上/伴侶動物復健及物理治療學/week02_復健相關解剖學及生理學.html#section-bone">第 2 週骨癒合</a>。</p>
+    </div>
+
+    <div class="section" id="section-confirm">
+      <div class="section-head"><div class="section-num">8</div><h2>需要跟主刀確認的地方</h2></div>
+      <ol>
+        <li><strong>手術側別</strong>：規劃片沒有左右標記，骨板模板旁的標籤看起來寫「…27B-R」（可能代表 2.7 broad 右側板）；但術後片是<strong>左</strong>後肢。可能是模板命名方式不同，或規劃的是另一側，請確認規劃片對應的是哪一肢。</li>
+        <li><strong>目標 TPA</strong>：從 9.3 mm 反推是 5°，可以跟主刀確認醫院的習慣值。</li>
+        <li><strong>轉量的算法</strong>：軟體的 Rotation 是弦長還是弧長（本例兩者都約 9.3 mm，不影響）。</li>
+        <li><strong>半月板</strong>：術中有沒有處理半月板（例如部分切除或 release），會影響術後疼痛與追蹤重點。</li>
+        <li><strong>術後 TPA 與回診時間</strong>：術後實際 TPA、預計幾週回診照片。</li>
+      </ol>
+    </div>
+
+    <div class="section" id="section-refs">
+      <div class="section-head"><div class="section-num">9</div><h2>資料來源</h2></div>
+      <ul>
+        <li>Todd H, et al. Assessment of the accuracy of digital surgical planning and its implementation with tibial plateau levelling osteotomy. <em>Vet Res Commun</em> 2026;50:321.（D1／D2／D3 定義、目標 TPA 5°、TTW &lt; 10 mm 風險、Robinson 2006 分法）<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13171988/" target="_blank" rel="noopener">PMC13171988</a></li>
+        <li>Kim J, et al. Preoperative planning using computed tomography in tibial plateau levelling osteotomy: A comparison with conventional radiography. <em>Vet Med Sci</em> 2022;8:959–965.（TPA 量法與拍片條件、健康米格魯 TPA、TTW &gt; 1 cm 或 25%）<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9122466/" target="_blank" rel="noopener">PMC9122466</a></li>
+        <li>Fujino H, et al. Preoperative planning for tibial plateau leveling osteotomy based on proximal tibial width. <em>J Vet Med Sci</em> 2020;82:661–667.（鋸片半徑選法、鋸片尺寸、術前 TPA 分布、TTW 討論）<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7273611/" target="_blank" rel="noopener">PMC7273611</a></li>
+        <li>課程講義〈常見伴侶動物骨科疾病復健〉第 4 週 p.8、p.68、p.71–72；〈復健相關解剖學及生理學〉第 2 週 p.17、p.40；〈水療及物理治療（二）〉第 6 週 p.24（劉金鳴等）。</li>
+        <li>旋轉距離公式（弦長、弧長）為整理者依幾何推導，用 Oreo 的數字驗算與規劃片相符。</li>
+      </ul>
+      <footer class="note-footer">本頁為個人臨床學習筆記整理，僅供學習與院內討論使用，不作為正式診斷或手術依據。</footer>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch (e) {}
+}
+(function(){ try { const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } } catch (e) {} })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+});
+
+const SECTION_NAMES = {
+  "abstract": "1 一句話與數值總表",
+  "why": "2 為什麼要轉平台",
+  "tpa": "3 TPA 怎麼量、怎麼拍",
+  "plan": "4 Oreo 規劃片逐項看",
+  "interactive": "5 互動示意：轉平台",
+  "postop": "6 術後片怎麼看",
+  "rehab": "7 術後復健與追蹤",
+  "confirm": "8 需要跟主刀確認",
+  "refs": "9 資料來源",
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<style>
+.tplo-wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:start;margin:12px 0}
+@media (max-width:760px){.tplo-wrap{grid-template-columns:1fr}}
+#tploSvg{width:100%;background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:var(--radius)}
+.tp-bone{fill:#d9cbb4;stroke:#7a6248;stroke-width:.5}
+.tp-frag{fill:#e8d9bf}
+.tp-saw{fill:none;stroke:#c0392b;stroke-width:.45;stroke-dasharray:1.6 1}
+.tp-axis{stroke:#3d8b4f;stroke-width:.5}
+.tp-perp{stroke:var(--fg-muted);stroke-width:.35;stroke-dasharray:1 1}
+.tp-plateau{stroke:#d4a017;stroke-width:.9}
+.tp-mark1{fill:#2b6cb0}.tp-mark2{fill:#c0392b}
+.tp-chord{stroke:var(--fg);stroke-width:.35;stroke-dasharray:.8 .6}
+.tp-center{fill:var(--fg)}
+.tp-lbl{font-size:3.2px;fill:var(--fg-muted)}
+.tp-big{font-size:5px;font-weight:700;fill:var(--fg)}
+.tplo-ctrl label{display:block;margin:0 0 10px;font-size:.92em}
+.tplo-ctrl input[type=range]{width:100%}
+.tplo-out{border:1px solid var(--line-soft);border-radius:var(--radius);padding:10px 12px;font-size:.9em;line-height:1.7;margin:6px 0}
+.tplo-out .warn{color:#c0392b;font-weight:700}
+</style>
+<script>
+(function(){
+  var E={x:70,y:34}, $=function(i){return document.getElementById(i)};
+  var rad=function(d){return d*Math.PI/180};
+  function P(x,y){return x.toFixed(2)+' '+y.toFixed(2)}
+  function draw(){
+    var pre=+$('sPre').value, tgt=+$('sTgt').value, R=+$('sSaw').value, t=+$('sT').value/100;
+    $('vPre').textContent=pre; $('vTgt').textContent=tgt; $('vT').textContent=Math.round(t*100);
+    var d=Math.max(pre-tgt,0), rot=d*t, a=rad(pre), c=Math.cos(a), s=Math.sin(a);
+    var Cr={x:E.x-16*c,y:E.y-16*s}, Cd={x:E.x+18*c,y:E.y+18*s};
+    var path='M'+P(Cr.x,Cr.y)+' L'+P(E.x-34,E.y+6)+' L'+P(E.x-31,E.y+30)+' L'+P(E.x-19,120)+' L'+P(E.x+12,120)+' Q'+P(E.x+14,E.y+40)+' '+P(Cd.x+3,Cd.y+12)+' L'+P(Cd.x,Cd.y)+' Z';
+    $('tpBoneBase').setAttribute('d',path); $('tpBoneFrag').setAttribute('d',path);
+    ['tpCircClip','tpCircMask','tpSaw'].forEach(function(i){$(i).setAttribute('r',R)});
+    $('tpFrag').setAttribute('transform','rotate('+(-rot)+' '+E.x+' '+E.y+')');
+    var pl=$('tpPlateau'); pl.setAttribute('x1',E.x-22*c);pl.setAttribute('y1',E.y-22*s);pl.setAttribute('x2',E.x+24*c);pl.setAttribute('y2',E.y+24*s);
+    var pp=$('tpPerp'); pp.setAttribute('x1',E.x-30);pp.setAttribute('y1',E.y);pp.setAttribute('x2',E.x+32);pp.setAttribute('y2',E.y);
+    var th=rad(120), m1={x:E.x+R*Math.cos(th),y:E.y+R*Math.sin(th)};
+    $('tpMarkBase').setAttribute('cx',m1.x);$('tpMarkBase').setAttribute('cy',m1.y);
+    $('tpMarkFrag').setAttribute('cx',m1.x);$('tpMarkFrag').setAttribute('cy',m1.y);
+    var th2=rad(120-rot), m2={x:E.x+R*Math.cos(th2),y:E.y+R*Math.sin(th2)};
+    var ch=$('tpChord'); ch.setAttribute('x1',m1.x);ch.setAttribute('y1',m1.y);ch.setAttribute('x2',m2.x);ch.setAttribute('y2',m2.y);
+    var cur=pre-rot; $('tpTpaTxt').textContent='TPA '+cur.toFixed(1)+'°';
+    var chord=2*R*Math.sin(rad(d)/2), arc=R*rad(d), ttw=34-R;
+    $('tpOut').innerHTML='要轉的角度：<b>'+d.toFixed(1)+'°</b>（'+pre+' → '+tgt+'）<br>旋轉距離（弦長）：<b>'+chord.toFixed(1)+' mm</b>　弧長 '+arc.toFixed(1)+' mm<br>目前 TPA：<b>'+cur.toFixed(1)+'°</b><br>示意 TTW：'+ttw+' mm'+(ttw<10?' <span class="warn">← 小於 10 mm，粗隆骨折風險增加（大型犬）</span>':'');
+  }
+  ['sPre','sTgt','sSaw','sT'].forEach(function(i){$(i).addEventListener('input',draw)});
+  draw();
+})();
+</script>
+
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>

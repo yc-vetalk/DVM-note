@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院醫師筆記：專題 - 貓虹膜色素沉著與 FDIM 診斷流程 - yc._vetalk</title>
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/ah.css?v=4">
+</head>
+<body class="ah">
+
+<header>
+  <a class="header-brand" href="../index.html">
+    <h1>yc._vetalk</h1>
+    <div class="subtitle">DVM Course Notes · 大一～大四</div>
+  </a>
+  <div class="site-nav" id="siteNav" data-base="../" data-current="上群"></div>
+  <div class="header-right">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜尋本頁內容..." oninput="doSearch(this.value)" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div class="nav-panel" id="navPanel"></div>
+
+<section class="pagehead">
+  <div class="pagehead__inner">
+    <div class="breadcrumb">
+      <a href="../index.html">網頁筆記首頁</a><span class="sep">›</span><a href="index.html">住院醫師筆記</a><span class="sep">›</span><span class="current">專題：貓虹膜色素沉著與 FDIM 診斷流程</span>
+    </div>
+    <div class="page-head">
+      <h1 class="page-title">專題：貓虹膜色素沉著與 FDIM 診斷流程</h1>
+      <p class="page-subtitle">瀰漫性虹膜黑色素瘤（Feline Diffuse Iris Melanoma, FDIM）。看到一隻貓的虹膜色斑在變大時，要做哪些檢查、每項檢查的結果怎麼讀、採樣怎麼做和有什麼副作用，以及什麼時候該從「追蹤」轉成「處置」</p>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-item"><div class="meta-label">類型</div><div class="meta-value">院內參考專題（檢查判讀與決策流程；非單一病例紀錄，未含病患識別資料）</div></div>
+      <div class="meta-item"><div class="meta-label">主要問題</div><div class="meta-value">虹膜黑色素沉著（iris melanosis）與早期 FDIM 外觀相同，怎麼分期、怎麼追蹤、何時摘眼</div></div>
+      <div class="meta-item"><div class="meta-label">資料來源</div><div class="meta-value">FASAVA 2026 Kobayashi「The Unique Feline Eye」講義 Part 2（p.38–59）；Komatsu 2024、Featherstone 2020、Wiggans 2016、Gregorio 2026、MSPCA Coster 等文獻（見第 13 節）</div></div>
+      <div class="meta-item"><div class="meta-label">紀錄日期</div><div class="meta-value">2026-11-07</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pagewrap">
+  <nav class="toc">
+    <div class="section-label">結論</div>
+    <a class="active" onclick="showSection('abstract')" id="nav-abstract"><span class="nav-icon">⭐</span> 核心結論</a>
+    <div class="section-label" style="margin-top:8px;">疾病</div>
+    <a onclick="showSection('fdim')" id="nav-fdim"><span class="nav-icon">1</span> FDIM 是什麼：分期與預後</a>
+    <a onclick="showSection('ddx')" id="nav-ddx"><span class="nav-icon">2</span> 虹膜色素變化的鑑別</a>
+    <div class="section-label" style="margin-top:8px;">檢查與判讀</div>
+    <a onclick="showSection('slitlamp')" id="nav-slitlamp"><span class="nav-icon">3</span> 裂隙燈與標準化拍照</a>
+    <a onclick="showSection('iop')" id="nav-iop"><span class="nav-icon">4</span> 眼壓與隅角鏡</a>
+    <a onclick="showSection('oct')" id="nav-oct"><span class="nav-icon">5</span> 前眼節 OCT＋PN 計算</a>
+    <a onclick="showSection('us')" id="nav-us"><span class="nav-icon">6</span> 眼球超音波與 UBM</a>
+    <a onclick="showSection('systemic')" id="nav-systemic"><span class="nav-icon">7</span> 全身評估與轉移分期</a>
+    <div class="section-label" style="margin-top:8px;">採樣與處置</div>
+    <a onclick="showSection('sampling')" id="nav-sampling"><span class="nav-icon">8</span> 採樣方式與副作用</a>
+    <a onclick="showSection('options')" id="nav-options"><span class="nav-icon">9</span> 處置選項比較</a>
+    <a onclick="showSection('workflow')" id="nav-workflow"><span class="nav-icon">10</span> 建議診斷流程與時程</a>
+    <a onclick="showSection('apply')" id="nav-apply"><span class="nav-icon">11</span> 套用：年輕貓的進展性色斑</a>
+    <div class="section-label" style="margin-top:8px;">複習</div>
+    <a onclick="showSection('quiz')" id="nav-quiz"><span class="nav-icon">✏️</span> 自我測驗</a>
+    <a onclick="showSection('refs')" id="nav-refs"><span class="nav-icon">📚</span> 參考資料</a>
+    <a onclick="showSection('followup')" id="nav-followup"><span class="nav-icon">📌</span> 待確認事項</a>
+  </nav>
+
+  <main class="pagebody" id="mainContent">
+
+    <!-- 0 ABSTRACT -->
+    <div class="section" id="section-abstract">
+      <div class="section-head"><div class="section-num">0</div><h2>核心結論</h2></div>
+
+      <div class="overview">
+        <div class="overview__title">這個專題的大方向</div>
+        <dl>
+          <dt>這是什麼病</dt>
+          <dd><strong>瀰漫性虹膜黑色素瘤（FDIM）</strong>是貓最常見的眼內腫瘤：虹膜表面出現扁平的色素增加，在數月到數年間進展，晚期會造成續發性青光眼，並轉移到肝、肺、脾、淋巴結、骨（轉移率 19–63%）（講義 p.40）。</dd>
+          <dt>為什麼難</dt>
+          <dd>良性的<strong>虹膜黑色素沉著（melanosis）</strong>和<strong>早期 FDIM</strong> 在檢查時看起來一樣（講義 p.49），兩者的分界是組織學上「腫瘤細胞有沒有侵入虹膜基質（stroma）」，而這只有切片才看得到。狗的虹膜色素病灶很少轉移，貓的卻可能致命，不能用狗的邏輯看貓（講義 p.3）。</dd>
+          <dt>重點</dt>
+          <dd><ol>
+            <li><a href="#section-slitlamp">裂隙燈＋標準化拍照</a>是追蹤的主體：看<strong>大小、顏色、表面（扁平或增厚、天鵝絨狀）、瞳孔形狀、色素有沒有散落</strong>。</li>
+            <li><a href="#section-iop">眼壓與隅角鏡</a>：眼壓升高或隅角被侵犯是晚期警訊；眼壓偏低要想葡萄膜炎。</li>
+            <li><a href="#section-oct">前眼節 OCT</a>：看病灶處虹膜有沒有相對增厚（<strong>PN 比值</strong>：黑色素沉著約 1.0、早期 FDIM 約 1.3）；只能輔助，不能單獨決定摘眼。</li>
+            <li><a href="#section-us">超音波</a>：一般 B-mode 看不清早期虹膜增厚，用來看睫狀體腫塊、水晶體脫位、眼球大小；看虹膜和隅角要用高頻 UBM。</li>
+            <li><a href="#section-sampling">虹膜切片</a>是轉診層級的顯微手術；<strong>切到 FDIM 可以支持摘眼，切到黑色素沉著卻不能排除 FDIM</strong>。</li>
+            <li><a href="#section-options">處置</a>：監測、經角膜二極體雷射、局部切除、摘眼。只有摘眼有機會根治，摘下的眼球一定要送病理分期。</li>
+            <li><a href="#section-workflow">流程</a>：基準檢查 → 每 2–3 個月拍照＋眼壓 → 出現增厚、瞳孔變形、色素散落、眼壓上升、發炎或加速進展時，轉為積極處置。</li>
+          </ol></dd>
+          <dt>容易搞混</dt>
+          <dd>① <strong>「看起來扁平、淡褐色」不等於良性</strong>：早期 FDIM 也可以是扁平的（Komatsu 2024 的早期 FDIM 4 隻中有 2 隻表面平滑）。② <strong>「切片是黑色素沉著」不等於安全</strong>：檢體不到 1 mm，侵犯呈斑塊狀，可能剛好沒切到。③ <strong>「年輕」不能排除</strong>：講義病例 Popo 1 歲 4 個月就切出早期 FDIM。</dd>
+        </dl>
+      </div>
+
+      <div class="flow">
+        <div class="flow-node">發現虹膜色斑</div><span class="flow-arrow">→</span>
+        <div class="flow-node">基準檢查：裂隙燈、拍照、兩眼眼壓、隅角、OCT／UBM</div><span class="flow-arrow">→</span>
+        <div class="flow-node accent">每 2–3 個月追蹤，比較變化</div><span class="flow-arrow">→</span>
+        <div class="flow-node">出現警訊 → 切片／雷射／摘眼</div><span class="flow-arrow">→</span>
+        <div class="flow-node">摘眼 → 病理分期 → 轉移追蹤</div>
+      </div>
+
+      <div class="alert alert-warn">
+        <div class="alert-label">本頁怎麼讀</div>
+        <p>標「講義」的是 Kobayashi 講義內容（頁碼指 PDF 頁）；標「文獻」的是這次查到並讀到摘要或全文的研究，作者年份都寫在旁邊；標「補充」的是一般眼科知識，這次沒有另外找文獻核對；標「推論」的是我依資料推出的看法。<strong>兩眼眼壓差異的切點，這次沒有找到貓專屬數據</strong>，判讀以「和對側眼比較」為原則。眼球超音波的正常值（波斯貓 B-mode、家貓 UBM）與判讀細節另見〈<a href="2026-11-07_專題-眼球超音波判讀.html">眼球超音波判讀</a>〉。講義本身的完整整理見上群AH〈<a href="../../上群AH/研討會/貓眼的獨特性-眼表虹膜與眼底.html">貓眼的獨特性：眼表、虹膜與眼底</a>〉第 6–7 節。</p>
+      </div>
+      <footer class="note-footer">本頁為個人學習整理，僅供學習與院內討論使用，不作為正式診斷或治療依據；實際處置以眼科專科醫師評估為準。</footer>
+    </div>
+
+    <!-- 1 FDIM -->
+    <div class="section" id="section-fdim">
+      <div class="section-head"><div class="section-num">1</div><h2>FDIM 是什麼：分期與預後</h2></div>
+      <p class="section-desc">從黑色素沉著到晚期 FDIM 是一條連續的光譜，預後取決於腫瘤侵犯到哪裡，所以後面每一項檢查，目的都是在推測病灶目前走到光譜的哪一段。</p>
+
+      <h3>組織學分期（講義 p.41–42，Kayes 2025）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>分期</th><th>組織學定義</th><th>臨床意義</th></tr></thead>
+        <tbody>
+          <tr><td><strong>虹膜黑色素沉著（iris melanosis）</strong></td><td>發育不良的黑色素細胞只排在虹膜前表面，最多三層，<strong>沒有侵入下方基質</strong></td><td>良性，但可能進展；Kayes 2025 指出它在組織學上已經像原位黑色素瘤</td></tr>
+          <tr><td><strong>早期 FDIM</strong></td><td>腫瘤性黑色素細胞<strong>侵入虹膜基質</strong>；這一個特徵就是良性和惡性的分界</td><td>此時摘眼，存活接近未患病的貓（Kalishman 1998）</td></tr>
+          <tr><td><strong>晚期 FDIM</strong></td><td>侵犯隅角、睫狀體、鞏膜；<strong>侵入鞏膜靜脈叢（scleral venous plexus）</strong>被認為是血行轉移的路徑</td><td>續發性青光眼、轉移、存活時間顯著縮短</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="figure"><img src="../../上群AH/研討會/img/kayes2025_fig1.png" alt="Kayes 2025 Figure 1：黑色素沉著、早期與晚期 FDIM 的組織切片與存活曲線" loading="lazy">
+        <div class="figure-caption">A：黑色素沉著，黑色素細胞排在虹膜前表面（括號），沒有往下侵犯。B：早期 FDIM，腫瘤細胞侵入基質（箭頭）。C：晚期 FDIM，侵犯睫狀體與鞏膜，箭頭為鞏膜靜脈叢。D、E：三期的臨床病理對照與 Kaplan–Meier 存活曲線，只有晚期 FDIM 的曲線明顯往下掉。</div>
+        <div class="figure-source">來源：Kayes D, et al. Sci Rep. 2025;15:26218, Figure 1（CC BY 4.0；講義 p.42、p.47 引用）</div></div>
+
+      <h3>三期的臨床病理對照（講義 p.47，Kayes 2025，n = 33）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>黑色素沉著（n=7）</th><th>早期 FDIM（n=13）</th><th>晚期 FDIM（n=13）</th></tr></thead>
+        <tbody>
+          <tr><td>平均年齡（歲）</td><td>9.4</td><td>8.45</td><td><strong>12.8</strong>*</td></tr>
+          <tr><td>續發性青光眼</td><td>0</td><td>2*</td><td><strong>9</strong>*</td></tr>
+          <tr><td>核分裂數／HPF（中位數）</td><td>0</td><td>&lt;1*</td><td><strong>7</strong>*</td></tr>
+          <tr><td>轉移</td><td>0</td><td>0</td><td><strong>4</strong></td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">* p &lt; 0.05。晚期 FDIM 的局部侵犯：鞏膜靜脈叢 9/13（69%）、脈絡膜 5/13（38%）、隅角／小樑網 3/13（23%）、鞏膜外層 3/13（23%）。<strong>這張表的讀法</strong>：青光眼和核分裂數會隨分期一路上升，所以眼壓升高本身就暗示病灶已經走到後段；黑色素沉著和早期 FDIM 的存活曲線分不開，代表「在早期就處理」是有效的時間窗。</p>
+
+      <h3>組織學上預測轉移的因子（文獻：Wiggans 2016，47 隻，轉移 19%）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>因子</th><th>和轉移的關係</th><th>這個指標在說什麼</th></tr></thead>
+        <tbody>
+          <tr><td>核分裂指數 &gt;7／10 HPF（×400）</td><td>轉移率上升</td><td>腫瘤細胞分裂快；7 是研究找出的切點</td></tr>
+          <tr><td>腫瘤延伸到鞏膜外（extrascleral extension）</td><td>轉移率上升</td><td>已經離開眼球</td></tr>
+          <tr><td>腫瘤內壞死</td><td>轉移率上升</td><td>生長快到血流供應不上</td></tr>
+          <tr><td>侵犯脈絡膜</td><td>轉移率上升</td><td>脈絡膜血管豐富，是血行轉移的入口</td></tr>
+          <tr><td>E-cadherin、melan-A 染色強度增加</td><td>轉移率上升</td><td>免疫組織化學（IHC）指標</td></tr>
+          <tr><td>PNL2 染色均勻</td><td>轉移率下降</td><td>IHC 指標</td></tr>
+          <tr><td>B-Raf 表現</td><td>和轉移無顯著關係</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>其他預後資料</h3>
+      <ul>
+        <li><strong>Kalishman 1998</strong>（文獻）：34 隻因 FDIM 摘眼的貓，對照 83 隻同齡貓。腫瘤侷限在虹膜時摘眼，存活和對照組相近；侵犯後虹膜上皮、睫狀體或鞏膜靜脈叢時預後較差。結論是「早期摘眼對避免提早死亡很重要」。</li>
+        <li><strong>青光眼與存活</strong>（文獻，二手引用）：MSPCA Coster 引用一篇 2002 年的研究，有續發性青光眼的 FDIM 貓存活 21%（4/19），沒有青光眼的 73%（11/15），差異接近顯著。但 Wiggans 2016 並沒有發現青光眼會增加轉移風險。這兩篇結論不一致，原文我沒有讀到。</li>
+        <li><strong>轉移可能很晚才出現</strong>（文獻：Coster）：作者看過摘眼後數年才出現轉移或眼眶復發的病例，所以摘眼不等於結案。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：Kayes &amp; Blacklock 2022 的回顧把摘眼列為標準治療，不建議虹膜切除或 Nd:YAG 雷射光凝；講義 p.58 的二極體雷射是「飼主不願摘眼時」的選項，詳見上群AH 課程頁第 6 節的補充框。</p>
+      <footer class="note-footer">資料來源：講義 p.38–47；Kayes 2025；Wiggans 2016；Kalishman 1998；MSPCA Coster。本頁為個人學習整理，不作為正式診斷依據。</footer>
+    </div>
+
+    <!-- 2 DDX -->
+    <div class="section" id="section-ddx">
+      <div class="section-head"><div class="section-num">2</div><h2>虹膜色素變化的鑑別診斷</h2></div>
+      <p class="section-desc">不是每個虹膜色斑都是 FDIM 的前身。先確認是「色素本身」的變化，還是發炎或其他疾病造成的顏色改變，後者的處理方向完全不同。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>鑑別</th><th>支持的特徵</th><th>下一步</th></tr></thead>
+        <tbody>
+          <tr><td><strong>虹膜顏色正常成熟</strong>（補充）</td><td>小貓虹膜顏色會持續變化，通常幾個月到 1 歲左右穩定；兩眼對稱、整片均勻改變</td><td>成年後就不應再出現新的局部色斑</td></tr>
+          <tr><td><strong>虹膜雀斑（iris freckle）／痣（nevus）</strong>（文獻：Coster）</td><td>局部、扁平的色素點；較大的雀斑稱為痣</td><td>拍照追蹤</td></tr>
+          <tr><td><strong>虹膜黑色素沉著（iris melanosis）</strong></td><td>扁平、淡褐色、表面不均勻、虹膜紋理還在；年紀大時可呈「虎斑狀」（tiger-stripe）瀰漫分布（Coster）</td><td>拍照＋眼壓定期追蹤；虎斑型仍需組織學才能排除 FDIM</td></tr>
+          <tr><td><strong>早期 FDIM</strong></td><td>外觀可與黑色素沉著完全相同；可能局部微隆起、表面較均勻、顏色較深</td><td>OCT、切片、討論摘眼</td></tr>
+          <tr><td><strong>黑色素沉著背景上的局部黑色素瘤</strong>（文獻：Coster）</td><td>在淡色的黑色素沉著中，出現一塊較深、較厚、較均勻的區域</td><td>這塊就是要重點追蹤或切片的位置</td></tr>
+          <tr><td><strong>葡萄膜炎造成的虹膜變色</strong>（補充）</td><td>房水閃光（aqueous flare）、角膜後沉積物（keratic precipitates, KPs）、虹膜充血（rubeosis iridis）、眼壓偏低、前粘連；虹膜顏色變暗或變紅褐</td><td>找病因：貓傳染性腹膜炎（Feline Infectious Peritonitis, FIP）、貓白血病病毒（FeLV）、貓免疫缺乏病毒（FIV）、弓蟲（<i>Toxoplasma</i>）、淋巴瘤</td></tr>
+          <tr><td><strong>虹膜淋巴瘤</strong>（補充）</td><td>通常是粉紅到白色的浸潤或結節、合併葡萄膜炎，而不是褐黑色色素</td><td>房水細胞學（見第 8 節）、全身檢查</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info"><div class="alert-label">重點</div>
+        <p>講義 p.65 提到：貓的眼內發炎在年輕、收容所、多貓環境要先想 FIP；前外出貓要想弓蟲與隱球菌；老貓要想淋巴瘤。所以只要看到 flare 或 KPs，<strong>先處理葡萄膜炎的病因，不要直接當成色素病灶追蹤</strong>。另一方面，FDIM 本身也會造成葡萄膜炎，所以兩者可以同時存在（Coster：葡萄膜炎、青光眼、色素散落、瞳孔光反射異常都比較支持 FDIM）。</p></div>
+      <footer class="note-footer">資料來源：MSPCA Coster；講義 p.3、p.65。標「補充」者為一般眼科知識，未另行查證。</footer>
+    </div>
+
+    <!-- 3 SLIT LAMP -->
+    <div class="section" id="section-slitlamp">
+      <div class="section-head"><div class="section-num">3</div><h2>裂隙燈檢查與標準化拍照</h2></div>
+      <p class="section-desc">最便宜、最常做、也最重要的一項。講義 p.48 把它列為風險評估的核心：決定要不要手術前，先評估進展、結構、眼睛本身和整體背景。</p>
+
+      <h3>每次要看的六件事（文獻：Coster；講義 p.48）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>項目</th><th>偏黑色素沉著（良性）</th><th>偏 FDIM 或進展中</th><th>為什麼</th></tr></thead>
+        <tbody>
+          <tr><td><strong>厚度</strong></td><td>扁平，沒有隆起</td><td>增厚、隆起</td><td>黑色素沉著是正常的黑色素細胞堆在正常位置；腫瘤細胞分裂才會讓色素層變厚</td></tr>
+          <tr><td><strong>表面質地</strong></td><td>顯微下不均勻、虹膜紋理（crypts、基質纖維）還看得到</td><td>均勻一片、天鵝絨狀（velvet-like），紋理消失</td><td>腫瘤細胞取代原本的基質結構</td></tr>
+          <tr><td><strong>顏色</strong></td><td>較淡的褐色</td><td>較深、接近黑色</td><td>黑色素含量較高</td></tr>
+          <tr><td><strong>瞳孔</strong></td><td>圓整，瞳孔光反射（PLR）收縮幅度正常</td><td>瞳孔變形（dyscoria）、瞳孔緣外翻或被侵犯、收縮幅度變小</td><td>腫瘤侵入基質後影響瞳孔括約肌與擴大肌</td></tr>
+          <tr><td><strong>色素散落</strong></td><td>沒有</td><td>色素出現在水晶體前囊、角膜內皮，或懸浮在房水中</td><td>腫瘤細胞或色素脫落</td></tr>
+          <tr><td><strong>發炎與眼壓</strong></td><td>眼壓正常、沒有 flare</td><td>葡萄膜炎、青光眼</td><td>見第 4 節</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="figure"><img src="img/fdim/ho_p048.jpg" alt="講義：決策、記錄與監測" loading="lazy">
+        <div class="figure-caption">講義列出摘眼前的四類風險評估：進展（大小、變深、擴散）、結構（增厚、瞳孔變形、隅角）、眼睛（眼壓、發炎、視力）、背景（年齡、分期、對側眼）。右欄：連續拍照是風險評估的一部分，追蹤大小、表面與瞳孔形狀，<strong>出現增厚時加做超音波</strong>，並在疼痛或青光眼出現之前就和飼主討論。左下為虹膜色斑的裂隙燈照片與對應的超音波影像。</div>
+        <div class="figure-source">來源：Kobayashi，FASAVA 2026 講義 p.48（經講者同意轉載，依使用者回報）</div></div>
+
+      <h3>標準化拍照怎麼做（推論＋補充）</h3>
+      <p>追蹤的目的是比較，所以每次條件要一樣，否則看到的「變大」可能只是角度或瞳孔大小不同：</p>
+      <ul>
+        <li><strong>固定條件</strong>：同一台相機或手機、同樣的距離、正面與固定的斜角各一張、同樣的光源。</li>
+        <li><strong>瞳孔狀態</strong>：瞳孔大小會改變虹膜露出的面積，同一個病灶在瞳孔放大時看起來比較小。可在亮處（瞳孔縮小、虹膜攤開）拍一組，散瞳前後各拍一組，並記錄當時的狀態。</li>
+        <li><strong>用時鐘位置記錄範圍</strong>：例如「右眼 4–8 點鐘、從虹膜根部延伸到瞳孔緣」，比「約 1/6」更容易每次比較。</li>
+        <li><strong>兩眼都拍</strong>：對側眼是最好的對照，也能及早發現另一眼出現病灶（Coster 提到轉移到對側眼很少見，但仍可能）。</li>
+      </ul>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充：裂隙燈下的「flare」是光束穿過前房時看得到光柱，代表房水中蛋白質增加（血液－房水屏障被破壞）；KPs 是發炎細胞黏在角膜內皮形成的小點。兩者都是葡萄膜炎的徵象。</p>
+      <footer class="note-footer">資料來源：講義 p.48；MSPCA Coster。拍照做法為推論整理。</footer>
+    </div>
+
+    <!-- 4 IOP -->
+    <div class="section" id="section-iop">
+      <div class="section-head"><div class="section-num">4</div><h2>眼壓（Intraocular Pressure, IOP）與隅角鏡（gonioscopy）</h2></div>
+      <p class="section-desc">FDIM 往後段走時會侵犯隅角（房水流出的地方），造成續發性青光眼。眼壓和隅角就是在看腫瘤有沒有走到這一段。</p>
+
+      <h3>眼壓的參考值會因儀器而不同（文獻）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>儀器</th><th>健康貓的測值（mmHg）</th><th>出處</th></tr></thead>
+        <tbody>
+          <tr><td>TonoVet Plus（回彈式）</td><td>16.9 ± 1.2</td><td>Veterinary World 2024（臨床評估）</td></tr>
+          <tr><td>Tono-Pen Avia Vet（壓平式）</td><td>16.2 ± 1.1</td><td>同上</td></tr>
+          <tr><td>門診同時比較：TonoVet／TonoVet Plus／Tono-Pen Avia Vet／Kowa HA-2</td><td>19.7 ± 6.6／17.1 ± 5.4／16.3 ± 4.3／14.5 ± 2.2</td><td>Veterinary World 2024（另一篇）</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li><strong>這些數字怎麼用</strong>：同一隻貓用不同儀器量，結果可以差到 5 mmHg，所以<strong>追蹤時一律用同一台儀器</strong>，並以自己院內那台儀器的參考值判讀。</li>
+        <li><strong>壓平式在高眼壓時會低估</strong>：TonoVet 比 Tono-Pen XL 更接近真實眼壓，而 Tono-Pen 在貓青光眼時會明顯低估高眼壓（2023 研究）。懷疑青光眼時，數字「還好」不代表真的還好。</li>
+        <li><strong>兩眼比較</strong>：這次沒有找到貓的兩眼差異切點，所以頁面不寫數字。實務上只要單眼明顯高於對側眼，就要搭配隅角檢查和臨床症狀（角膜水腫、瞳孔放大、眼球變大）一起看。</li>
+      </ul>
+
+      <h3>眼壓結果怎麼讀（推論，依講義與 Kayes 2025）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>結果</th><th>可能代表</th><th>對 FDIM 決策的意義</th></tr></thead>
+        <tbody>
+          <tr><td><strong>兩眼正常、對稱</strong></td><td>隅角應該還沒被明顯侵犯</td><td>可以繼續追蹤（仍需搭配其他檢查）</td></tr>
+          <tr><td><strong>患眼升高</strong></td><td>腫瘤細胞或色素阻塞隅角、隅角被侵犯、續發性青光眼</td><td>Kayes 2025 晚期 FDIM 9/13 有青光眼；講者與 2016 年專科醫師調查都建議有青光眼的 FDIM 眼要摘除</td></tr>
+          <tr><td><strong>患眼偏低</strong></td><td>葡萄膜炎（睫狀體分泌房水減少）</td><td>先找葡萄膜炎原因；FDIM 本身也可能引起發炎</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">補充（一般操作原則，未另行查證）：保定時不要壓頸部（頸靜脈受壓會讓眼壓上升）、不要撐眼瞼時壓到眼球；在點散瞳劑之前量；盡量在每天差不多的時間量。</p>
+
+      <h3>隅角鏡（gonioscopy）</h3>
+      <ul>
+        <li><strong>在看什麼</strong>：虹膜角膜角（iridocorneal angle）與梳狀韌帶（pectinate ligament）。正常貓的隅角開口寬、梳狀韌帶纖維細而疏，比狗容易看見（文獻：PMC 圖說）；很多時候不需要隅角鏡就看得到一部分。</li>
+        <li><strong>FDIM 的異常</strong>：隅角或小樑網（trabecular meshwork）有色素沉積或腫瘤細胞浸潤、梳狀韌帶被色素塊遮住。講義 p.48 把「angle」列為結構風險之一；Kayes 2025 晚期 FDIM 有 3/13 侵犯隅角。</li>
+        <li><strong>讀法</strong>：隅角被侵犯代表腫瘤已經走出虹膜基質，接近房水流出路徑與鞏膜靜脈叢，是強烈建議摘眼的徵象（推論，依 Kayes 2025 分期定義）。</li>
+      </ul>
+      <footer class="note-footer">資料來源：Veterinary World 2024 兩篇眼壓研究；Tono-Pen 低估研究（2023）；Kayes 2025；MSPCA Coster；講義 p.48。</footer>
+    </div>
+
+    <!-- 5 OCT -->
+    <div class="section" id="section-oct">
+      <div class="section-head"><div class="section-num">5</div><h2>前眼節光學同調斷層掃描（Anterior Segment OCT, AS-OCT）</h2></div>
+      <p class="section-desc">OCT 用近紅外光做出虹膜的橫切面，可以看到肉眼看不到的「厚度」與「分層」。它的價值在灰色地帶：外觀像黑色素沉著，但不確定有沒有侵入基質。</p>
+
+      <div class="figure"><img src="img/fdim/ho_p056.jpg" alt="講義：前眼節 OCT 的角色" loading="lazy">
+        <div class="figure-caption">講義重點：AS-OCT 顯示結構，但不能確立診斷；非侵入性的虹膜橫切面，可能顯示細微的相對增厚，最適合用在灰色地帶。右側 A 為虹膜色斑外觀，B 為掃描線位置（綠色箭頭），C 為 OCT 影像，黃色箭頭指的是虹膜表面的高反射線（黑色素沉著的特徵）。</div>
+        <div class="figure-source">來源：講義 p.56；右側圖為 Komatsu 2024（Vet Sci，開放取用）</div></div>
+
+      <h3>研究怎麼做（文獻：Komatsu 2024，18 隻單眼病灶）</h3>
+      <ul>
+        <li><strong>儀器</strong>：頻域 OCT（Spectralis, Heidelberg）加前眼節模組。</li>
+        <li><strong>不需要鎮靜</strong>：徒手保定貓頭在儀器前，每隻 10 分鐘內完成。用光照<strong>對側眼</strong>讓瞳孔縮小、虹膜攤開。</li>
+        <li><strong>怎麼量</strong>：在病灶的<strong>虹膜根部、瞳孔緣、病灶中央</strong>三點量厚度，平均成 MIT（mean iris thickness）；再除以<strong>對側正常眼同部位</strong>的 MIT，得到 <strong>PN 比值</strong>（Pigmented lesion ÷ Normal iris）。</li>
+        <li><strong>為什麼用比值不用絕對厚度</strong>：各組的 MIT 絕對值沒有顯著差異（290、352 ± 95、353 ± 105 µm，p = 0.61），因為每隻貓虹膜本來就厚薄不同；和自己的另一眼比，才看得出「相對增厚」。</li>
+      </ul>
+
+      <h3>判讀表</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>分期</th><th>PN 比值</th><th>OCT 影像特徵</th></tr></thead>
+        <tbody>
+          <tr><td>正常虹膜</td><td>—</td><td>三層：基質、肌肉層、後色素上皮</td></tr>
+          <tr><td>疑似黑色素沉著（n=8，未經組織學）</td><td>1.02 ± 0.10</td><td>75% 有表面高反射線</td></tr>
+          <tr><td><strong>黑色素沉著</strong>（n=3，組織學確診）</td><td><strong>0.99 ± 0.09</strong></td><td>100% 有表面高反射線（組織學上對應表面堆積的色素細胞）；基質有輕微陰影；厚度不變</td></tr>
+          <tr><td><strong>早期 FDIM</strong>（n=4）</td><td><strong>1.28 ± 0.18</strong>（摘要寫 1.29 ± 0.16）</td><td><strong>表面高反射線消失</strong>（腫瘤細胞在基質裡，不在表面）；基質增厚；分層仍可辨認</td></tr>
+          <tr><td>中期／晚期 FDIM（n=3）</td><td>無法測量</td><td>嚴重的後方陰影，看不到虹膜後半部與色素上皮</td></tr>
+          <tr><td>確診黑色素瘤（講義引用 Lanzendörfer 2026）</td><td>約 1.58（後緣為外推）</td><td>表面亮而厚，後方陰影</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="figure"><img src="img/fdim/ho_p057.jpg" alt="講義：AS-OCT 各分期表現示意圖" loading="lazy">
+        <div class="figure-caption">講者依文獻描述手繪的示意圖（不是實際 OCT 影像）：1 正常三層；2 黑色素沉著，表面一條薄的高反射線、厚度不變（PN ≈ 1.0）；3 早期 FDIM，基質增厚、表面線消失、分層仍在（PN ≈ 1.3）；4 晚期黑色素瘤，表面亮而厚、後方陰影遮住虹膜後面（PN ≈ 1.6，推估）。底下強調：用同一台機器連續追蹤，OCT 單獨還不能決定是否摘眼。</div>
+        <div class="figure-source">來源：講義 p.57（講者繪製）</div></div>
+
+      <h3>PN 比值計算</h3>
+      <p>輸入病灶眼與對側眼同部位三點的厚度（µm），算出 PN 比值，並對照 Komatsu 2024 的分組數值。</p>
+      <div class="card" id="pnCalc">
+        <div class="pn-grid">
+          <div class="pn-head"></div><div class="pn-head">虹膜根部</div><div class="pn-head">病灶中央</div><div class="pn-head">瞳孔緣</div>
+          <div class="pn-label">病灶眼（µm）</div>
+          <input type="number" id="pnL1" value="380" min="0"><input type="number" id="pnL2" value="420" min="0"><input type="number" id="pnL3" value="300" min="0">
+          <div class="pn-label">對側眼（µm）</div>
+          <input type="number" id="pnN1" value="320" min="0"><input type="number" id="pnN2" value="330" min="0"><input type="number" id="pnN3" value="260" min="0">
+        </div>
+        <div id="pnOut" class="pn-out"></div>
+        <div class="pn-bar"><div class="pn-zone pn-z1">≈1.0 黑色素沉著</div><div class="pn-zone pn-z2">≈1.3 早期 FDIM</div><div class="pn-zone pn-z3">≈1.6 黑色素瘤</div><div class="pn-marker" id="pnMarker"></div></div>
+        <p style="font-size:.85em; color:var(--fg-faint); margin-top:8px;">預設值只是示範。研究只有 18 隻貓，兩組之間沒有公布切點；這裡的色帶只是把數值放在研究平均值旁邊比較，<strong>不是診斷標準</strong>。追蹤時比較的是同一隻貓自己的 PN 比值趨勢。</p>
+      </div>
+
+      <div class="alert alert-warn"><div class="alert-label">限制</div>
+        <ul style="margin:6px 0 0; padding-left:1.2em;">
+          <li>先導研究，組織學確診的黑色素沉著只有 3 隻、早期 FDIM 4 隻；審稿人也指出兩組差距不大、樣本太小。</li>
+          <li>只有一位觀察者測量；觀察者間一致性 ICC 0.896（可接受，但不是完美）。</li>
+          <li>中晚期病灶因陰影無法量測，所以 OCT 最適合的正好是早期、外觀看不出差別的病灶。</li>
+          <li>不同 OCT 機型的數值不能互比；作者建議 OCT 當作追蹤虹膜結構變化的輔助工具，需要更大規模、有組織學對照的研究驗證。</li>
+        </ul></div>
+      <footer class="note-footer">資料來源：Komatsu H, et al. Vet Sci. 2024;11(6):261（PMC 全文）；講義 p.56–57。</footer>
+    </div>
+
+    <!-- 6 ULTRASOUND -->
+    <div class="section" id="section-us">
+      <div class="section-head"><div class="section-num">6</div><h2>眼球超音波（B-mode）與超音波生物顯微鏡（Ultrasound Biomicroscopy, UBM）</h2></div>
+      <p class="section-desc">超音波在 FDIM 的角色是「看腫瘤有沒有走到後面」：睫狀體、脈絡膜、水晶體、眼球大小。早期虹膜表面的變化，一般超音波解析度看不出來。</p>
+
+      <h3>兩種超音波的差別</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>一般眼球 B-mode</th><th>UBM（高頻）</th></tr></thead>
+        <tbody>
+          <tr><td>頻率</td><td>文獻多用 7.5–18 MHz 線性或微凸探頭（10 MHz 微凸常見）</td><td>約 35–50 MHz（人醫文獻多為 50 MHz）</td></tr>
+          <tr><td>看得到</td><td>整顆眼球：前房、水晶體、玻璃體、視網膜、球後</td><td>只看前段：虹膜厚度、睫狀體、隅角開口、後房</td></tr>
+          <tr><td>在 FDIM 的用途</td><td>睫狀體或脈絡膜腫塊、水晶體脫位、眼球變大、視網膜剝離、玻璃體出血</td><td>虹膜增厚、腫瘤是否延伸到睫狀體、隅角是否被堵住</td></tr>
+          <tr><td>取得難度</td><td>一般醫院就有</td><td>多在眼科專科；家貓 UBM 正常值：虹膜中段 0.53 ± 0.11 mm、根部 0.34 ± 0.06 mm、隅角 28.9°（Kim 2026, Vet Sci 13:50；見〈<a href="2026-11-07_專題-眼球超音波判讀.html#section-values">眼球超音波判讀</a>〉第 4 節）</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">文獻：人醫研究顯示，UBM 發現睫狀體與周邊虹膜被黑色素瘤侵犯的比例，顯著高於一般 B-scan。貓的 FDIM 目前沒有找到 UBM 厚度切點的研究。</p>
+
+      <h3>操作要點（補充，一般原則）</h3>
+      <ul>
+        <li>點表面麻醉劑後，探頭隔著大量無菌耦合凝膠接觸角膜（經角膜），或隔著閉合的眼瞼掃描（經眼瞼，影像較差但較不刺激角膜）。角膜有潰瘍或眼球可能破裂時避免直接加壓。</li>
+        <li>至少掃水平與垂直兩個切面，並且<strong>兩眼都要掃、用同樣的設定</strong>。貓的 B-mode 正常值只有波斯貓（短頭品種）的資料（眼軸 20.7 ± 1.0 mm，Mirshahi 2014），家貓仍以和對側眼比較為主。完整的正常影像、異常表現與 FDIM 各期在超音波上的樣子，見〈<a href="2026-11-07_專題-眼球超音波判讀.html">眼球超音波判讀</a>〉。</li>
+      </ul>
+
+      <h3>正常影像長什麼樣（補充，一般教科書知識）</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>構造</th><th>正常回音</th></tr></thead>
+        <tbody>
+          <tr><td>角膜</td><td>最前方一到兩條平行高回音線</td></tr>
+          <tr><td>前房、玻璃體</td><td>無回音（黑色）</td></tr>
+          <tr><td>水晶體</td><td>只有前囊與後囊兩條弧形高回音，內部無回音；內部出現回音代表白內障</td></tr>
+          <tr><td>虹膜、睫狀體</td><td>水晶體前方兩側的中等回音條帶</td></tr>
+          <tr><td>後壁（視網膜＋脈絡膜＋鞏膜）</td><td>一條連續的弧形高回音，正常時分不開</td></tr>
+          <tr><td>視神經、球後</td><td>後壁後方的低回音帶（視神經）與高回音的球後脂肪</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>異常怎麼判讀</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>發現</th><th>超音波表現</th><th>和 FDIM 的關係</th></tr></thead>
+        <tbody>
+          <tr><td><strong>虹膜／睫狀體增厚或腫塊</strong></td><td>水晶體旁的軟組織回音變厚、變寬，或往後延伸成團塊</td><td>腫瘤走出虹膜。講義病例 Moco：從虹膜延伸到脈絡膜的寬廣高回音團塊（晚期 FDIM）</td></tr>
+          <tr><td><strong>眼球變大（牛眼, buphthalmos）</strong></td><td>眼軸長度明顯大於對側眼</td><td>慢性青光眼的結果；Moco 患眼 28.8 mm</td></tr>
+          <tr><td><strong>水晶體脫位</strong></td><td>水晶體離開正常位置，掉到前房或玻璃體</td><td>眼球被撐大、懸韌帶斷裂；Moco 也有</td></tr>
+          <tr><td><strong>視網膜剝離</strong></td><td>玻璃體內的高回音帶，後端連在視神經盤、前端連在鋸齒緣（ora serrata），完全剝離時呈 V 形或海鷗翅膀狀（文獻）</td><td>貓最常見的原因是高血壓（講義 Part 3）；腫瘤或葡萄膜炎也會造成</td></tr>
+          <tr><td><strong>玻璃體出血</strong></td><td>玻璃體內點狀或絮狀回音，可能遮住後方構造</td><td>出血會干擾判讀，見下方警告</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="figure"><img src="../../上群AH/研討會/img/slides/p45.jpg" alt="講義病例 Moco：失明的牛眼與超音波" loading="lazy">
+        <div class="figure-caption">晚期 FDIM 的超音波長這樣：拔牙後紅眼 4 年的貓，牛眼、角膜水腫、廣泛前粘連，威嚇反射、眩光反射、PLR 都消失。超音波顯示眼球 28.8 mm、水晶體脫位、虹膜到脈絡膜的寬廣高回音團塊；對側眼 4 點鐘方向只有淡褐色虹膜色素。摘眼後確認腫瘤已突破鞏膜，15 個月後死於擴散性黑色素瘤。</div>
+        <div class="figure-source">來源：講義 p.45（Tokyo Animal Eye Clinic 病例，經講者同意轉載，依使用者回報）</div></div>
+
+      <div class="alert alert-warn"><div class="alert-label">注意</div>
+        <p>文獻（Wisconsin，113 例超音波與組織學對照）：超音波通常能偵測到眼內腫瘤，但<strong>出血或發炎病灶有時會被誤判成腫瘤</strong>；有出血的眼睛中，約 37% 的視網膜剝離被漏判。所以超音波看到「團塊」不等於腫瘤，看不到剝離也不等於沒有。狗的病例報告用能量都卜勒（Power Doppler）看血流，來分辨剝離的視網膜和血塊。</p></div>
+      <footer class="note-footer">資料來源：講義 p.45、p.48；Wisconsin 超音波－組織學對照研究；犬 B-scan 病例系列；人醫 UBM 文獻。標「補充」者未另行查證。</footer>
+    </div>
+
+    <!-- 7 SYSTEMIC -->
+    <div class="section" id="section-systemic">
+      <div class="section-head"><div class="section-num">7</div><h2>全身評估與轉移分期</h2></div>
+      <p class="section-desc">兩個不同的目的：一是排除葡萄膜炎的全身性病因，二是懷疑 FDIM 時確認有沒有轉移。</p>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">有發炎徵象時（flare、KPs、眼壓偏低）</div>
+          <ul>
+            <li>FeLV 抗原／FIV 抗體</li>
+            <li>FCoV 相關檢查、球蛋白（講義 p.67：7 月齡 FIP 貓有高球蛋白血症、FCoV 抗體 1:6400）</li>
+            <li>弓蟲抗體</li>
+            <li>必要時房水穿刺做細胞學或 PCR（見第 8 節）</li>
+          </ul>
+          <p style="font-size:.85em; color:var(--fg-faint);">講義 p.69 的提醒：治療沒反應時要重新檢討診斷（隱球菌病例）。</p></div>
+        <div class="card"><div class="card-title">懷疑 FDIM 時的轉移篩檢（文獻：Coster）</div>
+          <ul>
+            <li>血液檢查（CBC、生化）</li>
+            <li>胸腔 X 光或胸腔 CT</li>
+            <li>腹部超音波或腹部 CT</li>
+          </ul>
+          <p style="font-size:.85em; color:var(--fg-faint);">可能的轉移位置：局部淋巴結、肺、肝、脾、腎，很少到對側眼。<strong>早期的微小轉移即使用進階影像也可能看不到。</strong></p></div>
+      </div>
+      <p style="font-size:.9em; color:var(--fg-muted);">推論：摘眼前做一次轉移篩檢，一方面是麻醉前評估，一方面當作摘眼後追蹤的基準。如果已經有轉移，摘眼的目的就從「根治」變成「止痛、處理青光眼」，和飼主溝通的內容也不同。</p>
+      <footer class="note-footer">資料來源：MSPCA Coster；講義 p.65–69。</footer>
+    </div>
+
+    <!-- 8 SAMPLING -->
+    <div class="section" id="section-sampling">
+      <div class="section-head"><div class="section-num">8</div><h2>採樣方式、副作用與結果判讀</h2></div>
+      <p class="section-desc">眼內採樣有三種層級：房水穿刺（抽液體）、虹膜切片（剪一小片組織）、摘眼後整顆眼球病理。對 FDIM 而言，只有後兩者能看到「基質有沒有被侵犯」。</p>
+
+      <h3>三種採樣比較</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>房水穿刺（aqueocentesis）</th><th>虹膜切片（iris biopsy）</th><th>摘眼後組織病理</th></tr></thead>
+        <tbody>
+          <tr><td>做法</td><td>鎮靜或全身麻醉，從角膜緣進針抽少量房水</td><td>全身麻醉，手術顯微鏡下做部分虹膜切除</td><td>整顆眼球固定後切片</td></tr>
+          <tr><td>能回答什麼</td><td>葡萄膜炎病因：淋巴瘤、FIP（細胞學＋RT-PCR）、感染</td><td>這一小片有沒有基質侵犯</td><td>完整分期、核分裂指數、有無鞏膜外延伸、脈絡膜侵犯</td></tr>
+          <tr><td>對 FDIM 的價值</td><td><strong>不能診斷 FDIM</strong>（這次沒找到相關文獻）；用來排除其他原因</td><td>陽性有意義、陰性不能排除</td><td>黃金標準</td></tr>
+          <tr><td>主要風險</td><td>文獻報告 95 例（56 犬、39 貓）沒有臨床上重要的併發症</td><td>出血、葡萄膜炎、瞳孔變形、角膜潰瘍、眼壓上升</td><td>摘眼本身的手術與麻醉風險</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>房水穿刺（文獻）</h3>
+      <ul>
+        <li><strong>2015 研究（56 犬、39 貓，前葡萄膜炎）</strong>：沒有臨床上重要的併發症，作者認為可以安全執行。細胞學主要的用處是協助診斷淋巴瘤（6 犬、7 貓）。</li>
+        <li><strong>2014 研究（10 隻貓）</strong>：房水細胞學可以在狗診斷腫瘤，但在貓通常沒有幫助。臨床上看到的前房細胞量，和細胞學結果相關性差，所以不能只靠臨床分級決定要不要抽。</li>
+        <li><strong>FIP</strong>：房水細胞學＋RT-PCR 的特異度 90%，但敏感度只有 34.8–63%。也就是說陽性有參考價值、陰性不能排除，適合在臨床上已高度懷疑 FIP 時用來支持診斷。</li>
+        <li>補充（一般原理，未另行查證）：理論上的風險包括前房出血、刺到水晶體造成白內障、角膜內皮受傷、感染、短暫的發炎加重。</li>
+      </ul>
+
+      <h3>虹膜切片（講義 p.50–51；文獻：Featherstone 2020、Coster、Beetz 2026）</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>術前縮瞳</strong>：用前列腺素類藥物（局部點眼）讓瞳孔縮小、虹膜攤平，比較好夾取。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>全身麻醉下</strong>，在角膜緣做兩個小切口。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">前房注入<strong>黏彈性物質（viscoelastic）</strong>，撐住前房形狀、保護角膜內皮與水晶體。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">用鑷子夾住病灶，以<strong>虹膜剪</strong>剪下一小片。</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">吸出黏彈性物質，縫合切口。</div></div>
+
+      <div class="table-wrap" style="margin-top:12px;"><table>
+        <thead><tr><th>Featherstone 2020（7 隻單側虹膜色素沉著貓，2013–2016）</th><th>結果</th></tr></thead>
+        <tbody>
+          <tr><td>第一次切片就能診斷</td><td>6/7（1 隻需要重切）</td></tr>
+          <tr><td>組織學結果</td><td>黑色素沉著 5 隻、早期 FDIM 2 隻；FDIM 兩隻後來摘眼都確認（2/2）</td></tr>
+          <tr><td>術中輕微出血</td><td>4 隻</td></tr>
+          <tr><td>纖維蛋白凝塊（fibrin clot）</td><td>2 隻</td></tr>
+          <tr><td>假性多瞳（pseudopolycoria，切除處看起來像第二個瞳孔）</td><td>2 隻</td></tr>
+          <tr><td>角膜潰瘍、術後眼壓上升、瞳孔變形</td><td>各 1 隻</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:.9em; color:var(--fg-muted);">作者把這些併發症歸為輕微。補充（推論）：其他可能但這篇沒有報告的風險包括碰到水晶體造成白內障、眼內炎，以及全身麻醉本身的風險；理論上有腫瘤播種的疑慮，但這次沒有找到實際案例報告。</p>
+
+      <div class="figure"><img src="img/fdim/ho_p051.jpg" alt="講義：虹膜切片的診斷價值" loading="lazy">
+        <div class="figure-caption">講義的結論頁。左：Featherstone 2020 活體 7 隻，FDIM 切片 2/2 在摘眼後確認，但黑色素沉著的貓沒有眼球組織學、追蹤短。右：Beetz 2026 離體 17 顆摘除眼球、8 位病理師，<strong>切片與整顆眼球的一致率只有 81.6%</strong>，講者認為約等於隨機，原因是檢體小於 1 mm、侵犯呈斑塊狀。下方：切片 = FDIM 支持現在摘眼；切片 = 黑色素沉著不足以支持繼續等待。</div>
+        <div class="figure-source">來源：講義 p.51（講者詮釋）</div></div>
+
+      <div class="grid-2">
+        <div class="card"><div class="card-title">切片結果 = FDIM</div><p>基質侵犯就是 FDIM 的定義 → <strong>支持現在摘眼</strong>。早期摘眼的存活接近對照組（Kalishman 1998）。</p></div>
+        <div class="card"><div class="card-title">切片結果 = 黑色素沉著</div><p>敏感度從未被測量、檢體小、侵犯呈斑塊狀 → <strong>不能當作可以放心等的理由</strong>，仍要持續追蹤。Coster 也提到：瀰漫性病灶「切哪裡」決定結果。</p></div>
+      </div>
+
+      <h3>局部切除的病例：Popo（講義 p.52–55）</h3>
+      <div class="grid-2">
+        <div class="figure"><img src="../../上群AH/研討會/img/slides/p52.jpg" alt="Popo 初診與 5 個月後" loading="lazy"><div class="figure-caption">蘇格蘭摺耳貓，1 歲 4 個月；病灶 5 個月內變大，做局部切除。</div><div class="figure-source">來源：講義 p.52</div></div>
+        <div class="figure"><img src="../../上群AH/研討會/img/slides/p55.jpg" alt="Popo 5 年後" loading="lazy"><div class="figure-caption">約 5 年後，虹膜其他區域出現多處新的色素；因為還年輕，講者現在建議摘眼。</div><div class="figure-source">來源：講義 p.55</div></div>
+      </div>
+      <p>這個病例說明兩件事：<strong>年輕貓也可能是 FDIM</strong>（切片為早期 FDIM），以及<strong>局部切除不等於根治</strong>，切除後仍要長期追蹤。</p>
+
+      <h3>摘眼後的病理報告要看什麼（推論，依 Kayes 2025、Wiggans 2016）</h3>
+      <ul>
+        <li><strong>分期</strong>：黑色素沉著／早期（只侵犯虹膜基質）／晚期（隅角、睫狀體、脈絡膜、鞏膜）。</li>
+        <li><strong>有沒有侵犯鞏膜靜脈叢、鞏膜外延伸、脈絡膜</strong>：轉移風險的關鍵。</li>
+        <li><strong>核分裂指數</strong>：是否 &gt;7／10 HPF。</li>
+        <li><strong>壞死</strong>、<strong>IHC</strong>（melan-A、E-cadherin、PNL2）可視需要要求。</li>
+        <li><strong>手術切緣</strong>：視神經斷端與眼球外組織有沒有腫瘤細胞。</li>
+      </ul>
+      <footer class="note-footer">資料來源：講義 p.50–55；Featherstone 2020；Beetz 2026（講義引用）；MSPCA Coster；aqueocentesis 研究 2014、2015；FIP 房水研究。</footer>
+    </div>
+
+    <!-- 9 OPTIONS -->
+    <div class="section" id="section-options">
+      <div class="section-head"><div class="section-num">9</div><h2>處置選項比較</h2></div>
+      <p class="section-desc">四個選項不是互斥的，常見路徑是「監測 → 出現進展 → 雷射或切片 → 必要時摘眼」。怎麼選，取決於病灶走到哪、貓的年紀，以及飼主能不能執行密切追蹤。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>選項</th><th>適合</th><th>好處</th><th>風險與限制</th></tr></thead>
+        <tbody>
+          <tr><td><strong>監測</strong></td><td>扁平、穩定、沒有增厚、眼壓正常的病灶</td><td>保留眼球、沒有麻醉風險</td><td>看起來像黑色素沉著的病灶可能已是早期 FDIM，錯過最佳時機</td></tr>
+          <tr><td><strong>經角膜二極體雷射</strong>（810 nm）</td><td>有記錄到進展的小範圍病灶，飼主不願摘眼</td><td>保留眼球；1 年存活 96%</td><td>見下表；治療前沒有組織學，不知道是阻止還是只是延緩進展</td></tr>
+          <tr><td><strong>局部切除／切片</strong></td><td>局部病灶、需要組織學</td><td>拿到組織診斷</td><td>見第 8 節；Popo 切除後 5 年復發</td></tr>
+          <tr><td><strong>摘眼（enucleation）</strong></td><td>確診或高度懷疑 FDIM、有青光眼、隅角侵犯、年輕且進展中</td><td>唯一有機會根治；完整病理分期；貓對單眼適應良好</td><td>全身麻醉、出血、眼眶感染、外觀改變；已轉移者無法根治</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>二極體雷射的數據（講義 p.58，Fuchs 2023 JAVMA，317 隻回溯）</h3>
+      <div class="figure"><img src="img/fdim/ho_p058.jpg" alt="講義：Fuchs 2023 二極體雷射結果" loading="lazy">
+        <div class="figure-caption">研究設計：2000–2018 年、單一轉診團隊，病灶都有記錄到進展但治療前沒有組織學；全身麻醉下以 300–800 mW 經角膜照射；以新的臨床評分 PPSS 分級。結果：1 年存活 96%（240/250）、18.5% 因進展需要再打（中位 18 個月）、317 隻中 2 隻推定因轉移死亡（兩隻都是 PPSS 4 且有青光眼）。術後青光眼整體 5%，但 PPSS ≥4 的眼睛高達 17.8%，≤3 只有 2.2%。</div>
+        <div class="figure-source">來源：講義 p.58（講者依原文數字重繪）</div></div>
+      <ul>
+        <li><strong>其他併發症</strong>：角膜潰瘍 7%、葡萄膜炎 1%、角膜內皮水腫 0.8%；所有治療眼都會有瞳孔變形與 PLR 減弱（預期內）。</li>
+        <li><strong>做法</strong>（文獻：Coster）：麻醉下經角膜照射，直到色素區域縮小 50% 以上；術後瞳孔緣變形可能造成怕光。Coster 的立場是「小範圍進展病灶用雷射，範圍較大的進展病灶早點摘眼」。</li>
+        <li><strong>讀法</strong>：PPSS 越高，雷射後青光眼越多，所以雷射比較適合早期、小範圍的病灶。</li>
+      </ul>
+
+      <h3>摘眼之後</h3>
+      <ul>
+        <li>眼球<strong>一定要送病理</strong>（見第 8 節要看的項目）。</li>
+        <li>確診 FDIM 後的影像追蹤頻率，這次沒有找到指引；推論：前幾年定期做胸腔影像與腹部超音波，因為轉移可能在數年後才出現（Coster）。</li>
+        <li><strong>黑色素瘤疫苗（Oncept）</strong>（文獻：Coster）：犬口腔黑色素瘤的治療性疫苗，用在貓屬於仿單外使用。JFMS 2015 的 24 隻眼部或眼周黑色素瘤貓中，14 隻最後死於黑色素瘤（其中三分之一用疫苗前已轉移），研究無法評估療效。</li>
+      </ul>
+
+      <h3>摘眼時機：兩種立場</h3>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">傾向早摘（講者，講義 p.59）</div>
+          <p>中度與晚期 FDIM 轉移風險真實，想根治就要在早期黑色素瘤階段摘。即使是黑色素沉著，<strong>貓年輕且病灶進展中</strong>，或<strong>家屬非常焦慮</strong>（即使眼睛還有視力），也建議摘眼，而且要在青光眼或眼痛出現之前。</p></div>
+        <div class="card"><div class="card-title">可以嚴密監測（Gregorio 2026）</div>
+          <p>92 隻有虹膜色素過度沉著的貓，36 隻有追蹤（中位 3.4 年）：摘眼組存活 73%、未摘眼組 64%，無顯著差異（p = 0.69）。未摘眼的 14 隻中有 8 隻（57%）色素持續慢慢增加。<strong>但這是回溯性問卷研究，回覆率 39%，分組由醫師選擇，未摘眼組沒有組織學</strong>，只能產生假說。</p></div>
+      </div>
+      <footer class="note-footer">資料來源：講義 p.44、p.58–59；Fuchs 2023；Gregorio 2026；MSPCA Coster。</footer>
+    </div>
+
+    <!-- 10 WORKFLOW -->
+    <div class="section" id="section-workflow">
+      <div class="section-head"><div class="section-num">10</div><h2>建議診斷流程與時程</h2></div>
+      <p class="section-desc">把前面各節串起來。時程以 Coster 的監測建議與講義的決策框架為基礎，實際安排以眼科醫師判斷為準。</p>
+
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>整理病史</strong>：色斑什麼時候出現、目前範圍（時鐘位置）、多久擴大到現在這樣。把手邊舊照片依時間排好，算出進展速度。</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>排除發炎</strong>：裂隙燈看 flare、KPs、虹膜充血；量兩眼眼壓。有發炎 → 先做第 7 節的感染與全身檢查。</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>建立基準（建議 1–2 週內轉診眼科）</strong>：裂隙燈＋標準化拍照（兩眼）、兩眼眼壓（同一台儀器）、隅角檢查、AS-OCT 量 PN 比值或 UBM；病灶有增厚時加做超音波（講義 p.48）。</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>依基準結果分流</strong>：
+        <br>・扁平、無增厚、PN 接近 1.0、眼壓與隅角正常 → 進入監測
+        <br>・有增厚、PN 明顯上升、瞳孔變形、色素散落 → 討論切片、雷射或摘眼
+        <br>・眼壓升高、隅角侵犯、睫狀體腫塊 → 轉移篩檢後摘眼</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text"><strong>監測期</strong>：每 2–3 個月拍照＋眼壓＋裂隙燈（Coster）；OCT 或 UBM 用同一台機器定期重做，比較 PN 比值的趨勢（頻率這次沒有找到指引，推論約每 3–6 個月）。</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text"><strong>轉為積極處置的警訊</strong>：增厚或隆起、出現深黑色天鵝絨狀區域、瞳孔變形或瞳孔緣被侵犯、色素散落到前房、眼壓上升、隅角被侵犯、葡萄膜炎、進展速度加快。</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-text"><strong>摘眼的話</strong>：術前轉移篩檢（血液、胸腔影像、腹部超音波）→ 摘眼 → 眼球送病理 → 依分期決定追蹤頻率。</div></div>
+
+      <h3>時程表</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>時間</th><th>做什麼</th><th>依據</th></tr></thead>
+        <tbody>
+          <tr><td>現在</td><td>整理舊照片、拍一組兩眼標準化照片、量兩眼眼壓</td><td>推論</td></tr>
+          <tr><td>1–2 週內</td><td>眼科專科：裂隙燈、眼壓、隅角、AS-OCT／UBM 基準</td><td>講義 p.48；推論</td></tr>
+          <tr><td>有發炎時</td><td>FeLV／FIV、FCoV、弓蟲；必要時房水穿刺</td><td>講義 p.65–69</td></tr>
+          <tr><td>每 2–3 個月</td><td>拍照＋眼壓＋裂隙燈</td><td>Coster</td></tr>
+          <tr><td>每 3–6 個月</td><td>同一台機器重做 OCT／UBM</td><td>推論（Komatsu 建議用 OCT 追蹤結構變化，未給頻率）</td></tr>
+          <tr><td>出現警訊</td><td>討論切片、雷射或摘眼；摘眼前做轉移篩檢</td><td>講義 p.48、p.59；Coster</td></tr>
+        </tbody>
+      </table></div>
+      <footer class="note-footer">資料來源：講義 p.48、p.59；MSPCA Coster；Komatsu 2024。時程中標「推論」者沒有直接文獻依據。</footer>
+    </div>
+
+    <!-- 11 APPLY -->
+    <div class="section" id="section-apply">
+      <div class="section-head"><div class="section-num">11</div><h2>套用：年輕貓的進展性虹膜色斑</h2></div>
+      <p class="section-desc">觸發這個專題的情境：一隻貓 6 個月大時虹膜完全沒有色斑，之後出現並擴大到約 1/6 虹膜面積。以下把前面的框架套進去。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>框架項目（講義 p.48）</th><th>這個情境的狀況</th><th>還缺什麼</th></tr></thead>
+        <tbody>
+          <tr><td>進展</td><td><strong>有記錄到擴大</strong>，這是最重要的一點：不是先天就有、穩定不變的雀斑</td><td>現在年齡、從出現到 1/6 花了多久（進展速度）</td></tr>
+          <tr><td>結構</td><td>單張照片無法判斷增厚與瞳孔變形</td><td>裂隙燈、OCT／UBM、PLR</td></tr>
+          <tr><td>眼睛</td><td>未知</td><td>兩眼眼壓、有無 flare、視力</td></tr>
+          <tr><td>背景</td><td>年輕</td><td>對側眼是否也有色斑、全身狀況</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alert alert-info"><div class="alert-label">推論</div>
+        <p>「年輕＋有進展」正是講者建議即使是黑色素沉著也考慮摘眼的情況（講義 p.59）；Gregorio 2026 則支持在嚴密追蹤下保留眼球。兩種做法都有依據，差別在於能不能接受、也能不能執行每 2–3 個月的追蹤。決策的關鍵資訊是：<strong>有沒有增厚或基質侵犯的跡象，以及隅角和眼壓是否正常</strong>。</p></div>
+
+      <h3>帶去眼科門診可以問的問題</h3>
+      <ol>
+        <li>病灶有沒有增厚、表面是否還保有虹膜紋理？瞳孔光反射與瞳孔形狀正常嗎？</li>
+        <li>兩眼眼壓各是多少？用哪一台儀器量的？隅角有沒有色素或浸潤？</li>
+        <li>可以做 AS-OCT 或 UBM 嗎？PN 比值多少？之後能不能用同一台機器追蹤？</li>
+        <li>依目前所見，您傾向追蹤、雷射、切片還是摘眼？轉為積極處置的條件是什麼？</li>
+        <li>如果選擇追蹤，多久回診一次？每次要做哪些項目？</li>
+      </ol>
+      <footer class="note-footer">本節為依前述資料的推論整理，不是對個別病患的診斷。</footer>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="section-quiz">
+      <div class="section-head"><div class="section-num">12</div><h2>自我測驗</h2></div>
+      <p style="font-size:.85em; color:var(--fg-faint);">※ 題目為依本頁內容自編的複習題，不是國考或考古題。</p>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">1. 黑色素沉著與早期 FDIM 在組織學上的分界是什麼？(A) 色素顏色深淺 (B) 腫瘤細胞侵入虹膜基質 (C) 侵犯鞏膜靜脈叢 (D) 核分裂數 &gt;7／10 HPF</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。Kayes 2025 定義早期 FDIM 為腫瘤細胞侵入基質，這是良性轉惡性的唯一特徵（講義 p.42）。(A) 錯：顏色是臨床線索，不是組織學定義，而且早期 FDIM 也可能是淡色。(C) 錯：侵犯鞏膜靜脈叢是晚期 FDIM 的特徵。(D) 錯：核分裂指數 &gt;7 是 Wiggans 2016 預測轉移的因子，早期 FDIM 的中位數 &lt;1。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">2. Komatsu 2024 的 PN 比值是怎麼算的？(A) 病灶處虹膜厚度 ÷ 同眼正常虹膜厚度 (B) 病灶處虹膜厚度 ÷ 對側眼同部位虹膜厚度 (C) 病灶面積 ÷ 虹膜總面積 (D) 色素層厚度 ÷ 基質厚度</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。在根部、中央、瞳孔緣三點量厚度取平均，除以對側正常眼同部位的平均。(A) 錯：同一眼不同位置厚度本來就不同，研究用的是對側眼。(C) 錯：那是範圍，不是厚度。(D) 錯：研究量的是全層厚度，中晚期病灶甚至因陰影看不到後層。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">3. 下列 AS-OCT 表現，哪一個比較支持早期 FDIM 而非黑色素沉著？(A) 表面有一條薄的高反射線、厚度不變 (B) 表面高反射線消失、基質增厚但分層仍可見 (C) 三層構造完全正常 (D) PN 比值約 0.99</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。早期 FDIM 的腫瘤細胞在基質內而非表面，所以表面線消失、基質增厚（PN 約 1.28）。(A) 錯：這是黑色素沉著的典型表現（3/3 確診病例都有）。(C) 錯：那是正常虹膜。(D) 錯：0.99 是確診黑色素沉著組的平均。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">4. 一隻貓虹膜切片的結果為「黑色素沉著」。依講義，最恰當的解讀是？(A) 已排除 FDIM，可停止追蹤 (B) 應立即摘眼 (C) 不能排除 FDIM，仍需持續追蹤 (D) 應改做房水穿刺確認</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。切片敏感度從未被測量，檢體小於 1 mm、侵犯呈斑塊狀，Beetz 2026 切片與整顆眼球一致率只有 81.6%（講義 p.51）。(A) 錯：陰性結果不能排除。(B) 錯：切片陰性本身不是摘眼的理由（但年輕且進展中時講者仍可能建議摘眼，那是另一個依據）。(D) 錯：房水細胞學不能診斷 FDIM，它的角色是找葡萄膜炎原因。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">5. 一般眼球 B-mode 超音波（約 10 MHz）在 FDIM 評估中最主要的用途是？(A) 量測早期病灶的虹膜表面增厚 (B) 偵測睫狀體或脈絡膜腫塊、水晶體脫位、眼球變大 (C) 區分黑色素沉著與早期 FDIM (D) 測量 PN 比值</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。一般 B-mode 解析度不足以看早期虹膜變化，主要看晚期的後段延伸（例如講義病例 Moco 的虹膜到脈絡膜團塊、28.8 mm 牛眼、水晶體脫位）。(A) 錯：要用 UBM 或 OCT。(C) 錯：目前沒有影像能可靠區分，B-mode 更做不到。(D) 錯：PN 比值是 OCT 的測量方式。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">6. 有出血的眼睛做超音波時，下列敘述何者正確？(A) 出血不影響判讀 (B) 出血或發炎病灶可能被誤判為腫瘤，且視網膜剝離可能被漏判 (C) 出血時超音波一定能看到視網膜剝離 (D) 出血一律呈無回音</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。113 例超音波與組織學對照研究：出血或發炎病灶有時被誤判成腫瘤，有出血的眼睛約 37% 的視網膜剝離被漏判。(A)、(C) 錯：與研究結果相反。(D) 錯：玻璃體出血通常呈點狀或絮狀回音，可能遮住後方構造。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">7. 關於貓的眼壓測量，下列何者正確？(A) 不同儀器的參考值可以通用 (B) Tono-Pen 在貓高眼壓時容易低估 (C) 眼壓偏低支持 FDIM 侵犯隅角 (D) 追蹤時換不同儀器比較能交叉驗證</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。2023 研究指出 Tono-Pen 讀數明顯低估貓青光眼時的高眼壓，TonoVet 較接近真實值。(A) 錯：參考值因儀器而異，門診比較中各儀器平均值從 14.5 到 19.7 mmHg。(C) 錯：隅角侵犯造成眼壓升高；偏低較常見於葡萄膜炎。(D) 錯：換儀器會引入儀器差異，追蹤應固定同一台。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">8. Featherstone 2020 的 7 隻虹膜切片貓中，下列哪一個併發症「沒有」被報告？(A) 術中輕微出血 (B) 假性多瞳 (C) 眼內炎 (D) 術後眼壓上升</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。報告的併發症為術中輕微出血 4 隻、纖維蛋白凝塊 2 隻、假性多瞳 2 隻、角膜潰瘍、術後眼壓上升、瞳孔變形各 1 隻。(A)、(B)、(D) 都有報告。眼內炎是理論上的風險，這篇沒有出現。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">9. 依 Fuchs 2023，二極體雷射後發生青光眼的風險，哪一組最高？(A) PPSS ≤3 (B) PPSS ≥4 (C) 痣（nevus） (D) 各組相同</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(B)。PPSS ≥4 為 17.8%（8/45），≤3 只有 2.2%（6/265），整體 5%。(A) 錯：風險低很多。(C) 錯：痣屬於最輕的一組。(D) 錯：風險明顯隨分數上升，代表雷射比較適合早期小病灶。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-mcq">
+        <div class="quiz-q">10. Wiggans 2016 中，下列哪一項「不是」和轉移增加有關的因子？(A) 腫瘤延伸到鞏膜外 (B) 腫瘤內壞死 (C) B-Raf 表現 (D) 侵犯脈絡膜</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(C)。B-Raf 表現和轉移沒有顯著相關。(A)、(B)、(D) 都和轉移增加有關，另外還有核分裂指數 &gt;7／10 HPF、E-cadherin 與 melan-A 染色增加；PNL2 染色均勻則和轉移減少有關。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">11. 是非題：房水穿刺的細胞學是診斷早期 FDIM 的首選檢查。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。FDIM 的定義是基質侵犯，只能靠組織學（切片或摘眼）確認；這次沒有找到房水細胞學用於 FDIM 的文獻。房水穿刺的價值在於找葡萄膜炎的原因，在貓主要用於淋巴瘤，而 2014 年 10 隻貓的研究認為它在貓通常沒有幫助。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-tf">
+        <div class="quiz-q">12. 是非題：Gregorio 2026 證明虹膜色素過度沉著的貓不需要摘眼。</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">錯。研究顯示摘眼與未摘眼組存活無顯著差異（73% vs 64%），但它是回溯性問卷研究、回覆率 39%、分組由醫師選擇、未摘眼組沒有組織學，講義認為只能產生假說。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">13. 臨床情境：2 歲家貓，右眼虹膜 4–8 點鐘有淡褐色扁平色斑，飼主說 1 年前沒有。(1) 第一次門診要做哪些檢查？(2) OCT 量得病灶三點 380、420、300 µm，對側眼 320、330、260 µm，PN 比值多少、怎麼解讀？(3) 追蹤期間出現哪些變化要轉為積極處置？(4) 飼主問「切片說沒事就安全了嗎？」怎麼回答？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) 裂隙燈＋兩眼標準化拍照、PLR、兩眼眼壓（同一台儀器）、隅角檢查、AS-OCT 或 UBM；有 flare／KPs 時加做 FeLV／FIV、FCoV、弓蟲。<br>(2) 病灶平均 (380+420+300)/3 = 366.7 µm，對側 (320+330+260)/3 = 303.3 µm，PN ≈ 1.21。介於黑色素沉著（0.99）與早期 FDIM（1.28）的平均之間，代表有相對增厚的可能，但研究樣本很小、沒有切點，應結合裂隙燈表現與進展速度判斷，並用同一台機器追蹤趨勢。<br>(3) 增厚或隆起、深黑色天鵝絨狀區域、瞳孔變形、色素散落、眼壓上升、隅角侵犯、葡萄膜炎、進展加速。<br>(4) 不安全：檢體不到 1 mm、侵犯呈斑塊狀，切片與整顆眼球一致率只有 81.6%；陰性結果之後仍要持續追蹤。</div></details>
+      </div>
+
+      <div class="quiz-item quiz-type-saq">
+        <div class="quiz-q">14. 臨床情境：12 歲貓，右眼瀰漫性深褐色虹膜、瞳孔變形，眼壓右眼明顯高於左眼，角膜輕度水腫。(1) 這些發現代表病灶大約走到哪個階段？(2) 摘眼前要做什麼？(3) 病理報告要看哪些項目？</div>
+        <details class="quiz-reveal"><summary></summary><div class="quiz-explain">(1) 瞳孔變形代表基質被侵犯；單眼眼壓升高提示隅角受侵犯或續發性青光眼，符合晚期 FDIM（Kayes 2025 晚期組 9/13 有青光眼、平均 12.8 歲）。<br>(2) 轉移篩檢：血液檢查、胸腔 X 光或 CT、腹部超音波或 CT（Coster）；也作為麻醉前評估與日後追蹤基準。早期微小轉移仍可能看不到。<br>(3) 分期、鞏膜靜脈叢與脈絡膜侵犯、鞏膜外延伸、核分裂指數是否 &gt;7／10 HPF、壞死、切緣；必要時 IHC（melan-A、E-cadherin、PNL2）。</div></details>
+      </div>
+      <footer class="note-footer">題目依本頁內容自編，僅供複習。</footer>
+    </div>
+
+    <!-- REFS -->
+    <div class="section" id="section-refs">
+      <div class="section-head"><div class="section-num">13</div><h2>參考資料</h2></div>
+      <h3>講義</h3>
+      <ul>
+        <li>Kobayashi Y. The Unique Feline Eye（Part 2：Uveal melanocytic disease, p.38–59）. FASAVA 2026 Taipei. 本機：<code>DVM/2026 Fasava/1101（日）/H廳/第3節 1400-1530 眼科學 Yoshitaka Kobayashi/</code>。講義整理見上群AH〈<a href="../../上群AH/研討會/貓眼的獨特性-眼表虹膜與眼底.html">貓眼的獨特性</a>〉。</li>
+      </ul>
+      <h3>這次讀到全文或摘要的文獻</h3>
+      <ul>
+        <li>Komatsu H, et al. A pilot study to evaluate the usefulness of optical coherence tomography for staging iris pigmented lesions in cats. Vet Sci. 2024;11(6):261.（<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11209344/" target="_blank" rel="noopener">PMC 全文</a>）</li>
+        <li>Coster ME. Feline iris hyperpigmentation. MSPCA-Angell.（<a href="https://www.mspca.org/clinical/feline-iris-hyperpigmentation/" target="_blank" rel="noopener">網頁</a>；注意：該頁參考文獻清單與內文不符，內文引用的 2002、2016、2015 研究無法從頁面核對）</li>
+        <li>Featherstone HJ, et al. Iris biopsy to investigate feline iris hyperpigmentation. Vet Ophthalmol. 2020;23(2):269–276.（摘要，<a href="https://zendy.io/title/10.1111/vop.12718" target="_blank" rel="noopener">連結</a>）</li>
+        <li>Wiggans KT, Reilly CM, Kass PH, Maggs DJ. Histologic and immunohistochemical predictors of clinical behavior for feline diffuse iris melanoma. Vet Ophthalmol. 2016;19 Suppl 1:44–55.（<a href="https://escholarship.org/uc/item/4t18n0gd" target="_blank" rel="noopener">eScholarship</a>）</li>
+        <li>Kalishman JB, et al. A matched observational study of survival in cats with enucleation due to diffuse iris melanoma. Vet Ophthalmol. 1998;1:25–29.（<a href="https://www.ophth.wisc.edu/blog/1998/01/01/a-matched-observational-study-of-survival-in-cats-with-enucleation-due-to-diffuse-iris-melanoma/" target="_blank" rel="noopener">摘要</a>）</li>
+        <li>Gregorio, Lassaline, Holt. Iris hyperpigmentation in cats: progression, globe retention and long-term survival. Vet Ophthalmol. doi:10.1111/vop.70216.（<a href="https://www.citedrive.com/en/discovery/iris-hyperpigmentation-in-cats-progression-globe-retention-and-longterm-survival/" target="_blank" rel="noopener">摘要</a>）</li>
+        <li>Kayes D, et al. Sci Rep. 2025;15:26218.（<a href="https://doi.org/10.1038/s41598-025-09632-5" target="_blank" rel="noopener">doi</a>，CC BY 4.0）</li>
+        <li>Fuchs AA, Giuliano EA, English R, Nadelstein B. J Am Vet Med Assoc. 2023;262(1):117–124.（講義引用）</li>
+        <li>Beetz S, et al. Vet Pathol. 2026;63(4):642–651；Lanzendörfer N, et al. Vet Ophthalmol. 2026;29(4):e70224.（講義引用，未讀原文）</li>
+        <li>貓眼壓儀器比較：Veterinary World 2024（<a href="https://doaj.org/article/8d09dc86d6b448da96b63c9ba1bcdd76" target="_blank" rel="noopener">Feb</a>、<a href="https://doaj.org/article/93dcd639ba2a44ad9be7a5ef5316b86d" target="_blank" rel="noopener">Aug</a>）；TonoVet 與 Tono-Pen XL 驗證（<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6746305" target="_blank" rel="noopener">PMC</a>）。</li>
+        <li>房水穿刺：Diagnostic utility of aqueocentesis and aqueous humor analysis in dogs and cats（<a href="https://aminer.org/pub/55a555cf65ceb7cb02e8abae/diagnostic-utility-of-aqueocentesis-and-aqueous-humor-analysis-in-dogs-and-cats" target="_blank" rel="noopener">摘要</a>）；10 隻貓研究（<a href="https://zendy.io/title/10.1111/vop.12075" target="_blank" rel="noopener">摘要</a>）。</li>
+        <li>超音波與組織學對照 113 例（<a href="https://www.ophth.wisc.edu/blog/2013/08/01/comparison-of-ultrasonography-and-histologic-examination-for-identification-of-ocular-diseases-of-animals-113-cases-2000-2010/" target="_blank" rel="noopener">摘要</a>）；犬 B-scan 182 例（<a href="https://ijvr.shirazu.ac.ir/article_2350.html" target="_blank" rel="noopener">連結</a>）；犬視網膜剝離 Power Doppler 病例（<a href="https://rbmv.emnuvens.com.br/BJVM/article/view/747" target="_blank" rel="noopener">連結</a>）。</li>
+        <li>人醫 UBM 與虹膜睫狀體腫瘤（<a href="https://bjo.bmj.com/content/89/8/950" target="_blank" rel="noopener">BJO</a>）；貓 UBM 正常值 Vet Sci 2026;13:50（<a href="https://doi.org/10.3390/vetsci13010050" target="_blank" rel="noopener">doi</a>，未能讀到全文）。</li>
+      </ul>
+      <footer class="note-footer">多數文獻只讀到摘要或二手摘要；Komatsu 2024 與 MSPCA 頁為全文。</footer>
+    </div>
+
+    <!-- FOLLOWUP -->
+    <div class="section" id="section-followup">
+      <div class="section-head"><div class="section-num">14</div><h2>待確認事項</h2></div>
+      <ul>
+        <li><strong>貓眼球超音波正常值</strong>：2026-11-07 已補到〈<a href="2026-11-07_專題-眼球超音波判讀.html#section-values">眼球超音波判讀</a>〉（波斯貓 B-mode 摘要數字經另一來源核對後一致；非短頭家貓的 B-mode 值仍缺）。</li>
+        <li><strong>貓 UBM 正常值</strong>（Vet Sci 2026;13:50）：已從 PMC 讀到全文，數值見〈眼球超音波判讀〉第 4 節；該研究沒有提出區分 FDIM 的厚度切點。</li>
+        <li><strong>兩眼眼壓差異的切點</strong>：未找到貓專屬數據。</li>
+        <li><strong>青光眼與 FDIM 存活</strong>：Coster 引用的 2002 年研究（21% vs 73%）與 Wiggans 2016（未見轉移增加）結論不同，原文都沒讀到。</li>
+        <li><strong>確診 FDIM 摘眼後的影像追蹤頻率</strong>：未找到指引。</li>
+        <li>講義病例照片沿用上群AH 頁面的檔案（依使用者回報「講者同意轉載」）；講義 p.41（教科書圖）與 p.50（期刊圖）沒有放上網。</li>
+      </ul>
+    </div>
+
+  </main>
+</div>
+
+<style>
+  #pnCalc .pn-grid { display: grid; grid-template-columns: 7.5em repeat(3, minmax(0, 1fr)); gap: 6px 8px; align-items: center; }
+  #pnCalc .pn-head { font-size: .8em; color: var(--fg-muted); text-align: center; }
+  #pnCalc .pn-label { font-size: .85em; font-weight: 700; }
+  #pnCalc input { width: 100%; box-sizing: border-box; padding: 4px 6px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--fg); font: inherit; }
+  #pnCalc .pn-out { margin-top: 10px; line-height: 1.7; }
+  #pnCalc .pn-bar { position: relative; display: flex; margin-top: 10px; height: 30px; border-radius: 4px; overflow: hidden; font-size: .72em; }
+  #pnCalc .pn-zone { flex: 1; display: flex; align-items: center; justify-content: center; color: var(--fg); }
+  #pnCalc .pn-z1 { background: var(--green-100, #e6f0e6); }
+  #pnCalc .pn-z2 { background: var(--amber-100, #f7ecd6); }
+  #pnCalc .pn-z3 { background: var(--rust-100, #f3ddd3); }
+  html[data-theme="dark"] #pnCalc .pn-z1 { background: #24342a; }
+  html[data-theme="dark"] #pnCalc .pn-z2 { background: #3a3220; }
+  html[data-theme="dark"] #pnCalc .pn-z3 { background: #3d2820; }
+  #pnCalc .pn-marker { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--fg); transition: left .2s; }
+  @media (max-width: 560px) { #pnCalc .pn-grid { grid-template-columns: 5.5em repeat(3, minmax(0, 1fr)); } }
+</style>
+
+<script>
+function showSection(id) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  setActive(id);
+}
+function setActive(id) {
+  document.querySelectorAll('nav.toc a').forEach(a => a.classList.remove('active'));
+  const a = document.getElementById('nav-' + id);
+  if (a) a.classList.add('active');
+}
+(function () {
+  const secs = [...document.querySelectorAll('.section[id^="section-"]')];
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setActive(e.target.id.replace('section-', '')); });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  secs.forEach(sec => io.observe(sec));
+})();
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch (e) {}
+}
+(function(){ try { const t=localStorage.getItem('theme'); if(t){ document.documentElement.setAttribute('data-theme',t); document.getElementById('themeBtn').textContent = t==='dark'?'☀️':'🌙'; } } catch (e) {} })();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.hash && location.hash.indexOf('#section-') === 0) {
+    const id = location.hash.replace('#section-', '');
+    if (document.getElementById('section-' + id)) showSection(id);
+  }
+  pnUpdate();
+});
+
+/* ---- PN 比值計算 ---- */
+function pnUpdate() {
+  const v = id => parseFloat(document.getElementById(id).value);
+  const L = [v('pnL1'), v('pnL2'), v('pnL3')], N = [v('pnN1'), v('pnN2'), v('pnN3')];
+  const out = document.getElementById('pnOut'), mk = document.getElementById('pnMarker');
+  if (![...L, ...N].every(x => isFinite(x) && x > 0)) {
+    out.innerHTML = '<span style="color:var(--fg-faint);">請輸入六個大於 0 的厚度。</span>';
+    mk.style.display = 'none';
+    return;
+  }
+  const avg = a => (a[0] + a[1] + a[2]) / 3;
+  const mL = avg(L), mN = avg(N), pn = mL / mN;
+  let note;
+  if (pn < 1.15) note = '接近確診黑色素沉著組的平均（0.99 ± 0.09）';
+  else if (pn < 1.43) note = '落在早期 FDIM 組的平均附近（1.28 ± 0.18），代表病灶處有相對增厚';
+  else note = '高於早期 FDIM 組，接近講義引用的確診黑色素瘤值（約 1.58）';
+  out.innerHTML = '病灶眼 MIT：<strong>' + mL.toFixed(0) + ' µm</strong>；對側眼 MIT：<strong>' + mN.toFixed(0) + ' µm</strong><br>' +
+    'PN 比值：<strong>' + pn.toFixed(2) + '</strong> — ' + note;
+  const pos = Math.max(0, Math.min(1, (pn - 0.85) / (1.75 - 0.85)));
+  mk.style.display = 'block';
+  mk.style.left = 'calc(' + (pos * 100).toFixed(1) + '% - 1px)';
+}
+['pnL1','pnL2','pnL3','pnN1','pnN2','pnN3'].forEach(id => {
+  document.addEventListener('input', e => { if (e.target && e.target.id === id) pnUpdate(); });
+});
+
+const SECTION_NAMES = {
+  "abstract": "⭐ 核心結論",
+  "fdim": "1 FDIM 是什麼：分期與預後",
+  "ddx": "2 虹膜色素變化的鑑別",
+  "slitlamp": "3 裂隙燈與標準化拍照",
+  "iop": "4 眼壓與隅角鏡",
+  "oct": "5 前眼節 OCT＋PN 計算",
+  "us": "6 眼球超音波與 UBM",
+  "systemic": "7 全身評估與轉移分期",
+  "sampling": "8 採樣方式與副作用",
+  "options": "9 處置選項比較",
+  "workflow": "10 建議診斷流程與時程",
+  "apply": "11 套用：年輕貓的進展性色斑",
+  "quiz": "✏️ 自我測驗",
+  "refs": "📚 參考資料",
+  "followup": "📌 待確認事項"
+};
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.search-wrap')) closeSearch();
+});
+
+function closeSearch() {
+  document.getElementById('searchResults').classList.remove('open');
+  document.getElementById('searchInput').classList.remove('has-results');
+}
+
+function doSearch(q) {
+  const resultsBox = document.getElementById('searchResults');
+  const input = document.getElementById('searchInput');
+  q = q.trim();
+
+  if (!q) { closeSearch(); resultsBox.innerHTML = ''; return; }
+
+  const reg = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  const results = [];
+
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionId = section.id.replace('section-', '');
+    const sectionName = SECTION_NAMES[sectionId] || sectionId;
+
+    section.querySelectorAll('td, li, p, h3, h4, .step-text, .card-title, .quiz-q, .quiz-explain, .figure-caption').forEach(el => {
+      if (el.closest('script') || el.closest('style')) return;
+      const text = el.textContent.trim();
+      reg.lastIndex = 0;
+      if (text && reg.test(text)) {
+        reg.lastIndex = 0;
+        const idx = text.search(reg);
+        const start = Math.max(0, idx - 30);
+        const end = Math.min(text.length, idx + 60);
+        let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+        snippet = snippet.replace(reg, '<mark>$1</mark>');
+        results.push({ sectionId, sectionName, snippet });
+        reg.lastIndex = 0;
+      }
+    });
+  });
+
+  if (results.length === 0) {
+    resultsBox.innerHTML = '<div class="sr-empty">找不到「' + q + '」相關結果</div>';
+    resultsBox.classList.add('open');
+    input.classList.add('has-results');
+    return;
+  }
+
+  const bySection = {};
+  results.forEach(r => {
+    if (!bySection[r.sectionId]) bySection[r.sectionId] = { name: r.sectionName, items: [] };
+    if (bySection[r.sectionId].items.length < 4) bySection[r.sectionId].items.push(r.snippet);
+  });
+
+  let html = '';
+  let total = 0;
+  Object.keys(bySection).forEach(sid => {
+    const group = bySection[sid];
+    total += group.items.length;
+    html += '<div class="sr-header">' + group.name + '</div>';
+    group.items.forEach(snippet => {
+      html += '<div class="sr-item" onclick="showSection(\'' + sid + '\'); closeSearch();"><span class="sr-section">' + group.name + '</span><span class="sr-text">' + snippet + '</span></div>';
+    });
+  });
+  html += '<div class="sr-count">共 ' + total + ' 筆結果</div>';
+
+  resultsBox.innerHTML = html;
+  resultsBox.classList.add('open');
+  input.classList.add('has-results');
+}
+</script>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/nav.js"></script>
+<script>
+initSiteNav('siteNav', 'navPanel');
+</script>
+
+</body>
+</html>
